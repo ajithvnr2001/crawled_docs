@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image/
 title: Gemini 3 Pro Image (Nano Banana Pro) \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:47.743600+00:00
+fetched_at: 2026-10-28T02:29:16.820327+00:00
 ---
 
 # Gemini 3 Pro Image (Nano Banana Pro)  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -108,7 +108,7 @@ Not supported
 Input size limit |  500 MB   
 Technical specifications |  **Image** photo | 
 
-  * Maximum images per prompt: 14
+  * Maximum images per prompt: 14 (up to 10 HTTP or HTTPS URLs)
   * Maximum file size per file for inline data or direct uploads through the console: 7 MB
   * Maximum file size per file from Google Cloud Storage: 30 MB
   * Maximum number of output images per prompt: Limited to 32,768 output tokens
@@ -202,12 +202,14 @@ Output resolution | Approximate megapixels | Output image tokens
 4K | 16 | 2,000  
 **Note:** Additional charges apply for input and output tokens for other modalities, such as text and video. Refer to the [pricing page](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing) for the latest.
 
+Prompts support up to 14 input images. When you pass images by using HTTP or HTTPS URLs in the `Part.from_uri` method, requests are limited to a maximum of 10 image links. To include up to 14 images, pass images as Cloud Storage URIs (`gs://`) or as inline data.
+
 For more information about image generation using Gemini 3 Pro Image, see [Generate and edit images with Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation).
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

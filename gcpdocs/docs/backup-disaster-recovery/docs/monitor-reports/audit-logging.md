@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/audit-logging/
 title: Audit logs \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:19:55.538415+00:00
+fetched_at: 2026-10-27T19:00:18.216322+00:00
 ---
 
 # Audit logs  |  Backup and DR  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Audit logs Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the audited methods for Backup and DR. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Backup and DR let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Backup and DR API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -75,7 +77,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `delegateGetCallDownloadLog`  
 `discoverVolumes`  
 `downloadLogStatus`  
-`fromMount`  
 `getAppClass`  
 `getAppClassByAppclassName`  
 `getAppliance`  
@@ -131,7 +132,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `getPolicy`  
 `getPreservedBackup`  
 `getProtectedESXINodeCount`  
-`getRMMigrationStatus`  
 `getRecoveryPools`  
 `getRegions`  
 `getReportExportPrereq`  
@@ -258,7 +258,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `optionsForListApplication`  
 `optionsForListBackup`  
 `optionsForListDiskPool`  
-`optionsForListHost`  
 `settableOptionMetadataForApp`  
 `settableOptionMetadataForPolicy`  
 `settableOptionMetadataForSla`  
@@ -281,7 +280,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `cloneTemplates`  
 `clusterDiscovery`  
 `configDns`  
-`configNtp`  
 `configureMountMigrate`  
 `createApplication`  
 `createConnection`  
@@ -321,11 +319,9 @@ API methods in the following list that are marked with (LRO) are long-running op
 `deleteSla`  
 `deleteSlp`  
 `deleteSlt`  
-`deleteWorkflow`  
 `discover`  
 `discoverCloudVm`  
 `discoverUpdates`  
-`dissolveAppliance`  
 `downloadConnector`  
 `expireBackup`  
 `expireBackups`  
@@ -1977,6 +1973,8 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
+    * `backupdr.backupPlanAssociations.triggerBackupForCloudSqlInstance - ADMIN_WRITE`
+    * `backupdr.backupPlanAssociations.triggerBackupForComputeDisk - ADMIN_WRITE`
     * `backupdr.backupPlanAssociations.triggerBackupForComputeInstance - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
@@ -2419,21 +2417,6 @@ The following audit logs are associated with methods belonging to `other`.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="configDns" `  
-
-
-
-
-#### `configNtp`
-
-  * **Method** : `configNtp`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `backupdr.managementServers.manageBackupServers - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="configNtp" `  
 
 
 
@@ -3323,21 +3306,6 @@ The following audit logs are associated with methods belonging to `other`.
 
 
 
-#### `deleteWorkflow`
-
-  * **Method** : `deleteWorkflow`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `backupdr.managementServers.manageWorkflows - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="deleteWorkflow" `  
-
-
-
-
 #### `discover`
 
   * **Method** : `discover`  
@@ -3394,21 +3362,6 @@ The following audit logs are associated with methods belonging to `other`.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="discoverVolumes" `  
-
-
-
-
-#### `dissolveAppliance`
-
-  * **Method** : `dissolveAppliance`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `backupdr.managementServers.manageBackupServers - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="dissolveAppliance" `  
 
 
 
@@ -3484,21 +3437,6 @@ The following audit logs are associated with methods belonging to `other`.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="fetchApplicationOptions" `  
-
-
-
-
-#### `fromMount`
-
-  * **Method** : `fromMount`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `backupdr.managementServers.access - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="fromMount" `  
 
 
 
@@ -4415,21 +4353,6 @@ The following audit logs are associated with methods belonging to `other`.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="getProtectedESXINodeCount" `  
-
-
-
-
-#### `getRMMigrationStatus`
-
-  * **Method** : `getRMMigrationStatus`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `backupdr.managementServers.access - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="getRMMigrationStatus" `  
 
 
 
@@ -5672,6 +5595,7 @@ The following audit logs are associated with methods belonging to `other`.
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
+    * `backupdr.managementServers.accessSensitiveData - ADMIN_WRITE`
     * `backupdr.managementServers.manageMigrations - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -5733,7 +5657,6 @@ The following audit logs are associated with methods belonging to `other`.
 
   * **Permissions** : 
     * `backupdr.managementServers.manageMounts - ADMIN_WRITE`
-    * `backupdr.managementServers.manageRestores - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="mountBackup" `  
@@ -5812,21 +5735,6 @@ The following audit logs are associated with methods belonging to `other`.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="optionsForListDiskPool" `  
-
-
-
-
-#### `optionsForListHost`
-
-  * **Method** : `optionsForListHost`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `backupdr.managementServers.access - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="optionsForListHost" `  
 
 
 
@@ -6292,7 +6200,6 @@ The following audit logs are associated with methods belonging to `other`.
 
   * **Permissions** : 
     * `backupdr.managementServers.manageApplications - ADMIN_WRITE`
-    * `backupdr.managementServers.manageSensitiveData - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="updateApplication" `  
@@ -6742,6 +6649,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/samples/composer-list-image-versions/
 title: List Composer Image Versions \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:49:38.845336+00:00
+fetched_at: 2026-10-27T23:47:17.044558+00:00
 ---
 
 # List Composer Image Versions  |  Managed Service for Apache Airflow  |  Google Cloud Documentation

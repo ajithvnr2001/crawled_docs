@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/translate/docs/samples/translate-translate-text/
 title: Translating text \u00a0|\u00a0 Cloud Translation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:42.823267+00:00
+fetched_at: 2026-10-27T20:09:53.382217+00:00
 ---
 
 # Translating text  |  Cloud Translation  |  Google Cloud Documentation

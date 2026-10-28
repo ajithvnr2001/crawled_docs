@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/mcp/
 title: Looker-managed MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:00.972187+00:00
+fetched_at: 2026-10-28T02:29:57.826175+00:00
 ---
 
 # Looker-managed MCP server  |  Google Cloud Documentation
@@ -21,17 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Looker-managed MCP server
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-**Note:** Provide feedback or report issues with this preview feature by sending a detailed email to [looker-mcp-support-external@google.com](mailto:looker-mcp-support-external@google.com).**Note:** As a preview feature, the Looker-managed MCP server is subject to the [Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum).
-
 The **Looker-managed MCP server** is a built-in integration that embeds a Model Context Protocol (MCP) server directly into the Looker platform. It allows AI agents — such as Gemini CLI, Claude Desktop, Cursor, and Copilot — to securely connect to a Looker instance and interact with business data and LookML models.
 
 By hosting the server, Looker removes the need for you to deploy and maintain your own middleware infrastructure, providing a plug-and-play, secure, and governed gateway to trusted business insights.
-
-The Looker-managed MCP server is in preview for Looker (Google Cloud core) and Looker (original) instances. Customer-hosted (on-premise) instances are not supported for this preview.
 
 If you're using a customer-hosted instance, or if you prefer to manage your own infrastructure, you can connect using the standalone [MCP Toolbox for Databases](https://github.com/googleapis/genai-toolbox). The MCP Toolbox is an open-source MCP server that you can run on your local computer or on your own server to act as a bridge between AI agents and your Looker instance. See the [Use Looker with MCP, Gemini CLI and other agents](https://docs.cloud.google.com/looker/docs/connect-ide-to-looker-using-mcp-toolbox) documentation page for more information.
 
@@ -49,7 +41,7 @@ To use the Looker-managed MCP server, you must meet the following requirements:
 ### Required permissions
 
   * **To[manage tool access](https://docs.cloud.google.com/looker/docs/admin-panel-platform-mcp#model_context_protocol_mcp_settings)**: you must have the [**Admin**](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_roles) Looker role.
-  * **Toregister your AI agent as an OAuth client using the API Explorer**: you must have the [**Admin**](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_roles) Looker role.
+  * **Toregister or enable your AI agent as an OAuth client**: you must have the [**Admin**](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_roles) Looker role.
   * **To connect an AI agent to the Looker-managed MCP server** : you need your standard Looker login credentials to authenticate during the OAuth connection process. The AI agent must first be registered as an OAuth client by a Looker admin. Once connected, the AI agent will inherit the Looker roles and access of the user who authenticated.
 
 
@@ -68,127 +60,123 @@ If the MCP client is running directly in a web browser and wants to communicate 
 
 ## Register an AI agent through OAuth
 
-During the preview launch, Looker admins must manually register an AI agent in order to connect the agent to the managed MCP server.
+To connect an AI agent to the Looker-managed MCP server, an administrator must enable or register the AI agent as an OAuth client application on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients) page in the Looker **Admin** panel.
 
-  1. Open the [Looker API Explorer](https://docs.cloud.google.com/looker/docs/api-explorer#starting_the_api_explorer).
+You can enable pre-configured AI clients from the **Application Library** or register a custom client on the **Custom Clients** tab:
 
-     * If your Looker instance already has the API Explorer installed, you can access it with this URL format:
-           
-           LOOKER_INSTANCE_URL/extensions/marketplace_extension_api_explorer::api-explorer/
-           
+  * **Application Library (recommended)** : Use pre-configured, Looker-managed OAuth client registrations for popular AI agents and developer tools such as Cursor, VS Code, Claude Code, Claude Desktop, ChatGPT, Gemini CLI, Cline, Windsurf, Antigravity, and the Looker Extension for VS Code.
+  * **Custom Clients** : Register a new custom OAuth client if your AI tool is not available in the Application Library or if you need to configure a custom redirect URI or port.
 
-     * If your Looker instance doesn't have the API Explorer, you can install it from the Looker Marketplace. See the [Using the API Explorer](https://docs.cloud.google.com/looker/docs/api-explorer#installing_the_api_explorer) page for information.
 
-     * If you are using a Looker (Google Cloud core) private connections instance that uses [private services access](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#psa), the Looker Marketplace and API Explorer aren't supported. To register an AI agent, you must call the [`oauth_client_apps`](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest/methods/Auth/register_oauth_client_app) API endpoint directly. If you use this method, you can skip the following API Explorer procedure and proceed directly to the Configure an MCP client section.
 
-#### Expand this section to see an example of a `curl` command that you can use with the `oauth_client_apps` endpoint to register the agent.
-           
-           curl -X POST "https://LOOKER_INSTANCE_URL/api/4.0/oauth_client_apps/CLIENT_GUID" \
-           -H "Authorization: token ACCESS_TOKEN" \
-           -H "Content-Type: application/json" \
-           -d '{
-             "redirect_uri": "REDIRECT_URI",
-             "display_name": "CLIENT_NAME",
-             "description": "OAuth client to access MCP server using CLIENT_NAME",
-             "enabled": true
-           }'
-           
+### Option 1: Enable a pre-configured AI agent from the Application Library
 
-  2. Under the **Auth** method, find the **Register OAuth App** API endpoint. You can also search for "oauth app" in the **Search** field.
+We recommend checking the **Application Library** tab first.
 
-  3. On the **Register OAuth App** page, click the **Run It** button.
+To enable a pre-configured AI agent client, follow these steps:
 
-  4. In the **Request** tab of the **Run It** dialog, enter the following information into the corresponding fields:
+  1. In the Looker **Admin** panel, navigate to the **Authentication** section and select **Manage OAuth clients**.
+  2. Select the **Application Library** tab.
+  3. Locate the client application for your AI agent (for example, Cursor, Claude Code, Cline, or Gemini CLI). You can use the search bar to filter by name.
+  4. Turn the **Enable** switch to **ON**.
+  5. Copy the **Client ID** that's displayed on the client's row. You will provide this client ID when you configure your AI agent's MCP settings (for example, in `mcp.json` or startup flags). If Looker users who don't have the Looker Admin role need to use this client, distribute the **Client ID** to them.
 
-     * For the `CLIENT_GUID` field, complete the following steps:
 
-       * If the agent prescribes a specific client ID, use that client ID.
-       * If the agent doesn't prescribe a specific client ID, use any globally unique ID.
-       * Be prepared to distribute the ID to any LookML developers who want to use the agent.
-**Tip:** Enter your the `CLIENT_GUID` value here for use later in the procedure: CLIENT_GUID.
-     * For the `redirect_uri`, the URI varies depending on the AI agent application. You can refer to your agent's OAuth authentication documentation for its specific redirect URL. The format may look like one of the following examples:
 
-###  Gemini CLI 
+#### Redirect URIs and dynamic port handling
+
+Looker requires OAuth redirect URIs to match registered values exactly and doesn't support wildcard redirect URIs. Some AI tools use dynamic or ephemeral local ports by default when initiating an OAuth callback (such as Claude Code or Cline). To accommodate these tools, Looker pre-registers a fixed default port for each library client (for example, port `8080` for Claude Code and Cline, or port `7777` for Gemini CLI).
+
+To use a pre-configured library client with dynamic ports, choose one of the following options:
+
+  * **Configure your client to use the pre-registered static port** : In your tool's settings or startup command, specify the pre-registered port. For example: 
+    * **Claude Code** : Run Claude Code with the `--callback-port 8080` flag (or configure `"callbackPort": 8080` in `mcp.json`).
+    * **Cline** : Configure the OAuth callback port to `8080`.
+    * **Gemini CLI** : Set the environment variable `export OAUTH_CALLBACK_PORT=7777`.
+    * **VS Code** : Use the pre-registered static URI `http://127.0.0.1:33418/`.
+  * **Register a custom client** : If you need to use a different port or custom callback URL, register a custom client with your preferred redirect URI as described in the next section.
+
+
+
+### Option 2: Register a custom AI agent client
+
+If your AI agent isn't included in the Application Library, or if you need to use a custom callback URL or port, complete the steps in the [Admin settings - Manage OAuth Clients documentation](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#custom-clients) to register a custom client. After you have added the client, copy the **Client ID** for use when configuring the MCP client.
+
+### Programmatic registration (API Explorer or API)
+
+For automated deployments (such as CI/CD pipelines or provisioning scripts), Looker admins can register OAuth clients programmatically.
+
+#### Expand this section to see how to register an OAuth client by using the API or API Explorer.
+
+You can register an AI agent by using the [`oauth_client_apps`](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest/methods/Auth/register_oauth_client_app) API endpoint directly with `curl`:
+    
+    
+    curl -X POST "https://LOOKER_INSTANCE_URL/api/4.0/oauth_client_apps/CLIENT_GUID" \
+    -H "Authorization: token ACCESS_TOKEN" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "redirect_uri": "REDIRECT_URI",
+      "display_name": "CLIENT_NAME",
+      "description": "OAuth client to access MCP server using CLIENT_NAME",
+      "enabled": true
+    }'
+    
+
+Alternatively, you can use the [Looker API Explorer](https://docs.cloud.google.com/looker/docs/api-explorer#starting_the_api_explorer):
+
+  1. Under the **Auth** method, find the **Register OAuth App** API endpoint.
+  2. Click **Run It** , enter the `CLIENT_GUID`, `redirect_uri`, `display_name`, and `description`, select the confirmation checkbox, and then click **Run**. 
+     * Gemini CLI 
            
            http://localhost:7777/oauth/callback
            
 
-**Note:** Some tools, such as the Gemini CLI, may require you to set an environment variable (for example, `export OAUTH_CALLBACK_PORT=7777`) to ensure that the tools use a static port that matches your registered redirect URI.
+Note: Some tools, such as Gemini CLI, may require you to set an environment variable (for example, `export OAUTH_CALLBACK_PORT=7777`) to ensure that the tools use a static port that matches your registered redirect URI.
 
-###  Gemini Code Assist
+     * Gemini Code Assist 
            
            http://localhost:7777/oauth/callback
            
 
-We recommend using Gemini CLI with Gemini Code Assist, in which case they share the same local callback server and port configuration.
+We recommend using Gemini CLI with Gemini Code Assist, in which case they will share the same local callback server and port configuration.
 
-###  Gemini Enterprise 
+     * Gemini Enterprise 
            
            https://vertexaisearch.cloud.google.com/oauth-redirect
            
 
-###  Claude code 
+     * Claude code 
 
-Claude Code uses a random available port for OAuth callback, but you should fix it using the `--callback-port 8080` flag (or with the `callbackPort` setting in `mcp.json`) to match your registered URI. 
+Claude Code uses a random available port for OAuth callback, but you should fix it by using the `--callback-port 8080` flag (or with the `callbackPort` setting in `mcp.json`) to match your registered URI.
            
            http://localhost:8080/callback
            
 
-###  VS Code 
+     * VS Code 
 
 For VS Code, use the following URI.
            
            http://127.0.0.1:33418/
            
 
-**Note:** The trailing slash (`/`) at the end of the URI is required.
+Note: The trailing slash (`/`) at the end of the URI is required.
 
-###  Cloud-hosted apps 
+     * Cloud-hosted apps 
 
 For Cloud-hosted applications, it may look like a secure HTTPS URL:
            
            https://AI_AGENT_URL/oauth2callback
            
 
-###  Local apps 
+     * Local apps 
 
-For applications running locally, it should be a localhost URL with a static port:
+For applications running locally, the redirect URI should be a localhost URL with a static port:
            
            http://localhost:7777/oauth/callback
            
 
 **Note:** Some tools, such as the Gemini CLI, may require you to set an environment variable (for example, `export OAUTH_CALLBACK_PORT=7777`) to ensure that the tools use a static port that matches your registered redirect URI.
-
-     * Complete the `display_name` and `description` as described in the [Registering an OAuth client application](https://docs.cloud.google.com/looker/docs/api-cors#registering_an_oauth_client_application) documentation.
-
-  5. Select the checkbox for **I understand that this API endpoint will change data.**
-
-  6. Click **Run**.
-
-  7. You can verify that you successfully set up authentication by using the `Get OAuth Client App` method in the API Explorer by following these steps:
-
-     * In the API Explorer's **Search** field, enter **Get OAuth Client App**.
-     * Click **Run It**.
-     * In the **CLIENT_GUID** field, enter the value that you used when you registered the OAuth:
-           
-           CLIENT_GUID
-           
-
-If you set up OAuth successfully, the **Response** tab will return the values that you entered when you registered the app.
-
-  8. **(Optional)** You can activate the OAuth app user ahead of time by using the `Activate App User` method in the API Explorer by following these steps:
-
-     * In the API Explorer's **Search** field, enter **Activate App User**.
-     * Click **Run It**.
-     * In the **CLIENT_GUID** field, enter the value that you used when you registered the OAuth app:
-           
-           CLIENT_GUID
-           
-
-     * In the **user_id** field, enter the user's Looker [user ID](https://docs.cloud.google.com/looker/docs/admin-panel-users-users#viewing_and_searching_users).
-
-     * Click **Run**.
-
+  3. To verify registration, run the **Get OAuth Client App** endpoint with your `CLIENT_GUID`.
 
 
 
@@ -470,6 +458,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

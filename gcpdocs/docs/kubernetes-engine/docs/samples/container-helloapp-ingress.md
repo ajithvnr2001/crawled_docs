@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/samples/container-helloapp-ingress/
 title: Hello app ingress \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:23.776271+00:00
+fetched_at: 2026-10-27T22:56:25.881245+00:00
 ---
 
 # Hello app ingress  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

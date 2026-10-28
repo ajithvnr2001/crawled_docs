@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-read-prefix-list/
 title: Multiple prefixes \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:48:43.052376+00:00
+fetched_at: 2026-10-27T23:40:07.249061+00:00
 ---
 
 # Multiple prefixes  |  Bigtable  |  Google Cloud Documentation

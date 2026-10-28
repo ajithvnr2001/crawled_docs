@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/billing-settings/
 title: Billing settings for services \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:41:40.119759+00:00
+fetched_at: 2026-10-28T02:30:57.463992+00:00
 ---
 
 # Billing settings for services  |  Cloud Run  |  Google Cloud Documentation
@@ -158,15 +158,15 @@ You can change the billing setting using the Google Cloud console, the gcloud CL
 
 [Go to Cloud Run](https://console.cloud.google.com/run)
 
-  2. Select **Services** from the Cloud Run navigation menu, and click **Deploy container** to configure a new service. If you are configuring an existing service, click the service.
+  2. Select **Services** from the Cloud Run navigation menu:
 
-  3. If you are configuring a new service, fill out the initial service settings page.
+     1. If you are configuring a new service, click **Deploy container** and fill out the initial service settings page.
 
-  4. If you are configuring an existing service, click the **Scaling** tab.
+     2. If you are configuring an existing service, click the service, then click the **Scaling** tab.
 
-  5. Under **Billing** , select **Request-based** for your instances to be charged only during request processing, or select **Instance-based** for your instances to be charged for the entire lifetime of instances.
+  3. Under **Billing** , select **Request-based** for your instances to be charged only during request processing, or select **Instance-based** for your instances to be charged for the entire lifetime of instances.
 
-  6. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
+  4. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
 
 
 
@@ -291,6 +291,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

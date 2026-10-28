@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/search-lro-api/
 title: Asynchronous Search APIs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:53:22.092306+00:00
+fetched_at: 2026-10-27T20:11:52.877399+00:00
 ---
 
 # Asynchronous Search APIs  |  Google Security Operations  |  Google Cloud Documentation
@@ -77,8 +77,11 @@ The request requires the following key parameters:
 
   * `query`: The search query string.
   * `time_range`: The time interval for the search.
-  * `dialect`: Specifies the language dialect as `YL2`.
+  * `dialect`: Specifies the language dialect as `YL2`. 
+    * The `SQL` dialect isn't supported for asynchronous LRO result retrieval using `ListSearchedResults` (`searchedResults.list`).
+    * The `RAW_LOG` dialect is in Preview and might return a `501 UNIMPLEMENTED` error if it isn't enabled for your instance.
   * `result_limit`: Optional. The maximum number of rows to materialize. The default value is `10000`, and the maximum value is `1000000`.
+  * `simulated_data_visibility` (or `simulatedDataVisibility` in JSON): Optional. Controls whether search results include simulated events. Set to `SIMULATED_DATA_INCLUDED` to include simulated events in search results. If unspecified, this parameter defaults to `SIMULATED_DATA_EXCLUDED`, which excludes simulated events.
 
 
 
@@ -168,14 +171,16 @@ To list LRO operations, use the `ListOperations` method from the `google.longrun
 
 
 
-To list all LRO operations from the past 24 hours, add the filter `name: "operations/s-lro"`.
+To list search LRO operations from the past 24 hours, specify the `name:"operations/s-lro-"` filter, including the trailing hyphen.
+
+**Note:** This filter is required when you call `ListOperations` (`operations.list`) to retrieve search operations. If you call `ListOperations` without this filter, the response returns only retrohunt operations and omits search operations. In addition, the `CancelOperation` (`operations.cancel`) and `DeleteOperation` (`operations.delete`) methods aren't supported for `s-lro-` search operations.
 
 The following example shows a successful `ListOperations` request:
     
     
     google.longrunning.ListOperationsRequest {
       name: "projects/PROJECT_NUMBER/locations/LOCATION/instances/INSTANCE_ID"
-      filter: "name:\"operations/lro\""
+      filter: "name:\"operations/s-lro-\""
       page_size: 100
     }
     
@@ -232,13 +237,13 @@ The request supports the following query parameters:
 
   * `page_size`: The maximum number of results to return per page. The default value is 100, and the maximum value is 10000.
   * `page_token`: The token from a previous `ListSearchedResultsResponse` used to retrieve the next page.
-  * `order_by`: Optional. The field is used to sort the results.
+  * `order_by` (or `orderBy` in JSON): Optional. The field used to sort the results. When you omit `order_by`, UDM event results are sorted by `udm.metadata.event_timestamp` in descending order by default, returning the most recent events first. When you specify a field path in `order_by` without a direction suffix, such as `udm.principal.hostname`, results are sorted in ascending order by default. Don't append `asc`, because the `asc` suffix isn't supported and returns a `400 INVALID_ARGUMENT` error. To sort results in descending order, append the `desc` suffix to the field path, such as `udm.metadata.event_timestamp desc`. Multi-column sorting isn't supported.
 
-    * `UDM events (eventRecord)`: Use paths within the `udm` field, for example, `udm.metadata.timestamp desc` or `udm.principal.hostname asc`. Column names including `hostname`, `user`, `process name`, and `event type` are also supported.
+    * `UDM events (eventRecord)`: Use fully qualified paths within the `udm` field, such as `udm.metadata.event_timestamp desc` or `udm.principal.hostname`. Column names such as `hostname`, `user`, `process name`, and `event type` are also supported.
 
-The default value is `udm.metadata.event_timestamp`.
+The default sort order is `udm.metadata.event_timestamp` in descending order, which returns the most recent events first.
 
-    * `Entities / ECG (entityContextRecord)`: Use paths within the `entity` field, for example, `graph.entity.ip asc`.
+    * `Entities / ECG (entityContextRecord)`: Use paths within the `entity` field, such as `graph.entity.ip` or `graph.entity.ip desc`.
 
     * `data tables (dataTableRecord)`: Use the `%<table_alias>.<column_name>` format. For example, `%dt.user desc`.
 
@@ -256,8 +261,10 @@ For example:
 
 Predefined aliases such as `hostname`, `user`, `process name`, and `event type` are also supported. For these, use the format `$e1.hostname.at`.
 
-    * `skip`: Optional. The number of results to skip. Don't use if using `page_token`.
+  * `skip`: Optional. The number of results to skip. Don't use this parameter with `page_token`.
 
+    * Default sorting (`udm.metadata.event_timestamp`) isn't unique across events that share the same timestamp. In addition, the sort order for the search results is set on the first `ListSearchedResults` (`searchedResults.list`) call.
+    * When you paginate with `skip`, especially across parallel requests, specify a unique sort field such as `udm.metadata.id` in the `order_by` parameter. Alternatively, fetch the first page before sending parallel `skip` requests so that the sort order is already set.
 
 
 
@@ -338,6 +345,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

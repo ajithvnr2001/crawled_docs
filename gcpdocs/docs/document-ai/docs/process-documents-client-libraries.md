@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/process-documents-client-libraries/
 title: Quickstart: Process documents by using client libraries \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:47.698648+00:00
+fetched_at: 2026-10-27T23:58:47.366073+00:00
 ---
 
 # Quickstart: Process documents by using client libraries  |  Document AI  |  Google Cloud Documentation
@@ -698,7 +698,7 @@ To authenticate to Document AI, set up Application Default Credentials. For more
     
     
     from google.api_core.client_options import ClientOptions
-    from google.cloud import documentai_v1
+    from google.cloud import [documentai_v1](https://docs.cloud.google.com/python/docs/reference/documentai/latest)
     
     # TODO(developer): Create a processor of type "OCR_PROCESSOR".
     
@@ -719,13 +719,13 @@ To authenticate to Document AI, set up Application Default Credentials. For more
     opts = ClientOptions(api_endpoint=f"{location}-documentai.googleapis.com")
     
     # Initialize Document AI client.
-    client = documentai_v1.[DocumentProcessorServiceClient](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.services.document_processor_service.DocumentProcessorServiceClient.html)(client_options=opts)
+    client = [documentai_v1](https://docs.cloud.google.com/python/docs/reference/documentai/latest).[DocumentProcessorServiceClient](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.services.document_processor_service.DocumentProcessorServiceClient.html)(client_options=opts)
     
     # Get the Fully-qualified Processor path.
     full_processor_name = client.[processor_path](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.services.document_processor_service.DocumentProcessorServiceClient.html#google_cloud_documentai_v1_services_document_processor_service_DocumentProcessorServiceClient_processor_path)(project_id, location, processor_id)
     
     # Get a Processor reference.
-    request = documentai_v1.[GetProcessorRequest](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.types.GetProcessorRequest.html)(name=full_processor_name)
+    request = [documentai_v1](https://docs.cloud.google.com/python/docs/reference/documentai/latest).[GetProcessorRequest](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.types.GetProcessorRequest.html)(name=full_processor_name)
     processor = client.[get_processor](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.services.document_processor_service.DocumentProcessorServiceClient.html#google_cloud_documentai_v1_services_document_processor_service_DocumentProcessorServiceClient_get_processor)(request=request)
     
     # `processor.name` is the full resource name of the processor.
@@ -738,13 +738,13 @@ To authenticate to Document AI, set up Application Default Credentials. For more
     
     # Load binary data.
     # For supported MIME types, refer to https://cloud.google.com/document-ai/docs/file-types
-    raw_document = documentai_v1.[RawDocument](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.types.RawDocument.html)(
+    raw_document = [documentai_v1](https://docs.cloud.google.com/python/docs/reference/documentai/latest).[RawDocument](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.types.RawDocument.html)(
         content=image_content,
         mime_type="application/pdf",
     )
     
     # Send a request and get the processed document.
-    request = documentai_v1.[ProcessRequest](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.types.ProcessRequest.html)(name=processor.name, raw_document=raw_document)
+    request = [documentai_v1](https://docs.cloud.google.com/python/docs/reference/documentai/latest).[ProcessRequest](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.types.ProcessRequest.html)(name=processor.name, raw_document=raw_document)
     result = client.[process_document](https://docs.cloud.google.com/python/docs/reference/documentai/latest/google.cloud.documentai_v1.services.document_processor_service.DocumentProcessorServiceClient.html#google_cloud_documentai_v1_services_document_processor_service_DocumentProcessorServiceClient_process_document)(request=request)
     document = result.[document](https://docs.cloud.google.com/python/docs/reference/documentai-toolbox/latest/google.cloud.documentai_toolbox.wrappers.document.html)
     

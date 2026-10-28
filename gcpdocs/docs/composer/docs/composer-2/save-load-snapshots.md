@@ -1,16 +1,53 @@
 ---
 url: https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/
 title: Save and load environment snapshots \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:45:10.883850+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:09:34.432222+00:00
 ---
 
 # Save and load environment snapshots  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/
 
-To more strongly embrace the success and growing customer preference for OSS solutions, Cloud Composer is evolving to become **Managed Service for Apache Airflow**. This name change provides improved customer understanding of our portfolio while reinforcing our commitment to being the most open cloud ecosystem. 
+[ Skip to main content ](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/)
+  * [Deutsch](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=de)
+  * [Español](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=it)
+  * [Português](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/?hl=ko)
 
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/data-analytics-color.svg) ](https://docs.cloud.google.com/composer/docs)
+  * [ Managed Service for Apache Airflow ](https://docs.cloud.google.com/composer/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [About environment snapshots](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#about)
+    * [How snapshots are stored](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#about-storage)
+    * [Security considerations for snapshots](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#security)
+    * [What data is saved in snapshots](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#about-data-saved)
+    * [What data is loaded from snapshots](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#about-data-loaded)
+    * [About partially completed operations](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#about-partial-operations)
+  * [Before you begin](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#before)
+  * [Save an environment snapshot](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#save-snapshot)
+  * [Load an environment snapshot](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#load-snapshot)
+  * [What's next](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#next)
+
+
+To more strongly embrace the success and growing customer preference for OSS solutions, Cloud Composer is evolving to become **Managed Service for Apache Airflow**. This name change provides improved customer understanding of our portfolio while reinforcing our commitment to being the most open cloud ecosystem. 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Data analytics ](https://docs.cloud.google.com/docs/data)
@@ -18,56 +55,43 @@ To more strongly embrace the success and growing customer preference for OSS sol
   * [ Gen 2 Guides ](https://docs.cloud.google.com/composer/docs/composer-2/composer-overview)
 
 
-
 Send feedback 
+#  Save and load environment snapshots Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [About environment snapshots](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#about)
+    * [How snapshots are stored](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#about-storage)
+    * [Security considerations for snapshots](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#security)
+    * [What data is saved in snapshots](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#about-data-saved)
+    * [What data is loaded from snapshots](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#about-data-loaded)
+    * [About partially completed operations](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#about-partial-operations)
+  * [Before you begin](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#before)
+  * [Save an environment snapshot](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#save-snapshot)
+  * [Load an environment snapshot](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#load-snapshot)
+  * [What's next](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#next)
 
-#  Save and load environment snapshots Stay organized with collections  Save and categorize content based on your preferences. 
 
-[Managed Airflow (Gen 3)](https://docs.cloud.google.com/composer/docs/composer-3/save-load-snapshots "View this page for Managed Airflow \(Gen 3\)") | **Managed Airflow (Gen 2)** | [Managed Airflow (Legacy Gen 1)](https://docs.cloud.google.com/composer/docs/composer-1/save-load-snapshots "View this page for Managed Airflow \(Legacy Gen 1\)")
-
+[Managed Airflow (Gen 3)](https://docs.cloud.google.com/composer/docs/composer-3/save-load-snapshots) | **Managed Airflow (Gen 2)** | [Managed Airflow (Legacy Gen 1)](https://docs.cloud.google.com/composer/docs/composer-1/save-load-snapshots)
 This page explains how to save and load the state of your environment using environment snapshots.
-
 You can configure your environment to automatically save snapshots. For more information, see [Configure scheduled snapshots](https://docs.cloud.google.com/composer/docs/composer-2/configure-scheduled-snapshots).
-
 ## About environment snapshots
-
 Environment snapshots store the state of your environment. You can save and load environment snapshots on demand.
-
 You can use snapshots to:
-
   * Restore your environment to an earlier state. Create backups of your environment using snapshots, then load one of the snapshots to restore your environment. For example, you can roll back an update operation that installs PyPI packages or overrides Airflow configuration options, even after your environment is successfully updated.
-
   * Perform side-by-side upgrades and copy environments. Create a snapshot of an existing environment, create a new environment that uses the same or later version of Managed Airflow, then apply the snapshot to this new environment. This procedure is similar to [migrating](https://docs.cloud.google.com/composer/docs/composer-1/migrate-composer-2-snapshots-af-2). Make sure to pause DAGs before you make the snapshot, to avoid duplicate DAG runs.
-
   * [Migrate your environments](https://docs.cloud.google.com/composer/docs/composer-2/migrate-composer-3) to Managed Airflow (Gen 3).
 
 
-
-
 ### How snapshots are stored
-
 An environment snapshot is a set of files that describe the state of your environment and store the backup of the environment data.
-
 You can create multiple snapshots of your environment. Environment snapshots are non-incremental. You can use any snapshot independently of other snapshots.
-
 Managed Airflow does not delete snapshots when you delete your environment.
-
 By default, Managed Airflow stores snapshots in the `snapshots/` folder in your environment's bucket. You can also specify a custom location when you create a snapshot.
-
 While the Cloud Storage UI displays data as folders for convenience, buckets work in a flat-file structure. This doesn't change how you work with saving and loading snapshots in the Google Cloud console, but keep this in mind when you perform operations directly on the files in your bucket. For more information, see [Object namespace](https://docs.cloud.google.com/storage/docs/objects#namespace).
-
 ### Security considerations for snapshots
-
-**Warning:** The [fernet key](https://docs.cloud.google.com/composer/docs/composer-2/manage-airflow-connections) of your environment is stored together with the Airflow database's backup. This means that **sensitive information** such as Airflow connection extras and passwords can be decrypted from an environment snapshot.
-
 To mitigate this security risk, you can store sensitive information that is used by Airflow DAGs, such as keys or passwords, in Secret Manager. For more information, see [Configure Secret Manager for your environment](https://docs.cloud.google.com/composer/docs/composer-2/configure-secret-manager).
-
-Make sure to check security permissions for your environment's bucket. If you store environment snapshots in a custom bucket, make sure that [access permissions](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) for it are configured properly in your project. When assigning permissions, make sure that environment's service account has enough permissions to save and load snapshots from the bucket.
-
+Make sure to check security permissions for your environment's bucket. If you store environment snapshots in a custom bucket, make sure that [access permissions](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) for it are configured properly in your project. When assigning permissions, make sure that environment's service account [has enough permissions](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#before) to save and load snapshots from the bucket.
 ### What data is saved in snapshots
-
 Managed Airflow saves the following data in snapshots:
-
   * Airflow configuration overrides.
   * Environment variables.
   * List of custom PyPI packages, as requirements.
@@ -77,307 +101,214 @@ Managed Airflow saves the following data in snapshots:
   * Other information about the environment's configuration, such as environment's scale and performance parameters. Managed Airflow does not use this information when it loads snapshots. 
 
 
-
 ### What data is loaded from snapshots
-
 Managed Airflow loads the following data from snapshots:
-
   * Airflow configuration overrides.
   * Environment variables.
   * Custom PyPI packages (unless you choose to skip installing them).
-
-**Caution:** Managed Airflow installs packages as they are specified in the requirements. For example, if a snapshot has `example_package>=1.0` as a requirement, then a different version of the package can be installed when you load the snapshot.
   * The contents of the Airflow database, including states of executed tasks, and DAG runs history.
-
   * Contents of the `/dags`, `/data`, and `/plugins` folders from the snapshot are loaded into the environment's bucket.
-
   * The fernet key from the snapshot is used to re-encrypt the data from the snapshot with the environment's own fernet key. The fernet key of the environment remains unchanged.
 
 
-
-
 Although Managed Airflow stores some information about the environment's configuration in snapshots, it is not used when loading snapshots. The following parameters of your environment do not change when you load a snapshot:
-
   * Environment configuration, such as environment scale and performance parameters.
   * Environment's networking configuration.
   * Contents of the environment's bucket outside of the `/dags`, `/data`, and `/plugins` folders.
   * Environment labels.
 
 
-
 Any settings that you applied in Managed Airflow infrastructure without using Cloud Composer API might be lost when you load a snapshot.
-
 ### About partially completed operations
-
 When you load a snapshot, the operation can be successful, failed, or partially completed:
-
   * Successful operations load all data from the snapshot.
   * Failed operations do not introduce any changes.
   * Partially completed operations load a subset of data from the snapshot. Such operations are reported as failed, but the error message indicates what data was successfully loaded. For example, if PyPI packages are installed, but Airflow configuration option overrides did not succeed, the error message indicates this.
 
 
-
 For a partially completed operation, you can try to load the same snapshot again. Managed Airflow skips steps that were successful on the previous attempt. For example, if an operation failed on a timeout, but the database was successfully loaded, then the next attempt does not load the database again.
-
 ## Before you begin
-
   * Snapshots are supported in Managed Airflow (Gen 2) version 2.0.9 and later. Managed Airflow (Legacy Gen 1) supports saving environment snapshots in 1.18.5 and later versions. 
-
   * Snapshots do not create an environment. If you want to load a snapshot from an environment to a different environment, you first need to create a new environment and then load the snapshot to it.
-
   * You cannot load snapshots to environments that are in the error state. It is not possible to fix such environments by loading a snapshot. You can still load an existing snapshot to a new environment.
-
   * You can only load snapshots to the same or later version of Managed Airflow or Airflow. For example, you cannot load a snapshot from Managed Airflow 2.8.4 to an environment with Managed Airflow 2.8.3. As another example, you cannot load a snapshot from Airflow 2.7.3 to Airflow 2.6.3.
-
   * Snapshots do not change Managed Airflow version. If you upgrade your environment to a later version of Managed Airflow, then load a snapshot from an earlier version, then you environment still keeps its current version of Managed Airflow. For example, loading a snapshot from Managed Airflow 2.8.3 to Managed Airflow 2.8.4 does not revert the environment to Managed Airflow 2.8.3.
-
   * The maximum size of the Airflow database that supports snapshots is 20 GB. If your environment's database takes more than 20 GB, [reduce the size of the Airflow database](https://docs.cloud.google.com/composer/docs/composer-2/cleanup-airflow-database) before saving a snapshot.
-
   * The total number of objects in the `/dags`, `/plugins` and `/data` folders in the environment's bucket must be less than 100,000 to create snapshots.
-
   * If you use the XCom mechanism to transfer files, make sure that you [use it according to Airflow's guidelines](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/xcoms.html#object-storage-xcom-backend). Transferring big files or a large number of files using XCom impacts Airflow database's performance and can lead to failures when loading snapshots or upgrading your environment. Consider using alternatives such as Cloud Storage to transfer large volumes of data.
-
   * The maximum length of an object's name in the environment's bucket must be no longer that 1024 symbols. Otherwise, snapshots cannot be created.
-
   * If you save snapshots in a location outside your environment's bucket, the [service account of your environment](https://docs.cloud.google.com/composer/docs/composer-2/access-control#service-account) must have read and write permissions for the specified location. For example, the [**Storage Object Admin** role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles) has such permissions. You can apply it to a project or to a specific bucket.
-
   * Creating and storing snapshots produces additional costs, which are related to Cloud Storage. For more information, see [Pricing](https://docs.cloud.google.com/composer/pricing).
 
 
-
-
 ## Save an environment snapshot
-
 Managed Airflow saves environment snapshots in a [subfolder](https://docs.cloud.google.com/storage/docs/objects#namespace), relative to the folder that you specify. The folder name contains the project ID, the environment's location, the environment's name, and the timestamp when the snapshot was saved. For example: `/snapshots/example-project_us-central1_example-environment_2022-01-05T18-59-00`.
-
-###  Console 
-
+[ Console ](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#console)[ gcloud ](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#gcloud)[ API ](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#api)[ Terraform ](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#terraform) More
 To create a snapshot of your environment:
-
   1. In Google Cloud console, go to the **Environments** page.
-
 [Go to Environments](https://console.cloud.google.com/composer/environments)
-
   2. In the list of environments, click the name of your environment. The **Environment details** page opens.
-
   3. Click **Save snapshot**.
-
   4. In the **Save snapshot** dialog, select where to store the snapshot:
-
      * To store the snapshot in the `/snapshots` folder in the environment's bucket, select **Use snapshot folder in environment bucket (default)**.
-
      * To store the snapshot in the custom folder, select **Use custom folder in another bucket** , then specify a location.
-
   5. Click **Save**.
 
 
-
-
-###  gcloud 
-
 The `gcloud composer environments snapshots save` command saves a snapshot of your environment.
-
   * The `snapshot-location` argument specifies a folder where the snapshot is saved. By default, snapshots are saved in the `/snapshots` folder in your environment's bucket. For example, `gs://us-central1-example-916807e1-bucket/snapshots`. You can also specify any other folder.
 
 
-
 To save a snapshot of your environment, run:
-    
-    
-    gcloud composer environments snapshots save \
-      ENVIRONMENT_NAME \
-      --location LOCATION \
-      --snapshot-location "SNAPSHOTS_FOLDER"
-    
+
+```
+gcloud composer environments snapshots save \
+  ENVIRONMENT_NAME \
+  --location LOCATION \
+  --snapshot-location "SNAPSHOTS_FOLDER"
+
+```
 
 Replace:
-
   * `ENVIRONMENT_NAME` with the name of the environment.
   * `LOCATION` with the region where the environment is located.
   * (Optional) `SNAPSHOTS_FOLDER` with the URI of a bucket folder where to store the snapshot. If you omit this argument, Managed Airflow saves the snapshot in the `/snapshots` folder in your environment's bucket.
 
 
-
 The following example uses the default location:
-    
-    
-    gcloud composer environments snapshots save \
-      example-environment \
-      --location us-central1
-    
+
+```
+gcloud composer environments snapshots save \
+  example-environment \
+  --location us-central1
+
+```
 
 The following example saves to a custom folder:
-    
-    
-    gcloud composer environments snapshots save \
-      example-environment \
-      --location us-central1 \
-      --snapshot-location "gs://example-bucket/environment_snapshots"
-    
 
-###  API 
+```
+gcloud composer environments snapshots save \
+  example-environment \
+  --location us-central1 \
+  --snapshot-location "gs://example-bucket/environment_snapshots"
+
+```
 
   1. Construct an [`environments.saveSnapshot`](https://docs.cloud.google.com/composer/docs/reference/rest/v1/projects.locations.environments/saveSnapshot) API request.
-
   2. In the request body, in the `snapshotLocation` field, specify the folder where you want to save the snapshot.
 
 
+```
+{
+  "snapshotLocation": "SNAPSHOTS_FOLDER"
+}
 
-    
-    
-    {
-      "snapshotLocation": "SNAPSHOTS_FOLDER"
-    }
-    
+```
 
 Replace:
-
   * `SNAPSHOTS_FOLDER` with the URI of a bucket folder where to save the snapshot.
 
 
-
 Example:
-    
-    
-    // POST https://composer.googleapis.com/v1/projects/example-project/
-    // locations/us-central1/environments/example-environment:saveSnapshot
-    
-    {
-      "snapshotLocation": "gs://us-central1-example-916807e1-bucket/snapshots"
-    }
-    
-    
 
-###  Terraform 
+```
+// POST https://composer.googleapis.com/v1/projects/example-project/
+// locations/us-central1/environments/example-environment:saveSnapshot
+
+{
+  "snapshotLocation": "gs://us-central1-example-916807e1-bucket/snapshots"
+}
+
+
+```
 
 It is not possible to save and load environment snapshots from Terraform.
-
 Saving and loading snapshots are actions performed on an environment, and the resulting snapshots are not a part of an environment's definition. Since Terraform manages only Managed Airflow environment's configuration, you cannot save or load environment snapshots from it.
-
 ## Load an environment snapshot
-
-**Warning:** After you load a snapshot, the DAG run history is restored to the state of the snapshot. This might lead to **duplicate DAG runs**.
-
 Consider the following situation. For example, [catch-up](https://airflow.apache.org/docs/apache-airflow/stable/dag-run.html#catchup) is enabled and Airflow executes a DAG on a schedule between the time when the snapshot was created and when it was loaded. In this case, after you load the snapshot, Airflow has no information about the DAG run that happened, so Airflow runs the DAG again for the same time and data.
-
 As another example, consider a DAG that runs on a daily schedule. You take a snapshot, then Airflow executes this DAG, and after that you load the snapshot on the same day. In this case, Airflow runs the DAG again, even if catch-up is disabled.
-
-###  Console 
-
+[ Console ](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#console)[ gcloud ](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#gcloud)[ API ](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#api)[ Terraform ](https://docs.cloud.google.com/composer/docs/composer-2/save-load-snapshots/#terraform) More
 To load a snapshot to your environment:
-
   1. In Google Cloud console, go to the **Environments** page.
-
 [Go to Environments](https://console.cloud.google.com/composer/environments)
-
   2. In the list of environments, click the name of your environment. The **Environment details** page opens.
-
   3. Click **Load snapshot**.
-
   4. In the **Load snapshot** dialog, click **Browse**.
-
   5. Select a folder that stores the snapshot. The name of the folder lists the ID of your project, environment's location and the timestamp when the snapshot was saved. For example, `/snapshots/example-project_us-central1_example-environment_2022-01-05T18-59-00`.
-
   6. (Optional) To skip the installation of custom PyPI packages from the snapshot, select **Skip PyPI packages installation**. If you load a snapshot of an environment with installed [custom PyPI packages](https://docs.cloud.google.com/composer/docs/composer-2/install-python-dependencies), then Managed Airflow does not install these custom packages.
-
   7. Click **Load** and wait until Managed Airflow loads the snapshot.
 
 
-
-
-###  gcloud 
-
 The `gcloud composer environments snapshots load` command loads a snapshot to your environment.
-
   * The `--snapshot-path` argument specifies a folder where the snapshot is located.
-
 The name of the folder lists the ID of your project, environment's location and the timestamp when the snapshot was saved. For example, `gs://us-central1-example-916807e1-bucket/snapshots/example-project_us-central1_example-environment_2022-01-05T18-59-00`.
-
   * (Optional) The `--skip-pypi-packages-installation` argument skips the installation of custom PyPI packages from the snapshot. If you load a snapshot of an environment with installed [custom PyPI packages](https://docs.cloud.google.com/composer/docs/composer-2/install-python-dependencies), then Managed Airflow does not install these custom packages.
 
 
+```
+gcloud composer environments snapshots load \
+  DESTINATION_ENVIRONMENT_NAME \
+  --location LOCATION \
+  --snapshot-path "SNAPSHOT_PATH"
 
-    
-    
-    gcloud composer environments snapshots load \
-      DESTINATION_ENVIRONMENT_NAME \
-      --location LOCATION \
-      --snapshot-path "SNAPSHOT_PATH"
-    
+```
 
 Replace:
-
   * `DESTINATION_ENVIRONMENT_NAME` with the name of the environment where you want to load the snapshot.
   * `LOCATION` with the region where the environment is located.
   * `SNAPSHOT_PATH` with the URI of a bucket, followed by the path to the snapshot.
 
 
-
 Example:
-    
-    
-    gcloud composer environments snapshots load \
-      example-environment \
-      --location us-central1 \
-      --snapshot-path "gs://us-central1-example-916807e1-bucket/snapshots/example-project_us-central1_example-environment_2022-01-05T18-59-00"
-    
 
-###  API 
+```
+gcloud composer environments snapshots load \
+  example-environment \
+  --location us-central1 \
+  --snapshot-path "gs://us-central1-example-916807e1-bucket/snapshots/example-project_us-central1_example-environment_2022-01-05T18-59-00"
+
+```
 
   1. Construct an [`environments.loadSnapshot`](https://docs.cloud.google.com/composer/docs/reference/rest/v1/projects.locations.environments/loadSnapshot) API request.
-
   2. In the request body, in the `snapshotPath` field, specify the URI of a bucket, followed by the path to the snapshot. The name of the folder lists the ID of your project, environment's location and the timestamp when the snapshot was saved. For example, `gs://us-central1-example-916807e1-bucket/snapshots/example-project_us-central1_example-environment_2022-01-05T18-59-00`.
-
   3. (Optional) In the request body, in the `skipPypiPackagesInstallation` field specify if Managed Airflow must skip the installation of custom PyPI packages from the snapshot. If you load a snapshot of an environment with installed [custom PyPI packages](https://docs.cloud.google.com/composer/docs/composer-2/install-python-dependencies), then Managed Airflow does not install these custom packages.
-
 This field is optional. If you omit this field, Managed Airflow installs PyPI packages from the snapshot.
 
 
+```
+{
+  "snapshotPath": "SNAPSHOT_PATH"
+}
 
-    
-    
-    {
-      "snapshotPath": "SNAPSHOT_PATH"
-    }
-    
+```
 
 Replace:
-
   * `SNAPSHOT_PATH` with the URI of a bucket folder where to store the snapshot.
 
 
-
 Example:
-    
-    
-    // POST https://composer.googleapis.com/v1/projects/example-project/
-    // locations/us-central1/environments/example-environment:loadSnapshot
-    
-    {
-      "snapshotPath": "gs://us-central1-example-916807e1-bucket/snapshots/example-project_us-central1_example-environment_2022-01-05T18-59-00",
-      "skipPypiPackagesInstallation": "False"
-    }
-    
-    
 
-###  Terraform 
+```
+// POST https://composer.googleapis.com/v1/projects/example-project/
+// locations/us-central1/environments/example-environment:loadSnapshot
+
+{
+  "snapshotPath": "gs://us-central1-example-916807e1-bucket/snapshots/example-project_us-central1_example-environment_2022-01-05T18-59-00",
+  "skipPypiPackagesInstallation": "False"
+}
+
+
+```
 
 It is not possible to save and load environment snapshots using Terraform.
-
 Saving and loading snapshots are actions performed on an environment, and the resulting snapshots are not a part of an environment's definition. Since Terraform manages only Managed Airflow environment's configuration, you cannot save or load environment snapshots from it.
-
 ## What's next
-
   * [Configure scheduled snapshots](https://docs.cloud.google.com/composer/docs/composer-2/configure-scheduled-snapshots)
   * [Create environments](https://docs.cloud.google.com/composer/docs/composer-2/create-environments)
   * [Access control](https://docs.cloud.google.com/composer/docs/composer-2/access-control)
 
 
-
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

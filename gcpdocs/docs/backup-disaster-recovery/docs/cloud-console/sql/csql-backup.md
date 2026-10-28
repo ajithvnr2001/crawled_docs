@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/sql/csql-backup/
 title: Back up Cloud SQL instances to a backup vault \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:20:37.190381+00:00
+fetched_at: 2026-10-27T16:23:11.119316+00:00
 ---
 
 # Back up Cloud SQL instances to a backup vault  |  Backup and DR  |  Google Cloud Documentation
@@ -102,6 +102,11 @@ Backup plan | Create backup plan | `backupdr.backupPlans.create` | Admin project
 | Delete backup plan | `backupdr.backupPlans.delete` | Admin project  
 | Get backup plan | `backupdr.backupPlans.get` | Admin project  
 | List backup plans | `backupdr.backupPlans.list` | Admin project  
+| Update backup plan | `backupdr.backupPlans.update` | Admin project  
+| Get backup plan revision | `backupdr.backupPlanRevisions.get` | Admin project  
+| List backup plan revisions | `backupdr.backupPlanRevisions.list` | Admin project  
+| Create backup plan revision | `backupdrproducer.backupPlanRevisions.create` | Admin project  
+| Delete backup plan revision | `backupdrproducer.backupPlanRevisions.delete` | Admin project  
 Backup plan associations | Create backup plan association | `cloudsql.instances.updateBackupDrConfig`  
 `backupdr.backupPlanAssociations.createForCloudSqlInstance`  
 `backupdr.backupPlans.useForCloudSqlInstance` | Workload project  
@@ -224,7 +229,7 @@ You can use a [Terraform resource to configure a scheduled backup](https://regis
 
 You can swap the backup plan that's applied to a Cloud SQL instance to another backup plan instead. The backup plan you want to change to must meet the following criteria:
 
-  * The backup plan the same backup vault.
+  * The backup plan is in the same backup vault.
 
   * The backup plan is in the same region as the Cloud SQL instance.
 
@@ -273,6 +278,8 @@ Replace the following:
 
 
 
+
+**Note:** You can also edit an existing backup plan to change settings such as backup rules and maximum custom on-demand retention periods. For more information, see [Edit a backup plan for vaulted backups](https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/backup-plan-edit).
 
 ## List instances for which backups are scheduled
 
@@ -419,6 +426,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

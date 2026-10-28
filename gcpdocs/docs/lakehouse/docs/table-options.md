@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/table-options/
 title: Configure table options \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:33.854720+00:00
+fetched_at: 2026-10-28T00:17:49.944369+00:00
 ---
 
 # Configure table options  |  Lakehouse  |  Google Cloud Documentation
@@ -289,7 +289,7 @@ Property | Default value | Details
 `write.parquet.compression-codec` | `zstd` | BigQuery writes and storage optimization only support `zstd` and `snappy` compression formats. Other compression formats (such as `gzip`, `brotli`, and `lz4`) aren't supported.  
 `write.metadata.compression-codec` | `null` | Can be configured to `null` or `gzip`.  
 `history.expire.max-snapshot-age-ms` | `432000000` (5 days) | Can be configured to any non-negative integer up to `2592000000` (30 days) when table management is enabled, with up to 7 days (`604800000` ms) recommended. Table management jobs delete snapshots older than the specified duration.  
-`history.expire.min-snapshots-to-keep` | `1` | Can be configured to any non-negative integer up to `100` when table management is enabled. Table management jobs retain at least this number of snapshots.  
+`history.expire.min-snapshots-to-keep` | `1` | Can be configured to any positive integer up to `100` when table management is enabled. Table management jobs retain at least this number of snapshots.  
   
 Other Apache Iceberg write properties, such as `write.target-file-size-bytes` and `write.parquet.page-size-bytes`, can be configured from open source engines, but BigQuery writes and table management jobs might not comply with them.
 
@@ -304,6 +304,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt/retail/
 title: Retail prebuilt agent \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:45.783229+00:00
+fetched_at: 2026-10-27T20:09:43.524222+00:00
 ---
 
 # Retail prebuilt agent  |  Dialogflow CX  |  Google Cloud Documentation
@@ -25,17 +25,27 @@ Send feedback
 
 The retail [playbook-based, prebuilt agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt) lets you search for items, get product recommendations, and place an order.
 
-## Sample dialogs
+## Sample dialog
 
-The following sample dialogs show common scenarios that this prebuilt agent handles.
+This sample dialog shows common scenarios that this prebuilt agent handles.
 
 ### Search products and purchase items
 
-The user asks about watches available in the store. The agent recommends products that meet these criteria, and the user adds them to their shopping cart. The user confirms that they want to place an order, and the agent confirms the order with a confirmation number. The user then requests phone recommendations, and the agent suggests phones, adds one to the user's cart, and places an order for the user.
+  1. The user asks about watches available in the store.
+  2. The agent recommends products that meet these criteria.
+  3. The user adds the product to their cart.
+  4. The user adds another product to their cart.
+  5. The user asks about the contents of their cart.
+  6. The agent lists the items in the cart, and the user confirms they want to purchase them.
+  7. The agent places the order and provides a confirmation number.
+  8. The user asks for a phone recommendation.
+  9. The agent recommends phones available in the store.
+  10. The user adds one to their cart.
+  11. The user places an order for the phone and provides a confirmation number.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
-hi |   
+Hi |   
 | Hi, I'm your Google shopping assistant. I can help you search for items and place orders. How can I help you today?  
 what watches do you have |   
 | We have the Google Watch. Would you like to add it to your cart?  
@@ -62,11 +72,11 @@ no that's all for me, thanks |
   
 ### Cart management
 
-The user asks to add some items to their cart, and then removes one before placing an order.
+The user asks to add some items to their cart, and then removes one before placing the order.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
-hi I want to buy a phone |   
+Hi, I want to buy a phone |   
 | We have the Google Phone Pixel 8 and Google Phone Pixel 7. Which one would you like to purchase?  
 give me two of the 8 |   
 | You got it. I've added two Google Phone Pixel 8 to your cart. Anything else?  
@@ -80,11 +90,11 @@ no, that's it |
   
 ### Product not found
 
-The user asks about a product that the store does not carry.
+The user asks about a product that the store doesn't carry.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
-hi |   
+Hi |   
 | Hi, I'm your Google shopping assistant. I can help you search for items and place orders. How can I help you today?  
 I want to buy a car |   
 | Sorry, we don't have any cars in stock. Is there anything else you'd like to find?  
@@ -97,11 +107,12 @@ nope |
   
 ### Unrecognized input
 
-The user asks about a topic unrelated to products or ordering. The agent responds by repeating the topics it covers and asks the user what they would like help with.
+  1. The user asks about a topic unrelated to products or ordering.
+  2. The agent responds by repeating the topics it covers and asks the user what they need help with.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
-hi |   
+Hi |   
 | Hi, I'm your Google shopping assistant. I can help you search for items and place orders. How can I help you today?  
 I want to book a hotel |   
 | Sorry, I can't help you with that. I can help you search for products including phones, watches, and headphones. I can also help you place orders. How can I help you today?  
@@ -117,7 +128,7 @@ Follow these steps to set up this prebuilt agent:
 
 ## Tool setup
 
-This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) to integrate with external services. Use the prebuilt tool installer to deploy sample code and data for your prebuilt agent.
+This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) to integrate with external services. Deploy sample code and data for your prebuilt agent by using the tool installer.
 
 ####  To deploy and configure sample code and data for the Retail prebuilt agent, expand for instructions. 
 
@@ -157,17 +168,17 @@ This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/con
 
 
 
-### Google Store API
+### Google Store API tool
 
 The Google Store API tool fetches items from the Google Store based on a search term.
 
-### Manage shopping cart
+### Manage Shopping Cart tool
 
-The Manage Shopping Cart tool lets you manage your shopping cart by viewing, adding, and removing items.
+The Manage Shopping Cart tool lets the user manage their shopping cart by viewing, adding, and removing items.
 
-### Place order
+### Place Order tool
 
-The Place Order tool places an order with the user's current shopping cart and returns a confirmation number.
+The Place Order tool places an order for the user's current shopping cart and returns a confirmation number.
 
 ### Complete
 
@@ -181,6 +192,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

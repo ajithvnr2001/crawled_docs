@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/bigquery/configure/
 title: BigQuery \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:20:20.993557+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:27:04.903745+00:00
 ---
 
 # BigQuery  |  Integration Connectors  |  Google Cloud Documentation
@@ -296,7 +310,7 @@ To create a custom query, follow these steps:
   2. When you [configure the connector task](https://docs.cloud.google.com/application-integration/docs/configure-connectors-task#configure-the-connectors-task), in the type of action you want to perform, select **Actions**.
   3. In the **Action** list, select **Execute custom query** , and then click **Done**. 
 
-![image showing execute-custom-query-action](https://docs.cloud.google.com/static/application-integration/images/execute-custom-query-action.png)![image showing execute-custom-query-action](https://docs.cloud.google.com/static/application-integration/images/execute-custom-query-action.png)
+![image showing execute-custom-query-action](https://docs.cloud.google.com/static/application-integration/images/execute-custom-query-action.png) ![image showing execute-custom-query-action](https://docs.cloud.google.com/static/application-integration/images/execute-custom-query-action.png)
 
   4. Expand the **Task input** section, and then do the following: 
      1. In the **Timeout after** field, enter the number of seconds to wait till the query executes. 
@@ -309,7 +323,7 @@ Default value: `25`.
 
      3. To update the custom query, click **Edit Custom Script**. The **Script editor** dialog opens. 
 
-![image showing custom-sql-query](https://docs.cloud.google.com/static/application-integration/images/add-custom-sql-query.png)![image showing custom-sql-query](https://docs.cloud.google.com/static/application-integration/images/add-custom-sql-query.png)
+![image showing custom-sql-query](https://docs.cloud.google.com/static/application-integration/images/add-custom-sql-query.png) ![image showing custom-sql-query](https://docs.cloud.google.com/static/application-integration/images/add-custom-sql-query.png)
 
      4. In the **Script editor** dialog, enter the SQL query and click **Save**. 
 
@@ -320,7 +334,7 @@ You can use a question mark (?) in a SQL statement to represent a single paramet
 **Note:** Data manipulation language (DML) and data definition language (DDL) statements are supported.
      5. If you've used question marks in your SQL query, you must add the parameter by clicking **\+ Add Parameter Name** for each question mark. While executing the integration, these parameters replace the question marks (?) in the SQL query sequentially. For example, if you have added three question marks (?), then you must add three parameters in order of sequence. 
 
-![image showing add-query-param](https://docs.cloud.google.com/static/application-integration/images/add-query-param.png)![image showing add-query-param](https://docs.cloud.google.com/static/application-integration/images/add-query-param.png)
+![image showing add-query-param](https://docs.cloud.google.com/static/application-integration/images/add-query-param.png) ![image showing add-query-param](https://docs.cloud.google.com/static/application-integration/images/add-query-param.png)
 
 To add query parameters, do the following:
 
@@ -423,6 +437,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

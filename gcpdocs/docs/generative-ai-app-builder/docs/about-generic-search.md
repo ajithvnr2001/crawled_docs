@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/about-generic-search/
 title: Introduction to custom search \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:23:38.018420+00:00
+fetched_at: 2026-10-27T16:32:17.782604+00:00
 ---
 
 # Introduction to custom search  |  Agent Search  |  Google Cloud Documentation
@@ -49,6 +49,7 @@ The key capabilities of Agent Search are as follows:
     * **Blended Search:** Search over multiple data stores that _blend_ data from the data sources mentioned above. For example, you can create a search app and connect it to a website data store and a document data store. This lets your users search over all of your content at once.
   * **Grounded AI answer generation:** Generates AI answers grounded in your data, with citations to the source documents. You can also ask follow up questions and related queries.
   * **Personalization:** Improves results and ranking over time by learning from user interactions captured in user events, such as clicks and conversions.
+  * **Data management and CRUD operations:** Supports create, read, update, and delete (CRUD) operations on your documents in data stores. You can selectively delete individual records and update documents. For more information, see [CRUD operations on data stores](https://docs.cloud.google.com/generative-ai-app-builder/docs/create-datastore-ingest#crud-operations).
   * **Customization:** Offers several ways to tune and configure the search and browse experience fit for your business needs.
 
 
@@ -115,9 +116,10 @@ To elaborate, here are the available configurations:
       * [OCR parser for PDFs](https://docs.cloud.google.com/generative-ai-app-builder/docs/parse-chunk-documents#parsing-pdfs) to extract text from scanned PDFs or images.
       * [Layout Parser](https://docs.cloud.google.com/generative-ai-app-builder/docs/parse-chunk-documents#layout-parsing) to detect document structure and annotate images and graphs for better chunking and document understanding, which is required for complex documents and RAG applications.
     * **Custom embeddings** : Upload your own prepared vector embeddings. For more information, see [Use custom embeddings](https://docs.cloud.google.com/generative-ai-app-builder/docs/bring-embeddings).
-  * **Data ingestion** : Agent Search offers different types of ingestion for data from different sources, such as: 
+  * **Data ingestion** : Agent Search offers different types of ingestion and document management for data from different sources, such as: 
     * [Crawling for website data](https://docs.cloud.google.com/generative-ai-app-builder/docs/prepare-data#website)
     * Ingesting [structured](https://docs.cloud.google.com/generative-ai-app-builder/docs/prepare-data#structured) and [unstructured](https://docs.cloud.google.com/generative-ai-app-builder/docs/prepare-data#unstructured) data from Cloud Storage and BigQuery or [through the REST API](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.collections.dataStores.branches.documents)
+    * Managing individual documents using [CRUD operations](https://docs.cloud.google.com/generative-ai-app-builder/docs/create-datastore-ingest#crud-operations)
   * **Search and browse configuration** : 
     * **Field settings** : Control how fields are configured for search and answer generation, such as searchable, retrievable, or indexable. For more information, see [Configure field settings](https://docs.cloud.google.com/generative-ai-app-builder/docs/configure-field-settings).
     * **Autocomplete** : Provide query suggestions as users type. For more information, see [Configure autocomplete](https://docs.cloud.google.com/generative-ai-app-builder/docs/configure-autocomplete).
@@ -156,6 +158,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

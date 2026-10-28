@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/task-va-chat-api/
 title: Use virtual task assistants with the chat API platform \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:05.085688+00:00
+fetched_at: 2026-10-28T02:29:39.250217+00:00
 ---
 
 # Use virtual task assistants with the chat API platform  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ Replace the following:
 
      * `CHAT_ID`: the chat ID
 
-**Request body**
+**Example request**
 
 The following is an example of a request body:
     
@@ -47,14 +47,12 @@ The following is an example of a request body:
       "from_user_id": 12345,
       "message": {
         "type": "text",
-        "content": {
-          "text": "Example response from an end-user."
-        }
+        "content": "This is my response to the Task VA."
       }
     }
     
 
-  3. If the system detects an active virtual task assistant, it routes the message directly to the virtual task assistant. The message is designated as a `server_message` type, which hides it from the human agent to protect end-user privacy. If the system doesn't detect an active virtual task assistant, it routes the message to an available human agent.
+  3. If the system detects an active virtual task assistant, it routes the message directly to the virtual task assistant. The message is designated as a `server_message` type and carries a visibility value of `task_virtual_agent`. The CCAI Platform agent adapter uses this value to hide the message from the human agent. A custom agent interface must check the visibility value and apply the same filtering itself. If the system doesn't detect an active virtual task assistant, it routes the message to the session's current handler, which can be a human agent or a support virtual agent.
 
   4. When a virtual task assistant sends a response, your webhook endpoint receives a `message_received` event. This webhook payload contains the message from the virtual task assistant in the `server_message` property, so you don't need to make another API call to get the message. For more information, see [Chat platform API Guide](https://docs.cloud.google.com/contact-center/ccai-platform/docs/chat-platform-api-guide).
 
@@ -64,7 +62,7 @@ The following is an example webhook payload:
          
          {
            "event_type": "message_received",
-           "timestamp": "2025-09-25T14:30:00Z",
+           "timestamp": "2025-09-25 14:30:00 UTC",
            "chat_id": 37,
            "body": {
              "sender": {
@@ -96,6 +94,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

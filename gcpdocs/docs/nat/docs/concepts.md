@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/nat/docs/concepts/
 title: Concepts \u00a0|\u00a0 Cloud NAT \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:56:00.229285+00:00
+fetched_at: 2026-10-27T20:46:37.769163+00:00
 ---
 
 # Concepts  |  Cloud NAT  |  Google Cloud Documentation

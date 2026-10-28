@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-ragmanageddb-with-rag/
 title: Use RagManagedDb with RAG Engine on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:42.117292+00:00
+fetched_at: 2026-10-28T02:27:50.741742+00:00
 ---
 
 # Use RagManagedDb with RAG Engine on Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -62,14 +62,14 @@ This code samples demonstrates how to create a RAG corpus using KNN `RagManagedD
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     vector_db = rag.RagManagedDb(retrieval_strategy=rag.KNN())
     rag_corpus = rag.create_corpus(
@@ -133,7 +133,7 @@ The `leaf_count` determines the number of leaf nodes in the tree-based structure
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
@@ -142,7 +142,7 @@ The `leaf_count` determines the number of leaf nodes in the tree-based structure
     LEAF_COUNT = YOUR_LEAF_COUNT # Optional: Default is 500.
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     ann_config = rag.ANN(tree_depth=TREE_DEPTH, leaf_count=LEAF_COUNT)
     vector_db = rag.RagManagedDb(retrieval_strategy=ann_config)
@@ -207,7 +207,7 @@ To upload your local file into your RAG corpus, see [Upload a RAG file](https://
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
@@ -216,7 +216,7 @@ To upload your local file into your RAG corpus, see [Upload a RAG file](https://
     REBUILD_ANN_INDEX = REBUILD_ANN_INDEX # Choose true or false.
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     corpus_name = f"projects/{PROJECT_ID}/locations/{LOCATION}/ragCorpora/{CORPUS_ID}"
     # This is a non blocking call.
@@ -227,7 +227,7 @@ To upload your local file into your RAG corpus, see [Upload a RAG file](https://
     )
     
     # Wait for the import to complete.
-    await response.[result](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.CheckQueryJobResultDict.html#vertexai__genai_types_CheckQueryJobResultDict_result)()
+    await response.[result](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.CheckQueryJobResultDict.html#vertexai__genai_types_CheckQueryJobResultDict_result)()
     
 
 ###  REST 
@@ -254,17 +254,17 @@ To upload your local file into your RAG corpus, see [Upload a RAG file](https://
 
 RAG Engine provides robust options for managing how your data at rest is encrypted. By default, all user data within `RagManagedDb` is encrypted using a Google-owned and Google-managed encryption key, which is the default setting. This default setting helps you to verify that your data is secure without requiring any specific configuration.
 
-If you require more control over your keys used for encryption, RAG Engine supports Customer-Managed Encryption Key (CMEK). With CMEK, you can use your cryptographic keys, managed within Cloud Key Management Service (KMS), to protect your RAG corpus data.
+If you require more control over your keys used for encryption, RAG Engine supports Customer-managed encryption keys (CMEK). With CMEK, you can use your cryptographic keys, managed within Cloud Key Management Service (Cloud KMS), to protect your RAG corpus data.
 
 For information on CMEK limitations for RAG corpora, see [CMEK limitations for RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-supports-cmek#cmek-limitations).
 
-### Set up your KMS key and grant permissions
+### Set up your Cloud KMS key and grant permissions
 
 Before you can create a RAG corpus encrypted with CMEK, you must set up a cryptographic key in Google Cloud KMS, and grant the RAG Engine service account the necessary permissions to use this key.
 
 #### Prerequisites
 
-To perform the following setup steps, verify that your user account has the appropriate Identity and Access Management (IAM) permissions in the Google Cloud project where you intend to create the KMS key and the RAG corpus. Typically, a role like the Cloud KMS Admin role (`roles/cloudkms.admin`) is required.
+To perform the following setup steps, verify that your user account has the appropriate Identity and Access Management (IAM) permissions in the Google Cloud project where you intend to create the Cloud KMS key and the RAG corpus. Typically, a role like the Cloud KMS Admin role (`roles/cloudkms.admin`) is required.
 
 #### Enable the API
 
@@ -277,7 +277,7 @@ To enable the Cloud Key Management Service API, do the following:
 
 
 
-#### Create your KMS key ring and key
+#### Create your Cloud KMS key ring and key
 
 To create a key ring, do the following:
 
@@ -286,7 +286,7 @@ To create a key ring, do the following:
 Enter the following:
 
      * **Key ring name** : Enter a unique name for your key ring such as rag-engine-cmek-keys.
-     * **Location type** : Select Region. The Cloud Key Management Service key ring must be in the same region as the RAG Engine endpoint that you're using when you're encrypting a RAG corpus with CMEK.
+     * **Location type** : Select Region. The Cloud KMS key ring must be in the same region as the RAG Engine endpoint that you're using when you're encrypting a RAG corpus with CMEK.
      * **Location** : Choose the selected region such as `us-central1`. This region should ideally match the region where your RAG Engine resources will reside.
   2. Click **Create**.
 
@@ -323,7 +323,7 @@ To copy the key resource name, do the following:
 
 #### Grant Permissions to the RAG Engine service agent
 
-For the RAG Engine to encrypt and decrypt data using your KMS key, its service agent needs appropriate permissions on that specific key.
+For the RAG Engine to encrypt and decrypt data using your Cloud KMS key, its service agent needs appropriate permissions on that specific key.
 
 To identify your RAG Engine service agent, do the following:
 
@@ -358,9 +358,9 @@ Alternatively, send the REST API call:
 
 
 
-To grant permissions on the KMS key, do the following:
+To grant permissions on the Cloud KMS key, do the following:
 
-  1. Go back to the Key Management service in the Google Cloud console.
+  1. Go back to the Cloud KMS service in the Google Cloud console.
 
   2. Select the key ring containing the key you created.
 
@@ -381,14 +381,14 @@ To grant permissions on the KMS key, do the following:
 
 ### Create a RAG corpus with customer-managed encryption
 
-This code sample demonstrates how to create a RAG corpus encrypted with a Customer Managed Encrypted Key (CMEK).
+This code sample demonstrates how to create a RAG corpus encrypted with Customer-managed encryption keys (CMEK).
 
 Replace the variables in the following code samples:
 
 ###  Python 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from google.cloud import aiplatform
     from vertexai import rag
     from google.cloud.aiplatform_v1.types.encryption_spec import [EncryptionSpec](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.types.EncryptionSpec.html)
@@ -398,7 +398,7 @@ Replace the variables in the following code samples:
     DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
     KMS_KEY_NAME = YOUR_KMS_KEY_NAME
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).[init](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.html)(project=PROJECT_ID)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).[init](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform.html)(project=PROJECT_ID)
     
     rag_corpus = rag.create_corpus(display_name=DISPLAY_NAME, encryption_spec=EncryptionSpec(kms_key_name=KMS_KEY_NAME))
     
@@ -427,7 +427,7 @@ Replace the variables in the following code samples:
 
 When you use CMEK with Gemini Enterprise Agent Platform services, such as the RAG Engine on Gemini Enterprise Agent Platform, there's a quota on the number of unique Cloud KMS keys that can be in use per project per region. This quota is tracked by the metric `aiplatform.googleapis.com/in_use_customer_managed_encryption_keys`.
 
-Each time you use a new, unique KMS key to create a resource like a RAG corpus within a project and region, the KMS key consumes one unit of this quota. This quota unit isn't released even if the resources using that specific key are deleted.
+Each time you use a new, unique Cloud KMS key to create a resource like a RAG corpus within a project and region, the Cloud KMS key consumes one unit of this quota. This quota unit isn't released even if the resources using that specific key are deleted.
 
 If you need more unique keys than the current limit, you must request a quota increase for `aiplatform.googleapis.com/in_use_customer_managed_encryption_keys` for the select region.
 
@@ -445,6 +445,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/deployment-modes/
 title: Deployment modes in RAG Engine on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:12.670420+00:00
+fetched_at: 2026-10-28T02:27:40.494135+00:00
 ---
 
 # Deployment modes in RAG Engine on Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ Serverless mode is the most affordable and recommended way to get started with R
   * **Best for** : Most users, quick onboarding, and seamless scaling without the need to manage infrastructure configurations.
   * **Key features** : Requires no tier management. It automatically uses RAG-managed Vector Search as the default vector database to provide a streamlined and out-of-the-box RAG experience.
 
-**Note:** Customer-Managed Encryption Keys (CMEK) are not supported in Serverless mode.
+**Note:** Customer-managed encryption keys (CMEK) are not supported in Serverless mode.
 
 In the serverless mode, the RAG managed database is for managing RAG business operations and storing RAG resources. These resources include (but are not limited to) `RagCorpus`, `RagFiles`, `RagMetadata`, `DataSchema` etc. But it can no longer be used for embedding indexing and vector search.
 
@@ -139,6 +139,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

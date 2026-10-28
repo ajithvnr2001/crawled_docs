@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/firestore/native/docs/understand-performance-monitoring/
 title: Understand performance monitoring in Firestore \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:19:36.942247+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:30:31.483603+00:00
 ---
 
 # Understand performance monitoring in Firestore  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -76,7 +90,7 @@ The `api/request_latencies` metric provides latency distributions across all com
 
 Firestore records metrics from the **Firestore Service** component. Latency metrics include the time that Firestore receives the request to the time that Firestore finishes sending the response, including interactions with the storage layer. Due to this, round-trip latency (rtt) between the client and the Firestore service is not included in these metrics.
 
-![api/request_latencies to calculate latency distribution](https://docs.cloud.google.com/static/firestore/native/docs/images/cloudmon-req-latency.png)**Figure 4.** api/request_latencies to calculate latency distribution.
+![api/request_latencies to calculate latency distribution](https://docs.cloud.google.com/static/firestore/native/docs/images/cloudmon-req-latency.png) **Figure 4.** api/request_latencies to calculate latency distribution.
 
 ##### api/request_sizes and api/response_sizes
 
@@ -96,7 +110,7 @@ The following metrics can be used to understand whether your database is read he
   * `document/read_ops_count`: The number of successful document reads from queries or lookups.
   * `document/write_ops_count`: The number of successful document writes.
 
-**Note:** The `document/delete_ops_count` metric doesn't include documents deleted due to TTL policies. For information about metrics that capture deletes due to TTL policies, see TTL Metrics.[ ![Create a ratio of documents read vs documents written](https://docs.cloud.google.com/static/firestore/native/docs/images/cloudmon-doc-operation.png)](https://docs.cloud.google.com/static/firestore/native/docs/images/cloudmon-doc-operation.png) **Figure 6.** Create a ratio of documents read vs documents written (click to enlarge).
+**Note:** The `document/delete_ops_count` metric doesn't include documents deleted due to TTL policies. For information about metrics that capture deletes due to TTL policies, see TTL Metrics. [ ![Create a ratio of documents read vs documents written](https://docs.cloud.google.com/static/firestore/native/docs/images/cloudmon-doc-operation.png)](https://docs.cloud.google.com/static/firestore/native/docs/images/cloudmon-doc-operation.png) **Figure 6.** Create a ratio of documents read vs documents written (click to enlarge).
 
 In figure 6, you can see how to create a ratio that shows the ratio of documents read vs. documents written. In this example, the number of documents being read is around 6% more than the number of documents being written.
 
@@ -149,7 +163,7 @@ In figure 7, you can see how index write rate can be contrasted with document wr
 
 You can view these metrics in the `Usage` tab within the Firestore database in the Firebase console.
 
-![Metrics to track activity of clients connected to Firestore](https://docs.cloud.google.com/static/firestore/native/docs/images/cloudmon-listeners.png)**Figure 8.** Metrics to track activity of clients connected to Firestore.
+![Metrics to track activity of clients connected to Firestore](https://docs.cloud.google.com/static/firestore/native/docs/images/cloudmon-listeners.png) **Figure 8.** Metrics to track activity of clients connected to Firestore.
 
 ### TTL Metrics
 
@@ -178,6 +192,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

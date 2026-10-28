@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/create-upload-blueprint/
 title: Create and upload a blueprint \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:16.511365+00:00
+fetched_at: 2026-10-27T23:25:01.479496+00:00
 ---
 
 # Create and upload a blueprint  |  App Lifecycle Manager  |  Google Cloud Documentation
@@ -206,7 +206,7 @@ To set up this automation, do the following:
 Replace the following:
 
      * `PROJECT_ID`: Your project ID.
-     * `CLOUD_BUILD_SERVICE_ACCOUNT`: The full name of your Cloud Build service account. For more details about App Lifecycle Manager and service accounts, see [App Lifecycle Manager service accounts](https://docs.cloud.google.com/app-lifecycle-manager/overview#saas-service-accounts)
+     * `CLOUD_BUILD_SERVICE_ACCOUNT`: The full name of your Cloud Build service account. For more details about App Lifecycle Manager and service accounts, see [App Lifecycle Manager service accounts](https://docs.cloud.google.com/app-lifecycle-manager/overview#alm-service-accounts)
      * `REPOSITORY_NAME`: The name of your Artifact Registry repository.
      * `IMAGE_NAME`: A name for your blueprint image.
      * `TAG`: A tag for your image version (for example, `latest`, or `v1.0.0`). Choosing a descriptive tag helps you effectively manage versions of the blueprint.
@@ -243,6 +243,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

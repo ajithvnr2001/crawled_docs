@@ -1,13 +1,47 @@
 ---
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/
 title: Shared responsibility model \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T10:46:14.038713+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T17:07:57.632367+00:00
 ---
 
 # Shared responsibility model  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/
+
+[ Skip to main content ](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/)
+  * [Deutsch](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=de)
+  * [Español](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=it)
+  * [Português](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/?hl=ko)
+
+
+[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Fdistributed-cloud%2Fhosted%2Fdocs%2Flatest%2Fgdcag%2Fapplication%2Fao-user%2Fshared-responsibility-model%2F&prompt=select_account)
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/distributed-cloud-color.svg) ](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag)
+  * [ Google Distributed Cloud ](https://docs.cloud.google.com/distributed-cloud/docs)
+  * [ Air-gapped ](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdch)
+  * [ 1.16.2 (Latest) ](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Google and Distributed Cloud operator responsibilities](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/#operator-responsibilities)
+  * [Vendor responsibilities](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/#vendor-responsibilities)
+  * [User responsibility](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/#user-responsibilities)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -17,39 +51,29 @@ fetched_at: 2026-10-24T10:46:14.038713+00:00
   * [ 1.16.2 (Latest) ](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag)
 
 
-
+Was this helpful?
 Send feedback 
+#  Shared responsibility model Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Google and Distributed Cloud operator responsibilities](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/#operator-responsibilities)
+  * [Vendor responsibilities](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/#vendor-responsibilities)
+  * [User responsibility](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/shared-responsibility-model/#user-responsibilities)
 
-#  Shared responsibility model Stay organized with collections  Save and categorize content based on your preferences. 
 
 Google and your Google Distributed Cloud (GDC) air-gapped operator distribute services through the Distributed Cloud Marketplace for your benefit. The responsibility model for Marketplace services is different from other services on the Distributed Cloud platform.
-
 ### Google and Distributed Cloud operator responsibilities
-
 Google ensures that Marketplace services go through the same rigorous security scans as the rest of Distributed Cloud. When vulnerabilities are detected in a Marketplace service, Google works with the relevant vendor to fix the vulnerabilities. Depending on your contract, your Distributed Cloudoperator might implement additional processes and security measures on Marketplace services. Google ensures that Marketplace services are compatible with Distributed Cloud, and can be deployed in a recommended way. Google ensures that once a software vendor makes a new version of their software available, that new version is included in the Distributed Cloud Marketplace in a timely manner.
-
 ### Vendor responsibilities
-
 The software vendor documents how you can comply with specific policy regimes with their product. For example, this can take the form of a technical implementation guide that targets a specific compliance regime.
-
 It is the responsibility of the software vendor to patch vulnerabilities in their own product, and to provide Google with the patched version so that we can distribute it in the Distributed Cloud Marketplace.
-
 If included in your contract with a software vendor, it is their responsibility to provide you support. Google and your Distributed Cloud operator support the Distributed Cloud Marketplace systems, but not the Marketplace services themselves, unless provided by Google directly.
-
 ### User responsibility
-
 It is essential that the user is aware of the compliance regime to which they are subject, and that they consult the documentation that the software vendor provides related to their compliance regime, if available.
-
 The user is obligated to configure the Marketplace service in accordance with their own policies and the compliance regimes to which they are subject.
-
 It is the responsibility of the user to obtain licenses from the relevant software vendor for any Marketplace service that requires licenses.
-
 Once installed and running, Marketplace services are considered user workloads. They run in the user environment and are their responsibility. Google provides features to install, update, and uninstall Marketplace services, but it is the user responsibility to use the features. Unless specified in the contract with Distributed Cloud operator, they don't actively monitor user workloads and don't fix issues that arise.
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

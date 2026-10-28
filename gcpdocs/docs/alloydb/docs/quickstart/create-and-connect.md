@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/quickstart/create-and-connect/
 title: Create and query an AlloyDB database using the Google Cloud console \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:21.659153+00:00
+fetched_at: 2026-10-28T02:16:28.904028+00:00
 ---
 
 # Create and query an AlloyDB database using the Google Cloud console  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ To get started with AlloyDB for PostgreSQL in the Google Cloud console, you can 
 
   4. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  5. Enable the Compute Engine, AlloyDB, Cloud Resource Manager, and Service Networking APIs, if any are not already enabled. 
+  5. Enable the Compute Engine, AlloyDB, Resource Manager, and Service Networking APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -62,7 +62,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
   8. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  9. Enable the Compute Engine, AlloyDB, Cloud Resource Manager, and Service Networking APIs, if any are not already enabled. 
+  9. Enable the Compute Engine, AlloyDB, Resource Manager, and Service Networking APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -281,6 +281,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

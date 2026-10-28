@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/protobuf-export/
 title: Export data as Protobuf columns \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:25:13.270670+00:00
+fetched_at: 2026-10-27T19:38:24.770092+00:00
 ---
 
 # Export data as Protobuf columns  |  BigQuery  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ However, there are limitations to exporting BigQuery data as Protobuf columns:
 
 If these limitations apply to the export workflow, you might consider other methods of exporting BigQuery data:
 
-  * Use [scheduled queries](https://docs.cloud.google.com/bigquery/docs/scheduling-queries) with [`EXPORT DATA` statements](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/other-statements#export_data_statement) to sort the exported BigQuery data by date or time, and to schedule exports on a recurring basis. BigQuery supports exporting data into Avro, CSV, JSON, and Parquet formats.
+  * Use [scheduled queries](https://docs.cloud.google.com/bigquery/docs/scheduling-queries) with [`EXPORT DATA` statements](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/export-statements#export_data_statement) to sort the exported BigQuery data by date or time, and to schedule exports on a recurring basis. BigQuery supports exporting data into Avro, CSV, JSON, and Parquet formats.
   * Use [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview) to export BigQuery data in either the Avro or CSV file format.
 
 
@@ -375,6 +375,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

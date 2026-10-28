@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/de-identification-re-identification-pii-using-cloud-dlp/
 title: De-identification and re-identification of PII in large-scale datasets using Sensitive Data Protection \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:32:54.220768+00:00
+fetched_at: 2026-10-27T23:42:38.187905+00:00
 ---
 
 # De-identification and re-identification of PII in large-scale datasets using Sensitive Data Protection  |  Cloud Architecture Center  |  Google Cloud Documentation

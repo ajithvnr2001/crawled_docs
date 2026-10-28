@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/docs/samples/monitoring-uptime-check-create/
 title: Create an uptime check \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:00:35.078388+00:00
+fetched_at: 2026-10-27T21:21:53.966938+00:00
 ---
 
 # Create an uptime check  |  Cloud Monitoring  |  Google Cloud Documentation

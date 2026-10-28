@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/manage-maintenance-updates-staging-cluster/
 title: Manage AlloyDB maintenance updates using a staging cluster \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:57.837923+00:00
+fetched_at: 2026-10-28T01:29:21.235232+00:00
 ---
 
 # Manage AlloyDB maintenance updates using a staging cluster  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -107,11 +107,11 @@ You can verify that there's no maintenance window set as follows:
              --region=LOCATION_ID \
              --project=PROJECT_ID
 
-  2. Look for the `maintenanceSchedule` field in the output. If no maintenance window is set, this field is absent or empty. If, for any reason, a maintenance window _is_ set, clear it.
+  2. Look for the `maintenanceUpdatePolicy.maintenanceWindows` field in the output. If no maintenance window is set, this field is absent or empty. If, for any reason, a maintenance window _is_ set, clear it:
          
          gcloud alloydb clusters update STAGING_CLUSTER_ID \
              --region=LOCATION_ID \
-             --clear-maintenance-window \
+             --maintenance-window-any \
              --project=PROJECT_ID
 
 
@@ -173,7 +173,7 @@ When you create a cluster, AlloyDB assigns this default maintenance window to it
 
 To use the gcloud CLI, you can [install and initialize](https://docs.cloud.google.com/sdk/docs/install-sdk) the Google Cloud CLI, or you can use [Cloud Shell](https://docs.cloud.google.com/shell/docs/using-cloud-shell).
 
-To retrieve the configuration details for an AlloyDB cluster, run the following using the [`gcloud alloydb clusters update`](https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/clusters/update) command.
+To set the maintenance window for an AlloyDB cluster, run the [`gcloud alloydb clusters update`](https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/clusters/update) command:
     
     
     gcloud alloydb clusters update PRODUCTION_CLUSTER_ID \
@@ -209,7 +209,7 @@ To confirm that the maintenance window is set for your production cluster, run t
     --region=LOCATION_ID \
     --project=PROJECT_ID
 
-The output returns the `maintenanceSchedule` field with the specified maintenance day and hour.
+The output returns the `maintenanceUpdatePolicy.maintenanceWindows` field with the specified maintenance day and hour.
 
 ### Opt in to maintenance notifications
 
@@ -384,6 +384,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

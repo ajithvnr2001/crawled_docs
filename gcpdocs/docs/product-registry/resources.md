@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/product-registry/resources/
 title: Resources \u00a0|\u00a0 Cloud Product Registry API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:44.305681+00:00
+fetched_at: 2026-10-28T01:39:42.797993+00:00
 ---
 
 # Resources  |  Cloud Product Registry API  |  Google Cloud Documentation

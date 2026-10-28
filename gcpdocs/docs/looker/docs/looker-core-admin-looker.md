@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-admin-looker/
 title: Looker (Google Cloud core) admin settings \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:43:57.125791+00:00
+fetched_at: 2026-10-28T02:29:57.366311+00:00
 ---
 
 # Looker (Google Cloud core) admin settings  |  Google Cloud Documentation
@@ -72,7 +72,7 @@ You can refer to the list of [Administrative tutorials](https://docs.cloud.googl
 > 
 >     * The Looker Action Hub on the [**Actions** page](https://docs.cloud.google.com/looker/docs/admin-panel-platform-actions) is available only for [public secure connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#public_ip_connections) or [hybrid connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#both_public_and_private_ip_connections) network connections.
 > 
->     * The [**BI Connectors** page](https://docs.cloud.google.com/looker/docs/bi-connectors) is available only for [public secure connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#public_ip_connections) or [hybrid connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#both_public_and_private_ip_connections) network connections. Additionally, all BI connectors are enabled by default for Looker (Google Cloud core) instances that use public public secure connections or hybrid connections.
+>     * The [**BI Connectors** page](https://docs.cloud.google.com/looker/docs/bi-connectors) is available only for [public secure connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#public_ip_connections) or [hybrid connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#both_public_and_private_ip_connections) network connections. Individual BI connector OAuth clients can also be managed on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients) page in the **Authentication** section of the Admin panel. Additionally, all BI connectors are enabled by default for Looker (Google Cloud core) instances that use public secure connections or hybrid connections.
 > 
 >     * The [**Marketplace** page](https://docs.cloud.google.com/looker/docs/admin-panel-platform-marketplace) isn't available in Looker (Google Cloud core) instances that use private services access connections. However, Looker (Google Cloud core) instances that use Private Service Connect connections can [connect to Marketplace](https://docs.cloud.google.com/looker/docs/looker-core-create-psc#connect-to-marketplace).
 > 
@@ -82,7 +82,7 @@ You can refer to the list of [Administrative tutorials](https://docs.cloud.googl
 > 
 >     * The [**Gemini in Looker**](https://docs.cloud.google.com/looker/docs/admin-panel-platform-gil) page is available for all [editions](https://docs.cloud.google.com/looker/docs/looker-core-instance-create#create_edition) of Looker (Google Cloud core). For Looker (Google Cloud core) instances, Gemini in Looker is [enabled and administered](https://docs.cloud.google.com/looker/docs/looker-core-admin-gemini) in the Google Cloud console.
 
-  * [**Authentication** pages](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-pages) — View a list of pages about configuring various authentication methods, including passwords and two-factor authentication, along with configuring options to allow users to stay logged in to Looker.
+  * [**Authentication** pages](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-pages) — View a list of pages about configuring various authentication methods, including passwords and two-factor authentication, managing OAuth client applications, and configuring options to allow users to stay logged in to Looker.
 
 > The following **Authentication** Admin panel features have moved or changed for Looker (Google Cloud core):
 > 
@@ -90,6 +90,7 @@ You can refer to the list of [Administrative tutorials](https://docs.cloud.googl
 >     * The [**SAML**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-saml) and [**OpenID Connect**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-openid-connect) pages are available only if you choose Google OAuth as the [primary authentication method](https://docs.cloud.google.com/looker/docs/looker-core-user-authentication#primary-authentication-methods) for your Looker (Google Cloud core) instance.
 >     * Setting up the Google OAuth client and credentials now happens [within the Google Cloud console](https://docs.cloud.google.com/looker/docs/looker-core-create-oauth). For Looker (Google Cloud core), the [**Google authentication**](https://docs.cloud.google.com/looker/docs/looker-core-oauth-authentication) page is used only to set the [default Looker role](https://docs.cloud.google.com/looker/docs/looker-core-oauth-authentication#setting_a_default_looker_role_within_the_instance) and [merge options](https://docs.cloud.google.com/looker/docs/looker-core-oauth-authentication#specify_the_method_used_to_merge_oauth_users_to_a_account).
 >     * The [**Passwords**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-password), [**Two-Factor**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-two-factor), and [**LDAP**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-ldap) pages are not available for Looker (Google Cloud core).
+>     * The [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients) page is available in Looker (Google Cloud core) instances to manage pre-configured and custom OAuth 2.0 client applications. In Looker (Google Cloud core) instances, pre-configured BI connector clients in the **Application Library** are enabled by default.
 
   * The [**Server** pages](https://docs.cloud.google.com/looker/docs/admin-panel-server-pages) are not available for Looker (Google Cloud core).
 
@@ -108,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

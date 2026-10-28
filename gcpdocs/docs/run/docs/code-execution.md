@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/code-execution/
 title: Code execution in Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:58:05.223294+00:00
+fetched_at: 2026-10-27T19:53:41.475729+00:00
 ---
 
 # Code execution in Cloud Run  |  Google Cloud Documentation
@@ -205,18 +205,20 @@ Use the following flags when running the `sandbox do` command:
 
 
 
+The `/tmp` directory inside the sandbox isn't part of the root file system overlay, so archive files don't include files written to `/tmp`. To persist data, write it to a different directory, such as `/workspace`.
+
 For example, to pass data between two sandbox calls using archive files, run the following commands:
 
   1. Write data inside a sandbox and export the state to an archive file:
          
          sandbox do --write --export-tar=/tmp/work.tar \
-           -- /usr/bin/bash -c "mkdir -p /tmp/work && echo 'task-complete' > /tmp/work/status.txt"
+           -- /usr/bin/bash -c "mkdir -p /workspace && echo 'task-complete' > /workspace/status.txt"
          
 
   2. Import the archive file in a subsequent call to retrieve the data:
          
          sandbox do --write --import-tar=/tmp/work.tar \
-           -- /usr/bin/bash -c "cat /tmp/work/status.txt"
+           -- /usr/bin/bash -c "cat /workspace/status.txt"
          
 
 
@@ -262,9 +264,9 @@ Deploy a named sandbox in the background to handle continuous tasks like web ser
 
 For example, to deploy a background sandbox, write a file to its overlay, and snapshot its state to verify the data was captured, run the following commands:
 
-  1. Deploy a named sandbox in the background with write access enabled, creating a file within its workspace:
+  1. Deploy a named sandbox in the background with write access enabled, creating a file within its workspace. Write the file to a path outside `/tmp`, because files written to `/tmp` inside the sandbox aren't captured in snapshots:
          
-         sandbox run --write my-sandbox --detach -- /usr/bin/bash -c "echo 'hi' > /tmp/hello.txt && sleep 1h"
+         sandbox run --write my-sandbox --detach -- /usr/bin/bash -c "echo 'hi' > /workspace/hello.txt && sleep 1h"
          
 
   2. Create a snapshot of the running sandbox's modified file system using the `sandbox tar` command:
@@ -280,8 +282,8 @@ For example, to deploy a background sandbox, write a file to its overlay, and sn
 You should see the following results:
          
          ./
-         ./tmp/
-         ./tmp/hello.txt
+         ./workspace/
+         ./workspace/hello.txt
          
 
 
@@ -303,9 +305,11 @@ This command returns the standard HTTP status code `200`, indicating a successfu
 
 By default, processes you execute inside the sandbox have read-only access to the host container root file system. You can use the `--write` flag to enable writing to a temporary file system (tmpfs) overlay. However, the writes will be lost when the sandbox is deleted. To enable persistent writing to the host container, you can configure bind mounts.
 
+The `/tmp` directory inside the sandbox is always writable, even without the `--write` flag. The `/tmp` directory is deleted when the sandbox is deleted, and it isn't included in snapshots or archive files.
+
 #### Default read-only access
 
-Inside the sandbox, processes can read files from the host container, and they can't write to the root file system.
+Inside the sandbox, processes can read files from the host container, and they can't write to the root file system outside of `/tmp`.
 
 The following examples assume you are executing commands from the root directory (`/`) of your host container.
 
@@ -329,16 +333,16 @@ To verify default read-only access, run the following commands:
 
 This command returns `hi`, confirming that the sandbox has read access.
 
-If you attempt to write data directly to the sandbox root file system without additional configuration, the execution fails. For example, attempting to write to `/tmp` inside the default sandbox returns a read-only file system error:
+If you attempt to write data directly to the sandbox root file system without additional configuration, the execution fails. For example, attempting to write to the root directory (`/`) inside the default sandbox returns a read-only file system error:
 
 Run the following command to write to the root file system:
          
-         sandbox do -- /usr/bin/bash -c "echo 'hi' > /tmp/testfile.txt"
+         sandbox do -- /usr/bin/bash -c "echo 'hi' > /testfile.txt"
          
 
 The command fails with the following error:
          
-         /usr/bin/bash: line 1: /tmp/testfile.txt: Read-only file system
+         /usr/bin/bash: line 1: /testfile.txt: Read-only file system
          Error: failed to exec in container: cmd.Wait(exec) failed: exit status 1
          
 
@@ -440,6 +444,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/docs/samples/monitoring-get-descriptor/
 title: Get a metric descriptor \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:00:40.126301+00:00
+fetched_at: 2026-10-27T21:21:50.992121+00:00
 ---
 
 # Get a metric descriptor  |  Cloud Monitoring  |  Google Cloud Documentation

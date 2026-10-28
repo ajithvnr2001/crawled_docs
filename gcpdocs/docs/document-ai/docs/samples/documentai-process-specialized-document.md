@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-process-specialized-document/
 title: Process a document using a Specialized processor \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:41:25.831224+00:00
+fetched_at: 2026-10-27T22:57:37.786231+00:00
 ---
 
 # Process a document using a Specialized processor  |  Document AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/deploy-kubernetes/
 title: Install AlloyDB Omni using the container orchestrator \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:27:41.233800+00:00
+fetched_at: 2026-10-27T19:16:42.528346+00:00
 ---
 
 # Install AlloyDB Omni using the container orchestrator  |  AlloyDB Omni using the container orchestrator: 17.9.0  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ Select a documentation version: 17.9.0keyboard_arrow_down
 
 This page provides an overview of the AlloyDB Omni Kubernetes operator, with instructions for using it to deploy AlloyDB Omni onto a Kubernetes cluster. This page assumes basic familiarity with Kubernetes operation. 
 
-For instructions on installing AlloyDB Omni onto a standard Linux environment, see [Install AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/deploy-kubernetes).
+For instructions on installing AlloyDB Omni onto a standard Linux environment, see [Install AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/deploy-vm).
 
 ## Overview
 
@@ -89,12 +89,12 @@ Based on your environment and tooling, choose one of the following deployment me
 ---|---|---  
 **AlloyDB Omni operator with Helm Chart** | [Install AlloyDB Omni on Kubernetes](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/deploy-kubernetes#install) | Bring-your-own Kubernetes container environment—for example, on-premises, public clouds, GKE, Amazon EKS, and Azure AKS.  
   
-**Tip:** If your CD (continuous delivery) tooling is integrated with Helm, use this option.  
+**Tip:** If your continuous delivery (CD) tooling is integrated with Helm, use this option.  
 **AlloyDB Omni operator with OLM bundle** | [OperatorHub.io](https://operatorhub.io/operator/alloydb-omni-operator) | Bring-your-own Kubernetes container environment—for example, on-premises, public clouds, Google Kubernetes Engine, Amazon EKS, and Azure AKS.  
   
 To use an OLM bundle, install OLM on the Kubernetes cluster before you install the operator. For more information, see [olm.operatorframework.io](https://olm.operatorframework.io/).  
   
-**Tip:** If your CD (continuous delivery) tooling already uses OLM, choose this option.  
+**Tip:** If your continuous delivery (CD) tooling already uses OLM, choose this option.  
 **OpenShift Operator with OLM Bundle** | [Openshift Container Platform Web Console](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/web_console/web-console) | OpenShift environment  
   
 OpenShift, a variant of Kubernetes, uses OLM as its standard, built-in method for packaging and deploying operators.  
@@ -323,14 +323,15 @@ Replace the following:
 
 
 
-After you apply this manifest, your Kubernetes cluster contains an AlloyDB Omni database cluster with the specified memory, CPU, and storage configuration. To establish a test connection with the new database cluster, see [Connect using the preinstalled `psql`](https://docs.cloud.google.com/alloydb/omni/15.12.0/docs/run-connect#psql-kubernetes).
+After you apply this manifest, your Kubernetes cluster contains an AlloyDB Omni database cluster with the specified memory, CPU, and storage configuration. To establish a test connection with the new database cluster, see [Connect using the preinstalled `psql`](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/run-connect#psql-kubernetes).
 
 **Note:** Starting with version 1.1.0 of AlloyDB Omni operator, the administrator password secret is no longer deleted after you set it. You must keep the newly set secret for the lifespan of your AlloyDB Omni database cluster.
 
-For more information about Kubernetes manifests and how to apply them, see [Managing resources](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/).
+For additional sample manifests, see [Kubernetes configuration samples](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/samples). For more information about Kubernetes manifests and how to apply them, see [Managing resources](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/).
 
 ## What's next
 
+  * [Explore Kubernetes configuration samples](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/samples)
   * [Plan storage and PVC sizes](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/plan-storage-kubernetes)
   * [Run and connect to AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/run-connect)
   * [Manage AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/manage)
@@ -342,6 +343,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.5/documentation/
 title: Kf 2.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:54:11.109206+00:00
+fetched_at: 2026-10-27T21:22:25.214393+00:00
 ---
 
 # Kf 2.5  |  Google Cloud Documentation

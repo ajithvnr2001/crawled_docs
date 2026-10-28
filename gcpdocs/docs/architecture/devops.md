@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/devops/
 title: DevOps capabilities \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:44.346830+00:00
+fetched_at: 2026-10-27T23:39:44.437466+00:00
 ---
 
 # DevOps capabilities  |  Google Cloud Documentation

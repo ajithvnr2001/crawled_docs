@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/winevtlog/
 title: Collect Microsoft Windows Event logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:38.307829+00:00
+fetched_at: 2026-10-27T22:37:36.784222+00:00
 ---
 
 # Collect Microsoft Windows Event logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -3912,19 +3912,20 @@ Message |  | `metadata.description`
 
 **NXLog field** |  **Event Viewer field** |  **UDM field**  
 ---|---|---  
-|  |  `metadata.event_type = STATUS_UNCATEGORIZED` `security_result.action = UNKNOWN_ACTION`  
-`Data_9` |  |  `network.http.user_agent`  
+|  |  `metadata.event_type = NETWORK_HTTP` `security_result.action = UNKNOWN_ACTION`  
+`Hostname` |  `System/Computer` |  `target.hostname` `target.asset.hostname`  
+`Data_9` |  |  `network.http.user_agent` `network.http.parsed_user_agent`  
 `Domain` |  `System/Domain` |  `principal.administrative_domain`  
-`Data_8` |  |  `principal.ip`  
-`Data_7` |  |  `principal.port`  
+`Data_8` |  |  `target.ip` `target.asset.ip`  
+`Data_7` |  |  `target.port`  
 `AccountName` |  `System/AccountName` |  `principal.user.userid`  
-`UserID` |  `System/UserID` |  `principal.user.windows_sid`  
-`Data_3` |  |  `target.ip`  
+`UserID` |  `System/UserID` |  `additional.fields.key` `additional.fields.value.string_value`  
+`Data_3` |  |  `principal.ip` `principal.asset.ip`  
 `Data_5` |  |  `target.url`  
 `Data` |  |  `target.resource.product_object_id`  
 `Data_1` |  |  `additional.fields.key` `additional.fields.value_string`  
 `Data_2` |  |  `metadata.event_timestamp`  
-`Data_4` |  |  `target.network.http.method`  
+`Data_4` |  |  `network.http.method`  
 `Data_6` |  |  `additional.fields.key` `additional.fields.value_string`  
 `Data_10` |  |  `additional.fields.key` `additional.fields.value_string`  
 `Data_11` |  |  `additional.fields.key` `additional.fields.value_string`  
@@ -5319,10 +5320,26 @@ Message |  | `metadata.description`
 **NXLog field** |  **Event Viewer field** |  **UDM field**  
 ---|---|---  
 |  |  `metadata.event_type = USER_LOGIN` `security_result.action = ALLOW`  
+`Hostname` |  `System/Computer` |  `target.hostname` `target.asset.hostname`  
 `Message` |  |  `metadata.description`  
 `"SERVICE"` |  | `extensions.auth.mechanism`  
-`"SSO"` |  | `extensions.auth.typ`  
-`UserID` |  | `target.user.windows_sid`  
+`"SSO"` |  | `extensions.auth.type`  
+`UserID` |  `System/UserID` |  `additional.fields.key` `additional.fields.value.string_value`  
+`Data` |  `EventData/Data[1]` |  `additional.fields.key` `additional.fields.value.string_value`  
+`Data_1` |  `EventData/Data[2]` |  The XML data from `Data_1` (or `Message`) field is parsed and mapped as follows:
+
+  * `/AuditBase/ContextComponents/Component/RelyingParty` is mapped to `target.application`.
+  * `/AuditBase/ContextComponents/Component/UserId` is mapped based on its format: 
+    * If the value matches the `DOMAIN\user` format, the domain is mapped to `target.administrative_domain` and the username is mapped to `target.user.userid`.
+    * If the value matches the UPN (`user@domain`) format, the full email address is mapped to `target.user.email_addresses` and the username is mapped to `target.user.userid`.
+    * Otherwise, the value is mapped to `additional.fields.key` and `additional.fields.value.string_value`.
+  * `/AuditBase/ContextComponents/Component/AuthProtocol` is mapped to `extensions.auth.auth_details`.
+  * `/AuditBase/ContextComponents/Component/IpAddress`: The first IP address is mapped to `principal.ip` and `principal.asset.ip`, and any subsequent comma-separated IP addresses are mapped to `intermediary.ip`.
+  * `/AuditBase/ContextComponents/Component/ProxyServer` is mapped to `intermediary.hostname`.
+  * `/AuditBase/ContextComponents/Component/UserAgentString` is mapped to `network.http.user_agent` and `network.http.parsed_user_agent`.
+  * The following fields are mapped to `additional.fields.key` and `additional.fields.value.string_value` as key-value pairs: `/AuditBase/AuditType`, `/AuditBase/AuditResult`, `/AuditBase/FailureType`, `/AuditBase/ErrorCode`, `/AuditBase/ContextComponents/Component/ClaimsProvider`, `/AuditBase/ContextComponents/Component/PrimaryAuth`, `/AuditBase/ContextComponents/Component/DeviceAuth`, `/AuditBase/ContextComponents/Component/DeviceId`, `/AuditBase/ContextComponents/Component/MfaPerformed`, `/AuditBase/ContextComponents/Component/MfaMethod`, `/AuditBase/ContextComponents/Component/TokenBindingProvidedId`, `/AuditBase/ContextComponents/Component/TokenBindingReferredId`, `/AuditBase/ContextComponents/Component/SsoBindingValidationLevel`, `/AuditBase/ContextComponents/Component/OAuthClientId`, `/AuditBase/ContextComponents/Component/OAuthGrant`, `/AuditBase/ContextComponents/Component/Server`, `/AuditBase/ContextComponents/Component/NetworkLocation`, `/AuditBase/ContextComponents/Component/ForwardedIpAddress`, `/AuditBase/ContextComponents/Component/ProxyIpAddress`, `/AuditBase/ContextComponents/Component/NetworkIpAddress`, and `/AuditBase/ContextComponents/Component/Endpoint`.
+
+  
   
 ###  `Event ID 1203`
 
@@ -5331,10 +5348,26 @@ Message |  | `metadata.description`
 **NXLog field** |  **Event Viewer field** |  **UDM field**  
 ---|---|---  
 |  |  `metadata.event_type = USER_LOGIN` `security_result.action = FAIL`  
+`Hostname` |  `System/Computer` |  `target.hostname` `target.asset.hostname`  
 `Message` |  |  `metadata.description`  
 `"SERVICE"` |  | `extensions.auth.mechanism`  
-`"SSO"` |  | `extensions.auth.typ`  
-`UserID` |  | `target.user.windows_sid`  
+`"SSO"` |  | `extensions.auth.type`  
+`UserID` |  `System/UserID` |  `additional.fields.key` `additional.fields.value.string_value`  
+`Data` |  `EventData/Data[1]` |  `additional.fields.key` `additional.fields.value.string_value`  
+`Data_1` |  `EventData/Data[2]` |  The XML data from `Data_1` (or `Message`) field is parsed and mapped as follows:
+
+  * `/AuditBase/ContextComponents/Component/RelyingParty` is mapped to `target.application`.
+  * `/AuditBase/ContextComponents/Component/UserId` is mapped based on its format: 
+    * If the value matches the `DOMAIN\user` format, the domain is mapped to `target.administrative_domain` and the username is mapped to `target.user.userid`.
+    * If the value matches the UPN (`user@domain`) format, the full email address is mapped to `target.user.email_addresses` and the username is mapped to `target.user.userid`.
+    * Otherwise, the value is mapped to `additional.fields.key` and `additional.fields.value.string_value`.
+  * `/AuditBase/ContextComponents/Component/AuthProtocol` is mapped to `extensions.auth.auth_details`.
+  * `/AuditBase/ContextComponents/Component/IpAddress`: The first IP address is mapped to `principal.ip` and `principal.asset.ip`, and any subsequent comma-separated IP addresses are mapped to `intermediary.ip`.
+  * `/AuditBase/ContextComponents/Component/ProxyServer` is mapped to `intermediary.hostname`.
+  * `/AuditBase/ContextComponents/Component/UserAgentString` is mapped to `network.http.user_agent` and `network.http.parsed_user_agent`.
+  * The following fields are mapped to `additional.fields.key` and `additional.fields.value.string_value` as key-value pairs: `/AuditBase/AuditType`, `/AuditBase/AuditResult`, `/AuditBase/FailureType`, `/AuditBase/ErrorCode`, `/AuditBase/ContextComponents/Component/ClaimsProvider`, `/AuditBase/ContextComponents/Component/PrimaryAuth`, `/AuditBase/ContextComponents/Component/DeviceAuth`, `/AuditBase/ContextComponents/Component/DeviceId`, `/AuditBase/ContextComponents/Component/MfaPerformed`, `/AuditBase/ContextComponents/Component/MfaMethod`, `/AuditBase/ContextComponents/Component/TokenBindingProvidedId`, `/AuditBase/ContextComponents/Component/TokenBindingReferredId`, `/AuditBase/ContextComponents/Component/SsoBindingValidationLevel`, `/AuditBase/ContextComponents/Component/OAuthClientId`, `/AuditBase/ContextComponents/Component/OAuthGrant`, `/AuditBase/ContextComponents/Component/Server`, `/AuditBase/ContextComponents/Component/NetworkLocation`, `/AuditBase/ContextComponents/Component/ForwardedIpAddress`, `/AuditBase/ContextComponents/Component/ProxyIpAddress`, `/AuditBase/ContextComponents/Component/NetworkIpAddress`, and `/AuditBase/ContextComponents/Component/Endpoint`.
+
+  
   
 ###  `Event ID 1204`
 
@@ -17608,6 +17641,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

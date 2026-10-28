@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/use-terraform-vertex-ai/
 title: Terraform support for Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:20.443796+00:00
+fetched_at: 2026-10-28T02:28:12.304800+00:00
 ---
 
 # Terraform support for Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ Consider a scenario where you want to apply a standardized configuration to mult
 
 [Terraform resources](https://developer.hashicorp.com/terraform/language/resources) represent infrastructure objects. The following table lists the Terraform resources that are available for Agent Platform products and services, along with links to Terraform configuration samples:
 
-Agent Platform product or service | Terraform resource | Terraform configuration samples | [Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform) | [`google_vertex_ai_reasoning_engine`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_reasoning_engine) | [View documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform)  
+Agent Platform product or service | Terraform resource | Terraform configuration samples | [Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform) | [`google_vertex_ai_reasoning_engine`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_reasoning_engine) | [View documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-terraform)  
 ---|---|---  
 [Agent Platform Workbench](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/introduction) | [`google_workbench_instance`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/workbench_instance) | [View in GitHub](https://github.com/terraform-google-modules/terraform-docs-samples/blob/main/vertex_ai/workbench/main.tf)  
 [Agent Platform managed datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/overview) | [`google_vertex_ai_dataset`](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/vertex_ai_dataset) | [View in GitHub](https://github.com/terraform-google-modules/terraform-docs-samples/blob/main/vertex_ai/dataset/main.tf)  
@@ -83,6 +83,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

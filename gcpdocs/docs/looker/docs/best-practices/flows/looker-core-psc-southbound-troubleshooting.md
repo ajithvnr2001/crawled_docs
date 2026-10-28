@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/best-practices/flows/looker-core-psc-southbound-troubleshooting/
 title: Troubleshooting southbound connections \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:41:58.541309+00:00
+fetched_at: 2026-10-28T02:29:33.509403+00:00
 ---
 
 # Troubleshooting southbound connections  |  Looker  |  Google Cloud Documentation
@@ -203,6 +203,20 @@ The default, Google-hosted Looker (Google Cloud core) Marketplace and Action Hub
 
 
 
+#### Custom SMTP: Unexpected token errors
+
+When you configure a custom SMTP server in a Looker (Google Cloud core) instance by using Private Service Connect, testing the email configuration may fail with cryptic UI errors. For example, you might see `Failed to send test email: Unexpected token 'u', "upstream r"... is not valid JSON` or `Failed to send test email: Unexpected token 's', "stream timeout" is not valid JSON`.
+
+These errors occur because the Looker UI attempts to parse a plain-text network error response as JSON. The underlying cause is a network connection failure or timeout (such as a 504 Gateway Timeout) when Looker attempts to reach the custom SMTP server. This failure is commonly caused by the load balancer reaching its timeout limit (for example, the default 30 seconds) or by a firewall blocking the outbound network connection.
+
+To resolve this issue, investigate the network connectivity between the Looker (Google Cloud core) instance and the SMTP server:
+
+  * Verify that firewall rules aren't blocking the outbound connection on the specified SMTP port.
+  * Check the load balancer logs for `downstream_remote_disconnect` or `upstream request timeout` errors.
+  * If the connection is permitted but requires more time to establish, increase the timeout setting on the associated load balancer (for example, increase it from 30 seconds to 600 seconds).
+
+
+
 #### Check logs
 
 [Virtual Private Cloud Flow Logs](https://docs.cloud.google.com/vpc/docs/using-flow-logs) and load balancer logging (such as [internal Application Load Balancer logging](https://docs.cloud.google.com/load-balancing/docs/l7-internal/monitoring) or [internal passthrough Network Load Balancer logging](https://docs.cloud.google.com/load-balancing/docs/internal/internal-logging-monitoring)) can provide more insight into connectivity issues.
@@ -215,6 +229,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

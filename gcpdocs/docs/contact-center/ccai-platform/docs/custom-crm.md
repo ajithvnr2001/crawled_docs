@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/custom-crm/
 title: Custom CRM \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:52.353877+00:00
+fetched_at: 2026-10-28T02:29:35.431132+00:00
 ---
 
 # Custom CRM  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -618,7 +618,7 @@ Configure the following settings:
 
 
 
-### Request URL Parameters
+### Request URL parameters
 
 Parameter | Variable | Comment  
 ---|---|---  
@@ -896,7 +896,7 @@ Example request, `POST/PUT/PATCH`:
     
     {
       "comment": "Some text",
-     // string can also be formatted on ujet side as html
+     // string can also be formatted on CCAI Platform side as HTML).
       "id": 123,
      // optional, this can also just be part of the URL;
      // for example https://example-customer.com/comment/record/{RECORD_ID}
@@ -905,35 +905,75 @@ Example request, `POST/PUT/PATCH`:
 
 ## Custom CRM generic API: Flows
 
-This section provides flow charts for the custom CRM generic API flows.
+CCAI Platform's Custom CRM (Generic API) integration works as a set of flows. At the start of a call, chat, or voicemail, the platform runs the configured account and record steps, which find or create an account and a record (such as a ticket or case) in your CRM. During and after the interaction, it also runs actions such as comments, record updates, and file uploads. The following flowcharts show when each step runs and what must be configured for it to run.
 
-### Basic flow charts
+### When the flows run
 
-![Basic flow chart](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162e3f23db47e2.png)
+These flows run at different points in an interaction. The account and record steps run during the interaction. Recordings, transcripts, and voicemail are uploaded after the interaction ends, along with the comment, update-record, and other post-session actions. Attachments - photos, videos, documents, and audio - are uploaded as they are shared during the interaction. Before one of these flows runs:
 
-### Find or create account flow
+  * The trigger for the action has occurred - for example, a file is available to upload, or the call, chat, or voicemail has ended.
+  * The relevant action is enabled in your Custom CRM settings. For example, the file type is enabled for upload, or the API Comment or API Update endpoint is configured.
+  * For anything that writes to the CRM (uploading to a record, posting a comment, or updating a record), the required endpoints are configured and a record exists for the session. If the record has not been created yet, the platform holds the action and runs it automatically once the record exists.
 
-![Find or create account flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162e3f23db7b2a.png)
 
-### Find or create record flow
 
-![Find or create record flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162e3f23dbb006.png)
+Uploading a file to external storage does not require a record. The record requirement applies to CRM writes.
 
-### Post call or chat actions flow
+In some configurations, the account acts as the session record: when record creation is skipped and session data is pushed to the CRM account, the account-level comment, upload, and update endpoints are used in place of the record-level endpoints. In the diagrams, "record" includes an account acting as the session record when that configuration is enabled.
 
-![Post call or chat actions flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162e3f23dbe27a.png)
+For the account, record, and post-session ordering, retry timing, and error behavior, see [Error handling, retries, and call ordering in Custom CRM (Generic API)](https://docs.cloud.google.com/contact-center/ccai-platform/docs/custom-crm-generic-api-error-handling).
 
-### Update record flow
+### Flowcharts
 
-![Update record flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162e3f23dc146a.png)
+Across these flowcharts, three outcomes appear repeatedly:
 
-### Comment flow
+Outcome | What it means  
+---|---  
+Skipped | The action is turned off by configuration, so nothing is sent.  
+Held | The action is configured but waits until the record exists, then runs automatically.  
+Configuration incomplete | A required endpoint is missing, so the action cannot run.  
+  
+### Basic flow
 
-![Comment flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162e3f23dc4ea3.png)
+An interaction runs the account step, then the record step, and then any post-session actions. Each step runs only when its own settings and endpoints are configured. External-storage uploads run without a record; other post-session actions write to the CRM and wait until a record exists. This overview shows the post-session path; files shared during the interaction follow the Upload file flow as soon as they become available.
+
+![Basic flow chart](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/custom-crm-basic-flow.png)
+
+### Find or create account
+
+The platform looks up the account by a provided ID, phone number, email, or a configured matching method. If no account is found and account creation is enabled, it creates one, or an anonymous account when there are no identifying details. A found or created account is then linked to the session.
+
+![Find or create account flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/custom-crm-find-create-account-flow.png)
+
+### Find or create record
+
+When record mode is enabled, the platform reuses an existing record for the session if it is still usable; otherwise, it creates a new record. The record ID may come with the request or from a record already associated with the interaction. When a record ID is provided with the request, the platform also adds a comment noting whether it reused that record or created a new one instead.
+
+![Find or create record flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/custom-crm-find-create-record-flow.png)
+
+### Update record
+
+Once a record exists, the platform sends an update request built from your configured template. If the update endpoint is set to a placeholder value, the update is skipped.
+
+![Update record flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/custom-crm-update-record-flow.png)
+
+### Post-session actions
+
+After a session, several independent actions can run, each triggered by its own event: a finished call, chat, or email; a submitted rating; an answered survey; or a post-session recording, transcript, or voicemail becoming available. File uploads follow the Upload file flow; the comment and update actions write to the CRM and wait until a record exists.
+
+![Post-session actions flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/custom-crm-post-session-actions-flow.png)
+
+### Comment
+
+A comment can be posted by a finished, rating, survey, or file-upload action. It requires an API Comment endpoint and an existing record, and waits until the record exists. The comment is posted as HTML or plain text, depending on your comment setting.
+
+![Comment flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/custom-crm-comment-flow.png)
 
 ### Upload file flow
 
-![Upload file flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/162e3f23dc81bc.png)
+External storage is enabled per file type. When it is enabled for a file type, the file goes to external storage; otherwise, the file goes to the CRM. A separate setting can also upload the file to the CRM after sending it to external storage. Writes to the CRM (a file attachment or a comment) run only once a record exists.
+
+![Upload file flow](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/custom-crm-upload-file-flow.png)
 
 ## Agent adapters
 
@@ -1369,7 +1409,7 @@ Here are descriptions for the event data fields:
 
   * **`va_data_parameters`** : the variables configured in the queue to send to the virtual agent. This field is included for events involving the virtual agent. Optional.
 
-  * **`session_variable`** : all the variables from the virtual agent that are sent to Contact Center AI Platform. Optional.
+  * **`session_variable`** : all the variables from the virtual agent that are sent to CCAI Platform. Optional.
 
   * **`custom_sip_headers`** : enables custom Session Initiation Protocol (SIP) headers from incoming SIP calls to appear in the POST event log. This field is included if custom SIP headers are used. Optional.
 
@@ -2199,7 +2239,7 @@ The following event fields are part of an agent connects to session event.
 
   * `va_data_parameters`: all the variables configured in the queue to send to the virtual agent. This is only required for events involving the Virtual Agent. Optional.
 
-  * `session_variable`: all the variables from the virtual agent that get sent to UJET in the payload. Optional.
+  * `session_variable`: all the variables from the virtual agent that get sent to CCAI Platform in the payload. Optional.
 
   * `custom_sip_headers`: this enables custom SIP headers from incoming SIP calls to appear in the POST event log. It is only required if custom SIP headers are used. Optional.
 
@@ -2564,6 +2604,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

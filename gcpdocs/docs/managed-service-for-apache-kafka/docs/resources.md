@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/resources/
 title: Resources \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:55.775133+00:00
+fetched_at: 2026-10-27T22:15:10.628420+00:00
 ---
 
 # Resources  |  Managed Service for Apache Kafka  |  Google Cloud Documentation

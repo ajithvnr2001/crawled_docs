@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/omni-introduction/
 title: Introduction to BigQuery Omni \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:24:33.428796+00:00
+fetched_at: 2026-10-27T19:38:49.692596+00:00
 ---
 
 # Introduction to BigQuery Omni  |  Google Cloud Documentation
@@ -23,11 +23,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 **Note:** This feature may not be available when using reservations that are created with certain BigQuery editions. For more information about which features are enabled in each edition, see [Introduction to BigQuery editions](https://docs.cloud.google.com/bigquery/docs/editions-intro).
 
-With BigQuery Omni, you can run BigQuery analytics on data stored in Amazon Simple Storage Service (Amazon S3) or Azure Blob Storage using BigLake tables.
+BigQuery Omni is a multi-cloud analytics solution that lets you run BigQuery analytics on data stored in Amazon Simple Storage Service (Amazon S3) or Azure Blob Storage by using [BigLake tables](https://docs.cloud.google.com/bigquery/docs/biglake-intro). With BigQuery Omni, you can break down data silos and analyze data across multiple public clouds from a unified interface without copying data or adding decentralized data governance overhead.
 
-Many organizations store data in multiple public clouds. Often, this data ends up being siloed, because it's hard to get insights across all of the data. You want to be able to analyze the data with a multi-cloud data tool that is inexpensive, fast, and does not create additional overhead of decentralized data governance. By using BigQuery Omni, we reduce these frictions with a unified interface.
-
-To run BigQuery analytics on your external data, you first need to [connect to Amazon S3](https://docs.cloud.google.com/bigquery/docs/omni-aws-create-connection) or [Blob Storage](https://docs.cloud.google.com/bigquery/docs/omni-azure-create-connection). If you want to query external data, you would need to create a [BigLake table](https://docs.cloud.google.com/bigquery/docs/biglake-intro) that references Amazon S3 or Blob Storage data.
+To run BigQuery analytics on your external data, you first [connect to Amazon S3](https://docs.cloud.google.com/bigquery/docs/omni-aws-create-connection) or [Blob Storage](https://docs.cloud.google.com/bigquery/docs/omni-azure-create-connection) and then create a BigLake table that references your external storage.
 
 ## BigQuery Omni tools
 
@@ -262,6 +260,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

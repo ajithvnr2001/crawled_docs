@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/delete/
 title: gcloud beta app-lifecycle-manager rollout-kinds delete \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:27.422876+00:00
+fetched_at: 2026-10-27T21:40:56.988039+00:00
 ---
 
 # gcloud beta app-lifecycle-manager rollout-kinds delete  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,23 +24,31 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager rollout-kinds delete - delete a Rollout Kind 
+gcloud beta app-lifecycle-manager rollout-kinds delete - delete a rollout kind 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager rollout-kinds delete` (`ROLLOUT_KIND` : `--location`=`LOCATION`) [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Delete a Rollout Kind 
+     `(BETA)` Delete an App Lifecycle Manager rollout kind. 
+
+The command prompts for confirmation before the rollout kind is deleted. 
+
 EXAMPLES
-     To delete the Rollout Kind, run: 
+     To delete the rollout kind named `my-rollout-kind` in location `us-central1`, run: 
     
     
-    gcloud beta app-lifecycle-manager rollout-kinds delete
+    gcloud beta app-lifecycle-manager rollout-kinds delete my-rollout-kind --location=us-central1
+
+To delete the rollout kind named `my-rollout-kind` in location `us-central1` without a confirmation prompt, run: 
+    
+    
+    gcloud beta app-lifecycle-manager rollout-kinds delete my-rollout-kind --location=us-central1 --quiet
 
 POSITIONAL ARGUMENTS
     
 
-RolloutKindId resource - Name of the resource The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+RolloutKindId resource - Rollout kind to delete. The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -86,6 +94,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

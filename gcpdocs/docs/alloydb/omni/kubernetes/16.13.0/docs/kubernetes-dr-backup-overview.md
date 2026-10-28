@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/kubernetes-dr-backup-overview/
 title: Overview of manually cloning a database cluster from a Kubernetes backup \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:06:20.038731+00:00
+fetched_at: 2026-10-28T00:33:24.954507+00:00
 ---
 
 # Overview of manually cloning a database cluster from a Kubernetes backup  |  AlloyDB Omni using the container orchestrator: 16.13.0  |  Google Cloud Documentation
@@ -75,8 +75,8 @@ Because the backup of your AlloyDB Omni database cluster can be stored either lo
 
   * [Clone a database cluster in Kubernetes using a Cloud Storage backup](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/kubernetes-dr-backup-k8-gcs)
   * [Clone a database cluster in Kubernetes using a local backup](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/kubernetes-dr-backup-k8-local)
-  * [Clone a database cluster in a single server using a Cloud Storage backup](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/kubernetes-dr-backup-singleserver-gcs)
-  * [Clone a database cluster in a single server using a local backup](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/kubernetes-dr-backup-singleserver-local)
+  * [Clone a database cluster in a single server using a Cloud Storage backup](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/kubernetes-dr-backup-singleserver-gcs)
+  * [Clone a database cluster in a single server using a local backup](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/kubernetes-dr-backup-singleserver-local)
 
 
 
@@ -84,6 +84,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

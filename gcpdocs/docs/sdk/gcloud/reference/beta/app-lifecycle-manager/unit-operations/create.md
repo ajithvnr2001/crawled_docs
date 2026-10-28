@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/unit-operations/create/
 title: gcloud beta app-lifecycle-manager unit-operations create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:26.096580+00:00
+fetched_at: 2026-10-27T21:40:54.962451+00:00
 ---
 
 # gcloud beta app-lifecycle-manager unit-operations create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,26 +24,36 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager unit-operations create - create a Unit Operation 
+gcloud beta app-lifecycle-manager unit-operations create - create a unit operation 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager unit-operations create` `UNIT_OPERATION` `--unit`=`UNIT` [`--cancel`] [`--labels`=[`LABELS`,…]] [`--location`=`LOCATION`] [`--parent-unit-operation`=`PARENT_UNIT_OPERATION`] [`--rollout`=`ROLLOUT`] [`--schedule-start-time`=`SCHEDULE_START_TIME`] [`--deprovision` | `--flag-update`=`FLAG_UPDATE` | `--provision` `--provision-input-variables`=[`type`=`TYPE`],[`value`=`VALUE`],[`variable`=`VARIABLE`] `--provision-release`=`PROVISION_RELEASE` | `--upgrade` `--upgrade-input-variables`=[`type`=`TYPE`],[`value`=`VALUE`],[`variable`=`VARIABLE`] `--upgrade-release`=`UPGRADE_RELEASE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Create a Unit Operation 
+     `(BETA)` Create an App Lifecycle Manager unit operation. 
+
+A unit operation encapsulates the intent to change or interact with the service component represented by a specific unit. For example, a unit operation can provision, upgrade, or deprovision the unit. Multiple unit operations can be requested and scheduled, but only one runs at a time. 
+
 EXAMPLES
-     To create the Unit Operation, run: 
+     To create a unit operation named `my-unit-operation` in location `us-central1` that provisions the unit `my-unit` with the release `my-release`, run: 
     
     
-    gcloud beta app-lifecycle-manager unit-operations create
+    gcloud beta app-lifecycle-manager unit-operations create my-unit-operation --location=us-central1 --unit=my-unit --provision --provision-release=my-release
+
+To create a unit operation named `my-unit-operation` that deprovisions the unit `my-unit`, run: 
+    
+    
+    gcloud beta app-lifecycle-manager unit-operations create my-unit-operation --location=us-central1 --unit=my-unit --deprovision
+
+To create a unit operation named `my-unit-operation` that upgrades the unit `my-unit` to the release `my-new-release` with the input variable `instance_name` set to `my-instance`, scheduled to start at `2099-01-01T10:00:00Z`, run: 
+    
+    
+    gcloud beta app-lifecycle-manager unit-operations create my-unit-operation --location=us-central1 --unit=my-unit --upgrade --upgrade-release=my-new-release --upgrade-input-variables=variable=instance_name,value=my-instance,type=string --schedule-start-time=2099-01-01T10:00:00Z
 
 POSITIONAL ARGUMENTS
     
 
-UnitOperation resource - Identifier. The resource name (full URI of the resource) following the standard naming scheme: 
-    
-    
-    "projects/{project}/locations/{location}/unitOperations/{unitOperation}" This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways.
+UnitOperation resource - Unit operation to create. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -73,7 +83,7 @@ To set the `unit_operation` attribute:
 REQUIRED FLAGS
     
 
-Unit resource - The Unit a given Unit Operation will act upon. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Unit resource - Unit that the unit operation acts upon. The unit cannot be changed after the unit operation is created. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -104,9 +114,9 @@ OPTIONAL FLAGS
     
 
 `--cancel`
-     When true, attempt to cancel the operation. Cancellation may fail if the operation is already executing. (Optional) 
+     Attempt to cancel the operation. Cancellation might fail if the operation is already running. 
 `--labels`=[`LABELS`,…]
-     The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -129,7 +139,7 @@ OPTIONAL FLAGS
 
 `--location`=`LOCATION`
      For resources [flag-update, parent-unit-operation, provision-release, rollout, unit, unit_operation, upgrade-release], provides fallback value for resource location attribute. When the resource's full URI path is not provided, location will fallback to this flag value. 
-ParentUnitOperation resource - Reference to parent resource: Unit Operation. If an operation needs to create other operations as part of its workflow, each of the child operations should have this field set to the parent. This can be used for tracing. (Optional) This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+ParentUnitOperation resource - Parent unit operation. If an operation creates child operations as part of its workflow, set this flag on each child operation to the parent unit operation for tracing. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -153,7 +163,7 @@ To set the `unit-operation` attribute:
   * provide the argument `--parent-unit-operation` on the command line. 
 
 
-RolloutId resource - Specifies which rollout created this Unit Operation. This cannot be modified and is used for filtering purposes only. If a dependent unit and unit operation are created as part of another unit operation, they will use the same rolloutId. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+RolloutId resource - Rollout that created this unit operation. The rollout cannot be changed after it is set and is used only for filtering. If a dependent unit and unit operation are created as part of another unit operation, they use the same rollout. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -177,18 +187,18 @@ To set the `rollout` attribute:
   * provide the argument `--rollout` on the command line. 
 
 
-A time specification to schedule the maintenance. 
+Time specification to schedule the operation. 
 `--schedule-start-time`=`SCHEDULE_START_TIME`
-     Start of operation. If not set, will be set to the start of the next window. (optional) 
-Arguments for the unit operation type. 
+     Start time of the operation. If not set, the start of the next maintenance window is used. 
+Unit operation type. 
 
 At most one of these can be specified: 
 
-Deprovision is the unit operation that deprovision the underlying resources represented by a Unit. Can only execute if the Unit is currently provisioned. 
+Deprovision operation, which deprovisions the underlying resources represented by the unit. The operation can run only if the unit is provisioned. 
 `--deprovision`
-     This flag can be used to specify an empty deprovision operation. 
-Flag update is the unit operation that pushes new flag values to Units. 
-FlagRelease resource - Flag release being applied by UnitOperation. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+     Deprovision the unit. 
+Flag update operation, which pushes new flag values to units. 
+FlagRelease resource - Flag release applied by the unit operation. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -212,18 +222,18 @@ To set the `flag-release` attribute:
   * provide the argument `--flag-update` on the command line. 
 
 
-Provision is the unit operation that provision the underlying resources represented by a Unit. Can only execute if the Unit is not currently provisioned. 
+Provision operation, which provisions the underlying resources represented by the unit. The operation can run only if the unit is not provisioned. 
 `--provision`
-     This flag can be used to specify an empty provision operation. 
+     Provision the unit. 
 `--provision-input-variables`=[`type`=`TYPE`],[`value`=`VALUE`],[`variable`=`VARIABLE`]
-     Set of input variables. Maximum 100. (optional). 
+     Input variables for the provision operation. A maximum of 100 input variables can be specified. 
 
 `type`
-     Name of a supported variable type. Supported types are string, int, bool. 
+     Name of a supported variable type. Supported types are `string`, `int`, `bool`, `struct`, and `list`. 
 `value`
-     String encoded value for the variable. 
+     String-encoded value for the variable. Values of type `struct` or `list` must be JSON-encoded strings. 
 `variable`
-     Required, Name of the variable from actuation configs. 
+     Required, Name of the variable from the actuation configuration. 
 `Shorthand Example:`
     
     
@@ -239,7 +249,7 @@ Provision is the unit operation that provision the underlying resources represen
     
     --provision-input-variables=path_to_file.(yaml|json)
 
-Release resource - Reference to the Release object to use for the Unit. (optional). This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Release resource - Release to use for the unit. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -263,18 +273,18 @@ To set the `release` attribute:
   * provide the argument `--provision-release` on the command line. 
 
 
-Upgrade is the unit operation that upgrades a provisioned unit, which may also include the underlying resources represented by a Unit. Can only execute if the Unit is currently provisioned. 
+Upgrade operation, which upgrades a provisioned unit, possibly including the underlying resources represented by the unit. The operation can run only if the unit is provisioned. 
 `--upgrade`
-     This flag can be used to specify an empty upgrade operation. 
+     Upgrade the unit. 
 `--upgrade-input-variables`=[`type`=`TYPE`],[`value`=`VALUE`],[`variable`=`VARIABLE`]
-     Set of input variables. Maximum 100. (optional). 
+     Input variables for the upgrade operation. A maximum of 100 input variables can be specified. 
 
 `type`
-     Name of a supported variable type. Supported types are string, int, bool. 
+     Name of a supported variable type. Supported types are `string`, `int`, `bool`, `struct`, and `list`. 
 `value`
-     String encoded value for the variable. 
+     String-encoded value for the variable. Values of type `struct` or `list` must be JSON-encoded strings. 
 `variable`
-     Required, Name of the variable from actuation configs. 
+     Required, Name of the variable from the actuation configuration. 
 `Shorthand Example:`
     
     
@@ -290,7 +300,7 @@ Upgrade is the unit operation that upgrades a provisioned unit, which may also i
     
     --upgrade-input-variables=path_to_file.(yaml|json)
 
-Release resource - Reference to the Release object to use for the Unit. (optional). This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Release resource - Release to use for the unit. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -328,6 +338,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chrome-enterprise-premium/docs/security-gateway-saas-apps/
 title: Secure access to SaaS applications \u00a0|\u00a0 Chrome Enterprise Premium \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:31:13.391370+00:00
+fetched_at: 2026-10-28T02:29:15.316921+00:00
 ---
 
 # Secure access to SaaS applications  |  Chrome Enterprise Premium  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ Learn more about [Identity and Access Management (IAM) roles](https://docs.cloud
 
 Secure gateway proxy authentication requires the `Basic` HTTP authentication scheme. If you configure Chrome Enterprise authentication policies for your organization, verify the following policy settings:
 
-  * [`AuthSchemes`](https://chromeenterprise.google/policies/#AuthSchemes) must include `basic` authentication (enabled by default when the policy is unset). Other values in this policy don't affect secure gateway proxy authentication.
+  * [`AuthSchemes`](https://chromeenterprise.google/policies/#AuthSchemes) must include `basic` authentication (enabled by default when the policy is unset). Alternatively, in Chrome 157 and later, if your organization removes `basic` from `AuthSchemes`, you can configure [`AllHttpAuthSchemesAllowedForProxies`](https://chromeenterprise.google/policies/#AllHttpAuthSchemesAllowedForProxies) to include the secure gateway proxy endpoints (for example, `via.prod.securegateway.goog:443`). Other values in `AuthSchemes` don't affect secure gateway proxy authentication.
 
   * [`BasicAuthOverHttpEnabled`](https://chromeenterprise.google/policies/#BasicAuthOverHttpEnabled) must be set to `0` (`false`, or disabled) to disallow non-secure HTTP connections from using the `Basic` authentication scheme.
 
@@ -1008,6 +1008,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

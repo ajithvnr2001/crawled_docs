@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/billing/docs/how-to/
 title: How-to guides \u00a0|\u00a0 Cloud Billing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:49:28.969648+00:00
+fetched_at: 2026-10-27T22:59:55.787549+00:00
 ---
 
 # How-to guides  |  Cloud Billing  |  Google Cloud Documentation

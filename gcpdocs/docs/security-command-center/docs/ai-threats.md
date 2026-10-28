@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/ai-threats/
 title: AI threat findings \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:36:59.598524+00:00
+fetched_at: 2026-10-28T02:30:51.927758+00:00
 ---
 
 # AI threat findings  |  Security Command Center  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  AI threat findings Stay organized with collections  Save and categorize content based on your preferences. 
 
-Security Command Center has detectors for general AI-related threats and detectors that are designed for AI agents deployed to Agent Runtime Runtime.
+Security Command Center helps you detect and investigate threats to your AI workloads and AI agents. You can review findings from detectors that monitor general AI-related threats and from detectors designed for AI agents that are deployed to Agent Runtime Runtime.
 
 ## General AI threats
 
@@ -132,6 +132,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

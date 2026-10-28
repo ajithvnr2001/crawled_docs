@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/profiler/docs/samples/profiler-python-quickstart/
 title: Initializing Cloud Profiler on Google Compute Engine or Kubernetes Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:20:24.029932+00:00
+fetched_at: 2026-10-27T22:33:18.060459+00:00
 ---
 
 # Initializing Cloud Profiler on Google Compute Engine or Kubernetes Engine  |  Google Cloud Documentation

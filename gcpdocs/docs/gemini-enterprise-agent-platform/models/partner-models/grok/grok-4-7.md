@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7/
 title: Grok 4.7 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:23.732165+00:00
+fetched_at: 2026-10-28T01:01:34.767382+00:00
 ---
 
 # Grok 4.7  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,17 +21,13 @@ Send feedback
 
 #  Grok 4.7 Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 A high-capability model from xAI, built for coding and knowledge work. It works longer on difficult tasks and checks its own work.
 
 [View model card in Model Garden](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.7)
 
 Model ID | `grok-4.7`  
 ---|---  
-Launch stage | Preview  
+Launch stage | GA  
 Supported inputs & outputs | 
 
   * Inputs: Text, Image
@@ -41,9 +37,9 @@ Supported inputs & outputs |
 Capabilities | 
 
   * Supported
-    * [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling) previewPreview feature
-    * [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output) previewPreview feature
-    * [Reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning) previewPreview feature
+    * [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/function-calling)
+    * [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/structured-output)
+    * [Reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/capabilities/reasoning)
   * Not supported
     * [Batch predictions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/maas/capabilities/batch-prediction) previewPreview feature
 
@@ -51,7 +47,7 @@ Capabilities |
 Usage types | 
 
   * Supported
-    * [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota) previewPreview feature
+    * [Fixed quota](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok#quota)
   * Not supported
     * [Standard pay-as-you-go](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) previewPreview feature
     * [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput) previewPreview feature
@@ -60,7 +56,7 @@ Usage types |
 Versions | 
 
   * `grok-4.7`
-    * **Launch stage:** Preview
+    * **Launch stage:** GA
     * **Release date:** September 30, 2026
 
   
@@ -100,6 +96,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

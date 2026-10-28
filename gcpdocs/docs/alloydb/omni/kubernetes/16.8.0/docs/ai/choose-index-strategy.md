@@ -1,16 +1,47 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/
 title: Choose a vector index \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:35:51.792516+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T17:43:40.309183+00:00
 ---
 
 # Choose a vector index  |  AlloyDB Omni for Kubernetes: 16.8.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/
 
-This page documents AlloyDB Omni version **16.8.0** using the **Kubernetes** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
+[ Skip to main content ](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/)
+  * [Deutsch](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=de)
+  * [Español](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=it)
+  * [Português](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/?hl=ko)
 
+Sign in
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/alloydb-color.svg) ](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/overview)
+  * [ AlloyDB Omni ](https://docs.cloud.google.com/alloydb/omni/docs)
+  * [ For Kubernetes: 16.8.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/overview)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Key terms](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/#key-terms)
+  * [Search strategy](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/#decide-search-strategy)
+  * [What's next](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/#whats-next)
+
+
+This page documents AlloyDB Omni version **16.8.0** using the **Kubernetes** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
@@ -18,13 +49,16 @@ This page documents AlloyDB Omni version **16.8.0** using the **Kubernetes** dep
   * [ For Kubernetes: 16.8.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/overview)
 
 
-
+Was this helpful?
 Send feedback 
+#  Choose a vector index Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Key terms](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/#key-terms)
+  * [Search strategy](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/#decide-search-strategy)
+  * [What's next](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/choose-index-strategy/#whats-next)
 
-#  Choose a vector index Stay organized with collections  Save and categorize content based on your preferences. 
 
-Select a documentation version: 16.8.0keyboard_arrow_down
-
+Select a documentation version:  16.8.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/ai/choose-index-strategy)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/ai/choose-index-strategy)
   * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/ai/choose-index-strategy)
@@ -48,46 +82,29 @@ Select a documentation version: 16.8.0keyboard_arrow_down
   * [ 15.7.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.0/docs/ai/choose-index-strategy)
 
 You must select an index type for your vector search that gives you a balance between query latency and accuracy of your results. Effective indexing directly impacts query speed and the ability to retrieve truly relevant matches that are measured by recall. 
-
 ## Key terms
-
 Before you decide an index strategy, you must know the following terms:
-
   * _Recall_ : It defines how effectively a search retrieves all relevant items for a given query. For example, if you have 100 images and 10 are cats, which is true match, and your search for "cat" returns 6 cat images, your recall is 6 out of 10, which is 60%. In approximate nearest neighbors (ANN) search for vector indexes, recall is measured by comparing the results obtained with the ANN index to the true match results obtained through a brute-force search.
   * _Query latency_ : It defines how fast the search results are generated. For example, latency is calculated based on the time spent on a search to return the 6 cat images after you submit a query.
 
 
-
 ## Search strategy
-
 You must select one of the following search strategies. Consider an example table with customer data that includes details such as purchase history, preferences, and demographics to understand how both algorithms differ:
-
   * **K-Nearest Neighbors (KNN)** is an algorithm that finds the k-nearest data points to a given query data point. For the previous example, to run a query that recommends products to new customers based on preferences of similar customers, KNN calculates the distance between the new customer data points and the data points of each customer in the table using a distance metric. KNN would identify k customers that match the criteria based on the distance, and then recommend products that the identified customers (k) like to the new customer.
-
 A KNN query with distance metric, such as Euclidean distance or cosine similarity, is recommended for smaller datasets. If your use case requires 100% accuracy and you can tolerate a higher query latency, then we recommend using KNN. For more information about performing a KNN search, see [Perform similarity search](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/work-with-embeddings#generate-embeddings-similarity-search).
-
   * **Approximate Nearest Neighbors (ANN)** algorithm-based indexes help queries run faster, but might compromise on query accuracy or recall. For the earlier example, to run a query that recommends products to new customers based on preferences of similar customers, ANN divides existing customer data points into small groups based on similarities. When a new customer data point is added, ANN first identifies a group, out of multiple groups, that the data point belongs to, and then only calculates distance using a distance metric within the group. This filtering reduces the number of calculations required to show recommendations.
-
 Google recommends creating a vector index that implements the ANN index when you have a large dataset since it finds similarities faster and is less resource-intensive, but compromises on accuracy. For more information about how the ANN index is used for similarity searches, see [Create indexes and query vectors using ScaNN](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/store-index-query-vectors?resource=scann). To achieve KNN accuracy with a vector index, set the search parameters equal to the number of partitions. This strategy helps to achieve KNN accuracy with a balance of query latency.
 
 
-
-
 Use the following flowchart as a guidance to decide which index type is optimal based on your dataset and requirements.
-
 ![Choose an index strategy](https://docs.cloud.google.com/static/alloydb/omni/kubernetes/16.8.0/docs/images/choose-index-strategy.png)
-
 ## What's next
-
   * [Create indexes and query vectors using ScaNN](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/store-index-query-vectors?resource=scann)
   * [Tune vector query performance](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/ai/tune-indexes)
 
 
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

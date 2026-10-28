@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/shell/docs/resources/
 title: Resources \u00a0|\u00a0 Cloud Shell \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:46:41.403792+00:00
+fetched_at: 2026-10-28T02:30:01.390825+00:00
 ---
 
 # Resources  |  Cloud Shell  |  Google Cloud Documentation
@@ -23,9 +23,10 @@ Send feedback
 
 ## Cloud Shell resources
 
-  * ### [Cloud Shell release notes Latest additions, updates, and fixes for Cloud Shell.  ](https://docs.cloud.google.com/shell/docs/release-notes)
   * ### [Pricing Pricing for Cloud Shell.  ](https://docs.cloud.google.com/shell/pricing)
   * ### [Quotas and limits Usage policies for your Cloud Shell resources.  ](https://docs.cloud.google.com/shell/quotas)
+  * ### [Cloud Shell release notes Latest additions, updates, and fixes for Cloud Shell.  ](https://docs.cloud.google.com/shell/docs/release-notes)
+  * ### [Get support Where to find and contribute support information for Cloud Shell, including discussion groups and Stack Overflow.  ](https://docs.cloud.google.com/shell/docs/getting-support)
   * ### [Cloud Shell SLA Service Level Agreement for Cloud Shell.  ](https://docs.cloud.google.com/shell/sla)
 
 

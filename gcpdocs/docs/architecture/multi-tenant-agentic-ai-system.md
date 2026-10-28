@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/multi-tenant-agentic-ai-system/
 title: Multi-tenant agentic AI system \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:33:14.302755+00:00
+fetched_at: 2026-10-27T22:13:56.879851+00:00
 ---
 
 # Multi-tenant agentic AI system  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -35,35 +35,43 @@ The following diagram shows an architecture for a multi-tenant agentic AI system
 
 The architecture consists of the following components:
 
-Component | Description  
----|---  
-**[VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview)** |  The architecture uses VPC Service Controls to configure a [service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/service-perimeters) at the organization level. This service perimeter provides a strict security boundary and it helps prevent data exfiltration.   
-**Routing hub** |  The routing hub acts as the central ingress point for the architecture and it includes the following components:
+[VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview)
+    The architecture uses VPC Service Controls to configure a [service perimeter](https://docs.cloud.google.com/vpc-service-controls/docs/service-perimeters) at the organization level. This service perimeter provides a strict security boundary and it helps prevent data exfiltration.
+Routing hub
+    
 
-  * **[External Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https)** : Acts as the central ingress point for external or internal users. The load balancer helps ensure that only authenticated and safe traffic reaches the frontend portal. 
-  * **[Google Cloud Armor](https://docs.cloud.google.com/armor/docs/integrating-cloud-armor#https-iap)** and **[Model Armor](https://docs.cloud.google.com/model-armor/overview)** : The load balancer integrates Cloud Armor and Model Armor to inspect and scrub malicious prompts at the network edge. The routing hub uses [Service Extensions](https://docs.cloud.google.com/service-extensions/docs/lb-extensions-overview#supported-lbs) on the external Application Load Balancer to integrate [Model Armor](https://docs.cloud.google.com/model-armor/overview) directly into the request flow. 
-  * **[Identity-Aware Proxy (IAP)](https://docs.cloud.google.com/iap/docs)** : Enforces a [zero-trust model](https://docs.cloud.google.com/architecture/framework/security/implement-zero-trust) to verify user identity and context before any request reaches the application. 
-  * **Frontend portal** : A serverless [Cloud Run application](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) that acts as a routing engine to route requests to the appropriate isolated tenant project. 
+The routing hub acts as the central ingress point for the architecture and it includes the following components:
 
-  
-**Central governance and security hub** |  The central governance and security hub is a dedicated Google Cloud project that provides centralized Identity and Access Management (IAM), logging, monitoring, and security for the entire platform. This hub includes the following components:
+  * **[External Application Load Balancer](https://docs.cloud.google.com/load-balancing/docs/https)** : Acts as the central ingress point for external or internal users. The load balancer helps ensure that only authenticated and safe traffic reaches the frontend portal.
+  * **[Google Cloud Armor](https://docs.cloud.google.com/armor/docs/integrating-cloud-armor#https-iap)** and **[Model Armor](https://docs.cloud.google.com/model-armor/overview)** : The load balancer integrates Cloud Armor and Model Armor to inspect and scrub malicious prompts at the network edge. The routing hub uses [Service Extensions](https://docs.cloud.google.com/service-extensions/docs/lb-extensions-overview#supported-lbs) on the external Application Load Balancer to integrate [Model Armor](https://docs.cloud.google.com/model-armor/overview) directly into the request flow.
+  * **[Identity-Aware Proxy (IAP)](https://docs.cloud.google.com/iap/docs)** : Enforces a [zero-trust model](https://docs.cloud.google.com/architecture/framework/security/implement-zero-trust) to verify user identity and context before any request reaches the application.
+  * **Frontend portal** : A serverless [Cloud Run application](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) that acts as a routing engine to route requests to the appropriate isolated tenant project.
 
-  * **[Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview)** : A service that monitors the entire multi-tenant agentic AI system for security risks. 
-  * **[IAM](https://docs.cloud.google.com/iam/docs/overview)** : An access control framework that manages identities and permissions across the shared hubs and the tenant projects. This component provides centralized governance for all human and machine identities. 
-  * **[Cloud Logging](https://docs.cloud.google.com/logging/docs/overview)** : A system that aggregates logs from the shared hubs and from the isolated tenant projects into the central governance and security hub. 
 
-  
-**Tenant projects** |  Each tenant project is a dedicated Google Cloud project for each business unit. Individual tenant projects are isolated environments that include the following components:
+Central governance and security hub
+    
 
-  * **[Principal Access Boundary Policy (PAB Policy)](https://docs.cloud.google.com/iam/docs/principal-access-boundary-policies)** : PAB Policy provides internal hard isolation between different business units and it helps ensure that principals can only access resources within their approved boundaries. 
-  * **[Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime)** : A runtime that hosts the specific business unit agent and executes custom orchestration code that you build by using [Agent Development Kit (ADK)](https://adk.dev/). 
-  * **[Model Armor](https://docs.cloud.google.com/model-armor/overview)** : A managed security service that inspects and filters malicious prompts and responses. It protects the tenant's agent and compute resources from threats like prompt injection attacks. 
-  * **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) servers**: MCP servers facilitate access between the tenant agent and the tenant datastore. 
-  * **Tenant datastore** : A dedicated data repository, such as [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) or [AlloyDB for PostgreSQL](https://docs.cloud.google.com/alloydb/docs/overview), that stores specific business unit data. The agent performs [ retrieval-augmented generation (RAG)](https://docs.cloud.google.com/docs/generative-ai/glossary#retrieval-augmented-generation) to generate more accurate responses based on the context in the datastore. To maintain strict data sovereignty, only the tenant agents can access this data. 
-  * **Gemini models** : For inference serving, the agents in this example architecture use the latest [Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) on [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview). 
+The central governance and security hub is a dedicated Google Cloud project that provides centralized Identity and Access Management (IAM), logging, monitoring, and security for the entire platform. This hub includes the following components:
 
-  
-  
+  * **[Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview)** : A service that monitors the entire multi-tenant agentic AI system for security risks.
+  * **[IAM](https://docs.cloud.google.com/iam/docs/overview)** : An access control framework that manages identities and permissions across the shared hubs and the tenant projects. This component provides centralized governance for all human and machine identities.
+  * **[Cloud Logging](https://docs.cloud.google.com/logging/docs/overview)** : A system that aggregates logs from the shared hubs and from the isolated tenant projects into the central governance and security hub.
+
+
+Tenant projects
+    
+
+Each tenant project is a dedicated Google Cloud project for each business unit. Individual tenant projects are isolated environments that include the following components:
+
+  * **[Principal Access Boundary Policy (PAB Policy)](https://docs.cloud.google.com/iam/docs/principal-access-boundary-policies)** : PAB Policy provides internal hard isolation between different business units and it helps ensure that principals can only access resources within their approved boundaries.
+  * **[Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime)** : A runtime that hosts the specific business unit agent and executes custom orchestration code that you build by using [Agent Development Kit (ADK)](https://adk.dev/).
+  * **[Model Armor](https://docs.cloud.google.com/model-armor/overview)** : A managed security service that inspects and filters malicious prompts and responses. It protects the tenant's agent and compute resources from threats like prompt injection attacks.
+  * **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) servers**: MCP servers facilitate access between the tenant agent and the tenant datastore.
+  * **Tenant datastore** : A dedicated data repository, such as [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction) or [AlloyDB for PostgreSQL](https://docs.cloud.google.com/alloydb/docs/overview), that stores specific business unit data. The agent performs [retrieval-augmented generation (RAG)](https://docs.cloud.google.com/docs/generative-ai/glossary#retrieval-augmented-generation) to generate more accurate responses based on the context in the datastore. To maintain strict data sovereignty, only the tenant agents can access this data.
+  * **Gemini models** : For inference serving, the agents in this example architecture use the latest [Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) on [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview).
+
+
+
 ### Agentic flow
 
 The example multi-tenant system in the preceding architecture has the following flow:

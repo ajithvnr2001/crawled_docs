@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vmware-engine/docs/
 title: Google Cloud VMware Engine documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:57:01.996278+00:00
+fetched_at: 2026-10-27T20:27:58.745488+00:00
 ---
 
 # Google Cloud VMware Engine documentation  |  Google Cloud Documentation
@@ -18,11 +18,21 @@ fetched_at: 2026-10-23T08:57:01.996278+00:00
 
 # Google Cloud VMware Engine documentation
 
-[Read product documentation](https://docs.cloud.google.com/vmware-engine/docs/overview)
+Google Cloud VMware Engine lets you run VMware workloads on Google Cloud. Google Cloud VMware Engine is available as VMware solution on Google Cloud or as a Google Cloud-managed service: 
 
-Google Cloud VMware Engine is a fully managed service that lets you run the VMware platform in Google Cloud. This service helps you to retain operational continuity with your existing VMware environments, and enables seamless integration with Google Cloud services. It also lets you benefit from a cloud consumption model and lower total cost of ownership. 
+### VMware solution on Google Cloud
 
-[Go to the Google Cloud VMware Engine product page for more.](https://cloud.google.com/vmware-engine)
+Deploy and manage VMware Cloud Foundation (VCF) on dedicated bare-metal infrastructure under a Bring Your Own License (BYOL) model. You maintain control over your VMware environment, configurations, and software lifecycle, while Google Cloud manages the physical infrastructure. 
+
+[Go to documentation](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/overview)
+
+### Google Cloud-managed
+
+A fully managed service operated by Google Cloud that provides automated private cloud provisioning, lifecycle management of the VMware stack, integrated Google Cloud networking, and built-in VMware licensing. 
+
+[Go to documentation](https://docs.cloud.google.com/vmware-engine/docs/overview)
+
+[Compare VMware Engine models](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/compare-models) to evaluate architectural differences and shared responsibilities. To explore features, customer use cases, and pricing options, visit the [Google Cloud VMware Engine product page](https://cloud.google.com/vmware-engine). 
 
 [Get started for free](https://console.cloud.google.com/freetrial)
 
@@ -44,9 +54,32 @@ Access 20+ free products for common use cases, including AI APIs, VMs, data ware
 
 Find quickstarts and guides, review key references, and get help with common issues. 
 
-follow_the_signs 
+info 
 
-### Get started
+### VMware solution on Google Cloud
+
+  * [ VMware solution on Google Cloud overview ](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/overview)
+
+  * [ Bare-metal nodes and machine types ](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/concepts-nodes)
+
+  * [ Placement policies and availability domains ](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/concepts-placement-policies)
+
+  * [ About vSphere clusters ](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/concepts-clusters)
+
+  * [ VMware Cloud Foundation components and networking ](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/concepts-vcf)
+
+  * [ Deploy nodes and configure appliance networking by using the console ](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/deploy)
+
+  * [ Prepare nodes and deploy VCF by using the toolkit ](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/toolkit)
+
+  * [ Manage node capacity ](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/capacity-management)
+
+
+
+
+info 
+
+### Google Cloud-managed
 
   * [ Product overview ](https://docs.cloud.google.com/vmware-engine/docs/overview)
 
@@ -60,30 +93,9 @@ follow_the_signs
 
   * [ Create a stretched private cloud ](https://docs.cloud.google.com/vmware-engine/docs/create-stretched-private-cloud)
 
-  * [ Create a VMware VM ](https://docs.cloud.google.com/vmware-engine/docs/create-vmware-vm)
-
-
-
-
-format_list_numbered 
-
-### Guides
-
-  * [ About VMware Engine private clouds ](https://docs.cloud.google.com/vmware-engine/docs/concepts-private-cloud)
-
   * [ Configure and manage subnets ](https://docs.cloud.google.com/vmware-engine/docs/networking/howto-manage-subnets)
 
   * [ Peer a VPC network ](https://docs.cloud.google.com/vmware-engine/docs/networking/peer-vpc-network)
-
-  * [ Manage private cloud resources ](https://docs.cloud.google.com/vmware-engine/docs/private-clouds/howto-manage-private-cloud)
-
-  * [ Migrate VMware VMs using HCX ](https://docs.cloud.google.com/vmware-engine/docs/workloads/howto-migrate-vms-using-hcx)
-
-  * [ Migrate workloads from retiring ve1 hardware ](https://docs.cloud.google.com/vmware-engine/docs/howto-migrate-ve1-hardware)
-
-  * [ Configure Google SecOps ](https://docs.cloud.google.com/vmware-engine/docs/howto-configure-secops)
-
-  * [ Use custom organization policies ](https://docs.cloud.google.com/vmware-engine/docs/custom-constraints)
 
 
 
@@ -91,6 +103,8 @@ format_list_numbered
 info 
 
 ### Resources
+
+  * [ Compare VMware Engine models ](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/compare-models)
 
   * [ Pricing ](https://docs.cloud.google.com/vmware-engine/pricing)
 
@@ -165,6 +179,6 @@ Security
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

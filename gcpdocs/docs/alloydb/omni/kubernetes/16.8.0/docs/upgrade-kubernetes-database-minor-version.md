@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/upgrade-kubernetes-database-minor-version/
 title: Perform a minor database version upgrade for AlloyDB Omni on Kubernetes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:54:53.559462+00:00
+fetched_at: 2026-10-28T00:33:28.270579+00:00
 ---
 
 # Perform a minor database version upgrade for AlloyDB Omni on Kubernetes  |  AlloyDB Omni for Kubernetes: 16.8.0  |  Google Cloud Documentation
@@ -50,7 +50,7 @@ This page describes how to perform a minor database version upgrade for AlloyDB 
 
 To perform a minor database version upgrade, there are two options:
 
-  * Low downtime upgrade: This feature is in [Preview](https://cloud.google.com/products#product-launch-stages). For [high availability (HA)](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/high-availability/overview) environments running AlloyDB Omni version 15.7.1 or later, AlloyDB Omni upgrades your standby instances first. Then, the AlloyDB Omni operator performs a switchover, promoting one of the upgraded standby instances to be your new primary instance. After the switchover succeeds, your old primary instance is updated.
+  * Low downtime upgrade: This feature is in [Preview](https://cloud.google.com/products#product-launch-stages). For [high availability (HA)](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/kubernetes-ha) environments running AlloyDB Omni version 15.7.1 or later, AlloyDB Omni upgrades your standby instances first. Then, the AlloyDB Omni operator performs a switchover, promoting one of the upgraded standby instances to be your new primary instance. After the switchover succeeds, your old primary instance is updated.
 
 This process ensures minimal downtime during the upgrade.
 
@@ -204,6 +204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

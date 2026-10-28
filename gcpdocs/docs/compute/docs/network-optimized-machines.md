@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/network-optimized-machines/
 title: Network-optimized machine family for Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:47:39.697231+00:00
+fetched_at: 2026-10-28T01:57:20.260840+00:00
 ---
 
 # Network-optimized machine family for Compute Engine  |  Google Cloud Documentation
@@ -306,7 +306,7 @@ This machine series is well-suited for large in-memory databases such as SAP HAN
 M4N instances are eligible for the following discounts with long term purchase commitments:
 
   * **Resource-based committed use discounts (CUDs)** : savings of 60% in exchange for 3-year commitments and savings of 37% in exchange for 1-year commitments. For the commitment type values to use, see the [resource-based CUDs documentation](https://docs.cloud.google.com/compute/docs/committed-use-discounts/purchase-commitments).
-  * **Compute flexible CUDs** : savings of 54% in exchange for 3-year commitments, and savings of 28% in exchange for 1-year commitments. For more information about compute flexible CUDs, see the [compute flexible CUDs documentation](https://docs.cloud.google.com/compute/docs/instances/flexible-committed-use-discounts).
+  * **Compute flexible CUDs** : savings of 54% in exchange for 3-year commitments, and savings of 28% in exchange for 1-year commitments. For more information about compute flexible CUDs, see the [compute flexible CUDs documentation](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#spend_based).
 
 
 
@@ -367,7 +367,7 @@ The following restrictions apply:
 
 
 
-For details about the capacity limits, see [Hyperdisk capacity limits per VM](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#limits-instance).
+For details about the capacity limits, see [Hyperdisk capacity limits per VM](https://docs.cloud.google.com/compute/docs/disks/hyperdisk-perf-limits#limits-instance).
 
 M4N storage limits are described in the following table:
 
@@ -426,6 +426,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

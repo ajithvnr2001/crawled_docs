@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/resources/
 title: Resources \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:43.332784+00:00
+fetched_at: 2026-10-27T23:24:39.824342+00:00
 ---
 
 # Resources  |  App Lifecycle Manager  |  Google Cloud Documentation
@@ -24,8 +24,8 @@ Send feedback
 #  Resources Stay organized with collections  Save and categorize content based on your preferences. 
 
   * ### [Pricing Pricing details for App Lifecycle Manager.  ](https://cloud.google.com/products/app-lifecycle-manager/pricing)
-  * ### [Release notes Details about updates to App Lifecycle Manager.  ](https://docs.cloud.google.com/app-lifecycle-manager/docs/release-notes)
-  * ### [Locations The list of regions where App Lifecycle Manager is available.  ](https://docs.cloud.google.com/app-lifecycle-manager/docs/locations)
+  * ### [Release notes Details about updates to App Lifecycle Manager.  ](https://docs.cloud.google.com/app-lifecycle-manager/release-notes)
+  * ### [Locations The list of regions where App Lifecycle Manager is available.  ](https://docs.cloud.google.com/app-lifecycle-manager/locations)
 
 
 

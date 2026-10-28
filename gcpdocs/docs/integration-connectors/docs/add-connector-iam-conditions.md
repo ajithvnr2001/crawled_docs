@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/integration-connectors/docs/add-connector-iam-conditions/
 title: IAM Conditions for fine-grained access \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:20:59.029180+00:00
+fetched_at: 2026-10-27T18:14:03.122192+00:00
 ---
 
 # IAM Conditions for fine-grained access  |  Integration Connectors  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ EndpointAttachment  | [connectors.googleapis.com/EndpointAttachment](https://doc
 EventSubscription  | [connectors.googleapis.com/EventSubscription](https://docs.cloud.google.com/integration-connectors/docs/reference/rest/v1/projects.locations.connections.eventSubscriptions)  
 ConnectionSchemaMetadata  | [connectors.googleapis.com/ConnectionSchemaMetadata](https://docs.cloud.google.com/integration-connectors/docs/reference/rest/v1/projects.locations.connections.connectionSchemaMetadata)  
 
-**Note:** Google Cloud's resources have a hierarchical structure, and the permissions that you apply to a parent resource doesn't propagate to the parent's child resource(s), and conversely the permissions that you apply to a child resource(s) don't apply to the child's parent. For example, if you have restricted a user to access only the connections whose name begins with `marketing-`, the user can still list (view) all the connections because the `list` permission is available on the connection's parent resource (location). However, the user can perform get, create, update, and delete operations only on the connections whose name begins with `marketing-`.
+**Note:** Google Cloud resources have a hierarchical structure. Permissions applied to a parent resource don't apply to child resources, and permissions applied to child resources don't apply to the parent resource. For example, if you restrict a user to accessing only the connections whose names begin with `marketing-`, the user can still list all connections because the `list` permission is available on the connection's parent resource (the location). However, the user can perform `get`, `create`, `update`, and `delete` operations only on connections whose names begin with `marketing-`. Similarly, the `connectors.operations.list` permission is checked at the location level, not on individual connections.**Caution:** You cannot restrict long-running operations (LROs) to specific connections. An operation's resource name, `projects/PROJECT_ID/locations/CONNECTION_LOCATION/operations/OPERATION_ID`, does not contain the name of the connection that the operation creates, updates, or deletes. If your condition allows all resource types other than the ones it names, for example, `resource.type != "connectors.googleapis.com/Connection"`, it also grants `connectors.operations.*` permissions on every operation in the project. The user can view the operations of all connections and, if they have the Connector Admin role, cancel or delete those operations. To prevent this, exclude operations by their resource name using `resource.name.extract("/operations/{operation}") == ""`, as shown in the following examples.
 
 ## Examples
 
@@ -68,15 +68,16 @@ IAM resource condition  | Description
     
     (resource.name.startsWith
     ("projects/PROJECT_ID/locations/CONNECTION_LOCATION/
-    connections/marketing-") && resource.type == "connectors.googleapis.com/Connection"))
-    || resource.type != "connectors.googleapis.com/Connection"
+    connections/marketing-") && resource.type == "connectors.googleapis.com/Connection")
+    || (resource.type != "connectors.googleapis.com/Connection"
+    && resource.name.extract("/operations/{operation}") == "")
 
 | A user or a role to whom you apply this condition, can only do the following operations: 
 
-  * List all the connections.
-  * Perform get, create, update, and delete operations on connections whose name starts with `marketing-`. 
+  * List all the connections and long-running operations.
+  * Perform get, create, update, and delete operations on connections whose name starts with `marketing-`.
 
-  
+The user can't view, cancel, or delete individual long-running operations. To let the user track the progress of operations, see Let restricted users track operations.  
       
     
     (resource.name.startsWith
@@ -84,17 +85,24 @@ IAM resource condition  | Description
     connections/marketing-") && resource.type == "connectors.googleapis.com/Connection") ||
     (resource.name.startsWith ("projects/PROJECT_ID/locations/CONNECTION_LOCATION/
     connections/marketing-") && resource.type == "connectors.googleapis.com/ConnectionSchemaMetadata")
-    || (resource.type != "connectors.googleapis.com/Connection" 
-    && resource.type != "connectors.googleapis.com/ConnectionSchemaMetadata") 
+    || (resource.type != "connectors.googleapis.com/Connection"
+    && resource.type != "connectors.googleapis.com/ConnectionSchemaMetadata"
+    && resource.name.extract("/operations/{operation}") == "")
 
 | A user or a role to whom you apply this condition, can only do the following operations: 
 
-  * List all connections.
+  * List all connections and long-running operations.
   * Perform get, create, update, and delete operations **only for** connections whose name starts with `marketing-`.
   * Get connection schema metadata **only for** connections whose name starts with `marketing-`.
 
+The user can't view, cancel, or delete individual long-running operations.  
   
-  
+### Let restricted users track operations
+
+When the conditions in the preceding examples exclude operations, a restricted user can still create, update, and delete the connections that they're allowed to manage, but they can't check the status of the resulting long-running operations. If a restricted user needs to track operations, grant them a separate [custom role](https://docs.cloud.google.com/iam/docs/creating-custom-roles) without a condition, that contains only the `connectors.operations.get` permission.
+
+With this role, the user can view any operation in the project, including operations for connections that they can't otherwise access. This is the same connection information that the user can already view because they can list all connections. Don't grant the `connectors.operations.cancel` or `connectors.operations.delete` permissions to users whose access is restricted by a condition, because those permissions would let them cancel or delete operations for any connection in the project.
+
 ## Adding IAM Conditions for Application Integration service accounts
 
 You can apply IAM Conditions to the Application Integration service account, which lets you restrict the connections the service account can access during integration execution. For example, you can restrict a service account such that it can access only connections whose name begin with `marketing-`. For more information, see [Apply IAM Conditions to a service account](https://docs.cloud.google.com/application-integration/docs/add-iam-conditions).
@@ -126,6 +134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

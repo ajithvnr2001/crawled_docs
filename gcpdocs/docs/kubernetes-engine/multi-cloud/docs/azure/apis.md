@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/multi-cloud/docs/azure/apis/
 title: Reference \u00a0|\u00a0 GKE on Azure \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:30.158304+00:00
+fetched_at: 2026-10-27T22:55:56.895419+00:00
 ---
 
 # Reference  |  GKE on Azure  |  Google Cloud Documentation

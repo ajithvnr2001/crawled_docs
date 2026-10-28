@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/licenses-faqs/
 title: Frequently asked questions about Gemini Enterprise subscriptions and licenses \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:24:24.547758+00:00
+fetched_at: 2026-10-27T23:54:14.193713+00:00
 ---
 
 # Frequently asked questions about Gemini Enterprise subscriptions and licenses  |  Google Cloud Documentation
@@ -73,9 +73,9 @@ To use a subscription for a different project or projects, you need to:
 
 ### Do free-trial licenses include the AI developer tools quota?
 
-Yes. If your project uses an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), a free-trial subscription for the Gemini Enterprise Standard or Plus edition includes access to [AI developer tools](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview) and its base pooled credit quota. For details on credit amounts and weekly pool calculations, see [Quotas for Standard and Plus editions](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#quotas-standard-plus).
+Yes. If your project uses an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types), a free-trial subscription for the Gemini Enterprise Standard or Plus edition includes access to [AI developer tools](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview) and its base pooled credit quota. For details on credit amounts and weekly pool calculations, see [Quotas for Standard and Plus editions](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#quotas-standard-plus).
 
-Free-trial seats draw from the same project-level pooled quota allocation as paid seats. However, free-trial subscriptions aren't eligible for [overages](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#overages).
+Free-trial seats draw from the same project-level pooled quota allocation as paid seats. However, free-trial subscriptions aren't eligible for [pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#pay-as-you-go-usage-above-quota).
 
 ## Distribute and assign licenses
 
@@ -155,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

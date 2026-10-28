@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/bigquery-dataframes-introduction/
 title: Introduction to BigQuery DataFrames \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:40:08.303413+00:00
+fetched_at: 2026-10-27T22:35:01.542343+00:00
 ---
 
 # Introduction to BigQuery DataFrames  |  Google Cloud Documentation
@@ -21,33 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Introduction to BigQuery DataFrames
 
-BigQuery DataFrames is an open source Python library that lets you take advantage of BigQuery data processing by using familiar Python APIs. BigQuery DataFrames provides a Pythonic DataFrame powered by the BigQuery engine, and it implements the pandas and scikit-learn APIs by pushing data processing down to BigQuery through SQL conversion. This lets you use BigQuery to explore and process terabytes of data, build data pipelines, and train machine learning (ML) models, all with Python APIs, and without moving data to your client machine.
-
-If you are familiar with pandas, you can use BigQuery DataFrames to work with BigQuery data with minimal changes to your code. For example, you can use familiar pandas methods to analyze data from a BigQuery table:
-    
-    
-    import bigframes.pandas as bpd
-    
-    # Load data from BigQuery
-    query_or_table = "bigquery-public-data.ml_datasets.penguins"
-    bq_df = bpd.read_gbq(query_or_table)
-    
-    # Inspect one of the columns (or series) of the DataFrame:
-    bq_df["body_mass_g"]
-    
-    # Compute the mean of this series:
-    average_body_mass = bq_df["body_mass_g"].mean()
-    print(f"average_body_mass: {average_body_mass}")
-    
-    # Find the heaviest species using the groupby operation to calculate the
-    # mean body_mass_g:
-    (
-        bq_df["body_mass_g"]
-        .groupby(by=bq_df["species"])
-        .mean()
-        .sort_values(ascending=False)
-        .head(10)
-    )
+The open-source BigQuery DataFrames library lets you process terabytes of data and train AI and machine learning (ML) models using familiar Python APIs. You can use pandas and scikit-learn APIs to build data pipelines and analyze massive datasets directly in BigQuery without moving data to your client machine.
 
 **Note:** There are breaking changes to some default parameters in BigQuery DataFrames version 2.0. To learn about these changes and how to migrate to version 2.0, see [Migrate to BigQuery DataFrames 2.0](https://docs.cloud.google.com/bigquery/docs/migrate-dataframes).
 
@@ -96,6 +70,32 @@ For details, see the [`third_party/bigframes_vendored`](https://github.com/googl
 
 ## Use cases
 
+If you're familiar with pandas, you can use BigQuery DataFrames to work with BigQuery data with minimal changes to your code. For example, you can use familiar pandas methods to analyze data from a BigQuery table:
+    
+    
+    import bigframes.pandas as bpd
+    
+    # Load data from BigQuery
+    query_or_table = "bigquery-public-data.ml_datasets.penguins"
+    bq_df = bpd.read_gbq(query_or_table)
+    
+    # Inspect one of the columns (or series) of the DataFrame:
+    bq_df["body_mass_g"]
+    
+    # Compute the mean of this series:
+    average_body_mass = bq_df["body_mass_g"].mean()
+    print(f"average_body_mass: {average_body_mass}")
+    
+    # Find the heaviest species using the groupby operation to calculate the
+    # mean body_mass_g:
+    (
+        bq_df["body_mass_g"]
+        .groupby(by=bq_df["species"])
+        .mean()
+        .sort_values(ascending=False)
+        .head(10)
+    )
+
 You can use BigQuery DataFrames for the following analytics and machine learning use cases:
 
   * [Machine learning and AI](https://docs.cloud.google.com/bigquery/docs/dataframes-ml-ai)
@@ -132,6 +132,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

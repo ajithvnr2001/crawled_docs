@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/resource-manager/semantic-tags/keys/list/
 title: gcloud alpha resource-manager semantic-tags keys list \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T19:30:26.487396+00:00
+fetched_at: 2026-10-27T21:41:18.348661+00:00
 ---
 
 # gcloud alpha resource-manager semantic-tags keys list  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -58,7 +58,7 @@ FLAGS
 `--location`=`LOCATION`; default="global"
      Location of the Semantic Tag resource (for example, `global` or `us-central1`). 
 `--parent-key`=`KEY`
-     Filter results to immediate child Semantic Tag Keys of the specified parent key. Accepts the full resource name (`projects/gcp-semantic-tags-catalog/locations/{location}/semanticTagKeys/{key}`) or the key ID shorthand (for example, `placement`). 
+     Filter results to immediate child Semantic Tag Keys of the specified parent key. Accepts the key ID (for example, `placement`), `semanticTagKeys/{key}`, `locations/{location}/semanticTagKeys/{key}`, or the full resource name (`projects/gcp-semantic-tags-catalog/locations/{location}/semanticTagKeys/{key}`). Shorter forms use the `--location` value and the Google Cloud Semantic Tags Catalog project. 
 `--view`=`VIEW`; default="basic"
      Level of detail to return (`basic` or `full`). `basic` returns standard semantic key attributes without child keys; `full` additionally populates `childSemanticTagKeys` with direct child key resource names. `VIEW` must be one of: `basic`, `full`. 
 LIST COMMAND FLAGS
@@ -82,6 +82,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

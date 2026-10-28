@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/lite/docs/samples/pubsublite-create-topic/
 title: Create Lite topic \u00a0|\u00a0 Pub/Sub Lite \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:20:16.279372+00:00
+fetched_at: 2026-10-27T22:32:43.376937+00:00
 ---
 
 # Create Lite topic  |  Pub/Sub Lite  |  Google Cloud Documentation

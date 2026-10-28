@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/choose-access-bigquery-data-from-alloydb/
 title: Choose how to access BigQuery data from AlloyDB \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:14.367713+00:00
+fetched_at: 2026-10-28T02:28:31.566997+00:00
 ---
 
 # Choose how to access BigQuery data from AlloyDB  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,7 +21,15 @@ Send feedback
 
 #  Choose how to access BigQuery data from AlloyDB Stay organized with collections  Save and categorize content based on your preferences. 
 
-To access BigQuery data from AlloyDB for PostgreSQL, you can use the `bigquery_fdw` (foreign data wrapper) and `alloydb_sync` extensions. Together, these extensions provide methods for integrating your analytical and operational data: real-time data access (lakehouse federation), one-time data operations, and periodic synchronization. This document describes the options to access BigQuery data from AlloyDB.
+To combine analytical data in BigQuery with operational workloads in AlloyDB for PostgreSQL, you can choose from the integration methods provided by the `bigquery_fdw` (foreign data wrapper) and `alloydb_sync` extensions:
+
+  * Real-time data access (lakehouse federation): query live BigQuery tables in place without copying data.
+  * One-time data operations: import a snapshot of a BigQuery table into a writable AlloyDB table.
+  * Periodic synchronization: maintain a read-only local copy of a BigQuery table in AlloyDB that refreshes on a schedule.
+
+
+
+Compare the performance characteristics, data freshness, and use cases for each method to select the best approach for your workload.
 
 ## Lakehouse federation
 
@@ -105,6 +113,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

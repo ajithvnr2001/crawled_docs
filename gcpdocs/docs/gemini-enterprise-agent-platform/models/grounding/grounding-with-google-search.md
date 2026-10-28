@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search/
 title: Grounding with Google Search \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:39:06.326848+00:00
+fetched_at: 2026-10-27T20:09:49.854595+00:00
 ---
 
 # Grounding with Google Search  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -39,6 +39,7 @@ This section lists the models that support grounding with Search.
 
 #### Click to expand supported models
 
+  * [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview
   * [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
   * [Gemini 4 Argon Cyber Permissive](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon#cyber)
   * [Gemini 4 Argon](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-argon)
@@ -602,18 +603,42 @@ When using Google Image Search with Grounding with Google Search, you must compl
 
 For grounded responses using image search, the API provides clear attribution and metadata to link its output to verified sources. The `groundingMetadata` object includes the following fields:
 
-  * **`imageSearchQueries`** : the specific query used by the model for visual context (also known as the "image search").
+  * **`imageSearchQueries`** : the specific queries used by the model for visual context (also known as the "image search").
 
-  * **`groundingChunks`** : contains the source information for retrieved results. For image sources, these are returned as redirect URLs using a new image chunk type. The chunk includes the following:
+  * **`groundingChunks`** : contains the source information for retrieved results. For image sources, these are returned as redirect URLs using an `image` chunk type. Each chunk includes the following fields inside an `image` object:
 
-    * **`url`** : the web page URL for attribution (also known as the "landing page").
-    * **`image_url`** : the direct image URL.
+    * **`sourceUri`** : the webpage URL for attribution (also known as the "landing page").
+    * **`imageUri`** : the direct image URL.
+    * **`title`** : the title of the source webpage.
+    * **`domain`** : the domain of the source webpage.
   * **`groundingSupports`** : provides specific mappings that link the generated content to its relevant citation source in the chunks.
 
   * **`searchEntryPoint`** : includes the Google Search chip that contains compliant HTML and CSS to render Google Search Suggestions.
 
 
 
+
+The following example shows the `groundingMetadata` structure in a response:
+    
+    
+    {
+      "groundingMetadata": {
+        "groundingChunks": [
+          {
+            "image": {
+              "sourceUri": "EXAMPLE_SOURCE_URI",
+              "imageUri": "EXAMPLE_IMAGE_URI",
+              "title": "Example source title",
+              "domain": "example.com"
+            }
+          }
+        ],
+        "imageSearchQueries": [
+          "example search query"
+        ]
+      }
+    }
+    
 
 ## Understand your response
 
@@ -810,6 +835,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

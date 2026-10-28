@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/enable-model-armor/
 title: Enable Model Armor in Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:23:38.285335+00:00
+fetched_at: 2026-10-27T23:54:27.088658+00:00
 ---
 
 # Enable Model Armor in Gemini Enterprise  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 #  Enable Model Armor in Gemini Enterprise Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to enable [Model Armor](https://docs.cloud.google.com/security-command-center/docs/model-armor-overview) for Gemini Enterprise. Model Armor is a Google Cloud service that enhances the security and safety of your AI applications by proactively screening the prompts and responses given by the Gemini Enterprise assistant. This helps protect against various risks and ensures responsible AI practices. Model Armor is supported on all Gemini Enterprise editions at no additional cost.
+This document describes how to enable [Model Armor](https://docs.cloud.google.com/security-command-center/docs/model-armor-overview) for Gemini Enterprise. Model Armor is a Google Cloud service that enhances the security and safety of your AI applications by proactively screening the prompts and responses given by the Gemini Enterprise assistant. Data from Gemini Enterprise out-of-the-box data stores (including from [Google data sources](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/create-data-store) and [third-party data sources](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source)) is also screened using the same Model Armor template configured for user prompts. Screening this content helps protect against various risks and ensure responsible AI practices.
+
+Model Armor is supported on all Gemini Enterprise editions at no additional cost.
 
 Model Armor does not remove or alter personally identifiable information (PII) or mask sensitive data. However, Gemini Enterprise blocks any response from the Gemini Enterprise assistant that triggers Sensitive Data Protection detectors.
 
@@ -66,7 +68,7 @@ Mode | Description
 
 We recommend that you configure two separate Model Armor templates: one for user prompts and one for responses. User prompts and responses have different risk profiles and objectives:
 
-  * **Template for user prompts** : Focuses on preventing malicious inputs, prompt injections, jailbreak attempts, and sensitive data from being sent or uploaded. Although harmful content is also a concern for user inputs, you can disable responsible AI filters on the user prompt template because Gemini includes built-in safety checks for user prompts.
+  * **Template for user prompts** : Focuses on preventing malicious inputs, prompt injections, jailbreak attempts, and sensitive data from being sent or uploaded. This template also screens data from Gemini Enterprise out-of-the-box connectors, such as Jira and the Microsoft 365 federated connectors for SharePoint, OneDrive, Teams, and Outlook. Although harmful content is also a concern for user inputs, you can disable responsible AI filters on the user prompt template because Gemini includes built-in safety checks for user prompts.
   * **Template for response outputs** : Focuses on preventing responses from returning or leaking sensitive data, generating harmful or off-brand content, or returning malicious URLs.
 
 
@@ -159,7 +161,7 @@ Replace the following:
 For more information, see [Specify a multi-region for your data store](https://docs.cloud.google.com/gemini/enterprise/docs/locations#specify_a_multi-region_for_your_data_store). 
   * `LOCATION`: the multi-region of your data store: `global`, `us`, or `eu`
   * `APP_ID`: the ID of the app that you want to configure.
-  * `QUERY_PROMPT_TEMPLATE`: the **Resource name** of the Model Armor templates you created.   
+  * `QUERY_PROMPT_TEMPLATE`: the **Resource name** of the Model Armor template that screens user prompts and data from out-of-the-box connectors.   
 To get the **Resource name** , follow the steps in the [View a Model Armor template](https://docs.cloud.google.com/security-command-center/docs/manage-model-armor-templates#view-ma-template) documentation, and copy the **Resource name** value.
 
 **Note:** You can use Model Armor templates created in the same project as the Gemini Enterprise app or use Model Armor templates from a different project. If you use a template from a different project, ensure the cross-project permissions are configured as described in Before you begin.
@@ -359,7 +361,7 @@ When using Model Armor with Gemini Enterprise, consider the following:
 
 **De-identification and masking** |  When Model Armor uses a Sensitive Data Protection template for scanning prompts or responses, Model Armor checks if the content matches the detector criteria defined in the template. Although Sensitive Data Protection supports de-identification based on the template configuration, Model Armor does not pass de-identified or masked data back to Gemini Enterprise. If the content triggers any detectors from Sensitive Data Protection and the enforcement type is `INSPECT_AND_BLOCK`, Gemini Enterprise blocks the request or response rather than de-identifying it.   
 ---|---  
-**Token limits and quotas** |  There are no token limits when you use Model Armor with Gemini Enterprise. However, the total throughput of your Model Armor evaluations is still indirectly governed by [Gemini Enterprise system quotas](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages) and [Model Armor API rate limits](https://docs.cloud.google.com/model-armor/quotas#quotas).   
+**Token limits and quotas** |  There are no token limits when you use Model Armor with Gemini Enterprise. However, the total throughput of your Model Armor evaluations is still indirectly governed by [Gemini Enterprise system quotas](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage) and [Model Armor API rate limits](https://docs.cloud.google.com/model-armor/quotas#quotas).   
 **Service Level Agreement** |  Gemini Enterprise provides a [Service Level Agreement](https://cloud.google.com/terms/gemini/enterprise/sla). When Gemini Enterprise is configured to use Model Armor, blocked queries don't count as SLA violations, regardless of whether the **fail-open** or **fail-closed** mode is used.   
 **Compliance** |  Both Gemini Enterprise and Model Armor offer various compliance certifications. When used together, the effective compliance certifications are the common subset of both products. Google recommends reviewing the compliance certifications for both products to ensure that they meet your regulatory requirements.   
 **Document and image screening** |  In addition to text prompts, the Model Armor integration supports documents (such as PDFs) and images. The Model Armor integration screens the following files only when you upload them to the Gemini Enterprise assistant: 
@@ -369,6 +371,7 @@ When using Model Armor with Gemini Enterprise, consider the following:
   * Images contained inside other files and documents that you upload directly. 
 
 If a file or an image inside a document violates your configured policies, the entire file or document is discarded and excluded from the request. For the list of supported document types, see [Document screening](https://docs.cloud.google.com/model-armor/overview#ma-support-screening-pdfs).   
+**Out-of-the-box connectors** |  Data from Gemini Enterprise out-of-the-box connectors is screened using the Model Armor template configured for user prompts. This includes connectors such as Jira and the Microsoft 365 federated connectors for SharePoint, OneDrive, Teams, and Outlook.   
 **Screened interactions and agents** |  If a Model Armor template is configured to screen user requests, only interactions with the following agents are screened in Gemini Enterprise: 
 
   * The Gemini Enterprise assistant
@@ -387,6 +390,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

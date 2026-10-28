@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk/
-title: Quickstart: Develop and deploy agents on Agent Runtime with Agent Development Kit \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
+title: Quickstart: Develop and deploy agents on Agent Runtime with ADK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:27:09.409781+00:00
+fetched_at: 2026-10-28T02:27:44.889906+00:00
 ---
 
-# Quickstart: Develop and deploy agents on Agent Runtime with Agent Development Kit  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
+# Quickstart: Develop and deploy agents on Agent Runtime with ADK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk/
 
@@ -19,7 +19,7 @@ fetched_at: 2026-10-25T06:27:09.409781+00:00
 
 Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Develop and deploy agents on Agent Runtime with Agent Development Kit
+# Develop and deploy agents on Agent Runtime with Agent Development Kit (ADK)
 
 Agent Runtime lets you host agents developed with the [Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk). This document explains how to create, deploy, and test an agent using ADK.
 
@@ -40,7 +40,7 @@ You can also use the following alternative quickstarts for ADK:
 
 
 
-For the quickstart using supported frameworks other than Agent Development Kit, see [Develop and deploy agents on Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart).
+For the quickstart using supported frameworks other than ADK, see [Develop and deploy agents on Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart).
 
 ## Before you begin
 
@@ -130,11 +130,11 @@ No action required.
 
   3. Run the following code to import Agent Platform and initialize the SDK:
 
-### Google Cloud project
+###  Google Cloud project 
          
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          
-         client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(
+         client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(
              project="PROJECT_ID",               # Your project ID.
              location="LOCATION",                # Your cloud region.
          )
@@ -275,6 +275,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

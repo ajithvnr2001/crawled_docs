@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/fortinet-firewall/
 title: Collect Fortinet Firewall logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:27.064238+00:00
+fetched_at: 2026-10-27T23:01:38.812740+00:00
 ---
 
 # Collect Fortinet Firewall logs  |  Google Security Operations  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/routers/update-interface/
 title: gcloud preview compute routers update-interface \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T11:08:48.492737+00:00
+fetched_at: 2026-10-27T21:41:05.242705+00:00
 ---
 
 # gcloud preview compute routers update-interface  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud preview compute routers update-interface - update an interface on a Compu
 SYNOPSIS
     
 
-`gcloud preview compute routers update-interface` `NAME` `--interface-name`=`INTERFACE_NAME` [`--ip-address`=`IP_ADDRESS`] [`--ip-version`=`IP_VERSION`] [`--mask-length`=`MASK_LENGTH`] [`--region`=`REGION`] [`--interconnect-attachment`=`INTERCONNECT_ATTACHMENT` | `--interconnect-attachment-region`=`INTERCONNECT_ATTACHMENT_REGION` | `--vpn-tunnel`=`VPN_TUNNEL` | `--vpn-tunnel-region`=`VPN_TUNNEL_REGION`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud preview compute routers update-interface` `NAME` `--interface-name`=`INTERFACE_NAME` [`--ip-version`=`IP_VERSION`] [`--region`=`REGION`] [`--interconnect-attachment`=`INTERCONNECT_ATTACHMENT` | `--interconnect-attachment-region`=`INTERCONNECT_ATTACHMENT_REGION` | `--vpn-tunnel`=`VPN_TUNNEL` | `--vpn-tunnel-region`=`VPN_TUNNEL_REGION`] [`--ip-address`=`IP_ADDRESS` `--mask-length`=`MASK_LENGTH`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(PREVIEW)` `gcloud preview compute routers update-interface` is used to update an interface on a Compute Engine router. 
 POSITIONAL ARGUMENTS
@@ -44,8 +44,6 @@ REQUIRED FLAGS
 OPTIONAL FLAGS
     
 
-`--ip-address`=`IP_ADDRESS`
-     The link local (IPv4) or ULA (IPv6) address of the router for this interface. 
 `--ip-version`=`IP_VERSION`
      IP version of the interface. Possible values are IPV4 and IPV6. Defaults to IPV4. `IP_VERSION` must be one of: 
 
@@ -53,8 +51,6 @@ OPTIONAL FLAGS
      Interface with IPv4-based BGP. 
 `IPV6`
      Interface with IPv6-based BGP. 
-`--mask-length`=`MASK_LENGTH`
-     The subnet mask for the IP range of the interface. The interface IP address and BGP peer IP address must be selected from the subnet defined by this range. 
 `--region`=`REGION`
      Region of the router to update. If not specified, you might be prompted to select a region (interactive mode only). 
 
@@ -85,6 +81,17 @@ At most one of these can be specified:
      The tunnel of the interface being updated. 
 `--vpn-tunnel-region`=`VPN_TUNNEL_REGION`
      Region of the vpn tunnel to operate on. If not specified it will be set to the region of the router. Overrides the default `compute/region` property value for this command invocation. 
+The IP range of the interface, such as 192.0.2.0/24 or 2001:db8::/32. If either flag is specified, both must be specified. 
+`--ip-address`=`IP_ADDRESS`
+     The link local (IPv4) or ULA (IPv6) address of the router for this interface. 
+
+This flag argument must be specified if any of the other arguments in this group are specified. 
+
+`--mask-length`=`MASK_LENGTH`
+     The subnet mask for the IP range of the interface. The interface IP address and BGP peer IP address must be selected from the subnet defined by this range. 
+
+This flag argument must be specified if any of the other arguments in this group are specified. 
+
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -106,6 +113,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

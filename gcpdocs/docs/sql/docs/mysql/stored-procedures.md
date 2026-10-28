@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/stored-procedures/
 title: Cloud SQL stored procedures \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:18:42.494154+00:00
+fetched_at: 2026-10-28T02:29:36.832406+00:00
 ---
 
 # Cloud SQL stored procedures  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -45,7 +45,136 @@ To create a stored procedure, see [CREATE PROCEDURE and CREATE FUNCTION Statemen
 
 **Note:** You cannot run some stored procedures because they require a `sysadmin` role, which isn't available in Cloud SQL. 
 
-## mysql.addSecondaryIdxOnReplica
+## Managed replica indexes stored procedures
+
+You can use the following stored procedures to create, manage, and drop managed replica indexes for your replicas. When your replicas are re-created, these indexes are restored automatically.
+
+Each stored procedure call executes a `COMMIT` statement that finalizes the changes in your current session. As a result, data manipulation language (DML) statements executed using these stored procedures can't be rolled back within a transaction.
+
+For more information, see [Managed replica indexes](https://docs.cloud.google.com/sql/docs/mysql/replication/read-replica-indexes#managed-replica-indexes).
+
+### mysql.cloudsql_replica_idx_defn_create
+
+**Syntax**
+    
+    
+    mysql.cloudsql_replica_idx_defn_create(IDXNAME, CREATESTMT)
+
+**Description**
+
+Creates a definition for a secondary index. Run this stored procedure on the primary instance, which replicates the index definition to the replicas.
+
+The stored procedure returns an `IDXID`, a unique integer identifier of the secondary index definition.
+
+  * IDXNAME – Name for the index definition.
+  * CREATESTMT – SQL statement to create the index. Must be a schema-prefixed (for example, `schema_name.table_name`) DDL statement.
+
+
+
+### mysql.cloudsql_replica_idx_defn_drop
+
+**Syntax**
+    
+    
+    mysql.cloudsql_replica_idx_defn_drop(IDXID)
+
+**Description**
+
+Drops a secondary index definition. Run this stored procedure on the primary instance.
+
+**Note:** You can't delete an index definition if it is part of a replica group. Remove the index definition from all replica groups using `mysql.cloudsql_replica_idx_group_drop` before deleting it. 
+
+  * IDXID – Unique integer identifier of the index definition of the deleted index.
+
+
+
+### mysql.cloudsql_replica_idx_group_add
+
+**Syntax**
+    
+    
+    mysql.cloudsql_replica_idx_group_add(IDXID, GRPNAME)
+
+**Description**
+
+Adds a secondary index definition to a replica group. Run this stored procedure on the primary instance.
+
+  * IDXID – Unique integer ID of the index definition.
+  * GRPNAME – Name of the replica group. GRPNAME is a custom name that you select. If that replica group doesn't exist, then Cloud SQL creates a new one.
+
+
+
+### mysql.cloudsql_replica_idx_group_drop
+
+**Syntax**
+    
+    
+    mysql.cloudsql_replica_idx_group_drop(IDXID, GRPNAME)
+
+**Description**
+
+Drops a secondary index from a replica group mapping. Run this stored procedure on the primary instance.
+
+  * IDXID – Unique integer ID of the index definition.
+  * GRPNAME – Name of the replica group.
+
+
+
+### mysql.cloudsql_replica_idx_show_status
+
+**Syntax**
+    
+    
+    mysql.cloudsql_replica_idx_show_status()
+
+**Description**
+
+Shows the status and progress of ongoing index creation or drop operations on a replica instance.
+
+To view a detailed progress report, you must enable the MySQL Performance Schema on the instance. In addition, you must enable the stage instruments and consumers by running the following SQL commands:
+
+  1. Enable the stage instruments:
+         
+         UPDATE performance_schema.setup_instruments
+         SET ENABLED = 'YES'
+         WHERE NAME LIKE 'stage/innodb/alter%';
+
+  2. Enable the stage event consumers:
+         
+         UPDATE performance_schema.setup_consumers
+         SET ENABLED = 'YES'
+         WHERE NAME LIKE 'events_stages_%';
+
+
+
+
+For more information, see the [ALTER TABLE Monitoring Example Using Performance Schema](https://dev.mysql.com/doc/refman/8.4/en/monitor-alter-table-performance-schema.html).
+
+### mysql.cloudsql_replica_idx_show_errors
+
+**Syntax**
+    
+    
+    mysql.cloudsql_replica_idx_show_errors()
+
+**Description**
+
+Lists index re-creation attempts that failed in their last execution, showing error messages and retry counts on a replica instance. A failure on one index doesn't block the execution of subsequent indexes in the queue.
+
+### mysql.cloudsql_replica_idx_show_all
+
+**Syntax**
+    
+    
+    mysql.cloudsql_replica_idx_show_all()
+
+**Description**
+
+Lists the status, retry counts, execution duration, and error messages for all replica secondary index re-creation records in the metadata status table. Run this stored procedure on a replica instance.
+
+## Self-managed replica indexes stored procedures
+
+The following stored procedures let you add and drop secondary indexes directly on a replica, but these indexes don't persist if the replica is re-created.
 
 ### mysql.addSecondaryIdxOnReplica
 
@@ -58,11 +187,11 @@ To create a stored procedure, see [CREATE PROCEDURE and CREATE FUNCTION Statemen
 
 Adds a secondary index on the database. This stored procedure is a wrapper for the [CREATE INDEX](https://dev.mysql.com/doc/refman/8.0/en/create-index.html) DDL statement.
 
-  * IDXTYPE – Type of index to create. For example, pass UNIQUE to create a unique index.
+  * IDXTYPE – Type of index to create. For example, pass `UNIQUE` to create a unique index.
   * IDXNAME – Name of the index.
-  * TABLENAME – Name of the table in the format of schema.name.
-  * IDXDEFINITION – Definition of the index. Do not include outer parentheses.
-  * IDXOPTION – Any additional options to pass on index creation. For example, in MySQL 8.0, an option could pass INVISIBLE for an invisible index.
+  * TABLENAME – Name of the table in the format of `schema_name.table_name`.
+  * IDXDEFINITION – Definition of the index. Don't include outer parentheses.
+  * IDXOPTION – Any additional options to pass on index creation. For example, in MySQL 8.0, an option could pass `INVISIBLE` for an invisible index.
 
 
 
@@ -78,10 +207,14 @@ Adds a secondary index on the database. This stored procedure is a wrapper for t
 Drops a secondary index on the database. This stored procedure is a wrapper for the [DROP INDEX](https://dev.mysql.com/doc/refman/8.0/en/drop-index.html) DDL statement.
 
   * IDXNAME – Name of the index.
-  * TABLENAME – Name of the table in the format of schema.name.
-  * IDXOPTION – Any additional options to pass when dropping an index. For example, an algorithm option like INPLACE.
+  * TABLENAME – Name of the table in the format of `schema_name.table_name`.
+  * IDXOPTION – Any additional options to pass when dropping an index. For example, an algorithm option such as `INPLACE`.
 
 
+
+## External server replication stored procedures
+
+You can use the following stored procedure during external server replication.
 
 ### mysql.skipReplicationError
 
@@ -96,9 +229,9 @@ Skips a replication error encountered during [external server replication](https
 
 You can run this stored procedure only if you've encountered a replication error and the I/O and SQL threads are stopped.
 
-This stored procedure procedure does the following:
+This stored procedure does the following:
 
-  1. Determines if GTID- or binary log position-based replication is being used.
+  1. Determines whether GTID-based or binary log position-based replication is used.
 
   2. If parallel replication is being used, then the stored procedure first calls [`START_SLAVE_UNTIL_SQL_AFTER_MTS_GAPS`](https://dev.mysql.com/doc/refman/8.0/en/start-slave.html) or [`START_REPLICA UNTIL_SQL_AFTER_MTS_GAPS`](https://dev.mysql.com/doc/refman/8.4/en/start-replica.html) to ensure that there are no gaps in applied transactions up to the failed transaction. The procedure then temporarily sets the replication configuration to single-threaded.
 
@@ -106,7 +239,7 @@ This stored procedure procedure does the following:
 
   4. For GTID-based replication, the stored procedure determines the GTID of the current failed transaction based on information in the `gtid_executed` status variable. The procedure then inserts an empty transaction to backfill that GTID.
 
-  5. If parallel replication was previously disabled, then parallel replication is re-enabled.
+  5. If parallel replication was previously disabled, then the stored procedure re-enables parallel replication.
 
   6. The stored procedure resumes replication.
 
@@ -118,6 +251,7 @@ The table `mysql.skip_replication_error_history` logs all invocations of this st
 ## What's next
 
   * Learn how to [add and drop indexes on Cloud SQL read replicas](https://docs.cloud.google.com/sql/docs/mysql/replication/read-replica-indexes).
+  * Learn how to [create and manage read replica indexes](https://docs.cloud.google.com/sql/docs/mysql/replication/create-manage-read-replica-indexes).
 
 
 
@@ -125,6 +259,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

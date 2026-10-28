@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/veritas-netbackup/
 title: Collect Cohesity DataProtect (formerly Veritas NetBackup) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:13.921142+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:18:27.375184+00:00
 ---
 
 # Collect Cohesity DataProtect (formerly Veritas NetBackup) logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -101,7 +115,7 @@ Install the Bindplane agent on your Windows or Linux operating system according 
 
   2. Run the following command:
          
-         msiexec /i "[https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi](https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi)&quot; /quiet
+         msiexec /i "[https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi](https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi)" /quiet
          
 
   3. Wait for the installation to complete.
@@ -172,9 +186,9 @@ For additional installation options and troubleshooting, see [Bindplane agent in
           chronicle/netbackup:
             protocol: https
             # Region of your instance, for example us, europe, asia-southeast1
-            <location>: LOCATION
+            location: <LOCATION>
             # Project number of the Google Cloud project linked to the instance
-            <project: '>PROJECT_NUMBER'
+            project: '<PROJECT_NUMBER>'
             compression: gzip
             creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
             customer_id: 'your-customer-id-here'
@@ -430,6 +444,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

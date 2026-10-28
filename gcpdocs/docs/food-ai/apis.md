@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/food-ai/apis/
 title: APIs and reference \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:42.654094+00:00
+fetched_at: 2026-10-27T16:59:20.213331+00:00
 ---
 
 # APIs and reference  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -11,9 +11,10 @@ fetched_at: 2026-10-25T06:25:42.654094+00:00
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
-  * [ Industry solutions ](https://docs.cloud.google.com/docs/industry)
-  * [ Food AI ](https://docs.cloud.google.com/food-ai)
-  * [ Reference ](https://docs.cloud.google.com/food-ai/apis)
+  * [ AI and ML ](https://docs.cloud.google.com/docs/ai-ml)
+  * [ Gemini Enterprise for Customer Experience ](https://docs.cloud.google.com/gemini-enterprise-cx)
+  * [ Commerce agents ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents)
+  * [ Food AI ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents)
 
 
 
@@ -21,9 +22,9 @@ Send feedback
 
 #  APIs and reference Stay organized with collections  Save and categorize content based on your preferences. 
 
-  * ### [Client libraries Get started with Food Ordering AI Agent in your language of choice.  ](https://docs.cloud.google.com/food-ai/reference/libraries)
-  * ### [REST API reference Get started with Food Ordering AI Agent using the REST API.  ](https://docs.cloud.google.com/food-ai/reference/rest)
-  * ### [RPC API reference Get started with Food Ordering AI Agent using the RPC API.  ](https://docs.cloud.google.com/food-ai/reference/rpc)
+  * ### [Client libraries Get started with Food Ordering AI Agent in your language of choice.  ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/libraries)
+  * ### [REST API reference Get started with Food Ordering AI Agent using the REST API.  ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rest)
+  * ### [RPC API reference Get started with Food Ordering AI Agent using the RPC API.  ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/reference/rpc)
 
 
 

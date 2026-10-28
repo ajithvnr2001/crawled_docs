@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/network-security/firewall-endpoints/create/
 title: gcloud network-security firewall-endpoints create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T04:35:20.601941+00:00
+fetched_at: 2026-10-27T21:40:46.032040+00:00
 ---
 
 # gcloud network-security firewall-endpoints create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud network-security firewall-endpoints create - create a Firewall Plus endpo
 SYNOPSIS
     
 
-`gcloud network-security firewall-endpoints create` (`FIREWALL_ENDPOINT` : `--organization`=`ORGANIZATION` `--zone`=`ZONE`) [`--async`] [`--billing-project`=`BILLING_PROJECT`] [`--description`=`DESCRIPTION`] [`--enable-jumbo-frames`] [`--labels`=[`KEY`=`VALUE`,…]] [`--location`=`LOCATION`] [`--max-wait`=`MAX_WAIT`; default="60m"] [`GCLOUD_WIDE_FLAG …`]
+`gcloud network-security firewall-endpoints create` (`FIREWALL_ENDPOINT` : `--organization`=`ORGANIZATION` `--zone`=`ZONE`) [`--async`] [`--billing-project`=`BILLING_PROJECT`] [`--block-partial-http`] [`--content-cloud-region`=`CONTENT_CLOUD_REGION`] [`--description`=`DESCRIPTION`] [`--enable-jumbo-frames`] [`--enable-wildfire`] [`--enable-wildfire-analysis-logging`] [`--labels`=[`KEY`=`VALUE`,…]] [`--location`=`LOCATION`] [`--max-wait`=`MAX_WAIT`; default="60m"] [`--wildfire-analysis-action`=`WILDFIRE_ANALYSIS_ACTION`] [`--wildfire-analysis-timeout`=`WILDFIRE_ANALYSIS_TIMEOUT`] [`--wildfire-lookup-action`=`WILDFIRE_LOOKUP_ACTION`] [`--wildfire-lookup-timeout`=`WILDFIRE_LOOKUP_TIMEOUT`] [`--wildfire-region`=`WILDFIRE_REGION`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a firewall endpoint. Successful creation of an endpoint results in an endpoint in READY state. Check the progress of endpoint creation by using `[gcloud network-security firewall-endpoints list](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/firewall-endpoints/list)`. 
 
@@ -91,10 +91,18 @@ FLAGS
      Return immediately, without waiting for the operation in progress to complete. The default is `True`. Enabled by default, use `--no-async` to disable. 
 `--billing-project`=`BILLING_PROJECT`
      The Google Cloud project ID to use for API enablement check, quota, and endpoint uptime billing. Overrides the default `billing/quota_project` property value for this command invocation. 
+`--block-partial-http`
+     Block HTTP partial responses. Defaults to false. Use `--block-partial-http` to enable. To disable, use `--no-block-partial-http`. 
+`--content-cloud-region`=`CONTENT_CLOUD_REGION`
+     The content cloud region the endpoint will use. Defaults to the nearest available region. 
 `--description`=`DESCRIPTION`
      Description of the endpoint 
 `--enable-jumbo-frames`
      Enable jumbo frames for the firewall endpoint. To disable jumbo frames, use \--no-enable-jumbo-frames. 
+`--enable-wildfire`
+     Enable WildFire functionality on the endpoint. Use --enable-wildfire to enable. To disable, use --no-enable-wildfire. 
+`--enable-wildfire-analysis-logging`
+     Enable WildFire inline cloud analysis submission timeout logging. This is enabled by default. Use `--no-enable-wildfire-analysis-logging` to disable. 
 `--labels`=[`KEY`=`VALUE`,…]
      List of label KEY=VALUE pairs to add. 
 
@@ -104,6 +112,16 @@ Keys must start with a lowercase character and contain only hyphens (`-`), under
      Location of the endpoint 
 `--max-wait`=`MAX_WAIT`; default="60m"
      Time to synchronously wait for the operation to complete, after which the operation continues asynchronously. Ignored if --no-async isn't specified. See $ [gcloud topic datetimes](https://docs.cloud.google.com/sdk/gcloud/reference/topic/datetimes) for information on time formats. 
+`--wildfire-analysis-action`=`WILDFIRE_ANALYSIS_ACTION`
+     The action to take on WildFire inline cloud analysis timeout. `WILDFIRE_ANALYSIS_ACTION` must be one of: `ALLOW`, `DENY`. 
+`--wildfire-analysis-timeout`=`WILDFIRE_ANALYSIS_TIMEOUT`
+     The timeout (in milliseconds) on a file being held while WildFire inline cloud analysis is performed. 
+`--wildfire-lookup-action`=`WILDFIRE_LOOKUP_ACTION`
+     The action to take on WildFire real time signature lookup timeout. `WILDFIRE_LOOKUP_ACTION` must be one of: `ALLOW`, `DENY`. 
+`--wildfire-lookup-timeout`=`WILDFIRE_LOOKUP_TIMEOUT`
+     The timeout (in milliseconds) to hold a file while the WildFire real time signature cloud performs a signature lookup. 
+`--wildfire-region`=`WILDFIRE_REGION`
+     The region WildFire submissions from this endpoint will be sent to for analysis by WildFire. Defaults to the nearest available region. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -122,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-09 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

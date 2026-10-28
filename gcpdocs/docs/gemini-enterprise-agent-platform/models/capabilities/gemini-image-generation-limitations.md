@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-image-generation-limitations/
 title: Gemini image generation limitations \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:36.061609+00:00
+fetched_at: 2026-10-27T19:38:58.542093+00:00
 ---
 
 # Gemini image generation limitations  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -43,10 +43,12 @@ Gemini image generation is subject to the following limitations:
 
     * If a prompt is potentially unsafe, the model might not process the request and returns a response indicating that it can't create unsafe images. In this case, the [`FinishReason`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/GenerateContentResponse#FinishReason) is `STOP`.
 
+  * When you save generated images to a Cloud Storage bucket in a different project, follow-up multi-turn requests that read those images require the calling project's Gemini Enterprise Agent Platform service agent to have read access to the Cloud Storage bucket. For details, see [Cloud Storage output limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#cloud-storage-output-limitations).
 
 
 
-## What's next?
+
+## What's next
 
 See the following links for more information about Gemini image generation:
 
@@ -65,6 +67,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

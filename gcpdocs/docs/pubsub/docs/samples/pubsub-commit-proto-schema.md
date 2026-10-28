@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-commit-proto-schema/
 title: Commit a revision for a Protocol Buffer schema \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:53.336158+00:00
+fetched_at: 2026-10-28T01:39:48.196350+00:00
 ---
 
 # Commit a revision for a Protocol Buffer schema  |  Pub/Sub  |  Google Cloud Documentation

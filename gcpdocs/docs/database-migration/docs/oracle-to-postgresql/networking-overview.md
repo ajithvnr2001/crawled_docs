@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/networking-overview/
 title: Network connectivity for heterogeneous Oracle to Cloud SQL for PostgreSQL migrations \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:17:57.034619+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:24:36.813728+00:00
 ---
 
 # Network connectivity for heterogeneous Oracle to Cloud SQL for PostgreSQL migrations  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -41,7 +55,7 @@ After you've considered the high-level relations between Google Cloud services i
 
 From a networking point of view, Database Migration Service and Cloud SQL are _service producers_ that reside in their own dedicated networks (known as _service networks_), outside the Virtual Private Cloud (VPC) networks that you use in your Google Cloud project. The goal of configuring network connectivity for a migration process with Database Migration Service is to ensure that Database Migration Service can reach your source Oracle database server and the destination Cloud SQL for PostgreSQL instance.
 
-![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/overall_htm_connectivity_diagram.svg) **Figure 1.** Simplified view of heterogeneous migration networking (click to enlarge) ![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/overall_htm_connectivity_diagram.svg)
+![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/overall_htm_connectivity_diagram.svg) **Figure 1.** Simplified view of heterogeneous migration networking (click to enlarge)  ![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/overall_htm_connectivity_diagram.svg)
 
 When you plan the network connectivity setup for your migration, it's important to carefully consider the infrastructure requirements, including what limitations your networking decisions might introduce to the end state of the migrated database instance. For example, if you want to use a private connection for the destination database connectivity, you need to create your destination Cloud SQL instance with private IP enabled. You can't later disable the private IP on your Cloud SQL instance.
 
@@ -54,7 +68,7 @@ In this example, you have the following database instances:
   * A self-hosted source Oracle database server with a public IP address.
   * A Cloud SQL for PostgreSQL destination instance with a private IP address enabled.
 
-![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/oracle_csql_pgsql_public-src-private-dst-connectivity_v3.svg) **Figure 2.** Migration networking example: public IP source connectivity with private IP destination connectivity (click to enlarge) ![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/oracle_csql_pgsql_public-src-private-dst-connectivity_v3.svg)
+![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/oracle_csql_pgsql_public-src-private-dst-connectivity_v3.svg) **Figure 2.** Migration networking example: public IP source connectivity with private IP destination connectivity (click to enlarge)  ![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/oracle_csql_pgsql_public-src-private-dst-connectivity_v3.svg)
 
 For the [ source database connectivity](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/networking-methods-source), you use the [ IP allowlist method](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/networking-methods-source#ip-allowlist) to establish a connection over the public internet. You secure this connection with an SSL/TLS certificate.
 
@@ -68,7 +82,7 @@ In this example, you have the following components:
   * A Cloud VPN instance in your Google Cloud VPC
   * A Cloud SQL for PostgreSQL destination instance with a public IP address enabled
 
-![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/oracle_csql_pgsql_private_src_psci_public_dst.svg) **Figure 2.** Migration networking example: private IP source connectivity and public IP destination connectivity (click to enlarge) ![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/oracle_csql_pgsql_private_src_psci_public_dst.svg)
+![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/oracle_csql_pgsql_private_src_psci_public_dst.svg) **Figure 2.** Migration networking example: private IP source connectivity and public IP destination connectivity (click to enlarge)  ![](https://docs.cloud.google.com/static/database-migration/docs/images/htm/oracle-to-postgresql/oracle_csql_pgsql_private_src_psci_public_dst.svg)
 
 For the [ source database connectivity](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/networking-methods-source), you use a [ private connectivity configuration](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/create-private-connectivity-configuration#create-psci-config) to establish a Private Service Connect connection between Database Migration Service and the VPC where you have your Cloud VPN instance. You use Cloud VPN to create an IPsec tunnel between Google Cloud and the cloud network where you have the source Oracle database.
 
@@ -87,6 +101,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

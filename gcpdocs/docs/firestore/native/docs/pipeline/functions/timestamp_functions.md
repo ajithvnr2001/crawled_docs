@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/timestamp_functions/
 title: Timestamp Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:21:52.382250+00:00
+fetched_at: 2026-10-27T16:28:55.099189+00:00
 ---
 
 # Timestamp Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -221,7 +221,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/pipeline_snippets_date_timestamp.go#L28-L33)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_date_timestamp.go#L28-L33)
 
 ### UNIX_MILLIS_TO_TIMESTAMP
 
@@ -346,7 +346,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/pipeline_snippets_date_timestamp.go#L47-L52)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_date_timestamp.go#L47-L52)
 
 ### UNIX_SECONDS_TO_TIMESTAMP
 
@@ -471,7 +471,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/pipeline_snippets_date_timestamp.go#L66-L71)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_date_timestamp.go#L66-L71)
 
 ### TIMESTAMP_ADD
 
@@ -607,7 +607,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/pipeline_snippets_date_timestamp.go#L85-L90)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_date_timestamp.go#L85-L90)
 
 ### TIMESTAMP_SUB
 
@@ -747,7 +747,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/pipeline_snippets_date_timestamp.go#L104-L109)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_date_timestamp.go#L104-L109)
 
 ### TIMESTAMP_TO_UNIX_MICROS
 
@@ -868,7 +868,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/pipeline_snippets_date_timestamp.go#L123-L128)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_date_timestamp.go#L123-L128)
 
 ### TIMESTAMP_TO_UNIX_MILLIS
 
@@ -989,7 +989,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/pipeline_snippets_date_timestamp.go#L142-L147)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_date_timestamp.go#L142-L147)
 
 ### TIMESTAMP_TO_UNIX_SECONDS
 
@@ -1110,7 +1110,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/pipeline_snippets_date_timestamp.go#L161-L166)
+    [pipeline_snippets_date_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_date_timestamp.go#L161-L166)
 
 ### TIMESTAMP_DIFF
 
@@ -1204,6 +1204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

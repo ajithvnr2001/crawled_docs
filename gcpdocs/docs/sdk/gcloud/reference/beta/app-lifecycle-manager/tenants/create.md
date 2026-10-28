@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/tenants/create/
 title: gcloud beta app-lifecycle-manager tenants create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:40.660493+00:00
+fetched_at: 2026-10-27T21:41:34.746963+00:00
 ---
 
 # gcloud beta app-lifecycle-manager tenants create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,26 +24,31 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager tenants create - create a Tenant 
+gcloud beta app-lifecycle-manager tenants create - create a tenant 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager tenants create` `TENANT` `--saas`=`SAAS` [`--consumer-resource`=`CONSUMER_RESOURCE`] [`--labels`=[`LABELS`,…]] [`--location`=`LOCATION`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Create a Tenant 
+     `(BETA)` Create an App Lifecycle Manager tenant. 
+
+A tenant represents the service producer side of an instance of the service that is created based on a request from a consumer. A tenant usually maps one-to-one to a resource given out to a service consumer. 
+
 EXAMPLES
-     To create the Tenant, run: 
+     To create a tenant named `my-tenant` for the SaaS offering `my-saas` in location `us-central1`, run: 
     
     
-    gcloud beta app-lifecycle-manager tenants create
+    gcloud beta app-lifecycle-manager tenants create my-tenant --location=us-central1 --saas=my-saas
+
+To create a tenant named `my-tenant` that has the label `env=prod`, run: 
+    
+    
+    gcloud beta app-lifecycle-manager tenants create my-tenant --location=us-central1 --saas=my-saas --labels=env=prod
 
 POSITIONAL ARGUMENTS
     
 
-Tenant resource - Identifier. The resource name (full URI of the resource) following the standard naming scheme: 
-    
-    
-    "projects/{project}/locations/{location}/tenants/{tenant}" This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways.
+Tenant resource - Tenant to create. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -73,7 +78,7 @@ To set the `tenant` attribute:
 REQUIRED FLAGS
     
 
-Saas resource - A reference to the Saas that defines the product (managed service) that the producer wants to manage with App Lifecycle Manager. Part of the App Lifecycle Manager common data model. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Saas resource - SaaS offering that defines the product (managed service) that the service producer manages with App Lifecycle Manager. The SaaS offering cannot be changed after the tenant is created. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -104,9 +109,9 @@ OPTIONAL FLAGS
     
 
 `--consumer-resource`=`CONSUMER_RESOURCE`
-     A reference to the consumer resource this SaaS Tenant is representing. 
+     Consumer resource that this tenant represents. The consumer resource cannot be changed after it is set. 
 `--labels`=[`LABELS`,…]
-     The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -143,6 +148,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

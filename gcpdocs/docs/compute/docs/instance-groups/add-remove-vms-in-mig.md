@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/add-remove-vms-in-mig/
 title: Add and remove VMs from a MIG \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:34:22.110416+00:00
+fetched_at: 2026-10-27T19:53:43.498832+00:00
 ---
 
 # Add and remove VMs from a MIG  |  Compute Engine  |  Google Cloud Documentation
@@ -170,19 +170,17 @@ After you make a request to resize a managed instance group, the compute instanc
 
 **Note:** Because new compute instances are created with the current instance template, your group can contain dissimilar compute instances if you add compute instances to the group after you change the instance template. Existing compute instances use their previous instance templates until you [recreate them](https://docs.cloud.google.com/compute/docs/instance-groups/working-with-managed-instances#recreate_instances), and new compute instances use the specified instance template for the MIG.
 
-### Disable the creation retries mode during a resize operation
+### Disabling creation retries mode during resize
 
 **Beta**
 
 This product is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-By default, if the initial creation of an instance fails, the MIG continuously retries to create the instance, until the instance is successfully created. For regional MIGs that use `BALANCED` or `ANY` target distribution shapes, the MIG automatically attempts to create the instance in other selected zones if the initial creation fails, rather than retrying in the same zone.
+By default, if the initial creation of a VM instance fails, the managed instance group continuously retries to create the VM, until the VM is successfully created. However, if you don't want automatic creation retries, you can disable the creation retries mode when you resize the instance group. In this mode, the managed instance group attempts to create all instances only once. If there is an [error](https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs#listing_instance_errors) during instance creation, the managed instance group gives up on this instance, removes it from the group's [list of managed instances](https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs#listing_a_migs_managed_instances), and decreases the target size of the managed instance group.
 
-However, you can disable this automatic creation retry when you resize the instance group. When creation retries are disabled, the MIG attempts to create each instance only once. If an [error](https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs#listing_instance_errors) occurs during instance creation, the MIG doesn't retry to create that instance. Instead, the MIG removes the instance from the group's [list of managed instances](https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs#listing_a_migs_managed_instances) and decreases the target size of the MIG.
+This mode applies only during the first creation attempt of a VM. If a VM is created successfully while this mode is enabled, the VM behaves the same way as all other VMs created with a regular resize request. In particular, if a running VM dies unexpectedly at a later time and needs to be recreated, this mode does not affect the recreation behavior in that scenario.
 
-This creation retries mode is applicable only during the first creation attempt of an instance. If an instance is created successfully while this mode is enabled, the instance behaves like all other VMs created by a regular resize operation. In particular, if a running instance dies unexpectedly at a later time and needs to be recreated, this mode does not affect the recreation behavior in that scenario.
-
-Disabling the creation retries mode is especially useful in scenarios where you have systems automatically creating groups of instances where an exact number of instances is not required. You might prefer to stabilize quickly on the size of the MIG and be flexible in the number of instances in the group, rather than to wait indefinitely until all the requested instances are created. Instance creation can delay temporarily or permanently because of quota errors or other unrelated issues.
+Disabling the creation retries mode is especially useful in scenarios where you have systems automatically creating groups of VMs where an exact number of VMs is not required. You might prefer to stabilize quickly on the size of the managed instance group and be flexible in the number of VMs in the group, rather than to wait indefinitely until all the requested instances are created, which might be delayed temporarily or permanently because of quota errors or other unrelated issues.
 
 #### Limitations
 
@@ -196,7 +194,7 @@ Disabling the creation retries mode is especially useful in scenarios where you 
 
 
 
-To disable the creation retries mode while resizing a MIG, use the Google Cloud CLI or REST.
+To resize a managed instance group when creation retries mode is disabled, use the Google Cloud CLI or REST.
 
 **Important:** Google recommends that you don't concurrently run two resize operations with different creation retries modes as it might result in an unexpected target size. For example, if you issue a resize command without creation retries and, before it completes, you issue a second resize command with creation retries enabled, the second command does not invalidate the first one. Some instances are created without retries and if any of them fail, the group's target size decreases accordingly.
 
@@ -730,6 +728,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

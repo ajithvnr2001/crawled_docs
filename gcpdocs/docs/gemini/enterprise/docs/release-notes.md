@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/release-notes/
 title: Gemini Enterprise release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:54:19.046559+00:00
+fetched_at: 2026-10-28T00:33:11.241891+00:00
 ---
 
 # Gemini Enterprise release notes  |  Google Cloud Documentation
@@ -29,6 +29,21 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gemini-enterprise-release-notes.xml) directly. 
 
+## October 27, 2026
+
+Feature
+
+**Gemini Enterprise: VPC connectivity and static IP egress for custom MCP servers**
+
+You can configure Virtual Private Cloud (VPC) connectivity for custom Model Context Protocol (MCP) server data stores by routing outbound tool traffic through Agent Gateway (supported in `us-central1` and `europe-west1`). You can host private MCP servers inside your VPC network by using Private Service Connect (PSC) network attachments and agent connectivity templates. You can also route traffic to public MCP servers through Cloud NAT with static external IP addresses for strict IP allowlists.
+
+This feature is generally available (GA). For more information, see:
+
+  * [Prerequisites to set up a custom MCP server data store with VPC connectivity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-vpc-custom-mcp-server)
+  * [Set up your custom MCP server data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-custom-mcp-server)
+
+
+
 ## October 22, 2026
 
 Feature
@@ -39,9 +54,9 @@ Gemini Enterprise administrators can configure single-user quota limits on the *
 
 This feature is generally available (GA). For more information, see:
 
-  * [Single-user quota limits](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#single-user-quota-limits)
+  * [Single-user quota limits](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#single-user-quota-limits)
   * [Configure a single-user quota limit](https://docs.cloud.google.com/gemini/enterprise/docs/feature-usage#configure-single-user-quota-limit)
-  * [Configure overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages#configure-single-user-quota-limit)
+  * [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota#configure-single-user-quota-limit)
 
 
 
@@ -190,7 +205,7 @@ Administrators can enable Anthropic Claude Opus 5.5 (`claude-opus-5-5`) and Anth
 
   * **In-console Terms of Service consent flow** : Administrators can opt in to Claude Opus 5.5 and Claude Sonnet 5.5 directly in **Gemini Enterprise > Settings > AI developer tools > Antigravity authorized models** in the Google Cloud console without a separate Anthropic account or onboarding. For more information, see [Configure AI developer tools settings](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#enable-third-party-models).
   * **Location availability** : Third-party model inference is available in the `global`, `us`, and `eu` locations (in-country regions aren't supported). For a list of countries and regions that can access the model, see [Anthropic's Supported countries and regions](https://www.anthropic.com/supported-countries).
-  * **Consumption billing** : Third-party model usage is billed as consumption on your Cloud Billing account and counts toward your project's spend cap, which covers all models. Overages must be turned on before you can enable a third-party model. For more information, see [Configure overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages) and the Cloud Billing SKUs for [Anthropic Claude Opus 5.5](https://cloud.google.com/skus?filter=opus&currency=USD&e=48754805) and [Anthropic Claude Sonnet 5.5](https://cloud.google.com/skus?filter=sonnet&currency=USD&e=48754805).
+  * **Consumption billing** : Third-party model usage is billed as consumption on your Cloud Billing account and counts toward your project's spend cap, which covers all models. Pay-as-you-go usage above quota must be turned on before you can enable a third-party model. For more information, see [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota) and the Cloud Billing SKUs for [Anthropic Claude Opus 5.5](https://cloud.google.com/skus?filter=opus&currency=USD&e=48754805) and [Anthropic Claude Sonnet 5.5](https://cloud.google.com/skus?filter=sonnet&currency=USD&e=48754805).
   * **Thinking levels** : Developers sign in with their existing Gemini Enterprise license and select Claude Opus 5.5 or Claude Sonnet 5.5 in the model picker at a thinking level of Low, Medium, High, or Max (for example, Claude Opus 5.5 (High)). Medium is the default.
 
 
@@ -213,13 +228,21 @@ When you enable Pay-as-you-go usage on an invoiced Cloud Billing account with an
 
 For more information, see the following resources:
 
-  * [Quotas and overages](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#overages)
-  * [Configure overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages)
-  * [Overview of overages and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview)
+  * [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#pay-as-you-go-usage-above-quota)
+  * [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota)
+  * [Overview of pay-as-you-go usage above quota and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview)
 
 
 
 ## October 06, 2026
+
+Feature
+
+**Gemini Enterprise: Updates to pay-as-you-go usage above quota controls**
+
+In the Google Cloud console, the **Overages** setting has been updated to **Pay-as-you-go usage above quota**. The **Usage & Spending** page provides per-tier controls, allowing administrators to configure pay-as-you-go usage above quota individually for each subscription tier.
+
+For more information, see [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota) and [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#pay-as-you-go-usage-above-quota).
 
 Feature
 
@@ -655,7 +678,7 @@ Feature
 
 Configuring overage controls in Gemini Enterprise is available to all projects linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types). Previously, customers that received an email with the subject line _[Billing Update] New Gemini Enterprise overage billing controls launching Aug 17, 2026_ couldn't enable overages despite having an invoiced Cloud Billing account. This restriction no longer applies.
 
-For more information, see [Overview of overages and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview).
+For more information, see [Overview of pay-as-you-go usage above quota and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview).
 
 ## August 31, 2026
 
@@ -790,7 +813,7 @@ The AI developer tools feature is available on the Gemini Enterprise Standard Em
 For more information, see the following:
 
   * [AI developer tools overview](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview)
-  * [Quotas and overages for Emerging market editions](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#quotas-emerging-market)
+  * [Quotas and pay-as-you-go usage for Emerging market editions](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#quotas-emerging-market)
 
 
 
@@ -1074,8 +1097,8 @@ If your project has an [invoiced Cloud Billing account](https://docs.cloud.googl
 
 For more information, see:
 
-  * [Overview of overages and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview)
-  * [Configure overages and spend limits](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages)
+  * [Overview of pay-as-you-go usage above quota and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview)
+  * [Configure pay-as-you-go usage above quota and spend limits](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota)
   * [View feature usage](https://docs.cloud.google.com/gemini/enterprise/docs/feature-usage)
   * [View costs](https://docs.cloud.google.com/gemini/enterprise/docs/view-costs)
   * [View Gemini Enterprise costs in Cloud Billing reports](https://docs.cloud.google.com/billing/docs/how-to/reports/gemini-enterprise-costs)
@@ -1214,7 +1237,7 @@ For more information, see the following:
   * [Compare editions of Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/editions)
   * [Get a subscription](https://docs.cloud.google.com/gemini/enterprise/docs/licenses#get-subscription)
   * [View feature usage](https://docs.cloud.google.com/gemini/enterprise/docs/feature-usage)
-  * [Set a monthly spend limit](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages#set-spend-limit)
+  * [Set a monthly spend limit](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota#set-spend-limit)
 
 
 
@@ -3716,6 +3739,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

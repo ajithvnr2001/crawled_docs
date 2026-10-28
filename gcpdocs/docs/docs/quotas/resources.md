@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/quotas/resources/
 title: Resources \u00a0|\u00a0 Cloud Quotas \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:19:19.345194+00:00
+fetched_at: 2026-10-27T21:08:23.556816+00:00
 ---
 
 # Resources  |  Cloud Quotas  |  Google Cloud Documentation

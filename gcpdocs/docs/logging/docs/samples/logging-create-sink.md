@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-create-sink/
 title: Create a sink \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:25.614334+00:00
+fetched_at: 2026-10-27T21:04:37.385404+00:00
 ---
 
 # Create a sink  |  Cloud Logging  |  Google Cloud Documentation
@@ -165,8 +165,8 @@ To authenticate to Logging, set up Application Default Credentials. For more inf
     
     require "google/cloud/logging"
     
-    logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-service_control-v1/latest/Google-Cloud-Logging.html).new
-    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).new
+    logging = Google::Cloud::[Logging](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest/Google-Cloud-Logging.html).new
+    storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).new
     # bucket_name = "name-of-my-storage-bucket"
     bucket  = storage.create_bucket bucket_name
     

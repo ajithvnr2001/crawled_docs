@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/regional-migs/
 title: About regional MIGs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:34:49.399489+00:00
+fetched_at: 2026-10-27T19:53:43.749056+00:00
 ---
 
 # About regional MIGs  |  Compute Engine  |  Google Cloud Documentation
@@ -133,17 +133,6 @@ Turning off proactive instance redistribution is useful when you need to:
 
 If you turn off proactive instance redistribution, a MIG does not proactively add or remove instances to achieve balance but still opportunistically converges toward balance during resize operations, treating each resize operation as an opportunity to balance the group. For example, when scaling in, the group automatically uses the rescaling as an opportunity to remove instances from bigger zones; when scaling out, the group uses the opportunity to add instances to smaller zones.
 
-## MIG behavior when an initial instance creation fails
-
-If a regional MIG fails to create an instance during the initial attempt, then the MIG finds alternative capacity depending on the target distribution shape as follows:
-
-  * For a MIG with `BALANCED` or `ANY` target distribution shape, the MIG automatically attempts to find capacity in other selected zones. This can help improve the obtainability of resources for your workloads. When you configure different machine types in your MIG using [instance flexibility](https://docs.cloud.google.com/compute/docs/instance-groups/about-instance-flexibility), this default behavior further improves your chances to obtain capacity, because the MIG can search for available capacity across various machine types and zones.
-
-  * For a MIG with `EVEN` or `ANY_SINGLE_ZONE` target distribution shape, or with a stateful configuration, the MIG continues to retry creating the instance in the same zone where the initial attempt failed. It does not search for capacity in other selected zones. To improve your chances to obtain capacity, you can configure instance flexibility in the MIG. With instance flexibility, if the initial instance creation fails, then the MIG tries creating the instance with other machine types specified in the instance flexibility policy.
-
-
-
-
 ## Behavior differences from zonal MIGs
 
 The main difference between a zonal MIG and a regional MIG is that a regional MIG can use more than one zone.
@@ -261,6 +250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

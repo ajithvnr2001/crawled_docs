@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/rag-capable-gen-ai-app-using-gke/
 title: RAG infrastructure for generative AI using GKE and Cloud SQL \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:27:27.946853+00:00
+fetched_at: 2026-10-28T01:43:32.832229+00:00
 ---
 
 # RAG infrastructure for generative AI using GKE and Cloud SQL  |  Cloud Architecture Center  |  Google Cloud Documentation

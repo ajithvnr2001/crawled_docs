@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-create-windows-instance-external-ip/
 title: Create a Windows Server VM with external IP address \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:47:43.623541+00:00
+fetched_at: 2026-10-27T23:18:18.175504+00:00
 ---
 
 # Create a Windows Server VM with external IP address  |  Compute Engine  |  Google Cloud Documentation

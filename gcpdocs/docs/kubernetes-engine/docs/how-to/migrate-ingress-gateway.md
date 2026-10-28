@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/migrate-ingress-gateway/
 title: Migrate Ingress to Gateway API \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:26.430313+00:00
+fetched_at: 2026-10-27T19:38:20.249824+00:00
 ---
 
 # Migrate Ingress to Gateway API  |  GKE networking  |  Google Cloud Documentation
@@ -202,11 +202,11 @@ The following table compares the configuration used for common features in the I
 Feature | Annotation in Ingress | Configuration in GKE Gateway | Parity  
 ---|---|---|---  
 Host-based routing | The `spec.rules.host` field in the Ingress object. | The `hostnames` field in the HTTPRoute object. | Full parity.  
-Path-based routing | The `spec.rules.http.paths` field in the Ingress object. | The `rules.matches.path` field in the HTTPRoute object. | Full parity.  
+Path-based routing | The `spec.rules.http.paths` field in the Ingress object, and the `nginx.ingress.kubernetes.io/use-regex` annotation for regular expression path matching. | The `rules.matches.path` field in the HTTPRoute object. | Full parity. GKE Gateway supports exact, prefix, and [regular expression matching](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#regex-matching) (`RegularExpression`) for paths. In addition, you can match HTTP headers (`rules.matches.headers`) and query parameters (`rules.matches.queryParams`) by using exact values or regular expressions.  
 Traffic splitting | `nginx.ingress.kubernetes.io/canary ` annotations. | HTTPRoute with the weighted `backendRefs` field. | Full parity. In addition, you can split traffic with fine-grained control.  
 Session affinity | `nginx.ingress.kubernetes.io/affinity` and `nginx.ingress.kubernetes.io/affinity-mode` annotations. | GCPTrafficDistributionPolicy with the `sessionAffinity` field. | Full parity. GKE Gateway supports multiple session affinity types, including cookie-based affinity types (`HTTP_COOKIE`, `GENERATED_COOKIE`, and stateful `STRONG_COOKIE_AFFINITY`), header-based affinity (`HEADER_FIELD`), and client IP-based affinity (`CLIENT_IP`).  
 CORS (Cross-Origin Resource Sharing) | `nginx.ingress.kubernetes.io/enable-cors` | HTTPRoute with a `CORS` filter. | Full parity. Note: GKE Gateway imposes limits on the number of wildcard patterns you can define per listener or hostname  
-URL rewrites | `nginx.ingress.kubernetes.io/rewrite-target` | HTTPRoute with a `urlRewrite` filter. | Partial parity. GKE Gateway supports only prefix replacements.  
+URL rewrites | `nginx.ingress.kubernetes.io/rewrite-target` | HTTPRoute with a `urlRewrite` filter, or GCPHTTPFilter with the `spec.urlRewrite.regexModifier` field. | Full parity. GKE Gateway supports full path replacements, prefix replacements, and [regular expression path rewrites](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#configure_url_rewrites).  
 Header manipulation | `nginx.ingress.kubernetes.io/proxy-set-headers` or `add-headers` | HTTPRoute with a `requestHeaderModifier` modifier or `responseHeaderModifier` filter. | Full parity.  
 Authentication | `nginx.ingress.kubernetes.io/auth-url` for external authentication. | 
 
@@ -226,6 +226,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

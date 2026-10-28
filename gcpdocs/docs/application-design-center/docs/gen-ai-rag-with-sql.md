@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/gen-ai-rag-with-sql/
 title: Generative AI RAG with Cloud SQL \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:24.167833+00:00
+fetched_at: 2026-10-27T19:53:52.133129+00:00
 ---
 
 # Generative AI RAG with Cloud SQL  |  Application Design Center  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Generative AI RAG with Cloud SQL Stay organized with collections  Save and categorize content based on your preferences. 
 
-Build a generative AI chat application that uses retrieval-augmented generation (RAG) to provide grounded and accurate responses based on your organization's data. This guide describes the _Generative AI RAG with Cloud SQL_ application template, which you can customize to fit your unique needs and deploy as an application.
+The _Generative AI RAG with Cloud SQL_ template in Application Design Center lets you deploy a generative AI chat application that uses retrieval-augmented generation (RAG) to ground responses to your organization's data. You can customize the preconfigured Cloud Run, Vertex AI, and Cloud SQL vector database components to fit your workload and deploy them as an application.
 
 For example, you might implement this template to address the following business needs:
 
@@ -63,6 +63,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

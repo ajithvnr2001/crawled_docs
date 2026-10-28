@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/run-connect/
 title: Run and connect to AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 15.18.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:51.275885+00:00
+fetched_at: 2026-10-27T19:16:36.470054+00:00
 ---
 
 # Run and connect to AlloyDB Omni  |  AlloyDB Omni using the container orchestrator: 15.18.0  |  Google Cloud Documentation
@@ -73,14 +73,14 @@ You can perform this on the command line using `kubectl`:
 Replace the following:
 
   * `DB_CLUSTER_NAME`: the name of this database cluster—for example, `my-db-cluster`.
-  * `DB_CLUSTER_NAMESPACE` (Optional): the namespace you where created this database cluster—for example, `my-db-cluster-namespace`.
+  * `DB_CLUSTER_NAMESPACE` (Optional): the namespace where you created this database cluster—for example, `my-db-cluster-namespace`.
 
 
 
 ### Check the status of AlloyDB Omni
     
     
-      kubectl get dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME  -n DB_CLUSTER_NAMESPACE
+    kubectl get dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME -n DB_CLUSTER_NAMESPACE
 
 Replace the following:
 
@@ -88,6 +88,13 @@ Replace the following:
   * `DB_CLUSTER_NAMESPACE` (Optional): the namespace where you created your [database cluster](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/deploy-kubernetes#create).
 
 
+
+The output is similar to the following:
+    
+    
+    NAME              PRIMARYENDPOINT   PRIMARYPHASE   DBCLUSTERPHASE
+    DB_CLUSTER_NAME   IP_ADDRESS        Ready          DBClusterReady
+    
 
 ### Stop AlloyDB Omni
 
@@ -99,11 +106,11 @@ You can perform this on the command line using `kubectl`:
       kubectl patch dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME -p '{"spec":{"primarySpec":{"isStopped":true}}}' --type=merge -n DB_CLUSTER_NAMESPACE
 
 Replace the following:
-    
-    
-    *   `DB_CLUSTER_NAME`: the name of this database cluster—for example, `my-db-cluster`.
-    *   `DB_CLUSTER_NAMESPACE` (Optional): the namespace where you created this database cluster—for example, `my-db-cluster-namespace`.
-    
+
+  * `DB_CLUSTER_NAME`: the name of this database cluster—for example, `my-db-cluster`.
+  * `DB_CLUSTER_NAMESPACE` (Optional): the namespace where you created this database cluster—for example, `my-db-cluster-namespace`.
+
+
 
 ## Connect to AlloyDB Omni running on Kubernetes
 
@@ -253,6 +260,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

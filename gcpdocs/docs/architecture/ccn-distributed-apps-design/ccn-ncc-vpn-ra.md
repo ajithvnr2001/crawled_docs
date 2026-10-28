@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/ccn-distributed-apps-design/ccn-ncc-vpn-ra/
 title: Cross-Cloud Network inter-VPC connectivity using Network Connectivity Center \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:35:30.219498+00:00
+fetched_at: 2026-10-27T23:07:15.687469+00:00
 ---
 
 # Cross-Cloud Network inter-VPC connectivity using Network Connectivity Center  |  Cloud Architecture Center  |  Google Cloud Documentation

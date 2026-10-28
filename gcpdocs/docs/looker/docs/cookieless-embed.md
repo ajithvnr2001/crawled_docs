@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/cookieless-embed/
 title: Cookieless embedding \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:41.952560+00:00
+fetched_at: 2026-10-27T23:54:37.161984+00:00
 ---
 
 # Cookieless embedding  |  Looker  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ To use either API, the embedding application must be able to authenticate into t
 
 ### Creating a Looker embed iframe
 
-The following sequence diagram illustrates the creation of an embed iframe. Multiple iframes may be generated either simultaneously or at some point in the future. When implemented correctly, the iframe will automatically join the session that is created by the first iframe. The Looker Embed SDK simplifies this process by automatically joining the existing session.
+The following sequence diagram illustrates the creation of an embed iframe. Multiple iframes may be generated simultaneously or sequentially. When implemented correctly, the iframe will automatically join the session that is created by the first iframe. The Looker Embed SDK simplifies this process by automatically joining the existing session. For guidelines on avoiding concurrent login collisions when loading multiple iframes, see Best practices for embedding multiple iframes with cookieless embedding.
 
 ![A sequence diagram that illustrates the creation of an embed iframe.](https://docs.cloud.google.com/static/looker/docs/images/create-embed-iframe-workflow-2440.png)
 
@@ -466,6 +466,19 @@ When the Looker embed session expires, a dialog will be displayed in the embedde
 
 An embedding application can detect if the embed session has expired by checking if the `session_reference_token_ttl` value that is returned by the `generate_tokens` endpoint is zero. If the value is zero, then the embed session has expired. Consider using a callback function for generating tokens when the cookieless embed is initializing. The callback function can then determine if the embed session has expired and will destroy the embedded iframe as an alternative to using the default embedded session expired dialog.
 
+### Best practices for embedding multiple iframes with cookieless embedding
+
+When you embed multiple Looker iframes on a single page in cookieless embedding, each iframe requires its own single-use `authentication_token` from [`acquire_embed_cookieless_session`](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest/methods/Auth/acquire_embed_cookieless_session), but all iframes on the page must share a single `session_reference_token`. Follow these best practices for embedding multiple iframes with cookieless embedding:
+
+  * **Acquire the session once and reuse`session_reference_token`:** Acquire the cookieless session once first, cache the returned `session_reference_token` on your backend server, and pass that `session_reference_token` into subsequent `acquire_embed_cookieless_session` calls for additional iframes. Looker then attaches each new iframe to the existing session and skips updating the embed user.
+
+  * **Avoid parallel initial session acquisition:** If multiple iframes mount at the same time and your backend calls `acquire_embed_cookieless_session` in parallel without passing an existing `session_reference_token`, Looker treats each request as a new login, updates the embed user concurrently, and creates separate sessions. Concurrent login requests for the same embed user can cause lock contention on the Looker server. In addition, overwriting the stored `session_reference_token` with the last response breaks token refresh (`generate_tokens_for_cookieless_session`) on the earlier iframes with a `400 Invalid input tokens provided` error.
+
+  * **Preload an iframe and use in-frame navigation:** To establish the embed user session before loading content, preload an iframe by using `/embed/preload` (or the `.preload()` method in Embed SDK v2). When using Embed SDK v2, you can also navigate within an existing iframe by using methods such as `connection.loadDashboard(DASHBOARD_ID)` or `connection.loadUrl(EMBED_URL)` instead of creating additional iframes. For more information, see [Introduction to the Embed SDK](https://docs.cloud.google.com/looker/docs/embed-sdk-intro).
+
+
+
+
 ### Running the Looker cookieless embed example
 
 The embed SDK repository contains a node express server and client written in TypeScript that implements an embed application. The examples shown previously are taken from this implementation. The following assumes that your Looker instance has been configured to use cookieless embed as described earlier.
@@ -528,6 +541,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

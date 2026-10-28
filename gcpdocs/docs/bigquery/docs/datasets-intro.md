@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/datasets-intro/
 title: Introduction to datasets \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:17.493005+00:00
+fetched_at: 2026-10-27T19:38:22.139594+00:00
 ---
 
 # Introduction to datasets  |  BigQuery  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ A dataset is contained within a specific [project](https://docs.cloud.google.com
 
 You specify a location for storing your BigQuery data when you create a dataset. For a list of BigQuery dataset locations, see [BigQuery locations](https://docs.cloud.google.com/bigquery/docs/locations). BigQuery stores your data in the selected location in accordance with the [Service Specific Terms](https://cloud.google.com/terms/service-terms). For example, if you choose `EU` or an EU-based region for the dataset location, your Core BigQuery Customer Data resides in the EU.
 
-After you create the dataset, the location cannot be changed, but you can [copy datasets to different locations](https://docs.cloud.google.com/bigquery/docs/copying-datasets), or manually [move (recreate) the dataset in a different location](https://docs.cloud.google.com/bigquery/docs/managing-datasets#recreate-dataset).
+After you create the dataset, the location cannot be changed, but you can [copy datasets to different locations](https://docs.cloud.google.com/bigquery/docs/managing-datasets#copy-datasets), or manually [move (recreate) the dataset in a different location](https://docs.cloud.google.com/bigquery/docs/managing-datasets#recreate-dataset).
 
 If you don't [explicitly specify a location](https://docs.cloud.google.com/bigquery/docs/locations#specify_locations), the location is determined in one of the following ways:
 
@@ -119,7 +119,7 @@ To control access to datasets in BigQuery, see [Controlling access to datasets](
 ## What's next
 
   * For more information on creating datasets, see [Creating datasets](https://docs.cloud.google.com/bigquery/docs/datasets).
-  * For more information on assigning access controls to datasets, see [Controlling access to datasets](https://docs.cloud.google.com/bigquery/docs/dataset-access-controls).
+  * For more information on assigning access controls to datasets, see [Work with dataset access controls](https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam#work_with_dataset_access_controls).
 
 
 
@@ -127,6 +127,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

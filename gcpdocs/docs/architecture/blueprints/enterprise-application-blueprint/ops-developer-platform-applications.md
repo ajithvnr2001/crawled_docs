@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/blueprints/enterprise-application-blueprint/ops-developer-platform-applications/
 title: Operations for both the developer platform and applications \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:59.504616+00:00
+fetched_at: 2026-10-27T23:06:32.397639+00:00
 ---
 
 # Operations for both the developer platform and applications  |  Cloud Architecture Center  |  Google Cloud Documentation

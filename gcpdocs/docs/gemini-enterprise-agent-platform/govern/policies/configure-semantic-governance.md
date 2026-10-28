@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance/
 title: Configure semantic governance policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:56.407666+00:00
+fetched_at: 2026-10-27T23:16:22.648756+00:00
 ---
 
 # Configure semantic governance policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -98,6 +98,10 @@ To verify an existing agent is eligible, confirm that its reasoning engine's `sp
         | grep -q '^agents.global.' \
         && echo "Eligible" || echo "Not eligible"
     
+
+#### Supported model providers
+
+Your agent must call its model through one of the [supported model providers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers), without streaming. Note the request path for each provider; the authorization policy that you create in Connect the policy engine to Agent Gateway must match it.
 
 ### Supported locations
 
@@ -416,7 +420,7 @@ This command returns a long-running operation. Wait for the operation to complet
 
 **Important:** The `httpRules` must include a [CEL expression](https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference) to exclude gRPC traffic. Without this exclusion, the policy engine intercepts gRPC calls (such as Cloud Resource Manager) and causes agent startup failures.
 
-**Important:** The `when` condition in the following command also matches only the model-inference paths—`:generateContent` and `:streamGenerateContent`—so that **only** agent-to-model (LLM) requests are sent to the policy engine. Keep this path match: if you broaden the filter, non-LLM traffic such as MCP tool calls is also routed to the engine, which then processes and rejects it, adding unnecessary latency and policy-engine cost.
+**Important:** The `when` condition sends only model-inference requests to the policy engine. The example matches every [supported model provider](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers). You can remove the paths for providers that your agents don't use. Don't broaden the condition: other traffic, such as MCP tool calls, isn't evaluated but still adds latency. The condition uses `contains()` because `request.path` includes the query string, so a path match with `endsWith()` would miss requests that have query parameters. Streaming paths such as `:streamGenerateContent` and `:streamRawPredict` don't match the condition, so they aren't sent to the policy engine.
 
 ### gcloud
 
@@ -432,7 +436,7 @@ Define the authorization policy configuration in a YAML file (`authz-policy.yaml
              operations:
              - paths:
                - prefix: /
-           when: "!request.headers['content-type'].startsWith('application/grpc') && (request.path.endsWith(':generateContent') || request.path.endsWith(':streamGenerateContent'))"
+           when: "!request.headers['content-type'].startsWith('application/grpc') && (request.path.contains(':generateContent') || request.path.contains(':rawPredict') || request.path.contains('/v1/messages') || request.path.contains('/chat/completions'))"
          action: CUSTOM
          policyProfile: CONTENT_AUTHZ
          customProvider:
@@ -462,7 +466,7 @@ Define the authorization policy configuration in a YAML file (`authz-policy.yaml
                  "to": {
                    "operations": [{"paths": [{"prefix": "/"}]}]
                  },
-                 "when": "!request.headers['"'"'content-type'"'"'].startsWith('"'"'application/grpc'"'"') && (request.path.endsWith('"'"':generateContent'"'"') || request.path.endsWith('"'"':streamGenerateContent'"'"'))"
+                 "when": "!request.headers['"'"'content-type'"'"'].startsWith('"'"'application/grpc'"'"') && (request.path.contains('"'"':generateContent'"'"') || request.path.contains('"'"':rawPredict'"'"') || request.path.contains('"'"'/v1/messages'"'"') || request.path.contains('"'"'/chat/completions'"'"'))"
                }],
                "action": "CUSTOM",
                "policyProfile": "CONTENT_AUTHZ",
@@ -641,6 +645,47 @@ To switch back to normal enforcement mode, remove `sgpEnforcementMode` from the 
           "metadata": {}
         }'
     
+
+### Control user intent matching
+
+By default, the policy engine checks each proposed tool call for both of the following:
+
+  * **Constraint adherence:** the tool call complies with the constraints set on the agent.
+  * **User intent matching:** the tool call is consistent with what the user asked for.
+
+
+
+With user intent matching on, the policy engine can deny a tool call that doesn't match the user's request, even if the tool call violates no constraint or the agent has no constraints. To base verdicts only on your constraints, turn off user intent matching. The setting applies to every request that the authorization extension sends to the policy engine.
+
+**Caution:** User intent matching is what detects tool calls that untrusted content, such as an email or web page, injects into the agent. If you turn it off, only your constraints can block those tool calls.
+
+To turn off user intent matching, set `sgpUserIntentMatching` to `DISABLED` in the `metadata` of your authorization extension:
+    
+    
+    curl -X PATCH \
+        "https://networkservices.googleapis.com/v1beta1/projects/PROJECT_ID/locations/LOCATION/authzExtensions/AUTHZ_EXTENSION_NAME?updateMask=metadata" \
+        -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+        -H "Content-Type: application/json" \
+        -d '{
+          "metadata": {
+            "sgpUserIntentMatching": "DISABLED"
+          }
+        }'
+    
+
+To turn it back on, set the value to `ENABLED` or remove the key. Use uppercase values. The policy engine ignores any other value and keeps user intent matching on.
+
+**Caution:** `updateMask=metadata` replaces the entire `metadata` map. Include every key that you want to keep, such as `"sgpEnforcementMode": "DRY_RUN"`. Likewise, the request in Enabling dry run mode that clears `metadata` also turns user intent matching back on.
+
+The update is a long-running operation, and the new setting can take a few minutes to reach the policy engine. To confirm the mode an evaluation used, check the `sgpUserIntentMatchingMode` field in the policy evaluation logs. The field appears only when `sgpUserIntentMatching` is set, and has one of the following values:
+
+  * `CONSTRAINTS_AND_INTENT`: user intent matching is on.
+  * `CONSTRAINTS_ONLY`: user intent matching is off.
+  * `INTENT_ONLY`: user intent matching is on, and no constraints apply to the tool call.
+
+
+
+User intent matching and dry run mode are independent. For example, keep user intent matching on in dry run mode to review intent-based denials in the logs before you enforce them.
 
 ### View policy evaluation logs
 
@@ -838,7 +883,8 @@ Symptom | Likely cause | What to check
 ---|---|---  
 Tool call **allowed** but expected a block | Policy didn't match scope and agent or constraint too permissive | In the evaluation log, confirm the policy matched and read the verdict; refine the NLC  
 Tool call **denied** but expected allow | Constraint too strict or conflicting rules | Read the `rationale` in the log; tune the NLC; iterate in dry-run mode  
-No verdict at all | Engine not active or gateway not bound | Verify engine `state` is `ACTIVE` and the authorization policy, extension, or both exist  
+No verdict at all | Engine not active, gateway not bound, or the request path doesn't match the authorization policy's `when` condition | Verify that the engine `state` is `ACTIVE` and that the authorization extension and policy exist. In the [Agent Gateway request log](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway#logging), check that `serviceExtensionInfo` lists your authorization extension. If it doesn't, add the provider's [request path](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers) to the `when` condition.  
+Streamed model call returns no verdict or an error | The policy engine doesn't support streamed model responses | Configure the agent to call its model without streaming  
   
 To debug an unexpected verdict:
 
@@ -881,6 +927,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

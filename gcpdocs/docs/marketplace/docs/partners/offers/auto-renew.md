@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/marketplace/docs/partners/offers/auto-renew/
 title: Automatic renewal for private offers \u00a0|\u00a0 Google Cloud Marketplace Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:46:01.407651+00:00
+fetched_at: 2026-10-27T21:58:16.910328+00:00
 ---
 
 # Automatic renewal for private offers  |  Google Cloud Marketplace Partners  |  Google Cloud Documentation
@@ -28,7 +28,18 @@ When you create an offer, you decide whether or not to turn on auto-renew for th
 
 ## Customer control over automatic renewal
 
-After your customer accepts an offer with auto-renew turned on, they can choose to turn auto-renew off or on at any time. If you don't turn on auto-renew, your customer can't turn on auto-renew after accepting the offer.
+Turning on auto-renew for an offer doesn't renew the order by itself. It only lets your customer decide whether the order renews:
+
+  * When your customer [accepts the offer](https://docs.cloud.google.com/marketplace/docs/offers/accepting-private-offer#autorenew), the auto-renew checkbox under **Turn on auto-renew** is cleared by default.
+
+  * After accepting the offer, your customer can turn auto-renew on or off at any time from the [**Your orders** page](https://docs.cloud.google.com/marketplace/docs/offers/manage-accepted-offer).
+
+  * If your customer never turns on auto-renew, the order doesn't renew at the end of its term. Depending on the pricing model, the subscription either ends or continues at list prices.
+
+
+
+
+If you don't turn on auto-renew for the offer, your customer can't turn it on.
 
 If auto-renew is turned on when a subscription reaches the end of its current term, and the subscription has one or more remaining renewals, that subscription renews for another term.
 
@@ -40,6 +51,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/find-fix-inconsistent-indexes/
 title: Find and fix inconsistent indexes \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:52.603392+00:00
+fetched_at: 2026-10-28T02:16:29.344263+00:00
 ---
 
 # Find and fix inconsistent indexes  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ To ensure that no data is lost during reindexing, we recommend that you back up 
 
 ### Set the `alloydbsuperuser` permission
 
-To complete the steps on this page, you must have `alloydbsuperuser` permissions. For more information see [AlloyDB's predefined PostgreSQL roles](https://docs.cloud.google.com/alloydb/docs/database-users/about#predefined-role).
+To complete the steps on this page, you must have `alloydbsuperuser` permissions. For more information, see [AlloyDB predefined PostgreSQL roles](https://docs.cloud.google.com/alloydb/docs/database-users/overview#predefined-roles).
 
 ### Ensure that the `psql` client version is 9.6 or higher
 
@@ -234,14 +234,12 @@ Use these values in KEY_COLUMNS in the query in step 3.
          
          \dt TABLE_NAME
 
-The value in the `schema` column is the value you use for SCHEMA_NAME in the query in step 3. 
-
-For example, for the following query:
+The value in the `schema` column is the value you use for SCHEMA_NAME in the query in step 3. For example, for the following query: 
          
          \dt games
           
 
-The output is similar to the following:
+The output is similar to the following: 
          
          List of relations
           Schema  | Name  | Type  | Owner
@@ -391,6 +389,9 @@ Running this statement keeps one row and deletes others for each set of duplicat
 
   8. After the duplicate keys are deleted, you can reindex your index.
 
+
+
+
 ## Fix inconsistent indexes
 
 The following sections describe how you can fix the index inconsistencies found in your instance.
@@ -399,13 +400,16 @@ The following sections describe how you can fix the index inconsistencies found 
 
 Depending on how your database is configured, you may need to do the following for each index identified in the previous steps:
 
-     1. Prepare to reindex your index.
+  1. Prepare to reindex your index.
 
-     2. Reindex your index.
+  2. Reindex your index.
 
-     3. If the reindex operation fails due to foreign key violations, you must [find and fix these violations](https://docs.cloud.google.com/alloydb/docs/troubleshoot/fix-foreign-keys).
+  3. If the reindex operation fails due to foreign key violations, you must [find and fix these violations](https://docs.cloud.google.com/alloydb/docs/troubleshoot/fix-foreign-keys).
 
-     4. Run the reindex operation again.
+  4. Run the reindex operation again.
+
+
+
 
 ### Prepare to reindex your index
 
@@ -416,6 +420,7 @@ Indexing larger databases requires more time than smaller databases. To improve 
 Run the following statement to find the index size, in kilobytes, of the index that you want to fix:
 
 ### Code Sample
+    
     
     SELECT i.relname                                      AS index_name,
            pg_size_pretty(pg_relation_size(x.indexrelid)) AS index_size
@@ -428,7 +433,8 @@ The output of this statement is similar to the following:
 
 ### Output
     
-    index_name | index_size
+    
+     index_name | index_size
     ------------+------------
      my_index   | 16 kB
     (1 row)
@@ -441,11 +447,12 @@ The following example shows how to set `maintenance_work_mem`:
 
 ### Code Sample
     
-    SET maintenance_work_mem TO "1GB";
+    
+    SET maintenance_work_mem TO '1GB';
 
 **Note:** The value of `maintenance_work_mem` is set for each session. You don't need to restart your instance after changing the value. However, if you connect to the database again in a new session, the value from the previous setting is not saved.
 
-Indexing larger databases requires more time than smaller databases. To improve the speed of index and reindex operations, we recommend setting `maintenance_work_mem` to at least 2% of the instance memory for instances with 4GB or more memory during this reindexing operation.
+Indexing larger databases requires more time than smaller databases. To improve the speed of index and reindex operations, setting `maintenance_work_mem` to at least 2% of the instance memory is recommended for instances with 4 GB or more memory during this reindexing operation.
 
 #### Set the number of parallel workers
 
@@ -454,6 +461,7 @@ You can increase the number of parallel workers for reindexing by setting the [`
 The following shows how to identify the values set for these parameters:
 
 ### Code Sample
+    
     
     SHOW max_parallel_maintenance_workers;
     SHOW max_worker_processes;
@@ -465,11 +473,13 @@ The following example shows how to set `max_parallel_maintenance_workers`:
 
 ### Code Sample
     
+    
     SET max_parallel_maintenance_workers TO 4;
 
 The `max_parallel_maintenance_workers` parameter does not guarantee the allocation of workers. To confirm that you have multiple parallel workers started by the reindexing, run the following query from another session after you have started the reindex:
 
 ### Code Sample
+    
     
     SELECT
     leader.leader_pid,leader.pid "worker_pid",leader.query
@@ -479,33 +489,36 @@ The `max_parallel_maintenance_workers` parameter does not guarantee the allocati
 
 ### Reindex your index
 
-You can reindex an index without blocking your production workload using the `pg_repack` utility. This utility automates and simplifies the concurrent reindex process, enabling you to reindex without downtime. For this procedure, use `pg_repack` version 1.4.7.
+You can reindex an index without blocking your production workload using the `pg_repack` utility. This utility automates and simplifies the concurrent reindex process, enabling you to reindex without downtime. For this procedure, use `pg_repack` version 1.5.3.
 
 Complete the following steps to reindex your index using `pg_repack`:
 
-     1. Download, compile, and install the `pg_repack` utility from the [pg_repack page](https://reorg.github.io/pg_repack/).
+  1. Download, compile, and install the `pg_repack` utility from the [pg_repack page](https://reorg.github.io/pg_repack/).
 
-     2. Create the `pg_repack` extension:
-
-### Code Sample
-            
-            CREATE EXTENSION pg_repack;
-
-     3. Run the following command to reindex your index concurrently:
+  2. Create the `pg_repack` extension:
 
 ### Code Sample
-            
-            pg_repack -h HOSTIP -p 5432 -U USERNAME -d "DATABASE_NAME" -i "INDEX_NAME" --no-superuser-check --no-kill-backend --wait-timeout=3600
+         
+         CREATE EXTENSION pg_repack;
+
+  3. Run the following command to reindex your index concurrently:
+
+### Code Sample
+         
+         pg_repack -h HOSTIP -p 5432 -U USERNAME -d "DATABASE_NAME" -i "INDEX_NAME" --no-superuser-check --no-kill-backend --wait-timeout=3600
 
 **Note:** `pg_repack` does not allow you to reindex an index on a materialized view.
 
 This command has output similar to the following:
 
 ### Output
-            
-            INFO: repacking index "public.t_i_key"
+         
+         INFO: repacking index "public.t_i_key"
 
 If any errors occurred when running `pg_repack`, you can correct the error and try again. After you have fixed all of your unique key indexes and primary key indexes, you should [check for foreign key violations](https://docs.cloud.google.com/alloydb/docs/troubleshoot/fix-foreign-keys) and fix any that are found.
+
+
+
 
 ### Find and fix foreign key violations
 
@@ -513,97 +526,45 @@ For information about how to find and fix foreign key violations, see [Find and 
 
 ## Monitor reindexing operations
 
-Occasionally, the reindex operation may be blocked by other sessions. We recommended that you check this every 4 hours. If the reindex operation is blocked, you can cancel the blocking session so the reindex operation can complete.
+Occasionally, other sessions might block the reindex operation. Check the operation every 4 hours. If the reindex operation is blocked, you can cancel the blocking session so the reindex operation can complete.
 
 Complete the following steps to identify blocking and waiting sessions and then cancel them in the INDEX operation:
 
-     1. To identify blocking sessions, run the following query:
+  1. To identify blocking sessions, run the following query:
 
 ### Code Sample
-            
-            SELECT pid,
-                  usename,
-                  pg_blocking_pids(pid) AS blocked_by,
-                  query                 AS blocked_query
-            FROM   pg_stat_activity
-            WHERE  cardinality(pg_blocking_pids(pid)) > 0;
+         
+         SELECT pid,
+               usename,
+               pg_blocking_pids(pid) AS blocked_by,
+               query                 AS blocked_query
+         FROM   pg_stat_activity
+         WHERE  cardinality(pg_blocking_pids(pid)) > 0;
 
-     2. To cancel a session, run the following query using the PID of the blocking session from the previous query:
+  2. To cancel a session, run the following query using the PID of the blocking session from the previous query:
 
 ### Code Sample
-            
-            SELECT pg_cancel_backend(PID);
+         
+         SELECT pg_cancel_backend(PID);
+
+
+
 
 ## Verify that your indexes are consistent
 
 You must continue to check for index inconsistencies for each inconsistent index. After you have fixed all your instance's inconsistent indexes and key violations, you can check that no issues exist by following the steps in the previous sections:
 
-     * Check for an index's inconsistencies
+  * Check for an index's inconsistencies
 
-     * Check for unique key violations
+  * Check for unique key violations
+
+
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
-
-     * ### Products and pricing
-
-       * [ See all products ](https://cloud.google.com/products/)
-       * [ Google Cloud pricing ](https://cloud.google.com/pricing/)
-       * [ Google Cloud Marketplace ](https://cloud.google.com/marketplace/)
-       * [ Contact sales ](https://cloud.google.com/contact/)
-     * ### Support
-
-       * [ Community forums ](https://discuss.google.dev/c/google-cloud/14/)
-       * [ Support ](https://cloud.google.com/support-hub/)
-       * [ Release Notes ](https://docs.cloud.google.com/release-notes)
-       * [ System status ](https://status.cloud.google.com)
-     * ### Resources
-
-       * [ GitHub ](https://github.com/googlecloudPlatform/)
-       * [ Getting Started with Google Cloud ](https://docs.cloud.google.com/docs/get-started/)
-       * [ Code samples ](https://docs.cloud.google.com/docs/samples)
-       * [ Cloud Architecture Center ](https://docs.cloud.google.com/architecture/)
-       * [ Training and Certification ](https://cloud.google.com/learn/training/)
-       * [ Builders Hub ](https://me.developers.google.com/)
-     * ### Engage
-
-       * [ Blog ](https://cloud.google.com/blog/)
-       * [ Events ](https://cloud.google.com/events/)
-       * [ X (Twitter) ](https://x.com/googlecloud)
-       * [ Google Cloud on YouTube ](https://www.youtube.com/googlecloud)
-       * [ Google Cloud Tech on YouTube ](https://www.youtube.com/googlecloudplatform)
-
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
-     * [ Android ](https://developer.android.com/)
-     * [ Chrome ](https://developer.chrome.com/)
-     * [ Firebase ](https://firebase.google.com/)
-     * [ Google AI ](https://ai.google.com/)
-     * [ About Google ](https://about.google/)
-     * [ Privacy ](https://policies.google.com/privacy)
-     * [ Site terms ](https://policies.google.com/terms?hl=en)
-     * [ Google Cloud terms ](https://cloud.google.com/product-terms)
-     * Manage cookies 
-     * [ Our third decade of climate action: join us ](https://cloud.google.com/sustainability)
-     * Sign up for the Google Cloud newsletter [ Subscribe ](https://cloud.google.com/newsletter/)
-     * English
-     * Deutsch
-     * Español
-     * Español – América Latina
-     * Français
-     * Indonesia
-     * Italiano
-     * Português
-     * Português – Brasil
-     * עברית
-     * 中文 – 简体
-     * 中文 – 繁體
-     * 日本語
-     * 한국어
-
-
-
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

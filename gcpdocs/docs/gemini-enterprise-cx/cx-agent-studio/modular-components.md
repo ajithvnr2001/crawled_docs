@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/modular-components/
 title: Modular components \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:01.951086+00:00
+fetched_at: 2026-10-27T23:24:10.835575+00:00
 ---
 
 # Modular components  |  CX Agent Studio  |  Google Cloud Documentation
@@ -35,7 +35,8 @@ Syntax | Type | Runtime behavior | Best used for
 `{variable_name}` | [Dynamic variable](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/variable#dynamic) (Tracking) | Preserved literally as `{variable_name}` in the instructions. When the variable changes during the conversation, its value is appended to the conversation history as `<state_update>variable_name: value</state_update>`. | Tracking runtime values extracted from the user or returned by tools across turns without invalidating the instruction prefix cache.  
 `{@AGENT: Agent Name}` | Agent reference | Explicitly references a sub-agent in your application. | Directing the agent when to transfer or delegate to another agent.  
 `{@TOOL: tool_name}` | Tool reference | Explicitly references a tool added to the current agent. | Directing the agent when to invoke a specific tool.  
-  
+**Note:** Changing rendered instruction text on every turn—whether by updating `{{variable_name}}` values or switching `{% if %}` branches, especially near the top of your instructions—invalidates prompt prefix caching and can increase model latency. For values that change on every turn, prefer dynamic `{variable_name}` references or place frequently changing sections lower in the instructions.
+
 ### Literal preservation
 
 To avoid breaking JSON examples or telephony prompts in your instructions, the template renderer preserves non-variable placeholders as literal text:
@@ -47,22 +48,26 @@ To avoid breaking JSON examples or telephony prompts in your instructions, the t
 
 ### Turn execution lifecycle and callback timing
 
-Variables referenced inside control flow blocks, including `{% if %}`, `{% elif %}`, `{% for %}`, macros, and filters, are evaluated immediately against session state when the instructions are rendered for a turn.
+Variables referenced inside control flow blocks, including `{% if %}`, `{% elif %}`, `{% for %}`, macros, and filters, are evaluated against session state when the instructions are rendered.
 
 **Note:** Reference variables directly by their identifier inside `{% ... %}` control blocks (for example, `{% if balance > 100 %}`). Don't wrap variable names in `{var}` or `{{var}}` braces inside a control block tag.
 
-Because instructions are rendered _before_ the `before_model` callback executes, the turn execution order is:
+Instructions are rendered _after_ the `before_agent` callback and _before_ the `before_model` callback:
 
   1. **`before_agent` callback executes**: State variable changes made in a `before_agent` callback are visible to the instruction renderer for the current turn.
   2. **Instruction rendering occurs** : All `{% if %}`, `{% for %}`, and `{{var}}` expressions are evaluated against the current session state.
-  3. **`before_model` callback executes**: State changes made in a `before_model` callback occur _after_ the current turn's instructions have already been rendered and only take effect on subsequent turns.
-  4. **Model invocation** : The model receives the rendered instructions. If the model calls a tool that updates `context.variables` (or `context.state`), the instructions are re-rendered before the post-tool model call in the same turn.
+  3. **`before_model` callback executes**: State changes made in a `before_model` callback occur _after_ the instructions have already been rendered, so they aren't reflected in the rendered instructions for that model call (they only take effect on subsequent turns).
+  4. **Model invocation** : The model receives the rendered instructions.
 
 
+
+To control template branching (such as `{% if is_vip %}`) for the current turn, update those variables in `before_agent_callback` rather than `before_model_callback`.
 
 ## Channel and modality block tags
 
 You can use shorthand block tags to scope sections of your instructions to a specific modality or channel. At runtime, these tags are translated into conditional checks against the built-in [`_session`](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/reference/python#variable-_session) variable (`_session.modality` and `_session.channel`).
+
+**Note:** Modality and channel block tags only filter the instruction text sent to the model. If you need to restrict which tools are available to the model based on modality or channel (such as masking a tool in voice versus chat), perform tool masking in a [callback](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/callback).
 
 ### Modality block tags
 
@@ -140,7 +145,7 @@ Category | Syntax | Description
 **Membership** | `in` | Checks if an item exists in a list, a key exists in a map/object, or a substring exists in a string (for example, `{% if department in ["security", "audit"] %}`). Combine with `not` (`{% if not (item in list) %}`) to negate.  
 **State tests (`is` / `is not`)** | `is defined`, `is not defined`, `is undefined`, `is not undefined` | Evaluates to `true` if the variable exists and is non-null in the session state (or is missing/`null` for `undefined`).  
 **Null & boolean tests** | `is none`, `is not none`, `is true`, `is not true`, `is false`, `is not false` | Checks explicitly for `null` (`none`) or boolean `true`/`false`.  
-**Grouping & literals** | `(...)`, `"string"`, `'string'`, `42`, `3.14`, `true`, `false`, `[1, 2, 3]`, `null` / `none` | Groups expressions to control evaluation order and compares against literal values.  
+**Grouping & literals** | `(...)`, `"string"`, `'string'`, `42`, `3.14`, `true`, `false`, `[1, 2, 3]`, `null` | Groups expressions to control evaluation order and compares against literal values.  
   
 ### Operator precedence
 
@@ -162,7 +167,7 @@ You can transform variable values inline or inside conditional expressions using
 
 Filter / Function | Description | Example  
 ---|---|---  
-`value | length` or `length(value)` | Returns the number of elements in a list or map, or the character length of a string (`0` for `null`). | `{% if length(user.recent_orders) >= 3 %}`  
+`value | length` or `length(value)` | Returns the number of elements in a list, or the character length of a string (`0` for `null`). | `{% if length(user.recent_orders) >= 3 %}`  
 `value | upper` | Converts a value to an uppercase string. | `{{ user.loyalty_tier | upper }}`  
 `value | default(fallback)`, `value | default(fallback, true)`, or `default(value, fallback)` | Returns `fallback` when `value` is `null`. When `true` is passed as the optional second positional argument, also returns `fallback` when `value` is empty or falsy (`""`, `0`, `false`, or `[]`). | `{{ user.preferred_name | default("Valued Customer", true) }}`  
   
@@ -380,6 +385,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

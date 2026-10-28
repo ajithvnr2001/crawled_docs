@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-firewall-patch/
 title: Update a firewall rule \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:47:46.755657+00:00
+fetched_at: 2026-10-27T23:18:23.443864+00:00
 ---
 
 # Update a firewall rule  |  Compute Engine  |  Google Cloud Documentation

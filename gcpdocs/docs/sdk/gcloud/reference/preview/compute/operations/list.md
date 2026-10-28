@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/operations/list/
 title: gcloud preview compute operations list \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T10:59:24.248754+00:00
+fetched_at: 2026-10-27T21:40:44.809240+00:00
 ---
 
 # gcloud preview compute operations list  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud preview compute operations list - list Google Compute Engine operations
 SYNOPSIS
     
 
-`gcloud preview compute operations list` [`NAME` …] [`--regexp`=`REGEXP`, `-r` `REGEXP`] [`--global` | `--regions`=[`REGION`,…] | `--zones`=[`ZONE`,…]] [`--filter`=`EXPRESSION`] [`--limit`=`LIMIT`] [`--page-size`=`PAGE_SIZE`] [`--sort-by`=[`FIELD`,…]] [`--uri`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud preview compute operations list` [`NAME` …] [`--regexp`=`REGEXP`, `-r` `REGEXP`] [`--folder`=`FOLDER` | `--organization`=`ORGANIZATION`] [`--global` | `--regions`=[`REGION`,…] | `--zones`=[`ZONE`,…]] [`--filter`=`EXPRESSION`] [`--limit`=`LIMIT`] [`--page-size`=`PAGE_SIZE`] [`--sort-by`=[`FIELD`,…]] [`--uri`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(PREVIEW)` `gcloud preview compute operations list` displays all Google Compute Engine operations in a project. 
 
@@ -73,6 +73,12 @@ Flag `--regexp` is deprecated. Use `--filter="name~'REGEXP'"` instead.
 
 At most one of these can be specified: 
 
+`--folder`=`FOLDER`
+     Folder ID for the request. Notice that the folder ID contains only digits, without the "folders/" prefix. 
+`--organization`=`ORGANIZATION`
+     Organization ID for the request. Notice that the organization ID contains only digits, without the "organizations/" prefix. 
+At most one of these can be specified: 
+
 `--global`
      If provided, only global resources are shown. 
 `--regions`=[`REGION`,…]
@@ -113,6 +119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

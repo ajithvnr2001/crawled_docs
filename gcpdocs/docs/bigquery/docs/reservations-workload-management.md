@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/reservations-workload-management/
 title: Understand reservations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:42:45.014608+00:00
+fetched_at: 2026-10-27T19:38:27.241170+00:00
 ---
 
 # Understand reservations  |  BigQuery  |  Google Cloud Documentation
@@ -49,7 +49,7 @@ When you create an assignment, you specify the job type for that assignment:
 
   * `BACKGROUND_CHANGE_DATA_CAPTURE`: Use this reservation when you choose to [use your own reservation](https://docs.cloud.google.com/bigquery/docs/search-index#use_your_own_reservation) to run your [BigQuery CDC ingestion](https://docs.cloud.google.com/bigquery/docs/change-data-capture) background jobs. `BACKGROUND_CHANGE_DATA_CAPTURE` reservations are not available in the Standard edition.
 
-  * `BACKGROUND_COLUMN_METADATA_INDEX`: Use this reservation when you choose to [use your own reservation](https://docs.cloud.google.com/bigquery/docs/search-index#use_your_own_reservation) to run your [BigLake metadata caching](https://docs.cloud.google.com/bigquery/docs/metadata-caching) background jobs. Also use this reservation when you replicate source databases to BigQuery with Datastream's background apply operations. `BACKGROUND_COLUMN_METADATA_INDEX` reservations are not available in the Standard edition.
+  * `BACKGROUND_COLUMN_METADATA_INDEX`: Use this reservation when you choose to [use your own reservation](https://docs.cloud.google.com/bigquery/docs/search-index#use_your_own_reservation) to run your [BigLake metadata caching](https://docs.cloud.google.com/bigquery/docs/metadata-caching-external-tables) background jobs. Also use this reservation when you replicate source databases to BigQuery with Datastream's background apply operations. `BACKGROUND_COLUMN_METADATA_INDEX` reservations are not available in the Standard edition.
 
   * `BACKGROUND_SEARCH_INDEX_REFRESH`: Use this reservation when you choose to [use your own reservation](https://docs.cloud.google.com/bigquery/docs/search-index#use_your_own_reservation) to run your [BigQuery search](https://docs.cloud.google.com/bigquery/docs/search-intro) index management background jobs. `BACKGROUND_SEARCH_INDEX_REFRESH` reservations are not available in the Standard edition.
 
@@ -268,7 +268,7 @@ If you accidentally purchase a commitment or make a mistake when you configure y
   * Commitments purchased in one administration project can't be moved to a different administration project.
   * Commitments purchased with one [edition](https://docs.cloud.google.com/bigquery/docs/editions-intro) can't be used with reservations of another edition.
   * Idle slots aren't shared between reservations of different [editions](https://docs.cloud.google.com/bigquery/docs/editions-intro).
-  * [Autoscaled slots](https://docs.cloud.google.com/bigquery/docs/slots-autoscaling-intro) aren't shareable as they scale down when no longer required.
+  * [Autoscaled slots](https://docs.cloud.google.com/bigquery/docs/slots#slot-autoscaling) aren't shareable as they scale down when no longer required.
 
 
 
@@ -440,6 +440,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/monitor-troubleshoot-with-ai/
 title: Monitor and troubleshoot with AI assistance \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:18.814040+00:00
+fetched_at: 2026-10-27T23:16:26.584937+00:00
 ---
 
 # Monitor and troubleshoot with AI assistance  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). You can process personal data for this feature as outlined in the [Cloud Data Processing Addendum](https://docs.cloud.google.com/terms/data-processing-addendum), subject to the obligations and restrictions described in the agreement under which you access Google Cloud. Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document describes how you can use AI assistance to help you monitor and troubleshoot your AlloyDB for PostgreSQL resources. You can use the AI-assisted troubleshooting tools of AlloyDB and [Gemini Cloud Assist](https://docs.cloud.google.com/cloud-assist/overview) to troubleshoot slow queries and troubleshoot high database load. 
+Use AI assistance to find and fix the causes of slow queries, high database load, and read replica lag in your AlloyDB for PostgreSQL instances. When you enable AI-assisted troubleshooting, AlloyDB detects anomalies in query performance and database load, analyzes the evidence, and provides recommendations to help you improve performance. You can also use [Gemini Cloud Assist](https://docs.cloud.google.com/cloud-assist/overview) to ask questions in natural language about your queries, indexes, and system performance. 
 
 As an early-stage technology, Gemini for Google Cloud products can generate output that seems plausible but is factually incorrect. We recommend that you validate all output from Gemini for Google Cloud products before you use it. For more information, see [Gemini for Google Cloud and responsible AI](https://docs.cloud.google.com/gemini/docs/discover/responsible-ai).
 
@@ -399,6 +399,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

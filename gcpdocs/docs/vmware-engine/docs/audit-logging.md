@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vmware-engine/docs/audit-logging/
 title: Google Cloud VMware Engine audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:36.658834+00:00
+fetched_at: 2026-10-27T20:27:55.898357+00:00
 ---
 
 # Google Cloud VMware Engine audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Google Cloud VMware Engine audit logging
 
-This document describes audit logging for Google Cloud VMware Engine. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Google Cloud VMware Engine let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Google Cloud VMware Engine API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -33,11 +35,19 @@ This document describes audit logging for Google Cloud VMware Engine. Google Clo
 
 ## Service name
 
-Google Cloud VMware Engine audit logs use the service name `vmwareengine.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="vmwareengine.googleapis.com"
-      
+To view the Google Cloud VMware Engine audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="vmwareengine.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -86,7 +96,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `ADMIN_WRITE` | `google.cloud.vmwareengine.v1.VmwareEngine.CreateCluster` (LRO)  
 `google.cloud.vmwareengine.v1.VmwareEngine.CreateExternalAccessRule` (LRO)  
 `google.cloud.vmwareengine.v1.VmwareEngine.CreateExternalAddress` (LRO)  
-`google.cloud.vmwareengine.v1.VmwareEngine.CreateHcxActivationKey` (LRO)  
+`google.cloud.vmwareengine.v1.VmwareEngine.CreateHcxActivationKey`  
 `google.cloud.vmwareengine.v1.VmwareEngine.CreateLoggingServer` (LRO)  
 `google.cloud.vmwareengine.v1.VmwareEngine.CreateManagementDnsZoneBinding` (LRO)  
 `google.cloud.vmwareengine.v1.VmwareEngine.CreateNetworkPeering` (LRO)  
@@ -186,7 +196,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `vmwareengine.hcxActivationKeys.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.vmwareengine.v1.VmwareEngine.CreateHcxActivationKey" `  
 
@@ -1254,6 +1264,7 @@ The following audit logs are associated with methods belonging to `google.iam.v1
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
+    * `vmwareengine.clusters.getIamPolicy - ADMIN_READ`
     * `vmwareengine.privateClouds.getIamPolicy - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -1358,6 +1369,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

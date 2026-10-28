@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/stream-states-and-actions/
 title: Stream lifecycle \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:51.787697+00:00
+fetched_at: 2026-10-27T22:59:19.323753+00:00
 ---
 
 # Stream lifecycle  |  Datastream  |  Google Cloud Documentation
@@ -21,13 +21,15 @@ Send feedback
 
 #  Stream lifecycle Stay organized with collections  Save and categorize content based on your preferences. 
 
-The following diagram shows the various states and transitions in the lifecycle of a stream.
+Each stream in Datastream progresses through specific states as you create, start, pause, resume, modify, or delete it. Understanding how your actions and runtime errors affect stream states helps you manage data replication and recover from failures.
+
+## Stream states and transitions
+
+The following diagram shows the states and transitions in the lifecycle of a stream. In this diagram, the upside-down trapezoid boxes represent actions that you perform with the stream, and the rectangle boxes represent the resulting stream states:
 
 ![Datastream user flow diagram](https://docs.cloud.google.com/static/datastream/docs/images/stream-states-and-actions-final_02.png)
 
-In this diagram, the upside-down trapezoid boxes represent actions that the user performs with the stream, and the rectangle boxes represent the resultant states of the stream based on the user's actions. 
-
-First, you [create a stream](https://docs.cloud.google.com/datastream/docs/create-a-stream). Datastream uses this stream to transfer data from a source database into a destination. After the stream is created, the state of the stream is `Not started`.
+First, you [create a stream](https://docs.cloud.google.com/datastream/docs/create-a-stream). Datastream uses this stream to transfer data from a source into a destination. After the stream is created, the state of the stream is `Not started`.
 
 After creating the stream, you [start it](https://docs.cloud.google.com/datastream/docs/run-a-stream#startastream). The status of the stream changes to `Starting`. This signifies that the stream is in the process of being started and validated.
 
@@ -36,7 +38,7 @@ After creating the stream, you [start it](https://docs.cloud.google.com/datastre
 
 
 
-You can [pause a stream](https://docs.cloud.google.com/datastream/docs/run-a-stream#pauseastream). When a stream is paused, Datastream doesn't pull any new data from the source database into the destination. However, some data may continue to be written to the destination because _in flight_ data continues to flow.
+You can [pause a stream](https://docs.cloud.google.com/datastream/docs/run-a-stream#pauseastream). When a stream is paused, Datastream doesn't pull any new data from the source into the destination. However, some data may continue to be written to the destination because _in flight_ data continues to flow.
 
 Therefore, after you pause a stream, the status of the stream changes from `Running` to `Draining`. Draining a stream is the process of emptying the stream so that it doesn't contain any data. After the stream is drained of all data, then the status of the stream changes from `Draining` to `Paused`.
 
@@ -60,7 +62,7 @@ A running stream can encounter errors which might cause the stream to change its
 
 You can address the issues for a `Failed` stream, and the stream automatically resumes. Its state changes from `Failed` back to `Running`. For more information, see [Troubleshoot a stream](https://docs.cloud.google.com/datastream/docs/troubleshoot-a-stream).
 
-You can manually recover a `Failed permanently` stream. For more information, see [Recover a stream](https://docs.cloud.google.com/datastream/docs/troubleshoot-a-stream).
+You can manually recover a `Failed permanently` stream. For more information, see [Recover a stream](https://docs.cloud.google.com/datastream/docs/recover-a-stream).
 
 ## What's next
 
@@ -76,6 +78,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

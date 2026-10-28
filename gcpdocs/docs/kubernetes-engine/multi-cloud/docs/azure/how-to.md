@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/multi-cloud/docs/azure/how-to/
 title: How-to guides \u00a0|\u00a0 GKE on Azure \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:16.360241+00:00
+fetched_at: 2026-10-27T19:55:57.899986+00:00
 ---
 
 # How-to guides  |  GKE on Azure  |  Google Cloud Documentation

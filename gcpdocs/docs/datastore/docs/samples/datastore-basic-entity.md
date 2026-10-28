@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-basic-entity/
 title: Create an entity \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:03.599799+00:00
+fetched_at: 2026-10-27T22:59:14.098519+00:00
 ---
 
 # Create an entity  |  Firestore in Datastore mode  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-2/access-control/
 title: Access control with IAM \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:15.107862+00:00
+fetched_at: 2026-10-27T23:22:55.212217+00:00
 ---
 
 # Access control with IAM  |  Managed Service for Apache Airflow  |  Google Cloud Documentation

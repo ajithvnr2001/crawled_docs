@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/release-notes/
 title: Agent Platform Workbench release notes \u00a0|\u00a0 Gemini Enterprise Agent Platform Workbench \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:58.450341+00:00
+fetched_at: 2026-10-27T23:24:13.448965+00:00
 ---
 
 # Agent Platform Workbench release notes  |  Gemini Enterprise Agent Platform Workbench  |  Google Cloud Documentation
@@ -27,6 +27,16 @@ This page documents production updates to Agent Platform Workbench. Check this p
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/aiplatformnotebooks-release-notes.xml) directly. 
+
+## October 26, 2026
+
+v2
+
+Feature
+
+**Custom organization policies for Agent Platform Workbench instances**
+
+You can now use custom organization policies to allow or deny the creation and update of Agent Platform Workbench instances based on their configuration. Custom constraints for the `notebooks.googleapis.com/Instance` resource are enforced when you create or update an instance, and support dry-run mode. This feature is now generally available ([GA](https://cloud.google.com/products#product-launch-stages)). For more information, see [Create custom organization policy constraints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/custom-constraints).
 
 ## September 09, 2026
 
@@ -1860,6 +1870,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-train-processor-version/
 title: Train a processor version \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:41:29.539923+00:00
+fetched_at: 2026-10-27T22:50:46.687239+00:00
 ---
 
 # Train a processor version  |  Document AI  |  Google Cloud Documentation

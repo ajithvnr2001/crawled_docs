@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/view-connection-profiles/
 title: View connection profiles \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:49.722167+00:00
+fetched_at: 2026-10-27T22:59:35.174861+00:00
 ---
 
 # View connection profiles  |  Datastream  |  Google Cloud Documentation
@@ -21,11 +21,11 @@ Send feedback
 
 #  View connection profiles Stay organized with collections  Save and categorize content based on your preferences. 
 
-In this page, you learn how to view high-level and detailed information about connection profiles.
+You can view high-level and detailed information about your connection profiles in Datastream to verify source and destination connectivity settings. The Google Cloud console displays the authentication details, assigned streams, connectivity method, regional IP addresses, and Cloud Storage bucket path for each profile.
 
 To view information about a connection profile, do the following:
 
-  1. Go to the **Connection profiles** page in the Google Cloud Console.
+  1. Go to the **Connection profiles** page in the Google Cloud console.
 
 [Go to the Connection profiles page](https://console.cloud.google.com/datastream/connection-profiles)
 
@@ -45,7 +45,7 @@ High-level information about a connection profile includes:
   * Details about how Datastream can connect to the profile.
   * When the connection profile was created or last updated.
   * The region where the connection profile is established.
-  * Any labels added to the connection profile. 
+  * Any labels added to the connection profile.
 
 
 
@@ -75,6 +75,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

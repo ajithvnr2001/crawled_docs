@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/modifying_vm_configurations/
 title: Modify compute instance configurations for SAP systems \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:00:32.707254+00:00
+fetched_at: 2026-10-28T02:31:32.014504+00:00
 ---
 
 # Modify compute instance configurations for SAP systems  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -127,15 +127,12 @@ Machine type |
          Target machine type: TARGET_MACHINE_TYPE
          
 
-Verify that your target configuration uses an SAP-certified machine type. For more information, see the following guides:
-     * [Certifications for SAP applications on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-apps)
-     * [Certifications for SAP HANA on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-hana)
-If you're modifying a compute instance that uses a machine type belonging to the first or second generation [machine series](https://docs.cloud.google.com/compute/docs/machine-resource#vm_terminology) to a machine type of a third or later generation machine series, then you must follow the procedure described in [Move your workload to a new compute instance](https://docs.cloud.google.com/compute/docs/import/migrate-to-new-vm). For other scenarios, you might be able to follow the procedure described in [Edit the machine type of a compute instance](https://docs.cloud.google.com/compute/docs/instances/changing-machine-type-of-stopped-instance) depending on the comparison that you note for the other features described in this table.  
+Verify that your target configuration uses an SAP-certified machine type. For more information, see [SAP certifications for Google Cloud](https://docs.cloud.google.com/sap/docs/sap-certifications). If you're modifying a compute instance that uses a machine type belonging to the first or second generation [machine series](https://docs.cloud.google.com/compute/docs/machine-resource#vm_terminology) to a machine type of a third or later generation machine series, then you must follow the procedure described in [Move your workload to a new compute instance](https://docs.cloud.google.com/compute/docs/import/migrate-to-new-vm). For other scenarios, you might be able to follow the procedure described in [Edit the machine type of a compute instance](https://docs.cloud.google.com/compute/docs/instances/changing-machine-type-of-stopped-instance) depending on the comparison that you note for the other features described in this table.  
 Compute instance type | 
-    
-    Source instance type: VM_OR_BARE_METAL
-    Target instance type: VM_OR_BARE_METAL
-    
+         
+         Source instance type: VM_OR_BARE_METAL
+         Target instance type: VM_OR_BARE_METAL
+         
 
 To identify if your compute instance is a VM instance or a bare metal instance, review the name of the underlying machine type. If the name contains `metal`, then yours is a bare metal instance. If you're using a VM that is configured to allow [live migration](https://docs.cloud.google.com/compute/docs/instances/live-migration-process) and you want to switch to a compute instance based on a bare metal machine type such as X4, then you must follow the procedure described in [Move your workload to a new compute instance](https://docs.cloud.google.com/compute/docs/import/migrate-to-new-vm). Because live migration is not feasible for bare metal instances, make sure to consider the operational implications for your workload before you move it to a bare metal instance. For more information, see:
      * [Differences between VM instances and bare metal instances](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances#differences).
@@ -373,6 +370,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

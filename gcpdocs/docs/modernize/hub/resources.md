@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/modernize/hub/resources/
 title: Resources \u00a0|\u00a0 Modernization Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:55:55.537106+00:00
+fetched_at: 2026-10-27T21:22:03.963276+00:00
 ---
 
 # Resources  |  Modernization Hub  |  Google Cloud Documentation

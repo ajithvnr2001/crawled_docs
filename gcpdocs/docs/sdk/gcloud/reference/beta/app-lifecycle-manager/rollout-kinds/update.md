@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/update/
 title: gcloud beta app-lifecycle-manager rollout-kinds update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:27.248482+00:00
+fetched_at: 2026-10-27T21:40:34.827616+00:00
 ---
 
 # gcloud beta app-lifecycle-manager rollout-kinds update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,26 +24,28 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager rollout-kinds update - update a Rollout Kind 
+gcloud beta app-lifecycle-manager rollout-kinds update - update a rollout kind 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager rollout-kinds update` (`ROLLOUT_KIND` : `--location`=`LOCATION`) [`--rollout-orchestration-strategy`=`ROLLOUT_ORCHESTRATION_STRATEGY`] [`--unit-filter`=`UNIT_FILTER`] [`--update-unit-kind-strategy`=`UPDATE_UNIT_KIND_STRATEGY`] [`--clear-error-budget` `--error-budget-allowed-count`=`ERROR_BUDGET_ALLOWED_COUNT` `--error-budget-allowed-percentage`=`ERROR_BUDGET_ALLOWED_PERCENTAGE`] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Update a Rollout Kind 
+     `(BETA)` Update an App Lifecycle Manager rollout kind. 
 EXAMPLES
-     To update the Rollout Kind, run: 
+     To change the orchestration strategy of the rollout kind named `my-rollout-kind` in location `us-central1` to roll out to all locations at once, run: 
     
     
-    gcloud beta app-lifecycle-manager rollout-kinds update
+    gcloud beta app-lifecycle-manager rollout-kinds update my-rollout-kind --location=us-central1 --rollout-orchestration-strategy=Google.Cloud.Simple.AllAtOnce
+
+To allow up to 10% of units to fail in a location and add or update the label `env=prod` on the rollout kind named `my-rollout-kind`, run: 
+    
+    
+    gcloud beta app-lifecycle-manager rollout-kinds update my-rollout-kind --location=us-central1 --error-budget-allowed-percentage=10 --update-labels=env=prod
 
 POSITIONAL ARGUMENTS
     
 
-RolloutKindId resource - Identifier. The resource name (full URI of the resource) following the standard naming scheme: 
-    
-    
-    "projects/{project}/locations/{location}/rolloutKinds/{rollout_kind_id}" The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways.
+RolloutKindId resource - Rollout kind to update. The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -79,30 +81,30 @@ FLAGS
     
 
 `--rollout-orchestration-strategy`=`ROLLOUT_ORCHESTRATION_STRATEGY`
-     The strategy to use for executing rollouts. 
+     Strategy to use for executing rollouts. Supported values are `Google.Cloud.Simple.AllAtOnce`, `Google.Cloud.Simple.OneLocationAtATime`, `Google.Cloud.Progressive.Gradual.v1`, and `Google.Cloud.Progressive.SingleLocation.v1`. 
 `--unit-filter`=`UNIT_FILTER`
-     CEL(https://github.com/google/cel-spec) formatted filter string against Unit. The filter will be applied to determine the eligible unit population. This filter can only reduce, but not expand the scope of the rollout. 
+     Filter, in Common Expression Language (CEL) format, that selects the eligible units. The filter can only reduce, not expand, the scope of the rollout. For more information about CEL, see <https://github.com/google/cel-spec>. 
 `--update-unit-kind-strategy`=`UPDATE_UNIT_KIND_STRATEGY`
-     The config for updating the unit kind. By default, the unit kind will be updated on the rollout start. `UPDATE_UNIT_KIND_STRATEGY` must be one of: 
+     Strategy for updating the unit kind. If not set, the unit kind is updated when the rollout starts. `UPDATE_UNIT_KIND_STRATEGY` must be one of: 
 
 `never`
      Never update the unit kind. 
 `on-start`
-     Update the unit kind strategy on the rollout start. 
-Arguments for the error budget. 
-The configuration for error budget. If the number of failed units exceeds max(allowed_count, allowed_ratio * total_units), the rollout will be paused. 
+     Update the unit kind when the rollout starts. 
+Error budget settings. 
+Configuration for the error budget. If the number of failed units in a location exceeds the larger of `--error-budget-allowed-count` and `--error-budget-allowed-percentage` percent of the units, the rollout is paused. If not set, App Lifecycle Manager attempts to update all units, regardless of the number of failures. 
 `--clear-error-budget`
      Set rolloutKind.errorBudget back to default value. 
 `--error-budget-allowed-count`=`ERROR_BUDGET_ALLOWED_COUNT`
-     The maximum number of failed units allowed in a location without pausing the rollout. 
+     Maximum number of failed units allowed in a location without pausing the rollout. 
 `--error-budget-allowed-percentage`=`ERROR_BUDGET_ALLOWED_PERCENTAGE`
-     The maximum percentage of units allowed to fail (0, 100] within a location without pausing the rollout. 
+     Maximum percentage of units allowed to fail in a location without pausing the rollout. Must be greater than 0 and at most 100. 
 Update labels. 
 
 At most one of these can be specified: 
 
 `--labels`=[`LABELS`,…]
-     Set labels to new value. The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Set labels to new value. Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -126,7 +128,7 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--update-labels`=[`UPDATE_LABELS`,…]
-     Update labels value or add key value pair. The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Update labels value or add key value pair. Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -181,6 +183,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

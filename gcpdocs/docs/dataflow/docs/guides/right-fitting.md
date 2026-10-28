@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/right-fitting/
 title: Right fitting \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:59:25.454249+00:00
+fetched_at: 2026-10-28T02:30:01.207538+00:00
 ---
 
 # Right fitting  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -27,9 +27,11 @@ The _right fitting_ feature uses [Apache Beam resource hints](https://beam.apach
 
   * Resource hints are supported with the Apache Beam Java and Python SDKs, versions 2.31.0 and later.
   * Right fitting is supported with batch pipelines.
-  * Right fitting is supported with streaming pipelines with [horizontal autoscaling](https://docs.cloud.google.com/dataflow/docs/horizontal-autoscaling) enabled.
+  * Right fitting is supported with streaming pipelines with [Horizontal Autoscaling](https://docs.cloud.google.com/dataflow/docs/horizontal-autoscaling) enabled.
 
     * You can enable it by setting the [`--experiments=enable_streaming_rightfitting` pipeline option](https://docs.cloud.google.com/dataflow/docs/reference/pipeline-options).
+  * When you use right fitting, keep Horizontal Autoscaling enabled. If you [disable Horizontal Autoscaling](https://docs.cloud.google.com/dataflow/docs/horizontal-autoscaling#disable), your job might run with lower parallelism than expected. To limit the number of workers that your job uses, set the `maxNumWorkers` or `max_num_workers` [pipeline option](https://docs.cloud.google.com/dataflow/docs/reference/pipeline-options#resource_utilization) instead.
+
   * Right fitting supports [Dataflow Prime](https://docs.cloud.google.com/dataflow/docs/guides/enable-dataflow-prime).
 
   * Right fitting doesn't support FlexRS.
@@ -294,6 +296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

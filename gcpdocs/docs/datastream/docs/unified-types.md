@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/unified-types/
 title: Mappings of unified types to source and destination data types \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:51.215363+00:00
+fetched_at: 2026-10-27T22:59:37.405022+00:00
 ---
 
 # Mappings of unified types to source and destination data types  |  Datastream  |  Google Cloud Documentation
@@ -21,18 +21,26 @@ Send feedback
 
 #  Mappings of unified types to source and destination data types Stay organized with collections  Save and categorize content based on your preferences. 
 
-Unified types are the data types that appear in the Avro or JSON events. They are a Datastream-specific, unified representation of a data type across multiple data sources and destinations that Datastream supports.
+Datastream converts source-specific data types into a standard set of _unified types_ in Avro and JSON change events. Unified types represent the superset of all supported source data types so that Datastream can replicate data across sources and destinations without data loss.
 
-The unified types are the superset of all type representations across all supported source types, which represent the original source type in a generic but lossless way.
+This document lists the Datastream unified types and the data type mappings for the following sources:
 
-The following tables list:
+  * Oracle
+  * MySQL
+  * PostgreSQL
+  * SQL Server
+  * Salesforce
+  * Workday ([Preview](https://cloud.google.com/products#product-launch-stages))
+  * Spanner GoogleSQL
+  * Spanner PostgreSQL
+  * ServiceNow ([Preview](https://cloud.google.com/products#product-launch-stages))
+  * MongoDB
+  * Microsoft Dataverse ([Preview](https://cloud.google.com/products#product-launch-stages))
+  * Salesforce Marketing Cloud ([Preview](https://cloud.google.com/products#product-launch-stages))
 
-  * The unified types associated with Datastream
-  * The mappings between Oracle, MySQL, SQL Server, PostgreSQL, Salesforce, Spanner, ServiceNow, MongoDB, and Workday ([Preview](https://cloud.google.com/products/#product-launch-stages)) data types and the Datastream unified types
 
 
-
-Refer to the [BigQuery destination documentation](https://docs.cloud.google.com/datastream/docs/destination-bigquery) for information about the mappings between the data types for the different sources and BigQuery.
+For BigQuery destination mappings, see [Data type mappings in BigQuery](https://docs.cloud.google.com/datastream/docs/bq-map-data-types).
 
 ## Datastream unified types
 
@@ -684,6 +692,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

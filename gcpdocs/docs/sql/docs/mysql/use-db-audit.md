@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/use-db-audit/
 title: Use MySQL database auditing \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:18:42.691039+00:00
+fetched_at: 2026-10-27T23:54:32.804320+00:00
 ---
 
 # Use MySQL database auditing  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -24,9 +24,9 @@ Send feedback
 
 MySQL | PostgreSQL | SQL Server
 
-This topic describes how to enable and use the Cloud SQL for MySQL Audit Plugin. For an overview, see [MySQL database auditing](https://docs.cloud.google.com/sql/docs/mysql/db-audit). For more information about MySQL plugins, see [MySQL plugin loading](https://dev.mysql.com/doc/refman/8.0/en/plugin-loading.html).
+The Cloud SQL for MySQL Audit Plugin lets you record database activity and track user operations on your instances. Maintaining these audit logs helps you meet regulatory compliance requirements and detect unauthorized access.
 
-**Note:** In this topic, Administrators and Auditors are referred to as audit users. 
+This document refers to administrators and auditors collectively as _audit users_. For an overview, see [MySQL database auditing](https://docs.cloud.google.com/sql/docs/mysql/db-audit). For more information about MySQL plugins, see [MySQL plugin loading](https://dev.mysql.com/doc/refman/8.0/en/plugin-loading.html).
 
 ## Before you begin
 
@@ -1136,6 +1136,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

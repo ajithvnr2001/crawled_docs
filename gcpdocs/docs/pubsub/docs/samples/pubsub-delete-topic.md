@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-delete-topic/
 title: Delete topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:05.011214+00:00
+fetched_at: 2026-10-28T01:39:48.919367+00:00
 ---
 
 # Delete topic  |  Pub/Sub  |  Google Cloud Documentation

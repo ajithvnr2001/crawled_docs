@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/monitor/
 title: Monitor Compute Engine instances and Slurm clusters \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:28:22.474588+00:00
+fetched_at: 2026-10-27T18:56:09.752815+00:00
 ---
 
 # Monitor Compute Engine instances and Slurm clusters  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ When you use the Google Cloud console to access Google Cloud services and APIs, 
 
     * The compute instances must be created as either standalone Compute Engine instances or as part of a Slurm cluster.
     * The compute instances must have been created by using reservation-bound capacity.
-    * The compute instances must use the A4X Max, A4X, A4, A3 Ultra, or A3 Mega [machine series](https://docs.cloud.google.com/ai-hypercomputer/docs/gpu). 
+    * The compute instances must use the A4X Max, A4X, A4, A3 Ultra, or A3 Mega [machine series](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus). 
       * However, straggler detection also supports virtual machine (VM) instances that use the A3 Mega machine series.
 **Caution:** Although metrics might appear for other machine series than A4X Max, A4X, A4, A3 Ultra, or A3 Mega, those metrics might be incorrect.
   * **Known issues for infrastructure metrics:**
@@ -77,14 +77,6 @@ When you use the Google Cloud console to access Google Cloud services and APIs, 
     * Some compute instances might not display `GPU Temperature` or `GPU Thermal Margin` metrics, or they might display `NaN` instead of metrics.
     * Metrics might not appear in the Google Cloud console for up to seven minutes after they're collected.
     * You might see incorrect metrics for machine series other than A4X Max, A4X, A4, A3 Ultra, or A3 Mega.
-
-
-
-The metrics in this document are only supported for workloads that run on compute instances that meet all of the following criteria:
-
-  * The compute instances must be created as either standalone Compute Engine instances or as part of a Slurm cluster.
-  * The compute instances must have been created by using reserved capacity.
-  * The compute instances must use the A4X Max, A4X, A4, A3 Ultra, or A3 Mega [machine series](https://docs.cloud.google.com/ai-hypercomputer/docs/understand-gpus).
 
 
 
@@ -616,6 +608,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

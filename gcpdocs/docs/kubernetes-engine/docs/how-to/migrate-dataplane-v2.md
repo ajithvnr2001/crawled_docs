@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/migrate-dataplane-v2/
 title: Migrate VPC-native clusters to GKE Dataplane V2 \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:19.209430+00:00
+fetched_at: 2026-10-27T19:53:59.128659+00:00
 ---
 
 # Migrate VPC-native clusters to GKE Dataplane V2  |  GKE networking  |  Google Cloud Documentation
@@ -54,8 +54,8 @@ Complete the following tasks before you start the migration:
   * **NetworkPolicy removal** : remove your existing network policies. If GKE suddenly enforces network policies when it recreates your nodes, you might experience unintended network disruption.
   * **Calico network policies** : if you use a GKE Standard cluster with network policy (Calico) enabled, [disable network policy enforcement](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/network-policy#disable-network-policy-enforcement). You can't migrate these clusters directly.
   * **Active Assist recommendations** : check [Active Assist](https://docs.cloud.google.com/recommender/docs/whatis-activeassist) or the cluster details page for recommendations that might conflict with the migration.
-  * **IP address capacity** : verify that your cluster's Pod IP address range has enough capacity for your node pool upgrade strategies. For more information, see [GKE IP address utilization insights](https://docs.cloud.google.com/network-intelligence-center/docs/network-analyzer/insights/kubernetes-engine/gke-ip-utilization). 
-    * **Networking features** : enable networking features such as NodeLocal DNSCache or intranode visibility before you start the migration or after the migration is complete. You can't enable them during the migration.
+  * **IP address capacity** : verify that your cluster's Pod IP address range has enough capacity for your node pool upgrade strategies. For more information, see [GKE IP address utilization insights](https://docs.cloud.google.com/network-intelligence-center/docs/network-analyzer/insights/kubernetes-engine/gke-ip-utilization).
+  * **Networking features** : enable networking features such as NodeLocal DNSCache or intranode visibility before you start the migration or after the migration is complete. You can't enable them during the migration.
 
 
 
@@ -261,6 +261,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/shell/docs/
 title: Cloud Shell documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:17.145866+00:00
+fetched_at: 2026-10-28T00:14:04.606580+00:00
 ---
 
 # Cloud Shell documentation  |  Google Cloud Documentation
@@ -59,8 +59,6 @@ format_list_numbered
   * [ Launch the Cloud Shell Editor ](https://docs.cloud.google.com/shell/docs/launching-cloud-shell-editor)
 
   * [ Cloud Shell Editor interface overview ](https://docs.cloud.google.com/shell/docs/editor-overview)
-
-  * [ Get started with Cloud Code ](https://docs.cloud.google.com/shell/docs/getting-started-with-cloud-code)
 
   * [ Configure Cloud Shell ](https://docs.cloud.google.com/shell/docs/configuring-cloud-shell)
 
@@ -144,6 +142,6 @@ New customers also get $300 in free credits to run, test, and deploy workloads.
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

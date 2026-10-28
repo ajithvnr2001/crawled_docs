@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/images/os-image-lifecycle/
 title: Operating systems lifecycle \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:44:51.332604+00:00
+fetched_at: 2026-10-27T18:46:33.320704+00:00
 ---
 
 # Operating systems lifecycle  |  Compute Engine  |  Google Cloud Documentation
@@ -72,17 +72,68 @@ Deprecated OS versions can either be in an extended supported phase or end of li
 
 ### Extended support
 
-For some operating systems, when they reach the deprecation phase, OS distributors provide a maintenance, extended or long-term paid package that can be applied to your OS:
+When an operating system reaches the deprecation or end of support (EOS) phase, some OS distributors and partners offer paid maintenance, extended, or long-term support packages. You can procure and enable these packages to continue receiving critical security patches and updates for your Compute Engine instances:
 
-  * For Red Hat Enterprise Linux (RHEL) OS: Maintenance support, Extended life phase, Extended Lifecycle support ELS (Add-On), or Extended Update Support (EUS)
-  * For Rocky Linux: Long Term Support can be [purchased from CIQ](https://ciq.com/products/rocky-linux/)
-  * For SUSE Linux Enterprise Server (SLES) OS: Long Term Service Pack Support, Extended Service Pack Overlap Support (ESPOS)
-  * For Ubuntu Pro OS: Extended Security Maintenance (ESM)
-  * For Windows OS: Extended Security Updates
+#### Red Hat Enterprise Linux (RHEL)
+
+Red Hat offers the following options to extend the lifecycle of RHEL instances:
+
+  * **Extended Life Cycle Support (ELS) Add-On** : Available for PAYG (on-demand) RHEL instances running versions that have reached their end of maintenance phase, such as RHEL 7. The ELS Add-On provides critical security fixes and selected urgent bug fixes. To procure and enable ELS, stop the instance, append the RHEL ELS license URI to the boot disk using the `gcloud compute disks update` command, and install the Red Hat Update Infrastructure (RHUI) ELS client package. For step-by-step instructions, see [Append RHEL ELS licenses](https://docs.cloud.google.com/compute/docs/images/premium/rhel/append-els-licenses) and the [Red Hat Enterprise Linux FAQ](https://docs.cloud.google.com/compute/docs/images/premium/rhel-faq#els-support).
+  * **Extended Update Support (EUS)** : Available for specific minor releases of RHEL, providing security updates and urgent fixes for up to two years after the initial release date. On Compute Engine, you can create VMs directly from RHEL EUS public images, which include both the base RHEL license and the EUS license, or lock an existing instance to an EUS point release. For more information, see [RHEL operating system details](https://docs.cloud.google.com/compute/docs/images/os-details#red_hat_enterprise_linux_rhel) and the [Red Hat EUS overview](https://access.redhat.com/articles/rhel-eus).
 
 
 
-For more details on these extended lifecycle packages, see the documentation for the OS provider.
+#### Rocky Linux
+
+Long Term Support (LTS) and commercial enterprise support for Rocky Linux on Compute Engine are provided by CIQ:
+
+  * **CIQ Long Term Support (LTS) and commercial support** : You can procure extended support and commercial support offerings directly through [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/browse?q=ciq%20rocky%20linux), such as [CIQ-supported Rocky Linux](https://console.cloud.google.com/marketplace/product/ciqrocky-public/ciq-supported-rocky-linux-8) or CIQ Rocky Linux LTS images, or directly from [CIQ](https://ciq.com/products/rocky-linux/).
+
+
+
+#### SUSE Linux Enterprise Server (SLES)
+
+SUSE offers extended support options that vary between standard SLES and SLES for SAP:
+
+  * **Long-Term Service Pack Support (LTSS)** : Available for SLES versions—and for the final service pack (SP) release of a SLES for SAP major version—that have reached their end of general support date. To procure and enable LTSS: 
+    1. Go to the [Long-Term Service Pack Support listing](https://console.cloud.google.com/marketplace/product/mp-images-public/suse-ltss) in Cloud Marketplace and submit the form to purchase LTSS through a SUSE representative.
+    2. After your purchase is finalized, enable LTSS on your instances by following the instructions in [SUSE's enablement documentation](https://www.suse.com/support/kb/doc/?id=000021193) and [Long Term Service Pack Support for PAYG Instances Simplified](https://www.suse.com/c/long-term-service-pack-support-for-payg-instances-simplified/).
+  * **Extended Service Pack Overlap Support (ESPOS)** : Included automatically in the base PAYG license for all SLES for SAP versions, except for the final SP version before the next major release (for example, SLES 12 SP5 for SAP). ESPOS provides an additional three years of support and maintenance updates under LTSS terms without requiring a separate add-on purchase. For the final SP version of a major release, you must purchase LTSS through Cloud Marketplace.
+
+
+
+For more information, see the [SUSE Linux Enterprise Server FAQ](https://docs.cloud.google.com/compute/docs/images/premium/sles-faq#ltss).
+
+#### Ubuntu
+
+Canonical provides [Extended Security Maintenance (ESM)](https://ubuntu.com/security/esm) to deliver ongoing security fixes for high and critical Common Vulnerabilities and Exposures (CVEs) after an Ubuntu LTS release reaches the end of its standard support window. You can procure and enable ESM on Compute Engine in the following ways:
+
+  * **Upgrade existing Ubuntu LTS instances to Ubuntu Pro (PAYG)** : Perform an in-place upgrade on existing VMs to enable ESM with hourly PAYG billing. To upgrade, install the `ubuntu-advantage-pro` package on the VM, stop the instance, and replace the boot disk license with the Ubuntu Pro license URI using the `gcloud compute disks update` command. For detailed instructions, see [Upgrade from Ubuntu to Ubuntu Pro](https://docs.cloud.google.com/compute/docs/images/premium/ubuntu-pro/upgrade-from-ubuntu).
+  * **Create new Ubuntu Pro instances** : Launch new VMs using [Ubuntu Pro public images](https://docs.cloud.google.com/compute/docs/images/os-details#ubuntu_pro), which include ESM activated by default.
+  * **Bring your own subscription (BYOS)** : Attach an annual [Ubuntu Advantage](https://ubuntu.com/support) subscription purchased from Canonical directly to your Ubuntu LTS VMs.
+
+
+
+For more information, see [Ubuntu LTS end of support](https://docs.cloud.google.com/compute/docs/eol/ubuntu-eol) and the [Ubuntu Pro FAQ](https://docs.cloud.google.com/compute/docs/images/premium/ubuntu-pro-faq).
+
+#### Windows Server
+
+Windows Server versions follow Microsoft's [Fixed Lifecycle Policy](https://learn.microsoft.com/en-us/lifecycle/policies/fixed), which provides five years of Mainstream Support followed by five years of Extended Support (during which security updates are included at no additional cost).
+
+  * **Extended Security Updates (ESUs)** : Once a Windows Server version reaches the end of its Extended Support phase (end of support), you can enroll in Microsoft's [Extended Security Update (ESU) program](https://learn.microsoft.com/en-us/lifecycle/faq/extended-security-updates) to continue receiving critical security updates. You purchase ESUs directly from Microsoft and configure your Compute Engine instances to activate them. For eligibility and configuration steps, see the Microsoft [Extended Security Updates deployment guide](https://learn.microsoft.com/en-us/windows-server/get-started/extended-security-updates), [Windows end of support](https://docs.cloud.google.com/compute/docs/instances/windows/end-of-support), and the [Microsoft licensing on Google Cloud FAQ](https://docs.cloud.google.com/compute/docs/instances/windows/ms-licensing-faq#windows-server-support-lifecycle).
+
+
+
+#### CentOS
+
+For workloads running on CentOS versions that have reached end of support (such as CentOS 7), partner offerings are available on Google Cloud to provide extended security updates and migration support:
+
+  * **CIQ Bridge** : Extends CentOS 7 support with security updates and patches from CIQ.
+  * **SUSE Multi-Linux Support (SMLS)** : Provides enterprise support and patches for CentOS instances through an in-place conversion, available on [Cloud Marketplace](https://console.cloud.google.com/marketplace/product/mp-images-public/suse-multi-linux-support).
+
+
+
+For more details on procuring these options and migrating workloads, see [CentOS end of support guidance](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance).
 
 ### End of lifecycle (EOL)
 
@@ -301,6 +352,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

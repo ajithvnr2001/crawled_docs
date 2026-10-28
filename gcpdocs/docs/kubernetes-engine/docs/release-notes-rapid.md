@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-rapid/
 title: GKE release notes (Rapid channel) \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:42:37.027082+00:00
+fetched_at: 2026-10-27T22:57:24.578853+00:00
 ---
 
 # GKE release notes (Rapid channel)  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -34,6 +34,58 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gke-rapid-channel-release-notes.xml) directly. 
 
 **Note** : Your clusters might not have the latest released versions. Rollouts begin on the day of the note and take four or more business days to be completed across all Google Cloud zones.
+
+## October 27, 2026
+
+Change
+
+#### (2026-R46) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available in the Rapid channel: 
+    * [1.34.12-gke.1539000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1539000)
+    * [1.35.9-gke.1505000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-9-gke-1505000)
+    * [1.36.5-gke.1982000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1982000)
+    * [1.37.1-gke.3020000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-3020000)
+  * [Alpha version](https://cloud.google.com/kubernetes-engine/versioning#alpha-versions) 1.38.0-gke.4162000+preview is now available for GKE alpha clusters in the Rapid channel.
+  * Alpha version 1.38.0-gke.2743000+preview is no longer available in the Rapid channel.
+
+
+
+## October 26, 2026
+
+Change
+
+#### (2026-R45) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.37.1-gke.1697000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000) is now the default version for cluster creation in the Rapid channel.
+  * The following versions are now available in the Rapid channel: 
+    * [1.34.12-gke.1363000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1363000)
+    * [1.35.8-gke.2308000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-2308000)
+    * [1.36.5-gke.1259000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1259000)
+    * [1.37.1-gke.2097000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-2097000)
+  * [Alpha version](https://cloud.google.com/kubernetes-engine/versioning#alpha-versions) 1.38.0-gke.3229000+preview is now available for GKE alpha clusters in the Rapid channel.
+  * The following versions are no longer available in the Rapid channel: 
+    * 1.34.12-gke.1153000
+    * 1.35.8-gke.1919000
+    * 1.36.4-gke.2326000
+    * 1.37.1-gke.1552000
+  * Alpha version 1.38.0-gke.2240000+preview is no longer available in the Rapid channel.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.33 to [1.34.12-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+      * 1.34 to [1.35.8-gke.1975000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+      * 1.35 to [1.36.4-gke.2377000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.12-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+      * 1.35 to [1.35.8-gke.1975000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+      * 1.36 to [1.36.4-gke.2377000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+      * 1.37 to [1.37.1-gke.1697000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000)
+
+
 
 ## October 14, 2026
 
@@ -7704,6 +7756,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-overview/
 title: AI developer tools overview \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:09.571450+00:00
+fetched_at: 2026-10-27T23:54:24.657787+00:00
 ---
 
 # AI developer tools overview  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -67,7 +67,7 @@ Requirement | Description
 Supported editions |  You must have a paid or free-trial subscription to the Gemini Enterprise Standard or Plus edition, or a paid subscription to the Standard Emerging Market or Pay-as-you-go edition. Gemini Enterprise Standard Emerging Market edition is available only to eligible customers. Contact your Google account team to assess the requirements and determine your eligibility.  
 Supported regions |  For more information about regional availability and feature limitations, see [Data residency for Gemini Enterprise Standard and Plus Editions and Gemini Notebook](https://docs.cloud.google.com/gemini/enterprise/docs/locations).   
 Invoiced billing account |  Your project must have Cloud Billing enabled and use an invoiced account. For more information, see [Cloud Billing account types](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types).   
-Overages |  To check usage limits and how overage charges apply, see [Quotas and overages](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages). To enable and configure pay-as-you-go overages when usage exceeds your standard quota, see [Configure overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages).   
+Pay-as-you-go usage above quota |  To check usage limits and how pay-as-you-go charges apply, see [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage). To turn on and configure pay-as-you-go usage when usage exceeds your standard quota, see [ Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota).   
 Required roles |  To access or configure AI developer tools, users must have the appropriate role: 
 
   * [Gemini Enterprise Admin](https://docs.cloud.google.com/gemini/enterprise/docs/access-control#discoveryengine.agentspaceAdmin) (`roles/discoveryengine.agentspaceAdmin`): Required to configure AI developer tools settings and view metrics. 
@@ -115,6 +115,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

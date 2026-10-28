@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling/
 title: Introduction to function calling \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:38:30.612550+00:00
+fetched_at: 2026-10-28T02:28:09.171130+00:00
 ---
 
 # Introduction to function calling  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -177,20 +177,20 @@ The following examples submit a prompt and function declaration to the Gemini mo
 You can specify the schema either manually using a Python dictionary or automatically with the `from_func` helper function. The following example demonstrates how to declare a function manually:
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.generative_models import (
-        [Content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Content.html),
-        [FunctionDeclaration](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.FunctionDeclaration.html),
-        [GenerationConfig](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerationConfig.html),
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
-        [Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html),
-        [Tool](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Tool.html),
-        [ToolConfig](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.ToolConfig.html)
+        [Content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Content.html),
+        [FunctionDeclaration](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.FunctionDeclaration.html),
+        [GenerationConfig](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerationConfig.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html),
+        [Tool](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Tool.html),
+        [ToolConfig](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.ToolConfig.html)
     )
     
     # Initialize Agent Platform
     # TODO(developer): Update the project
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project="PROJECT_ID", location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project="PROJECT_ID", location="us-central1")
     
     # Initialize Gemini model
     model = GenerativeModel(model_name="gemini-2.5-flash")
@@ -214,12 +214,12 @@ You can specify the schema either manually using a Python dictionary or automati
         },
     )
     
-    response = model.[generate_content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
+    response = model.[generate_content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
         contents = [
           Content(
             role="user",
               parts=[
-                  [Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html).from_text("What is the weather like in Boston?"),
+                  [Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html).from_text("What is the weather like in Boston?"),
               ],
           )
         ],
@@ -944,6 +944,15 @@ Learn more about limitations and usage of [thought signatures](https://docs.clou
 
 For prompts such as "Get weather details in Boston and San Francisco?", the model may propose several parallel function calls. For a list of models that support parallel function calling, see Supported models.
 
+When the model returns multiple `functionCall` parts in a single response, you must return all corresponding `functionResponse` parts together in a single `Content` object in the next turn. Don't interleave `functionCall` and `functionResponse` parts across separate turns.
+
+To ensure that each `functionResponse` is matched to the correct `functionCall`, return your `functionResponse` parts in the `parts` array in the exact same order as the `functionCall` parts returned by the model, with each `functionResponse.name` set to the corresponding `functionCall.name`. This positional ordering works across all supported Gemini models and API versions.
+
+For Gemini 3 and later models, the API also supports matching parallel function responses to function calls in the following order of precedence:
+
+  1. **By`id`**: If `id` is populated in the `functionCall` (supported in the `v1beta1` API for Gemini 3 and later models) and you include the matching `id` in the `functionResponse`, the API matches the response to the call with the same `id`, regardless of the order in the `parts` array. The `functionResponse.name` must still match the corresponding `functionCall.name`, or the request fails with a `400` error.
+  2. **By`name` and sequential order**: If `id` isn't provided (such as in the `v1` API), the API matches each `functionResponse` to an unmatched `functionCall` with the same `name`. When the model makes multiple parallel calls to the same function name in a single turn, responses with that `name` are matched sequentially in the order they appear in the `parts` array.
+
 To learn about parallel function calling with an end-to-end Jupyter notebook tutorial, see [Working with Parallel Function Calls and Multiple Function Responses in Gemini](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/function-calling/parallel_function_calling.ipynb)
 
 ###  REST 
@@ -1104,20 +1113,20 @@ This example demonstrates a scenario with one `get_current_weather` function. Th
 Replace my-project with the name of your Google Cloud project.
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.generative_models import (
-        [Content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Content.html),
-        [FunctionDeclaration](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.FunctionDeclaration.html),
-        [GenerationConfig](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerationConfig.html),
-        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html),
-        [Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html),
-        [Tool](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Tool.html),
-        [ToolConfig](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.ToolConfig.html)
+        [Content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Content.html),
+        [FunctionDeclaration](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.FunctionDeclaration.html),
+        [GenerationConfig](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerationConfig.html),
+        [GenerativeModel](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html),
+        [Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html),
+        [Tool](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Tool.html),
+        [ToolConfig](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.ToolConfig.html)
     )
     
     # Initialize Agent Platform
     # TODO(developer): Update the project
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project="my-project", location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project="my-project", location="us-central1")
     
     # Initialize Gemini model
     model = GenerativeModel(model_name="gemini-2.5-flash")
@@ -1141,12 +1150,12 @@ Replace my-project with the name of your Google Cloud project.
         },
     )
     
-    response = model.[generate_content](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
+    response = model.[generate_content](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.GenerativeModel.html#vertexai_preview_generative_models_GenerativeModel_generate_content)(
         contents = [
           Content(
             role="user",
               parts=[
-                  [Part](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.generative_models.Part.html).from_text("What is the weather like in Boston and San Francisco?"),
+                  [Part](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.generative_models.Part.html).from_text("What is the weather like in Boston and San Francisco?"),
               ],
           )
         ],
@@ -2042,6 +2051,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

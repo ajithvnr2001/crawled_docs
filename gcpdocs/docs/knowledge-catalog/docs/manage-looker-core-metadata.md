@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/manage-looker-core-metadata/
 title: Manage Looker (Google Cloud core) resources with Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:49.887676+00:00
+fetched_at: 2026-10-28T02:29:29.418727+00:00
 ---
 
 # Manage Looker (Google Cloud core) resources with Knowledge Catalog  |  Google Cloud Documentation
@@ -116,8 +116,7 @@ If the integration is disabled on your instance and you would like to enable it,
 
   2. On the **Details** tab of the instance's **Instance** page, click **Edit**.
   3. Expand the **Knowledge Catalog integration** section.
-  4. Deselect the **Opt out of Knowledge Catalog integration** checkbox. 
-     * **Note:** Enabling this setting enables both metadata ingestion and [data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) (if the Data Lineage API is enabled).
+  4. Deselect the **Opt out of Knowledge Catalog integration** checkbox. Deselecting the **Opt out of Knowledge Catalog integration** checkbox enables the integration.
   5. Click **Save**.
 
 
@@ -133,6 +132,8 @@ Use the [`gcloud looker instances update`](https://docs.cloud.google.com/sdk/gcl
     
 
 Replace INSTANCE_NAME with the name of the Looker (Google Cloud core) instance.
+
+**Note:** This setting controls metadata ingestion only. [Data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) is managed independently by using the Data Lineage API and Google Cloud service-level ingestion controls.
 
 Once the integration is enabled, it will take up to a day for Looker data to be available in Knowledge Catalog.
 
@@ -193,21 +194,22 @@ To disable the integration of Knowledge Catalog and your Looker (Google Cloud co
 
   1. On the **Details** tab of the instance's **Instance** page, click **Edit**.
   2. Expand the **Knowledge Catalog integration** section.
-  3. Select the **Opt out of Knowledge Catalog integration** checkbox. 
-     * **Note:** Disabling this setting disables both metadata ingestion and [data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) (if the Data Lineage API is enabled).
+  3. Select the **Opt out of Knowledge Catalog integration** checkbox. Selecting the **Opt out of Knowledge Catalog integration** checkbox disables the integration.
   4. Click **Save**.
 
 
 
 ### gcloud
 
-Use the [`gcloud looker instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/looker/instances/update) command with the `--no-catalog-integration-enabled` flag to enable the integration:
+Use the [`gcloud looker instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/looker/instances/update) command with the `--no-catalog-integration-enabled` flag to disable the integration:
     
     
     gcloud looker instances update INSTANCE_NAME --no-catalog-integration-enabled
     
 
 Replace INSTANCE_NAME with the name of the Looker (Google Cloud core) instance.
+
+**Note:** This setting controls metadata ingestion only. [Data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) is managed independently by using the Data Lineage API and Google Cloud service-level ingestion controls.
 
 When the integration is disabled after having been enabled, the Looker metadata that is already in Knowledge Catalog will remain in Knowledge Catalog, but it won't be updated with new metadata.
 
@@ -234,6 +236,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/dataflow/docs/guides/customer-managed-encryption-keys/
 title: Use customer-managed encryption keys \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:06.166959+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:35:02.442647+00:00
 ---
 
 # Use customer-managed encryption keys  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -217,7 +231,7 @@ Dataflow does not support creating default Cloud Storage paths for temporary fil
   3. In the **Encryption** section, select **Customer-managed key**.
 
 ![The encryption options on the Create job from template page to use
-              a Google-owned and Google-managed encryption key or customer-managed keys.](https://docs.cloud.google.com/static/dataflow/images/CMEK-warning1.png)**Note:** The drop-down menu **Select a customer-managed key** only shows keys with the regional scope global or the region you selected in the **Regional endpoint** drop-down menu. In order to minimize Cloud KMS operation latency and improve system availability, we recommend choosing regional keys.
+              a Google-owned and Google-managed encryption key or customer-managed keys.](https://docs.cloud.google.com/static/dataflow/images/CMEK-warning1.png) **Note:** The drop-down menu **Select a customer-managed key** only shows keys with the regional scope global or the region you selected in the **Regional endpoint** drop-down menu. In order to minimize Cloud KMS operation latency and improve system availability, we recommend choosing regional keys.
 
 The first time you attempt to run a job with a particular Cloud KMS key, your **Compute Engine service account** or **Dataflow service account** might not have been granted the permissions to encrypt and decrypt using that key. In this case, a warning message appears to prompt you to grant the permission to your service account.
 
@@ -235,9 +249,9 @@ You can verify whether your pipeline uses a Cloud KMS key using the Google Cloud
 [Go to the Dataflow Web Interface](https://console.cloud.google.com/dataflow)
   2. To view job details, select your Dataflow job.
   3. In the **Job info** side panel, to see the key type, check the **Encryption type** field. 
-     * For Encryption type: "Google-Managed key" ![Job info side panel listing the details of a Dataflow job.
+     * For Encryption type: "Google-Managed key"  ![Job info side panel listing the details of a Dataflow job.
       The type of key your job uses is listed in the Encryption type field.](https://docs.cloud.google.com/static/dataflow/images/job-summary-cmek-details.png)
-     * For Encryption type: "Customer-Managed key" ![Job info side panel listing the details of a Dataflow job.
+     * For Encryption type: "Customer-Managed key"  ![Job info side panel listing the details of a Dataflow job.
       The type of key your job uses is listed in the Encryption type field.](https://docs.cloud.google.com/static/dataflow/images/job-summary-gmek-details.png)
 
 
@@ -377,6 +391,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

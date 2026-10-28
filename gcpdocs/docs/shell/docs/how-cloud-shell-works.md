@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/shell/docs/how-cloud-shell-works/
 title: How Cloud Shell works \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:46:42.748285+00:00
+fetched_at: 2026-10-28T02:30:02.235754+00:00
 ---
 
 # How Cloud Shell works  |  Google Cloud Documentation
@@ -20,11 +20,9 @@ Send feedback
 
 #  How Cloud Shell works Stay organized with collections  Save and categorize content based on your preferences. 
 
-Cloud Shell provisions a Compute Engine virtual machine running a Debian-based Linux operating system for your temporary use. This virtual machine is owned and managed by Google Cloud, so will not appear within any of your Google Cloud projects.
+Cloud Shell lets you manage Google Cloud resources and develop applications directly from your browser without installing local tools. When you start a session, Cloud Shell provisions an ephemeral Compute Engine virtual machine running Debian-based Linux. Because Google Cloud owns and manages this virtual machine, it does not appear within your Google Cloud projects.
 
-**Note:** Your organization controls whether you have access to Cloud Shell.
-
-Cloud Shell instances are provisioned on a per-user, per-session basis. The instance persists while your Cloud Shell session is active; after an hour of inactivity, your session terminates and its VM is discarded. For more on usage quotas, refer to the [limitations guide](https://docs.cloud.google.com/shell/docs/limitations#usage_limits).
+Google Cloud provisions Cloud Shell instances on a per-user, per-session basis. The instance persists while your Cloud Shell session is active; after an hour of inactivity, your session terminates and its VM is discarded. For more on usage quotas, refer to the [limitations guide](https://docs.cloud.google.com/shell/docs/limitations#usage_limits).
 
 With the default Cloud Shell experience, you are allocated with an ephemeral, pre-configured VM and the environment you work with is a Docker container running on that VM. You can also [customize your environment](https://docs.cloud.google.com/shell/docs/custom-environments) automatically on VM boot to ensure that your Cloud Shell instance includes your preferred tools.
 
@@ -154,6 +152,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

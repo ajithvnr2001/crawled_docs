@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/exposing-service-mesh-apps-through-gke-ingress/
 title: From edge to mesh: Expose service mesh applications through GKE Gateway \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:43.054744+00:00
+fetched_at: 2026-10-27T23:39:44.648473+00:00
 ---
 
 # From edge to mesh: Expose service mesh applications through GKE Gateway  |  Cloud Architecture Center  |  Google Cloud Documentation

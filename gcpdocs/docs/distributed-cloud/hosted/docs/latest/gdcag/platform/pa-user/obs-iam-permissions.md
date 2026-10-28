@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/obs-iam-permissions/
 title: Prepare IAM permissions \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:55:44.012034+00:00
+fetched_at: 2026-10-27T19:05:57.027480+00:00
 ---
 
 # Prepare IAM permissions  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,23 +22,9 @@ Send feedback
 
 #  Prepare IAM permissions Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google Distributed Cloud (GDC) air-gapped offers Identity and Access Management (IAM) for granular access to specific Distributed Cloud resources and prevents unwanted access to other resources. IAM operates on the security principle of least privilege and controls who can access given resources using IAM roles and permissions.
+Identity and Access Management (IAM) roles in Google Distributed Cloud (GDC) air-gapped control access to monitoring and logging services across your organization and projects. Predefined roles let you grant least-privilege access to configure observability pipelines, manage alert rules, and query metrics or logs.
 
-A role is a collection of specific permissions mapped to certain actions on resources and assigned to individual subjects, such as users, groups of users, or service accounts. Therefore, you must have the proper IAM roles and permissions to use monitoring and logging services on Distributed Cloud.
-
-IAM on Distributed Cloud offers the following access levels for permissions:
-
-  * **Organization-level roles** : Grant a subject with permissions at the _organization_ level to deploy custom resources across all project namespaces of the global API server and enable services in all projects of your entire organization.
-  * **Project-level roles** : Grant a subject with permissions at the _project_ level to deploy custom resources into the project namespace of the global API server and enable services only in your project namespace.
-
-**Important:** The project namespace for logging and monitoring resources of Platform Administrators in the global API server is the `platform-obs` namespace. When granting the roles described on this page, create the role bindings in the `platform-obs` namespace using the kubeconfig file for the `org-management` cluster.
-
-If you can't access or use a monitoring or logging service, contact your administrator to grant you the necessary roles. Request the appropriate permissions from your IAM Project Admin for a given project. If you require permissions at the organization level, ask your IAM Org Admin instead.
-
-
-
-
-This page describes all the roles and their respective permissions for using monitoring and logging services.
+Assign organization-level roles to manage observability resources across all projects on the global API server, or project-level roles to scope access to a single project. For [platform administrators (PAs)](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences), create role bindings for observability resources in the `platform-obs` namespace on the global API server.
 
 ## Predefined roles at the organization level
 
@@ -133,6 +119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

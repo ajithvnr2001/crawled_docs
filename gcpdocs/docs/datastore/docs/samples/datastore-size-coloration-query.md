@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-size-coloration-query/
 title: Example datastore size coloration query \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:11:17.201695+00:00
+fetched_at: 2026-10-27T17:01:33.712973+00:00
 ---
 
 # Example datastore size coloration query  |  Firestore in Datastore mode  |  Google Cloud Documentation

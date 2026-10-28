@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform-application/pa-ao-operations/netflow-logs/
 title: Netflow logs from network switches \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:15.063222+00:00
+fetched_at: 2026-10-27T21:45:29.300730+00:00
 ---
 
 # Netflow logs from network switches  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

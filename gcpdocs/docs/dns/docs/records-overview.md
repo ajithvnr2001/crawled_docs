@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/records-overview/
 title: DNS records overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:12:31.765752+00:00
+fetched_at: 2026-10-27T20:09:45.109864+00:00
 ---
 
 # DNS records overview  |  Google Cloud Documentation
@@ -129,7 +129,7 @@ The `qtype` field in the log entries does not have an ALIAS option. If an A or A
 
 ## Supported DNS record types
 
-**Note:** Wildcard DNS records are supported for all record types, except for NS records.
+**Note:** Wildcard DNS records are supported for all record types, except for NS records.**Important:** Starting January 5, 2027, Cloud DNS limits responses to queries for record type `ANY`. Instead of returning all resource record sets associated with the queried domain name, Cloud DNS authoritative name servers return only one existing record set, such as `A` or `AAAA`. Update monitoring scripts, health checks, and automated provisioning pipelines to query explicit record types, such as `A` or `AAAA`, rather than querying `ANY`. For more information, see the [announcement](https://docs.cloud.google.com/dns/docs/release-notes#October_27_2026).
 
 Cloud DNS supports the following types of records.
 
@@ -173,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

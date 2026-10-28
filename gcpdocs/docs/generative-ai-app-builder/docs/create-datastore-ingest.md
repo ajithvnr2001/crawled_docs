@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/create-datastore-ingest/
 title: About apps and data stores \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:24:52.868628+00:00
+fetched_at: 2026-10-27T16:59:22.046847+00:00
 ---
 
 # About apps and data stores  |  Agent Search  |  Google Cloud Documentation
@@ -73,6 +73,21 @@ Each data store has one or more data records, called _documents_. What a documen
 
   * **Healthcare FHIR data**. A document is a supported [FHIR R4](https://docs.cloud.google.com/healthcare-api/docs/concepts/fhir) resource. For a list of FHIR R4 resources that Agent Search supports, see [Healthcare FHIR R4 data schema reference](https://docs.cloud.google.com/generative-ai-app-builder/docs/fhir-schema-reference).
 
+
+
+
+## CRUD operations on data stores
+
+For structured and unstructured data stores, Agent Search supports create, read, update, and delete (CRUD) operations on document data. You don't need to delete or re-create an entire data store to update your content; you can manage individual records throughout their lifecycle.
+
+**Note:** Document-level CRUD operations aren't supported for website data stores. Instead, you manage website content by modifying included or excluded URL patterns, [maintaining sitemaps](https://docs.cloud.google.com/generative-ai-app-builder/docs/index-refresh-sitemap), or [refreshing web pages](https://docs.cloud.google.com/generative-ai-app-builder/docs/recrawl-websites).
+
+You can manage individual documents or records in a data store using the API:
+
+  * **Create** : Add individual documents to a data store branch using the [`documents.create`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.dataStores.branches.documents/create) method.
+  * **Read (Get and list)** : Retrieve a specific document by its ID using the [`documents.get`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.dataStores.branches.documents/get) method, or list documents in a branch using the [`documents.list`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.dataStores.branches.documents/list) method.
+  * **Update** : Modify existing document fields, content, or metadata using the [`documents.patch`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.dataStores.branches.documents/patch) method. You can also perform an upsert (insert if not found) by setting the `allowMissing` field to `true`.
+  * **Selective deletion** : Selectively delete individual records using the [`documents.delete`](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.dataStores.branches.documents/delete) method, rather than deleting the entire data store.
 
 
 
@@ -264,6 +279,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

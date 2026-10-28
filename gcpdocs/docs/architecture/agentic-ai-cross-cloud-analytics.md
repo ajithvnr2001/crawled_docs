@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/agentic-ai-cross-cloud-analytics/
 title: Implement agentic analytics workflows for distributed data \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:58.404404+00:00
+fetched_at: 2026-10-27T19:53:45.663754+00:00
 ---
 
 # Implement agentic analytics workflows for distributed data  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -37,8 +37,8 @@ The components in this architecture are organized into the following layers:
 
     * **Agentic development environment** : Data practitioners, like data engineers and data scientists, submit natural-language requests by using one of the following methods: 
       * An agentic development environment like [Google Antigravity IDE](https://antigravity.google/) or Microsoft Visual Studio Code.
-      * A CLI agent like Gemini CLI, Claude Code, or Codex.
-    * **[Google Cloud Data Agent Kit](https://docs.cloud.google.com/data-agent-kit)** : Data Agent Kit lets agents access trusted data in Google Cloud by loading appropriate skills and connecting to remote MCP servers for Google Cloud services.
+      * A CLI agent like [Antigravity CLI](https://antigravity.google/product/antigravity-cli), Claude Code, or Codex.
+    * **[Google Cloud Data Agent Kit](https://docs.cloud.google.com/data-agent-kit/overview)** : Data Agent Kit lets agents access trusted data in Google Cloud by loading appropriate skills and connecting to remote MCP servers for Google Cloud services.
     * **Foundation model** : To generate business insights from trusted context and data, the agentic development environment uses a foundation model, such as a [model from the Gemini family](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models#generally-available-gemini-models). The model uses appropriate skills from Data Agent Kit and it uses the required MCP server tools to implement complex analytics workflows.
   * **Analytics workflows**
 

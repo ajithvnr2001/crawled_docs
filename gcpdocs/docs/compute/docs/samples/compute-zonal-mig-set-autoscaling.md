@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-zonal-mig-set-autoscaling/
 title: Configure autoscaling in a managed instance group (MIG) \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:50:00.756607+00:00
+fetched_at: 2026-10-27T23:26:59.673974+00:00
 ---
 
 # Configure autoscaling in a managed instance group (MIG)  |  Compute Engine  |  Google Cloud Documentation

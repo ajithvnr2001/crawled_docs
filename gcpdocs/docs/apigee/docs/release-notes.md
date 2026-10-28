@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/release-notes/
 title: Apigee all release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:36.557586+00:00
+fetched_at: 2026-10-28T02:17:50.546861+00:00
 ---
 
 # Apigee all release notes  |  Google Cloud Documentation
@@ -61,6 +61,32 @@ rss_feed Subscribe:
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/apigee-release-notes.xml) directly. 
+
+## October 26, 2026
+
+**Apigee X**
+
+Feature
+
+**Model Context Protocol (MCP) tool arguments are sent to the location their OpenAPI parameter declares**
+
+This change applies to Apigee X in all supported regions.
+
+An MCP tool argument whose OpenAPI parameter declares `in: header` is now sent to your backend as a request header, and one that declares `in: cookie` is sent in the `Cookie` header. Previously both were appended to the query string. `in: query` and `in: path` parameters are unchanged, and every parameter still appears in the tool's `inputSchema`, so MCP clients supply arguments exactly as before. If a backend reads one of these values from the query string, declare the parameter `in: query` or read it from its declared location.
+
+On a tool call that supplies at least one cookie argument, the `Cookie` header is replaced with only the declared cookie parameters, omitting any others. Any cookie your backend relies on must be declared as an `in: cookie` parameter.
+
+An MCP proxy that was already deployed continues to use the previous query-string behavior until its configuration is next regenerated. To adopt the new routing on an existing MCP proxy, deploy a new revision of it.
+
+For the full mapping, see [Tool argument placement on the backend request](https://docs.cloud.google.com/apigee/docs/api-platform/apigee-mcp/apigee-mcp-overview#tool-argument-placement).
+
+Security
+
+**On October 24, 2026, we published a security bulletin for Apigee.**
+
+Two vulnerabilities in PHP core ([CVE-2026-109618](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-109618) and [CVE-2026-109619](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-109619), "PHP2Shell") allow an unauthenticated attacker to execute code remotely on a server running a vulnerable PHP version. The impact is limited to Drupal-based Apigee developer portals, which customers deploy and operate. Apigee, Apigee Hybrid, and the Apigee integrated portal don't use PHP and aren't affected.
+
+**Security bulletin published:[GCP-2026-072](https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins#gcp-2026-072)**
 
 ## October 22, 2026
 
@@ -21595,6 +21621,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

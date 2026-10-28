@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/compute-k-map/
 title: Computing k-map for a dataset \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:52:16.998204+00:00
+fetched_at: 2026-10-28T02:30:55.104624+00:00
 ---
 
 # Computing k-map for a dataset  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -82,7 +82,6 @@ The request contains a [`RiskAnalysisJobConfig`](https://docs.cloud.google.com/s
     * [`PublishToPubSub`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/Action#PublishToPubSub) object: Publishes a notification to a [Pub/Sub topic](https://docs.cloud.google.com/pubsub/docs/publisher).
 **Note:** If there are configuration or permission issues with the Pub/Sub topic, Sensitive Data Protection retries sending the Pub/Sub notification for up to two weeks. After two weeks, the notification is discarded. 
     * [`PublishSummaryToCscc`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectJobConfig#PublishSummaryToCscc) object: Saves a results summary to Security Command Center.
-    * [`PublishFindingsToCloudDataCatalog`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectJobConfig#PublishFindingsToCloudDataCatalog) object: Saves results to [Data Catalog](https://docs.cloud.google.com/sensitive-data-protection/docs/sending-results-to-dc).
     * [`JobNotificationEmails`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectJobConfig#JobNotificationEmails) object: Sends you an email with results.
     * [`PublishToStackdriver`](https://docs.cloud.google.com/sensitive-data-protection/docs/reference/rest/v2/InspectJobConfig#PublishToStackdriver) object: Saves results to Google Cloud Observability.
 
@@ -1098,6 +1097,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

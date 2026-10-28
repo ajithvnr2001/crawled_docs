@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/
 title: External Application Load Balancer overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:10.932312+00:00
+fetched_at: 2026-10-27T22:33:58.502698+00:00
 ---
 
 # External Application Load Balancer overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 This document introduces the concepts that you need to understand how to configure an external Application Load Balancer.
 
-An external Application Load Balancer is a proxy-based Layer 7 load balancer that enables you to run and scale your services behind a single external IP address. The external Application Load Balancer distributes HTTP and HTTPS traffic to backends hosted on a variety of Google Cloud platforms (such as Compute Engine, Google Kubernetes Engine (GKE), and Cloud Storage), as well as external backends connected over the internet or through hybrid connectivity. For details, see [Application Load Balancer overview: Use cases](https://docs.cloud.google.com/load-balancing/docs/application-load-balancer#use-cases).
+An external Application Load Balancer is a proxy-based Layer 7 load balancer that enables you to run and scale your services behind a single external IP address. The external Application Load Balancer distributes HTTP and HTTPS traffic to backends hosted on a variety of Google Cloud platforms (such as Compute Engine, Google Kubernetes Engine (GKE), and Cloud Storage), as well as external backends connected over the internet or through hybrid connectivity. For more information, see [Application Load Balancer overview: Use cases](https://docs.cloud.google.com/load-balancing/docs/application-load-balancer#use-cases).
 
 ## Modes of operation
 
@@ -48,7 +48,7 @@ Global external Application Load Balancer  | Use this load balancer for external
   * Supports [Cloud Armor](https://docs.cloud.google.com/armor)
 
   
-Classic Application Load Balancer | This load balancer is global in Premium Tier. In the [Premium Network Service Tier](https://docs.cloud.google.com/network-tiers/docs/overview), this load balancer offers multi-region load balancing, attempts to direct traffic to the closest healthy backend that has capacity, and terminates HTTP(S) traffic as close as possible to your users. For details about the request distribution process, see [Traffic distribution](https://docs.cloud.google.com/load-balancing/docs/https#load_distribution_algorithm). In the [Standard Network Service Tier](https://docs.cloud.google.com/network-tiers/docs/overview), this load balancer can distribute traffic to backends in a single region only. | 
+Classic Application Load Balancer | This load balancer is global in Premium Tier. In the [Premium Network Service Tier](https://docs.cloud.google.com/network-tiers/docs/overview), this load balancer offers multi-region load balancing, attempts to direct traffic to the closest healthy backend that has capacity, and terminates HTTP(S) traffic as close as possible to your users. For more information about the request distribution process, see [Traffic distribution](https://docs.cloud.google.com/load-balancing/docs/https#load_distribution_algorithm). In the [Standard Network Service Tier](https://docs.cloud.google.com/network-tiers/docs/overview), this load balancer can distribute traffic to backends in a single region only. | 
 
   * Compatible with GKE using [Gateway](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/gateway-api#gatewayclass) (fully orchestrated), [Ingress](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/ingress-xlb) (fully orchestrated), or [Standalone NEGs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/standalone-neg) (manual orchestration)
   * Supports Google Cloud Armor
@@ -241,7 +241,7 @@ In addition to headers added by the target proxy, the load balancer adjusts othe
 
   * **For the global external Application Load Balancer** , both request and response headers might be converted to lowercase.
 
-The only exception to this is when you use global internet NEG backends with HTTP/1.1. For details about how HTTP/1.1 headers are processed with global internet NEGs, see the [Internet NEGs overview](https://docs.cloud.google.com/load-balancing/docs/negs/internet-neg-concepts#header-processing).
+The only exception to this is when you use global internet NEG backends with HTTP/1.1. For more information about how HTTP/1.1 headers are processed with global internet NEGs, see the [Internet NEGs overview](https://docs.cloud.google.com/load-balancing/docs/negs/internet-neg-concepts#header-processing).
 
   * **For the classic Application Load Balancer** , request and response headers are converted to lowercase except when you use HTTP/1.1. With HTTP/1.1, headers are proper-cased instead. The first letter of the header's key and every letter following a hyphen (`-`) is capitalized to preserve compatibility with HTTP/1.1 clients. For example, `user-agent` is changed to `User-Agent`, and `content-encoding` is changed to `Content-Encoding`.
 
@@ -492,7 +492,7 @@ Each backend service specifies a health check that periodically monitors the bac
 
 For the health check probes, you must create an ingress allow firewall rule that allows health check probes to reach your backend instances. Typically, health check probes originate from Google's centralized health checking mechanism.
 
-Regional external Application Load Balancers that use hybrid NEG backends are an exception to this rule because their health checks originate from the proxy-only subnet instead. For details, see the [Hybrid NEGs overview](https://docs.cloud.google.com/load-balancing/docs/negs/hybrid-neg-concepts#envoy-health-checks).
+Regional external Application Load Balancers that use hybrid NEG backends are an exception to this rule because their health checks originate from the proxy-only subnet instead. For more information, see the [Hybrid NEGs overview](https://docs.cloud.google.com/load-balancing/docs/negs/hybrid-neg-concepts#envoy-health-checks).
 
 #### Health check protocol
 
@@ -716,21 +716,26 @@ To learn more about this setup, see [Set up cross-project service referencing wi
 
 ## High availability and failover
 
-High availability and failover in external Application Load Balancers can be configured at the load balancer level. This is handled by creating backup regional external Application Load Balancers in any region where you require backup.
+High availability and failover in external Application Load Balancers can be configured at the load balancer level. This is handled by deploying regional external Application Load Balancers in the regions where you require backup.
 
-The following table describes the failover behavior.
+The following table describes the high availability and failover methods:
 
 Load balancer mode | Failover methods  
 ---|---  
 Global external Application Load Balancer  
   
-Classic Application Load Balancer | You can configure an [active-passive](https://en.wikipedia.org/wiki/High-availability_cluster) failover configuration in which traffic fails over to a backup regional external Application Load Balancer. You use health checks to detect outages and Cloud DNS routing policies to route traffic when failover is triggered.  
+Classic Application Load Balancer | Use one of the following methods to protect against outages:
+
+  * You can configure an [active-passive](https://docs.cloud.google.com/load-balancing/docs/https/global-applb-failover-overview#active-passive) global-to-regional failover configuration in which traffic fails over from a primary global external Application Load Balancer or classic Application Load Balancer to backup regional external Application Load Balancers. You use health checks to detect outages and a Cloud DNS [failover routing policy](https://docs.cloud.google.com/dns/docs/routing-policies-overview#failover-policy) to route traffic when failover is triggered.
+  * For global external Application Load Balancers, you can configure an [active-active](https://docs.cloud.google.com/load-balancing/docs/https/global-applb-failover-overview#active-active) global-to-regional bypass configuration where the global external Application Load Balancer acts as an edge frontend that forwards requests to regional external Application Load Balancers using internet NEGs with FQDNs. If the global load balancer experiences an outage, a Cloud DNS [geolocation routing policy](https://docs.cloud.google.com/dns/docs/routing-policies-overview#geolocation-policy) bypasses the global layer and routes client traffic directly to the regional load balancers.
+
+For more information, see [Failover for global external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/global-applb-failover-overview).  
 Regional external Application Load Balancer  | Use one of the following methods to ensure a highly available deployment:
 
-  * You can configure an [active-passive](https://en.wikipedia.org/wiki/High-availability_cluster) failover configuration in which traffic fails over to a backup regional external Application Load Balancer. You use health checks to detect outages and a Cloud DNS [failover routing policy](https://docs.cloud.google.com/dns/docs/routing-policies-overview#failover-policy) to route traffic when failover is triggered by failing health checks. For details, see [Failover for external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/applb-failover-overview).
-  * You can configure an [active-active](https://en.wikipedia.org/wiki/High-availability_cluster) failover configuration where you deploy multiple individual regional external Application Load Balancers in regions that you determine best support traffic for your application. You use a Cloud DNS [geolocation routing policy](https://docs.cloud.google.com/dns/docs/routing-policies-overview#geolocation-policy) to route traffic to the appropriate region based on the origin of the client request. You can also use health checks to detect outages and route traffic only to the healthy load balancers. For details, see [High availability for regional external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/reg-applb-ha-overview).
+  * You can configure an [active-passive](https://docs.cloud.google.com/load-balancing/docs/https/reg-applb-ha-overview#strategies) failover configuration in which traffic fails over to a backup regional external Application Load Balancer. You use health checks to detect outages and a Cloud DNS [failover routing policy](https://docs.cloud.google.com/dns/docs/routing-policies-overview#failover-policy) to route traffic when failover is triggered by failing health checks.
+  * You can configure an [active-active](https://docs.cloud.google.com/load-balancing/docs/https/reg-applb-ha-overview#strategies) high availability configuration where you deploy multiple individual regional external Application Load Balancers in regions that you determine best support traffic for your application. You use a Cloud DNS [geolocation routing policy](https://docs.cloud.google.com/dns/docs/routing-policies-overview#geolocation-policy) to route traffic to the appropriate region based on the origin of the client request. You can also use health checks to detect outages and route traffic only to the healthy load balancers.
 
-  
+For more information, see [High availability for regional external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/reg-applb-ha-overview).  
   
 ## HTTP/2 support
 
@@ -1203,10 +1208,17 @@ Your backend must respond with `100 Continue` responses after the request header
 
   * To learn how to configure advanced traffic management capabilities available with the global external Application Load Balancer, see [Traffic management overview for global external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/traffic-management-global).
 
+  * To learn how to configure failover for global external Application Load Balancers, see [Failover for global external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/global-applb-failover-overview).
+
 
 
   * To learn how to configure advanced traffic management capabilities available with the regional external Application Load Balancer, see [Traffic management overview for regional external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/traffic-management-regional).
 
+  * To learn how to configure high availability for regional external Application Load Balancers, see [High availability for regional external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/reg-applb-ha-overview).
+
+
+
+  * To review best practices for performance, high availability, and failover, see [External Application Load Balancer best practices](https://docs.cloud.google.com/load-balancing/docs/https/http-load-balancing-best-practices).
 
   * To learn about serving websites, see [Serving websites](https://docs.cloud.google.com/solutions/web-serving-overview).
 
@@ -1227,6 +1239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

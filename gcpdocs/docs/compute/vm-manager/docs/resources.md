@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/resources/
 title: Resources \u00a0|\u00a0 VM Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:23.512931+00:00
+fetched_at: 2026-10-27T23:04:57.168628+00:00
 ---
 
 # Resources  |  VM Manager  |  Google Cloud Documentation

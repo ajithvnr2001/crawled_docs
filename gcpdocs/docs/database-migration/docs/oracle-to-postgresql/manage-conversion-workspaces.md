@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/manage-conversion-workspaces/
 title: Manage conversion workspaces \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:59:44.118350+00:00
+fetched_at: 2026-10-27T18:09:37.786951+00:00
 ---
 
 # Manage conversion workspaces  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -97,31 +97,46 @@ Example:
 
 ## Modify conversion workspace settings
 
-Information that you can modify for a conversion workspace includes the display name, source connection profile, add or remove custom conversion configuration files.
+Information that you can modify for a conversion workspace includes the display name, the source configuration (the source connection profile or Cloud Storage folder), and custom conversion mapping files.
 
-  1. Go to the **Conversion workspaces** page in the Google Cloud console:
+  1. Go to the **Conversion workspaces** page in the Google Cloud console: 
 
 [ Go to Conversion workspaces](https://console.cloud.google.com/dbmigration/conversion-workspaces)
 
-  2. Click the display name of the conversion workspace that you want to modify.
+  2. Click the display name of the conversion workspace that you want to modify. 
 
 The conversion workspace editor opens.
 
-  3. Select **Edit configuration** > **View details**.
+  3. To modify the workspace display name: 
+     1. Select **Edit configuration** > **View details**. The **Conversion workspace details** panel opens. 
+     2. In the **Conversion workspace name** row, click the edit**edit** icon. 
+     3. In the **Conversion workspace name** field, enter the new display name for the conversion workspace. 
+     4. Click **Save**.
+  4. To modify the source configuration for your workspace: 
 
-The **Conversion workspace details** panel opens.
+### Edit connection profile
 
-  4. To modify the workspace display name:
+If your workspace connects directly to the source database using a connection profile, you can either adjust the settings of the existing connection profile, or change the workspace source configuration to use a different connection profile or switch in-flight to provide schema files stored in a Cloud Storage bucket: 
 
-     1. In the **Conversion workspace name** row, click the edit**edit** icon.
-     2. In the **Conversion workspace name** field, enter the new display name for the conversion workspace.
-     3. Click **Save**.
-  5. To modify the source connection profile:
+     * To adjust the connection settings of your existing source connection profile: 
+       1. Select **Edit configuration** > **View details**.
+       2. In the **Source connection profile** row, click the link to the connection profile associated with the workspace. 
+       3. On the connection profile page, adjust any details as required. For more information, see [ Manage connection profiles](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/manage_connection-profiles). 
+     * To select a different connection profile or switch in-flight to use schema files stored in a Cloud Storage bucket: **Caution:** Editing the source configuration removes all selected objects, clears the draft schema, and resets any existing custom mappings and DDL modifications in the workspace. 
+       1. Select **Edit configuration** > **Edit source configuration**.
+       2. In the confirmation dialog, click **Edit profile**.
+       3. On the **Define source and pull schema snapshot** page, select a different source connection profile or select **Cloud Storage** and specify a folder path, click **Pull schema snapshot and continue** , and select the objects to convert. 
 
-     1. In the **Source connection profile** row, click the link to the connection profile associated with the workspace.
-     2. On the connection profile page, adjust any details as required. For more information, see [ Manage connection profiles](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/manage_connection-profiles). A new version of the conversion workspace is created and the updated version ID also appears on the overview page. This version can be used with a migration job.
-  6. You can also modify what custom conversion mapping files are used in your workspace. For more information, see [ Use custom conversion mappings](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/work-with-conversion-workspaces#use-custom-mappings).
+### Edit Cloud Storage
 
+If your workspace uses schema files stored in Cloud Storage, you can change the source configuration to point to a different Cloud Storage folder, or switch in-flight to provide schema files through a direct connection using a connection profile: 
+
+**Caution:** Editing the source configuration removes all selected objects, clears the draft schema, and resets any existing custom mappings and DDL modifications in the workspace. If you only want to refresh the schema from the same Cloud Storage folder while preserving your customizations, upload the updated files to the same folder and use **Pull source schema snapshot again** instead. For more information, see [ Pull source schema and code snapshot](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/work-with-conversion-workspaces#pull-snapshot). 
+     1. Select **Edit configuration** > **Edit source configuration**.
+     2. In the confirmation dialog, click **Edit profile**.
+     3. On the **Define source and pull schema snapshot** page, select a different **Cloud Storage** folder path or select **Connection profile** to connect directly to your source database, click **Pull schema snapshot and continue** , and select the objects to convert. 
+
+  5. You can also modify what custom conversion mapping files are used in your workspace. For more information, see [ Use custom conversion mappings](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/work-with-conversion-workspaces#use-custom-mappings). 
 
 
 
@@ -159,6 +174,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

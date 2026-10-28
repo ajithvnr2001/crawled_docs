@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/regional-mig-distribution-shape/
 title: Regional MIG target distribution shape \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:35:19.388825+00:00
+fetched_at: 2026-10-27T19:53:45.549005+00:00
 ---
 
 # Regional MIG target distribution shape  |  Compute Engine  |  Google Cloud Documentation
@@ -202,7 +202,7 @@ This section describes how each target distribution shape works in the following
 
 ### The `EVEN` distribution shape
 
-With a target distribution shape set to `EVEN` and proactive redistribution enabled, the number of managed instances in a regional MIG does not differ by more than 1 between any two zones, regardless of resource availability. But a managed instance might not be up and [running](https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs#verify_instances) if its zone lacks the resources to provision an actual VM. If the initial creation of an instance fails, then the MIG continuously retries to create the instance in the same zone.
+With a target distribution shape set to `EVEN` and proactive redistribution enabled, the number of managed instances in a regional MIG does not differ by more than 1 between any two zones, regardless of resource availability. But a managed instance might not be up and [running](https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs#verify_instances) if its zone lacks the resources to provision an actual VM.
 
 #### Resizing a MIG that has an `EVEN` distribution shape
 
@@ -242,7 +242,7 @@ For more information about how a regional MIG works with an autoscaler, see [Aut
 
 A regional MIG with a `BALANCED` target shape might not achieve an even distribution across zones, specifically when the requested resources are not available in a zone.
 
-The MIG prioritizes provisioning the requested number of VMs by creating VMs in zones where resources are available. If the initial creation of a VM fails, then the MIG automatically attempts to create the VM in the other selected zones where capacity is available. When resources are available, the distribution is similar to `EVEN`. In the worst case of resource constraints, the distribution can take any shape.
+The MIG prioritizes provisioning the requested number of VMs by creating VMs in zones where resources are available. When resources are available, the distribution is similar to `EVEN`. In the worst case of resource constraints, the distribution can take any shape.
 
 #### Resizing a MIG that has a `BALANCED` distribution shape
 
@@ -293,7 +293,7 @@ In case of a zonal failure, the `BALANCED` target distribution shape works well 
 
 ### The `ANY` distribution shape
 
-With a target distribution shape set to `ANY`, a regional MIG prioritizes resource acquisition by creating managed instances in zones where resources are available. This means that all of the instances might be created in one zone, or evenly distributed across all zones, or anything between those two scenarios. If the initial creation of an instance fails, then the MIG automatically attempts to create the instance in the other selected zones where capacity is available.
+With a target distribution shape set to `ANY`, a regional MIG prioritizes resource acquisition by creating managed instances in zones where resources are available. This means that all of the instances might be created in one zone, or evenly distributed across all zones, or anything between those two scenarios.
 
 #### Resizing a MIG that has an `ANY` distribution shape
 
@@ -337,7 +337,7 @@ In case of a zone-level failure or resources becoming temporarily unavailable, o
 
 ### The `ANY_SINGLE_ZONE` distribution shape
 
-A regional MIG with the `ANY_SINGLE_ZONE` target distribution shape automatically selects the optimal zone when the first VM in the group is created. After the first VM is created, all other VMs are created in the same zone. If the initial creation of a VM fails, then the MIG continuously retries to create the VM in the same zone.
+A regional MIG with the `ANY_SINGLE_ZONE` target distribution shape automatically selects the optimal zone when the first VM in the group is created. After the first VM is created, all other VMs are created in the same zone.
 
 The MIG can select a different zone only when it is scaled back to zero VMs and it starts creating its first VM again.
 
@@ -398,6 +398,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

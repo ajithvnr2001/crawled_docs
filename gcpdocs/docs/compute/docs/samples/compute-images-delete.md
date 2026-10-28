@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-images-delete/
 title: Delete a disk image \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:46:58.157694+00:00
+fetched_at: 2026-10-27T23:23:10.631887+00:00
 ---
 
 # Delete a disk image  |  Compute Engine  |  Google Cloud Documentation

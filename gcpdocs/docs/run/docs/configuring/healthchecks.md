@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/healthchecks/
 title: Configure container health checks for services \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:58:32.078373+00:00
+fetched_at: 2026-10-28T02:30:53.060426+00:00
 ---
 
 # Configure container health checks for services  |  Cloud Run  |  Google Cloud Documentation
@@ -59,17 +59,17 @@ You can configure HTTP, TCP, and gRPC probes using Google Cloud console, YAML, o
 
 [Go to Cloud Run](https://console.cloud.google.com/run)
 
-  2. Select **Services** from the Cloud Run navigation menu.
+  2. Select **Services** from the Cloud Run navigation menu:
 
-  3. If you are configuring a new service, click **Deploy container** , fill out the initial service settings page, then click **Containers, Networking, Security** to expand the service configuration page.
+     1. If you are configuring a new service, click **Deploy container** and fill out the initial service settings page. Then click **Containers, Networking, Security** to expand the service configuration page.
 
-  4. If you are configuring an existing service, click the service, then click the **Containers** tab.
+     2. If you are configuring an existing service, click the service, then click the **Containers** tab.
 
-  5. In the **Health checks** section, click **Add health check** to open the **Add health check** configuration panel.
+  3. In the **Health checks** section, click **Add health check** to open the **Add health check** configuration panel.
 
-  6. From the **Select health check type** menu, select **Startup check**.
+  4. From the **Select health check type** menu, select **Startup check**.
 
-  7. From the **Select probe type** menu, select the type of the probe you want to use, for example, HTTP or gRPC. This displays the probe configuration form. Probe configuration varies by probe type. Configure the probe settings:
+  5. From the **Select probe type** menu, select the type of the probe you want to use, for example, HTTP or gRPC. This displays the probe configuration form. Probe configuration varies by probe type. Configure the probe settings:
 
      * If you are using HTTP probes:
 
@@ -89,9 +89,9 @@ You can configure HTTP, TCP, and gRPC probes using Google Cloud console, YAML, o
 
      * For **Timeout** , specify the number of seconds to wait until the probe times out. This value cannot exceed the value specified for `periodSeconds`. Specify a value from 1 to 600 (1800 for GPU). The default is 1.
 
-  8. Click **Add** to add the new threshold.
+  6. Click **Add** to add the new threshold.
 
-  9. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
+  7. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
 
 
 
@@ -431,19 +431,19 @@ You can configure HTTP and gRPC probes using Google Cloud console, YAML, or Terr
 
 [Go to Cloud Run](https://console.cloud.google.com/run)
 
-  2. Select **Services** from the Cloud Run navigation menu.
+  2. Select **Services** from the Cloud Run navigation menu:
 
-  3. If you are configuring a new service, click **Deploy container** , fill out the initial service settings page, then click **Containers, Networking, Security** to expand the service configuration page.
+     1. If you are configuring a new service, click **Deploy container** and fill out the initial service settings page. Then click **Containers, Networking, Security** to expand the service configuration page.
 
-  4. If you are configuring an existing service, click the service, then click the **Containers** tab.
+     2. If you are configuring an existing service, click the service, then click the **Containers** tab.
 
-  5. In the **Health checks** section, click **Add health check** to open the **Add health check** configuration panel.
+  3. In the **Health checks** section, click **Add health check** to open the **Add health check** configuration panel.
 
-  6. From the **Select health check type** menu, select **Liveness check**.
+  4. From the **Select health check type** menu, select **Liveness check**.
 
-  7. From the **Select probe type** menu, select the type of the probe you want to use, for example, HTTP or gRPC. This displays the probe configuration form.
+  5. From the **Select probe type** menu, select the type of the probe you want to use, for example, HTTP or gRPC. This displays the probe configuration form.
 
-  8. Probe configuration varies by probe type. Configure the probe settings:
+  6. Probe configuration varies by probe type. Configure the probe settings:
 
      * If you are using HTTP probes:
 
@@ -463,9 +463,9 @@ You can configure HTTP and gRPC probes using Google Cloud console, YAML, or Terr
 
      * For **Timeout** , specify the number of seconds to wait until the probe times out. This value cannot exceed the value specified for `periodSeconds`. Specify a value from 1 to 3600\. The default is 1.
 
-  9. Click **Add** to add the new threshold.
+  7. Click **Add** to add the new threshold.
 
-  10. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
+  8. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
 
 
 
@@ -721,19 +721,19 @@ You can configure a readiness probe using the Google Cloud console, the Google C
 
 [Go to Cloud Run](https://console.cloud.google.com/run)
 
-  2. Select **Services** from the Cloud Run navigation menu.
+  2. Select **Services** from the Cloud Run navigation menu:
 
-  3. If you are configuring a new service, click **Deploy container** , fill out the initial service settings page, then click **Containers, Networking, Security** to expand the service configuration page.
+     1. If you are configuring a new service, click **Deploy container** and fill out the initial service settings page. Then click **Containers, Networking, Security** to expand the service configuration page.
 
-  4. If you are configuring an existing service, click the service, then click the **Containers** tab.
+     2. If you are configuring an existing service, click the service, then click the **Containers** tab.
 
-  5. In the **Health checks** section, click **Add health check** to open the **Add health check** configuration panel.
+  3. In the **Health checks** section, click **Add health check** to open the **Add health check** configuration panel.
 
-  6. From the **Select health check type** menu, select **Readiness check**.
+  4. From the **Select health check type** menu, select **Readiness check**.
 
-  7. From the **Select probe type** menu, select the type of the probe you want to use, for example, HTTP or gRPC. This displays the probe configuration form.
+  5. From the **Select probe type** menu, select the type of the probe you want to use, for example, HTTP or gRPC. This displays the probe configuration form.
 
-  8. Probe configuration varies by probe type. Configure the probe settings:
+  6. Probe configuration varies by probe type. Configure the probe settings:
 
      * If you are using HTTP probes:
 
@@ -754,9 +754,9 @@ You can configure a readiness probe using the Google Cloud console, the Google C
 
      * For **Timeout** , specify the number of seconds to wait until the probe times out. This value cannot exceed the value specified for `periodSeconds`. Specify a value from 1 to 300. The default is 1.
 
-  9. Click **Add** to add the new threshold.
+  7. Click **Add** to add the new threshold.
 
-  10. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
+  8. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
 
 
 
@@ -1019,6 +1019,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/supported-capabilities/
 title: Supported capabilities \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:53.726340+00:00
+fetched_at: 2026-10-28T02:27:34.921730+00:00
 ---
 
 # Supported capabilities  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -84,7 +84,7 @@ Capabilities, tools, and features
 [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search) |  |  |   
 [Long context](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/long-context) |  |  |   
 [Model tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning) |  |  |   
-[RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) |  |  |   
+[RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview) |  |  |   
 [Structured output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output) |  |  |   
 [System instructions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/system-instructions) |  |  |   
 [Thinking budget](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) |  |  |   
@@ -118,7 +118,7 @@ The following features are either out of scope or involve global infrastructure 
   * To improve model performance by customizing models, see [Tune models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tune-models).
   * To learn about regional data handling, see [Data residency](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency).
   * To understand how to secure your generative AI applications, see [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls).
-  * To discover and explore various models, see [Explore models in Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models). 
+  * To discover and explore various models, see [Explore models in Gemini Enterprise Agent Platform Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models). 
 
 
 
@@ -126,6 +126,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

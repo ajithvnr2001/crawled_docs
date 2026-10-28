@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/salesforce-quickstart/
 title: Work with Salesforce Data 360 data in BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:42:32.006721+00:00
+fetched_at: 2026-10-27T19:38:46.590289+00:00
 ---
 
 # Work with Salesforce Data 360 data in BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Work with Salesforce Data 360 data in BigQuery
 
-This document describes how to access and analyze Salesforce Data 360 data in BigQuery using BigQuery Omni. The document shows how to link your Data 360 datasets in BigQuery to run queries, join data with tables in Google Cloud, and replicate data using BigQuery Omni materialized views.
-
-This document is intended for Data 360 users who want to use BigQuery for deep analytics on their Data 360 data, or combine it with data in Google Cloud for cross-cloud analytics—all without building and maintaining extract, transform, and load (ETL) pipelines.
+BigQuery Omni lets you access and analyze Salesforce Data 360 data in BigQuery without building and maintaining extract, transform, and load (ETL) pipelines. You can link your Data 360 datasets in BigQuery to run queries, join Data 360 data with tables in Google Cloud, and replicate data by using BigQuery Omni materialized views.
 
 ## Before you begin
 
@@ -224,6 +222,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

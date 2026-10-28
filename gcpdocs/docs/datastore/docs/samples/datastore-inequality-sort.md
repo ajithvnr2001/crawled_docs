@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-inequality-sort/
 title: Inequality sort \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:00.052711+00:00
+fetched_at: 2026-10-27T22:58:42.060220+00:00
 ---
 
 # Inequality sort  |  Firestore in Datastore mode  |  Google Cloud Documentation

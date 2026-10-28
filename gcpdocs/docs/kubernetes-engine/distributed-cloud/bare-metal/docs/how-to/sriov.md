@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/sriov/
 title: Set up SR-IOV networking \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:35.305018+00:00
+fetched_at: 2026-10-27T23:54:33.250536+00:00
 ---
 
 # Set up SR-IOV networking  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,17 @@ Send feedback
 
 #  Set up SR-IOV networking Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to set up single-root input/output virtualization (SR-IOV) networking for Google Distributed Cloud. SR-IOV provides I/O virtualization to make a network interface card (NIC), available as network devices in the Linux kernel. This lets you manage and assign network connections to your pods. Performance is improved as packets move directly between the NIC and the pod.
+Single-root I/O virtualization (SR-IOV) lets you manage and assign high-performance network connections to pod workloads in Google Distributed Cloud. SR-IOV makes a network interface card (NIC) available as network devices in the Linux kernel, so packets move directly between the NIC and the pod for improved networking performance. Use SR-IOV if your pod workloads require fast networking.
 
-Use this feature if you require fast networking to your pod workloads. SR-IOV for Google Distributed Cloud lets you configure the virtual functions (VFs) on the supported devices of your cluster nodes. You can also specify the particular kernel module to bind to the VFs.
+With SR-IOV, you can configure virtual functions (VFs) on supported cluster node devices and specify the kernel module to bind to those VFs. This feature is available for clusters that run workloads, including [hybrid](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/hybrid-cluster-creation), [standalone](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/standalone-cluster-creation), and [user](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/user-cluster-creation) clusters.
 
-This feature is available for clusters that run workloads, such as [hybrid](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/hybrid-cluster-creation), [standalone](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/standalone-cluster-creation), and [user](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/user-cluster-creation) clusters. The SR-IOV networking feature requires the cluster to have at least two nodes.
+## Requirements
+
+The SR-IOV networking feature requires the cluster to have at least two nodes.
+
+The SR-IOV networking feature requires the official drivers for the network adapters to be present on the cluster nodes. Install the drivers before using the SR-IOV operator. Also, to use the `vfio-pci` module for your VFs, ensure that the module is available on the nodes where it's to be used.
+
+## Overview of setting up SR-IOV networking
 
 The setup process consists of the following high-level steps:
 
@@ -36,10 +42,6 @@ The setup process consists of the following high-level steps:
   4. Create a `NetworkAttachmentDefinition` custom resource that references your VFs.
 
 
-
-## Requirements
-
-The SR-IOV networking feature requires the official drivers for the network adapters to be present on the cluster nodes. Install the drivers before using the SR-IOV operator. Also, to use the `vfio-pci` module for your VFs, ensure that the module is available on the nodes where it's to be used.
 
 ## Enable SR-IOV networking for a cluster
 
@@ -533,6 +535,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

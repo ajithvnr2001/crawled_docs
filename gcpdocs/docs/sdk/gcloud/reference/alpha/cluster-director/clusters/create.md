@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/cluster-director/clusters/create/
 title: gcloud alpha cluster-director clusters create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:14:26.607436+00:00
+fetched_at: 2026-10-27T21:40:42.449694+00:00
 ---
 
 # gcloud alpha cluster-director clusters create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,21 +28,20 @@ gcloud alpha cluster-director clusters create - creates a Cluster Director resou
 SYNOPSIS
     
 
-`gcloud alpha cluster-director clusters create` (`CLUSTER` : `--location`=`LOCATION`) (`--config`=[`computeResources`=`COMPUTERESOURCES`],[`description`=`DESCRIPTION`],[`labels`=`LABELS`],[`name`=`NAME`],[`networkResources`=`NETWORKRESOURCES`],[`orchestrator`=`ORCHESTRATOR`],[`storageResources`=`STORAGERESOURCES`] | `--buckets`=[`id`=`ID`],[`name`=`NAME`] `--create-buckets`=[`enableAutoclass`=`ENABLEAUTOCLASS`],[`enableHNS`=`ENABLEHNS`],[`id`=`ID`],[`name`=`NAME`],[`storageClass`=`STORAGECLASS`],[`terminalStorageClass`=`TERMINALSTORAGECLASS`] `--create-filestores`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`fileshare`=`FILESHARE`],[`id`=`ID`],[`name`=`NAME`],[`protocol`=`PROTOCOL`],[`tier`=`TIER`] `--create-lustres`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`dynamicTierOptionsMode`=`DYNAMICTIEROPTIONSMODE`],[`filesystem`=`FILESYSTEM`],[`id`=`ID`],[`name`=`NAME`],[`perUnitStorageThroughput`=`PERUNITSTORAGETHROUGHPUT`] `--description`=`DESCRIPTION` `--filestores`=[`id`=`ID`],[`name`=`NAME`] `--flex-start-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`maxDuration`=`MAXDURATION`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--labels`=[`LABELS`,…] `--lustres`=[`id`=`ID`],[`name`=`NAME`] `--nfs`=[`id`=`ID`],[`mountOptions`=`MOUNTOPTIONS`],[`remoteMount`=`REMOTEMOUNT`],[`serverIpAddress`=`SERVERIPADDRESS`] `--on-demand-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--reserved-instances`=[`id`=`ID`],[`networkTags`=`NETWORKTAGS`],[`reservation`=`RESERVATION`],[`reservationBlock`=`RESERVATIONBLOCK`],[`reservationSubBlock`=`RESERVATIONSUBBLOCK`] `--spot-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`terminationAction`=`TERMINATIONACTION`],[`zone`=`ZONE`] `--create-network`=[`description`=`DESCRIPTION`],[`name`=`NAME`] | [`--network`=`NETWORK` `--subnet`=`SUBNET` : `--network-project`=`NETWORK_PROJECT`] `--managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`startupScript`=`STARTUPSCRIPT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`] | `--controller-version`=`CONTROLLER_VERSION` `--no-enable-slurm-health-check` `--slurm-default-partition`=`SLURM_DEFAULT_PARTITION` `--slurm-epilog-scripts`=[`SLURM_EPILOG_SCRIPTS`,…] `--slurm-login-node`=[`bootDisk`=`BOOTDISK`],[`count`=`COUNT`],[`enableOsLogin`=`ENABLEOSLOGIN`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`labels`=`LABELS`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`startupScript`=`STARTUPSCRIPT`],[`storageConfigs`=`STORAGECONFIGS`],[`zone`=`ZONE`] `--slurm-node-sets`=[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`computeInstance`=`COMPUTEINSTANCE`],[`config`=`CONFIG`],[`container-resource-labels`=`CONTAINER-RESOURCE-LABELS`],[`container-startup-script`=`CONTAINER-STARTUP-SCRIPT`],[`containerNodePool`=`CONTAINERNODEPOOL`],[`id`=`ID`],[`labels`=`LABELS`],[`maxDynamicNodeCount`=`MAXDYNAMICNODECOUNT`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`staticNodeCount`=`STATICNODECOUNT`],[`storageConfigs`=`STORAGECONFIGS`],[`type`=`TYPE`] `--slurm-partitions`=[`config`=`CONFIG`],[`id`=`ID`],[`nodeSetIds`=`NODESETIDS`] `--slurm-prolog-scripts`=[`SLURM_PROLOG_SCRIPTS`,…] `--slurm-task-epilog-scripts`=[`SLURM_TASK_EPILOG_SCRIPTS`,…] `--slurm-task-prolog-scripts`=[`SLURM_TASK_PROLOG_SCRIPTS`,…] `--slurm-conf-file`=`SLURM_CONF_FILE` | `--slurm-config`=[`SLURM_CONFIG`,…] `--quickstart-cluster` | `--reference-architecture`=`REFERENCE_ARCHITECTURE`) [`--async`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha cluster-director clusters create` (`CLUSTER` : `--location`=`LOCATION`) (`--buckets`=[`id`=`ID`],[`name`=`NAME`] `--create-buckets`=[`enableAutoclass`=`ENABLEAUTOCLASS`],[`enableHNS`=`ENABLEHNS`],[`id`=`ID`],[`name`=`NAME`],[`storageClass`=`STORAGECLASS`],[`terminalStorageClass`=`TERMINALSTORAGECLASS`] `--create-filestores`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`fileshare`=`FILESHARE`],[`id`=`ID`],[`name`=`NAME`],[`protocol`=`PROTOCOL`],[`tier`=`TIER`] `--create-lustres`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`dynamicTierOptionsMode`=`DYNAMICTIEROPTIONSMODE`],[`filesystem`=`FILESYSTEM`],[`id`=`ID`],[`name`=`NAME`],[`perUnitStorageThroughput`=`PERUNITSTORAGETHROUGHPUT`] `--description`=`DESCRIPTION` `--filestores`=[`id`=`ID`],[`name`=`NAME`] `--flex-start-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`maxDuration`=`MAXDURATION`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--labels`=[`LABELS`,…] `--lustres`=[`id`=`ID`],[`name`=`NAME`] `--nfs`=[`id`=`ID`],[`mountOptions`=`MOUNTOPTIONS`],[`remoteMount`=`REMOTEMOUNT`],[`serverIpAddress`=`SERVERIPADDRESS`] `--on-demand-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--reference-architecture`=`REFERENCE_ARCHITECTURE` `--reserved-instances`=[`id`=`ID`],[`networkTags`=`NETWORKTAGS`],[`reservation`=`RESERVATION`],[`reservationBlock`=`RESERVATIONBLOCK`],[`reservationSubBlock`=`RESERVATIONSUBBLOCK`] `--spot-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`terminationAction`=`TERMINATIONACTION`],[`zone`=`ZONE`] `--create-network`=[`description`=`DESCRIPTION`],[`name`=`NAME`] | [`--network`=`NETWORK` `--subnet`=`SUBNET` : `--network-project`=`NETWORK_PROJECT`] `--managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`serviceAccount`=`SERVICEACCOUNT`],[`startupScript`=`STARTUPSCRIPT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`] | `--controller-version`=`CONTROLLER_VERSION` `--no-enable-slurm-health-check` `--slurm-config`=[`SLURM_CONFIG`,…] `--slurm-default-partition`=`SLURM_DEFAULT_PARTITION` `--slurm-epilog-scripts`=[`SLURM_EPILOG_SCRIPTS`,…] `--slurm-login-node`=[`bootDisk`=`BOOTDISK`],[`count`=`COUNT`],[`enableOsLogin`=`ENABLEOSLOGIN`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`labels`=`LABELS`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`startupScript`=`STARTUPSCRIPT`],[`storageConfigs`=`STORAGECONFIGS`],[`zone`=`ZONE`] `--slurm-node-sets`=[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`computeInstance`=`COMPUTEINSTANCE`],[`config`=`CONFIG`],[`container-resource-labels`=`CONTAINER-RESOURCE-LABELS`],[`container-startup-script`=`CONTAINER-STARTUP-SCRIPT`],[`containerNodePool`=`CONTAINERNODEPOOL`],[`id`=`ID`],[`labels`=`LABELS`],[`maxDynamicNodeCount`=`MAXDYNAMICNODECOUNT`],[`startupScript`=`STARTUPSCRIPT`],[`startupScriptTimeout`=`STARTUPSCRIPTTIMEOUT`],[`staticNodeCount`=`STATICNODECOUNT`],[`storageConfigs`=`STORAGECONFIGS`],[`type`=`TYPE`] `--slurm-partitions`=[`config`=`CONFIG`],[`id`=`ID`],[`nodeSetIds`=`NODESETIDS`] `--slurm-prolog-scripts`=[`SLURM_PROLOG_SCRIPTS`,…] `--slurm-task-epilog-scripts`=[`SLURM_TASK_EPILOG_SCRIPTS`,…] `--slurm-task-prolog-scripts`=[`SLURM_TASK_PROLOG_SCRIPTS`,…]) [`--async`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` `gcloud alpha cluster-director clusters create` facilitates the creation of a cluster resource. 
 
 Use one of the following options to create a cluster: 
 
   * [Preferred] Use granular flags to define cluster specs. 
-  * Use --config flag with cluster specs in JSON format. 
-  * Use --quickstart-cluster or --reference-architecture to apply pre-configured templates. 
+  * Use --reference-architecture to apply pre-configured templates. 
 
 
-QUICKSTART CLUSTER AND REFERENCE ARCHITECTURES
-     Quickstart cluster and reference architectures allow you to quickly provision clusters with pre-defined configurations for compute, storage, and orchestrator. 
+REFERENCE ARCHITECTURES
+     Reference architectures allow you to quickly provision clusters with pre-defined configurations for compute, storage, and orchestrator. 
 
-`quickstart` (applied when using `--quickstart-cluster`): 
+`quickstart` (applied when using `--reference-architecture=quickstart`): 
 
   * Compute: 2x a3-megagpu-8g nodes (Flex Start, max duration 7 days). 
   * Login Node: 1x n2-standard-16 node. 
@@ -98,20 +97,10 @@ EXAMPLES
     
     gcloud alpha cluster-director clusters create my-cluster --location=us-central1 --description="My cluster description" --labels=env=prod,client=gcloud-cli --create-network=name=network0 --create-filestores=name=locations/us-central1-a/instances/filestore0,tier=ZONAL,capacityGb={filestoreSize},fileshare={fileshare} --filestores=locations/us-central1-a/instances/filestore1 --create-buckets=name=bucket0 --buckets=bucket1 --create-lustres=name=locations/us-central1-a/instances/lustre0,capacityGb={lustreSize},filesystem={filesystem} --lustres=locations/us-central1-a/instances/lustre1 --reserved-instances=id=compute0,reservation=zones/us-central1-a/reservations/{reservation} --slurm-login-node=machineType={machineType},zone=us-central1-a --slurm-node-sets=id=nodeset0,computeId=compute0 --slurm-partitions=id=partition0,nodesetIds=[nodeset0] --slurm-default-partition=partition0 --format=json
 
-To create a cluster `my-cluster` in location `us-central1` with config in JSON string format run the following example: 
-    
-    
-    gcloud alpha cluster-director clusters create my-cluster --location=us-central1 --config='{"key": "value"}'
-
-Or create a JSON file `my-cluster-config.json` with the cluster specs and run the following file example: 
-    
-    
-    gcloud alpha cluster-director clusters create my-cluster --location=us-central1 --config=my-cluster-config.json
-
 To create a cluster `my-cluster` in location `us-central1` using the quickstart setup with default cluster parameters, run the following example: 
     
     
-    gcloud alpha cluster-director clusters create my-cluster --location=us-central1 --quickstart-cluster --create-network=name=network0
+    gcloud alpha cluster-director clusters create my-cluster --location=us-central1 --reference-architecture=quickstart --create-network=name=network0
 
 To create a cluster `my-cluster` in location `us-central1` using a pre-defined reference architecture choice (such as `g4-flex-start`), run the following example: 
     
@@ -156,77 +145,10 @@ To set the `location` attribute:
 REQUIRED FLAGS
     
 
-Cluster configuration for provisioning. 
-
-Exactly one of these must be specified: 
-
-`--config`=[`computeResources`=`COMPUTERESOURCES`],[`description`=`DESCRIPTION`],[`labels`=`LABELS`],[`name`=`NAME`],[`networkResources`=`NETWORKRESOURCES`],[`orchestrator`=`ORCHESTRATOR`],[`storageResources`=`STORAGERESOURCES`]
-     Configuration of the cluster specs in the form of a JSON object. See example below: 
-    
-    
-    --config='{
-      "networkResources": {
-          "network0": {
-              "config": {
-                  "newNetwork": {
-                      "network": "network0"
-                  }
-              }
-          }
-      },
-      "storageResources": {
-          "lustre0": {
-              "config": {
-                  "newLustre": {
-                      "capacityGb": 1200,
-                      "filesystem": "lustre-fs"
-                  }
-              }
-          }
-      },
-      "computeResources": {
-          "compute0": {
-              "config": {
-                  "newOnDemandInstances": {
-                      "machineType": "n2-standard-4",
-                      "zone": "us-central1-a"
-                  }
-              }
-          }
-      },
-      "orchestrator": {
-          "slurm": {
-              "nodeSets": [
-                  {
-                      "id": "nodeset0",
-                      "computeId": "compute0"
-                  }
-              ]
-          }
-      }
-    
-    
-    
-     }' --format json.
-
-`Shorthand Example:`
-    
-    
-    --config=computeResources={string={config={newDwsFlexInstances={machineType=string,maxDuration=string,networkTags=[string],terminationAction=string,zone=string},newFlexStartInstances={machineType=string,maxDuration=string,networkTags=[string],terminationAction=string,zone=string},newOnDemandInstances={machineType=string,networkTags=[string],zone=string},newReservedInstances={machineType=string,networkTags=[string],reservation=string,reservationBlock=string,reservationSubBlock=string,type=string,zone=string},newSpotInstances={machineType=string,networkTags=[string],terminationAction=string,zone=string}}}},description=string,labels={string=string},name=string,networkResources={string={config={existingComputeNetwork={network=string,subnetwork=string},existingNetwork={network=string,subnetwork=string},newComputeNetwork={description=string,network=string},newNetwork={description=string,network=string}}}},orchestrator={computeEngine={managedInstanceGroups={string={bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enablePublicIps=boolean,resourcePolicyConfig={acceleratorTopology=string},startupScript=string,storageConfigs=[{id=string,localMount=string}],targetSize=int}}},slurm={defaultPartition=string,epilogBashScripts,loginNodes={bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},count=int,enableOsLogin=boolean,enablePublicIps=boolean,labels={string=string},machineType=string,networkTags=[string],startupScript=string,storageConfigs=[{id=string,localMount=string}],zone=string},nodeSets=[{computeId=string,computeInstance={bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},labels={string=string},startupScript=string,startupScriptTimeout=string},containerNodePool,id=string,maxDynamicNodeCount=int,staticNodeCount=int,storageConfigs=[{id=string,localMount=string}]}],partitions=[{id=string,nodeSetIds=[string]}],prologBashScripts}},storageResources={string={config={existingBucket={bucket=string},existingFilestore={filestore=string},existingLustre={lustre=string},existingNfs={mountOptions=string,remoteMount=string,serverIpAddress=string},newBucket={autoclass={enabled=boolean,terminalStorageClass=string},bucket=string,hierarchicalNamespace={enabled=boolean},storageClass=string},newFilestore={description=string,fileShares=[{capacityGb=int,fileShare=string}],filestore=string,id=string,protocol=string,tier=string},newLustre={capacityGb=int,description=string,dynamicTierOptions={mode=string},filesystem=string,id=string,lustre=string,perUnitStorageThroughput=int}}}}
-
-`JSON Example:`
-    
-    
-    --config='{"computeResources": {"string": {"config": {"newDwsFlexInstances": {"machineType": "string", "maxDuration": "string", "networkTags": ["string"], "terminationAction": "string", "zone": "string"}, "newFlexStartInstances": {"machineType": "string", "maxDuration": "string", "networkTags": ["string"], "terminationAction": "string", "zone": "string"}, "newOnDemandInstances": {"machineType": "string", "networkTags": ["string"], "zone": "string"}, "newReservedInstances": {"machineType": "string", "networkTags": ["string"], "reservation": "string", "reservationBlock": "string", "reservationSubBlock": "string", "type": "string", "zone": "string"}, "newSpotInstances": {"machineType": "string", "networkTags": ["string"], "terminationAction": "string", "zone": "string"}}}}, "description": "string", "labels": {"string": "string"}, "name": "string", "networkResources": {"string": {"config": {"existingComputeNetwork": {"network": "string", "subnetwork": "string"}, "existingNetwork": {"network": "string", "subnetwork": "string"}, "newComputeNetwork": {"description": "string", "network": "string"}, "newNetwork": {"description": "string", "network": "string"}}}}, "orchestrator": {"computeEngine": {"managedInstanceGroups": {"string": {"bootDisk": {"image": "string", "sizeGb": int, "storagePools": ["string"], "type": "string"}, "computeId": "string", "enablePublicIps": boolean, "resourcePolicyConfig": {"acceleratorTopology": "string"}, "startupScript": "string", "storageConfigs": [{"id": "string", "localMount": "string"}], "targetSize": int}}}, "slurm": {"defaultPartition": "string", "epilogBashScripts", "loginNodes": {"bootDisk": {"image": "string", "sizeGb": int, "storagePools": ["string"], "type": "string"}, "count": int, "enableOsLogin": boolean, "enablePublicIps": boolean, "labels": {"string": "string"}, "machineType": "string", "networkTags": ["string"], "startupScript": "string", "storageConfigs": [{"id": "string", "localMount": "string"}], "zone": "string"}, "nodeSets": [{"computeId": "string", "computeInstance": {"bootDisk": {"image": "string", "sizeGb": int, "storagePools": ["string"], "type": "string"}, "labels": {"string": "string"}, "startupScript": "string", "startupScriptTimeout": "string"}, "containerNodePool": {}, "id": "string", "maxDynamicNodeCount": int, "staticNodeCount": int, "storageConfigs": [{"id": "string", "localMount": "string"}]}], "partitions": [{"id": "string", "nodeSetIds": ["string"]}], "prologBashScripts"}}, "storageResources": {"string": {"config": {"existingBucket": {"bucket": "string"}, "existingFilestore": {"filestore": "string"}, "existingLustre": {"lustre": "string"}, "existingNfs": {"mountOptions": "string", "remoteMount": "string", "serverIpAddress": "string"}, "newBucket": {"autoclass": {"enabled": boolean, "terminalStorageClass": "string"}, "bucket": "string", "hierarchicalNamespace": {"enabled": boolean}, "storageClass": "string"}, "newFilestore": {"description": "string", "fileShares": [{"capacityGb": int, "fileShare": "string"}], "filestore": "string", "id": "string", "protocol": "string", "tier": "string"}, "newLustre": {"capacityGb": int, "description": "string", "dynamicTierOptions": {"mode": "string"}, "filesystem": "string", "id": "string", "lustre": "string", "perUnitStorageThroughput": int}}}}}'
-
-`File Example:`
-    
-    
-    --config=path_to_file.(yaml|json)
-
-Or at least one of these can be specified: 
-
 Flag Configurations to define cluster spec. 
+
+At least one of these must be specified: 
+
 `--buckets`=[`id`=`ID`],[`name`=`NAME`]
      Reference of existing Google Cloud Storage bucket. 
 
@@ -234,13 +156,7 @@ id: ID of the bucket resource, used to refer to this resource in storage-configs
 
 For example --buckets id=my-bucket,name=bucket-1. 
 
-Sets `buckets` value. 
-
-`id`
-     Required, sets `id` value. 
-`name`
-     Required, sets `name` value. 
-`Shorthand Example:`
+Sets `buckets` value. `Shorthand Example:`
     
     
     --buckets=id=string,name=string --buckets=id=string,name=string
@@ -412,13 +328,7 @@ id: ID of the filestore resource, used to refer to this resource in storage-conf
 
 For example --filestores id=my-fs,name=locations/us-central1/instances/filestore-1. 
 
-Sets `filestores` value. 
-
-`id`
-     Required, sets `id` value. 
-`name`
-     Required, sets `name` value. 
-`Shorthand Example:`
+Sets `filestores` value. `Shorthand Example:`
     
     
     --filestores=id=string,name=string --filestores=id=string,name=string
@@ -438,19 +348,7 @@ Sets `filestores` value.
 
 For example --flex-start-instances id=c1,zone=us-central1-a,machineType=n1-standard-1,maxDuration=10000s. 
 
-Sets `flex_start_instances` value. 
-
-`id`
-     Required, sets `id` value. 
-`machineType`
-     Required, sets `machineType` value. 
-`maxDuration`
-     Required, sets `maxDuration` value. 
-`networkTags`
-     Sets `networkTags` value. 
-`zone`
-     Required, sets `zone` value. 
-`Shorthand Example:`
+Sets `flex_start_instances` value. `Shorthand Example:`
     
     
     --flex-start-instances=id=string,machineType=string,maxDuration=string,networkTags=[string],zone=string --flex-start-instances=id=string,machineType=string,maxDuration=string,networkTags=[string],zone=string
@@ -470,13 +368,7 @@ Sets `flex_start_instances` value.
 
 For example --labels key1=value1,key2=value2. 
 
-Sets `labels` value. 
-
-`KEY`
-     Sets `KEY` value. 
-`VALUE`
-     Sets `VALUE` value. 
-`Shorthand Example:`
+Sets `labels` value. `Shorthand Example:`
     
     
     --labels={string=string}
@@ -498,13 +390,7 @@ id: ID of the lustre resource, used to refer to this resource in storage-configs
 
 For example --lustres id=my-lustre,name=locations/us-central1/instances/lustre-1. 
 
-Sets `lustres` value. 
-
-`id`
-     Required, sets `id` value. 
-`name`
-     Required, sets `name` value. 
-`Shorthand Example:`
+Sets `lustres` value. `Shorthand Example:`
     
     
     --lustres=id=string,name=string --lustres=id=string,name=string
@@ -526,17 +412,7 @@ id: ID of the storage resource, used to refer to this resource in storage-config
 
 For example --nfs id=my-nfs,serverIpAddress=10.0.0.1,remoteMount=/share,mountOptions=ro. 
 
-Sets `nfs` value. 
-
-`id`
-     Required, sets `id` value. 
-`mountOptions`
-     Sets `mountOptions` value. 
-`remoteMount`
-     Required, sets `remoteMount` value. 
-`serverIpAddress`
-     Required, sets `serverIpAddress` value. 
-`Shorthand Example:`
+Sets `nfs` value. `Shorthand Example:`
     
     
     --nfs=id=string,mountOptions=string,remoteMount=string,serverIpAddress=string --nfs=id=string,mountOptions=string,remoteMount=string,serverIpAddress=string
@@ -556,17 +432,7 @@ Sets `nfs` value.
 
 For example --on-demand-instances id=c1,zone=us-central1-a,machineType=n1-standard-1. 
 
-Sets `on_demand_instances` value. 
-
-`id`
-     Required, sets `id` value. 
-`machineType`
-     Required, sets `machineType` value. 
-`networkTags`
-     Sets `networkTags` value. 
-`zone`
-     Required, sets `zone` value. 
-`Shorthand Example:`
+Sets `on_demand_instances` value. `Shorthand Example:`
     
     
     --on-demand-instances=id=string,machineType=string,networkTags=[string],zone=string --on-demand-instances=id=string,machineType=string,networkTags=[string],zone=string
@@ -581,6 +447,17 @@ Sets `on_demand_instances` value.
     
     --on-demand-instances=path_to_file.(yaml|json)
 
+`--reference-architecture`=`REFERENCE_ARCHITECTURE`
+     Reference a pre-defined architecture. Available options: 
+
+  * a3-ultra: 4x reserved nodes (requires --reserved-instances), 1x login node (n2-standard-16), 36TB Lustre storage, and 5.1TB Filestore storage. 
+  * a4-high-flex-start: 4x a4-highgpu-8g compute nodes (Flex Start), 1x login node (n2-standard-16), 18TB Lustre storage, and 2TB Filestore storage. 
+  * a4x-high: 18x reserved nodes (requires --reserved-instances), 1x login node (n2-standard-16), and 36TB Lustre storage. 
+  * g4-flex-start: 4x g4-standard-384 compute nodes (Flex Start), 1x login node (n2-standard-16), 36TB Lustre storage, and 10.2TB Filestore storage. 
+  * h4d-highmem-flex-start: 4x h4d-highmem-192 compute nodes (Flex Start), 1x login node (n2-standard-16), 18TB Lustre storage, and 1TB Filestore storage. 
+  * quickstart: 2x a3-megagpu-8g compute nodes (Flex Start, max duration 7 days), 1x login node (n2-standard-16), and 36TB Lustre storage. `REFERENCE_ARCHITECTURE` must be one of: `a3-ultra`, `a4-high-flex-start`, `a4x-high`, `g4-flex-start`, `h4d-highmem-flex-start`, `quickstart`. 
+
+
 `--reserved-instances`=[`id`=`ID`],[`networkTags`=`NETWORKTAGS`],[`reservation`=`RESERVATION`],[`reservationBlock`=`RESERVATIONBLOCK`],[`reservationSubBlock`=`RESERVATIONSUBBLOCK`]
      Parameters to define cluster reserved instances. 
 
@@ -588,19 +465,7 @@ For example --reserved-instances id=c1,reservation=zones/us-central1-a/reservati
 
 Exactly one of reservation, reservation-block, or reservation-sub-block must be provided. reservation: The name of the reservation to use, in the format zones/us-central1-a/reservations/reservation-1. reservationBlock: The name of the reservation block to use, in the format zones/us-central1-a/reservations/reservation-1/reservationBlocks/block-1. reservationSubBlock: The name of the reservation sub-block to use, in the format zones/us-central1-a/reservations/reservation-1/reservationBlocks/block-1/reservationSubBlocks/sub-block-1. 
 
-Sets `reserved_instances` value. 
-
-`id`
-     Required, sets `id` value. 
-`networkTags`
-     Sets `networkTags` value. 
-`reservation`
-     Sets `reservation` value. 
-`reservationBlock`
-     Sets `reservationBlock` value. 
-`reservationSubBlock`
-     Sets `reservationSubBlock` value. 
-`Shorthand Example:`
+Sets `reserved_instances` value. `Shorthand Example:`
     
     
     --reserved-instances=id=string,networkTags=[string],reservation=string,reservationBlock=string,reservationSubBlock=string --reserved-instances=id=string,networkTags=[string],reservation=string,reservationBlock=string,reservationSubBlock=string
@@ -620,19 +485,7 @@ Sets `reserved_instances` value.
 
 For example --spot-instances id=c1,zone=us-central1-a,machineType=n1-standard-1. 
 
-Sets `spot_instances` value. 
-
-`id`
-     Required, sets `id` value. 
-`machineType`
-     Required, sets `machineType` value. 
-`networkTags`
-     Sets `networkTags` value. 
-`terminationAction`
-     Sets `terminationAction` value. 
-`zone`
-     Required, sets `zone` value. 
-`Shorthand Example:`
+Sets `spot_instances` value. `Shorthand Example:`
     
     
     --spot-instances=id=string,machineType=string,networkTags=[string],terminationAction=string,zone=string --spot-instances=id=string,machineType=string,networkTags=[string],terminationAction=string,zone=string
@@ -703,7 +556,7 @@ Orchestrator configuration for the cluster.
 At most one of these can be specified: 
 
 Configuration of orchestration type for Managed Compute Clusters. 
-`--managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`startupScript`=`STARTUPSCRIPT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`]
+`--managed-instance-groups`=[`acceleratorTopology`=`ACCELERATORTOPOLOGY`],[`bootDisk`=`BOOTDISK`],[`computeId`=`COMPUTEID`],[`enablePublicIps`=`ENABLEPUBLICIPS`],[`id`=`ID`],[`serviceAccount`=`SERVICEACCOUNT`],[`startupScript`=`STARTUPSCRIPT`],[`storageConfigs`=`STORAGECONFIGS`],[`targetSize`=`TARGETSIZE`]
      Parameters to define Compute Engine orchestrator managed instance group config. 
 
 Required fields: 
@@ -731,12 +584,12 @@ Sets `managed_instance_groups` value.
 `Shorthand Example:`
     
     
-    --managed-instance-groups=acceleratorTopology=string,bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enablePublicIps=boolean,id=string,startupScript=string,storageConfigs=[{id=string,localMount=string}],targetSize=int --managed-instance-groups=acceleratorTopology=string,bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enablePublicIps=boolean,id=string,startupScript=string,storageConfigs=[{id=string,localMount=string}],targetSize=int
+    --managed-instance-groups=acceleratorTopology=string,bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enablePublicIps=boolean,id=string,serviceAccount={email=string,scopes=[string]},startupScript=string,storageConfigs=[{id=string,localMount=string}],targetSize=int --managed-instance-groups=acceleratorTopology=string,bootDisk={image=string,sizeGb=int,storagePools=[string],type=string},computeId=string,enablePublicIps=boolean,id=string,serviceAccount={email=string,scopes=[string]},startupScript=string,storageConfigs=[{id=string,localMount=string}],targetSize=int
 
 `JSON Example:`
     
     
-    --managed-instance-groups='[{"acceleratorTopology": "string", "bootDisk": {"image": "string", "sizeGb": int, "storagePools": ["string"], "type": "string"}, "computeId": "string", "enablePublicIps": boolean, "id": "string", "startupScript": "string", "storageConfigs": [{"id": "string", "localMount": "string"}], "targetSize": int}]'
+    --managed-instance-groups='[{"acceleratorTopology": "string", "bootDisk": {"image": "string", "sizeGb": int, "storagePools": ["string"], "type": "string"}, "computeId": "string", "enablePublicIps": boolean, "id": "string", "serviceAccount": {"email": "string", "scopes": ["string"]}, "startupScript": "string", "storageConfigs": [{"id": "string", "localMount": "string"}], "targetSize": int}]'
 
 `File Example:`
     
@@ -755,6 +608,13 @@ For example --controller-version="26.05"
 For example --no-enable-slurm-health-check. 
 
 Enabled by default, use `--no-enable-slurm-health-check` to disable. 
+
+`--slurm-config`=[`SLURM_CONFIG`,…]
+     Parameters to define slurm cluster config. 
+
+Supports both dot-notation (e.g. `schedulerParameters.bfBusyNodes=true` or `schedulerParameters.bf_busy_nodes=true`, `additionalSettings.MaxArraySize=10000`) and sub-dictionary notation (e.g. `schedulerParameters="{bfBusyNodes=true,bfInterval=30}"` or `schedulerParameters="{bf_busy_nodes=true,bf_interval=30}"`, `additionalSettings="{MaxArraySize=10000,TreeWidth=50}"`). Both camelCase and snake_case (matching native Slurm parameter names) are supported for nested parameters. 
+
+For example: --slurm-config defMemPerCpu=2048,healthCheckInterval=10,schedulerParameters.bf_busy_nodes=true,preemptParameters.youngest_first=true,additionalSettings.MaxArraySize=10000 or --slurm-config defMemPerCpu=2048,schedulerParameters="{bf_busy_nodes=true,bf_interval=30}",preemptParameters="{youngest_first=true,suspend_grace_time=60}" 
 
 `--slurm-default-partition`=`SLURM_DEFAULT_PARTITION`
      Parameters to define slurm cluster default partition. 
@@ -869,50 +729,7 @@ Sets `slurm_node_sets` value.
 
 For example --slurm-partitions id=p1,nodesetIds=[ns1,ns2]. 
 
-Sets `slurm_partitions` value. 
-
-`config`
-     Sets `config` value. 
-
-`allowAccounts`
-     Sets `allowAccounts` value. 
-`allowQos`
-     Sets `allowQos` value. 
-`defMemPerCpu`
-     Sets `defMemPerCpu` value. 
-`defaultTime`
-     Sets `defaultTime` value. 
-`denyAccounts`
-     Sets `denyAccounts` value. 
-`denyQos`
-     Sets `denyQos` value. 
-`exclusiveUser`
-     Sets `exclusiveUser` value. 
-`graceTime`
-     Sets `graceTime` value. 
-`maxNodes`
-     Sets `maxNodes` value. 
-`maxTime`
-     Sets `maxTime` value. 
-`overSubscribe`
-     Sets `overSubscribe` value. 
-`overTimeLimit`
-     Sets `overTimeLimit` value. 
-`preemptMode`
-     Sets `preemptMode` value. 
-`priorityJobFactor`
-     Sets `priorityJobFactor` value. 
-`priorityTier`
-     Sets `priorityTier` value. 
-`qos`
-     Sets `qos` value. 
-`tresBillingWeights`
-     Sets `tresBillingWeights` value. 
-`id`
-     Required, sets `id` value. 
-`nodeSetIds`
-     Required, sets `nodeSetIds` value. 
-`Shorthand Example:`
+Sets `slurm_partitions` value. `Shorthand Example:`
     
     
     --slurm-partitions=config={allowAccounts=string,allowQos=string,defMemPerCpu=string,defaultTime=string,denyAccounts=string,denyQos=string,exclusiveUser=string,graceTime=string,maxNodes=string,maxTime=string,overSubscribe=string,overTimeLimit=string,preemptMode=string,priorityJobFactor=string,priorityTier=string,qos=string,tresBillingWeights=string},id=string,nodeSetIds=[string] --slurm-partitions=config={allowAccounts=string,allowQos=string,defMemPerCpu=string,defaultTime=string,denyAccounts=string,denyQos=string,exclusiveUser=string,graceTime=string,maxNodes=string,maxTime=string,overSubscribe=string,overTimeLimit=string,preemptMode=string,priorityJobFactor=string,priorityTier=string,qos=string,tresBillingWeights=string},id=string,nodeSetIds=[string]
@@ -942,44 +759,6 @@ For example --slurm-task-epilog-scripts script1.sh,script2.sh
 
 For example --slurm-task-prolog-scripts script1.sh,script2.sh 
 
-At most one of these can be specified: 
-
-`--slurm-conf-file`=`SLURM_CONF_FILE`
-     Path to the slurm.conf file. 
-
-Global Slurm parameters, node set configurations (NodeName directives, including bracket ranges like compute-[0-99]), and partition configurations (PartitionName directives) defined in the file are applied to the cluster, replacing any default or flag-provided configurations. Custom global directives not recognized as first-class fields are automatically passed through as additionalSettings. Any configuration omitted from the file will remain unset. 
-
-See <https://slurm.schedmd.com/slurm.conf.html> for more details. 
-
-For example --slurm-conf-file=path/to/slurm.conf 
-
-`--slurm-config`=[`SLURM_CONFIG`,…]
-     Parameters to define slurm cluster config. 
-
-Supports both dot-notation (e.g. `schedulerParameters.bfBusyNodes=true` or `schedulerParameters.bf_busy_nodes=true`, `additionalSettings.MaxArraySize=10000`) and sub-dictionary notation (e.g. `schedulerParameters="{bfBusyNodes=true,bfInterval=30}"` or `schedulerParameters="{bf_busy_nodes=true,bf_interval=30}"`, `additionalSettings="{MaxArraySize=10000,TreeWidth=50}"`). Both camelCase and snake_case (matching native Slurm parameter names) are supported for nested parameters. 
-
-For example: --slurm-config defMemPerCpu=2048,healthCheckInterval=10,schedulerParameters.bf_busy_nodes=true,preemptParameters.youngest_first=true,additionalSettings.MaxArraySize=10000 or --slurm-config defMemPerCpu=2048,schedulerParameters="{bf_busy_nodes=true,bf_interval=30}",preemptParameters="{youngest_first=true,suspend_grace_time=60}" 
-
-At most one of these can be specified: 
-
-`--quickstart-cluster`
-     If specified, creates a cluster with sensible defaults: 
-
-  * Compute: 2x a3-megagpu-8g nodes (Flex Start, max duration 7 days). 
-  * Login: 1x n2-standard-16 node. 
-  * Storage: 36TB Lustre storage (scratch disk). 
-
-
-`--reference-architecture`=`REFERENCE_ARCHITECTURE`
-     Reference a pre-defined architecture. Available options: 
-
-  * a3-ultra: 4x reserved nodes (requires --reserved-instances), 1x login node (n2-standard-16), 36TB Lustre storage, and 5.1TB Filestore storage. 
-  * a4-high-flex-start: 4x a4-highgpu-8g compute nodes (Flex Start), 1x login node (n2-standard-16), 18TB Lustre storage, and 2TB Filestore storage. 
-  * a4x-high: 18x reserved nodes (requires --reserved-instances), 1x login node (n2-standard-16), and 36TB Lustre storage. 
-  * g4-flex-start: 4x g4-standard-384 compute nodes (Flex Start), 1x login node (n2-standard-16), 36TB Lustre storage, and 10.2TB Filestore storage. 
-  * h4d-highmem-flex-start: 4x h4d-highmem-192 compute nodes (Flex Start), 1x login node (n2-standard-16), 18TB Lustre storage, and 1TB Filestore storage. `REFERENCE_ARCHITECTURE` must be one of: `a3-ultra`, `a4-high-flex-start`, `a4x-high`, `g4-flex-start`, `h4d-highmem-flex-start`. 
-
-
 OPTIONAL FLAGS
     
 
@@ -990,6 +769,12 @@ GCLOUD WIDE FLAGS
 
 Run `$ [gcloud help](https://docs.cloud.google.com/sdk/gcloud/reference)` for details. 
 
+GUIDANCE
+    
+Using reference architectures
+     Use `--reference-architecture` to provision a cluster from a pre-defined template with sensible defaults for compute, storage, and Slurm orchestration. Individual flags can be combined with `--reference-architecture` to customize or override specific resources. 
+Using flags files
+     Store reusable cluster flag configurations in a YAML or JSON file and pass `--flags-file=FILE` to reuse complex arguments across multiple cluster deployments while overriding individual flags on the command line. 
 NOTES
      This command is currently in alpha and might change without notice. If this command fails with API permission errors despite specifying the correct project, you might be trying to access an API with an invitation-only early access allowlist. These variants are also available: 
     
@@ -1003,6 +788,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

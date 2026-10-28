@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-hikaricp-connect-connector-impersonated-user/
 title: Connect with HikariCP and an impersonated service account \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:41.788676+00:00
+fetched_at: 2026-10-27T18:30:02.680702+00:00
 ---
 
 # Connect with HikariCP and an impersonated service account  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

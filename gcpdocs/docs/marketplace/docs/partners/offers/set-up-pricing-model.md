@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/marketplace/docs/partners/offers/set-up-pricing-model/
 title: Set up your offer's pricing \u00a0|\u00a0 Google Cloud Marketplace Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:45:33.477352+00:00
+fetched_at: 2026-10-27T21:59:02.411309+00:00
 ---
 
 # Set up your offer's pricing  |  Google Cloud Marketplace Partners  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ Enter the following details for your offer:
 
 To enter payment details for your offer, under **Payment details** , click **Configure**. In the panel that appears, enter the following payment details:
 
-  1. Under **Offer acceptance deadline** , set a deadline for your customer to accept the offer.
+  1. Under **Offer acceptance deadline** , set a deadline for your customer to accept the offer. The deadline must be within three months of the current date.
 
 If you're replacing an existing offer, the deadline must be before the current offer's end date. If you're replacing an existing offer that has installments, the deadline must also be before the start date of the current offer's next installment.
 
@@ -70,7 +70,7 @@ On the date that you select, the offer expires at 11:45 PM US and Canadian Pacif
 
   5. Under **Offer start** , select whether the offer should start on a specific scheduled start date. If you've [turned on automatic offer approval](https://docs.cloud.google.com/marketplace/docs/partners/offers/automatic-approval) for your product, you can select a scheduled start date for the offer's first installment, or choose to have the first installment's start date be the date that the customer accepts the offer.
 
-If you enter a scheduled start date, that date must be later than the date that you entered as the offer acceptance deadline.
+If you enter a scheduled start date, that date must be in the future and within one year of the current date. The scheduled start date must also be later than the date that you entered as the offer acceptance deadline.
 
   6. Under **Offer end** , specify the set end date or duration for the offer.
 
@@ -113,6 +113,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

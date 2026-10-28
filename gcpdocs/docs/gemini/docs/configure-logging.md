@@ -1,13 +1,26 @@
 ---
 url: https://docs.cloud.google.com/gemini/docs/configure-logging/
 title: Configure Gemini Code Assist Standard and Enterprise logging \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:20:19.433836+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:13:52.961917+00:00
 ---
 
 # Configure Gemini Code Assist Standard and Enterprise logging  |  Gemini for Google Cloud  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini/docs/configure-logging/
+
+  * On this page
+  * Limitations
+  * Before you begin
+  * Verify IAM permissions
+  * Configure Gemini Code Assist logging
+    * Enable logging for Gemini Code Assist in a project
+    * Disable logging for Gemini Code Assist in a project
+    * Set up multi-project logging
+    * Disable multi-project logging
+  * What's next
+
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -17,9 +30,24 @@ fetched_at: 2026-10-25T06:20:19.433836+00:00
 
 
 
+Was this helpful?
+
 Send feedback 
 
-#  Configure Gemini Code Assist Standard and Enterprise logging Stay organized with collections  Save and categorize content based on your preferences. 
+#  Configure Gemini Code Assist Standard and Enterprise logging Stay organized with collections  Save and categorize content based on your preferences.
+
+  * On this page
+  * Limitations
+  * Before you begin
+  * Verify IAM permissions
+  * Configure Gemini Code Assist logging
+    * Enable logging for Gemini Code Assist in a project
+    * Disable logging for Gemini Code Assist in a project
+    * Set up multi-project logging
+    * Disable multi-project logging
+  * What's next
+  * 
+
 
 Gemini Code Assist Standard and Enterprise logging lets you track developer interactions and usage across your projects. This document describes how to use the Google Cloud console or the REST API to configure logging for Gemini Code Assist.
 
@@ -74,7 +102,7 @@ For more details on both types of logs, see [View Gemini Code Assist logs](https
 
 Select one of the following options:
 
-###  Console 
+Console  API  More
 
   1. Verify that you have enabled the [**Cloud Logging**](https://console.cloud.google.com/marketplace/product/google/logging.googleapis.com) API in the project.
 
@@ -92,8 +120,6 @@ Select one of the following options:
 
 
 
-
-###  API 
 
 To enable logging for Gemini Code Assist Standard and Enterprise, use the `loggingSettings` resource to define the logging settings you want, and use the `loggingSettings.settingBindings` resource to bind the settings to a project:
 
@@ -175,7 +201,7 @@ If the command succeeds, it returns the operation metadata in the following form
 
 Select one of the following options:
 
-###  Console 
+Console  API  More
 
   1. In the Google Cloud console, go to the **Admin for Gemini** page.
 
@@ -189,8 +215,6 @@ Select one of the following options:
 
 
 
-
-###  API 
 
 To disable logging for Gemini Code Assist Standard and Enterprise, use the `loggingSetting` method.
 
@@ -756,10 +780,12 @@ Repeat these steps for each project that you want to stop sending logs to the ce
 
 
 
+Was this helpful?
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

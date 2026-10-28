@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/enable-model-armor/
 title: Enable Model Armor in Gemini Notebook Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:23:08.816976+00:00
+fetched_at: 2026-10-27T23:54:29.298483+00:00
 ---
 
 # Enable Model Armor in Gemini Notebook Enterprise  |  Google Cloud Documentation
@@ -252,7 +252,7 @@ When using Model Armor with Gemini Notebook Enterprise, consider the following:
 
 **De-identification and masking** |  When Model Armor uses a Sensitive Data Protection template for scanning prompts or responses, Model Armor checks if the content matches the detector criteria defined in the template. Although Sensitive Data Protection supports de-identification based on the template configuration, Model Armor does not pass de-identified or masked data back to Gemini Notebook Enterprise. If the content triggers any detectors from Sensitive Data Protection and the enforcement type is `INSPECT_AND_BLOCK`, Gemini Notebook Enterprise blocks the request or response rather than de-identifying it.   
 ---|---  
-**Token limits and quotas** |  Although there are no direct token limits when you use Model Armor with Gemini Notebook Enterprise, the total throughput of your Model Armor evaluations is still indirectly governed by [Gemini Enterprise system quotas](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages) and [Model Armor API rate limits](https://docs.cloud.google.com/model-armor/quotas#quotas).   
+**Token limits and quotas** |  Although there are no direct token limits when you use Model Armor with Gemini Notebook Enterprise, the total throughput of your Model Armor evaluations is still indirectly governed by [Gemini Enterprise system quotas](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage) and [Model Armor API rate limits](https://docs.cloud.google.com/model-armor/quotas#quotas).   
 **Service Level Agreement** |  Gemini Notebook Enterprise provides a [Service Level Agreement](https://cloud.google.com/terms/gemini/enterprise/sla). When Gemini Notebook Enterprise is configured to use Model Armor, blocked queries don't count as SLA violations, regardless of whether the **fail-open** or **fail-closed** mode is used.   
 **Compliance** |  Both Gemini Notebook Enterprise and Model Armor offer various compliance certifications. When used together, the effective compliance certifications are the common subset of both products. Review the compliance certifications for both products to ensure that they meet your regulatory requirements.   
 **Document screening** |  If a Model Armor template is configured to screen user prompts or responses, document text extracted from sources is screened when sent in requests. However, images embedded within documents are not screened. For the list of supported document types, see [Document screening](https://docs.cloud.google.com/security-command-center/docs/model-armor-overview#ma-support-screening-pdfs).   
@@ -297,6 +297,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

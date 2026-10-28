@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/load-data-google-services/
 title: Load data from other Google and Google Cloud services \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:01.532511+00:00
+fetched_at: 2026-10-27T20:09:47.020844+00:00
 ---
 
 # Load data from other Google and Google Cloud services  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Load data from other Google and Google Cloud services
 
-You can use a number of Google Cloud services to load data into BigQuery where you can then perform further analysis. These services typically require that you initiate extract jobs from the respective console or API of the service. Once enabled, data is loaded into BigQuery according to the cadence defined in the service's extract job. Some extract jobs run in real time and others provide batch data loads.
+Many Google and Google Cloud services let you export operational, analytics, and billing data directly to BigQuery. After exporting this data, you can join records across services, run SQL queries, and build custom reports. Depending on the source service, you initiate real-time or scheduled batch exports from that service's console or API.
 
-For Google Cloud databases and services, including Google Drive and Google Sheets, data queries originate from BigQuery. For more information, see [external data sources](https://docs.cloud.google.com/bigquery/external-data-sources).
-
-If a service is not listed, you might still be able to export data from the service, but this might require using additional functionality. For more information about how to set up custom exports or how to create load jobs and queries from BigQuery, see [Introduction to loading data](https://docs.cloud.google.com/bigquery/docs/loading-data).
+To query data directly in external databases, Google Drive, or Google Sheets without exporting it, see [external data sources](https://docs.cloud.google.com/bigquery/external-data-sources). For services not listed in this document, or to create load jobs and queries directly from BigQuery, see [Introduction to loading data](https://docs.cloud.google.com/bigquery/docs/loading-data).
 
 ## Cloud services that support data exports
 
@@ -147,6 +145,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/model-saas-offering/
 title: Model and package units of deployment \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:13.041021+00:00
+fetched_at: 2026-10-27T23:24:39.933762+00:00
 ---
 
 # Model and package units of deployment  |  App Lifecycle Manager  |  Google Cloud Documentation
@@ -38,7 +38,7 @@ Unit kinds are defined in Application Design Center composite templates. Use App
 ## Before you begin
 
   1. Ensure you have created an [App offering](https://docs.cloud.google.com/app-lifecycle-manager/create-saas-offering) for your SaaS application.
-  2. Ensure you have the service accounts with the required permissions. For details, see [App Lifecycle Manager service accounts](https://docs.cloud.google.com/app-lifecycle-manager/overview#saas-service-accounts).
+  2. Ensure you have the service accounts with the required permissions. For details, see [App Lifecycle Manager service accounts](https://docs.cloud.google.com/app-lifecycle-manager/overview#alm-service-accounts).
   3. For each App offering you create, ensure you have a composite template. For details, see the following section [Determine the model of the App offering](https://docs.cloud.google.com/app-lifecycle-manager/model-saas-offering#saas-model).
 
 
@@ -121,7 +121,7 @@ You've successfully populated your App offering's unit kinds using a composite t
 
   * After you have modeled the App offering, you can [deploy a unit instance](https://docs.cloud.google.com/app-lifecycle-manager/deploy-saas-offering).
   * To learn more about App Lifecycle Manager, see the [App Lifecycle Manager overview](https://docs.cloud.google.com/app-lifecycle-manager/overview).
-  * For more details about the service accounts needed when using App Lifecycle Manager, see [service accounts](https://docs.cloud.google.com/app-lifecycle-manager/service-accounts).
+  * For more details about the service accounts needed when using App Lifecycle Manager, see [service accounts](https://docs.cloud.google.com/app-lifecycle-manager/overview#alm-service-accounts).
 
 
 
@@ -129,6 +129,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

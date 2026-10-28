@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/quickstarts/train-model-gpus-autopilot/
 title: Quickstart: Train a model with GPUs on GKE Autopilot mode \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:08.619293+00:00
+fetched_at: 2026-10-27T22:34:14.653682+00:00
 ---
 
 # Quickstart: Train a model with GPUs on GKE Autopilot mode  |  GKE AI/ML  |  Google Cloud Documentation
@@ -246,7 +246,7 @@ The output shows the sample file.
 
   7. Check the logs to identify the GPU attached to the Pod:
          
-         python -c "import tensorflow as tf; print(tf.config.list_physical_devices(';GPU'))"
+         python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
          
 
 The output shows the GPU attached to the Pod, similar to the following:
@@ -315,16 +315,16 @@ In this section, you run a training workload on the `MNIST` example dataset.
                  cloud.google.com/gke-accelerator: nvidia-tesla-t4
                tolerations:
                - key: "nvidia.com/gpu"
-                 operator**: "Exists&qu**ot;
+                 operator: "Exists"
                  effect: "NoSchedule"
-               containers:
+         ** containers:**
                - name: tensorflow
                  image: tensorflow/tensorflow:latest-gpu 
                  command: ["/bin/bash", "-c", "--"]
-                 args: ["cd /data/tensorflow-mnist-example; pip install -r require**ments.txt;** python tensorflow_mnist_train_distributed.py"]
+                 args: ["cd /data/tensorflow-mnist-example; pip install -r requirements.txt; python tensorflow_mnist_train_distributed.py"]
                  resources:
                    limits:
-                     nvidia.com/gpu: 1
+         ** nvidia.com/gpu: 1**
                      cpu: 1
                      memory: 3Gi
                  volumeMounts:
@@ -432,16 +432,16 @@ In this section, you deploy an inference workload that takes a sample dataset as
                  cloud.google.com/gke-accelerator: nvidia-tesla-t4
                tolerations:
                - key: "nvidia.com/gpu"
-                 operator**: "Exists&qu**ot;
+                 operator: "Exists"
                  effect: "NoSchedule"
-               containers:
+         ** containers:**
                - name: tensorflow
                  image: tensorflow/tensorflow:latest-gpu 
                  command: ["/bin/bash", "-c", "--"]
-                 args: ["cd /data/tensorflow-mnist-example; pip install -r req**uirements.txt;** python tensorflow_mnist_batch_predict.py"]
+                 args: ["cd /data/tensorflow-mnist-example; pip install -r requirements.txt; python tensorflow_mnist_batch_predict.py"]
                  resources:
                    limits:
-                     nvidia.com/gpu: 1
+         ** nvidia.com/gpu: 1**
                      cpu: 1
                      memory: 3Gi
                  volumeMounts:
@@ -617,6 +617,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

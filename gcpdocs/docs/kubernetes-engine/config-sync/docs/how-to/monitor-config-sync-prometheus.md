@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/how-to/monitor-config-sync-prometheus/
 title: Monitor Config Sync with Prometheus \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:11.016689+00:00
+fetched_at: 2026-10-28T02:29:31.590148+00:00
 ---
 
 # Monitor Config Sync with Prometheus  |  Google Cloud Documentation
@@ -22,11 +22,9 @@ Send feedback
 
 #  Monitor Config Sync with Prometheus Stay organized with collections  Save and categorize content based on your preferences. 
 
-The page describes how to send metrics from Config Sync to Prometheus.
+Config Sync automatically collects and exports metrics that you can scrape with [Prometheus](https://prometheus.io/) to track synchronization health, detect reconciliation errors, and monitor resource usage across your clusters. You can view these metrics directly in Prometheus or pull them into [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) as custom metrics. For more information, see [Google Cloud Managed Service for Prometheus](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus).
 
-This page explains how to use Prometheus to view Config Sync metrics. We recommend that you use either Prometheus (this page) or [Cloud Monitoring](https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/how-to/monitor-config-sync-cloud-monitoring) to export metrics. It's also possible to use [custom metrics](https://github.com/GoogleContainerTools/config-sync/blob/main/docs/custom-metric-filter.md).
-
-Config Sync automatically collects and exports metrics to [Prometheus](https://prometheus.io/). You can configure [Cloud Monitoring](https://docs.cloud.google.com/monitoring) to pull custom metrics from Prometheus. Then you can see custom metrics in both Prometheus and Monitoring. For more information, see [Using Prometheus](https://docs.cloud.google.com/monitoring/kubernetes-engine/prometheus) in the GKE documentation.
+For information about exporting metrics directly to Monitoring without Prometheus, see [Monitor Config Sync with Cloud Monitoring](https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/how-to/monitor-config-sync-cloud-monitoring). You can also export [custom metrics](https://github.com/GoogleContainerTools/config-sync/blob/main/docs/custom-metric-filter.md).
 
 ## Scrape the metrics
 
@@ -345,6 +343,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

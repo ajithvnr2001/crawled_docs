@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/docs/samples/eventarc-audit-storage-server/
 title: Create a web server that uses an event handler \u00a0|\u00a0 Eventarc \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:18:17.018167+00:00
+fetched_at: 2026-10-27T16:28:39.220855+00:00
 ---
 
 # Create a web server that uses an event handler  |  Eventarc  |  Google Cloud Documentation

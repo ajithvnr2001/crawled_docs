@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/gateway/authorization-policy-sidecar/
 title: Setup authorization policies on sidecars on GKE \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:30:49.805013+00:00
+fetched_at: 2026-10-27T20:28:25.396152+00:00
 ---
 
 # Setup authorization policies on sidecars on GKE  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 [Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=networksecurity.googleapis.com,networkservices.googleapis.com)
 
 
-
+**Note:** After you create or change an authorization policy, it can take up to 15 minutes for the sidecars to start enforcing it.
 
 ## Namespace-wide AuthzPolicy
 
@@ -92,7 +92,8 @@ If you want to deny an expected traffic pattern for the whole namespace, configu
       namespace: NAMESPACE
     spec:
       targetRefs:
-      - kind: Pod
+      - group: ""
+        kind: Pod
         selector: {}
       rules:
       - to:
@@ -101,11 +102,12 @@ If you want to deny an expected traffic pattern for the whole namespace, configu
             - type: Prefix
               value: "/bad_token"
       action: DENY
+      enforcementLevel: L7
     EOF
     kubectl apply -f ns-authz-policy-deny.yaml
     
 
-Note that that the empty `selector: {}` targets all Pods in the namespace.
+The empty `selector: {}` targets all Pods in the namespace.
 
 If you want to allow an expected traffic pattern for the whole namespace, configure an authorization policy to allow any incoming HTTP requests to all the workloads in a namespace:
     
@@ -118,7 +120,8 @@ If you want to allow an expected traffic pattern for the whole namespace, config
       namespace: NAMESPACE
     spec:
       targetRefs:
-      - kind: Pod
+      - group: ""
+        kind: Pod
         selector: {}
       rules:
       - to:
@@ -128,11 +131,12 @@ If you want to allow an expected traffic pattern for the whole namespace, config
               value: "/headers"
             methods: ["GET"]
       action: ALLOW
+      enforcementLevel: L7
     EOF
     kubectl apply -f ns-authz-policy-allow.yaml
     
 
-Note that that the empty `selector: {}` targets all Pods in the namespace.
+The empty `selector: {}` targets all Pods in the namespace.
 
 ## Deny inbound requests to a workload
 
@@ -146,11 +150,12 @@ If you have a workload that is supposed to make only outbound calls, like a cron
       name: my-workload-authz
       namespace: NAMESPACE
     spec:
-     targetRefs:
-     - kind: Pod
-       selector:
-    matchLabels:
-          app: EXAMPLE_APP
+      targetRefs:
+      - group: ""
+        kind: Pod
+        selector:
+          matchLabels:
+            app: EXAMPLE_APP
       rules:
       - to:
           operations:
@@ -158,6 +163,7 @@ If you have a workload that is supposed to make only outbound calls, like a cron
             - type: Prefix
               value: "/deny_path"
       action: DENY
+      enforcementLevel: L7
     EOF
     kubectl apply -f deny-path-authz-policy.yaml
     
@@ -174,7 +180,7 @@ After this policy is applied, any incoming HTTP request to the path /deny_path o
 
 You can also configure an `ALLOW` policy that allows only requests that match a specific criteria while rejecting the rest.
 
-The following example configures an authorization policy on the example-app Deployment to allow only mTLS requests from Pods with identity spiffe://cluster.local/namespace/pod1.
+The following example configures an authorization policy on the example-app Deployment to allow only mTLS requests from Pods with identity `spiffe://cluster.local/NAMESPACE/pod1`.
     
     
     cat >allow-authz-policy.yaml <<EOF
@@ -184,18 +190,21 @@ The following example configures an authorization policy on the example-app Depl
       name: my-workload-authz
       namespace: NAMESPACE
     spec:
-     targetRefs:
-     - kind: Pod
-       selector:
-    matchLabels:
-          app: EXAMPLE_APP
+      targetRefs:
+      - group: ""
+        kind: Pod
+        selector:
+          matchLabels:
+            app: EXAMPLE_APP
       rules:
       - from:
           sources:
           - principals:
             - principal:
-              exact: "spiffe://cluster.local/NAMESPACE/pod1"
+                type: Exact
+                value: "spiffe://cluster.local/NAMESPACE/pod1"
       action: ALLOW
+      enforcementLevel: L7
     EOF
     kubectl apply -f allow-authz-policy.yaml
     
@@ -206,7 +215,7 @@ The output is similar to:
     gcpauthzpolicy.networking.gke.io/my-workload-authz created
     
 
-Only incoming requests authenticated using mTLS presenting the exact SPIFFE identity spiffe://cluster.local/NAMESPACE/pod1 will receive an HTTP 200 OK. Any other request will be rejected by the proxy with an HTTP 403 Forbidden.
+Only incoming requests authenticated using mTLS presenting the exact SPIFFE identity `spiffe://cluster.local/NAMESPACE/pod1` will receive an HTTP 200 OK. Any other request will be rejected by the proxy with an HTTP 403 Forbidden.
 
 ## Delegate to an external authorization engine
 
@@ -217,34 +226,41 @@ You can bring your own authorization engine and configure Cloud Service Mesh to 
          kubectl apply -f https://raw.githubusercontent.com/GoogleCloudPlatform/gke-gateway-api/main/config/crd/networking.gke.io_gcpauthzextensions.yaml
          
 
-  2. Deploy a callout based authorization extension workload in Kubernetes supporting the `ext_proc gRPC` protocol and configure an authorization extension resource:
+  2. Deploy a callout-based authorization extension workload in Kubernetes supporting the `ext_proc` gRPC protocol and configure an authorization extension resource:
          
          cat >authz-extension.yaml <<EOF
          apiVersion: networking.gke.io/v1
          kind: GCPAuthzExtension
          metadata:
            name: my-authz-ext
-           namespace: ns1
+           namespace: NAMESPACE
          spec:
            backendRef:
+             group: ""
              kind: Service
              name: authz-service
-           loadBalancingScheme: INTERNAL_SELF_MANAGED
+             port: PORT
+           authority: "authz-service.NAMESPACE.svc.cluster.local"
            forwardHeaders:
            - Authorization
            failOpen: false
-           timeout: "0.1s"
-           wireFormat: EXT_PROC_GRPC
+           timeout: "100ms"
+           wireFormat: ExtProcGRPC
          EOF
          kubectl apply -f authz-extension.yaml
          
 
+Replace the following:
+
+     * `NAMESPACE`: the namespace of the `authz-service` Service and the workloads.
+     * `PORT`: the port of the `authz-service` Service that serves the `ext_proc` gRPC API.
+
 This command creates a callout-based authorization extension that runs as a Kubernetes service `authz-service`.
 
 The output is similar to:
-         
-         gcpauthzextension.networking.gke.io/my-authz-ext created
-         
+    
+    gcpauthzextension.networking.gke.io/my-authz-ext created
+    
 
   3. Set up the authorization policy to delegate authorization decisions for the workload to the authorization extension previously configured:
          
@@ -256,7 +272,8 @@ The output is similar to:
            namespace: NAMESPACE
          spec:
            targetRefs:
-           - kind: Pod
+           - group: ""
+             kind: Pod
              selector:
                matchLabels:
                  app: EXAMPLE_APP
@@ -265,18 +282,20 @@ The output is similar to:
                sources:
                - principals:
                  - principal:
-                     exact: "spiffe://cluster.local/NAMESPACE/pod1"
+                     type: Exact
+                     value: "spiffe://cluster.local/NAMESPACE/pod1"
              to:
                operations:
                - paths:
                  - type: Exact
                    value: "/api/payments-schedule"
            action: CUSTOM
-           customProvider:
-             authzExtension:
-               targetRefs:
-               - kind: GCPAuthzExtension
-                 name: my-authz-ext
+           enforcementLevel: L7
+           customProviders:
+             extensionRefs:
+             - group: networking.gke.io
+               kind: GCPAuthzExtension
+               name: my-authz-ext
          EOF
          kubectl apply -f authz-policy.yaml
          
@@ -286,7 +305,7 @@ The output is similar to:
          gcpauthzpolicy.networking.gke.io/my-workload-authz created
          
 
-The proxy will wait for your custom service to return an `OK` or `DENY` response before forwarding the request to the application or returning an HTTP 403 to the caller. 
+The proxy waits for the authorization extension to respond before it forwards the request to the application. If the extension rejects the request by ending the call with an error, or if the call fails or times out while `failOpen` is `false`, the caller receives an HTTP 500 response. If the extension sends an immediate response, the caller receives the status code from that response. 
 
 
 
@@ -295,6 +314,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

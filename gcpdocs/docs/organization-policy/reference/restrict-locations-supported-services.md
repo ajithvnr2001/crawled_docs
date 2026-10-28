@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/organization-policy/reference/restrict-locations-supported-services/
 title: Services that support restricting resource locations \u00a0|\u00a0 Organization Policy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:49.758151+00:00
+fetched_at: 2026-10-28T02:30:04.747580+00:00
 ---
 
 # Services that support restricting resource locations  |  Organization Policy  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 The resources used by each service are impacted by location in different ways. Before adding a [resource locations](https://docs.cloud.google.com/organization-policy/restrict-locations) constraint to your [organization policy](https://docs.cloud.google.com/organization-policy/overview), review the following sections to see how the resources you are applying the policy to will behave.
 
-**Note:** Organization policies, including those with the resource locations constraint, are not retroactive. Adding the resource locations constraint to existing resources will not restrict their location, but might restrict automatic child resource creation or other functionality.
+**Note:** Organization policies, including those with the resource locations constraint, are not retroactive. Adding the resource locations constraint to existing resources won't restrict their location, but might restrict automatic child resource creation or other functionality.
 
 ## Agent Anomaly Detection
 
@@ -596,7 +596,7 @@ The policy is enforced when the resource is created. Applying a resource locatio
 
 ## Data Lineage API
 
-Organization policy is enforced when you create or update a `Process` using either the [CreateProcess](https://docs.cloud.google.com/data-catalog/docs/reference/data-lineage/rpc/google.cloud.datacatalog.lineage.v1#google.cloud.datacatalog.lineage.v1.Lineage.CreateProcess), [UpdateProcess](https://docs.cloud.google.com/data-catalog/docs/reference/data-lineage/rpc/google.cloud.datacatalog.lineage.v1#google.cloud.datacatalog.lineage.v1.Lineage.UpdateProcess), or [ProcessOpenLineageRunEvent](https://docs.cloud.google.com/data-catalog/docs/reference/data-lineage/rpc/google.cloud.datacatalog.lineage.v1#google.cloud.datacatalog.lineage.v1.Lineage.ProcessOpenLineageRunEvent) method.
+Organization policy is enforced when you create or update a `Process` using either the [CreateProcess](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rpc/google.cloud.datacatalog.lineage.v1#google.cloud.datacatalog.lineage.v1.Lineage.CreateProcess), [UpdateProcess](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rpc/google.cloud.datacatalog.lineage.v1#google.cloud.datacatalog.lineage.v1.Lineage.UpdateProcess), or [ProcessOpenLineageRunEvent](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rpc/google.cloud.datacatalog.lineage.v1#google.cloud.datacatalog.lineage.v1.Lineage.ProcessOpenLineageRunEvent) method.
 
 Children resources (`Runs` or `Events`) can be updated or added to any existing `Process` even if the `Process` is in a location that is denied by the resource location organization policy. To ensure that all your resources are in compliance with the resource location organization policy, create new `Process` after the organization policy is applied.
 
@@ -987,6 +987,20 @@ Organization policy is enforced when you create new Serverless VPC Access connec
 
 For more information, see the Serverless VPC Access [Supported Regions](https://docs.cloud.google.com/vpc/docs/serverless-vpc-access).
 
+## Service connectivity automation
+
+The following resources are used by [service connectivity automation](https://docs.cloud.google.com/vpc/docs/about-service-connectivity-automation) to automate Private Service Connect connectivity to managed services. These resources are regional:
+
+  * [`ServiceConnectionPolicy`](https://docs.cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest/v1/projects.locations.serviceConnectionPolicies)
+  * [`ServiceConnectionMap`](https://docs.cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest/v1/projects.locations.serviceConnectionMaps)
+  * [`ServiceConnectionToken`](https://docs.cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest/v1/projects.locations.serviceConnectionTokens)
+  * [`ServiceClass`](https://docs.cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest/v1/projects.locations.serviceClasses)
+  * `AutomatedDnsRecord`
+
+
+
+Organization policy is enforced when you create these resources.
+
 ## Service Extensions
 
 The following resources are regional:
@@ -1052,6 +1066,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

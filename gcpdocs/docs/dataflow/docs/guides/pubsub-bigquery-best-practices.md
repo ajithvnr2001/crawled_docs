@@ -1,13 +1,46 @@
 ---
 url: https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/
 title: Pub/Sub to BigQuery best practices \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:44:21.070844+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:12:30.247868+00:00
 ---
 
 # Pub/Sub to BigQuery best practices  |  Cloud Dataflow  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/
+
+[ Skip to main content ](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/)
+  * [Deutsch](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=de)
+  * [Español](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=it)
+  * [Português](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/?hl=ko)
+
+
+[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Fdataflow%2Fdocs%2Fguides%2Fpubsub-bigquery-best-practices%2F&prompt=select_account)
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/data-analytics-color.svg) ](https://docs.cloud.google.com/dataflow/docs)
+  * [ Cloud Dataflow ](https://docs.cloud.google.com/dataflow/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Initial solutions for pipeline backlogs](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/#initial-mitigation)
+  * [Long-term code and pipeline optimizations](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/#optimizations)
+  * [Resource, quota, and configuration management](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/#resource-management)
+  * [What's next](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/#whats-next)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -16,27 +49,26 @@ fetched_at: 2026-10-25T06:44:21.070844+00:00
   * [ Guides ](https://docs.cloud.google.com/dataflow/docs/overview)
 
 
-
+Was this helpful?
 Send feedback 
+#  Pub/Sub to BigQuery best practices Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Initial solutions for pipeline backlogs](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/#initial-mitigation)
+  * [Long-term code and pipeline optimizations](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/#optimizations)
+  * [Resource, quota, and configuration management](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/#resource-management)
+  * [What's next](https://docs.cloud.google.com/dataflow/docs/guides/pubsub-bigquery-best-practices/#whats-next)
 
-#  Pub/Sub to BigQuery best practices Stay organized with collections  Save and categorize content based on your preferences. 
 
 This page outlines best practices for optimizing a Dataflow pipeline that [reads from Pub/Sub](https://docs.cloud.google.com/dataflow/docs/concepts/streaming-with-cloud-pubsub) and [writes to BigQuery](https://docs.cloud.google.com/dataflow/docs/guides/write-to-bigquery). Depending on your use case, the following suggestions might lead to better performance.
-
 ## Initial solutions for pipeline backlogs
-
 When a Pub/Sub to BigQuery pipeline experiences a growing backlog and can't keep up with incoming messages, you can take the following immediate steps:
-
   * **Increase Pub/Sub acknowledgment deadline:** For the associated Pub/Sub subscription, [increase the acknowledgment deadline](https://docs.cloud.google.com/pubsub/docs/lease-management) to a value slightly longer than the maximum expected message processing time. This prevents messages from being redelivered prematurely while they are still being processed.
   * **Scale out workers:** If the unacknowledged message count and subscription backlog are growing rapidly, the pipeline's processing capacity is likely insufficient. Increase the [number of Dataflow workers](https://docs.cloud.google.com/dataflow/docs/reference/pipeline-options) to handle the message volume.
   * **Enable exponential backoff:** Enable [exponential backoff](https://docs.cloud.google.com/pubsub/docs/handling-failures#exponential_backoff) to improve how the pipeline handles retries for transient issues, making it more resilient.
 
 
-
 ## Long-term code and pipeline optimizations
-
 For sustained performance and stability, the following architectural and code changes are recommended:
-
   * **Reduce`getTable` calls to BigQuery:** Excessive `getTable` method calls can lead to rate-limiting and performance bottlenecks. To mitigate this: 
     * Cache table existence information in worker memory to avoid repeated calls for the same table.
     * Batch `getTable` calls on a per-bundle basis instead of for each individual element.
@@ -46,11 +78,8 @@ For sustained performance and stability, the following architectural and code ch
   * **Optimize the key space:** Performance can degrade when pipelines operate on millions of active keys. Adjust the pipeline's logic to perform work on a smaller, more manageable key space.
 
 
-
 ## Resource, quota, and configuration management
-
 Proper resource allocation and configuration are critical for pipeline health:
-
   * **Proactively manage quotas:** Monitor quotas and request increases for any quotas that might be reached during scaling events. For example, consider the following scaling events: 
     * A high rate of calls to the `TableService.getTable` or `tabledata.insertAll` methods might exceed the maximum queries per second (QPS). For more information on limits and how to request more quota, see [BigQuery quotas and limits](https://docs.cloud.google.com/bigquery/quotas).
     * Compute Engine quotas for in-use IP addresses and CPUs might exceed maximum limits. For more information on limits and how to request more quota, see the [Compute Engine quota and limits overview](https://docs.cloud.google.com/compute/quotas-limits).
@@ -60,19 +89,14 @@ Proper resource allocation and configuration are critical for pipeline health:
     * Set a higher [number of workers](https://docs.cloud.google.com/dataflow/docs/reference/pipeline-options#resource_utilization) to distribute the workload more evenly and reduce the performance impact of frequent autoscaling events.
 
 
-
 ## What's next
-
   * [Develop and test Dataflow pipelines](https://docs.cloud.google.com/dataflow/docs/guides/develop-and-test-pipelines)
   * [Dataflow pipeline best practices](https://docs.cloud.google.com/dataflow/docs/guides/pipeline-best-practices)
   * [Dataflow job metrics](https://docs.cloud.google.com/dataflow/docs/guides/using-monitoring-intf)
 
 
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

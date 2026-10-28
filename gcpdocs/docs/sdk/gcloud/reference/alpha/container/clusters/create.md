@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/container/clusters/create/
 title: gcloud alpha container clusters create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:33.520306+00:00
+fetched_at: 2026-10-27T21:41:21.390451+00:00
 ---
 
 # gcloud alpha container clusters create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ FLAGS
 `max-shared-clients-per-gpu`
      (Optional) The max number of containers allowed to share each GPU on the node. This field is used together with `gpu-sharing-strategy`. 
 `--addons`=[`ADDON`[=`ENABLED`|`DISABLED`],…]
-     Addons (https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters#Cluster.AddonsConfig) are additional Kubernetes cluster components. Addons specified by this flag will be enabled. The others will be disabled. Default addons: HttpLoadBalancing, HorizontalPodAutoscaling. The Istio addon is deprecated and removed. For more information and migration, see <https://cloud.google.com/istio/docs/istio-on-gke/migrate-to-anthos-service-mesh>. ADDON must be one of: HttpLoadBalancing, HorizontalPodAutoscaling, KubernetesDashboard, NetworkPolicy, NodeLocalDNS, ConfigConnector, GcePersistentDiskCsiDriver, GcpFilestoreCsiDriver, BackupRestore, GcsFuseCsiDriver, HighScaleCheckpointing, LustreCsiDriver, RayOperator, SlurmOperator, NodeReadinessController, Istio, CloudBuild, CloudRun. 
+     Addons (https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters#Cluster.AddonsConfig) are additional Kubernetes cluster components. Addons specified by this flag will be enabled. The others will be disabled. Default addons: HttpLoadBalancing, HorizontalPodAutoscaling. The Istio addon is deprecated and removed. For more information and migration, see <https://cloud.google.com/istio/docs/istio-on-gke/migrate-to-anthos-service-mesh>. The ConfigConnector add-on lags behind the latest open-source release by 12 months or more. For the latest version, CustomResourceDefinition of Google Cloud resources, and independent upgrades, install the self-managed Config Connector Operator instead: <https://cloud.google.com/config-connector/docs/how-to/install-manually#switch-add-on>. ADDON must be one of: HttpLoadBalancing, HorizontalPodAutoscaling, KubernetesDashboard, NetworkPolicy, NodeLocalDNS, ConfigConnector, GcePersistentDiskCsiDriver, GcpFilestoreCsiDriver, BackupRestore, GcsFuseCsiDriver, HighScaleCheckpointing, LustreCsiDriver, RayOperator, SlurmOperator, NodeReadinessController, Istio, CloudBuild, CloudRun. 
 `--allow-route-overlap`
      Allows the provided cluster CIDRs to overlap with existing routes that are less specific and do not terminate at a VM. 
 
@@ -808,7 +808,7 @@ Examples:
 The project of the Pub/Sub topic must be the same one as the cluster. It can be either the project ID or the project number. 
 
 `--num-nodes`=`NUM_NODES`; default=3
-     The number of nodes to be created in each of the cluster's zones. 
+     The number of nodes to be created in each of the cluster's zones. Set to 0 to create the cluster without a default node pool. This requires a GKE version that supports clusters without a default node pool. Flags that only configure the default node pool, such as '--machine-type', can't be used with '--num-nodes=0'. To add nodes later, use 'gcloud container node-pools create'. 
 `--patch-update`=[`PATCH_UPDATE`]
      The patch update to use for the cluster. 
 
@@ -1926,6 +1926,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

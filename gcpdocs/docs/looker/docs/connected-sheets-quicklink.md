@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/connected-sheets-quicklink/
 title: Connected Sheets quick link \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:16.413165+00:00
+fetched_at: 2026-10-28T02:29:57.243424+00:00
 ---
 
 # Connected Sheets quick link  |  Looker  |  Google Cloud Documentation
@@ -140,7 +140,7 @@ To create the client and its credentials, follow these steps:
 After you have enabled the Google Sheets API in the Google Cloud console and created the OAuth client in the Google Cloud console, you can enable the **Connected Sheets** quick link on your Looker instance by performing these steps: 
 
   1. In your Looker instance, select **BI Connectors** from the **Platform** section of the **Admin** panel.
-  2. Enable the **Google Sheets** toggle if it isn't already enabled. 
+  2. Enable the **Google Sheets** toggle if it isn't already enabled (you can also enable the pre-configured **Connected Sheets** client on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#application-library) page; settings between both pages are synchronized). 
   3. Enable the nested toggle **Enable Connected Sheets quick link**.
   4. In the **Client ID** and **Client Secret** fields, paste the values that you copied from the Google Cloud console when you created the OAuth client in the Google Cloud console.
   5. Click **Save**.
@@ -176,6 +176,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

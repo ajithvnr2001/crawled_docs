@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/samples/
 title: All GKE code samples \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:42:33.393265+00:00
+fetched_at: 2026-10-27T20:47:12.111852+00:00
 ---
 
 # All GKE code samples  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

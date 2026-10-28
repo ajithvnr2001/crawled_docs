@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/livestream/docs/samples/livestream-get-pool/
 title: Get a pool \u00a0|\u00a0 Live Stream API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:05.000845+00:00
+fetched_at: 2026-10-27T22:34:26.487326+00:00
 ---
 
 # Get a pool  |  Live Stream API  |  Google Cloud Documentation

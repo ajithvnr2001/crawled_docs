@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/instance-groups/managed/update-instances/
 title: gcloud alpha compute instance-groups managed update-instances \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T22:25:09.370846+00:00
+fetched_at: 2026-10-27T21:41:21.595478+00:00
 ---
 
 # gcloud alpha compute instance-groups managed update-instances  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha compute instance-groups managed update-instances - immediately upda
 SYNOPSIS
     
 
-`gcloud alpha compute instance-groups managed update-instances` `NAME` (`--all-instances` | `--instances`=`INSTANCE`,[`INSTANCE`,…]) [`--minimal-action`=`MINIMAL_ACTION`; default="none"] [`--most-disruptive-allowed-action`=`MOST_DISRUPTIVE_ALLOWED_ACTION`; default="replace"] [`--region`=`REGION` | `--zone`=`ZONE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha compute instance-groups managed update-instances` `NAME` (`--all-instances` | `--instances`=`INSTANCE`,[`INSTANCE`,…]) [`--allowed-actions`=`ACTION`,[`ACTION`,…] | `--minimal-action`=`MINIMAL_ACTION`; default="none" `--most-disruptive-allowed-action`=`MOST_DISRUPTIVE_ALLOWED_ACTION`; default="replace"] [`--region`=`REGION` | `--zone`=`ZONE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` When using a managed instance group, it's possible that your intended specification for a VM is different from the current state of that VM. For example, this can happen due to changes to the group's target instance template. This command enables you to initiate the update process on the given set of instances instantly, thus when your Managed Instance Group is stable you can be sure that all the changes were applied. 
 
@@ -58,6 +58,25 @@ Exactly one of these must be specified:
      Names of instances to update. 
 OPTIONAL FLAGS
     
+
+At most one of these can be specified: 
+
+`--allowed-actions`=`ACTION`,[`ACTION`,…]
+     Use this flag to specify a list of actions that are allowed to be performed on each instance while updating. The MIG performs the least disruptive action from the allowed actions that is sufficient to apply the update. If the update requires a more disruptive action than any of the allowed actions, then the update fails and no changes are made. 
+
+`ACTION` must be one of: 
+
+`none`
+     No action 
+`refresh`
+     Apply the new configuration without stopping VMs, if possible. For example, use ``refresh`` to apply changes that only affect metadata or additional disks. 
+`restart-in-place`
+     Restart VMs using the same capacity and preserving local SSDs, if possible. 
+`restart`
+     Apply the new configuration without replacing VMs, if possible. For example, stopping VMs and starting them again is sufficient to apply changes to machine type. Local SSDs are replaced. 
+`replace`
+     Replace old VMs according to the --replacement-method flag. 
+Or at least one of these can be specified: 
 
 `--minimal-action`=`MINIMAL_ACTION`; default="none"
      Use this flag to minimize disruption as much as possible or to apply a more disruptive action than is strictly necessary. The MIG performs at least this action on each instance while updating. If the update requires a more disruptive action than the one specified here, then the more disruptive action is performed. If you omit this flag, the update uses the ``minimal-action`` value from the MIG's update policy, unless it is not set in which case the default is ``replace``. 
@@ -128,6 +147,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/versions-packages/
 title: Preinstalled packages changelog \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:22:07.156284+00:00
+fetched_at: 2026-10-28T02:30:43.927720+00:00
 ---
 
 # Preinstalled packages changelog  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -30,6 +30,1709 @@ This page lists preinstalled packages in each released Airflow build and package
 ## Managed Airflow (Gen 3) package changelog
 
 This section provides a list of preinstalled packages and a list of changes between preinstalled packages in subsequent releases of Managed Airflow (Gen 3).
+
+### October 20, 2026
+
+This section lists Airflow builds of Managed Airflow (Gen 3) released on October 20, 2026.
+
+#### composer-3-airflow-3.3.1-build.5
+
+Packages in composer-3-airflow-3.3.1-build.5
+    
+    
+            a2wsgi==1.10.10
+            absl-py==2.5.1
+            aenum==3.1.17
+            agate==1.9.1
+            aiodebug==2.3.0
+            aiofiles==25.1.0
+            aiohappyeyeballs==2.7.1
+            aiohttp==3.14.5
+            aiohttp-cors==0.8.1
+            aiomysql==0.3.2
+            aiosignal==1.4.0
+            aiosmtplib==5.1.3
+            aiosqlite==0.22.1
+            alembic==1.20.0
+            amqp==5.4.1
+            annotated-doc==0.0.5
+            annotated-types==0.8.0
+            anyio==4.15.1
+            apache-airflow==3.3.1+composer
+            apache-airflow-client==3.3.2
+            apache-airflow-core==3.3.1+composer
+            apache-airflow-ctl==0.1.5
+            apache-airflow-providers-apache-beam==6.3.1
+            apache-airflow-providers-celery==3.25.0
+            apache-airflow-providers-cncf-kubernetes==10.24.0
+            apache-airflow-providers-common-compat==1.21.0
+            apache-airflow-providers-common-io==1.10.1
+            apache-airflow-providers-common-sql==2.3.0
+            apache-airflow-providers-dbt-cloud==4.10.0
+            apache-airflow-providers-fab==3.10.1
+            apache-airflow-providers-google==22.6.0
+            apache-airflow-providers-hashicorp==4.8.3
+            apache-airflow-providers-http==6.3.0
+            apache-airflow-providers-mysql==6.7.1
+            apache-airflow-providers-openlineage==2.20.3
+            apache-airflow-providers-postgres==7.1.1
+            apache-airflow-providers-redis==4.7.1
+            apache-airflow-providers-sendgrid==4.2.5
+            apache-airflow-providers-smtp==3.1.1
+            apache-airflow-providers-sqlite==4.3.4
+            apache-airflow-providers-ssh==7.0.0
+            apache-airflow-providers-standard==1.20.1
+            apache-airflow-task-sdk==1.3.1
+            apache-beam==2.77.0
+            apispec==6.10.0
+            argcomplete==3.7.2
+            arrow==1.4.0
+            asgiref==3.12.1
+            astunparse==1.6.3
+            asyncpg==0.32.0
+            asyncssh==2.24.1
+            attrs==26.1.0
+            Authlib==1.9.1
+            babel==2.18.0
+            backports.tarfile==1.2.0
+            bcrypt==5.0.0
+            beartype==0.22.9
+            billiard==4.3.1
+            blinker==1.9.0
+            build==1.6.1
+            CacheControl==0.14.4
+            cachelib==0.17.0
+            cachetools==7.2.1
+            cadwyn==7.0.0
+            cattrs==26.2.1
+            celery==5.6.3
+            certifi==2026.7.22
+            cffi==2.1.1
+            chardet==5.2.0
+            charset-normalizer==3.5.2
+            click==8.4.2
+            click-didyoumean==0.3.1
+            click-plugins==1.1.1.2
+            click-repl==0.4.1
+            cloudpickle==3.1.2
+            colorama==0.4.6
+            colorful==0.5.8
+            colorlog==6.12.0
+            confluent-kafka==2.16.0
+            cron_descriptor==2.2.1
+            croniter==6.2.4
+            cryptography==50.0.2
+            dacite==1.9.2
+            daff==1.4.2
+            db-dtypes==1.7.2
+            dbt-adapters==1.24.5
+            dbt-bigquery==1.12.1
+            dbt-common==1.39.0
+            dbt-core==1.13.0b1
+            dbt-core-experimental-parser==2.0.8
+            dbt-extractor==0.6.0
+            dbt-protos==1.0.594
+            dbt-state==2.61.0
+            decorator==5.3.1
+            deepdiff==8.6.2
+            Deprecated==1.3.1
+            diff_cover==10.6.0
+            dill==0.4.1
+            distlib==0.4.3
+            distro==1.9.0
+            dnspython==2.9.0
+            docstring_parser==0.18.0
+            durationpy==0.11
+            email-validator==2.3.0
+            fastapi==0.136.3
+            fastapi-cli==0.0.32
+            fastavro==1.13.1
+            fasteners==0.20
+            fastjsonschema==2.22.2
+            fastuuid==0.14.0
+            filelock==4.2.0
+            firebase_admin==7.7.0
+            Flask==2.3.3
+            flask-appbuilder==5.2.2
+            flask-babel==4.0.0
+            Flask-JWT-Extended==4.7.4
+            Flask-Limiter==4.1.1
+            Flask-Login==0.6.3
+            Flask-Session==0.8.0
+            Flask-SQLAlchemy==3.1.1
+            Flask-WTF==1.3.0
+            flatbuffers==25.12.19
+            flower==2.2.0
+            frozenlist==1.8.0
+            fsspec==2025.12.0
+            gast==0.7.0
+            gcloud-aio-auth==5.5.1
+            gcloud-aio-bigquery==7.2.0
+            gcloud-aio-storage==9.6.5
+            gcsfs==2025.12.0
+            google-ads==33.0.0
+            google-analytics-admin==0.30.2
+            google-api-core==2.42.0
+            google-api-python-client==2.201.0
+            google-apitools==0.5.35
+            google-auth==2.62.0
+            google-auth-httplib2==0.4.4
+            google-auth-oauthlib==1.5.0
+            google-cloud-access-context-manager==0.6.1
+            google-cloud-aiplatform==2.5.0
+            google-cloud-alloydb==0.11.3
+            google-cloud-appengine-logging==1.11.0
+            google-cloud-asset==4.5.0
+            google-cloud-audit-log==0.6.2
+            google-cloud-automl==2.21.0
+            google-cloud-batch==0.22.4
+            google-cloud-bigquery==3.46.1
+            google-cloud-bigquery-datatransfer==3.24.0
+            google-cloud-bigquery-storage==2.42.0
+            google-cloud-bigtable==2.50.0
+            google-cloud-build==3.40.0
+            google-cloud-common==1.11.0
+            google-cloud-compute==1.55.0
+            google-cloud-container==2.67.0
+            google-cloud-core==2.8.0
+            google-cloud-datacatalog==3.32.0
+            google-cloud-datacatalog-lineage==0.7.1
+            google-cloud-datacatalog-lineage-producer-client==0.2.7
+            google-cloud-dataflow-client==0.14.1
+            google-cloud-dataform==0.11.4
+            google-cloud-dataplex==2.21.0
+            google-cloud-dataproc==5.31.0
+            google-cloud-dataproc-metastore==1.24.0
+            google-cloud-datastore==2.27.0
+            google-cloud-dlp==3.40.0
+            google-cloud-documentai==3.16.0
+            google-cloud-filestore==1.18.0
+            google-cloud-firestore==2.34.1
+            google-cloud-kms==3.18.0
+            google-cloud-language==2.22.0
+            google-cloud-logging==3.17.0
+            google-cloud-managedkafka==0.4.2
+            google-cloud-memcache==1.17.0
+            google-cloud-monitoring==2.32.0
+            google-cloud-orchestration-airflow==1.23.0
+            google-cloud-org-policy==1.19.0
+            google-cloud-os-config==1.26.0
+            google-cloud-os-login==2.23.0
+            google-cloud-pubsub==2.42.0
+            google-cloud-pubsublite==1.13.0
+            google-cloud-redis==2.23.0
+            google-cloud-resource-manager==1.19.0
+            google-cloud-run==0.16.2
+            google-cloud-secret-manager==2.31.0
+            google-cloud-spanner==3.71.0
+            google-cloud-speech==2.41.0
+            google-cloud-storage==3.1.1
+            google-cloud-storage-control==1.16.0
+            google-cloud-storage-transfer==1.22.0
+            google-cloud-tasks==2.26.0
+            google-cloud-texttospeech==2.38.0
+            google-cloud-translate==3.28.0
+            google-cloud-videointelligence==2.21.0
+            google-cloud-vision==3.16.0
+            google-cloud-workflows==1.24.0
+            google-crc32c==1.9.0
+            google-genai==2.31.0
+            google-pasta==0.2.0
+            google-resumable-media==2.11.0
+            googleapis-common-protos==1.75.5
+            greenback==1.3.0
+            greenlet==3.5.6
+            grpc-google-iam-v1==0.14.5
+            grpc-interceptor==0.15.4
+            grpcio==1.84.0
+            grpcio-gcp==0.2.2
+            grpcio-status==1.84.0
+            gunicorn==26.2.0
+            h11==0.16.0
+            h2==4.4.1
+            h5py==3.14.0
+            hf-xet==1.7.0
+            hpack==4.2.0
+            httpcore==1.0.9
+            httpcore2==2.13.1
+            httplib2==0.32.0
+            httptools==0.9.0
+            httpx==0.28.1
+            httpx2==2.13.1
+            huggingface_hub==2.2.0
+            humanize==4.16.0
+            hvac==2.4.0
+            hyperframe==6.1.0
+            idna==3.20
+            immutabledict==4.3.1
+            importlib_metadata==8.9.0
+            installer==1.1.0
+            invoke==3.0.3
+            isodate==0.7.2
+            isoduration==20.11.0
+            itsdangerous==2.2.0
+            jaraco.classes==3.4.0
+            jaraco.context==6.1.2
+            jaraco.functools==4.6.0
+            jeepney==0.9.0
+            Jinja2==3.1.6
+            jiter==0.17.0
+            jmespath==1.1.0
+            joblib==1.6.0
+            joserfc==1.7.5
+            jsonpickle==4.1.3
+            jsonschema==4.26.0
+            jsonschema-specifications==2025.9.1
+            jupyter_core==5.9.1
+            keras==3.15.1
+            keyring==25.7.0
+            keyrings.google-artifactregistry-auth==1.1.2
+            kombu==5.6.2
+            kubernetes==36.0.3
+            kubernetes_asyncio==36.1.0
+            lazy-object-proxy==1.12.0
+            leather==0.4.1
+            libclang==18.1.1
+            libcst==1.9.0
+            limits==5.8.0
+            linkify-it-py==2.2.0
+            litellm==1.85.7
+            lockfile==0.12.2
+            looker_sdk==26.20.0
+            Mako==1.4.3
+            markdown-it-py==4.2.0
+            MarkupSafe==3.0.4
+            marshmallow==4.3.1
+            marshmallow-sqlalchemy==1.5.0
+            mashumaro==3.17
+            mdurl==0.1.2
+            methodtools==0.4.7
+            metricflow==0.213.0
+            ml_dtypes==0.6.0
+            mmh3==5.3.1
+            more-itertools==10.8.0
+            msgpack==1.2.3
+            msgspec==0.22.0
+            multidict==7.1.0
+            mysql-connector-python==26.7.0
+            mysqlclient==2.3.0
+            nab==0.0.21
+            nab-index==0.0.21
+            nab-markersets==0.0.21
+            nab-project==0.0.21
+            nab-provider==0.0.21
+            nab-resolver==0.0.21
+            namex==0.1.0
+            narwhals==2.27.1
+            natsort==8.4.0
+            nbformat==5.11.1
+            networkx==3.6.1
+            numpy==2.4.6
+            oauth2client==4.1.3
+            oauthlib==4.0.0
+            objsize==0.7.1
+            openai==2.54.0
+            opencensus==0.11.4
+            opencensus-context==0.1.3
+            openlineage-integration-common==1.54.0
+            openlineage-python==1.54.0
+            openlineage_sql==1.54.0
+            opentelemetry-api==1.45.1
+            opentelemetry-exporter-http-transport==0.66b1
+            opentelemetry-exporter-otlp==1.45.1
+            opentelemetry-exporter-otlp-common==0.66b1
+            opentelemetry-exporter-otlp-proto-common==1.45.1
+            opentelemetry-exporter-otlp-proto-grpc==1.45.1
+            opentelemetry-exporter-otlp-proto-http==1.45.1
+            opentelemetry-exporter-prometheus==0.66b1
+            opentelemetry-proto==1.45.1
+            opentelemetry-resourcedetector-gcp==1.14.0
+            opentelemetry-sdk==1.45.1
+            opentelemetry-semantic-conventions==0.66b1
+            opt_einsum==3.4.0
+            optree==0.20.0
+            orchestration-pipelines==1.2.1
+            ordered-set==4.1.0
+            orderly-set==5.5.0
+            outcome==1.3.0.post0
+            overrides==7.7.0
+            packaging==26.3
+            pandas==2.3.3
+            pandas-gbq==0.35.2
+            paramiko==5.0.0
+            parsedatetime==2.6
+            pathlib_abc==0.5.2
+            pathspec==1.0.4
+            pem==23.1.0
+            pendulum==3.3.0
+            pillow==12.3.0
+            pip==23.2.1
+            pipdeptree==4.2.7
+            platformdirs==4.13.0
+            pluggy==1.6.0
+            prison==0.2.1
+            prometheus_client==0.26.0
+            prompt_toolkit==3.0.53
+            propcache==0.5.4
+            proto-plus==1.29.0
+            protobuf==6.33.6
+            psutil==7.2.2
+            psycopg==3.3.6
+            psycopg-binary==3.3.6
+            psycopg2-binary==2.9.13
+            py-spy==0.4.2
+            pyarrow==25.0.1
+            pyasn1==0.6.4
+            pyasn1_modules==0.4.2
+            pycparser==3.11
+            pydantic==2.14.1
+            pydantic_core==2.50.1
+            pydantic-extra-types==2.11.2
+            pydantic-settings==2.16.0
+            pydata-google-auth==1.9.1
+            Pygments==2.21.0
+            pygtrie==2.6.2
+            PyJWT==2.15.1
+            pymongo==4.19.0
+            PyMySQL==1.1.3
+            PyNaCl==1.6.2
+            pyOpenSSL==26.4.0
+            pyparsing==3.3.3
+            pyproject_hooks==1.3.3
+            python-daemon==3.1.2
+            python-dateutil==2.9.0.post0
+            python-discovery==1.6.2
+            python-dotenv==1.2.4
+            python-http-client==3.3.7
+            python-multipart==0.0.32
+            python-slugify==9.1.3
+            pytimeparse==1.1.9
+            pytimeparse2==1.7.1
+            pytz==2026.5
+            PyYAML==6.0.3
+            query-cache-common==2.6.0
+            query-cache-protobuf==2.6.0
+            RapidFuzz==3.14.6
+            ray==2.59.0
+            redis==6.4.0
+            referencing==0.37.0
+            regex==2026.9.29
+            requests==2.34.2
+            requests-oauthlib==2.0.0
+            requests-toolbelt==1.0.0
+            rich==15.0.0
+            rich-argparse==1.8.0
+            rich-toolkit==0.20.6
+            rpds-py==2026.9.1
+            rsa==4.9.1
+            ruamel.yaml==0.19.1
+            rustworkx==0.18.1
+            scikit-learn==1.9.1
+            scipy==1.17.1
+            SecretStorage==3.5.0
+            sendgrid==6.12.5
+            setproctitle==1.3.8
+            setuptools==84.0.0
+            shellingham==1.5.4
+            six==1.17.0
+            smart_open==8.0.3
+            sniffio==1.3.1
+            snowplow-tracker==1.1.0
+            sortedcontainers==2.4.0
+            SQLAlchemy==2.0.54
+            sqlalchemy-bigquery==1.17.3
+            sqlalchemy-spanner==1.20.1
+            SQLAlchemy-Utils==0.43.0
+            sqlfluff==4.4.0
+            sqlglot==30.23.0
+            sqllineage==1.5.9
+            sqlparse==0.6.0
+            starlette==1.8.0
+            statsd==4.0.1
+            structlog==26.1.0
+            svcs==26.2.0
+            tabulate==0.10.0
+            tblib==3.2.2
+            tenacity==9.1.4
+            tensorflow==2.21.0
+            termcolor==3.3.0
+            text-unidecode==1.3
+            threadpoolctl==3.7.0
+            tiktoken==0.14.0
+            tokenizers==0.23.3
+            tomli==2.5.0
+            tomli_w==1.2.0
+            tornado==6.5.10
+            tqdm==4.70.1
+            traitlets==5.16.1
+            truststore==0.10.5
+            typer==0.27.3
+            types-protobuf==7.35.1.20260906
+            typing_extensions==4.16.0
+            typing-inspection==0.4.4
+            tzdata==2026.5
+            tzlocal==5.4.4
+            universal_pathlib==0.3.10
+            uritemplate==4.2.0
+            urllib3==2.8.0
+            uuid6==2025.0.1
+            uvicorn==0.54.0
+            uvloop==0.23.0
+            vine==5.1.0
+            virtualenv==21.14.7
+            watchfiles==1.3.0
+            wcwidth==0.9.2
+            websocket-client==1.9.2
+            websockets==16.1.1
+            Werkzeug==2.3.8
+            wheel==0.48.0
+            wirerope==1.0.0
+            wrapt==2.5.1
+            WTForms==3.2.2
+            yarl==1.25.1
+            zipp==4.1.1
+            zstandard==0.25.0
+          
+
+Difference with composer-3-airflow-3.3.1-build.4
+    
+    
+    PACKAGE                                   PREVIOUS  CURRENT
+    
+    Authlib                                   ---       1.9.1
+    SQLAlchemy-Utils                          0.42.1    0.43.0
+    absl-py                                   2.5.0     2.5.1
+    aenum                                     ---       3.1.17
+    aiohttp                                   3.14.4    3.14.5
+    apache-airflow-providers-apache-beam      6.3.0     6.3.1
+    apache-airflow-providers-celery           3.24.1    3.25.0
+    apache-airflow-providers-cncf-kubernetes  10.23.0   10.24.0
+    apache-airflow-providers-common-compat    1.20.0    1.21.0
+    apache-airflow-providers-common-io        1.10.0    1.10.1
+    apache-airflow-providers-common-sql       2.2.0     2.3.0
+    apache-airflow-providers-fab              3.10.0    3.10.1
+    apache-airflow-providers-hashicorp        4.8.2     4.8.3
+    apache-airflow-providers-http             6.2.0     6.3.0
+    apache-airflow-providers-mysql            6.7.0     6.7.1
+    apache-airflow-providers-openlineage      2.20.2    2.20.3
+    apache-airflow-providers-postgres         7.1.0     7.1.1
+    apache-airflow-providers-redis            4.7.0     4.7.1
+    apache-airflow-providers-sendgrid         4.2.4     4.2.5
+    apache-airflow-providers-smtp             3.1.0     3.1.1
+    apache-airflow-providers-sqlite           4.3.3     4.3.4
+    apache-airflow-providers-ssh              6.1.0     7.0.0
+    apache-airflow-providers-standard         1.20.0    1.20.1
+    cron_descriptor                           2.1.1     2.2.1
+    dacite                                    ---       1.9.2
+    dbt-core                                  1.12.5    1.13.0b1
+    dbt-core-experimental-parser              2.0.5     2.0.8
+    dbt-state                                 ---       2.61.0
+    dnspython                                 2.8.0     2.9.0
+    filelock                                  4.0.12    4.2.0
+    google-api-core                           2.41.0    2.42.0
+    google-auth                               2.61.0    2.62.0
+    google-cloud-aiplatform                   2.4.0     2.5.0
+    google-cloud-bigtable                     2.49.0    2.50.0
+    google-cloud-firestore                    2.34.0    2.34.1
+    google-genai                              2.29.0    2.31.0
+    httptools                                 0.8.0     0.9.0
+    huggingface_hub                           1.33.0    2.2.0
+    installer                                 1.0.1     1.1.0
+    joserfc                                   ---       1.7.5
+    looker_sdk                                26.18.0   26.20.0
+    multidict                                 6.9.1     7.1.0
+    nab                                       0.0.18    0.0.21
+    nab-index                                 0.0.18    0.0.21
+    nab-markersets                            0.0.18    0.0.21
+    nab-project                               0.0.18    0.0.21
+    nab-provider                              0.0.18    0.0.21
+    nab-resolver                              0.0.18    0.0.21
+    narwhals                                  2.26.0    2.27.1
+    openlineage-integration-common            1.53.0    1.54.0
+    openlineage-python                        1.53.0    1.54.0
+    openlineage_sql                           1.53.0    1.54.0
+    orchestration-pipelines                   1.1.0     1.2.1
+    pendulum                                  3.2.0     3.3.0
+    pipdeptree                                4.2.5     4.2.7
+    platformdirs                              4.12.4    4.13.0
+    pycparser                                 3.0       3.11
+    pydantic                                  2.13.5    2.14.1
+    pydantic-settings                         2.15.0    2.16.0
+    pydantic_core                             2.46.5    2.50.1
+    pymongo                                   4.18.2    4.19.0
+    python-discovery                          1.6.1     1.6.2
+    pytimeparse2                              ---       1.7.1
+    query-cache-common                        ---       2.6.0
+    query-cache-protobuf                      ---       2.6.0
+    rich-toolkit                              0.20.5    0.20.6
+    smart_open                                8.0.2     8.0.3
+    sqlglot                                   30.21.0   30.23.0
+    starlette                                 1.7.0     1.8.0
+    tokenizers                                0.23.2    0.23.3
+    truststore                                0.10.4    0.10.5
+    virtualenv                                21.14.5   21.14.7
+    wrapt                                     2.5.0     2.5.1
+        
+
+Difference with composer-3-airflow-3.2.2-build.9
+    
+    
+    PACKAGE                  PREVIOUS        CURRENT
+    
+    aiosqlite                0.21.0          0.22.1
+    apache-airflow           3.2.2+composer  3.3.1+composer
+    apache-airflow-client    3.2.2           3.3.2
+    apache-airflow-core      3.2.2+composer  3.3.1+composer
+    apache-airflow-task-sdk  1.2.2           1.3.1
+    arrow                    ---             1.4.0
+    isoduration              ---             20.11.0
+    openlineage-python       1.52.0          1.54.0
+    structlog                25.4.0          26.1.0
+    svcs                     26.1.0          26.2.0
+    universal_pathlib        0.3.8           0.3.10
+        
+
+Difference with composer-3-airflow-3.2.2-build.8
+    
+    
+    PACKAGE                                   PREVIOUS        CURRENT
+    
+    Authlib                                   ---             1.9.1
+    SQLAlchemy-Utils                          0.42.1          0.43.0
+    absl-py                                   2.5.0           2.5.1
+    aenum                                     ---             3.1.17
+    aiohttp                                   3.14.4          3.14.5
+    aiosqlite                                 0.21.0          0.22.1
+    apache-airflow                            3.2.2+composer  3.3.1+composer
+    apache-airflow-client                     3.2.2           3.3.2
+    apache-airflow-core                       3.2.2+composer  3.3.1+composer
+    apache-airflow-providers-apache-beam      6.3.0           6.3.1
+    apache-airflow-providers-celery           3.24.1          3.25.0
+    apache-airflow-providers-cncf-kubernetes  10.23.0         10.24.0
+    apache-airflow-providers-common-compat    1.20.0          1.21.0
+    apache-airflow-providers-common-io        1.10.0          1.10.1
+    apache-airflow-providers-common-sql       2.2.0           2.3.0
+    apache-airflow-providers-fab              3.10.0          3.10.1
+    apache-airflow-providers-hashicorp        4.8.2           4.8.3
+    apache-airflow-providers-http             6.2.0           6.3.0
+    apache-airflow-providers-mysql            6.7.0           6.7.1
+    apache-airflow-providers-openlineage      2.20.2          2.20.3
+    apache-airflow-providers-postgres         7.1.0           7.1.1
+    apache-airflow-providers-redis            4.7.0           4.7.1
+    apache-airflow-providers-sendgrid         4.2.4           4.2.5
+    apache-airflow-providers-smtp             3.1.0           3.1.1
+    apache-airflow-providers-sqlite           4.3.3           4.3.4
+    apache-airflow-providers-ssh              6.1.0           7.0.0
+    apache-airflow-providers-standard         1.20.0          1.20.1
+    apache-airflow-task-sdk                   1.2.2           1.3.1
+    arrow                                     ---             1.4.0
+    cron_descriptor                           2.1.1           2.2.1
+    dacite                                    ---             1.9.2
+    dbt-core                                  1.12.5          1.13.0b1
+    dbt-core-experimental-parser              2.0.5           2.0.8
+    dbt-state                                 ---             2.61.0
+    dnspython                                 2.8.0           2.9.0
+    filelock                                  4.0.12          4.2.0
+    google-api-core                           2.41.0          2.42.0
+    google-auth                               2.61.0          2.62.0
+    google-cloud-aiplatform                   2.4.0           2.5.0
+    google-cloud-bigtable                     2.49.0          2.50.0
+    google-cloud-firestore                    2.34.0          2.34.1
+    google-genai                              2.29.0          2.31.0
+    httptools                                 0.8.0           0.9.0
+    huggingface_hub                           1.33.0          2.2.0
+    installer                                 1.0.1           1.1.0
+    isoduration                               ---             20.11.0
+    joserfc                                   ---             1.7.5
+    looker_sdk                                26.18.0         26.20.0
+    multidict                                 6.9.1           7.1.0
+    nab                                       0.0.18          0.0.21
+    nab-index                                 0.0.18          0.0.21
+    nab-markersets                            0.0.18          0.0.21
+    nab-project                               0.0.18          0.0.21
+    nab-provider                              0.0.18          0.0.21
+    nab-resolver                              0.0.18          0.0.21
+    narwhals                                  2.26.0          2.27.1
+    openlineage-integration-common            1.53.0          1.54.0
+    openlineage-python                        1.52.0          1.54.0
+    openlineage_sql                           1.53.0          1.54.0
+    orchestration-pipelines                   1.1.0           1.2.1
+    pendulum                                  3.2.0           3.3.0
+    pipdeptree                                4.2.5           4.2.7
+    platformdirs                              4.12.4          4.13.0
+    pycparser                                 3.1             3.11
+    pydantic                                  2.13.5          2.14.1
+    pydantic-settings                         2.15.0          2.16.0
+    pydantic_core                             2.46.5          2.50.1
+    pymongo                                   4.18.2          4.19.0
+    python-discovery                          1.6.1           1.6.2
+    pytimeparse2                              ---             1.7.1
+    query-cache-common                        ---             2.6.0
+    query-cache-protobuf                      ---             2.6.0
+    smart_open                                8.0.2           8.0.3
+    sqlglot                                   30.21.0         30.23.0
+    starlette                                 1.7.0           1.8.0
+    structlog                                 25.4.0          26.1.0
+    svcs                                      26.1.0          26.2.0
+    tokenizers                                0.23.2          0.23.3
+    truststore                                0.10.4          0.10.5
+    universal_pathlib                         0.3.8           0.3.10
+    virtualenv                                21.14.5         21.14.7
+    wrapt                                     2.5.0           2.5.1
+        
+
+#### composer-3-airflow-3.2.2-build.9
+
+Packages in composer-3-airflow-3.2.2-build.9
+    
+    
+            a2wsgi==1.10.10
+            absl-py==2.5.1
+            aenum==3.1.17
+            agate==1.9.1
+            aiodebug==2.3.0
+            aiofiles==25.1.0
+            aiohappyeyeballs==2.7.1
+            aiohttp==3.14.5
+            aiohttp-cors==0.8.1
+            aiomysql==0.3.2
+            aiosignal==1.4.0
+            aiosmtplib==5.1.3
+            aiosqlite==0.21.0
+            alembic==1.20.0
+            amqp==5.4.1
+            annotated-doc==0.0.5
+            annotated-types==0.8.0
+            anyio==4.15.1
+            apache-airflow==3.2.2+composer
+            apache-airflow-client==3.2.2
+            apache-airflow-core==3.2.2+composer
+            apache-airflow-ctl==0.1.5
+            apache-airflow-providers-apache-beam==6.3.1
+            apache-airflow-providers-celery==3.25.0
+            apache-airflow-providers-cncf-kubernetes==10.24.0
+            apache-airflow-providers-common-compat==1.21.0
+            apache-airflow-providers-common-io==1.10.1
+            apache-airflow-providers-common-sql==2.3.0
+            apache-airflow-providers-dbt-cloud==4.10.0
+            apache-airflow-providers-fab==3.10.1
+            apache-airflow-providers-google==22.6.0
+            apache-airflow-providers-hashicorp==4.8.3
+            apache-airflow-providers-http==6.3.0
+            apache-airflow-providers-mysql==6.7.1
+            apache-airflow-providers-openlineage==2.20.3
+            apache-airflow-providers-postgres==7.1.1
+            apache-airflow-providers-redis==4.7.1
+            apache-airflow-providers-sendgrid==4.2.5
+            apache-airflow-providers-smtp==3.1.1
+            apache-airflow-providers-sqlite==4.3.4
+            apache-airflow-providers-ssh==7.0.0
+            apache-airflow-providers-standard==1.20.1
+            apache-airflow-task-sdk==1.2.2
+            apache-beam==2.77.0
+            apispec==6.10.0
+            argcomplete==3.7.2
+            asgiref==3.12.1
+            astunparse==1.6.3
+            asyncpg==0.32.0
+            asyncssh==2.24.1
+            attrs==26.1.0
+            Authlib==1.9.1
+            babel==2.18.0
+            backports.tarfile==1.2.0
+            bcrypt==5.0.0
+            beartype==0.22.9
+            billiard==4.3.1
+            blinker==1.9.0
+            build==1.6.1
+            CacheControl==0.14.4
+            cachelib==0.17.0
+            cachetools==7.2.1
+            cadwyn==7.0.0
+            cattrs==26.2.1
+            celery==5.6.3
+            certifi==2026.7.22
+            cffi==2.1.1
+            chardet==5.2.0
+            charset-normalizer==3.5.2
+            click==8.4.2
+            click-didyoumean==0.3.1
+            click-plugins==1.1.1.2
+            click-repl==0.4.1
+            cloudpickle==3.1.2
+            colorama==0.4.6
+            colorful==0.5.8
+            colorlog==6.12.0
+            confluent-kafka==2.16.0
+            cron_descriptor==2.2.1
+            croniter==6.2.4
+            cryptography==50.0.2
+            dacite==1.9.2
+            daff==1.4.2
+            db-dtypes==1.7.2
+            dbt-adapters==1.24.5
+            dbt-bigquery==1.12.1
+            dbt-common==1.39.0
+            dbt-core==1.13.0b1
+            dbt-core-experimental-parser==2.0.8
+            dbt-extractor==0.6.0
+            dbt-protos==1.0.594
+            dbt-state==2.61.0
+            decorator==5.3.1
+            deepdiff==8.6.2
+            Deprecated==1.3.1
+            diff_cover==10.6.0
+            dill==0.4.1
+            distlib==0.4.3
+            distro==1.9.0
+            dnspython==2.9.0
+            docstring_parser==0.18.0
+            durationpy==0.11
+            email-validator==2.3.0
+            fastapi==0.136.3
+            fastapi-cli==0.0.32
+            fastavro==1.13.1
+            fasteners==0.20
+            fastjsonschema==2.22.2
+            fastuuid==0.14.0
+            filelock==4.2.0
+            firebase_admin==7.7.0
+            Flask==2.3.3
+            flask-appbuilder==5.2.2
+            flask-babel==4.0.0
+            Flask-JWT-Extended==4.7.4
+            Flask-Limiter==4.1.1
+            Flask-Login==0.6.3
+            Flask-Session==0.8.0
+            Flask-SQLAlchemy==3.1.1
+            Flask-WTF==1.3.0
+            flatbuffers==25.12.19
+            flower==2.2.0
+            frozenlist==1.8.0
+            fsspec==2025.12.0
+            gast==0.7.0
+            gcloud-aio-auth==5.5.1
+            gcloud-aio-bigquery==7.2.0
+            gcloud-aio-storage==9.6.5
+            gcsfs==2025.12.0
+            google-ads==33.0.0
+            google-analytics-admin==0.30.2
+            google-api-core==2.42.0
+            google-api-python-client==2.201.0
+            google-apitools==0.5.35
+            google-auth==2.62.0
+            google-auth-httplib2==0.4.4
+            google-auth-oauthlib==1.5.0
+            google-cloud-access-context-manager==0.6.1
+            google-cloud-aiplatform==2.5.0
+            google-cloud-alloydb==0.11.3
+            google-cloud-appengine-logging==1.11.0
+            google-cloud-asset==4.5.0
+            google-cloud-audit-log==0.6.2
+            google-cloud-automl==2.21.0
+            google-cloud-batch==0.22.4
+            google-cloud-bigquery==3.46.1
+            google-cloud-bigquery-datatransfer==3.24.0
+            google-cloud-bigquery-storage==2.42.0
+            google-cloud-bigtable==2.50.0
+            google-cloud-build==3.40.0
+            google-cloud-common==1.11.0
+            google-cloud-compute==1.55.0
+            google-cloud-container==2.67.0
+            google-cloud-core==2.8.0
+            google-cloud-datacatalog==3.32.0
+            google-cloud-datacatalog-lineage==0.7.1
+            google-cloud-datacatalog-lineage-producer-client==0.2.7
+            google-cloud-dataflow-client==0.14.1
+            google-cloud-dataform==0.11.4
+            google-cloud-dataplex==2.21.0
+            google-cloud-dataproc==5.31.0
+            google-cloud-dataproc-metastore==1.24.0
+            google-cloud-datastore==2.27.0
+            google-cloud-dlp==3.40.0
+            google-cloud-documentai==3.16.0
+            google-cloud-filestore==1.18.0
+            google-cloud-firestore==2.34.1
+            google-cloud-kms==3.18.0
+            google-cloud-language==2.22.0
+            google-cloud-logging==3.17.0
+            google-cloud-managedkafka==0.4.2
+            google-cloud-memcache==1.17.0
+            google-cloud-monitoring==2.32.0
+            google-cloud-orchestration-airflow==1.23.0
+            google-cloud-org-policy==1.19.0
+            google-cloud-os-config==1.26.0
+            google-cloud-os-login==2.23.0
+            google-cloud-pubsub==2.42.0
+            google-cloud-pubsublite==1.13.0
+            google-cloud-redis==2.23.0
+            google-cloud-resource-manager==1.19.0
+            google-cloud-run==0.16.2
+            google-cloud-secret-manager==2.31.0
+            google-cloud-spanner==3.71.0
+            google-cloud-speech==2.41.0
+            google-cloud-storage==3.1.1
+            google-cloud-storage-control==1.16.0
+            google-cloud-storage-transfer==1.22.0
+            google-cloud-tasks==2.26.0
+            google-cloud-texttospeech==2.38.0
+            google-cloud-translate==3.28.0
+            google-cloud-videointelligence==2.21.0
+            google-cloud-vision==3.16.0
+            google-cloud-workflows==1.24.0
+            google-crc32c==1.9.0
+            google-genai==2.31.0
+            google-pasta==0.2.0
+            google-resumable-media==2.11.0
+            googleapis-common-protos==1.75.5
+            greenback==1.3.0
+            greenlet==3.5.6
+            grpc-google-iam-v1==0.14.5
+            grpc-interceptor==0.15.4
+            grpcio==1.84.0
+            grpcio-gcp==0.2.2
+            grpcio-status==1.84.0
+            gunicorn==26.2.0
+            h11==0.16.0
+            h2==4.4.1
+            h5py==3.14.0
+            hf-xet==1.7.0
+            hpack==4.2.0
+            httpcore==1.0.9
+            httpcore2==2.13.1
+            httplib2==0.32.0
+            httptools==0.9.0
+            httpx==0.28.1
+            httpx2==2.13.1
+            huggingface_hub==2.2.0
+            humanize==4.16.0
+            hvac==2.4.0
+            hyperframe==6.1.0
+            idna==3.20
+            immutabledict==4.3.1
+            importlib_metadata==8.9.0
+            installer==1.1.0
+            invoke==3.0.3
+            isodate==0.7.2
+            itsdangerous==2.2.0
+            jaraco.classes==3.4.0
+            jaraco.context==6.1.2
+            jaraco.functools==4.6.0
+            jeepney==0.9.0
+            Jinja2==3.1.6
+            jiter==0.17.0
+            jmespath==1.1.0
+            joblib==1.6.0
+            joserfc==1.7.5
+            jsonpickle==4.1.3
+            jsonschema==4.26.0
+            jsonschema-specifications==2025.9.1
+            jupyter_core==5.9.1
+            keras==3.15.1
+            keyring==25.7.0
+            keyrings.google-artifactregistry-auth==1.1.2
+            kombu==5.6.2
+            kubernetes==36.0.3
+            kubernetes_asyncio==36.1.0
+            lazy-object-proxy==1.12.0
+            leather==0.4.1
+            libclang==18.1.1
+            libcst==1.9.0
+            limits==5.8.0
+            linkify-it-py==2.2.0
+            litellm==1.85.7
+            lockfile==0.12.2
+            looker_sdk==26.20.0
+            Mako==1.4.3
+            markdown-it-py==4.2.0
+            MarkupSafe==3.0.4
+            marshmallow==4.3.1
+            marshmallow-sqlalchemy==1.5.0
+            mashumaro==3.17
+            mdurl==0.1.2
+            methodtools==0.4.7
+            metricflow==0.213.0
+            ml_dtypes==0.6.0
+            mmh3==5.3.1
+            more-itertools==10.8.0
+            msgpack==1.2.3
+            msgspec==0.22.0
+            multidict==7.1.0
+            mysql-connector-python==26.7.0
+            mysqlclient==2.3.0
+            nab==0.0.21
+            nab-index==0.0.21
+            nab-markersets==0.0.21
+            nab-project==0.0.21
+            nab-provider==0.0.21
+            nab-resolver==0.0.21
+            namex==0.1.0
+            narwhals==2.27.1
+            natsort==8.4.0
+            nbformat==5.11.1
+            networkx==3.6.1
+            numpy==2.4.6
+            oauth2client==4.1.3
+            oauthlib==4.0.0
+            objsize==0.7.1
+            openai==2.54.0
+            opencensus==0.11.4
+            opencensus-context==0.1.3
+            openlineage-integration-common==1.54.0
+            openlineage-python==1.52.0
+            openlineage_sql==1.54.0
+            opentelemetry-api==1.45.1
+            opentelemetry-exporter-http-transport==0.66b1
+            opentelemetry-exporter-otlp==1.45.1
+            opentelemetry-exporter-otlp-common==0.66b1
+            opentelemetry-exporter-otlp-proto-common==1.45.1
+            opentelemetry-exporter-otlp-proto-grpc==1.45.1
+            opentelemetry-exporter-otlp-proto-http==1.45.1
+            opentelemetry-exporter-prometheus==0.66b1
+            opentelemetry-proto==1.45.1
+            opentelemetry-resourcedetector-gcp==1.14.0
+            opentelemetry-sdk==1.45.1
+            opentelemetry-semantic-conventions==0.66b1
+            opt_einsum==3.4.0
+            optree==0.20.0
+            orchestration-pipelines==1.2.1
+            ordered-set==4.1.0
+            orderly-set==5.5.0
+            outcome==1.3.0.post0
+            overrides==7.7.0
+            packaging==26.3
+            pandas==2.3.3
+            pandas-gbq==0.35.2
+            paramiko==5.0.0
+            parsedatetime==2.6
+            pathlib_abc==0.5.2
+            pathspec==1.0.4
+            pem==23.1.0
+            pendulum==3.3.0
+            pillow==12.3.0
+            pip==23.2.1
+            pipdeptree==4.2.7
+            platformdirs==4.13.0
+            pluggy==1.6.0
+            prison==0.2.1
+            prometheus_client==0.26.0
+            prompt_toolkit==3.0.53
+            propcache==0.5.4
+            proto-plus==1.29.0
+            protobuf==6.33.6
+            psutil==7.2.2
+            psycopg==3.3.6
+            psycopg-binary==3.3.6
+            psycopg2-binary==2.9.13
+            py-spy==0.4.2
+            pyarrow==25.0.1
+            pyasn1==0.6.4
+            pyasn1_modules==0.4.2
+            pycparser==3.11
+            pydantic==2.14.1
+            pydantic_core==2.50.1
+            pydantic-extra-types==2.11.2
+            pydantic-settings==2.16.0
+            pydata-google-auth==1.9.1
+            Pygments==2.21.0
+            pygtrie==2.6.2
+            PyJWT==2.15.1
+            pymongo==4.19.0
+            PyMySQL==1.1.3
+            PyNaCl==1.6.2
+            pyOpenSSL==26.4.0
+            pyparsing==3.3.3
+            pyproject_hooks==1.3.3
+            python-daemon==3.1.2
+            python-dateutil==2.9.0.post0
+            python-discovery==1.6.2
+            python-dotenv==1.2.4
+            python-http-client==3.3.7
+            python-multipart==0.0.32
+            python-slugify==9.1.3
+            pytimeparse==1.1.9
+            pytimeparse2==1.7.1
+            pytz==2026.5
+            PyYAML==6.0.3
+            query-cache-common==2.6.0
+            query-cache-protobuf==2.6.0
+            RapidFuzz==3.14.6
+            ray==2.59.0
+            redis==6.4.0
+            referencing==0.37.0
+            regex==2026.9.29
+            requests==2.34.2
+            requests-oauthlib==2.0.0
+            requests-toolbelt==1.0.0
+            rich==15.0.0
+            rich-argparse==1.8.0
+            rich-toolkit==0.20.6
+            rpds-py==2026.9.1
+            rsa==4.9.1
+            ruamel.yaml==0.19.1
+            rustworkx==0.18.1
+            scikit-learn==1.9.1
+            scipy==1.17.1
+            SecretStorage==3.5.0
+            sendgrid==6.12.5
+            setproctitle==1.3.8
+            setuptools==84.0.0
+            shellingham==1.5.4
+            six==1.17.0
+            smart_open==8.0.3
+            sniffio==1.3.1
+            snowplow-tracker==1.1.0
+            sortedcontainers==2.4.0
+            SQLAlchemy==2.0.54
+            sqlalchemy-bigquery==1.17.3
+            sqlalchemy-spanner==1.20.1
+            SQLAlchemy-Utils==0.43.0
+            sqlfluff==4.4.0
+            sqlglot==30.23.0
+            sqllineage==1.5.9
+            sqlparse==0.6.0
+            starlette==1.8.0
+            statsd==4.0.1
+            structlog==25.4.0
+            svcs==26.1.0
+            tabulate==0.10.0
+            tblib==3.2.2
+            tenacity==9.1.4
+            tensorflow==2.21.0
+            termcolor==3.3.0
+            text-unidecode==1.3
+            threadpoolctl==3.7.0
+            tiktoken==0.14.0
+            tokenizers==0.23.3
+            tomli==2.5.0
+            tomli_w==1.2.0
+            tornado==6.5.10
+            tqdm==4.70.1
+            traitlets==5.16.1
+            truststore==0.10.5
+            typer==0.27.3
+            types-protobuf==7.35.1.20260906
+            typing_extensions==4.16.0
+            typing-inspection==0.4.4
+            tzdata==2026.5
+            tzlocal==5.4.4
+            universal_pathlib==0.3.8
+            uritemplate==4.2.0
+            urllib3==2.8.0
+            uuid6==2025.0.1
+            uvicorn==0.54.0
+            uvloop==0.23.0
+            vine==5.1.0
+            virtualenv==21.14.7
+            watchfiles==1.3.0
+            wcwidth==0.9.2
+            websocket-client==1.9.2
+            websockets==16.1.1
+            Werkzeug==2.3.8
+            wheel==0.48.0
+            wirerope==1.0.0
+            wrapt==2.5.1
+            WTForms==3.2.2
+            yarl==1.25.1
+            zipp==4.1.1
+            zstandard==0.25.0
+          
+
+Difference with composer-3-airflow-3.2.2-build.8
+    
+    
+    PACKAGE                                   PREVIOUS  CURRENT
+    
+    Authlib                                   ---       1.9.1
+    SQLAlchemy-Utils                          0.42.1    0.43.0
+    absl-py                                   2.5.0     2.5.1
+    aenum                                     ---       3.1.17
+    aiohttp                                   3.14.4    3.14.5
+    apache-airflow-providers-apache-beam      6.3.0     6.3.1
+    apache-airflow-providers-celery           3.24.1    3.25.0
+    apache-airflow-providers-cncf-kubernetes  10.23.0   10.24.0
+    apache-airflow-providers-common-compat    1.20.0    1.21.0
+    apache-airflow-providers-common-io        1.10.0    1.10.1
+    apache-airflow-providers-common-sql       2.2.0     2.3.0
+    apache-airflow-providers-fab              3.10.0    3.10.1
+    apache-airflow-providers-hashicorp        4.8.2     4.8.3
+    apache-airflow-providers-http             6.2.0     6.3.0
+    apache-airflow-providers-mysql            6.7.0     6.7.1
+    apache-airflow-providers-openlineage      2.20.2    2.20.3
+    apache-airflow-providers-postgres         7.1.0     7.1.1
+    apache-airflow-providers-redis            4.7.0     4.7.1
+    apache-airflow-providers-sendgrid         4.2.4     4.2.5
+    apache-airflow-providers-smtp             3.1.0     3.1.1
+    apache-airflow-providers-sqlite           4.3.3     4.3.4
+    apache-airflow-providers-ssh              6.1.0     7.0.0
+    apache-airflow-providers-standard         1.20.0    1.20.1
+    cron_descriptor                           2.1.1     2.2.1
+    dacite                                    ---       1.9.2
+    dbt-core                                  1.12.5    1.13.0b1
+    dbt-core-experimental-parser              2.0.5     2.0.8
+    dbt-state                                 ---       2.61.0
+    dnspython                                 2.8.0     2.9.0
+    filelock                                  4.0.12    4.2.0
+    google-api-core                           2.41.0    2.42.0
+    google-auth                               2.61.0    2.62.0
+    google-cloud-aiplatform                   2.4.0     2.5.0
+    google-cloud-bigtable                     2.49.0    2.50.0
+    google-cloud-firestore                    2.34.0    2.34.1
+    google-genai                              2.29.0    2.31.0
+    httptools                                 0.8.0     0.9.0
+    huggingface_hub                           1.33.0    2.2.0
+    installer                                 1.0.1     1.1.0
+    joserfc                                   ---       1.7.5
+    looker_sdk                                26.18.0   26.20.0
+    multidict                                 6.9.1     7.1.0
+    nab                                       0.0.18    0.0.21
+    nab-index                                 0.0.18    0.0.21
+    nab-markersets                            0.0.18    0.0.21
+    nab-project                               0.0.18    0.0.21
+    nab-provider                              0.0.18    0.0.21
+    nab-resolver                              0.0.18    0.0.21
+    narwhals                                  2.26.0    2.27.1
+    openlineage-integration-common            1.53.0    1.54.0
+    openlineage_sql                           1.53.0    1.54.0
+    orchestration-pipelines                   1.1.0     1.2.1
+    pendulum                                  3.2.0     3.3.0
+    pipdeptree                                4.2.5     4.2.7
+    platformdirs                              4.12.4    4.13.0
+    pycparser                                 3.1       3.11
+    pydantic                                  2.13.5    2.14.1
+    pydantic-settings                         2.15.0    2.16.0
+    pydantic_core                             2.46.5    2.50.1
+    pymongo                                   4.18.2    4.19.0
+    python-discovery                          1.6.1     1.6.2
+    pytimeparse2                              ---       1.7.1
+    query-cache-common                        ---       2.6.0
+    query-cache-protobuf                      ---       2.6.0
+    smart_open                                8.0.2     8.0.3
+    sqlglot                                   30.21.0   30.23.0
+    starlette                                 1.7.0     1.8.0
+    tokenizers                                0.23.2    0.23.3
+    truststore                                0.10.4    0.10.5
+    virtualenv                                21.14.5   21.14.7
+    wrapt                                     2.5.0     2.5.1
+        
+
+#### composer-3-airflow-2.11.1-build.22
+
+Packages in composer-3-airflow-2.11.1-build.22
+    
+    
+            absl-py==2.5.1
+            aenum==3.1.17
+            agate==1.9.1
+            aiodebug==2.3.0
+            aiofiles==25.1.0
+            aiohappyeyeballs==2.7.1
+            aiohttp==3.14.5
+            aiohttp-cors==0.8.1
+            aiohttp-jinja2==1.6
+            aiomysql==0.3.2
+            aiosignal==1.4.0
+            aiosmtplib==5.1.3
+            alembic==1.19.2
+            amqp==5.4.1
+            annotated-types==0.8.0
+            anyio==4.15.1
+            apache-airflow==2.11.1+composer
+            apache-airflow-client==3.3.2
+            apache-airflow-providers-apache-beam==6.3.1
+            apache-airflow-providers-apache-kafka==2.1.0
+            apache-airflow-providers-celery==3.25.0
+            apache-airflow-providers-cncf-kubernetes==10.24.0
+            apache-airflow-providers-common-compat==1.21.0
+            apache-airflow-providers-common-io==1.10.1
+            apache-airflow-providers-common-sql==2.3.0
+            apache-airflow-providers-dbt-cloud==4.10.0
+            apache-airflow-providers-fab==1.5.4
+            apache-airflow-providers-ftp==3.16.1
+            apache-airflow-providers-google==22.6.0
+            apache-airflow-providers-hashicorp==4.8.3
+            apache-airflow-providers-http==6.3.0
+            apache-airflow-providers-imap==3.13.1
+            apache-airflow-providers-mysql==6.7.1
+            apache-airflow-providers-openlineage==2.20.3
+            apache-airflow-providers-postgres==7.1.1
+            apache-airflow-providers-redis==4.7.1
+            apache-airflow-providers-sendgrid==4.2.5
+            apache-airflow-providers-smtp==3.1.1
+            apache-airflow-providers-sqlite==4.3.4
+            apache-airflow-providers-ssh==5.0.4
+            apache-airflow-providers-standard==1.20.1
+            apache-beam==2.77.0
+            apispec==6.10.0
+            argcomplete==3.7.2
+            asgiref==3.12.1
+            astunparse==1.6.3
+            asyncpg==0.32.0
+            asyncssh==2.24.1
+            attrs==26.1.0
+            Authlib==1.9.1
+            babel==2.18.0
+            backports.tarfile==1.2.0
+            bcrypt==5.0.0
+            beartype==0.22.9
+            billiard==4.3.1
+            blinker==1.9.0
+            build==1.6.1
+            CacheControl==0.14.4
+            cachelib==0.17.0
+            cachetools==7.2.1
+            cattrs==26.2.1
+            celery==5.6.3
+            certifi==2026.7.22
+            cffi==2.1.1
+            chardet==7.6.0
+            charset-normalizer==3.5.2
+            click==8.4.2
+            click-didyoumean==0.3.1
+            click-plugins==1.1.1.2
+            click-repl==0.4.1
+            clickclick==20.10.2
+            cloudpickle==3.1.2
+            colorama==0.4.6
+            colorful==0.5.8
+            colorlog==6.12.0
+            ConfigUpdater==3.2
+            confluent-kafka==2.16.0
+            connexion==2.15.1
+            crcmod==1.7
+            cron_descriptor==2.2.1
+            croniter==6.2.4
+            cryptography==50.0.2
+            dacite==1.9.2
+            daff==1.4.2
+            db-dtypes==1.7.2
+            dbt-adapters==1.24.5
+            dbt-bigquery==1.12.1
+            dbt-common==1.39.0
+            dbt-core==1.13.0b1
+            dbt-core-experimental-parser==2.0.8
+            dbt-extractor==0.6.0
+            dbt-protos==1.0.594
+            dbt-state==2.61.0
+            decorator==5.3.1
+            deepdiff==8.6.2
+            Deprecated==1.3.1
+            diff_cover==10.6.0
+            dill==0.4.1
+            distlib==0.4.3
+            distro==1.9.0
+            dnspython==2.9.0
+            docstring_parser==0.18.0
+            durationpy==0.11
+            email-validator==2.3.0
+            fastavro==1.13.1
+            fasteners==0.20
+            fastjsonschema==2.22.2
+            fastuuid==0.14.0
+            filelock==4.2.0
+            firebase_admin==7.7.0
+            Flask==2.3.3
+            Flask-AppBuilder==4.5.4
+            Flask-Babel==2.0.0
+            Flask-Bcrypt==1.0.1
+            Flask-Caching==2.4.1
+            Flask-JWT-Extended==4.7.4
+            Flask-Limiter==3.12
+            Flask-Login==0.6.3
+            Flask-Session==0.8.0
+            Flask-SQLAlchemy==2.5.1
+            Flask-WTF==1.3.0
+            flatbuffers==25.12.19
+            flower==2.2.0
+            frozenlist==1.8.0
+            fsspec==2025.12.0
+            gast==0.7.0
+            gcloud-aio-auth==5.5.1
+            gcloud-aio-bigquery==7.2.0
+            gcloud-aio-storage==9.6.5
+            gcsfs==2025.12.0
+            google-ads==33.0.0
+            google-analytics-admin==0.30.2
+            google-api-core==2.34.0
+            google-api-python-client==2.201.0
+            google-apitools==0.5.35
+            google-auth==2.62.0
+            google-auth-httplib2==0.4.4
+            google-auth-oauthlib==1.5.0
+            google-cloud-access-context-manager==0.6.1
+            google-cloud-aiplatform==2.5.0
+            google-cloud-alloydb==0.11.3
+            google-cloud-appengine-logging==1.11.0
+            google-cloud-asset==4.5.0
+            google-cloud-audit-log==0.6.2
+            google-cloud-automl==2.21.0
+            google-cloud-batch==0.22.4
+            google-cloud-bigquery==3.46.1
+            google-cloud-bigquery-datatransfer==3.24.0
+            google-cloud-bigquery-storage==2.42.0
+            google-cloud-bigtable==2.50.0
+            google-cloud-build==3.40.0
+            google-cloud-common==1.11.0
+            google-cloud-compute==1.55.0
+            google-cloud-container==2.67.0
+            google-cloud-core==2.8.0
+            google-cloud-datacatalog==3.32.0
+            google-cloud-datacatalog-lineage==0.7.1
+            google-cloud-datacatalog-lineage-producer-client==0.2.7
+            google-cloud-dataflow-client==0.14.1
+            google-cloud-dataform==0.11.4
+            google-cloud-dataplex==2.21.0
+            google-cloud-dataproc==5.31.0
+            google-cloud-dataproc-metastore==1.24.0
+            google-cloud-datastore==2.27.0
+            google-cloud-dlp==3.40.0
+            google-cloud-documentai==3.16.0
+            google-cloud-filestore==1.18.0
+            google-cloud-firestore==2.34.1
+            google-cloud-kms==3.18.0
+            google-cloud-language==2.22.0
+            google-cloud-logging==3.17.0
+            google-cloud-managedkafka==0.4.2
+            google-cloud-memcache==1.17.0
+            google-cloud-monitoring==2.32.0
+            google-cloud-orchestration-airflow==1.23.0
+            google-cloud-org-policy==1.19.0
+            google-cloud-os-config==1.26.0
+            google-cloud-os-login==2.23.0
+            google-cloud-pubsub==2.42.0
+            google-cloud-pubsublite==0.6.1
+            google-cloud-redis==2.23.0
+            google-cloud-resource-manager==1.19.0
+            google-cloud-run==0.16.2
+            google-cloud-secret-manager==2.31.0
+            google-cloud-spanner==3.71.0
+            google-cloud-speech==2.41.0
+            google-cloud-storage==3.1.1
+            google-cloud-storage-control==1.16.0
+            google-cloud-storage-transfer==1.22.0
+            google-cloud-tasks==2.26.0
+            google-cloud-texttospeech==2.38.0
+            google-cloud-translate==3.28.0
+            google-cloud-videointelligence==2.21.0
+            google-cloud-vision==3.16.0
+            google-cloud-workflows==1.24.0
+            google-crc32c==1.9.0
+            google-genai==2.31.0
+            google-pasta==0.2.0
+            google-re2==1.1.20251105
+            google-resumable-media==2.11.0
+            googleapis-common-protos==1.75.5
+            greenlet==3.5.6
+            grpc-google-iam-v1==0.14.5
+            grpc-interceptor==0.15.4
+            grpcio==1.84.0
+            grpcio-gcp==0.2.2
+            grpcio-status==1.84.0
+            gunicorn==26.2.0
+            h11==0.16.0
+            h2==4.4.1
+            h5py==3.14.0
+            hf-xet==1.7.0
+            hpack==4.2.0
+            httpcore==1.0.9
+            httpcore2==2.13.1
+            httplib2==0.32.0
+            httpx==0.28.1
+            httpx2==2.13.1
+            huggingface_hub==2.2.0
+            humanize==4.16.0
+            hvac==2.4.0
+            hyperframe==6.1.0
+            idna==3.20
+            immutabledict==4.3.1
+            importlib_metadata==8.7.1
+            inflection==0.5.1
+            installer==1.1.0
+            isodate==0.7.2
+            itsdangerous==2.2.0
+            jaraco.classes==3.4.0
+            jaraco.context==6.1.2
+            jaraco.functools==4.6.0
+            jeepney==0.9.0
+            Jinja2==3.1.6
+            jiter==0.17.0
+            jmespath==1.1.0
+            joblib==1.6.0
+            joserfc==1.7.5
+            jsonpickle==4.1.3
+            jsonschema==4.26.0
+            jsonschema-specifications==2025.9.1
+            jupyter_core==5.9.1
+            keras==3.15.1
+            keyring==25.7.0
+            keyrings.google-artifactregistry-auth==1.1.2
+            kombu==5.6.2
+            kubernetes==36.0.3
+            kubernetes_asyncio==36.1.0
+            lazy-object-proxy==1.12.0
+            leather==0.4.1
+            libclang==18.1.1
+            limits==5.8.0
+            linkify-it-py==2.2.0
+            litellm==1.85.7
+            lockfile==0.12.2
+            looker_sdk==26.20.0
+            Mako==1.4.3
+            markdown-it-py==4.2.0
+            MarkupSafe==3.0.4
+            marshmallow==3.26.2
+            marshmallow-oneofschema==3.2.0
+            marshmallow-sqlalchemy==0.28.2
+            mashumaro==3.17
+            mdit-py-plugins==0.6.1
+            mdurl==0.1.2
+            methodtools==0.4.7
+            metricflow==0.213.0
+            ml_dtypes==0.5.4
+            mmh3==5.3.1
+            more-itertools==10.8.0
+            msgpack==1.2.3
+            msgspec==0.22.0
+            multidict==7.1.0
+            mysql-connector-python==26.7.0
+            mysqlclient==2.3.0
+            nab==0.0.21
+            nab-index==0.0.21
+            nab-markersets==0.0.21
+            nab-project==0.0.21
+            nab-provider==0.0.21
+            nab-resolver==0.0.21
+            namex==0.1.0
+            narwhals==2.27.1
+            nbformat==5.11.1
+            networkx==3.6.1
+            numpy==1.26.4
+            oauth2client==4.1.3
+            oauthlib==4.0.0
+            objsize==0.7.1
+            openai==2.54.0
+            opencensus==0.11.4
+            opencensus-context==0.1.3
+            openlineage-integration-common==1.54.0
+            openlineage-python==1.54.0
+            openlineage_sql==1.54.0
+            opentelemetry-api==1.36.0
+            opentelemetry-exporter-otlp==1.36.0
+            opentelemetry-exporter-otlp-proto-common==1.36.0
+            opentelemetry-exporter-otlp-proto-grpc==1.36.0
+            opentelemetry-exporter-otlp-proto-http==1.36.0
+            opentelemetry-exporter-prometheus==0.57b0
+            opentelemetry-proto==1.36.0
+            opentelemetry-resourcedetector-gcp==1.14.0
+            opentelemetry-sdk==1.36.0
+            opentelemetry-semantic-conventions==0.57b0
+            opt_einsum==3.4.0
+            optree==0.20.0
+            orchestration-pipelines==1.2.1
+            ordered-set==4.1.0
+            orderly-set==5.5.0
+            overrides==6.5.0
+            packaging==26.3
+            pandas==2.1.4
+            pandas-gbq==0.35.2
+            paramiko==3.5.1
+            parsedatetime==2.6
+            pathspec==1.0.4
+            pem==23.1.0
+            pendulum==3.3.0
+            pillow==12.3.0
+            pip==23.2.1
+            pipdeptree==4.2.7
+            platformdirs==4.13.0
+            pluggy==1.6.0
+            prison==0.2.1
+            prometheus_client==0.26.0
+            prompt_toolkit==3.0.53
+            propcache==0.5.4
+            proto-plus==1.29.0
+            protobuf==6.33.6
+            psutil==7.2.2
+            psycopg==3.3.6
+            psycopg-binary==3.3.6
+            psycopg2-binary==2.9.13
+            py-spy==0.4.2
+            pyarrow==25.0.1
+            pyasn1==0.6.4
+            pyasn1_modules==0.4.2
+            pycparser==3.11
+            pydantic==2.14.1
+            pydantic_core==2.50.1
+            pydata-google-auth==1.9.1
+            Pygments==2.21.0
+            PyJWT==2.15.1
+            pymongo==4.19.0
+            PyMySQL==1.1.3
+            PyNaCl==1.6.2
+            pyOpenSSL==26.4.0
+            pyparsing==3.3.3
+            pyproject_hooks==1.3.3
+            python-daemon==3.1.2
+            python-dateutil==2.9.0.post0
+            python-discovery==1.6.2
+            python-dotenv==1.2.4
+            python-http-client==3.3.7
+            python-multipart==0.0.32
+            python-nvd3==0.16.0
+            python-slugify==9.1.3
+            pytimeparse==1.1.9
+            pytimeparse2==1.7.1
+            pytz==2026.5
+            PyYAML==6.0.3
+            query-cache-common==2.6.0
+            query-cache-protobuf==2.6.0
+            RapidFuzz==3.14.6
+            ray==2.59.0
+            redis==6.4.0
+            referencing==0.37.0
+            regex==2026.9.29
+            requests==2.34.2
+            requests-oauthlib==2.0.0
+            requests-toolbelt==1.0.0
+            rfc3339-validator==0.1.4
+            rich==13.9.4
+            rich-argparse==1.8.0
+            rpds-py==2026.9.1
+            rsa==4.9.1
+            ruamel.yaml==0.19.1
+            rustworkx==0.18.1
+            scikit-learn==1.9.1
+            scipy==1.17.1
+            SecretStorage==3.5.0
+            sendgrid==6.12.5
+            setproctitle==1.3.8
+            setuptools==84.0.0
+            six==1.17.0
+            smart_open==8.0.3
+            sniffio==1.3.1
+            snowplow-tracker==1.1.0
+            sortedcontainers==2.4.0
+            SQLAlchemy==1.4.54
+            sqlalchemy-bigquery==1.17.3
+            SQLAlchemy-JSONField==1.0.3
+            sqlalchemy-spanner==1.20.1
+            SQLAlchemy-Utils==0.42.1
+            sqlfluff==4.4.0
+            sqlglot==30.23.0
+            sqllineage==1.5.9
+            sqlparse==0.6.0
+            statsd==4.0.1
+            tabulate==0.10.0
+            tblib==3.2.2
+            tenacity==9.1.4
+            tensorflow==2.21.0
+            termcolor==3.3.0
+            text-unidecode==1.3
+            threadpoolctl==3.7.0
+            tiktoken==0.14.0
+            tokenizers==0.23.3
+            tomli==2.5.0
+            tomli_w==1.2.0
+            tornado==6.5.10
+            tqdm==4.70.1
+            traitlets==5.16.1
+            truststore==0.10.5
+            types-protobuf==7.35.1.20260906
+            typing_extensions==4.16.0
+            typing-inspection==0.4.4
+            tzdata==2026.5
+            tzlocal==5.4.4
+            universal_pathlib==0.2.6
+            uritemplate==4.2.0
+            urllib3==2.8.0
+            vine==5.1.0
+            virtualenv==21.14.7
+            wcwidth==0.9.2
+            websocket-client==1.9.2
+            websockets==16.1.1
+            Werkzeug==3.1.6
+            wheel==0.48.0
+            wirerope==1.0.0
+            wrapt==2.5.1
+            WTForms==3.1.2
+            yarl==1.25.1
+            zipp==4.1.1
+            zstandard==0.25.0
+          
+
+Difference with composer-3-airflow-2.11.1-build.21
+    
+    
+    PACKAGE                                   PREVIOUS  CURRENT
+    
+    Authlib                                   ---       1.9.1
+    absl-py                                   2.5.0     2.5.1
+    aenum                                     ---       3.1.17
+    aiohttp                                   3.14.4    3.14.5
+    apache-airflow-providers-apache-beam      6.3.0     6.3.1
+    apache-airflow-providers-apache-kafka     2.0.0     2.1.0
+    apache-airflow-providers-celery           3.24.1    3.25.0
+    apache-airflow-providers-cncf-kubernetes  10.23.0   10.24.0
+    apache-airflow-providers-common-compat    1.20.0    1.21.0
+    apache-airflow-providers-common-io        1.10.0    1.10.1
+    apache-airflow-providers-common-sql       2.2.0     2.3.0
+    apache-airflow-providers-ftp              3.16.0    3.16.1
+    apache-airflow-providers-hashicorp        4.8.2     4.8.3
+    apache-airflow-providers-http             6.2.0     6.3.0
+    apache-airflow-providers-imap             3.13.0    3.13.1
+    apache-airflow-providers-mysql            6.7.0     6.7.1
+    apache-airflow-providers-openlineage      2.20.2    2.20.3
+    apache-airflow-providers-postgres         7.1.0     7.1.1
+    apache-airflow-providers-redis            4.7.0     4.7.1
+    apache-airflow-providers-sendgrid         4.2.4     4.2.5
+    apache-airflow-providers-smtp             3.1.0     3.1.1
+    apache-airflow-providers-sqlite           4.3.3     4.3.4
+    apache-airflow-providers-standard         1.20.0    1.20.1
+    cron_descriptor                           2.1.1     2.2.1
+    dacite                                    ---       1.9.2
+    dbt-core                                  1.12.5    1.13.0b1
+    dbt-core-experimental-parser              2.0.5     2.0.8
+    dbt-state                                 ---       2.61.0
+    dnspython                                 2.8.0     2.9.0
+    filelock                                  4.0.12    4.2.0
+    google-auth                               2.61.0    2.62.0
+    google-cloud-aiplatform                   2.4.0     2.5.0
+    google-cloud-bigtable                     2.49.0    2.50.0
+    google-cloud-firestore                    2.34.0    2.34.1
+    google-genai                              2.29.0    2.31.0
+    huggingface_hub                           1.33.0    2.2.0
+    installer                                 1.0.1     1.1.0
+    joserfc                                   ---       1.7.5
+    looker_sdk                                26.18.0   26.20.0
+    multidict                                 6.9.1     7.1.0
+    nab                                       0.0.18    0.0.21
+    nab-index                                 0.0.18    0.0.21
+    nab-markersets                            0.0.18    0.0.21
+    nab-project                               0.0.18    0.0.21
+    nab-provider                              0.0.18    0.0.21
+    nab-resolver                              0.0.18    0.0.21
+    narwhals                                  2.26.0    2.27.1
+    openlineage-integration-common            1.53.0    1.54.0
+    openlineage-python                        1.53.0    1.54.0
+    openlineage_sql                           1.53.0    1.54.0
+    orchestration-pipelines                   1.1.0     1.2.1
+    pendulum                                  3.2.0     3.3.0
+    pipdeptree                                4.2.5     4.2.7
+    platformdirs                              4.12.4    4.13.0
+    pycparser                                 3.0       3.11
+    pydantic                                  2.13.5    2.14.1
+    pydantic_core                             2.46.5    2.50.1
+    pymongo                                   4.18.2    4.19.0
+    python-discovery                          1.6.1     1.6.2
+    pytimeparse2                              ---       1.7.1
+    query-cache-common                        ---       2.6.0
+    query-cache-protobuf                      ---       2.6.0
+    smart_open                                8.0.2     8.0.3
+    sqlglot                                   30.21.0   30.23.0
+    tokenizers                                0.23.2    0.23.3
+    truststore                                0.10.4    0.10.5
+    virtualenv                                21.14.5   21.14.7
+    wrapt                                     2.5.0     2.5.1
+        
 
 ### October 13, 2026
 
@@ -67977,6 +69680,528 @@ Difference with composer-3-airflow-2.9.3-build.22
 
 This section provides a list of preinstalled packages and a list of changes between preinstalled packages in subsequent releases of Managed Airflow (Gen 2).
 
+### October 20, 2026
+
+This section lists Managed Airflow (Gen 2) images released on October 20, 2026.
+
+#### composer-2.17.16-airflow-2.11.1
+
+Packages in composer-2.17.16-airflow-2.11.1
+    
+    
+            absl-py==2.5.1
+            aenum==3.1.17
+            agate==1.9.1
+            aiodebug==2.3.0
+            aiofiles==25.1.0
+            aiohappyeyeballs==2.7.1
+            aiohttp==3.14.5
+            aiohttp-cors==0.8.1
+            aiohttp-jinja2==1.6
+            aiomysql==0.3.2
+            aiosignal==1.4.0
+            aiosmtplib==5.1.3
+            alembic==1.19.2
+            amqp==5.4.1
+            annotated-types==0.8.0
+            anyio==4.15.1
+            apache-airflow==2.11.1+composer
+            apache-airflow-client==3.3.2
+            apache-airflow-providers-apache-beam==6.3.1
+            apache-airflow-providers-apache-kafka==2.1.0
+            apache-airflow-providers-celery==3.25.0
+            apache-airflow-providers-cncf-kubernetes==10.24.0
+            apache-airflow-providers-common-compat==1.21.0
+            apache-airflow-providers-common-io==1.10.1
+            apache-airflow-providers-common-sql==2.3.0
+            apache-airflow-providers-dbt-cloud==4.10.0
+            apache-airflow-providers-fab==1.5.4
+            apache-airflow-providers-ftp==3.16.1
+            apache-airflow-providers-google==22.6.0
+            apache-airflow-providers-hashicorp==4.8.3
+            apache-airflow-providers-http==6.3.0
+            apache-airflow-providers-imap==3.13.1
+            apache-airflow-providers-mysql==6.7.1
+            apache-airflow-providers-openlineage==2.20.3
+            apache-airflow-providers-postgres==7.1.1
+            apache-airflow-providers-redis==4.7.1
+            apache-airflow-providers-sendgrid==4.2.5
+            apache-airflow-providers-smtp==3.1.1
+            apache-airflow-providers-sqlite==4.3.4
+            apache-airflow-providers-ssh==5.0.4
+            apache-airflow-providers-standard==1.20.1
+            apache-beam==2.77.0
+            apispec==6.10.0
+            argcomplete==3.7.2
+            asgiref==3.12.1
+            astunparse==1.6.3
+            asyncpg==0.32.0
+            asyncssh==2.24.1
+            attrs==26.1.0
+            Authlib==1.9.1
+            babel==2.18.0
+            backports.tarfile==1.2.0
+            bcrypt==5.0.0
+            beartype==0.22.9
+            billiard==4.3.1
+            blinker==1.9.0
+            build==1.6.1
+            CacheControl==0.14.4
+            cachelib==0.17.0
+            cachetools==7.2.1
+            cattrs==26.2.1
+            celery==5.6.3
+            certifi==2026.7.22
+            cffi==2.1.1
+            chardet==7.6.0
+            charset-normalizer==3.5.2
+            click==8.4.2
+            click-didyoumean==0.3.1
+            click-plugins==1.1.1.2
+            click-repl==0.4.1
+            clickclick==20.10.2
+            cloudpickle==3.1.2
+            colorama==0.4.6
+            colorful==0.5.8
+            colorlog==6.12.0
+            ConfigUpdater==3.2
+            confluent-kafka==2.16.0
+            connexion==2.15.1
+            crcmod==1.7
+            cron_descriptor==2.2.1
+            croniter==6.2.4
+            cryptography==50.0.2
+            dacite==1.9.2
+            daff==1.4.2
+            db-dtypes==1.7.2
+            dbt-adapters==1.24.5
+            dbt-bigquery==1.12.1
+            dbt-common==1.39.0
+            dbt-core==1.13.0b1
+            dbt-core-experimental-parser==2.0.8
+            dbt-extractor==0.6.0
+            dbt-protos==1.0.594
+            dbt-state==2.61.0
+            decorator==5.3.1
+            deepdiff==8.6.2
+            Deprecated==1.3.1
+            diff_cover==10.6.0
+            dill==0.4.1
+            distlib==0.4.3
+            distro==1.9.0
+            dnspython==2.9.0
+            docstring_parser==0.18.0
+            durationpy==0.11
+            email-validator==2.3.0
+            fastavro==1.13.1
+            fasteners==0.20
+            fastjsonschema==2.22.2
+            fastuuid==0.14.0
+            filelock==4.2.0
+            firebase_admin==7.7.0
+            Flask==2.3.3
+            Flask-AppBuilder==4.5.4
+            Flask-Babel==2.0.0
+            Flask-Bcrypt==1.0.1
+            Flask-Caching==2.4.1
+            Flask-JWT-Extended==4.7.4
+            Flask-Limiter==3.12
+            Flask-Login==0.6.3
+            Flask-Session==0.8.0
+            Flask-SQLAlchemy==2.5.1
+            Flask-WTF==1.3.0
+            flatbuffers==25.12.19
+            flower==2.2.0
+            frozenlist==1.8.0
+            fsspec==2025.12.0
+            gast==0.7.0
+            gcloud-aio-auth==5.5.1
+            gcloud-aio-bigquery==7.2.0
+            gcloud-aio-storage==9.6.5
+            gcsfs==2025.12.0
+            google-ads==33.0.0
+            google-analytics-admin==0.30.2
+            google-api-core==2.34.0
+            google-api-python-client==2.201.0
+            google-apitools==0.5.35
+            google-auth==2.62.0
+            google-auth-httplib2==0.4.4
+            google-auth-oauthlib==1.5.0
+            google-cloud-access-context-manager==0.6.1
+            google-cloud-aiplatform==2.5.0
+            google-cloud-alloydb==0.11.3
+            google-cloud-appengine-logging==1.11.0
+            google-cloud-asset==4.5.0
+            google-cloud-audit-log==0.6.2
+            google-cloud-automl==2.21.0
+            google-cloud-batch==0.22.4
+            google-cloud-bigquery==3.46.1
+            google-cloud-bigquery-datatransfer==3.24.0
+            google-cloud-bigquery-storage==2.42.0
+            google-cloud-bigtable==2.50.0
+            google-cloud-build==3.40.0
+            google-cloud-common==1.11.0
+            google-cloud-compute==1.55.0
+            google-cloud-container==2.67.0
+            google-cloud-core==2.8.0
+            google-cloud-datacatalog==3.32.0
+            google-cloud-datacatalog-lineage==0.7.1
+            google-cloud-datacatalog-lineage-producer-client==0.2.7
+            google-cloud-dataflow-client==0.14.1
+            google-cloud-dataform==0.11.4
+            google-cloud-dataplex==2.21.0
+            google-cloud-dataproc==5.31.0
+            google-cloud-dataproc-metastore==1.24.0
+            google-cloud-datastore==2.27.0
+            google-cloud-dlp==3.40.0
+            google-cloud-documentai==3.16.0
+            google-cloud-filestore==1.18.0
+            google-cloud-firestore==2.34.1
+            google-cloud-kms==3.18.0
+            google-cloud-language==2.22.0
+            google-cloud-logging==3.17.0
+            google-cloud-managedkafka==0.4.2
+            google-cloud-memcache==1.17.0
+            google-cloud-monitoring==2.32.0
+            google-cloud-orchestration-airflow==1.23.0
+            google-cloud-org-policy==1.19.0
+            google-cloud-os-config==1.26.0
+            google-cloud-os-login==2.23.0
+            google-cloud-pubsub==2.42.0
+            google-cloud-pubsublite==0.6.1
+            google-cloud-redis==2.23.0
+            google-cloud-resource-manager==1.19.0
+            google-cloud-run==0.16.2
+            google-cloud-secret-manager==2.31.0
+            google-cloud-spanner==3.71.0
+            google-cloud-speech==2.41.0
+            google-cloud-storage==3.1.1
+            google-cloud-storage-control==1.16.0
+            google-cloud-storage-transfer==1.22.0
+            google-cloud-tasks==2.26.0
+            google-cloud-texttospeech==2.38.0
+            google-cloud-translate==3.28.0
+            google-cloud-videointelligence==2.21.0
+            google-cloud-vision==3.16.0
+            google-cloud-workflows==1.24.0
+            google-crc32c==1.9.0
+            google-genai==2.31.0
+            google-pasta==0.2.0
+            google-re2==1.1.20251105
+            google-resumable-media==2.11.0
+            googleapis-common-protos==1.75.5
+            greenlet==3.5.6
+            grpc-google-iam-v1==0.14.5
+            grpc-interceptor==0.15.4
+            grpcio==1.84.0
+            grpcio-gcp==0.2.2
+            grpcio-status==1.84.0
+            gunicorn==26.2.0
+            h11==0.16.0
+            h2==4.4.1
+            h5py==3.14.0
+            hf-xet==1.7.0
+            hpack==4.2.0
+            httpcore==1.0.9
+            httpcore2==2.13.1
+            httplib2==0.32.0
+            httpx==0.28.1
+            httpx2==2.13.1
+            huggingface_hub==2.2.0
+            humanize==4.16.0
+            hvac==2.4.0
+            hyperframe==6.1.0
+            idna==3.20
+            immutabledict==4.3.1
+            importlib_metadata==8.7.1
+            inflection==0.5.1
+            installer==1.1.0
+            isodate==0.7.2
+            itsdangerous==2.2.0
+            jaraco.classes==3.4.0
+            jaraco.context==6.1.2
+            jaraco.functools==4.6.0
+            jeepney==0.9.0
+            Jinja2==3.1.6
+            jiter==0.17.0
+            jmespath==1.1.0
+            joblib==1.6.0
+            joserfc==1.7.5
+            jsonpickle==4.1.3
+            jsonschema==4.26.0
+            jsonschema-specifications==2025.9.1
+            jupyter_core==5.9.1
+            keras==3.15.1
+            keyring==25.7.0
+            keyrings.google-artifactregistry-auth==1.1.2
+            kombu==5.6.2
+            kubernetes==36.0.3
+            kubernetes_asyncio==36.1.0
+            lazy-object-proxy==1.12.0
+            leather==0.4.1
+            libclang==18.1.1
+            limits==5.8.0
+            linkify-it-py==2.2.0
+            litellm==1.85.7
+            lockfile==0.12.2
+            looker_sdk==26.20.0
+            Mako==1.4.3
+            markdown-it-py==4.2.0
+            MarkupSafe==3.0.4
+            marshmallow==3.26.2
+            marshmallow-oneofschema==3.2.0
+            marshmallow-sqlalchemy==0.28.2
+            mashumaro==3.17
+            mdit-py-plugins==0.6.1
+            mdurl==0.1.2
+            methodtools==0.4.7
+            metricflow==0.213.0
+            ml_dtypes==0.5.4
+            mmh3==5.3.1
+            more-itertools==10.8.0
+            msgpack==1.2.3
+            msgspec==0.22.0
+            multidict==7.1.0
+            mysql-connector-python==26.7.0
+            mysqlclient==2.3.0
+            nab==0.0.21
+            nab-index==0.0.21
+            nab-markersets==0.0.21
+            nab-project==0.0.21
+            nab-provider==0.0.21
+            nab-resolver==0.0.21
+            namex==0.1.0
+            narwhals==2.27.1
+            nbformat==5.11.1
+            networkx==3.6.1
+            numpy==1.26.4
+            oauth2client==4.1.3
+            oauthlib==4.0.0
+            objsize==0.7.1
+            openai==2.54.0
+            opencensus==0.11.4
+            opencensus-context==0.1.3
+            openlineage-integration-common==1.54.0
+            openlineage-python==1.54.0
+            openlineage_sql==1.54.0
+            opentelemetry-api==1.36.0
+            opentelemetry-exporter-otlp==1.36.0
+            opentelemetry-exporter-otlp-proto-common==1.36.0
+            opentelemetry-exporter-otlp-proto-grpc==1.36.0
+            opentelemetry-exporter-otlp-proto-http==1.36.0
+            opentelemetry-exporter-prometheus==0.57b0
+            opentelemetry-proto==1.36.0
+            opentelemetry-resourcedetector-gcp==1.14.0
+            opentelemetry-sdk==1.36.0
+            opentelemetry-semantic-conventions==0.57b0
+            opt_einsum==3.4.0
+            optree==0.20.0
+            orchestration-pipelines==1.2.1
+            ordered-set==4.1.0
+            orderly-set==5.5.0
+            overrides==6.5.0
+            packaging==26.3
+            pandas==2.1.4
+            pandas-gbq==0.35.2
+            paramiko==3.5.1
+            parsedatetime==2.6
+            pathspec==1.0.4
+            pem==23.1.0
+            pendulum==3.3.0
+            pillow==12.3.0
+            pip==23.2.1
+            pipdeptree==4.2.7
+            platformdirs==4.13.0
+            pluggy==1.6.0
+            prison==0.2.1
+            prometheus_client==0.26.0
+            prompt_toolkit==3.0.53
+            propcache==0.5.4
+            proto-plus==1.29.0
+            protobuf==6.33.6
+            psutil==7.2.2
+            psycopg==3.3.6
+            psycopg-binary==3.3.6
+            psycopg2-binary==2.9.13
+            py-spy==0.4.2
+            pyarrow==25.0.1
+            pyasn1==0.6.4
+            pyasn1_modules==0.4.2
+            pycparser==3.11
+            pydantic==2.14.1
+            pydantic_core==2.50.1
+            pydata-google-auth==1.9.1
+            Pygments==2.21.0
+            PyJWT==2.15.1
+            pymongo==4.19.0
+            PyMySQL==1.1.3
+            PyNaCl==1.6.2
+            pyOpenSSL==26.4.0
+            pyparsing==3.3.3
+            pyproject_hooks==1.3.3
+            python-daemon==3.1.2
+            python-dateutil==2.9.0.post0
+            python-discovery==1.6.2
+            python-dotenv==1.2.4
+            python-http-client==3.3.7
+            python-multipart==0.0.32
+            python-nvd3==0.16.0
+            python-slugify==9.1.3
+            pytimeparse==1.1.9
+            pytimeparse2==1.7.1
+            pytz==2026.5
+            PyYAML==6.0.3
+            query-cache-common==2.6.0
+            query-cache-protobuf==2.6.0
+            RapidFuzz==3.14.6
+            ray==2.59.0
+            redis==6.4.0
+            referencing==0.37.0
+            regex==2026.9.29
+            requests==2.34.2
+            requests-oauthlib==2.0.0
+            requests-toolbelt==1.0.0
+            rfc3339-validator==0.1.4
+            rich==13.9.4
+            rich-argparse==1.8.0
+            rpds-py==2026.9.1
+            rsa==4.9.1
+            ruamel.yaml==0.19.1
+            rustworkx==0.18.1
+            scikit-learn==1.9.1
+            scipy==1.17.1
+            SecretStorage==3.5.0
+            sendgrid==6.12.5
+            setproctitle==1.3.8
+            setuptools==84.0.0
+            six==1.17.0
+            smart_open==8.0.3
+            sniffio==1.3.1
+            snowplow-tracker==1.1.0
+            sortedcontainers==2.4.0
+            SQLAlchemy==1.4.54
+            sqlalchemy-bigquery==1.17.3
+            SQLAlchemy-JSONField==1.0.3
+            sqlalchemy-spanner==1.20.1
+            SQLAlchemy-Utils==0.42.1
+            sqlfluff==4.4.0
+            sqlglot==30.23.0
+            sqllineage==1.5.9
+            sqlparse==0.6.0
+            statsd==4.0.1
+            tabulate==0.10.0
+            tblib==3.2.2
+            tenacity==9.1.4
+            tensorflow==2.21.0
+            termcolor==3.3.0
+            text-unidecode==1.3
+            threadpoolctl==3.7.0
+            tiktoken==0.14.0
+            tokenizers==0.23.3
+            tomli==2.5.0
+            tomli_w==1.2.0
+            tornado==6.5.10
+            tqdm==4.70.1
+            traitlets==5.16.1
+            truststore==0.10.5
+            types-protobuf==7.35.1.20260906
+            typing_extensions==4.16.0
+            typing-inspection==0.4.4
+            tzdata==2026.5
+            tzlocal==5.4.4
+            universal_pathlib==0.2.6
+            uritemplate==4.2.0
+            urllib3==2.8.0
+            vine==5.1.0
+            virtualenv==21.14.7
+            wcwidth==0.9.2
+            websocket-client==1.9.2
+            websockets==16.1.1
+            Werkzeug==3.1.6
+            wheel==0.48.0
+            wirerope==1.0.0
+            wrapt==2.5.1
+            WTForms==3.1.2
+            yarl==1.25.1
+            zipp==4.1.1
+            zstandard==0.25.0
+          
+
+Difference with composer-2.17.15-airflow-2.11.1
+    
+    
+    PACKAGE                                   PREVIOUS  CURRENT
+    
+    Authlib                                   ---       1.9.1
+    absl-py                                   2.5.0     2.5.1
+    aenum                                     ---       3.1.17
+    aiohttp                                   3.14.4    3.14.5
+    apache-airflow-providers-apache-beam      6.3.0     6.3.1
+    apache-airflow-providers-apache-kafka     2.0.0     2.1.0
+    apache-airflow-providers-celery           3.24.1    3.25.0
+    apache-airflow-providers-cncf-kubernetes  10.23.0   10.24.0
+    apache-airflow-providers-common-compat    1.20.0    1.21.0
+    apache-airflow-providers-common-io        1.10.0    1.10.1
+    apache-airflow-providers-common-sql       2.2.0     2.3.0
+    apache-airflow-providers-ftp              3.16.0    3.16.1
+    apache-airflow-providers-hashicorp        4.8.2     4.8.3
+    apache-airflow-providers-http             6.2.0     6.3.0
+    apache-airflow-providers-imap             3.13.0    3.13.1
+    apache-airflow-providers-mysql            6.7.0     6.7.1
+    apache-airflow-providers-openlineage      2.20.2    2.20.3
+    apache-airflow-providers-postgres         7.1.0     7.1.1
+    apache-airflow-providers-redis            4.7.0     4.7.1
+    apache-airflow-providers-sendgrid         4.2.4     4.2.5
+    apache-airflow-providers-smtp             3.1.0     3.1.1
+    apache-airflow-providers-sqlite           4.3.3     4.3.4
+    apache-airflow-providers-standard         1.20.0    1.20.1
+    cron_descriptor                           2.1.1     2.2.1
+    dacite                                    ---       1.9.2
+    dbt-core                                  1.12.5    1.13.0b1
+    dbt-core-experimental-parser              2.0.5     2.0.8
+    dbt-state                                 ---       2.61.0
+    dnspython                                 2.8.0     2.9.0
+    filelock                                  4.0.12    4.2.0
+    google-auth                               2.61.0    2.62.0
+    google-cloud-aiplatform                   2.4.0     2.5.0
+    google-cloud-bigtable                     2.49.0    2.50.0
+    google-cloud-firestore                    2.34.0    2.34.1
+    google-genai                              2.29.0    2.31.0
+    huggingface_hub                           1.33.0    2.2.0
+    installer                                 1.0.1     1.1.0
+    joserfc                                   ---       1.7.5
+    looker_sdk                                26.18.0   26.20.0
+    multidict                                 6.9.1     7.1.0
+    nab                                       0.0.18    0.0.21
+    nab-index                                 0.0.18    0.0.21
+    nab-markersets                            0.0.18    0.0.21
+    nab-project                               0.0.18    0.0.21
+    nab-provider                              0.0.18    0.0.21
+    nab-resolver                              0.0.18    0.0.21
+    narwhals                                  2.26.0    2.27.1
+    openlineage-integration-common            1.53.0    1.54.0
+    openlineage-python                        1.53.0    1.54.0
+    openlineage_sql                           1.53.0    1.54.0
+    orchestration-pipelines                   1.1.0     1.2.1
+    pendulum                                  3.2.0     3.3.0
+    pipdeptree                                4.2.5     4.2.7
+    platformdirs                              4.12.4    4.13.0
+    pycparser                                 3.0       3.11
+    pydantic                                  2.13.5    2.14.1
+    pydantic_core                             2.46.5    2.50.1
+    pymongo                                   4.18.2    4.19.0
+    python-discovery                          1.6.1     1.6.2
+    pytimeparse2                              ---       1.7.1
+    query-cache-common                        ---       2.6.0
+    query-cache-protobuf                      ---       2.6.0
+    smart_open                                8.0.2     8.0.3
+    sqlglot                                   30.21.0   30.23.0
+    tokenizers                                0.23.2    0.23.3
+    truststore                                0.10.4    0.10.5
+    virtualenv                                21.14.5   21.14.7
+    wrapt                                     2.5.0     2.5.1
+        
+
 ### October 13, 2026
 
 This section lists Managed Airflow (Gen 2) images released on October 13, 2026.
@@ -117760,6 +119985,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

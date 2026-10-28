@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-load-table-partitioned/
 title: Load data into a column-based time partitioning table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:29.090840+00:00
+fetched_at: 2026-10-27T23:40:23.475340+00:00
 ---
 
 # Load data into a column-based time partitioning table  |  BigQuery  |  Google Cloud Documentation

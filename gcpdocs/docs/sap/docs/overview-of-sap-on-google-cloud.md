@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/overview-of-sap-on-google-cloud/
 title: Overview of SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:45:04.705538+00:00
+fetched_at: 2026-10-28T02:31:30.856313+00:00
 ---
 
 # Overview of SAP on Google Cloud  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 This page presents important concepts about running SAP on Google Cloud. This page assumes that you are familiar with SAP application architectures.
 
-For more information about the benefits of Google Cloud for SAP, including customer testimonials, see the [SAP on Google Cloud home page](https://docs.cloud.google.com/solutions/sap).
+For more information about the benefits of Google Cloud for SAP, including customer testimonials, see the [SAP on Google Cloud home page](https://cloud.google.com/solutions/sap).
 
 ## SAP on Google Cloud
 
@@ -35,10 +35,10 @@ Some of the advantages of running SAP on Google Cloud include:
 
   * Google's private fiber network, which provides a global, secure, and scalable foundation for your SAP deployments and lets you [optimize for performance or cost](https://docs.cloud.google.com/network-tiers).
   * [Automation tools](https://docs.cloud.google.com/sap/docs/automation-for-sap), such as Terraform or Workload Manager, and flexible deployment options that help you move your SAP environment to the cloud and to deploy at your own pace.
-  * A flexible virtualized architecture that lets you [resize your machines](https://docs.cloud.google.com/sap/docs/modifying_vm_configurations) as your enterprise grows and [scale your infrastructure](https://cloud.google.com/blog/products/sap-google-cloud/best-practices-for-sap-app-server-autoscaling-on-google-cloud) to match the variations in your workloads, so you can avoid paying for what you don't need.
-  * Some of the [largest SAP-certified virtual machines (VMs)](https://docs.cloud.google.com/sap/docs/certifications-sap-hana#certified_vms_for_sap_hana) on the market.
+  * A flexible virtualized architecture that lets you resize your machines as your enterprise grows and [scale your infrastructure](https://cloud.google.com/blog/products/sap-google-cloud/best-practices-for-sap-app-server-autoscaling-on-google-cloud) to match the variations in your workloads, so you can avoid paying for what you don't need.
+  * Some of the [largest SAP-certified virtual machines (VMs)](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-solutions-and-machine-types) on the market.
   * Built-in features, such as Compute Engine [live migration](https://docs.cloud.google.com/compute/docs/instances/live-migration) and [automatic restart](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#autorestart), that minimize downtime for infrastructure maintenance.
-  * Opportunities to innovate with the Google Cloud [databases](https://cloud.google.com/products/databases/), [data analytics](https://cloud.google.com/products/big-data/), [smart analytics](https://docs.cloud.google.com/solutions/smart-analytics), [AI and machine learning](https://cloud.google.com/products/ai/), and data integration capabilities.
+  * Opportunities to innovate with the Google Cloud [databases](https://cloud.google.com/products/databases/), [data analytics](https://cloud.google.com/products/big-data/), [smart analytics](https://cloud.google.com/solutions/data-analytics-and-ai), [AI and machine learning](https://cloud.google.com/products/ai/), and data integration capabilities.
 
 
 
@@ -52,12 +52,7 @@ For more information, see [Overview of RISE with SAP on Google Cloud](https://do
 
 Google Cloud works closely with SAP to ensure that the Google Cloud infrastructure are certified by SAP for all of your SAP solutions, ensuring high performance and reliability.
 
-For the full list of SAP-certified solutions, see:
-
-  * [Certifications for SAP applications on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-apps)
-  * [Certifications for SAP HANA on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-hana)
-
-
+For the full list of SAP-certified solutions, see [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-solutions-and-machine-types).
 
 ## SAP software licenses on Google Cloud
 
@@ -84,7 +79,7 @@ RAMP includes a free assessment that can give you a count of your SAP systems, i
 
 
 
-For more information, see [Google Cloud Rapid Assessment & Migration Program](https://docs.cloud.google.com/solutions/cloud-migration-program).
+For more information, see [Google Cloud Rapid Assessment & Migration Program](https://cloud.google.com/solutions/cloud-migration-program).
 
 ## Compliance and sovereign controls
 
@@ -119,10 +114,9 @@ To receive support from SAP, your SAP deployment on Google Cloud must meet SAP c
 For more information, see:
 
   * [Getting support for SAP on Google Cloud](https://docs.cloud.google.com/sap/docs/getting-support)
-  * [Cloud Customer Care portfolio](https://docs.cloud.google.com/support)
+  * [Cloud Customer Care portfolio](https://cloud.google.com/support)
   * [ SAP Note 2456406 - SAP on Google Cloud Platform: Support Prerequisites](https://launchpad.support.sap.com/#/notes/2456406) (requires an SAP account)
-  * [Certifications for SAP applications on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-apps)
-  * [Certifications for SAP HANA on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-hana)
+  * [SAP certifications for Google Cloud](https://docs.cloud.google.com/sap/docs/sap-certifications)
 
 
 
@@ -140,7 +134,7 @@ You can deploy SAP solutions on Google Cloud manually by using any one of the fo
 
   * The [Google Cloud console](https://console.cloud.google.com/)
   * The [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud)
-  * The [Google Cloud APIs](https://docs.cloud.google.com/apis)
+  * The [Google Cloud APIs](https://cloud.google.com/apis)
 
 
 
@@ -229,7 +223,7 @@ To find the partners that have the specializations and expertise to meet your ne
 
 ### Google Professional Services for SAP
 
-Google Cloud [Professional Services](https://docs.cloud.google.com/consulting) can provide you with the experts who can help you assess, plan, deploy and optimize your SAP systems on Google Cloud.
+Google Cloud [Professional Services](https://cloud.google.com/consulting) can provide you with the experts who can help you assess, plan, deploy and optimize your SAP systems on Google Cloud.
 
 #### Services and solutions for SAP offered by Google Cloud Professional Services
 
@@ -267,7 +261,7 @@ SAP also offers tutorials for SAP on Google Cloud. See [the Tutorial Navigator o
 
 ## For more information
 
-For more information about SAP on Google Cloud, see [SAP on Google Cloud](https://docs.cloud.google.com/solutions/sap).  
+For more information about SAP on Google Cloud, see [SAP on Google Cloud](https://cloud.google.com/solutions/sap/).  
 If you are familiar with AWS or Microsoft Azure, the following topics map their services to similar services on Google Cloud:
 
   * [Map AWS services to Google Cloud products](https://docs.cloud.google.com/docs/compare/aws#service_comparisons)
@@ -279,6 +273,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

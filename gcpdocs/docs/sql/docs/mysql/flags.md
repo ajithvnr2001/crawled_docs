@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/flags/
 title: Configure database flags \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:19:42.518660+00:00
+fetched_at: 2026-10-28T02:29:36.711127+00:00
 ---
 
 # Configure database flags  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -1065,6 +1065,11 @@ Supported in MySQL 5.7 and later for Cloud SQL.  | No
 [cloudsql_ignore_innodb_encryption](https://dev.mysql.com/doc/refman/8.0/en/innodb-data-encryption.html) | `boolean` `on` | `off`   
 default: `off`   
 **Note:** The flag is supported in MySQL 8.0 and later for Cloud SQL. | No  
+[cloudsql_index_recreate_enable](https://docs.cloud.google.com/sql/docs/mysql/replication/create-manage-read-replica-indexes#database-configuration-flags) |  `boolean`   
+`on` | `off`   
+default: `on` | No  
+[cloudsql_index_recreate_replica_group](https://docs.cloud.google.com/sql/docs/mysql/replication/create-manage-read-replica-indexes#database-configuration-flags) |  `string`   
+default: `NULL` | No  
 [cloudsql_mysql_audit_data_masking_cmds](https://docs.cloud.google.com/sql/docs/mysql/use-db-audit#audit_plugin_settings) |  `string`   
 `""`, `dql`, `dml`, `ddl`, `dcl`, `show`, `call`, `create_udf`, `drop_function`, `create_procedure`, `create_function`, `drop_procedure`, `alter_procedure`, `alter_function`, `create_trigger`, `drop_trigger`, `create_event`, `alter_event`, `drop_event`, `create_db`, `drop_db`, `alter_db`, `create_user`, `drop_user`, `rename_user`, `alter_user`, `create_table`, `create_index`, `alter_table`, `drop_table`, `drop_index`, `create_view`, `drop_view`, `rename_table`, `update`, `insert`, `insert_select`, `delete`, `truncate`, `replace`, `replace_select`, `delete_multi`, `update_multi`, `load`, `select`, `call_procedure`, `connect`, `disconnect`, `grant`, `revoke`, `revoke_all`, `show_triggers`, `show_create_proc`, `show_create_func`, `show_procedure_code`, `show_function_code`, `show_create_event`, `show_events`, `show_create_trigger`, `show_grants`, `show_binlog_events`, `show_relaylog_events`   
   
@@ -2559,6 +2564,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

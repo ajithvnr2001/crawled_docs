@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-feature-store-with-rag/
 title: Use Vertex AI Feature Store in RAG Engine \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:42:06.076342+00:00
+fetched_at: 2026-10-28T02:27:41.846040+00:00
 ---
 
 # Use Vertex AI Feature Store in RAG Engine  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-a
 
 Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings Terms" of the [Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms). Pre-GA products and features are available "as-is" and may have limited support, and changes to Pre-GA products and features may not be compatible with other Pre-GA versions. For more information, see the [ launch stage descriptions](https://cloud.google.com/products#product-launch-stages). By using the Gemini API on Gemini Enterprise Agent Platform, you agree to the Generative AI Preview [ terms and conditions ](https://cloud.google.com/trustedtester/aitos)(Preview Terms).
 
-To see an example of using RAG Engine with Feature Store, run the "RAG Engine with Agent Platform Feature Store" notebook in one of the following environments: 
+To see an example of using RAG Engine on Gemini Enterprise Agent Platform with Agent Platform Feature Store, run the "RAG Engine with Agent Platform Feature Store" notebook in one of the following environments: 
 
 [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png)Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_feature_store.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png)Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_feature_store.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png)Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Frag_engine_feature_store.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png)View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/rag_engine_feature_store.ipynb)
 
@@ -310,8 +310,9 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
     # display_name = "test_corpus"
     # description = "Corpus Description"
     
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session.
+    # See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
     
     # Configure embedding model (Optional)
     backend_config = types.RagVectorDbConfig(
@@ -390,34 +391,25 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+    # corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
+    # paths = ["gs://my_bucket/my_files_dir/*"]
     
-    # Supports Google Cloud Storage and Google Drive Links
-    # paths = ["https://drive.google.com/file/d/123", "gs://my_bucket/my_files_dir/*"]
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session.
+    # See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
     
     response = client.rag.import_files(
         name=corpus_name,
         import_config=types.ImportRagFilesConfig(
-            gcs_source=genai_types.GcsSource(uris=[paths[1]]),
-            google_drive_source=types.GoogleDriveSource(
-                resource_ids=[
-                    types.GoogleDriveSourceResourceId(
-                        resource_id=paths[0],
-                        resource_type=types.ResourceType.RESOURCE_TYPE_FILE
-                    )
-                ]
-            ), # optional
+            gcs_source=genai_types.GcsSource(uris=paths),
             rag_file_transformation_config=types.RagFileTransformationConfig(
                 rag_file_chunking_config=types.RagFileChunkingConfig(
                     chunk_size=512,
                     chunk_overlap=100,
                 )
-            ), # optional
-            max_embedding_requests_per_min=900, # optional
-        )
+            ),  # optional
+            max_embedding_requests_per_min=900,  # optional
+        ),
     )
     
     print(f"Imported {response.imported_rag_files_count} files.")
@@ -530,10 +522,11 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/[PROJECT_ID]/locations/us-central1/ragCorpora/[rag_corpus_id]"
+    # corpus_name = "projects/[PROJECT_ID]/locations/us-east5/ragCorpora/[rag_corpus_id]"
     
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+    # Initialize Agent Platform client once per session.
+    # See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
     
     response = client.rag.retrieve_contexts(
         vertex_rag_store=genai_types.VertexRagStore(
@@ -609,7 +602,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+    # corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
     
     rag_retrieval_tool = genai_types.Tool(
         retrieval=genai_types.Retrieval(
@@ -630,14 +623,14 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
     )
     
     # Create a GenAI SDK client to make a generate_content request
-    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+    genai_client = genai.Client(vertexai=True, project=PROJECT_ID, location="global")
     
     response = genai_client.models.generate_content(
-        model="gemini-2.5-pro",
+        model="gemini-3.8-flash",
         contents="Why is the sky blue?",
         config=genai_types.GenerateContentConfig(
             tools=[rag_retrieval_tool]
-        )
+        ),
     )
     print(response.text)
     # Example response:
@@ -657,6 +650,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

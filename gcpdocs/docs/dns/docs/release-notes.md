@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/release-notes/
 title: Cloud DNS release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:55:03.416156+00:00
+fetched_at: 2026-10-27T17:45:48.254127+00:00
 ---
 
 # Cloud DNS release notes  |  Google Cloud Documentation
@@ -26,6 +26,50 @@ This page contains release notes for features and updates to Cloud DNS.
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/dns-release-notes.xml) directly. 
+
+## October 27, 2026
+
+Announcement
+
+Starting January 5, 2027, CNAME chasing behavior will change so that Cloud DNS follows CNAME chains between public and private zones. If your private zones or response policies have overlapping domain names with public CNAME targets, queries might resolve to unintended internal IP addresses or return resolution errors.
+
+The following table outlines the current and updated behaviors.
+
+Source of CNAME answer | Current behavior (until January 5, 2027) | New behavior (starting January 5, 2027)  
+---|---|---  
+Cloud DNS public zone | Subsequent queries search only public DNS zones and internal DNS. Private zones, forwarding zones, and response policies are ignored. | Subsequent queries follow the complete VPC name resolution order: response policies, private zones, forwarding or peering zones, internal DNS, and public zones.  
+Cloud DNS private zone | Subsequent queries search only authorized private zones. Public DNS zones are ignored. | Subsequent queries follow the complete VPC name resolution order. If the target isn't found in authorized private zones, Cloud DNS queries public DNS zones.  
+Cloud DNS response policy zone | Cloud DNS systems don't perform queries for CNAME answers received from response policy local data rules. | Subsequent queries follow the complete VPC name resolution order. If the target isn't found in response policies or private zones, Cloud DNS queries public DNS zones.  
+  
+Review your CNAME chasing needs before January 5, 2027. Test your DNS query paths using `dig` or `nslookup` to identify CNAME chasing scenarios.
+
+  * **Look for private-to-public CNAME chasing scenarios** : Look for CNAME answers from response policies or private zones that don't match any response policy or record in a private zone. Previously, these queries resulted in a `NXDOMAIN` answer but after January 5, 2027, these scenarios might match a record in a public zone or continue to be `NXDOMAIN` responses.
+  * **Look for public-to-private CNAME chasing scenarios** : Look for CNAME answers from public zones that don't match any record in a public zone. Previously, these CNAME chasing scenarios would have resulted in a `NXDOMAIN` response. After January 5, 2027, these scenarios might match a response policy or record in a private zone or continue to be `NXDOMAIN` responses if the private zone doesn't have the record.
+  * **For CNAME chasing scenarios under your control** : As best practice, configure matching time-to-live (TTL) values for all records in the CNAME chain.
+
+
+
+Announcement
+
+Starting January 5, 2027, Cloud DNS will disable full responses to DNS queries of type `ANY` (`QTYPE=ANY`) in [public authoritative zones](https://docs.cloud.google.com/dns/docs/zones/zones-overview). Instead, a single resource record will return for `ANY` queries, chosen from the existing resource record sets that match the query.
+
+Standard traffic from web browsers, applications, and API traffic query specific record types directly and are therefore unaffected with no action required.
+
+However, certain legacy scripts, automated health checkers, debugging commands (for example, `dig example.com ANY`), or custom third-party monitoring systems that explicitly query `ANY` records will receive the first available record instead of a full zone inventory. You must complete the following configuration updates before January 5, 2027:
+
+  * **Identify legacy queries** : Review internal tools, deployment scripts, or third-party DNS monitoring configurations for commands or API calls that request the `ANY` record type. Cloud DNS logs in Cloud Logging can be helpful with this.
+  * **Transition to specific queries** : Update the tools to query the specific, individual record types they require (for example, querying for `A`, `AAAA`, `MX`, or `TXT` records separately).
+  * **Retrieve full zone records** : If you use `ANY` queries to retrieve all records in a zone, use the Cloud DNS REST API (`resourceRecordSets.list`), the gcloud CLI (`gcloud dns record-sets list`), or the Google Cloud Console instead.
+
+
+
+Risks associated with not making these changes include the following:
+
+  * **False monitoring alarms** : Automated uptime or DNS monitoring tools checking `ANY` responses may misinterpret the new response as a system failure and trigger false alerts.
+  * **Broken automation pipelines** : Internal deployment or CI/CD scripts that rely on parsing a full zone dump with an `ANY` query will fail to retrieve the expected data payload and may crash.
+  * **Disrupted IT diagnostics** : Network administrators running manual legacy troubleshooting commands will no longer see a quick summary of all domain records, which could delay active network incident diagnostics.
+
+
 
 ## October 12, 2026
 
@@ -346,6 +390,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

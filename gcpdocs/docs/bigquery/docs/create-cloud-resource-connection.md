@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-cloud-resource-connection/
 title: Create and set up a Cloud resource connection \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:43:28.603097+00:00
+fetched_at: 2026-10-27T19:38:52.608342+00:00
 ---
 
 # Create and set up a Cloud resource connection  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,11 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Create and set up a Cloud resource connection
 
-As a BigQuery administrator, you can create a Cloud resource connection that enables data analysts to perform the following tasks:
+A Cloud resource connection in BigQuery lets you connect BigQuery to other Google Cloud services and external storage by using a dedicated service account with delegated access. You can create and share a Cloud resource connection so that data analysts can query external data, run remote functions, and use remote models without managing credentials directly.
+
+## Supported tasks
+
+With a Cloud resource connection, data analysts can perform the following tasks:
 
   * [Query structured Cloud Storage data](https://docs.cloud.google.com/bigquery/docs/query-cloud-storage-using-biglake) using BigLake tables. [BigLake tables](https://docs.cloud.google.com/bigquery/docs/biglake-intro) enable you to query external data with access delegation.
   * [Query unstructured data in Cloud Storage](https://docs.cloud.google.com/bigquery/docs/object-tables) using [object tables](https://docs.cloud.google.com/bigquery/docs/object-table-introduction).
@@ -694,6 +698,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

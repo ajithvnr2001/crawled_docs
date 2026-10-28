@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/armis-alerts/
 title: Collect Armis Alerts logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:15.988480+00:00
+fetched_at: 2026-10-27T23:02:54.504466+00:00
 ---
 
 # Collect Armis Alerts logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -74,7 +74,7 @@ Make sure you have the following prerequisites:
             -G \
             --data-urlencode "aql=in:alerts timeFrame:\"1 Hours\"" \
             --data-urlencode "length=1" \
-            --data-urlencode &quot;fields=alertId,type,title,description,severity,status,time,activityUUIDs,deviceIds,connectionIds" \
+            --data-urlencode "fields=alertId,type,title,description,severity,status,time,activityUUIDs,deviceIds,connectionIds" \
             | python3 -m json.tool
         
 
@@ -265,14 +265,14 @@ Variable Name | Example Value | Description
            
            ALERT_FIELDS = [
              'alertId', 'type', 'title', 'description', 'severity',
-             'status'[;](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.ObjectCustomContextPayload.html#google_cloud_storage_blob_ObjectCustomContextPayload_value), &#39;time', 'activityUUIDs', 'deviceIds', 'connectionIds'
+             'status', 'time', 'activityUUIDs', 'deviceIds', 'connectionIds'
            ]
            
            def parse_datetime(value):
              """Parse ISO datetime string to datetime object."""
              if not value:
                return None
-             if value.endswith("Z"):
+             if [value](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.ObjectCustomContextPayload.html#google_cloud_storage_blob_ObjectCustomContextPayload_value).endswith("Z"):
                value = value[:-1] + "+00:00"
              try:
                return datetime.fromisoformat(value)
@@ -299,14 +299,14 @@ Variable Name | Example Value | Description
              data = json.loads(response.data.decode('utf-8'))
              return data['data']['access_token']
            
-           @functions_[framew](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)ork.cloud_event
+           @functions_framework.cloud_event
            def main(cloud_event):
              """
              Cloud Run function triggered by Pub/Sub to fetch
              Armis Alert records and write to GCS.
            
              Args:
-               cloud_event: CloudEvent object c[ontai](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state)ning Pub/Sub message
+               cloud_event: CloudEvent object containing Pub/Sub message
              """
            
              if not all([GCS_BUCKET, ARMIS_INSTANCE_URL, ARMIS_SECRET_KEY]):
@@ -314,7 +314,7 @@ Variable Name | Example Value | Description
                return
            
              try:
-               bucket = storage_client.bucket(GCS_BUCKET)
+               bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(GCS_BUCKET)
            
                # Load state
                state = load_state(bucket, STATE_KEY)
@@ -323,7 +323,7 @@ Variable Name | Example Value | Description
                now = datetime.now(timezone.utc)
                last_time = None
            
-               if isinstance(state, dict) and state.get("last_event_time"):
+               if isinstance(state, dict) and [state](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.hmac_key.HMACKeyMetadata.html#google_cloud_storage_hmac_key_HMACKeyMetadata_state).get("last_event_time"):
                  try:
                    last_time = parse_datetime(state["last_event_time"])
                    # Overlap by 2 minutes to catch delayed events
@@ -346,7 +346,7 @@ Variable Name | Example Value | Description
            
                # Fetch alert logs
                records, newest_event_time = fetch_alert_logs(
-                 acces[s_token](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)=access_token,
+                 access_token=access_token,
                  start_time=last_time,
                  end_time=now,
                )
@@ -364,12 +364,12 @@ Variable Name | Example Value | Description
                ndjson = '\n'.join(
                  [json.dumps(record, ensure_ascii=False) for record in records]
                ) + '\n'
-               blob.upload_from_string(
+               blob.[upload_from_string](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)(
                  ndjson, content_type='application/x-ndjson'
                )
            
-               print([
-                 f"Wr](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_as_text)ote {len(records)} records to "
+               print(
+                 f"Wrote {len(records)} records to "
                  f"gs://{GCS_BUCKET}/{object_key}"
                )
            
@@ -381,7 +381,7 @@ Variable Name | Example Value | Description
            
                print(f"Successfully processed {len(records)} records")
            
-            [ except Exception ](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)as e:
+             except Exception as e:
                print(f'Error processing alert logs: {str(e)}')
                raise
            
@@ -390,7 +390,7 @@ Variable Name | Example Value | Description
              try:
                blob = bucket.blob(key)
                if blob.exists():
-                 state_data = blob.download_as_text()
+                 state_data = blob.[download_as_text](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_as_text)()
                  return json.loads(state_data)
              except Exception as e:
                print(f"Warning: Could not load state: {e}")
@@ -401,13 +401,13 @@ Variable Name | Example Value | Description
              try:
                state = {'last_event_time': last_event_time_iso}
                blob = bucket.blob(key)
-               blob.upload_from_string(
+               blob.[upload_from_string](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)(
                  json.dumps(state, indent=2),
                  content_type='application/json'
                )
                print(f"Saved state: last_event_time={last_event_time_iso}")
              except Exception as e:
-               print(f"Warning: Could not >save state: {e}")
+               print(f"Warning: Could not save state: {e}")
            
            def fetch_alert_logs(access_token, start_time, end_time):
              """
@@ -434,7 +434,7 @@ Variable Name | Example Value | Description
              backoff = 1.0
            
              while True:
-               if len(records) = MAX_RECORDS:
+               if len(records) >= MAX_RECORDS:
                  print(f"Reached max_records limit ({MAX_RECORDS})")
                  break
            
@@ -483,11 +483,11 @@ Variable Name | Example Value | Description
                    print(f"Response body: {response_text}")
                    return records, newest_time
            
-                 data = json.>loads(response.data.decode('utf-8'))
+                 data = json.loads(response.data.decode('utf-8'))
                  result = data.get('data', {}).get('results', [])
                  total = data.get('data', {}).get('total', 0)
                  count = data.get('data', {}).get('count', 0)
-                 next_fr<om = data.get('data', {}).get('next')
+                 next_from = data.get('data', {}).get('next')
            
                  if not result:
                    print(f"No more results (empty page)")
@@ -511,7 +511,7 @@ Variable Name | Example Value | Description
                          newest_dt = parse_datetime(newest_time)
                          if (
                            current_dt and newest_dt
-                           and current_dt  newest_dt
+                           and current_dt > newest_dt
                          ):
                            newest_time = event_time
                    except Exception as e:
@@ -521,7 +521,7 @@ Variable Name | Example Value | Description
                      )
            
                  # Check pagination
-                 if next_from is None or count  PAGE_SIZE:
+                 if next_from is None or count < PAGE_SIZE:
                    print("Reached last page")
                    break
            
@@ -713,6 +713,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

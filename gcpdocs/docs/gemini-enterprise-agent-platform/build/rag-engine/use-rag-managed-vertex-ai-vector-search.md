@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-managed-vertex-ai-vector-search/
 title: Use Vector Search 2.0 with RAG \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:20.318357+00:00
+fetched_at: 2026-10-28T02:27:42.216812+00:00
 ---
 
 # Use Vector Search 2.0 with RAG  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Some of the RAG features are Preview offerings, subject to the "Pre-GA Offerings
 
 The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-RAG Engine corpora that are backed by Vector Search 2.0 are available only in `us-central1`.
+RAG Engine on Gemini Enterprise Agent Platform corpora that are backed by Vector Search 2.0 are available only in `us-central1`.
 
 This page shows you how RAG Engine on Gemini Enterprise Agent Platform uses [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview), which is a Google Cloud product that serves as a comprehensive storage and retrieval system to store and manage vector representations of your documents. The Gemini Enterprise Agent Platform Vector Search 2.0 is then used to retrieve relevant documents based on the document's semantic similarity to a given query.
 
@@ -57,14 +57,14 @@ This code samples demonstrates how to create a RAG corpus using `RagManagedVerte
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
     DISPLAY_NAME = YOUR_RAG_CORPUS_DISPLAY_NAME
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     vector_db = rag.RagManagedVertexVectorSearch()
     rag_corpus = rag.create_corpus(
@@ -108,7 +108,7 @@ To upload your local file into your RAG corpus, see [Upload a RAG file](https://
     
     
     from vertexai.preview import rag
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     
     PROJECT_ID = YOUR_PROJECT_ID
     LOCATION = YOUR_RAG_ENGINE_LOCATION
@@ -116,7 +116,7 @@ To upload your local file into your RAG corpus, see [Upload a RAG file](https://
     PATHS = ["gs://my_bucket/my_files_dir"]
     
     # Initialize Agent Platform API once per session
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     corpus_name = f"projects/{PROJECT_ID}/locations/{LOCATION}/ragCorpora/{CORPUS_ID}"
     # This is a non blocking call.
@@ -126,7 +126,7 @@ To upload your local file into your RAG corpus, see [Upload a RAG file](https://
     )
     
     # Wait for the import to complete.
-    await response.[result](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.CheckQueryJobResultDict.html#vertexai__genai_types_CheckQueryJobResultDict_result)()
+    await response.[result](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.CheckQueryJobResultDict.html#vertexai__genai_types_CheckQueryJobResultDict_result)()
     
 
 ###  REST 
@@ -273,16 +273,16 @@ Replace the following variables:
 
     
     
-    from google.cloud import vectorsearch_v1
+    from google.cloud import [vectorsearch_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest)
     
-    client = vectorsearch_v1.[VectorSearchServiceClient](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest/google.cloud.vectorsearch_v1.services.vector_search_service.VectorSearchServiceClient.html)()
+    client = [vectorsearch_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest).[VectorSearchServiceClient](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest/google.cloud.vectorsearch_v1.services.vector_search_service.VectorSearchServiceClient.html)()
     
-    index = vectorsearch_v1.[Index](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest/google.cloud.vectorsearch_v1.types.Index.html)(
+    index = [vectorsearch_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest).[Index](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest/google.cloud.vectorsearch_v1.types.Index.html)(
         index_field="text_embedding",
-        distance_metric=vectorsearch_v1.[DistanceMetric](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest/google.cloud.vectorsearch_v1.types.DistanceMetric.html).COSINE_DISTANCE,
+        distance_metric=[vectorsearch_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest).[DistanceMetric](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest/google.cloud.vectorsearch_v1.types.DistanceMetric.html).COSINE_DISTANCE,
         filter_fields=["file_id"],
     )
-    request = vectorsearch_v1.[CreateIndexRequest](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest/google.cloud.vectorsearch_v1.types.CreateIndexRequest.html)(
+    request = [vectorsearch_v1](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest).[CreateIndexRequest](https://docs.cloud.google.com/python/docs/reference/google-cloud-vectorsearch/latest/google.cloud.vectorsearch_v1.types.CreateIndexRequest.html)(
         parent="projects/PROJECT_ID/locations/us-central1/collections/vertex-rag-RAG_CORPUS_ID",
         index_id="vertex-rag-RAG_CORPUS_ID-index",
         index=index,
@@ -415,6 +415,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

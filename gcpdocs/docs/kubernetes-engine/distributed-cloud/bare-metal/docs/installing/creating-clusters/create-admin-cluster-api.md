@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/create-admin-cluster-api/
 title: Create an admin cluster using GKE On-Prem API clients \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:27.590772+00:00
+fetched_at: 2026-10-27T23:54:35.135653+00:00
 ---
 
 # Create an admin cluster using GKE On-Prem API clients  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -336,7 +336,7 @@ If you need to change the bootstrap cluster name or the project ID, enter `Ctrl-
 
   3. Under **Node configuration** , enter a value between 64 and 250 in **Maximum Pods per node** , or accept the default, 110. After the cluster is created, you can't update this value.
 
-The maximum Pods per node (referred to as Pod density} is also limited by your cluster's available IP resources. For details, see [Pod networking](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/network-reqs#pod_networking).
+The maximum Pods per node (referred to as Pod density} is also limited by your cluster's available IP resources. For details, see [Pods and Services networking](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/network-reqs#pods-and-services-networking).
 
   4. Click **Next**.
 
@@ -411,7 +411,7 @@ The cluster name, project, and location together uniquely identify the cluster i
 
   * `MAX_PODS_PER_NODE `: For admin clusters, allowable values are 32-250 and 64-250 for non-HA clusters. The default value if `--max-pods-per-node` isn't included in the command is 110. After the cluster is created, this value cannot be updated.
 
-The maximum Pods per node (referred to as Pod density) is also limited by your cluster's available IP resources. For details, see [Pod networking](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/network-reqs#pod_networking).
+The maximum Pods per node (referred to as Pod density) is also limited by your cluster's available IP resources. For details, see [Pods and Services networking](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/network-reqs#pods-and-services-networking).
 
   * `CONTROL_PLANE_VIP`: The virtual IP (VIP) on the load balancer for the cluster's Kubernetes API server. Include the control plane VIP in the same subnet as the load balancer nodes. Don't include the control plane VIP in the load balancer address pools.
 
@@ -627,6 +627,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-label-query-job/
 title: Add a label to a query job \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:37.687790+00:00
+fetched_at: 2026-10-27T23:09:19.680201+00:00
 ---
 
 # Add a label to a query job  |  BigQuery  |  Google Cloud Documentation

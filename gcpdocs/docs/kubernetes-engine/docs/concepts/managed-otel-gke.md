@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/managed-otel-gke/
 title: Managed OpenTelemetry for GKE \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:22.418386+00:00
+fetched_at: 2026-10-27T19:53:47.749546+00:00
 ---
 
 # Managed OpenTelemetry for GKE  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback
 
 #  Managed OpenTelemetry for GKE Stay organized with collections  Save and categorize content based on your preferences. 
 
-[ Autopilot ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) [ Standard ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-cluster-mode)
-
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+Autopilot  Standard 
 
 This document describes Managed OpenTelemetry for Google Kubernetes Engine (GKE), which lets you send [OpenTelemetry Protocol (OTLP)](https://opentelemetry.io/docs/specs/otlp/) traces, metrics, and logs to Google Cloud Observability from applications running on GKE. Managed OpenTelemetry provides the only managed solution by Google Cloud for collecting trace data on GKE.
 
@@ -34,9 +30,9 @@ To use Managed OpenTelemetry for Google Kubernetes Engine (GKE), applications ne
 Managed OpenTelemetry for GKE has two components:
 
   * **Managed collection** : The managed collector provides an in-cluster OpenTelemetry Protocol endpoint as a destination for workloads to send traces, metrics, and logs in OTLP format, without having to manage a collector.
-  * **Automatic configuration** : A [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Instrumentation` enables an automatic configuration for your GKE workloads to generate and ingest correlated OpenTelemetry traces, metrics, and logs. This approach supports the [Agent Development Kit (ADK)](https://docs.cloud.google.com/stackdriver/docs/instrumentation/ai-agent-adk) and [multimodal prompts and responses data](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke#multimodal-prompts-responses).
+  * **Automatic configuration** : A [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called Instrumentation enables an automatic configuration for your GKE workloads to generate and ingest correlated OpenTelemetry traces, metrics, and logs. This approach supports the [Agent Development Kit (ADK)](https://docs.cloud.google.com/stackdriver/docs/instrumentation/ai-agent-adk) and [multimodal prompts and responses data](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke#multimodal-prompts-responses).
 
-You can use the `Instrumentation` custom resource for workloads that use the OpenTelemetry SDK and are configured with standard OpenTelemetry environment variables. This `Instrumentation` custom resource, `instrumentations.telemetry.googleapis.com`, is a different resource from `Instrumentation` resource for the OpenTelemetry operator.
+You can use the Instrumentation custom resource for workloads that use the OpenTelemetry SDK and are configured with standard OpenTelemetry environment variables. This Instrumentation custom resource, `instrumentations.telemetry.googleapis.com`, is a different resource from the Instrumentation resource for the OpenTelemetry operator.
 
 
 
@@ -55,7 +51,12 @@ Managed OpenTelemetry for GKE has two components: managed collection and automat
 
 Managed collection provides an in-cluster OTLP endpoint by deploying a managed OpenTelemetry collector to your cluster. This in-cluster OTLP endpoint receives traces, metrics, and logs in OTLP format. To receive data from a workload, the workload must be configured to send data to the collector.
 
-The managed collector's endpoint is: `http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4318`.
+The endpoint that your workload sends data to depends on the protocol that you use, as follows:
+
+  * The `http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4318` URL for the HTTP endpoint.
+  * The `http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4317` URL for the gRPC endpoint.
+
+
 
 The managed collection sends the collected data to Google Cloud Observability. The data is then available in the following services:
 
@@ -73,41 +74,45 @@ Automatic configuration lets GKE configure workloads running on GKE to send sign
 
 There are different methods that can be used to configure a workload. Automatic configuration uses environment variables injected in the workload's container to have the workload send signals to the managed collector. If you are manually configuring the workload, you can use other methods. For details, see Manual configuration.
 
-When you use automatic configuration, you define the configuration using the `Instrumentation` custom resource. Then, GKE injects environment variables, such as the OTLP exporter endpoint, into the workload's containers. When the workload's containers have these environment variables, then as the workload runs OpenTelemetry data is sent to the managed collector.
+When you use automatic configuration, you define the configuration using the Instrumentation custom resource. Then, GKE injects environment variables, such as the OTLP exporter endpoint, into the workload's containers. When the workload's containers have these environment variables, then as the workload runs OpenTelemetry data is sent to the managed collector.
 
 Automatic configuration is available for workloads that natively support OpenTelemetry, which means that they use the OpenTelemetry SDK and are configured using standard OpenTelemetry environment variables. For more details, see [Supported workloads](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/managed-otel-gke#supported-workloads).
 
 For instructions to configure your application using the automatic configuration, see [Configure your application to use the Managed OpenTelemetry collector](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke#configure-application).
 
-#### The `Instrumentation` custom resource
+#### The Instrumentation custom resource
 
-You use the `Instrumentation` custom resource to do the following:
+You use the Instrumentation custom resource to do the following:
 
   * Specify whether to inject the environment variables into the containers of selected Pods or of all Pods in a namespace.
   * Control the type of data that is collected (logs, metrics, and traces).
   * Control the frequency that metrics data is sent to the managed collector.
   * Control the sampling rate of trace data.
+  * Control the OTLP transport protocol (HTTP or gRPC) used to export telemetry to the managed collector.
 
 
 
-For details about how use the `Instrumentation` custom resource, see [Modify the configuration](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke#modify-configuration).
+For details about how to use the Instrumentation custom resource, see [Modify the configuration](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke#modify-configuration).
 
 #### Inject environment variables automatically
 
-To inject OpenTelemetry environment variables into your GKE workloads automatically, you need to configure an `Instrumentation` object in your cluster. Then, when you deploy the application in the cluster with the `Instrumentation` object, the variables are then injected by GKE.
+To inject OpenTelemetry environment variables into your GKE workloads automatically, you need to configure an Instrumentation object in your cluster. Then, when you deploy the application in the cluster with the Instrumentation object, the variables are then injected by GKE.
 
-The `Instrumentation` object needs to be in the cluster when the application is deployed and the Pods are created. If you deployed the application before you created the `Instrumentation` object, then you need to _restart_ the application's pods to trigger automatic injection of the environment variables.
+The Instrumentation object needs to be in the cluster when the application is deployed and the Pods are created. If you deployed the application before you created the Instrumentation object, then you need to _restart_ the application's pods to trigger automatic injection of the environment variables.
 
 #### Environment variables
 
 When a workload is deployed to the namespace where automatic configuration is enabled, then GKE injects environment variables into the workloads' containers. These environment variables are OpenTelemetry variables from the [OpenTelemetry SDK Configuration](https://opentelemetry.io/docs/languages/sdk-configuration/).
 
-The following list contains all of the environment variables that can be injected by Managed OpenTelemetry for GKE. The specific environment variables injected to a container depend on the configuration in the `Instrumentation` custom resource.
+The following list contains all of the environment variables that can be injected by Managed OpenTelemetry for GKE. The specific environment variables injected to a container depend on the configuration in the Instrumentation custom resource.
 
 The environment variables that can be injected automatically into containers are the following:
 
-  * OpenTelemetry exporter endpoint. 
-    * `OTEL_EXPORTER_OTLP_ENDPOINT`: A base endpoint URL for any signal type. This endpoint always points to the in-cluster managed OpenTelemetry collector HTTP endpoint for logs, metrics, and traces. The endpoint is: `http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4318`.
+  * OpenTelemetry exporter endpoint and protocol. 
+    * `OTEL_EXPORTER_OTLP_ENDPOINT`: A base endpoint URL for any signal type. Depending on the exporter configured in the Instrumentation custom resource, the value of this environment variable is the in-cluster managed OpenTelemetry collector HTTP endpoint (`http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4318`, default) or gRPC endpoint (`http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4317`).
+    * `OTEL_EXPORTER_OTLP_PROTOCOL`: Specifies the OTLP transport protocol used by the SDK exporter. The value of this environment variable is one of the following, depending on the OTLP transport protocol that you use: 
+      * `grpc` if you use the `otlp_grpc` transport protocol.
+      * `http/protobuf` if you don't specify a transport protocol or if you use the `otlp_http` transport protocol.
   * Trace sampling ratio configuration. 
     * `OTEL_TRACES_SAMPLER`: Sets the [sampler](https://opentelemetry.io/docs/languages/sdk-configuration/general/#otel_traces_sampler) used to sample traces by the SDK to one of the following: 
       * `parentbased_traceidratio` when trace sampling is configured in the custom resource.
@@ -115,7 +120,7 @@ The environment variables that can be injected automatically into containers are
     * `OTEL_TRACES_SAMPLER_ARG`: Specifies the trace sampling ratio (between 0.0 and 1.0). If not configured in the custom resource, then 1.0 is used.
   * Delay interval between start of two consecutive metric exports. 
     * `OTEL_METRIC_EXPORT_INTERVAL`: The time interval (in milliseconds) between the start of two export attempts (min: 5000, max: 300000, default: 30000).
-  * Disablement of OTLP telemetry export by signal type. Signal exporters are disabled when `tracer_provider`, `meter_provider`, or `logger_provider` are set to `null` in the `Instrumentation` file. 
+  * Disablement of OTLP telemetry export by signal type. Signal exporters are disabled when `tracer_provider`, `meter_provider`, or `logger_provider` are set to `null` in the Instrumentation custom resource. 
     * `OTEL_TRACES_EXPORTER`: Disables export of traces when set to `none`. Default value: `otlp`.
     * `OTEL_METRICS_EXPORTER`: Disables export of metrics when set to `none`. Default value: `otlp`.
     * `OTEL_LOGS_EXPORTER`: Disables export of logs when set to `none`. Default value: `otlp`.
@@ -132,11 +137,11 @@ The environment variables that can be injected automatically into containers are
 
 ### Manual configuration
 
-There are different methods that you can use to configure a workload to send signals to the managed collector's [endpoint](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/managed-otel-gke#environment_variables). If you are manually configuring your workload, then you can manually add and modify environment variables, or you can use another method such as command line flags.
+There are different methods that you can use to configure a workload to send signals to the managed collector's endpoint. If you are manually configuring your workload, then you can manually add and modify environment variables, or you can use another method such as command line flags.
 
 We don't recommend using both manual configuration and automatic configuration together for the same workload, because the automatic configuration can override manual changes. This combination might make it more difficult to track changes to the configuration.
 
-For details about automatic configuration, see Automatic configuration
+For details about automatic configuration, see Automatic configuration.
 
 ## Supported workloads
 
@@ -180,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

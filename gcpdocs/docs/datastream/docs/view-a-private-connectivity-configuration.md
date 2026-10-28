@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/view-a-private-connectivity-configuration/
 title: View a private connectivity configuration \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:50.038874+00:00
+fetched_at: 2026-10-27T22:59:20.138954+00:00
 ---
 
 # View a private connectivity configuration  |  Datastream  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  View a private connectivity configuration Stay organized with collections  Save and categorize content based on your preferences. 
 
-In this section, you learn how to view high-level and detailed information about a private connectivity configuration.
+You can view high-level and detailed information about your Datastream private connectivity configurations to verify your network setup before creating a connection profile. The Google Cloud console displays the configuration status, region, assigned connection profiles, and Virtual Private Cloud (VPC) peering or Private Service Connect interface settings.
 
 ## View high-level information
 
@@ -51,7 +51,7 @@ In addition to viewing high-level information about a private connectivity confi
 
 To view a private connectivity configuration in the Google Cloud console, perform the following steps:
 
-  1. Go to the **Private connectivity configurations** page in the Google Cloud Console.
+  1. Go to the **Private connectivity configurations** page in the Google Cloud console.
 
 [Go to the Private connectivity configurations page](https://console.cloud.google.com/datastream/private-connections)
 
@@ -74,6 +74,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

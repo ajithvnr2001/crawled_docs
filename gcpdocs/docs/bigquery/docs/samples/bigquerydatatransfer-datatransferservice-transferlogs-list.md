@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-datatransferservice-transferlogs-list/
 title: Get log messages for a transfer run \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:43:34.650155+00:00
+fetched_at: 2026-10-27T23:01:48.760562+00:00
 ---
 
 # Get log messages for a transfer run  |  BigQuery  |  Google Cloud Documentation
@@ -22,6 +22,54 @@ fetched_at: 2026-10-25T06:43:34.650155+00:00
 Retrieves all log messages produced during a specific BigQuery Data Transfer Service transfer run.
 
 ## Code sample
+
+### Java
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.datatransfer.v1.[DataTransferServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataTransferServiceClient.html);
+    import com.google.cloud.bigquery.datatransfer.v1.[RunName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.RunName.html);
+    import com.google.cloud.bigquery.datatransfer.v1.[TransferMessage](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.TransferMessage.html);
+    import java.io.IOException;
+    
+    public class ListTransferLogs {
+    
+      /**
+       * Prints the transfer logs for a given transfer run.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the transfer configuration (for example,
+       *     "us-central1").
+       * @param transferConfigId The ID of the transfer configuration (for example,
+       *     "1234a-5678-90b1-2c3d-4e5f67890g12").
+       * @param runId The ID of the transfer run (for example, "6789b-0123-45c6-7d8e-9f0a12345b67").
+       */
+      public static void listTransferLogs(
+          String projectId, String location, String transferConfigId, String runId) {
+        [RunName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.RunName.html) parent =
+            [RunName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.RunName.html).[ofProjectLocationTransferConfigRunName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.RunName.html#com_google_cloud_bigquery_datatransfer_v1_RunName_ofProjectLocationTransferConfigRunName_java_lang_String_java_lang_String_java_lang_String_java_lang_String_)(
+                projectId, location, transferConfigId, runId);
+    
+        try ([DataTransferServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataTransferServiceClient.html) client = [DataTransferServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataTransferServiceClient.html).create()) {
+          System.out.printf("Logs for transfer run %s:%n", runId);
+          for ([TransferMessage](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.TransferMessage.html) log : client.listTransferLogs(parent).iterateAll()) {
+            System.out.printf("  - %s: %s%n", log.getSeverity(), log.getMessageText());
+          }
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf(
+              "error: transfer run '%s' not found in project '%s' location '%s': %s%n",
+              runId, projectId, location, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to list transfer logs for '%s': %s%n", parent, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        }
+      }
+    
 
 ### Node.js
 

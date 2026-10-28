@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-publish-custom-attributes/
 title: Publish with custom attributes \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:07.023138+00:00
+fetched_at: 2026-10-28T01:38:49.877871+00:00
 ---
 
 # Publish with custom attributes  |  Pub/Sub  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-resources/
 title: Resources \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:25.122185+00:00
+fetched_at: 2026-10-27T23:17:01.990818+00:00
 ---
 
 # Resources  |  Looker  |  Google Cloud Documentation

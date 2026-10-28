@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/apigee/docs/api-platform/publish/portal/portal-files/
 title: Managing your assets \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T10:28:43.023842+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:19:58.268107+00:00
 ---
 
 # Managing your assets  |  Apigee  |  Google Cloud Documentation
@@ -59,7 +73,7 @@ The assets manager lets you:
 
 The following default image files are used in the sample portal.
 
-When customizing the default images described in the following table, you may need to "force refresh" your browser to bypass the cache and load the new image. Image file | Where used?  
+When customizing the default images described in the following table, you may need to "force refresh" your browser to bypass the cache and load the new image.  Image file | Where used?  
 ---|---  
 `home-background.jpg` | Backdrop image on the sample portal home page. Customize the image by replacing the `home-background.jpg` image in assets manager by uploading your own version using the same name and relative file size (3000 pixels by 1996 pixels). Alternatively, you can use a different filename and update the SCSS styles, as described in [ Customizing your background image](https://docs.cloud.google.com/apigee/docs/api-platform/publish/portal/api-portal-themes#background-image).  
 `idp-logo.png` | Logo placeholder image used on the Sign In page. To change the Acme logo to your company's logo, upload your logo using the same name and relative file size: `logo.png` (280 pixels by 125 pixels). See also [ Customizing the logo on the Sign In page](https://docs.cloud.google.com/apigee/docs/api-platform/publish/portal/api-portal-themes#sign-in-logo) for relevant style customizations.  
@@ -108,6 +122,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

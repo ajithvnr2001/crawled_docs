@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/control-plane-metrics/
 title: Collect and view control plane metrics \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:47.252095+00:00
+fetched_at: 2026-10-27T22:14:24.455059+00:00
 ---
 
 # Collect and view control plane metrics  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -287,6 +287,14 @@ Labels
 `subresource`   
 `verb`   
 `version`  
+`apiserver_resource_size_estimate_bytes` BETA  
+`apiserver_resource_size_estimate_bytes/gauge`  
+`Gauge`, `Double`, `1`   
+**prometheus_target**   
+1.37.1-gke.2079000+  |  _Estimated size of stored objects in database. Estimate is based on sum of last observed sizes of serialized objects._  
+  
+`group`   
+`resource`  
 `apiserver_response_sizes` GA  
 `apiserver_response_sizes/histogram`  
 `Cumulative`, `Distribution`, `1`   
@@ -722,6 +730,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/
 title: gcloud oracle-database \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T14:34:42.465540+00:00
+fetched_at: 2026-10-27T21:41:06.945688+00:00
 ---
 
 # gcloud oracle-database  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -53,6 +53,8 @@ GROUPS
      Manage Cloud Vm Cluster resources. 
 `[database-character-sets](https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/database-character-sets)`
      Manage Database Character Set resources. 
+`[database-connections](https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/database-connections)`
+     Manage Database Connection resources. 
 `[databases](https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/databases)`
      Manage Database resources. 
 `[db-system-initial-storage-sizes](https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/db-system-initial-storage-sizes)`
@@ -96,6 +98,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

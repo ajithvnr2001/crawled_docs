@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/securing/identity-aware-proxy-cloud-run/
 title: Configure IAP for Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:58:35.530676+00:00
+fetched_at: 2026-10-28T02:30:52.162977+00:00
 ---
 
 # Configure IAP for Cloud Run  |  Google Cloud Documentation
@@ -82,17 +82,17 @@ When you enable IAP for Cloud Run, IAP requires permissions to invoke your Cloud
 
 [Go to Cloud Run](https://console.cloud.google.com/run)
 
-  2. Select **Services** from the Cloud Run navigation menu.
+  2. Select **Services** from the Cloud Run navigation menu:
 
-  3. If you are configuring a new service, click **Deploy container** and fill out the initial service settings.
+     1. If you are configuring a new service, click **Deploy container** and fill out the initial service settings page.
 
-  4. If you are configuring an existing service, click the service, then click the **Security** tab.
+     2. If you are configuring an existing service, click the service, then click the **Security** tab.
 
-  5. Select **Require authentication** , then select **Identity-Aware Proxy (IAP)**.
+  3. Select **Require authentication** , then select **Identity-Aware Proxy (IAP)**.
 
-  6. Optional: To grant access to users, follow the instructions to Manage user or group access for IAP. If you encounter issues when configuring access for users outside of your organization, see the Troubleshooting section. To save the configuration, click **Save**.
+  4. Optional: To grant access to users, follow the instructions to Manage user or group access for IAP. If you encounter issues when configuring access for users outside of your organization, see the Troubleshooting section. To save the configuration, click **Save**.
 
-  7. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
+  5. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
 
 
 
@@ -830,6 +830,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

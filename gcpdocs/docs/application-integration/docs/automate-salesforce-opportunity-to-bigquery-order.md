@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/application-integration/docs/automate-salesforce-opportunity-to-bigquery-order/
 title: Automate Salesforce opportunity to BigQuery order \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:38.277962+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:20:23.019948+00:00
 ---
 
 # Automate Salesforce opportunity to BigQuery order  |  Application Integration  |  Google Cloud Documentation
@@ -29,7 +43,7 @@ Business enterprises use various CRM and ERP applications to create, process, ma
 
 In this tutorial, you'll create an integration that uses a Salesforce trigger to subscribe to a new opportunity event in Salesforce. When a new opportunity is created, the integration will retrieve additional opportunity details, such as the account ID and name. These details are checked in a BigQuery table to create and update the opportunity with a tracking order number. During validation, if the account information doesn't exist in BigQuery, the integration will automatically create a new entry in both the BigQuery table and the attached ServiceNow instance using Integration Connectors. 
 
-![Salesforce opportunity to BigQuery order diagram](https://docs.cloud.google.com/static/application-integration/images/opportunity-to-order.png)![Salesforce opportunity to BigQuery order diagram](https://docs.cloud.google.com/static/application-integration/images/opportunity-to-order.png)
+![Salesforce opportunity to BigQuery order diagram](https://docs.cloud.google.com/static/application-integration/images/opportunity-to-order.png) ![Salesforce opportunity to BigQuery order diagram](https://docs.cloud.google.com/static/application-integration/images/opportunity-to-order.png)
 
 ## Objectives
 
@@ -380,11 +394,11 @@ To extract, map, and validate the account ID of the opportunity, do the followin
   3. Click the **Data Mapping** element on the designer to view the task configuration pane.
   4. Click  edit  and rename the **Data Mapping** task to `Check account`.
   5. Click **Open Data Mapping Editor**.
-  6. Click **\+ Add new variable** and create the following output variables: Output variable name | Data type | `sf_account_id` | `STRING`  
+  6. Click **\+ Add new variable** and create the following output variables:  Output variable name | Data type | `sf_account_id` | `STRING`  
 ---|---  
 `sf_account_name` | `STRING`  
 `account_exists` | `BOOLEAN`  
-  7. Create the following mapping between the Salesforce connector payload variable and the local variable: Input | Output | 
+  7. Create the following mapping between the Salesforce connector payload variable and the local variable:  Input | Output | 
          
          connectorOutputPayload ( Fetch Salesforce Data)
          .GET_PROPERTY("AccountId")
@@ -469,10 +483,10 @@ To transform the account details and map it to the BigQuery and ServiceNow conne
   3. Click the **Data Mapping** element on the designer to view the task configuration pane.
   4. Click  edit  and rename the **Data Mapping** task to `Mapping for Account Creation`.
   5. Click **Open Data Mapping Editor**.
-  6. Click **\+ Add new variable** and create the following input variables: Input variable name | Data type | `new_BQaccount` | `JSON`  
+  6. Click **\+ Add new variable** and create the following input variables:  Input variable name | Data type | `new_BQaccount` | `JSON`  
 ---|---  
 `new_SNaccount` | `JSON`  
-  7. Create the following mapping to map the Salesforce account ID and name to the BigQuery table: Input | Output | 
+  7. Create the following mapping to map the Salesforce account ID and name to the BigQuery table:  Input | Output | 
          
          new_BQaccount
          .SET_PROPERTY(
@@ -538,9 +552,9 @@ Perform the following steps to configure a **Connectors** task that creates a ne
   3. Click the **Data Mapping** element on the designer to view the task configuration pane.
   4. Click  edit  and rename the **Data Mapping** task to `Mapping for Order Creation`.
   5. Click **Open Data Mapping Editor**.
-  6. Click **\+ Add new variable** and create the following variable: Variable name | Data type | `order_number` | `STRING`  
+  6. Click **\+ Add new variable** and create the following variable:  Variable name | Data type | `order_number` | `STRING`  
 ---|---  
-  7. Create the following mapping to generate a new order number and map the order details to the BigQuery connector: Input | Output | 
+  7. Create the following mapping to generate a new order number and map the order details to the BigQuery connector:  Input | Output | 
          
          GENERATE_UUID()
          .SPLIT("-")
@@ -611,7 +625,7 @@ Perform the following steps to configure a **Connectors** task that updates the 
   3. Click the **Data Mapping** element on the designer to view the task configuration pane.
   4. Click  edit  and rename the **Data Mapping** task to `Mapping to update opportunity`.
   5. Click **Open Data Mapping Editor**.
-  6. Create the following mapping to update the Salesforce opportunity: Input | Output | 
+  6. Create the following mapping to update the Salesforce opportunity:  Input | Output | 
          
          "{}"
          .TO_JSON()
@@ -665,7 +679,7 @@ The following edge condition controls the flow of the integration based on the v
 
 The following figure shows a sample layout of the integration created using this tutorial.
 
-![Sample image showing the integration flow](https://docs.cloud.google.com/static/application-integration/images/opportunity-to-order-flow.png)![Sample image showing the integration flow](https://docs.cloud.google.com/static/application-integration/images/opportunity-to-order-flow.png)
+![Sample image showing the integration flow](https://docs.cloud.google.com/static/application-integration/images/opportunity-to-order-flow.png) ![Sample image showing the integration flow](https://docs.cloud.google.com/static/application-integration/images/opportunity-to-order-flow.png)
 
 ## Publish and test the integration
 
@@ -722,6 +736,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/external-data-bigtable/
 title: Query Bigtable external tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:25:28.149836+00:00
+fetched_at: 2026-10-27T19:38:49.202253+00:00
 ---
 
 # Query Bigtable external tables  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Query Bigtable external tables
 
-This document describes how to use BigQuery to query data stored in a [Bigtable external table](https://docs.cloud.google.com/bigquery/docs/create-bigtable-external-table). For information on how to query data directly from Bigtable, see [GoogleSQL for Bigtable overview](https://docs.cloud.google.com/bigtable/docs/googlesql-overview).
+BigQuery lets you run GoogleSQL queries on data stored in a [Bigtable external table](https://docs.cloud.google.com/bigquery/docs/create-bigtable-external-table) so that you can analyze NoSQL data in Bigtable alongside your BigQuery tables without copying or moving data. You can query permanent external tables or create a temporary external table when you run a query.
 
-[Bigtable](https://docs.cloud.google.com/bigtable/docs) is Google's sparsely populated NoSQL database that can scale to billions of rows, thousands of columns, and petabytes of data. For information on the Bigtable data model, see [Storage model](https://docs.cloud.google.com/bigtable/docs/overview#storage-model).
+[Bigtable](https://docs.cloud.google.com/bigtable/docs) is a sparsely populated NoSQL database that scales to billions of rows, thousands of columns, and petabytes of data. For information about the Bigtable data model or querying Bigtable directly, see [Storage model](https://docs.cloud.google.com/bigtable/docs/overview#storage-model) and [GoogleSQL for Bigtable overview](https://docs.cloud.google.com/bigtable/docs/googlesql-overview).
 
 ## Query permanent external tables
 
@@ -376,6 +376,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

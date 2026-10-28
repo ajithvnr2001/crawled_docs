@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/samples/dataproc-pyspark-sort/
 title: Sort \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:45:00.142281+00:00
+fetched_at: 2026-10-27T21:22:19.794227+00:00
 ---
 
 # Sort  |  Managed Service for Apache Spark  |  Google Cloud Documentation

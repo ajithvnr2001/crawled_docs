@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/deploy-antigravity-us-public-sector/
 title: Deploy the Antigravity App and Antigravity CLI for US public sector \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:37:22.619437+00:00
+fetched_at: 2026-10-27T23:16:18.616549+00:00
 ---
 
 # Deploy the Antigravity App and Antigravity CLI for US public sector  |  Security  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ A Third-Party Assessment Organization (3PAO) validated that these deployment ins
 Complete the following steps to deploy Antigravity App and Antigravity CLI and configure your local environment and client to meet your organization's security expectations:
 
   1. [Download Antigravity App and Antigravity CLI](https://antigravity.google/download) locally.
-  2. Create a project in your Assured Workloads folder and enable API access. For instructions, see the [Google Cloud project and API setup](https://antigravity.google/docs/enterprise#google-cloud-project-and-api-setup) section.
+  2. Create a project in your Assured Workloads folder and enable the `aiplatform.googleapis.com` API. For instructions, see the [Google Cloud project and API setup](https://antigravity.google/docs/enterprise#google-cloud-project-and-api-setup) section.
   3. Configure authentication to Antigravity as appropriate for your users and clients. You can use Cloud Identity (for federation with your external identity provider or system) and Google Cloud service accounts to authenticate to Antigravity.
   4. Sign in to Antigravity using [Application Default Credentials](https://antigravity.google/docs/enterprise#application-default-credentials-adc-in-antigravity-cli), as follows:
 
@@ -68,11 +68,12 @@ Replace `QUOTA_PROJECT_ID` with the ID of the project in your Assured Workloads 
 
 ## Connect to supported models
 
-The following models are supported for FedRAMP High, IL4, IL5, ITAR, and CJIS: 
+The following models are supported for FedRAMP High, IL4, IL5, ITAR, and CJIS:
 
   * Gemini 3.6 Flash
   * Gemini 3.7 Flash
   * Gemini 3.8 Flash
+  * Gemini 4.0 Argon
 
 
 
@@ -128,6 +129,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

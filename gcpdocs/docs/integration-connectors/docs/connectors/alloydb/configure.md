@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/alloydb/configure/
 title: AlloyDB \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:19:14.701677+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:28:42.736815+00:00
 ---
 
 # AlloyDB  |  Integration Connectors  |  Google Cloud Documentation
@@ -134,12 +148,12 @@ The AlloyDB connector can connect to your AlloyDB backend only through the [Allo
 
 The following diagram shows a sample setup of AlloyDB for private connectivity:
 
-![private connectvity for alloy db](https://docs.cloud.google.com/static/integration-connectors/images/alloy-db-private.png)![private connectvity for alloy db](https://docs.cloud.google.com/static/integration-connectors/images/alloy-db-private.png)
+![private connectvity for alloy db](https://docs.cloud.google.com/static/integration-connectors/images/alloy-db-private.png) ![private connectvity for alloy db](https://docs.cloud.google.com/static/integration-connectors/images/alloy-db-private.png)
   * If you want to establish a public connection to your backend systems, create a [AlloyDB Auth Proxy](https://docs.cloud.google.com/alloydb/docs/auth-proxy/connect), and then enter the IP address of the auth proxy VM in the **Host address** field. 
 
 The following diagram shows a sample setup of AlloyDB for public connectivity:
 
-![public connectvity for alloy db](https://docs.cloud.google.com/static/integration-connectors/images/alloy-db-public.png)![public connectvity for alloy db](https://docs.cloud.google.com/static/integration-connectors/images/alloy-db-public.png)**Note:** If you want to establish the public connection with additional security, you can consider [configuring static outbound IP addresses for your connections](https://docs.cloud.google.com/integration-connectors/docs/configure-static-ip), and then configure your firewall rules to allowlist only the specific static IP addresses. 
+![public connectvity for alloy db](https://docs.cloud.google.com/static/integration-connectors/images/alloy-db-public.png) ![public connectvity for alloy db](https://docs.cloud.google.com/static/integration-connectors/images/alloy-db-public.png) **Note:** If you want to establish the public connection with additional security, you can consider [configuring static outbound IP addresses for your connections](https://docs.cloud.google.com/integration-connectors/docs/configure-static-ip), and then configure your firewall rules to allowlist only the specific static IP addresses. 
 
 
 
@@ -223,6 +237,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

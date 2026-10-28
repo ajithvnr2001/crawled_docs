@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/food-ai/resources/
 title: Resources \u00a0|\u00a0 Food Ordering AI Agent \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:18.351099+00:00
+fetched_at: 2026-10-27T16:35:44.392290+00:00
 ---
 
 # Resources  |  Food Ordering AI Agent  |  Google Cloud Documentation
@@ -11,9 +11,10 @@ fetched_at: 2026-10-25T06:25:18.351099+00:00
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
-  * [ Industry solutions ](https://docs.cloud.google.com/docs/industry)
-  * [ Food AI ](https://docs.cloud.google.com/food-ai)
-  * [ Resources ](https://docs.cloud.google.com/food-ai/resources)
+  * [ AI and ML ](https://docs.cloud.google.com/docs/ai-ml)
+  * [ Gemini Enterprise for Customer Experience ](https://docs.cloud.google.com/gemini-enterprise-cx)
+  * [ Commerce agents ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents)
+  * [ Food AI ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents)
 
 
 
@@ -21,10 +22,10 @@ Send feedback
 
 #  Resources Stay organized with collections  Save and categorize content based on your preferences. 
 
-  * ### [Pricing Pricing details for Food Ordering AI Agent.  ](https://docs.cloud.google.com/food-ai/pricing)
-  * ### [Quotas and limits Usage policies for your Food Ordering AI Agent resources.  ](https://docs.cloud.google.com/food-ai/quotas)
-  * ### [Release notes Details about updates to Food Ordering AI Agent.  ](https://docs.cloud.google.com/food-ai/release-notes)
-  * ### [Service Level Agreement The service level agreement (SLA) for Food Ordering AI Agent.  ](https://docs.cloud.google.com/food-ai/sla)
+  * ### [Pricing Pricing details for Food Ordering AI Agent.  ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/pricing)
+  * ### [Quotas and limits Usage policies for your Food Ordering AI Agent resources.  ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/quotas)
+  * ### [Release notes Details about updates to Food Ordering AI Agent.  ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/release-notes)
+  * ### [Service Level Agreement The service level agreement (SLA) for Food Ordering AI Agent.  ](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/sla)
 
 
 

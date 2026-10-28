@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-datatransferservice-datasource-get/
 title: Get a data source \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:42:42.215015+00:00
+fetched_at: 2026-10-27T23:01:12.276500+00:00
 ---
 
 # Get a data source  |  BigQuery  |  Google Cloud Documentation
@@ -22,6 +22,47 @@ fetched_at: 2026-10-25T06:42:42.215015+00:00
 Retrieves information for a specific data source, such as Google Ads or YouTube, supported by the BigQuery Data Transfer Service.
 
 ## Code sample
+
+### Java
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.datatransfer.v1.[DataSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSource.html);
+    import com.google.cloud.bigquery.datatransfer.v1.[DataSourceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSourceName.html);
+    import com.google.cloud.bigquery.datatransfer.v1.[DataTransferServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataTransferServiceClient.html);
+    import java.io.IOException;
+    
+    public class GetDataSource {
+    
+      /**
+       * Retrieves a data source definition by name.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param dataSourceId The data source ID (for example, "google_cloud_storage").
+       */
+      public static void getDataSource(String projectId, String dataSourceId) {
+        [DataSourceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSourceName.html) name = [DataSourceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSourceName.html).[ofProjectDataSourceName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSourceName.html#com_google_cloud_bigquery_datatransfer_v1_DataSourceName_ofProjectDataSourceName_java_lang_String_java_lang_String_)(projectId, dataSourceId);
+    
+        try ([DataTransferServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataTransferServiceClient.html) client = [DataTransferServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataTransferServiceClient.html).create()) {
+          [DataSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSource.html) response = client.getDataSource(name);
+    
+          System.out.printf("Retrieved data source: %s%n", response.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSource.html#com_google_cloud_bigquery_datatransfer_v1_DataSource_getName__)());
+          System.out.printf("Display Name: %s%n", response.[getDisplayName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSource.html#com_google_cloud_bigquery_datatransfer_v1_DataSource_getDisplayName__)());
+          System.out.printf("Description: %s%n", response.[getDescription](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSource.html#com_google_cloud_bigquery_datatransfer_v1_DataSource_getDescription__)());
+          System.out.printf("Client ID: %s%n", response.[getClientId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSource.html#com_google_cloud_bigquery_datatransfer_v1_DataSource_getClientId__)());
+          System.out.printf("Supports custom schedule: %s%n", response.[getSupportsCustomSchedule](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerydatatransfer/latest/com.google.cloud.bigquery.datatransfer.v1.DataSource.html#com_google_cloud_bigquery_datatransfer_v1_DataSource_getSupportsCustomSchedule__)());
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf("error: data source '%s' not found: %s%n", name, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf("error: failed to get data source '%s': %s%n", name, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        }
+      }
+    
 
 ### Node.js
 

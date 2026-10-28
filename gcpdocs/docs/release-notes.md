@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:41.467120+00:00
+fetched_at: 2026-10-28T02:17:48.102307+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -24,7 +24,927 @@ You can also see and filter all release notes in the [Google Cloud console](http
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
 
+## October 27, 2026
+
+**AlloyDB for PostgreSQL**
+
+Announcement
+
+The following AlloyDB AI functions and improvements are available in [Preview](https://cloud.google.com/products#product-launch-stages):
+
+  * The `ai.extract` function lets you extract structured data from unstructured text directly within your database queries without needing external extraction pipelines. For more information, see [Extract structured data](https://docs.cloud.google.com/alloydb/docs/ai/extract-structured-data).
+
+  * The `ai.classify` function lets you categorize unstructured text into predefined labels directly within your database queries. For more information, see [Classify text](https://docs.cloud.google.com/alloydb/docs/ai/classify-text).
+
+  * Parameter names and signatures for AI query engine functions (`ai.analyze_sentiment`, `ai.summarize`, and `ai.agg_summarize`) are updated. For more information, see [Model endpoint reference](https://docs.cloud.google.com/alloydb/docs/reference/model-endpoint).
+
+    * The `prompt` and `prompts` parameters are renamed to `input` and `inputs` in scalar and batch functions respectively.
+
+    * An optional `additional_instructions` parameter is added to `ai.summarize` and `ai.agg_summarize` to provide custom instructions to guide summary formatting, length, and tone.
+
+    * In cursor-based versions of `ai.analyze_sentiment` and `ai.summarize`, the `prompt` parameter is removed.
+
+    * `ai.agg_summarize` supports multiple positional signatures, including passing optional additional instructions and specifying model IDs.
+
+
+
+
+**BigQuery**
+
+Feature
+
+You can manage and version control SQL scripts and notebooks with [BigQuery Studio Git repositories](https://docs.cloud.google.com/bigquery/docs/git-repositories), which provide a streamlined, folder-based integration with remote Git repositories. This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+Feature
+
+The [Data Engineering Agent now integrates with Google Drive](https://docs.cloud.google.com/gemini/data-agents/data-engineering-agent/agent-overview#google-drive-integration), letting you provide Google Sheets files, CSV, or JSONL files as input for your data engineering pipelines.
+
+This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+Feature
+
+You can now use [conversational analytics in Connected Sheets](https://docs.cloud.google.com/bigquery/docs/connected-sheets#use-ca-in-connected-sheets) to ask questions and analyze your BigQuery data using natural language. The Gemini side panel can help you translate your questions into optimized SQL queries and execute them, summarize key trends, and insert live, refreshable database objects directly into your workbook.
+
+This feature is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+Feature
+
+The [`AI.COUNT_TOKENS` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-count-tokens), which estimates the token count of a text string, is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+**Cloud DNS**
+
+Announcement
+
+Starting January 5, 2027, CNAME chasing behavior will change so that Cloud DNS follows CNAME chains between public and private zones. If your private zones or response policies have overlapping domain names with public CNAME targets, queries might resolve to unintended internal IP addresses or return resolution errors.
+
+The following table outlines the current and updated behaviors.
+
+Source of CNAME answer | Current behavior (until January 5, 2027) | New behavior (starting January 5, 2027)  
+---|---|---  
+Cloud DNS public zone | Subsequent queries search only public DNS zones and internal DNS. Private zones, forwarding zones, and response policies are ignored. | Subsequent queries follow the complete VPC name resolution order: response policies, private zones, forwarding or peering zones, internal DNS, and public zones.  
+Cloud DNS private zone | Subsequent queries search only authorized private zones. Public DNS zones are ignored. | Subsequent queries follow the complete VPC name resolution order. If the target isn't found in authorized private zones, Cloud DNS queries public DNS zones.  
+Cloud DNS response policy zone | Cloud DNS systems don't perform queries for CNAME answers received from response policy local data rules. | Subsequent queries follow the complete VPC name resolution order. If the target isn't found in response policies or private zones, Cloud DNS queries public DNS zones.  
+  
+Review your CNAME chasing needs before January 5, 2027. Test your DNS query paths using `dig` or `nslookup` to identify CNAME chasing scenarios.
+
+  * **Look for private-to-public CNAME chasing scenarios** : Look for CNAME answers from response policies or private zones that don't match any response policy or record in a private zone. Previously, these queries resulted in a `NXDOMAIN` answer but after January 5, 2027, these scenarios might match a record in a public zone or continue to be `NXDOMAIN` responses.
+  * **Look for public-to-private CNAME chasing scenarios** : Look for CNAME answers from public zones that don't match any record in a public zone. Previously, these CNAME chasing scenarios would have resulted in a `NXDOMAIN` response. After January 5, 2027, these scenarios might match a response policy or record in a private zone or continue to be `NXDOMAIN` responses if the private zone doesn't have the record.
+  * **For CNAME chasing scenarios under your control** : As best practice, configure matching time-to-live (TTL) values for all records in the CNAME chain.
+
+
+
+Announcement
+
+Starting January 5, 2027, Cloud DNS will disable full responses to DNS queries of type `ANY` (`QTYPE=ANY`) in [public authoritative zones](https://docs.cloud.google.com/dns/docs/zones/zones-overview). Instead, a single resource record will return for `ANY` queries, chosen from the existing resource record sets that match the query.
+
+Standard traffic from web browsers, applications, and API traffic query specific record types directly and are therefore unaffected with no action required.
+
+However, certain legacy scripts, automated health checkers, debugging commands (for example, `dig example.com ANY`), or custom third-party monitoring systems that explicitly query `ANY` records will receive the first available record instead of a full zone inventory. You must complete the following configuration updates before January 5, 2027:
+
+  * **Identify legacy queries** : Review internal tools, deployment scripts, or third-party DNS monitoring configurations for commands or API calls that request the `ANY` record type. Cloud DNS logs in Cloud Logging can be helpful with this.
+  * **Transition to specific queries** : Update the tools to query the specific, individual record types they require (for example, querying for `A`, `AAAA`, `MX`, or `TXT` records separately).
+  * **Retrieve full zone records** : If you use `ANY` queries to retrieve all records in a zone, use the Cloud DNS REST API (`resourceRecordSets.list`), the gcloud CLI (`gcloud dns record-sets list`), or the Google Cloud Console instead.
+
+
+
+Risks associated with not making these changes include the following:
+
+  * **False monitoring alarms** : Automated uptime or DNS monitoring tools checking `ANY` responses may misinterpret the new response as a system failure and trigger false alerts.
+  * **Broken automation pipelines** : Internal deployment or CI/CD scripts that rely on parsing a full zone dump with an `ANY` query will fail to retrieve the expected data payload and may crash.
+  * **Disrupted IT diagnostics** : Network administrators running manual legacy troubleshooting commands will no longer see a quick summary of all domain records, which could delay active network incident diagnostics.
+
+
+
+**Cloud Load Balancing**
+
+Feature
+
+Regular expression URL rewrites (`regexRewrite`) for route rules in URL maps are now **generally available** (GA) for Application Load Balancers. You can use regular expression pattern rewrite actions to rewrite URL paths by substituting or removing URL path components before forwarding requests to your backends.
+
+This feature is available in:
+
+  * Global external Application Load Balancers
+
+  * Regional external Application Load Balancers
+
+  * Cross-region internal Application Load Balancers
+
+  * Regional internal Application Load Balancers
+
+
+
+
+For more information, see [Regular expression URL rewrites for route rules](https://docs.cloud.google.com/load-balancing/docs/url-map-concepts#regex-url-rewrite).
+
+**Cloud SDK**
+
+Breaking
+
+## 591.0.0 (2026-10-27)
+
+### Breaking Changes
+
+  * **(Google Cloud CLI)** Fixed issue where `gcloud components update` on macOS was stuck and would exit immediately after printing "WARNING: Known issue encountered updating Python modules", preventing updates to the latest release. 
+    * However, because this issue is present in the 590.0.0 and 590.0.1 releases, existing installations currently at those versions still contain the bug, and affected users will need to perform a one-time workaround to become unstuck.
+    * This can be achieved by running: `gcloud components --flags-file=<(echo 'update:')`
+    * Users updating from version <=589.0.0 or >=591.0.0 are unaffected and can run `gcloud components update` as normal; the workaround is only needed for installations currently stuck at version 590.0.0 or 590.0.1.
+    * This issue can be tracked at <https://issuetracker.google.com/issues/578071727>.
+
+
+
+### Google Cloud CLI
+
+  * Updated bundled Python to 3.14.9.
+
+
+
+### Agent Registry
+
+  * Promoted `gcloud agent-registry skills`, `gcloud agent-registry skills revisions`, `gcloud agent-registry publishers`, and `gcloud agent-registry findings` command groups to GA.
+
+
+
+### App Engine
+
+  * Updated `gcloud beta app migrate-to-run` to mask environment variable values in the printed `service.yaml`. The saved `service.yaml` file keeps the original values.
+
+
+
+### Audit Manager
+
+  * Added `gcloud audit-manager audit-schedules describe` command to describe an audit schedule.
+
+
+
+### Beyondcorp
+
+  * Added `--dispatch-info-output-type` flag to `gcloud beyondcorp security-gateways create` and `gcloud beyondcorp security-gateways update`, and upstream `dispatchInfo` configuration to `gcloud beyondcorp security-gateways applications create` and `gcloud beyondcorp security-gateways applications update` to configure delegated dispatch info headers.
+
+
+
+### BigQuery
+
+  * Updated the bundled `certifi` package to version `2026.10.19` and removed the distrusted `AAA Certificate Services` root certificate from bundled `httplib2`.
+
+
+
+### Cloud Bigtable
+
+  * Added `--timestamp-granularity` flag to `gcloud bigtable instances tables create` and `gcloud bigtable tables create` to configure table timestamp granularity (`millis` or `micros`). Microsecond granularity is supported only on Enterprise Plus instances.
+  * Rebuild with 1.26.9 for CVE-2026-94439.
+
+
+
+### Cloud DNS
+
+  * Updated `gcloud beta dns outbound-endpoints create` to make `--endpoint-ip` flag optional.
+
+
+
+### Cloud Dataproc
+
+  * Promoted `--master-flexible-config`, `--worker-flexible-config`, and `--secondary-worker-flexible-config` flags to GA for `gcloud dataproc clusters create` and `gcloud dataproc workflow-templates set-managed-cluster`.
+  * Promoted `--worker-flexible-config` and `--secondary-worker-flexible-config` flags to GA for `gcloud dataproc clusters update`.
+
+
+
+### Cloud IAM
+
+  * Added `--discovery-uri` flag to `gcloud iam workload-identity-pools providers create-oidc` and `gcloud iam workload-identity-pools providers update-oidc` to specify a custom OIDC discovery URI when the identity provider does not use the default well-known path.
+  * Added `--actor-providers` flag to `gcloud iam workload-identity-pools providers create-oidc` and `gcloud iam workload-identity-pools providers update-oidc` to authorize providers in the same pool to issue actor tokens for identity delegation.
+
+
+
+### Cloud Memorystore
+
+  * Promote `gcloud redis clusters` basic auth feature related commands to GA track.
+
+
+
+### Cloud Spanner Emulator
+
+  * Updated cloud spanner emulator to v1.5.59.
+
+
+
+### Cloud Storage
+
+  * Added `--labels` and `--labels-file` flags to `gcloud storage buckets create`.
+
+
+
+### Compute Engine
+
+  * Promoted `--identity-type` flag to the beta and GA tracks for `gcloud compute instances create`, `gcloud compute instances update`, and `gcloud compute instance-templates create`.
+  * Added circuit breakers flags (`--circuit-breakers-max-connections`, `--circuit-breakers-max-pending-requests`, `--circuit-breakers-max-requests`, `--circuit-breakers-max-requests-per-connection`, `--circuit-breakers-max-retries`) to `gcloud compute backend-services create` and `update` commands, and `--no-circuit-breakers` to the `update` command.
+  * Added colorization for `ACTION`, `HEALTH_STATE`, and `STATUS` columns to `gcloud compute instance-groups managed list-instances` in beta and GA.
+  * Added `--circuit-breakers-connect-timeout` flag to `gcloud compute backend-services create` and `update` commands in beta.
+  * Added `--allowed-actions` flag to `gcloud beta compute instance-groups managed update-instances` to specify allowed actions (including `restart-in-place`) when updating instances in a managed instance group.
+  * Added `--update-policy-allowed-actions` flag to `gcloud beta compute instance-groups managed create` and `gcloud beta compute instance-groups managed update` to specify allowed actions (including `restart-in-place`) in a managed instance group's update policy.
+
+
+
+### Database Migration
+
+  * Added `--ai-processing-location` flag to `gcloud database-migration conversion-workspaces create|update` to set the location where Gemini features process conversion workspace data. Pass an empty value to remove a previously set location.
+
+
+
+### GKE Hub
+
+  * Promoted `--prioritized` flag on `gcloud container fleet|hub rolloutsequences upgrade` command to `GA`.
+  * Promoted `gcloud container fleet|hub config-management update` command to `GA`.
+
+
+
+### Kubernetes Engine
+
+  * Added flag `--node-config-update-mode` to `gcloud container node-pools update` to trigger live update on nodes. Supported values are `LIVE_UPDATE_WITHOUT_DRAIN`.
+
+
+
+### Network Connectivity
+
+  * Added `--group` flag to `gcloud beta network-connectivity transports create` to specify the group of the Network Connectivity Center hub that the spokes created for this transport should be attached to.
+
+
+
+### Network Security
+
+  * Promoted `add-override`, `update-override`, `delete-override`, `add-inline-ml-exception` and `delete-inline-ml-exception` commands of `gcloud network-security security-profiles wildfire-analysis` to GA.
+  * Promoted WildFire-related flags in `gcloud network-security firewall-endpoints create` and `gcloud network-security firewall-endpoints update` commands to GA.
+  * Promoted `gcloud network-security server-tls-policies create` to GA.
+  * Promoted `gcloud network-security server-tls-policies update` to GA.
+  * Added `--wildfire-analysis-profile-project` flag to `gcloud network-security security-profile-groups update` to support project-scoped WildFire Analysis profiles.
+  * Fixed an issue where `gcloud network-security security-profiles wildfire-analysis` modification commands failed when specifying a full resource URI without `--location=global`.
+  * Removed `--async` flag from `gcloud beta network-security firewall-endpoints wildfire-verdict-change-requests create`. The command now returns the created verdict change request directly because the API does not return a long-running operation.
+  * Promoted `gcloud network-security firewall-endpoints wildfire-verdict-change-requests` command group and its `create`, `get` and `list` commands to GA.
+
+
+
+### Secure Source Manager
+
+  * Promoted the following command groups to beta: 
+    * `gcloud beta source-manager branch-rules`
+    * `gcloud beta source-manager hooks`
+    * `gcloud beta source-manager issues`
+    * `gcloud beta source-manager issues comments`
+    * `gcloud beta source-manager pull-requests`
+    * `gcloud beta source-manager pull-requests comments`
+
+
+
+### Workspace Key Access
+
+  * Added `gcloud beta workspace-key-access` command group to manage Workspace Key Access endpoints, configs, and operations.
+
+
+
+Subscribe to these release notes at <https://groups.google.com/forum/#!forum/google-cloud-sdk-announce>.
+
+**Gemini Enterprise**
+
+Feature
+
+**Gemini Enterprise: VPC connectivity and static IP egress for custom MCP servers**
+
+You can configure Virtual Private Cloud (VPC) connectivity for custom Model Context Protocol (MCP) server data stores by routing outbound tool traffic through Agent Gateway (supported in `us-central1` and `europe-west1`). You can host private MCP servers inside your VPC network by using Private Service Connect (PSC) network attachments and agent connectivity templates. You can also route traffic to public MCP servers through Cloud NAT with static external IP addresses for strict IP allowlists.
+
+This feature is generally available (GA). For more information, see:
+
+  * [Prerequisites to set up a custom MCP server data store with VPC connectivity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-vpc-custom-mcp-server)
+  * [Set up your custom MCP server data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-custom-mcp-server)
+
+
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Gemini Robotics ER 2 (Preview)**
+
+[Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er) ([`gemini-robotics-er-2-preview`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2)) is available in [Preview](https://cloud.google.com/products#product-launch-stages). Gemini Robotics ER 2 is an embodied reasoning vision-language model built on Gemini 3.5 Flash for robotics applications, including [spatial reasoning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/spatial), [agentic code execution](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/agentic), [task orchestration](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/orchestration), and [video understanding](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/video-understanding).
+
+Feature
+
+**xAI's Grok 4.7 is generally available**
+
+[Grok 4.7](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-7) is now [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for production use on the global endpoint and the US multi-region endpoint.
+
+**Google Cloud VMware Engine**
+
+Feature
+
+VMware solution on Google Cloud is [generally available](https://cloud.google.com/products#section-22) (GA). VMware solution lets you deploy, configure, and manage VMware Cloud Foundation (VCF) on dedicated bare-metal Compute Engine instances within your Virtual Private Cloud (VPC) network under a Bring Your Own License (BYOL) model.
+
+Key features include the following:
+
+  * Provision dedicated bare-metal ESXi nodes (`z3-highmem-192-highlssd-metal`) directly in your project with deletion protection and Local SSD storage for vSAN.
+  * Automate node preparation, Secret Manager credential storage, vSwitch and Dynamic NIC networking, Cloud DNS zone and record synchronization, vSAN storage initialization, and VCF installer appliance deployment by using Terraform and the VMware solution toolkit.
+  * Distribute nodes across isolated availability domains by using spread placement policies to align with vSAN fault domains for high availability.
+  * Connect ESXi nodes and VLAN-tagged Dynamic NICs directly to your VPC subnets without requiring private services access peering.
+
+
+
+For more information, see [VMware solution on Google Cloud overview](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/overview) and [Compare VMware Engine models](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/compare-models).
+
+Feature
+
+VMware solution on Google Cloud is [generally available](https://cloud.google.com/products#section-22) (GA). VMware solution lets you deploy, configure, and manage VMware Cloud Foundation (VCF) on dedicated bare-metal Compute Engine instances within your Virtual Private Cloud (VPC) network under a Bring Your Own License (BYOL) model.
+
+Key features include the following:
+
+  * Provision dedicated bare-metal ESXi nodes (`z3-highmem-192-highlssd-metal`) directly in your project with deletion protection and Local SSD storage for vSAN.
+  * Automate node preparation, Secret Manager credential storage, vSwitch and Dynamic NIC networking, Cloud DNS zone and record synchronization, vSAN storage initialization, and VCF installer appliance deployment by using Terraform and the VMware solution toolkit.
+  * Distribute nodes across isolated availability domains by using spread placement policies to align with vSAN fault domains for high availability.
+  * Connect ESXi nodes and VLAN-tagged Dynamic NICs directly to your VPC subnets without requiring private services access peering.
+
+
+
+For more information, see [VMware solution on Google Cloud overview](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/overview) and [Compare VMware Engine models](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/compare-models). All future VMware solution release notes can be found on the [VMware solution on Google Cloud release notes](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/release-notes) page.
+
+**Looker**
+
+Feature
+
+The latest version of the Looker-Excel Connector ODBC driver, version 1.0.7, is now available to download. See the [Looker-Excel Connector](https://docs.cloud.google.com/looker/docs/excel-connector#install-driver) documentation page for information.
+
+**Model Armor**
+
+Feature
+
+You can test Model Armor templates in the Google Cloud console by using custom sample prompts to verify which safety and security filters the prompts trigger and how Sensitive Data Protection redacts sensitive data. Testing templates helps you evaluate template behavior and fine-tune filter configurations. This feature is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
+
+For more information, see [Test a Model Armor template](https://docs.cloud.google.com/model-armor/manage-templates#test-ma-template).
+
+## October 26, 2026
+
+**Agent Platform Workbench**
+
+Change
+
+### 20261025.00_p0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Updated certifi, pip, and conda ca-certificates to the latest versions.
+
+Change
+
+### 20261025.00_p0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Addressed multiple reported security vulnerabilities in bundled packages.
+
+Security
+
+Updated certifi, pip, and conda ca-certificates to the latest versions.
+
+Feature
+
+**Custom organization policies for Agent Platform Workbench instances**
+
+You can now use custom organization policies to allow or deny the creation and update of Agent Platform Workbench instances based on their configuration. Custom constraints for the `notebooks.googleapis.com/Instance` resource are enforced when you create or update an instance, and support dry-run mode. This feature is now generally available ([GA](https://cloud.google.com/products#product-launch-stages)). For more information, see [Create custom organization policy constraints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/custom-constraints).
+
+**Apigee X**
+
+Feature
+
+**Model Context Protocol (MCP) tool arguments are sent to the location their OpenAPI parameter declares**
+
+This change applies to Apigee X in all supported regions.
+
+An MCP tool argument whose OpenAPI parameter declares `in: header` is now sent to your backend as a request header, and one that declares `in: cookie` is sent in the `Cookie` header. Previously both were appended to the query string. `in: query` and `in: path` parameters are unchanged, and every parameter still appears in the tool's `inputSchema`, so MCP clients supply arguments exactly as before. If a backend reads one of these values from the query string, declare the parameter `in: query` or read it from its declared location.
+
+On a tool call that supplies at least one cookie argument, the `Cookie` header is replaced with only the declared cookie parameters, omitting any others. Any cookie your backend relies on must be declared as an `in: cookie` parameter.
+
+An MCP proxy that was already deployed continues to use the previous query-string behavior until its configuration is next regenerated. To adopt the new routing on an existing MCP proxy, deploy a new revision of it.
+
+For the full mapping, see [Tool argument placement on the backend request](https://docs.cloud.google.com/apigee/docs/api-platform/apigee-mcp/apigee-mcp-overview#tool-argument-placement).
+
+Security
+
+**On October 24, 2026, we published a security bulletin for Apigee.**
+
+Two vulnerabilities in PHP core ([CVE-2026-109618](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-109618) and [CVE-2026-109619](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-109619), "PHP2Shell") allow an unauthenticated attacker to execute code remotely on a server running a vulnerable PHP version. The impact is limited to Drupal-based Apigee developer portals, which customers deploy and operate. Apigee, Apigee Hybrid, and the Apigee integrated portal don't use PHP and aren't affected.
+
+**Security bulletin published:[GCP-2026-072](https://docs.cloud.google.com/apigee/docs/security-bulletins/security-bulletins#gcp-2026-072)**
+
+**BigQuery**
+
+Feature
+
+Conversation logging for [Conversational analytics in BigQuery](https://docs.cloud.google.com/bigquery/docs/conversational-analytics) is now [generally available](https://cloud.google.com/products#product-launch-stages) (GA). You can log data agent conversations to a BigQuery table in the agent's project. For more information, see [Conversation logging overview](https://docs.cloud.google.com/bigquery/docs/conversation-logging-overview) and [Configure settings](https://docs.cloud.google.com/bigquery/docs/create-data-agents#configure_settings).
+
+Feature
+
+Python user-defined functions now support [volume mounts](https://docs.cloud.google.com/bigquery/docs/user-defined-functions-python#volume-mounts), which let you access dependency files from Cloud Storage directly from your Python UDF code. This feature is in [Preview](https://cloud.google.com/products/#product-launch-stages).
+
+Feature
+
+The [`REGEXP_EXTRACT_GROUPS` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/string_functions#regexp_extract_groups) produces substrings that match multiple capturing groups in a regular expression.
+
+This function is in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+**Cloud Database Migration Service**
+
+Feature
+
+You can now create heterogeneous conversion workspaces by importing database schema metadata files from a Cloud Storage bucket without requiring direct network connectivity between Database Migration Service and your source database during the schema conversion phase. For more information, see the following pages:
+
+  * [ Create a conversion workspace for Oracle to Cloud SQL for PostgreSQL](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/create-conversion-workspace#use-cloud-storage)
+  * [ Create a conversion workspace for Oracle to AlloyDB for PostgreSQL](https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/create-conversion-workspace#use-cloud-storage)
+  * [ Create a conversion workspace for SQL Server to Cloud SQL for PostgreSQL](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/create-conversion-workspace#use-cloud-storage)
+  * [ Create a conversion workspace for SQL Server to AlloyDB for PostgreSQL](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/create-conversion-workspace#use-cloud-storage)
+
+
+
+**Compute Engine**
+
+Security
+
+A vulnerability (CVE-2026-85299) about incorrect authorization in Compute Engine was discovered and has been addressed. For more information, see the [GCP-2026-073 security bulletin](https://docs.cloud.google.com/compute/docs/security-bulletins#gcp-2026-073).
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Control user intent matching for semantic governance policies**
+
+You can now turn user intent matching on or off for semantic governance policies by setting the `sgpUserIntentMatching` key on the authorization extension metadata. User intent matching is on by default; set the key to `DISABLED` to turn it off. Turning it off reduces protection against indirect prompt injection. When the key is set, policy evaluation logs report the mode each evaluation used in the `sgpUserIntentMatchingMode` field.
+
+For more information, see [Control user intent matching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#control-intent-matching).
+
+Feature
+
+**Cloud Storage output support for Gemini image generation models**
+
+Direct Cloud Storage output persistence is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) (`gemini-nano-banana-2.1`), [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) (`gemini-3.1-flash-image`), [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) (`gemini-3.1-flash-lite-image`), and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) (`gemini-3-pro-image`). You can set `outputConfig.outputUriPrefix` and `generationConfig.responseFormat[].image.delivery` to `"URI"` in `generateContent` and `streamGenerateContent` requests to write generated and edited images directly to a Cloud Storage bucket and receive the object URI in `fileData.fileUri` instead of inline bytes. For more information, see [Save generated images to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#save-generated-images-cloud-storage).
+
+Feature
+
+**Semantic governance policies support more model providers**
+
+Semantic governance policies now evaluate tool calls from agents that use models from providers other than Gemini. The policy engine reads each provider's request and response format, so the same policies apply whichever model your agent uses. Supported APIs include the Gemini Developer API and Gemini models on Gemini Enterprise Agent Platform, the Anthropic Messages API, Claude models on Gemini Enterprise Agent Platform, the OpenAI Chat Completions API, the Mistral AI API, the OpenAI-compatible endpoint on Gemini Enterprise Agent Platform (including Llama models), and self-hosted OpenAI-compatible servers such as vLLM. Streamed model responses aren't supported.
+
+To govern these providers, update the `when` condition of your authorization policy to match each provider's request path. The updated condition also matches requests that include a query string.
+
+For more information, see [Supported model providers](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers) and [Connect the policy engine to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#connect-policy-engine).
+
+**Google Distributed Cloud (software only) for bare metal**
+
+Fixed
+
+The [1.34.1000-gke.111 release notes](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#October_22_2026) incorrectly omitted the following fix, which is fixed in 1.34.1000-gke.111:
+
+  * Fixed an issue where the Whereabouts IPAM garbage collector (`whereabouts-gc`) prematurely deleted active IP address reservations on secondary networks, causing [duplicate IP addresses to be assigned to running Pods](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/known-issues#whereabouts-gc-duplicate-ip). 
+
+
+
+**Google Kubernetes Engine**
+
+Change
+
+#### (2026-R45) Version updates
+
+GKE cluster versions have been updated.
+
+**New versions available for upgrades and new clusters.**
+
+The following versions are now available for new GKE clusters, and for manual control plane upgrades and node upgrades for existing clusters. For more information about versioning and upgrades, see [GKE versioning and support](https://cloud.google.com/kubernetes-engine/versioning) and [About GKE cluster upgrades](https://cloud.google.com/kubernetes-engine/upgrades).
+
+### Rapid channel
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.37.1-gke.1697000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000) is now the default version for cluster creation in the Rapid channel.
+  * The following versions are now available in the Rapid channel: 
+    * [1.34.12-gke.1363000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1363000)
+    * [1.35.8-gke.2308000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-2308000)
+    * [1.36.5-gke.1259000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1259000)
+    * [1.37.1-gke.2097000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-2097000)
+  * [Alpha version](https://cloud.google.com/kubernetes-engine/versioning#alpha-versions) 1.38.0-gke.3229000+preview is now available for GKE alpha clusters in the Rapid channel.
+  * The following versions are no longer available in the Rapid channel: 
+    * 1.34.12-gke.1153000
+    * 1.35.8-gke.1919000
+    * 1.36.4-gke.2326000
+    * 1.37.1-gke.1552000
+  * Alpha version 1.38.0-gke.2240000+preview is no longer available in the Rapid channel.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.33 to [1.34.12-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+      * 1.34 to [1.35.8-gke.1975000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+      * 1.35 to [1.36.4-gke.2377000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.12-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+      * 1.35 to [1.35.8-gke.1975000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+      * 1.36 to [1.36.4-gke.2377000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+      * 1.37 to [1.37.1-gke.1697000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000)
+
+
+
+### Regular channel
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003) is now the default version for cluster creation in the Regular channel.
+  * The following versions are now available in the Regular channel: 
+    * [1.34.12-gke.1153000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1153000)
+    * [1.35.8-gke.1919000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1919000)
+    * [1.36.4-gke.2326000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2326000)
+    * [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+  * The following versions are no longer available in the Regular channel: 
+    * 1.34.11-gke.1209000
+    * 1.35.8-gke.1626001
+    * 1.36.4-gke.1495002
+    * 1.36.4-gke.1495003 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Regular channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.36.4-gke.2046002 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Regular channel. This version will be removed in 90 days, or at the end of support, if sooner.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.33 to [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+      * 1.34 to [1.35.8-gke.1796000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1796000)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+      * 1.35 to [1.35.8-gke.1796000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1796000)
+      * 1.36 to [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+      * 1.37 to [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+
+
+
+### Stable channel
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.35.8-gke.1439001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001) is now the default version for cluster creation in the Stable channel.
+  * The following versions are now available in the Stable channel: 
+    * [1.34.11-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1209000)
+    * [1.35.8-gke.1626001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1626001)
+  * The following versions are no longer available in the Stable channel: 
+    * 1.34.11-gke.1056000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Stable channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.35.6-gke.1250001
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.33 to [1.34.11-gke.1102000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1102000)
+      * 1.34 to [1.35.8-gke.1439001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.11-gke.1102000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1102000)
+      * 1.35 to [1.35.8-gke.1439001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001)
+
+
+
+### Extended channel
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003) is now the default version for cluster creation in the Extended channel.
+  * The following versions are now available in the Extended channel: 
+    * [1.31.14-gke.3042000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-3042000)
+    * [1.32.13-gke.2788000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2788000)
+    * [1.33.13-gke.2074000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-2074000)
+    * [1.34.12-gke.1153000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1153000)
+    * [1.35.8-gke.1919000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1919000)
+    * [1.36.4-gke.2326000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2326000)
+    * [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+  * The following versions are no longer available in the Extended channel: 
+    * 1.31.14-gke.2963000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.32.13-gke.2701000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.33.13-gke.1952000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.34.11-gke.1209000
+    * 1.35.8-gke.1626001
+    * 1.36.4-gke.1495002
+    * 1.36.4-gke.1495003 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.36.4-gke.2046002 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+      * 1.35 to [1.35.8-gke.1796000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1796000)
+      * 1.36 to [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+      * 1.37 to [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+
+
+
+### No channel (deprecated)
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003) is now the default version for cluster creation.
+  * The following versions are now available: 
+    * [1.34.12-gke.1363000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1363000)
+    * [1.35.8-gke.2308000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-2308000)
+    * [1.36.5-gke.1259000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1259000)
+    * [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+    * [1.37.1-gke.1697000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000)
+    * [1.37.1-gke.2097000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-2097000)
+  * The following node versions are now available: 
+    * [1.31.14-gke.3042000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-3042000)
+    * [1.32.13-gke.2788000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2788000)
+    * [1.33.13-gke.2074000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-2074000)
+    * [1.34.12-gke.1363000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1363000)
+    * [1.35.8-gke.2308000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-2308000)
+    * [1.36.5-gke.1259000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1259000)
+    * [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+    * [1.37.1-gke.1697000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000)
+    * [1.37.1-gke.2097000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-2097000)
+  * The following versions are no longer available: 
+    * 1.34.11-gke.1056000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.35.6-gke.1250000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.36.4-gke.1391002 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.36.4-gke.1495003 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.36.4-gke.2046002 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.33 to [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+      * 1.34 to [1.35.8-gke.1439001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+      * 1.35 to [1.35.8-gke.1439001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001)
+      * 1.36 to [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+      * 1.37 to [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+
+
+
+Security
+
+#### (2026-R45) Security updates
+
+This release includes new GKE versions that use updated Container-Optimized OS images. These updated images are cumulative, incorporating security fixes from all Container-Optimized OS versions released since the previous GKE release.
+
+To identify the specific vulnerabilities that were resolved in each updated Container-Optimized OS image, see the **Security** release notes for that image. The following table includes links to the release notes for each updated Container-Optimized OS image:
+
+GKE version | Container-Optimized OS version | Details  
+---|---|---  
+1.31.14-gke.3042000 | cos-121-18867-638-5 | [cos-121-18867-638-5 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m121#cos-121-18867-638-5_)  
+1.32.13-gke.2788000 | cos-121-18867-638-5 | [cos-121-18867-638-5 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m121#cos-121-18867-638-5_)  
+1.33.13-gke.2074000 | cos-121-18867-638-5 | [cos-121-18867-638-5 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m121#cos-121-18867-638-5_)  
+1.35.8-gke.2308000 | cos-125-19216-739-5 | [cos-125-19216-739-5 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m125#cos-125-19216-739-5_)  
+1.37.1-gke.1552000 | cos-133-19999-44-85 | [cos-133-19999-44-85 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m133#cos-133-19999-44-85_)  
+1.37.1-gke.2097000 | cos-133-19999-44-106 | [cos-133-19999-44-106 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m133#cos-133-19999-44-106_)  
+1.38.0-gke.3229000+preview | cos-133-19999-44-85 | [cos-133-19999-44-85 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m133#cos-133-19999-44-85_)  
+  
+Change
+
+#### (2026-R45) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.35.8-gke.1439001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001) is now the default version for cluster creation in the Stable channel.
+  * The following versions are now available in the Stable channel: 
+    * [1.34.11-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1209000)
+    * [1.35.8-gke.1626001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1626001)
+  * The following versions are no longer available in the Stable channel: 
+    * 1.34.11-gke.1056000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Stable channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.35.6-gke.1250001
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.33 to [1.34.11-gke.1102000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1102000)
+      * 1.34 to [1.35.8-gke.1439001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.11-gke.1102000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-11-gke-1102000)
+      * 1.35 to [1.35.8-gke.1439001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001)
+
+
+
+Change
+
+#### (2026-R45) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003) is now the default version for cluster creation in the Regular channel.
+  * The following versions are now available in the Regular channel: 
+    * [1.34.12-gke.1153000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1153000)
+    * [1.35.8-gke.1919000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1919000)
+    * [1.36.4-gke.2326000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2326000)
+    * [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+  * The following versions are no longer available in the Regular channel: 
+    * 1.34.11-gke.1209000
+    * 1.35.8-gke.1626001
+    * 1.36.4-gke.1495002
+    * 1.36.4-gke.1495003 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Regular channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.36.4-gke.2046002 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Regular channel. This version will be removed in 90 days, or at the end of support, if sooner.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.33 to [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+      * 1.34 to [1.35.8-gke.1796000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1796000)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+      * 1.35 to [1.35.8-gke.1796000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1796000)
+      * 1.36 to [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+      * 1.37 to [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+
+
+
+Change
+
+#### (2026-R45) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.37.1-gke.1697000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000) is now the default version for cluster creation in the Rapid channel.
+  * The following versions are now available in the Rapid channel: 
+    * [1.34.12-gke.1363000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1363000)
+    * [1.35.8-gke.2308000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-2308000)
+    * [1.36.5-gke.1259000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1259000)
+    * [1.37.1-gke.2097000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-2097000)
+  * [Alpha version](https://cloud.google.com/kubernetes-engine/versioning#alpha-versions) 1.38.0-gke.3229000+preview is now available for GKE alpha clusters in the Rapid channel.
+  * The following versions are no longer available in the Rapid channel: 
+    * 1.34.12-gke.1153000
+    * 1.35.8-gke.1919000
+    * 1.36.4-gke.2326000
+    * 1.37.1-gke.1552000
+  * Alpha version 1.38.0-gke.2240000+preview is no longer available in the Rapid channel.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.33 to [1.34.12-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+      * 1.34 to [1.35.8-gke.1975000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+      * 1.35 to [1.36.4-gke.2377000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.12-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+      * 1.35 to [1.35.8-gke.1975000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+      * 1.36 to [1.36.4-gke.2377000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+      * 1.37 to [1.37.1-gke.1697000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000)
+
+
+
+Change
+
+#### (2026-R45) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003) is now the default version for cluster creation.
+  * The following versions are now available: 
+    * [1.34.12-gke.1363000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1363000)
+    * [1.35.8-gke.2308000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-2308000)
+    * [1.36.5-gke.1259000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1259000)
+    * [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+    * [1.37.1-gke.1697000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000)
+    * [1.37.1-gke.2097000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-2097000)
+  * The following node versions are now available: 
+    * [1.31.14-gke.3042000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-3042000)
+    * [1.32.13-gke.2788000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2788000)
+    * [1.33.13-gke.2074000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-2074000)
+    * [1.34.12-gke.1363000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1363000)
+    * [1.35.8-gke.2308000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-2308000)
+    * [1.36.5-gke.1259000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1259000)
+    * [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+    * [1.37.1-gke.1697000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1697000)
+    * [1.37.1-gke.2097000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-2097000)
+  * The following versions are no longer available: 
+    * 1.34.11-gke.1056000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.35.6-gke.1250000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.36.4-gke.1391002 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.36.4-gke.1495003 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.36.4-gke.2046002 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.33 to [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+      * 1.34 to [1.35.8-gke.1439001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+      * 1.35 to [1.35.8-gke.1439001](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1439001)
+      * 1.36 to [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+      * 1.37 to [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+
+
+
+Feature
+
+The [C4D bare metal machine types](https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4d_series) (`c4d-standard-384-metal`, `c4d-highcpu-384-metal`, and `c4d-highmem-384-metal`) are generally available on GKE. You can create C4D bare metal node pools in Standard clusters that run version 1.36 or later.
+
+In version 1.37.0-gke.4713000 or later, you can also use C4D bare metal nodes with cluster autoscaler, node auto-provisioning, and custom ComputeClasses, including in Autopilot clusters that use a custom ComputeClass. In earlier versions, you must scale C4D bare metal node pools manually.
+
+For more information, see [Machine support with GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/machine-support#machine-support).
+
+Change
+
+#### (2026-R45) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * Version [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003) is now the default version for cluster creation in the Extended channel.
+  * The following versions are now available in the Extended channel: 
+    * [1.31.14-gke.3042000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.31#1-31-14-gke-3042000)
+    * [1.32.13-gke.2788000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2788000)
+    * [1.33.13-gke.2074000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-2074000)
+    * [1.34.12-gke.1153000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1153000)
+    * [1.35.8-gke.1919000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1919000)
+    * [1.36.4-gke.2326000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2326000)
+    * [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+  * The following versions are no longer available in the Extended channel: 
+    * 1.31.14-gke.2963000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.32.13-gke.2701000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.33.13-gke.1952000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.34.11-gke.1209000
+    * 1.35.8-gke.1626001
+    * 1.36.4-gke.1495002
+    * 1.36.4-gke.1495003 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.36.4-gke.2046002 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.34 to [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+      * 1.35 to [1.35.8-gke.1796000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1796000)
+      * 1.36 to [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+      * 1.37 to [1.37.1-gke.1552000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-1552000)
+
+
+
+**Knowledge Catalog**
+
+Feature
+
+Support for Looker (Google Cloud core) in Data lineage is now [generally available](https://cloud.google.com/products#product-launch-stages). This support includes lineage views for LookML views and Explores, Looker dashboards, dashboard elements, Looks, LookML dashboards, and Conversational Analytics agents. You can control data lineage ingestion at the organization, folder, and project levels. You can also visualize the end-to-end flow of your data from BigQuery sources through the Looker semantic layer to downstream assets.
+
+For more information, see [Track data lineage with Knowledge Catalog](https://docs.cloud.google.com/looker/docs/looker-core-lineage), [About data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage#other), and [About data lineage ingestion control](https://docs.cloud.google.com/knowledge-catalog/docs/control-lineage-ingestion#supported-service-integrations).
+
+**Looker**
+
+Feature
+
+[Looker (Google Cloud core) data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) is now generally available (GA). The GA launch adds end-to-end visibility for [LookML dashboards](https://docs.cloud.google.com/looker/docs/building-lookml-dashboards) and [Conversational Analytics agents](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents). Lineage enablement is now managed independently through the Data Lineage API and service-level ingestion controls, which decouples it from Looker's internal Knowledge Catalog metadata settings. For more information, see [About data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage).
+
+Feature
+
+The [Looker-managed Model Context Protocol (MCP) server](https://docs.cloud.google.com/looker/docs/mcp) is now generally available (GA), allowing AI agents to securely interact with business data and LookML models without the need for additional middleware. This launch is supported by a new [**Manage OAuth Clients** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients), which provides a centralized interface for governing identity-based access for AI agents and other external applications. Administrators can now quickly enable pre-configured integrations from the Application Library or register custom OAuth clients with specific redirect URIs and group-based access controls.
+
+**Model Armor**
+
+Feature
+
+Model Armor enforces the `constraints/modelarmor.managed.requireTemplateDataResidencyCompliance` managed Organization Policy Service constraint by default. When you create or update a template, this constraint prevents you from setting `data_residency_compliant` to `false` or clearing the **Enforce data residency** option unless an Organization Policy Administrator disables the constraint. This feature is generally available ([GA](https://cloud.google.com/products#product-launch-stages)). For more information, see [Disable the organization policy constraint for data residency](https://docs.cloud.google.com/model-armor/manage-templates#disable-data-residency-constraint).
+
+**Oracle Database@Google Cloud**
+
+Feature
+
+The Oracle Database@Google Cloud remote MCP server is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) and adds tools to create and manage Database Connections and run SQL statements with `database_connection_executesql`. It lets you interact easily with Oracle Database@Google Cloud resources from LLMs, AI applications, and AI-enabled development platforms.
+
+For more information, see [Use the Oracle Database@Google Cloud remote MCP server](https://docs.cloud.google.com/oracle/database/docs/use-oracledatabase-mcp).
+
 ## October 25, 2026
+
+**Agent Platform Workbench**
+
+Change
+
+### 20261025-2230-rc0 Release
+
+Change
+
+### 20261025-2230-rc0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Updated certifi, pip, and conda ca-certificates to the latest versions.
+
+Fixed
+
+Fixed dataset and table search in the BigQuery panel, which sometimes failed to return results. Root cause is due to Datacatalog API being sunsetted in favor of Dataplex API.
+
+Fixed
+
+Fixed an issue where Jupyter Server terminal configuration could overwrite the Dataproc plugin server extension setting or fail to apply the terminal disable setting on container startup.
+
+Security
+
+Addressed multiple reported security vulnerabilities in bundled packages.
+
+Security
+
+Updated certifi, pip, and conda ca-certificates to the latest versions.
+
+Fixed
+
+Fixed an issue where Jupyter Server terminal configuration could overwrite the Dataproc plugin server extension setting or fail to apply the terminal disable setting on container startup.
+
+Security
+
+Addressed multiple reported security vulnerabilities in bundled packages.
+
+Change
+
+### 20261025-2130-rc0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
 
 **Google SecOps**
 
@@ -398,78 +1318,15 @@ Take immediate protective action by rebuilding and redeploying your resources wi
 
 See [Security bulletins for Google Cloud](https://docs.cloud.google.com/support/bulletins) for more information.
 
-**Google SecOps SOAR**
-
-Announcement
-
-[Release 6.3.103](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#October_18_2026) is now available for all regions.
-
-## October 23, 2026
-
-**Cloud Monitoring**
-
-Fixed
-
-Ops Agent version 2.73.0 includes patches for a Go vulnerability involving system root certificates, [CVE-2026-111943](https://www.cve.org/CVERecord?id=CVE-2026-111943). For more information, see [Ops Agent 2.73.0 notes](https://github.com/GoogleCloudPlatform/ops-agent/releases/tag/2.73.0).
-
-**Cloud SQL for MySQL**
-
-Security
-
-In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/mysql/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/mysql/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
-
-**What should I do?**
-
-  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/mysql/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/mysql/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
-
-  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/mysql/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
-
-  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
-
-
-
-
-**Cloud SQL for PostgreSQL**
-
-Security
-
-In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/postgres/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
-
-**What should I do?**
-
-  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/postgres/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/postgres/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
-
-  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/postgres/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
-
-  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
-
-
-
-
-**Cloud SQL for SQL Server**
-
-Security
-
-In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/sqlserver/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/sqlserver/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
-
-**What should I do?**
-
-  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/sqlserver/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/sqlserver/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
-
-  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/sqlserver/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
-
-  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
-
-
-
-
 **Google Cloud Contact Center as a Service**
 
 Announcement
 
-**Google Cloud CCaaS prerelease notes 6.26**
+**Google Cloud CCaaS 6.26**
 
-Here are the prerelease notes for the next version of Google Cloud CCaaS. When we release this version, we expect the new capabilities to be as shown here.
+We've released version 6.26 of Google Cloud CCaaS.
+
+The timing of the update to your instance depends on the deployment schedule that you have chosen. For more information, see [Deployment schedules](https://docs.cloud.google.com/contact-center/ccai-platform/docs/deployment-schedules).
 
 Feature
 
@@ -571,6 +1428,108 @@ This release addresses the following issues:
 
 
 
+
+**Google SecOps SOAR**
+
+Announcement
+
+[Release 6.3.103](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#October_18_2026) is now available for all regions.
+
+## October 23, 2026
+
+**Cloud Database Migration Service**
+
+Security
+
+On Saturday, October 17, 2026, Google received a report from a security researcher regarding the compromise of private keys associated with eight eMudhra subordinate Certification Authority (CA) certificates, including those cross-signed by AAA Certificate Services. Consequently, these CA certificates are no longer trusted and are being revoked.
+
+To continue connecting to a source database after its CA certificate is updated, upload the new CA certificate to the Database Migration Service source connection profile:
+
+  * Update the connection profile using [`gcloud database-migration connection-profiles update`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/connection-profiles/update) or the [`connectionProfiles.patch`](https://docs.cloud.google.com/database-migration/docs/reference/rest/v1/projects.locations.connectionProfiles/patch) API method.
+  * Modify the connection profile in the Google Cloud console: 
+    * [MySQL connection profiles](https://docs.cloud.google.com/database-migration/docs/mysql/manage-connection-profiles#update_a_connection_profile)
+    * [PostgreSQL to Cloud SQL connection profiles](https://docs.cloud.google.com/database-migration/docs/postgres/manage-connection-profiles#update_a_connection_profile)
+    * [PostgreSQL to AlloyDB for PostgreSQL connection profiles](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/manage_connection-profiles#modify_a_connection_profile)
+    * [Oracle to Cloud SQL connection profiles](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/manage-connection-profiles#update_a_connection_profile)
+    * [Oracle to AlloyDB for PostgreSQL connection profiles](https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/manage-connection-profiles#update_a_connection_profile)
+    * [SQL Server to Cloud SQL connection profiles](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/manage-connection-profiles#update_a_connection_profile)
+    * [SQL Server to AlloyDB for PostgreSQL connection profiles](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/manage-connection-profiles#update_a_connection_profile)
+
+
+
+For more information, see security bulletin [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071).
+
+**Cloud Monitoring**
+
+Fixed
+
+Ops Agent version 2.73.0 includes patches for a Go vulnerability involving system root certificates, [CVE-2026-111943](https://www.cve.org/CVERecord?id=CVE-2026-111943). For more information, see [Ops Agent 2.73.0 notes](https://github.com/GoogleCloudPlatform/ops-agent/releases/tag/2.73.0).
+
+**Cloud SQL for MySQL**
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/mysql/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/mysql/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
+
+**What should I do?**
+
+  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/mysql/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/mysql/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/mysql/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
+
+  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
+
+
+
+
+**Cloud SQL for PostgreSQL**
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/postgres/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/postgres/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
+
+**What should I do?**
+
+  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/postgres/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/postgres/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/postgres/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
+
+  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
+
+
+
+
+**Cloud SQL for SQL Server**
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating Cloud SQL's managed components. No manual updates to the certificate store are required for Cloud SQL-managed instances. The fix is shipping in a new maintenance version that will be applied during [scheduled maintenance](https://docs.cloud.google.com/sql/docs/sqlserver/maintenance). You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/sql/docs/sqlserver/self-service-maintenance). An announcement will be published when the self-service maintenance fix is available.
+
+**What should I do?**
+
+  * If you use the Cloud SQL Auth Proxy, then upgrade the Cloud SQL Auth Proxy to [2.26.3 or later](https://docs.cloud.google.com/sql/docs/sqlserver/sql-proxy#install) and the Cloud SQL Proxy Operator to [1.8.4 or later](https://docs.cloud.google.com/sql/docs/sqlserver/connect-proxy-operator). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use a Cloud SQL Language Connector, then update the language runtime and operating system CA certificates used with the [Cloud SQL Language Connector](https://docs.cloud.google.com/sql/docs/sqlserver/connect-connectors) (for example, Go 1.26.10 or 1.27.3 or later, certifi 2026.10.19 or later).
+
+  * If you're using the gcloud CLI to install the Cloud SQL Auth Proxy, then update the gcloud CLI to [590.0.1](https://docs.cloud.google.com/sdk/gcloud#download_and_install_the).
+
+
+
+
+**Datastream**
+
+Security
+
+On Saturday, October 17, 2026, Google received a report from a security researcher regarding the compromise of private keys associated with eight eMudhra subordinate Certification Authority (CA) certificates, including those cross-signed by AAA Certificate Services. Consequently, these CA certificates are no longer trusted and are being revoked.
+
+To continue connecting to a source database after its CA certificate is updated, upload the new CA certificate to the Datastream source connection profile:
+
+  * [Modify connection profiles](https://docs.cloud.google.com/datastream/docs/modify-connection-profiles) in the Google Cloud console.
+  * Update the connection profile using [`gcloud datastream connection-profiles update`](https://docs.cloud.google.com/sdk/gcloud/reference/datastream/connection-profiles/update) or the [`connectionProfiles.patch`](https://docs.cloud.google.com/datastream/docs/reference/rest/v1/projects.locations.connectionProfiles/patch) API method.
+
+
+
+For more information, see security bulletin [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071).
 
 ## October 22, 2026
 
@@ -1004,9 +1963,9 @@ Gemini Enterprise administrators can configure single-user quota limits on the *
 
 This feature is generally available (GA). For more information, see:
 
-  * [Single-user quota limits](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#single-user-quota-limits)
+  * [Single-user quota limits](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#single-user-quota-limits)
   * [Configure a single-user quota limit](https://docs.cloud.google.com/gemini/enterprise/docs/feature-usage#configure-single-user-quota-limit)
-  * [Configure overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages#configure-single-user-quota-limit)
+  * [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota#configure-single-user-quota-limit)
 
 
 
@@ -1100,6 +2059,8 @@ The following issues were fixed in 1.34.1000-gke.111:
   * Fixed an issue where updating control plane configurations caused multiple API servers to restart simultaneously, leading to transient control plane unavailability. 
 
 
+
+This note is missing a fix included in 1.34.1000-gke.111. See entry for [October 26, 2026](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/release-notes#October_26_2026).
 
 **Google SecOps**
 
@@ -1813,6 +2774,20 @@ You can use custom organization policies to ensure that all new or updated Model
 
 ## October 20, 2026
 
+**Agent Platform Workbench**
+
+Change
+
+### M154 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Fixed
+
+Fixed dataset and table search in the BigQuery panel, which sometimes failed to return results. Root cause is due to Datacatalog API being sunsetted in favor of Dataplex API.
+
 **Apigee X**
 
 Announcement
@@ -1899,6 +2874,36 @@ The latest versions in the Looker (Google Cloud core) [release channels](https:/
 The latest version in the Rapid and No Channel channels remains **Looker 26.20**.
 
 **Note:** This item was added on October 23, 2026.
+
+**Managed Service for Apache Airflow**
+
+Feature
+
+[Upgrade rollbacks](https://docs.cloud.google.com/composer/docs/composer-3/upgrade-environments#rollback) are available in Managed Airflow (Gen 3). You can roll back an environment upgrade if you encounter degraded performance, Airflow bugs, or compatibility issues with your DAGs, plugins, or dependencies.
+
+This feature is gradually rolling out over several releases. In this release, it's available in the following regions: africa-south1, asia-northeast2, asia-south2, australia-southeast2, europe-north2, europe-southwest1, europe-west10, europe-west12, europe-west8, me-central1, me-central2, me-west1, northamerica-northeast2, northamerica-south1, southamerica-west1, us-south1, asia-east1, asia-northeast3, asia-southeast2, europe-central2, europe-west4, europe-west6, europe-west9, northamerica-northeast1, southamerica-east1, us-east5, us-west3, us-west4, asia-east2, asia-southeast3.
+
+Change
+
+Improved Airflow worker health checks to detect task queue connection issues more quickly.
+
+Change
+
+New [Airflow builds](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-3) are available in Managed Airflow (Gen 3):
+
+  * [composer-3-airflow-3.3.1-build.5](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-5)
+  * [composer-3-airflow-3.2.2-build.9](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-9)
+  * [composer-3-airflow-2.11.1-build.22](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-22) (default)
+
+
+
+Change
+
+New [images](https://docs.cloud.google.com/composer/docs/composer-versions#images-composer-2) are available in Managed Airflow (Gen 2):
+
+  * [composer-2.17.16-airflow-2.11.1](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-16-airflow-2-11-1) (default)
+
+
 
 **Spanner**
 
@@ -2285,6 +3290,24 @@ Feature
 Feature
 
 [Text search](https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/text-query) and [Geospatial search](https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/geo-query) are generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
+
+**Gemini Enterprise Agent Platform**
+
+Feature
+
+**Supervised fine-tuning for Gemini 3 models is available in General Availability**
+
+[Supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) for Gemini 3 models is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages).
+
+Key updates include the following:
+
+  * **Gemini 3.5 Flash Lite support** : Supervised fine-tuning is now supported for [Gemini 3.5 Flash Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) (`gemini-3.5-flash-lite`), in addition to Gemini 3.5 Flash (`gemini-3.5-flash`) and Gemini 3.1 Flash Lite (`gemini-3.1-flash-lite`).
+  * **Supported regions** : Model tuning jobs and tuned model serving for Gemini 3 models are supported on the `us` and `eu` multi-region endpoints.
+  * **Customer-managed encryption keys (CMEK)** : [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) are supported for protecting tuning job resources and tuned models.
+
+
+
+For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use).
 
 **Google Cloud Armor**
 
@@ -3892,6 +4915,14 @@ Feature
 
 You can use Developer Connect to [connect Dataform repositories to Secure Source Manager repositories](https://docs.cloud.google.com/dataform/docs/connect-repository#dev-connect). This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
 
+**Gemini**
+
+Other
+
+### Bug fixes in IntelliJ
+
+Various bug fixes and minor product enhancements.
+
 **Gemini Enterprise**
 
 Feature
@@ -3983,10 +5014,6 @@ The following issues were fixed in 1.35.600-gke.141:
 
 
 **Managed Service for Apache Airflow**
-
-Announcement
-
-A new Managed Service for Apache Airflow release has started on **October 13, 2026**. Get ready for upcoming changes and features as we roll out the new release to all regions. This release is in progress at the moment. Listed changes and features might not be available in some regions yet.
 
 Feature
 
@@ -5150,7 +6177,7 @@ Administrators can enable Anthropic Claude Opus 5.5 (`claude-opus-5-5`) and Anth
 
   * **In-console Terms of Service consent flow** : Administrators can opt in to Claude Opus 5.5 and Claude Sonnet 5.5 directly in **Gemini Enterprise > Settings > AI developer tools > Antigravity authorized models** in the Google Cloud console without a separate Anthropic account or onboarding. For more information, see [Configure AI developer tools settings](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings#enable-third-party-models).
   * **Location availability** : Third-party model inference is available in the `global`, `us`, and `eu` locations (in-country regions aren't supported). For a list of countries and regions that can access the model, see [Anthropic's Supported countries and regions](https://www.anthropic.com/supported-countries).
-  * **Consumption billing** : Third-party model usage is billed as consumption on your Cloud Billing account and counts toward your project's spend cap, which covers all models. Overages must be turned on before you can enable a third-party model. For more information, see [Configure overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages) and the Cloud Billing SKUs for [Anthropic Claude Opus 5.5](https://cloud.google.com/skus?filter=opus&currency=USD&e=48754805) and [Anthropic Claude Sonnet 5.5](https://cloud.google.com/skus?filter=sonnet&currency=USD&e=48754805).
+  * **Consumption billing** : Third-party model usage is billed as consumption on your Cloud Billing account and counts toward your project's spend cap, which covers all models. Pay-as-you-go usage above quota must be turned on before you can enable a third-party model. For more information, see [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota) and the Cloud Billing SKUs for [Anthropic Claude Opus 5.5](https://cloud.google.com/skus?filter=opus&currency=USD&e=48754805) and [Anthropic Claude Sonnet 5.5](https://cloud.google.com/skus?filter=sonnet&currency=USD&e=48754805).
   * **Thinking levels** : Developers sign in with their existing Gemini Enterprise license and select Claude Opus 5.5 or Claude Sonnet 5.5 in the model picker at a thinking level of Low, Medium, High, or Max (for example, Claude Opus 5.5 (High)). Medium is the default.
 
 
@@ -6115,9 +7142,9 @@ When you enable Pay-as-you-go usage on an invoiced Cloud Billing account with an
 
 For more information, see the following resources:
 
-  * [Quotas and overages](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#overages)
-  * [Configure overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages)
-  * [Overview of overages and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview)
+  * [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#pay-as-you-go-usage-above-quota)
+  * [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota)
+  * [Overview of pay-as-you-go usage above quota and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview)
 
 
 
@@ -6571,6 +7598,14 @@ Security
 Upgraded dev-libs/libxml2 to v2.15.4. This fixes CVE-2026-86140.
 
 **Gemini Enterprise**
+
+Feature
+
+**Gemini Enterprise: Updates to pay-as-you-go usage above quota controls**
+
+In the Google Cloud console, the **Overages** setting has been updated to **Pay-as-you-go usage above quota**. The **Usage & Spending** page provides per-tier controls, allowing administrators to configure pay-as-you-go usage above quota individually for each subscription tier.
+
+For more information, see [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota) and [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#pay-as-you-go-usage-above-quota).
 
 Feature
 
@@ -8533,6 +9568,32 @@ The [BigQuery Data Transfer Service MCP server](https://docs.cloud.google.com/bi
 Feature
 
 You can now write the output rows produced by [BigQuery continuous queries](https://docs.cloud.google.com/bigquery/docs/continuous-queries-introduction) directly into [Apache Iceberg managed tables](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery). This lets you continuously process streaming data from BigQuery and write it into your open-format lakehouse by using an [`INSERT` DML statement](https://docs.cloud.google.com/bigquery/docs/continuous-queries#write-bigquery).
+
+**Bigtable**
+
+Libraries
+
+### Go
+
+#### [1.58.0](https://github.com/googleapis/google-cloud-go/compare/bigtable/v1.57.0...bigtable/v1.58.0) (2026-09-25)
+
+##### Features
+
+  * **all:** Update supported go versions ([#20520](https://github.com/googleapis/google-cloud-go/issues/20520)) ([90413d3](https://github.com/googleapis/google-cloud-go/commit/90413d3e9d381ef4b92e3c496d98b023c5b2d8cc))
+  * **bigtable:** Support hot duration, disabled, and effective backup policy ([#20573](https://github.com/googleapis/google-cloud-go/issues/20573)) ([da2bfcc](https://github.com/googleapis/google-cloud-go/commit/da2bfcc3bcf396acbd3fbbbbfb50cb7feb184496))
+  * Update API sources and regenerate ([#20526](https://github.com/googleapis/google-cloud-go/issues/20526)) ([e6f37a3](https://github.com/googleapis/google-cloud-go/commit/e6f37a362b6e37b0bc74e77b8d7f151dc7443fb8))
+  * Update API sources and regenerate ([#20570](https://github.com/googleapis/google-cloud-go/issues/20570)) ([cc91d66](https://github.com/googleapis/google-cloud-go/commit/cc91d66d3435de4bed07ffec7abc226cdcdbf29c))
+  * Update API sources and regenerate. ([e6f37a3](https://github.com/googleapis/google-cloud-go/commit/e6f37a362b6e37b0bc74e77b8d7f151dc7443fb8))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** Detect omitted MutateRows response entries in ApplyBulk ([#20557](https://github.com/googleapis/google-cloud-go/issues/20557)) ([68b3f33](https://github.com/googleapis/google-cloud-go/commit/68b3f3321bd5ba7d72a60b425345a4680023925b))
+  * **bigtable:** Fix TestRetryApplyBulk_OverallRequestFailure test interceptor ([#20574](https://github.com/googleapis/google-cloud-go/issues/20574)) ([25bc085](https://github.com/googleapis/google-cloud-go/commit/25bc085c8fde602f7027cb48532f204be9e0dbd5))
+  * **various:** Address format directive issues ([#20547](https://github.com/googleapis/google-cloud-go/issues/20547)) ([e2e1047](https://github.com/googleapis/google-cloud-go/commit/e2e104731999b3bfc75ed0b8f2d71844ced3b073))
+
+
 
 **Cloud Asset Inventory**
 
@@ -13921,6 +14982,25 @@ You can now include a `WHERE` clause inside of an [aggregate function call](http
 
 **Bigtable**
 
+Libraries
+
+### Go
+
+#### [1.57.0](https://github.com/googleapis/google-cloud-go/compare/bigtable/v1.56.0...bigtable/v1.57.0) (2026-09-10)
+
+##### Features
+
+  * **bigtable:** Build the accelerator daemon for Windows ([#20455](https://github.com/googleapis/google-cloud-go/issues/20455)) ([df55af5](https://github.com/googleapis/google-cloud-go/commit/df55af57867ed03076cba91e3c3a18616711a5e4))
+
+
+
+##### Bug Fixes
+
+  * **bigtable/bttest:** Honor timestamp_origin on SetCell ([#20469](https://github.com/googleapis/google-cloud-go/issues/20469)) ([528aaf8](https://github.com/googleapis/google-cloud-go/commit/528aaf81e9366b99e88f39c40acba2ccbd7830cd)), refs [#20468](https://github.com/googleapis/google-cloud-go/issues/20468)
+  * **bigtable:** Keep single-key ReadRows on the streaming classic path ([#20506](https://github.com/googleapis/google-cloud-go/issues/20506)) ([2bfdb5d](https://github.com/googleapis/google-cloud-go/commit/2bfdb5d137567b5f339c96b9a330e2d5e9d610fa))
+
+
+
 Feature
 
 You can use the Google Cloud console to create, list, and query [parameterized views](https://docs.cloud.google.com/bigtable/docs/parameterized-views-overview) for your Bigtable instances. You can also configure view parameters and run queries in Bigtable Studio. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages). For more information, see [Create and manage parameterized views](https://docs.cloud.google.com/bigtable/docs/create-manage-parameterized-views).
@@ -15595,6 +16675,131 @@ Feature
 
 Privileged Access Manager is generally available [(GA)](https://cloud.google.com/products#product-launch-stages).
 
+**Bigtable**
+
+Libraries
+
+### Go
+
+#### [1.56.0](https://github.com/googleapis/google-cloud-go/compare/bigtable/v1.55.0...bigtable/v1.56.0) (2026-09-03)
+
+##### Features
+
+  * **bigtable/accelerator:** Add --user-agent flag to daemon ([#20341](https://github.com/googleapis/google-cloud-go/issues/20341)) ([6b33c06](https://github.com/googleapis/google-cloud-go/commit/6b33c06f6a19ce512cbe9556fe2932f5d7878b66))
+  * **bigtable/accelerator:** Add daemon binary with identity verification ([#20330](https://github.com/googleapis/google-cloud-go/issues/20330)) ([2f9cf89](https://github.com/googleapis/google-cloud-go/commit/2f9cf898f165c0b4fee6fdda8d037c109b0779e1))
+  * **bigtable/accelerator:** Add proxy channel scaffold owning a sessi… ([#20310](https://github.com/googleapis/google-cloud-go/issues/20310)) ([d65ca7d](https://github.com/googleapis/google-cloud-go/commit/d65ca7da8108c643abc56237e2db0a17c3447c7c))
+  * **bigtable/accelerator:** Add stdin-EOF and parent-PID lifecycle wa… ([#20328](https://github.com/googleapis/google-cloud-go/issues/20328)) ([dc1c6ae](https://github.com/googleapis/google-cloud-go/commit/dc1c6ae0f773d405e35ffe68741c46d220e450d1))
+  * **bigtable/accelerator:** Add UDS server with authenticated proxy i… ([#20320](https://github.com/googleapis/google-cloud-go/issues/20320)) ([a837020](https://github.com/googleapis/google-cloud-go/commit/a837020465473f8cc21213de818dc96d5ff46f3a))
+  * **bigtable/accelerator:** Add V2-to-session request adapters ([#20271](https://github.com/googleapis/google-cloud-go/issues/20271)) ([4cb6f16](https://github.com/googleapis/google-cloud-go/commit/4cb6f1644d070b0af8ee3706d36640a91ded48d8))
+  * **bigtable/accelerator:** Authenticate UDS callers with a stdin tok… ([#20324](https://github.com/googleapis/google-cloud-go/issues/20324)) ([7847ab7](https://github.com/googleapis/google-cloud-go/commit/7847ab71efc0c5745eaa49235762ecab523312f1))
+  * **bigtable/accelerator:** Dispatch MutateRow and single-row ReadRow… ([#20312](https://github.com/googleapis/google-cloud-go/issues/20312)) ([c89f336](https://github.com/googleapis/google-cloud-go/commit/c89f336749601fa958d02c984cafd7e96007c8f1))
+  * **bigtable/bttest:** Honor the table's timestamp granularity ([#20456](https://github.com/googleapis/google-cloud-go/issues/20456)) ([0054866](https://github.com/googleapis/google-cloud-go/commit/0054866d52dca8c5d7b0ab7d3de0259e07b88151))
+  * **bigtable:** Add AFE picker (Simple / LeastInFlight / LeastLatency) ([#20204](https://github.com/googleapis/google-cloud-go/issues/20204)) ([bcbf714](https://github.com/googleapis/google-cloud-go/commit/bcbf71431d1742e2e13a13d1cbe8b0fc0433aede))
+  * **bigtable:** Add ChainInterceptors and RetryingVRpc for vRPC pipeline ([#20185](https://github.com/googleapis/google-cloud-go/issues/20185)) ([c7a832a](https://github.com/googleapis/google-cloud-go/commit/c7a832aa13bad0896c3906f491d798482dd8c02a))
+  * **bigtable:** Add ClientConfig.DisableSession to opt out of session backend ([#20297](https://github.com/googleapis/google-cloud-go/issues/20297)) ([7ee5e44](https://github.com/googleapis/google-cloud-go/commit/7ee5e44e0304c5509b9b77fe0760d97771657cd9))
+  * **bigtable:** Add ClientConfigurationManager ([#19986](https://github.com/googleapis/google-cloud-go/issues/19986)) ([3a8f927](https://github.com/googleapis/google-cloud-go/commit/3a8f9270d9c2831b5d76efe89c913555577ace6a))
+  * **bigtable:** Add debug tag counter (recordDebugTag / assertDebugTag) ([#20114](https://github.com/googleapis/google-cloud-go/issues/20114)) ([3c97590](https://github.com/googleapis/google-cloud-go/commit/3c97590192a19306612389e9d55b93b538e8584b))
+  * **bigtable:** Add getClientConfigDirectAccessChecker for session pools ([#20209](https://github.com/googleapis/google-cloud-go/issues/20209)) ([3b8d30a](https://github.com/googleapis/google-cloud-go/commit/3b8d30adeaf03c8452207b056d69922646d63bf2))
+  * **bigtable:** Add lazyPool helper for on-demand session pool opening ([#20182](https://github.com/googleapis/google-cloud-go/issues/20182)) ([f6ae3fb](https://github.com/googleapis/google-cloud-go/commit/f6ae3fbf65e9e41a1c2d64f281f881ebe8828439))
+  * **bigtable:** Add NoOpChannelPrimer for session channel pools ([#20208](https://github.com/googleapis/google-cloud-go/issues/20208)) ([d055a8a](https://github.com/googleapis/google-cloud-go/commit/d055a8a1b23980ad4b53c0cd690e291c9aa6248c))
+  * **bigtable:** Add opensession descriptors for bigtable ([#14647](https://github.com/googleapis/google-cloud-go/issues/14647)) ([8968f4f](https://github.com/googleapis/google-cloud-go/commit/8968f4fd7ca68297dcc42861878f90a5b339539d))
+  * **bigtable:** Add PeakEwma continuous time-decay latency tracker ([#20187](https://github.com/googleapis/google-cloud-go/issues/20187)) ([9d124ef](https://github.com/googleapis/google-cloud-go/commit/9d124ef7773dae916dfbb97657f83ae633d15220))
+  * **bigtable:** Add per-AFE sessionList for the two-tier session pool ([#20224](https://github.com/googleapis/google-cloud-go/issues/20224)) ([dbf0c3f](https://github.com/googleapis/google-cloud-go/commit/dbf0c3f3ea37279a2aa00803ded8e489229b15c9))
+  * **bigtable:** Add PoolSizer for server-driven session pool capacity ([#20189](https://github.com/googleapis/google-cloud-go/issues/20189)) ([57ebbeb](https://github.com/googleapis/google-cloud-go/commit/57ebbeb8e846f574034e93060682309bc1a00dc1))
+  * **bigtable:** Add protoRowToRow conversion helper for TableShim ([#20257](https://github.com/googleapis/google-cloud-go/issues/20257)) ([1297143](https://github.com/googleapis/google-cloud-go/commit/1297143a4fab4bf58cbd0bd6e44db4653a818c47))
+  * **bigtable:** Add Session debug surface (observability fields + methods) ([#20211](https://github.com/googleapis/google-cloud-go/issues/20211)) ([d8d3e16](https://github.com/googleapis/google-cloud-go/commit/d8d3e160c3e63150ef5d14e83a2ea0fd25a7e214))
+  * **bigtable:** Add Session lifecycle (Start, Close, ForceClose, readLoop, heartBeatLoop) ([#20215](https://github.com/googleapis/google-cloud-go/issues/20215)) ([b9e53c6](https://github.com/googleapis/google-cloud-go/commit/b9e53c6276efe28428adfcd4671d7ac8c7e8d330))
+  * **bigtable:** Add session package with SessionClient + SessionTableAPI interfaces ([#20180](https://github.com/googleapis/google-cloud-go/issues/20180)) ([4b82fd2](https://github.com/googleapis/google-cloud-go/commit/4b82fd25cc81cdee5563d5a049b48d2694bca088))
+  * **bigtable:** Add Session primitives (AttemptOutcome, vRPC ctx, msgtype) ([#20116](https://github.com/googleapis/google-cloud-go/issues/20116)) ([e1011e2](https://github.com/googleapis/google-cloud-go/commit/e1011e2d2c43a838abe080ad9d3f614f8c92e55a))
+  * **bigtable:** Add Session state enum ([#19981](https://github.com/googleapis/google-cloud-go/issues/19981)) ([0748972](https://github.com/googleapis/google-cloud-go/commit/07489725b63174375f7faa68b7aad18cc638c27b))
+  * **bigtable:** Add Session struct + state machine ([#20117](https://github.com/googleapis/google-cloud-go/issues/20117)) ([09acbb3](https://github.com/googleapis/google-cloud-go/commit/09acbb37a385d2c6fca465adb70a3eb03ea4a38e))
+  * **bigtable:** Add session.Config.EnableDebug to gate sessionz debug state ([#20247](https://github.com/googleapis/google-cloud-go/issues/20247)) ([ce74c31](https://github.com/googleapis/google-cloud-go/commit/ce74c315d41371b0ddf2c1ba7342446695a53900))
+  * **bigtable:** Add SessionClient + SessionTable + lazyPool ([#20228](https://github.com/googleapis/google-cloud-go/issues/20228)) ([ab2c96c](https://github.com/googleapis/google-cloud-go/commit/ab2c96c3ed62514dcf6526bb32259267fbe63e97))
+  * **bigtable:** Add SessionPoolImpl (two-tier pool + scaling + debug) ([#20225](https://github.com/googleapis/google-cloud-go/issues/20225)) ([683eda8](https://github.com/googleapis/google-cloud-go/commit/683eda8c690fd2b948bd3b56777039d28421ee7c))
+  * **bigtable:** Add SessionThrottler / AdaptiveSessionThrottler for OpenSession pacing ([#20184](https://github.com/googleapis/google-cloud-go/issues/20184)) ([02e3c6d](https://github.com/googleapis/google-cloud-go/commit/02e3c6d19e8ff5b6a12803bc9b0636575e070dff))
+  * **bigtable:** Add SessionThrottler / AdaptiveSessionThrottler for OpenSession pacing ([#20184](https://github.com/googleapis/google-cloud-go/issues/20184)) ([29be83e](https://github.com/googleapis/google-cloud-go/commit/29be83ed3b631a472e28be4d8569d34f0a071d86))
+  * **bigtable:** Add sessionTracer for per-Session lifecycle + vRPC metrics ([#20190](https://github.com/googleapis/google-cloud-go/issues/20190)) ([a466345](https://github.com/googleapis/google-cloud-go/commit/a4663459260ba054af918c29a94570d5ec69f399))
+  * **bigtable:** Add traffic diverter and table shim for bigtable ([#14633](https://github.com/googleapis/google-cloud-go/issues/14633)) ([2f3c918](https://github.com/googleapis/google-cloud-go/commit/2f3c91847f882cef939496b92d5c4311583b4f5e))
+  * **bigtable:** Add virtual RPC descriptors ([#14648](https://github.com/googleapis/google-cloud-go/issues/14648)) ([5eedda1](https://github.com/googleapis/google-cloud-go/commit/5eedda184cf228e72098a4d8c4a992b625ca9558))
+  * **bigtable:** Debug tags for GetClientConfiguration session_configuration state ([#20472](https://github.com/googleapis/google-cloud-go/issues/20472)) ([8e57e4b](https://github.com/googleapis/google-cloud-go/commit/8e57e4b273bfb532772c4fbe4f6058b929d2c1d5))
+  * **bigtable:** Enable JWT ([#19957](https://github.com/googleapis/google-cloud-go/issues/19957)) ([af93528](https://github.com/googleapis/google-cloud-go/commit/af93528c6eb18e841783987820b9f586293459e4))
+  * **bigtable:** Enable new auth library and JWT for instance admin client ([#20013](https://github.com/googleapis/google-cloud-go/issues/20013)) ([21c4a44](https://github.com/googleapis/google-cloud-go/commit/21c4a448adf789e8acaebfaed7df5c49ac434aab))
+  * **bigtable:** Enable new auth library and remove async refresh ([#19943](https://github.com/googleapis/google-cloud-go/issues/19943)) ([0d3697b](https://github.com/googleapis/google-cloud-go/commit/0d3697b2f31a47b530cd7ba37323a4321d19091b))
+  * **bigtable:** Expose a client option to disable direct access: ([#14626](https://github.com/googleapis/google-cloud-go/issues/14626)) ([f22b29f](https://github.com/googleapis/google-cloud-go/commit/f22b29f5d954a61b34e71995546c818883697aa6))
+  * **bigtable:** Generate Admin API client using selective gapic ([#19962](https://github.com/googleapis/google-cloud-go/issues/19962)) ([a37509d](https://github.com/googleapis/google-cloud-go/commit/a37509ddadc60a81e5dfb0f373e47d0d578d8cca))
+  * **bigtable:** Modularize channel priming behind a ChannelPrimer interface ([#20027](https://github.com/googleapis/google-cloud-go/issues/20027)) ([5214ab7](https://github.com/googleapis/google-cloud-go/commit/5214ab7033bd8a5aa672878ae17ce828d5d78c3c))
+  * **bigtable:** Modularize Direct Access compatibility check ([#19987](https://github.com/googleapis/google-cloud-go/issues/19987)) ([a25e93d](https://github.com/googleapis/google-cloud-go/commit/a25e93d25635b8fd42985edbe0290ba9a8cf2169))
+  * **bigtable:** Refactor channel_pool_factory as we need to maintain two channel factory one for session and another for unary ([#14652](https://github.com/googleapis/google-cloud-go/issues/14652)) ([0c0b6ce](https://github.com/googleapis/google-cloud-go/commit/0c0b6ceba693dbe8af778117f6ca10faf0ca67ff))
+  * **bigtable:** Rename session pool display to <resource-id>-<PERM> ([#20248](https://github.com/googleapis/google-cloud-go/issues/20248)) ([35e146e](https://github.com/googleapis/google-cloud-go/commit/35e146e25d2897082f2d1b78b9273087efd855fd))
+  * **bigtable:** Route Client.Open()-returned *Table through the Diverter ([#20273](https://github.com/googleapis/google-cloud-go/issues/20273)) ([2b81c7d](https://github.com/googleapis/google-cloud-go/commit/2b81c7dc2d73739f4d5f87aa43cc9a3ac031822d))
+  * **bigtable:** Serve grpc.health.v1.Health from the accelerator daemon ([#20446](https://github.com/googleapis/google-cloud-go/issues/20446)) ([5fba38a](https://github.com/googleapis/google-cloud-go/commit/5fba38a8372781d0b3b52c64577318b0a93f0d46))
+  * **bigtable:** State-based classification for abnormal session close ([#20243](https://github.com/googleapis/google-cloud-go/issues/20243)) ([f2905b7](https://github.com/googleapis/google-cloud-go/commit/f2905b793d062ae597d9c39597d15a680e9e9967))
+  * **bigtable:** TableShim fallback to classic on session UNIMPLEMENTED ([#20269](https://github.com/googleapis/google-cloud-go/issues/20269)) ([36540af](https://github.com/googleapis/google-cloud-go/commit/36540af84ab5f7360c5c1a92bbfb5a631d4c5cc6))
+  * **bigtable:** TTL-on-idle cache for per-resource session.TableAPI ([#20263](https://github.com/googleapis/google-cloud-go/issues/20263)) ([00b2a49](https://github.com/googleapis/google-cloud-go/commit/00b2a49de38fe600736cf10c496f85e082ae8871))
+  * **bigtable:** Update admin.go to support instance edition ([#14479](https://github.com/googleapis/google-cloud-go/issues/14479)) ([cf1153d](https://github.com/googleapis/google-cloud-go/commit/cf1153dfb96bb9529e3129f012145e343c048796))
+  * **bigtable:** Wire Diverter on Client and route Open* via TableShim ([#20256](https://github.com/googleapis/google-cloud-go/issues/20256)) ([b32fbd7](https://github.com/googleapis/google-cloud-go/commit/b32fbd7d02f835e8f83b4be1926e5826c27fa8a9))
+  * **bigtable:** Wrap admin client ([#14534](https://github.com/googleapis/google-cloud-go/issues/14534)) ([0bea4ba](https://github.com/googleapis/google-cloud-go/commit/0bea4ba37832608dc05293a1eb2a3c756a9f27d9))
+  * **o11y:** Regenerate clients for LRO tracing ([#20107](https://github.com/googleapis/google-cloud-go/issues/20107)) ([779074e](https://github.com/googleapis/google-cloud-go/commit/779074edd267a26520bae459307660953129eb07))
+  * Update API sources and regenerate ([#14701](https://github.com/googleapis/google-cloud-go/issues/14701)) ([a9b7921](https://github.com/googleapis/google-cloud-go/commit/a9b7921551e9c1535496731da53e880e9e364efa))
+  * Update API sources and regenerate ([#19950](https://github.com/googleapis/google-cloud-go/issues/19950)) ([c7607be](https://github.com/googleapis/google-cloud-go/commit/c7607be52757b803df345670b5d0621c2bb9ba30))
+  * Update API sources and regenerate ([#20369](https://github.com/googleapis/google-cloud-go/issues/20369)) ([bfe3aaf](https://github.com/googleapis/google-cloud-go/commit/bfe3aafc49e0c13815aa0401b1eba47aef4511df))
+  * Update API sources and regenerate ([#20459](https://github.com/googleapis/google-cloud-go/issues/20459)) ([5426e32](https://github.com/googleapis/google-cloud-go/commit/5426e32154fdced65087675b6c37aba66436ac47))
+  * Update sources and regenerate ([#20399](https://github.com/googleapis/google-cloud-go/issues/20399)) ([a6b5cdb](https://github.com/googleapis/google-cloud-go/commit/a6b5cdb4eec5e66fb6bb4a00f9ec89c088826e26))
+
+
+
+##### Bug Fixes
+
+  * **bigtable/internal/transport:** Drop redundant defer p.Close() in AFE picker tests ([#20311](https://github.com/googleapis/google-cloud-go/issues/20311)) ([c05b767](https://github.com/googleapis/google-cloud-go/commit/c05b76788b76de616cf49ca7c3a7cfec863913b8))
+  * **bigtable:** AFE picker latency signal — subtract poolWait and compute TransportLatency = wire − backend at source ([#20281](https://github.com/googleapis/google-cloud-go/issues/20281)) ([bb8c4d5](https://github.com/googleapis/google-cloud-go/commit/bb8c4d56bf5bb53e5e1f1d510be326821fe4ddee))
+  * **bigtable:** Default cluster/zone in toOtelMetricAttrs to avoid Monitoring reject ([#20178](https://github.com/googleapis/google-cloud-go/issues/20178)) ([14493f4](https://github.com/googleapis/google-cloud-go/commit/14493f4de7298b8fac36c1ee67f2647fbc2e6ba9))
+  * **bigtable:** Disable connection pooling when emulator is set ([#14483](https://github.com/googleapis/google-cloud-go/issues/14483)) ([a07a26b](https://github.com/googleapis/google-cloud-go/commit/a07a26b60c2171d3ee84a43f2e35189e20f0623e))
+  * **bigtable:** Disable dynamic channel pool by default and raise default pool size to 10 ([#19945](https://github.com/googleapis/google-cloud-go/issues/19945)) ([5ddf8d4](https://github.com/googleapis/google-cloud-go/commit/5ddf8d469ce0570aedaf925a9a377ddf51873a43))
+  * **bigtable:** Eliminate stats-handler MD race in internal/metrics tracer ([#20158](https://github.com/googleapis/google-cloud-go/issues/20158)) ([c387066](https://github.com/googleapis/google-cloud-go/commit/c38706633aa13da88e8c54b0b6340b9ce7209007))
+  * **bigtable:** Guard NewStream OnFinish against grpc-go double-fire ([#20295](https://github.com/googleapis/google-cloud-go/issues/20295)) ([b51da29](https://github.com/googleapis/google-cloud-go/commit/b51da29536de5aa59582d2a9633a07186f8636ae))
+  * **bigtable:** Measure real scheduling delay in pacemaker_delays ([#20445](https://github.com/googleapis/google-cloud-go/issues/20445)) ([e1304d6](https://github.com/googleapis/google-cloud-go/commit/e1304d63e0280aa7571aca294b9b5c5cf3d4c7f4))
+  * **bigtable:** Raise default connection-recycler MaxAge to 7 days ([#19940](https://github.com/googleapis/google-cloud-go/issues/19940)) ([a7959ef](https://github.com/googleapis/google-cloud-go/commit/a7959efcc0e145ac6bf0e271695a30284aa8b493))
+  * **bigtable:** Real per-resource pool teardown on sessionTable.Close + cache close-race gate ([#20264](https://github.com/googleapis/google-cloud-go/issues/20264)) ([599aea9](https://github.com/googleapis/google-cloud-go/commit/599aea9e67ca2526b7822eb1e873e3aaf7b5124e))
+  * **bigtable:** Register c2p resolver + RLS balancer for accelerator daemon DirectPath ([#20362](https://github.com/googleapis/google-cloud-go/issues/20362)) ([95f372f](https://github.com/googleapis/google-cloud-go/commit/95f372f660f8246fe869ae085b75b70e537533f0))
+  * **bigtable:** Retry unexpected EOF errors ([#13157](https://github.com/googleapis/google-cloud-go/issues/13157)) ([2b4ac42](https://github.com/googleapis/google-cloud-go/commit/2b4ac429c5328ed230ead5e937cd11f7024b73bf))
+  * **bigtable:** Scope session pool maintenance loops to the pool, not the client ([#20444](https://github.com/googleapis/google-cloud-go/issues/20444)) ([7457e6e](https://github.com/googleapis/google-cloud-go/commit/7457e6e23ef1affc15c2341bacb050d6dd2b1586))
+  * **bigtable:** Session client — set AllowNonDefaultServiceAccount on DirectPath dial ([#20343](https://github.com/googleapis/google-cloud-go/issues/20343)) ([b9c76ec](https://github.com/googleapis/google-cloud-go/commit/b9c76ec52f46f4fb1f1252b4ca159ca3cd2f86fa))
+  * **bigtable:** Session client — single ownership + single-flight pool loading ([#20368](https://github.com/googleapis/google-cloud-go/issues/20368)) ([f4ad950](https://github.com/googleapis/google-cloud-go/commit/f4ad950b6ace8c34820568073129e43bc69c7797))
+  * **bigtable:** Session pool — re-drive creation after a never-activated close so the consecutive-failure breaker is reachable ([#20355](https://github.com/googleapis/google-cloud-go/issues/20355)) ([ee74949](https://github.com/googleapis/google-cloud-go/commit/ee749491ff2316f35ae17cb9f82a3059e6e122db))
+  * **bigtable:** Session.durations / session.uptime — set explicit histogram bucket boundaries ([#20276](https://github.com/googleapis/google-cloud-go/issues/20276)) ([97eee22](https://github.com/googleapis/google-cloud-go/commit/97eee225c412db9288bb7813e6b9cc856e6aba44))
+  * **bigtable:** SessionTableHandle self-heals across cache eviction ([#20296](https://github.com/googleapis/google-cloud-go/issues/20296)) ([0dd98cd](https://github.com/googleapis/google-cloud-go/commit/0dd98cd75383bd5902f3bec936d9ae68c64e6682))
+  * **bigtable:** Translate ctx errors to gRPC status on session vRPC ([#20299](https://github.com/googleapis/google-cloud-go/issues/20299)) ([0f3b2a5](https://github.com/googleapis/google-cloud-go/commit/0f3b2a519e07eccdfacad1129aa0fb69bc8f06e6))
+  * **bigtable:** Treat PingAndWarm NotFound as a successful prime ([#20219](https://github.com/googleapis/google-cloud-go/issues/20219)) ([a1557ad](https://github.com/googleapis/google-cloud-go/commit/a1557adec2fc8a579f70cdb4de5f959ceb8d51a1))
+  * **bigtable:** Use composed user agent as CSM client_name ([#20383](https://github.com/googleapis/google-cloud-go/issues/20383)) ([cb02335](https://github.com/googleapis/google-cloud-go/commit/cb02335f55c4c3f8ce04edd890d0745370996cc7))
+  * **bigtable:** Use instance_name instead of name in GetClientConfig ([#20465](https://github.com/googleapis/google-cloud-go/issues/20465)) ([375f198](https://github.com/googleapis/google-cloud-go/commit/375f1983f46b9a236cec76a4cbbd8eee3a068df0))
+
+
+
+##### Performance Improvements
+
+  * **bigtable:** Delete periodic Tick loop; sizing is event-driven ([#20285](https://github.com/googleapis/google-cloud-go/issues/20285)) ([2c096bd](https://github.com/googleapis/google-cloud-go/commit/2c096bddf6fc5353a3804d222b3683a55eda13e5))
+  * **bigtable:** Drop pick_lost_race debug tag from CheckoutSession hot path ([#20280](https://github.com/googleapis/google-cloud-go/issues/20280)) ([bd0e400](https://github.com/googleapis/google-cloud-go/commit/bd0e400948a15639546f150d5d2b1a1a7ceb5741))
+
+
+
+### Go
+
+#### [1.54.0](https://github.com/googleapis/google-cloud-go/compare/bigtable/v1.53.0...bigtable/v1.54.0) (2026-09-02)
+
+##### Features
+
+  * **bigtable:** Serve grpc.health.v1.Health from the accelerator daemon ([#20446](https://github.com/googleapis/google-cloud-go/issues/20446)) ([5fba38a](https://github.com/googleapis/google-cloud-go/commit/5fba38a8372781d0b3b52c64577318b0a93f0d46))
+  * Update API sources and regenerate ([#20459](https://github.com/googleapis/google-cloud-go/issues/20459)) ([5426e32](https://github.com/googleapis/google-cloud-go/commit/5426e32154fdced65087675b6c37aba66436ac47))
+
+
+
+##### Bug Fixes
+
+  * **bigtable:** Measure real scheduling delay in pacemaker_delays ([#20445](https://github.com/googleapis/google-cloud-go/issues/20445)) ([e1304d6](https://github.com/googleapis/google-cloud-go/commit/e1304d63e0280aa7571aca294b9b5c5cf3d4c7f4))
+  * **bigtable:** Scope session pool maintenance loops to the pool, not the client ([#20444](https://github.com/googleapis/google-cloud-go/issues/20444)) ([7457e6e](https://github.com/googleapis/google-cloud-go/commit/7457e6e23ef1affc15c2341bacb050d6dd2b1586))
+
+
+
 **Cluster Toolkit**
 
 Feature
@@ -16984,7 +18189,7 @@ Feature
 
 Configuring overage controls in Gemini Enterprise is available to all projects linked to an [invoiced Cloud Billing account](https://docs.cloud.google.com/billing/docs/concepts#billing_account_types). Previously, customers that received an email with the subject line _[Billing Update] New Gemini Enterprise overage billing controls launching Aug 17, 2026_ couldn't enable overages despite having an invoiced Cloud Billing account. This restriction no longer applies.
 
-For more information, see [Overview of overages and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview).
+For more information, see [Overview of pay-as-you-go usage above quota and spend controls](https://docs.cloud.google.com/gemini/enterprise/docs/manage-costs-overview).
 
 **Gemini Enterprise Agent Platform**
 
@@ -17013,6 +18218,23 @@ Change
 **Pricing updates for agent metering**
 
 Session and memory bank compute metering is in effect for the Agent Platform compute SKU. For more information, see [Gemini Agent Platform Pricing](https://services.google.com/fh/files/emails/b_502770571_gemini_enterprise_agent_platform_pricing.pdf).
+
+**Google Cloud VMware Engine**
+
+Feature
+
+**Preview** : VMware solution on Google Cloud is available in preview for allow-listed customers. VMware solution lets you deploy, configure, and manage VMware Cloud Foundation (VCF) on dedicated bare-metal Compute Engine instances within your Virtual Private Cloud (VPC) network under a Bring Your Own License (BYOL) model.
+
+Key features include the following:
+
+  * **Dedicated bare-metal nodes** : Provision bare-metal ESXi nodes directly in your project with deletion protection and Local SSD storage for vSAN.
+  * **Initialization toolkit** : Automate ESXi password configuration with Secret Manager, vSwitch networking, vSAN storage initialization, and VCF installer appliance deployment.
+  * **Placement policies** : Distribute nodes across isolated availability domains to align with vSAN fault domains for high availability.
+  * **VPC integration** : Connect ESXi nodes and dynamic network interfaces directly to your VPC subnets without requiring private services access peering.
+
+
+
+For more information, see [VMware solution on Google Cloud overview](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/overview) and [Compare VMware Engine models](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/compare-models).
 
 **Google Kubernetes Engine**
 
@@ -17089,6 +18311,40 @@ BigQuery Graph now includes support for the `CALL` [graph query statement](https
   * `IS_ACYCLIC`
   * `IS_SIMPLE`
   * `IS_TRAIL`.
+
+
+
+**Bigtable**
+
+Libraries
+
+### Go
+
+#### [1.53.0](https://github.com/googleapis/google-cloud-go/compare/bigtable/v1.52.0...bigtable/v1.53.0) (2026-08-27)
+
+##### Features
+
+  * **bigtable/accelerator:** Add --user-agent flag to daemon ([#20341](https://github.com/googleapis/google-cloud-go/issues/20341)) ([6b33c06](https://github.com/googleapis/google-cloud-go/commit/6b33c06f6a19ce512cbe9556fe2932f5d7878b66))
+  * **bigtable/accelerator:** Add daemon binary with identity verification ([#20330](https://github.com/googleapis/google-cloud-go/issues/20330)) ([2f9cf89](https://github.com/googleapis/google-cloud-go/commit/2f9cf898f165c0b4fee6fdda8d037c109b0779e1))
+  * **bigtable/accelerator:** Add proxy channel scaffold owning a sessi… ([#20310](https://github.com/googleapis/google-cloud-go/issues/20310)) ([d65ca7d](https://github.com/googleapis/google-cloud-go/commit/d65ca7da8108c643abc56237e2db0a17c3447c7c))
+  * **bigtable/accelerator:** Add stdin-EOF and parent-PID lifecycle wa… ([#20328](https://github.com/googleapis/google-cloud-go/issues/20328)) ([dc1c6ae](https://github.com/googleapis/google-cloud-go/commit/dc1c6ae0f773d405e35ffe68741c46d220e450d1))
+  * **bigtable/accelerator:** Add UDS server with authenticated proxy i… ([#20320](https://github.com/googleapis/google-cloud-go/issues/20320)) ([a837020](https://github.com/googleapis/google-cloud-go/commit/a837020465473f8cc21213de818dc96d5ff46f3a))
+  * **bigtable/accelerator:** Add V2-to-session request adapters ([#20271](https://github.com/googleapis/google-cloud-go/issues/20271)) ([4cb6f16](https://github.com/googleapis/google-cloud-go/commit/4cb6f1644d070b0af8ee3706d36640a91ded48d8))
+  * **bigtable/accelerator:** Authenticate UDS callers with a stdin tok… ([#20324](https://github.com/googleapis/google-cloud-go/issues/20324)) ([7847ab7](https://github.com/googleapis/google-cloud-go/commit/7847ab71efc0c5745eaa49235762ecab523312f1))
+  * **bigtable/accelerator:** Dispatch MutateRow and single-row ReadRow… ([#20312](https://github.com/googleapis/google-cloud-go/issues/20312)) ([c89f336](https://github.com/googleapis/google-cloud-go/commit/c89f336749601fa958d02c984cafd7e96007c8f1))
+  * Update API sources and regenerate ([#20369](https://github.com/googleapis/google-cloud-go/issues/20369)) ([bfe3aaf](https://github.com/googleapis/google-cloud-go/commit/bfe3aafc49e0c13815aa0401b1eba47aef4511df))
+  * Update sources and regenerate ([#20399](https://github.com/googleapis/google-cloud-go/issues/20399)) ([a6b5cdb](https://github.com/googleapis/google-cloud-go/commit/a6b5cdb4eec5e66fb6bb4a00f9ec89c088826e26))
+
+
+
+##### Bug Fixes
+
+  * **bigtable/internal/transport:** Drop redundant defer p.Close() in AFE picker tests ([#20311](https://github.com/googleapis/google-cloud-go/issues/20311)) ([c05b767](https://github.com/googleapis/google-cloud-go/commit/c05b76788b76de616cf49ca7c3a7cfec863913b8))
+  * **bigtable:** Register c2p resolver + RLS balancer for accelerator daemon DirectPath ([#20362](https://github.com/googleapis/google-cloud-go/issues/20362)) ([95f372f](https://github.com/googleapis/google-cloud-go/commit/95f372f660f8246fe869ae085b75b70e537533f0))
+  * **bigtable:** Session client — set AllowNonDefaultServiceAccount on DirectPath dial ([#20343](https://github.com/googleapis/google-cloud-go/issues/20343)) ([b9c76ec](https://github.com/googleapis/google-cloud-go/commit/b9c76ec52f46f4fb1f1252b4ca159ca3cd2f86fa))
+  * **bigtable:** Session client — single ownership + single-flight pool loading ([#20368](https://github.com/googleapis/google-cloud-go/issues/20368)) ([f4ad950](https://github.com/googleapis/google-cloud-go/commit/f4ad950b6ace8c34820568073129e43bc69c7797))
+  * **bigtable:** Session pool — re-drive creation after a never-activated close so the consecutive-failure breaker is reachable ([#20355](https://github.com/googleapis/google-cloud-go/issues/20355)) ([ee74949](https://github.com/googleapis/google-cloud-go/commit/ee749491ff2316f35ae17cb9f82a3059e6e122db))
+  * **bigtable:** Use composed user agent as CSM client_name ([#20383](https://github.com/googleapis/google-cloud-go/issues/20383)) ([cb02335](https://github.com/googleapis/google-cloud-go/commit/cb02335f55c4c3f8ce04edd890d0745370996cc7))
 
 
 
@@ -17971,766 +19227,10 @@ Announcement
 
 [Release 6.3.98](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#August_16_2026) is now available for all regions.
 
-## August 28, 2026
-
-**Application Integration**
-
-Announcement
-
-**Upcoming authorization changes for integration runs**
-
-Application Integration is updating how identities are handled for integration runs. Every run will act as either the person who triggered it or a run-as service account that you configure, and running an integration will require permission to act as that service account. Integrations that run without a person, such as those started by a schedule or an event, will need an explicitly configured run-as service account.
-
-Action might be required before the change takes effect. For guidance on identifying affected integrations and updating them, see [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
-
-**Cloud Build**
-
-Feature
-
-You can now update access tokens from the **Connection details** page for your 2nd generation Bitbucket and 2nd generation Gitlab host connections. For more information, see the following:
-
-  * [Rotate old or expired Bitbucket Cloud access tokens](https://docs.cloud.google.com/build/docs/automating-builds/bitbucket/connect-host-bitbucket-cloud#rotate-token)
-  * [Rotate old or expired Bitbucket Data Center access tokens](https://docs.cloud.google.com/build/docs/automating-builds/bitbucket/connect-host-bitbucket-data-center?generation=2nd-gen#rotate-token)
-  * [Rotate old or expired Bitbucket Server access tokens](https://docs.cloud.google.com/build/docs/automating-builds/bitbucket/connect-host-bitbucket-server?generation=2nd-gen#rotate-token)
-  * [Rotate old or expired GitLab Enterprise Edition access tokens](https://docs.cloud.google.com/build/docs/automating-builds/gitlab/connect-host-gitlab-enterprise-edition#rotate-token)
-  * [Rotate old or expired GitLab access tokens](https://docs.cloud.google.com/build/docs/automating-builds/gitlab/connect-host-gitlab#rotate-token)
-
-
-
-**Gemini Enterprise**
-
-Feature
-
-**Gemini Enterprise: New data stores and support for new actions (Preview)**
-
-The following data stores are available in Public Preview in Gemini Enterprise:
-
-  * [Campfire](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/campfire)
-  * [Clay](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/clay)
-  * [CourtListener](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/courtlistener)
-  * [Daloopa](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/daloopa)
-  * [MSCI](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/msci)
-
-
-
-You can search and read data from these data stores using natural language.
-
-Additionally, the following data stores support new actions in Public Preview:
-
-  * [AirOps](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/airops): Update knowledge base document metadata.
-  * [Airtable](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/airtable): Create records for a table.
-  * [Zoho Desk](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/zohodesk): Update event.
-
-
-
-**Looker**
-
-Announcement
-
-From August 24 through August 26, 2026, the following features will be automatically enabled for Looker (original) instances running Looker 26.14.
-
-Feature
-
-The [**Advanced Unused Content Cleanup**](https://docs.cloud.google.com/looker/docs/manage-unused-content) feature is now generally available.
-
-Feature
-
-Looker Continuous Integration (CI) can be triggered from GitLab CI, Bitbucket Pipelines, and GitHub Actions workflows by using the Looker API and the official Looker Python SDK (`looker-sdk`). For configuration steps and sample scripts, see the [Admin settings - Continuous Integration](https://docs.cloud.google.com/looker/docs/admin-panel-platform-ci#integrations) documentation.
-
-**Note:** This item was added on August 28, 2026 and changed from a non-breaking change to a feature on September 9, 2026.
-
-Feature
-
-Now available in [preview](https://cloud.google.com/products#product-launch-stages), the [visual modeling canvas](https://docs.cloud.google.com/looker/docs/visual-modeling) lets you connect to BigQuery data sources to build and edit LookML data models using an interactive, drag-and-drop canvas. With the visual modeling canvas, you can visually join tables, define dimensions and measures, preview query results in real time, and publish Explores without writing LookML code.
-
-For more information, see the [Using the visual modeling canvas](https://docs.cloud.google.com/looker/docs/visual-modeling) documentation page.
-
-**Note:** This item was added on September 9, 2026.
-
-Feature
-
-Conversational Analytics [verified queries](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents#define-verified-queries), also known as _golden queries_ , are now generally available. You can also now define verified queries in Looker (Google Cloud core) instances.
-
-Feature
-
-Now available in preview, model localization is supported for imported projects. By default, Looker uses the locale definitions from the importing project only, if the importing project has locale definitions. However, if you want to merge the locale definitions from an imported project with the locale definitions of the importing project, you can add the import_locale_defs: yesstatement to thelocalization_settings parameter in your importing project's manifest file. See the [Localizing your LookML model](https://docs.cloud.google.com/looker/docs/model-localization#model_localization_and_project_import) documentation page for more information.
-
-**Note:** This item was added on August 31, 2026 and changed from a non-breaking change to a feature on September 9, 2026.
-
-Feature
-
-You can now configure Continuous Integration to automatically [run CI suites when a dbt Cloud CI job finishes](https://docs.cloud.google.com/looker/docs/ci-create-suite#dbt-trigger). The CI suite run verifies whether changes in your dbt models will cause SQL errors in your Looker Explores before the dbt changes are deployed.
-
-Feature
-
-Now available in preview, the **New/Edit Roles Enhancement** feature provides a modernized, step-by-step interface for [creating and editing roles](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#creating-editing-roles-enhancement) on the **Roles** page in the **Users** section of the Admin panel.
-
-Feature
-
-Now available in preview, you can define and chat with [data agents on a LookML dashboard](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-lookml-dashboards). To use this feature, the **Conversational Analytics** and **Enable Dashboard Agents** settings must be enabled on the **Gemini in Looker** Admin page.
-
-Feature
-
-Now available in [preview](https://cloud.google.com/products#product-launch-stages), you can define Looker-managed, in-database analytic models directly from existing LookML Explores by using the [`model_source`](https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model#model_source) subparameter of the [`derived_analytic_model`](https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model) parameter. Looker automatically translates your Explore topology, joins that are defined with `foreign_key`, dimensions, and measures into in-database analytic models (such as BigQuery Graphs or Snowflake semantic views).
-
-For more information, see the [`derived_analytic_model`](https://docs.cloud.google.com/looker/docs/reference/param-view-derived-analytic-model#lookml-based-derived-analytic-models) parameter reference page.
-
-Change
-
-The **Google Maps Enhancements** preview feature now includes the following features:
-
-The [**Dual-axis Map** option](https://docs.cloud.google.com/looker/docs/google-map-options#dual-axis_map) now supports points and circles. You can now specify a [custom map layer](https://docs.cloud.google.com/looker/docs/google-map-options#custom_layer) by providing a URL to a TopoJSON file.
-
-Change
-
-When the **New Looker Explore** and **Merge Query Experience** preview features are enabled, [editing a merge query tile on a dashboard](https://docs.cloud.google.com/looker/docs/merge-queries-new-explore) now opens the **Join data** page directly within the dashboard edit canvas, rather than opening a new tab.
-
-Change
-
-The [Conversational Analytics System Activity dashboard **Token usage** tab](https://docs.cloud.google.com/looker/docs/system-activity-dashboards#ca-sa-token-usage) now includes observability information about top users and top conversations by token usage. The tab also now indicates the type of data agent in its observability metrics.
-
-Change
-
-When connecting Looker to your database, you can specify [additional Java Database Connectivity (JDBC) parameters](https://docs.cloud.google.com/looker/docs/connecting-to-your-db#additional_jdbc_parameters). To maintain security, Looker restricts the allowed values for certain parameters. For the JDBC parameters that have a restricted set of allowed values, the allowed values are listed in the "Supported JDBC parameters" section of the [database configuration instructions](https://docs.cloud.google.com/looker/docs/dialects#database_configuration_instructions) page for your dialect.
-
-Fixed
-
-Dashboard parameter filters now correctly respect manually restricted option lists when determining default values. This prevents filters from reverting to base LookML defaults that were intentionally hidden from the dashboard's user interface.
-
-Fixed
-
-Tiles that are on [dashboard tabs](https://docs.cloud.google.com/looker/docs/tabbed-dashboards) will now run only when the dashboard tab that they are saved on is opened.
-
-Announcement
-
-Looker now supports connections to [MongoSQL](https://docs.cloud.google.com/looker/docs/db-config-mongosql). Although existing connections to the legacy [MongoDB Connector for BI](https://docs.cloud.google.com/looker/docs/db-config-mongodb) are still fully supported, Looker recommends that you update MongoDB Connector for BI connections to use the MongoSQL dialect.
-
-See the MongoDB documentation [Transition from Atlas BI Connector to MongoSQL](https://www.mongodb.com/docs/sql-interface/transition-bic-to-atlas-sql/) and the Looker documentation [Migrating to MongoSQL](https://docs.cloud.google.com/looker/docs/db-config-mongodb#migrating-to-mongosql) for information on migrating from the MongoDB Atlas BI Connector to the newer MongoSQL Interface.
-
-**Note:** One year before the MongoDB Connector for BI is to be deprecated, customers will be sent a service announcement to that effect. The information will also be reflected in product documentation and release notes.
-
-Feature
-
-The [Looker-managed Model Context Protocol (MCP) server](https://docs.cloud.google.com/looker/docs/mcp) ([Preview](https://cloud.google.com/products#product-launch-stages)) now supports IP allowlists in [Looker (original)](https://docs.cloud.google.com/looker/docs/admin-panel-server-ip-allowlist), in addition to existing IP allowlist support in [Looker (Google Cloud core)](https://docs.cloud.google.com/looker/docs/looker-core-ip-allowlist). For more information, see [Security and governance](https://docs.cloud.google.com/looker/docs/mcp#security-governance) on the Looker-managed MCP server documentation page.
-
-**Note:** This item was added on September 23, 2026.
-
-Feature
-
-[Looker Continuous Integration](https://docs.cloud.google.com/looker/docs/continuous-integration) is now supported on Looker (Google Cloud core) instances that use [Private Service Connect](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#psc) private or hybrid connections, instances enabled for [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/looker/docs/looker-core-cmek), and instances within a [Virtual Private Cloud Service Controls perimeter](https://docs.cloud.google.com/looker/docs/looker-core-vpcsc).
-
-**Note:** This item was added on September 22, 2026.
-
-**Managed Service for Apache Airflow**
-
-Feature
-
-[Orchestration Pipelines](https://docs.cloud.google.com/composer/docs/composer-3/run-orchestration-pipelines) are now **generally available (GA)**.
-
-**Spanner**
-
-Feature
-
-Spanner supports creating secondary indexes based on scalar expressions that apply to one or more table columns. Expression indexes eliminate the need to create and maintain a dedicated generated column in your table for indexing purposes. For more information, see [Create an index based on a scalar expression](https://docs.cloud.google.com/spanner/docs/secondary-indexes#expression-index).
-
-## August 27, 2026
-
-**Apigee X**
-
-Announcement
-
-On August 27th, 2026, we released an updated version of Apigee (1-18-0-apigee-4).
-
-**Note:** Rollouts of this release began today and may take four or more business days to be completed across all Google Cloud zones. Your instances may not have the features and fixes available until the rollout is complete.
-
-Fixed
-
-Bug ID | Description  
----|---  
-**507878328** | Upgraded the Apigee runtime to run on JDK 17, while maintaining backward compatibility with JDK 11.  
-**530965355** | Added an opt-in Message Processor connection-failure back-off (CWC property HTTPClient.backoff.enabled, defaults to false) that prevents the Message Processor from consuming excessive CPU when a target is completely unavailable.  
-**532793298** | Fixed an API product bug where combining a payloadOperationGroup with a REST or llmOperationGroup rejected REST/LLM traffic with a 401.  
-**534420582** | The JSONThreatProtection policy adds a new optional child element <RejectDuplicateKeys> that rejects request bodies containing duplicate JSON keys within the same object. Defaults to false to preserve existing behavior.  
-**N/A** | Updates to infrastructure and libraries.  
-  
-This list is incomplete; see entries for September 9, 2026 and September 10, 2026.
-
-Security
-
-Bug ID | Description  
----|---  
-**544570126** | **Security fix for Apigee.** Fixed a security issue in the PythonScript policy.  
-**N/A** | **Security fix for Apigee infrastructure.**  
-  
-**BigQuery**
-
-Announcement
-
-Core graph processing for [BigQuery Graph](https://docs.cloud.google.com/bigquery/docs/graph-overview) requires an Enterprise or Enterprise Plus edition reservation. Existing allowlisted users can continue to use Standard edition or on-demand billing until April 26, 2027, after which these billing models will no longer be supported for core graph processing.
-
-[Graph measures](https://docs.cloud.google.com/bigquery/docs/graph-measures) will remain available in the Enterprise and Enterprise Plus editions and for queries run using on-demand pricing. Measures are not available in Standard edition.
-
-Feature
-
-The [Data Engineering Agent](https://docs.cloud.google.com/bigquery/docs/data-engineering-agent-pipelines) is now [HIPAA compliant](https://docs.cloud.google.com/bigquery/docs/gemini-security-privacy-compliance). For more information, see [HIPAA compliance on Google Cloud](https://docs.cloud.google.com/docs/security/compliance/hipaa).
-
-Feature
-
-You can now train models using XGBoost version 2.1 by using the `XGBOOST_VERSION` option. BigQuery uses the XGBoost 3.1.0 library to load and make predictions on XGBoost models. This feature is [generally available](https://cloud.google.com/products#product-launch-stages).
-
-**Cloud Load Balancing**
-
-Feature
-
-For regional external passthrough Network Load Balancers, reserving specific or automatically allocated bring your own IP (BYOIP) IPv6 addresses before creating a load balancer, and promoting an ephemeral BYOIP IPv6 address in use by a load balancer to a reserved static IP address, is generally available (GA).
-
-For more information, see the following documentation:
-
-  * [Set up a regional external passthrough Network Load Balancer with a backend service](https://docs.cloud.google.com/load-balancing/docs/network/setting-up-network-backend-service#byoip-ipv6).
-  * [Set up a regional external passthrough Network Load Balancer for multiple IP protocols](https://docs.cloud.google.com/load-balancing/docs/network/setting-up-networklb-multiple-protocols#byoip-ipv6)
-  * [Set up a regional external passthrough Network Load Balancer with zonal NEGs](https://docs.cloud.google.com/load-balancing/docs/network/setting-up-network-zonal-neg#byoip-ipv6)
-
-
-
-**Cloud SQL for MySQL**
-
-Feature
-
-Cloud SQL now makes it easier to configure [Private Service Connect](https://docs.cloud.google.com/sql/docs/mysql/about-private-service-connect) for your Cloud SQL instance. When you create an instance that's enabled with Private Service Connect, you can choose to automatically create the service connection policy and endpoint in the VPC network that you want to use with Private Service Connect.
-
-For more information, see [Configure Private Service Connect](https://docs.cloud.google.com/sql/docs/mysql/configure-private-service-connect).
-
-**Cloud SQL for PostgreSQL**
-
-Change
-
-The rollout of the following extension upgrades is complete:
-
-  * `pg_partman` is upgraded from 5.2.4 to 5.4.3.
-  * `pgfincore` is upgraded from 1.3.1 to 1.4.
-  * `pgvector` is upgraded from 0.8.1 to 0.8.5.
-
-
-
-For more information, see [Configure PostgreSQL extensions](https://docs.cloud.google.com/sql/docs/postgres/extensions).
-
-Feature
-
-Cloud SQL now makes it easier to configure [Private Service Connect](https://docs.cloud.google.com/sql/docs/postgres/about-private-service-connect) for your Cloud SQL instance. When you create an instance that's enabled with Private Service Connect, you can choose to automatically create the service connection policy and endpoint in the VPC network that you want to use with Private Service Connect.
-
-For more information, see [Configure Private Service Connect](https://docs.cloud.google.com/sql/docs/postgres/configure-private-service-connect).
-
-**Cloud SQL for SQL Server**
-
-Feature
-
-Cloud SQL now makes it easier to configure [Private Service Connect](https://docs.cloud.google.com/sql/docs/sqlserver/about-private-service-connect) for your Cloud SQL instance. When you create an instance that's enabled with Private Service Connect, you can choose to automatically create the service connection policy and endpoint in the VPC network that you want to use with Private Service Connect.
-
-For more information, see [Configure Private Service Connect](https://docs.cloud.google.com/sql/docs/sqlserver/configure-private-service-connect).
-
-**Cloud Service Mesh**
-
-Security
-
-The following images are now rolling out for managed Cloud Service Mesh:
-
-  * 1.21.6-asm.71 is rolling out to the rapid release channel.
-  * 1.20.8-asm.119 is rolling out to the regular release channel.
-  * 1.19.10-asm.109 is rolling out to the stable release channel.
-
-
-
-These versions resolve the security vulnerabilities listed in Security Bulletin [GCP-2026-057](https://cloud.google.com/service-mesh/v1.30/docs/security-bulletins#gcp-2026-057).
-
-Security
-
-The following images are now rolling out for managed Cloud Service Mesh:
-
-  * 1.21.6-asm.71 is rolling out to the rapid release channel.
-  * 1.20.8-asm.119 is rolling out to the regular release channel.
-  * 1.19.10-asm.109 is rolling out to the stable release channel.
-
-
-
-These versions resolve the security vulnerabilities listed in Security Bulletin [GCP-2026-057](https://cloud.google.com/service-mesh/docs/security-bulletins#gcp-2026-057).
-
-**Cloud Trace**
-
-Feature
-
-The following remote MCP server automatically generates a trace span for `tools/call` operations.
-
-  * Datastream
-
-
-
-These spans can help you understand the behavior of your agentic applications. For more information, see [Investigate MCP calls using Trace](https://docs.cloud.google.com/trace/docs/trace-remote-mcp-server-calls).
-
-**Cluster Toolkit**
-
-Feature
-
-Cluster Toolkit version v1.102.0 is available. This release enables Multi-Tier Checkpointing (MTC) when you create GKE clusters, and adds support for Flex unified volumes to NetApp Volumes modules. This release also updates Slurm blueprints to use OS image families, enables Distributed Resilient Architecture Network (DRANET) in example blueprints for A3 Ultra, A4, Cloud TPU v7x, and Cloud TPU v6e, and updates the Go toolchain to version 1.26. In addition, this release consolidates the lifecycle and queue management for Kueue, validates authorized CIDR ranges in GKE blueprints, enables `gcluster` job submission with VM boot disk fixes, and lets you disable Private Google Access for IPv6. For details, see the [release announcement on GitHub](https://github.com/GoogleCloudPlatform/cluster-toolkit/releases/tag/v1.102.0).
-
-**Gemini Enterprise Agent Platform**
-
-Feature
-
-**CodeMender updates (v0.5.0)**
-
-This release introduces updates to CodeMender:
-
-  * **Model support** : Support for Gemini 3.6 Flash (`gemini-3.6-flash`) and Gemini 3.7 Flash (`gemini-3.7-flash`, default).
-  * **Unrestricted verification** : Added the `--unrestricted` flag to `cm verify` to bypass command policy restrictions during exploit verification in isolated environments.
-  * **Bug fixes** : 
-    * Improved reliability of long sessions.
-    * Improved shell resolution across operating environments.
-    * Clearer permission denied error messages.
-    * Fixed an issue where the CodeMender sandbox would fail to initialize with an error due to relative paths.
-
-
-
-For more information, see [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
-
-Feature
-
-**Gemini Omni 1.1 Flash is available in Public Preview**
-
-[Gemini Omni 1.1 Flash (`gemini-omni-1.1-flash-preview`)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash) is available in [Preview](https://cloud.google.com/products#product-launch-stages). Gemini Omni 1.1 Flash is a multimodal model designed for video, image, and text tasks, optimized for high-speed video generation that supports audio and video editing.
-
-**Google Cloud Armor**
-
-Security
-
-Cloud Armor supports advanced match conditions to include attributes for inspecting request body content and parameters in Preview. This lets you write custom CEL rules to filter traffic based on raw body content, structured data (JSON, Form Data, GraphQL), and query parameters. For more information, see [Configure custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference).
-
-**Google Cloud Contact Center as a Service**
-
-Announcement
-
-**Google Cloud CCaaS 6.7**
-
-We've released version 6.7 of Google Cloud CCaaS.
-
-The timing of the update to your instance depends on the deployment schedule that you have chosen. For more information, see [Deployment schedules](https://cloud.google.com/contact-center/ccai-platform/docs/deployment-schedules).
-
-Feature
-
-**Bulk email status updates**
-
-You can use the new `apps/api/v1/email/update_status` endpoint to change the status of multiple email sessions to the status that you specify.
-
-The new endpoint includes the following capabilities:
-
-  * You can optionally specify the status that you expect email sessions to be in. Email sessions that aren't in that status aren't updated.
-
-  * For each email session, the response reports whether it was updated, required no change, or couldn't be updated (and why). This means that integrations can handle partial success and identify which sessions still need attention.
-
-
-
-
-For more information, see [Bulk email status endpoint](https://docs.cloud.google.com/contact-center/ccai-platform/docs/bulk-email-status-endpoint).
-
-Fixed
-
-This release addresses the following issues:
-
-  * Fixed an issue where blended SMS transcripts were incorrectly identified as call audio recordings when uploaded to Customer Experience Insights, causing them to appear as missing or unanalyzable data.
-
-  * Fixed an issue where the chat text-input field was unresponsive after an agent accepted a new chat.
-
-  * Fixed an issue where call-cascade agent availability safeguards weren't enforced for terminal queue paths, which resulted in agents being assigned calls from secondary queues even when their primary queue fell below the minimum availability threshold.
-
-  * Fixed an issue where chats that were connected to an agent continued to appear on the **Queued Chats** dashboard with a status of **Ongoing**.
-
-  * Fixed an issue where direct inbound and dial-by-extension calls didn't reach an agent when multiple calls were waiting in the agent's queue.
-
-  * Fixed an issue where chat messages from supervisors were incorrectly attributed to the end-user in Customer Experience Insights transcripts.
-
-  * Fixed an issue where changes to hours of operation didn't appear in the **Audit Dashboard**.
-
-  * Fixed an issue with Salesforce integrations where outbound calls were incorrectly labeled as **Inbound** and didn't pass the CCAI Platform call ID into Salesforce case activity comments.
-
-  * Fixed an issue where requests for agent activity logs resulted in high database latency and gateway timeouts.
-
-  * Fixed an agent desktop issue where an agent sent a chat form to an end-user but the end-user didn't receive it.
-
-  * Fixed an issue where a chat that was escalated from a virtual agent to a human agent was stuck in the queue and couldn't be successfully offered to available agents.
-
-  * Fixed an issue where the **Queue** dashboard displayed `{{Count}}` and `{{Level}}` variables instead of numerals.
-
-  * Fixed an issue where the wait times API incorrectly reported zero available agents for chat queues that had agent availability.
-
-  * Fixed an issue where the **Queues > Calls** dashboard didn't load and timed out for instances with a large number of queues.
-
-  * Fixed an agent desktop issue where the sentiment score didn't appear in the call adapter in the agent desktop or in Salesforce for calls that were escalated from a virtual agent to a human agent.
-
-  * Fixed an issue where newly created voice queues didn't correctly inherit the global whisper and countdown settings.
-
-  * Fixed an issue where queue duration metrics incorrectly included IVR timeout time for calls that were cold transferred into a closed queue.
-
-  * Fixed an issue where an agent who reopened a previously read voicemail was stuck in **In-call** status, preventing them from accepting new contacts or changing their status.
-
-  * Fixed an issue where an agent's assigned call ID was cleared during wrap-up, which prevented them from submitting their wrap-up disposition after refreshing the page.
-
-
-
-
-**Google Cloud Managed Service for Apache Kafka**
-
-Feature
-
-You can now configure the disk capacity per broker when you create a Kafka cluster and increase it later. For more information, see [Configure broker disk size](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/brokers/configure-disk-size).
-
-**Google Kubernetes Engine**
-
-Feature
-
-Network Endpoint Group (NEG) pre-provisioning is now available in Preview. With this feature, you can force the creation of empty zonal `GCE_VM_IP_PORT` NEGs in specified zones (or all zones within a region) during Service creation, regardless of whether the cluster has nodes in those zones. By extending the `cloud.google.com/neg` Service annotation with a custom zones parameter, you can seamlessly automate infrastructure deployments (such as attaching NEGs to backend services) without waiting for workloads to deploy. For more information, see [Pre-provisioning empty NEGs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/standalone-neg#pre-provisioning).
-
-**Google SecOps**
-
-Announcement
-
-**Scheduled maintenance**
-
-SOAR database and infrastructure maintenance is scheduled to take place during the standard maintenance window on Sunday, August 30. During this window, your system will experience a brief period of downtime. You don't need to take any action.
-
-**Google SecOps SOAR**
-
-Announcement
-
-**Scheduled maintenance**
-
-SOAR database and infrastructure maintenance is scheduled to take place during the standard maintenance window on Sunday, August 30. During this window, your system will experience a brief period of downtime. You don't need to take any action.
-
-**Model Armor**
-
-Feature
-
-You can disable data residency enforcement for in-use and in-transit data in Model Armor templates. Disabling data residency enforcement allows cross-jurisdictional routing to enable Model Armor features that are otherwise unavailable in [limited-support regions](https://docs.cloud.google.com/model-armor/feature-availability-by-region#limited-support). Data at rest remains compliant with data residency requirements.
-
-For more information, see [Set data residency compliance](https://docs.cloud.google.com/model-armor/manage-templates#set-data-residency-compliance) and [Data residency and endpoints](https://docs.cloud.google.com/model-armor/data-residency).
-
-**Virtual Private Cloud**
-
-Feature
-
-**General Availability** : VPC Flow Logs generates log records for dropped traffic. For more information, see [Records for dropped traffic](https://docs.cloud.google.com/vpc/docs/about-flow-logs-records#packet-drops).
-
-Feature
-
-**General Availability** : You can reserve static external IPv6 addresses from bring your own IP addresses (BYOIP) sub-prefixes that are in `EXTERNAL_IPV6_FORWARDING_RULE_CREATION` mode.
-
-You can assign these addresses to forwarding rules for external passthrough Network Load Balancers and external protocol forwarding. You can also promote ephemeral IPv6 BYOIP addresses that are used by external forwarding rules to reserved static IP addresses.
-
-For more information, see [Create external forwarding rules](https://docs.cloud.google.com/vpc/docs/create-ipv6-sub-prefixes#create-subprefix-use).
-
-## August 26, 2026
-
-**Google Kubernetes Engine**
-
-Change
-
-#### (2026-R36) Version updates
-
-GKE cluster versions have been updated.
-
-**New versions available for upgrades and new clusters.**
-
-The following versions are now available for new GKE clusters, and for manual control plane upgrades and node upgrades for existing clusters. For more information about versioning and upgrades, see [GKE versioning and support](https://cloud.google.com/kubernetes-engine/versioning) and [About GKE cluster upgrades](https://cloud.google.com/kubernetes-engine/upgrades).
-
-### Rapid channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.36.3-gke.1640000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363) is now the default version for cluster creation in the Rapid channel.
-  * The following versions are now available in the Rapid channel: 
-    * [1.34.10-gke.1328000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.8-gke.1026000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.35.8-gke.1036000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following [alpha versions](https://docs.cloud.google.com/kubernetes-engine/versioning#alpha-versions) are now available for GKE alpha clusters in the Rapid channel: 
-    * [1.37.0-gke.2034000+preview](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-    * [1.37.0-gke.2048000+preview](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-    * [1.37.0-gke.2074000+preview](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-  * The following versions are no longer available in the Rapid channel: 
-    * 1.34.10-gke.1106000
-    * 1.35.7-gke.1150000
-    * 1.36.3-gke.1537000
-  * Alpha version 1.37.0-gke.1173000+preview is no longer available in the Rapid channel.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.10-gke.1236000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.34 to [1.35.7-gke.1222000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-      * 1.35 to [1.36.3-gke.1640000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1236000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.7-gke.1222000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-      * 1.36 to [1.36.3-gke.1640000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-
-
-
-### Regular channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation in the Regular channel.
-  * The following versions are now available in the Regular channel: 
-    * [1.34.10-gke.1106000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following versions are no longer available in the Regular channel: 
-    * 1.34.9-gke.1655001
-    * 1.35.6-gke.1710000
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.10-gke.1079000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.34 to [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1079000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-
-
-
-### Stable channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.34.9-gke.1655001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349) is now available in the Stable channel.
-  * Version 1.34.9-gke.1322001 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Stable channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.9-gke.1610001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.9-gke.1610001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-
-
-
-### Extended channel
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation in the Extended channel.
-  * The following versions are now available in the Extended channel: 
-    * [1.31.14-gke.2579000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.31.14-gke.2630000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.32.13-gke.2268000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.32.13-gke.2337000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.33.13-gke.1547000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-    * [1.34.10-gke.1106000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following versions are no longer available in the Extended channel: 
-    * 1.31.14-gke.2456000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.31.14-gke.2613000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.32.13-gke.2175000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.32.13-gke.2314000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.33.13-gke.1499000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.34.9-gke.1655001
-    * 1.35.6-gke.1710000
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.30 to [1.31.14-gke.2543000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-      * 1.31 to [1.32.13-gke.2231000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.31 to [1.31.14-gke.2543000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-      * 1.32 to [1.32.13-gke.2231000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-      * 1.34 to [1.34.10-gke.1079000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-
-
-
-### No channel (deprecated)
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation.
-  * The following versions are now available: 
-    * [1.34.10-gke.1328000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.8-gke.1026000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.35.8-gke.1036000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following node versions are now available: 
-    * [1.31.14-gke.2630000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.32.13-gke.2337000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.33.13-gke.1547000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-    * [1.34.10-gke.1328000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.8-gke.1026000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.35.8-gke.1036000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following versions are no longer available: 
-    * 1.34.9-gke.1322001 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.35.6-gke.1641000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.9-gke.1610001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.9-gke.1610001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-      * 1.35 to [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-
-
-
-Security
-
-#### (2026-R36) Security updates
-
-This release includes new GKE versions that use updated Container-Optimized OS images. These updated images are cumulative, incorporating security fixes from all Container-Optimized OS versions released since the previous GKE release.
-
-To identify the specific vulnerabilities that were resolved in each updated Container-Optimized OS image, see the **Security** release notes for that image. The following table includes links to the release notes for each updated Container-Optimized OS image:
-
-GKE version | Container-Optimized OS version | Details  
----|---|---  
-1.31.14-gke.2630000 | cos-117-18613-675-56 | [cos-117-18613-675-56 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m117#cos-117-18613-675-56_)  
-1.34.10-gke.1328000 | cos-125-19216-532-123 | [cos-125-19216-532-123 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m125#cos-125-19216-532-123_)  
-1.35.8-gke.1026000 | cos-125-19216-532-123 | [cos-125-19216-532-123 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m125#cos-125-19216-532-123_)  
-1.37.0-gke.2034000+preview | cos-129-19506-299-82 | [cos-129-19506-299-82 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m129#cos-129-19506-299-82_)  
-  
-Change
-
-#### (2026-R36) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.34.9-gke.1655001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349) is now available in the Stable channel.
-  * Version 1.34.9-gke.1322001 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Stable channel. This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.9-gke.1610001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.9-gke.1610001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-
-
-
-Change
-
-#### (2026-R36) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation in the Regular channel.
-  * The following versions are now available in the Regular channel: 
-    * [1.34.10-gke.1106000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following versions are no longer available in the Regular channel: 
-    * 1.34.9-gke.1655001
-    * 1.35.6-gke.1710000
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.10-gke.1079000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.34 to [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1079000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-
-
-
-Change
-
-#### (2026-R36) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.36.3-gke.1640000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363) is now the default version for cluster creation in the Rapid channel.
-  * The following versions are now available in the Rapid channel: 
-    * [1.34.10-gke.1328000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.8-gke.1026000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.35.8-gke.1036000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following [alpha versions](https://docs.cloud.google.com/kubernetes-engine/versioning#alpha-versions) are now available for GKE alpha clusters in the Rapid channel: 
-    * [1.37.0-gke.2034000+preview](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-    * [1.37.0-gke.2048000+preview](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-    * [1.37.0-gke.2074000+preview](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.37.md#v1370)
-  * The following versions are no longer available in the Rapid channel: 
-    * 1.34.10-gke.1106000
-    * 1.35.7-gke.1150000
-    * 1.36.3-gke.1537000
-  * Alpha version 1.37.0-gke.1173000+preview is no longer available in the Rapid channel.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.10-gke.1236000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.34 to [1.35.7-gke.1222000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-      * 1.35 to [1.36.3-gke.1640000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.10-gke.1236000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.7-gke.1222000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-      * 1.36 to [1.36.3-gke.1640000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-
-
-
-Change
-
-#### (2026-R36) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation.
-  * The following versions are now available: 
-    * [1.34.10-gke.1328000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.8-gke.1026000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.35.8-gke.1036000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following node versions are now available: 
-    * [1.31.14-gke.2630000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.32.13-gke.2337000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.33.13-gke.1547000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-    * [1.34.10-gke.1328000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.8-gke.1026000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.35.8-gke.1036000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1358)
-    * [1.36.3-gke.1767000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following versions are no longer available: 
-    * 1.34.9-gke.1322001 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.35.6-gke.1641000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.33 to [1.34.9-gke.1610001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.34 to [1.34.9-gke.1610001](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v1349)
-      * 1.35 to [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-
-
-
-Change
-
-#### (2026-R36) Version updates
-
-**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
-
-  * Version [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357) is now the default version for cluster creation in the Extended channel.
-  * The following versions are now available in the Extended channel: 
-    * [1.31.14-gke.2579000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.31.14-gke.2630000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-    * [1.32.13-gke.2268000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.32.13-gke.2337000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * [1.33.13-gke.1547000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md#v13313)
-    * [1.34.10-gke.1106000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-    * [1.35.7-gke.1150000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-    * [1.36.3-gke.1537000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.36.md#v1363)
-  * The following versions are no longer available in the Extended channel: 
-    * 1.31.14-gke.2456000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.31.14-gke.2613000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.32.13-gke.2175000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.32.13-gke.2314000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.33.13-gke.1499000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
-    * 1.34.9-gke.1655001
-    * 1.35.6-gke.1710000
-  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
-    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
-      * 1.30 to [1.31.14-gke.2543000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-      * 1.31 to [1.32.13-gke.2231000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
-      * 1.31 to [1.31.14-gke.2543000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md#v13114)
-      * 1.32 to [1.32.13-gke.2231000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md#v13213)
-      * 1.34 to [1.34.10-gke.1079000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md#v13410)
-      * 1.35 to [1.35.7-gke.1027000](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.35.md#v1357)
-
-
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

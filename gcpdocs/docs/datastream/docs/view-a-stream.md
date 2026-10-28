@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/view-a-stream/
 title: View a stream \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:49.899301+00:00
+fetched_at: 2026-10-27T22:59:33.092857+00:00
 ---
 
 # View a stream  |  Datastream  |  Google Cloud Documentation
@@ -21,11 +21,11 @@ Send feedback
 
 #  View a stream Stay organized with collections  Save and categorize content based on your preferences. 
 
-In this page, you learn how to get information about your streams.
+You can view high-level and detailed information about your streams in Datastream to monitor replication status and verify configuration settings. The Google Cloud console displays the assigned connection profiles, included source objects, destination settings, backfill progress, event throughput, and data freshness for each stream.
 
 To view high-level and detailed information about a stream, do the following:
 
-  1. Go to the **Streams** page in the Google Cloud Console.
+  1. Go to the **Streams** page in the Google Cloud console.
 
 [Go to the Streams page](https://console.cloud.google.com/datastream/streams)
 
@@ -104,6 +104,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

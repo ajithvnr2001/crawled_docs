@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/redis/maintenance-changelog/
 title: Memorystore for Redis maintenance changelogs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:55:06.671701+00:00
+fetched_at: 2026-10-27T19:53:51.671406+00:00
 ---
 
 # Memorystore for Redis maintenance changelogs  |  Google Cloud Documentation
@@ -24,7 +24,7 @@ Send feedback
 
 This page contains a log of maintenance changes. Memorystore for Redis releases maintenance updates for new features, security patches, bug fixes, performance improvements, and more.
 
-You can perform maintenance updates by using [self-service maintenance](https://docs.cloud.google.com/memorystore/docs/redis/self-service-maintenance). Memorystore for Redis also performs scheduled maintenance updates once every few months. You can set windows for when maintenance updates occur. For more information, see [Find and set maintenance windows](https://docs.cloud.google.com/memorystore/docs/redis/find-and-set-maintenance-windows).
+Memorystore for Redis also performs scheduled maintenance updates once every few months. This is known as _automatic maintenance_. If you want the updates sooner, then you can perform maintenance updates by using self-service maintenance. You can also set windows for when maintenance updates occur. For more information, see [Find and set maintenance windows](https://docs.cloud.google.com/memorystore/docs/redis/find-and-set-maintenance-windows).
 
 To view the maintenance version, use the [`gcloud redis instances describe`](https://docs.cloud.google.com/sdk/gcloud/reference/redis/instances/describe) command. The maintenance version appears next to the `maintenanceVersion` parameter. For more information, see [View instance information](https://docs.cloud.google.com/memorystore/docs/redis/create-manage-instances#view_instance_information). Also, to learn more about maintenance updates, see [About maintenance](https://docs.cloud.google.com/memorystore/docs/redis/about-maintenance).
 
@@ -32,10 +32,8 @@ To get the latest maintenance changes, add the URL for the [XML file](https://do
 
 ## 20260916_03_01
 
-**Date released** | **Release type**  
----|---  
-2026-10-09 | Self-service  
-  
+**Date released** : 2026-10-09
+
 ### Summary
 
 Covered instances | Summary  
@@ -2324,6 +2322,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

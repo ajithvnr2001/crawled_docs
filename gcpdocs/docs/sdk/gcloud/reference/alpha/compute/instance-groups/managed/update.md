@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/instance-groups/managed/update/
 title: gcloud alpha compute instance-groups managed update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T04:30:06.174321+00:00
+fetched_at: 2026-10-27T21:41:01.855843+00:00
 ---
 
 # gcloud alpha compute instance-groups managed update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha compute instance-groups managed update - update a Compute Engine ma
 SYNOPSIS
     
 
-`gcloud alpha compute instance-groups managed update` `NAME` [`--action-on-vm-failed-health-check`=`ACTION_ON_FAILED_HEALTH_CHECK`] [`--default-action-on-vm-failure`=`ACTION_ON_VM_FAILURE`] [`--description`=`DESCRIPTION`] [`--[no-]force-update-on-repair`] [`--list-managed-instances-results`=`MODE`] [`--on-repair-allow-changing-zone`=`ON_REPAIR_ALLOW_CHANGING_ZONE`] [`--size`=`SIZE`] [`--stopped-size`=`STOPPED_SIZE`] [`--suspended-size`=`SUSPENDED_SIZE`] [`--template`=`TEMPLATE`] [`--clear-autohealing` | `--initial-delay`=`INITIAL_DELAY` `--health-check`=`HEALTH_CHECK` | `--http-health-check`=`HTTP_HEALTH_CHECK` | `--https-health-check`=`HTTPS_HEALTH_CHECK`] [`--instance-flexibility-policy`=[`INSTANCE_FLEXIBILITY_POLICY`,…] | `--instance-selection`=`name`=`NAME`,`machine-type`=`MACHINE_TYPE`[,`machine-type`=`MACHINE_TYPE`…][,`rank`=`RANK`][,`min-cpu-platform`=`MIN_CPU_PLATFORM`] `--instance-selection-machine-types`=[`MACHINE_TYPE`,…] `--remove-instance-selections`=[`INSTANCE_SELECTION_NAME`,…] `--remove-instance-selections-all`] [`--instance-redistribution-type`=`TYPE` `--target-distribution-shape`=`SHAPE`] [`--region`=`REGION` | `--zone`=`ZONE`] [`--remove-stateful-disks`=`DEVICE_NAME`,[`DEVICE_NAME`,…] `--remove-stateful-external-ips`=`INTERFACE_NAME`,[…] `--remove-stateful-internal-ips`=`INTERFACE_NAME`,[…] `--stateful-disk`=[`auto-delete`=`AUTO-DELETE`],[`device-name`=`DEVICE-NAME`] `--stateful-external-ip`=[`enabled`],[`auto-delete`=`AUTO-DELETE`],[`interface-name`=`INTERFACE-NAME`] `--stateful-internal-ip`=[`enabled`],[`auto-delete`=`AUTO-DELETE`],[`interface-name`=`INTERFACE-NAME`]] [`--remove-workload-policy` | `--workload-policy`=`WORKLOAD_POLICY`] [`--standby-policy-initial-delay`=`STANDBY_POLICY_INITIAL_DELAY` `--standby-policy-mode`=`STANDBY_POLICY_MODE`] [`--update-policy-max-surge`=`MAX_SURGE` `--update-policy-max-unavailable`=`MAX_UNAVAILABLE` `--update-policy-min-ready`=`MIN_READY` `--update-policy-minimal-action`=`UPDATE_POLICY_MINIMAL_ACTION` `--update-policy-most-disruptive-action`=`UPDATE_POLICY_MOST_DISRUPTIVE_ACTION` `--update-policy-replacement-method`=`UPDATE_POLICY_REPLACEMENT_METHOD` `--update-policy-type`=`UPDATE_TYPE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha compute instance-groups managed update` `NAME` [`--action-on-vm-failed-health-check`=`ACTION_ON_FAILED_HEALTH_CHECK`] [`--default-action-on-vm-failure`=`ACTION_ON_VM_FAILURE`] [`--description`=`DESCRIPTION`] [`--[no-]force-update-on-repair`] [`--list-managed-instances-results`=`MODE`] [`--on-repair-allow-changing-zone`=`ON_REPAIR_ALLOW_CHANGING_ZONE`] [`--size`=`SIZE`] [`--stopped-size`=`STOPPED_SIZE`] [`--suspended-size`=`SUSPENDED_SIZE`] [`--template`=`TEMPLATE`] [`--clear-autohealing` | `--initial-delay`=`INITIAL_DELAY` `--health-check`=`HEALTH_CHECK` | `--http-health-check`=`HTTP_HEALTH_CHECK` | `--https-health-check`=`HTTPS_HEALTH_CHECK`] [`--instance-flexibility-policy`=[`INSTANCE_FLEXIBILITY_POLICY`,…] | `--instance-selection`=`name`=`NAME`,`machine-type`=`MACHINE_TYPE`[,`machine-type`=`MACHINE_TYPE`…][,`rank`=`RANK`][,`min-cpu-platform`=`MIN_CPU_PLATFORM`] `--instance-selection-machine-types`=[`MACHINE_TYPE`,…] `--remove-instance-selections`=[`INSTANCE_SELECTION_NAME`,…] `--remove-instance-selections-all`] [`--instance-redistribution-type`=`TYPE` `--target-distribution-shape`=`SHAPE`] [`--region`=`REGION` | `--zone`=`ZONE`] [`--remove-stateful-disks`=`DEVICE_NAME`,[`DEVICE_NAME`,…] `--remove-stateful-external-ips`=`INTERFACE_NAME`,[…] `--remove-stateful-internal-ips`=`INTERFACE_NAME`,[…] `--stateful-disk`=[`auto-delete`=`AUTO-DELETE`],[`device-name`=`DEVICE-NAME`] `--stateful-external-ip`=[`enabled`],[`auto-delete`=`AUTO-DELETE`],[`interface-name`=`INTERFACE-NAME`] `--stateful-internal-ip`=[`enabled`],[`auto-delete`=`AUTO-DELETE`],[`interface-name`=`INTERFACE-NAME`]] [`--remove-workload-policy` | `--workload-policy`=`WORKLOAD_POLICY`] [`--standby-policy-initial-delay`=`STANDBY_POLICY_INITIAL_DELAY` `--standby-policy-mode`=`STANDBY_POLICY_MODE`] [`--update-policy-max-surge`=`MAX_SURGE` `--update-policy-max-unavailable`=`MAX_UNAVAILABLE` `--update-policy-min-ready`=`MIN_READY` `--update-policy-replacement-method`=`UPDATE_POLICY_REPLACEMENT_METHOD` `--update-policy-type`=`UPDATE_TYPE` `--update-policy-allowed-actions`=[`ACTION`,…] | `--update-policy-minimal-action`=`UPDATE_POLICY_MINIMAL_ACTION` `--update-policy-most-disruptive-action`=`UPDATE_POLICY_MOST_DISRUPTIVE_ACTION`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Update a Compute Engine managed instance group. 
 
@@ -264,6 +264,37 @@ Parameters for setting update policy for this managed instance group.
      Maximum number of VMs that can be unavailable during the update process. This can be a fixed number (e.g. 5) or a percentage of size to the managed instance group (e.g. 10%). Defaults to the number of zones in which the managed instance group operates. 
 `--update-policy-min-ready`=`MIN_READY`
      Minimum time for which a newly created VM should be ready to be considered available. For example `10s` for 10 seconds. See $ [gcloud topic datetimes](https://docs.cloud.google.com/sdk/gcloud/reference/topic/datetimes) for information on duration formats. 
+`--update-policy-replacement-method`=`UPDATE_POLICY_REPLACEMENT_METHOD`
+     Type of replacement method. Specifies what action will be taken to update VMs. `UPDATE_POLICY_REPLACEMENT_METHOD` must be one of: 
+
+`recreate`
+     Recreate VMs and preserve the VM names. The VM IDs and creation timestamps might change. 
+`substitute`
+     Delete old VMs and create VMs with new names. 
+`--update-policy-type`=`UPDATE_TYPE`
+     Specifies the type of update process. You can specify either ``proactive`` so that the managed instance group proactively executes actions in order to bring VMs to their target versions or ``opportunistic`` so that no action is proactively executed but the update will be performed as part of other actions. `UPDATE_TYPE` must be one of: 
+
+`opportunistic`
+     Do not proactively replace VMs. Create new VMs and delete old ones on resizes of the group and when you target specific VMs to be updated or recreated. 
+`proactive`
+     Replace VMs proactively. 
+At most one of these can be specified: 
+
+`--update-policy-allowed-actions`=[`ACTION`,…]
+     Use this flag to specify a list of actions that are allowed to be performed on each VM while updating. The MIG performs the least disruptive action from the allowed actions that is sufficient to apply the update. If the update requires a more disruptive action than any of the allowed actions, then the update fails and no changes are made. Set to an empty string (`--update-policy-allowed-actions=""`) to clear allowed actions. `ACTION` must be one of: 
+
+`none`
+     No action 
+`refresh`
+     Apply the new configuration without stopping VMs, if possible. For example, use ``refresh`` to apply changes that only affect metadata or additional disks. 
+`restart-in-place`
+     Restart VMs using the same capacity and preserving local SSDs, if possible. 
+`restart`
+     Apply the new configuration without replacing VMs, if possible. For example, stopping VMs and starting them again is sufficient to apply changes to machine type. Local SSDs are replaced. 
+`replace`
+     Replace old VMs according to the --update-policy-replacement-method flag. 
+Or at least one of these can be specified: 
+
 `--update-policy-minimal-action`=`UPDATE_POLICY_MINIMAL_ACTION`
      Use this flag to minimize disruption as much as possible or to apply a more disruptive action than is strictly necessary. The MIG performs at least this action on each VM while updating. If the update requires a more disruptive action than the one specified here, then the more disruptive action is performed. `UPDATE_POLICY_MINIMAL_ACTION` must be one of: 
 
@@ -286,20 +317,6 @@ Parameters for setting update policy for this managed instance group.
      Apply the new configuration without replacing VMs, if possible. For example, stopping VMs and starting them again is sufficient to apply changes to machine type. 
 `replace`
      Replace old VMs according to the --update-policy-replacement-method flag. 
-`--update-policy-replacement-method`=`UPDATE_POLICY_REPLACEMENT_METHOD`
-     Type of replacement method. Specifies what action will be taken to update VMs. `UPDATE_POLICY_REPLACEMENT_METHOD` must be one of: 
-
-`recreate`
-     Recreate VMs and preserve the VM names. The VM IDs and creation timestamps might change. 
-`substitute`
-     Delete old VMs and create VMs with new names. 
-`--update-policy-type`=`UPDATE_TYPE`
-     Specifies the type of update process. You can specify either ``proactive`` so that the managed instance group proactively executes actions in order to bring VMs to their target versions or ``opportunistic`` so that no action is proactively executed but the update will be performed as part of other actions. `UPDATE_TYPE` must be one of: 
-
-`opportunistic`
-     Do not proactively replace VMs. Create new VMs and delete old ones on resizes of the group and when you target specific VMs to be updated or recreated. 
-`proactive`
-     Replace VMs proactively. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -321,6 +338,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-29 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/best-practices/how-to-optimize-looker-server-performance/
 title: Optimize Looker performance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:20.286918+00:00
+fetched_at: 2026-10-27T23:54:40.905299+00:00
 ---
 
 # Optimize Looker performance  |  Google Cloud Documentation
@@ -54,6 +54,11 @@ You can also take measures to ensure that the Looker server and application are 
   * Avoid returning a large number of data points by default within dashboard tiles and Looks. Queries that return thousands of data points will consume more memory. Ensure that data is limited wherever possible by applying frontend [ filters](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#adding_dashboard_filters) to dashboards, Looks and Explores, and on the LookML level with [`required filters`](https://docs.cloud.google.com/looker/docs/filters-user-defined-dashboards#requiring_a_filter_value), [`conditionally_filter`](https://docs.cloud.google.com/looker/docs/reference/param-explore-conditionally-filter) and [`sql_always_where`](https://docs.cloud.google.com/looker/docs/reference/param-explore-sql-always-where) parameters. 
   * Download or deliver queries using the [**All Results**](https://docs.cloud.google.com/looker/docs/downloading#all_results) option sparingly, as some queries can be very large and overwhelm the Looker server when processed. 
   * Understand the impact of connection performance on the entire Looker instance. Looker uses shared resources to process queries from all database connections. These resources include Kubernetes pods, query queues, and thread pools. Because of this shared infrastructure, a single slow or overloaded database connection can negatively impact the performance of queries on all other connections. If you notice widespread performance degradation, investigate the health of all your database connections, not just the ones that are directly related to related to the slow dashboards or Explores. 
+  * Distribute scheduled deliveries and avoid simultaneous job execution. When multiple Looks or dashboards are scheduled to run at the exact same minute (particularly at the top of the hour), the sudden burst of simultaneous query requests can overwhelm instance resources, spike queue depths, and exhaust database connection pools. This concurrency bottleneck can cause both scheduled deliveries and interactive Explore queries to stall during the [query initialization phase](https://docs.cloud.google.com/looker/docs/query-tracker#query_initialization_phase). Use the following strategies to prevent concurrency bottlenecks: 
+    * Stagger scheduled jobs across 15-minute or 30-minute intervals (or non-top-of-hour minutes like `:15`, `:30`, or `:45`) rather than scheduling all deliveries at the top of the hour.
+    * Whenever possible, use [datagroups](https://docs.cloud.google.com/looker/docs/caching-and-datagroups) to trigger deliveries that are based on ETL completion rather than time-based schedules, preventing unnecessary queries against unrefreshed data.
+    * Batch or throttle external scripts and automated API calls that run queries or trigger deliveries.
+    * If a sudden burst of queries causes your instance to become unresponsive or queries to spin indefinitely, you can clear in-process tasks by restarting the instance (see [Restart a Looker (Google Cloud core) instance](https://docs.cloud.google.com/looker/docs/looker-core-delete-restart#config_restart) for Looker (Google Cloud core) instances).
 
 
 
@@ -63,6 +68,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/endpoints/docs/openapi/set-up-cloud-run-anthos-espv2/
 title: Quickstart: Set up Cloud Endpoints OpenAPI for Knative serving with ESPv2 \u00a0|\u00a0 Cloud Endpoints with OpenAPI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:56:07.649256+00:00
+fetched_at: 2026-10-27T16:21:00.793853+00:00
 ---
 
 # Quickstart: Set up Cloud Endpoints OpenAPI for Knative serving with ESPv2  |  Cloud Endpoints with OpenAPI  |  Google Cloud Documentation
@@ -223,8 +223,8 @@ When you run the curl command, you should see output from your service in the fo
          <html lang=en>
          <head>
          <meta charset=utf-8>
-         <meta name="viewport" content="width=device-width, i>n**< itial>-scale=1"**
-         titleCongrat<ulatio>ns | Cloud Run/title 
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         **< title>Congratulations | Cloud Run</title> **
          ...
 
 
@@ -313,7 +313,7 @@ For example:
          servers:
          - url: https://API_NAME.endpoints.ESPv2_PROJECT_ID.cloud.goog
            x-google-endpoint:
-             target: &quot;INGRESS_IP"
+             target: "INGRESS_IP"
          x-google-api-management:
            backends:
              cloudrun_anthos_backend:
@@ -349,15 +349,15 @@ For example:
 ### OpenAPI 2.0
          
          x-google-endpoints:
-           - name: &quot;API_NAME.endpoints.ESPv2_PROJECT_ID.cloud.goog"
-           target: &quot;IP_ADDRESS"
+           - name: "API_NAME.endpoints.ESPv2_PROJECT_ID.cloud.goog"
+           target: "IP_ADDRESS"
 
 ### OpenAPI 3.x
          
          servers:
            - url: https://API_NAME.endpoints.ESPv2_PROJECT_ID.cloud.goog
              x-google-endpoint:
-               target: &quot;IP_ADDRESS"
+               target: "IP_ADDRESS"
 
 **Note** : If you have your own domain mapping defined for your cluster, you can omit this step. See [Configuring DNS on the cloud.goog domain](/endpoints/docs/openapi/cloud-goog-dns-configure) for more.
 
@@ -666,6 +666,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

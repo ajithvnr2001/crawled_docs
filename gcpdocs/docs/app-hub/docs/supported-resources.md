@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-hub/docs/supported-resources/
 title: App Hub supported resources \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:59.886376+00:00
+fetched_at: 2026-10-27T21:40:15.479524+00:00
 ---
 
 # App Hub supported resources  |  Google Cloud Documentation
@@ -19,15 +19,15 @@ Send feedback
 
 #  App Hub supported resources Stay organized with collections  Save and categorize content based on your preferences. 
 
-App Hub supports the global and regional Google Cloud resources listed on this page that you can register as services or workloads in App Hub applications. To programmatically register these underlying Google Cloud resources, you must use the correct Uniform Resource Identifier (URI) format as defined in the [Cloud Asset Inventory documentation](https://docs.cloud.google.com/asset-inventory/docs/asset-names).
+App Hub supports global and regional Google Cloud resources that you can register as services or workloads in applications. To programmatically register these underlying resources, you must use the correct Uniform Resource Identifier (URI) format as defined in the [Cloud Asset Inventory documentation](https://docs.cloud.google.com/asset-inventory/docs/asset-names).
 
-You can monitor your applications, services, and workloads. For more information on this telemetry data, see [View application telemetry](https://docs.cloud.google.com/monitoring/docs/application-monitoring).
-
-**Important:** When infrastructure resources with App Hub support are created or destroyed, the resource's `Service` metadata, specifically the [resource URIs](https://docs.cloud.google.com/app-hub/docs/reference/rest/v1/ServiceReference), are automatically ingested into App Hub. This process lets App Hub maintain up-to-date information and improves the application creation and management experience. This metadata ingestion is an always-on process, and the ingested metadata is only accessible when you explicitly enable App Hub.
+To learn about telemetry data for monitoring your applications, services, and workloads, see [View application telemetry](https://docs.cloud.google.com/monitoring/docs/application-monitoring).
 
 ## Services
 
 This section lists all the Google Cloud resources that App Hub supports as application components and that you can register as [services](https://docs.cloud.google.com/app-hub/docs/key-concepts#service) in your applications.
+
+When infrastructure resources with App Hub support are created or destroyed, the resource's `Service` metadata, specifically the [resource URIs](https://docs.cloud.google.com/app-hub/docs/reference/rest/v1/ServiceReference), are automatically ingested into App Hub. This process lets App Hub maintain up-to-date information and improves the application creation and management experience. This metadata ingestion is an always-on process, and the ingested metadata is only accessible when you explicitly enable App Hub.
 
 Google Cloud product |  Infrastructure resource |  Registration type |  URI format  
 ---|---|---|---  
@@ -493,6 +493,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

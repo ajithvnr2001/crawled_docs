@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/lite/docs/samples/pubsublite-update-reservation/
 title: Update Lite Reservation \u00a0|\u00a0 Pub/Sub Lite \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:44:22.515785+00:00
+fetched_at: 2026-10-27T22:32:35.968623+00:00
 ---
 
 # Update Lite Reservation  |  Pub/Sub Lite  |  Google Cloud Documentation

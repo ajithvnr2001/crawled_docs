@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/scheduling-and-sending-dashboards/
 title: Scheduling and sending dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:33.862881+00:00
+fetched_at: 2026-10-27T23:54:33.623460+00:00
 ---
 
 # Scheduling and sending dashboards  |  Looker  |  Google Cloud Documentation
@@ -122,6 +122,8 @@ Timing options change depending on the option that you choose. For example, the 
 The **Time** , **Start** , and **End** fields use a 24-hour clock. If the time you want isn't available in the drop-down menu, select the field and manually enter the time, such as 9:15 or 15:37.
 
 **Hourly** and **Minutes** schedules repeat daily within the **Start** and **End** timeframe that you set. The end time for **Hourly** and **Minutes** intervals is not inclusive. The last delivery is sent at the last selected interval prior to the specified end time. For example, if a dashboard is scheduled **Hourly** between 12:00 AM and 11:00 PM, then it is sent on the hour, every hour, from 12:00 AM to 10:00 PM If a recurrence is every 30 minutes between 12:00 AM and 11:00 PM, then the last delivery is sent at 10:30 PM.
+
+**Tip:** To prevent bottlenecks on your Looker instance, avoid scheduling multiple Looks or dashboards to run at the exact same minute (particularly at the top of the hour, such as 9:00 or 10:00). Stagger schedules across 15-minute or 30-minute intervals (such as 9:15 or 9:45) to distribute query execution and maintain optimal instance performance. For more information, see [Optimize Looker server performance](https://docs.cloud.google.com/looker/docs/best-practices/how-to-optimize-looker-server-performance#optimize_looker_server_performance).
 
 #### Schedules triggered by datagroup updates
 
@@ -637,6 +639,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/apihub/apis/versions/specs/update/
 title: gcloud alpha apihub apis versions specs update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T09:30:44.816826+00:00
+fetched_at: 2026-10-27T21:41:23.632463+00:00
 ---
 
 # gcloud alpha apihub apis versions specs update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha apihub apis versions specs update - update specs
 SYNOPSIS
     
 
-`gcloud alpha apihub apis versions specs update` (`SPEC` : `--api`=`API` `--location`=`LOCATION` `--version`=`VERSION`) [`--display-name`=`DISPLAY_NAME`] [`--parsing-mode`=`PARSING_MODE`] [`--source-uri`=`SOURCE_URI`] [`--attributes`=[`ATTRIBUTES`,…] | `--update-attributes`=[`UPDATE_ATTRIBUTES`,…] `--clear-attributes` | `--remove-attributes`=`REMOVE_ATTRIBUTES`] [`--clear-contents` `--contents`=`CONTENTS` `--contents-mime-type`=`CONTENTS_MIME_TYPE`] [`--clear-documentation` `--documentation-external-uri`=`DOCUMENTATION_EXTERNAL_URI`] [`--clear-lint-response` `--lint-response-create-time`=`LINT_RESPONSE_CREATE_TIME` `--lint-response-linter`=`LINT_RESPONSE_LINTER` `--lint-response-source`=`LINT_RESPONSE_SOURCE` `--lint-response-state`=`LINT_RESPONSE_STATE` `--lint-response-issues`=[`code`=`CODE`],[`message`=`MESSAGE`],[`path`=`PATH`],[`range`=`RANGE`],[`severity`=`SEVERITY`] | `--add-lint-response-issues`=[`code`=`CODE`],[`message`=`MESSAGE`],[`path`=`PATH`],[`range`=`RANGE`],[`severity`=`SEVERITY`] `--clear-lint-response-issues` | `--remove-lint-response-issues`=[`code`=`CODE`],[`message`=`MESSAGE`],[`path`=`PATH`],[`range`=`RANGE`],[`severity`=`SEVERITY`] `--lint-response-summary`=[`count`=`COUNT`],[`severity`=`SEVERITY`] | `--add-lint-response-summary`=[`count`=`COUNT`],[`severity`=`SEVERITY`] `--clear-lint-response-summary` | `--remove-lint-response-summary`=[`count`=`COUNT`],[`severity`=`SEVERITY`]] [`--clear-spec-type` `--spec-type-json-values`=[`SPEC_TYPE_JSON_VALUES`,…] | `--spec-type-string-values`=[`SPEC_TYPE_STRING_VALUES`,…] | `--spec-type-uri-values`=[`SPEC_TYPE_URI_VALUES`,…] | `--spec-type-enum-values`=[`description`=`DESCRIPTION`],[`displayName`=`DISPLAYNAME`],[`id`=`ID`],[`immutable`=`IMMUTABLE`] | `--add-spec-type-enum-values`=[`description`=`DESCRIPTION`],[`displayName`=`DISPLAYNAME`],[`id`=`ID`],[`immutable`=`IMMUTABLE`] `--clear-spec-type-enum-values` | `--remove-spec-type-enum-values`=[`description`=`DESCRIPTION`],[`displayName`=`DISPLAYNAME`],[`id`=`ID`],[`immutable`=`IMMUTABLE`]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha apihub apis versions specs update` (`SPEC` : `--api`=`API` `--version`=`VERSION`) [`--display-name`=`DISPLAY_NAME`] [`--location`=`LOCATION`] [`--parsing-mode`=`PARSING_MODE`] [`--source-uri`=`SOURCE_URI`] [`--attributes`=[`ATTRIBUTES`,…] | `--update-attributes`=[`UPDATE_ATTRIBUTES`,…] `--clear-attributes` | `--remove-attributes`=`REMOVE_ATTRIBUTES`] [`--clear-contents` `--contents`=`CONTENTS` `--contents-mime-type`=`CONTENTS_MIME_TYPE`] [`--clear-documentation` `--documentation-external-uri`=`DOCUMENTATION_EXTERNAL_URI`] [`--clear-lint-response` `--lint-response-create-time`=`LINT_RESPONSE_CREATE_TIME` `--lint-response-linter`=`LINT_RESPONSE_LINTER` `--lint-response-source`=`LINT_RESPONSE_SOURCE` `--lint-response-state`=`LINT_RESPONSE_STATE` `--lint-response-issues`=[`code`=`CODE`],[`message`=`MESSAGE`],[`path`=`PATH`],[`range`=`RANGE`],[`severity`=`SEVERITY`] | `--add-lint-response-issues`=[`code`=`CODE`],[`message`=`MESSAGE`],[`path`=`PATH`],[`range`=`RANGE`],[`severity`=`SEVERITY`] `--clear-lint-response-issues` | `--remove-lint-response-issues`=[`code`=`CODE`],[`message`=`MESSAGE`],[`path`=`PATH`],[`range`=`RANGE`],[`severity`=`SEVERITY`] `--lint-response-summary`=[`count`=`COUNT`],[`severity`=`SEVERITY`] | `--add-lint-response-summary`=[`count`=`COUNT`],[`severity`=`SEVERITY`] `--clear-lint-response-summary` | `--remove-lint-response-summary`=[`count`=`COUNT`],[`severity`=`SEVERITY`]] [`--clear-spec-type` `--spec-type-json-values`=[`SPEC_TYPE_JSON_VALUES`,…] | `--spec-type-string-values`=[`SPEC_TYPE_STRING_VALUES`,…] | `--spec-type-uri-values`=[`SPEC_TYPE_URI_VALUES`,…] | `--spec-type-enum-values`=[`description`=`DESCRIPTION`],[`displayName`=`DISPLAYNAME`],[`id`=`ID`],[`immutable`=`IMMUTABLE`] | `--add-spec-type-enum-values`=[`description`=`DESCRIPTION`],[`displayName`=`DISPLAYNAME`],[`id`=`ID`],[`immutable`=`IMMUTABLE`] `--clear-spec-type-enum-values` | `--remove-spec-type-enum-values`=[`description`=`DESCRIPTION`],[`displayName`=`DISPLAYNAME`],[`id`=`ID`],[`immutable`=`IMMUTABLE`]] [`--deployments`=[`DEPLOYMENTS`,…] | `--add-deployments`=[`ADD_DEPLOYMENTS`,…] `--clear-deployments` | `--remove-deployments`=[`REMOVE_DEPLOYMENTS`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Update a spec 
 EXAMPLES
@@ -49,6 +49,13 @@ To set the `project` attribute:
   * provide the argument `spec` on the command line with a fully specified name; 
   * provide the argument `--project` on the command line; 
   * set the property `core/project`. 
+
+
+
+To set the `location` attribute: 
+
+  * provide the argument `spec` on the command line with a fully specified name; 
+  * provide the argument `--location` on the command line. 
 
 
 
@@ -74,15 +81,6 @@ To set the `api` attribute:
   * provide the argument `--api` on the command line. 
 
 
-`--location`=`LOCATION`
-     The location id of the spec resource. 
-
-To set the `location` attribute: 
-
-  * provide the argument `spec` on the command line with a fully specified name; 
-  * provide the argument `--location` on the command line. 
-
-
 `--version`=`VERSION`
      The version id of the spec resource. 
 
@@ -97,6 +95,8 @@ FLAGS
 
 `--display-name`=`DISPLAY_NAME`
      The display name of the spec. This can contain the file name of the spec. 
+`--location`=`LOCATION`
+     For resources [spec, deployments], provides fallback value for resource location attribute. When the resource's full URI path is not provided, location will fallback to this flag value. 
 `--parsing-mode`=`PARSING_MODE`
      Enum specifying the parsing mode for OpenAPI Specification (OAS) parsing. `PARSING_MODE` must be one of: 
 
@@ -629,6 +629,94 @@ This value should be 4-63 characters, and valid characters are /[a-z][0-9]-/.
     
     --remove-spec-type-enum-values=path_to_file.(yaml|json)
 
+Update deployments. 
+
+At most one of these can be specified: 
+
+Deployment resource - Set deployments to new value. 
+
+The deployments linked directly to this spec. Format is `projects/{project}/locations/{location}/deployments/{deployment}` This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+
+To set the `project` attribute: 
+
+  * provide the argument `--deployments` on the command line with a fully specified name; 
+  * provide the argument `--project` on the command line; 
+  * set the property `core/project`. 
+
+
+
+To set the `location` attribute: 
+
+  * provide the argument `--deployments` on the command line with a fully specified name; 
+  * provide the argument `--location` on the command line. 
+
+
+`--deployments`=[`DEPLOYMENTS`,…]
+     IDs of the deployments or fully qualified identifiers for the deployments. 
+
+To set the `deployment` attribute: 
+
+  * provide the argument `--deployments` on the command line. 
+
+
+Deployment resource - Add new value to deployments list. 
+
+The deployments linked directly to this spec. Format is `projects/{project}/locations/{location}/deployments/{deployment}` This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+
+To set the `project` attribute: 
+
+  * provide the argument `--add-deployments` on the command line with a fully specified name; 
+  * provide the argument `--project` on the command line; 
+  * set the property `core/project`. 
+
+
+
+To set the `location` attribute: 
+
+  * provide the argument `--add-deployments` on the command line with a fully specified name; 
+  * provide the argument `--location` on the command line. 
+
+
+`--add-deployments`=[`ADD_DEPLOYMENTS`,…]
+     IDs of the deployments or fully qualified identifiers for the deployments. 
+
+To set the `deployment` attribute: 
+
+  * provide the argument `--add-deployments` on the command line. 
+
+
+At most one of these can be specified: 
+
+`--clear-deployments`
+     Clear deployments value and set to empty list. 
+Or at least one of these can be specified: 
+
+Deployment resource - Remove value from deployments list. 
+
+The deployments linked directly to this spec. Format is `projects/{project}/locations/{location}/deployments/{deployment}` This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+
+To set the `project` attribute: 
+
+  * provide the argument `--remove-deployments` on the command line with a fully specified name; 
+  * provide the argument `--project` on the command line; 
+  * set the property `core/project`. 
+
+
+
+To set the `location` attribute: 
+
+  * provide the argument `--remove-deployments` on the command line with a fully specified name; 
+  * provide the argument `--location` on the command line. 
+
+
+`--remove-deployments`=[`REMOVE_DEPLOYMENTS`,…]
+     IDs of the deployments or fully qualified identifiers for the deployments. 
+
+To set the `deployment` attribute: 
+
+  * provide the argument `--remove-deployments` on the command line. 
+
+
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -646,6 +734,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

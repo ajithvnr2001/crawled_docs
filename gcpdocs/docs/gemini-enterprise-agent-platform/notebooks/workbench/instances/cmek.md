@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek/
-title: Customer-managed encryption keys \u00a0|\u00a0 Gemini Enterprise Agent Platform Workbench \u00a0|\u00a0 Google Cloud Documentation
+title: CMEK \u00a0|\u00a0 Gemini Enterprise Agent Platform Workbench \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:26:51.498990+00:00
+fetched_at: 2026-10-28T02:27:38.775236+00:00
 ---
 
-# Customer-managed encryption keys  |  Gemini Enterprise Agent Platform Workbench  |  Google Cloud Documentation
+# CMEK  |  Gemini Enterprise Agent Platform Workbench  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cmek/
 
@@ -52,7 +52,7 @@ To decrease latency and to prevent cases where resources depend on services that
 
 ## Configure CMEK for your Agent Platform Workbench instance
 
-The following sections describe how to create a key ring and key in Cloud Key Management Service, grant the service account encrypter and decrypter permissions for your key, and create a Agent Platform Workbench instance that uses CMEK.
+The following sections describe how to create a key ring and key in Cloud KMS, grant the service account encrypter and decrypter permissions for your key, and create a Agent Platform Workbench instance that uses CMEK.
 
 ### Before you begin
 
@@ -267,7 +267,7 @@ After you have granted your Agent Platform Workbench instance permission to encr
 
 The following example shows how to encrypt and decrypt data using your key by using the Google Cloud console.
 
-To create a Agent Platform Workbench instance with a customer-managed encryption key, you can use the Google Cloud console or the gcloud CLI:
+To create a Agent Platform Workbench instance with Customer-managed encryption keys, you can use the Google Cloud console or the gcloud CLI:
 
 ###  Console 
 
@@ -306,7 +306,7 @@ Replace the following:
 
 ###  gcloud 
 
-To use the gcloud CLI to create a Agent Platform Workbench instance with a customer-managed encryption key, run the following command. This example assumes that you want to create a Agent Platform Workbench instance with an `n1-standard-1` machine type and a 100 GB standard persistent boot disk.
+To use the gcloud CLI to create a Agent Platform Workbench instance with Customer-managed encryption keys, run the following command. This example assumes that you want to create a Agent Platform Workbench instance with an `n1-standard-1` machine type and a 100 GB standard persistent boot disk.
     
     
     gcloud notebooks instances create notebook-vm-cmek \
@@ -344,6 +344,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

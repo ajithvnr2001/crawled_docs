@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/blueprints/security-foundations/
 title: Enterprise foundations blueprint \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:23.790248+00:00
+fetched_at: 2026-10-27T23:39:56.020668+00:00
 ---
 
 # Enterprise foundations blueprint  |  Cloud Architecture Center  |  Google Cloud Documentation

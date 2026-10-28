@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/cluster/about-rdb-persistence/
 title: About RDB persistence \u00a0|\u00a0 Memorystore for Redis Cluster \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:46:39.558793+00:00
+fetched_at: 2026-10-27T19:53:44.840356+00:00
 ---
 
 # About RDB persistence  |  Memorystore for Redis Cluster  |  Google Cloud Documentation
@@ -22,75 +22,70 @@ Send feedback
 
 #  About RDB persistence Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page gives an overview of RDB (Redis database) persistence on Memorystore for Redis Cluster.
+This page gives an overview of Redis Database (RDB) persistence for Memorystore for Redis Cluster.
 
-To learn how to enable, disable, and monitor RDB persistence, see [Manage persistence](https://docs.cloud.google.com/memorystore/docs/cluster/manage-persistence).
+RDB persistence protects your data by saving snapshots to durable storage. You can choose the frequency of these snapshots by selecting a snapshot interval ranging from a minimum of 1 hour to a maximum of 24 hours.
 
-For information about best practices for RDB persistence, see [Persistence best practices](https://docs.cloud.google.com/memorystore/docs/cluster/general-best-practices#persistence_best_practices).
+Nodes with replicas prioritize data recovery from the replica. However, if both the primary and the replica fail simultaneously, then the nodes recover from the most recent snapshot.
 
-The RDB persistence feature protects your data by saving snapshots of your data on durable storage. You choose the frequency of these snapshots by selecting a snapshot interval ranging from a minimum of 1 hour to a maximum of 24 hours. If node failures occur, data is recovered even in cases where failover is not possible.
+If you scale up your cluster, then snapshots don't include the new shards until the next scheduled snapshot time. If you enable or disable persistence for a cluster, then the cluster might need to perform maintenance. For more information about enabling and disabling RDB persistence, see [Manage persistence](https://docs.cloud.google.com/memorystore/docs/cluster/manage-persistence).
 
-Nodes with replicas prioritize data recovery from the replica. However, if both the primary and replica fail simultaneously, nodes recover from the most recent snapshot.
+RDB persistence adds no additional cost to your billing. This feature is ideal for use cases where you can accept a small degree of data staleness after recovery. Because Memorystore for Redis Cluster uses snapshots for automated recovery, snapshots aren't available for manual restores. Also, Memorystore for Redis Cluster retains only the most recent snapshot.
 
-  * Shards that are added by horizontally scaling up your instance aren't included in snapshots until the next scheduled snapshot time.
-  * If you [enable or disable persistence](https://docs.cloud.google.com/memorystore/docs/cluster/manage-persistence#enable_rdb_persistence_for_an_existing_instance) for an existing instance, then the instance might need to perform [maintenance](https://docs.cloud.google.com/memorystore/docs/cluster/about-maintenance).
+Memorystore for Redis Cluster also supports AOF persistence, but you must choose either AOF or RDB persistence. You can't enable both persistence modes simultaneously. For more information about choosing between the persistence modes, see [Persistence overview](https://docs.cloud.google.com/memorystore/docs/cluster/persistence-overview).
 
-
-
-RDB persistence adds no additional cost to your instance billing. This feature is ideal for use cases where a small degree of data staleness after recovery is acceptable. Because Memorystore uses snapshots for automated recovery, snapshots aren't available for manual restores. You should also note that only the most recent successful snapshot is retained.
-
-Memorystore for Redis Cluster also supports AOF persistence, but you must choose either the AOF or RDB persistence mode, because both can't be enabled at the same time. For information about choosing between the two persistence modes, see [Persistence overview](https://docs.cloud.google.com/memorystore/docs/cluster/persistence-overview). For the best possible availability, we recommend using [a highly available instance](https://docs.cloud.google.com/memorystore/docs/cluster/ha-and-replicas) in addition to enabling persistence.
+For the best possible availability, we recommend using a highly available cluster in addition to enabling persistence. For more information, see [High availability and replicas](https://docs.cloud.google.com/memorystore/docs/cluster/ha-and-replicas).
 
 ## Snapshot scheduling
 
-Snapshot scheduling is determined by two settings: the snapshot start time, and the snapshot interval. The intervals you can set are `1h`, `6h`, `12h`, and `24h`. For example, if you set the start time to 4 AM and the interval to one hour, the snapshots start at 4 AM on the day they are enabled, and continue every hour after that.
+The snapshot start time and the snapshot interval determine the snapshot schedule. The snapshot intervals that you can set are `1h`, `6h`, `12h`, and `24h`. For example, if you set the start time to 4 AM and the interval to one hour, then the snapshots start at 4 AM on the day that you enable RDB persistence, and continue every hour after that.
 
-Snapshot schedules are evaluated in the UTC time zone, therefore local time zones with daylight savings shifts will expereince schedule adjustments. For example, at the beginning and end of DST in the US, the local start times of your snapshot schedule jobs move forward or backward by an hour if your time zone honors DST changes.
+Memorystore for Redis Cluster evaluates snapshot schedules in the UTC time zone. Therefore, if your time zone honors daylight saving time (DST) changes, then the local start times of your snapshot schedule jobs move forward or backward by an hour at the beginning and end of DST.
 
 ### Pausing snapshots
 
-You may run into scenarios where you want to temporarily pause taking RDB snapshots for a certain period of time. This could be to ensure there are no performance impacts during critical events or to temporarily disable snapshots to troubleshoot performance issues.
+You might want to pause taking RDB snapshots temporarily. For example, you can pause snapshots to prevent performance impacts during critical events or to troubleshoot performance issues.
 
-To pause snapshots, you must set the start time to the future. If you do this, the last snapshot is retained and is used in the event of a recovery. To resume snapshots, adjust the snapshot schedule to when you want the next snapshot to occur. To learn more about adjusting snapshot schedules, see [Adjust RDB snapshot interval](https://docs.cloud.google.com/memorystore/docs/cluster/manage-persistence#adjust_rdb_snapshot_interval).
+If you pause snapshots by setting the start time to the future, then Memorystore for Redis Cluster retains the last snapshot. If a node fails and can't recover data from a replica, then the node uses this snapshot to recover the data. To resume snapshots, adjust the snapshot schedule to when you want the next snapshot to occur. For more information, see [Adjust RDB snapshot interval](https://docs.cloud.google.com/memorystore/docs/cluster/manage-persistence#adjust_rdb_snapshot_interval).
 
 ## Recovery behavior
 
-Memorystore for Redis Cluster nodes failover to replicas as the primary recovery mechanism, rather than loading from a snapshot. However, if a node fails and can't recover from a replica, the node recovers from a snapshot.
+Memorystore for Redis Cluster nodes fail over to replicas as the primary recovery mechanism, rather than loading data from a snapshot. However, if a node fails and can't recover data from a replica, then the node recovers the data from the snapshot.
 
 ### Data consistency on recovery
 
-**Important:** An RDB snapshot is a point in time snapshot of node data based on the snapshot interval you set. Your application must be able to tolerate some staleness of data on recovery.
+When you enable RDB persistence, the cluster makes a best effort to take snapshots at the specified interval. Because an RDB snapshot is a point-in-time backup, your application must be able to tolerate some staleness after Memorystore for Redis Cluster recovers the data.
 
-When enabled, RDB persistence makes a best effort to ensure backups are taken on the specified interval. Snapshots can fail for a number of reasons. If the snapshot fails consecutively on multiple intervals, the last available backup can be arbitrarily stale.
+Snapshots can fail for many reasons. If a snapshot fails consecutively across multiple intervals, then the last available snapshot might be arbitrarily stale.
 
-The worst case data staleness for a recovery from a snapshot is the sum of the specified interval since the last good snapshot started and the time to save the next snapshot to storage. In the case of a recovery incident, use the [`rdb_save_ages`](https://docs.cloud.google.com/memorystore/docs/cluster/supported-monitoring-metrics#persistence_metrics) metric to view the timeframe for data staleness.
+When recovering data from a snapshot, the worst-case data staleness is the sum of the specified interval since the last good snapshot started and the time that it takes to save the next snapshot to storage. If a recovery incident occurs, then use the `rdb_save_ages` metric to view the timeframe for data staleness. For more information about this metric, see [Persistence metrics](https://docs.cloud.google.com/memorystore/docs/cluster/supported-monitoring-metrics#persistence_metrics).
 
 ### Recovery time
 
-If a node fails and needs to recover data from a snapshot, the node is unavailable during recovery. Recovery time depends on the size of the snapshot.
+If a node fails and needs to recover data from a snapshot, then the node is unavailable during recovery. The recovery time depends on the size of the snapshot.
 
-### Snapshot failure
+### Snapshot failures
 
-Any failed snapshot is retried immediately with exponential backoff from 5 to 300 seconds. Consecutive snapshot failures increase data staleness in the event of a recovery.
+Memorystore for Redis Cluster retries any failed snapshot immediately by using exponential backoff ranging from 5 to 300 seconds. If a recovery occurs, then consecutive snapshot failures increase data staleness.
 
-### Recovery failure
+### Recovery failures
 
-Recovery failures are rare but can happen. If a recovery failure occurs, the node retries repeatedly until it recovers successfully.
+Recovery failures are rare but can happen. If a recovery failure occurs, then the node retries recovering data from the snapshot repeatedly until the recovery succeeds.
 
 ## Monitoring snapshots
 
-It's important to monitor snapshots and set alerts for failed snapshots. For information about best practices for RDB persistence, see [RDB persistence best practices](https://docs.cloud.google.com/memorystore/docs/cluster/general-best-practices#persistence_best_practices). Failed snapshots can indicate overloaded nodes that may continue to have difficulty recovering from the snapshot.
+We recommend monitoring snapshots and setting alerts for failed snapshots. Failed snapshots can indicate overloaded nodes that might continue to have difficulty recovering data.
 
-For a list of metrics available for monitoring snapshots, see [Persistence metrics](https://docs.cloud.google.com/memorystore/docs/cluster/supported-monitoring-metrics#persistence_metrics).
+For more information about best practices for RDB persistence, see [Persistence best practices](https://docs.cloud.google.com/memorystore/docs/cluster/general-best-practices#persistence_best_practices). For a list of metrics that are available to monitor snapshots, see [Persistence metrics](https://docs.cloud.google.com/memorystore/docs/cluster/supported-monitoring-metrics#persistence_metrics).
 
-### Managing performance impact
+### Performance impact
 
-You can monitor the performance impact a snapshot has on your Memorystore instance by viewing the metrics available through [Cloud Monitoring](https://docs.cloud.google.com/memorystore/docs/cluster/monitor-instances) such as CPU usage and memory usage.
+You can monitor the performance impact of a snapshot on your cluster by using [Cloud Monitoring](https://docs.cloud.google.com/memorystore/docs/cluster/monitor-instances) to view metrics such as CPU usage and memory usage.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

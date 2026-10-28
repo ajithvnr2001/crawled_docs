@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-dicomweb-search-studies/
 title: DICOM search for studies using query params/DICOM tags \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:16.660983+00:00
+fetched_at: 2026-10-27T18:15:13.105985+00:00
 ---
 
 # DICOM search for studies using query params/DICOM tags  |  Cloud Healthcare API  |  Google Cloud Documentation

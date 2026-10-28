@@ -1,13 +1,48 @@
 ---
 url: https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/
 title: Google Cloud NetApp Volumes audit logging \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:56:07.226945+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T17:04:52.679035+00:00
 ---
 
 # Google Cloud NetApp Volumes audit logging  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/
+
+[ Skip to main content ](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/)
+  * [Deutsch](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=de)
+  * [Español](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=it)
+  * [Português](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/?hl=ko)
+
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/storage-color.svg) ](https://docs.cloud.google.com/netapp/volumes/docs)
+  * [ NetApp Volumes ](https://docs.cloud.google.com/netapp/volumes/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Service name](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#service_name)
+  * [Methods by permission type](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#permission-type)
+  * [API interface audit logs](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#api-interface-reference)
+    * [google.cloud.netapp.v1.NetApp](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#google.cloud.netapp.v1.NetApp)
+    * [google.cloud.netapp.v1alpha1.NetApp](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#google.cloud.netapp.v1alpha1.NetApp)
+    * [google.cloud.netapp.v1beta1.NetApp](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#google.cloud.netapp.v1beta1.NetApp)
+  * [Methods that don't produce audit logs](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#exempt-methods)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -16,13 +51,20 @@ fetched_at: 2026-10-23T10:56:07.226945+00:00
   * [ Guides ](https://docs.cloud.google.com/netapp/volumes/docs/discover/overview)
 
 
-
 Send feedback 
+#  Google Cloud NetApp Volumes audit logging Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Service name](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#service_name)
+  * [Methods by permission type](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#permission-type)
+  * [API interface audit logs](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#api-interface-reference)
+    * [google.cloud.netapp.v1.NetApp](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#google.cloud.netapp.v1.NetApp)
+    * [google.cloud.netapp.v1alpha1.NetApp](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#google.cloud.netapp.v1alpha1.NetApp)
+    * [google.cloud.netapp.v1beta1.NetApp](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#google.cloud.netapp.v1beta1.NetApp)
+  * [Methods that don't produce audit logs](https://docs.cloud.google.com/netapp/volumes/docs/monitor/cloud-logging/#exempt-methods)
 
-#  Google Cloud NetApp Volumes audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes audit logging for Google Cloud NetApp Volumes. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
-
+Cloud Audit Logs for Google Cloud NetApp Volumes let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Google Cloud NetApp Volumes API methods generate Cloud Audit Logs.
+For more information about Cloud Audit Logs, see the following documents:
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
   * [Storing and routing audit logs](https://docs.cloud.google.com/logging/docs/audit#storing_and_routing_audit_logs)
@@ -30,22 +72,25 @@ This document describes audit logging for Google Cloud NetApp Volumes. Google Cl
   * [Enable Data Access audit logs](https://docs.cloud.google.com/logging/docs/audit/configure-data-access)
 
 
-
 ## Service name
+To view the Google Cloud NetApp Volumes audit logs, do the following:
+  1. In the Google Cloud console, go to the Logs Explorer page:
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
 
-Google Cloud NetApp Volumes audit logs use the service name `netapp.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="netapp.googleapis.com"
-      
+```
+    protoPayload.serviceName="netapp.googleapis.com"
+  
+```
+
+
 
 ## Methods by permission type
-
 Each IAM permission has a `type` property, whose value is an enum that can be one of four values: `ADMIN_READ`, `ADMIN_WRITE`, `DATA_READ`, or `DATA_WRITE`. When you call a method, Google Cloud NetApp Volumes generates an audit log whose category is dependent on the `type` property of the permission required to perform the method. Methods that require an IAM permission with the `type` property value of `DATA_READ`, `DATA_WRITE`, or `ADMIN_READ` generate [Data Access](https://docs.cloud.google.com/logging/docs/audit#data-access) audit logs. Methods that require an IAM permission with the `type` property value of `ADMIN_WRITE` generate [Admin Activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity) audit logs.
-
-API methods in the following list that are marked with (LRO) are long-running operations (LROs). These methods usually generate two audit log entries: one when the operation starts and another when it ends. For more information see [Audit logs for long-running operations](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro). Permission type | Methods  
----|---  
-`ADMIN_READ` | `google.cloud.netapp.v1.NetApp.GetActiveDirectory`  
+API methods in the following list that are marked with (LRO) are long-running operations (LROs). These methods usually generate two audit log entries: one when the operation starts and another when it ends. For more information see [Audit logs for long-running operations](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro).   
+| Permission type  | Methods  |  
+| --- | --- |  
+| `ADMIN_READ`  |  `google.cloud.netapp.v1.NetApp.GetActiveDirectory`  
 `google.cloud.netapp.v1.NetApp.GetBackupPolicy`  
 `google.cloud.netapp.v1.NetApp.GetBackupVault`  
 `google.cloud.netapp.v1.NetApp.GetKmsConfig`  
@@ -89,8 +134,8 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.netapp.v1beta1.NetApp.ListReplications`  
 `google.cloud.netapp.v1beta1.NetApp.ListSnapshots`  
 `google.cloud.netapp.v1beta1.NetApp.ListStoragePools`  
-`google.cloud.netapp.v1beta1.NetApp.ListVolumes`  
-`ADMIN_WRITE` | `google.cloud.netapp.v1.NetApp.CreateActiveDirectory` (LRO)  
+`google.cloud.netapp.v1beta1.NetApp.ListVolumes`  |  
+| `ADMIN_WRITE`  |  `google.cloud.netapp.v1.NetApp.CreateActiveDirectory` (LRO)  
 `google.cloud.netapp.v1.NetApp.CreateBackupPolicy` (LRO)  
 `google.cloud.netapp.v1.NetApp.CreateBackupVault` (LRO)  
 `google.cloud.netapp.v1.NetApp.CreateKmsConfig` (LRO)  
@@ -126,7 +171,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.netapp.v1alpha1.NetApp.DeleteStoragePool` (LRO)  
 `google.cloud.netapp.v1alpha1.NetApp.ResumeReplication` (LRO)  
 `google.cloud.netapp.v1alpha1.NetApp.StopReplication` (LRO)  
-`google.cloud.netapp.v1alpha1.NetApp.SwitchActiveReplicaZone`  
+`google.cloud.netapp.v1alpha1.NetApp.SwitchActiveReplicaZone` (LRO)  
 `google.cloud.netapp.v1alpha1.NetApp.UpdateActiveDirectory` (LRO)  
 `google.cloud.netapp.v1alpha1.NetApp.UpdateBackup` (LRO)  
 `google.cloud.netapp.v1alpha1.NetApp.UpdateBackupPolicy` (LRO)  
@@ -159,15 +204,15 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.netapp.v1beta1.NetApp.UpdateReplication` (LRO)  
 `google.cloud.netapp.v1beta1.NetApp.UpdateSnapshot` (LRO)  
 `google.cloud.netapp.v1beta1.NetApp.UpdateStoragePool` (LRO)  
-`google.cloud.netapp.v1beta1.NetApp.UpdateVolume` (LRO)  
-`DATA_WRITE` | `google.cloud.netapp.v1.NetApp.CreateBackup` (LRO)  
+`google.cloud.netapp.v1beta1.NetApp.UpdateVolume` (LRO)  |  
+| `DATA_WRITE`  |  `google.cloud.netapp.v1.NetApp.CreateBackup` (LRO)  
 `google.cloud.netapp.v1.NetApp.CreateReplication` (LRO)  
 `google.cloud.netapp.v1.NetApp.CreateSnapshot` (LRO)  
 `google.cloud.netapp.v1.NetApp.DeleteBackup` (LRO)  
 `google.cloud.netapp.v1.NetApp.DeleteReplication` (LRO)  
 `google.cloud.netapp.v1.NetApp.DeleteSnapshot` (LRO)  
 `google.cloud.netapp.v1.NetApp.DeleteVolume` (LRO)  
-`google.cloud.netapp.v1.NetApp.EncryptVolumes`  
+`google.cloud.netapp.v1.NetApp.EncryptVolumes` (LRO)  
 `google.cloud.netapp.v1.NetApp.RevertVolume` (LRO)  
 `google.cloud.netapp.v1alpha1.NetApp.CreateSnapshot` (LRO)  
 `google.cloud.netapp.v1alpha1.NetApp.DeleteSnapshot` (LRO)  
@@ -180,18 +225,12 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.netapp.v1beta1.NetApp.DeleteSnapshot` (LRO)  
 `google.cloud.netapp.v1beta1.NetApp.DeleteVolume` (LRO)  
 `google.cloud.netapp.v1beta1.NetApp.EncryptVolumes` (LRO)  
-`google.cloud.netapp.v1beta1.NetApp.RevertVolume` (LRO)  
-  
+`google.cloud.netapp.v1beta1.NetApp.RevertVolume` (LRO)  |  
 ## API interface audit logs
-
 For information about how and which permissions are evaluated for each method, see the Identity and Access Management documentation for Google Cloud NetApp Volumes.
-
 ### `google.cloud.netapp.v1.NetApp`
-
 The following audit logs are associated with methods belonging to `google.cloud.netapp.v1.NetApp`.
-
 #### `CreateActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.CreateActiveDirectory`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -200,13 +239,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateActiveDirectory"   `  
 
 
 
 #### `CreateBackup`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.CreateBackup`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -215,13 +252,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backups.create - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateBackup" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateBackup"   `  
 
 
 
 #### `CreateBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.CreateBackupPolicy`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -230,13 +265,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateBackupPolicy"   `  
 
 
 
 #### `CreateBackupVault`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.CreateBackupVault`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -245,13 +278,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateBackupVault"   `  
 
 
 
 #### `CreateKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.CreateKmsConfig`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -260,13 +291,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateKmsConfig"   `  
 
 
 
 #### `CreateReplication`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.CreateReplication`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -275,13 +304,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.create - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateReplication"   `  
 
 
 
 #### `CreateSnapshot`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.CreateSnapshot`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -290,13 +317,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.create - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateSnapshot"   `  
 
 
 
 #### `CreateStoragePool`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.CreateStoragePool`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -305,13 +330,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateStoragePool"   `  
 
 
 
 #### `CreateVolume`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.CreateVolume`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -320,13 +343,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.CreateVolume"   `  
 
 
 
 #### `DeleteActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.DeleteActiveDirectory`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -335,13 +356,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteActiveDirectory"   `  
 
 
 
 #### `DeleteBackup`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.DeleteBackup`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -350,13 +369,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backups.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteBackup" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteBackup"   `  
 
 
 
 #### `DeleteBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.DeleteBackupPolicy`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -365,13 +382,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteBackupPolicy"   `  
 
 
 
 #### `DeleteBackupVault`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.DeleteBackupVault`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -380,13 +395,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteBackupVault"   `  
 
 
 
 #### `DeleteKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.DeleteKmsConfig`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -395,13 +408,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteKmsConfig"   `  
 
 
 
 #### `DeleteReplication`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.DeleteReplication`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -410,13 +421,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteReplication"   `  
 
 
 
 #### `DeleteSnapshot`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.DeleteSnapshot`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -425,13 +434,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteSnapshot"   `  
 
 
 
 #### `DeleteStoragePool`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.DeleteStoragePool`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -440,13 +447,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteStoragePool"   `  
 
 
 
 #### `DeleteVolume`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.DeleteVolume`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -455,28 +460,24 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.DeleteVolume"   `  
 
 
 
 #### `EncryptVolumes`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.EncryptVolumes`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
     * `netapp.kmsConfigs.encrypt - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.EncryptVolumes" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.EncryptVolumes"   `  
 
 
 
 #### `GetActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.GetActiveDirectory`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -485,13 +486,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetActiveDirectory"   `  
 
 
 
 #### `GetBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.GetBackupPolicy`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -500,13 +499,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetBackupPolicy"   `  
 
 
 
 #### `GetBackupVault`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.GetBackupVault`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -515,13 +512,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetBackupVault"   `  
 
 
 
 #### `GetKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.GetKmsConfig`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -530,13 +525,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetKmsConfig"   `  
 
 
 
 #### `GetReplication`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.GetReplication`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -545,13 +538,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetReplication"   `  
 
 
 
 #### `GetSnapshot`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.GetSnapshot`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -560,13 +551,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetSnapshot"   `  
 
 
 
 #### `GetStoragePool`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.GetStoragePool`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -575,13 +564,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetStoragePool"   `  
 
 
 
 #### `GetVolume`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.GetVolume`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -590,13 +577,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.GetVolume"   `  
 
 
 
 #### `ListActiveDirectories`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ListActiveDirectories`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -605,13 +590,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListActiveDirectories" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListActiveDirectories"   `  
 
 
 
 #### `ListBackupPolicies`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ListBackupPolicies`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -620,13 +603,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListBackupPolicies" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListBackupPolicies"   `  
 
 
 
 #### `ListBackupVaults`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ListBackupVaults`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -635,13 +616,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListBackupVaults" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListBackupVaults"   `  
 
 
 
 #### `ListBackups`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ListBackups`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -650,13 +629,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backups.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListBackups" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListBackups"   `  
 
 
 
 #### `ListKmsConfigs`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ListKmsConfigs`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -665,13 +642,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListKmsConfigs" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListKmsConfigs"   `  
 
 
 
 #### `ListReplications`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ListReplications`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -680,13 +655,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListReplications" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListReplications"   `  
 
 
 
 #### `ListSnapshots`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ListSnapshots`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -695,13 +668,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListSnapshots" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListSnapshots"   `  
 
 
 
 #### `ListStoragePools`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ListStoragePools`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -710,13 +681,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListStoragePools" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListStoragePools"   `  
 
 
 
 #### `ListVolumes`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ListVolumes`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -725,13 +694,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListVolumes" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ListVolumes"   `  
 
 
 
 #### `ResumeReplication`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ResumeReplication`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -740,13 +707,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.resume - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ResumeReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ResumeReplication"   `  
 
 
 
 #### `ReverseReplicationDirection`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.ReverseReplicationDirection`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -755,13 +720,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.reverse - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.ReverseReplicationDirection" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.ReverseReplicationDirection"   `  
 
 
 
 #### `RevertVolume`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.RevertVolume`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -770,13 +733,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.revert - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.RevertVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.RevertVolume"   `  
 
 
 
 #### `StopReplication`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.StopReplication`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -785,13 +746,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.stop - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.StopReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.StopReplication"   `  
 
 
 
 #### `UpdateActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.UpdateActiveDirectory`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -800,13 +759,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateActiveDirectory"   `  
 
 
 
 #### `UpdateBackup`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.UpdateBackup`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -815,13 +772,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backups.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateBackup" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateBackup"   `  
 
 
 
 #### `UpdateBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.UpdateBackupPolicy`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -830,13 +785,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateBackupPolicy"   `  
 
 
 
 #### `UpdateBackupVault`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.UpdateBackupVault`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -845,13 +798,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateBackupVault"   `  
 
 
 
 #### `UpdateKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.UpdateKmsConfig`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -860,13 +811,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateKmsConfig"   `  
 
 
 
 #### `UpdateReplication`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.UpdateReplication`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -875,13 +824,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateReplication"   `  
 
 
 
 #### `UpdateSnapshot`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.UpdateSnapshot`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -890,13 +837,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateSnapshot"   `  
 
 
 
 #### `UpdateStoragePool`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.UpdateStoragePool`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -905,13 +850,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateStoragePool"   `  
 
 
 
 #### `UpdateVolume`
-
   * **Method** : `google.cloud.netapp.v1.NetApp.UpdateVolume`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -920,17 +863,13 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1.NetApp.UpdateVolume"   `  
 
 
 
 ### `google.cloud.netapp.v1alpha1.NetApp`
-
 The following audit logs are associated with methods belonging to `google.cloud.netapp.v1alpha1.NetApp`.
-
 #### `CreateActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.CreateActiveDirectory`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -939,13 +878,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateActiveDirectory"   `  
 
 
 
 #### `CreateBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.CreateBackupPolicy`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -954,13 +891,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateBackupPolicy"   `  
 
 
 
 #### `CreateBackupVault`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.CreateBackupVault`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -969,13 +904,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateBackupVault"   `  
 
 
 
 #### `CreateKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.CreateKmsConfig`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -984,13 +917,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateKmsConfig"   `  
 
 
 
 #### `CreateSnapshot`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.CreateSnapshot`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -999,13 +930,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.create - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateSnapshot"   `  
 
 
 
 #### `CreateStoragePool`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.CreateStoragePool`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1014,13 +943,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateStoragePool"   `  
 
 
 
 #### `CreateVolume`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.CreateVolume`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1029,13 +956,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.CreateVolume"   `  
 
 
 
 #### `DeleteActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.DeleteActiveDirectory`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1044,13 +969,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteActiveDirectory"   `  
 
 
 
 #### `DeleteBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.DeleteBackupPolicy`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1059,13 +982,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteBackupPolicy"   `  
 
 
 
 #### `DeleteBackupVault`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.DeleteBackupVault`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1074,13 +995,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteBackupVault"   `  
 
 
 
 #### `DeleteKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.DeleteKmsConfig`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1089,13 +1008,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteKmsConfig"   `  
 
 
 
 #### `DeleteSnapshot`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.DeleteSnapshot`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1104,13 +1021,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteSnapshot"   `  
 
 
 
 #### `DeleteStoragePool`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.DeleteStoragePool`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1119,13 +1034,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteStoragePool"   `  
 
 
 
 #### `DeleteVolume`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.DeleteVolume`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1134,13 +1047,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.DeleteVolume"   `  
 
 
 
 #### `GetActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.GetActiveDirectory`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1149,13 +1060,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.GetActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.GetActiveDirectory"   `  
 
 
 
 #### `GetBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.GetBackupPolicy`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1164,13 +1073,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.GetBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.GetBackupPolicy"   `  
 
 
 
 #### `GetSnapshot`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.GetSnapshot`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1179,13 +1086,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.GetSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.GetSnapshot"   `  
 
 
 
 #### `GetStoragePool`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.GetStoragePool`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1194,13 +1099,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.GetStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.GetStoragePool"   `  
 
 
 
 #### `GetVolume`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.GetVolume`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1209,13 +1112,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.GetVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.GetVolume"   `  
 
 
 
 #### `ListActiveDirectories`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.ListActiveDirectories`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1224,13 +1125,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListActiveDirectories" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListActiveDirectories"   `  
 
 
 
 #### `ListBackupPolicies`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.ListBackupPolicies`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1239,13 +1138,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListBackupPolicies" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListBackupPolicies"   `  
 
 
 
 #### `ListKmsConfigs`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.ListKmsConfigs`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1254,13 +1151,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListKmsConfigs" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListKmsConfigs"   `  
 
 
 
 #### `ListSnapshots`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.ListSnapshots`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1269,13 +1164,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListSnapshots" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListSnapshots"   `  
 
 
 
 #### `ListStoragePools`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.ListStoragePools`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1284,13 +1177,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListStoragePools" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListStoragePools"   `  
 
 
 
 #### `ListVolumes`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.ListVolumes`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1299,13 +1190,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListVolumes" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ListVolumes"   `  
 
 
 
 #### `ResumeReplication`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.ResumeReplication`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1314,13 +1203,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.resume - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ResumeReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.ResumeReplication"   `  
 
 
 
 #### `StopReplication`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.StopReplication`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1329,28 +1216,24 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.stop - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.StopReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.StopReplication"   `  
 
 
 
 #### `SwitchActiveReplicaZone`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.SwitchActiveReplicaZone`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
     * `netapp.storagePools.switch - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.SwitchActiveReplicaZone" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.SwitchActiveReplicaZone"   `  
 
 
 
 #### `UpdateActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.UpdateActiveDirectory`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1359,13 +1242,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateActiveDirectory"   `  
 
 
 
 #### `UpdateBackup`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.UpdateBackup`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1374,13 +1255,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backups.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateBackup" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateBackup"   `  
 
 
 
 #### `UpdateBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.UpdateBackupPolicy`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1389,13 +1268,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateBackupPolicy"   `  
 
 
 
 #### `UpdateBackupVault`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.UpdateBackupVault`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1404,13 +1281,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateBackupVault"   `  
 
 
 
 #### `UpdateKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.UpdateKmsConfig`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1419,13 +1294,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateKmsConfig"   `  
 
 
 
 #### `UpdateReplication`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.UpdateReplication`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1434,13 +1307,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateReplication"   `  
 
 
 
 #### `UpdateSnapshot`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.UpdateSnapshot`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1449,13 +1320,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateSnapshot"   `  
 
 
 
 #### `UpdateStoragePool`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.UpdateStoragePool`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1464,13 +1333,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateStoragePool"   `  
 
 
 
 #### `UpdateVolume`
-
   * **Method** : `google.cloud.netapp.v1alpha1.NetApp.UpdateVolume`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1479,17 +1346,13 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1alpha1.NetApp.UpdateVolume"   `  
 
 
 
 ### `google.cloud.netapp.v1beta1.NetApp`
-
 The following audit logs are associated with methods belonging to `google.cloud.netapp.v1beta1.NetApp`.
-
 #### `CreateActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.CreateActiveDirectory`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1498,13 +1361,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateActiveDirectory"   `  
 
 
 
 #### `CreateBackup`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.CreateBackup`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1513,13 +1374,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backups.create - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateBackup" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateBackup"   `  
 
 
 
 #### `CreateBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.CreateBackupPolicy`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1528,13 +1387,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateBackupPolicy"   `  
 
 
 
 #### `CreateBackupVault`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.CreateBackupVault`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1543,13 +1400,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateBackupVault"   `  
 
 
 
 #### `CreateKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.CreateKmsConfig`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1558,13 +1413,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateKmsConfig"   `  
 
 
 
 #### `CreateReplication`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.CreateReplication`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1573,13 +1426,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.create - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateReplication"   `  
 
 
 
 #### `CreateSnapshot`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.CreateSnapshot`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1588,13 +1439,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.create - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateSnapshot"   `  
 
 
 
 #### `CreateStoragePool`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.CreateStoragePool`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1603,13 +1452,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateStoragePool"   `  
 
 
 
 #### `CreateVolume`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.CreateVolume`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1618,13 +1465,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.CreateVolume"   `  
 
 
 
 #### `DeleteActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.DeleteActiveDirectory`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1633,13 +1478,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteActiveDirectory"   `  
 
 
 
 #### `DeleteBackup`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.DeleteBackup`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1648,13 +1491,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backups.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteBackup" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteBackup"   `  
 
 
 
 #### `DeleteBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.DeleteBackupPolicy`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1663,13 +1504,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteBackupPolicy"   `  
 
 
 
 #### `DeleteBackupVault`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.DeleteBackupVault`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1678,13 +1517,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteBackupVault"   `  
 
 
 
 #### `DeleteKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.DeleteKmsConfig`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1693,13 +1530,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteKmsConfig"   `  
 
 
 
 #### `DeleteReplication`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.DeleteReplication`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1708,13 +1543,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteReplication"   `  
 
 
 
 #### `DeleteSnapshot`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.DeleteSnapshot`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1723,13 +1556,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteSnapshot"   `  
 
 
 
 #### `DeleteStoragePool`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.DeleteStoragePool`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -1738,13 +1569,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.delete - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteStoragePool"   `  
 
 
 
 #### `DeleteVolume`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.DeleteVolume`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1753,13 +1582,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.DeleteVolume"   `  
 
 
 
 #### `EncryptVolumes`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.EncryptVolumes`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1768,13 +1595,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.encrypt - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.EncryptVolumes" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.EncryptVolumes"   `  
 
 
 
 #### `GetActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.GetActiveDirectory`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1783,13 +1608,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetActiveDirectory"   `  
 
 
 
 #### `GetBackup`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.GetBackup`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1798,13 +1621,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backups.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetBackup" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetBackup"   `  
 
 
 
 #### `GetBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.GetBackupPolicy`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1813,13 +1634,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetBackupPolicy"   `  
 
 
 
 #### `GetBackupVault`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.GetBackupVault`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1828,13 +1647,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetBackupVault"   `  
 
 
 
 #### `GetKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.GetKmsConfig`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1843,13 +1660,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetKmsConfig"   `  
 
 
 
 #### `GetSnapshot`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.GetSnapshot`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1858,13 +1673,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetSnapshot"   `  
 
 
 
 #### `GetStoragePool`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.GetStoragePool`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1873,13 +1686,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetStoragePool"   `  
 
 
 
 #### `GetVolume`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.GetVolume`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1888,13 +1699,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.GetVolume"   `  
 
 
 
 #### `ListActiveDirectories`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ListActiveDirectories`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1903,13 +1712,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListActiveDirectories" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListActiveDirectories"   `  
 
 
 
 #### `ListBackupPolicies`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ListBackupPolicies`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1918,13 +1725,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListBackupPolicies" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListBackupPolicies"   `  
 
 
 
 #### `ListBackupVaults`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ListBackupVaults`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1933,13 +1738,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListBackupVaults" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListBackupVaults"   `  
 
 
 
 #### `ListBackups`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ListBackups`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1948,13 +1751,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backups.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListBackups" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListBackups"   `  
 
 
 
 #### `ListKmsConfigs`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ListKmsConfigs`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1963,13 +1764,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListKmsConfigs" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListKmsConfigs"   `  
 
 
 
 #### `ListReplications`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ListReplications`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1978,13 +1777,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListReplications" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListReplications"   `  
 
 
 
 #### `ListSnapshots`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ListSnapshots`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -1993,13 +1790,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListSnapshots" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListSnapshots"   `  
 
 
 
 #### `ListStoragePools`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ListStoragePools`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -2008,13 +1803,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListStoragePools" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListStoragePools"   `  
 
 
 
 #### `ListVolumes`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ListVolumes`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -2023,13 +1816,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListVolumes" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ListVolumes"   `  
 
 
 
 #### `ResumeReplication`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ResumeReplication`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2038,13 +1829,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.resume - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ResumeReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ResumeReplication"   `  
 
 
 
 #### `ReverseReplicationDirection`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.ReverseReplicationDirection`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2053,13 +1842,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.reverse - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ReverseReplicationDirection" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.ReverseReplicationDirection"   `  
 
 
 
 #### `RevertVolume`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.RevertVolume`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
@@ -2068,13 +1855,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.revert - DATA_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.RevertVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.RevertVolume"   `  
 
 
 
 #### `StopReplication`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.StopReplication`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2083,13 +1868,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.stop - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.StopReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.StopReplication"   `  
 
 
 
 #### `SwitchActiveReplicaZone`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.SwitchActiveReplicaZone`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2098,13 +1881,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.switch - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.SwitchActiveReplicaZone" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.SwitchActiveReplicaZone"   `  
 
 
 
 #### `UpdateActiveDirectory`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.UpdateActiveDirectory`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2113,13 +1894,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.activeDirectories.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateActiveDirectory" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateActiveDirectory"   `  
 
 
 
 #### `UpdateBackup`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.UpdateBackup`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2128,13 +1907,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backups.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateBackup" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateBackup"   `  
 
 
 
 #### `UpdateBackupPolicy`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.UpdateBackupPolicy`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2143,13 +1920,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupPolicies.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateBackupPolicy" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateBackupPolicy"   `  
 
 
 
 #### `UpdateBackupVault`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.UpdateBackupVault`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2158,13 +1933,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.backupVaults.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateBackupVault" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateBackupVault"   `  
 
 
 
 #### `UpdateKmsConfig`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.UpdateKmsConfig`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2173,13 +1946,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.kmsConfigs.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateKmsConfig" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateKmsConfig"   `  
 
 
 
 #### `UpdateReplication`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.UpdateReplication`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2188,13 +1959,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.replications.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateReplication" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateReplication"   `  
 
 
 
 #### `UpdateSnapshot`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.UpdateSnapshot`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2203,13 +1972,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.snapshots.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateSnapshot" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateSnapshot"   `  
 
 
 
 #### `UpdateStoragePool`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.UpdateStoragePool`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2218,13 +1985,11 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.storagePools.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateStoragePool" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateStoragePool"   `  
 
 
 
 #### `UpdateVolume`
-
   * **Method** : `google.cloud.netapp.v1beta1.NetApp.UpdateVolume`  
 
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
@@ -2233,23 +1998,18 @@ The following audit logs are associated with methods belonging to `google.cloud.
     * `netapp.volumes.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateVolume" `  
-
+  * **Filter for this method** : `     protoPayload.methodName="google.cloud.netapp.v1beta1.NetApp.UpdateVolume"   `  
 
 
 
 ## Methods that don't produce audit logs
-
 A method might not produce audit logs for one or more of the following reasons: 
-
   * It is a high volume method involving significant log generation and storage costs.
   * It has low auditing value.
   * Another audit or platform log already provides method coverage.
 
 
-
 The following methods don't produce audit logs:
-
   * `google.cloud.location.Locations.GetLocation`
   * `google.cloud.location.Locations.ListLocations`
   * `google.cloud.netapp.v1.NetApp.VerifyKmsConfig`
@@ -2262,11 +2022,7 @@ The following methods don't produce audit logs:
   * `google.longrunning.Operations.WaitOperation`
 
 
-
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-27 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

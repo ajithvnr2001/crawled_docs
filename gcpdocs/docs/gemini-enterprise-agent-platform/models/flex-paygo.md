@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/flex-paygo/
 title: Flex PayGo \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:07.218825+00:00
+fetched_at: 2026-10-27T23:54:32.069986+00:00
 ---
 
 # Flex PayGo  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -27,7 +27,6 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 **Notice:** Flex PayGo is supported only in select Gemini 3.8 Flash and earlier models. It is not supported in newer Gemini models such as Gemini 4 Argon. Existing supported models remain available. Consider moving to one of the following options:
 
-  * **[Off-Peak PayGo](https://docs.google.com/document/d/1CEJ6civRFQpmPW9GWwXWouPbxQfluKbtxlyxX2q8yeI/edit?resourcekey=0-hmuWYFTHZzmk3QcehkKtYQ)** : Best for real-time, synchronous traffic that needs off-peak pricing with minimal code changes (`offpeak` API header)
   * **[Batch API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference)** : Best for latency-tolerant, high-volume offline jobs
   * **[Deferred Agentic API](https://docs.google.com/document/d/19WXEk8FPD-QbHzHLfJIV3-cpbep_ZPZjmkrdZNoeXUE/edit?resourcekey=0-oDk0z1zbdv_gAuiQA_zgjg)** : Best for asynchronous agentic and tool-calling workloads for third-party and custom agents
 
@@ -396,6 +395,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

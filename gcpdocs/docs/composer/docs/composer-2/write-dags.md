@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/composer/docs/composer-2/write-dags/
 title: Write Airflow DAGs \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:43:38.342874+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:22:40.247730+00:00
 ---
 
 # Write Airflow DAGs  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -413,7 +427,7 @@ Airflow Operators listed in the following table are deprecated:
   * If an operator is listed as **deprecated** , then it is deprecated and will be removed in a future version of Managed Airflow (Gen 2).
 
 
-**Note:** Make sure to update your DAGs to use replacement operators.Deprecated operator | Replacement operator  
+**Note:** Make sure to update your DAGs to use replacement operators. Deprecated operator | Replacement operator  
 ---|---  
 AutoMLBatchPredictOperator Removed in 13.0.0. Versions: composer-3-airflow-2.10.5-build.0, composer-3-airflow-2.10.2-build.12, composer-3-airflow-2.9.3-build.19, composer-2.12.1-airflow-2.10.5, composer-2.12.0-airflow-2.10.2, composer-2.12.0-airflow-2.9.3. |  vertex_ai.batch_prediction_job Available in 10.24.0. Versions: composer-3-airflow-2.9.3-build.4, composer-2.9.8-airflow-2.9.3.  
 AutoMLCreateDatasetOperator Removed in 19.0.0. Versions: composer-3-airflow-2.10.5-build.22, composer-2.16.0-airflow-2.10.5. |  vertex_ai.dataset.CreateDatasetOperator, translate.TranslateCreateDatasetOperator Available in 19.0.0. Versions: composer-3-airflow-2.10.5-build.22, composer-2.16.0-airflow-2.10.5.  
@@ -554,6 +568,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

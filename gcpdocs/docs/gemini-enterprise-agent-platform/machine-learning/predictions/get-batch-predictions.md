@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/get-batch-predictions/
 title: Get batch inferences from a custom trained model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:32.317319+00:00
+fetched_at: 2026-10-28T02:28:30.784162+00:00
 ---
 
 # Get batch inferences from a custom trained model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -188,7 +188,7 @@ Here is what is sent to the container in the HTTP request body:
 
 Make sure your container knows how to decode the instance.
 
-### BigQuery
+###  BigQuery 
 
 Specify a BigQuery table as `projectId.datasetId.tableId`. Agent Platform transforms each row from the table to a JSON instance.
 
@@ -318,7 +318,7 @@ Use the Google Cloud console to request a batch inference.
 
         * If you have formatted your input as JSON Lines, CSV, or TFRecord, select **File on Cloud Storage (JSON Lines, CSV, TFRecord, TFRecord Gzip)**. Then specify your input file in the **Source path** field.
         * If you are using a file list as input, select **Files on Cloud Storage (other)** and paste your file list into the following field.
-        * For BigQuery input, select **BigQuery path**. If you select BigQuery as input, you must also select BigQuery as output and Google-managed encryption key. Customer-managed encryption key (CMEK) isn't supported with BigQuery as input/output.
+        * For BigQuery input, select **BigQuery path**. If you select BigQuery as input, you must also select BigQuery as output and Google-managed encryption key. Customer-managed encryption keys (CMEK) isn't supported with BigQuery as input/output.
      4. In the **Destination path** field, specify the Cloud Storage directory where you want Agent Platform to store batch inference output.
 
      5. Optionally, you can check **Enable feature attributions for this model** to get [feature attributions](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview) as part of the batch inference response. Then click **Edit** to [configure explanation settings](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/configuring-explanations). (Editing the explanation settings is optional if you previously configured explanation settings for the model, and required otherwise.)
@@ -489,7 +489,7 @@ In the following sample, replace PREDICTIONS_FORMAT with `jsonl`. To learn how t
     import com.google.cloud.aiplatform.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.LocationName.html);
     import com.google.cloud.aiplatform.v1.[MachineSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.MachineSpec.html);
     import com.google.cloud.aiplatform.v1.[ModelName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelName.html);
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
+    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html);
     import java.io.IOException;
     
     public class CreateBatchPredictionJobSample {
@@ -534,7 +534,7 @@ In the following sample, replace PREDICTIONS_FORMAT with `jsonl`. To learn how t
         try ([JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html) client = [JobServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.JobServiceClient.html).create(settings)) {
     
           // Passing in an empty Value object for model parameters
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) modelParameters = [ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html).EMPTY_VALUE;
+          [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html) modelParameters = [ValueConverter](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.util.ValueConverter.html).EMPTY_VALUE;
     
           [GcsSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsSource.html) gcsSource = [GcsSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsSource.html).newBuilder().[addUris](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.GcsSource.Builder.html#com_google_cloud_aiplatform_v1_GcsSource_Builder_addUris_java_lang_String_)(gcsSourceUri).build();
           [BatchPredictionJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.BatchPredictionJob.html).[InputConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.BatchPredictionJob.InputConfig.html) inputConfig =
@@ -814,6 +814,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

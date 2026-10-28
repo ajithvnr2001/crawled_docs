@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/samples/managedkafka-list-clusters/
 title: List the Kafka clusters \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:37:20.165780+00:00
+fetched_at: 2026-10-27T21:58:57.761373+00:00
 ---
 
 # List the Kafka clusters  |  Managed Service for Apache Kafka  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/hubspot-custom-field-mapping/
 title: HubSpot custom field mapping \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:27.900353+00:00
+fetched_at: 2026-10-27T23:27:39.891355+00:00
 ---
 
 # HubSpot custom field mapping  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation

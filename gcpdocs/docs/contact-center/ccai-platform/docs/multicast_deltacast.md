@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/multicast_deltacast/
 title: Multicast and deltacast \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:16.903183+00:00
+fetched_at: 2026-10-27T22:32:08.751676+00:00
 ---
 
 # Multicast and deltacast  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -54,19 +54,57 @@ Missed Call status is independent of the Missed Chat threshold. Calls are not pr
 
 ### Deltacast routing logic for calls
 
-  1. An incoming call is routed to the agent in status Available with the longest duration since they last ended a call.
+  1. An incoming call is routed to the eligible agent in Available status with the longest idle time. For details about how idle time is measured, see How deltacast measures idle time.
 
-**Note:** This is reset each time you sign in. If you sign in multiple times within a thirty-minute period, only the first sign-in causes a reset.
   2. If the agent does not answer within the time set in the deltacast timeout setting:
 
-     * If there are remaining deltacast attempt counts for the call, the call is routed to an available agent with the next longest duration.
+     * If there are remaining deltacast attempt counts for the call, the call is routed to the available agent with the next longest idle time.
 
      * If the deltacast attempt count has run out, the call is routed using multicast to the rest of the agents assigned to that queue menu option.
 
-  3. If a call or chat offer is sent to an agent and it times out, is skipped, or is canceled before they respond, that also resets their timer — even though the agent never actually handled the interaction.
 
 
 
+#### How deltacast measures idle time
+
+Deltacast doesn't measure how long an agent has been in Available status. Instead, each agent has a single idle timer that records when they last finished, missed, or declined an interaction. This timer is shared between calls and chats. When deltacast offers a call, it picks the eligible agent whose timer is oldest.
+
+The following events reset an agent's idle timer:
+
+  * A call or chat that the agent handled ends. The timer resets when the agent enters wrap-up or when the session finishes.
+
+  * A deltacast call or chat is offered to the agent and times out, is skipped, or is canceled before the agent responds. This moves the agent to the end of the line even though they never handled the interaction.
+
+  * The agent signs in after being signed out for at least 30 minutes. Signing in after a shorter gap, for example after a brief disconnection or a browser restart, doesn't reset the timer. This prevents agents from moving to the end of the line by signing out and signing back in.
+
+
+
+
+The following events don't reset an agent's idle timer:
+
+  * Changing status, for example from Away or an auxiliary status to Available. An agent who returns from a break is ranked by when their last interaction ended, not by when they changed their status to Available.
+
+  * Signing in again after being signed out for less than 30 minutes.
+
+
+
+
+If an agent has never handled an interaction since signing in, their most recent sign-in time is used as their idle timer.
+
+When two or more eligible agents are tied, deltacast prefers the agent with no active chats. Remaining ties are broken in a consistent order so that routing is deterministic.
+
+The following example shows how this works in practice:
+
+  * Agent A has been in Available status since their last call ended 30 minutes ago.
+
+  * Agent B returns from a 2-hour break and changes their status from Away to Available. Agent B's last call ended 2 hours ago.
+
+  * Agent C signs in for the first time today and sets their status to Available.
+
+
+
+
+When the next call arrives, it's offered to Agent B first, because their idle timer is the oldest. Agent A is next, and then Agent C, whose timer was reset when they signed in.
 
 #### If cascade groups are also being used
 
@@ -253,14 +291,16 @@ When a chat enters the queue, deltacast routes it as follows:
 
 Longest idle routing distributes workload more evenly. The routing behavior is as follows:
 
-  * If multiple agents are available, the system routes the chat to the agent with the longest duration since they were last in a chat.
+  * If multiple agents are available, the system routes the chat to the agent with the longest idle time.
 
   * If all assigned agents are in a call or a chat, the system routes the chat to the agent who has the fewest concurrent chats. If an agent is on a call, the call counts as the number of chats specified by the administrator.
 
-  * If multiple agents have the same number of concurrent chats, the system routes the chat to the agent with the longest duration since they received or were offered a chat.
+  * If multiple agents have the same number of concurrent chats, the system routes the chat to the agent with the longest idle time.
 
 
-**Note:** This is reset each time you sign in. If you sign in multiple times within a thirty-minute period, only the first sign-in causes a reset.
+
+
+Idle time for chat is measured using the same idle timer that deltacast uses for calls. The timer resets when the agent finishes a call or chat, misses or declines a deltacast offer, or signs in after being signed out for more than 30 minutes. It doesn't reset when the agent changes status, for example from Away to Available. For details, see How deltacast measures idle time.
 
 ##### Fewest agents routing
 
@@ -396,6 +436,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

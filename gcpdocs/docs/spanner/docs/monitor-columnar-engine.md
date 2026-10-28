@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/monitor-columnar-engine/
 title: Monitor columnar engine performance \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:42:00.757766+00:00
+fetched_at: 2026-10-28T00:17:50.765602+00:00
 ---
 
 # Monitor columnar engine performance  |  Spanner  |  Google Cloud Documentation
@@ -70,11 +70,16 @@ To view columnar data storage metrics:
 
 `SPANNER_SYS.QUERY_STATS_TOP_*` tables have a column named `AVG_COLUMNAR_READ_SHARE`, which is an average percentage of bytes read from columnar storage out of total bytes read from both row-based and columnar storage. A high percentage is optimal, while a low percentage suggests that much of the data remains unconverted to columnar format.
 
+## Table sizes statistics
+
+The `SPANNER_SYS.TABLE_SIZES_STATS_1HOUR` table includes columns such as `COLUMNAR_USED_BYTES` and `COLUMNAR_COVERAGE_RATIO` that let you monitor the columnar storage size and the ratio of columnar-formatted data to total data for tables and indexes. For more information, see [Table sizes statistics](https://docs.cloud.google.com/spanner/docs/introspection/table-sizes-statistics).
+
 ## What's next
 
   * Learn about [columnar engine](https://docs.cloud.google.com/spanner/docs/columnar-engine).
   * Learn how to [enable columnar engine](https://docs.cloud.google.com/spanner/docs/configure-columnar-engine).
   * Learn how to [query columnar data](https://docs.cloud.google.com/spanner/docs/query-columnar-data).
+  * Learn about [table sizes statistics](https://docs.cloud.google.com/spanner/docs/introspection/table-sizes-statistics).
 
 
 
@@ -82,6 +87,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

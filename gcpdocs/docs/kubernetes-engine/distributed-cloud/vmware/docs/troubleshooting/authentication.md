@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/authentication/
 title: Troubleshoot Google Distributed Cloud authentication issues \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:06.044096+00:00
+fetched_at: 2026-10-28T02:29:59.630482+00:00
 ---
 
 # Troubleshoot Google Distributed Cloud authentication issues  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,18 +21,9 @@ Send feedback
 
 #  Troubleshoot Google Distributed Cloud authentication issues Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document helps troubleshoot authentication issues in Google Distributed Cloud. General troubleshooting information and guidance is provided, along with specific information for OpenID Connect (OIDC) and Lightweight Directory Access Protocol (LDAP).
+You can diagnose and resolve authentication and authorization failures in Google Distributed Cloud by checking your `gcloud anthos auth` installation, tokens, RBAC permissions, network connectivity, and GKE Identity Service configuration. These checks help you isolate OpenID Connect (OIDC) and Lightweight Directory Access Protocol (LDAP) errors and restore user access to your clusters.
 
-OIDC and LDAP authentication uses GKE Identity Service. Before you can use GKE Identity Service with Google Distributed Cloud, you must configure an identity provider. If you haven't configured an identity provider for GKE Identity Service, follow the instructions for one of the more common following providers:
-
-  * [Google OIDC](https://developers.google.com/identity/protocols/oauth2/openid-connect)
-  * [Microsoft ADFS](https://docs.cloud.google.com/anthos/identity/setup/provider#microsoft-ad-fs)
-  * [Azure AD](https://docs.cloud.google.com/anthos/identity/setup/provider#azure-ad)
-  * [Okta](https://developer.okta.com/docs/guides/quickstart/main/)
-
-
-
-Review the [GKE Identity Service identity provider troubleshooting guide](https://docs.cloud.google.com/anthos/identity/setup/user-access-troubleshooting#troubleshoot_identity_providers) for information on how to enable and review identity logs and test connectivity.
+Before you troubleshoot authentication, verify that you have configured an external identity provider—such as [Google OIDC](https://developers.google.com/identity/protocols/oauth2/openid-connect), [Microsoft AD FS](https://docs.cloud.google.com/kubernetes-engine/enterprise/identity/setup/provider#microsoft-ad-fs), [Microsoft Entra ID](https://docs.cloud.google.com/kubernetes-engine/enterprise/identity/setup/provider#microsoft-entra-id), [Okta](https://developer.okta.com/docs/guides/quickstart/main/), or an [LDAP provider](https://docs.cloud.google.com/kubernetes-engine/enterprise/identity/setup/provider-ldap). To inspect detailed request logs and test provider reachability, see the [GKE Identity Service identity provider troubleshooting guide](https://docs.cloud.google.com/kubernetes-engine/enterprise/identity/setup/user-access-troubleshooting#troubleshoot_identity_providers).
 
 ## General troubleshooting
 
@@ -790,6 +781,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

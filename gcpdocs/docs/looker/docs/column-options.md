@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/column-options/
 title: Column chart options \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:37.540614+00:00
+fetched_at: 2026-10-28T02:29:39.138643+00:00
 ---
 
 # Column chart options  |  Looker  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ Some of the options that are listed on this documentation page may be grayed out
 
 You can specify how [series](https://docs.cloud.google.com/looker/docs/creating-visualizations#series-def) are clustered visually on a chart. Not all of the following options apply to all chart types:
 
-  * **Grouped** : For column and bar charts. Series are clustered side-by-side.
+  * **Grouped** : For column, and bar charts. Series are clustered side-by-side.
   * **Overlay** : For scatterplot, line, and area charts. Series are overlaid on the chart.
   * **Stacked** : Series values are added on the y-axis, so that each consecutive series appears above the last. Be sure that the units of all series match.
   * **Stacked Percentage** : Series values are presented as percentages stacked on the y-axis, where all values add up to between 99% and 101%. For additional precision, increase the **Value Format** decimal places.
@@ -126,8 +126,6 @@ In the Data section of the Look or Explore, excluded rows are shaded in a darker
 This option is dependent on the row order. Changing the query's sort order or adding a row limit can change the rows that are shown or hidden in the visualization.
 
 ### Edit Chart Config
-
-![](https://docs.cloud.google.com/static/looker/docs/images/advanced-editor-button-2308.png)
 
 The **Edit Chart Config** button at the bottom of the visualization menu opens the [Chart Config Editor](https://docs.cloud.google.com/looker/docs/advanced-visualization-editor). This editor lets you modify [HighCharts](https://api.highcharts.com/highcharts/chart) visualizations by exposing certain JSON parameters of the visualization, enabling deep customization. These customizations will not dynamically interact with data.
 
@@ -605,6 +603,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

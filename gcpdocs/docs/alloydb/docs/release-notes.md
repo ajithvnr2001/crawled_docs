@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/release-notes/
 title: AlloyDB for PostgreSQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:38.520696+00:00
+fetched_at: 2026-10-27T18:38:17.671375+00:00
 ---
 
 # AlloyDB for PostgreSQL release notes  |  Google Cloud Documentation
@@ -28,6 +28,29 @@ This page documents production updates to AlloyDB for PostgreSQL. Check this pag
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/alloydb-release-notes.xml) directly. 
+
+## October 27, 2026
+
+Announcement
+
+The following AlloyDB AI functions and improvements are available in [Preview](https://cloud.google.com/products#product-launch-stages):
+
+  * The `ai.extract` function lets you extract structured data from unstructured text directly within your database queries without needing external extraction pipelines. For more information, see [Extract structured data](https://docs.cloud.google.com/alloydb/docs/ai/extract-structured-data).
+
+  * The `ai.classify` function lets you categorize unstructured text into predefined labels directly within your database queries. For more information, see [Classify text](https://docs.cloud.google.com/alloydb/docs/ai/classify-text).
+
+  * Parameter names and signatures for AI query engine functions (`ai.analyze_sentiment`, `ai.summarize`, and `ai.agg_summarize`) are updated. For more information, see [Model endpoint reference](https://docs.cloud.google.com/alloydb/docs/reference/model-endpoint).
+
+    * The `prompt` and `prompts` parameters are renamed to `input` and `inputs` in scalar and batch functions respectively.
+
+    * An optional `additional_instructions` parameter is added to `ai.summarize` and `ai.agg_summarize` to provide custom instructions to guide summary formatting, length, and tone.
+
+    * In cursor-based versions of `ai.analyze_sentiment` and `ai.summarize`, the `prompt` parameter is removed.
+
+    * `ai.agg_summarize` supports multiple positional signatures, including passing optional additional instructions and specifying model IDs.
+
+
+
 
 ## October 19, 2026
 
@@ -2189,6 +2212,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

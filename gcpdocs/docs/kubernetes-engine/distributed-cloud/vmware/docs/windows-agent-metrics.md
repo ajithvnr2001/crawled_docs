@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/windows-agent-metrics/
 title: Windows agent metrics \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:47:11.071841+00:00
+fetched_at: 2026-10-28T02:29:59.998796+00:00
 ---
 
 # Windows agent metrics  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -20,7 +20,7 @@ Send feedback
 
 #  Windows agent metrics Stay organized with collections  Save and categorize content based on your preferences. 
 
-This topic lists metrics captured by the Windows agent.
+The Windows agent collects node health, system performance, and container resource utilization data from Windows worker nodes in Google Distributed Cloud clusters. The following list shows the metrics that the agent gathers from the kubelet, the Summary API, and the OpenTelemetry Collector. All metric names use the `kubernetes.io/anthos/` prefix.
     
     
     # Summary API metrics:
@@ -130,7 +130,7 @@ This topic lists metrics captured by the Windows agent.
     kubernetes.io/anthos/process_open_fds
     kubernetes.io/anthos/process_resident_memory_bytes
     kubernetes.io/anthos/process_start_time_seconds
-    kubernetes.io/anthos/process_virtua
+    kubernetes.io/anthos/process_virtual
     kubernetes.io/anthos/process_virtual_memory_bytes
     kubernetes.io/anthos/rest_client_exec_plugin_certificate_rotation_age
     kubernetes.io/anthos/rest_client_exec_plugin_ttl_seconds
@@ -165,6 +165,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

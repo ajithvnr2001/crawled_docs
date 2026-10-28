@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/dataflow-component/
 title: Dataflow components \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:42:46.234459+00:00
+fetched_at: 2026-10-28T02:28:46.089711+00:00
 ---
 
 # Dataflow components  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ The Python code of the Apache Beam job runs with Dataflow Runner. When you run y
 
 To learn more about the Dataflow Runner, see [Using the Dataflow Runner](https://beam.apache.org/documentation/runners/dataflow/).
 
-The Dataflow Python component accepts a list of arguments that are passed using the Beam Runner to your Apache Beam code. These arguments are specified by `args`. For example, you can use these arguments to set the [`apache_beam.options.pipeline_options`](https://beam.apache.org/releases/pydoc/2.33.0/apache_beam.options.pipeline_options.html#apache_beam.options.pipeline_options.PipelineOptions) to specify a network, a subnetwork, customer-managed encryption key (CMEK), and other options when you run Dataflow jobs.
+The Dataflow Python component accepts a list of arguments that are passed using the Beam Runner to your Apache Beam code. These arguments are specified by `args`. For example, you can use these arguments to set the [`apache_beam.options.pipeline_options`](https://beam.apache.org/releases/pydoc/2.33.0/apache_beam.options.pipeline_options.html#apache_beam.options.pipeline_options.PipelineOptions) to specify a network, a subnetwork, Customer-managed encryption keys (CMEK), and other options when you run Dataflow jobs.
 
 ## `WaitGcpResourcesOp`
 
@@ -93,7 +93,7 @@ For more information about how to create `gcp_resources` output parameter, see [
   * [Get started with the Dataflow Flex Template component](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/fe7d3e4b8edc137d90ec061789b879b7cc8d3854/notebooks/community/ml_ops/stage3/get_started_with_dataflow_flex_template_component.ipynb)
   * [Get started with the Dataflow Python Job component](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/139d805c9fac45f3a663d4f4651fbca4bb0932b7/notebooks/community/ml_ops/stage3/get_started_with_dataflow_pipeline_components.ipynb)
   * [Specify a network and subnetwork](https://docs.cloud.google.com/dataflow/docs/guides/specifying-networks#network_parameter)
-  * [Using customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/dataflow/docs/guides/customer-managed-encryption-keys)
+  * [Using Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/dataflow/docs/guides/customer-managed-encryption-keys)
 
 
 
@@ -109,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

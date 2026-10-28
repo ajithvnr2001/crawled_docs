@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-grounded-generation-inline-vais/
 title: Grounded Generation with Inline and Vertex AI Search data \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:21:25.799071+00:00
+fetched_at: 2026-10-27T16:30:02.573030+00:00
 ---
 
 # Grounded Generation with Inline and Vertex AI Search data  |  Agent Search  |  Google Cloud Documentation

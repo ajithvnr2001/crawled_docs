@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/overview/
 title: AlloyDB Omni for Kubernetes overview \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:28:24.392009+00:00
+fetched_at: 2026-10-27T19:18:16.436363+00:00
 ---
 
 # AlloyDB Omni for Kubernetes overview  |  AlloyDB Omni for Kubernetes: 16.9.0  |  Google Cloud Documentation
@@ -77,12 +77,12 @@ AlloyDB Omni uses Kubernetes through a dedicated AlloyDB Omni Kubernetes operato
 The following describes how AlloyDB Omni for Kubernetes works:
 
   1. Operator deployment: the AlloyDB Omni operator is installed into your Kubernetes cluster, which can be on Google Cloud (GKE), AWS (EKS), Azure (AKS), [OpenShift](https://catalog.redhat.com/en/software/container-stacks/detail/6837eb3b9137db6941d32436#overview), or on-premises.
-  2. Custom Resources: the AlloyDB Omni operator defines Kubernetes Custom Resource Definitions (CRDs), including [`DBCluster`](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/reference/kubernetes-crds-1.6.0/dbcluster). Users interact with AlloyDB Omni by creating and managing these [`DBCluster`](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/reference/kubernetes-crds-1.6.0/dbcluster) custom resources using standard Kubernetes tools like `kubectl`.
+  2. Custom Resources: the AlloyDB Omni operator defines Kubernetes Custom Resource Definitions (CRDs), including [`DBCluster`](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/reference/kubernetes-crds-1.6.3/dbcluster). Users interact with AlloyDB Omni by creating and managing these [`DBCluster`](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/reference/kubernetes-crds-1.6.3/dbcluster) custom resources using standard Kubernetes tools like `kubectl`.
   3. Lifecycle management: the AlloyDB Omni operator looks for these custom resources and automates the complex tasks involved in the lifecycle management of an AlloyDB Omni database instance.
 
 This database lifecycle includes the following Day 0 and Day 1 operations:
 
-     * Provisioning: setting up the database instance based on the [`DBCluster`](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/reference/kubernetes-crds-1.6.0/dbcluster) specification, including custom port configurations and sidecar container integration.
+     * Provisioning: setting up the database instance based on the [`DBCluster`](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/reference/kubernetes-crds-1.6.3/dbcluster) specification, including custom port configurations and sidecar container integration.
      * High availability: configuring and managing failover mechanisms, multi-zone topology spread, and read pool scaling to ensure database availability.
      * Disaster recovery: enabling features like cross-region DR with standby databases and rewind trigger functionality.
      * Backups: managing automated backup processes, including reliable backups from standby instances.
@@ -97,7 +97,7 @@ The AlloyDB Omni operator is available through different packaging, including He
 
 ## What's next
 
-  * Learn about the [AlloyDB Omni availability reference architecture](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/database-availability-reference-architecture-overview)
+  * Learn about the [AlloyDB Omni availability reference architecture](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/database-availability-reference-architecture-overview).
   * [Choose compatible Kubernetes operator and database cluster versions](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/choose-compatible-versions).
   * Choose an [AlloyDB for PostgreSQL download or installation option](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/available-download-install-options).
   * [Install AlloyDB Omni on Kubernetes](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.9.0/docs/deploy-kubernetes).
@@ -109,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/automated-rdma-nccl-installer/
 title: Configure GPUDirect RDMA with the automated NCCL installer \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:18.286583+00:00
+fetched_at: 2026-10-28T02:30:03.059369+00:00
 ---
 
 # Configure GPUDirect RDMA with the automated NCCL installer  |  GKE networking  |  Google Cloud Documentation
@@ -32,11 +32,13 @@ To solve this operational challenge, you can combine the automated RDMA NCCL ins
 
 For more information, see [Create a cluster with GPUDirect RDMA](https://docs.cloud.google.com/ai-hypercomputer/docs/create/gke-ai-hypercompute-custom#create-with-rdma).
 
+**Note:** The automated RDMA NCCL installer is available only in the [Rapid release channel](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/release-channels).
+
 ## Benefits
 
 The automated RDMA NCCL installer provides the following benefits:
 
-  * **Automatic installation of RDMA NCCL libraries:** starting with GKE version 1.36.2-gke.1368000, you can enable automatic installation of the RDMA [NCCL/gIB libraries](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/overview) designed for optimal GPU networking performance on Google Cloud during node pool creation by using a single flag.
+  * **Automatic installation of RDMA NCCL libraries:** starting with GKE version 1.34.8-gke.1278000 for Standard clusters and version 1.36.2-gke.1368000 for Autopilot clusters, you can enable automatic installation of the RDMA [NCCL/gIB libraries](https://docs.cloud.google.com/ai-hypercomputer/docs/nccl/overview) designed for optimal GPU networking performance on Google Cloud during node pool creation by using a single flag.
   * **Simplified configuration for running RDMA workloads:** by combining the automated RDMA NCCL installer, [automated networking for accelerator VMs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/config-auto-net-for-accelerators), and [GKE managed DRANET](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/allocate-network-resources-dra), you can deploy RDMA-enabled AI workloads without manual network configuration.
   * **Compatibility and safe upgrades:** the RDMA NCCL binaries provided by the installer pass end-to-end qualification tests before each GKE release. This testing ensures that the RDMA user-space libraries remain compatible with the specific kernel versions used in GKE, so that you can safely upgrade your clusters and node pools without disrupting running workloads.
 
@@ -46,7 +48,7 @@ The automated RDMA NCCL installer provides the following benefits:
 
 The automated RDMA NCCL installer has the following limitations:
 
-  * The automated RDMA NCCL installer is supported on GKE version 1.36.2-gke.1368000 or later.
+  * The automated RDMA NCCL installer is supported on GKE Standard clusters starting with version 1.34.8-gke.1278000 and on Autopilot clusters starting with version 1.36.2-gke.1368000.
   * You can use the automated RDMA NCCL installer only on `a3-ultragpu-8g` and `a4-highgpu-8g` machine types.
   * If you use GKE managed DRANET to configure workloads, review the [key considerations and limitations for GKE managed DRANET](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/allocate-network-resources-dra#key-considerations).
   * You can't use both the multi-network API and DRANET in the same node pool. You must choose one method for network attachment for your Pods.
@@ -59,7 +61,7 @@ The automated RDMA NCCL installer has the following limitations:
 
 Before you start, make sure you have performed the following tasks:
 
-  * Verify that your cluster uses GKE version 1.36.2-gke.1368000 or later.
+  * Verify that your cluster uses GKE version 1.34.8-gke.1278000 or later for Standard clusters, or version 1.36.2-gke.1368000 or later for Autopilot clusters.
   * Verify that you use the [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud) version 550.0.0 or later.
   * Ensure that you have an existing Autopilot or Standard cluster. To create a new cluster, see [Create an Autopilot cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/creating-an-autopilot-cluster).
   * Verify that your cluster has [GKE Dataplane V2 enabled](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2#create-cluster). (You can enable GKE Dataplane V2 when you create a new cluster by specifying the `--enable-dataplane-v2` flag.) GKE Dataplane V2 is enabled by default for all new Autopilot clusters.
@@ -229,13 +231,15 @@ Replace the following:
            initial_node_count  = 3 # Number of CPU nodes in default pool
            deletion_protection = false # Optional, allows Terraform to delete clusters
          
-           min_master_version      = "1.36.2-gke.1368000" # Required, min version with automated RDMA NCCL installer support
+           min_master_version      = "1.34.8-gke.1278000" # Required, min version for Standard clusters with automated RDMA NCCL installer support
            datapath_provider       = "ADVANCED_DATAPATH" # Required, enable GKE Dataplane v2
          }
          
          resource "google_container_node_pool" "rdma_pool" {
+           name       = "rdma-pool"
            cluster    = google_container_cluster.cluster.name
            location   = google_container_cluster.cluster.location
+           node_count = 3
          
            network_config {
              accelerator_network_profile = "auto" # Required if per-NIC networks are not manually configured
@@ -256,7 +260,8 @@ Replace the following:
              gpudirect_strategy = "RDMA"
          
              labels = {
-               "cloud.google.com/gke-networking-dra-driver" = "true" # Automatically install DRANET driver
+               "cloud.google.com/gke-networking-dra-driver"  = "true" # Automatically install DRANET driver
+               "gke.networks.io/accelerator-network-profile" = "auto"
              }
            }
          }
@@ -547,18 +552,18 @@ To create a node pool with the automated RDMA NCCL installer, run the following 
     export RESERVATION=RESERVATION
     
     gcloud container node-pools create ${NODE_POOL_NAME} --project ${PROJECT_ID} \
-      --zone ${ZONE} --cluster ${CLUSTER_NAME} --num-nodes=${NODE_COUNT} \
+      --location ${CONTROL_PLANE_LOCATION} --node-locations ${ZONE} --cluster ${CLUSTER_NAME} --num-nodes=${NODE_COUNT} \
       --machine-type ${MACHINE_TYPE} \
       --accelerator type=${ACCELERATOR_TYPE},count=${ACCELERATOR_COUNT},gpu-driver-version=${DRIVER_VERSION} \
-      --additional-node-network network=${GVNIC_NETWORK_PREFIX}-net-0,subnetwork=${GVNIC_NETWORK_PREFIX}-sub-0 \
-      --additional-node-network network=${RDMA_NETWORK_PREFIX},subnetwork=${RDMA_NETWORK_PREFIX}-sub-0 \
-      --additional-node-network network=${RDMA_NETWORK_PREFIX},subnetwork=${RDMA_NETWORK_PREFIX}-sub-1 \
-      --additional-node-network network=${RDMA_NETWORK_PREFIX},subnetwork=${RDMA_NETWORK_PREFIX}-sub-2 \
-      --additional-node-network network=${RDMA_NETWORK_PREFIX},subnetwork=${RDMA_NETWORK_PREFIX}-sub-3 \
-      --additional-node-network network=${RDMA_NETWORK_PREFIX},subnetwork=${RDMA_NETWORK_PREFIX}-sub-4 \
-      --additional-node-network network=${RDMA_NETWORK_PREFIX},subnetwork=${RDMA_NETWORK_PREFIX}-sub-5 \
-      --additional-node-network network=${RDMA_NETWORK_PREFIX},subnetwork=${RDMA_NETWORK_PREFIX}-sub-6 \
-      --additional-node-network network=${RDMA_NETWORK_PREFIX},subnetwork=${RDMA_NETWORK_PREFIX}-sub-7 \
+      --additional-node-network network=${GVNIC_NETWORK_PREFIX}-net,subnetwork=${GVNIC_NETWORK_PREFIX}-sub \
+      --additional-node-network network=${RDMA_NETWORK_PREFIX}-net,subnetwork=${RDMA_NETWORK_PREFIX}-sub-0 \
+      --additional-node-network network=${RDMA_NETWORK_PREFIX}-net,subnetwork=${RDMA_NETWORK_PREFIX}-sub-1 \
+      --additional-node-network network=${RDMA_NETWORK_PREFIX}-net,subnetwork=${RDMA_NETWORK_PREFIX}-sub-2 \
+      --additional-node-network network=${RDMA_NETWORK_PREFIX}-net,subnetwork=${RDMA_NETWORK_PREFIX}-sub-3 \
+      --additional-node-network network=${RDMA_NETWORK_PREFIX}-net,subnetwork=${RDMA_NETWORK_PREFIX}-sub-4 \
+      --additional-node-network network=${RDMA_NETWORK_PREFIX}-net,subnetwork=${RDMA_NETWORK_PREFIX}-sub-5 \
+      --additional-node-network network=${RDMA_NETWORK_PREFIX}-net,subnetwork=${RDMA_NETWORK_PREFIX}-sub-6 \
+      --additional-node-network network=${RDMA_NETWORK_PREFIX}-net,subnetwork=${RDMA_NETWORK_PREFIX}-sub-7 \
       --scopes "https://www.googleapis.com/auth/cloud-platform" \
       --reservation-affinity=specific \
       --reservation=${RESERVATION} \
@@ -575,6 +580,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

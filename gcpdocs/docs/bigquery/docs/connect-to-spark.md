@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/connect-to-spark/
 title: Connect to Apache Spark \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:40:11.758009+00:00
+fetched_at: 2026-10-27T19:38:51.846794+00:00
 ---
 
 # Connect to Apache Spark  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Connect to Apache Spark
 
-As a BigQuery administrator, you can create a [connection](https://docs.cloud.google.com/bigquery/docs/connections-api-intro) to enable data analysts to [run stored procedures for Apache Spark](https://docs.cloud.google.com/bigquery/docs/spark-procedures).
+An Apache Spark [connection](https://docs.cloud.google.com/bigquery/docs/connections-api-intro) in BigQuery lets users connect BigQuery to Managed Service for Apache Spark so that you can [run stored procedures for Apache Spark](https://docs.cloud.google.com/bigquery/docs/spark-procedures). You can create this connection, grant the required permissions to its service account, and share the connection with users.
 
 ## Before you begin
 
@@ -302,6 +302,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

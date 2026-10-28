@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/configure-capacity-buffer/
 title: Configure capacity buffers \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:05.059596+00:00
+fetched_at: 2026-10-27T22:14:44.362240+00:00
 ---
 
 # Configure capacity buffers  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -600,6 +600,22 @@ To resolve the quota limit, do one of the following:
 
 
 
+### DaemonSet Pods stop receiving data after a standby node resumes
+
+After a suspended standby buffer node resumes, DaemonSet Pods on that node might stop receiving data over long-lived connections that were opened before the node was suspended. The Pods don't log any errors and don't reconnect.
+
+This issue occurs when a DaemonSet Pod acts as a receive-only client, such as for a streaming HTTP response, a WebSocket connection, server-sent events, or a gRPC server-streaming call. While the standby node is suspended, the server or an intermediate network device times out and closes the connection. When the node resumes, the Pod's network stack still considers the connection open. Because the Pod doesn't send any data, it never detects that the connection was closed and waits for data indefinitely.
+
+To resolve this issue, configure the client application in your DaemonSet Pod to detect closed connections and reconnect by doing one of the following:
+
+  * Configure client-side TCP keepalive in your Pod's application (enabling keepalive only on the server doesn't notify the Pod). For more information about TCP keepalive parameters, see [Idle connections](https://docs.cloud.google.com/compute/docs/troubleshooting/general-tips#idle-connections). 
+    1. Enable the `SO_KEEPALIVE` socket option in your client library or language runtime, such as `socket.setKeepAlive(true, initialDelay)` in Node.js or `net.Dialer.KeepAlive` in Go. Some runtimes disable TCP keepalive by default.
+    2. Configure a short keepalive idle time (`TCP_KEEPIDLE`), such as a few seconds, instead of relying on the operating system default.
+    3. Update your application to catch the connection error (such as a connection reset or timeout) when a keepalive probe fails and open a new connection.
+  * Configure application-level heartbeats or read timeouts in your client, such as WebSocket ping and pong frames or [gRPC keepalive](https://grpc.io/docs/guides/keepalive/) pings, and update your application to reconnect when a timeout occurs.
+
+
+
 ## What's next
 
   * Learn more about [capacity buffers](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/capacity-buffer).
@@ -611,6 +627,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

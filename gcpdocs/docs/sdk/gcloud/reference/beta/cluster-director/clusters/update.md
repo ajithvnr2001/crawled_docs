@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/cluster-director/clusters/update/
 title: gcloud beta cluster-director clusters update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T11:43:27.098062+00:00
+fetched_at: 2026-10-27T21:41:13.176723+00:00
 ---
 
 # gcloud beta cluster-director clusters update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beta cluster-director clusters update - updates a Cluster Director resour
 SYNOPSIS
     
 
-`gcloud beta cluster-director clusters update` (`CLUSTER` : `--location`=`LOCATION`) (`--add-filestore-instances`=[`id`=`ID`],[`name`=`NAME`] `--add-flex-start-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`maxDuration`=`MAXDURATION`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--add-labels`=[`ADD_LABELS`,…] `--add-lustre-instances`=[`id`=`ID`],[`name`=`NAME`] `--add-new-filestore-instances`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`fileshare`=`FILESHARE`],[`id`=`ID`],[`name`=`NAME`],[`protocol`=`PROTOCOL`],[`tier`=`TIER`] `--add-new-lustre-instances`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`filesystem`=`FILESYSTEM`],[`id`=`ID`],[`name`=`NAME`],[`perUnitStorageThroughput`=`PERUNITSTORAGETHROUGHPUT`] `--add-new-storage-buckets`=[`enableAutoclass`=`ENABLEAUTOCLASS`],[`enableHNS`=`ENABLEHNS`],[`id`=`ID`],[`name`=`NAME`],[`storageClass`=`STORAGECLASS`] `--add-nfs`=[`id`=`ID`],[`mountOptions`=`MOUNTOPTIONS`],[`remoteMount`=`REMOTEMOUNT`],[`serverIpAddress`=`SERVERIPADDRESS`] `--add-on-demand-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--add-reserved-instances`=[`id`=`ID`],[`networkTags`=`NETWORKTAGS`],[`reservation`=`RESERVATION`] `--add-spot-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`terminationAction`=`TERMINATIONACTION`],[`zone`=`ZONE`] `--add-storage-buckets`=[`id`=`ID`],[`name`=`NAME`] `--description`=`DESCRIPTION` `--remove-filestore-instances`=[`REMOVE_FILESTORE_INSTANCES`,…] `--remove-flex-start-instances`=[`REMOVE_FLEX_START_INSTANCES`,…] `--remove-labels`=[`REMOVE_LABELS`,…] `--remove-lustre-instances`=[`REMOVE_LUSTRE_INSTANCES`,…] `--remove-nfs`=[`REMOVE_NFS`,…] `--remove-on-demand-instances`=[`REMOVE_ON_DEMAND_INSTANCES`,…] `--remove-reserved-instances`=[`REMOVE_RESERVED_INSTANCES`,…] `--remove-spot-instances`=[`REMOVE_SPOT_INSTANCES`,…] `--remove-storage-buckets`=[`REMOVE_STORAGE_BUCKETS`,…] `--add-slurm-epilog-scripts`=[`ADD_SLURM_EPILOG_SCRIPTS`,…] `--add-slurm-node-sets`=[`computeId`=`COMPUTEID`],[`computeInstance`=`COMPUTEINSTANCE`],[`id`=`ID`],[`maxDynamicNodeCount`=`MAXDYNAMICNODECOUNT`],[`staticNodeCount`=`STATICNODECOUNT`],[`storageConfigs`=`STORAGECONFIGS`] `--add-slurm-partitions`=[`id`=`ID`],[`nodeSetIds`=`NODESETIDS`] `--add-slurm-prolog-scripts`=[`ADD_SLURM_PROLOG_SCRIPTS`,…] `--remove-slurm-epilog-scripts`=[`REMOVE_SLURM_EPILOG_SCRIPTS`,…] `--remove-slurm-node-sets`=[`REMOVE_SLURM_NODE_SETS`,…] `--remove-slurm-partitions`=[`REMOVE_SLURM_PARTITIONS`,…] `--remove-slurm-prolog-scripts`=[`REMOVE_SLURM_PROLOG_SCRIPTS`,…] `--slurm-default-partition`=`SLURM_DEFAULT_PARTITION` `--update-slurm-login-node`=[`bootDisk`=`BOOTDISK`],[`count`=`COUNT`],[`startupScript`=`STARTUPSCRIPT`] `--update-slurm-node-sets`=[`computeId`=`COMPUTEID`],[`computeInstance`=`COMPUTEINSTANCE`],[`id`=`ID`],[`maxDynamicNodeCount`=`MAXDYNAMICNODECOUNT`],[`staticNodeCount`=`STATICNODECOUNT`],[`storageConfigs`=`STORAGECONFIGS`] `--update-slurm-partitions`=[`id`=`ID`],[`nodeSetIds`=`NODESETIDS`] | `--config`=[`computeResources`=`COMPUTERESOURCES`],[`description`=`DESCRIPTION`],[`labels`=`LABELS`],[`name`=`NAME`],[`networkResources`=`NETWORKRESOURCES`],[`orchestrator`=`ORCHESTRATOR`],[`storageResources`=`STORAGERESOURCES`] `--update-mask`=`UPDATE_MASK`) [`--async`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beta cluster-director clusters update` (`CLUSTER` : `--location`=`LOCATION`) (`--add-filestore-instances`=[`id`=`ID`],[`name`=`NAME`] `--add-flex-start-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`maxDuration`=`MAXDURATION`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--add-labels`=[`ADD_LABELS`,…] `--add-lustre-instances`=[`id`=`ID`],[`name`=`NAME`] `--add-new-filestore-instances`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`fileshare`=`FILESHARE`],[`id`=`ID`],[`name`=`NAME`],[`protocol`=`PROTOCOL`],[`tier`=`TIER`] `--add-new-lustre-instances`=[`capacityGb`=`CAPACITYGB`],[`description`=`DESCRIPTION`],[`filesystem`=`FILESYSTEM`],[`id`=`ID`],[`name`=`NAME`],[`perUnitStorageThroughput`=`PERUNITSTORAGETHROUGHPUT`] `--add-new-storage-buckets`=[`enableAutoclass`=`ENABLEAUTOCLASS`],[`enableHNS`=`ENABLEHNS`],[`id`=`ID`],[`name`=`NAME`],[`storageClass`=`STORAGECLASS`] `--add-nfs`=[`id`=`ID`],[`mountOptions`=`MOUNTOPTIONS`],[`remoteMount`=`REMOTEMOUNT`],[`serverIpAddress`=`SERVERIPADDRESS`] `--add-on-demand-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`zone`=`ZONE`] `--add-reserved-instances`=[`id`=`ID`],[`networkTags`=`NETWORKTAGS`],[`reservation`=`RESERVATION`] `--add-spot-instances`=[`id`=`ID`],[`machineType`=`MACHINETYPE`],[`networkTags`=`NETWORKTAGS`],[`terminationAction`=`TERMINATIONACTION`],[`zone`=`ZONE`] `--add-storage-buckets`=[`id`=`ID`],[`name`=`NAME`] `--description`=`DESCRIPTION` `--remove-filestore-instances`=[`REMOVE_FILESTORE_INSTANCES`,…] `--remove-flex-start-instances`=[`REMOVE_FLEX_START_INSTANCES`,…] `--remove-labels`=[`REMOVE_LABELS`,…] `--remove-lustre-instances`=[`REMOVE_LUSTRE_INSTANCES`,…] `--remove-nfs`=[`REMOVE_NFS`,…] `--remove-on-demand-instances`=[`REMOVE_ON_DEMAND_INSTANCES`,…] `--remove-reserved-instances`=[`REMOVE_RESERVED_INSTANCES`,…] `--remove-spot-instances`=[`REMOVE_SPOT_INSTANCES`,…] `--remove-storage-buckets`=[`REMOVE_STORAGE_BUCKETS`,…] `--add-slurm-epilog-scripts`=[`ADD_SLURM_EPILOG_SCRIPTS`,…] `--add-slurm-node-sets`=[`computeId`=`COMPUTEID`],[`computeInstance`=`COMPUTEINSTANCE`],[`id`=`ID`],[`maxDynamicNodeCount`=`MAXDYNAMICNODECOUNT`],[`staticNodeCount`=`STATICNODECOUNT`],[`storageConfigs`=`STORAGECONFIGS`] `--add-slurm-partitions`=[`id`=`ID`],[`nodeSetIds`=`NODESETIDS`] `--add-slurm-prolog-scripts`=[`ADD_SLURM_PROLOG_SCRIPTS`,…] `--remove-slurm-epilog-scripts`=[`REMOVE_SLURM_EPILOG_SCRIPTS`,…] `--remove-slurm-node-sets`=[`REMOVE_SLURM_NODE_SETS`,…] `--remove-slurm-partitions`=[`REMOVE_SLURM_PARTITIONS`,…] `--remove-slurm-prolog-scripts`=[`REMOVE_SLURM_PROLOG_SCRIPTS`,…] `--slurm-default-partition`=`SLURM_DEFAULT_PARTITION` `--update-slurm-login-node`=[`bootDisk`=`BOOTDISK`],[`count`=`COUNT`],[`startupScript`=`STARTUPSCRIPT`] `--update-slurm-node-sets`=[`computeId`=`COMPUTEID`],[`computeInstance`=`COMPUTEINSTANCE`],[`id`=`ID`],[`maxDynamicNodeCount`=`MAXDYNAMICNODECOUNT`],[`staticNodeCount`=`STATICNODECOUNT`],[`storageConfigs`=`STORAGECONFIGS`] `--update-slurm-partitions`=[`id`=`ID`],[`nodeSetIds`=`NODESETIDS`]) [`--async`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` `gcloud beta cluster-director clusters update` facilitates the updation of a cluster resource. 
 
@@ -38,9 +38,6 @@ There are following ways to update a cluster:
     * Read the existing cluster specs through `get` cluster request. 
     * Modify the cluster specs through granular flags. 
     * Update the cluster specs through `patch` cluster request. 
-  * Use --config with cluster specs and --update-mask flags, both in JSON format. 
-    * Map and repeated fields update requires existing and new values. 
-    * For example, to update a cluster to add a new nodeset, use the update mask "orchestrator.slurm.node_sets", and the patch cluster must include all existing nodesets as well as the new one. 
 
 Please refer to the examples below for more details. 
 EXAMPLES
@@ -65,21 +62,6 @@ Add and remove slurm prolog/epilog scripts:
     
     
     gcloud beta cluster-director clusters update my-cluster --location=us-central1-a --add-slurm-prolog-scripts=script1.sh --remove-slurm-epilog-scripts=script2.sh
-
-Or cluster `my-cluster` in location `us-central1-a` with config JSON run the following JSON example: 
-    
-    
-    gcloud beta cluster-director clusters update my-cluster --location=us-central1-a --update-mask=labels --config='{"key": "value"}'
-
-Or create a JSON file `my-cluster-config.json` with the cluster specs and run the following file example: 
-    
-    
-    gcloud beta cluster-director clusters update my-cluster --location=us-central1-a --update-mask=labels --config=my-cluster-config.json
-
-Or create a JSON file with the update mask and run the following file example: 
-    
-    
-    gcloud beta cluster-director clusters update my-cluster --location=us-central1-a --update-mask=my-update-mask.json --config=my-cluster-config.json
 
 POSITIONAL ARGUMENTS
     
@@ -119,11 +101,10 @@ To set the `location` attribute:
 REQUIRED FLAGS
     
 
-Cluster configuration for provisioning with updates. 
-
-Exactly one of these must be specified: 
-
 Flag Configurations to define cluster updates. 
+
+At least one of these must be specified: 
+
 `--add-filestore-instances`=[`id`=`ID`],[`name`=`NAME`]
      Reference of existing filestore instance. 
 
@@ -131,13 +112,7 @@ id: ID of the filestore resource, used to refer to this resource in storage-conf
 
 For example --add-filestore-instances id=my-fs,name=locations/us-central1/instances/filestore-1. 
 
-Sets `add_filestore_instances` value. 
-
-`id`
-     Required, sets `id` value. 
-`name`
-     Required, sets `name` value. 
-`Shorthand Example:`
+Sets `add_filestore_instances` value. `Shorthand Example:`
     
     
     --add-filestore-instances=id=string,name=string --add-filestore-instances=id=string,name=string
@@ -157,19 +132,7 @@ Sets `add_filestore_instances` value.
 
 For example --add-flex-start-instances id=c1,zone=us-central1-a,machineType=n1-standard-1,maxDuration=10000s. 
 
-Sets `add_flex_start_instances` value. 
-
-`id`
-     Required, sets `id` value. 
-`machineType`
-     Required, sets `machineType` value. 
-`maxDuration`
-     Required, sets `maxDuration` value. 
-`networkTags`
-     Sets `networkTags` value. 
-`zone`
-     Required, sets `zone` value. 
-`Shorthand Example:`
+Sets `add_flex_start_instances` value. `Shorthand Example:`
     
     
     --add-flex-start-instances=id=string,machineType=string,maxDuration=string,networkTags=[string],zone=string --add-flex-start-instances=id=string,machineType=string,maxDuration=string,networkTags=[string],zone=string
@@ -189,13 +152,7 @@ Sets `add_flex_start_instances` value.
 
 For example --add-labels key1=value1,key2=value2. 
 
-Sets `add_labels` value. 
-
-`KEY`
-     Sets `KEY` value. 
-`VALUE`
-     Sets `VALUE` value. 
-`Shorthand Example:`
+Sets `add_labels` value. `Shorthand Example:`
     
     
     --add-labels={string=string}
@@ -217,13 +174,7 @@ id: ID of the lustre resource, used to refer to this resource in storage-configs
 
 For example --add-lustre-instances id=my-lustre,name=locations/us-central1/instances/lustre-1. 
 
-Sets `add_lustre_instances` value. 
-
-`id`
-     Required, sets `id` value. 
-`name`
-     Required, sets `name` value. 
-`Shorthand Example:`
+Sets `add_lustre_instances` value. `Shorthand Example:`
     
     
     --add-lustre-instances=id=string,name=string --add-lustre-instances=id=string,name=string
@@ -379,17 +330,7 @@ id: ID of the storage resource, used to refer to this resource in storage-config
 
 For example --add-nfs id=my-nfs,serverIpAddress=10.0.0.1,remoteMount=/share,mountOptions=ro. 
 
-Sets `add_nfs` value. 
-
-`id`
-     Required, sets `id` value. 
-`mountOptions`
-     Sets `mountOptions` value. 
-`remoteMount`
-     Required, sets `remoteMount` value. 
-`serverIpAddress`
-     Required, sets `serverIpAddress` value. 
-`Shorthand Example:`
+Sets `add_nfs` value. `Shorthand Example:`
     
     
     --add-nfs=id=string,mountOptions=string,remoteMount=string,serverIpAddress=string --add-nfs=id=string,mountOptions=string,remoteMount=string,serverIpAddress=string
@@ -409,17 +350,7 @@ Sets `add_nfs` value.
 
 For example --add-on-demand-instances id=c1,zone=us-central1-a,machineType=n1-standard-1. 
 
-Sets `add_on_demand_instances` value. 
-
-`id`
-     Required, sets `id` value. 
-`machineType`
-     Required, sets `machineType` value. 
-`networkTags`
-     Sets `networkTags` value. 
-`zone`
-     Required, sets `zone` value. 
-`Shorthand Example:`
+Sets `add_on_demand_instances` value. `Shorthand Example:`
     
     
     --add-on-demand-instances=id=string,machineType=string,networkTags=[string],zone=string --add-on-demand-instances=id=string,machineType=string,networkTags=[string],zone=string
@@ -439,15 +370,7 @@ Sets `add_on_demand_instances` value.
 
 For example --add-reserved-instances id=c1,reservation=zones/us-central1-a/reservations/reservation-1. 
 
-Sets `add_reserved_instances` value. 
-
-`id`
-     Required, sets `id` value. 
-`networkTags`
-     Sets `networkTags` value. 
-`reservation`
-     Sets `reservation` value. 
-`Shorthand Example:`
+Sets `add_reserved_instances` value. `Shorthand Example:`
     
     
     --add-reserved-instances=id=string,networkTags=[string],reservation=string --add-reserved-instances=id=string,networkTags=[string],reservation=string
@@ -467,19 +390,7 @@ Sets `add_reserved_instances` value.
 
 For example --add-spot-instances id=c1,zone=us-central1-a,machineType=n1-standard-1. 
 
-Sets `add_spot_instances` value. 
-
-`id`
-     Required, sets `id` value. 
-`machineType`
-     Required, sets `machineType` value. 
-`networkTags`
-     Sets `networkTags` value. 
-`terminationAction`
-     Sets `terminationAction` value. 
-`zone`
-     Required, sets `zone` value. 
-`Shorthand Example:`
+Sets `add_spot_instances` value. `Shorthand Example:`
     
     
     --add-spot-instances=id=string,machineType=string,networkTags=[string],terminationAction=string,zone=string --add-spot-instances=id=string,machineType=string,networkTags=[string],terminationAction=string,zone=string
@@ -501,13 +412,7 @@ id: ID of the bucket resource, used to refer to this resource in storage-configs
 
 For example --add-storage-buckets id=my-bucket,name=bucket-1. 
 
-Sets `add_storage_buckets` value. 
-
-`id`
-     Required, sets `id` value. 
-`name`
-     Required, sets `name` value. 
-`Shorthand Example:`
+Sets `add_storage_buckets` value. `Shorthand Example:`
     
     
     --add-storage-buckets=id=string,name=string --add-storage-buckets=id=string,name=string
@@ -622,13 +527,7 @@ Sets `add_slurm_node_sets` value.
 
 For example --add-slurm-partitions id=p1,nodesetIds=[ns1,ns2]. 
 
-Sets `add_slurm_partitions` value. 
-
-`id`
-     Required, sets `id` value. 
-`nodeSetIds`
-     Required, sets `nodeSetIds` value. 
-`Shorthand Example:`
+Sets `add_slurm_partitions` value. `Shorthand Example:`
     
     
     --add-slurm-partitions=id=string,nodeSetIds=[string] --add-slurm-partitions=id=string,nodeSetIds=[string]
@@ -718,13 +617,7 @@ Sets `update_slurm_node_sets` value. `Shorthand Example:`
 
 For example --update-slurm-partitions id=p1,nodesetIds=[ns1,ns2]. 
 
-Sets `update_slurm_partitions` value. 
-
-`id`
-     Required, sets `id` value. 
-`nodeSetIds`
-     Sets `nodeSetIds` value. 
-`Shorthand Example:`
+Sets `update_slurm_partitions` value. `Shorthand Example:`
     
     
     --update-slurm-partitions=id=string,nodeSetIds=[string] --update-slurm-partitions=id=string,nodeSetIds=[string]
@@ -739,90 +632,6 @@ Sets `update_slurm_partitions` value.
     
     --update-slurm-partitions=path_to_file.(yaml|json)
 
-Cluster configuration for updates. 
-`--config`=[`computeResources`=`COMPUTERESOURCES`],[`description`=`DESCRIPTION`],[`labels`=`LABELS`],[`name`=`NAME`],[`networkResources`=`NETWORKRESOURCES`],[`orchestrator`=`ORCHESTRATOR`],[`storageResources`=`STORAGERESOURCES`]
-     Configuration of the cluster specs in the form of a JSON object. Required, See example below: 
-    
-    
-    --config='{
-      "networkResources": {
-          "network0": {
-              "config": {
-                  "newNetwork": {
-                      "network": "network0"
-                  }
-              }
-          }
-      },
-      "storageResources": {
-          "lustre0": {
-              "config": {
-                  "newLustre": {
-                      "capacityGb": 1200,
-                      "filesystem": "lustre-fs"
-                  }
-              }
-          }
-      },
-      "computeResources": {
-          "compute0": {
-              "config": {
-                  "newOnDemandInstances": {
-                      "machineType": "n2-standard-4",
-                      "zone": "us-central1-a"
-                  }
-              }
-          }
-      },
-      "orchestrator": {
-          "slurm": {
-              "nodeSets": [
-                  {
-                      "id": "nodeset0",
-                      "computeId": "compute0"
-                  }
-              ]
-          }
-      }
-    
-    
-    
-     }' --format json.
-
-`Shorthand Example:`
-    
-    
-    --config=computeResources={string={config={newDwsFlexInstances={machineType=string,maxDuration=string,networkTags=[string],zone=string},newFlexStartInstances={machineType=string,maxDuration=string,networkTags=[string],zone=string},newOnDemandInstances={machineType=string,networkTags=[string],zone=string},newReservedInstances={networkTags=[string],reservation=string},newSpotInstances={machineType=string,networkTags=[string],terminationAction=string,zone=string}}}},description=string,labels={string=string},name=string,networkResources={string={config={existingComputeNetwork={network=string,subnetwork=string},existingNetwork={network=string,subnetwork=string},newComputeNetwork={description=string,network=string},newNetwork={description=string,network=string}}}},orchestrator={slurm={defaultPartition=string,epilogBashScripts,loginNodes={bootDisk={sizeGb=int,type=string},count=int,enableOsLogin=boolean,enablePublicIps=boolean,labels={string=string},machineType=string,networkTags=[string],startupScript=string,storageConfigs=[{id=string,localMount=string}],zone=string},nodeSets=[{computeId=string,computeInstance={bootDisk={sizeGb=int,type=string},labels={string=string},startupScript=string},id=string,maxDynamicNodeCount=int,staticNodeCount=int,storageConfigs=[{id=string,localMount=string}]}],partitions=[{id=string,nodeSetIds=[string]}],prologBashScripts}},storageResources={string={config={existingBucket={bucket=string},existingFilestore={filestore=string},existingLustre={lustre=string},existingNfs={mountOptions=string,remoteMount=string,serverIpAddress=string},newBucket={autoclass={enabled=boolean},bucket=string,hierarchicalNamespace={enabled=boolean},storageClass=string},newFilestore={description=string,fileShares=[{capacityGb=int,fileShare=string}],filestore=string,id=string,protocol=string,tier=string},newLustre={capacityGb=int,description=string,filesystem=string,id=string,lustre=string,perUnitStorageThroughput=int}}}}
-
-`JSON Example:`
-    
-    
-    --config='{"computeResources": {"string": {"config": {"newDwsFlexInstances": {"machineType": "string", "maxDuration": "string", "networkTags": ["string"], "zone": "string"}, "newFlexStartInstances": {"machineType": "string", "maxDuration": "string", "networkTags": ["string"], "zone": "string"}, "newOnDemandInstances": {"machineType": "string", "networkTags": ["string"], "zone": "string"}, "newReservedInstances": {"networkTags": ["string"], "reservation": "string"}, "newSpotInstances": {"machineType": "string", "networkTags": ["string"], "terminationAction": "string", "zone": "string"}}}}, "description": "string", "labels": {"string": "string"}, "name": "string", "networkResources": {"string": {"config": {"existingComputeNetwork": {"network": "string", "subnetwork": "string"}, "existingNetwork": {"network": "string", "subnetwork": "string"}, "newComputeNetwork": {"description": "string", "network": "string"}, "newNetwork": {"description": "string", "network": "string"}}}}, "orchestrator": {"slurm": {"defaultPartition": "string", "epilogBashScripts", "loginNodes": {"bootDisk": {"sizeGb": int, "type": "string"}, "count": int, "enableOsLogin": boolean, "enablePublicIps": boolean, "labels": {"string": "string"}, "machineType": "string", "networkTags": ["string"], "startupScript": "string", "storageConfigs": [{"id": "string", "localMount": "string"}], "zone": "string"}, "nodeSets": [{"computeId": "string", "computeInstance": {"bootDisk": {"sizeGb": int, "type": "string"}, "labels": {"string": "string"}, "startupScript": "string"}, "id": "string", "maxDynamicNodeCount": int, "staticNodeCount": int, "storageConfigs": [{"id": "string", "localMount": "string"}]}], "partitions": [{"id": "string", "nodeSetIds": ["string"]}], "prologBashScripts"}}, "storageResources": {"string": {"config": {"existingBucket": {"bucket": "string"}, "existingFilestore": {"filestore": "string"}, "existingLustre": {"lustre": "string"}, "existingNfs": {"mountOptions": "string", "remoteMount": "string", "serverIpAddress": "string"}, "newBucket": {"autoclass": {"enabled": boolean}, "bucket": "string", "hierarchicalNamespace": {"enabled": boolean}, "storageClass": "string"}, "newFilestore": {"description": "string", "fileShares": [{"capacityGb": int, "fileShare": "string"}], "filestore": "string", "id": "string", "protocol": "string", "tier": "string"}, "newLustre": {"capacityGb": int, "description": "string", "filesystem": "string", "id": "string", "lustre": "string", "perUnitStorageThroughput": int}}}}}'
-
-`File Example:`
-    
-    
-    --config=path_to_file.(yaml|json)
-
-This flag argument must be specified if any of the other arguments in this group are specified. 
-
-`--update-mask`=`UPDATE_MASK`
-     Update mask to specify the fields to update. 
-
-For example --update-mask "description,labels". 
-
-Required, sets `update_mask` value. `Input Example:`
-    
-    
-    --update-mask=string
-
-`File Example:`
-    
-    
-    --update-mask=path_to_file.(yaml|json)
-
-This flag argument must be specified if any of the other arguments in this group are specified. 
-
 OPTIONAL FLAGS
     
 
@@ -833,6 +642,12 @@ GCLOUD WIDE FLAGS
 
 Run `$ [gcloud help](https://docs.cloud.google.com/sdk/gcloud/reference)` for details. 
 
+GUIDANCE
+    
+Incremental updates
+     Updates use a read-modify-write pattern: the command fetches the existing cluster configuration, applies the requested `--add-*`, `--update-*`, or `--remove-*` flag changes, and sends a patch request for only the modified fields so existing resources are not unintentionally overwritten. 
+Using flags files
+     Store reusable cluster update flags in a YAML or JSON file and pass `--flags-file=FILE` to apply repeatable modifications across clusters. 
 NOTES
      This command is currently in beta and might change without notice. These variants are also available: 
     
@@ -846,6 +661,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-06 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

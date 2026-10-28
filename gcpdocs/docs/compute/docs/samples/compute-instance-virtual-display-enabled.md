@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-instance-virtual-display-enabled/
 title: Create an instance with a virtual display device \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:25.029539+00:00
+fetched_at: 2026-10-27T23:19:06.411489+00:00
 ---
 
 # Create an instance with a virtual display device  |  Compute Engine  |  Google Cloud Documentation

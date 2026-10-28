@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/signed-embedding/
 title: Signed embedding \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:17.673900+00:00
+fetched_at: 2026-10-27T23:38:17.736692+00:00
 ---
 
 # Signed embedding  |  Looker  |  Google Cloud Documentation
@@ -60,7 +60,7 @@ There are multiple ways to generate the signed embed URL. You can use one of the
   * Code the signed embed URL. Building the proper URL will require you to write code so that you can properly encode the URL with your secret key and generate other security-related items. You can find several sample scripts in the Looker [Embed examples GitHub repository](https://github.com/looker/looker_embed_sso_examples). The following sections explain the information that you'll need to supply to those scripts, as well as how to build a signed embed URL without using a script.
 
 
-**Note:** You can have only one user session per browser. When you are developing, you can be logged in to your regular browser as your admin or developer users. When you want to test a signed embed configuration, you can use an incognito window or a different browser. Otherwise, your original user will be logged out of the original session.
+**Note:** You can have only one user session per browser. When you are developing, you can be logged in to your regular browser as your admin or developer users. When you want to test a signed embed configuration, you can use an incognito window or a different browser. Otherwise, your original user will be logged out of the original session. If your page embeds multiple Looker iframes, see Best practices for embedding multiple iframes with signed embedding.
 
 ## Manually coding the signed embed URL
 
@@ -331,10 +331,25 @@ For more information about the Looker API, see the [Getting started with the Loo
 
 To test your final URL, paste it into the [Embed URI Validator](https://docs.cloud.google.com/looker/docs/admin-panel-platform-embed#embed_uri_validator) on the **Embed** page of Looker's **Admin** section. While this option can't tell you if the data and permissions you envision have been set up correctly, it can validate that your authentication is working properly.
 
+## Best practices for embedding multiple iframes with signed embedding
+
+When you embed multiple Looker iframes on a single page, simultaneous authentication requests for the same `external_user_id` can cause user provisioning collisions, lock contention on the Looker server, or dropped sessions. Follow these best practices when your application embeds multiple iframes:
+
+  * **Authenticate only the first iframe with a signed URL:** When using signed embedding with cookies enabled through a custom domain, only the first iframe on the page should load a signed `/login/embed/...` URL. Subsequent iframes must wait until the first iframe finishes authenticating and then load unsigned embed URLs (for example, `/embed/dashboards/DASHBOARD_ID`) so that they inherit the session cookie from the first iframe without re-running user provisioning. The [Looker Embed SDK](https://www.npmjs.com/package/@looker/embed-sdk) (`@looker/embed-sdk`) handles this automatically after the first connection resolves.
+
+  * **Preload an iframe to establish the session:** To instantiate an embed user session before loading multiple iframes, preload an iframe by using `/embed/preload` (or the `.preload()` method in Embed SDK v2) to establish the session as quickly as possible.
+
+  * **Use in-frame navigation instead of recreating iframes:** When using Embed SDK v2, you can navigate within an already instantiated iframe by calling methods such as `connection.loadDashboard(DASHBOARD_ID)` or `connection.loadUrl(EMBED_URL)` rather than creating a new iframe. For more information, see [Introduction to the Embed SDK](https://docs.cloud.google.com/looker/docs/embed-sdk-intro).
+
+  * **Share a single`session_reference_token` in cookieless embedding:** If you use [cookieless embedding](https://docs.cloud.google.com/looker/docs/cookieless-embed) with multiple iframes on a page, see [Best practices for embedding multiple iframes with cookieless embedding](https://docs.cloud.google.com/looker/docs/cookieless-embed#best-practices-multiple-iframes) on the **Cookieless embedding** page.
+
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

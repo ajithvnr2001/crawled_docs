@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iap/docs/authentication-howto/
 title: Programmatic authentication \u00a0|\u00a0 Identity-Aware Proxy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:21:09.394876+00:00
+fetched_at: 2026-10-28T02:29:53.111782+00:00
 ---
 
 # Programmatic authentication  |  Identity-Aware Proxy  |  Google Cloud Documentation
@@ -36,13 +36,20 @@ Programmatic access refers to calling IAP-secured applications from non-browser 
 
 IAP supports the following types of credentials for programmatic access:
 
-* **OAuth 2.0 ID token** \- A Google-issued token for a human user or service account with the audience claim set to the resource ID of the IAP application. * **Service account signed JWT** \- A self-signed or Google-issued JWT token for a service account. 
+* **OAuth 2.0 ID token** \- A Google-issued token for a human user or service account with the audience claim set to the resource ID of the IAP application. 
+
+  * **OAuth 2.0 access token** \- A Google-issued OAuth 2.0 access token for a human user or service account that includes the `openid` and `https://www.googleapis.com/auth/userinfo.email` (`email`) scopes. 
+
+  * **Service account signed JWT** \- A self-signed or Google-issued JWT token for a service account.
+
+
+
 
 Include these credentials to IAP in the `Authorization` or `Proxy-Authorization` HTTP header of the request.
 
 ## Before you begin
 
-**Note:** If you configured your application to use the Google-managed OAuth 2.0 client (the default when IAP is enabled without a custom OAuth 2.0 client), you cannot use programmatic access. You don't own or have access to the credentials of the Google-managed client, which prevents the OAuth token exchange required for programmatic authentication. However, service accounts can still achieve programmatic access by using self-signed JSON Web Tokens (JWTs).
+**Note:** If you configured your application to use the Google-managed OAuth 2.0 client (the default when IAP is enabled without a custom OAuth 2.0 client) and haven't allowlisted any OAuth 2.0 clients for [programmatic access](https://docs.cloud.google.com/iap/docs/sharing-oauth-clients#programmatic_access), you cannot use OAuth 2.0 client-based programmatic access. You don't own or have access to the credentials of the Google-managed client, which prevents the OAuth token exchange required for programmatic authentication. However, service accounts can still achieve programmatic access by using self-signed JSON Web Tokens (JWTs) or service account OAuth 2.0 access tokens.
 
   1. Ensure you have an application that you want to access programmatically using a developer account, service account, or mobile app credentials.
 
@@ -106,24 +113,24 @@ Each developer must sign in to access an IAP-secured app. You can package the pr
              https://oauth2.googleapis.com/token
          
 
-This command returns a JSON object with an `id_token` field that you can use to access the application.
+This command returns a JSON object that contains an `id_token` field and an `access_token` field. You can use either token to access the application.
 
 
 
 
 #### Access the application
 
-To access the app, use the `id_token`:
+To access the app, include the `id_token` or `access_token` in the `Authorization: Bearer` header:
     
     
-    curl --verbose --header 'Authorization: Bearer ID_TOKEN' URL
+    curl --verbose --header 'Authorization: Bearer TOKEN' URL
     
 
 #### Refresh token
 
-You can use the refresh token generated during the sign-in flow to get new ID tokens. This is useful when the original ID token expires. Each ID token is valid for about one hour, during which time you can make multiple requests to a specific app.
+You can use the refresh token generated during the sign-in flow to get new ID tokens and access tokens. This is useful when the original token expires. Each token is valid for about one hour, during which time you can make multiple requests to a specific app.
 
-The following example uses curl to use the refresh token to get a new ID token. In this example, `REFRESH_TOKEN` is the token from the sign-in flow. `DESKTOP_CLIENT_ID` and `DESKTOP_CLIENT_SECRET` are the same as used in the sign-in flow:
+The following example uses curl to use the refresh token to get a new ID token and access token. In this example, `REFRESH_TOKEN` is the token from the sign-in flow. `DESKTOP_CLIENT_ID` and `DESKTOP_CLIENT_SECRET` are the same as used in the sign-in flow:
     
     
     curl --verbose \
@@ -140,11 +147,11 @@ This command returns a JSON object with a new `id_token` field that you can use 
 
 ## Authenticate a service account
 
-You can use a [service account JWT](https://developers.google.com/identity/protocols/oauth2/service-account#jwt-auth) or an [OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) (OIDC) token to authenticate a service account with an IAP-secured resource. The following table outlines some of the differences between the different authentication tokens and their features. Authentication features | Service account JWT | OpenID Connect token  
----|---|---  
-Context-aware access support |  |   
-OAuth 2.0 Client ID requirement |  |   
-Token scope | URL of IAP-secured resource | OAuth 2.0 client ID  
+You can use a [service account JWT](https://developers.google.com/identity/protocols/oauth2/service-account#jwt-auth) or an [OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect) (OIDC) token, or an OAuth 2.0 access token to authenticate a service account with an IAP-secured resource. The following table outlines some of the differences between the different authentication tokens and their features. Authentication features | Service account JWT | OpenID Connect token | OAuth 2.0 access token  
+---|---|---|---  
+Context-aware access support |  |  |   
+OAuth 2.0 Client ID requirement |  |  |   
+Token scope | URL of IAP-secured resource | OAuth 2.0 client ID | `openid` and `https://www.googleapis.com/auth/userinfo.email`  
 **Note:** Service accounts don't support [device policy attributes](https://docs.cloud.google.com/access-context-manager/docs/access-level-attributes#device-policy) with context-aware access. 
 
 ### Authenticate with a service account JWT
@@ -835,13 +842,48 @@ Set the `audience` field to your client ID.
 
 
 
-For step-by-step instructions, see [Create an ID token](https://docs.cloud.google.com/iam/docs/create-short-lived-credentials-direct#id). 
+For step-by-step instructions, see [Create an ID token](https://docs.cloud.google.com/iam/docs/create-short-lived-credentials-direct#id).
+
+### Authenticate with a service account access token
+
+You can authenticate a service account to an IAP-secured resource by using an OAuth 2.0 access token that includes both the `openid` and `https://www.googleapis.com/auth/userinfo.email` (`email`) scopes:
+
+  1. Ensure that the service account is added to the [access list](https://docs.cloud.google.com/iap/docs/managing-access) for the IAP-secured resource.
+
+  2. Generate an OAuth 2.0 access token for the service account with the `openid` and `https://www.googleapis.com/auth/userinfo.email` scopes.
+
+For example, to generate an access token by impersonating a service account with the gcloud CLI, run the following command:
+         
+         gcloud auth print-access-token \
+           --impersonate-service-account=SERVICE_ACCOUNT_EMAIL_ADDRESS \
+           --scopes=openid,https://www.googleapis.com/auth/userinfo.email
+         
+
+Replace `SERVICE_ACCOUNT_EMAIL_ADDRESS` with the email address of the service account.
+
+You can also call the IAM Service Account Credentials API [`generateAccessToken`](https://docs.cloud.google.com/iam/docs/reference/credentials/rest/v1/projects.serviceAccounts/generateAccessToken) method and specify `"openid"` and `"https://www.googleapis.com/auth/userinfo.email"` in the `scope` field. For more information, see [Create a short-lived access token](https://docs.cloud.google.com/iam/docs/create-short-lived-credentials-direct#sa-credentials-direct).
+
+  3. Include the access token in the `Authorization: Bearer` header when calling the IAP-secured resource:
+         
+         curl --verbose \
+           --header 'Authorization: Bearer ACCESS_TOKEN' \
+           URL
+         
+
+Replace the following:
+
+     * `ACCESS_TOKEN`: the OAuth 2.0 access token for the service account
+
+     * `URL`: the URL of the IAP-secured resource 
+
+
+
 
 ## Authenticate from Proxy-Authorization Header
 
-If your application uses the `Authorization` request header, you can include the ID token in a `Proxy-Authorization: Bearer` header instead. If a valid ID token is found in a `Proxy-Authorization` header, IAP authorizes the request with it. After authorizing the request, IAP passes the `Authorization` header to your application without processing the content.
+If your application uses the `Authorization` request header, you can include the ID token, access token, or service account JWT in a `Proxy-Authorization: Bearer` header instead. If a valid credential is found in a `Proxy-Authorization` header, IAP authorizes the request with it. After authorizing the request, IAP passes the `Authorization` header to your application without processing the content.
 
-If no valid ID token is found in the `Proxy-Authorization` header, IAP continues to process the `Authorization` header and strips the `Proxy-Authorization` header before passing the request to your application.
+If no valid credential is found in the `Proxy-Authorization` header, IAP continues to process the `Authorization` header and strips the `Proxy-Authorization` header before passing the request to your application.
 
 #### Access the application
 
@@ -862,6 +904,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

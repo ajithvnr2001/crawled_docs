@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-sqlalchemy-connect-async-connector/
 title: Connect asynchronously with SQLAlchemy \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:25.371356+00:00
+fetched_at: 2026-10-27T18:27:14.771086+00:00
 ---
 
 # Connect asynchronously with SQLAlchemy  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

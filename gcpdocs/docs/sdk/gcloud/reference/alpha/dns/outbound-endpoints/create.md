@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/dns/outbound-endpoints/create/
 title: gcloud alpha dns outbound-endpoints create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T02:11:34.020158+00:00
+fetched_at: 2026-10-27T21:40:39.242340+00:00
 ---
 
 # gcloud alpha dns outbound-endpoints create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha dns outbound-endpoints create - creates a new Cloud DNS outbound en
 SYNOPSIS
     
 
-`gcloud alpha dns outbound-endpoints create` (`OUTBOUND_ENDPOINT` : `--location`=`LOCATION`) `--endpoint-ip`=`ENDPOINT_IP` `--network`=`NETWORK` `--subnetwork`=`SUBNETWORK` [`--async`] [`--description`=`DESCRIPTION`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--labels`=[`KEY`=`VALUE`,…]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha dns outbound-endpoints create` (`OUTBOUND_ENDPOINT` : `--location`=`LOCATION`) `--network`=`NETWORK` `--subnetwork`=`SUBNETWORK` [`--async`] [`--description`=`DESCRIPTION`] [`--endpoint-ip`=`ENDPOINT_IP`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--labels`=[`KEY`=`VALUE`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` This command creates a new Cloud DNS outbound endpoint in a specified region. 
 EXAMPLES
@@ -74,8 +74,6 @@ To set the `location` attribute:
 REQUIRED FLAGS
     
 
-`--endpoint-ip`=`ENDPOINT_IP`
-     IPv4 address for the outbound endpoint on the specified subnetwork. 
 `--network`=`NETWORK`
      VPC network for the outbound endpoint. Specify either the network name or the full resource URL. 
 `--subnetwork`=`SUBNETWORK`
@@ -87,6 +85,8 @@ OPTIONAL FLAGS
      Return immediately, without waiting for the operation in progress to complete. 
 `--description`=`DESCRIPTION`
      A description of the outbound endpoint. 
+`--endpoint-ip`=`ENDPOINT_IP`
+     IPv4 address for the outbound endpoint on the specified subnetwork. If omitted, an IPv4 address is automatically allocated from the specified subnetwork. 
 `--endpoint-mode`=`ENDPOINT_MODE`
      Specifies endpoint mode for a given command. Regional endpoints provide enhanced data residency and reliability by ensuring your request is handled entirely within the specified Google Cloud region. This differs from global endpoints, which may process parts of the request outside the target region. Overrides the default `regional/endpoint_mode` property value for this command invocation. `ENDPOINT_MODE` must be one of: 
 
@@ -118,6 +118,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/troubleshooting/
 title: Troubleshoot Cloud Armor issues \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:55.567902+00:00
+fetched_at: 2026-10-27T19:16:30.644045+00:00
 ---
 
 # Troubleshoot Cloud Armor issues  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -30,6 +30,38 @@ This section covers common issues encountered when using Cloud Armor.
 ### Debugging security policies
 
 If you need additional information about what particular event triggers preconfigured rules, read [Using request logging](https://docs.cloud.google.com/armor/docs/request-logging), and then enable verbose logging. Cloud Logging records a higher level of detail in your logs that you can use to analyze and debug your policies and rules.
+
+### Identify and correlate blocked requests in logs
+
+When Cloud Armor blocks a request on a global external Application Load Balancer or a classic Application Load Balancer, you can return a unique trace ID to the client by configuring a custom response header that uses the `{cloud_trace_id}` variable. You can then use this trace ID to find the log entry in Logging and determine why the request was blocked.
+
+To expose the trace ID and find a blocked request in Logging, follow these steps:
+
+  1. Configure a custom response header with the `{cloud_trace_id}` variable on your backend service. For example, the following command adds an `X-Cloud-Trace-Id` response header to the backend service `BACKEND_SERVICE_NAME`:
+         
+         gcloud compute backend-services update BACKEND_SERVICE_NAME \
+            --global \
+            --custom-response-header='X-Cloud-Trace-Id:{cloud_trace_id}'
+         
+
+Replace `BACKEND_SERVICE_NAME` with the name of your backend service.
+
+For more information, see [Configure custom response headers](https://docs.cloud.google.com/load-balancing/docs/https/custom-headers-global#working-with-response).
+
+  2. When a Cloud Armor security policy denies a request, inspect the HTTP response headers returned to the client to get the 32-character hexadecimal value of the `X-Cloud-Trace-Id` header.
+
+  3. In the [Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface) page, query the `trace` field using the trace ID from the response header to find the matching log entry:
+         
+         resource.type="http_load_balancer"
+         trace="projects/PROJECT_ID/traces/TRACE_ID"
+         
+
+Replace the following:
+
+     * `PROJECT_ID`: the ID of the project that contains your load balancer's forwarding rule and URL map
+     * `TRACE_ID`: the 32-character hexadecimal trace ID returned in the custom response header
+
+
 
 ### Traffic is allowed despite a deny rule configured in the Cloud Armor security policy
 
@@ -502,6 +534,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

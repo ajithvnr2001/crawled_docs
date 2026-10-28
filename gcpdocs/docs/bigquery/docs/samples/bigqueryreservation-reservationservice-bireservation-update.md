@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-bireservation-update/
 title: Update a BI reservation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:28.427435+00:00
+fetched_at: 2026-10-27T23:03:11.222894+00:00
 ---
 
 # Update a BI reservation  |  BigQuery  |  Google Cloud Documentation

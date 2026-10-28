@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/feature-usage/
 title: View feature usage \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:10.593498+00:00
+fetched_at: 2026-10-27T23:54:22.552555+00:00
 ---
 
 # View feature usage  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -32,11 +32,11 @@ When you view feature usage in Gemini Enterprise, the usage details depend on yo
 
 ## Pooled quotas overview
 
-In Gemini Enterprise, for editions with license-based subscriptions (such as Gemini Enterprise Standard, Plus, Frontline, EDU, and Emerging Market editions), all users in a Google Cloud project share resource quotas. For more information about the quotas for each edition, see [Quotas and overages](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages). To prevent any single user from exhausting an edition's shared pool, you can configure a single-user quota limit. To enable overages when your project reaches a pooled quota, see [Configure overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages).
+In Gemini Enterprise, for editions with license-based subscriptions (such as Gemini Enterprise Standard, Plus, Frontline, EDU, and Emerging Market editions), all users in a Google Cloud project share resource quotas. For more information about the quotas for each edition, see [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage). To prevent any single user from exhausting an edition's shared pool, you can configure a single-user quota limit. To turn on pay-as-you-go usage above quota when your project reaches a pooled quota, see [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota).
 
 ### Quota reset times
 
-Your subscription entitles you to certain quotas across product features. Except for storage and data indexing, feature quotas are pooled across users in the same edition within a project and location. For more information, see [Feature and edition-based quotas](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#feature-quotas).
+Your subscription entitles you to certain quotas across product features. Except for storage and data indexing, feature quotas are pooled across users in the same edition within a project and location. For more information, see [Feature and edition-based quotas](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#feature-quotas).
 
 Pooled quotas reset on the following schedule:
 
@@ -125,7 +125,7 @@ For Gemini Enterprise Standard, Gemini Enterprise Plus, and Gemini Enterprise St
 
 **Note:** The user quota multiplier doesn't apply to AI developer tools, including Google Antigravity.
 
-For more information about how single-user quota limits work and which features are included, see [Single-user quota limits](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#single-user-quota-limits).
+For more information about how single-user quota limits work and which features are included, see [Single-user quota limits](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#single-user-quota-limits).
 
 To enable, update, or turn off a single-user quota limit for an edition and location, follow these steps:
 
@@ -151,7 +151,7 @@ To enable, update, or turn off a single-user quota limit for an edition and loca
 
 ## What's next
 
-  * Learn how to [configure overages and spend limits](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages).
+  * Learn how to [configure pay-as-you-go usage above quota and spend limits](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota).
   * Learn how to [view costs](https://docs.cloud.google.com/gemini/enterprise/docs/view-costs).
 
 
@@ -160,6 +160,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

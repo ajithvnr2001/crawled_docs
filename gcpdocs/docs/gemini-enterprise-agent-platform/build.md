@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/
 title: Build with Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:40:45.302840+00:00
+fetched_at: 2026-10-28T02:27:43.650462+00:00
 ---
 
 # Build with Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Gemini Enterprise Agent Platform offers the most comprehensive way to build agents, designed to meet you where you are.
 
-You can use Agent Development Kit (ADK)–an open-source framework for developing and deploying AI agents–or any other open-source framework of their choice. You can use Gemini models or any other model accessible through through Model Garden.
+You can use Agent Development Kit (ADK)–an open-source framework for developing and deploying AI agents–or any other open-source framework of their choice. You can use Gemini models or any other model accessible through through Gemini Enterprise Agent Platform Model Garden.
 
 Agent Platform provides access to a suite of Google Cloud tools and connectivity capabilities, including RAG, advanced search, grounding services, and maps. Agent Platform also ensures seamless ecosystem integration, enabling agents to connect effortlessly across your enterprise with support for inter-agent collaboration with Model Context Protocol (MCP) and Agent-to-Agent (A2A) protocol.
 
@@ -69,7 +69,7 @@ Learn about the isolated sandbox container, permissions, and pre-installed packa
 
 ## Create agents with frameworks
 
-Create agents using code-first approaches with popular open-source frameworks or the Google-provided Agent Development Kit (ADK).
+Create agents using code-first approaches with popular open-source frameworks or the Google-provided ADK.
 
 ### Get started
 
@@ -171,6 +171,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

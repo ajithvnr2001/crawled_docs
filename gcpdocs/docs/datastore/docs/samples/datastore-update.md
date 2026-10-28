@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-update/
 title: Update \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:11:16.113356+00:00
+fetched_at: 2026-10-27T18:58:46.207087+00:00
 ---
 
 # Update  |  Firestore in Datastore mode  |  Google Cloud Documentation

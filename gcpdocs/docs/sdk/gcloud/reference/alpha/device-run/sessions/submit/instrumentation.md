@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/device-run/sessions/submit/instrumentation/
 title: gcloud alpha device-run sessions submit instrumentation \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T07:48:32.050995+00:00
+fetched_at: 2026-10-27T21:41:00.239132+00:00
 ---
 
 # gcloud alpha device-run sessions submit instrumentation  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -135,7 +135,7 @@ To set the `location` attribute:
 `--smart-sharding-max-shard-count`=`SMART_SHARDING_MAX_SHARD_COUNT`
      Specify the maximum number of shards to create for smart sharding. If unset or set to 0, system-defined max limits are used. The valid range is `0` to `20` for physical devices and `0` to `200` for virtual devices. 
 `--smart-sharding-record-name`=`SMART_SHARDING_RECORD_NAME`
-     Specify the name of the smart sharding record file, excluding the file extension. Required when `--sharding-option=smart`. This file is located in the Google Cloud Storage bucket specified by `--bucket-name` under the `smart-sharding/` directory with a `.yaml` extension. If the file does not exist, it will be created automatically; otherwise, its contents will be updated upon session completion. 
+     Specify the name of the smart sharding record file, excluding the file extension. Required when `--sharding-option=smart`. This file is located in the Google Cloud Storage bucket specified by `--bucket-name` under the `automation/smart-sharding/` directory with a `.yaml` extension. If the file does not exist, it will be created automatically; otherwise, its contents will be updated upon session completion. 
 `--smart-sharding-target-duration`=`SMART_SHARDING_TARGET_DURATION`
      Specify the targeted execution time (e.g., `2m`, `10m`, `1h`) per shard for smart sharding. The valid range is `2m` to `1h`. Required when `--sharding-option=smart`. 
 `--test-runner-class`=`TEST_RUNNER_CLASS`
@@ -176,6 +176,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-29 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-29 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

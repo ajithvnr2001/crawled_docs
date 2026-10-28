@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/integrate-active-directory-kubernetes-operator/
 title: Integrate Active Directory user support on Kubernetes \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:53:32.933323+00:00
+fetched_at: 2026-10-27T19:16:49.354263+00:00
 ---
 
 # Integrate Active Directory user support on Kubernetes  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation
@@ -64,13 +64,12 @@ If you're using Active Directory Integration in AlloyDB Omni operator version 1.
 To migrate to AlloyDB Omni operator version 1.5.0, follow these steps:
 
   1. [Upgrade the AlloyDB Omni operator to version 1.5.0](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/upgrade-kubernetes-operator-version).
-  2. Create a user defined authentication resource. 
-     1. Create a new UserDefinedAuthentication resource manifest.
-     2. Populate `spec.dbclusterRef` with the target DBCluster name.
-     3. Populate `spec.keytabSecretRef` with the name of the keytab secret.
-     4. Copy the existing `pg_hba.conf` rules that are relevant to the Active Directory and Kerberos authentication into the `spec.pgHbaEntries` field.
-     5. Copy the existing `pg_ident.conf rules` (if any) into the `spec.pgIdentEntries` field.
-     6. Apply this new manifest, for example, `kubectl apply -f user-auth-crd.yaml`.
+  2. Create a [`UserDefinedAuthentication`](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/reference/kubernetes-crds-1.8.2/userdefinedauthentication) resource manifest. 
+     1. Populate `spec.dbclusterRef` with the target DBCluster name.
+     2. Populate `spec.keytabSecretRef` with the name of the keytab secret.
+     3. Copy the existing `pg_hba.conf` rules that are relevant to the Active Directory and Kerberos authentication into the `spec.pgHbaEntries` field.
+     4. Copy the existing `pg_ident.conf rules` (if any) into the `spec.pgIdentEntries` field.
+     5. Apply this new manifest, for example, `kubectl apply -f user-auth-crd.yaml`.
   3. Remove the Preview Configuration & Redeploy Cluster. 
      1. In the DBCluster resource definition, remove all annotations that you previously used to configure Active Directory integration, for example, host based authentication (HBA) rules, ident rules, and keytab file annotation.
      2. Delete the `pg_hba` and `pg_ident` config maps that you created.
@@ -101,7 +100,7 @@ The following is an example command that generates a keytab on the Active Direct
 `ALLOYDB_HOST` is the host which points to the DBCluster or the DBCluster IP Address.
 
 **Note:** To obtain the base64-encoded keytab, use a command like the following: `cat postgres.keytab | base64`.
-  2. Apply the following user defined authentication custom resource manifest:
+  2. Apply the following [`UserDefinedAuthentication` custom resource](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/reference/kubernetes-crds-1.8.2/userdefinedauthentication) manifest:
          
          apiVersion: alloydbomni.dbadmin.goog/v1
          kind: UserDefinedAuthentication
@@ -217,6 +216,7 @@ The command returns the following output:
 ## What's next
 
   * [Integrate Active Directory group support on Kubernetes](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/integrate-ad-group-support-kubernetes-operator)
+  * [Review the `UserDefinedAuthentication` CRD reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/reference/kubernetes-crds-1.8.2/userdefinedauthentication)
   * [Troubleshoot Active Directory integration in AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/troubleshoot-active-directory-integration)
 
 
@@ -225,6 +225,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

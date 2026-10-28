@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/
 title: gcloud preview compute \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:48:34.019637+00:00
+fetched_at: 2026-10-27T21:40:19.593279+00:00
 ---
 
 # gcloud preview compute  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -70,10 +70,16 @@ GROUPS
      `(PREVIEW)` Manage Compute Engine organization firewall policies. 
 `[firewall-rules](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/firewall-rules)`
      `(PREVIEW)` List, create, update, and delete Compute Engine firewall rules. 
+`[folder-rollout-plans](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/folder-rollout-plans)`
+     `(PREVIEW)` Read and manipulate Compute Engine folder rollout plans. 
+`[folder-rollouts](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/folder-rollouts)`
+     `(PREVIEW)` Read and manipulate Compute Engine folder rollouts. 
 `[forwarding-rules](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/forwarding-rules)`
      `(PREVIEW)` Read and manipulate traffic forwarding rules to network load balancers. 
 `[future-reservations](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/future-reservations)`
      `(PREVIEW)` Manage Compute Engine future reservations. 
+`[global-vm-extension-policies](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/global-vm-extension-policies)`
+     `(PREVIEW)` Compute Engine global VM extension policies. 
 `[health-checks](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/health-checks)`
      `(PREVIEW)` Read and manipulate health checks for load balanced instances. 
 `[http-health-checks](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/http-health-checks)`
@@ -176,6 +182,8 @@ GROUPS
      `(PREVIEW)` read and manipulate Highly Available VPN Gateways. 
 `[vpn-tunnels](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/vpn-tunnels)`
      `(PREVIEW)` Read and manipulate Compute Engine VPN tunnels. 
+`[zone-vm-extension-policies](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/zone-vm-extension-policies)`
+     `(PREVIEW)` Compute Engine zone VM extension policies. 
 `[zones](https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/zones)`
      `(PREVIEW)` List Compute Engine zones. 
 COMMANDS
@@ -213,6 +221,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-06 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/service-agents/
 title: Service agents \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:44:59.652200+00:00
+fetched_at: 2026-10-28T00:17:57.085225+00:00
 ---
 
 # Service agents  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -327,10 +327,6 @@ Service agent for `backupdr.googleapis.com`. `vault-PROJECT_NUMBER-IDENTIFIER@gc
 [Primary service agent](https://docs.cloud.google.com/iam/docs/service-account-types#primary) for `batch.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-cloudbatch.iam.gserviceaccount.com` |  [Google Batch Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/batch#batch.serviceAgent)  
 (`roles/batch.serviceAgent`)  Granted on the project.   
   
-#### Big Query Service Agent
-
-Service agent for `bigquery.googleapis.com`. `bq-PROJECT_NUMBER@bigquery-encryption.iam.gserviceaccount.com` |  None   
-  
 #### BigLake Iceberg Rest Catalog API Service Agent
 
 Service agent for `biglake.googleapis.com`. `blirc-PROJECT_NUMBER-IDENTIFIER@gcp-sa-biglakerestcatalog.iam.gserviceaccount.com` |  None   
@@ -367,6 +363,10 @@ Service agent for `bigquery.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-bigq
 
 [Primary service agent](https://docs.cloud.google.com/iam/docs/service-account-types#primary) for `bigquerydatatransfer.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com` |  [BigQuery Data Transfer Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquerydatatransfer#bigquerydatatransfer.serviceAgent)  
 (`roles/bigquerydatatransfer.serviceAgent`)  Granted on the project.   
+  
+#### BigQuery Encryption Service Agent
+
+Service agent for `bigquery.googleapis.com`. `bq-PROJECT_NUMBER@bigquery-encryption.iam.gserviceaccount.com` |  None   
   
 #### BigQuery Migration Service Agent
 
@@ -591,8 +591,7 @@ For the organization:
   
 #### Cloud Network Management Service Account
 
-[Primary service agent](https://docs.cloud.google.com/iam/docs/service-account-types#primary) for `networkmanagement.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-networkmanagement.iam.gserviceaccount.com` |  [GCP Network Management Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/networkmanagement#networkmanagement.serviceAgent)  
-(`roles/networkmanagement.serviceAgent`)  Granted on the project.   
+[Primary service agent](https://docs.cloud.google.com/iam/docs/service-account-types#primary) for `networkmanagement.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-networkmanagement.iam.gserviceaccount.com` |  None   
   
 #### Cloud Notebook Security Scanner Service Agent
 
@@ -714,6 +713,10 @@ Service agent for `cloudsecuritycompliance.googleapis.com`. `service-org-ORGANIZ
 
 [Primary service agent](https://docs.cloud.google.com/iam/docs/service-account-types#primary) for `spanner.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-spanner.iam.gserviceaccount.com` |  [Cloud Spanner API Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/spanner#spanner.serviceAgent)  
 (`roles/spanner.serviceAgent`)  Granted on the project.   
+  
+#### Cloud Storage Security Risk Assessment Service Agent
+
+Service agent for `storage.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-storage-sra.iam.gserviceaccount.com` |  None   
   
 #### Cloud Storage for Firebase Service Agent
 
@@ -1040,6 +1043,10 @@ Service agent for `storage.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-stora
 [Primary service agent](https://docs.cloud.google.com/iam/docs/service-account-types#primary) for `gkehub.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-gkehub.iam.gserviceaccount.com` |  [GKE Hub Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/gkehub#gkehub.serviceAgent)  
 (`roles/gkehub.serviceAgent`)  Granted on the project.   
   
+#### Gemini Cloud Assist Service Agent
+
+Service agent for `geminicloudassist.googleapis.com`. `service-org-ORGANIZATION_NUMBER@gcp-sa-geminicloudassist.iam.gserviceaccount.com` |  None   
+  
 #### Gemini Code Assist Management Service Agent
 
 [Primary service agent](https://docs.cloud.google.com/iam/docs/service-account-types#primary) for `geminicodeassistmanagement.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-geminicodeassistmp.iam.gserviceaccount.com` |  [Gemini Code Assist Management Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/geminicodeassistmanagement#geminicodeassistmanagement.serviceAgent)  
@@ -1069,7 +1076,7 @@ Service agent for `generativelanguage.googleapis.com`. `p-PROJECT_NUMBER-IDENTIF
   
 #### Google APIs Service Agent
 
-Service agent used internally by Google Cloud. `PROJECT_NUMBER@cloudservices.gserviceaccount.com` |  [Editor](https://docs.cloud.google.com/iam/docs/roles-overview#basic)  
+Service agent used internally by Google Cloud. `PROJECT_NUMBER@cloudservices.gserviceaccount.com` |  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic)  
 (`roles/editor`)  Granted on the project.   
   
 #### Google Cloud Dataproc Resource Manager Node Service Agent
@@ -1206,6 +1213,10 @@ Service agent for `container.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-gke
 
 [Primary service agent](https://docs.cloud.google.com/iam/docs/service-account-types#primary) for `container.googleapis.com`. `service-PROJECT_NUMBER@container-engine-robot.iam.gserviceaccount.com` |  [Kubernetes Engine Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/container#container.serviceAgent)  
 (`roles/container.serviceAgent`)  Granted on the project.   
+  
+#### Lakehouse Service Agent
+
+Service agent for `biglake.googleapis.com`. `lh-PROJECT_NUMBER@gcp-sa-lakehouse.iam.gserviceaccount.com` |  None   
   
 #### Legacy Cloud Build service account
 
@@ -1520,6 +1531,14 @@ Service agent for `vectorsearch.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-
 [Primary service agent](https://docs.cloud.google.com/iam/docs/service-account-types#primary) for `vectorsearch.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-vectorsearch.iam.gserviceaccount.com` |  [Vector Search Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/vectorsearch#vectorsearch.serviceAgent)  
 (`roles/vectorsearch.serviceAgent`)  Granted on the project.   
   
+#### Vertex AI Agent Environment Service Agent
+
+Service agent for `aiplatform.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-vertex-agenv.iam.gserviceaccount.com` |  None   
+  
+#### Vertex AI Agent Learning Service Agent
+
+Service agent for `aiplatform.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-vertex-al.iam.gserviceaccount.com` |  None   
+  
 #### Vertex AI Agent Sandbox Service Agent
 
 Service agent for `aiplatform.googleapis.com`. `service-PROJECT_NUMBER@gcp-sa-vertex-sandbox.iam.gserviceaccount.com` |  [Vertex AI Agent Sandbox Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.agentSandboxServiceAgent)  
@@ -1623,6 +1642,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

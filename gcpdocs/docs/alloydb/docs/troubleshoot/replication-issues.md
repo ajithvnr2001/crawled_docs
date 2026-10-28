@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/replication-issues/
 title: Troubleshoot replication issues \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:32.346057+00:00
+fetched_at: 2026-10-28T02:16:29.435669+00:00
 ---
 
 # Troubleshoot replication issues  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -84,7 +84,7 @@ You can monitor the impact of query throttling using the following methods:
 
   * Logs: search for `Delayed.*due to replica lag` messages in the `postgres.log` file in the Logs Explorer to identify when queries are delayed due to replica lag.
 
-  * Cloud monitoring: use the `alloydb.googleapis.com/instance/postgresql/wait_count` metric to see how many queries have been throttled. To do this, filter the metric by the `wait_event_name` and look for `HighLagThrottle`. To see the total time queries were throttled, you can use the `alloydb.googleapis.com/instance/postgresql/wait_time` metric with the same filter. For more information, see the [System insights metrics reference](https://docs.cloud.google.com/alloydb/docs/reference/system-insights-metrics).
+  * Cloud Monitoring: use the `alloydb.googleapis.com/instance/postgresql/wait_count` metric to see how many queries have been throttled. To do this, filter the metric by the `wait_event_name` and look for `HighLagThrottle`. To see the total time queries were throttled, you can use the `alloydb.googleapis.com/instance/postgresql/wait_time` metric with the same filter. For more information, see the [System insights metrics reference](https://docs.cloud.google.com/alloydb/docs/reference/system-insights-metrics).
 
   * Query insights: in the **Query insights** dashboard, the **Active queries** view shows the `HighLagThrottle` wait event in the **Wait event** column when a query is being throttled due to replication lag. For more details, see [Monitor active queries](https://docs.cloud.google.com/alloydb/docs/monitor-active-queries).
 
@@ -119,12 +119,12 @@ To mitigate this issue, you can terminate the long-running transaction on the pr
 
 ## Impact of instance resizing on replication lag
 
-AlloyDB's storage architecture ensures that read pool flush lag is not impacted by instance resizing. However, the same doesn't apply to the replay. The replica's ability to replay depends on the load it has. If you update your instance configuration, for example, by resizing it, depending on the workload, the replica may not have a fully warmed cache when the operation completes. This means that it is slower to replay or process records that it hasn't cached yet. In that case, this might mean that replay lag increases temporarily.
+The AlloyDB storage architecture ensures that read pool flush lag is not impacted by instance resizing. However, the same doesn't apply to the replay. The replica's ability to replay depends on the load it has. If you update your instance configuration, for example, by resizing it, depending on the workload, the replica might not have a fully warmed cache when the operation completes. This means that it is slower to replay or process records that it hasn't cached yet. In that case, this might mean that replay lag increases temporarily.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

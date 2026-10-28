@@ -1,16 +1,46 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/
 title: Manually rotate certificates \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.10.0 \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:42.956663+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T17:43:10.297336+00:00
 ---
 
 # Manually rotate certificates  |  AlloyDB Omni using the container orchestrator: 17.10.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/
 
-This page documents AlloyDB Omni version **17.10.0** using the **container orchestrator** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
+[ Skip to main content ](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/)
+  * [Deutsch](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/?hl=ko)
 
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/alloydb-color.svg) ](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/overview)
+  * [ AlloyDB Omni ](https://docs.cloud.google.com/alloydb/omni/docs)
+  * [ Container orchestrator: 17.10.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/overview)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Before you begin](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/#before-you-begin)
+  * [Manual certificate rotation](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/#manual-cert-rotation)
+  * [Verify certificate rotation](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/#verify-cert-rotation)
+  * [What's next](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/#what-next)
+
+
+This page documents AlloyDB Omni version **17.10.0** using the **container orchestrator** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
@@ -18,13 +48,16 @@ This page documents AlloyDB Omni version **17.10.0** using the **container orche
   * [ Container orchestrator: 17.10.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/overview)
 
 
-
 Send feedback 
+#  Manually rotate certificates Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Before you begin](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/#before-you-begin)
+  * [Manual certificate rotation](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/#manual-cert-rotation)
+  * [Verify certificate rotation](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/#verify-cert-rotation)
+  * [What's next](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manually-rotate-certificates/#what-next)
 
-#  Manually rotate certificates Stay organized with collections  Save and categorize content based on your preferences. 
 
-Select a documentation version: 17.10.0keyboard_arrow_down
-
+Select a documentation version:  17.10.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/manually-rotate-certificates)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/manually-rotate-certificates)
   * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/manually-rotate-certificates)
@@ -40,76 +73,72 @@ Select a documentation version: 17.10.0keyboard_arrow_down
   * [ 15.15.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.15.0/docs/manually-rotate-certificates)
 
 By default, the AlloyDB Omni Kubernetes operator uses `cert-manager` to provision a set of TLS certificates for each database cluster. In addition to the database server certificate, the operator creates certificates for control plane components to secure internal connections. 
-
 While `cert-manager` automates certificate renewals based on the `duration` and `renewBefore` fields of a `Certificate` object, you might need to manually trigger a certificate rotation in the following scenarios:
-
   * A private key is compromised.
   * A CA certificate is rotated. According to `cert-manager` documentation, when a CA certificate associated with an issuer is rotated, the leaf certificates aren't automatically re-issued.
   * `cert-manager` automatic re-issuance fails. Although rare, if automatic re-issuance doesn't trigger due to specific conditions described in the [cert-manager FAQ](https://cert-manager.io/docs/faq/#when-do-certs-get-re-issued), you must trigger a manual rotation.
 
 
-
 ## Before you begin
-
   * Ensure you have `kubectl` configured to access your Kubernetes cluster.
   * Ensure that `cert-manager` is running on your Kubernetes cluster.
 
 
-
 ## Manual certificate rotation
-
 To manually trigger certificate rotation, delete the secret associated with the `cert-manager` `Certificate` object. The `cert-manager` controller reconciles the object and re-issues the certificate, which creates a new secret. Workloads associated with the AlloyDB Omni operator automatically reload their TLS configurations to use the new certificate.
-
   1. Identify the `cert-manager` `Certificate` that you want to rotate. These objects are in your `DBCluster` namespace and the namespace where the AlloyDB Omni operator is installed. The names of CA certificates have the prefix `dbs-al-ca`, while leaf certificates have the prefix `dbs-al-cert`. In the remaining steps, use the name of the associated secret from the output.
-         
-         kubectl get certificate CERTIFICATE_NAME -n NAMESPACE -o wide
-         
+
+```
+kubectl get certificate CERTIFICATE_NAME -n NAMESPACE -o wide
+
+```
 
   2. Before you trigger rotation, back up the certificate secret:
-         
-         kubectl get secret SECRET_NAME -n NAMESPACE -o yaml > SECRET_NAME-NAMESPACE.yaml.bak
-         
+
+```
+kubectl get secret SECRET_NAME -n NAMESPACE -o yaml > SECRET_NAME-NAMESPACE.yaml.bak
+
+```
 
   3. Delete the certificate secret:
-         
-         kubectl delete secret SECRET_NAME -n NAMESPACE
-         
+
+```
+kubectl delete secret SECRET_NAME -n NAMESPACE
+
+```
 
   4. Wait for `cert-manager` to recreate the certificate secret:
-         
-         kubectl get secret SECRET_NAME -n NAMESPACE -w
-         
 
+```
+kubectl get secret SECRET_NAME -n NAMESPACE -w
+
+```
 
 
 
 ## Verify certificate rotation
-
 After you manually rotate the certificates, verify that the new certificates are in use:
-
   1. Check the certificate secret. The `creationTimestamp` value must reflect the time after you manually rotated the certificate:
-         
-         kubectl get secret SECRET_NAME -n NAMESPACE -o yaml
-         
+
+```
+kubectl get secret SECRET_NAME -n NAMESPACE -o yaml
+
+```
 
   2. Examine the `Certificate` status. Verify that the `notBefore` and `notAfter` dates in the status section are correct:
-         
-         kubectl describe certificate CERTIFICATE_NAME -n NAMESPACE
-         
 
+```
+kubectl describe certificate CERTIFICATE_NAME -n NAMESPACE
+
+```
 
 
 
 ## What's next
-
   * [Manage certificates](https://docs.cloud.google.com/alloydb/omni/kubernetes/17.10.0/docs/manage-certificates-kubernetes-operator).
 
 
-
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

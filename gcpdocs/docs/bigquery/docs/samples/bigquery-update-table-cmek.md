@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-update-table-cmek/
 title: Update a table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:53.875711+00:00
+fetched_at: 2026-10-27T23:10:50.165761+00:00
 ---
 
 # Update a table  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/samples/batch-create-script-job-with-bucket/
 title: Create and submit a job that uses a Cloud Storage bucket \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:25:30.317609+00:00
+fetched_at: 2026-10-27T23:00:19.726976+00:00
 ---
 
 # Create and submit a job that uses a Cloud Storage bucket  |  Batch  |  Google Cloud Documentation

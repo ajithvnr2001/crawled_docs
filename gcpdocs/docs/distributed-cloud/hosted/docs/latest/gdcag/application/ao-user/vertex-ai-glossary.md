@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-glossary/
 title: Create and use a glossary \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:47:05.152704+00:00
+fetched_at: 2026-10-27T22:51:21.274502+00:00
 ---
 
 # Create and use a glossary  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -385,7 +385,7 @@ You must receive a JSON response similar to the following:
         "@type": "type.googleapis.com/google.cloud.translation.v3.CreateGlossaryMetadata",
         "name": "projects/PROJECT_ID/glossaries/GLOSSARY_ID",
         "state": "RUNNING",
-        "submitTime": TIME
+        "submitTime": "TIME"
       }
     }
     
@@ -409,8 +409,7 @@ Follow these steps to create an equivalent term set glossary:
            "language_codes_set": {
              "language_codes": ["LANGUAGE_CODE_1",
                                  "LANGUAGE_CODE_2",
-                                 "LANGUAGE_CODE_3",
-                                 ...
+                                 "LANGUAGE_CODE_3"
                                ]
            },
            "input_config": {
@@ -421,7 +420,7 @@ Follow these steps to create an equivalent term set glossary:
          }
          
 
-Replace `LANGUAGE_CODE` with the code of the language or languages of the glossary. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
+Replace `LANGUAGE_CODE_1`, `LANGUAGE_CODE_2`, and `LANGUAGE_CODE_3` with the codes of the languages of the glossary. See the list of [supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs) and their respective language codes.
 
   2. [Get an authentication token](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-auth).
 
@@ -451,7 +450,7 @@ You must receive a JSON response similar to the following:
         "@type": "type.googleapis.com/google.cloud.translation.v3.CreateGlossaryMetadata",
         "name": "projects/PROJECT_ID/glossaries/GLOSSARY_ID",
         "state": "RUNNING",
-        "submitTime": TIME
+        "submitTime": "TIME"
       }
     }
     
@@ -489,7 +488,7 @@ You must receive a JSON response similar to the following:
         "@type": "type.googleapis.com/google.cloud.translation.v3.CreateGlossaryMetadata",
         "name": "projects/PROJECT_ID/glossaries/GLOSSARY_ID",
         "state": "RUNNING",
-        "submitTime": TIME
+        "submitTime": "TIME"
       }
     }
     
@@ -556,7 +555,7 @@ Depending on the size of the glossary file, creating a glossary typically takes 
 
 ## Get a glossary
 
-The `GetGlossary` method returns a stored glossary. If the glossary doesn't exist, the output returns the `NOT_FOUND` value. To call the `GetGlossary` method, specify your project ID and the glossary ID. Both the `CreateGlossary` and `ListGlossaries` methods return the glossary ID.
+The `GetGlossary` method returns a stored glossary. If the glossary doesn't exist, the output returns the `NOT_FOUND` value. To call the `GetGlossary` method, specify your project ID and the glossary ID. Both the `CreateGlossary` and `ListGlossaries` methods return the glossary ID. The Vertex AI Translation API accepts HTTPS requests only.
 
 For example, the following requests return information about a specific glossary in your project:
 
@@ -565,7 +564,7 @@ For example, the following requests return information about a specific glossary
     
     curl -X GET \
        -H "Authorization: Bearer TOKEN" \
-       "http://ENDPOINT/v3/projects/PROJECT_ID/glossaries/GLOSSARY_ID"
+       "https://ENDPOINT/v3/projects/PROJECT_ID/glossaries/GLOSSARY_ID"
     
 
 Replace `TOKEN` with [the authentication token](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-auth) you obtained.
@@ -590,28 +589,28 @@ For more information on the `get_glossary` method, see the [Python client librar
 
 ## List glossaries
 
-The `ListGlossaries` method returns a list of `Glossary` resources in a project, each containing the full `name` (`projects/PROJECT_ID/glossaries/GLOSSARY_ID`). If the project has no glossaries, the output returns `{}`. If the project doesn't exist, the output returns the `NOT_FOUND` value. To call the `ListGlossaries` method, specify your project ID and the [Vertex AI Translation endpoint](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-status).
+The `ListGlossaries` method returns a list of `Glossary` resources in a project, each containing the full `name` (`projects/PROJECT_ID/glossaries/GLOSSARY_ID`). If the project has no glossaries, the output returns `{}`. If the project doesn't exist, the output returns the `NOT_FOUND` value. To call the `ListGlossaries` method, specify your project ID and the [Vertex AI Translation endpoint](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-status). The Vertex AI Translation API accepts HTTPS requests only.
 
 For example, the following request returns the glossaries in your project:
     
     
     curl -X GET \
         -H "Authorization: Bearer TOKEN" \
-        "http://ENDPOINT/v3/projects/PROJECT_ID/glossaries?page_size=10"
+        "https://ENDPOINT/v3/projects/PROJECT_ID/glossaries?page_size=10"
     
 
 Replace `TOKEN` with [the authentication token](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-auth) you obtained.
 
 ## Delete a glossary
 
-The `DeleteGlossary` method deletes a glossary. If the glossary doesn't exist, the output returns the `NOT_FOUND` value. To call the `DeleteGlossary` method, specify your project ID, glossary ID, and the [Vertex AI Translation endpoint](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-status). Both the `CreateGlossary` and `ListGlossaries` methods return the glossary ID.
+The `DeleteGlossary` method deletes a glossary. If the glossary doesn't exist, the output returns the `NOT_FOUND` value. To call the `DeleteGlossary` method, specify your project ID, glossary ID, and the [Vertex AI Translation endpoint](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-status). Both the `CreateGlossary` and `ListGlossaries` methods return the glossary ID. The Vertex AI Translation API accepts HTTPS requests only.
 
 For example, the following request deletes a glossary from your project:
     
     
     curl -X DELETE \
         -H "Authorization: Bearer TOKEN" \
-        "http://ENDPOINT/v3/projects/PROJECT_ID/glossaries/GLOSSARY_ID"
+        "https://ENDPOINT/v3/projects/PROJECT_ID/glossaries/GLOSSARY_ID"
     
 
 Replace `TOKEN` with [the authentication token](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-auth) you obtained.
@@ -620,6 +619,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

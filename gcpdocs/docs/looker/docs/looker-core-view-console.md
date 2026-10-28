@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-view-console/
 title: View and edit the details of a Looker (Google Cloud core) instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:24.123619+00:00
+fetched_at: 2026-10-27T23:38:35.971668+00:00
 ---
 
 # View and edit the details of a Looker (Google Cloud core) instance  |  Google Cloud Documentation
@@ -221,10 +221,10 @@ Before you edit this setting, be sure to [set up the new credentials](https://do
 
   * **Universal catalog integration** : You can optionally select the **Opt out of Dataplex Catalog integration** checkbox if you don't want Looker (Google Cloud core) to [integrate with Knowledge Catalog](https://docs.cloud.google.com/looker/docs/looker-core-dataplex). Looker (Google Cloud core) and Knowledge Catalog are integrated by default.
 
+This setting controls metadata ingestion only. [Data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) is managed independently by using the Data Lineage API and Google Cloud service-level ingestion controls.
 
 
 
-The integration between Looker (Google Cloud core) and Knowledge Catalog enables both metadata ingestion and [data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) (if the Data Lineage API is enabled).
 
 When you have made your changes, click **Save**.
 
@@ -282,8 +282,8 @@ You may also include the following flags:
   * `--public-ip-enabled` enables public IP.
   * `--no-public-ip-enabled` disables public IP.
   * `--clear-psc-allowed-vpcs` removes all VPCs from an instance that uses Private Service Connect.
-  * `--no-catalog-integration-enabled` disables the [integration with Knowledge Catalog](https://docs.cloud.google.com/looker/docs/looker-core-dataplex).
-  * `--catalog-integration-enabled` enables the [integration with Knowledge Catalog](https://docs.cloud.google.com/looker/docs/looker-core-dataplex).
+  * `--no-catalog-integration-enabled` disables metadata ingestion with Knowledge Catalog. This flag does not affect [data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage).
+  * `--catalog-integration-enabled` enables metadata ingestion with Knowledge Catalog. This flag does not affect [data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage).
   * `--accelerated-security-patch-enabled`: optionally include this flag if your instance is on the `regular` release channel and you want to receive security patches bi-weekly. This feature is in [preview](https://cloud.google.com/products#product-launch-stages).
 
 
@@ -308,6 +308,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

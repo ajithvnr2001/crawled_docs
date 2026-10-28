@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes/
 title: Gemini Enterprise Agent Platform release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:58.898356+00:00
+fetched_at: 2026-10-27T16:28:13.460250+00:00
 ---
 
 # Gemini Enterprise Agent Platform release notes  |  Google Cloud Documentation
@@ -24,6 +24,22 @@ This page documents production updates to Gemini Enterprise Agent Platform. Chec
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
+## October 26, 2026
+
+Feature
+
+**Control user intent matching for semantic governance policies**
+
+You can now turn user intent matching on or off for semantic governance policies by setting the `sgpUserIntentMatching` key on the authorization extension metadata. User intent matching is on by default; set the key to `DISABLED` to turn it off. Turning it off reduces protection against indirect prompt injection. When the key is set, policy evaluation logs report the mode each evaluation used in the `sgpUserIntentMatchingMode` field.
+
+For more information, see [Control user intent matching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#control-intent-matching).
+
+Feature
+
+**Cloud Storage output support for Gemini image generation models**
+
+Direct Cloud Storage output persistence is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) (`gemini-nano-banana-2.1`), [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) (`gemini-3.1-flash-image`), [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) (`gemini-3.1-flash-lite-image`), and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) (`gemini-3-pro-image`). You can set `outputConfig.outputUriPrefix` and `generationConfig.responseFormat[].image.delivery` to `"URI"` in `generateContent` and `streamGenerateContent` requests to write generated and edited images directly to a Cloud Storage bucket and receive the object URI in `fileData.fileUri` instead of inline bytes. For more information, see [Save generated images to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#save-generated-images-cloud-storage).
+
 ## October 21, 2026
 
 Fixed
@@ -44,6 +60,24 @@ This release introduces updates to CodeMender:
 
 
 For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
+
+## October 19, 2026
+
+Feature
+
+**Supervised fine-tuning for Gemini 3 models is available in General Availability**
+
+[Supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) for Gemini 3 models is available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages).
+
+Key updates include the following:
+
+  * **Gemini 3.5 Flash Lite support** : Supervised fine-tuning is now supported for [Gemini 3.5 Flash Lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-flash-lite) (`gemini-3.5-flash-lite`), in addition to Gemini 3.5 Flash (`gemini-3.5-flash`) and Gemini 3.1 Flash Lite (`gemini-3.1-flash-lite`).
+  * **Supported regions** : Model tuning jobs and tuned model serving for Gemini 3 models are supported on the `us` and `eu` multi-region endpoints.
+  * **Customer-managed encryption keys (CMEK)** : [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) are supported for protecting tuning job resources and tuned models.
+
+
+
+For more information, see [About supervised fine-tuning for Gemini models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning) and [Tune Gemini models by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use).
 
 ## October 14, 2026
 
@@ -1557,6 +1591,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

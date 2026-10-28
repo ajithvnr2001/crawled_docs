@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tpu/docs/audit-logs/
 title: Cloud TPU audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:36:25.799409+00:00
+fetched_at: 2026-10-27T17:04:12.207681+00:00
 ---
 
 # Cloud TPU audit logging  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 **Caution:** This page applies to the Cloud TPU API, which is no longer under active development. The Cloud TPU API will receive bug fixes and security updates only. For the latest features and support for the latest TPU versions, we recommend using Compute Engine or Google Kubernetes Engine to manage TPU resources. For more information, see [TPU resources in Compute Engine](https://docs.cloud.google.com/tpu/docs/tpus-in-compute-engine) and [About TPUs in GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/tpus). The Cloud TPU API is not supported on TPU7x and later TPU versions. 
 
-This document describes audit logging for Cloud TPU. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Cloud TPU let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Cloud TPU API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -35,11 +37,19 @@ This document describes audit logging for Cloud TPU. Google Cloud services gener
 
 ## Service name
 
-Cloud TPU audit logs use the service name `tpu.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="tpu.googleapis.com"
-      
+To view the Cloud TPU audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="tpu.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -62,16 +72,16 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.tpu.v2alpha1.Tpu.ListNodes`  
 `google.cloud.tpu.v2alpha1.Tpu.ListQueuedResources`  
 `google.cloud.tpu.v2alpha1.Tpu.ListReservations`  
-`ADMIN_WRITE` | `google.cloud.tpu.v1.Tpu.CreateNode` (LRO)  
+`ADMIN_WRITE` | `google.cloud.tpu.v1.Tpu.CreateNode`  
 `google.cloud.tpu.v1.Tpu.DeleteNode` (LRO)  
 `google.cloud.tpu.v1.Tpu.ReimageNode`  
-`google.cloud.tpu.v1.Tpu.StartNode` (LRO)  
-`google.cloud.tpu.v1.Tpu.StopNode` (LRO)  
-`google.cloud.tpu.v1alpha1.Tpu.CreateNode` (LRO)  
-`google.cloud.tpu.v1alpha1.Tpu.DeleteNode` (LRO)  
-`google.cloud.tpu.v1alpha1.Tpu.ReimageNode` (LRO)  
-`google.cloud.tpu.v1alpha1.Tpu.StartNode` (LRO)  
-`google.cloud.tpu.v1alpha1.Tpu.StopNode` (LRO)  
+`google.cloud.tpu.v1.Tpu.StartNode`  
+`google.cloud.tpu.v1.Tpu.StopNode`  
+`google.cloud.tpu.v1alpha1.Tpu.CreateNode`  
+`google.cloud.tpu.v1alpha1.Tpu.DeleteNode`  
+`google.cloud.tpu.v1alpha1.Tpu.ReimageNode`  
+`google.cloud.tpu.v1alpha1.Tpu.StartNode`  
+`google.cloud.tpu.v1alpha1.Tpu.StopNode`  
 `google.cloud.tpu.v2.Tpu.CreateNode` (LRO)  
 `google.cloud.tpu.v2.Tpu.CreateQueuedResource` (LRO)  
 `google.cloud.tpu.v2.Tpu.DeleteNode` (LRO)  
@@ -106,7 +116,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `tpu.nodes.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.tpu.v1.Tpu.CreateNode" `  
 
@@ -181,7 +191,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `tpu.nodes.start - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.tpu.v1.Tpu.StartNode" `  
 
@@ -196,7 +206,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `tpu.nodes.stop - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.tpu.v1.Tpu.StopNode" `  
 
@@ -215,7 +225,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `tpu.nodes.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.tpu.v1alpha1.Tpu.CreateNode" `  
 
@@ -230,7 +240,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `tpu.nodes.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.tpu.v1alpha1.Tpu.DeleteNode" `  
 
@@ -275,7 +285,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `tpu.nodes.reimage - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.tpu.v1alpha1.Tpu.ReimageNode" `  
 
@@ -290,7 +300,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `tpu.nodes.start - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.tpu.v1alpha1.Tpu.StartNode" `  
 
@@ -305,7 +315,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `tpu.nodes.stop - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.tpu.v1alpha1.Tpu.StopNode" `  
 
@@ -787,6 +797,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

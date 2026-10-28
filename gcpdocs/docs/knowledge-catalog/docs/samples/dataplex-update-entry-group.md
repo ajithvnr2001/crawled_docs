@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/samples/dataplex-update-entry-group/
 title: Update entry group \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:53.506228+00:00
+fetched_at: 2026-10-27T20:47:15.867436+00:00
 ---
 
 # Update entry group  |  Knowledge Catalog  |  Google Cloud Documentation

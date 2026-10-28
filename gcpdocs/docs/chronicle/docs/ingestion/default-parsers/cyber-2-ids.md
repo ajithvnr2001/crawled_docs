@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cyber-2-ids/
 title: Collect Cyber 2.0 IDS logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:18.108472+00:00
+fetched_at: 2026-10-27T16:18:06.446382+00:00
 ---
 
 # Collect Cyber 2.0 IDS logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -101,7 +101,7 @@ Install the Bindplane agent on your Windows or Linux operating system according 
   1. Open **Command Prompt** or **PowerShell** as an administrator.
   2. Run the following command:
          
-         msiexec /i "https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi&quot; /quiet
+         msiexec /i "https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi" /quiet
          
 
   3. Wait for the installation to complete.
@@ -171,12 +171,12 @@ For additional installation options and troubleshooting, see [Bindplane agent in
            chronicle/meraki_ids:
              protocol: https
              # Region of your instance, for example us, europe, asia-southeast1
-             <location>: LOCATION
+             location: <LOCATION>
              # Project number of the Google Cloud project linked to the instance
-             <project: '>PROJECT_NUMBER'
+             project: '<PROJECT_NUMBER>'
              compression: gzip
-             <creds_file_path>: 'CREDS_FILE_PA<TH'
-            > customer_id: 'CUSTOMER_ID'
+             creds_file_path: '<CREDS_FILE_PATH>'
+             customer_id: '<CUSTOMER_ID>'
              endpoint: chronicle.googleapis.com
              log_type: CYBER_2_IDS
              raw_log_field: body
@@ -231,9 +231,9 @@ For additional installation options and troubleshooting, see [Bindplane agent in
       chronicle/meraki_ids:
         protocol: https
         # Region of your instance, for example us, europe, asia-southeast1
-        <location>: LOCATION
+        location: <LOCATION>
         # Project number of the Google Cloud project linked to the instance
-        <project: '>PROJECT_NUMBER'
+        project: '<PROJECT_NUMBER>'
         compression: gzip
         creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
         customer_id: 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'
@@ -261,8 +261,8 @@ For additional installation options and troubleshooting, see [Bindplane agent in
         exporters:
           chronicle/meraki_ids:
             compression: gzip
-            creds_file_path: &<#39;CREDS_FILE_>PATH'
-            custom<er_id: '>;CUSTOMER_ID'
+            creds_file_path: '<CREDS_FILE_PATH>'
+            customer_id: '<CUSTOMER_ID>'
             endpoint: malachiteingestion-pa.googleapis.com
             log_type: CYBER_2_IDS
             raw_log_field: body
@@ -402,6 +402,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

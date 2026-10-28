@@ -1,13 +1,57 @@
 ---
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/
 title: How-to guides \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:49.798490+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T16:57:49.780354+00:00
 ---
 
 # How-to guides  |  Cloud Healthcare API  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/healthcare-api/docs/how-tos/
+
+[ Skip to main content ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/healthcare-api/docs/how-tos/)
+  * [Deutsch](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=de)
+  * [Español](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=it)
+  * [Português](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/healthcare-api/docs/how-tos/?hl=ko)
+
+
+[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Fhealthcare-api%2Fdocs%2Fhow-tos%2F&prompt=select_account)
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/business-intelligence-color.svg) ](https://docs.cloud.google.com/healthcare-api/docs)
+  * [ Cloud Healthcare API ](https://docs.cloud.google.com/healthcare-api/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Authentication](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#authentication)
+  * [Datasets guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#datasets-guide)
+  * [Consent management guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#consent-management-guide)
+  * [DICOM guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#dicom-guide)
+  * [FHIR guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#fhir-guide)
+  * [HL7v2 guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#hl7v2-guide)
+  * [De-identification guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#de-identification-guide)
+  * [Healthcare Natural Language API](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#healthcare-natural-language-api)
+  * [IAM permissions guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#iam-permissions-guide)
+  * [Logging guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#logging-guide)
+  * [Cloud Pub/Sub notifications](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#cloud-pubsub-notifications)
+  * [Long-running operations](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#long-running-operations)
+  * [Labels](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#labels)
+  * [Service perimeters](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#service-perimeters)
+  * [Best practices](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#best-practices)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -15,24 +59,32 @@ fetched_at: 2026-10-25T06:22:49.798490+00:00
   * [ Cloud Healthcare API ](https://docs.cloud.google.com/healthcare-api/docs)
 
 
-
+Was this helpful?
 Send feedback 
+#  How-to guides Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Authentication](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#authentication)
+  * [Datasets guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#datasets-guide)
+  * [Consent management guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#consent-management-guide)
+  * [DICOM guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#dicom-guide)
+  * [FHIR guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#fhir-guide)
+  * [HL7v2 guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#hl7v2-guide)
+  * [De-identification guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#de-identification-guide)
+  * [Healthcare Natural Language API](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#healthcare-natural-language-api)
+  * [IAM permissions guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#iam-permissions-guide)
+  * [Logging guide](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#logging-guide)
+  * [Cloud Pub/Sub notifications](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#cloud-pubsub-notifications)
+  * [Long-running operations](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#long-running-operations)
+  * [Labels](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#labels)
+  * [Service perimeters](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#service-perimeters)
+  * [Best practices](https://docs.cloud.google.com/healthcare-api/docs/how-tos/#best-practices)
 
-#  How-to guides Stay organized with collections  Save and categorize content based on your preferences. 
-
-## Authentication
 
   * ### [Authenticating to the API Learn how to create and use credentials to interact with the Cloud Healthcare API.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/authentication)
 
 
-
-## Datasets guide
-
   * ### [Creating and managing datasets Start storing your medical data by first learning how to create and work with datasets.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/datasets)
 
-
-
-## Consent management guide
 
   * ### [Creating and managing consent stores Learn how to manage consent stores using the Consent Management API.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/consent-managing)
   * ### [Configuring consent policies using attributes Learn how to configure consent policies using attributes of a consent store.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/consent-policies)
@@ -40,9 +92,6 @@ Send feedback
   * ### [Registering user data Learn how to register user data with the Consent Management API.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/consent-registering-user-data)
   * ### [Making access determinations Learn how to make access determinations using the Consent Management API.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/consent-access-determination)
 
-
-
-## DICOM guide
 
   * ### [Creating and managing DICOM stores Create and manage data stores that hold medical images using the DICOM standard.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom)
   * ### [Connecting a PACS to the Cloud Healthcare API View a quickstart on how to connect a Picture Archiving and Communication System (PACS) to the Cloud Healthcare API and import DICOM data.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-connect-pacs)
@@ -56,9 +105,6 @@ Send feedback
   * ### [Using the Cloud Healthcare API for digital pathology Use the Cloud Healthcare API to store and retrieve whole slide images (WSIs).  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-digital-pathology)
   * ### [DICOM best practices Learn how to obtain the best performance when working with DICOM data in the Cloud Healthcare API.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-best-practices)
 
-
-
-## FHIR guide
 
   * ### [Creating and managing FHIR stores Create and manage data stores that hold clinical resource data using the FHIR standard.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/fhir)
   * ### [Creating and managing FHIR resources Create and manage FHIR resources such as patients, devices, and observations.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/fhir-resources)
@@ -76,9 +122,6 @@ Send feedback
   * ### [Connect to applications using SMART on FHIR Use the SMART on FHIR v1.1.0 framework to access data in FHIR stores.  ](https://docs.cloud.google.com/healthcare-api/docs/smart-on-fhir)
 
 
-
-## HL7v2 guide
-
   * ### [Creating and managing HL7v2 stores Create and manage data stores that hold clinical event messages using the HL7v2 standard.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/hl7v2)
   * ### [Creating and managing HL7v2 messages Exchange clinical event messages between Google Cloud and care facilities such as hospitals or clinics.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/hl7v2-messages)
   * ### [Configuring a schema to parse HL7v2 messages Learn how to configure schemas to parse HL7v2 messages that do or do not comply with the HL7v2 standard.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/parser-api)
@@ -91,69 +134,40 @@ Send feedback
   * ### [Retrieving HL7v2 messages in bulk Retrieve up to 100 messages from an HL7v2 store with a single call.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/hl7v2-batch-messages)
 
 
-
-## De-identification guide
-
   * ### [De-identifying sensitive data Get an overview of the capabilities of the Cloud Healthcare API to de-identify sensitive data in a dataset and export it to a new dataset.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/deidentify)
   * ### [De-identifying DICOM data De-identify sensitive data in DICOM instances.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-deidentify)
   * ### [Write de-identify operation metadata to a FHIR store Write DICOM de-identify operation metadata to Provenance resources in a FHIR store.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/fhir-annotation)
   * ### [De-identifying FHIR data De-identify sensitive data in FHIR resources.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/fhir-deidentify)
 
 
-
-## Healthcare Natural Language API
-
   * ### [Healthcare Natural Language API Use the Healthcare Natural Language API to parse unstructured medical text and generate structured data and metadata for downstream analysis and automation.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/nlp)
 
-
-
-## IAM permissions guide
 
   * ### [Controlling access to Cloud Healthcare API resources Use Identity and Access Management permissions to give users access to datasets and data stores.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/controlling-access)
   * ### [Managing permissions between the Cloud Healthcare API and other Google Cloud products Use the Cloud Healthcare Service Agent service account to give the Cloud Healthcare API access to interact with other Google Cloud products such as Pub/Sub, BigQuery, and Cloud Storage.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/permissions-healthcare-api-gcp-products)
 
 
-
-## Logging guide
-
   * ### [Viewing Cloud Audit Logs View logs for Cloud Healthcare API operations in Cloud Audit Logs.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/audit-logging)
   * ### [Viewing error logs in Cloud Logging View logs in Logging for errors triggered in supported request types.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/logging)
 
 
-
-## Cloud Pub/Sub notifications
-
   * ### [Configuring Pub/Sub notifications Configure Cloud Healthcare API data stores to send Pub/Sub notifications when changes are made to DICOM instances, FHIR resources, and HL7v2 messages.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/pubsub)
 
-
-
-## Long-running operations
 
   * ### [Managing long-running operations Manage the lifecycle of long-running Cloud Healthcare API operations.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/long-running-operations)
 
 
-
-## Labels
-
   * ### [Using resource labels Organize Cloud Healthcare API resources using labels (key-value pairs).  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/labeling-resources)
 
 
-
-## Service perimeters
-
   * ### [Protecting Cloud Healthcare API data with service perimeters Learn how to use VPC Service Controls to provide additional security for your data in the Cloud Healthcare API to help mitigate the risk of data exfiltration.  ](https://docs.cloud.google.com/healthcare-api/docs/vpcsc)
 
-
-
-## Best practices
 
   * ### [Optimizing for network latency Learn how to design for greater efficiency, accuracy, and optimal response times from the Cloud Healthcare API.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/best-practices)
   * ### [DICOM best practices Learn how to obtain the best performance when working with DICOM data in the Cloud Healthcare API.  ](https://docs.cloud.google.com/healthcare-api/docs/how-tos/dicom-best-practices)
 
 
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
 Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]] 

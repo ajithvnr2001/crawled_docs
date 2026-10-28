@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/servicenow/third-party-config/
 title: ServiceNow configuration \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:48.889453+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:25:53.814802+00:00
 ---
 
 # ServiceNow configuration  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -50,7 +64,7 @@ If you don't already have an account or a PDI, follow these steps to set them up
      3. **Save your credentials** : When the instance is ready, the portal provides your **Instance URL, Admin username, and Admin password**. Save these for the next configuration steps.
      4. To access your new environment, click the **Start Building** button on the Developer Site header. This opens your instance in a new tab.
 
-**Note:** Upon initial login with full administrative privileges, go to User Administration > Users to change the default admin password for security. ![ServiceNow Developer Instance interface](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/servicenow-connector-images/servicenow-dev-instance.png)Developer instance
+**Note:** Upon initial login with full administrative privileges, go to User Administration > Users to change the default admin password for security.  ![ServiceNow Developer Instance interface](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/servicenow-connector-images/servicenow-dev-instance.png) Developer instance
 
 ## Configuration setup
 
@@ -58,7 +72,7 @@ To connect Gemini Enterprise to ServiceNow, you must configure an OAuth 2.0 appl
 
 To view the configuration steps for your connector, select it from the following menu:
 
-Federated connectorIngestion connector
+Federated connector Ingestion connector
 
 Set up OAuth for federated connector 
 
@@ -206,7 +220,7 @@ Create a custom role with the minimum set of permissions. This procedure provide
 
 ##### Required table access
 
-The connector needs access to these tables for each entity to run. Table name | Description  
+The connector needs access to these tables for each entity to run.  Table name | Description  
 ---|---  
 incident | Show incidents in search results.  
 sc_cat_item | Show catalog items in search results.  
@@ -240,10 +254,10 @@ To grant and verify access, do the following:
 
   1. Grant explicit access by creating a new ACL rule and manually entering `sc_cat_item.*` in the **Name** field of the form.
 
-![Enter sc_cat_item.* in the Name field](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/servicenow-connector-images/sc-cat-item-name-field.png)Enter `sc_cat_item.*`
+![Enter sc_cat_item.* in the Name field](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/servicenow-connector-images/sc-cat-item-name-field.png) Enter `sc_cat_item.*`
   2. Verify that the ACLs are updated.
   3. Go to `sys_security_acl_role_list.do` in the search bar.
-  4. Set **Role** to the role that you want to verify. ![Select role to verify](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/servicenow-connector-images/select-role-to-verify.png)Select role to verify
+  4. Set **Role** to the role that you want to verify.  ![Select role to verify](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/servicenow-connector-images/select-role-to-verify.png) Select role to verify
   5. Verify that the required ACLs are assigned to the role.
 
 
@@ -262,10 +276,10 @@ Using the administrator role may not suit teams or organizations that want to av
      * `catalog_admin`
      * `knowledge_admin`
      * `incident_manager`
-![Add roles and click Save](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/servicenow-connector-images/assign-roles-save.png)Add roles and click the Save button
+![Add roles and click Save](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/servicenow-connector-images/assign-roles-save.png) Add roles and click the Save button
   7. Confirm the updated roles.
 
-![Confirm the updated roles](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/servicenow-connector-images/confirm-roles.png)Confirm roles
+![Confirm the updated roles](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/servicenow-connector-images/confirm-roles.png) Confirm roles
 
 
 
@@ -332,6 +346,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

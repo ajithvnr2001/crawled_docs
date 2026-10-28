@@ -1,13 +1,52 @@
 ---
 url: https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/
 title: Troubleshoot Agent Identity authentication issues \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:19.224186+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:16:39.678850+00:00
 ---
 
 # Troubleshoot Agent Identity authentication issues  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/
+
+[ Skip to main content ](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/)
+  * [Deutsch](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/?hl=ko)
+
+Sign in
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/security-and-identity-color.svg) ](https://docs.cloud.google.com/iam/docs)
+  * [ IAM ](https://docs.cloud.google.com/iam/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Redirect URI mismatch](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#redirect-uri-mismatch)
+  * [Missing user role](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#missing-user-role)
+  * [Issuer endpoint issues](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#issuer-endpoint-issues)
+  * [401 UNAUTHENTICATED error](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#401-error)
+  * [API key service blocked (API_KEY_SERVICE_BLOCKED)](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#api-key-service-blocked)
+  * [Invalid API key (API_KEY_INVALID)](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#api-key-invalid)
+  * [Permission denied retrieving credentials (agentidentity.authProviders.retrieveCredentials)](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#permission-denied-connector)
+  * [Generic deployment failure](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#generic-deployment-failure)
+  * [ServiceNow authentication loop or unexpected scopes](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#servicenow-scopes)
+  * [GitHub or Microsoft multiple scopes error](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#multiple-scopes-error)
+  * [OpenID Connect discovery and JWKS endpoint errors](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#oidc-jwks-errors)
+  * [Token signature verification fails after key rotation](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#key-rotation)
+  * [What's next](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#whats-next)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -16,216 +55,178 @@ fetched_at: 2026-10-25T06:22:19.224186+00:00
   * [ Guides ](https://docs.cloud.google.com/iam/docs/overview)
 
 
-
+Was this helpful?
 Send feedback 
+#  Troubleshoot Agent Identity authentication issues Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Redirect URI mismatch](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#redirect-uri-mismatch)
+  * [Missing user role](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#missing-user-role)
+  * [Issuer endpoint issues](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#issuer-endpoint-issues)
+  * [401 UNAUTHENTICATED error](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#401-error)
+  * [API key service blocked (API_KEY_SERVICE_BLOCKED)](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#api-key-service-blocked)
+  * [Invalid API key (API_KEY_INVALID)](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#api-key-invalid)
+  * [Permission denied retrieving credentials (agentidentity.authProviders.retrieveCredentials)](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#permission-denied-connector)
+  * [Generic deployment failure](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#generic-deployment-failure)
+  * [ServiceNow authentication loop or unexpected scopes](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#servicenow-scopes)
+  * [GitHub or Microsoft multiple scopes error](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#multiple-scopes-error)
+  * [OpenID Connect discovery and JWKS endpoint errors](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#oidc-jwks-errors)
+  * [Token signature verification fails after key rotation](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#key-rotation)
+  * [What's next](https://docs.cloud.google.com/iam/docs/troubleshoot-auth-manager/#whats-next)
 
-#  Troubleshoot Agent Identity authentication issues Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 This document describes how to resolve common errors when authenticating agents with Agent Identity and the Agent Identity auth manager.
-
 For instructions about configuring auth providers, see [Manage Agent Identity auth providers](https://docs.cloud.google.com/iam/docs/manage-auth-providers-v2). For instructions about verifying Agent Identity ID tokens in external services, see [Authenticate to external services using an agent's own identity](https://docs.cloud.google.com/iam/docs/auth-agent-own-identity-external).
-
 ## Redirect URI mismatch
-
 If you receive a `redirect URI mismatch` error from the third-party application during the OAuth flow, ensure that the redirect URI registered in the third-party developer portal exactly matches the URI generated by the auth manager.
-
 To resolve this issue, find the generated redirect URI by viewing the auth provider details in the Google Cloud console or running the following `gcloud` command:
-    
-    
-    gcloud alpha agent-identity authProviders describe AUTH_PROVIDER_NAME \
-        --location="LOCATION"
+
+```
+gcloud alpha agent-identity authProviders describe AUTH_PROVIDER_NAME \
+    --location="LOCATION"
+```
 
 ## Missing user role
-
 If your agent can't use the auth provider, verify that the agent identity has the `roles/agentidentity.user` role on the auth provider resource.
-
 To resolve this issue, grant the role using the Google Cloud console or run the `add-iam-policy-binding` command.
-
 ## Issuer endpoint issues
-
 For OIDC providers, verify that the issuer endpoint is publicly accessible and supports the `.well-known/openid-configuration` discovery document.
-
 If Google Cloud can't fetch the OIDC metadata or JWKS, ensure that the endpoint isn't behind a firewall or restricted network.
-
 ## 401 UNAUTHENTICATED error
-
 If your agent can't authenticate, the following error might occur. This error is typically caused by a Google-managed Context-Aware Access policy that enforces mTLS binding and DPoP cryptographic proofs:
-    
-    
-    {
-      "error": {
-        "code": 401,
-        "message": "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
-        "status": "UNAUTHENTICATED"
-      }
-    }
-    
+
+```
+{
+  "error": {
+    "code": 401,
+    "message": "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
+    "status": "UNAUTHENTICATED"
+  }
+}
+
+```
 
 To resolve this error, you can opt out of the default Context-Aware Access policy when you have specific token-sharing requirements or must inject the token directly in the header. To opt out, set the following environment variable when you [deploy your agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent#environment-variables):
-    
-    
-    config={
-      "env_vars": {
-        "GOOGLE_API_ENABLE_RUNTIME_BOUND_TOKEN": "false",
-      }
-    }
 
-Opting out removes the protection of token binding, making these short-lived access tokens vulnerable to theft or replay attacks. Therefore, opting out **isn't recommended**.
+```
+config={
+  "env_vars": {
+    "GOOGLE_API_ENABLE_RUNTIME_BOUND_TOKEN": "false",
+  }
+}
+```
 
 ## API key service blocked (`API_KEY_SERVICE_BLOCKED`)
-
 If you validate your API key, the following error might occur. This error indicates that the service is blocked:
-    
-    
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
-        "reason": "API_KEY_SERVICE_BLOCKED",
-        "domain": "googleapis.com",
-        "metadata": {
-          "methodName": "google.cloud.translate.v2.TranslateService.TranslateText",
-          "service": "translate.googleapis.com",
-          "consumer": "projects/PROJECT_NUMBER",
-          "apiName": "translate"
-        }
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
-        "locale": "en-US",
-        "message": "Requests to this API translate method google.cloud.translate.v2.TranslateService.TranslateText are blocked."
-      }
-    ]
+
+```
+"details": [
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "reason": "API_KEY_SERVICE_BLOCKED",
+    "domain": "googleapis.com",
+    "metadata": {
+      "methodName": "google.cloud.translate.v2.TranslateService.TranslateText",
+      "service": "translate.googleapis.com",
+      "consumer": "projects/PROJECT_NUMBER",
+      "apiName": "translate"
+    }
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+    "locale": "en-US",
+    "message": "Requests to this API translate method google.cloud.translate.v2.TranslateService.TranslateText are blocked."
+  }
+]
+```
 
 This error occurs because the target API service (for example, Cloud Translation API) hasn't been enabled in your Google Cloud project, or the API key's restrictions don't allow access to this service.
-
 To resolve this error, perform these steps:
-
   1. In the Google Cloud console, go to the **APIs & Services >Library** page and ensure that the target API is enabled. 
-
 [Go to APIs & Services >Library](https://console.cloud.google.com/apis/library)
-
   2. In the Google Cloud console, go to the **APIs & Services >Credentials** page, edit your API key, and verify that its API restrictions allow access to the service. 
-
 [Go to APIs & Services >Credentials](https://console.cloud.google.com/apis/credentials)
 
 
-
-
 ## Invalid API key (`API_KEY_INVALID`)
-
 When sending requests to a third-party service, the following error might occur. This error indicates that the API key is invalid:
-    
-    
-    "details": [
-      {
-        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
-        "reason": "API_KEY_INVALID",
-        "domain": "googleapis.com",
-        "metadata": {
-          "service": "translate.googleapis.com"
-        }
-      },
-      {
-        "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
-        "locale": "en-US",
-        "message": "API key not valid. Please pass a valid API key."
-      }
-    ]
+
+```
+"details": [
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "reason": "API_KEY_INVALID",
+    "domain": "googleapis.com",
+    "metadata": {
+      "service": "translate.googleapis.com"
+    }
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+    "locale": "en-US",
+    "message": "API key not valid. Please pass a valid API key."
+  }
+]
+```
 
 This error occurs because the API key string passed in your request header is incorrect, malformed, or doesn't exist in your project credentials.
-
 To resolve this error, verify that you copied the correct API key string from the [**Credentials**](https://console.cloud.google.com/apis/credentials) page in the Google Cloud console and didn't include leading or trailing whitespace.
-
 ## Permission denied retrieving credentials (`agentidentity.authProviders.retrieveCredentials`)
-
 When running `adk web` locally or interacting with your deployed agent, the following `403 Forbidden` error might occur:
-    
-    
-    google.api_core.exceptions.Forbidden: 403 POST https://agentidentitycredentials.mtls.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/authProviders/AUTH_PROVIDER_NAME/credentials:retrieve?%24alt=json%3Benum-encoding%3Dint: Permission 'agentidentity.authProviders.retrieveCredentials' denied on resource '//agentidentity.googleapis.com/projects/PROJECT_ID/locations/LOCATION/authProviders/AUTH_PROVIDER_NAME' (or it may not exist).
+
+```
+google.api_core.exceptions.Forbidden: 403 POST https://agentidentitycredentials.mtls.googleapis.com/v1alpha/projects/PROJECT_ID/locations/LOCATION/authProviders/AUTH_PROVIDER_NAME/credentials:retrieve?%24alt=json%3Benum-encoding%3Dint: Permission 'agentidentity.authProviders.retrieveCredentials' denied on resource '//agentidentity.googleapis.com/projects/PROJECT_ID/locations/LOCATION/authProviders/AUTH_PROVIDER_NAME' (or it may not exist).
+```
 
 This error occurs because the principal attempting to invoke the auth provider doesn't have the required IAM permissions to retrieve credentials.
-
 To resolve this error, grant the **Agent Identity User** (`roles/agentidentity.user`) role to the principal:
-
   * If this error occurs during local development (`uv run adk web` or `uvicorn`), ensure that you have granted the role to your personal user account (`user:USER_EMAIL`).
   * If this error occurs when interacting with a deployed agent, ensure that you have granted the role to your agent's SPIFFE ID principal (`principal://agents.global.org-ORGANIZATION_ID.system.id.goog/resources/aiplatform/projects/PROJECT_NUMBER/locations/LOCATION/reasoningEngines/ENGINE_ID`).
 
 
-
 ## Generic deployment failure
-
 When deploying your agent using `uv run adk deploy`, the command might fail with a generic error message.
-
 This error occurs because of missing Python dependencies, syntax errors in `agent.py`, or misconfigured environment variables.
-
 To resolve this error, do the following:
-
   1. Open the Google Cloud console and go to the **Logs Explorer** page.
   2. Search for the temporary deployment container logs (for example, `maps_mcp_agent_tmp...` or `bigquery_mcp_agent_tmp...`).
   3. Check the Python traceback to identify syntax errors or trace missing packages.
   4. Ensure that all required packages are listed in your `requirements.txt` file.
 
 
-
 ## ServiceNow authentication loop or unexpected scopes
-
 When an agent authenticates to ServiceNow using 3-legged OAuth, the authentication flow might fail or the agent might enter a request loop.
-
 This issue occurs because ServiceNow determines granted scopes at the application level rather than from the scopes requested by the agent. If an administrator configures specific scopes on the ServiceNow application (for example, `useraccount`), ServiceNow returns tokens containing only those configured scopes, even if the agent requested different scopes (such as `mcp_server`). If the agent strictly expects or validates the requested scopes, it rejects the received token and might re-request credentials in a loop.
-
 To resolve this issue, do the following:
-
   1. Sign in to your ServiceNow instance as an administrator.
   2. Go to the ServiceNow OAuth application configuration.
   3. Ensure that all scopes required by your agent are explicitly added to the allowed scopes list for the application.
   4. Configure your agent to request only the scopes enabled in ServiceNow.
 
 
-
 For more information, see [Supported third-party services](https://docs.cloud.google.com/iam/docs/auth-manager-overview#supported-services).
-
 ## GitHub or Microsoft multiple scopes error
-
 When configuring an auth provider for GitHub or Microsoft, authentication fails if you request multiple OAuth scopes.
-
 The auth manager supports single-scope integrations for GitHub and Microsoft. The auth manager doesn't support requesting multiple scopes simultaneously.
-
 To resolve this issue, configure your agent or auth provider to request only a single scope needed for the integration.
-
 For more information, see [Supported third-party services](https://docs.cloud.google.com/iam/docs/auth-manager-overview#supported-services).
-
 ## OpenID Connect discovery and JWKS endpoint errors
-
 An external service or relying party can query the Google Cloud Security Token Service OpenID Connect Discovery (`/.well-known/openid-configuration`) or JSON Web Key Set (`/openid/jwks`) endpoints to [verify an Agent Identity ID token](https://docs.cloud.google.com/iam/docs/auth-agent-own-identity-external). When querying these endpoints, the request might fail with an `HTTP 400`, `404`, `429`, or `500` error.
-
-The following table describes the causes and resolutions for these errors:
-
-HTTP status | Cause | Resolution  
----|---|---  
-`400 Bad Request` | This error occurs because the workload identity pool resource name in the request URL is invalid, or the request includes an `Authorization` HTTP header. | To resolve this error, do the following: 
-
+The following table describes the causes and resolutions for these errors:  
+| HTTP status  | Cause  | Resolution  |  
+| --- | --- | --- |  
+| `400 Bad Request`  | This error occurs because the workload identity pool resource name in the request URL is invalid, or the request includes an `Authorization` HTTP header.  | To resolve this error, do the following: 
   * Verify that the workload identity pool resource name uses a supported agent trust domain format (`agents.global.org-ORGANIZATION_ID.system.id.goog` or `agents.global.proj-PROJECT_NUMBER.system.id.goog`).
   * Remove any `Authorization` or OAuth headers from the request. The `/.well-known/openid-configuration` and `/openid/jwks` endpoints are public and unauthenticated; passing authentication headers causes the request to fail with an `HTTP 400` error.
 
-  
-`404 Not Found` | This error occurs because the specified organization ID, project number, or workload identity pool doesn't exist, or the URL path is incorrect. | To resolve this error, confirm that the organization ID, project number, and trust domain (workload identity pool ID) in the URL are accurate. Also verify that the URL path ends with `/.well-known/openid-configuration` or `/openid/jwks`.  
-`429 Too Many Requests` | This error occurs because your verifier exceeded the request rate limit by querying the discovery or JWKS endpoints without caching the response. | To resolve this error, configure your verifier to cache the discovery document and JWKS for up to 24 hours according to the `Cache-Control: public, max-age=86400, must-revalidate` response header.  
-`500 Internal Server Error` | This error occurs because the server encountered a temporary internal issue while fetching the public signing keys. | To resolve this error, use your cached JWKS if available, or retry the request with exponential backoff.  
-  
+ |  
+| `404 Not Found`  | This error occurs because the specified organization ID, project number, or workload identity pool doesn't exist, or the URL path is incorrect.  | To resolve this error, confirm that the organization ID, project number, and trust domain (workload identity pool ID) in the URL are accurate. Also verify that the URL path ends with `/.well-known/openid-configuration` or `/openid/jwks`.  |  
+| `429 Too Many Requests`  | This error occurs because your verifier exceeded the request rate limit by querying the discovery or JWKS endpoints without caching the response.  | To resolve this error, configure your verifier to cache the discovery document and JWKS for up to 24 hours according to the `Cache-Control: public, max-age=86400, must-revalidate` response header.  |  
+| `500 Internal Server Error`  | This error occurs because the server encountered a temporary internal issue while fetching the public signing keys.  | To resolve this error, use your cached JWKS if available, or retry the request with exponential backoff.  |  
 ## Token signature verification fails after key rotation
-
 When an external service verifies an [Agent Identity ID token](https://docs.cloud.google.com/iam/docs/auth-agent-own-identity-external), signature verification might fail for newly issued tokens even though previous tokens from the same agent succeeded.
-
 This issue occurs because Google Cloud periodically rotates the private and public signing keys for workload identity pools. As a result, the incoming token's `kid` (key ID) might not be in your verifier's local key cache.
-
 To resolve this issue, configure your verifier so that when it receives a token with an unrecognized `kid`, it fetches a fresh JWKS from the `/openid/jwks` endpoint before rejecting the token.
-
 ## What's next
-
   * [Agent Identity auth manager overview](https://docs.cloud.google.com/iam/docs/auth-manager-overview)
   * [Agent Identity overview](https://docs.cloud.google.com/iam/docs/agent-identity-overview)
   * [Authenticate to Google Cloud using an agent's own identity](https://docs.cloud.google.com/iam/docs/auth-agent-own-identity)
@@ -236,11 +237,8 @@ To resolve this issue, configure your verifier so that when it receives a token 
   * [Manage Agent Identity auth providers](https://docs.cloud.google.com/iam/docs/manage-auth-providers-v2)
 
 
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

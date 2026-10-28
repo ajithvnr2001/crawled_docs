@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/delivering-looks-explores/
 title: Delivering Looks and Explores \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:04.914192+00:00
+fetched_at: 2026-10-27T23:54:32.295774+00:00
 ---
 
 # Delivering Looks and Explores  |  Looker  |  Google Cloud Documentation
@@ -354,7 +354,7 @@ For deliveries that use a repeating interval, you can customize the timing of yo
 
 The end time for **Hourly** and **By minute** intervals is not inclusive. The last delivery will be sent at the last selected interval prior to the specified end time. For example, if content is scheduled **Hourly** between 12:00 a.m. and 11:00 p.m., it will be sent on the hour, every hour, from 12:00 a.m. to 10:00 p.m. If content is scheduled **By minute** every 30 minutes between 12:00 a.m. and 11:00 p.m., the last delivery in that timeframe will be sent at 10:30 p.m.
 
-**Note:** Time-based scheduled deliveries may fetch results from the query cache. If a previous query cached an empty result before the data was available in the database, the schedule will deliver an empty file and still show a [**Successful** status](https://docs.cloud.google.com/looker/docs/admin-panel-alerts-and-schedules-schedule-history#scheduling_status) because the delivery itself was successful. To ensure that the schedule always pulls fresh data from the database, use a datagroup trigger rather than a standard time-based schedule.
+**Note:** Time-based scheduled deliveries may fetch results from the query cache. If a previous query cached an empty result before the data was available in the database, the schedule will deliver an empty file and still show a [**Successful** status](https://docs.cloud.google.com/looker/docs/admin-panel-alerts-and-schedules-schedule-history#scheduling_status) because the delivery itself was successful. To ensure that the schedule always pulls fresh data from the database, use a datagroup trigger rather than a standard time-based schedule.**Tip:** To prevent concurrency bottlenecks on your Looker instance, avoid scheduling multiple deliveries to run at the exact same minute (particularly at the top of the hour). Stagger schedules across 15- or 30-minute intervals (for example, at `:15`, `:30`, or `:45`) rather than running them all at `:00`. For more information, see [Optimize Looker server performance](https://docs.cloud.google.com/looker/docs/best-practices/how-to-optimize-looker-server-performance#optimize_looker_server_performance).
 
 ### Applying filters to the delivery
 
@@ -626,6 +626,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

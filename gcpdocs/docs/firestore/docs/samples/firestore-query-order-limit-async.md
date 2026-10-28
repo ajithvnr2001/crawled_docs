@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-order-limit-async/
 title: Ordering and limiting Firestore queries (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:18:22.825368+00:00
+fetched_at: 2026-10-27T16:28:18.064354+00:00
 ---
 
 # Ordering and limiting Firestore queries (async)  |  Google Cloud Documentation

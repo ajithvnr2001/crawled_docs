@@ -1,16 +1,45 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/
 title: Back up and restore AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using containers: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:54:59.241843+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T17:46:26.737928+00:00
 ---
 
 # Back up and restore AlloyDB Omni  |  AlloyDB Omni using containers: 18.4.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/
 
-This page documents AlloyDB Omni version **18.4.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
+[ Skip to main content ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/)
+  * [Deutsch](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/?hl=ko)
 
+
+[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Falloydb%2Fomni%2Fcontainers%2F18.4.0%2Fdocs%2Fbackup-overview%2F&prompt=select_account)
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/alloydb-color.svg) ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/overview)
+  * [ AlloyDB Omni ](https://docs.cloud.google.com/alloydb/omni/docs)
+  * [ Containers: 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/overview)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Single-server backup solutions](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/#single-server)
+  * [What's next](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/#whats-next)
+
+
+This page documents AlloyDB Omni version **18.4.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
@@ -18,13 +47,15 @@ This page documents AlloyDB Omni version **18.4.0** using the **containers** dep
   * [ Containers: 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/overview)
 
 
-
+Was this helpful?
 Send feedback 
+#  Back up and restore AlloyDB Omni Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Single-server backup solutions](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/#single-server)
+  * [What's next](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview/#whats-next)
 
-#  Back up and restore AlloyDB Omni Stay organized with collections  Save and categorize content based on your preferences. 
 
-Select a documentation version: 18.4.0keyboard_arrow_down
-
+Select a documentation version:  18.4.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/backup-overview)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/backup-overview)
   * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.3.0/docs/backup-overview)
@@ -51,15 +82,10 @@ Select a documentation version: 18.4.0keyboard_arrow_down
   * [ 15.5.2 ](https://docs.cloud.google.com/alloydb/omni/containers/15.5.2/docs/backup-overview)
 
 This page provides an overview of data backup and restore solutions available to AlloyDB Omni database clusters. 
-
 Because AlloyDB Omni is PostgreSQL compatible, various backup solutions developed and supported by the PostgreSQL community are also available to AlloyDB Omni databases. Any solution that lets you back up from and restore to a PostgreSQL cluster running in a Docker or Podman container also works with AlloyDB Omni.
-
 ## Single-server backup solutions
-
 If you run AlloyDB Omni in a container on individual servers, we recommend that you use [pgBackRest](https://pgbackrest.org/). pgBackRest performs physical database cluster backups.
-
 pgBackRest has the following features:
-
   * Perform full, incremental, or differential backups
   * Write to local disk, remote disk, or Cloud Storage destinations
   * Parallelize and encrypt backups
@@ -67,29 +93,20 @@ pgBackRest has the following features:
   * Automatic management and expiration of backups
 
 
-
 The AlloyDB Omni container includes the pgBackRest utility, which lets you perform the following tasks:
-
   * Perform physical backups and restorations of your database clusters.
   * Build clone clusters, either to a current or to a specific point in time.
   * Perform selective restores of specific databases from within your database cluster.
 
 
-
 For more information, see [Set up pgBackRest for AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/set-up-pgbackrest).
-
 Backups are transparent for TDE-enabled clusters, and you don't need to perform any additional steps to take a backup. For more information, see [Create a TDE-enabled cluster](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/create-tde-cluster).
-
 ## What's next
-
   * [Set up pgBackRest for AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/set-up-pgbackrest)
 
 
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/networking-methods-source/
 title: Networking methods for source database connectivity \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:05.796210+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:23:01.640641+00:00
 ---
 
 # Networking methods for source database connectivity  |  Database Migration Service for heterogeneous Oracle to AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -94,7 +108,7 @@ Private connectivity with Virtual Private Cloud peering | The connection is esta
 When you use the IP allowlist connectivity method, Database Migration Service attempts to establish a connection to a publicly available IP address of your source database server.
 
 ![A networking diagram that shows a high-level public IP connectivity
-      setup.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_public_ip_src_oracle.svg) **Figure 1.** Migration networking example: public IP source connectivity. (click to enlarge) ![A networking diagram that shows a high-level public IP connectivity
+      setup.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_public_ip_src_oracle.svg) **Figure 1.** Migration networking example: public IP source connectivity. (click to enlarge)  ![A networking diagram that shows a high-level public IP connectivity
       setup.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_public_ip_src_oracle.svg)
 
 ### Requirements for IP allowlist connectivity
@@ -127,7 +141,7 @@ Configuring public IP connectivity requires different steps depending on you sou
 This connectivity method is a mixture of public and private network connectivity. The connection itself is established through _Secure Shell_ (SSH) ports to the public IP address of the tunnel host server. Once the connection is active, all traffic travels over a secure tunnel to the private IP address of your source database.
 
 ![A networking diagram that shows a high-level connectivity
-      setup over a dedicated SSH tunnel server.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_ssh_tunnel_src_oracle.svg) **Figure 2.** Migration networking example: source connectivity over an SSH tunnel. (click to enlarge) ![A networking diagram that shows a high-level connectivity
+      setup over a dedicated SSH tunnel server.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_ssh_tunnel_src_oracle.svg) **Figure 2.** Migration networking example: source connectivity over an SSH tunnel. (click to enlarge)  ![A networking diagram that shows a high-level connectivity
       setup over a dedicated SSH tunnel server.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_ssh_tunnel_src_oracle.svg)
 
 ### Requirements for forward-SSH tunnels
@@ -157,7 +171,7 @@ Configuring connectivity through a forward-SSH tunnel requires different steps d
 
 [ Private Service Connect interfaces](https://docs.cloud.google.com/vpc/docs/about-private-service-connect-interfaces) let Database Migration Service initiate connections to the private IP of your source database without consuming peering quota for its own IP addresses. Instead, this connectivity method utilizes network attachments you create in your VPC.  ![A networking diagram that shows a high-level connectivity
       setup over a dedicated SSH tunnel server and Private Service
-      Connect interfaces..](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_psci_3rd_party_cloud_source_oracle.svg) **Figure 3.** Migration networking example: private IP source connectivity with Private Service Connect interfaces and Cloud VPN for sources that reside in other cloud offerings. (click to enlarge) ![A networking diagram that shows a high-level connectivity
+      Connect interfaces..](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_psci_3rd_party_cloud_source_oracle.svg) **Figure 3.** Migration networking example: private IP source connectivity with Private Service Connect interfaces and Cloud VPN for sources that reside in other cloud offerings. (click to enlarge)  ![A networking diagram that shows a high-level connectivity
       setup over a dedicated SSH tunnel server and Private Service
       Connect interfaces.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_psci_3rd_party_cloud_source_oracle.svg)
 
@@ -185,7 +199,7 @@ This method lets you connect to your source through the private IP addresses in 
 Depending on what source database you have, this connectivity method might require you to set up additional network components (such as Cloud VPN or a reverse proxy VM):
 
 ![A networking diagram that shows a high-level connectivity
-      setup over a dedicated SSH tunnel server.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_vpc_3rd_party_cloud_source_oracle.svg) **Figure 4.** Migration networking example: private IP source connectivity with Virtual Private Cloud peering and Cloud VPN for managed sources that reside outside Google Cloud. (click to enlarge) ![A networking diagram that shows a high-level connectivity
+      setup over a dedicated SSH tunnel server.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_vpc_3rd_party_cloud_source_oracle.svg) **Figure 4.** Migration networking example: private IP source connectivity with Virtual Private Cloud peering and Cloud VPN for managed sources that reside outside Google Cloud. (click to enlarge)  ![A networking diagram that shows a high-level connectivity
       setup over a dedicated SSH tunnel server.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/htm_vpc_3rd_party_cloud_source_oracle.svg)
 
 ### Requirements for private IP connectivity
@@ -221,7 +235,7 @@ To learn more about configuring private IP connectivity for different database s
 When you are familiar with all supported source connectivity methods and their requirements, you can follow the questions in the diagram to help you pick the right connectivity method for your scenario.
 
 ![A decision tree diagram with guiding questions to help you
-        pick the right connectivity method.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/networking_source_decision_tree.svg)**Figure 5.** Source network connectivity decision tree. 
+        pick the right connectivity method.](https://docs.cloud.google.com/static/database-migration/docs/images/htm/networking_source_decision_tree.svg) **Figure 5.** Source network connectivity decision tree. 
 
 ## What's next
 
@@ -236,6 +250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

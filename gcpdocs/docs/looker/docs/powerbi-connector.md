@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/powerbi-connector/
 title: Looker\u2013Power BI Connector \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:36.605980+00:00
+fetched_at: 2026-10-28T02:29:57.688369+00:00
 ---
 
 # Looker–Power BI Connector  |  Google Cloud Documentation
@@ -59,7 +59,7 @@ To set up the Looker–Power BI Connector, you need the following:
 
 In addition, your Looker instance must meet the following requirements:
 
-  * Your instance must be enabled for the **Microsoft Power BI** connector. A Looker admin must enable the [**Microsoft Power BI**](https://docs.cloud.google.com/looker/docs/bi-connectors#microsoft_power_bi) toggle on the Looker [**BI Connectors**](https://docs.cloud.google.com/looker/docs/bi-connectors) page.
+  * Your instance must be enabled for the **Microsoft Power BI** connector. A Looker admin must enable the pre-configured **Microsoft Power BI** client from the **Application Library** tab on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#application-library) page (**Admin > Authentication > Manage OAuth clients**), or enable the [**Microsoft Power BI**](https://docs.cloud.google.com/looker/docs/bi-connectors#microsoft_power_bi) switch on the Looker [**BI Connectors**](https://docs.cloud.google.com/looker/docs/bi-connectors) page.
   * [Looker (Google Cloud core) instances that are configured for private connections](https://docs.cloud.google.com/looker/docs/looker-core-networking-options#private_ip_connections) and [customer-hosted Looker instances](https://docs.cloud.google.com/looker/docs/customer-hosted-installation-steps) must meet the following requirements: 
     * The instance must be running Looker 25.16 or later.
     * Your network administrator must configure your network so that traffic from Looker–Power BI Connector can reach your Looker instance.
@@ -75,7 +75,7 @@ The Looker instance you want to use with the Looker–Power BI Connector must be
 
 
 
-Your Looker admin can enable BI connectors on the [BI Connectors panel](https://docs.cloud.google.com/looker/docs/bi-connectors) in the **Platform** section of the Looker **Admin** menu.
+Your Looker admin can enable the pre-configured **Microsoft Power BI** client from the **Application Library** tab on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#application-library) page (**Admin > Authentication > Manage OAuth clients**), or enable BI connectors on the [BI Connectors panel](https://docs.cloud.google.com/looker/docs/bi-connectors) in the **Platform** section of the Looker **Admin** menu.
 
 ### Download and save the connector file
 
@@ -870,6 +870,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

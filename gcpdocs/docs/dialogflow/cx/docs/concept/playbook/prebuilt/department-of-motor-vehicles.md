@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt/department-of-motor-vehicles/
 title: Department of Motor Vehicles (DMV) prebuilt agent \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:11:45.093169+00:00
+fetched_at: 2026-10-27T20:09:41.341435+00:00
 ---
 
 # Department of Motor Vehicles (DMV) prebuilt agent  |  Dialogflow CX  |  Google Cloud Documentation
@@ -23,17 +23,20 @@ Send feedback
 
 #  Department of Motor Vehicles (DMV) prebuilt agent Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Department of Motor Vehicles (DMV) [playbook-based prebuilt agents](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt) allows users to renew their driver's license online and book appointments at DMV field offices.
+The Department of Motor Vehicles (DMV) playbook-based prebuilt agent lets users [renew their driver's license online](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt/department-of-motor-vehicles#renew_driver_license) and [book appointments at DMV field offices](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt/department-of-motor-vehicles#book-appointment).
 
-## Sample dialogs
+## Sample dialog
 
-The following sample dialogs demonstrate common scenarios handled by this prebuilt agent.
+This sample dialog shows common scenarios that this prebuilt agent handles.
 
 ### Renew driver's license
 
-User requests to renew their driver's license. The agent collects required information including the user's license number, license expiration date, the name on the license, and date of birth. The agent then verifies that the license is eligible for renewal and confirms that the user would like to proceed with an online renewal. The agent creates the online application and provides a confirmation number.
+  1. The user requests to renew their driver's license.
+  2. The agent collects required information, including the user's license number, license expiration date, the name on the license, and date of birth.
+  3. The agent then verifies that the license is eligible for renewal and confirms that the user wants to proceed with an online renewal.
+  4. The agent creates the online application and provides a confirmation number.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 Hi |   
 | Hi, I'm your DMV assistant. I can help you renew your driver's license online and book an appointment at a DMV field office. How can I help you today?  
@@ -61,9 +64,11 @@ No I'm done thanks |
   
 ### Book appointment
 
-User requests to book an appointment. The agent collects required information including the specific DMV office, appointment date, and appointment time. After confirming the collected details with the user, the agent books the appointment for the user and provides a confirmation number.
+  1. The user requests to book an appointment.
+  2. The agent collects required information, including the specific DMV office, appointment date, and appointment time.
+  3. After confirming the collected details with the user, the agent books the appointment and provides a confirmation number.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 Can you help me book an appointment? |   
 | I can help you book an appointment. Could you provide me with an address so that I can search for nearby DMV offices for you?  
@@ -109,11 +114,12 @@ Nope |
   
 ### Unrecognized input
 
-User asks about a topic unrelated to renewing a driver's license or booking an appointment. The agent responds by clarifying what topics it can handle.
+  1. The user asks about a topic unrelated to renewing a driver's license or booking an appointment.
+  2. The agent responds by clarifying what topics it can handle.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
-hi |   
+Hi |   
 | Hi, I'm your DMV assistant. I can help you renew your driver's license online and book an appointment at a DMV field office. How can I help you today?  
 I want to buy a car |   
 | Sorry, I didn't get that. I can help you with renewing a driver's license or booking an appointment.  
@@ -133,13 +139,13 @@ no that's all |
 To set up this prebuilt agent:
 
   1. [Import the prebuilt agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt#import).
-  2. Configure the provided [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) with your external services, see Tool setup.
+  2. Configure the provided [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) with your external services. For more information, see Tool setup.
 
 
 
 ## Tool setup
 
-This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) that are used to integrate with external services. You can use the prebuilt tool installer to deploy sample code and data for your prebuilt agent.
+This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) that integrate with external services. The prebuilt tool installer lets you deploy sample code and data for your prebuilt agent.
 
 ####  To deploy and configure sample code and data for the DMV prebuilt agent, expand for instructions. 
 
@@ -179,13 +185,13 @@ This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/con
 
 
 
-### Renew license tool
+### Renew License tool
 
-The `dmv_renew_tool` tool is used to verify driver's license details, including driver name, date of birth, license number, and expiration date. Once the required information has been collected and verified, this tool is used to check whether a license is eligible for renewal. If the license is eligible for renewal, the tool is used to submit a renewal application for the user.
+Use the `dmv_renew_tool` to verify driver's license details, including driver name, date of birth, license number, and expiration date. After the tool collects and verifies the required information, it checks whether a license is eligible for renewal. If the license is eligible for renewal, the tool lets the user submit a renewal application.
 
-### Book appointment tool
+### Book Appointment tool
 
-The `dmv_book_appointment_tool` tool retrieves available appointment information, including local offices, appointment dates, and appointment times. Once a valid office, date, and time slot have been selected, this tool is used to book the appointment.
+The `dmv_book_appointment_tool` retrieves available appointment information, including local offices, appointment dates, and appointment times. After the user selects a valid office, date, and time slot, they can use this tool to book the appointment.
 
 ### Complete
 
@@ -199,6 +205,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

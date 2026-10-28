@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment/
 title: Install and configure the CLI \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:09.058680+00:00
+fetched_at: 2026-10-27T18:58:44.775987+00:00
 ---
 
 # Install and configure the CLI  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -281,6 +281,41 @@ Use the `--verify` flag to test connectivity to the cloud-hosted reasoning engin
 
 **Note:** If you encounter the message `Resource setup has just started. Please try again shortly.`, initial resource provisioning is underway and typically completes within a few minutes.
 
+### Check service connectivity and permissions
+
+To verify your credentials, configuration, network reachability, and IAM permissions without starting a scan or modifying your workspace, run `cm health`:
+    
+    
+    cm health
+    
+
+The `cm health` command runs four sequential checks and stops at the first failing layer. You can run `cm health` from any directory, even before you run `cm init`. It doesn't write to disk or consume model quota.
+
+For automated CI/CD preflight checks or scheduled synthetic monitoring, use `--strict` to fail when project-level IAM checks are skipped, and `--json` to output a machine-readable JSON report:
+    
+    
+    cm health --strict --json
+    
+
+The following table describes the `cm health` exit codes:
+
+Exit code | Layer | Description  
+---|---|---  
+`0` | — | All health checks passed.  
+`10` | `credentials` | The CLI couldn't acquire a valid OAuth or Application Default Credentials token, or the server rejected the token (`401 Unauthorized`).  
+`20` | `config` | The local `config.yaml` file, the `--team-id` flag, or the `CM_TEAM_ID` environment variable is invalid.  
+`30` | `reachability` | The CLI couldn't reach the Agent Platform API endpoint (for example, due to DNS, TLS, proxy, or VPC Service Controls restrictions).  
+`40` | `authorization` | The server was reached, but the caller or project isn't authorized to run CodeMender scans (for example, missing `roles/aiplatform.user` permissions).  
+`50` | — | The health check exceeded the `--timeout` duration (default `30s`).  
+  
+The following flags are supported by `cm health`:
+
+Flag | Default | Description  
+---|---|---  
+`--json` | `false` | Outputs a single JSON object to standard output, including `status`, `exit_code`, `backend`, `endpoint`, `location`, `project_id`, `agent_id`, `duration_ms`, `layers`, and (when present) `warnings` and `error`.  
+`--strict` | `false` | Treats health check warnings (such as unverified or skipped project-level IAM permission checks) as exit code `40` failures.  
+`--timeout` | `30s` | Sets the overall timeout for the health check probe.  
+  
 ## Configuration parameters (`config.yaml`)
 
 The primary goal of `config.yaml` is to **align CodeMender's agent behaviors with your local system's security, environment constraints, and performance needs**.
@@ -468,6 +503,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

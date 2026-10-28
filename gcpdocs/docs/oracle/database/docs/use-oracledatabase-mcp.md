@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/use-oracledatabase-mcp/
 title: Use the Oracle Database@Google Cloud remote MCP server \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:56.398500+00:00
+fetched_at: 2026-10-27T21:40:04.420058+00:00
 ---
 
 # Use the Oracle Database@Google Cloud remote MCP server  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -21,15 +21,24 @@ Send feedback
 
 #  Use the Oracle Database@Google Cloud remote MCP server Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1), and the [Additional Terms for Generative AI Preview Products](https://cloud.google.com/trustedtester/aitos). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 This document shows you how to use the Oracle Database@Google Cloud remote Model Context Protocol (MCP) server to connect with AI applications including Antigravity, ChatGPT, Claude, and custom applications you are developing. The Oracle Database@Google Cloud remote MCP server lets you access and run Oracle Database@Google Cloud tools to manage Oracle Database@Google Cloud resources from your AI-enabled development environments and AI agent platforms. The Oracle Database@Google Cloud remote MCP server is enabled when you enable the Oracle Database@Google Cloud API. 
 
 [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro) (MCP) standardizes how large language models (LLMs) and AI applications or agents connect to external data sources. MCP servers let you use their tools, resources, and prompts to take actions and get updated data from their backend service.
 
 Remote MCP servers run on the service's infrastructure and offer an HTTP endpoint to AI applications for communication between the AI MCP client and the MCP server. For more information about MCP architecture, see [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture).
+
+## Stateless core
+
+With [MCP version 2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28), MCP changes from a bidirectional, stateful protocol to a stateless protocol. Each MCP request is self-describing and can be routed using headers. There isn't a need for the `initialize`/`initialized` handshake or `Mcp-Session-Id` because each request includes all the information needed in HTTP headers or the `_meta` parameter. MCP servers can request additional information required by a tool through [multi-round-trip requests (MRTR)](https://modelcontextprotocol.io/specification/latest/basic/patterns/mrtr).
+
+To help route and process requests without parsing the request body, some MCP headers are required, including the following:
+
+  * Headers that are required by the MCP specification such as the [protocol version header](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#protocol-version-header) and [standard request headers](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#standard-request-headers).
+  * [Custom headers](https://modelcontextprotocol.io/specification/latest/basic/transports/streamable-http#custom-headers-from-tool-parameters) that are defined by the MCP server. These headers are mirrored into HTTP headers from the tool's input schema using the `x-mcp-header` property. For example, an MCP server might define a custom header to specify the Google Cloud region or project ID.
+
+
+
+For more information about MCP architecture, see the MCP version 2026-07-28 [specification](https://modelcontextprotocol.io/specification/2026-07-28) and [key changes](https://modelcontextprotocol.io/specification/2026-07-28/changelog).
 
 ## Google and Google Cloud remote MCP servers
 
@@ -50,6 +59,16 @@ For information about other MCP servers and information about security and gover
   * For Autonomous AI Databases and DB systems, the `create_autonomous_database` tool and `create_db_system` tool, respectively, support only secrets stored in [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview). They don't support raw passwords.
 
   * While Secret Manager provides a secure storage mechanism, project administrators, users with the `secretmanager.versions.access` permission, or users with permissions to modify IAM policies (such as, `resourcemanager.projects.setIamPolicy`) can potentially access the secrets, even if IAM deny policies are in place.
+
+  * If the `database_connection_executesql` tool returns a response that's larger than 10 MB, then the response are truncated. Truncation is signaled by `metadata.status = PARTIAL` and `partialResult: true`.
+
+  * When using the `database_connection_executesql` tool, queries that run for longer than 30 seconds can time out.
+
+  * SQL errors don't fail the call. If Oracle rejects a statement (for example, `ORA-00942`), the tool returns successfully with `metadata.status = ERROR` and the Oracle message in `metadata.message`. If a statement is rejected, check the status.
+
+  * Only one statement per call, autocommit. Multiple statements and multi-call transactions aren't supported.
+
+  * Hostnames aren't supported in connection strings yet. Use the database's private IP.
 
 
 
@@ -120,30 +139,20 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 ### Required roles
 
-**Note:** We recommend that you grant the roles that follow the principle of least privilege, which states that principals should have no more permissions than they actually need.
+We recommend that you follow the principles of least privilege, which states that principals should have no more permissions than they actually need. You can create a custom role as per your requirements. For example, a "SQL runner" role for an application or agent that contains the following permissions:
+    
+    
+    oracledatabase.databaseConnections.get
+    oracledatabase.databaseConnections.list
+    oracledatabase.databaseConnections.executeSql
+    
 
 To get the permissions that you need to use the Oracle Database@Google Cloud MCP server, ask your administrator to grant you the following IAM roles on the project where you want to use the Oracle Database@Google Cloud MCP server: 
 
   * Make MCP tool calls: [MCP Tool User ](https://docs.cloud.google.com/iam/docs/roles-permissions/mcp#mcp.toolUser) (`roles/mcp.toolUser`) 
-  * Create an ODB Network and ODB Subnet: [ODB Network Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.odbNetworkAdmin) (`roles/oracledatabase.odbNetworkAdmin`) 
-  * View ODB Networks and subnets details: 
-    * [ODB Network Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.odbNetworkViewer) (`roles/oracledatabase.odbNetworkViewer`)
-    * [ODB Subnet Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.odbSubnetViewer) (`roles/oracledatabase.odbSubnetViewer`)
-  * Create an Exadata Infrastructure instance: [Exadata Infrastructure Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.cloudExadataInfrastructureAdmin) (`roles/oracledatabase.cloudExadataInfrastructureAdmin`) 
-  * View Exadata Infrastructure instance details: [Exadata Infrastructure Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.cloudExadataInfrastructureViewer) (`roles/oracledatabase.cloudExadataInfrastructureViewer`) 
-  * Create an Exadata VM Cluster: 
-    * [VM Cluster Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.cloudVmClusterAdmin) (`roles/oracledatabase.cloudVmClusterAdmin`)
-    * [Exadata Infrastructure User ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.cloudExadataInfrastructureUser) (`roles/oracledatabase.cloudExadataInfrastructureUser`)
-  * View Exadata VM Cluster details: [VM Cluster Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.cloudVmClusterViewer) (`roles/oracledatabase.cloudVmClusterViewer`) 
-  * Create an Exascale VM Cluster and Exascale Storage Vault: 
-    * [Exascale Infrastructure VM Cluster Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.exadbVmClusterAdmin) (`roles/oracledatabase.exadbVmClusterAdmin`)
-    * [Exascale Infrastructure Storage Vault Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.exascaleDbStorageVaultAdmin) (`roles/oracledatabase.exascaleDbStorageVaultAdmin`)
-  * View Exascale VM Cluster details: [Exascale Infrastructure VM Cluster Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.exadbVmClusterViewer) (`roles/oracledatabase.exadbVmClusterViewer`) 
-  * View Exascale Storage Vault details: [Exascale Infrastructure Storage Vault Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.exascaleDbStorageVaultViewer) (`roles/oracledatabase.exascaleDbStorageVaultViewer`) 
-  * Create an Autonomous AI Database: [Autonomous Database Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.autonomousDatabaseAdmin) (`roles/oracledatabase.autonomousDatabaseAdmin`) 
-  * View Autonomous AI Database details: [Autonomous Database Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.autonomousDatabaseViewer) (`roles/oracledatabase.autonomousDatabaseViewer`) 
-  * Create a DB system: [DB System Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.dbSystemAdmin) (`roles/oracledatabase.dbSystemAdmin`) 
-  * View DB system details: [DB System Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.dbSystemViewer) (`roles/oracledatabase.dbSystemViewer`) 
+  * Create Oracle Database@Google Cloud resources: [Oracle Database@Google Cloud admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.admin) (`roles/oracledatabase.admin`) 
+  * Get and list Oracle Database@Google Cloud resources: [Oracle Database@Google Cloud viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.viewer) (`roles/oracledatabase.viewer`) 
+  * Execute SQL statements: [Oracle Database@Google Cloud admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/oracledatabase#oracledatabase.admin) (`roles/oracledatabase.admin`) 
 
 
 
@@ -161,6 +170,7 @@ The following permissions are required to use the Oracle Database@Google Cloud M
     * `oracledatabase.odbSubnets.create`
     * `oracledatabase.odbNetworks.list`
     * `oracledatabase.odbNetworks.get`
+    * `oracledatabase.odbNetworks.use`
   * Exadata Infrastructure instance: 
     * `oracledatabase.cloudExadataInfrastructures.create`
     * `oracledatabase.cloudExadataInfrastructures.list`
@@ -185,6 +195,21 @@ The following permissions are required to use the Oracle Database@Google Cloud M
     * `oracledatabase.dbSystems.create`
     * `oracledatabase.dbSystems.list`
     * `oracledatabase.dbSystems.get`
+  * Oracle Goldengate: 
+    * `oracledatabase.goldenGateDeployments.create`
+    * `oracledatabase.goldenGateConnections.create`
+    * `oracledatabase.goldenGateConnectionAssignments.create`
+    * `oracledatabase.goldenGateDeployments.list`
+    * `oracledatabase.goldenGateConnections.list`
+    * `oracledatabase.goldenGateConnectionAssignments.list`
+    * `oracledatabase.goldenGateDeployments.get`
+    * `oracledatabase.goldenGateConnections.get`
+    * `oracledatabase.goldenGateConnectionAssignments.get`
+  * Database connections: 
+    * `oracledatabase.databaseConnections.create`
+    * `oracledatabase.databaseConnections.list`
+    * `oracledatabase.databaseConnections.get`
+    * `oracledatabase.databaseConnections.executeSql`
 
 
 
@@ -193,6 +218,8 @@ You might also be able to get these permissions with [custom roles](https://docs
 ## Authentication and authorization
 
 The Oracle Database@Google Cloud remote MCP server uses the [OAuth 2.0](https://developers.google.com/identity/protocols/oauth2) protocol with [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) for authentication and authorization. All [Google Cloud identities](https://docs.cloud.google.com/docs/authentication/identity-products) are supported for authentication to MCP servers. 
+
+The Oracle Database@Google Cloud remote MCP server doesn't accept API keys.
 
 We recommend that you create a separate identity for agents that are using MCP tools so that access to resources can be controlled and monitored. For more information about authentication, see [Authenticate to MCP servers](https://docs.cloud.google.com/mcp/authenticate-mcp).
 
@@ -221,6 +248,10 @@ In your AI application, look for a way to add or connect to a remote MCP server.
   * **OAuth scope** : the [OAuth 2.0 scope](https://developers.google.com/identity/protocols/oauth2/scopes) that you want to use when connecting to the Oracle Database@Google Cloud MCP server.
 
 
+
+### Redirect URIs
+
+For web-based applications, and some desktop applications, you must allowlist a redirect URI when you create a client ID and secret for authentication. Redirect URIs are used by the authorization server to send tokens to your application. Your application's documentation should specify the redirect URI that you must use. [Custom redirect URIs](https://developers.google.com/identity/protocols/oauth2/native-app#redirect-uri_custom-scheme) aren't supported.
 
 For application-specific guidance about setting up and connecting to MCP server, see [Client-specific guidance](https://docs.cloud.google.com/mcp/configure-mcp-ai-application#client-specific-guidance).
 
@@ -266,40 +297,88 @@ Use the [MCP inspector](https://modelcontextprotocol.io/docs/tools/inspector) to
 
 Replace the following:
 
-  * `TOOLSET_ENDPOINT`: the remainder of the MCP endpoint after the service name. For example, for Oracle Database@Google Cloud, this might be `mcp/toolset-name`.
+  * `TOOLSET_ENDPOINT`: the toolset endpoint for Oracle Database@Google Cloud MCP server which is `https://oracledatabase.googleapis.com/mcp`.
   * `MCP_PROTOCOL_VERSION`: the MCP protocol version. For example, `2026-07-28`.
 
 
 
-## Sample prompts
+### Execute SQL statements
 
-You can use the following sample prompts to create and list Oracle Database@Google Cloud resources, and to get information about them:
+You can execute all types of SQL statements including data manipulation language (DML), data definition language (DDL), and data query language (DQL).
 
-  * "Create an ODB Subnet ODB_SUBNET_ID in project PROJECT_ID in zone ZONE_ID in ODB Network ODB_NETWORK_ID."
-  * "List ODB Networks in project PROJECT_ID in region REGION_ID."
-  * "Create a Exadata VM Cluster CLUSTER_ID in project PROJECT_ID in zone ZONE_ID."
-  * "List Exadata VM Clusters in project PROJECT_ID in region REGION_ID."
-  * "Get Exadata VM Cluster CLUSTER_ID in project PROJECT_ID in region REGION_ID."
-  * "Create an Exascale VM Cluster CLUSTER_ID with ODB Subnet ODB_SUBNET_ID and vault VAULT_ID in project PROJECT_ID in zone ZONE_ID."
-  * "Create a DB system DB_SYSTEM_ID in project PROJECT_ID in zone ZONE_ID."
-  * "Create an Autonomous AI Database DATABASE_ID in project PROJECT_ID in region REGION_ID."
-  * "List Autonomous AI Databases in project PROJECT_ID in region REGION_ID."
-  * "Get Autonomous AI Database DATABASE_ID in project PROJECT_ID in region REGION_ID."
+Make sure that you've an ODB Network for the database on which you want to execute SQL statements.
+
+To execute SQL statements, create a Database Connection for your ODB Network, and then use this connection to execute SQL statements on your database.
+
+#### Execute read-only SQL statements
+
+To execute read-only SQL statements, do the following:
+
+  1. Create a database user with read-only permissions.
+  2. Create a Database Connection with this user.
+  3. Use this Database Connection to execute read-only SQL statements. Then, if an agent or LLM attempts write operations, they're rejected by the database.
 
 
+
+## Sample use cases
+
+The following are sample use cases for the Oracle Database@Google Cloud MCP server.
+
+### Create a Database Connection
+
+You can create a Database Connection using the following sample prompt:
+
+"Create a Database Connection CONNECTION_ID for my Autonomous AI Database DATABASE_ID using secret "projects/PROJECT_ID/secrets/SECRET_ID/versions/SECRET_VERSION"."
 
 In the prompts, replace the following:
 
-  * PROJECT_ID with your Google Cloud project ID.
-  * ZONE_ID with your Google Cloud Oracle zone.
-  * REGION_ID with your Google Cloud region.
-  * ODB_NETWORK_ID with the ODB Network ID.
-  * ODB_SUBNET_ID with the ODB Subnet ID.
-  * CLUSTER_ID with the Exadata VM Cluster ID.
-  * CLUSTER_ID with the Exascale VM Cluster ID.
-  * VAULT_ID with the Exascale Storage Vault ID.
-  * DB_SYSTEM_ID with the DB system ID.
-  * DATABASE_ID with the Autonomous AI Database ID.
+  * CONNECTION_ID: a unique ID for the Database Connection.
+  * DATABASE_ID: the ID of your Autonomous AI Database.
+  * PROJECT_ID: the ID of your Google Cloud project that contains the secret.
+  * SECRET_ID: the ID of the secret.
+  * SECRET_VERSION: the version of the secret that contains the user's password.
+
+
+
+### Web application development
+
+A sample use case might be the rapid development of web applications and the provisioning of Autonomous AI Database as their source database. In this use case, using the Oracle Database@Google Cloud MCP server lets you build a new database and populate it with initial data for a new project using natural language.
+
+**Sample prompt:**
+
+"Create a new Autonomous AI Database and set up a table called products."
+
+**Workflow:** the workflow for setting up a web application might look like the following:
+
+  * **Provisioning** : The agent calls the `create_odb_network` to create an ODB Network with service connectivity enabled through Private Service Connect-interface network attachment, and then the `create_autonomous_database` tool to create a new Autonomous AI Database with development environment-sized specifications.
+
+  * **Verification** : The agent uses the `get_operation` tool to poll the status of the database creation operation.
+
+  * **Connection** : When the operation is complete, the agent uses the `get_autonomous_database` tool to retrieve the database connection metadata. The agent also calls the `create_database_connection` tool to create a new Database Connection.
+
+  * **Schema setup** : The agent creates the database and then uses the `database_connection_executesql` to run the `CREATE TABLE products` SQL statement.
+
+  * **Data seeding** : The agent uses `database_connection_executesql` again to insert initial seed data (DML) into the newly created table.
+
+
+
+
+### Operational and database configuration management
+
+In this sample use case, you might review existing Autonomous AI Database instances to help ensure they meet operational configuration standards.
+
+**Sample prompt** :
+
+"List all the Autonomous AI Databases in my project and show me their details to verify that they're using the same configuration."
+
+**Workflow** : the workflow for checking database configuration might look like the following.
+
+  * **Discovery** : The agent uses `list_autonomous_databases` to retrieve a list of all Autonomous AI Databases in the project.
+
+  * **Inspection** : For each database identified, the agent calls `get_autonomous_database` to fetch detailed configuration metadata, such as the database version and region.
+
+  * **Reporting** : The agent summarizes the findings, highlighting any databases that deviate from the expected configuration.
+
 
 
 
@@ -429,6 +508,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

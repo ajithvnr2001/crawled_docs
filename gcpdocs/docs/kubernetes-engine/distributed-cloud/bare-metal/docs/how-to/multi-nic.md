@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/multi-nic/
 title: Configure multiple network interfaces for pods \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:45.592518+00:00
+fetched_at: 2026-10-27T23:54:34.635200+00:00
 ---
 
 # Configure multiple network interfaces for pods  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,15 +22,15 @@ Send feedback
 
 #  Configure multiple network interfaces for pods Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to configure Google Distributed Cloud to provide multiple network interfaces, multi-NIC, for your pods. The multi-NIC for pods feature can help separate control plane traffic from data plane traffic, creating isolation between planes. Additional network interfaces also enable multicast capability for your pods. Multi-NIC for pods is supported for user clusters, hybrid clusters, and standalone clusters. Multi-NIC for pods is supported for version 1.34 and higher admin clusters.
+Multiple network interfaces (multi-NIC) for pods in Google Distributed Cloud let you isolate control plane traffic from data plane traffic. Additional network interfaces also provide multicast capability for your pods. Multi-NIC for pods is supported on user, hybrid, and standalone clusters, and on admin clusters in version 1.34 and later.
 
-This page is for Networking specialists who install, configure, and support network equipment. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+To configure this feature in the GKE On-Prem API, use [`BareMetalNetworkConfig`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/reference/on-prem-api/rest/v1/projects.locations.bareMetalClusters#baremetalnetworkconfig) for user clusters, or, in version 1.34 and later, [`BareMetalAdminNetworkConfig`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/reference/on-prem-api/rest/v1/projects.locations.bareMetalAdminClusters#baremetaladminnetworkconfig) for admin clusters.
+
+## Use cases for multiple network interfaces
 
 Network plane isolation is important for systems using network functions virtualizations (NFVs), such as software-defined networking in a wide area network (SD-WAN), a cloud access security broker (CASB), and next-generation firewalls (NG-FWs). These types of NFVs rely on access to multiple interfaces to keep the management and data planes separate, while running as containers.
 
 The multiple network interface configuration supports associating network interfaces with node pools, which can provide performance benefits. Clusters can contain a mix of node types. When you group high-performance machines into one node pool, you can add additional interfaces to the node pool to improve traffic flow.
-
-**Note:** The multi-NIC for pods feature is supported in the GKE On-Prem API for user clusters. For details, see [BareMetalNetworkConfig](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/reference/on-prem-api/rest/v1/projects.locations.bareMetalClusters#baremetalnetworkconfig) in the GKE On-Prem API documentation. In version 1.34 and later, this feature is supported in the GKE On-Prem API for admin clusters. For details, see [BareMetalAdminNetworkConfig](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/reference/on-prem-api/rest/v1/projects.locations.bareMetalAdminClusters#baremetaladminnetworkconfig) in the GKE On-Prem API documentation.
 
 ## Set up multiple network interfaces
 
@@ -388,6 +388,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

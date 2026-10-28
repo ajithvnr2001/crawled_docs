@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/resources/
 title: Resources \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:05:27.665504+00:00
+fetched_at: 2026-10-27T23:48:27.423194+00:00
 ---
 
 # Resources  |  Google Cloud Armor  |  Google Cloud Documentation

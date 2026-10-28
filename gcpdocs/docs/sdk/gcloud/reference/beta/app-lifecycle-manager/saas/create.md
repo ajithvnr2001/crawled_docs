@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/saas/create/
 title: gcloud beta app-lifecycle-manager saas create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:21:44.324522+00:00
+fetched_at: 2026-10-27T21:40:21.899695+00:00
 ---
 
 # gcloud beta app-lifecycle-manager saas create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,26 +24,31 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager saas create - create a SaaS 
+gcloud beta app-lifecycle-manager saas create - create a SaaS offering 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager saas create` (`SAAS` : `--location`=`LOCATION`) `--locations`=[`name`=`NAME`] [`--labels`=[`LABELS`,…]] [`--application-template`=`APPLICATION_TEMPLATE` : `--application-template-revision`=`APPLICATION_TEMPLATE_REVISION`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Create a SaaS 
+     `(BETA)` Create an App Lifecycle Manager SaaS offering. 
+
+A SaaS offering (also called an app offering) represents a SaaS product managed by the service producer. It defines the locations in which the product is available. 
+
 EXAMPLES
-     To create a new SaaS, run: 
+     To create a SaaS offering named `my-saas` in location `us-central1` that is available in `us-central1`, run: 
     
     
-    gcloud beta app-lifecycle-manager saas create saas --locations=name=us-central2 --locations=name=europe-west1
+    gcloud beta app-lifecycle-manager saas create my-saas --location=us-central1 --locations=name=us-central1
+
+To create a SaaS offering named `my-saas` that is available in `us-central1` and `europe-west1` and has the label `env=prod`, run: 
+    
+    
+    gcloud beta app-lifecycle-manager saas create my-saas --location=us-central1 --locations=name=us-central1 --locations=name=europe-west1 --labels=env=prod
 
 POSITIONAL ARGUMENTS
     
 
-Saas resource - Identifier. The resource name (full URI of the resource) following the standard naming scheme: 
-    
-    
-    "projects/{project}/locations/{location}/saas/{saas}" The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways.
+Saas resource - SaaS offering to create. The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -79,10 +84,10 @@ REQUIRED FLAGS
     
 
 `--locations`=[`name`=`NAME`]
-     Required, List of locations that the service is available in. Rollout refers to the list to generate a rollout plan. 
+     Required, Locations in which the SaaS offering is available. Rollouts use this list to generate a rollout plan. Repeat the flag to specify multiple locations. 
 
 `name`
-     Name of location. 
+     Name of the location. 
 `Shorthand Example:`
     
     
@@ -102,7 +107,7 @@ OPTIONAL FLAGS
     
 
 `--labels`=[`LABELS`,…]
-     The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -123,14 +128,14 @@ OPTIONAL FLAGS
     
     --labels=path_to_file.(yaml|json)
 
-CompositeRef represents a reference to a composite resource. 
+Composite application template. Specify only in source regions; leave unspecified in replica regions. When specified, the template components are imported into their equivalent unit kind, release, and blueprint resources. Deleting the reference does not delete imported resources. 
 `--application-template`=`APPLICATION_TEMPLATE`
-     Reference to the ApplicationTemplate resource. 
+     Full resource name of the Application Design Center composite application template to import. 
 
 This flag argument must be specified if any of the other arguments in this group are specified. 
 
 `--application-template-revision`=`APPLICATION_TEMPLATE_REVISION`
-     Revision of the ApplicationTemplate to use. Changes to revision will trigger manual resynchronization. If empty, ApplicationTemplate will be ignored. 
+     Revision of the application template to use. Changes to the revision trigger manual resynchronization. If empty, the application template is ignored. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -145,6 +150,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

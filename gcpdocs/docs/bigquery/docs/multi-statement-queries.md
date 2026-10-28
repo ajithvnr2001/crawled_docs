@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/multi-statement-queries/
 title: Work with multi-statement queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:25:10.760494+00:00
+fetched_at: 2026-10-27T23:37:21.124617+00:00
 ---
 
 # Work with multi-statement queries  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Work with multi-statement queries
 
-A _multi-statement query_ is a collection of SQL statements that you can execute in a sequence, with shared state.
-
-This document describes how to use multi-statement queries in BigQuery, such as how to write multi-statement queries, use temporary tables in multi-statement queries, reference variables in multi-statement queries, and debug multi-statement queries.
-
-Multi-statement queries are often used in [stored procedures](https://docs.cloud.google.com/bigquery/docs/procedures) and support [procedural language statements](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language), which let you do things like define variables and implement control flow. Multi-statement queries can contain DDL and DML statements that have side effects, such as creating or modifying tables or table data.
+Multi-statement queries in BigQuery let you execute a collection of SQL statements in a sequence with shared state. You can combine standard SQL with [procedural language statements](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/procedural-language) to define variables, implement control flow, and run complex Data Definition Language (DDL) and Data Manipulation Language (DML) operations in a single request. Multi-statement queries are often used in [stored procedures](https://docs.cloud.google.com/bigquery/docs/procedures).
 
 ## Write, run, and save multi-statement queries
 
@@ -133,7 +129,7 @@ You don't create system variables, but you can override the default value for so
     SET @@dataset_project_id = 'MyProject';
     
 
-You can also set and implicitly use a system variable in a multi-statement query. For example, in the following query you must include the project each time you wish to create a new table:
+You can also set and implicitly use a system variable in a multi-statement query. For example, in the following query you must include the project each time you want to create a new table:
     
     
     BEGIN
@@ -506,6 +502,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

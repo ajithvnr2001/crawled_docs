@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-set-up-project/
 title: Set up a project for Vertex AI \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:20:22.287819+00:00
+fetched_at: 2026-10-28T02:29:55.952089+00:00
 ---
 
 # Set up a project for Vertex AI  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,9 +22,9 @@ Send feedback
 
 #  Set up a project for Vertex AI Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page guides you through how to set up a project to run Vertex AI services on Google Distributed Cloud (GDC) air-gapped. It includes steps for configuring your development environment with the gdcloud CLI, the trust bundle certificate authority (CA), and your service accounts, so you can begin integrating machine learning into your applications and workflows.
+To run Vertex AI services in Google Distributed Cloud (GDC) air-gapped, prepare a dedicated project and configure your development environment. Set up the gdcloud CLI and service accounts so that you can integrate machine learning into your air-gapped applications and workflows.
 
-This page is for application developers within application operator groups who are responsible for optimizing air-gapped applications and workflows with AI features. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
+This document is for application developers in application operator groups who optimize air-gapped applications and workflows with AI features. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
 
 ## Ask an administrator to set up a project for you
 
@@ -134,6 +134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

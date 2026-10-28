@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/search-resources/
 title: Search for resources \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:41:49.848533+00:00
+fetched_at: 2026-10-27T20:45:39.577666+00:00
 ---
 
 # Search for resources  |  BigQuery  |  Google Cloud Documentation
@@ -27,13 +27,7 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 For information about access to this release, see the [ access request page](https://docs.google.com/forms/d/e/1FAIpQLSfeucdQXFDYl88JsxPCylt-iU0KxuQMN6VZRalS1vM4ZD0U0Q/viewform). 
 
-Use Knowledge Catalog search to find Google Cloud resources from within BigQuery, such as BigQuery datasets and tables.
-
-Knowledge Catalog search supports natural language search queries (also known as semantic search queries), which let you search for resources using everyday language.
-
-Similar to keyword search, natural language search emphasizes the discovery of resources by analyzing the metadata that's associated with the resources within your organization. Search takes into account a broad range of metadata that describes the resources, including metadata that you create.
-
-Natural language search focuses on enhancing recall rather than precision.
+Use Knowledge Catalog search in BigQuery to find Google Cloud resources, such as datasets and tables, using natural language queries. Searching with everyday language against metadata that you create lets you discover the data assets you need without relying on exact keyword matches.
 
 For more information about how to search for table data in BigQuery, see [Introduction to search in BigQuery](https://docs.cloud.google.com/bigquery/docs/search-intro).
 
@@ -137,6 +131,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

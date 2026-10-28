@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/artifacts/repositories/add-iam-policy-binding/
 title: gcloud artifacts repositories add-iam-policy-binding \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T17:31:12.488564+00:00
+fetched_at: 2026-10-27T21:41:16.576409+00:00
 ---
 
 # gcloud artifacts repositories add-iam-policy-binding  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -39,10 +39,10 @@ This command can fail for the following reasons:
 
 
 EXAMPLES
-     To add an IAM policy binding for the role of 'roles/editor' for the user 'test-user@gmail.com' with repository 'my-repo', run: 
+     The following example adds an IAM policy binding for the role of 'roles/editor' for the user 'test-user@gmail.com', with repository 'my-repo' in the 'us-central1' region: 
     
     
-    gcloud artifacts repositories add-iam-policy-binding my-repo --member='user:test-user@gmail.com' --role='roles/editor'
+    gcloud artifacts repositories add-iam-policy-binding my-repo --member='user:test-user@gmail.com' --role='roles/editor' --location='us-central1'
 
 See <https://cloud.google.com/iam/docs/managing-policies> for details of policy role and member types. 
 
@@ -137,6 +137,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

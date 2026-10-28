@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/analysis-rules/
 title: Restrict data access using analysis rules \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:26:45.050300+00:00
+fetched_at: 2026-10-27T19:38:27.803188+00:00
 ---
 
 # Restrict data access using analysis rules  |  BigQuery  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ The following analysis rules are supported:
 
   * Aggregation threshold analysis rule: Enforces the minimum number of distinct entities that must be present in a dataset. You can enforce this rule on a view, using DDL statements or data clean rooms. This rule supports the aggregation threshold policy and the join restriction policy.
 
-  * Differential privacy analysis rule: Enforces a privacy budget, which limits the data that is revealed to a subscriber when the data is protected with [differential privacy](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/differential-privacy). You can enforce this rule on a view, using DDL statements or data clean rooms. This rule supports the differential privacy policy and the join restriction policy.
+  * Differential privacy analysis rule: Enforces a privacy budget, which limits the data that is revealed to a subscriber when the data is protected with [differential privacy](https://docs.cloud.google.com/bigquery/docs/differential-privacy). You can enforce this rule on a view, using DDL statements or data clean rooms. This rule supports the differential privacy policy and the join restriction policy.
 
   * List overlap analysis rule: Overlapping rows can only be queried after a join operation, which conforms to the rule. You can enforce this rule on a view, using DDL statements or data clean rooms. This rule supports the join restriction policy.
 
@@ -173,7 +173,7 @@ To review additional examples for the `AGGREGATION_THRESHOLD` clause, see [`AGGR
 
 ## Differential privacy analysis rule
 
-The differential privacy analysis rule enforces a privacy budget, which limits the data that is revealed to a subscriber when the data is protected with [differential privacy](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/differential-privacy). A privacy budget prevents any subscriber from querying shared data when the sum of all queries' epsilon or delta reaches the total epsilon or total delta value. You can use this analysis rule in a view.
+The differential privacy analysis rule enforces a privacy budget, which limits the data that is revealed to a subscriber when the data is protected with [differential privacy](https://docs.cloud.google.com/bigquery/docs/differential-privacy). A privacy budget prevents any subscriber from querying shared data when the sum of all queries' epsilon or delta reaches the total epsilon or total delta value. You can use this analysis rule in a view.
 
 A view that includes this analysis rule must include the [differential privacy policy](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#privacy_policy) and can optionally include the [join restriction policy](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#privacy_policy).
 
@@ -787,6 +787,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

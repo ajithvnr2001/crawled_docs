@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-get-metadata/
 title: Get FHIR capability statement \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:21:30.168845+00:00
+fetched_at: 2026-10-27T16:30:04.309063+00:00
 ---
 
 # Get FHIR capability statement  |  Cloud Healthcare API  |  Google Cloud Documentation

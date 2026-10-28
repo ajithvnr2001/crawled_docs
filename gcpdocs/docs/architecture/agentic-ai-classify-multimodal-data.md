@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/agentic-ai-classify-multimodal-data/
 title: Agentic AI use case: Classify multimodal data \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:52:03.964131+00:00
+fetched_at: 2026-10-27T23:47:45.922449+00:00
 ---
 
 # Agentic AI use case: Classify multimodal data  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/use-template-gallery/
 title: Use a prebuilt template from the Template Gallery \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:42:01.029102+00:00
+fetched_at: 2026-10-28T02:28:25.886397+00:00
 ---
 
 # Use a prebuilt template from the Template Gallery  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -49,39 +49,52 @@ Use the following instructions to create a pipeline run from the **Template Gall
 
      1. Optional: Modify the default **Run name** that uniquely identifies the pipeline run.
 
-     2. Optional: To schedule recurring pipeline runs, specify the **Run schedule** , as follows:
 
-        1. Select **Recurring**.
+    
+    
+      1. Optional: To schedule recurring pipeline runs, specify the **Run schedule**, as follows:
+    
+          1. Select **Recurring**.
+    
+          1. Under **Start time**, specify when the schedule becomes active.
+    
+              * To schedule the first run to occur immediately after schedule creation, select **Immediately**.
+    
+              * To schedule the first run to occur at a specific time and date, select **On**.
+    
+          1. In the **Frequency** field, specify the frequency to schedule and execute the
+          pipeline runs, using a cron schedule expression based on
+          [unix-cron](https://man7.org/linux/man-pages/man5/crontab.5.html).
+    
+          1. Under **Ends**, specify when the schedule ends.
+    
+              * To indicate that the schedule creates pipeline runs indefinitely, select **Never**.
+    
+              * To indicate that the schedule ends on a specific date and time, select **On**, and specify the end date and time for the schedule.
+    
+          1. Optional: To specify that the pipeline run uses a custom service account,
+          Customer-managed encryption keys (CMEK), or a peered VPC network, click
+          **Advanced options**, and then follow these instructions:
+    
+              *  To specify a service account, select a service account from the
+                **Service account** drop-down list.
+    
+                  If you don't specify a service account,
+                  Agent Platform Pipelines runs your pipeline using the default
+                  Compute Engine service account.
+    
+                  Learn more about [configuring a service account for use with
+                  Agent Platform Pipelines](/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account).
+    
+              *  To use a CMEK, select **Use a customer-managed encryption key**. The **Select a customer-managed key** drop-down list appears. In the **Select a customer-managed key** drop-down list, select the key that you want to use.
+    
+              *  To use a peered VPC network in this pipeline run, enter the VPC
+              network name in the **Peered VPC network** box.
+    
+      1. Click **Continue**.
+    
 
-        2. Under **Start time** , specify when the schedule becomes active.
-
-           * To schedule the first run to occur immediately after schedule creation, select **Immediately**.
-
-           * To schedule the first run to occur at a specific time and date, select **On**.
-
-        3. In the **Frequency** field, specify the frequency to schedule and execute the pipeline runs, using a cron schedule expression based on [unix-cron](https://man7.org/linux/man-pages/man5/crontab.5.html).
-
-        4. Under **Ends** , specify when the schedule ends.
-
-           * To indicate that the schedule creates pipeline runs indefinitely, select **Never**.
-
-           * To indicate that the schedule ends on a specific date and time, select **On** , and specify the end date and time for the schedule.
-
-        5. Optional: To specify that the pipeline run uses a custom service account, a customer-managed encryption key (CMEK), or a peered VPC network, click **Advanced options** , and then follow these instructions:
-
-           * To specify a service account, select a service account from the **Service account** drop-down list.
-
-If you don't specify a service account, Agent Platform Pipelines runs your pipeline using the default Compute Engine service account.
-
-Learn more about [configuring a service account for use with Agent Platform Pipelines](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project#service-account).
-
-           * To use a CMEK, select **Use a customer-managed encryption key**. The **Select a customer-managed key** drop-down list appears. In the **Select a customer-managed key** drop-down list, select the key that you want to use.
-
-           * To use a peered VPC network in this pipeline run, enter the VPC network name in the **Peered VPC network** box.
-
-     3. Click **Continue**.
-
-  5. In the **Runtime configuration** section, configure the pipeline run, as follows:
+  1. In the **Runtime configuration** section, configure the pipeline run, as follows:
 
      1. Under **Cloud storage location** , click **Browse** to select the Cloud Storage bucket for storing the pipeline output artifacts, and then click **Select**.
 
@@ -103,7 +116,7 @@ Learn more about [configuring a service account for use with Agent Platform Pipe
 
      3. Optional: If your pipeline has parameters, under **Pipeline parameters** , specify your pipeline run parameters.
 
-  6. To create your pipeline run, click **Submit**.
+  2. To create your pipeline run, click **Submit**.
 
 
 
@@ -112,6 +125,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

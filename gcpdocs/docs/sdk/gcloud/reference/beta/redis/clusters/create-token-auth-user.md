@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/redis/clusters/create-token-auth-user/
 title: gcloud beta redis clusters create-token-auth-user \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T15:16:55.601514+00:00
+fetched_at: 2026-10-27T21:40:30.089513+00:00
 ---
 
 # gcloud beta redis clusters create-token-auth-user  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -31,6 +31,12 @@ SYNOPSIS
 `gcloud beta redis clusters create-token-auth-user` (`CLUSTER` : `--region`=`REGION`) [`--async`] [`--token-auth-user`=`TOKEN_AUTH_USER`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(BETA)` Create a token-auth user for a token-auth-enabled Redis cluster. An initial token will be generated for the user. The username and token can be used to authenticate a client connecting to the cluster. 
+EXAMPLES
+     To create a new token auth user, run: 
+    
+    
+    gcloud beta redis clusters create-token-auth-user my-cluster --token-auth-user=my-user --region=us-central1
+
 POSITIONAL ARGUMENTS
     
 
@@ -80,7 +86,10 @@ Run `$ [gcloud help](https://docs.cloud.google.com/sdk/gcloud/reference)` for de
 API REFERENCE
      This command uses the `redis/v1beta1` API. The full documentation for this API can be found at: <https://cloud.google.com/memorystore/docs/redis/>
 NOTES
-     This command is currently in beta and might change without notice. This variant is also available: 
+     This command is currently in beta and might change without notice. These variants are also available: 
+    
+    
+    [gcloud redis clusters create-token-auth-user](https://docs.cloud.google.com/sdk/gcloud/reference/redis/clusters/create-token-auth-user)
     
     
     [gcloud alpha redis clusters create-token-auth-user](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/redis/clusters/create-token-auth-user)
@@ -89,6 +98,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

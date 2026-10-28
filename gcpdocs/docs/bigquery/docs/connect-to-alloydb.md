@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/connect-to-alloydb/
 title: Connect to AlloyDB for PostgreSQL \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:39:41.707670+00:00
+fetched_at: 2026-10-27T19:38:51.494915+00:00
 ---
 
 # Connect to AlloyDB for PostgreSQL  |  BigQuery  |  Google Cloud Documentation
@@ -21,16 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Connect to AlloyDB for PostgreSQL
 
-As a BigQuery administrator, you can create a [connection](https://docs.cloud.google.com/bigquery/docs/connections-api-intro) to access AlloyDB data. This connection lets data analysts [query data in AlloyDB](https://docs.cloud.google.com/bigquery/docs/alloydb-federated-queries).
-
-To connect to AlloyDB, you must perform the following steps:
-
-  1. Create an AlloyDB connection.
-
-  2. Grant access to the service account.
-
-
-
+An AlloyDB for PostgreSQL [connection](https://docs.cloud.google.com/bigquery/docs/connections-api-intro) in BigQuery lets users [query data in AlloyDB](https://docs.cloud.google.com/bigquery/docs/alloydb-federated-queries) in real time without copying or moving data into BigQuery. You can set up this connection by creating an AlloyDB connection and granting access to the service account.
 
 ## Before you begin
 
@@ -273,6 +264,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

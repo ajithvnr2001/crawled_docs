@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/troubleshooting/ssh/
 title: Troubleshoot Cloud Run with SSH \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:41:51.541342+00:00
+fetched_at: 2026-10-28T02:30:04.518780+00:00
 ---
 
 # Troubleshoot Cloud Run with SSH  |  Google Cloud Documentation
@@ -120,7 +120,6 @@ To get the permissions that you need to complete these steps, ask your administr
 
   * [Service Account User ](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) (`roles/iam.serviceAccountUser`) on the service account
   * [Cloud Run SSH Root Access ](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.sshRoot) (`roles/run.sshRoot`) on the service
-  * [Cloud Run Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.viewer) (`roles/run.viewer`) on the service
   * [IAP-secured Tunnel User ](https://docs.cloud.google.com/iam/docs/roles-permissions/iap#iap.tunnelResourceAccessor) (`roles/iap.tunnelResourceAccessor`) on the service
   * [Cloud Run Developer ](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.developer) (`roles/run.developer`) on the service
   * [Logs View Accessor ](https://docs.cloud.google.com/iam/docs/roles-permissions/logging#logging.viewAccessor) (`roles/logging.viewAccessor`) on the project
@@ -153,7 +152,7 @@ Replace the following:
 
   * `SERVICE`: the name of your service.
   * `REGION`: the region that your service is deployed in.
-  * `MEMBER`: the identity to grant access to.
+  * `MEMBER`: the identity to grant access to. This should be in the format `user|group|serviceAccount:email` —for example, `user:test-user@gmail.com`.
 
 
 
@@ -171,8 +170,8 @@ Replace the following:
 Replace the following:
 
   * `INSTANCE`: the name of your instance.
-  * `REGION`: the region that your service is deployed in.
-  * `MEMBER`: the identity to grant access to.
+  * `REGION`: the region that your instance is deployed in.
+  * `MEMBER`: the identity to grant access to. This should be in the format `user|group|serviceAccount:email` —for example, `user:test-user@gmail.com`.
 
 
 
@@ -184,17 +183,25 @@ Configure service-level SSH access and connect to the service using SSH.
 
 ### Configure service-level SSH access
 
-You can allow inspect access on a specific service using the gcloud CLI or YAML:
+You can allow SSH access on a specific service using the gcloud CLI or YAML:
 
 ###  gcloud 
 
 To enable access on an existing service, use the following command:
     
     
-    gcloud beta run services update SERVICE --ssh
+    gcloud beta run services update SERVICE --ssh \
+        --region=REGION
     
 
-You can also allow inspect access on a service by using the `--ssh` flag when [deploying the service](https://docs.cloud.google.com/sdk/gcloud/reference/beta/run/deploy).
+Replace the following:
+
+  * `SERVICE`: the name of your service.
+  * `REGION`: the region that your service is deployed in.
+
+
+
+You can also allow SSH access on a service by using the `--ssh` flag when [deploying the service](https://docs.cloud.google.com/sdk/gcloud/reference/beta/run/deploy).
 
 ###  YAML 
 
@@ -241,8 +248,16 @@ You can disable SSH access on a per-service basis using the gcloud CLI or YAML:
 To disable access on the service, use the following command:
     
     
-    gcloud beta run services update SERVICE --no-ssh
+    gcloud beta run services update SERVICE --no-ssh \
+        --region=REGION
     
+
+Replace the following:
+
+  * `SERVICE`: the name of your service.
+  * `REGION`: the region that your service is deployed in.
+
+
 
 ###  YAML 
 
@@ -405,7 +420,7 @@ To connect to a specific revision by using SSH, use the Google Cloud CLI.
 
   3. Select **Revision history**.
 
-  4. Click the ellipsis icon to the right of the revision you want to SSH into.
+  4. Click the ellipsis icon to the right of the revision you want to connect to using SSH.
 
   5. Select **SSH into revisions**. This opens Cloud Shell with the gcloud SSH command.
 
@@ -446,8 +461,16 @@ You can disable SSH access on a per-instance basis using the gcloud CLI or YAML:
 To disable access on the instance, use the following command:
     
     
-    gcloud beta run instances update INSTANCE --no-ssh
+    gcloud beta run instances update INSTANCE --no-ssh \
+        --region=REGION
     
+
+Replace the following:
+
+  * `INSTANCE`: the name of your instance.
+  * `REGION`: the region that your instance is deployed in.
+
+
 
 ###  YAML 
 
@@ -483,17 +506,23 @@ Replace the following:
 
 
 
-You can allow inspect access on a specific instance using the gcloud CLI or YAML.
+To re-enable SSH access on an existing instance, use the gcloud CLI or YAML.
 
 ###  gcloud 
 
 To enable access on an existing instance, use the following command:
     
     
-    gcloud beta run instances update INSTANCE --ssh
+    gcloud beta run instances update INSTANCE --ssh \
+        --region=REGION
     
 
-You can also allow inspect access on a instance by using the `--ssh` flag when [deploying the instance](https://docs.cloud.google.com/sdk/gcloud/reference/beta/run/instances/deploy).
+Replace the following:
+
+  * `INSTANCE`: the name of your instance.
+  * `REGION`: the region that your instance is deployed in.
+
+
 
 ###  YAML 
 
@@ -540,7 +569,7 @@ To connect to an instance by using SSH, use the following Google Cloud CLI comma
 Replace the following:
 
   * `INSTANCE`: the name of your instance.
-  * `REGION`: the region that your service is deployed in.
+  * `REGION`: the region that your instance is deployed in.
   * `PROJECT_ID`: the Google Cloud project ID.
 
 
@@ -638,6 +667,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

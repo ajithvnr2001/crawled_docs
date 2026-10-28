@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/resources/
 title: Resources \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:46:47.925642+00:00
+fetched_at: 2026-10-27T23:39:31.201165+00:00
 ---
 
 # Resources  |  Managed Service for Apache Airflow  |  Google Cloud Documentation

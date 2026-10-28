@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migration-to-gcp-assessing-and-discovering-your-workloads/
 title: Migrate to Google Cloud: Assess and discover your workloads \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:35:07.855153+00:00
+fetched_at: 2026-10-27T18:06:10.622512+00:00
 ---
 
 # Migrate to Google Cloud: Assess and discover your workloads  |  Cloud Architecture Center  |  Google Cloud Documentation

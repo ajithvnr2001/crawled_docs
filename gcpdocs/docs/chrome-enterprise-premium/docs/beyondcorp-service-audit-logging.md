@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chrome-enterprise-premium/docs/beyondcorp-service-audit-logging/
 title: Chrome Enterprise Premium audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:52:16.707977+00:00
+fetched_at: 2026-10-27T19:00:14.233190+00:00
 ---
 
 # Chrome Enterprise Premium audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Chrome Enterprise Premium audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes audit logging for Chrome Enterprise Premium. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Chrome Enterprise Premium let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Chrome Enterprise Premium API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -33,11 +35,19 @@ This document describes audit logging for Chrome Enterprise Premium. Google Clou
 
 ## Service name
 
-Chrome Enterprise Premium audit logs use the service name `beyondcorp.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="beyondcorp.googleapis.com"
-      
+To view the Chrome Enterprise Premium audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="beyondcorp.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -78,31 +88,14 @@ API methods in the following list that are marked with (LRO) are long-running op
 `GetIamPolicy`  
 `google.longrunning.Operations.GetOperation`  
 `google.longrunning.Operations.ListOperations`  
-`ADMIN_WRITE` | `google.cloud.beyondcorp.appconnections.v1.AppConnectionsService.CreateAppConnection` (LRO)  
-`google.cloud.beyondcorp.appconnections.v1.AppConnectionsService.DeleteAppConnection` (LRO)  
-`google.cloud.beyondcorp.appconnections.v1.AppConnectionsService.UpdateAppConnection` (LRO)  
-`google.cloud.beyondcorp.appconnections.v1alpha.AppConnectionsService.CreateAppConnection` (LRO)  
+`ADMIN_WRITE` | `google.cloud.beyondcorp.appconnections.v1.AppConnectionsService.DeleteAppConnection` (LRO)  
 `google.cloud.beyondcorp.appconnections.v1alpha.AppConnectionsService.DeleteAppConnection` (LRO)  
-`google.cloud.beyondcorp.appconnections.v1alpha.AppConnectionsService.UpdateAppConnection` (LRO)  
-`google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.CreateAppConnector` (LRO)  
 `google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.DeleteAppConnector` (LRO)  
-`google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.ReportStatus` (LRO)  
-`google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.UpdateAppConnector` (LRO)  
-`google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.CreateAppConnector` (LRO)  
-`google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.DeleteAppConnector` (LRO)  
-`google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.ReportStatus` (LRO)  
-`google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.UpdateAppConnector` (LRO)  
-`google.cloud.beyondcorp.appgateways.v1.AppGatewaysService.CreateAppGateway` (LRO)  
+`google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.DeleteAppConnector`  
 `google.cloud.beyondcorp.appgateways.v1.AppGatewaysService.DeleteAppGateway` (LRO)  
-`google.cloud.beyondcorp.appgateways.v1alpha.AppGatewaysService.CreateAppGateway` (LRO)  
 `google.cloud.beyondcorp.appgateways.v1alpha.AppGatewaysService.DeleteAppGateway` (LRO)  
-`google.cloud.beyondcorp.connections.v1alpha.ConnectionsService.CreateConnection` (LRO)  
-`google.cloud.beyondcorp.connections.v1alpha.ConnectionsService.DeleteConnection` (LRO)  
-`google.cloud.beyondcorp.connections.v1alpha.ConnectionsService.UpdateConnection` (LRO)  
-`google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.CreateConnector` (LRO)  
-`google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.DeleteConnector` (LRO)  
-`google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.ReportStatus` (LRO)  
-`google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.UpdateConnector` (LRO)  
+`google.cloud.beyondcorp.connections.v1alpha.ConnectionsService.DeleteConnection`  
+`google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.DeleteConnector`  
 `google.cloud.beyondcorp.securitygateways.v1.SecurityGatewaysService.CreateApplication` (LRO)  
 `google.cloud.beyondcorp.securitygateways.v1.SecurityGatewaysService.CreateSecurityGateway` (LRO)  
 `google.cloud.beyondcorp.securitygateways.v1.SecurityGatewaysService.DeleteApplication` (LRO)  
@@ -126,21 +119,6 @@ For information about how and which permissions are evaluated for each method, s
 ### `google.cloud.beyondcorp.appconnections.v1.AppConnectionsService`
 
 The following audit logs are associated with methods belonging to `google.cloud.beyondcorp.appconnections.v1.AppConnectionsService`.
-
-#### `CreateAppConnection`
-
-  * **Method** : `google.cloud.beyondcorp.appconnections.v1.AppConnectionsService.CreateAppConnection`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appConnections.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnections.v1.AppConnectionsService.CreateAppConnection" `  
-
-
-
 
 #### `DeleteAppConnection`
 
@@ -202,39 +180,9 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `UpdateAppConnection`
-
-  * **Method** : `google.cloud.beyondcorp.appconnections.v1.AppConnectionsService.UpdateAppConnection`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appConnections.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnections.v1.AppConnectionsService.UpdateAppConnection" `  
-
-
-
-
 ### `google.cloud.beyondcorp.appconnections.v1alpha.AppConnectionsService`
 
 The following audit logs are associated with methods belonging to `google.cloud.beyondcorp.appconnections.v1alpha.AppConnectionsService`.
-
-#### `CreateAppConnection`
-
-  * **Method** : `google.cloud.beyondcorp.appconnections.v1alpha.AppConnectionsService.CreateAppConnection`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appConnections.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnections.v1alpha.AppConnectionsService.CreateAppConnection" `  
-
-
-
 
 #### `DeleteAppConnection`
 
@@ -296,39 +244,9 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `UpdateAppConnection`
-
-  * **Method** : `google.cloud.beyondcorp.appconnections.v1alpha.AppConnectionsService.UpdateAppConnection`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appConnections.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnections.v1alpha.AppConnectionsService.UpdateAppConnection" `  
-
-
-
-
 ### `google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService`
 
 The following audit logs are associated with methods belonging to `google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService`.
-
-#### `CreateAppConnector`
-
-  * **Method** : `google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.CreateAppConnector`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appConnectors.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.CreateAppConnector" `  
-
-
-
 
 #### `DeleteAppConnector`
 
@@ -375,21 +293,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `ReportStatus`
-
-  * **Method** : `google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.ReportStatus`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appConnectors.reportStatus - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.ReportStatus" `  
-
-
-
-
 #### `ResolveInstanceConfig`
 
   * **Method** : `google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.ResolveInstanceConfig`  
@@ -405,39 +308,9 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `UpdateAppConnector`
-
-  * **Method** : `google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.UpdateAppConnector`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appConnectors.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnectors.v1.AppConnectorsService.UpdateAppConnector" `  
-
-
-
-
 ### `google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService`
 
 The following audit logs are associated with methods belonging to `google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService`.
-
-#### `CreateAppConnector`
-
-  * **Method** : `google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.CreateAppConnector`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appConnectors.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.CreateAppConnector" `  
-
-
-
 
 #### `DeleteAppConnector`
 
@@ -447,7 +320,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `beyondcorp.appConnectors.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.DeleteAppConnector" `  
 
@@ -484,21 +357,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `ReportStatus`
-
-  * **Method** : `google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.ReportStatus`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appConnectors.reportStatus - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.ReportStatus" `  
-
-
-
-
 #### `ResolveInstanceConfig`
 
   * **Method** : `google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.ResolveInstanceConfig`  
@@ -514,39 +372,9 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `UpdateAppConnector`
-
-  * **Method** : `google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.UpdateAppConnector`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appConnectors.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appconnectors.v1alpha.AppConnectorsService.UpdateAppConnector" `  
-
-
-
-
 ### `google.cloud.beyondcorp.appgateways.v1.AppGatewaysService`
 
 The following audit logs are associated with methods belonging to `google.cloud.beyondcorp.appgateways.v1.AppGatewaysService`.
-
-#### `CreateAppGateway`
-
-  * **Method** : `google.cloud.beyondcorp.appgateways.v1.AppGatewaysService.CreateAppGateway`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appGateways.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appgateways.v1.AppGatewaysService.CreateAppGateway" `  
-
-
-
 
 #### `DeleteAppGateway`
 
@@ -597,21 +425,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 The following audit logs are associated with methods belonging to `google.cloud.beyondcorp.appgateways.v1alpha.AppGatewaysService`.
 
-#### `CreateAppGateway`
-
-  * **Method** : `google.cloud.beyondcorp.appgateways.v1alpha.AppGatewaysService.CreateAppGateway`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.appGateways.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.appgateways.v1alpha.AppGatewaysService.CreateAppGateway" `  
-
-
-
-
 #### `DeleteAppGateway`
 
   * **Method** : `google.cloud.beyondcorp.appgateways.v1alpha.AppGatewaysService.DeleteAppGateway`  
@@ -661,21 +474,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 The following audit logs are associated with methods belonging to `google.cloud.beyondcorp.connections.v1alpha.ConnectionsService`.
 
-#### `CreateConnection`
-
-  * **Method** : `google.cloud.beyondcorp.connections.v1alpha.ConnectionsService.CreateConnection`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.connections.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.connections.v1alpha.ConnectionsService.CreateConnection" `  
-
-
-
-
 #### `DeleteConnection`
 
   * **Method** : `google.cloud.beyondcorp.connections.v1alpha.ConnectionsService.DeleteConnection`  
@@ -684,7 +482,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `beyondcorp.connections.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.connections.v1alpha.ConnectionsService.DeleteConnection" `  
 
@@ -736,39 +534,9 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `UpdateConnection`
-
-  * **Method** : `google.cloud.beyondcorp.connections.v1alpha.ConnectionsService.UpdateConnection`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.connections.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.connections.v1alpha.ConnectionsService.UpdateConnection" `  
-
-
-
-
 ### `google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService`
 
 The following audit logs are associated with methods belonging to `google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService`.
-
-#### `CreateConnector`
-
-  * **Method** : `google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.CreateConnector`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.connectors.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.CreateConnector" `  
-
-
-
 
 #### `DeleteConnector`
 
@@ -778,7 +546,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `beyondcorp.connectors.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.DeleteConnector" `  
 
@@ -815,21 +583,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `ReportStatus`
-
-  * **Method** : `google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.ReportStatus`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.connectors.reportStatus - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.ReportStatus" `  
-
-
-
-
 #### `ResolveInstanceConfig`
 
   * **Method** : `google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.ResolveInstanceConfig`  
@@ -841,21 +594,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.ResolveInstanceConfig" `  
-
-
-
-
-#### `UpdateConnector`
-
-  * **Method** : `google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.UpdateConnector`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `beyondcorp.connectors.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.beyondcorp.connectors.v1alpha.ConnectorsService.UpdateConnector" `  
 
 
 
@@ -1278,6 +1016,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

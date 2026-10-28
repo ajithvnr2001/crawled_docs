@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview/
 title: Semantic governance policies overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:13.369913+00:00
+fetched_at: 2026-10-27T23:16:22.386052+00:00
 ---
 
 # Semantic governance policies overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -99,6 +99,8 @@ Semantic governance policy acts as a security check (also called an "intent gate
 
 Both checks must pass for the policy engine to approve the tool call.
 
+The user intent check is on by default. To base verdicts only on the agent's constraints, you can turn it off. For details, see [Control user intent matching](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#control-intent-matching).
+
 ## Layered governance
 
 A Semantic governance policy complements access control and other governance mechanisms; it doesn't override or replace them. Baseline controls, such as IAM, rate limits, and network security, remain essential. Semantic governance policy adds an intelligent security layer to ensure that even when an agent technically has permission to use a tool, the action must match the trusted user's intent and comply with any constraints configured for the agent.
@@ -129,6 +131,21 @@ Verification and enforcement rely on the **Agent Gateway** , which acts as a run
   4. **Enforcement:** The verdict is added to the model response, removing the proposed tool call, before returning to the agent through the Agent Gateway.
 
 
+
+### Supported model providers
+
+The policy engine reads the request and response format of each supported model provider, so the same policies apply whichever model your agent uses. If a tool call is denied, the engine replaces it with a denial message in that provider's response format.
+
+The `when` condition of the authorization policy that you create in [Connect the policy engine to Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance#connect-policy-engine) must match the request path of each API that your agents call:
+
+API | Request path  
+---|---  
+Gemini Developer API and Gemini models on Gemini Enterprise Agent Platform | `:generateContent`  
+Anthropic Messages API | `/v1/messages`  
+Claude models on Gemini Enterprise Agent Platform | `:rawPredict`  
+OpenAI Chat Completions API, Mistral AI API, the OpenAI-compatible endpoint on Gemini Enterprise Agent Platform (including Llama models in Gemini Enterprise Agent Platform Model Garden), and self-hosted OpenAI-compatible servers such as vLLM | `/chat/completions`  
+  
+**Note:** The policy engine doesn't support streamed model responses, such as `:streamGenerateContent`, `:streamRawPredict`, or requests that set `"stream": true`. A tool call in a streamed response might not be blocked. Configure your agent to call its model without streaming.
 
 ### Determining a verdict
 
@@ -189,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

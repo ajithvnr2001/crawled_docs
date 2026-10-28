@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/maintenance-changelog/sqlserver-2017-enterprise/
 title: SQL Server 2017 Enterprise maintenance changelog \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:10.391973+00:00
+fetched_at: 2026-10-27T19:53:44.387532+00:00
 ---
 
 # SQL Server 2017 Enterprise maintenance changelog  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -31,6 +31,18 @@ Maintenance updates can be performed by you using [self-service maintenance](htt
 To learn more about maintenance updates, see [Maintenance updates on Cloud SQL instances](https://docs.cloud.google.com/sql/docs/sqlserver/maintenance).
 
 To get the latest maintenance changes delivered to you, add the following URL to your feed reader: `https://docs.cloud.google.com/feeds/cloud-sql-sql-server-2017-enterprise-maintenance-changelog.xml`.
+
+## SQLSERVER_2017_ENTERPRISE_CU31_GDR.R20260809.01_08
+
+**Date released** | **Release type** | **Database minor version**  
+---|---|---  
+2026-10-26 | Self Service | SQL Server 2017 Enterprise CU31_GDR  
+  
+### Security patches
+
+#### Database
+
+[CVE-2026-66814](https://nvd.nist.gov/vuln/detail/CVE-2026-66814), [CVE-2026-66818](https://nvd.nist.gov/vuln/detail/CVE-2026-66818), [CVE-2026-66819](https://nvd.nist.gov/vuln/detail/CVE-2026-66819), [CVE-2026-66820](https://nvd.nist.gov/vuln/detail/CVE-2026-66820), [CVE-2026-67368](https://nvd.nist.gov/vuln/detail/CVE-2026-67368), [CVE-2026-67370](https://nvd.nist.gov/vuln/detail/CVE-2026-67370), [CVE-2026-67376](https://nvd.nist.gov/vuln/detail/CVE-2026-67376), [CVE-2026-67380](https://nvd.nist.gov/vuln/detail/CVE-2026-67380), [CVE-2026-67381](https://nvd.nist.gov/vuln/detail/CVE-2026-67381), [CVE-2026-67385](https://nvd.nist.gov/vuln/detail/CVE-2026-67385), [CVE-2026-67386](https://nvd.nist.gov/vuln/detail/CVE-2026-67386), [CVE-2026-67388](https://nvd.nist.gov/vuln/detail/CVE-2026-67388), [CVE-2026-67390](https://nvd.nist.gov/vuln/detail/CVE-2026-67390), [CVE-2026-67393](https://nvd.nist.gov/vuln/detail/CVE-2026-67393), [CVE-2026-67629](https://nvd.nist.gov/vuln/detail/CVE-2026-67629), [CVE-2026-67630](https://nvd.nist.gov/vuln/detail/CVE-2026-67630), [CVE-2026-67631](https://nvd.nist.gov/vuln/detail/CVE-2026-67631), [CVE-2026-67633](https://nvd.nist.gov/vuln/detail/CVE-2026-67633), [CVE-2026-67639](https://nvd.nist.gov/vuln/detail/CVE-2026-67639), [CVE-2026-67645](https://nvd.nist.gov/vuln/detail/CVE-2026-67645), [CVE-2026-67648](https://nvd.nist.gov/vuln/detail/CVE-2026-67648), [CVE-2026-68775](https://nvd.nist.gov/vuln/detail/CVE-2026-68775), [CVE-2026-68776](https://nvd.nist.gov/vuln/detail/CVE-2026-68776), [CVE-2026-68777](https://nvd.nist.gov/vuln/detail/CVE-2026-68777), [CVE-2026-68778](https://nvd.nist.gov/vuln/detail/CVE-2026-68778), [CVE-2026-68779](https://nvd.nist.gov/vuln/detail/CVE-2026-68779), [CVE-2026-68780](https://nvd.nist.gov/vuln/detail/CVE-2026-68780), [CVE-2026-68781](https://nvd.nist.gov/vuln/detail/CVE-2026-68781), [CVE-2026-68784](https://nvd.nist.gov/vuln/detail/CVE-2026-68784), [CVE-2026-68785](https://nvd.nist.gov/vuln/detail/CVE-2026-68785), [CVE-2026-68786](https://nvd.nist.gov/vuln/detail/CVE-2026-68786), [CVE-2026-68787](https://nvd.nist.gov/vuln/detail/CVE-2026-68787), [CVE-2026-69562](https://nvd.nist.gov/vuln/detail/CVE-2026-69562), [CVE-2026-73028](https://nvd.nist.gov/vuln/detail/CVE-2026-73028), [CVE-2026-77480](https://nvd.nist.gov/vuln/detail/CVE-2026-77480), [CVE-2026-77481](https://nvd.nist.gov/vuln/detail/CVE-2026-77481), [CVE-2026-77482](https://nvd.nist.gov/vuln/detail/CVE-2026-77482), [CVE-2026-77483](https://nvd.nist.gov/vuln/detail/CVE-2026-77483), [CVE-2026-77485](https://nvd.nist.gov/vuln/detail/CVE-2026-77485), [CVE-2026-77486](https://nvd.nist.gov/vuln/detail/CVE-2026-77486), [CVE-2026-77487](https://nvd.nist.gov/vuln/detail/CVE-2026-77487), [CVE-2026-77488](https://nvd.nist.gov/vuln/detail/CVE-2026-77488), [CVE-2026-78441](https://nvd.nist.gov/vuln/detail/CVE-2026-78441), [CVE-2026-78442](https://nvd.nist.gov/vuln/detail/CVE-2026-78442)
 
 ## SQLSERVER_2017_ENTERPRISE_CU31_GDR.R20260809.01_07
 
@@ -483,6 +495,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

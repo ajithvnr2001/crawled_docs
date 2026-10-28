@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/finding-classes/
 title: Finding classes \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:33:10.393708+00:00
+fetched_at: 2026-10-27T19:53:43.588387+00:00
 ---
 
 # Finding classes  |  Security Command Center  |  Google Cloud Documentation
@@ -23,11 +23,9 @@ Send feedback
 
 Standard-legacy, Standard, Premium, and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-This page explains the finding classes that the Security Command Center services use to report security issues in your environment.
+Finding classes in Security Command Center let you filter and prioritize security issues based on the type of risk that each finding identifies, such as a threat, vulnerability, or misconfiguration.
 
-In finding definitions, the finding class is stored in the `findingClass` field. For more information about the `findingClass` field, see [`FindingClass`](https://docs.cloud.google.com/security-command-center/docs/reference/rest/v2/organizations.sources.findings#findingclass).
-
-Some findings don't include a finding class definition. Security Command Center classifies these findings as `Finding class unspecified`.
+In finding definitions, Security Command Center stores the finding class in the `findingClass` field, or classifies the finding as `Finding class unspecified` if no class is defined. For more information, see [`FindingClass`](https://docs.cloud.google.com/security-command-center/docs/reference/rest/v2/folders.sources.locations.findings#Finding.FindingClass).
 
 The classes include the following:
 
@@ -155,6 +153,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/chrome-desktop-remote-windows-compute-engine/
 title: Set up Chrome Remote Desktop for Windows on Compute Engine \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:27:59.600226+00:00
+fetched_at: 2026-10-27T23:46:40.023709+00:00
 ---
 
 # Set up Chrome Remote Desktop for Windows on Compute Engine  |  Cloud Architecture Center  |  Google Cloud Documentation

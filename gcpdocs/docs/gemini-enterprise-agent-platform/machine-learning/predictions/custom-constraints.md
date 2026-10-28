@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/custom-constraints/
 title: Create custom organization policy constraints \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:21.293677+00:00
+fetched_at: 2026-10-28T02:28:34.599322+00:00
 ---
 
 # Create custom organization policy constraints  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -355,7 +355,7 @@ Replace `POLICY_PATH` with the full path to your organization policy YAML file. 
 
 ## Test the custom organization policy
 
-The following example creates a custom constraint and policy that blocks creation of endpoints that don't have a KMS key.
+The following example creates a custom constraint and policy that blocks creation of endpoints that don't have a Cloud Key Management Service key.
 
 Before you begin, you must know the following:
 
@@ -379,7 +379,7 @@ Before you begin, you must know the following:
          description: All new endpoints must have a KMS key.
          
 
-This defines a constraint where for every new endpoint, if a KMS key isn't provided, the endpoint creation is denied.
+This defines a constraint where for every new endpoint, if a Cloud KMS key isn't provided, the endpoint creation is denied.
 
   2. Apply the constraint:
          
@@ -436,7 +436,7 @@ After you apply the policy, wait about two minutes for Google Cloud to start enf
 
 ### Test the policy
 
-Try to create an online inference endpoint without a KMS key:
+Try to create an online inference endpoint without a Cloud KMS key:
     
     
     gcloud ai endpoints create \
@@ -456,7 +456,7 @@ This table provides syntax examples for some common custom constraints.
 
 Description | Constraint syntax  
 ---|---  
-Restrict KMS key for online inference endpoints | 
+Restrict Cloud KMS key for online inference endpoints | 
     
     
           name: organizations/ORGANIZATION_ID/customConstraints/custom.
@@ -483,6 +483,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

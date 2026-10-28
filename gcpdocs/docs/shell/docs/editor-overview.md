@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/shell/docs/editor-overview/
 title: Cloud Shell Editor interface overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:46:43.111249+00:00
+fetched_at: 2026-10-28T00:14:04.925623+00:00
 ---
 
 # Cloud Shell Editor interface overview  |  Google Cloud Documentation
@@ -20,7 +20,7 @@ Send feedback
 
 #  Cloud Shell Editor interface overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes the features of the Cloud Shell Editor.
+Cloud Shell Editor lets you develop, build, and debug Google Cloud applications directly in your browser using an IDE interface. The interface provides a IDE workspace with integrated source control, language tooling, and access to the Cloud Shell terminal.
 
 ## View and edit files
 
@@ -99,13 +99,11 @@ The Cloud Shell Editor supports Go, Python, Java, .NET Core, and Node.js, provid
 
 The Cloud Shell Editor comes with Cloud Code support.
 
-Cloud Code provides IDE support for the full development cycle of Kubernetes and Cloud Run applications, from creating and customizing a new application from a sample application to running your finished application. Cloud Code also provides run-ready samples, out-of-the-box configuration snippets, and a tailored debugging experience.
+Cloud Code provides IDE support for the full development cycle of [Kubernetes](https://docs.cloud.google.com/shell/docs/kubernetes) and [Cloud Run](https://docs.cloud.google.com/shell/docs/cloud-run) applications, from creating and customizing a new application from a sample application to running your finished application. Cloud Code also provides run-ready samples, out-of-the-box configuration snippets, and a tailored debugging experience.
 
 Cloud Code supports the development of applications in Node.js, Python, Java, Go, and .NET Core.
 
 In addition to the Cloud Code menu available in the status bar of Cloud Shell, you can also access Cloud Code commands using the command palette; press `Cmd`/`Ctrl`+`Shift`+`P` or click **View** > **Command Palette** to display available commands.
-
-For a comprehensive look at what you can do with Cloud Code using Cloud Shell, see [Getting started with Cloud Code](https://docs.cloud.google.com/shell/docs/getting-started-with-cloud-code).
 
 ### Data Agent Kit integration
 
@@ -141,6 +139,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

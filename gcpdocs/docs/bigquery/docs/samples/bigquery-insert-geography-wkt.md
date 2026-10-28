@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-insert-geography-wkt/
 title: Insert WKT data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:22.844967+00:00
+fetched_at: 2026-10-27T23:11:22.453361+00:00
 ---
 
 # Insert WKT data  |  BigQuery  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "rgeo"
     
     def insert_geography_wkt dataset_id = "your_dataset_id", table_id = "your_table_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange-v1beta1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       table    = dataset.table table_id
     

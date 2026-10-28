@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/ca-rotation/
 title: Rotate certificate authorities \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:40.687366+00:00
+fetched_at: 2026-10-28T02:29:45.096969+00:00
 ---
 
 # Rotate certificate authorities  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,13 @@ Send feedback
 
 #  Rotate certificate authorities Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google Distributed Cloud uses certificates and private keys to authenticate and encrypt connections between system components in clusters. The cluster certificate authority (CA) manages these certificates and keys. When you run the `bmctl update credentials certificate-authorities rotate` command, Google Distributed Cloud performs the following actions:
+Google Distributed Cloud lets you rotate user cluster certificate authorities (CAs) to update the certificates and private keys that authenticate and encrypt system communication. Rotating your user cluster CA periodically and after any potential security incident helps you maintain cluster security. Automated CA rotation requires active, valid certificates.
+
+If your cluster certificates have expired, you must instead [renew expired cluster certificates manually](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/expired-certs) to restore cluster operations.
+
+## How CA rotation works
+
+When you run the `bmctl update credentials certificate-authorities rotate` command, Google Distributed Cloud performs the following actions:
 
   * The command creates and uploads new cluster certificate authorities (CAs) for the cluster CA, the etcd CA, and the front-proxy CA to the user cluster namespace in the admin cluster.
 
@@ -34,10 +40,6 @@ Google Distributed Cloud uses certificates and private keys to authenticate and 
 
 
 
-
-To maintain secure cluster communication, rotate your user cluster CA periodically and whenever there is a possible security breach.
-
-**Important:** If your cluster certificates have expired, you must renew them manually to regain cluster operation. For more information and instructions, see [Renew expired cluster certificates manually](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/expired-certs).
 
 ## Before you begin
 
@@ -101,6 +103,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

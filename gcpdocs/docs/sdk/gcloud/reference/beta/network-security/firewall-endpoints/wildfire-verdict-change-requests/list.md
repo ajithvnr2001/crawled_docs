@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-security/firewall-endpoints/wildfire-verdict-change-requests/list/
 title: gcloud beta network-security firewall-endpoints wildfire-verdict-change-requests list \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T05:55:52.529825+00:00
+fetched_at: 2026-10-27T21:40:51.819602+00:00
 ---
 
 # gcloud beta network-security firewall-endpoints wildfire-verdict-change-requests list  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -36,6 +36,11 @@ EXAMPLES
     
     
     [gcloud beta network-security firewall-endpoints](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-security/firewall-endpoints) wildfire-verdict-change-requests list --endpoint=organizations/1234/locations/us-central1-a/firewallEndpoints/my-endpoint
+
+To list WildFire Verdict Change Requests for a project-level endpoint with full resource name `projects/my-project/locations/us-central1-a/firewallEndpoints/my-endpoint`, run: 
+    
+    
+    [gcloud beta network-security firewall-endpoints](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-security/firewall-endpoints) wildfire-verdict-change-requests list --endpoint=projects/my-project/locations/us-central1-a/firewallEndpoints/my-endpoint
 
 REQUIRED FLAGS
     
@@ -105,7 +110,10 @@ GCLOUD WIDE FLAGS
 Run `$ [gcloud help](https://docs.cloud.google.com/sdk/gcloud/reference)` for details. 
 
 NOTES
-     This command is currently in beta and might change without notice. This variant is also available: 
+     This command is currently in beta and might change without notice. These variants are also available: 
+    
+    
+    [gcloud network-security firewall-endpoints](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/firewall-endpoints) wildfire-verdict-change-requests list
     
     
     [gcloud alpha network-security firewall-endpoints](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/network-security/firewall-endpoints) wildfire-verdict-change-requests list
@@ -114,6 +122,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

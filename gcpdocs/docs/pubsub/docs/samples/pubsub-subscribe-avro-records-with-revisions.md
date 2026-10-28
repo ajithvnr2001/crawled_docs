@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-subscribe-avro-records-with-revisions/
 title: Receive messages that could be for different schema revisions \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:10.605100+00:00
+fetched_at: 2026-10-28T01:39:43.673333+00:00
 ---
 
 # Receive messages that could be for different schema revisions  |  Pub/Sub  |  Google Cloud Documentation

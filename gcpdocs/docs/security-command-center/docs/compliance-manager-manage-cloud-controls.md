@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/compliance-manager-manage-cloud-controls/
 title: Manage cloud controls \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:53:02.961561+00:00
+fetched_at: 2026-10-27T20:45:40.243520+00:00
 ---
 
 # Manage cloud controls  |  Security Command Center  |  Google Cloud Documentation
@@ -632,16 +632,7 @@ Google publishes regular updates to its built-in cloud controls as services depl
 
 You can view the releases of built-in cloud controls in the cloud controls dashboard in the **Configure** tab or in the cloud control details page.
 
-Google notifies you in the release notes when the following items are updated:
-
-  * Cloud control name
-  * Finding category
-  * Change in the detective or preventive logic in a rule
-  * Underlying logic of a rule
-
-
-
-To update a cloud control after you receive a notification, you must unassign and redeploy the frameworks that include the cloud control. For instructions, see [Update a framework to a newer release](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-apply-framework#update-framework-version).
+To update a cloud control after you receive a notification, you must update the deployed frameworks that include the cloud control. For instructions, see [Update a built-in framework to a newer release](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-apply-framework#update-framework-version).
 
 ## Delete a custom cloud control
 
@@ -893,6 +884,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

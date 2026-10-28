@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/audit-logging/
 title: VM Manager audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:00.672376+00:00
+fetched_at: 2026-10-27T17:04:41.476415+00:00
 ---
 
 # VM Manager audit logging  |  Google Cloud Documentation
@@ -22,7 +22,9 @@ Send feedback
 
 #  VM Manager audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes audit logging for VM Manager. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for VM Manager let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which VM Manager API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -34,11 +36,19 @@ This document describes audit logging for VM Manager. Google Cloud services gene
 
 ## Service name
 
-VM Manager audit logs use the service name `osconfig.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="osconfig.googleapis.com"
-      
+To view the VM Manager audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="osconfig.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -92,7 +102,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.osconfig.v2beta.PolicyOrchestratorService.ListPolicyOrchestrators`  
 `google.cloud.osconfig.v2beta.PolicyOrchestratorService.ListPolicyOrchestratorsForFolder`  
 `google.cloud.osconfig.v2beta.PolicyOrchestratorService.ListPolicyOrchestratorsForOrganization`  
-`google.longrunning.Operations.GetOperation`  
+`google.longrunning.OsConfigOperationsService.GetOperation`  
 `google.longrunning.Operations.ListOperations`  
 `DATA_WRITE` | `google.cloud.osconfig.v1.OsConfigService.CancelPatchJob`  
 `google.cloud.osconfig.v1.OsConfigService.CreatePatchDeployment`  
@@ -135,7 +145,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.osconfig.v2beta.PolicyOrchestratorService.UpdatePolicyOrchestrator` (LRO)  
 `google.cloud.osconfig.v2beta.PolicyOrchestratorService.UpdatePolicyOrchestratorForFolder` (LRO)  
 `google.cloud.osconfig.v2beta.PolicyOrchestratorService.UpdatePolicyOrchestratorForOrganization` (LRO)  
-`google.longrunning.OsConfigOperationsService.CancelOperation`  
+`google.longrunning.Operations.CancelOperation`  
 `google.longrunning.Operations.DeleteOperation`  
   
 ## API interface audit logs
@@ -1481,7 +1491,7 @@ The following audit logs are associated with methods belonging to `google.longru
 
 #### `CancelOperation`
 
-  * **Method** : `google.longrunning.OsConfigOperationsService.CancelOperation`  
+  * **Method** : `google.longrunning.Operations.CancelOperation`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
@@ -1489,7 +1499,7 @@ The following audit logs are associated with methods belonging to `google.longru
     * `osconfig.osPolicyAssignments.update - DATA_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.longrunning.OsConfigOperationsService.CancelOperation" `  
+  * **Filter for this method** : ` protoPayload.methodName="google.longrunning.Operations.CancelOperation" `  
 
 
 
@@ -1511,16 +1521,15 @@ The following audit logs are associated with methods belonging to `google.longru
 
 #### `GetOperation`
 
-  * **Method** : `google.longrunning.Operations.GetOperation`  
+  * **Method** : `google.longrunning.OsConfigOperationsService.GetOperation`  
 
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
-    * `osconfig.instanceTasks.check - DATA_READ`
     * `osconfig.osPolicyAssignments.get - DATA_READ`
   * **Method is a long-running or streaming operation** : No.  
 
-  * **Filter for this method** : ` protoPayload.methodName="google.longrunning.Operations.GetOperation" `  
+  * **Filter for this method** : ` protoPayload.methodName="google.longrunning.OsConfigOperationsService.GetOperation" `  
 
 
 
@@ -1571,6 +1580,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

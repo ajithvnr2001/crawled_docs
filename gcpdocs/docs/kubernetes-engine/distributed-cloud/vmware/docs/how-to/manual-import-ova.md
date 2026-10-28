@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/manual-import-ova/
 title: Optional: Manually import OVAs to vSphere \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:52.907131+00:00
+fetched_at: 2026-10-28T02:29:58.707419+00:00
 ---
 
 # Optional: Manually import OVAs to vSphere  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,28 +21,25 @@ Send feedback
 
 #  Optional: Manually import OVAs to vSphere Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document shows how to manually import the OVAs needed for your cluster nodes to vSphere.
-
-Typically there is no need to manually import OVAs, because `gkectl` imports the OVAs automatically.
-
-The typical procedure is as follows:
-
-  * Create an admin workstation.
-
-  * On your admin workstation, create a cluster configuration file.
-
-  * On your admin workstation, run `gkectl prepare`. This command fetches the OVAs from a Cloud Storage bucket, imports the OVAs to vSphere, and marks the OVAs as templates.
-
-  * On your admin workstation, run `gkectl create` to create a cluster.
-
-
-
+Manually importing Open Virtual Appliances (OVAs) into vSphere lets you stage node OS images as VM templates when `gkectl prepare` can't import them for you. Typical workflows don't require this procedure. However, you need it if your security policies block your admin workstation from accessing your ESXi hosts, or if you want to use Windows Server for some user cluster nodes.
 
 ## Why manually import?
 
-If your security policies do not allow your admin workstation to have access to your ESXI hosts, then `gkectl` cannot automatically import OVAs to vSphere.
+During typical cluster creation, `gkectl` automatically imports the required OVAs as part of the standard deployment procedure. The typical procedure is as follows:
 
-Also, if you want to use Windows Server for some of your user clusster nodes, you must manually import an OVA. For more information, see Windows Server.
+  1. Create an admin workstation.
+  2. On your admin workstation, create a cluster configuration file.
+  3. Run `gkectl prepare`. This command fetches the OVAs from a Cloud Storage bucket, imports the OVAs to vSphere, and marks the OVAs as templates.
+  4. Run `gkectl create` to create a cluster.
+
+
+
+You must manually import OVAs in the following scenarios:
+
+  * If your security policies don't allow your admin workstation to have access to your ESXi hosts, `gkectl prepare` cannot automatically import OVAs to vSphere.
+  * If you want to use Windows Server for some of your user cluster nodes, you must manually import an OVA. For more information, see Windows Server.
+
+
 
 ## Determine which OVAs you need
 
@@ -119,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

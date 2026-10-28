@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/zoom-operation-logs/
 title: Collect Zoom operation logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:06.009406+00:00
+fetched_at: 2026-10-27T23:23:45.033989+00:00
 ---
 
 # Collect Zoom operation logs  |  Google Security Operations  |  Google Cloud Documentation

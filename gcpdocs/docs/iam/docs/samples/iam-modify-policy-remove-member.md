@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-modify-policy-remove-member/
 title: Remove a member from a role binding \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:20:57.612582+00:00
+fetched_at: 2026-10-27T16:30:36.247567+00:00
 ---
 
 # Remove a member from a role binding  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

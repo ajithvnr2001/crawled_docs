@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/about-connection-profiles/
 title: About connection profiles \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:18:04.007899+00:00
+fetched_at: 2026-10-27T18:09:35.244561+00:00
 ---
 
 # About connection profiles  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -23,6 +23,8 @@ Send feedback
 #  About connection profiles Stay organized with collections  Save and categorize content based on your preferences. 
 
 Connection profiles capture identifiers for your data sources and destination databases. Each connection profile contains the minimum required amount of information Database Migration Service needs to facilitate data movement between the data source and destination.
+
+**Note:** If you plan to prepare your conversion workspace using schema files stored in Cloud Storage, you don't need to create a source connection profile for the schema conversion phase. A source connection profile is only required when connecting directly to your source database over a network connection or when starting continuous data migration. For more information, see [ Conversion workspaces overview](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/about-conversion-workspaces). 
 
 That information includes:
 
@@ -55,6 +57,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

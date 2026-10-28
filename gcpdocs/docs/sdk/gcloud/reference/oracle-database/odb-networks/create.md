@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/odb-networks/create/
 title: gcloud oracle-database odb-networks create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T01:43:43.850975+00:00
+fetched_at: 2026-10-27T21:40:25.064458+00:00
 ---
 
 # gcloud oracle-database odb-networks create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud oracle-database odb-networks create - create a new OdbNetwork
 SYNOPSIS
     
 
-`gcloud oracle-database odb-networks create` (`ODB_NETWORK` : `--location`=`LOCATION`) `--network`=`NETWORK` [`--async`] [`--gcp-oracle-zone`=`GCP_ORACLE_ZONE`] [`--labels`=[`LABELS`,…]] [`--request-id`=`REQUEST_ID`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud oracle-database odb-networks create` (`ODB_NETWORK` : `--location`=`LOCATION`) `--network`=`NETWORK` [`--async`] [`--gcp-oracle-zone`=`GCP_ORACLE_ZONE`] [`--labels`=[`LABELS`,…]] [`--psc-interface-config-network-attachment`=`PSC_INTERFACE_CONFIG_NETWORK_ATTACHMENT`] [`--request-id`=`REQUEST_ID`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a new OdbNetwork. 
 EXAMPLES
@@ -36,6 +36,11 @@ EXAMPLES
     
     
     gcloud oracle-database odb-networks create my-odbnetwork --location=us-east4 --network=projects/my-project/locations/global/networks/default
+
+To create an OdbNetwork with id `my-odbnetwork` with network `projects/my-project/locations/global/networks/default` and network attachment `projects/my-project/regions/us-east4/networkAttachments/my-network-attachment` in the location `us-east4`, run: 
+    
+    
+    gcloud oracle-database odb-networks create my-odbnetwork --location=us-east4 --network=projects/my-project/locations/global/networks/default --psc-interface-config-network-attachment=projects/my-project/regions/us-east4/networkAttachments/my-network-attachment
 
 POSITIONAL ARGUMENTS
     
@@ -124,6 +129,15 @@ OPTIONAL FLAGS
     
     --labels=path_to_file.(yaml|json)
 
+Configuration to enable the service (Oracledatabase@Google Cloud) to establish connectivity to the database. 
+
+This should be specified if you intend to associate this OdbNetwork with a DatabaseConnection resource to `ExecuteSQL` on the database, or to create a ServiceIntegration with the Database. 
+
+Please don't specify it otherwise to avoid complicating the network setup. 
+
+Configuration for a Private Service Connect (PSC) interface used by Oracledatabase@Google Cloud to establish private connectivity to the database. 
+`--psc-interface-config-network-attachment`=`PSC_INTERFACE_CONFIG_NETWORK_ATTACHMENT`
+     The resource name of the Network Attachment that Oracledatabase@Google Cloud will use to establish private connectivity to the database via a Private Service Connect Interface (PSC-I). Format: projects/{project}/regions/{region}/networkAttachments/{network_attachment} 
 `--request-id`=`REQUEST_ID`
      An optional ID to identify the request. This value is used to identify duplicate requests. If you make a request with the same request ID and the original request is still in progress or completed, the server ignores the second request. This prevents clients from accidentally creating duplicate commitments. 
 
@@ -141,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -1,16 +1,50 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/
 title: Customize your AlloyDB Omni installation \u00a0|\u00a0 AlloyDB Omni using containers: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:21:07.432786+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:00:36.505151+00:00
 ---
 
 # Customize your AlloyDB Omni installation  |  AlloyDB Omni using containers: 16.11.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/
 
-This page documents AlloyDB Omni version **16.11.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
+[ Skip to main content ](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/)
+  * [Deutsch](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/?hl=ko)
 
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/alloydb-color.svg) ](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/overview)
+  * [ AlloyDB Omni ](https://docs.cloud.google.com/alloydb/omni/docs)
+  * [ Containers: 16.11.0 ](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/overview)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Enable and disable AlloyDB Omni telemetry](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#enable-disable-telemetry)
+    * [Disable telemetry reporting](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#disable-telemetry)
+    * [Enable telemetry reporting](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#enable-telemetry)
+    * [Check AlloyDB Omni telemetry status](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#check-telemetry)
+  * [Connect to your instance](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#connect)
+    * [Connect locally](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#connect-locally)
+    * [Connect remotely](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#connect-remotely)
+  * [Enable extensions](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#enable-extensions)
+
+
+This page documents AlloyDB Omni version **16.11.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
@@ -18,13 +52,20 @@ This page documents AlloyDB Omni version **16.11.0** using the **containers** de
   * [ Containers: 16.11.0 ](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/overview)
 
 
-
 Send feedback 
+#  Customize your AlloyDB Omni installation Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Enable and disable AlloyDB Omni telemetry](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#enable-disable-telemetry)
+    * [Disable telemetry reporting](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#disable-telemetry)
+    * [Enable telemetry reporting](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#enable-telemetry)
+    * [Check AlloyDB Omni telemetry status](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#check-telemetry)
+  * [Connect to your instance](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#connect)
+    * [Connect locally](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#connect-locally)
+    * [Connect remotely](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#connect-remotely)
+  * [Enable extensions](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#enable-extensions)
 
-#  Customize your AlloyDB Omni installation Stay organized with collections  Save and categorize content based on your preferences. 
 
-Select a documentation version: 16.11.0keyboard_arrow_down
-
+Select a documentation version:  16.11.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/install)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/install)
   * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.3.0/docs/install)
@@ -51,232 +92,192 @@ Select a documentation version: 16.11.0keyboard_arrow_down
   * [ 15.5.2 ](https://docs.cloud.google.com/alloydb/omni/containers/15.5.2/docs/install)
 
 
-
 This page describes how to customize your AlloyDB Omni installation, which supports different forms of customization. This page shows some common customizations.
-
 ## Enable and disable AlloyDB Omni telemetry
-
 AlloyDB Omni telemetry implements a lightweight client agent that runs only in the AlloyDB Omni container image. This agent periodically collects a set of basic, pseudonymous metrics and sends them to a Google-managed endpoint.
-
-**Note:** The AlloyDB Omni telemetry feature is enabled by default in the container images.
-
 Because AlloyDB Omni is a downloadable product that's offered at no charge, this telemetry provides Google with essential, non-personally identifiable information (non-PII) metrics regarding the generic adoption and deployment environments of running instances. This data helps inform product development and support prioritization.
-
 Collected metrics include the following:
-
   * Unique installation ID (pseudonymized UUID)
   * AlloyDB Omni version and PostgreSQL major version
   * Host system information like CPU count, RAM, and uptime
 
 
-
 ### Disable telemetry reporting
-
 To prevent the telemetry agent from running and reporting usage metrics, set the PostgreSQL configuration parameter `omni_enable_telemetry` to `off`. You can disable the telemetry agent by setting the telemetry flag in the `postgresql.conf` file or by setting the flag at runtime using `ALTER SYSTEM`.
-
 #### Set the telemetry flag in the postgresql.conf file
-
-**Note:** To downgrade to a version of AlloyDB Omni that's earlier than PostgreSQL 16.9.0 or 17.5.0, you must remove `omni_enable_telemetry` from the `postgresql.conf` file.
-
 To modify the PostgreSQL configuration file in your container's persistent data directory, follow these steps:
-
   1. Locate the `postgresql.conf` file in your database's data directory (`$PGDATA`).
   2. Disable AlloyDB Omni telemetry.
-         
-         omni_enable_telemetry = off
-         
+
+```
+omni_enable_telemetry = off
+
+```
 
   3. To apply the change, restart your AlloyDB Omni container. The telemetry agent stops collecting and sending usage metrics to Google.
 
 
-
-
 #### Set the telemetry flag at runtime using ALTER SYSTEM
-
 To set the telemetry flag and persist the change across restarts, follow these steps:
-
   1. Connect to your AlloyDB Omni instance using `psql`:
-         
-         psql -h HOST -U USER -d DATABASE
-         
+
+```
+psql -h HOST -U USER -d DATABASE
+
+```
 
 Make the following replacements:
-
      * `HOST`: the hostname or IP address of your AlloyDB Omni instance—for example, `127.0.0.1`.
      * `USER`: the database user that you want to connect as—for example, `postgres`.
      * `DATABASE`: the database that you want to connect to—for example, `postgres`.
   2. Run the following command:
-         
-         ALTER SYSTEM SET omni_enable_telemetry = 'off';
-         
+
+```
+ALTER SYSTEM SET omni_enable_telemetry = 'off';
+
+```
 
   3. Reload the configuration or restart the instance. In some container setups, you might need to restart your instance to make sure that the change is fully picked up by the background worker.
-         
-         SELECT pg_reload_conf();
-         
+
+```
+SELECT pg_reload_conf();
+
+```
 
 The telemetry agent stops collecting and sending usage metrics to Google.
 
 
-
-
 ### Enable telemetry reporting
-
 If you previously disabled AlloyDB Omni telemetry, you can re-enable it by setting the `omni_enable_telemetry` flag to `on`. You enable the telemetry agent by setting the flag in the `postgresql.conf` file or by setting the flag at runtime using `ALTER SYSTEM`.
-
 #### Set the telemetry flag in the postgresql.conf file
-
   1. Locate the `postgresql.conf` file in your database's data directory (`$PGDATA`).
   2. Set the following line:
-         
-         omni_enable_telemetry = on
-         
+
+```
+omni_enable_telemetry = on
+
+```
 
   3. To apply the change, restart your AlloyDB Omni container.
-
-
 
 
 #### Set the telemetry flag at runtime using ALTER SYSTEM
-
   1. Connect to your AlloyDB Omni instance using `psql`.
   2. Run the following command:
-         
-         ALTER SYSTEM SET omni_enable_telemetry = 'on';
-         
+
+```
+ALTER SYSTEM SET omni_enable_telemetry = 'on';
+
+```
 
   3. To apply the change, restart your AlloyDB Omni container.
-         
-         docker restart CONTAINER_NAME
-         
+
+```
+docker restart CONTAINER_NAME
+
+```
 
 Make the following replacement:
-
      * `CONTAINER_NAME`: The name of your AlloyDB Omni container—for example, `my-omni-1`.
 
 
-
 ### Check AlloyDB Omni telemetry status
-
 You can check the status of the AlloyDB Omni telemetry agent, including whether it's enabled or running. You can also check telemetry agent activity.
-
 #### Check if the telemetry agent is enabled or disabled
-
 To check the status of the telemetry setting, follow these steps:
-
   1. Connect to your instance.
   2. Run the following:
 
 
-    
-    
-    SHOW omni_enable_telemetry;
-    
+```
+SHOW omni_enable_telemetry;
+
+```
 
 The output returns `on` or `off`, depending on whether you disabled or enabled AlloyDB Omni telemetry.
-
 #### Check if the telemetry agent is running
-
 To check whether the telemetry agent is running, run the following command in the container host:
-    
-    
-    docker top CONTAINER_NAME
-    
+
+```
+docker top CONTAINER_NAME
+
+```
 
 Make the following replacement:
-
   * `CONTAINER_NAME`: The name of your AlloyDB Omni container—for example, `my-omni-1`.
-
 
 
 If telemetry is enabled and running, the output contains a line with the text `postgres: omni telemetry worker`.
-
 #### Check telemetry agent activity
-
 To check the activity of the telemetry agent, run the following command in the container host:
-    
-    
-    docker logs CONTAINER_NAME 2>&1 | grep telemetry
-    
+
+```
+docker logs CONTAINER_NAME 2>&1 | grep telemetry
+
+```
 
 Make the following replacement:
-
   * `CONTAINER_NAME`: The name of your AlloyDB Omni container—for example, `my-omni-1`.
 
 
-
 If the telemetry agent is running, the logs contain messages similar to the following:
-    
-    
-    LOG:  [telemetry_agent_worker.cc:143]  Started telemetry worker
-    LOG:  [telemetry_agent_worker.cc:161]  Running telemetry reporting agent
-    telemetry_agent: Uploading telemetry data to https://cloud.google.com/log.
-    
+
+```
+LOG:  [telemetry_agent_worker.cc:143]  Started telemetry worker
+LOG:  [telemetry_agent_worker.cc:161]  Running telemetry reporting agent
+telemetry_agent: Uploading telemetry data to https://cloud.google.com/log.
+
+```
 
 ## Connect to your instance
-
-Depending on your environment, you can connect to your AlloyDB Omni instance either locally or remotely.
-
+Depending on your environment, you can connect to your AlloyDB Omni instance either [locally](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#connect-locally) or [remotely](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#connect-remotely).
 ### Connect locally
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install/#podman-rootless) More
 
-### Docker
-    
-    
-    docker exec -it CONTAINER_NAME psql -U postgres
-    
+```
+docker exec -it CONTAINER_NAME psql -U postgres
 
-### Docker
-    
-    
-    docker exec -it CONTAINER_NAME psql -U postgres
-    
+```
 
-### Podman
-    
-    
-    podman exec -it CONTAINER_NAME psql -U postgres
-    
+```
+docker exec -it CONTAINER_NAME psql -U postgres
 
-### Podman
-    
-    
-    podman exec -it CONTAINER_NAME psql -U postgres
-    
+```
+
+```
+podman exec -it CONTAINER_NAME psql -U postgres
+
+```
+
+```
+podman exec -it CONTAINER_NAME psql -U postgres
+
+```
 
 Replace the following variable:
-
   * `CONTAINER_NAME`: Name of your AlloyDB Omni container—for example, `my-omni-1`.
 
 
-
 ### Connect remotely
-    
-    
-    /usr/lib/postgresql/16/bin/psql -U postgres -p HOST_PORT -h IP_ADDRESS_OR_FQDN
-    
+
+```
+/usr/lib/postgresql/16/bin/psql -U postgres -p HOST_PORT -h IP_ADDRESS_OR_FQDN
+
+```
 
 Replace the following variables:
-
   * `HOST_PORT`: TCP port you used during installation.
   * `IP_ADDRESS_OR_FQDN`: IP address or fully-qualified domain name for the host where AlloyDB Omni is running.
 
 
-
 ## Enable extensions
-
 The list of extensions available in AlloyDB Omni is available in [Supported database extensions](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/reference/extensions). Although PostGIS and Orafce are not included with AlloyDB Omni, they can both be installed by following instructions:
-
   * [Install PostGIS for AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install-postgis)
   * [Install Orafce for AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/install-orafce)
 
 
-
 Installed extensions are enabled using standard PostgreSQL `CREATE EXTENSION` statements as detailed in [Enable an extension](https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/reference/extensions#enable).
-
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

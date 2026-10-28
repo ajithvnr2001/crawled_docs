@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/integration-connectors/docs/connectors/saperp/configure/
 title: SAP ERP \u00a0|\u00a0 Integration Connectors \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:18:51.352902+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:26:40.458201+00:00
 ---
 
 # SAP ERP  |  Integration Connectors  |  Google Cloud Documentation
@@ -146,7 +160,7 @@ Connection names must meet the following criteria:
           * **8** \- Apply the default protection.
           * **9** \- Apply the maximum protection.
         * **SNC partner name** : Enter the Application Server's SNC name. 
-     23. **Connection scheme** : Specify whether you are connecting to an SAP system with a Message Server (Group Server) or Application Server. For information about the prerequisites that you must meet to connect to an SAP system with a Message Server, see Message Server (Group Server) connection type. **Note:** You can connect to an SAP system with a Message Server (Group Server) only if the Message Server returns the fully qualified domain name (FDQN) address of the Application Server. You can't connect to an SAP system with a Message Server (Group Server) if the Message Server returns the IP address. 
+     23. **Connection scheme** : Specify whether you are connecting to an SAP system with a Message Server (Group Server) or Application Server. For information about the prerequisites that you must meet to connect to an SAP system with a Message Server, see Message Server (Group Server) connection type.  **Note:** You can connect to an SAP system with a Message Server (Group Server) only if the Message Server returns the fully qualified domain name (FDQN) address of the Application Server. You can't connect to an SAP system with a Message Server (Group Server) if the Message Server returns the IP address. 
 
 If you select **GroupServer** , then you must specify the following details:
 
@@ -214,7 +228,7 @@ If you enable event subscription, you must configure ABAP SDK. For information a
 
 Enter the following values in the **Event Subscription Details** section:
 
-  1. Select any one of the following authentication types for the event listener. **Note:** Before you configure authentication, ensure that you have the event listener endpoint, which is available to you after you create the connection. To view the endpoint, go to the [All connections](https://console.cloud.google.com/connectors/connections) page, and then click the connection that you wan to view. The endpoint is displayed in the **Connection Details** section. 
+  1. Select any one of the following authentication types for the event listener.  **Note:** Before you configure authentication, ensure that you have the event listener endpoint, which is available to you after you create the connection. To view the endpoint, go to the [All connections](https://console.cloud.google.com/connectors/connections) page, and then click the connection that you wan to view. The endpoint is displayed in the **Connection Details** section. 
      * [Google Authentication](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/authentication-jwt). If you enable this option, follow the steps in [Authenticate by using JSON Web Tokens](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/authentication-jwt#configure-google-auth) to configure the authentication for ABAP SDK. Also, ensure that the service account has [roles/connectors.listener](https://cloud.google.com/iam/docs/roles-permissions/connectors) role whose access token is used for authentication. 
      * [API Key Authentication](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/authentication-api-keys). If you select this option, you must have created an API key, and then saved the key as a Secret Manager secret. For more information, see [Create an API key](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/authentication-api-keys#ssf-create-api-key). 
   2. Enter the event type field name. This field identifies the type of event associated with the incoming event request. 
@@ -683,7 +697,7 @@ To create a custom query, follow these steps:
   2. When you [configure the connector task](https://docs.cloud.google.com/application-integration/docs/configure-connectors-task#configure-the-connectors-task), in the type of action you want to perform, select **Actions**.
   3. In the **Action** list, select **Execute custom query** , and then click **Done**. 
 
-![image showing execute-custom-query-action](https://docs.cloud.google.com/static/application-integration/images/execute-custom-query-action.png)![image showing execute-custom-query-action](https://docs.cloud.google.com/static/application-integration/images/execute-custom-query-action.png)
+![image showing execute-custom-query-action](https://docs.cloud.google.com/static/application-integration/images/execute-custom-query-action.png) ![image showing execute-custom-query-action](https://docs.cloud.google.com/static/application-integration/images/execute-custom-query-action.png)
 
   4. Expand the **Task input** section, and then do the following: 
      1. In the **Timeout after** field, enter the number of seconds to wait till the query executes. 
@@ -696,7 +710,7 @@ Default value: `25`.
 
      3. To update the custom query, click **Edit Custom Script**. The **Script editor** dialog opens. 
 
-![image showing custom-sql-query](https://docs.cloud.google.com/static/application-integration/images/add-custom-sql-query.png)![image showing custom-sql-query](https://docs.cloud.google.com/static/application-integration/images/add-custom-sql-query.png)
+![image showing custom-sql-query](https://docs.cloud.google.com/static/application-integration/images/add-custom-sql-query.png) ![image showing custom-sql-query](https://docs.cloud.google.com/static/application-integration/images/add-custom-sql-query.png)
 
      4. In the **Script editor** dialog, enter the SQL query and click **Save**. 
 
@@ -707,7 +721,7 @@ You can use a question mark (?) in a SQL statement to represent a single paramet
 **Note:** Data manipulation language (DML) and data definition language (DDL) statements are supported.
      5. If you've used question marks in your SQL query, you must add the parameter by clicking **\+ Add Parameter Name** for each question mark. While executing the integration, these parameters replace the question marks (?) in the SQL query sequentially. For example, if you have added three question marks (?), then you must add three parameters in order of sequence. 
 
-![image showing add-query-param](https://docs.cloud.google.com/static/application-integration/images/add-query-param.png)![image showing add-query-param](https://docs.cloud.google.com/static/application-integration/images/add-query-param.png)
+![image showing add-query-param](https://docs.cloud.google.com/static/application-integration/images/add-query-param.png) ![image showing add-query-param](https://docs.cloud.google.com/static/application-integration/images/add-query-param.png)
 
 To add query parameters, do the following:
 
@@ -1043,6 +1057,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

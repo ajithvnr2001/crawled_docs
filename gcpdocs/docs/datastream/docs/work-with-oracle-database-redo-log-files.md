@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/work-with-oracle-database-redo-log-files/
 title: Work with Oracle database redo log files \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:49.662382+00:00
+fetched_at: 2026-10-27T22:59:21.538891+00:00
 ---
 
 # Work with Oracle database redo log files  |  Datastream  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Work with Oracle database redo log files Stay organized with collections  Save and categorize content based on your preferences. 
 
-During change data capture, Datastream reads Oracle redo log files to monitor your source databases for changes and replicate them to the destination instance. Each Oracle database has a set of online redo log files. All transaction records on the database are recorded in the files. When the current redo log file is rotated (or switched), the archive process [copies this file into an archive storage](https://docs.oracle.com/cd/B19306_01/server.102/b14231/archredo.htm#i1006148). Meanwhile, the database promotes another file to serve as the current file.
-
-Datastream Oracle connector extracts change data capture (CDC) events from Oracle redo log files.
+Datastream extracts change data capture (CDC) events from Oracle redo log files to replicate changes from your source database into your destination. Oracle databases record all transactions in online redo log files and [archive those files](https://docs.oracle.com/cd/B19306_01/server.102/b14231/archredo.htm#i1006148) when the current log file rotates. You can choose how Datastream accesses redo log files and configure log file size and rotation frequency to reduce replication latency.
 
 ## Access redo log files
 
@@ -31,7 +29,7 @@ Datastream can use the Oracle LogMiner API or the binary reader method to access
 
   * **Oracle LogMiner** : an out-of-the-box utility included in Oracle databases. If you configure Datastream to use Oracle LogMiner API, Datastream can only work with _archived_ redo log files, online redo log files aren't supported. The LogMiner API method is single-threaded and is subject to higher latency and lower throughput when working with large transaction number source databases. LogMiner supports most data types and Oracle database features.
 
-  * **Binary reader** ([Preview](https://cloud.google.com/products/#product-launch-stages)): a specialized, high-performance utility that works with both online and archived redo log files. Binary reader can access the log files using Automatic Storage Management (ASM) or by reading the files directly using database directory objects. Binary reader is multithreaded and supports low-latency CDC. It also creates low impact on the source database as redo logs are parsed outside of the database operations. The binary reader CDC method has limited support for certain data types or features. For more information, see [Known limitations](https://docs.cloud.google.com/datastream/docs/sources-oracle#binary-reader-limitations).
+  * **Binary reader** ([Preview](https://cloud.google.com/products#product-launch-stages)): a specialized, high-performance utility that works with both online and archived redo log files. Binary reader can access the log files using Automatic Storage Management (ASM) or by reading the files directly using database directory objects. Binary reader is multithreaded and supports low-latency CDC. It also creates low impact on the source database as redo logs are parsed outside of the database operations. The binary reader CDC method has limited support for certain data types or features. For more information, see [Known limitations](https://docs.cloud.google.com/datastream/docs/sources-oracle#binary-reader-limitations).
 
 
 
@@ -85,6 +83,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

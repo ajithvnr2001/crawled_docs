@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/access-control/
 title: Access control with IAM \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:50.651962+00:00
+fetched_at: 2026-10-27T23:24:58.831394+00:00
 ---
 
 # Access control with IAM  |  App Lifecycle Manager  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This product or feature is subject to the "Pre-GA Offerings Terms" in the Genera
 
 This page describes App Lifecycle Manager roles and permissions.
 
-To use App Lifecycle Manager, you need to ensure you have the required service accounts. For these service accounts, you need to grant the required permissions. For more details about service accounts and App Lifecycle Manager, see [App Lifecycle Manager service accounts](https://docs.cloud.google.com/app-lifecycle-manager/overview#saas-service-accounts). For details about service accounts, see [Service accounts overview](https://docs.cloud.google.com/iam/docs/service-account-overview).
+To use App Lifecycle Manager, you need to ensure you have the required service accounts. For these service accounts, you need to grant the required permissions. For more details about service accounts and App Lifecycle Manager, see [App Lifecycle Manager service accounts](https://docs.cloud.google.com/app-lifecycle-manager/overview#alm-service-accounts). For details about service accounts, see [Service accounts overview](https://docs.cloud.google.com/iam/docs/service-account-overview).
 
 To deploy or view the Google Cloud resources defined in the Terraform configuration, you need to grant the service account permissions that are specific to these resources. These permissions are in addition to the permissions required to use App Lifecycle Manager. For a list of all roles and the permissions they contain, see [Identity and Access Management basic and predefined roles reference](https://docs.cloud.google.com/iam/docs/understanding-roles).
 
@@ -116,7 +116,7 @@ Permissions that the caller must have to call each method is listed in the [REST
 
   * Learn about [IAM](https://docs.cloud.google.com/iam/docs).
   * Learn more about [using conditions in IAM](https://docs.cloud.google.com/deploy/docs/securing/iam#about_iam_conditions)
-  * Find out more about [App Lifecycle Manager service accounts](https://docs.cloud.google.com/app-lifecycle-manager/overview#saas-service-accounts).
+  * Find out more about [App Lifecycle Manager service accounts](https://docs.cloud.google.com/app-lifecycle-manager/overview#alm-service-accounts).
 
 
 
@@ -124,6 +124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

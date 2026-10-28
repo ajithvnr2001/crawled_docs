@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke/
 title: Deploy Managed OpenTelemetry for GKE \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:22:04.745133+00:00
+fetched_at: 2026-10-27T19:53:52.000644+00:00
 ---
 
 # Deploy Managed OpenTelemetry for GKE  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback
 
 #  Deploy Managed OpenTelemetry for GKE Stay organized with collections  Save and categorize content based on your preferences. 
 
-[ Autopilot ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) [ Standard ](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-cluster-mode)
-
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+Autopilot  Standard 
 
 This document explains how to set up Managed OpenTelemetry for GKE to send [OpenTelemetry Protocol (OTLP)](https://opentelemetry.io/docs/specs/otlp/) traces, metrics, and logs to Google Cloud Observability from applications running on GKE.
 
@@ -131,9 +127,9 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 To use Managed OpenTelemetry for GKE, you must meet the following requirements:
 
-  * The cluster must have GKE version 1.34.1-gke.2178000 or later.
+  * The cluster must have GKE version 1.34.1-gke.2178000 or later. To configure the OTLP export protocol as gRPC in the Instrumentation custom resource, you must use GKE version 1.37.1-gke.1697000 or later.
   * gcloud CLI enabled with version 576.0.0 or later.
-  * If you use Terraform to provision your GKE infrastructure, you must use the `terraform-provider-google-beta` provider at version `v7.17.0` or later.
+  * If you use Terraform to provision your GKE infrastructure, you must use the [terraform-provider-google](https://github.com/hashicorp/terraform-provider-google) at version [v8.8.0](https://github.com/hashicorp/terraform-provider-google/releases/tag/v8.8.0) or later.
 
 
 
@@ -167,7 +163,9 @@ To set up Managed OpenTelemetry for GKE, you need to do the following:
 
 When you enable Managed OpenTelemetry for GKE, the following objects are deployed to the cluster:
 
-  * A GKE Managed OpenTelemetry collector deployment that is deployed within the `gke-managed-otel` namespace. The in-cluster managed OpenTelemetry collector HTTP endpoint for logs, metrics, and traces is the following: `http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4318`.
+  * A GKE Managed OpenTelemetry collector deployment that is deployed within the `gke-managed-otel` namespace. The in-cluster managed OpenTelemetry collector endpoints for logs, metrics, and traces are the following: 
+    * **HTTP endpoint** : `http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4318`
+    * **gRPC endpoint** : `http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4317`
   * A custom resource definition, `instrumentations.telemetry.googleapis.com`, that you can use to set up automatic configuration of your workloads.
 
 For more details about custom resources, see [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) in the Kubernetes documentation.
@@ -196,7 +194,7 @@ Replace the following:
   * `CLUSTER_NAME`: the name of the cluster.
   * `PROJECT_ID`: the Google Cloud project ID.
   * `LOCATION`: the region or zone.
-  * `VERSION`: the [version](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes#current_versions), which must be `1.34.1-gke.2178000` or later.
+  * `VERSION`: the GKE [version](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes#current_versions). See Requirements for the minimum version you can use.
 
 
 
@@ -215,7 +213,7 @@ Replace the following:
   * `CLUSTER_NAME`: the name of the cluster.
   * `PROJECT_ID`: the Google Cloud project ID.
   * `LOCATION`: the region or zone.
-  * `VERSION`: the [version](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes#current_versions), which must be `1.34.1-gke.2178000` or later.
+  * `VERSION`: the GKE [version](https://docs.cloud.google.com/kubernetes-engine/docs/release-notes#current_versions). See Requirements for the minimum version you can use.
 
 
 
@@ -254,16 +252,15 @@ To enable Managed OpenTelemetry for GKE on a new cluster using Terraform, refer 
     
     terraform {
       required_providers {
-        google-beta = {
-          source  = "hashicorp/google-beta"
-          version = ">= 7.17.0"
+        google = {
+          source  = "hashicorp/google"
+          version = ">= 8.8.0"
         }
       }
     }
     
     resource "google_container_cluster" "default" {
       name     = "gke-standard-regional-with-managed-otel"
-      provider = google-beta
       location = "us-west1"
     
       initial_node_count = 1
@@ -284,7 +281,7 @@ To enable the Managed OpenTelemetry for GKE on an existing cluster, follow these
 
 ###  gcloud 
 
-  1. Ensure the cluster version is `1.34.1-gke.2178000` or later. For details about how to upgrade and existing cluster, see [Standard cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades) and [Autopilot cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades-autopilot).
+  1. Ensure the cluster version meets the requirements. For details about how to upgrade an existing cluster, see [Standard cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades) and [Autopilot cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades-autopilot).
 
   2. Enable Managed OpenTelemetry for GKE by using the following command:
          
@@ -304,7 +301,7 @@ Replace the following:
 
 ###  Console 
 
-  1. Ensure the cluster version is `1.34.1-gke.2178000` or later. For details about how to upgrade and existing cluster, see [Standard cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades) and [Autopilot cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades-autopilot).
+  1. Ensure the cluster version meets the requirements. For details about how to upgrade an existing cluster, see [Standard cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades) and [Autopilot cluster upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades-autopilot).
 
   2. In the Google Cloud console, go to the Kubernetes clusters page:
 
@@ -326,16 +323,15 @@ To enable Managed OpenTelemetry for GKE on an existing cluster, add the `managed
     
     terraform {
       required_providers {
-        google-beta = {
-          source  = "hashicorp/google-beta"
-          version = ">= 7.17.0"
+        google = {
+          source  = "hashicorp/google"
+          version = ">= 8.8.0"
         }
       }
     }
     
     resource "google_container_cluster" "default" {
       name     = "gke-standard-regional-with-managed-otel"
-      provider = google-beta
       location = "us-west1"
     
       initial_node_count = 1
@@ -364,13 +360,13 @@ The following sections describe how to configure applications to send signals to
 
 Automatic configuration uses environment variables to configure the workloads to send signals to the managed collector's endpoint.
 
-To enable automatic injection of environment variables into Pods, you use the `Instrumentation` custom resource. The environment variables have the OpenTelemetry configuration, and they can be injected into some Pods with matched labels in a namespace or all Pods in a namespace.
+To enable automatic injection of environment variables into Pods, you use the Instrumentation custom resource. The environment variables have the OpenTelemetry configuration, and they can be injected into some Pods with matched labels in a namespace or all Pods in a namespace.
 
 Then, when an application is deployed to the namespace, GKE uses the configuration to automatically inject environment variables to the Pods where the workloads run.
 
-  1. To configure the `Instrumentation` custom resource, do the following:
+  1. To configure the Instrumentation custom resource, do the following:
 
-     1. Save the following `Instrumentation` manifest in a file named `otlp-auto-config-namespace.yaml`:
+     1. Save the following Instrumentation manifest in a file named `otlp-auto-config-namespace.yaml`:
             
             apiVersion: telemetry.googleapis.com/v1alpha1
             kind: Instrumentation
@@ -400,7 +396,7 @@ Then, when an application is deployed to the namespace, GKE uses the configurati
 Replace the following:
 
         * `NAMESPACE`: the namespace that contains the Pods you want to target for auto-instrumentation. Use `default` to target the default namespace.
-        * `NAME`: the name of the manifest file. In this example, the name is `otlp-auto-config-namespace.yaml`.
+        * `NAME`: the name of the Instrumentation object in the manifest file.
         * (Optional) The label attached to Pods to target. If an empty selector is specified (`{}`), then all Pods in the namespace are targeted. 
           * `KEY`: the label's key.
           * `VALUE`: the label's value.
@@ -438,7 +434,7 @@ Replace the following:
 
 After you apply the configuration to the cluster, GKE automatically configures all workloads when they are deployed to the cluster. The workloads are instrumented by injecting environment variables to the Pods where the workloads run.
 
-When a workload is configured with these environment variables is running in a cluster where the managed collector is deployed, then as the workload runs it sends OpenTelemetry signals to the managed collector. These signals are available for you to view in Google Cloud Observability.
+When a workload configured with these environment variables is running in a cluster where the managed collector is deployed, then as the workload runs it sends OpenTelemetry signals to the managed collector. These signals are available for you to view in Google Cloud Observability.
 
 For more detail about viewing the signals, see [View telemetry](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke#view-telemetry). For an example, see [Generate sample telemetry](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke#generate-telemetry).
 
@@ -446,7 +442,7 @@ For more detail about viewing the signals, see [View telemetry](https://docs.clo
 
 To modify the configuration, you need to do the following:
 
-  1. Modify the `Instrumentation` manifest file.
+  1. Modify the Instrumentation manifest file.
 
   2. Apply the modified configuration.
 
@@ -455,7 +451,64 @@ To modify the configuration, you need to do the following:
 
 
 
-For more details about these steps, follow the instructions in the section [Create and deploy the configuration](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke#create_and_deploy_the_configuration).
+For more details about these steps, follow the instructions in the section Set up automatic configuration.
+
+### Configure the OTLP export protocol (HTTP or gRPC)
+
+By default, automatic configuration sets up workloads to export telemetry over HTTP. In GKE version 1.37.1-gke.1697000 and later, you can configure the Instrumentation custom resource to export telemetry over either HTTP or gRPC.
+
+An Instrumentation custom resource supports only one protocol for all providers. To use gRPC, set the exporter to `otlp_grpc: {}` for each provider that you use, and set any unused provider to `null`. For example, to disable metrics, use `meter_provider: null`.
+
+The following example is an Instrumentation manifest file configured to export telemetry over gRPC for the trace, metrics, and logging providers:
+    
+    
+    apiVersion: telemetry.googleapis.com/v1alpha1
+    kind: Instrumentation
+    metadata:
+      namespace: NAMESPACE
+      name: NAME
+    spec:
+      selector:
+        matchLabels:
+          KEY: VALUE
+      autoInstrumentationConfig:
+        configInjection:
+          enabled: true
+      otelSDKConfig:
+        tracer_provider:
+          sampler:
+            parent_based:
+              root:
+                trace_id_ratio_based:
+                  ratio: "TRACE_RATIO"
+          processors:
+          - batch:
+              exporter:
+                otlp_grpc: {}
+        meter_provider:
+          readers:
+          - periodic:
+              interval: METRICS_INTERVAL
+              exporter:
+                otlp_grpc: {}
+        logger_provider:
+          processors:
+          - batch:
+              exporter:
+                otlp_grpc: {}
+    
+
+Replace the following:
+
+  * `NAMESPACE`: the namespace that contains the Pods you want to target for auto-instrumentation. Use `default` to target the default namespace.
+  * `NAME`: the name of the Instrumentation object in the manifest file.
+  * (Optional) The label attached to Pods to target. If an empty selector is specified (`{}`), then all Pods in the namespace are targeted. 
+    * `KEY`: the label's key.
+    * `VALUE`: the label's value.
+  * `TRACE_RATIO`: the ratio of trace data to collect. If unspecified, the default is `1.0`. For more details, see Modify the trace sampling rate.
+  * `METRICS_INTERVAL`: the interval, in milliseconds, of monitoring data to collect. The default is `30000`. The value must be non-negative, with a minimum of 5,000 ms, maximum of 300,000 ms, and multiple of 5,000 ms. For more details, see Modify the metric export interval.
+
+
 
 ### Modify the amount or frequency of data collection
 
@@ -503,9 +556,9 @@ The value of this interval must be non-negative, with a minimum of 5,000 ms, max
 
 You can control which signal types are collected from a workload by disabling the signal types that you don't want to collect. Signal types are traces, metrics, and logs.
 
-You disable signal types using the environment variables in the container where the workload runs. You modify environment variables by modifying the `Instrumentation` custom resource and then redeploying the workload to the container.
+You disable signal types using the environment variables in the container where the workload runs. You modify environment variables by modifying the Instrumentation custom resource and then redeploying the workload to the container.
 
-The following example is an `Instrumentation` manifest file configured for the collection of only trace data. The collection of logs and metrics is disabled because `meter_provider` and `logger_provider` are set to `null`.
+The following example is an Instrumentation manifest file configured for the collection of only trace data. The collection of logs and metrics is disabled because `meter_provider` and `logger_provider` are set to `null`.
     
     
     apiVersion: telemetry.googleapis.com/v1alpha1
@@ -527,11 +580,7 @@ The following example is an `Instrumentation` manifest file configured for the c
 
 ### Collect multimodal prompts and responses data
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-You can configure Managed OpenTelemetry for GKE to [collect multimodal prompts and responses data](https://docs.cloud.google.com/stackdriver/docs/instrumentation/collect-view-multimodal-prompts-responses).
+In GKE cluster version 1.35.2-gke.1210000 or later, you can configure Managed OpenTelemetry for GKE to [collect multimodal prompts and responses data](https://docs.cloud.google.com/stackdriver/docs/instrumentation/collect-view-multimodal-prompts-responses).
 
 This functionality is available for [LangGraph ReAct agents](https://docs.langchain.com/oss/python/langchain/agents) and generative AI agents built with the [Agent Development Kit (ADK) framework](https://google.github.io/adk-docs/).
 
@@ -549,7 +598,7 @@ To configure Managed OpenTelemetry for GKE to collect multimodal prompts and res
 
 This permission lets your application write objects to the Cloud Storage bucket. These objects store the prompts and responses that the agentic application creates and receives. For more information, see [Set and manage IAM policies on buckets](https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions).
 
-  4. Configure the `promptsResponses.uploadBasePath` field in the `Instrumentation` custom resource, for example:
+  4. Configure the `promptsResponses.uploadBasePath` field in the Instrumentation custom resource, for example:
          
          apiVersion: telemetry.googleapis.com/v1alpha1
          kind: Instrumentation
@@ -567,13 +616,13 @@ Replace `BUCKET_NAME` with the name of the Cloud Storage bucket.
 
 
 
-When the `Instrumentation` custom resource is updated and the workloads are restarted, then environment variables that configure the prompts and responses are injected into the containers of the workloads.
+When the Instrumentation custom resource is updated and the workloads are restarted, then environment variables that configure the prompts and responses are injected into the containers of the workloads.
 
 For more details about the types of media that you can collect and how to explore your multimodal prompts and responses, see [Collect and view multimodal prompts and responses](https://docs.cloud.google.com/stackdriver/docs/instrumentation/collect-view-multimodal-prompts-responses).
 
 ### Disable automatic configuration of workloads
 
-To disable automatic instrumentation of workloads with the specified configuration, delete the `Instrumentation` custom resource from your cluster. To do so, use the following command:
+To disable automatic instrumentation of workloads with the specified configuration, delete the Instrumentation custom resource from your cluster. To do so, use the following command:
     
     
     kubectl delete instrumentations.telemetry.googleapis.com INSTRUMENTATION_NAME -n NAMESPACE
@@ -581,7 +630,7 @@ To disable automatic instrumentation of workloads with the specified configurati
 
 Replace the following:
 
-  * `INSTRUMENTATION_NAME`: the name of the `Instrumentation` custom resource.
+  * `INSTRUMENTATION_NAME`: the name of the Instrumentation custom resource.
   * `NAMESPACE`: the namespace that contains the Pods where you want automatic configuration disabled.
 
 
@@ -607,7 +656,7 @@ The following is an example of the custom resource with the automatic environmen
       ... # preserve OpenTelemetry configuration for future use
     
 
-After you delete the custom resource or update it to disable automatic config injection, GKE doesn't auto-instrument new workloads that are targeted by the `Instrumentation` custom resource.
+After you delete the custom resource or update it to disable automatic config injection, GKE doesn't auto-instrument new workloads that are targeted by the Instrumentation custom resource.
 
 To stop exporting OTLP signals to the managed collector from a workload that was previously instrumented by the custom resource, you must restart the workload for the change to take effect. To do so, use the following command:
     
@@ -630,7 +679,7 @@ For details about viewing data in Google Cloud Observability, see the following:
 
   * [Find and explore traces](https://docs.cloud.google.com/trace/docs/finding-traces).
   * [Create charts with Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer).
-  * [View and analyze logs](https://docs.cloud.google.com/trace/docs/finding-traces).
+  * [View and analyze logs](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface).
 
 
 
@@ -638,7 +687,7 @@ For details about viewing data in Google Cloud Observability, see the following:
 
 This section describes deploying a sample application and pointing that application to the OTLP endpoint of the Managed OpenTelemetry collector. You can then view the telemetry in Google Cloud.
 
-The sample application is a small generator that exports traces, logs, and metrics to the in-cluster managed OpenTelemetry collector HTTP endpoint. The OTLP endpoint is hard-coded within the application, pointing to `http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4318`.
+The sample application is a small generator that exports traces, logs, and metrics to the in-cluster managed OpenTelemetry collector. The application is hard-coded to use the collector's gRPC endpoint: `http://opentelemetry-collector.gke-managed-otel.svc.cluster.local:4317`
 
 If you already have an application instrumented with an OpenTelemetry SDK, then you can generate telemetry from your application by pointing your application to the collector's endpoint, or configuring automatic instrumentation for the application.
 
@@ -720,7 +769,7 @@ Replace the following:
 
 [Go to Kubernetes clusters](https://console.cloud.google.com/kubernetes/list/overview)
 
-  2. Select the cluster that you want to disable the Managed OpenTelemetry collector.
+  2. Select the cluster where you want to disable Managed OpenTelemetry.
 
   3. In **Cluster details** , next to **Managed OpenTelemetry** , select the edit icon.
 
@@ -736,7 +785,6 @@ To disable Managed OpenTelemetry for GKE, update the `managed_opentelemetry_conf
   1. Update your Terraform config file:
          
          resource "google_container_cluster" "default" {
-           provider = google-beta
            name     = "CLUSTER_NAME"
            location = "LOCATION"
            project  = "PROJECT_ID"
@@ -765,7 +813,9 @@ Replace the following:
 
 
 
-When you disable the Managed OpenTelemetry for GKE, the `Instrumentation` custom resource definition and the `Instrumentation` custom resources aren't removed from the cluster. If you re-enable managed OpenTelemetry, then it uses the configuration preserved in the `Instrumentation` custom resources.
+When you disable Managed OpenTelemetry for GKE, the Instrumentation CustomResourceDefinition and any Instrumentation custom resources that you created aren't removed from the cluster.
+
+If you re-enable managed OpenTelemetry, then it uses the configuration preserved in the Instrumentation custom resources.
 
 If you have telemetry data that was already collected by Managed OpenTelemetry for GKE, then disabling the collector does not affect this data. Existing data is still stored in Google Cloud Observability, and no new telemetry data is collected.
 
@@ -773,21 +823,21 @@ If you have telemetry data that was already collected by Managed OpenTelemetry f
 
 ### Autopilot partner privileged workloads
 
-If you try to use automatic configuration with an Autopilot partner privileged workload, then you might see that workload Pod was rejected.
+If you try to use automatic configuration with an Autopilot partner privileged workload, then you might see that the workload Pod was rejected.
 
-OpenTelemetry config injection is not supported for [privileged workloads from GKE Autopilot partners](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/run-autopilot-partner-workloads). Targeting such workloads using an `Instrumentation` custom resource to enable OpenTelemetry environment variable injection may cause the workload to fail to match the Autopilot privileged workload allowlist, which means the config-injected Pod would be rejected by GKE Autopilot.
+OpenTelemetry config injection is not supported for [privileged workloads from GKE Autopilot partners](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/run-autopilot-partner-workloads). Targeting such workloads using an Instrumentation custom resource to enable OpenTelemetry environment variable injection may cause the workload to fail to match the Autopilot privileged workload allowlist, which means the config-injected Pod would be rejected by GKE Autopilot.
 
 ### Logs, metrics, or traces are not visible in the Google Cloud console
 
-Data might not be visible for many different reasons. These reasons include missing permissions to view the data, or incorrect configuration that prevent data from being collected.
+Data might not be visible for many different reasons. These reasons include missing permissions to view the data, or incorrect configuration that prevents data from being collected.
 
 Steps that you can take to resolve common issues are the following:
 
   * Ensure you have all required APIs enabled in your project.
 
-  * Ensure that the `Instrumentation` custom resource is correctly configured, with namespace matching the namespace where the workload is running, and the selector matching the label of your workload.
+  * Ensure that the Instrumentation custom resource is correctly configured, with namespace matching the namespace where the workload is running, and the selector matching the label of your workload.
 
-  * Inspect the workload's Pod to see if the [environment variables](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/managed-otel-gke#environment_variables) are injected correctly.
+  * Inspect the workload's Pod to see if the [environment variables](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/managed-otel-gke#environment-variables) are injected correctly.
 
   * Check the container logs of OpenTelemetry collector to see if there are errors in the collector. To do so, run the following command:
         
@@ -799,15 +849,15 @@ Steps that you can take to resolve common issues are the following:
 
 ### Disabling a telemetry signal is not working
 
-When you disable a telemetry signal using the `Instrumentation` custom resource, make sure you apply the custom resource and redeploy the workloads.
+When you disable a telemetry signal using the Instrumentation custom resource, make sure you apply the custom resource and redeploy the workloads.
 
-When applying the custom resource, use [Server-Side Apply](https://kubernetes.io/docs/reference/using-api/server-side-apply/) in the `kubectl apply` command when updating the `Instrumentation` custom resource.
+When applying the custom resource, use [Server-Side Apply](https://kubernetes.io/docs/reference/using-api/server-side-apply/) in the `kubectl apply` command when updating the Instrumentation custom resource.
 
 For details about disabling a telemetry signal, see Select the signal types to collect.
 
 ### OpenTelemetry injected variables are not visible in my workload
 
-The variables are injected into the containers of workload pods , not the workload. Check the Pods, not the owner objects like ReplicaSets or Deployments.
+The variables are injected into the containers of workload Pods, not the workload. Check the Pods, not the owner objects like ReplicaSets or Deployments.
 
 For example, to confirm the variables are injected correctly for the sample workload in default namespace used in the previous section Generate telemetry, do the following:
 
@@ -818,7 +868,7 @@ For example, to confirm the variables are injected correctly for the sample work
 
   2. Examine the `spec.containers[*].env` of the Pods.
 
-  3. Ensure that there is an `Instrumentation` object in the same namespace and check that it is targeting the Pod and has config injection feature enabled. To do so, run the following command:
+  3. Ensure that there is an Instrumentation object in the same namespace and check that it is targeting the Pod and has config injection feature enabled. To do so, run the following command:
          
          kubectl get instrumentations.telemetry.googleapis.com -n default -o yaml
          
@@ -826,7 +876,7 @@ For example, to confirm the variables are injected correctly for the sample work
 
 
 
-The variables are injected into the containers only when Pods are created because the Kubernetes API doesn't allow modifying most fields in the spec of an existing Pod, such as environment variables. For the configuration to take effect on workloads that were created before you created the `Instrumentation` object, restart the workload. For example, for a Deployment named `telemetry-gen-app`, run the following command:
+The variables are injected into the containers only when Pods are created because the Kubernetes API doesn't allow modifying most fields in the spec of an existing Pod, such as environment variables. For the configuration to take effect on workloads that were created before you created the Instrumentation object, restart the workload. For example, for a Deployment named `telemetry-gen-app`, run the following command:
     
     
     kubectl rollout restart deployment -n default telemetry-gen-app
@@ -836,7 +886,7 @@ The variables are injected into the containers only when Pods are created becaus
 
 To reduce the data collected by Cloud Trace, you can configure a parent-based sampler with a trace ID ratio to only sample a percentage of your traces.
 
-For example, add the following to the `Instrumentation` object:
+For example, add the following to the Instrumentation object:
     
     
     spec:
@@ -853,9 +903,9 @@ The [default OpenTelemetry SDK behavior](https://github.com/open-telemetry/opent
 
 ### Environment variables don't match the configuration
 
-If you made an update to the `Instrumentation` object, check that you have restarted your Pods as described in the section Modify the configuration.
+If you made an update to the Instrumentation object, check that you have restarted your Pods as described in the section Modify the configuration.
 
-If you see the wrong configuration for your Pod, check that the Pod is correctly targeted by the `Instrumentation` object, and that you don't have multiple `Instrumentation` objects targeting that same Pod:
+If you see the wrong configuration for your Pod, check that the Pod is correctly targeted by the Instrumentation object, and that you don't have multiple Instrumentation objects targeting that same Pod:
     
     
     kubectl get instrumentations --all-namespaces \
@@ -878,7 +928,7 @@ If you want to use the OpenTelemetry SDK and also send logs to the `stdout` stre
 
 ## What's next
 
-  * For details about how Managed OpenTelemetry for GKE works, see [Managed OpenTelemertry for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/managed-otel-gke).
+  * For details about how Managed OpenTelemetry for GKE works, see [Managed OpenTelemetry for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/managed-otel-gke).
   * For a self-deployed alternative to the Managed OpenTelemetry for GKE, see [Google-Built OpenTelemetry Collector](https://docs.cloud.google.com/stackdriver/docs/instrumentation/google-built-otel).
 
 
@@ -887,6 +937,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

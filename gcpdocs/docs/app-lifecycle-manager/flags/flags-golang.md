@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-golang/
 title: Use App Lifecycle Manager feature flags with Go \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:50.385238+00:00
+fetched_at: 2026-10-27T23:18:41.992436+00:00
 ---
 
 # Use App Lifecycle Manager feature flags with Go  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ This guide explains how to integrate your Go applications with App Lifecycle Man
 
 This guide assumes you have already set up the necessary App Lifecycle Manager resources (like App offerings, unit kinds, units, flags, and rollouts) by completing one of the following quickstarts:
 
-  * **[Quickstart: Deploy feature flags with App Lifecycle Manager (Integrated)](https://docs.cloud.google.com/app-lifecycle-manager/flags-quickstart)** : If you manage your application deployments with App Lifecycle Manager.
+  * **[Quickstart: Deploy feature flags with App Lifecycle Manager (Integrated)](https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-quickstart)** : If you manage your application deployments with App Lifecycle Manager.
   * **[Quickstart: Use feature flags Standalone](https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-standalone-quickstart)** : If you manage your application infrastructure independently but want to use App Lifecycle Manager for feature flag management.
 
 
@@ -41,7 +41,7 @@ Before you begin, ensure you have the following:
 
   1. **Go installed:** Version 1.23 or later.
   2. **Completed an App Lifecycle Manager feature flags Quickstart:**
-     * Successfully completed either the [integrated](https://docs.cloud.google.com/app-lifecycle-manager/flags-quickstart) or [standalone](https://docs.cloud.google.com/app-lifecycle-manager/flags-standalone-quickstart) feature flags quickstart to provision your target unit.
+     * Successfully completed either the [integrated](https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-quickstart) or [standalone](https://docs.cloud.google.com/app-lifecycle-manager/flags/flags-standalone-quickstart) feature flags quickstart to provision your target unit.
      * You should have environment variables or values from that quickstart, such as `PROJECT_ID`, `LOCATION_1` (the region of your Unit), `UNIT_ID`, and `FLAG_KEY`.
   3. **Authenticated`gcloud` for Application Default Credentials (ADC):** The Go application uses ADC to authenticate with Google Cloud services. If running locally (for standalone usage, or local Docker testing), ensure you've authenticated in your environment:
          
@@ -266,6 +266,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

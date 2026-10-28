@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/endpoints/docs/grpc/serving-apis-from-domains/
 title: Serving an API from your domain name \u00a0|\u00a0 Cloud Endpoints with gRPC \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:57:13.605592+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:24:51.195218+00:00
 ---
 
 # Serving an API from your domain name  |  Cloud Endpoints with gRPC  |  Google Cloud Documentation
@@ -91,7 +105,7 @@ To serve the API from a domain name:
         * Optionally, if you want to support another protocol, click **Add frontend IP and port** , specify the protocol, the same external IP address, and a different port.
      10. To create the fully configured load balancer, click **Create**. If the **Create** button isn't enabled, check the components you just configured: a checkmark should appear beside each of the configuration components. A missing checkmark means you haven't completed the configuration.
      11. After your DNS changes propagate, requests are sent to your API by using the load balancer.
-**Note:** If requests aren't making it through to your API backend, check your project's [firewall rules](https://console.cloud.google.com/networking/firewalls/list) to make sure your instances can accept traffic on the default ESP port `8080`. For more information, see [Firewalls](https://docs.cloud.google.com/compute/docs/networking#firewalls).
+**Note:** If requests aren't making it through to your API backend, check your project's [firewall rules](https://console.cloud.google.com/networking/firewalls/list) to make sure your instances can accept traffic on the default ESP port `8080`. For more information, see [Firewalls](https://docs.cloud.google.com/compute/docs/networking#firewalls). 
 
 
 ### GKE
@@ -159,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

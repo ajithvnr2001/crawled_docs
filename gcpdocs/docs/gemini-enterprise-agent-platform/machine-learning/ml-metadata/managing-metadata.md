@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/managing-metadata/
 title: Manage Vertex ML Metadata \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:25.753503+00:00
+fetched_at: 2026-10-28T02:28:28.756094+00:00
 ---
 
 # Manage Vertex ML Metadata  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ This guide demonstrates how to manage your Vertex ML Metadata.
 
 The first time that you use Vertex ML Metadata in a Google Cloud project, Gemini Enterprise Agent Platform creates your project's metadata store.
 
-If you want your metadata encrypted using a customer-managed encryption key (CMEK), you must create your metadata store using a CMEK before you use Vertex ML Metadata to track or analyze metadata. Use the [create a metadata store that uses a CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/configure) instructions to configure your project's metadata store.
+If you want your metadata encrypted using Customer-managed encryption keys (CMEK), you must create your metadata store using a CMEK before you use Vertex ML Metadata to track or analyze metadata. Use the [create a metadata store that uses a CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/configure) instructions to configure your project's metadata store.
 
 ## Artifact management
 
@@ -1511,6 +1511,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

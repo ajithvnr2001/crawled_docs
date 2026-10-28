@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/configure-cba-for-workloads/
 title: Configure certificate-based access for Workload Identity Federation \u00a0|\u00a0 Access Context Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:33:10.308683+00:00
+fetched_at: 2026-10-28T00:17:56.173428+00:00
 ---
 
 # Configure certificate-based access for Workload Identity Federation  |  Access Context Manager  |  Google Cloud Documentation
@@ -25,17 +25,17 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document describes how to configure certificate-based access for [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation) using [X.509 certificates](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-x509-certificates).
+This document describes how to configure certificate-based access for [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation) using [X.509 certificates](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-x509-certificates) or [OpenID Connect (OIDC) certificate-bound tokens](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-other-providers).
 
 Certificate-based access uses Mutual TLS (mTLS) to authenticate both the client and server during a TLS handshake. In this process, an mTLS binding incorporates policies based on the transport context and uses the state of the client's certificate within the TLS session to make authorization decisions.
 
-For X.509 Workload Identity Federation, an mTLS binding ensures that the entire authentication flow is securely tied to a trusted workload. This mitigates the risk of credential theft, because the system binds the authentication to a specific, trusted endpoint.
+For X.509 Workload Identity Federation and OIDC certificate-bound token flows, an mTLS binding ensures that the entire authentication flow is securely tied to a trusted workload. This mitigates the risk of credential theft, because the system binds the authentication to a specific, trusted endpoint.
 
 ## Certificate-based access for Workload Identity Federation configuration overview
 
 The following provides a high-level overview of the process to configure certificate-based access for Workload Identity Federation:
 
-  1. Establish Workload Identity Federation by configuring trust with the X.509 certificates' trust anchor.
+  1. Establish Workload Identity Federation by configuring trust with your X.509 certificates' trust anchor or an OIDC provider.
 
   2. Create an access level for certificate-based access.
 
@@ -57,7 +57,7 @@ To update to the latest version of the gcloud CLI, run the following command:
 
 If you need to install the gcloud CLI, see [Install the gcloud CLI](https://docs.cloud.google.com/sdk/docs/install-sdk).
 
-  * A [Workload Identity Federation configuration](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-x509-certificates) that uses your X.509 certificates trust anchor.
+  * A [Workload Identity Federation configuration](https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-x509-certificates) that uses your X.509 certificates trust anchor
 
   * To use this feature, complete the [Allowlist request form](https://docs.google.com/forms/d/e/1FAIpQLSet5YP7WzadszM0Qwk7nsJqDabazbPlP-RQrU6Xg15t9UYIVg/viewform?usp=header) to request access.
 
@@ -415,6 +415,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

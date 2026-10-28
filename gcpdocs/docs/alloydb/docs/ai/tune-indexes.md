@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/tune-indexes/
 title: Tune vector query performance in AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:30.837852+00:00
+fetched_at: 2026-10-28T01:31:20.174764+00:00
 ---
 
 # Tune vector query performance in AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -33,17 +33,6 @@ Before you build a ScaNN index, complete the following:
 
   * To avoid out-of-memory issues when you create the ScaNN index, ensure that the [`maintenance_work_mem`](https://www.postgresql.org/docs/17/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM) and [`shared_buffers`](https://www.postgresql.org/docs/17/runtime-config-resource.html#GUC-SHARED-BUFFERS) database flags are set to a value less than the total machine memory.
 
-  * To use four-level indexes, you must first enable the [Preview](https://cloud.google.com/products#product-launch-stages) feature for your AlloyDB instance. To enable the Preview feature, choose one of the following two methods:
-
-    * Enable the [`scann.enable_preview_features`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#scann.enable_preview_features) database flag.
-
-For more information on configuring database flags, see [Configure database flags](https://docs.cloud.google.com/alloydb/docs/instance-configure-database-flags).
-
-    * Set the session-level [`scann.max_allowed_num_levels`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#scann.max_allowed_num_levels) database flag to `3`.
-          
-          SET scann.max_allowed_num_levels = 3;
-          
-
 
 
 
@@ -63,10 +52,10 @@ Number of vector rows in your table | Number of levels for your ScaNN index
 [100 million..1 billion] |  Choose one of the following metrics to prioritize:
 
   * Search recall: three
-  * Index build time: four (in [Preview](https://cloud.google.com/products#product-launch-stages)) 
+  * Index build time: four
 
   
-[1 billion..10 billion] |  Four (in [Preview](https://cloud.google.com/products#product-launch-stages))   
+[1 billion..10 billion] | Four  
   
 Use the following ScaNN indexes as examples for tuning parameters for a table with 1 million rows.
 
@@ -195,6 +184,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

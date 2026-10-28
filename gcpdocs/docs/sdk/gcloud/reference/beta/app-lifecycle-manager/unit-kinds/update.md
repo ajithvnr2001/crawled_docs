@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/unit-kinds/update/
 title: gcloud beta app-lifecycle-manager unit-kinds update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:21:44.174263+00:00
+fetched_at: 2026-10-27T21:40:56.147654+00:00
 ---
 
 # gcloud beta app-lifecycle-manager unit-kinds update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,26 +24,28 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager unit-kinds update - update a Unit Kind 
+gcloud beta app-lifecycle-manager unit-kinds update - update a unit kind 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager unit-kinds update` `UNIT_KIND` [`--location`=`LOCATION`] [`--saas`=`SAAS`] [`--app-params-group`=`APP_PARAMS_GROUP` `--clear-app-params` `--scope-type`=`SCOPE_TYPE`] [`--clear-default-release` | `--default-release`=`DEFAULT_RELEASE`] [`--dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`] | `--add-dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`] `--clear-dependencies` | `--remove-dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`]] [`--input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] | `--add-input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] `--clear-input-variable-mappings` | `--remove-input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`--output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] | `--add-output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`] `--clear-output-variable-mappings` | `--remove-output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Update a Unit Kind 
+     `(BETA)` Update an App Lifecycle Manager unit kind. 
 EXAMPLES
-     To update the Unit Kind, run: 
+     To set the default release of the unit kind named `my-unit-kind` in location `us-central1` to `my-release`, run: 
     
     
-    gcloud beta app-lifecycle-manager unit-kinds update
+    gcloud beta app-lifecycle-manager unit-kinds update my-unit-kind --location=us-central1 --default-release=my-release
+
+To add or update the label `env=prod` on the unit kind named `my-unit-kind` and remove its default release, run: 
+    
+    
+    gcloud beta app-lifecycle-manager unit-kinds update my-unit-kind --location=us-central1 --update-labels=env=prod --clear-default-release
 
 POSITIONAL ARGUMENTS
     
 
-UnitKind resource - Identifier. The resource name (full URI of the resource) following the standard naming scheme: 
-    
-    
-    "projects/{project}/locations/{location}/unitKinds/{unitKind}" This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways.
+UnitKind resource - Unit kind to update. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -75,7 +77,7 @@ FLAGS
 
 `--location`=`LOCATION`
      For resources [default-release, saas, unit_kind], provides fallback value for resource location attribute. When the resource's full URI path is not provided, location will fallback to this flag value. 
-Saas resource - A reference to the Saas that defines the product (managed service) that the producer wants to manage with App Lifecycle Manager. Immutable once set. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Saas resource - SaaS offering that defines the product (managed service) that the service producer manages with App Lifecycle Manager. The SaaS offering cannot be changed after it is set. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -99,19 +101,19 @@ To set the `saas` attribute:
   * provide the argument `--saas` on the command line. 
 
 
-AppParams contains the parameters for creating an AppHub Application. 
+Parameters for creating an App Hub application. 
 `--app-params-group`=`APP_PARAMS_GROUP`
-     Grouping used to construct the name of the AppHub Application. Multiple UnitKinds can specify the same group to use the same Application across their respective units. Corresponds to the app_boundary_id in the ADC composite ApplicationTemplate. Defaults to UnitKind.name 
+     Grouping used to construct the name of the App Hub application. Multiple unit kinds can specify the same group to use the same application across their respective units. Corresponds to `app_boundary_id` in the Application Design Center composite application template. Defaults to the name of the unit kind. 
 `--clear-app-params`
      Set unitKind.appParams back to default value. 
-Scope of an application. 
+Scope of the application. 
 `--scope-type`=`SCOPE_TYPE`
-     Scope Type. `SCOPE_TYPE` must be one of: 
+     Scope type of the application. Corresponds to `scope` in the Application Design Center composite application template. Defaults to `type-regional`. `SCOPE_TYPE` must be one of: 
 
 `type-global`
-     Global type. 
+     Global scope. 
 `type-regional`
-     Regional type. 
+     Regional scope. 
 Update default_release. 
 
 At most one of these can be specified: 
@@ -120,9 +122,7 @@ At most one of these can be specified:
      Clear default_release value and set to null. 
 Release resource - Set default_release to new value. 
 
-A reference to the Release object to use as default for creating new units of this Unit Kind. 
-
-If not specified, a new unit must explicitly reference which release to use for its creation. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Release to use by default when creating new units of this unit kind. If not specified, each new unit must explicitly reference the release to use for its creation. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -151,12 +151,12 @@ Update dependencies.
 At most one of these can be specified: 
 
 `--dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`]
-     Set dependencies to new value. List of other unit kinds that this release will depend on. Dependencies will be automatically provisioned if not found. Maximum 10\. 
+     Set dependencies to new value. Other unit kinds that this unit kind depends on. Dependencies are automatically provisioned if not found. A maximum of 10 dependencies can be specified. Dependencies cannot be changed after the unit kind is created. 
 
 `alias`
-     An alias for the dependency. Used for input variable mapping. 
+     Alias for the dependency, used for input variable mapping. 
 `unitKind`
-     The unit kind of the dependency. 
+     Unit kind of the dependency. 
 `Shorthand Example:`
     
     
@@ -175,12 +175,12 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--add-dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`]
-     Add new value to dependencies list. List of other unit kinds that this release will depend on. Dependencies will be automatically provisioned if not found. Maximum 10. 
+     Add new value to dependencies list. Other unit kinds that this unit kind depends on. Dependencies are automatically provisioned if not found. A maximum of 10 dependencies can be specified. Dependencies cannot be changed after the unit kind is created. 
 
 `alias`
-     An alias for the dependency. Used for input variable mapping. 
+     Alias for the dependency, used for input variable mapping. 
 `unitKind`
-     The unit kind of the dependency. 
+     Unit kind of the dependency. 
 `Shorthand Example:`
     
     
@@ -201,12 +201,12 @@ At most one of these can be specified:
 `--clear-dependencies`
      Clear dependencies value and set to empty list. 
 `--remove-dependencies`=[`alias`=`ALIAS`],[`unitKind`=`UNITKIND`]
-     Remove existing value from dependencies list. List of other unit kinds that this release will depend on. Dependencies will be automatically provisioned if not found. Maximum 10. 
+     Remove existing value from dependencies list. Other unit kinds that this unit kind depends on. Dependencies are automatically provisioned if not found. A maximum of 10 dependencies can be specified. Dependencies cannot be changed after the unit kind is created. 
 
 `alias`
-     An alias for the dependency. Used for input variable mapping. 
+     Alias for the dependency, used for input variable mapping. 
 `unitKind`
-     The unit kind of the dependency. 
+     Unit kind of the dependency. 
 `Shorthand Example:`
     
     
@@ -227,26 +227,26 @@ Update input_variable_mappings.
 At most one of these can be specified: 
 
 `--input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]
-     Set input_variable_mappings to new value. List of inputVariables for this release that will either be retrieved from a dependency's outputVariables, or will be passed on to a dependency's inputVariables. Maximum 100. 
+     Set input_variable_mappings to new value. Input variables of this unit kind that are either retrieved from the output variables of a dependency or passed on to the input variables of a dependency. A maximum of 100 mappings can be specified. 
 
 `from`
-     Output variables which will get their values from dependencies. 
+     Output variable of a dependency from which the variable gets its value. 
 
 `dependency`
-     Required, Alias of the dependency that the outputVariable will pass its value to. 
+     Required, Alias of the dependency. 
 `outputVariable`
-     Required, Name of the outputVariable on the dependency. 
+     Required, Name of the output variable on the dependency. 
 `to`
-     Input variables whose values will be passed on to dependencies. 
+     Input variable of a dependency to which the value of the variable is passed on. 
 
 `dependency`
-     Required, Alias of the dependency that the inputVariable will pass its value to. 
+     Required, Alias of the dependency that the variable passes its value to. 
 `ignoreForLookup`
-     Tells App Lifecycle Manager if this mapping should be used during lookup or not. 
+     If true, App Lifecycle Manager does not use the input variable as a lookup key when looking for an existing dependency unit. 
 `inputVariable`
-     Required, Name of the inputVariable on the dependency. 
+     Required, Name of the input variable on the dependency. 
 `variable`
-     Required, name of the variable. 
+     Required, Name of the variable. 
 `Shorthand Example:`
     
     
@@ -265,26 +265,26 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--add-input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]
-     Add new value to input_variable_mappings list. List of inputVariables for this release that will either be retrieved from a dependency's outputVariables, or will be passed on to a dependency's inputVariables. Maximum 100. 
+     Add new value to input_variable_mappings list. Input variables of this unit kind that are either retrieved from the output variables of a dependency or passed on to the input variables of a dependency. A maximum of 100 mappings can be specified. 
 
 `from`
-     Output variables which will get their values from dependencies. 
+     Output variable of a dependency from which the variable gets its value. 
 
 `dependency`
-     Required, Alias of the dependency that the outputVariable will pass its value to. 
+     Required, Alias of the dependency. 
 `outputVariable`
-     Required, Name of the outputVariable on the dependency. 
+     Required, Name of the output variable on the dependency. 
 `to`
-     Input variables whose values will be passed on to dependencies. 
+     Input variable of a dependency to which the value of the variable is passed on. 
 
 `dependency`
-     Required, Alias of the dependency that the inputVariable will pass its value to. 
+     Required, Alias of the dependency that the variable passes its value to. 
 `ignoreForLookup`
-     Tells App Lifecycle Manager if this mapping should be used during lookup or not. 
+     If true, App Lifecycle Manager does not use the input variable as a lookup key when looking for an existing dependency unit. 
 `inputVariable`
-     Required, Name of the inputVariable on the dependency. 
+     Required, Name of the input variable on the dependency. 
 `variable`
-     Required, name of the variable. 
+     Required, Name of the variable. 
 `Shorthand Example:`
     
     
@@ -305,26 +305,26 @@ At most one of these can be specified:
 `--clear-input-variable-mappings`
      Clear input_variable_mappings value and set to empty list. 
 `--remove-input-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]
-     Remove existing value from input_variable_mappings list. List of inputVariables for this release that will either be retrieved from a dependency's outputVariables, or will be passed on to a dependency's inputVariables. Maximum 100\. 
+     Remove existing value from input_variable_mappings list. Input variables of this unit kind that are either retrieved from the output variables of a dependency or passed on to the input variables of a dependency. A maximum of 100 mappings can be specified. 
 
 `from`
-     Output variables which will get their values from dependencies. 
+     Output variable of a dependency from which the variable gets its value. 
 
 `dependency`
-     Required, Alias of the dependency that the outputVariable will pass its value to. 
+     Required, Alias of the dependency. 
 `outputVariable`
-     Required, Name of the outputVariable on the dependency. 
+     Required, Name of the output variable on the dependency. 
 `to`
-     Input variables whose values will be passed on to dependencies. 
+     Input variable of a dependency to which the value of the variable is passed on. 
 
 `dependency`
-     Required, Alias of the dependency that the inputVariable will pass its value to. 
+     Required, Alias of the dependency that the variable passes its value to. 
 `ignoreForLookup`
-     Tells App Lifecycle Manager if this mapping should be used during lookup or not. 
+     If true, App Lifecycle Manager does not use the input variable as a lookup key when looking for an existing dependency unit. 
 `inputVariable`
-     Required, Name of the inputVariable on the dependency. 
+     Required, Name of the input variable on the dependency. 
 `variable`
-     Required, name of the variable. 
+     Required, Name of the variable. 
 `Shorthand Example:`
     
     
@@ -345,7 +345,7 @@ Update labels.
 At most one of these can be specified: 
 
 `--labels`=[`LABELS`,…]
-     Set labels to new value. The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Set labels to new value. Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -369,7 +369,7 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--update-labels`=[`UPDATE_LABELS`,…]
-     Update labels value or add key value pair. The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Update labels value or add key value pair. Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -415,26 +415,26 @@ Update output_variable_mappings.
 At most one of these can be specified: 
 
 `--output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]
-     Set output_variable_mappings to new value. List of outputVariables for this unit kind will be passed to this unit's outputVariables. Maximum 100. 
+     Set output_variable_mappings to new value. Output variables of this unit kind that are passed to the output variables of the unit. A maximum of 100 mappings can be specified. 
 
 `from`
-     Output variables which will get their values from dependencies. 
+     Output variable of a dependency from which the variable gets its value. 
 
 `dependency`
-     Required, Alias of the dependency that the outputVariable will pass its value to. 
+     Required, Alias of the dependency. 
 `outputVariable`
-     Required, Name of the outputVariable on the dependency. 
+     Required, Name of the output variable on the dependency. 
 `to`
-     Input variables whose values will be passed on to dependencies. 
+     Input variable of a dependency to which the value of the variable is passed on. 
 
 `dependency`
-     Required, Alias of the dependency that the inputVariable will pass its value to. 
+     Required, Alias of the dependency that the variable passes its value to. 
 `ignoreForLookup`
-     Tells App Lifecycle Manager if this mapping should be used during lookup or not. 
+     If true, App Lifecycle Manager does not use the input variable as a lookup key when looking for an existing dependency unit. 
 `inputVariable`
-     Required, Name of the inputVariable on the dependency. 
+     Required, Name of the input variable on the dependency. 
 `variable`
-     Required, name of the variable. 
+     Required, Name of the variable. 
 `Shorthand Example:`
     
     
@@ -453,26 +453,26 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--add-output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]
-     Add new value to output_variable_mappings list. List of outputVariables for this unit kind will be passed to this unit's outputVariables. Maximum 100. 
+     Add new value to output_variable_mappings list. Output variables of this unit kind that are passed to the output variables of the unit. A maximum of 100 mappings can be specified. 
 
 `from`
-     Output variables which will get their values from dependencies. 
+     Output variable of a dependency from which the variable gets its value. 
 
 `dependency`
-     Required, Alias of the dependency that the outputVariable will pass its value to. 
+     Required, Alias of the dependency. 
 `outputVariable`
-     Required, Name of the outputVariable on the dependency. 
+     Required, Name of the output variable on the dependency. 
 `to`
-     Input variables whose values will be passed on to dependencies. 
+     Input variable of a dependency to which the value of the variable is passed on. 
 
 `dependency`
-     Required, Alias of the dependency that the inputVariable will pass its value to. 
+     Required, Alias of the dependency that the variable passes its value to. 
 `ignoreForLookup`
-     Tells App Lifecycle Manager if this mapping should be used during lookup or not. 
+     If true, App Lifecycle Manager does not use the input variable as a lookup key when looking for an existing dependency unit. 
 `inputVariable`
-     Required, Name of the inputVariable on the dependency. 
+     Required, Name of the input variable on the dependency. 
 `variable`
-     Required, name of the variable. 
+     Required, Name of the variable. 
 `Shorthand Example:`
     
     
@@ -493,26 +493,26 @@ At most one of these can be specified:
 `--clear-output-variable-mappings`
      Clear output_variable_mappings value and set to empty list. 
 `--remove-output-variable-mappings`=[`from`=`FROM`],[`to`=`TO`],[`variable`=`VARIABLE`]
-     Remove existing value from output_variable_mappings list. List of outputVariables for this unit kind will be passed to this unit's outputVariables. Maximum 100. 
+     Remove existing value from output_variable_mappings list. Output variables of this unit kind that are passed to the output variables of the unit. A maximum of 100 mappings can be specified. 
 
 `from`
-     Output variables which will get their values from dependencies. 
+     Output variable of a dependency from which the variable gets its value. 
 
 `dependency`
-     Required, Alias of the dependency that the outputVariable will pass its value to. 
+     Required, Alias of the dependency. 
 `outputVariable`
-     Required, Name of the outputVariable on the dependency. 
+     Required, Name of the output variable on the dependency. 
 `to`
-     Input variables whose values will be passed on to dependencies. 
+     Input variable of a dependency to which the value of the variable is passed on. 
 
 `dependency`
-     Required, Alias of the dependency that the inputVariable will pass its value to. 
+     Required, Alias of the dependency that the variable passes its value to. 
 `ignoreForLookup`
-     Tells App Lifecycle Manager if this mapping should be used during lookup or not. 
+     If true, App Lifecycle Manager does not use the input variable as a lookup key when looking for an existing dependency unit. 
 `inputVariable`
-     Required, Name of the inputVariable on the dependency. 
+     Required, Name of the input variable on the dependency. 
 `variable`
-     Required, name of the variable. 
+     Required, Name of the variable. 
 `Shorthand Example:`
     
     
@@ -542,6 +542,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

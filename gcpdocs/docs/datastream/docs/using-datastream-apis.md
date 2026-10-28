@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/using-datastream-apis/
 title: Using Datastream APIs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:50.802573+00:00
+fetched_at: 2026-10-27T22:59:18.838850+00:00
 ---
 
 # Using Datastream APIs  |  Google Cloud Documentation
@@ -23,15 +23,7 @@ Send feedback
 
 Datastream
 
-For businesses with many isolated data sources, access to enterprise data across the organization, especially in a real-time manner, can be difficult. This results in a world of limited and slow data access, preventing the organization's ability to introspect.
-
-Datastream provides near real-time access to change data from a variety of on-premises and cloud-based data sources to create access to organizational data. Datastream provides a unified consumption API which democratizes the organization's access to the freshest enterprise data available across the organization, powering integrated near real-time scenarios.
-
-One such scenario is transferring data from a source database into a Cloud-based storage service or messaging queue and transforming this data into a form that's readable by other applications and services that communicate with this storage service or messaging queue.
-
-In this tutorial, you learn how to use Datastream to transfer schemas, tables, and data from a source Oracle database into a folder in a [Cloud Storage](https://cloud.google.com/storage) bucket. Cloud Storage is a web service for storing and accessing data on Google Cloud. The service combines the performance and scalability of Google's cloud with advanced security and sharing capabilities.
-
-As part of transferring this information into a folder in the destination Cloud Storage bucket, Datastream translates this information into Avro. Avro is defined by a schema that's written in JavaScript Object Notation (JSON). Doing this translation lets you read data across different data sources in a uniform way.
+The Datastream REST API lets you programmatically replicate change data from on-premises and cloud sources into Google Cloud destinations for near real-time analytics. In this tutorial, you create connection profiles and a stream to replicate Oracle schemas, tables, and data into a [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction) bucket. During replication, Datastream converts the source records into Avro files with a JSON schema so that downstream applications can read data uniformly across sources.
 
 ## Objectives
 
@@ -1085,6 +1077,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

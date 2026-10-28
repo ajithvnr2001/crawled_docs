@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/in-memory-volume-mounts/
 title: Configure in-memory volume mounts for services \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:46:54.450544+00:00
+fetched_at: 2026-10-28T02:30:56.644690+00:00
 ---
 
 # Configure in-memory volume mounts for services  |  Cloud Run  |  Google Cloud Documentation
@@ -70,21 +70,23 @@ After you configure an in-memory volume for your Cloud Run service, an empty vol
 
 [Go to Cloud Run](https://console.cloud.google.com/run)
 
-  2. Select **Services** from the Cloud Run navigation menu, and click **Deploy container** to configure a new service. If you are configuring an existing service, click the service, then click the **Containers** tab.
+  2. Select **Services** from the Cloud Run navigation menu:
 
-  3. If you are configuring a new service, fill out the initial service settings page, then click **Containers, Networking, Security** to expand the service configuration page, then click **Volumes**.
+     1. If you are configuring a new service, click **Deploy container** and fill out the initial service settings page. Then click **Containers, Networking, Security** to expand the service configuration page, and click **Volumes**.
 
-  4. Click **Mount volume**.
+     2. If you are configuring an existing service, click the service, then click the **Containers** tab.
 
-  5. Click **In-memory** as the volume type.
+  3. Click **Mount volume**.
 
-  6. In the **Mount path** field, enter the path where you want to mount the volume.
+  4. Click **In-memory** as the volume type.
 
-  7. Optional: Enter the **Size limit** and **Memory unit** to specify the memory limit you want to assign to the volume. This limit must be less than the [total memory](https://docs.cloud.google.com/run/docs/configuring/services/memory-limits) specified for your containers. Data stored in this volume consumes memory reserved by the container that wrote the data.
+  5. In the **Mount path** field, enter the path where you want to mount the volume.
 
-  8. Click **Save**.
+  6. Optional: Enter the **Size limit** and **Memory unit** to specify the memory limit you want to assign to the volume. This limit must be less than the [total memory](https://docs.cloud.google.com/run/docs/configuring/services/memory-limits) specified for your containers. Data stored in this volume consumes memory reserved by the container that wrote the data.
 
-  9. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
+  7. Click **Save**.
+
+  8. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
 
 
 
@@ -314,6 +316,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/identity/example-announcement/
 title: Example announcement \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:03.205762+00:00
+fetched_at: 2026-10-27T23:06:07.631781+00:00
 ---
 
 # Example announcement  |  Cloud Architecture Center  |  Google Cloud Documentation

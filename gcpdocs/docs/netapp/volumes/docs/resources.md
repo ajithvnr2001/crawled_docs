@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/netapp/volumes/docs/resources/
 title: Resources \u00a0|\u00a0 NetApp Volumes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:00:03.629986+00:00
+fetched_at: 2026-10-27T21:21:41.733773+00:00
 ---
 
 # Resources  |  NetApp Volumes  |  Google Cloud Documentation

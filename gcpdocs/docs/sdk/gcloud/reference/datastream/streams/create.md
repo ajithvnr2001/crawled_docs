@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/datastream/streams/create/
 title: gcloud datastream streams create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T11:28:02.370060+00:00
+fetched_at: 2026-10-27T21:40:26.104135+00:00
 ---
 
 # gcloud datastream streams create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -445,7 +445,7 @@ The JSON file is formatted as follows, with camelCase field naming:
 `--mongodb-source-config`=`MONGODB_SOURCE_CONFIG`
      Path to a YAML (or JSON) file containing the configuration for MongoDB Source Config. 
 
-The JSON file is formatted as follows, with snake_case field naming: 
+The JSON file is formatted as follows, with camelCase field naming: 
     
     
       {
@@ -628,8 +628,8 @@ The JSON file is formatted as follows, with camelCase field naming:
 The JSON file is formatted as follows, with camelCase field naming: 
     
     
-      "changeStreamName": "SAMPLE_CHANGE_STREAM_NAME",
       {
+        "changeStreamName": "SAMPLE_CHANGE_STREAM_NAME",
         "includeObjects": {},
         "excludeObjects": {
           "schemas": [
@@ -772,6 +772,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

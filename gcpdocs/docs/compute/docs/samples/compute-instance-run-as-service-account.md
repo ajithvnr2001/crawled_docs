@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-instance-run-as-service-account/
 title: Run a VM as a service account \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:47:27.274932+00:00
+fetched_at: 2026-10-27T23:11:05.064414+00:00
 ---
 
 # Run a VM as a service account  |  Compute Engine  |  Google Cloud Documentation

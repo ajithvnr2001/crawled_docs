@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-private-service-connect/
 title: Configure Private Service Connect interface for a pipeline \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:05.155328+00:00
+fetched_at: 2026-10-28T02:28:37.401192+00:00
 ---
 
 # Configure Private Service Connect interface for a pipeline  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -125,7 +125,7 @@ Replace the following:
   * DISPLAY_NAME: The name of the pipeline job. The maximum length for a display name is 128 UTF-8 characters.
   * PIPELINE_SPEC: The pipeline spec you created in Create a pipeline spec.
   * OUTPUT_DIRECTORY: The URI of the Cloud Storage bucket for storing output artifacts. This path is the root output directory for the pipeline and is used to generate the paths of output artifacts. 
-  * NETWORK_ATTACHMENT_NAME: The name of the Compute Engine network attachment to attach to the `PipelineJob` resource. To obtain the network attachment, you must have completed the steps in the Before you begin section. For more information about the network attachment, see [Set up a VPC network, subnet, and network attachment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#set_up_a_network_subnet_and_network_attachment). 
+  * NETWORK_ATTACHMENT_NAME: The name of the Compute Engine network attachment to attach to the `PipelineJob` resource. To obtain the network attachment, you must have completed the steps in the Before you begin section. For more information about the network attachment, see [Set up a VPC network, subnet, and network attachment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup#set_up_a_network_subnet_and_network_attachment).
   * DNS_DOMAIN: The DNS name of the private cloud DNS zone you created when you set up private DNS peering.
   * TARGET_PROJECT: The project hosting the VPC network.
   * TARGET_NETWORK: The VPC network name.
@@ -243,6 +243,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

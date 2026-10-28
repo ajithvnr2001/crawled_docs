@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/insights/audit-logging/
 title: Customer Experience Insights audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:24:02.199809+00:00
+fetched_at: 2026-10-27T16:33:05.435321+00:00
 ---
 
 # Customer Experience Insights audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Customer Experience Insights audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the audited methods for Customer Experience Insights. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Customer Experience Insights let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Customer Experience Insights API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -95,7 +97,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListConversations`  
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListDashboards`  
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListDatasets`  
-`google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListDiagnostics`  
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListFeedbackLabels`  
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListIssueModels`  
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListIssues`  
@@ -202,7 +203,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.DeleteView`  
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.DeployIssueModel` (LRO)  
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.DeployQaScorecardRevision`  
-`google.cloud.contactcenterinsights.v1.ContactCenterInsights.DiagnoseConversations` (LRO)  
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.ExportIssueModel` (LRO)  
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.FinalizeAssessment`  
 `google.cloud.contactcenterinsights.v1.ContactCenterInsights.ImportIssueModel` (LRO)  
@@ -277,7 +277,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.DeleteView`  
 `google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.DeployIssueModel` (LRO)  
 `google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.DeployQaScorecardRevision`  
-`google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.DiagnoseConversations`  
 `google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.ExportIssueModel` (LRO)  
 `google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.FinalizeAssessment`  
 `google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.ImportIssueModel` (LRO)  
@@ -1093,21 +1092,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `DiagnoseConversations`
-
-  * **Method** : `[google.cloud.contactcenterinsights.v1.ContactCenterInsights.DiagnoseConversations](https://docs.cloud.google.com/contact-center/insights/docs/reference/rpc/google.cloud.contactcenterinsights.v1#google.cloud.contactcenterinsights.v1.ContactCenterInsights.DiagnoseConversations)`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `contactcenterinsights.analyses.create - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.contactcenterinsights.v1.ContactCenterInsights.DiagnoseConversations" `  
-
-
-
-
 #### `ExportInsightsData`
 
   * **Method** : `[google.cloud.contactcenterinsights.v1.ContactCenterInsights.ExportInsightsData](https://docs.cloud.google.com/contact-center/insights/docs/reference/rpc/google.cloud.contactcenterinsights.v1#google.cloud.contactcenterinsights.v1.ContactCenterInsights.ExportInsightsData)`  
@@ -1754,21 +1738,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `ListDiagnostics`
-
-  * **Method** : `[google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListDiagnostics](https://docs.cloud.google.com/contact-center/insights/docs/reference/rpc/google.cloud.contactcenterinsights.v1#google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListDiagnostics)`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `contactcenterinsights.analyses.list - DATA_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListDiagnostics" `  
-
-
-
-
 #### `ListFeedbackLabels`
 
   * **Method** : `[google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListFeedbackLabels](https://docs.cloud.google.com/contact-center/insights/docs/reference/rpc/google.cloud.contactcenterinsights.v1#google.cloud.contactcenterinsights.v1.ContactCenterInsights.ListFeedbackLabels)`  
@@ -1956,7 +1925,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
-    * `contactcenterinsights.authorizedConversations.list - DATA_READ`
     * `contactcenterinsights.conversations.list - DATA_READ`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
@@ -3050,21 +3018,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `DiagnoseConversations`
-
-  * **Method** : `[google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.DiagnoseConversations](https://docs.cloud.google.com/contact-center/insights/docs/reference/rpc/google.cloud.contactcenterinsights.v1alpha1#google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.DiagnoseConversations)`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `contactcenterinsights.analyses.create - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.DiagnoseConversations" `  
-
-
-
-
 #### `ExportInsightsData`
 
   * **Method** : `[google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.ExportInsightsData](https://docs.cloud.google.com/contact-center/insights/docs/reference/rpc/google.cloud.contactcenterinsights.v1alpha1#google.cloud.contactcenterinsights.v1alpha1.ContactCenterInsights.ExportInsightsData)`  
@@ -4118,6 +4071,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerymigration-migrationservice-migrationworkflow-get/
 title: Get a migration workflow \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:17.488181+00:00
+fetched_at: 2026-10-27T23:02:16.877521+00:00
 ---
 
 # Get a migration workflow  |  BigQuery  |  Google Cloud Documentation
@@ -22,6 +22,52 @@ fetched_at: 2026-10-26T05:41:17.488181+00:00
 Retrieves a specific migration workflow from the BigQuery Migration Service.
 
 ## Code sample
+
+### Java
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.migration.v2.[GetMigrationWorkflowRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.GetMigrationWorkflowRequest.html);
+    import com.google.cloud.bigquery.migration.v2.[MigrationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationServiceClient.html);
+    import com.google.cloud.bigquery.migration.v2.[MigrationWorkflow](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationWorkflow.html);
+    import com.google.cloud.bigquery.migration.v2.[MigrationWorkflowName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationWorkflowName.html);
+    import java.io.IOException;
+    
+    public class GetMigrationWorkflow {
+    
+      /**
+       * Gets a previously created migration workflow. A migration workflow is a collection of tasks
+       * that orchestrates a data warehouse migration to BigQuery.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the migration workflow (for example, "us").
+       * @param workflowId The ID of the migration workflow to retrieve (for example,
+       *     "12345678-abcd-4372-a567-0e02b2c3d479").
+       */
+      public static void getMigrationWorkflow(String projectId, String location, String workflowId) {
+        [MigrationWorkflowName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationWorkflowName.html) name = [MigrationWorkflowName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationWorkflowName.html).of(projectId, location, workflowId);
+    
+        [GetMigrationWorkflowRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.GetMigrationWorkflowRequest.html) request =
+            [GetMigrationWorkflowRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.GetMigrationWorkflowRequest.html).newBuilder().setName(name.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationWorkflowName.html#com_google_cloud_bigquery_migration_v2_MigrationWorkflowName_toString__)()).build();
+    
+        try ([MigrationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationServiceClient.html) client = [MigrationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationServiceClient.html).create()) {
+          [MigrationWorkflow](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationWorkflow.html) workflow = client.getMigrationWorkflow(request);
+          System.out.printf("Migration workflow found: %s%n", workflow.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationWorkflow.html#com_google_cloud_bigquery_migration_v2_MigrationWorkflow_getName__)());
+          System.out.printf("  Display Name: %s%n", workflow.[getDisplayName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationWorkflow.html#com_google_cloud_bigquery_migration_v2_MigrationWorkflow_getDisplayName__)());
+          System.out.printf("  State: %s%n", workflow.[getState](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationWorkflow.html#com_google_cloud_bigquery_migration_v2_MigrationWorkflow_getState__)());
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.out.printf("Migration workflow not found: %s%n", name);
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to get migration workflow '%s': %s%n", name, err.getMessage());
+        }
+      }
+    
 
 ### Node.js
 
@@ -77,9 +123,9 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
     from google.api_core.exceptions import NotFound
-    from google.cloud import bigquery_migration_v2
+    from google.cloud import [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest)
     
-    client = bigquery_migration_v2.[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
+    client = [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest).[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
     
     
     def get_migration_workflow(project_id: str, location: str, workflow_id: str) -> None:

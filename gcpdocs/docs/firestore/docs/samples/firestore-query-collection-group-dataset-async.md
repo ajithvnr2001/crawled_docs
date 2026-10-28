@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-collection-group-dataset-async/
 title: Create a collection of Firestore documents (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:18:32.769742+00:00
+fetched_at: 2026-10-27T18:17:19.833829+00:00
 ---
 
 # Create a collection of Firestore documents (async)  |  Google Cloud Documentation

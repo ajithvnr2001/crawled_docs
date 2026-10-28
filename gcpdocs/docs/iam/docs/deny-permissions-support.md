@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/deny-permissions-support/
 title: Permissions supported in deny policies \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:49:08.588510+00:00
+fetched_at: 2026-10-28T00:17:56.098148+00:00
 ---
 
 # Permissions supported in deny policies  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -1004,7 +1004,22 @@ Audit Manager |  `auditmanager.googleapis.com/auditReports.*`
 `auditmanager.googleapis.com/resourceEnrollmentStatuses.*`  
 `auditmanager.googleapis.com/resourceEnrollmentStatuses.get`  
 `auditmanager.googleapis.com/resourceEnrollmentStatuses.list`  
-Backup and Disaster Recovery |  `backupdr.googleapis.com/backupPlanAssociations.createForCloudSqlInstance`  
+Backup and Disaster Recovery |  `backupdr.googleapis.com/appliedAutoProtectionPolicies.*`  
+`backupdr.googleapis.com/appliedAutoProtectionPolicies.authorize`  
+`backupdr.googleapis.com/appliedAutoProtectionPolicies.list`  
+`backupdr.googleapis.com/appliedAutoProtectionPolicies.viewMatchingResources`  
+`backupdr.googleapis.com/autoProtectionBindings.*`  
+`backupdr.googleapis.com/autoProtectionBindings.create`  
+`backupdr.googleapis.com/autoProtectionBindings.delete`  
+`backupdr.googleapis.com/autoProtectionBindings.get`  
+`backupdr.googleapis.com/autoProtectionBindings.list`  
+`backupdr.googleapis.com/autoProtectionPolicies.*`  
+`backupdr.googleapis.com/autoProtectionPolicies.create`  
+`backupdr.googleapis.com/autoProtectionPolicies.delete`  
+`backupdr.googleapis.com/autoProtectionPolicies.get`  
+`backupdr.googleapis.com/autoProtectionPolicies.list`  
+`backupdr.googleapis.com/autoProtectionPolicies.update`  
+`backupdr.googleapis.com/backupPlanAssociations.createForCloudSqlInstance`  
 `backupdr.googleapis.com/backupPlanAssociations.createForComputeInstance`  
 `backupdr.googleapis.com/backupPlanAssociations.deleteForComputeInstance`  
 `backupdr.googleapis.com/backupPlanAssociations.fetchForComputeInstance`  
@@ -1035,6 +1050,8 @@ Backup and Disaster Recovery |  `backupdr.googleapis.com/backupPlanAssociations.
 `backupdr.googleapis.com/backupVaults.listEffectiveTags`  
 `backupdr.googleapis.com/backupVaults.listTagBindings`  
 `backupdr.googleapis.com/backupVaults.update`  
+`backupdr.googleapis.com/bindingMatchingResources.*`  
+`backupdr.googleapis.com/bindingMatchingResources.list`  
 `backupdr.googleapis.com/bvbackups.delete`  
 `backupdr.googleapis.com/bvbackups.fetchForCloudSqlInstance`  
 `backupdr.googleapis.com/bvbackups.get`  
@@ -3696,6 +3713,7 @@ Cloud SQL |  `cloudsql.googleapis.com/backupRuns.*`
 `cloudsql.googleapis.com/instances.performDiskShrink`  
 `cloudsql.googleapis.com/instances.preCheckMajorVersionUpgrade`  
 `cloudsql.googleapis.com/instances.promoteReplica`  
+`cloudsql.googleapis.com/instances.reconcileNetworking`  
 `cloudsql.googleapis.com/instances.reencrypt`  
 `cloudsql.googleapis.com/instances.resetReplicaSize`  
 `cloudsql.googleapis.com/instances.resetSslConfig`  
@@ -3900,6 +3918,13 @@ Compute Engine |  `compute.googleapis.com/acceleratorTypes.*`
 `compute.googleapis.com/crossSiteNetworks.get`  
 `compute.googleapis.com/crossSiteNetworks.list`  
 `compute.googleapis.com/crossSiteNetworks.update`  
+`compute.googleapis.com/dhcpOptionsConfigs.*`  
+`compute.googleapis.com/dhcpOptionsConfigs.create`  
+`compute.googleapis.com/dhcpOptionsConfigs.delete`  
+`compute.googleapis.com/dhcpOptionsConfigs.get`  
+`compute.googleapis.com/dhcpOptionsConfigs.list`  
+`compute.googleapis.com/dhcpOptionsConfigs.update`  
+`compute.googleapis.com/dhcpOptionsConfigs.use`  
 `compute.googleapis.com/diskSettings.*`  
 `compute.googleapis.com/diskSettings.get`  
 `compute.googleapis.com/diskSettings.update`  
@@ -5599,8 +5624,16 @@ Database Insights |  `databaseinsights.googleapis.com/activeQueries.*`
 `databaseinsights.googleapis.com/workloadRecommendations.*`  
 `databaseinsights.googleapis.com/workloadRecommendations.fetch`  
 Dataflow |  `dataflow.googleapis.com/jobs.create`  
+`dataflow.googleapis.com/jobs.createTagBinding`  
+`dataflow.googleapis.com/jobs.deleteTagBinding`  
 `dataflow.googleapis.com/jobs.get`  
 `dataflow.googleapis.com/jobs.list`  
+`dataflow.googleapis.com/jobs.listEffectiveTags`  
+`dataflow.googleapis.com/jobs.listTagBindings`  
+`dataflow.googleapis.com/snapshots.createTagBinding`  
+`dataflow.googleapis.com/snapshots.deleteTagBinding`  
+`dataflow.googleapis.com/snapshots.listEffectiveTags`  
+`dataflow.googleapis.com/snapshots.listTagBindings`  
 Dataform |  `dataform.googleapis.com/compilationResults.*`  
 `dataform.googleapis.com/compilationResults.create`  
 `dataform.googleapis.com/compilationResults.get`  
@@ -6901,11 +6934,7 @@ Cloud DNS |  `dns.googleapis.com/changes.*`
 `dns.googleapis.com/responsePolicyRules.get`  
 `dns.googleapis.com/responsePolicyRules.list`  
 `dns.googleapis.com/responsePolicyRules.update`  
-Document AI |  `documentai.googleapis.com/dataLabelingJobs.*`  
-`documentai.googleapis.com/dataLabelingJobs.cancel`  
-`documentai.googleapis.com/dataLabelingJobs.create`  
-`documentai.googleapis.com/dataLabelingJobs.list`  
-`documentai.googleapis.com/datasetSchemas.*`  
+Document AI |  `documentai.googleapis.com/datasetSchemas.*`  
 `documentai.googleapis.com/datasetSchemas.get`  
 `documentai.googleapis.com/datasetSchemas.update`  
 `documentai.googleapis.com/datasets.*`  
@@ -7257,6 +7286,13 @@ Firebase Data Connect |  `firebasedataconnect.googleapis.com/*.*`
 `firebasedataconnect.googleapis.com/services.get`  
 `firebasedataconnect.googleapis.com/services.introspectGraphql`  
 `firebasedataconnect.googleapis.com/services.list`  
+`firebasedataconnect.googleapis.com/services.postgrestCallFunction`  
+`firebasedataconnect.googleapis.com/services.postgrestDelete`  
+`firebasedataconnect.googleapis.com/services.postgrestInsert`  
+`firebasedataconnect.googleapis.com/services.postgrestQueryFunction`  
+`firebasedataconnect.googleapis.com/services.postgrestSelect`  
+`firebasedataconnect.googleapis.com/services.postgrestUpdate`  
+`firebasedataconnect.googleapis.com/services.postgrestUpsert`  
 `firebasedataconnect.googleapis.com/services.update`  
 Firebase Security Rules |  `firebaserules.googleapis.com/*.*`  
 `firebaserules.googleapis.com/releases.*`  
@@ -10917,6 +10953,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

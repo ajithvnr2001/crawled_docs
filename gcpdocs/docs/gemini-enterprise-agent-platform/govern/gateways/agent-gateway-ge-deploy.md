@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy/
 title: Route Gemini Enterprise traffic through Agent Gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:09.111702+00:00
+fetched_at: 2026-10-27T23:37:19.298698+00:00
 ---
 
 # Route Gemini Enterprise traffic through Agent Gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -127,38 +127,47 @@ Here is an example output for a properly configured gateway:
                 }
               }
             }' \
-            "https://discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_APP_LOCATION/collections/default_collection/engines/GE_APP_ID?updateMask=agentGatewaySetting.defaultEgressAgentGateway.name"
+            "https://ENDPOINT_LOCATION-discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_APP_LOCATION/collections/default_collection/engines/GE_APP_ID?updateMask=agentGatewaySetting.defaultEgressAgentGateway.name"
 
 Replace the following:
 
-        * `PROJECT_ID`: The project ID.
-        * `AGENT_GATEWAY_REGION`: The region of the Agent Gateway.
-        * `AGENT_GATEWAY_NAME`: The name of the Agent Gateway.
-        * `PROJECT_NUMBER`: The project number.
-        * `GE_APP_LOCATION`: The location of the Gemini Enterprise app (for example, `us` or `global`).
-        * `GE_APP_ID`: The ID of the Gemini Enterprise app.
+        * `PROJECT_ID`: the project ID.
+        * `AGENT_GATEWAY_REGION`: the region of the Agent Gateway.
+        * `AGENT_GATEWAY_NAME`: the name of the Agent Gateway.
+        * `ENDPOINT_LOCATION`: the multi-region prefix for the API endpoint that matches `GE_APP_LOCATION`. Specify `global`, `us`, or `eu`. For example, `eu` apps use `eu-discoveryengine.googleapis.com`. For `global` apps, `discoveryengine.googleapis.com` without a prefix is also supported.
+        * `PROJECT_NUMBER`: the project number.
+        * `GE_APP_LOCATION`: the location of the Gemini Enterprise app. Specify `global`, `us`, or `eu`.
+        * `GE_APP_ID`: the ID of the Gemini Enterprise app.
      2. To verify the app configuration, use the following command to retrieve your configuration and inspect the settings:
             
             curl -s -X GET \
             -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
             -H "X-Goog-User-Project: PROJECT_ID" \
             -H "Content-Type: application/json" \
-            "https://discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_LOCATION/collections/default_collection/engines/GE_APP_ID" \
+            "https://ENDPOINT_LOCATION-discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/GE_APP_LOCATION/collections/default_collection/engines/GE_APP_ID" \
             | jq '{name: .name, displayName: .displayName, agentGatewaySetting: .agentGatewaySetting}'
             
 
+Replace the following:
+
+        * `PROJECT_ID`: the project ID.
+        * `ENDPOINT_LOCATION`: the multi-region prefix for the API endpoint that matches `GE_APP_LOCATION`. Specify `global`, `us`, or `eu`.
+        * `PROJECT_NUMBER`: the project number.
+        * `GE_APP_LOCATION`: the location of the Gemini Enterprise app. Specify `global`, `us`, or `eu`.
+        * `GE_APP_ID`: the ID of the Gemini Enterprise app.
+
 Here is an example output for a properly configured app:
-            
-            {
-            "name": "projects/PROJECT_NUMBER/locations/GE_LOCATION/collections/default_collection/engines/GE_APP_ID",
-            "displayName": "GE_APP_ID",
-            "agentGatewaySetting": {
-              "defaultEgressAgentGateway": {
-                "name": "projects/PROJECT_ID/locations/AGENT_GATEWAY_REGION/agentGateways/AGENT_GATEWAY_NAME"
-              }
-            }
-            }
-            
+    
+    {
+    "name": "projects/PROJECT_NUMBER/locations/GE_APP_LOCATION/collections/default_collection/engines/GE_APP_ID",
+    "displayName": "GE_APP_ID",
+    "agentGatewaySetting": {
+      "defaultEgressAgentGateway": {
+        "name": "projects/PROJECT_ID/locations/AGENT_GATEWAY_REGION/agentGateways/AGENT_GATEWAY_NAME"
+      }
+    }
+    }
+    
 
   3. While egress governance is now enabled for your Gemini Enterprise app, your app does not automatically know which external resources on the Agent Registry it can interact with.
 
@@ -262,6 +271,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

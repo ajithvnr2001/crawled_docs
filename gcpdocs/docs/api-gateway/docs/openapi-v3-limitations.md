@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/openapi-v3-limitations/
 title: OpenAPI 3.x feature limitations \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:33:08.553774+00:00
+fetched_at: 2026-10-27T23:10:26.320625+00:00
 ---
 
 # OpenAPI 3.x feature limitations  |  API Gateway  |  Google Cloud Documentation
@@ -101,6 +101,7 @@ During Public Preview, the following limitations apply to Model Context Protocol
   * **Model Routing Mutual Exclusion** : You cannot use both MCP and Model Routing within the same API configuration.
   * **Unsupported MCP responses** : Operations that return empty bodies in the response, such as HTTP 204 responses, are not supported.
   * **Schema Discovery** : Complex nested object schemas derived from your OpenAPI specification may not render fully or correctly in the `tools/list` discovery response due to a known configuration processing limitation.
+  * **No tool-list change notifications** : The gateway doesn't emit `notifications/tools/list_changed`. After you deploy a new API config, clients must call `tools/list` again. See [Update exposed MCP tools](https://docs.cloud.google.com/api-gateway/docs/mcp-configure#update-mcp-tools).
 
 
 
@@ -150,6 +151,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

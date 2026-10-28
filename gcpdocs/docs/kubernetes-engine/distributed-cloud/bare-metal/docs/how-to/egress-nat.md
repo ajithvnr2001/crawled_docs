@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/egress-nat/
 title: Configure an egress NAT gateway \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:14.730506+00:00
+fetched_at: 2026-10-27T23:54:32.939711+00:00
 ---
 
 # Configure an egress NAT gateway  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,19 +22,13 @@ Send feedback
 
 #  Configure an egress NAT gateway Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to set up an egress NAT gateway for Google Distributed Cloud. This gateway provides persistent, deterministic SNAT IP addresses for the egress traffic from your clusters. When you run workloads that have egress user traffic (outside of your clusters), your customers want to identify this traffic by using a few deterministic IP addresses. This allows your customers to establish IP-based security measures, like allowlisting policies.
+An egress NAT gateway in Google Distributed Cloud lets you assign persistent, deterministic SNAT IP addresses to outbound traffic from your clusters. With predictable source addresses, external networks can apply IP-based security measures, such as allowlisting policies. The egress NAT gateway is an advanced networking feature built on [Dataplane V2](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/dataplane-v2).
 
-This page is for Networking specialists who design and architect the network for their organization, and install, configure, and support network equipment. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+## How the egress NAT gateway works
 
 The egress NAT gateway is enabled using two custom resources. For a given namespace, the `NetworkGatewayGroup` custom resource specifies floating IP addresses that can be configured on the network interface of a Node that is chosen to act as a gateway. The `EgressNatPolicy` custom resource lets you specify egress routing policies to control the traffic on the egress gateway.
 
 If you don't set up an egress NAT gateway, or if egress traffic doesn't meet traffic selection rules, egress traffic from a given Pod to a destination outside your cluster is masqueraded to the IP address of the node where the Pod is running. In this scenario, there is no guarantee that all egress traffic from a particular Pod will have the same source IP address or will masquerade to the same Node IP address.
-
-Egress NAT gateway is an advanced networking offering built on top of [Dataplane V2](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/dataplane-v2).
-
-**Note:** If your nodes run Ubuntu 18.04, the Linux kernel must be version 5.4 or higher. For more information, see [Configure Ubuntu](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-os/ubuntu).
-
-## How the egress NAT gateway works
 
 The egress traffic selection logic is based on a namespace selector, a Pod selector, and a set of destination IP address ranges in CIDR block notation. To illustrate how the egress NAT gateway works, consider the flow of a packet from a Pod to an external consumer and the corresponding response. Assume the Node subnet has IP addresses in the 192.168.1.0/24 CIDR block.
 
@@ -62,6 +56,10 @@ The traffic's destination address is an endpoint outside of the cluster.
 
 
 
+
+## Before you begin
+
+If your nodes run Ubuntu 18.04, the Linux kernel must be version 5.4 or higher. For more information, see [Configure Ubuntu](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-os/ubuntu).
 
 ## Configure floating IP addresses for Node traffic
 
@@ -409,6 +407,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

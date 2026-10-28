@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/how-to/breaking-up-repo/
 title: Break up a repository into multiple repositories \u00a0|\u00a0 Config Sync \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:09.801417+00:00
+fetched_at: 2026-10-28T02:29:31.376807+00:00
 ---
 
 # Break up a repository into multiple repositories  |  Config Sync  |  Google Cloud Documentation
@@ -22,22 +22,24 @@ Send feedback
 
 #  Break up a repository into multiple repositories Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page shows you how to safely break one root repository into two or more root repositories. The steps can also be applied to namespace repositories.
+When you manage thousands of Kubernetes resources in Config Sync, splitting a large root or namespace repository into multiple smaller repositories helps you improve reconciliation speed and prevent synchronization failures.
 
-A repository synced by Config Sync refers to the combination of a Git repository, a branch, a revision, and a directory.
+In Config Sync, a synced repository refers to the combination of a Git repository, branch, revision, and directory. By splitting a monolithic repository across multiple RootSync or RepoSync objects, you reduce the number of resources that each reconciler tracks and applies.
 
-When there are a large number of resources, for example more than 5000, in your root repository, Config Sync might not behave well for the following two reasons:
+## Why large repositories cause sync issues
 
-  1. The ResourceGroup object might exceed the etcd object size limit. The ResourceGroup object records the Group, Kind, Namespace, and Name of all the resources in the Git repository. Having a large number of resources leads to a large ResourceGroup object.
-  2. It takes a longer time to sync all of the resources than a repository with a smaller number of resources. Config Sync applies the resources sequentially to the cluster. Sometimes the resources can't be applied successfully the first time, and Config Sync has to retry applying them.
+When your root repository contains a large number of resources—for example,more than 5,000—Config Sync might experience performance or sync issues for the following reasons:
+
+  * The ResourceGroup object might exceed the etcd object size limit. The ResourceGroup object records the Group, Kind, Namespace, and Name of all the resources in the Git repository. A large number of resources can result in a large ResourceGroup object.
+  * Syncing a large repository takes longer than syncing a smaller repository because Config Sync applies resources sequentially to the cluster. If Config Sync can't apply a resource on the first attempt, it must retry.
 
 
 
-When you encounter these issues, you can break up your root repository from one into multiple so that each root repository has fewer resources.
+When you encounter these issues, you should break up your root repository into multiple repositories so that each root repository manages fewer resources.
 
 ## Break up an unstructured root repository
 
-RootSync objects are used to explain the steps. The steps can also be applied to the RepoSync objects.
+The following steps use RootSync objects as an example, but you can apply these steps to RepoSync objects, too.
 
 **Note:** Objects which [depend on](https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/how-to/declare-resource-dependency) each other must be declared in the same repository. When you split up repositories, keep dependent objects in the same RootSync or RepoSync.
 
@@ -204,6 +206,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

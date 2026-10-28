@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities/
 title: GatewayClass capabilities \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:22:05.802598+00:00
+fetched_at: 2026-10-27T19:53:58.845854+00:00
 ---
 
 # GatewayClass capabilities  |  GKE networking  |  Google Cloud Documentation
@@ -102,10 +102,10 @@ Cross-region backend load balancing |  |  |  |  |  |  |  |  |
 Cross-project load balancing | Backend services and NEGs must be in the same project  
 (Managed by the GKE Gateway controller)  
 Cross-namespace routing |  |  |  |  |  |  |  |  |   
-Host/Path routing | Prefix or exact match | Prefix, exact match or [regular expression](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#regex-matching) | Prefix or exact match  
-Header-based routing | Exact match | Exact match or [regular expression](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#regex-matching) | Exact match  
+Host/Path routing | Prefix, exact match or [regular expression](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#regex-matching) | Prefix or exact match  
+Header-based routing | Exact match or [regular expression](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#regex-matching) | Exact match  
 [Path redirects](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#configure_path_redirects) |  |  |  |  |  |  |  |  |   
-[URL rewrites](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#configure_url_rewrites) |  |  |  |  |  |  |  |  |   
+[URL rewrites](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#configure_url_rewrites) | Prefix match or regular expression |  |   
 [CORS](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways#configure-cors) |  |  |  |  |  |  |  |  |   
 [Traffic splitting](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/traffic-management#splitting) |  |  |  |  |  |  |  |  |   
 [Traffic mirroring](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-multi-cluster-gateways#traffic-mirror) |  |  |  |  |  |  |  |  |   
@@ -337,11 +337,12 @@ For more information, see [`spec.rules`](https://gateway-api.sigs.k8s.io/referen
 
 Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` | `gke-l7-regional-external-managed` | `gke-l7-regional-external-managed-mc` | `gke-l7-cross-regional-internal-managed-mc` | `gke-l7-rilb` | `gke-l7-rilb-mc` | `gke-l7-gxlb` | `gke-l7-gxlb-mc`  
 ---|---|---|---|---|---|---|---|---|---  
-`path.type` | `Exact, PathPrefix` | `Exact, PathPrefix, RegularExpression` | `Exact, PathPrefix`  
+`path.type` | `Exact, PathPrefix, RegularExpression` | `Exact`  
 `path.value` |  |  |  |  |  |  |  |  |   
-`headers.type` | `Exact` | `Exact, RegularExpression` | `Exact`  
+`headers.type` | `Exact, RegularExpression` | `Exact`  
 `headers.name` |  |  |  |  |  |  |  |  |   
 `headers.value` |  |  |  |  |  |  |  |  |   
+`queryParams.type` | `Exact, RegularExpression` | `Exact`  
 `queryParams` |  |  |  |  |  |  |  |  |   
 `method` |  |  |  |  |  |  |  |  |   
   
@@ -385,7 +386,7 @@ Fields | `gke-l7-global-external-managed` | `gke-l7-global-external-managed-mc` 
 `requestRedirect.port` |  |  |  |  |  |  |  |  |   
 `requestRedirect.statusCode` |  |  |  |  |  |  |  |  |   
 `urlRewrite.hostname` |  |  |  |  |  |  |  |  |   
-`urlRewrite.path` | `replacePrefixMatch` |  |   
+`urlRewrite.path` | `replacePrefixMatch`, `regexModifier` (with `GCPHTTPFilter`) |  |   
   
 ### ReferenceGrant
 
@@ -425,6 +426,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

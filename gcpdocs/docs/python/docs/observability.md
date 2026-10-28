@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/python/docs/observability/
 title: Instrumenting Google Cloud Python client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:45:46.152364+00:00
+fetched_at: 2026-10-28T01:38:25.529502+00:00
 ---
 
 # Instrumenting Google Cloud Python client libraries  |  Google Cloud Documentation
@@ -182,7 +182,7 @@ The following self-contained example demonstrates configuring standard OpenTelem
     
     
     
-    [get_secret_version_trace.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/secretmanager/snippets/get_secret_version_trace.py#L19-L73)
+    [get_secret_version_trace.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/secretmanager/snippets/get_secret_version_trace.py#L19-L73)
 
 ### 2\. Programmatic Configuration (`ClientOptions`)
 
@@ -237,7 +237,7 @@ If you prefer not to use environment variables or need to pass different `Tracer
     
     
     
-    [get_secret_version_trace_client_options.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/secretmanager/snippets/get_secret_version_trace_client_options.py#L19-L65)
+    [get_secret_version_trace_client_options.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/secretmanager/snippets/get_secret_version_trace_client_options.py#L19-L65)
 
 ### 3\. Asynchronous Client Example (`SecretManagerServiceAsyncClient`)
 
@@ -301,7 +301,7 @@ The following sample defines an asynchronous coroutine (`async def get_secret_ve
     
     
     
-    [get_secret_version_trace_async.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/secretmanager/snippets/get_secret_version_trace_async.py#L19-L74)
+    [get_secret_version_trace_async.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/secretmanager/snippets/get_secret_version_trace_async.py#L19-L74)
 
 **Context Propagation in Asynchronous Code:** OpenTelemetry Python automatically propagates trace context across `await` points and concurrent tasks using Python's built-in `contextvars`. Even when multiple coroutines yield and resume execution concurrently, each client call correctly preserves its active parent span and trace context.
 
@@ -323,6 +323,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

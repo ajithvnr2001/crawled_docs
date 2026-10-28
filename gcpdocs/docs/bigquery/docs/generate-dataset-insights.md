@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/generate-dataset-insights/
 title: Generate dataset insights \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:34.833608+00:00
+fetched_at: 2026-10-27T20:27:34.302452+00:00
 ---
 
 # Generate dataset insights  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Generate dataset insights
 
-This document describes how to generate dataset insights for BigQuery datasets and Apache Iceberg namespaces (which are represented as datasets in BigQuery). Dataset insights help you understand relationships between tables in a dataset or namespace by generating relationship graphs and cross-table queries.
-
-Dataset insights help you accelerate the exploration of datasets and namespaces with multiple tables by automatically discovering and visualizing relationships between tables in a graph, identifying primary-key and foreign-key relationships, and generating sample cross-table queries. This is useful for understanding data structure without documentation, discovering schema-defined, usage-based, or AI-inferred relationships between tables, and generating complex queries that join multiple tables.
+Data insights help you understand relationships between tables in BigQuery datasets and Apache Iceberg namespaces by discovering and visualizing relationships between tables in a graph, identifying schema-defined, usage-based, or AI-inferred relationships, and generating sample cross-table queries.
 
 For an overview of table and dataset insights, see [Data insights overview](https://docs.cloud.google.com/bigquery/docs/data-insights).
 
@@ -293,6 +291,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

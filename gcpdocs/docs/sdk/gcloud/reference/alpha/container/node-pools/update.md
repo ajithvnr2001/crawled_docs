@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/container/node-pools/update/
 title: gcloud alpha container node-pools update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:32.257391+00:00
+fetched_at: 2026-10-27T21:40:39.841210+00:00
 ---
 
 # gcloud alpha container node-pools update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha container node-pools update - updates a node pool in a running clus
 SYNOPSIS
     
 
-`gcloud alpha container node-pools update` `NAME` (`--accelerator`=[`type`=`TYPE`,[`count`=`COUNT`,`gpu-driver-version`=`GPU_DRIVER_VERSION`,`gpu-partition-size`=`GPU_PARTITION_SIZE`,`gpu-sharing-strategy`=`GPU_SHARING_STRATEGY`,`max-shared-clients-per-gpu`=`MAX_SHARED_CLIENTS_PER_GPU`],…] | `--confidential-node-type`=`CONFIDENTIAL_NODE_TYPE` | `--consolidation-delay`=`CONSOLIDATION_DELAY` | `--containerd-config-from-file`=`PATH_TO_FILE` | `--enable-confidential-nodes` | `--enable-gvnic` | `--enable-image-streaming` | `--enable-insecure-kubelet-readonly-port` | `--enable-kernel-module-signature-enforcement` | `--enable-private-nodes` | `--enable-queued-provisioning` | `--flex-start` | `--labels`=[`KEY`=`VALUE`,…] | `--logging-variant`=`LOGGING_VARIANT` | `--max-run-duration`=`MAX_RUN_DURATION` | `--network-performance-configs`=[`PROPERTY`=`VALUE`,…] | `--node-architecture-taint-behavior`=`NODE_ARCHITECTURE_TAINT_BEHAVIOR` | `--node-labels`=[`NODE_LABEL`,…] | `--node-locations`=`ZONE`,[`ZONE`,…] | `--node-taints`=[`NODE_TAINT`,…] | `--resource-manager-tags`=[`KEY`=`VALUE`,…] | `--storage-pools`=`STORAGE_POOL`,[…] | `--system-config-from-file`=`PATH_TO_FILE` | `--tags`=[`TAG`,…] | `--windows-os-version`=`WINDOWS_OS_VERSION` | `--workload-metadata`=`WORKLOAD_METADATA` | `--add-maintenance-exclusion-until-end-of-support` | `--remove-maintenance-exclusion-until-end-of-support` | `--autoscaled-rollout-policy`=[`wait-for-drain-duration`=`WAIT-FOR-DRAIN-DURATION`] `--enable-blue-green-upgrade` `--enable-surge-upgrade` `--max-surge-upgrade`=`MAX_SURGE_UPGRADE` `--max-unavailable-upgrade`=`MAX_UNAVAILABLE_UPGRADE` `--node-pool-soak-duration`=`NODE_POOL_SOAK_DURATION` `--standard-rollout-policy`=[`batch-node-count`=`BATCH_NODE_COUNT`,`batch-percent`=`BATCH_NODE_PERCENTAGE`,`batch-soak-duration`=`BATCH_SOAK_DURATION`,…] | `--boot-disk-provisioned-iops`=`BOOT_DISK_PROVISIONED_IOPS` `--boot-disk-provisioned-throughput`=`BOOT_DISK_PROVISIONED_THROUGHPUT` `--disk-size`=`DISK_SIZE` `--disk-type`=`DISK_TYPE` `--machine-type`=`MACHINE_TYPE` | `--enable-autoprovisioning` `--enable-autoscaling` `--location-policy`=`LOCATION_POLICY` `--max-nodes`=`MAX_NODES` `--min-nodes`=`MIN_NODES` `--total-max-nodes`=`TOTAL_MAX_NODES` `--total-min-nodes`=`TOTAL_MIN_NODES` | `--enable-autorepair` `--enable-autoupgrade` | `--node-drain-grace-period-seconds`=`NODE_DRAIN_GRACE_PERIOD_SECONDS` `--node-drain-pdb-timeout-seconds`=`NODE_DRAIN_PDB_TIMEOUT_SECONDS` `--respect-pdb-during-node-pool-deletion`) [`--async`] [`--cluster`=`CLUSTER`] [`--location`=`LOCATION` | `--region`=`REGION` | `--zone`=`ZONE`, `-z` `ZONE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha container node-pools update` `NAME` (`--accelerator`=[`type`=`TYPE`,[`count`=`COUNT`,`gpu-driver-version`=`GPU_DRIVER_VERSION`,`gpu-partition-size`=`GPU_PARTITION_SIZE`,`gpu-sharing-strategy`=`GPU_SHARING_STRATEGY`,`max-shared-clients-per-gpu`=`MAX_SHARED_CLIENTS_PER_GPU`],…] | `--confidential-node-type`=`CONFIDENTIAL_NODE_TYPE` | `--consolidation-delay`=`CONSOLIDATION_DELAY` | `--containerd-config-from-file`=`PATH_TO_FILE` | `--enable-confidential-nodes` | `--enable-gvnic` | `--enable-image-streaming` | `--enable-insecure-kubelet-readonly-port` | `--enable-kernel-module-signature-enforcement` | `--enable-private-nodes` | `--enable-queued-provisioning` | `--flex-start` | `--labels`=[`KEY`=`VALUE`,…] | `--logging-variant`=`LOGGING_VARIANT` | `--max-run-duration`=`MAX_RUN_DURATION` | `--network-performance-configs`=[`PROPERTY`=`VALUE`,…] | `--node-architecture-taint-behavior`=`NODE_ARCHITECTURE_TAINT_BEHAVIOR` | `--node-labels`=[`NODE_LABEL`,…] | `--node-locations`=`ZONE`,[`ZONE`,…] | `--node-taints`=[`NODE_TAINT`,…] | `--resource-manager-tags`=[`KEY`=`VALUE`,…] | `--storage-pools`=`STORAGE_POOL`,[…] | `--system-config-from-file`=`PATH_TO_FILE` | `--tags`=[`TAG`,…] | `--windows-os-version`=`WINDOWS_OS_VERSION` | `--workload-metadata`=`WORKLOAD_METADATA` | `--add-maintenance-exclusion-until-end-of-support` | `--remove-maintenance-exclusion-until-end-of-support` | `--autoscaled-rollout-policy`=[`wait-for-drain-duration`=`WAIT-FOR-DRAIN-DURATION`] `--enable-blue-green-upgrade` `--enable-surge-upgrade` `--max-surge-upgrade`=`MAX_SURGE_UPGRADE` `--max-unavailable-upgrade`=`MAX_UNAVAILABLE_UPGRADE` `--node-pool-soak-duration`=`NODE_POOL_SOAK_DURATION` `--standard-rollout-policy`=[`batch-node-count`=`BATCH_NODE_COUNT`,`batch-percent`=`BATCH_NODE_PERCENTAGE`,`batch-soak-duration`=`BATCH_SOAK_DURATION`,…] | `--boot-disk-provisioned-iops`=`BOOT_DISK_PROVISIONED_IOPS` `--boot-disk-provisioned-throughput`=`BOOT_DISK_PROVISIONED_THROUGHPUT` `--disk-size`=`DISK_SIZE` `--disk-type`=`DISK_TYPE` `--machine-type`=`MACHINE_TYPE` | `--enable-autoprovisioning` `--enable-autoscaling` `--location-policy`=`LOCATION_POLICY` `--max-nodes`=`MAX_NODES` `--min-nodes`=`MIN_NODES` `--total-max-nodes`=`TOTAL_MAX_NODES` `--total-min-nodes`=`TOTAL_MIN_NODES` | `--enable-autorepair` `--enable-autoupgrade` | `--node-drain-grace-period-seconds`=`NODE_DRAIN_GRACE_PERIOD_SECONDS` `--node-drain-pdb-timeout-seconds`=`NODE_DRAIN_PDB_TIMEOUT_SECONDS` `--respect-pdb-during-node-pool-deletion`) [`--async`] [`--cluster`=`CLUSTER`] [`--node-config-update-mode`=`NODE_CONFIG_UPDATE_MODE`] [`--location`=`LOCATION` | `--region`=`REGION` | `--zone`=`ZONE`, `-z` `ZONE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` `gcloud alpha container node-pools update` updates a node pool in a Google Kubernetes Engine cluster. 
 EXAMPLES
@@ -713,6 +713,15 @@ OPTIONAL FLAGS
      Return immediately, without waiting for the operation in progress to complete. 
 `--cluster`=`CLUSTER`
      The name of the cluster. Overrides the default `container/cluster` property value for this command invocation. 
+`--node-config-update-mode`=`NODE_CONFIG_UPDATE_MODE`
+     Specifies the rollout strategy to apply node pool configuration updates in-place. 
+
+  * `LIVE_UPDATE_WITHOUT_DRAIN` \- Node configuration updates are applied in-place on the running VM without VM recreation and without draining workloads/pods. 
+
+
+
+`NODE_CONFIG_UPDATE_MODE` must be (only one value is supported): `LIVE_UPDATE_WITHOUT_DRAIN`. 
+
 At most one of these can be specified: 
 
 `--location`=`LOCATION`
@@ -739,6 +748,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

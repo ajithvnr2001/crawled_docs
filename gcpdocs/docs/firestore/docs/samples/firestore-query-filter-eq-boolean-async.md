@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-filter-eq-boolean-async/
 title: Query a Firestore collection with a boolean eq filter (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:18:23.684291+00:00
+fetched_at: 2026-10-27T16:28:30.343876+00:00
 ---
 
 # Query a Firestore collection with a boolean eq filter (async)  |  Google Cloud Documentation

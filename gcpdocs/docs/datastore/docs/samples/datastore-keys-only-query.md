@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-keys-only-query/
 title: Keys only query \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:14.883032+00:00
+fetched_at: 2026-10-27T22:58:29.406993+00:00
 ---
 
 # Keys only query  |  Firestore in Datastore mode  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ To authenticate to Datastore mode, set up Application Default Credentials. For m
     
     Query query = new Query("Task")
     {
-        Projection = { &quot;__key__" }
+        Projection = { "__key__" }
     };
 
 ### Go

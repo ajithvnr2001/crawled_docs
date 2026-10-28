@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/parameterized-queries/
 title: Run parameterized queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:25:51.859825+00:00
+fetched_at: 2026-10-27T23:37:18.993934+00:00
 ---
 
 # Run parameterized queries  |  BigQuery  |  Google Cloud Documentation
@@ -21,20 +21,17 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Run parameterized queries
 
-When querying BigQuery data using GoogleSQL syntax, you can use parameters to protect queries made from user input against [SQL injection](https://en.wikipedia.org/wiki/SQL_injection). The parameters substitute arbitrary expressions in your GoogleSQL queries.
+Parameterized queries in BigQuery let you substitute arbitrary expressions directly into your GoogleSQL statements. Passing parameters for data types like arrays, timestamps, structs, and ranges lets you securely execute queries made from user input while helping to protect your data against [SQL injection](https://en.wikipedia.org/wiki/SQL_injection) attacks.
 
-You pass query parameters for various data types, including the following:
+## Limitations
 
-  * Arrays
-  * Timestamps
-  * Structs
-  * Ranges
+  * Query parameters are only supported in [GoogleSQL syntax](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql).
+  * Parameters can't be used as substitutes for identifiers, column names, table names, or other parts of the query.
+  * A query parameter value can't be `NULL`.
 
 
 
 ## Pass a parameter in a query
-
-Query parameters are only supported in [GoogleSQL syntax](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql). Parameters cannot be used as substitutes for identifiers, column names, table names, or other parts of the query. A query parameter value can't be `NULL`.
 
 To specify a named parameter, use the `@` character followed by an [identifier](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/lexical#identifiers), such as `@param_name`. Alternatively, use the placeholder value `?` to specify a positional parameter. A query can use positional or named parameters, but not both.
 
@@ -1614,6 +1611,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

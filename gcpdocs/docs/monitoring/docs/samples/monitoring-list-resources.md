@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/docs/samples/monitoring-list-resources/
 title: List monitored resources \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:00:06.222038+00:00
+fetched_at: 2026-10-27T21:21:51.543534+00:00
 ---
 
 # List monitored resources  |  Cloud Monitoring  |  Google Cloud Documentation

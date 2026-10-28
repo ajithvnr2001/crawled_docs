@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/marketplace/docs/partners/offers/manage-entitlements/
 title: Manage entitlements for private offers \u00a0|\u00a0 Google Cloud Marketplace Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:45:59.734233+00:00
+fetched_at: 2026-10-27T21:58:59.834584+00:00
 ---
 
 # Manage entitlements for private offers  |  Google Cloud Marketplace Partners  |  Google Cloud Documentation
@@ -24,19 +24,21 @@ Send feedback
 
 When a customer purchases a [private offer](https://docs.cloud.google.com/marketplace/docs/partners/offers), Google creates an _entitlement_ , which indicates that the customer has bought the offer from Cloud Marketplace.
 
-This document reviews how to manage entitlements for your private offers by using Producer Portal and the Partner Procurement API. You can use Partner Procurement API to approve offer entitlements. For other offer entitlement management tasks, you must use the Partner Procurement API.
+This document reviews how to manage entitlements for your private offers by using Producer Portal and the Partner Procurement API. You can use Producer Portal or the Partner Procurement API to approve offer entitlements. For other offer entitlement management tasks, you must use the Partner Procurement API.
 
 **Caution:** If you've turned on [automatic offer approval](https://docs.cloud.google.com/marketplace/docs/partners/offers/automatic-approval) for your software as a service (SaaS) product, you receive different Pub/Sub messages from those described in this document. You should instead refer to [Manage entitlements for private offers with automatic offer approval](https://docs.cloud.google.com/marketplace/docs/partners/offers/manage-entitlements-automatic-approval).
 
 ## Approve entitlements by using Producer Portal
 
-You can use Partner Procurement API to approve entitlements for private offers. To approve an entitlement, complete the following steps:
+You can use Producer Portal to approve entitlements for private offers that have the [status](https://docs.cloud.google.com/marketplace/docs/partners/offers/view-offer-status) **Needs your approval**. To approve an entitlement, complete the following steps:
 
   1. In Producer Portal, go to the **Private Offers** page.
 
-  2. Click **Manage your offers** more_vert.
+  2. For the offer that you want to approve, click **Manage your offers** more_vert, and then click **Approve**.
 
-**Note:** If you aren't able to approve the entitlement by using Partner Procurement API, verify that you've [approved the customer's account resource](https://docs.cloud.google.com/marketplace/docs/partners/offers/manage-accounts).
+  3. In the **Approve offer** dialog, select the **I have done everything I need to do on my end for this customer to use my product** checkbox, and then click **Approve**.
+
+**Note:** If you aren't able to approve the entitlement by using Producer Portal, verify that you've [approved the customer's account resource](https://docs.cloud.google.com/marketplace/docs/partners/offers/manage-accounts).
 
 
 
@@ -167,6 +169,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

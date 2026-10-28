@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/docs/samples/monitoring-create-metric/
 title: Create a custom metric \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:00:57.672343+00:00
+fetched_at: 2026-10-27T21:21:28.886121+00:00
 ---
 
 # Create a custom metric  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -298,10 +298,10 @@ To authenticate to Monitoring, set up Application Default Credentials. For more 
     client = Google::Cloud::[Monitoring](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest/Google-Cloud-Monitoring.html).[metric_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-monitoring/latest/Google-Cloud-Monitoring.html)
     project_name = client.project_path project: project_id
     
-    descriptor = Google::Api::[MetricDescriptor](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest/Google-Api-MetricDescriptor.html).new(
+    descriptor = Google::Api::[MetricDescriptor](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest/Google-Api-MetricDescriptor.html).new(
       type:        metric_type,
-      metric_kind: Google::Api::[MetricDescriptor](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest/Google-Api-MetricDescriptor.html)::[MetricKind](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest/Google-Api-MetricDescriptor-MetricKind.html)::GAUGE,
-      value_type:  Google::Api::[MetricDescriptor](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest/Google-Api-MetricDescriptor.html)::[ValueType](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-migration-v2/latest/Google-Api-MetricDescriptor-ValueType.html)::DOUBLE,
+      metric_kind: Google::Api::[MetricDescriptor](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest/Google-Api-MetricDescriptor.html)::[MetricKind](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest/Google-Api-MetricDescriptor-MetricKind.html)::GAUGE,
+      value_type:  Google::Api::[MetricDescriptor](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest/Google-Api-MetricDescriptor.html)::[ValueType](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-logging-v2/latest/Google-Api-MetricDescriptor-ValueType.html)::DOUBLE,
       description: "This is a simple example of a custom metric."
     )
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/dataproc/clusters/update/
 title: gcloud dataproc clusters update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:50:12.885989+00:00
+fetched_at: 2026-10-27T21:41:08.155952+00:00
 ---
 
 # gcloud dataproc clusters update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud dataproc clusters update - update labels and/or the number of worker node
 SYNOPSIS
     
 
-`gcloud dataproc clusters update` (`CLUSTER` : `--region`=`REGION`) [`--async`] [`--graceful-decommission-timeout`=`GRACEFUL_DECOMMISSION_TIMEOUT`] [`--min-secondary-worker-fraction`=`MIN_SECONDARY_WORKER_FRACTION`] [`--num-secondary-workers`=`NUM_SECONDARY_WORKERS`] [`--num-workers`=`NUM_WORKERS`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--autoscaling-policy`=`AUTOSCALING_POLICY` | `--disable-autoscaling`] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`--delete-expiration-time`=`DELETE_EXPIRATION_TIME` | `--delete-max-age`=`DELETE_MAX_AGE` | `--no-delete-max-age`] [`--delete-max-idle`=`DELETE_MAX_IDLE` | `--no-delete-max-idle`] [`--identity-config-file`=`IDENTITY_CONFIG_FILE` | `--add-user-mappings`=[`KEY`=`VALUE`,…] `--remove-user-mappings`=[`KEY`,…]] [`--stop-expiration-time`=`STOP_EXPIRATION_TIME` | `--stop-max-age`=`STOP_MAX_AGE` | `--no-stop-max-age`] [`--stop-max-idle`=`STOP_MAX_IDLE` | `--no-stop-max-idle`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud dataproc clusters update` (`CLUSTER` : `--region`=`REGION`) [`--async`] [`--graceful-decommission-timeout`=`GRACEFUL_DECOMMISSION_TIMEOUT`] [`--min-secondary-worker-fraction`=`MIN_SECONDARY_WORKER_FRACTION`] [`--num-secondary-workers`=`NUM_SECONDARY_WORKERS`] [`--num-workers`=`NUM_WORKERS`] [`--secondary-worker-flexible-config`=[`KEY`=`VALUE`,…]] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--worker-flexible-config`=[`KEY`=`VALUE`,…]] [`--autoscaling-policy`=`AUTOSCALING_POLICY` | `--disable-autoscaling`] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`--delete-expiration-time`=`DELETE_EXPIRATION_TIME` | `--delete-max-age`=`DELETE_MAX_AGE` | `--no-delete-max-age`] [`--delete-max-idle`=`DELETE_MAX_IDLE` | `--no-delete-max-idle`] [`--identity-config-file`=`IDENTITY_CONFIG_FILE` | `--add-user-mappings`=[`KEY`=`VALUE`,…] `--remove-user-mappings`=[`KEY`,…]] [`--stop-expiration-time`=`STOP_EXPIRATION_TIME` | `--stop-max-age`=`STOP_MAX_AGE` | `--no-stop-max-age`] [`--stop-max-idle`=`STOP_MAX_IDLE` | `--no-stop-max-idle`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Update the number of worker nodes and/or the labels in a cluster. 
 EXAMPLES
@@ -106,11 +106,15 @@ FLAGS
      The new number of secondary worker nodes in the cluster. 
 `--num-workers`=`NUM_WORKERS`
      The new number of worker nodes in the cluster. 
+`--secondary-worker-flexible-config`=[`KEY`=`VALUE`,…]
+     The flexible instance group configuration for secondary workers in High Obtainability (HO) clusters. Supported keys: num-instances (non-negative integer). 
 `--update-labels`=[`KEY`=`VALUE`,…]
      List of label KEY=VALUE pairs to update. If a label exists, its value is modified. Otherwise, a new label is created. 
 
 Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. Values must contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
 
+`--worker-flexible-config`=[`KEY`=`VALUE`,…]
+     The flexible instance group configuration for primary workers in High Obtainability (HO) clusters. Supported keys: num-instances (positive integer). 
 At most one of these can be specified: 
 
 Autoscaling policy resource - The autoscaling policy to use. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
@@ -221,6 +225,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

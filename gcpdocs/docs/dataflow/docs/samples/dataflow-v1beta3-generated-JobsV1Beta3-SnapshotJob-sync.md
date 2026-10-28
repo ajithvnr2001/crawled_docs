@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-v1beta3-generated-JobsV1Beta3-SnapshotJob-sync/
 title: Snapshot the state of a streaming job \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:07.831451+00:00
+fetched_at: 2026-10-27T17:01:34.684950+00:00
 ---
 
 # Snapshot the state of a streaming job  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/bigquery-agent-analytics/
 title: Use BigQuery agent analytics \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:26:01.264325+00:00
+fetched_at: 2026-10-28T02:29:11.311185+00:00
 ---
 
 # Use BigQuery agent analytics  |  Google Cloud Documentation
@@ -56,6 +56,7 @@ To capture your agent's interaction telemetry (requests, responses, tool calls, 
   * **Orchestration framework plugins** : use standard logging plugins provided by your agent orchestration toolkit. For example, the `BigQueryAgentAnalyticsPlugin` in the Agent Development Kit (ADK) hooks into the agent runner to automatically intercept, serialize, and stream events.
   * **Framework callback handlers** : integrate standard callbacks in popular agent environments. For example, you can use the built-in BigQuery handler in LangGraph and LangChain to intercept and forward traces.
   * **Direct API ingestion** : for custom or proprietary frameworks, use the Google Cloud client libraries to stream structured events directly to your events table using the Storage Write API (gRPC).
+  * **Conversational analytics data agents** : enable built-in conversation logging when you [configure settings for a BigQuery data agent](https://docs.cloud.google.com/bigquery/docs/create-data-agents#configure_settings) in BigQuery Studio or through the Conversational Analytics API to automatically stream [conversation events](https://docs.cloud.google.com/bigquery/docs/conversation-logging-overview) to a destination BigQuery table and [analyze conversation logs](https://docs.cloud.google.com/bigquery/docs/analyze-conversation-logs).
 
 
 
@@ -141,7 +142,7 @@ The snippet uses the following components:
      * `table_id`: the specific table storing telemetry events (`agent_events` by default).
   3. **Reconstruct a session trace** : Fetch a specific conversation session to visualize and review the exact sequence of events:
          
-         trace = client.get_trace(
+         trace = client.get_session_trace(
              session_id="YOUR_SESSION_ID"
          )
          trace.render()
@@ -153,25 +154,24 @@ The snippet uses the following components:
      * `YOUR_SESSION_ID`: the unique ID of the session you want to inspect.
   4. **Run automated evaluations** : Programmatically score session trajectories or check for regression against a golden test suite:
          
-         from bigquery_agent_analytics.evaluators import CodeEvaluator, LLMAsJudge
-         from bigquery_agent_analytics.grader_pipeline import GraderPipeline
-         
-         # Create a grader pipeline with deterministic and semantic metrics
-         evaluator = GraderPipeline(
-             graders=[
-                 CodeEvaluator.latency(threshold_ms=5000),
-                 LLMAsJudge.correctness(),
-             ]
+         from bigquery_agent_analytics import (
+             LLMAsJudge,
+             TraceFilter,
          )
-         report = client.evaluate(evaluator, session_ids=["session_1", "session_2"])
+         
+         # Run semantic evaluations across target sessions
+         evaluator = LLMAsJudge.correctness()
+         filters = TraceFilter(session_ids=["session_1", "session_2"])
+         
+         report = client.evaluate(evaluator, filters=filters)
          print(f"Evaluation Pass Rate: {report.pass_rate:.2%}")
          
 
 The snippet uses the following components:
 
-     * `evaluator`: the structured `GraderPipeline` compiled logic composing heterogeneous rule-based and semantic evaluation metrics.
-     * `session_ids`: the list of session ID strings to run batch evaluations against in BigQuery.
-     * `report`: the resulting `EvaluationReport` object containing raw session grades, metric summaries, trial stats, and auto-rater feedback.
+     * `evaluator`: the semantic (`LLMAsJudge`) evaluator used to score sessions (you can also run rule-based `SystemEvaluator` checks or combine evaluators into a weighted `GraderPipeline`).
+     * `filters`: the `TraceFilter` instance specifying the `session_ids` list (or time window and agent filters) to run batch evaluations against in BigQuery.
+     * `report`: the resulting `EvaluationReport` object containing raw session grades, metric summaries, and auto-rater feedback.
 
 
 
@@ -194,6 +194,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -1,16 +1,52 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/
 title: Monitor the columnar engine \u00a0|\u00a0 AlloyDB Omni using RPM: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:40:52.473886+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T17:53:42.291573+00:00
 ---
 
 # Monitor the columnar engine  |  AlloyDB Omni using RPM: 18.4.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/
 
-This page documents AlloyDB Omni version **18.4.0** using the **RPM** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
+[ Skip to main content ](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/)
+  * [Deutsch](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/?hl=ko)
 
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/alloydb-color.svg) ](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/overview)
+  * [ AlloyDB Omni ](https://docs.cloud.google.com/alloydb/omni/docs)
+  * [ RPM: 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/overview)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Verify usage of the columnar engine using EXPLAIN](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#explain)
+  * [View columnar engine vectorized join usage](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#view-columnar-engine-vectorized-join-usage)
+  * [View information about tables with columns in the column store](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#relations-view)
+  * [View information about the columns in the column store](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#columns-view)
+    * [View the column store in the web UI](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#columns-view-ui)
+  * [View columnar engine execution statistics for recent queries](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#statistics)
+    * [View columnar query statistics in the web UI](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#statistics-ui)
+  * [View column store memory usage](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#usage)
+    * [View column store memory size and settings in the web UI](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#usage-ui)
+  * [View columnar engine storage cache](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#ce-cache-usage)
+
+
+This page documents AlloyDB Omni version **18.4.0** using the **RPM** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
@@ -18,13 +54,22 @@ This page documents AlloyDB Omni version **18.4.0** using the **RPM** deployment
   * [ RPM: 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/overview)
 
 
-
 Send feedback 
+#  Monitor the columnar engine Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Verify usage of the columnar engine using EXPLAIN](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#explain)
+  * [View columnar engine vectorized join usage](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#view-columnar-engine-vectorized-join-usage)
+  * [View information about tables with columns in the column store](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#relations-view)
+  * [View information about the columns in the column store](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#columns-view)
+    * [View the column store in the web UI](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#columns-view-ui)
+  * [View columnar engine execution statistics for recent queries](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#statistics)
+    * [View columnar query statistics in the web UI](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#statistics-ui)
+  * [View column store memory usage](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#usage)
+    * [View column store memory size and settings in the web UI](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#usage-ui)
+  * [View columnar engine storage cache](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor/#ce-cache-usage)
 
-#  Monitor the columnar engine Stay organized with collections  Save and categorize content based on your preferences. 
 
-Select a documentation version: 18.4.0keyboard_arrow_down
-
+Select a documentation version:  18.4.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/columnar-engine/monitor)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/columnar-engine/monitor)
   * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/linux/18.3.0/docs/columnar-engine/monitor)
@@ -32,167 +77,160 @@ Select a documentation version: 18.4.0keyboard_arrow_down
   * [ 18.1.0 ](https://docs.cloud.google.com/alloydb/omni/linux/18.1.0/docs/columnar-engine/monitor)
 
 This page describes how to monitor utilization of the columnar engine. 
-
 ## Verify usage of the columnar engine using `EXPLAIN`
-
 To observe the new columnar operators that appear in a query's generated query plan, you can verify the usage of the columnar engine by using the `EXPLAIN` statement.
-    
-    
-    EXPLAIN (ANALYZE,COSTS OFF,BUFFERS,TIMING OFF,SUMMARY OFF)
-      SELECT l_returnflag, l_linestatus, l_quantity, l_extendedprice,
-             l_discount, l_tax
-        FROM lineitem
-       WHERE l_shipdate <= date '1992-08-06'
-    ;
-                                     QUERY PLAN
-    -----------------------------------------------------------------------------
-     Append (actual rows=3941797 loops=1)
-       Buffers: shared hit=9
-       ->  Custom Scan (columnar scan) on lineitem (actual rows=3941797 loops=1)
-             Filter: (l_shipdate <= '1992-08-06'::date)
-             Rows Removed by Columnar Filter: 56054083
-             Columnar cache search mode: columnar filter only
-             Buffers: shared hit=9
-       ->  Seq Scan on lineitem (never executed)
-      Filter: (l_shipdate <= '1992-08-06'::date)
-    
+
+```
+EXPLAIN (ANALYZE,COSTS OFF,BUFFERS,TIMING OFF,SUMMARY OFF)
+  SELECT l_returnflag, l_linestatus, l_quantity, l_extendedprice,
+         l_discount, l_tax
+    FROM lineitem
+   WHERE l_shipdate <= date '1992-08-06'
+;
+                                 QUERY PLAN
+-----------------------------------------------------------------------------
+ Append (actual rows=3941797 loops=1)
+   Buffers: shared hit=9
+   ->  Custom Scan (columnar scan) on lineitem (actual rows=3941797 loops=1)
+         Filter: (l_shipdate <= '1992-08-06'::date)
+         Rows Removed by Columnar Filter: 56054083
+         Columnar cache search mode: columnar filter only
+         Buffers: shared hit=9
+   ->  Seq Scan on lineitem (never executed)
+  Filter: (l_shipdate <= '1992-08-06'::date)
+
+```
 
   * `Custom Scan (columnar scan)` indicates that columnar-engine scanning is included in the query plan.
   * `Rows Removed by Columnar Filter` lists the number of rows filtered out by the columnar vectorized execution.
   * `Columnar cache search mode` can be `columnar filter only`, `native`, or `row store scan`. The planner chooses the search mode automatically based on costing and pushdown evaluation capability.
 
 
-
 When the planner chooses the `native` mode, it pushes down some of the columnar operators to the scan:
-
   * `Rows Aggregated by Columnar Scan` lists the number of rows that are aggregated.
   * `Rows Sorted by Columnar Scan` lists the number of rows that are sorted.
   * `Rows Limited by Columnar Scan` lists the limited number of rows that were scanned.
 
 
-
 With joins, columnar scan operators can also use the `Late Materialization` mode.
-    
-    
-    EXPLAIN (ANALYZE,COSTS OFF,BUFFERS,TIMING OFF,SUMMARY OFF)
-      SELECT l_shipmode, o_orderpriority
-        FROM orders, lineitem
-       WHERE o_orderkey = l_orderkey
-             AND l_shipmode in ('AIR', 'FOB')
-             AND l_receiptdate >= date '1995-01-01'
-    ;
-                                     QUERY PLAN
-    -----------------------------------------------------------------------------
-     Hash Join (actual rows=9865288 loops=1)
-       Hash Cond: (lineitem.l_orderkey = orders.o_orderkey)
-       Buffers: temp read=127738 written=127738
-       ->  Append (actual rows=9865288 loops=1)
-             ->  Custom Scan (columnar scan) on lineitem (actual rows=9865288 loops=1)
-                   Filter: ((l_shipmode = ANY ('{AIR,FOB}'::bpchar[])) AND
-                   (l_receiptdate >= '1995-01-01'::date))
-                   Rows Removed by Columnar Filter: 50130592
-                   Columnar cache search mode: native
-             ->  Index Scan using idx_lineitem_orderkey_fkidx on lineitem
-                 (never executed)
-                   Filter: ((l_shipmode = ANY ('{AIR,FOB}'::bpchar[])) AND
-                   (l_receiptdate >= '1995-01-01'::date))
-       ->  Hash (actual rows=15000000 loops=1)
-             Buckets: 1048576  Batches: 32  Memory Usage: 37006kB
-             Buffers: temp written=83357
-             ->  Append (actual rows=15000000 loops=1)
-                   ->  Custom Scan (columnar scan) on orders (actual rows=15000000
-                       loops=1)
-                         Rows Removed by Columnar Filter: 0
-                         Columnar projection mode: late materialization
-                         Columnar cache search mode: native
-                   ->  Seq Scan on orders (never executed)
-    
+
+```
+EXPLAIN (ANALYZE,COSTS OFF,BUFFERS,TIMING OFF,SUMMARY OFF)
+  SELECT l_shipmode, o_orderpriority
+    FROM orders, lineitem
+   WHERE o_orderkey = l_orderkey
+         AND l_shipmode in ('AIR', 'FOB')
+         AND l_receiptdate >= date '1995-01-01'
+;
+                                 QUERY PLAN
+-----------------------------------------------------------------------------
+ Hash Join (actual rows=9865288 loops=1)
+   Hash Cond: (lineitem.l_orderkey = orders.o_orderkey)
+   Buffers: temp read=127738 written=127738
+   ->  Append (actual rows=9865288 loops=1)
+         ->  Custom Scan (columnar scan) on lineitem (actual rows=9865288 loops=1)
+               Filter: ((l_shipmode = ANY ('{AIR,FOB}'::bpchar[])) AND
+               (l_receiptdate >= '1995-01-01'::date))
+               Rows Removed by Columnar Filter: 50130592
+               Columnar cache search mode: native
+         ->  Index Scan using idx_lineitem_orderkey_fkidx on lineitem
+             (never executed)
+               Filter: ((l_shipmode = ANY ('{AIR,FOB}'::bpchar[])) AND
+               (l_receiptdate >= '1995-01-01'::date))
+   ->  Hash (actual rows=15000000 loops=1)
+         Buckets: 1048576  Batches: 32  Memory Usage: 37006kB
+         Buffers: temp written=83357
+         ->  Append (actual rows=15000000 loops=1)
+               ->  Custom Scan (columnar scan) on orders (actual rows=15000000
+                   loops=1)
+                     Rows Removed by Columnar Filter: 0
+                     Columnar projection mode: late materialization
+                     Columnar cache search mode: native
+               ->  Seq Scan on orders (never executed)
+
+```
 
 `Columnar projection mode` can be `late materialization`. Columnar operators choose this mode automatically when the planner optimizes the projection by deferring the materialization of some column values.
-
 ## View columnar engine vectorized join usage
-
 You can verify the new vectorized join operator by using the `EXPLAIN` statement to observe the new `Vectorized Hash Join` operator that appears in a query's generated query plan.
-    
-    
-    EXPLAIN (ANALYZE,COSTS OFF,BUFFERS,TIMING OFF,SUMMARY OFF)
-      SELECT l_quantity, l_extendedprice, l_discount, l_tax
-        FROM lineitem, orders
-        WHERE l_shipdate <= date '2022-08-06'
-        AND  l_orderkey = o_orderkey
-        AND  o_orderdate <= date '2025-03-07';
-                                          QUERY PLAN
-    ---------------------------------------------------------------------------------------
-     Vectorized Hash Join (actual rows=3934686 loops=1)
-       Vectorized partitioning, Partitions: 16 (Disk usage: 208MB)
-       (Peak Memory Usage: 27MB, Threads: 1)
-       Hash Cond: (lineitem.l_orderkey = orders.o_orderkey)
-       Rows Removed by Bloom Filter: 0
-       Buffers: temp read=26728 written=26728
-       ->  Append (actual rows=3934686 loops=1)
-             ->  Custom Scan (columnar scan) on lineitem (actual rows=3934686 loops=1)
-                   Filter: (l_shipdate <= '2022-08-06'::date)
-                   Rows Removed by Columnar Filter: 56051366
-                   Columnar cache search mode: native
-             ->  Seq Scan on lineitem (never executed)
-                   Filter: (l_shipdate <= '2022-08-06'::date)
-       ->  Vectorized Hash (actual rows=7245824 loops=1)
-             Build bloom filter, Memory Usage: 1024kB
-             ->  Append (actual rows=7245824 loops=1)
-                   ->  Custom Scan (columnar scan) on orders (actual rows=7245824 loops=1)
-                         Filter: (o_orderdate <= '2025-03-07'::date)
-                         Rows Removed by Columnar Filter: 7754176
-                         Columnar cache search mode: native
-                   ->  Seq Scan on orders (never executed)
-                         Filter: (o_orderdate <= '2025-03-07'::date)
-    
+
+```
+EXPLAIN (ANALYZE,COSTS OFF,BUFFERS,TIMING OFF,SUMMARY OFF)
+  SELECT l_quantity, l_extendedprice, l_discount, l_tax
+    FROM lineitem, orders
+    WHERE l_shipdate <= date '2022-08-06'
+    AND  l_orderkey = o_orderkey
+    AND  o_orderdate <= date '2025-03-07';
+                                      QUERY PLAN
+---------------------------------------------------------------------------------------
+ Vectorized Hash Join (actual rows=3934686 loops=1)
+   Vectorized partitioning, Partitions: 16 (Disk usage: 208MB)
+   (Peak Memory Usage: 27MB, Threads: 1)
+   Hash Cond: (lineitem.l_orderkey = orders.o_orderkey)
+   Rows Removed by Bloom Filter: 0
+   Buffers: temp read=26728 written=26728
+   ->  Append (actual rows=3934686 loops=1)
+         ->  Custom Scan (columnar scan) on lineitem (actual rows=3934686 loops=1)
+               Filter: (l_shipdate <= '2022-08-06'::date)
+               Rows Removed by Columnar Filter: 56051366
+               Columnar cache search mode: native
+         ->  Seq Scan on lineitem (never executed)
+               Filter: (l_shipdate <= '2022-08-06'::date)
+   ->  Vectorized Hash (actual rows=7245824 loops=1)
+         Build bloom filter, Memory Usage: 1024kB
+         ->  Append (actual rows=7245824 loops=1)
+               ->  Custom Scan (columnar scan) on orders (actual rows=7245824 loops=1)
+                     Filter: (o_orderdate <= '2025-03-07'::date)
+                     Rows Removed by Columnar Filter: 7754176
+                     Columnar cache search mode: native
+               ->  Seq Scan on orders (never executed)
+                     Filter: (o_orderdate <= '2025-03-07'::date)
+
+```
 
   * `Vectorized Hash Join ` indicates that the join between the two relations used the vectorized hash join.
   * `Vectorized partitioning, Partitions: ` lists the number of partitions the data was split into.
 
 
-
 ## View information about tables with columns in the column store
-
 You can view information about the tables or the materialized views with columns in the column store by querying the `g_columnar_relations` view.
-    
-    
-    SELECT * FROM g_columnar_relations;
-    
-    ┌─[ RECORD 1 ]────────┬───────────────────┐
-    │ relation_name       │ tbl_parallel_test │
-    │ schema_name         │ public            │
-    │ database_name       │ advisor           │
-    │ status              │ Usable            │
-    │ size                │ 581431259         │
-    │ columnar_unit_count │ 3                 │
-    │ invalid_block_count │ 0                 │
-    │ total_block_count   │ 8337              │
-    ├─[ RECORD 2 ]────────┼───────────────────┤
-    │ relation_name       │ lineitem          │
-    │ schema_name         │ public            │
-    │ database_name       │ advisor           │
-    │ status              │ Usable            │
-    │ size                │ 423224944         │
-    │ columnar_unit_count │ 29                │
-    │ invalid_block_count │ 0                 │
-    │ total_block_count   │ 115662            │
-    ├─[ RECORD 3 ]────────┼───────────────────┤
-    
-    
+
+```
+SELECT * FROM g_columnar_relations;
+
+┌─[ RECORD 1 ]────────┬───────────────────┐
+│ relation_name       │ tbl_parallel_test │
+│ schema_name         │ public            │
+│ database_name       │ advisor           │
+│ status              │ Usable            │
+│ size                │ 581431259         │
+│ columnar_unit_count │ 3                 │
+│ invalid_block_count │ 0                 │
+│ total_block_count   │ 8337              │
+├─[ RECORD 2 ]────────┼───────────────────┤
+│ relation_name       │ lineitem          │
+│ schema_name         │ public            │
+│ database_name       │ advisor           │
+│ status              │ Usable            │
+│ size                │ 423224944         │
+│ columnar_unit_count │ 29                │
+│ invalid_block_count │ 0                 │
+│ total_block_count   │ 115662            │
+├─[ RECORD 3 ]────────┼───────────────────┤
+
+
+```
 
 ## View information about the columns in the column store
-
 You can view information about the columns in the column store by querying the `g_columnar_columns` view, including those columns' size and the last access time.
-    
-    
-    SELECT database_name, schema_name, relation_name, column_name, size_in_bytes, last_accessed_time FROM g_columnar_columns;
-    
+
+```
+SELECT database_name, schema_name, relation_name, column_name, size_in_bytes, last_accessed_time FROM g_columnar_columns;
+
+```
 
 ### View the column store in the web UI
-
 You can also view the column store inventory in the AlloyDB Omni web user interface:
-
   1. [Connect to the web UI](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/connect-web-ui) and select your cluster.
   2. In the navigation menu, click **Columnar Engine**.
   3. In the **Columnar Store data** table, review the columns populated in the column store: 
@@ -207,75 +245,71 @@ You can also view the column store inventory in the AlloyDB Omni web user interf
      * **Last accessed** : The timestamp of the most recent columnar scan access.
 
 
-
 ## View columnar engine execution statistics for recent queries
-
 You can view columnar engine execution statistics for recent queries using the `g_columnar_stat_statements` view. This view adds columnar engine statistics to the `pg_stat_statements` view provided by the `pg_stat_statements` extension. To use this view, you must first enable the `pg_stat_statements` extension.
-
   1. Enable the `pg_stat_statements` extension: 
-         
-         CREATE EXTENSION pg_stat_statements;
-         
+```
+CREATE EXTENSION pg_stat_statements;
+
+```
 
   2. Run the queries whose statistics you want to view. You can do this manually, or you can let enough time pass so that your applications run these queries with `pg_stat_statements` enabled.
   3. Query the `g_columnar_stat_statements` and `pg_stat_statements` views. Note the following query retrieves all the columnar execution statistics including those that were collected before the extension `pg_stat_statements` was created. The `10` value of `userid` indicates that the statistics were collected before the extension `pg_stat_statements` was created. 
-         
-         SELECT *
-         FROM pg_stat_statements(TRUE) AS pg_stats
-              FULL JOIN g_columnar_stat_statements AS g_stats
-              ON pg_stats.userid = g_stats.user_id AND
-                 pg_stats.dbid = g_stats.db_id AND
-                 pg_stats.queryid = g_stats.query_id
-         WHERE columnar_unit_read > 0;
-         
-         ┌─[ RECORD 1 ]────────┬───────────────────────────────
-         │ userid              │ 10                            │
-         │ dbid                │ 33004                         │
-         │ queryid             │ 6779068104316758833           │
-         │ query               │ SELECT  l_returnflag,        ↵│
-         │                     │         l_linestatus,        ↵│
-         │                     │         l_quantity,          ↵│
-         │                     │         l_extendedprice,     ↵│
-         │                     │         l_discount,          ↵│
-         │                     │         l_tax                ↵│
-         │                     │FROM  lineitem                ↵│
-         │                     │WHERE  l_shipdate <= date $1│
-         │ calls               │ 1                             │
-         │ total_time          │ 299.969983                    │
-         │ min_time            │ 299.969983                    │
-         │ max_time            │ 299.969983                    │
-         │ mean_time           │ 299.969983                    │
-         │ stddev_time         │ 0                             │
-         │ rows                │ 392164                        │
-         │ shared_blks_hit     │ 0                             │
-         │ shared_blks_read    │ 0                             │
-         │ shared_blks_dirtied │ 0                             │
-         │ shared_blks_written │ 0                             │
-         │ local_blks_hit      │ 0                             │
-         │ local_blks_read     │ 0                             │
-         │ local_blks_dirtied  │ 0                             │
-         │ local_blks_written  │ 0                             │
-         │ temp_blks_read      │ 0                             │
-         │ temp_blks_written   │ 0                             │
-         │ blk_read_time       │ 0                             │
-         │ blk_write_time      │ 0                             │
-         │ user_id             │ 10                            │
-         │ db_id               │ 33004                         │
-         │ query_id            │ 6779068104316758833           │
-         │ columnar_unit_read  │ 29                            │
-         │ page_read           │ 115662                        │
-         │ rows_filtered       │ 0                             │
-         │ columnar_scan_time  │ 0                             │
-         └─────────────────────┴───────────────────────────────┘
-         
+```
+SELECT *
+FROM pg_stat_statements(TRUE) AS pg_stats
+     FULL JOIN g_columnar_stat_statements AS g_stats
+     ON pg_stats.userid = g_stats.user_id AND
+        pg_stats.dbid = g_stats.db_id AND
+        pg_stats.queryid = g_stats.query_id
+WHERE columnar_unit_read > 0;
 
+┌─[ RECORD 1 ]────────┬───────────────────────────────
+│ userid              │ 10                            │
+│ dbid                │ 33004                         │
+│ queryid             │ 6779068104316758833           │
+│ query               │ SELECT  l_returnflag,        ↵│
+│                     │         l_linestatus,        ↵│
+│                     │         l_quantity,          ↵│
+│                     │         l_extendedprice,     ↵│
+│                     │         l_discount,          ↵│
+│                     │         l_tax                ↵│
+│                     │FROM  lineitem                ↵│
+│                     │WHERE  l_shipdate <= date $1│
+│ calls               │ 1                             │
+│ total_time          │ 299.969983                    │
+│ min_time            │ 299.969983                    │
+│ max_time            │ 299.969983                    │
+│ mean_time           │ 299.969983                    │
+│ stddev_time         │ 0                             │
+│ rows                │ 392164                        │
+│ shared_blks_hit     │ 0                             │
+│ shared_blks_read    │ 0                             │
+│ shared_blks_dirtied │ 0                             │
+│ shared_blks_written │ 0                             │
+│ local_blks_hit      │ 0                             │
+│ local_blks_read     │ 0                             │
+│ local_blks_dirtied  │ 0                             │
+│ local_blks_written  │ 0                             │
+│ temp_blks_read      │ 0                             │
+│ temp_blks_written   │ 0                             │
+│ blk_read_time       │ 0                             │
+│ blk_write_time      │ 0                             │
+│ user_id             │ 10                            │
+│ db_id               │ 33004                         │
+│ query_id            │ 6779068104316758833           │
+│ columnar_unit_read  │ 29                            │
+│ page_read           │ 115662                        │
+│ rows_filtered       │ 0                             │
+│ columnar_scan_time  │ 0                             │
+└─────────────────────┴───────────────────────────────┘
+
+```
 
 
 
 ### View columnar query statistics in the web UI
-
 After enabling the `pg_stat_statements` extension, you can also inspect columnar query execution statistics in the AlloyDB Omni web user interface:
-
   1. [Connect to the web UI](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/connect-web-ui) and select your cluster.
   2. In the navigation menu, click **Columnar Engine**.
   3. In the **Columnar Queries** table, review the execution statistics for analytical queries that used the column store: 
@@ -289,19 +323,16 @@ After enabling the `pg_stat_statements` extension, you can also inspect columnar
      * **Page read** : The number of pages read during execution.
 
 
-
 ## View column store memory usage
-
 To see the amount of unused RAM available to the columnar engine, you can query the `google_columnar_engine_memory_available` function. The output integer shows the available memory in megabytes (MB).
-    
-    
-    SELECT google_columnar_engine_memory_available();
-    
+
+```
+SELECT google_columnar_engine_memory_available();
+
+```
 
 ### View column store memory size and settings in the web UI
-
 You can also check the column store memory consumption and configuration settings in the AlloyDB Omni web user interface:
-
   1. [Connect to the web UI](https://docs.cloud.google.com/alloydb/omni/linux/18.4.0/docs/connect-web-ui) and select your cluster.
   2. In the navigation menu, click **Columnar Engine**.
   3. Review the **Columnar Store settings** section, which displays the following status and memory indicators: 
@@ -312,21 +343,14 @@ You can also check the column store memory consumption and configuration setting
      * **Columnar scan** : Indicates whether columnar scan execution is enabled (for example, `Enabled`).
 
 
-
 ## View columnar engine storage cache
-
-To view and monitor data about the storage cache of the columnar engine, you can use the following commands:
-
-Command | Description  
----|---  
-`SELECT google_columnar_engine_storage_cache_used();` | Returns the size of the used columnar engine storage cache.  
-`SELECT google_columnar_engine_storage_cache_available();` | Returns the size of the unused columnar engine storage cache.  
-`SHOW google_columnar_engine.storage_cache_size;` | Returns the total amount of the configured size of storage cache for the columnar engine.  
-  
+To view and monitor data about the storage cache of the columnar engine, you can use the following commands:  
+| Command  | Description  |  
+| --- | --- |  
+| `SELECT google_columnar_engine_storage_cache_used();`  | Returns the size of the used columnar engine storage cache.  |  
+| `SELECT google_columnar_engine_storage_cache_available();`  | Returns the size of the unused columnar engine storage cache.  |  
+| `SHOW google_columnar_engine.storage_cache_size;`  | Returns the total amount of the configured size of storage cache for the columnar engine.  |  
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/scenario-overview/
 title: Oracle to Cloud SQL for PostgreSQL migration overview \u00a0|\u00a0 Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:59:09.182692+00:00
+fetched_at: 2026-10-27T18:11:39.969763+00:00
 ---
 
 # Oracle to Cloud SQL for PostgreSQL migration overview  |  Database Migration Service for heterogeneous Oracle to Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ Database Migration Service doesn't support migrating from Oracle Autonomous Data
 
 ## Code and schema conversion
 
-Database Migration Service conversion workspaces provide an interactive editor experience where you can convert your schemas, tables, and other objects from Oracle syntax to PostgreSQL syntax. Interactive conversion workspaces also provide support for Gemini-assisted workflows with code explainability and conversion issue fixing.
+Database Migration Service conversion workspaces provide an interactive editor experience where you can convert your schemas, tables, and other objects from Oracle syntax to PostgreSQL syntax. You can prepare your conversion workspace either by connecting directly to your source database, or offline by uploading extracted schema files to Cloud Storage. Interactive conversion workspaces also provide support for Gemini-assisted workflows with code explainability and conversion issue fixing.
 
 To learn more, see [ Conversion workspaces](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/about-conversion-workspaces).
 
@@ -162,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

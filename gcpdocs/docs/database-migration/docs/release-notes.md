@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/release-notes/
 title: Database Migration Service release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:46.691100+00:00
+fetched_at: 2026-10-27T16:26:06.079005+00:00
 ---
 
 # Database Migration Service release notes  |  Google Cloud Documentation
@@ -26,6 +26,41 @@ This page documents production updates to Database Migration Service. Check this
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/dms-release-notes.xml) directly. 
+
+## October 26, 2026
+
+Feature
+
+You can now create heterogeneous conversion workspaces by importing database schema metadata files from a Cloud Storage bucket without requiring direct network connectivity between Database Migration Service and your source database during the schema conversion phase. For more information, see the following pages:
+
+  * [ Create a conversion workspace for Oracle to Cloud SQL for PostgreSQL](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/create-conversion-workspace#use-cloud-storage)
+  * [ Create a conversion workspace for Oracle to AlloyDB for PostgreSQL](https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/create-conversion-workspace#use-cloud-storage)
+  * [ Create a conversion workspace for SQL Server to Cloud SQL for PostgreSQL](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/create-conversion-workspace#use-cloud-storage)
+  * [ Create a conversion workspace for SQL Server to AlloyDB for PostgreSQL](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/create-conversion-workspace#use-cloud-storage)
+
+
+
+## October 23, 2026
+
+Security
+
+On Saturday, October 17, 2026, Google received a report from a security researcher regarding the compromise of private keys associated with eight eMudhra subordinate Certification Authority (CA) certificates, including those cross-signed by AAA Certificate Services. Consequently, these CA certificates are no longer trusted and are being revoked.
+
+To continue connecting to a source database after its CA certificate is updated, upload the new CA certificate to the Database Migration Service source connection profile:
+
+  * Update the connection profile using [`gcloud database-migration connection-profiles update`](https://docs.cloud.google.com/sdk/gcloud/reference/database-migration/connection-profiles/update) or the [`connectionProfiles.patch`](https://docs.cloud.google.com/database-migration/docs/reference/rest/v1/projects.locations.connectionProfiles/patch) API method.
+  * Modify the connection profile in the Google Cloud console: 
+    * [MySQL connection profiles](https://docs.cloud.google.com/database-migration/docs/mysql/manage-connection-profiles#update_a_connection_profile)
+    * [PostgreSQL to Cloud SQL connection profiles](https://docs.cloud.google.com/database-migration/docs/postgres/manage-connection-profiles#update_a_connection_profile)
+    * [PostgreSQL to AlloyDB for PostgreSQL connection profiles](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/manage_connection-profiles#modify_a_connection_profile)
+    * [Oracle to Cloud SQL connection profiles](https://docs.cloud.google.com/database-migration/docs/oracle-to-postgresql/manage-connection-profiles#update_a_connection_profile)
+    * [Oracle to AlloyDB for PostgreSQL connection profiles](https://docs.cloud.google.com/database-migration/docs/oracle-to-alloydb/manage-connection-profiles#update_a_connection_profile)
+    * [SQL Server to Cloud SQL connection profiles](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/manage-connection-profiles#update_a_connection_profile)
+    * [SQL Server to AlloyDB for PostgreSQL connection profiles](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/manage-connection-profiles#update_a_connection_profile)
+
+
+
+For more information, see security bulletin [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071).
 
 ## August 17, 2026
 
@@ -62,7 +97,7 @@ MySQL version 9.7 support for MySQL homogeneous migrations is being rolled out a
 
 Announcement
 
-**Note:** MySQL version 9.7 version isn't yet available. For more information, see the release note from July 2nd, 2026. 
+**Note:** MySQL version 9.7 isn't yet available. For more information, see the release note from July 2, 2026. 
 
 Database Migration Service for MySQL homogeneous migrations now supports MySQL version 9.7. For more information, see [ Supported source and destination databases](https://docs.cloud.google.com/database-migration/docs/supported-databases).
 
@@ -715,6 +750,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

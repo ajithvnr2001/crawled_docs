@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/modern-cicd-gke-developer-workflow/
 title: Modern CI/CD with GKE: Apply the developer workflow \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:33:13.724612+00:00
+fetched_at: 2026-10-27T22:57:06.010965+00:00
 ---
 
 # Modern CI/CD with GKE: Apply the developer workflow  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

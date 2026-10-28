@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/overview/
 title: Config Sync overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:22:58.335211+00:00
+fetched_at: 2026-10-28T02:29:31.710249+00:00
 ---
 
 # Config Sync overview  |  Google Cloud Documentation
@@ -22,19 +22,15 @@ Send feedback
 
 #  Config Sync overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page provides an overview of Config Sync, the GitOps service included with Google Kubernetes Engine.
-
-Adopting [GitOps](https://opengitops.dev/) as a universal best practice helps organizations manage Kubernetes configuration at scale. By using a central source of truth like a Git repository, you can improve stability, consistency, and security.
+Config Sync is a [GitOps](https://opengitops.dev/) service included with Google Kubernetes Engine (GKE) that automatically syncs configurations and policies across your Kubernetes clusters from a central source of truth, such as a Git repository. Automated syncing helps you centrally manage fleets of clusters, prevent configuration drift, and improve stability and security for both platform and application teams.
 
 **Key Term:** **GitOps** is an approach to managing infrastructure and application configuration by using a version control system like Git as the single source of truth.
 
-Config Sync helps you implement GitOps by automating the synchronization of your configuration and policies across any number of clusters. Automatic syncing lets you manage fleets of clusters centrally, prevent configuration drift, and empower both platform and application teams.
-
-This page is for Operators who want to implement [GitOps](https://opengitops.dev/) tools to centralize configuration management for their teams. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+This document is for Operators who want to centralize configuration management for their teams. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks). 
 
 ## Pricing
 
-For information about pricing, see [GKE pricing](https://cloud.google.com/kubernetes-engine/pricing). 
+For information about pricing, see [GKE pricing](https://docs.cloud.google.com/kubernetes-engine/pricing). 
 
 ## Why choose Config Sync for GitOps on GKE?
 
@@ -79,6 +75,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

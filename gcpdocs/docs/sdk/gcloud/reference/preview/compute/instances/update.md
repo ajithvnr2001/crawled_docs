@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/instances/update/
 title: gcloud preview compute instances update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T20:14:29.226940+00:00
+fetched_at: 2026-10-27T21:40:45.420775+00:00
 ---
 
 # gcloud preview compute instances update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud preview compute instances update - update a Compute Engine virtual machin
 SYNOPSIS
     
 
-`gcloud preview compute instances update` `INSTANCE_NAME` [`--[no-]deletion-protection`] [`--[no-]enable-display-device`] [`--[no-]expose-host-topology`] [`--[no-]graceful-shutdown`] [`--graceful-shutdown-max-duration`=`GRACEFUL_SHUTDOWN_MAX_DURATION`] [`--identity`=`IDENTITY`] [`--[no-]identity-certificate`] [`--min-cpu-platform`=`PLATFORM`] [`--most-disruptive-allowed-action`=`MOST_DISRUPTIVE_ALLOWED_ACTION`] [`--[no-]shielded-integrity-monitoring`] [`--shielded-learn-integrity-policy`] [`--[no-]shielded-secure-boot`] [`--[no-]shielded-vtpm`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--zone`=`ZONE`] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`--clear-node-affinities` | `--node`=`NODE` | `--node-affinity-file`=`PATH_TO_FILE` | `--node-group`=`NODE_GROUP`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud preview compute instances update` `INSTANCE_NAME` [`--[no-]deletion-protection`] [`--[no-]enable-display-device`] [`--[no-]expose-host-topology`] [`--[no-]graceful-shutdown`] [`--graceful-shutdown-max-duration`=`GRACEFUL_SHUTDOWN_MAX_DURATION`] [`--identity`=`IDENTITY`] [`--[no-]identity-certificate`] [`--identity-type`=`IDENTITY_TYPE`] [`--min-cpu-platform`=`PLATFORM`] [`--most-disruptive-allowed-action`=`MOST_DISRUPTIVE_ALLOWED_ACTION`] [`--[no-]shielded-integrity-monitoring`] [`--shielded-learn-integrity-policy`] [`--[no-]shielded-secure-boot`] [`--[no-]shielded-vtpm`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--zone`=`ZONE`] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`--clear-node-affinities` | `--node`=`NODE` | `--node-affinity-file`=`PATH_TO_FILE` | `--node-group`=`NODE_GROUP`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(PREVIEW)` `gcloud preview compute instances update` updates labels and requested CPU Platform for a Compute Engine virtual machine. 
 EXAMPLES
@@ -69,6 +69,15 @@ FLAGS
      The workload identity to use for the instance. 
 `--[no-]identity-certificate`
      Enables or disables managed workload identity certificates on a VM. Use `--identity-certificate` to enable and `--no-identity-certificate` to disable. 
+`--identity-type`=`IDENTITY_TYPE`
+     Configures the identity type to use for the instance. `IDENTITY_TYPE` must be one of: 
+
+`AGENT_IDENTITY`
+     Use an agent identity. 
+`IDENTITY_TYPE_UNSPECIFIED`
+     Use an unspecified identity type. 
+`SERVICE_ACCOUNT`
+     Use a service account. 
 `--min-cpu-platform`=`PLATFORM`
      When specified, the VM will be scheduled on host with specified CPU architecture or a newer one. To list available CPU platforms in given zone, run: 
     
@@ -178,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-09 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

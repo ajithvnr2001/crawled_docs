@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.0/docs/resources/
 title: Resources \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:41:28.503643+00:00
+fetched_at: 2026-10-27T18:39:13.375959+00:00
 ---
 
 # Resources  |  AlloyDB Omni using RPM: 18.1.0  |  Google Cloud Documentation

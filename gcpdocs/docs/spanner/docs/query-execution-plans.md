@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/query-execution-plans/
 title: Query execution plans \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:45:17.243668+00:00
+fetched_at: 2026-10-28T02:30:50.460056+00:00
 ---
 
 # Query execution plans  |  Spanner  |  Google Cloud Documentation
@@ -331,6 +331,10 @@ The following execution plan shows that this query fully uses the index:
 
 The execution plan doesn't require a back join because the index contains all of the columns that the query requests.
 
+### Understanding query distribution
+
+The **Remote calls** statistic, found in the **Query** summary on the **Explanation** tab in the Console, reflects the number of calls made to other Spanner servers during query execution. While not a direct 1:1 count of unique data splits accessed, a higher number of remote calls often indicates that the query execution is more distributed, potentially spanning more servers and splits. This metric excludes calls within the same server. Monitoring this can help gauge the extent of query fanout.
+
 ### Sequential scan versus scattered seeks
 
 Reading a contiguous range of rows is significantly faster than reading the same number of scattered rows.
@@ -369,6 +373,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

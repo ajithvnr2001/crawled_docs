@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-edit-role/
 title: Edit a custom role \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:12.696495+00:00
+fetched_at: 2026-10-27T16:28:06.686918+00:00
 ---
 
 # Edit a custom role  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

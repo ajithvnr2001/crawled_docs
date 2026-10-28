@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog/
 title: Set up the Apache Iceberg REST catalog endpoint \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:41.900177+00:00
+fetched_at: 2026-10-28T02:22:32.067257+00:00
 ---
 
 # Set up the Apache Iceberg REST catalog endpoint  |  Lakehouse  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ The Apache Iceberg REST catalog endpoint is subject to the following limitations
 
 **Table limitations**
 
-  * You can't create or modify tables in the Apache Iceberg REST catalog endpoint using BigQuery data definition language (DDL) or data manipulation language (DML) statements. You can modify these tables using the BigQuery API (with the bq command-line tool or client libraries), but doing so risks making changes that are incompatible with the external engine.
+  * Creating or modifying tables in the Apache Iceberg REST catalog endpoint using BigQuery data definition language (DDL) or data manipulation language (DML) statements is in [Preview](https://docs.cloud.google.com/products#product-launch-stages) and requires enabling the `gcp.biglake.bigquery-dml.enabled` table property. For more information, see [Configure table options](https://docs.cloud.google.com/lakehouse/docs/table-options).
   * Tables managed through the Apache Iceberg REST catalog endpoint don't support fine-grained access control (FGAC), such as row-level and column-level security.
   * Setting the Iceberg table properties `write.data.path` or `write.metadata.path` to values other than their defaults is prohibited.
   * Table paths must be nested within the parent namespace path (for example, `gs://{namespace_path}/.../{table_name}`). To prevent conflicts and improve security, a random string suffix is automatically appended to the resulting location (for example, `gs://{namespace_path}/{table_name}/{random_suffix}`).
@@ -740,6 +740,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

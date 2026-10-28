@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-versions/
 title: Managed Service for Apache Airflow version list \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:21:33.356431+00:00
+fetched_at: 2026-10-28T02:30:12.649707+00:00
 ---
 
 # Managed Service for Apache Airflow version list  |  Google Cloud Documentation
@@ -134,9 +134,12 @@ The following table lists the released Managed Airflow images.
 
 Version | Python version | PyPI packages | Release date | Support end date | Notes  
 ---|---|---|---|---|---  
-composer-3-airflow-3.3.1-build.4 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-4) | October 13, 2026 | October 13, 2027 | Latest build  
-composer-3-airflow-3.2.2-build.8 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-8) | October 13, 2026 | October 13, 2027 | Latest build  
-composer-3-airflow-2.11.1-build.21 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-21) | October 13, 2026 | October 13, 2027 | Latest build, Default build  
+composer-3-airflow-3.3.1-build.5 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-5) | October 20, 2026 | October 20, 2027 | Latest build  
+composer-3-airflow-3.2.2-build.9 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-9) | October 20, 2026 | October 20, 2027 | Latest build  
+composer-3-airflow-2.11.1-build.22 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-22) | October 20, 2026 | October 20, 2027 | Latest build, Default build  
+composer-3-airflow-3.3.1-build.4 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-4) | October 13, 2026 | October 13, 2027 |   
+composer-3-airflow-3.2.2-build.8 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-8) | October 13, 2026 | October 13, 2027 |   
+composer-3-airflow-2.11.1-build.21 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-21) | October 13, 2026 | October 13, 2027 |   
 composer-3-airflow-3.3.1-build.3 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-3-1-build-3) | September 25, 2026 | September 25, 2027 |   
 composer-3-airflow-3.2.2-build.7 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-3-2-2-build-7) | September 25, 2026 | September 25, 2027 |   
 composer-3-airflow-2.11.1-build.20 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-3-airflow-2-11-1-build-20) | September 25, 2026 | September 25, 2027 |   
@@ -22603,7 +22606,8 @@ zstandard==0.22.0
 
 Version | Python versions | PyPI packages | Release date | Support end date | End of life date | Notes  
 ---|---|---|---|---|---|---  
-composer-2.17.15-airflow-2.11.1 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-15-airflow-2-11-1) | October 13, 2026 | October 13, 2027 | Latest version, Default version  
+composer-2.17.16-airflow-2.11.1 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-16-airflow-2-11-1) | October 20, 2026 | October 20, 2027 | Latest version, Default version  
+composer-2.17.15-airflow-2.11.1 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-15-airflow-2-11-1) | October 13, 2026 | October 13, 2027 |   
 composer-2.17.14-airflow-2.11.1 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-14-airflow-2-11-1) | September 25, 2026 | September 25, 2027 |   
 composer-2.17.13-airflow-2.11.1 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-13-airflow-2-11-1) | September 02, 2026 | September 02, 2027 |   
 composer-2.17.13-airflow-2.10.5 | 3.11.8 | [See packages](https://docs.cloud.google.com/composer/docs/versions-packages#composer-2-17-13-airflow-2-10-5) | September 02, 2026 | September 02, 2027 |   
@@ -61922,6 +61926,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

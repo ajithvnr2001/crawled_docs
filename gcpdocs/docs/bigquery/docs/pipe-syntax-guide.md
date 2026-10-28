@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/pipe-syntax-guide/
 title: Work with pipe query syntax \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:24:34.733126+00:00
+fetched_at: 2026-10-27T20:09:53.188992+00:00
 ---
 
 # Work with pipe query syntax  |  BigQuery  |  Google Cloud Documentation
@@ -165,7 +165,7 @@ For more details, see the complete list of [pipe operators](https://docs.cloud.g
 
 Common use cases for pipe syntax include the following:
 
-  * **Ad-hoc analysis and incremental query building** : The logical order of operations makes it easier to write and debug queries. The prefix of any query up to a pipe symbol `|>` is a valid query, which helps you view intermediate results in a long query. The productivity gains can speed up the development process across your organization.
+  * **Ad hoc analysis and incremental query building** : The logical order of operations makes it easier to write and debug queries. The prefix of any query up to a pipe symbol `|>` is a valid query, which helps you view intermediate results in a long query. The productivity gains can speed up the development process across your organization.
   * **Log analytics** : There exist other types of pipe-like syntax that are popular among log analytics users. Pipe syntax provides a familiar structure that simplifies onboarding for those users to [Observability Analytics](https://docs.cloud.google.com/logging/docs/log-analytics#analytics) and BigQuery.
 
 
@@ -517,6 +517,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

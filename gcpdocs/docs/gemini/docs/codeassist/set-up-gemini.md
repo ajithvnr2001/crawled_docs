@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/codeassist/set-up-gemini/
 title: Set up Gemini Code Assist Standard and Enterprise \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:23:06.701847+00:00
+fetched_at: 2026-10-27T20:09:53.606759+00:00
 ---
 
 # Set up Gemini Code Assist Standard and Enterprise  |  Gemini for Google Cloud  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Set up Gemini Code Assist Standard and Enterprise Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Important:** New Gemini Code Assist subscriptions are [no longer available for purchase](https://docs.cloud.google.com/gemini/docs/codeassist/sunset).
+**Important:** New Gemini Code Assist subscriptions are [no longer available for purchase](https://docs.cloud.google.com/gemini/docs/codeassist/sunset), and subscriptions can't be transferred between billing accounts.
 
 This page describes how to set up Gemini Code Assist Standard and Enterprise.
 
@@ -51,11 +51,11 @@ Before you can use services available to users with [Gemini Code Assist](https:/
 
 ## Assign licenses
 
-Once a subscription is purchased for Gemini Code Assist Standard or Enterprise, you manage Gemini Code Assist license assignments in your organization using the Google Cloud console.
+You manage license assignments for Gemini Code Assist Standard or Enterprise subscriptions using the Google Cloud console.
 
 Before using a Gemini Code Assist license, users must have the Gemini for Google Cloud User role or analogous permissions on a project where the API is already enabled.
 
-By default, new subscriptions are set up for automatic license assignment. A user in your organization is automatically assigned a license when they use Gemini Code Assist within a supported IDE, provided all the following conditions are met:
+By default, subscriptions are set up for automatic license assignment. A user in your organization is automatically assigned a license when they use Gemini Code Assist within a supported IDE, provided all the following conditions are met:
 
   * The user has selected a project that is associated with the subscription's billing account.
   * The user has the `cloudaicompanion.licenses.selfAssign` IAM permission on the selected project.
@@ -429,6 +429,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

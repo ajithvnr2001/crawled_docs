@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-detach-subscription/
 title: Detach subscription from topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:05.717044+00:00
+fetched_at: 2026-10-28T01:39:32.369669+00:00
 ---
 
 # Detach subscription from topic  |  Pub/Sub  |  Google Cloud Documentation

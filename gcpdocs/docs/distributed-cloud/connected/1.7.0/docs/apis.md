@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/connected/1.7.0/docs/apis/
 title: Distributed Cloud connected CLI and API reference \u00a0|\u00a0 Google Distributed Cloud connected, version 1.7.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:22:49.581431+00:00
+fetched_at: 2026-10-27T19:22:08.680808+00:00
 ---
 
 # Distributed Cloud connected CLI and API reference  |  Google Distributed Cloud connected, version 1.7.0  |  Google Cloud Documentation

@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/data-studio/stop-sharing-your-reports-and-data-sources/
 title: Stop sharing your reports and data sources \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:43:56.167116+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:23:44.405245+00:00
 ---
 
 # Stop sharing your reports and data sources  |  Data Studio  |  Google Cloud Documentation
@@ -41,10 +55,10 @@ If you share a report or data source with people, the owner or anyone with edit 
   1. [Sign in to Data Studio](https://datastudio.google.com/).
   2. At the top, select **Reports** or **Data Sources**.
   3. Browse or search for the asset you want to stop sharing.
-  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png)**More**.
-  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png)**Share**.
+  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png) **More**.
+  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png) **Share**.
   6. Click **Manage Access**.
-  7. Click the menu next to the person you want to stop sharing with, then click ![Remove.](https://docs.cloud.google.com/static/data-studio/images/standard--inline-icon--remove-x.png)**Remove**.
+  7. Click the menu next to the person you want to stop sharing with, then click ![Remove.](https://docs.cloud.google.com/static/data-studio/images/standard--inline-icon--remove-x.png) **Remove**.
   8. Click **Save**.
 
 
@@ -54,10 +68,10 @@ If you share a report or data source with people, the owner or anyone with edit 
   1. [Sign in to Data Studio](https://datastudio.google.com).
   2. At the top, select **Reports** or **Data Sources**.
   3. Browse or search for the asset you want to stop sharing.
-  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png)**More**.
-  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png)**Share**.
+  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png) **More**.
+  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png) **Share**.
   6. Click **Advanced** in the **Share with others** window.
-  7. Click the menu next to the person you want to stop sharing with, then click ![Remove.](https://docs.cloud.google.com/static/data-studio/images/standard--inline-icon--remove-x.png)**Remove**.
+  7. Click the menu next to the person you want to stop sharing with, then click ![Remove.](https://docs.cloud.google.com/static/data-studio/images/standard--inline-icon--remove-x.png) **Remove**.
   8. Click **Save changes**.
 
 
@@ -69,8 +83,8 @@ When you stop sharing a link to an asset, the only people who can still see the 
   1. [Sign in to Data Studio](https://datastudio.google.com).
   2. At the top, select **Reports** or **Data Sources**.
   3. Browse or search for the asset whose link you want to stop sharing.
-  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png)**More**.
-  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png)**Share**.
+  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png) **More**.
+  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png) **Share**.
   6. Click **Manage Access**.
   7. Use the menu to set the link sharing option to **Off - only specific people can access**.
 
@@ -81,8 +95,8 @@ When you stop sharing a link to an asset, the only people who can still see the 
   1. [Sign in to Data Studio](https://datastudio.google.com).
   2. At the top, select **Reports** or **Data Sources**.
   3. Browse or search for the asset whose link you want to stop sharing.
-  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png)**More**.
-  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png)**Share**.
+  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png) **More**.
+  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png) **Share**.
   6. click **Advanced** in the **Share with others** window, .
   7. Next to **Anyone with the link** , click the ![](https://docs.cloud.google.com/static/data-studio/images/standard--inline-icon--down-arrow-drop-down.png) down arrow.
   8. Click **More**.
@@ -122,8 +136,8 @@ To prevent editors and viewers from downloading, printing, or copying your asset
   1. [Sign in to Data Studio](https://datastudio.google.com/).
   2. At the top, select **Reports** or **Data Sources**.
   3. Browse or search for the asset whose link you want to stop sharing.
-  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png)**More**.
-  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png)**Share**.
+  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png) **More**.
+  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png) **Share**.
   6. Click **Manage Access**.
   7. Check the box next to "Disable options to download, print, and copy for viewers."
   8. Click **Save**.
@@ -135,8 +149,8 @@ To prevent editors and viewers from downloading, printing, or copying your asset
   1. [Sign in to Data Studio](https://datastudio.google.com/).
   2. At the top, select **Reports** or **Data Sources**.
   3. Browse or search for the asset whose link you want to stop sharing.
-  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png)**More**.
-  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png)**Share**.
+  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png) **More**.
+  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png) **Share**.
   6. Click **Advanced**.
   7. Check the box next to "Disable options to download, print, and copy for viewers."
   8. Click **Save changes**.
@@ -151,8 +165,8 @@ If you're sharing an asset, the owner or anyone with edit access can change the 
   1. [Sign in to Data Studio](https://datastudio.google.com/).
   2. At the top, select **Reports** or **Data Sources**.
   3. Browse or search for the asset whose link you want to stop sharing.
-  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png)**More**.
-  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png)**Share**.
+  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png) **More**.
+  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png) **Share**.
   6. Click **Manage Access**.
   7. Check the box next to "Prevent editors from changing access and adding new people."
   8. Click **Save**.
@@ -164,8 +178,8 @@ If you're sharing an asset, the owner or anyone with edit access can change the 
   1. [Sign in to Data Studio](https://datastudio.google.com/).
   2. At the top, select **Reports** or **Data Sources**.
   3. Browse or search for the asset whose link you want to stop sharing.
-  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png)**More**.
-  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png)**Share**.
+  4. Click ![](https://docs.cloud.google.com/static/data-studio/images/icmorevertgrey2xweb24dp-2016-03-14-.png) **More**.
+  5. Click ![](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png) **Share**.
   6. Click **Advanced**.
   7. Check the box next to "Prevent editors from changing access and adding new people."
   8. Click **Save changes**.
@@ -176,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

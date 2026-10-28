@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/patterns-for-authenticating-corporate-users-in-a-hybrid-environment/
 title: Patterns for authenticating workforce users in a hybrid environment \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:35:07.043109+00:00
+fetched_at: 2026-10-28T01:43:34.293917+00:00
 ---
 
 # Patterns for authenticating workforce users in a hybrid environment  |  Cloud Architecture Center  |  Google Cloud Documentation

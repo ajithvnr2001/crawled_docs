@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/release-notes/
 title: Dataflow release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:46.216614+00:00
+fetched_at: 2026-10-27T16:24:24.761724+00:00
 ---
 
 # Dataflow release notes  |  Google Cloud Documentation
@@ -127,7 +127,7 @@ Dataflow is available in the Bangkok (`asia-southeast3`) region. Learn more abou
 
 Feature
 
-Dataflow now serves a notice for when the Dataflow [Runner v2](https://docs.cloud.google.com/dataflow/docs/runner-v2) container image of a streaming pipeline will be upgraded. To use a new image and avoid the scheduled maintenance, launch a replacement job before the upgrade. For more information, see [Runner v2 harness update](https://docs.cloud.google.com/dataflow/docs/guides/common-errors#runner_v2_harness_update).
+Dataflow now serves a notice for when the Dataflow [Portable Runner](https://docs.cloud.google.com/dataflow/docs/portable-runner) container image of a streaming pipeline will be upgraded. To use a new image and avoid the scheduled maintenance, launch a replacement job before the upgrade. For more information, see [Portable Runner harness update](https://docs.cloud.google.com/dataflow/docs/guides/common-errors#portable_runner_harness_update).
 
 ## November 21, 2025
 
@@ -1781,6 +1781,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/hybrid-multicloud-patterns/
 title: Build hybrid and multicloud architectures using Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:35:29.120942+00:00
+fetched_at: 2026-10-27T16:21:29.148153+00:00
 ---
 
 # Build hybrid and multicloud architectures using Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation

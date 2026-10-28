@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/gemini-edit-images/
 title: Edit images with Gemini \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:13.760903+00:00
+fetched_at: 2026-10-27T19:38:56.847887+00:00
 ---
 
 # Edit images with Gemini  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -416,9 +416,15 @@ For more information about model capabilities, including supported aspect ratios
 
 Gemini generates an image based on your description. This process takes a few seconds, but can be comparatively slower depending on capacity.
 
+### Save edited images to Cloud Storage
+
+When editing images with Gemini image models such as [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) (`gemini-nano-banana-2.1`) using the `generateContent` and `streamGenerateContent` APIs, you can set `outputConfig.outputUriPrefix` and `generationConfig.responseFormat[].image.delivery` to `"URI"` to write edited images directly to a Cloud Storage bucket and receive a `fileData.fileUri` reference instead of inline base64 bytes. For supported models, setup instructions, and request syntax, see [Save generated images to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#save-generated-images-cloud-storage).
+
 ### Multi-turn image editing
 
 Multi-turn editing lets you respond to the model with changes after it displays an edited image response.
+
+**Note:** If you save edited images to a Cloud Storage bucket in a different project and then reference them in a later turn, the calling project's Gemini Enterprise Agent Platform service agent must have read access to that Cloud Storage bucket. For details, see [Cloud Storage output limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#cloud-storage-output-limitations).
 
 The following Gemini models support multi-turn editing:
 
@@ -438,7 +444,7 @@ To test out multi-turn image editing, see the [Gemini Nano Banana 2.1 Image Gene
 
 To see code samples related to multi-turn image creation and editing using Gemini 3 Pro Image, see [Example of multi-turn image editing using thought signatures](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/thought-signatures#multi-turn-image-editing).
 
-## What's next?
+## What's next
 
 See the following links for more information about Gemini image generation:
 
@@ -457,6 +463,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

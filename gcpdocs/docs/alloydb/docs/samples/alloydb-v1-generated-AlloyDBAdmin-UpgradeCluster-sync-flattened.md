@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-UpgradeCluster-sync-flattened/
 title: Upgrade a cluster \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:03.460978+00:00
+fetched_at: 2026-10-28T01:28:57.793277+00:00
 ---
 
 # Upgrade a cluster  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

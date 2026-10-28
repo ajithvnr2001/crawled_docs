@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/query-plan-management/
 title: Manage query plans \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:12.609016+00:00
+fetched_at: 2026-10-27T19:53:50.570646+00:00
 ---
 
 # Manage query plans  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document describes how to improve your query plan performance using query plan management in AlloyDB for PostgreSQL. Query plan management continuously tracks all query plans and their execution statistics in your database. After you review the queries and costs associated with them, you can approve a plan, which is consistently applied for a given query. This approach ensures selection of a cost-efficient query plan leading to improved query performance.
+Query plan management in AlloyDB for PostgreSQL lets you improve and stabilize query performance by controlling which execution plans the query optimizer uses for your queries. Query plan management continuously tracks all query plans and their execution statistics in your database. After you review the plans and their costs, you can approve the plans that you want AlloyDB to use for a query. This helps you prevent slowdowns that occur when the optimizer switches to a less cost-efficient plan.
 
 ## How it works
 
@@ -196,6 +196,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

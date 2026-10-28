@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/external-deflection-links/
-title: External Deflection Links \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
+title: External deflection links \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:32:48.598992+00:00
+fetched_at: 2026-10-28T02:29:57.932601+00:00
 ---
 
-# External Deflection Links  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
+# External deflection links  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/contact-center/ccai-platform/docs/external-deflection-links/
 
@@ -19,7 +19,7 @@ fetched_at: 2026-10-24T08:32:48.598992+00:00
 
 Send feedback 
 
-#  External Deflection Links Stay organized with collections  Save and categorize content based on your preferences. 
+#  External deflection links Stay organized with collections  Save and categorize content based on your preferences. 
 
 The aim of External Deflection Links is to provide another channel where information is readily available for consumers, like an FAQ page, and where they may be able to get an answer faster. It will also help contact centers reduce inbound requests to Agents.
 
@@ -27,15 +27,15 @@ When a consumer clicks on an external deflection link:
 
 Consumers will also be able to return to the support experience after visiting a redirection link, so they can get more help from an agent if the redirect didn't resolve their request or question.
 
-### Mobile Experience
+## Mobile experience
 
 In the Mobile SDK, external deflection links will be displayed underneath the available call chat and email options. The icon, name, and call to action, are displayed as configured on the Deflection Links overview page.
 
-### Visiting an External Deflection Link
+### Visiting an external deflection link
 
 When the consumer clicks on the external deflection link, the configured mobile deep link launches the associated app.
 
-### Returning to Support Session
+### Return to the support session
 
 When returning to the support session after having visited an external deflection link, the consumer is presented with a alert asking _Did that resolve your issue?_
 
@@ -48,13 +48,13 @@ The option buttons available are **No** or **Yes**.
 
 
 
-### External Deflection Links Time Limit
+### External deflection links time limit
 
 When returning to the support experience **after 5 minutes** of visiting an external deflection link, the alert is not presented, and the help session is terminated.
 
 The user is returned to the originating screen where they initiated the support session.
 
-### Web Experience
+## Web experience
 
 The icon and name displayed here will be retrieved from your administrator configuration on the Deflection Links overview page in the CCAI Platform portal.
 
@@ -62,11 +62,11 @@ When there are **less than five alternatives** , the Web SDK displays external d
 
 When there are **more than five alternatives** , the Web SDK displays external deflection links as follows:
 
-### Visiting an External Deflection Link
+### Visit an external deflection link
 
 When the consumer clicks on the external deflection link, the configured URL opens within a new tab in the user's active browser window.
 
-### Returning to the support session after visiting an external deflection link
+### Return to the support session after visiting an external deflection link
 
 When the consumer returns to the support session, within 5 minutes, after having visited an external deflection link, they're presented with a alert asking _Did that resolve your issue?_
 
@@ -81,7 +81,7 @@ The option buttons available are **No** or **Yes**.
 
 The user is returned to the originating screen where they initiated the support session.
 
-### External Deflection Links Time Limit
+### External deflection links time limit
 
 When returning to the support experience after 5 minutes of visiting an external deflection link, the alert is not presented, and the help session is terminated.
 
@@ -89,7 +89,7 @@ The user is returned to the originating screen where they initiated the support 
 
 ## Configuration
 
-External Deflection Links give you the ability to offer additional support options in addition to our standard chat, call and email options. For example, add a Billing FAQ link to your Billing queue or link to your social media channels. External Deflection lInks can be configured as the only support options.
+External Deflection Links give you the ability to offer additional support options in addition to our standard chat, call and email options. For example, add a Billing FAQ link to your Billing queue or link to your social media channels. External Deflection links can be configured as the only support options.
 
 The external deflection link appears in the UI based on how it is created in the Add Deflection Links configuration panel (for example: the name, a call to action, and the icon upload).
 
@@ -99,64 +99,62 @@ For Web: Web SDK version 2.2 or later
 
 For Mobile: Mobile SDK version 0.41.0 or later
 
-### Admin Configuration
+### Admin configuration
 
-  1. Go to **Settings > Chat > Mobile & Web** **>** **External Deflection Links**.
+  1. Go to **Settings > Chat > Web & Mobile > External Deflection Links**.
 
-  2. Click **View Links.**
+  2. Select **View links**.
 
-The Deflection Links Overview Page will load.
+The **Deflection Links** overview page will load.
 
-If Deflection Links are configured a list of links will appear.
+If deflection links are configured a list of links will appear.
 
-This list will be empty if no Deflection Links are set.
-
-
+This list will be empty if no deflection links are set.
 
 
-### Deflection Links Overview Page
+
+
+#### Deflection links overview page
 
 The **Deflection Links** overview page lists all configured external deflection links.
 
-Further information displayed includes: if the link is enabled (On/Off), configuration details (display name, URL, icon) as well as assigned queues.
+Further information displayed includes: if the link is enabled (**On** /**Off**), configuration details (display name, URL, icon) as well as assigned queues.
 
-### Adding a Deflection Link
+## Add a deflection link
 
-  1. To add a deflection link, click **Add Deflection Link**.
+  1. To add a deflection link, select **Add Deflection Link**.
 
 A new window, the **Add Deflection Links** configuration panel will open.
 
 
 
 
-### Add Deflection Links Configuration Panel
+### Add deflection links configuration panel
 
 The identification, name, and URL are all **required** to be entered in this panel to add the deflection link. This is where you may add a call to action (optional and just for mobile). Icons will also be uploaded here.
 
 The following fields are required:
 
-  * **Identifier** : Enter the name used within the Portal only (internal reference). For example, Spanish version FAQ.
+  * **Identifier** : Enter the name used within the portal only (internal reference). For example, Spanish version FAQ.
 
   * **Displayed Name** : Enter the name to be displayed to the consumer. If using another language you will need to add the name here in that language.
 
   * **URL** : Enter the URL to where the deflection link will direct.
 
 
+**Tip:** **Call to Action** (optional; only applicable to mobile): Enter a call to action, which appears like help text below the name of the link — for example, _Join our community support members here!_
 
+### Upload icons
 
-[**optional**] **Call to Action** (only applicable to Mobile): Enter a call to action which will appear like help text below the name of the Link. For example, _Join our community support members here!_
+**Note:** If icon upload fields are left blank, the default deflection icon  will show for mobile and web.
 
-### Upload Icons
-
-**Note:** If icon upload fields are left blank, the default deflection icon will show for Mobile and Web.
-
-**Mobile Icons**
+#### Mobile icons
 
 Enter the **Mobile Icon** name:
 
-The icon name **must** match the icon's filename in the iOS asset catalog and the Android drawable folder. Check the iOS and Android README file for more details.
+The icon name **must** match the icon's filename in the iOS asset catalog and/or the Android drawable folder. Check the iOS and Android README file for more details.
 
-**Web Icon**
+#### Web icon
 
 By default, the default deflection link web icon is displayed.
 
@@ -164,107 +162,105 @@ If a web icon has been previously uploaded that icon will display.
 
 To upload a web icon:
 
-  1. Click the web icon ![Upload a web icon](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/16331bc47671b9.jpg){height="22"} to select a file from your file explorer.
+  1. Click the web icon ![Upload a web icon](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/16331bc47671b9.jpg) to select a file from your file explorer.
 
-**Recommendation** : For the best display experience, upload a .**svg file**.
+**Recommendation** : For the best display experience, upload an SVG file.
 
 The uploaded icon will now display.
 
-  2. Click **Save**.
+  2. Select **Save**.
 
 The **Add Deflection Links** panel will close.
 
 The external deflection link you just set is now available as a new support option at the bottom of the **Deflection Links** overview page.
 
-This new deflection link will start off **without being assigned to any queues** and will start in the **On** state.
+This new deflection link will start off without being assigned to any queues and will start in the **On** state.
 
 
 
 
-### Assigning an External Deflection link to a queue
+## Assign an external deflection link to a queue
 
-  1. Go to **Settings > Queue >Mobile** or **Web**.
+  1. Go to **Settings > Queue > Mobile** or **Web**.
 
-  2. Click a leaf-queue. A panel on the side shows the queue Settings.
+  2. Click a leaf-queue. A panel on the side shows the queue **Settings**.
 
-  3. Check the **External Deflection Links** checkbox.If that queue does not have an assigned external deflection link, then _No deflection links selected_ is displayed.
+  3. Check the **External Deflection Links** checkbox. If that queue doesn't have an assigned external deflection link, then _No deflection links selected_ is displayed.
 
-  4. Click **Set Deflection Links** to open the drop-down menu.
+  4. Open the **Select Deflection Links** list.
 
-  5. Select which external deflection links you would like to assign to the queue so that is appears to consumers in the UI.
+  5. Select which external deflection links you would like to assign to the queue so that it appears to consumers in the UI.
 
-  6. Click **Add**.
+  6. Select **Add**.
 
   7. Check the **External Deflection Links** checkbox.
 
 
 
 
-A success alert _Updated Channel setting_ will display.
+## Set external deflection links as an option
 
-### Setting External Deflection Links as an option
+Set an external deflection link as an after-hours deflection and/or an overcapacity deflection.
 
-Set an external deflection link as an after-hours deflection and an overcapacity deflection.
+### After-hour deflection option (web and mobile only)
 
-### After Hour Deflection Option (Mobile and Web only)
+  1. Go to **Settings > Chat > Web & Mobile > Web & Mobile Deflection**. Under **Web & Mobile Chats**, find **After Hour Deflection Options**.
 
-  1. Go to **Settings > Chat go to Mobile > Web Chats > After Hour Deflection Options**.
+  2. Under **After Hour Deflection Options** , open the **Select Deflection Links** list. The drop-down component displays the list of options that are turned **On** in the **Deflection Links** overview page. By default, no custom deflection links are selected.
 
-  2. Under **After Hours Deflection Options** , click **Set Deflection Links** to open the drop-down menu. Thedrop-downn component displays the list of options that are turned On in the Deflection Links overview page. By default, no custom deflection links are selected.
+  3. Select which external deflection links you would like to assign as an after hour deflection option.
 
-  3. Select which external deflection links you would like to assign as an After Hours Deflection option.
+  4. Select **Add**.
 
-  4. Click **Add**.
-
-  5. Click **Set Deflection**.
+  5. Select **Save Deflection**.
 
 
 
 
-### Overcapacity Deflection Option
+### Overcapacity deflection option
 
   1. Go to **Settings > Chat**.
 
-  2. Go to **Mobile > Web Chats >Overcapacity Deflection Options**.
+  2. In **Web & Mobile Deflection**, under **Web & Mobile Chats**, find **Overcapacity Deflection Options**.
 
-  3. Click **Set Deflection Links** to open the drop-down menu. The drop-down component displays the list of options that are turned On in the Deflection Links overview page. By default, no custom deflection links are selected.
+  3. Open the **Select Deflection Links** list. The drop-down component displays the list of options that are turned **On** in the **Deflection Links** overview page. By default, no custom deflection links are selected.
 
-  4. Select which external deflection links you would like to assign as an Overcapacity Deflection option.
+  4. Select which external deflection links you would like to assign as an overcapacity deflection option.
 
-  5. Click **Add**.
+  5. Select **Add**.
 
-  6. Click **Set Deflection**.
-
-
+  6. Select **Save Deflection**.
 
 
-This globally applies the selected deflection links as After Hour / Overcapacity deflection options.
 
-### Mobile Queue-specific Custom After Hour Deflection
 
-External deflection links can be set for a custom after hour deflection.
+This globally applies the selected deflection links as after-hour / overcapacity deflection options.
 
-This is only available Mobile as custom After Hours is not supported for Web.
+### Mobile queue-specific custom after-hour deflection
+
+External deflection links can be set for a custom after-hour deflection.
+
+This is available only for mobile. Custom after-hours deflection isn't supported for web.
 
   1. Go to **Settings > Queue > Mobile > Custom After Hour Deflection > Deflection Options**.
 
-  2. Under **Deflection Options** , check the **External Deflection Links** checkbox. The number beside External Deflection Links indicates how many deflection links are available.
+  2. Under **Deflection Options** , check the **External Deflection Links** checkbox. The number beside **External Deflection Links** indicates how many deflection links are available.
 
   3. Select which external deflection link to apply.
 
-  4. Click **Add**.
+  4. Select **Add**.
 
-  5. Click **Set Custom After Hours Options**.
-
-
+  5. Select **Save Custom After Hour Options**.
 
 
-This applies the selected deflection link to the respective queues After Hour deflection options.
+
+
+This applies the selected deflection link to the respective queues after-hour deflection options.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

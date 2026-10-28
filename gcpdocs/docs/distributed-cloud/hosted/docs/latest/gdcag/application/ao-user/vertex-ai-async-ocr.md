@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-async-ocr/
 title: Detect text in files \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:20:22.162222+00:00
+fetched_at: 2026-10-27T22:51:22.845066+00:00
 ---
 
 # Detect text in files  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -198,8 +198,6 @@ Follow these steps to use the OCR service from a Python script to detect text in
              creds = creds.with_gdch_audience(audience)
              req = requests.Request()
              creds.refresh(req)
-             print("Got token: ")
-             print(creds.token)
            except Exception as e:
              print("Caught exception" + str(e))
              raise e
@@ -460,13 +458,17 @@ Follow these steps to use the OCR service from a Python script to detect text in
          audience = "https://ENDPOINT:443"
          api_endpoint="ENDPOINT:443"
          
+         def vision_client(creds):
+           opts = ClientOptions(api_endpoint=api_endpoint)
+           return vision.[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)(credentials=creds, client_options=opts)
+         
          def vision_func_async(creds):
            vc = vision_client(creds)
            features = [{"type_": vision.[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.FEATURE_TYPE}]
-           input_config = {"gcs_source":{"uri":SOURCE_FILE},"mime_type": "application/pdf"}
-           output_config = {"gcs_destination": {"uri": DESTINATION_BUKET}}
+           input_config = {"gcs_source":{"uri":"SOURCE_FILE"},"mime_type": "application/pdf"}
+           output_config = {"gcs_destination": {"uri": "DESTINATION_BUCKET"}}
            req = {"input_config": input_config, "output_config": output_config, "features":features}
-           reqs = {"requests":[req],"parent":PROJECT_ID}
+           reqs = {"requests":[req],"parent":"PROJECT_ID"}
          
            metadata = [("x-goog-user-project", "projects/PROJECT_ID")]
          
@@ -481,8 +483,6 @@ Follow these steps to use the OCR service from a Python script to detect text in
              creds = creds.with_gdch_audience(audience)
              req = requests.Request()
              creds.refresh(req)
-             print("Got token: ")
-             print(creds.token)
            except Exception as e:
              print("Caught exception" + str(e))
              raise e
@@ -536,6 +536,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

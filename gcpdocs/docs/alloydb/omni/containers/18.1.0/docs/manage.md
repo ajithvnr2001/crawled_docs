@@ -1,16 +1,47 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/
 title: Manage and monitor AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using containers: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:46:06.095655+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:32:13.266375+00:00
 ---
 
 # Manage and monitor AlloyDB Omni  |  AlloyDB Omni using containers: 18.1.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/
 
-This page documents AlloyDB Omni version **18.1.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
+[ Skip to main content ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/)
+  * [Deutsch](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/?hl=ko)
 
+
+[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Falloydb%2Fomni%2Fcontainers%2F18.1.0%2Fdocs%2Fmanage%2F&prompt=select_account)
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/alloydb-color.svg) ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/overview)
+  * [ AlloyDB Omni ](https://docs.cloud.google.com/alloydb/omni/docs)
+  * [ Containers: 18.1.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/overview)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Manage user roles](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#manage-users)
+    * [Set up an AlloyDB Omni database](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#set-up-database)
+  * [Monitor AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#monitor)
+  * [Uninstall AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#uninstall)
+
+
+This page documents AlloyDB Omni version **18.1.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
@@ -18,13 +49,17 @@ This page documents AlloyDB Omni version **18.1.0** using the **containers** dep
   * [ Containers: 18.1.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/overview)
 
 
-
+Was this helpful?
 Send feedback 
+#  Manage and monitor AlloyDB Omni Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Manage user roles](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#manage-users)
+    * [Set up an AlloyDB Omni database](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#set-up-database)
+  * [Monitor AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#monitor)
+  * [Uninstall AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#uninstall)
 
-#  Manage and monitor AlloyDB Omni Stay organized with collections  Save and categorize content based on your preferences. 
 
-Select a documentation version: 18.1.0keyboard_arrow_down
-
+Select a documentation version:  18.1.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/manage)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/manage)
   * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.3.0/docs/manage)
@@ -51,105 +86,69 @@ Select a documentation version: 18.1.0keyboard_arrow_down
   * [ 15.5.2 ](https://docs.cloud.google.com/alloydb/omni/containers/15.5.2/docs/manage)
 
 This page describes how to manage AlloyDB Omni user roles, monitor the activity of your AlloyDB Omni server, and update or remove your AlloyDB Omni installation. 
-
 ## Manage user roles
-
 AlloyDB Omni uses the following roles:
-
   * AlloyDB Omni includes a superuser role named `alloydbadmin`, and a non-superuser role named `alloydbmetadata`.
-
   * The default `postgres` user has a superuser role.
-
   * All other predefined user roles have no privileges. They are reserved for potential uses in the future.
 
 
-
-
 ### Set up an AlloyDB Omni database
-
 We recommend following these steps when setting up an AlloyDB Omni database:
-
   1. Define or import your databases using the `postgres` user role. In a new installation, this role has superuser privileges.
-
   2. Create new user roles that have the correct level of access to your application's tables, again using the `postgres` user role.
-
   3. Configure your application to connect to the database using these new, limited-access roles.
 
 
-
-
 You can create and define as many new user roles as you need. Don't modify or delete any of the user roles that comes with AlloyDB Omni.
-
 For more information, see [Manage AlloyDB Omni users and roles](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/database-users/manage-users).
-
 ## Monitor AlloyDB Omni
-
 Monitoring your AlloyDB Omni installation includes fetching and analyzing AlloyDB Omni metrics.
-
-###  Single-server 
-
+[ Single-server ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#single-server) More
 By default, to retrieve AlloyDB Omni logs, run:
+[ Docker ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#docker)[ Podman ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#podman) More
 
-###  Docker 
-    
-    
-      docker logs CONTAINER_NAME
-
-Replace `CONTAINER_NAME` with the name of your AlloyDB Omni container.
-
-To configure the logging behavior of AlloyDB Omni, see [Customize your AlloyDB Omni installation](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/install).
-
-###  Podman 
-    
-    
-      podman logs CONTAINER_NAME
+```
+  docker logs CONTAINER_NAME
+```
 
 Replace `CONTAINER_NAME` with the name of your AlloyDB Omni container.
-
 To configure the logging behavior of AlloyDB Omni, see [Customize your AlloyDB Omni installation](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/install).
 
+```
+  podman logs CONTAINER_NAME
+```
+
+Replace `CONTAINER_NAME` with the name of your AlloyDB Omni container.
+To configure the logging behavior of AlloyDB Omni, see [Customize your AlloyDB Omni installation](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/install).
 ## Uninstall AlloyDB Omni
-
-###  Single-server 
-
+[ Single-server ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#single-server) More
 To uninstall AlloyDB Omni, stop and delete the AlloyDB Omni container using the following command:
+[ Docker ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#docker)[ Podman ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#podman)[ Podman ](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/manage/#podman) More
 
-###  Docker 
-    
-    
-     docker container stop CONTAINER_NAME
-       docker container rm CONTAINER_NAME
-
-Replace `CONTAINER_NAME` with the name of your AlloyDB Omni container.
-
-**Caution:** You must [mount](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/install#mount-external-data-directory) an external data directory, so that your database data is not deleted when you delete the container.
-
-###  Podman 
-    
-    
-     podman container stop CONTAINER_NAME
-       podman container rm CONTAINER_NAME
+```
+ docker container stop CONTAINER_NAME
+   docker container rm CONTAINER_NAME
+```
 
 Replace `CONTAINER_NAME` with the name of your AlloyDB Omni container.
 
-**Caution:** You must [mount](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/install#mount-external-data-directory) an external data directory, so that your database data is not deleted when you delete the container.
-
-###  Podman 
-    
-    
-     podman container stop CONTAINER_NAME
-       podman container rm CONTAINER_NAME
+```
+ podman container stop CONTAINER_NAME
+   podman container rm CONTAINER_NAME
+```
 
 Replace `CONTAINER_NAME` with the name of your AlloyDB Omni container.
 
-**Caution:** You must [mount](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/install#mount-external-data-directory) an external data directory, so that your database data is not deleted when you delete the container.
+```
+ podman container stop CONTAINER_NAME
+   podman container rm CONTAINER_NAME
+```
 
+Replace `CONTAINER_NAME` with the name of your AlloyDB Omni container.
 You can move, archive, or delete an external data directory depending on whether and how you want to preserve your data after uninstalling AlloyDB Omni.
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

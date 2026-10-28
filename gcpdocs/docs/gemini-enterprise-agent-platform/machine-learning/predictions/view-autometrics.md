@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/view-autometrics/
 title: View Vertex AI Inference AI AutoMetrics \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:50.550214+00:00
+fetched_at: 2026-10-28T02:28:45.364749+00:00
 ---
 
 # View Vertex AI Inference AI AutoMetrics  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ AI AutoMetrics lets you to monitor the performance and health of your models wit
 ## Before you begin
 
   1. Make sure you have a [Gemini Enterprise Agent Platform endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/choose-endpoint-type) with a [deployed model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment) that uses a container with supported frameworks.
-  2. Make sure your project has enabled Cloud Monitoring. See For more information, see [Enable the Monitoring API](https://docs.cloud.google.com/monitoring/api/enable-api).
+  2. Make sure your project has enabled Cloud Monitoring. See For more information, see [Enable the Cloud Monitoring API](https://docs.cloud.google.com/monitoring/api/enable-api).
 
 
 
@@ -90,6 +90,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

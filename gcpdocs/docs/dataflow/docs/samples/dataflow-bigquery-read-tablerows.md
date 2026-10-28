@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-bigquery-read-tablerows/
 title: Read into TableRow objects \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:24:37.327826+00:00
+fetched_at: 2026-10-27T18:59:07.884396+00:00
 ---
 
 # Read into TableRow objects  |  Cloud Dataflow  |  Google Cloud Documentation

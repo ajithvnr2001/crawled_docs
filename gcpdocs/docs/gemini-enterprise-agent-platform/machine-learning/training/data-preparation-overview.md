@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/data-preparation-overview/
 title: Data preparation overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:38:35.412593+00:00
+fetched_at: 2026-10-28T02:28:01.131669+00:00
 ---
 
 # Data preparation overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -87,7 +87,7 @@ Consider using Cloud Storage as a Mounted File System (Cloud Storage FUSE) for t
 ## Managed dataset
 
   * Centralized data management and governance: Managed datasets provide a central location to organize and manage your datasets within Agent Platform. This helps with tracking and governance of your data assets across different projects and experiments.
-  * Data Labeling: You can create labeling tasks and manage annotation sets directly within the managed dataset.
+  * Data Labeling on Gemini Enterprise Agent Platform: You can create labeling tasks and manage annotation sets directly within the managed dataset.
   * Tracking Data Lineage: Managed datasets automatically track the lineage of your data to the models trained on it. This is crucial for understanding the data sources used for specific models and for ensuring reproducibility and governance.
   * Comparing Custom and AutoML Models: Managed datasets let you train both custom models and AutoML models using the same data. This facilitates a direct comparison of their performance on the same dataset, helping you choose the best approach for your problem.
   * Generating Data Statistics and Visualizations: Agent Platform can automatically generate statistics and visualizations for the data within a managed dataset. This can aid in exploratory data analysis and help you understand the characteristics of your data.
@@ -140,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

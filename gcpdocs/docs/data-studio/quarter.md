@@ -1,16 +1,51 @@
 ---
 url: https://docs.cloud.google.com/data-studio/quarter/
 title: Data Studio \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:43:54.600565+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:18:39.068053+00:00
 ---
 
 # Data Studio  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/data-studio/quarter/
 
-Looker Studio is now called Data Studio. [Learn more about this change](https://docs.cloud.google.com/data-studio/welcome#looker_studio_is_now_called). 
+[ Skip to main content ](https://docs.cloud.google.com/data-studio/quarter/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/data-studio/quarter/)
+  * [Deutsch](https://docs.cloud.google.com/data-studio/quarter/?hl=de)
+  * [Español](https://docs.cloud.google.com/data-studio/quarter/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/data-studio/quarter/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/data-studio/quarter/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/data-studio/quarter/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/data-studio/quarter/?hl=it)
+  * [Português](https://docs.cloud.google.com/data-studio/quarter/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/data-studio/quarter/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/data-studio/quarter/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/data-studio/quarter/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/data-studio/quarter/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/data-studio/quarter/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/data-studio/quarter/?hl=ko)
 
+
+[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Fdata-studio%2Fquarter%2F&prompt=select_account)
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/data-analytics-color.svg) ](https://docs.cloud.google.com/data-studio)
+  * [ Data Studio ](https://docs.cloud.google.com/data-studio)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Sample usage](https://docs.cloud.google.com/data-studio/quarter/#sample_usage)
+  * [Syntax](https://docs.cloud.google.com/data-studio/quarter/#syntax)
+    * [Parameters](https://docs.cloud.google.com/data-studio/quarter/#parameters)
+    * [Input format for compatibility mode dates](https://docs.cloud.google.com/data-studio/quarter/#input_format_for%C2%A0compatibility_mode_dates)
+  * [Examples](https://docs.cloud.google.com/data-studio/quarter/#examples)
+  * [Notes](https://docs.cloud.google.com/data-studio/quarter/#notes)
+  * [Related resources](https://docs.cloud.google.com/data-studio/quarter/#related_resources)
+
+
+Looker Studio is now called Data Studio. [Learn more about this change](https://docs.cloud.google.com/data-studio/welcome#looker_studio_is_now_called). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Data analytics ](https://docs.cloud.google.com/docs/data)
@@ -18,39 +53,35 @@ Looker Studio is now called Data Studio. [Learn more about this change](https://
   * [ Guides ](https://docs.cloud.google.com/data-studio/welcome)
 
 
+Was this helpful?
+Send feedback 
+  * On this page
+  * [Sample usage](https://docs.cloud.google.com/data-studio/quarter/#sample_usage)
+  * [Syntax](https://docs.cloud.google.com/data-studio/quarter/#syntax)
+    * [Parameters](https://docs.cloud.google.com/data-studio/quarter/#parameters)
+    * [Input format for compatibility mode dates](https://docs.cloud.google.com/data-studio/quarter/#input_format_for%C2%A0compatibility_mode_dates)
+  * [Examples](https://docs.cloud.google.com/data-studio/quarter/#examples)
+  * [Notes](https://docs.cloud.google.com/data-studio/quarter/#notes)
+  * [Related resources](https://docs.cloud.google.com/data-studio/quarter/#related_resources)
 
-Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# QUARTER
-
+#  QUARTER Stay organized with collections  Save and categorize content based on your preferences.
 Returns the quarter of the year for a given date.
-
 ## Sample usage
-
 `QUARTER(Date)`
-
 ## Syntax
-
 1) Returns the quarter from a Date value.
-
 `QUARTER( date_expression )`
-
 2) Returns the quarter from a compatibility mode Date value.
-
 `QUARTER( X [, format_string ])`
-
 ### Parameters
-
-  * `date_expression` \- a Date & Time field or expression.
-  * `X` \- a field or expression that evaluates to Text, Number, or compatibility mode Date.
-  * `format_string` \- format for `X`. Optional if `X` is correctly configured as a semantic date field.
-
+  * `date_expression` - a Date & Time field or expression.
+  * `X` - a field or expression that evaluates to Text, Number, or compatibility mode Date.
+  * `format_string` - format for `X`. Optional if `X` is correctly configured as a semantic date field.
 
 
 ### Input format for compatibility mode dates
-
 Supported date functions accept the following input formats if `X` is a Text field or expression, or compatibility mode Date:
-
   * Any valid [strptime](http://pubs.opengroup.org/onlinepubs/009695399/functions/strptime.html) format is accepted.
   * `'BASIC':` %Y/%m/%d-%H:%M:%S
   * `'DEFAULT_DASH':` %Y-%m-%d [%H:%M:%S]
@@ -61,9 +92,7 @@ Supported date functions accept the following input formats if `X` is a Text fie
   * `'DECIMAL_DATE':` same as `'DEFAULT_DECIMAL'`
 
 
-
 Supported time functions accept the following input format if `X` is a Number field or expression:
-
   * `'SECONDS':` seconds since Epoch
   * `'MILLIS':` milliseconds since Epoch
   * `'MICROS':` microseconds since Epoch
@@ -71,32 +100,23 @@ Supported time functions accept the following input format if `X` is a Number fi
   * `'JULIAN_DATE':` days since Epoch
 
 
-
-## Examples
-
-Example formula | Input | Output  
----|---|---  
-` QUARTER(Date) ` | Jan 1, 2019 | 1  
-` QUARTER(Date as Text, 'BASIC') ` | 2019/01/01-09:40:45 | 1  
-` QUARTER(Date as Number, 'SECONDS') ` |  1561784874  | 2  
-` QUARTER(Date as lots of Numbers, 'MILLIS') ` |  1562004058620  |  3   
-  
+## Examples  
+| Example formula  | Input  | Output  |  
+| --- | --- | --- |  
+| ` QUARTER(Date) `  | Jan 1, 2019  | 1  |  
+| ` QUARTER(Date as Text, 'BASIC') `  | 2019/01/01-09:40:45  | 1  |  
+| ` QUARTER(Date as Number, 'SECONDS') `  |  1561784874   | 2  |  
+|  ` QUARTER(Date as lots of Numbers, 'MILLIS') `  |  1562004058620   |  3   |  
 ## Notes
-
 This function works with both compatibility mode dates and [upgraded Date and Date & Time](https://docs.cloud.google.com/data-studio/dates-and-times) data types.
-
 ## Related resources
-
   * [Dates and times](https://docs.cloud.google.com/data-studio/dates-and-times)
   * [Calculated fields](https://docs.cloud.google.com/data-studio/about-calculated-fields)
   * [Data Studio function list](https://docs.cloud.google.com/data-studio/function-list)
 
 
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

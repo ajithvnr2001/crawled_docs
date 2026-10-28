@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/setup/
 title: Set up the environment \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:16.594346+00:00
+fetched_at: 2026-10-28T02:27:49.390113+00:00
 ---
 
 # Set up the environment  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -284,7 +284,7 @@ We also recommend [setting up a virtual environment](https://docs.cloud.google.c
 To minimize the set of dependencies that you have to install, we have separated out the dependencies into:
 
   * `agent_engines`: the set of packages required for deployment to Agent Runtime.
-  * `adk`: the set of compatible Agent Development Kit packages.
+  * `adk`: the set of compatible Agent Development Kit (ADK) packages.
   * `langchain`: the set of compatible LangChain and LangGraph packages.
   * `ag2`: the set of compatible AG2 packages.
   * `llama_index`: the set of compatible LlamaIndex packages.
@@ -328,13 +328,13 @@ Run the following command:
 
 Run the following code to import and initialize the SDK for Agent Runtime:
 
-### Google Cloud project
+###  Google Cloud project 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html) # For the prebuilt templates
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    from vertexai import [agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html) # For the prebuilt templates
     
-    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(  # For service interactions via client.agent_engines
+    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(  # For service interactions via client.agent_engines
         project="PROJECT_ID",
         location="LOCATION",
     )
@@ -419,6 +419,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

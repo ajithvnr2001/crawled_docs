@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/resources/
 title: GKE resources \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:38:32.075962+00:00
+fetched_at: 2026-10-27T20:46:55.334120+00:00
 ---
 
 # GKE resources  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-planning-guide/
 title: SAP HANA planning guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:01:38.480742+00:00
+fetched_at: 2026-10-28T02:31:28.764200+00:00
 ---
 
 # SAP HANA planning guide  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -102,7 +102,7 @@ This section provides guidance to help you identify the resources that you'd req
 
 For SAP HANA, SAP certifies only a subset of the machine types that are available from Google Cloud. From the machine types that SAP has certified for use with SAP HANA, you can choose to create virtual machine (VM) instances or bare metal instances.
 
-To view the list of SAP-certified Compute Engine machine types that you can use to run SAP HANA, go to [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-machine-types-and-solutions) and in the **Certified SAP solution** menu, select **SAP HANA**.
+To view the list of SAP-certified Compute Engine machine types that you can use to run SAP HANA, go to [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-solutions-and-machine-types) and in the **Certified SAP solution** menu, select **SAP HANA**.
 
 For information about the operating systems that SAP has certified for use with SAP HANA on each machine type, see Certified operating systems for SAP HANA.
 
@@ -1050,6 +1050,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

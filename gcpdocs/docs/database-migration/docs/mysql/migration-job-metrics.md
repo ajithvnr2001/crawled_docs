@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/database-migration/docs/mysql/migration-job-metrics/
 title: Migration job metrics \u00a0|\u00a0 Database Migration Service for MySQL \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:59:39.557831+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:24:30.999426+00:00
 ---
 
 # Migration job metrics  |  Database Migration Service for MySQL  |  Google Cloud Documentation
@@ -36,7 +50,7 @@ Database Migration Service collects and displays migration job metrics that repr
 The migration job details page shows several diagrams that can help you understand the current state and progress of your migration job. You can filter the information in these diagrams for each database included in your migration job.
 
 ![Example diagrams for migration job metrics
-      Database Migration Service.](https://docs.cloud.google.com/static/database-migration/docs/images/hmm/mysql_metrics.png) **Figure 1.** Sample observability diagrams in Database Migration Service. (click to enlarge) ![Example diagrams for migration job metrics
+      Database Migration Service.](https://docs.cloud.google.com/static/database-migration/docs/images/hmm/mysql_metrics.png) **Figure 1.** Sample observability diagrams in Database Migration Service. (click to enlarge)  ![Example diagrams for migration job metrics
       Database Migration Service.](https://docs.cloud.google.com/static/database-migration/docs/images/hmm/mysql_metrics.png)
 
 Expand the following sections to learn more about each diagram and its associated metric.
@@ -86,12 +100,12 @@ Display name
 Kind, Type, Unit  
 Monitored resources | _Description_  
 Labels  
-`migration_job/max_replica_bytes_lag` BETA  
+`migration_job/max_replica_bytes_lag` BETA   
 Max lag bytes of the migration job data.   
 `GAUGE`, `INT64`, `By`   
 **[datamigration.googleapis.com/MigrationJob](https://docs.cloud.google.com/monitoring/api/resources#tag_datamigration.googleapis.com/MigrationJob)** |  _Current replication lag, aggregated across all of the migration job's data. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
 `database`: Database name.   
-`migration_job/max_replica_sec_lag` BETA  
+`migration_job/max_replica_sec_lag` BETA   
 Max lag in seconds of the migration job data   
 `GAUGE`, `INT64`, `s`   
 **[datamigration.googleapis.com/MigrationJob](https://docs.cloud.google.com/monitoring/api/resources#tag_datamigration.googleapis.com/MigrationJob)** | _Current replication lag, aggregated across all of the migration job's data. Sampled every 60 seconds. After sampling, data is not visible for up to 180 seconds._   
@@ -101,6 +115,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

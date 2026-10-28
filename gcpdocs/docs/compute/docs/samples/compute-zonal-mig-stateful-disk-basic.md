@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-zonal-mig-stateful-disk-basic/
 title: Create a MIG with stateful disks \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:49:05.086853+00:00
+fetched_at: 2026-10-27T23:27:26.559098+00:00
 ---
 
 # Create a MIG with stateful disks  |  Compute Engine  |  Google Cloud Documentation

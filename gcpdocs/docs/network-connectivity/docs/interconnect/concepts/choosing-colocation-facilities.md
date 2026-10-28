@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/choosing-colocation-facilities/
 title: All colocation facilities \u00a0|\u00a0 Cloud Interconnect \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:59:56.543444+00:00
+fetched_at: 2026-10-27T21:22:39.897662+00:00
 ---
 
 # All colocation facilities  |  Cloud Interconnect  |  Google Cloud Documentation
@@ -622,13 +622,17 @@ Chicago | ord-zone1-7 | [ Equinix Chicago (CH1/CH2/CH4)](https://www.peeringdb.c
 Chicago | ord-zone2-7 | [ Equinix Chicago (CH1/CH2/CH4)](https://www.peeringdb.com/fac/7) |  |  10 Gbps  [M]   
 100 Gbps [M]  
 Columbus | cmh-zone1-2377 ¹ | [ Cologix COL1-3](https://www.peeringdb.com/fac/3313) | `us-east5` |  10 Gbps  [M]   
-100 Gbps [M]  
+100 Gbps [M]   
+400 Gbps [M]  
 Columbus | cmh-zone2-2377 ¹ | [ Cologix COL1-3](https://www.peeringdb.com/fac/3313) | `us-east5` |  10 Gbps  [M]   
-100 Gbps [M]  
+100 Gbps [M]   
+400 Gbps [M]  
 Council Bluffs | cbf-zone1-575 ¹ | [ Nebraska Data Centers (1623 Farnam)](https://www.peeringdb.com/fac/575) | `us-central1` |  10 Gbps  [M]   
-100 Gbps [M]  
+100 Gbps [M]   
+400 Gbps [M]  
 Council Bluffs | cbf-zone2-575 ¹ | [ Nebraska Data Centers (1623 Farnam)](https://www.peeringdb.com/fac/575) | `us-central1` |  10 Gbps  [M]   
-100 Gbps [M]  
+100 Gbps [M]   
+400 Gbps [M]  
 Dallas | dfw-zone1-4 ¹ | [ Equinix Dallas (DA1)](https://www.peeringdb.com/fac/4) | `us-south1` |  10 Gbps  [M]   
 100 Gbps [M]   
 400 Gbps [M]  
@@ -694,9 +698,11 @@ New York | lga-zone1-16 | [ Digital Realty | Telx New York (111 8th Ave)](https:
 New York | lga-zone2-16 | [ Digital Realty | Telx New York (111 8th Ave)](https://www.peeringdb.com/fac/16) |  |  10 Gbps  [M]   
 100 Gbps [M]  
 New York | lga-zone1-9 | [ 165 Halsey - 9th Floor MMR](https://www.peeringdb.com/fac/350) |  |  10 Gbps  [M]   
-100 Gbps [M]  
+100 Gbps [M]   
+400 Gbps [M]  
 New York | lga-zone2-9 | [ 165 Halsey - 9th Floor MMR](https://www.peeringdb.com/fac/350) |  |  10 Gbps  [M]   
-100 Gbps [M]  
+100 Gbps [M]   
+400 Gbps [M]  
 New York | lga-zone1-36 | [ Equinix NY5 - New York, Secaucus](https://www.peeringdb.com/fac/36) |  |  10 Gbps  [M]   
 100 Gbps [M]  
 New York | lga-zone2-36 | [ Equinix NY5 - New York, Secaucus](https://www.peeringdb.com/fac/36) |  |  10 Gbps  [M]   
@@ -840,6 +846,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

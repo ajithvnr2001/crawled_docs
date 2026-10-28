@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/audit-logging/
 title: Identity and Access Management audit logging \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:09.172796+00:00
+fetched_at: 2026-10-27T18:17:08.787862+00:00
 ---
 
 # Identity and Access Management audit logging  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Identity and Access Management audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the audited methods for Identity and Access Management. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Identity and Access Management let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Identity and Access Management API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -236,7 +238,6 @@ The following audit logs are associated with methods belonging to `google.iam.ad
 
   * **Permissions** : 
     * `iam.roles.create - ADMIN_WRITE`
-    * `iam.roles.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.iam.admin.v1.CreateRole" `  
@@ -282,6 +283,7 @@ The following audit logs are associated with methods belonging to `google.iam.ad
 
   * **Permissions** : 
     * `iam.roles.delete - ADMIN_WRITE`
+    * `iam.roles.list - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.iam.admin.v1.DeleteRole" `  
@@ -1540,7 +1542,6 @@ The following audit logs are associated with methods belonging to `google.iam.v1
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
-    * `iam.workloadIdentityPoolManagedIdentities.getAttestationRules - ADMIN_READ`
     * `iam.workloadIdentityPools.getAttestationRules - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -2593,6 +2594,7 @@ The following audit logs are associated with methods belonging to `google.iam.v3
     * `cloudresourcemanager.googleapis.com/folders.searchPolicyBindings - ADMIN_READ`
     * `cloudresourcemanager.googleapis.com/organizations.searchPolicyBindings - ADMIN_READ`
     * `cloudresourcemanager.googleapis.com/projects.searchPolicyBindings - ADMIN_READ`
+    * `iam.googleapis.com/workloadIdentityPools.searchPolicyBindings - ADMIN_READ`
     * `iam.googleapis.com/workspacePools.searchPolicyBindings - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -2610,6 +2612,7 @@ The following audit logs are associated with methods belonging to `google.iam.v3
   * **Permissions** : 
     * `cloudresourcemanager.googleapis.com/projects.updatePolicyBinding - ADMIN_WRITE`
     * `iam.googleapis.com/principalaccessboundarypolicies.bind - ADMIN_WRITE`
+    * `iam.googleapis.com/workloadIdentityPools.updatePolicyBinding - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.iam.v3beta.PolicyBindings.UpdatePolicyBinding" `  
@@ -2852,6 +2855,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

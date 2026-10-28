@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/memory-optimized-machines/
 title: Memory-optimized machine family for Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:46:37.544870+00:00
+fetched_at: 2026-10-27T22:56:32.358676+00:00
 ---
 
 # Memory-optimized machine family for Compute Engine  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ The X5, X4, M4N, M4, M3, M2, and M1 machine series offer the lowest cost per GB 
 
   * **Sustained use discounts (SUDs):** M2 and M1 offer savings of up to 30% with sustained use discounts.
   * **Committed use discounts (CUDs):** X4, M4N, M4, M3, M2, and M1 are eligible for [resource-based committed use discounts (CUDs)](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts), that can bring savings of greater than 60% in exchange for 3-year commitments.
-  * **Compute flexible CUDs:** M4N, M4, M3, M2, and M1 are eligible for [compute flexible committed use discounts](https://docs.cloud.google.com/compute/docs/instances/flexible-committed-use-discounts) that can bring savings of 54% or 63% in exchange for 3-year commitments. M4N also offers 1-year compute flexible CUDs.
+  * **Compute flexible CUDs:** M4N, M4, M3, M2, and M1 are eligible for [compute flexible committed use discounts](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#spend_based) that can bring savings of 54% or 63% in exchange for 3-year commitments. M4N also offers 1-year compute flexible CUDs.
 
 **Machine series** | **Workloads**  
 ---|---  
@@ -215,7 +215,7 @@ During emergent maintenance maintenance, X5 instances are moved to a different, 
 
 For emergent maintenance events, you can trigger the maintenance at any time within the 14 day advance notification period. If you don't begin the maintenance operation within the 14-day period, then the maintenance starts automatically at the end of the advanced notification period.
 
-For information about how to manually start host maintenance events for X5 instances, see [Manually starting host maintenance doesn't work for X5 instances](https://docs.cloud.google.com/compute/docs/troubleshooting/known-issues#x4-ctm).
+For information about how to manually start host maintenance events for X5 instances, see [Manually starting host maintenance doesn't work for X4 instances](https://docs.cloud.google.com/compute/docs/troubleshooting/known-issues#x4-ctm).
 
 ## X4 machine series
 
@@ -345,7 +345,7 @@ This machine series is well-suited for large in-memory databases such as SAP HAN
 M4N instances are eligible for the following discounts with long term purchase commitments:
 
   * **Resource-based committed use discounts (CUDs)** : savings of 60% in exchange for 3-year commitments and savings of 37% in exchange for 1-year commitments. For the commitment type values to use, see the [resource-based CUDs documentation](https://docs.cloud.google.com/compute/docs/committed-use-discounts/purchase-commitments).
-  * **Compute flexible CUDs** : savings of 54% in exchange for 3-year commitments, and savings of 28% in exchange for 1-year commitments. For more information about compute flexible CUDs, see the [compute flexible CUDs documentation](https://docs.cloud.google.com/compute/docs/instances/flexible-committed-use-discounts).
+  * **Compute flexible CUDs** : savings of 54% in exchange for 3-year commitments, and savings of 28% in exchange for 1-year commitments. For more information about compute flexible CUDs, see the [compute flexible CUDs documentation](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#spend_based).
 
 
 
@@ -406,7 +406,7 @@ The following restrictions apply:
 
 
 
-For details about the capacity limits, see [Hyperdisk capacity limits per VM](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#limits-instance).
+For details about the capacity limits, see [Hyperdisk capacity limits per VM](https://docs.cloud.google.com/compute/docs/disks/hyperdisk-perf-limits#limits-instance).
 
 M4N storage limits are described in the following table:
 
@@ -456,13 +456,12 @@ The maintenance frequencies shown in the previous table are approximations, not 
 
 The M4 machine series offers machine types that are suitable for OLTP and OLAP workloads running on SAP HANA. These machine types allow you to provision up to 224 vCPUs and up to 6 TB of RAM. M4 instances use only NVMe for storage, and support [Hyperdisk Balanced](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced) and [Hyperdisk Extreme](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-extreme). M4 instances use only [gVNIC for networking](https://docs.cloud.google.com/compute/docs/networking/using-gvnic). VirtIO-net and SCSI interfaces are not supported.
 
-M4 instances support resource-based CUDs, Spot VMs, and reservations, as well as performance monitoring unit (PMU), and compact placement policies.
+M4 instances support Spot VMs, reservations, as well as performance monitoring unit (PMU), and compact placement policies.
 
-Resource-based CUDs for M4 instances are available under two separate commitment types, each applying to specific machine types. When you purchase a commitment, ensure that you select the correct commitment type, as follows:
+M4 instances are eligible for the following discounts with long term purchase commitments:
 
-  * For `m4-ultramem-224` (6 TB), select **Memory-optimized M4 6TB** as the commitment type in the Google Cloud console.
-  * For any other M4 machine type, select **Memory-optimized M4** as the commitment type in the Google Cloud console.
-  * If you use gcloud CLI or REST to purchase commitments, see the [resource-based CUDs documentation](https://docs.cloud.google.com/compute/docs/committed-use-discounts/purchase-commitments) for the commitment type values to use.
+  * **Resource-based committed use discounts (CUDs)** : savings of up to 70% in exchange for 3-year purchase commitments. You can also get a smaller discount for a 1-year commitment. For the commitment type values to use when purchasing resource-based CUDs, see the [resource-based CUDs documentation](https://docs.cloud.google.com/compute/docs/committed-use-discounts/purchase-commitments).
+  * **Compute flexible CUDs** : savings of up to 63% in exchange for 3-year commitments. For more information about compute flexible CUDs, see the [compute flexible CUDs documentation](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#spend_based).
 
 
 
@@ -563,9 +562,18 @@ The maintenance frequencies shown in the previous table are approximations, not 
 
 The M3 machine series introduces two new OLAP shapes for 2 TiB and 1 TiB SAP HANA systems. These machine types allow you to provision up to 128 vCPUs and up to 4 TB of RAM. M3 instances use only NVMe for storage, and support [Hyperdisk Balanced storage](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced). M3 machines use only [gVNIC for networking](https://docs.cloud.google.com/compute/docs/networking/using-gvnic). VirtIO-net and SCSI interfaces are not supported.
 
-[Pricing](https://docs.cloud.google.com/compute/all-pricing#memory-optimized) for these instances per vCPU hour and per GB of memory is similar to the pricing for M1 instances. Disk usage and network usage is charged separately from machine type pricing. For details, see [Disk and image pricing](https://cloud.google.com/compute/disks-image-pricing) and [Network pricing](https://cloud.google.com/vpc/network-pricing).
+[Memory-optimized pricing](https://cloud.google.com/products/compute/pricing/memory-optimized#m3-machine-types) for these instances per vCPU hour and per GB of memory is similar to the pricing for M1 instances. Disk usage and network usage is charged separately from machine type pricing. For details, see [Disk and image pricing](https://cloud.google.com/compute/disks-image-pricing) and [Network pricing](https://cloud.google.com/vpc/network-pricing).
 
-M3 instances support resource-based CUDs, Spot VMs, and reservations, as well as compact placement policies. The commitment type that you must use to purchase M3 instances is separate from the one for M1 or M2 instances. You can purchase a single commitment to cover both M1 and M2 instances, but you can't group M3 instances in that commitment. For more information, see the [Commitment types](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts#commitment_types) section for resource-based commitments.
+M3 instances support Spot VMs, reservations, and compact placement policies.
+
+The commitment type that you must use to purchase M3 instances is separate from the one for M1 or M2 instances. You can purchase a single commitment to cover both M1 and M2 instances, but you can't group M3 instances in that commitment. For more information, see the [Commitment types](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts#commitment-types-for-hardware-commitments) section for resource-based commitments.
+
+M3 instances are eligible for the following discounts with long term purchase commitments:
+
+  * **Resource-based committed use discounts (CUDs)** : savings of up to 70% in exchange for 3-year purchase commitments. You can also get a smaller discount for a 1-year commitment.
+  * **Compute flexible CUDs** : savings of up to 63% in exchange for 3-year commitments. For more information about compute flexible CUDs, see the [compute flexible CUDs documentation](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#spend_based).
+
+
 
 To update a current instance to use the M3 machine series, see [Move your workload to a new compute instance](https://docs.cloud.google.com/compute/docs/import/migrate-to-new-vm).
 
@@ -672,9 +680,17 @@ The maintenance frequencies shown in the previous table are approximations, not 
 
 With 6 TiB, 9 TiB, and 12 TiB machine types in the M2 machine series, SAP customers can run their largest SAP HANA databases on Google Cloud.
 
-The M2 series is available with on-demand and spot pricing for an evaluation period only. Long running usage requires purchasing a resource-based commitment. For more information, see the [VM pricing page](https://docs.cloud.google.com/compute/vm-instance-pricing#larger_ultramem). Disk usage and network usage is charged separately from machine type pricing. For details, see [Disk and image pricing](https://cloud.google.com/compute/disks-image-pricing) and [Network pricing](https://cloud.google.com/vpc/network-pricing).
+The M2 series is available with on-demand and spot pricing for an evaluation period only. Long running usage requires purchasing a resource-based commitment. For more information, see the [Memory-optimized pricing](https://cloud.google.com/products/compute/pricing/memory-optimized#m2-machine-types). Disk usage and network usage is charged separately from machine type pricing. For details, see [Disk and image pricing](https://cloud.google.com/compute/disks-image-pricing) and [Network pricing](https://cloud.google.com/vpc/network-pricing).
 
-M2 instances support resource-based CUDs, Spot VMs, reservations, and compact placement policies.
+M2 instances support Spot VMs, reservations, and compact placement policies.
+
+M2 instances are eligible for the following discounts with long term purchase commitments:
+
+  * **Resource-based committed use discounts (CUDs)** : savings of up to 62% in exchange for 3-year purchase commitments. You can also get a smaller discount for a 1-year commitment. For the commitment type values to use when purchasing resource-based CUDs, see the [resource-based CUDs documentation](https://docs.cloud.google.com/compute/docs/committed-use-discounts/purchase-commitments).
+  * **Compute flexible CUDs** : savings of up to 63% in exchange for 3-year commitments. For more information about compute flexible CUDs, see the [compute flexible CUDs documentation](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#spend_based).
+  * **Sustained use discounts (SUDs)** : savings of up to 30% for virtual machine (VM) instances that run the entire month. For more information, see [Sustained use discounts](https://docs.cloud.google.com/compute/docs/sustained-use-discounts).
+
+
 
 ### M2 machine types
 
@@ -769,9 +785,17 @@ The M1 machine series is the older generation memory-optimized machine series th
 
 The machines themselves did not change and the former names are still supported as aliases for these machines. 
 
-For details on pricing, see the [VM pricing page](https://docs.cloud.google.com/compute/vm-instance-pricing#m1_machine_types). Disk usage and network usage is charged separately from machine type pricing. For more information, see [Disk and image pricing](https://cloud.google.com/compute/disks-image-pricing) and [Network pricing](https://cloud.google.com/vpc/network-pricing).
+For details on pricing, see the [Memory-optimized pricing](https://cloud.google.com/products/compute/pricing/memory-optimized#m1-machine-types). Disk usage and network usage is charged separately from machine type pricing. For more information, see [Disk and image pricing](https://cloud.google.com/compute/disks-image-pricing) and [Network pricing](https://cloud.google.com/vpc/network-pricing).
 
-M1 instances support resource-based CUDs, Spot VMs, reservations, and compact placement policies.
+M1 instances support Spot VMs, reservations, and compact placement policies.
+
+M1 instances are eligible for the following discounts with long term purchase commitments:
+
+  * **Resource-based committed use discounts (CUDs)** : savings of up to 70% in exchange for 3-year purchase commitments. You can also get a smaller discount for a 1-year commitment. For the commitment type values to use when purchasing resource-based CUDs, see the [resource-based CUDs documentation](https://docs.cloud.google.com/compute/docs/committed-use-discounts/purchase-commitments).
+  * **Compute flexible CUDs** : savings of up to 63% in exchange for 3-year commitments. For more information about compute flexible CUDs, see the [compute flexible CUDs documentation](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#spend_based).
+  * **Sustained use discounts (SUDs)** : savings of up to 30% for virtual machine (VM) instances that run the entire month. For more information, see [Sustained use discounts](https://docs.cloud.google.com/compute/docs/sustained-use-discounts).
+
+
 
 ### M1 machine types
 
@@ -865,6 +889,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

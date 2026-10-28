@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-custom-machine-type-create-shared-with-helper/
 title: Create a VM with shared-core machine type \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:47:39.245712+00:00
+fetched_at: 2026-10-27T23:11:06.637335+00:00
 ---
 
 # Create a VM with shared-core machine type  |  Compute Engine  |  Google Cloud Documentation

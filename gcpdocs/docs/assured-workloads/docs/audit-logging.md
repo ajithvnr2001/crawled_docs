@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/docs/audit-logging/
 title: Assured Workloads audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:44:23.989242+00:00
+fetched_at: 2026-10-27T19:00:18.357300+00:00
 ---
 
 # Assured Workloads audit logging  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Assured Workloads audit logging 
 
-This document describes audit logging for Assured Workloads. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Assured Workloads let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Assured Workloads API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -35,11 +37,19 @@ This document describes audit logging for Assured Workloads. Google Cloud servic
 
 ## Service name
 
-Assured Workloads audit logs use the service name `assuredworkloads.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="assuredworkloads.googleapis.com"
-      
+To view the Assured Workloads audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="assuredworkloads.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -50,6 +60,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `ADMIN_READ` | `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.AnalyzeWorkloadMove`  
 `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.GetWorkload`  
 `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.ListWorkloads`  
+`google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.AnalyzeWorkloadMove`  
 `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.GetWorkload`  
 `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.ListWorkloads`  
 `ADMIN_WRITE` | `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.EnableComplianceUpdates`  
@@ -144,6 +155,21 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 The following audit logs are associated with methods belonging to `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService`.
 
+#### `AnalyzeWorkloadMove`
+
+  * **Method** : `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.AnalyzeWorkloadMove`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `assuredworkloads.workload.get - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.AnalyzeWorkloadMove" `  
+
+
+
+
 #### `EnableComplianceUpdates`
 
   * **Method** : `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.EnableComplianceUpdates`  
@@ -221,7 +247,6 @@ The following methods don't produce audit logs:
   * `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.CreateWorkload`
   * `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.DeleteWorkload`
   * `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.GetViolation`
-  * `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.ListViolations`
   * `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.ListWorkloadUpdates`
   * `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.MutatePartnerPermissions`
   * `google.cloud.assuredworkloads.versioning.v1.AssuredWorkloadsV1MainService.RestrictAllowedResources`
@@ -231,7 +256,6 @@ The following methods don't produce audit logs:
   * `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.CreateWorkload`
   * `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.DeleteWorkload`
   * `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.GetViolation`
-  * `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.ListViolations`
   * `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.MutatePartnerPermissions`
   * `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.RestrictAllowedResources`
   * `google.cloud.assuredworkloads.versioning.v1beta1.AssuredWorkloadsV1MainService.UpdateWorkload`
@@ -244,6 +268,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

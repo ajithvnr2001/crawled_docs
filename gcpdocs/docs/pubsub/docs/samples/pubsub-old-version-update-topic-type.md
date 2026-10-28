@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-old-version-update-topic-type/
 title: v1 Change the type of a topic (DEPRECATED) \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:39.949761+00:00
+fetched_at: 2026-10-28T01:38:38.513502+00:00
 ---
 
 # v1 Change the type of a topic (DEPRECATED)  |  Pub/Sub  |  Google Cloud Documentation

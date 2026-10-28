@@ -1,16 +1,49 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/
 title: Accelerate database performance using disk cache \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:40:59.478175+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:25:19.069942+00:00
 ---
 
 # Accelerate database performance using disk cache  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/
 
-This page documents AlloyDB Omni version **18.4.0** using the **container orchestrator** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
+[ Skip to main content ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/)
+  * [Deutsch](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/?hl=ko)
 
+
+[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Falloydb%2Fomni%2Fkubernetes%2F18.4.0%2Fdocs%2Fconfigure-disk-cache%2F&prompt=select_account)
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/alloydb-color.svg) ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/overview)
+  * [ AlloyDB Omni ](https://docs.cloud.google.com/alloydb/omni/docs)
+  * [ Container orchestrator: 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/overview)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Enable AlloyDB Omni disk cache](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-cache)
+    * [Enable disk cache on a generic volume](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-disk-cache-on-generic-volume)
+    * [Enable disk cache on a local volume](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-disk-cache-on-local-volume)
+    * [Enable disk cache on an ephemeral volume](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-disk-cache-on-ephemeral-volume)
+  * [Verify the disk cache configuration](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#verify-caching)
+  * [What's next](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#what-is-next)
+
+
+This page documents AlloyDB Omni version **18.4.0** using the **container orchestrator** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
@@ -18,13 +51,19 @@ This page documents AlloyDB Omni version **18.4.0** using the **container orches
   * [ Container orchestrator: 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/overview)
 
 
-
+Was this helpful?
 Send feedback 
+#  Accelerate database performance using disk cache Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Enable AlloyDB Omni disk cache](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-cache)
+    * [Enable disk cache on a generic volume](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-disk-cache-on-generic-volume)
+    * [Enable disk cache on a local volume](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-disk-cache-on-local-volume)
+    * [Enable disk cache on an ephemeral volume](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-disk-cache-on-ephemeral-volume)
+  * [Verify the disk cache configuration](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#verify-caching)
+  * [What's next](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#what-is-next)
 
-#  Accelerate database performance using disk cache Stay organized with collections  Save and categorize content based on your preferences. 
 
-Select a documentation version: 18.4.0keyboard_arrow_down
-
+Select a documentation version:  18.4.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/configure-disk-cache)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache)
   * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/configure-disk-cache)
@@ -44,109 +83,88 @@ Select a documentation version: 18.4.0keyboard_arrow_down
   * [ 15.7.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.0/docs/configure-disk-cache)
 
 This page describes how to provision, set up, and use disk caching on AlloyDB Omni to increase performance of your AlloyDB Omni installation. 
-
 In addition to the standard PostgreSQL in-memory shared buffers, AlloyDB Omni disk cache enables storing buffers on fast storage such as solid-state drives (SSDs). Disk caching accelerates data retrieval in AlloyDB Omni installations with data directories located on slower storage.
-
 Like PostgreSQL shared buffers, AlloyDB Omni disk cache is non-persistent, which means cached data is lost on restart.
-
 By default, AlloyDB Omni disk cache uses all storage reported by the file system. You can define the amount of storage reserved for caching data using the `omni_disk_cache_file_size` parameter.
-
-**Note:** To use the disk cache on the AlloyDB Omni Kubernetes operator, you don't need to provision a file system or mount disks. See Enable AlloyDB Omni disk cache for details on how to modify the AlloyDB Omni Kubernetes operator cluster's manifest to include the `ultraFastCache` feature.
-
 ## Enable AlloyDB Omni disk cache
-
 To enable disk cache, complete one of the following subsections:
-
-  * Enable disk cache on a generic volume
-  * Enable disk cache on a local volume
-  * Enable disk cache on an ephemeral volume
-
+  * [Enable disk cache on a generic volume](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-disk-cache-on-generic-volume)
+  * [Enable disk cache on a local volume](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-disk-cache-on-local-volume)
+  * [Enable disk cache on an ephemeral volume](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-disk-cache/#enable-disk-cache-on-ephemeral-volume)
 
 
 ### Enable disk cache on a generic volume
-
 You can enable disk cache using a generic volume. 
-
 For enabling disk cache on a generic volume on the AlloyDB Omni Kubernetes operator, you need [a persistent volume](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes#persistentvolumes) ready ahead of time and a [`storageClass`](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes#storageclasses).
-
 For example, if you use GKE and don't have the persistent volume and `storageClass` ready, make sure you have performed the following before enabling disk cache on a generic volume:
-
   1. [Created a cluster with local SSD-based storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd-raw#1st-or-2nd-generation).
   2. Formatted your volume to the ext4 file system using step 1 of [Run the local volume static provisioner](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd-raw#run-local-volume-static-provisioner).
   3. [Manually created a persistent volume for each SSD in your cluster](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd-raw#pv) with the `storageClass` that defines persistent storage on a storage device.
 
 
-
 To enable disk cache on a generic volume for your database, complete the following steps:
-
   1. Modify your database cluster manifest to add the `ultraFastCache` attribute to the `features` section of the `spec` section:
-         
-         apiVersion: alloydbomni.dbadmin.goog/v1
-               kind: DBCluster
-               metadata:
-                 name: CLUSTER_NAME
-               spec:
-                 databaseVersion: "17.5.0"
-                 primarySpec:
-                   features:
-                     ultraFastCache:
-                       cacheSize: DISK_CACHE_SIZE
-                       genericVolume:
-                         storageClass: "STORAGE_CLASS_NAME"
-               ...
-               
+
+```
+      apiVersion: alloydbomni.dbadmin.goog/v1
+      kind: DBCluster
+      metadata:
+        name: CLUSTER_NAME
+      spec:
+        databaseVersion: "17.5.0"
+        primarySpec:
+          features:
+            ultraFastCache:
+              cacheSize: DISK_CACHE_SIZE
+              genericVolume:
+                storageClass: "STORAGE_CLASS_NAME"
+      ...
+      
+```
 
 Replace the following:
-
      * `DB_CLUSTER_NAME`: the name of your database cluster. It is the same database cluster name you declared when [you created it](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/deploy-kubernetes#create).
      * `DISK_CACHE_SIZE`: the size of the cache—for example, `100Gi`. It must be greater than `shared_buffers`. This field is optional. If you don't specify the value of this field, AlloyDB Omni uses all space left on the disk, which applies to both AlloyDB Omni in a container and on a Kubernetes cluster.
-     * `STORAGE_CLASS_NAME`: the name of the `[storage class](https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1)` of the ultra fast cache volume—for example, `local-storage`.
+     * `STORAGE_CLASS_NAME`: the name of the `storage class[](https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1)` of the ultra fast cache volume—for example, `local-storage`.
   2. Reapply the manifest.
 
 
-
 ### Enable disk cache on a local volume
-
 If you want to use a local volume, you don't have to create [a persistent volume](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes#persistentvolumes). You can use the following optimization instead.
-
 For example, if you use GKE and don't have the persistent volume and `storageClass` ready, make sure you have performed the following before enabling disk cache on a local volume:
-
   1. [Created a cluster with local SSD-based storage](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd-raw#1st-or-2nd-generation).
-
   2. Formatted your volume to the `ext4` file system using step 1 of [Run the local volume static provisioner](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd-raw#run-local-volume-static-provisioner).
 
 
-
-
 To enable disk cache on a local volume for your database, do the following:
-
   1. Modify your database cluster manifest to add the `ultraFastCache` attribute to the `features` section of the `spec` section:
-         
-         apiVersion: alloydbomni.dbadmin.goog/v1
-         kind: DBCluster
-         metadata:
-           name: CLUSTER_NAME
-         spec:
-           databaseVersion: "17.5.0"
-           primarySpec:
-             features:
-               ultraFastCache:
-                 cacheSize: DISK_CACHE_SIZE
-                 localVolume:
-                   path: "LOCAL_VOLUME_PATH"
-                   nodeAffinity:
-                     required:
-                       nodeSelectorTerms:
-                       - matchExpressions:
-                         - key: "LABEL_KEY"
-                           operator: "OPERATOR_VALUE"
-                           values:
-                           - "LABEL_KEY_VALUE"
-         ...
-           
+
+```
+apiVersion: alloydbomni.dbadmin.goog/v1
+kind: DBCluster
+metadata:
+  name: CLUSTER_NAME
+spec:
+  databaseVersion: "17.5.0"
+  primarySpec:
+    features:
+      ultraFastCache:
+        cacheSize: DISK_CACHE_SIZE
+        localVolume:
+          path: "LOCAL_VOLUME_PATH"
+          nodeAffinity:
+            required:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: "LABEL_KEY"
+                  operator: "OPERATOR_VALUE"
+                  values:
+                  - "LABEL_KEY_VALUE"
+...
+  
+```
 
 Replace the following:
-
      * `CLUSTER_NAME`: the name of your database cluster. It is the same database cluster name you declared when [you created it](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/deploy-kubernetes#create).
      * `DISK_CACHE_SIZE`: the size of the cache—for example, `100Gi`. It must be greater than `shared_buffers`. This field is optional. If you don't specify the value of this field, AlloyDB Omni uses all space left on the disk, which applies to both AlloyDB Omni in a container and on a Kubernetes cluster.
      * `STORAGE_CLASS_NAME`: the name of the [storage class](https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1).
@@ -165,60 +183,48 @@ Replace the following:
        * If the operator is `Gt` or `Lt`, the values array must have a single element, which is interpreted as an integer.
 
 
-
 ### Enable disk cache on an ephemeral volume
-
 You can enable disk cache using an `emptyDir` volume, which provides temporary storage that is tied directly to your pod's lifecycle. The volume is created when a pod is assigned to a node, and exists as long as the pod runs on that node.
-
 When a pod is removed from a node, the data in the `emptyDir` is deleted permanently. This type of volume is suitable for a cache because it provides temporary, fast storage. The data in the cache doesn't need to be persisted if the pod is rescheduled.
-
 To enable disk cache on an ephemeral volume for your database, complete the following steps: 
-
   1. Modify your database cluster manifest to add the `ultraFastCache` attribute to the `features` section of the `spec` section, and specify `emptyDirVolume`:
-         
-         apiVersion: alloydbomni.dbadmin.goog/v1
-               kind: DBCluster
-               metadata:
-                 name: CLUSTER_NAME
-               spec:
-                 databaseVersion: "17.5.0"
-                 primarySpec:
-                   features:
-                     ultraFastCache:
-                       cacheSize: DISK_CACHE_SIZE
-                       emptyDirVolume: {}
-                 ...
-               
+
+```
+      apiVersion: alloydbomni.dbadmin.goog/v1
+      kind: DBCluster
+      metadata:
+        name: CLUSTER_NAME
+      spec:
+        databaseVersion: "17.5.0"
+        primarySpec:
+          features:
+            ultraFastCache:
+              cacheSize: DISK_CACHE_SIZE
+              emptyDirVolume: {}
+        ...
+      
+```
 
 Replace the following:
-
      * `CLUSTER_NAME`: the name of your database cluster. It is the same database cluster name you declared when [you created it](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/deploy-kubernetes#create).
-     * `DISK_CACHE_SIZE`: The size of the cache—for example, 200Gi. **Important:** When using an `emptyDir` volume, you must specify a `cacheSize`. If a size is not provided, the cache might consume all available space on the node's disk, which might cause issues on the node because this disk is shared by all pods running on that node.
+     * `DISK_CACHE_SIZE`: The size of the cache—for example, 200Gi. 
   2. Reapply the manifest.
-**Note:** An `emptyDir` volume does not influence pod scheduling. You must confirm that the pod is scheduled on a node that is backed by a fast storage medium, such as an SSD, by using [node affinity](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/assign-nodes-cluster-scheduling#define-node-affinity) rules in the pod spec.
 
 
 ## Verify the disk cache configuration
-
 After enabling AlloyDB Omni disk cache, verify that the disk cache is accessed by monitoring read and write activity to the disks using available utilities like `iotop` or `iostat`.
-
 Additionally, you can check if the AlloyDB Omni disk cache is open. 
-
 To verify the disk cache configuration for AlloyDB Omni, use the following command.
-    
-    
-      kubectl exec -i $DATABASE_POD -c database -n $DBCLUSTER_NAMESPACE -- cat /obs/diagnostic/postgresql.log | grep "opened omni disk cache"
+
+```
+  kubectl exec -i $DATABASE_POD -c database -n $DBCLUSTER_NAMESPACE -- cat /obs/diagnostic/postgresql.log | grep "opened omni disk cache"
+```
 
 If your disk caching is configured correctly, the `Successfully opened omni disk cache ...` message displays in the logs.
-
 ## What's next
-
 * [About local SSD disks](https://docs.cloud.google.com/compute/docs/disks/local-ssd) * [Creating and starting a VM instance](https://docs.cloud.google.com/compute/docs/instances/create-start-instance)
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

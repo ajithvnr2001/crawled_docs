@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-fusion/docs/how-to/audit-logging/
 title: Cloud Data Fusion audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:43:06.998868+00:00
+fetched_at: 2026-10-27T17:01:54.502905+00:00
 ---
 
 # Cloud Data Fusion audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Cloud Data Fusion audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the audited methods for Cloud Data Fusion. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Cloud Data Fusion let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Cloud Data Fusion API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -56,7 +58,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `ADMIN_READ` | `datafusion.googleapis.com.AppLifecycleHttpHandler.getAllApps`  
 `datafusion.googleapis.com.AppLifecycleHttpHandler.getAppInfo`  
 `datafusion.googleapis.com.AppLifecycleHttpHandler.getPluginsInfo`  
-`datafusion.googleapis.com.AppLifecycleHttpHandler.upgradeApplication`  
 `datafusion.googleapis.com.ArtifactHttpHandler.getArtifactInfo`  
 `datafusion.googleapis.com.ArtifactHttpHandler.getArtifactPlugin`  
 `datafusion.googleapis.com.ArtifactHttpHandler.getArtifactPluginTypes`  
@@ -88,7 +89,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `datafusion.googleapis.com.SecureStoreHandler.list`  
 `datafusion.googleapis.com.SourceControlManagementHttpHandler.getRepository`  
 `datafusion.googleapis.com.SourceControlManagementHttpHandler.listApplications`  
-`datafusion.googleapis.com.SourceControlManagementHttpHandler.pushApp`  
 `google.cloud.datafusion.v1.DataFusion.GetInstance`  
 `google.cloud.datafusion.v1.DataFusion.ListAvailableVersions`  
 `google.cloud.datafusion.v1.DataFusion.ListDnsPeerings`  
@@ -102,6 +102,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.longrunning.Operations.GetOperation`  
 `google.longrunning.Operations.ListOperations`  
 `ADMIN_WRITE` | `datafusion.googleapis.com.AppLifecycleHttpHandler.deleteApp`  
+`datafusion.googleapis.com.AppLifecycleHttpHandler.upgradeApplication`  
 `datafusion.googleapis.com.ArtifactHttpHandler.deleteArtifact`  
 `datafusion.googleapis.com.ArtifactHttpHandler.writeProperties`  
 `datafusion.googleapis.com.NamespaceHttpHandler.create`  
@@ -126,6 +127,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `datafusion.googleapis.com.SecureStoreHandler.delete`  
 `datafusion.googleapis.com.SourceControlManagementHttpHandler.deleteRepository`  
 `datafusion.googleapis.com.SourceControlManagementHttpHandler.pullApp`  
+`datafusion.googleapis.com.SourceControlManagementHttpHandler.pushApp`  
 `datafusion.googleapis.com.SourceControlManagementHttpHandler.setRepository`  
 `google.cloud.datafusion.v1.DataFusion.CreateDnsPeering`  
 `google.cloud.datafusion.v1.DataFusion.CreateInstance` (LRO)  
@@ -337,6 +339,7 @@ The following audit logs are associated with methods belonging to `datafusion.go
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
+    * `datafusion.artifacts.list - ADMIN_READ`
     * `datafusion.namespaces.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -439,6 +442,7 @@ The following audit logs are associated with methods belonging to `datafusion.go
 
   * **Permissions** : 
     * `datafusion.namespaces.get - ADMIN_READ`
+    * `datafusion.namespaces.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="datafusion.googleapis.com.DatasetTypeHandler.deleteModules" `  
@@ -487,7 +491,6 @@ The following audit logs are associated with methods belonging to `datafusion.go
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
-    * `datafusion.namespaces.get - ADMIN_READ`
     * `datafusion.pipelines.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -553,12 +556,10 @@ The following audit logs are associated with methods belonging to `datafusion.go
 
   * **Method** : `datafusion.googleapis.com.NamespaceHttpHandler.delete`  
 
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
     * `datafusion.namespaces.delete - ADMIN_WRITE`
-    * `datafusion.namespaces.get - ADMIN_READ`
-    * `datafusion.namespaces.updateRepositoryMetadata - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="datafusion.googleapis.com.NamespaceHttpHandler.delete" `  
@@ -922,6 +923,7 @@ The following audit logs are associated with methods belonging to `datafusion.go
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
+    * `datafusion.namespaces.get - ADMIN_READ`
     * `datafusion.pipelines.execute - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -1629,6 +1631,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

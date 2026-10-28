@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/fedramp-trust-center/
 title: Google Cloud trust center for FedRAMP 20x \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:23:19.395718+00:00
+fetched_at: 2026-10-27T22:51:02.859211+00:00
 ---
 
 # Google Cloud trust center for FedRAMP 20x  |  Security  |  Google Cloud Documentation

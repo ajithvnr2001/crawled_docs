@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/unit-operations/delete/
 title: gcloud beta app-lifecycle-manager unit-operations delete \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:40.339001+00:00
+fetched_at: 2026-10-27T21:40:34.455372+00:00
 ---
 
 # gcloud beta app-lifecycle-manager unit-operations delete  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,23 +24,31 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager unit-operations delete - delete a Unit Operation 
+gcloud beta app-lifecycle-manager unit-operations delete - delete a unit operation 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager unit-operations delete` (`UNIT_OPERATION` : `--location`=`LOCATION`) [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Delete a Unit Operation 
+     `(BETA)` Delete an App Lifecycle Manager unit operation. 
+
+The command prompts for confirmation before the unit operation is deleted. 
+
 EXAMPLES
-     To delete the Unit Operation, run: 
+     To delete the unit operation named `my-unit-operation` in location `us-central1`, run: 
     
     
-    gcloud beta app-lifecycle-manager unit-operations delete
+    gcloud beta app-lifecycle-manager unit-operations delete my-unit-operation --location=us-central1
+
+To delete the unit operation named `my-unit-operation` in location `us-central1` without a confirmation prompt, run: 
+    
+    
+    gcloud beta app-lifecycle-manager unit-operations delete my-unit-operation --location=us-central1 --quiet
 
 POSITIONAL ARGUMENTS
     
 
-UnitOperation resource - The resource name of the resource within a service. The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+UnitOperation resource - Unit operation to delete. The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -86,6 +94,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

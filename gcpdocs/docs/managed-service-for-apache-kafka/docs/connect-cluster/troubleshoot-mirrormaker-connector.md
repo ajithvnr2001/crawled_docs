@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/troubleshoot-mirrormaker-connector/
 title: Troubleshoot a MirrorMaker 2.0 connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:36:56.971892+00:00
+fetched_at: 2026-10-28T02:29:40.039096+00:00
 ---
 
 # Troubleshoot a MirrorMaker 2.0 connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -112,7 +112,11 @@ To resolve this issue, add ACL entries that grant the necessary permissions to t
 
 ### Messages are not duplicated
 
-To troubleshoot this issue, check the connector configuration. If you are using the primary Kafka cluster as the source cluster, set `producer.override.bootstrap.servers` to the bootstrap address of the target cluster.
+To troubleshoot this issue, check the following:
+
+  * **Target topic name** : By default, MirrorMaker 2.0 uses `DefaultReplicationPolicy` and prefixes replicated topic names in the target cluster with `source.cluster.alias`. For example, a topic named `my-topic` in the source cluster will be replicated to `source.my-topic` if the source cluster alias is `source`. Verify that your consumers read from the prefixed topic name, or set `replication.policy.class=org.apache.kafka.connect.mirror.IdentityReplicationPolicy` in the connector configuration to keep the original topic names.
+
+
 
 ## Troubleshoot networking issues
 
@@ -173,6 +177,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

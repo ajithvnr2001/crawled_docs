@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-SwitchoverCluster-sync-flattened/
 title: Perform a cluster switchover \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:42.746711+00:00
+fetched_at: 2026-10-28T01:32:38.706319+00:00
 ---
 
 # Perform a cluster switchover  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

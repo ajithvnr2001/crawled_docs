@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataform/docs/audit-logging/
 title: Dataform audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:30.417998+00:00
+fetched_at: 2026-10-27T17:04:39.044311+00:00
 ---
 
 # Dataform audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Dataform audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the audited methods for Dataform. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Dataform let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Dataform API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -358,7 +360,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
-    * `dataform.repositories.scheduleWorkflow - ADMIN_WRITE`
     * `dataform.workflowConfigs.create - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -1157,6 +1158,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Permissions** : 
     * `dataform.folders.setIamPolicy - ADMIN_WRITE`
     * `dataform.repositories.setIamPolicy - ADMIN_WRITE`
+    * `dataform.teamFolders.setIamPolicy - ADMIN_WRITE`
     * `dataform.workspaces.setIamPolicy - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -1796,7 +1798,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Permissions** : 
     * `dataform.folders.getIamPolicy - ADMIN_READ`
     * `dataform.repositories.getIamPolicy - ADMIN_READ`
-    * `dataform.teamFolders.getIamPolicy - ADMIN_READ`
     * `dataform.workspaces.getIamPolicy - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -2068,6 +2069,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
+    * `dataform.folders.addContents - ADMIN_WRITE`
     * `dataform.repositories.move - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
@@ -2295,6 +2297,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Permissions** : 
     * `dataform.folders.setIamPolicy - ADMIN_WRITE`
     * `dataform.repositories.setIamPolicy - ADMIN_WRITE`
+    * `dataform.teamFolders.setIamPolicy - ADMIN_WRITE`
     * `dataform.workspaces.setIamPolicy - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -2530,6 +2533,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

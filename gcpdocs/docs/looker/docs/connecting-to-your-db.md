@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/connecting-to-your-db/
 title: Connecting Looker to your database \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:38.576246+00:00
+fetched_at: 2026-10-28T02:29:29.699195+00:00
 ---
 
 # Connecting Looker to your database  |  Google Cloud Documentation
@@ -21,14 +21,9 @@ Send feedback
 
 #  Connecting Looker to your database Stay organized with collections  Save and categorize content based on your preferences. 
 
-After you have [secured](https://docs.cloud.google.com/looker/docs/enabling-secure-db-access) and [configured](https://docs.cloud.google.com/looker/docs/dialects) your database, you're ready to connect your database to Looker. This page describes the new Looker connection workflow.
-
-  * For Looker (original) instances, if the [**Use Legacy Connections Page**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#legacy_connections) legacy toggle is enabled, see the [Connecting Looker to your database using the legacy workflow](https://docs.cloud.google.com/looker/docs/connecting-to-your-db-legacy) documentation page for information on the legacy connection UI.
-  * For Looker (Google Cloud core) instances, the new database connection workflow, described on this page, is the only supported workflow.
+After you have [secured](https://docs.cloud.google.com/looker/docs/enabling-secure-db-access) and [configured](https://docs.cloud.google.com/looker/docs/dialects) your database, you're ready to connect your database to Looker.
 
 **Note:** See the [Looker (Google Cloud core) documentation](https://docs.cloud.google.com/looker/docs/looker-core-dialects#supported_dialects_for) for a list of dialects supported by Looker (Google Cloud core).
-
-
 
 You create a database connection in Looker on the **Connect your database to Looker** page. There are two options for opening the **Connect your database to Looker** page:
 
@@ -514,6 +509,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

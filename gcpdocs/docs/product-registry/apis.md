@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/product-registry/apis/
 title: APIs and reference \u00a0|\u00a0 Cloud Product Registry API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:43.055500+00:00
+fetched_at: 2026-10-28T01:39:54.876722+00:00
 ---
 
 # APIs and reference  |  Cloud Product Registry API  |  Google Cloud Documentation

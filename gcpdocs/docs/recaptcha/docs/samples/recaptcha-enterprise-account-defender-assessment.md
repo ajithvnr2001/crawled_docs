@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/samples/recaptcha-enterprise-account-defender-assessment/
 title: Create an assessment using hashedAccountId \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:44:18.260849+00:00
+fetched_at: 2026-10-28T01:39:09.418328+00:00
 ---
 
 # Create an assessment using hashedAccountId  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

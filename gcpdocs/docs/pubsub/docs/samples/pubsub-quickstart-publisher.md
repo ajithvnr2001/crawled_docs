@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-quickstart-publisher/
 title: Publish quickstart \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:06.144858+00:00
+fetched_at: 2026-10-28T01:38:45.951914+00:00
 ---
 
 # Publish quickstart  |  Pub/Sub  |  Google Cloud Documentation

@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/tool/a2a-protocol/
 title: A2A Protocol tools \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:22.791412+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:33:15.704572+00:00
 ---
 
 # A2A Protocol tools  |  CX Agent Studio  |  Google Cloud Documentation
@@ -354,13 +368,13 @@ To deploy an ADK agent onto [Vertex AI Agent Engine](https://docs.cloud.google.c
          import os
          import sys
          from google.protobuf import json_format
-         import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+         import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
          from vertexai.agent_engines import _agent_engines
          
          sys.path.append("./")
          from app.agent_runtime_app import agent_runtime
          
-         client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(project="PROJECT_ID", location="us-central1")
+         client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(project="PROJECT_ID", location="us-central1")
          
          ops = agent_runtime.register_operations()
          class_methods_proto = _agent_engines._generate_class_methods_spec_or_raise(
@@ -387,7 +401,7 @@ To deploy an ADK agent onto [Vertex AI Agent Engine](https://docs.cloud.google.c
              "resource_limits": {"cpu": "4", "memory": "8Gi"},
          }
          
-         engine = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).create(config=agent_config)
+         engine = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).create(config=agent_config)
          print(f"Deployed Engine Resource Name: {engine.api_resource.name}")
          
 
@@ -438,6 +452,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/translate/docs/resources/
 title: Resources \u00a0|\u00a0 Cloud Translation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:57.304828+00:00
+fetched_at: 2026-10-27T20:10:05.209996+00:00
 ---
 
 # Resources  |  Cloud Translation  |  Google Cloud Documentation

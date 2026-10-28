@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/datastream/connection-profiles/create/
 title: gcloud datastream connection-profiles create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T11:27:59.430194+00:00
+fetched_at: 2026-10-27T21:40:46.931055+00:00
 ---
 
 # gcloud datastream connection-profiles create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -55,15 +55,14 @@ To create a connection profile for SQL Server:
 To create a connection profile for Salesforce using Username, Password and Security Token: 
     
     
-    gcloud datastream connection-profiles create CONNECTION_PROFILE --location=us-central1 --type=salesforce --salesforce-password=fakepassword --salesforce-username=fakeuser --salesforce-security-token=fakesecuritytoken --display-name=my-profile --salesforce-hostname=35.188.150.50 --salesforce-port=1433 --salesforce-database=db --static-ip-connectivity
+    gcloud datastream connection-profiles create CONNECTION_PROFILE --location=us-central1 --type=salesforce --salesforce-password=fakepassword --salesforce-username=fakeuser --salesforce-security-token=fakesecuritytoken --display-name=my-profile --salesforce-domain=fakecompany.my.salesforce.com --static-ip-connectivity
 
 To create a connection profile for Salesforce using OAuth: 
     
     
-    gcloud datastream connection-profiles create CONNECTION_PROFILE --location=us-central1 --type=salesforce --salesforce-client-secret=fakesecret --salesforce-client-id=fake-client-id --display-name=my-profile --salesforce-domain=fakecompany.my.salesforce.com --static-ip-connectivity
-    
-    
-    To create a connection profile for Spanner:
+    gcloud datastream connection-profiles create CONNECTION_PROFILE --location=us-central1 --type=salesforce --salesforce-oauth2-client-secret=fakesecret --salesforce-oauth2-client-id=fake-client-id --display-name=my-profile --salesforce-domain=fakecompany.my.salesforce.com --static-ip-connectivity
+
+To create a connection profile for Spanner: 
     
     
     gcloud datastream connection-profiles create CONNECTION_PROFILE --location=us-central1 --type=spanner --spanner-database=projects/fake-project/instances/fake-instance/databases/fake-database --display-name=my-profile
@@ -124,7 +123,7 @@ REQUIRED FLAGS
 `--display-name`=`DISPLAY_NAME`
      Friendly name for the connection profile. 
 `--type`=`TYPE`
-     Type can be MYSQL, ORACLE, POSTGRESQL, SQLSERVER, SALESFORCE, GOOGLE-CLOUD-STORAGE, BIGQUERY, DATAVERSE, SALESFORCE-MARKETING-CLOUD or SERVICENOW 
+     Type can be MYSQL, ORACLE, POSTGRESQL, SQLSERVER, SALESFORCE, SPANNER, MONGODB, GOOGLE-CLOUD-STORAGE, BIGQUERY, DATAVERSE, SALESFORCE-MARKETING-CLOUD or SERVICENOW 
 OPTIONAL FLAGS
     
 
@@ -498,7 +497,7 @@ Exactly one of these must be specified:
 `--forward-ssh-password`=`FORWARD_SSH_PASSWORD`
      SSH password. 
 `--forward-ssh-private-key`=`FORWARD_SSH_PRIVATE_KEY`
-     SSH private key.. 
+     SSH private key. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--access-token-file](https://docs.cloud.google.com/sdk/gcloud/reference#--access-token-file)`, `[--account](https://docs.cloud.google.com/sdk/gcloud/reference#--account)`, `[--billing-project](https://docs.cloud.google.com/sdk/gcloud/reference#--billing-project)`, `[--configuration](https://docs.cloud.google.com/sdk/gcloud/reference#--configuration)`, `[--flags-file](https://docs.cloud.google.com/sdk/gcloud/reference#--flags-file)`, `[--flatten](https://docs.cloud.google.com/sdk/gcloud/reference#--flatten)`, `[--format](https://docs.cloud.google.com/sdk/gcloud/reference#--format)`, `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`, `[--impersonate-service-account](https://docs.cloud.google.com/sdk/gcloud/reference#--impersonate-service-account)`, `[--log-http](https://docs.cloud.google.com/sdk/gcloud/reference#--log-http)`, `[--project](https://docs.cloud.google.com/sdk/gcloud/reference#--project)`, `[--quiet](https://docs.cloud.google.com/sdk/gcloud/reference#--quiet)`, `[--trace-token](https://docs.cloud.google.com/sdk/gcloud/reference#--trace-token)`, `[--user-output-enabled](https://docs.cloud.google.com/sdk/gcloud/reference#--user-output-enabled)`, `[--verbosity](https://docs.cloud.google.com/sdk/gcloud/reference#--verbosity)`. 
 
@@ -516,6 +515,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

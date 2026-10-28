@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/buildpacks/stacks/
 title: Stacks \u00a0|\u00a0 Buildpacks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:20:20.018150+00:00
+fetched_at: 2026-10-27T21:08:31.177740+00:00
 ---
 
 # Stacks  |  Buildpacks  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ base-files | 13ubuntu10.5
 base-passwd | 3.6.3build1  
 bash | 5.2.21-2ubuntu4  
 bsdutils | 1:2.39.3-9ubuntu6.6  
-ca-certificates | 20260601~24.04.1  
+ca-certificates | 20260816ubuntu0.24.04.1  
 coreutils | 9.4-3ubuntu6.3  
 curl | 8.5.0-2ubuntu10.16  
 dash | 0.5.12-6ubuntu5  
@@ -59,8 +59,8 @@ dpkg | 1.22.6ubuntu6.6
 e2fsprogs | 1.47.0-2.4~exp1ubuntu4.1  
 findutils | 4.9.0-5build1  
 gcc-14-base | 14.2.0-4ubuntu2~24.04.1  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
 gpgv | 2.4.4-2ubuntu17.6  
 grep | 3.11-4build1  
 gzip | 1.12-1ubuntu3.2  
@@ -100,7 +100,7 @@ libkrb5-3 | 1.20.1-6ubuntu2.10
 libkrb5support0 | 1.20.1-6ubuntu2.10  
 libldap2 | 2.6.10+dfsg-0ubuntu0.24.04.1  
 liblz4-1 | 1.9.4-1build1.1  
-liblzma5 | 5.6.1+really5.4.5-1ubuntu0.3  
+liblzma5 | 5.6.1+really5.4.5-1ubuntu0.4  
 libmd0 | 1.1.0-2build1.1  
 libmount1 | 2.39.3-9ubuntu6.6  
 libncursesw6 | 6.4+20240113-1ubuntu2.2  
@@ -155,7 +155,7 @@ tzdata | 2026e-0ubuntu0.24.04.1
 ubuntu-keyring | 2023.11.28.1  
 unminimize | 0.2.1  
 util-linux | 2.39.3-9ubuntu6.6  
-zlib1g | 1:1.3.dfsg-3.1ubuntu2.2  
+zlib1g | 1:1.3.dfsg-3.1ubuntu2.3  
   
 ### google-24-full (Ubuntu 24)
 
@@ -170,10 +170,10 @@ base-files | 13ubuntu10.5
 base-passwd | 3.6.3build1  
 bash | 5.2.21-2ubuntu4  
 bsdutils | 1:2.39.3-9ubuntu6.6  
-ca-certificates | 20260601~24.04.1  
+ca-certificates | 20260816ubuntu0.24.04.1  
 chardet | 5.2.0  
 coreutils | 9.4-3ubuntu6.3  
-curl | 8.5.0-2ubuntu10.15  
+curl | 8.5.0-2ubuntu10.16  
 dash | 0.5.12-6ubuntu5  
 debconf | 1.5.86ubuntu1  
 debianutils | 5.17build1  
@@ -183,7 +183,7 @@ dirmngr | 2.4.4-2ubuntu17.6
 dpkg | 1.22.6ubuntu6.6  
 e2fsprogs | 1.47.0-2.4~exp1ubuntu4.1  
 emacsen-common | 3.0.5  
-ffmpeg | 7:6.1.1-3ubuntu5+esm13  
+ffmpeg | 7:6.1.1-3ubuntu5+esm15  
 file | 1:5.45-3build1  
 findutils | 4.9.0-5build1  
 fontconfig | 2.15.0-1.1ubuntu2  
@@ -223,16 +223,16 @@ fonts-urw-base35 | 20200910-8
 fonts-wqy-zenhei | 0.9.45-8  
 gcc-14-base | 14.2.0-4ubuntu2~24.04.1  
 ghostscript | 10.02.1~dfsg1-0ubuntu7.9  
-git | 1:2.43.0-1ubuntu7.3  
-git-man | 1:2.43.0-1ubuntu7.3  
+git | 1:2.43.0-1ubuntu7.4  
+git-man | 1:2.43.0-1ubuntu7.4  
 gnupg | 2.4.4-2ubuntu17.6  
 gnupg-utils | 2.4.4-2ubuntu17.6  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
 gpg | 2.4.4-2ubuntu17.6  
 gpg-agent | 2.4.4-2ubuntu17.6  
 gpgconf | 2.4.4-2ubuntu17.6  
@@ -252,7 +252,7 @@ iputils-ping | 3:20240117-1ubuntu0.1
 keyboxd | 2.4.4-2ubuntu17.6  
 libacl1 | 2.3.2-1build1.1  
 libaom3 | 3.8.2-2ubuntu0.2  
-libapparmor1 | 4.0.1really4.0.1-0ubuntu0.24.04.8  
+libapparmor1 | 4.0.1really4.0.1-0ubuntu0.24.04.9  
 libapt-pkg6.0t64 | 2.8.3  
 libasound2-data | 1.2.11-1ubuntu0.3  
 libasound2t64 | 1.2.11-1ubuntu0.3  
@@ -270,11 +270,11 @@ libavahi-client3 | 0.8-13ubuntu6.2
 libavahi-common-data | 0.8-13ubuntu6.2  
 libavahi-common3 | 0.8-13ubuntu6.2  
 libavc1394-0 | 0.5.4-5build3  
-libavcodec60 | 7:6.1.1-3ubuntu5+esm13  
-libavdevice60 | 7:6.1.1-3ubuntu5+esm13  
-libavfilter9 | 7:6.1.1-3ubuntu5+esm13  
-libavformat60 | 7:6.1.1-3ubuntu5+esm13  
-libavutil58 | 7:6.1.1-3ubuntu5+esm13  
+libavcodec60 | 7:6.1.1-3ubuntu5+esm15  
+libavdevice60 | 7:6.1.1-3ubuntu5+esm15  
+libavfilter9 | 7:6.1.1-3ubuntu5+esm15  
+libavformat60 | 7:6.1.1-3ubuntu5+esm15  
+libavutil58 | 7:6.1.1-3ubuntu5+esm15  
 libblas3 | 3.12.0-3build1.1  
 libblkid1 | 2.39.3-9ubuntu6.6  
 libbluray2 | 1:1.3.4-1build1  
@@ -300,9 +300,9 @@ libcodec2-1.2 | 1.2.0-2build1
 libcom-err2 | 1.47.0-2.4~exp1ubuntu4.1  
 libcrypt1 | 1:4.4.36-4build1  
 libcups2t64 | 2.4.7-1.2ubuntu7.14  
-libcurl3t64-gnutls | 8.5.0-2ubuntu10.15  
-libcurl4-openssl-dev | 8.5.0-2ubuntu10.15  
-libcurl4t64 | 8.5.0-2ubuntu10.15  
+libcurl3t64-gnutls | 8.5.0-2ubuntu10.16  
+libcurl4-openssl-dev | 8.5.0-2ubuntu10.16  
+libcurl4t64 | 8.5.0-2ubuntu10.16  
 libdatrie1 | 0.2.13-3build1  
 libdav1d7 | 1.4.1-1build1  
 libdb5.3t64 | 5.3.28+dfsg2-7  
@@ -391,7 +391,7 @@ libllvm20 | 1:20.1.2-0ubuntu1~24.04.3
 liblqr-1-0 | 0.4.2-2.1build2  
 libltdl7 | 2.4.7-7build1  
 liblz4-1 | 1.9.4-1build1.1  
-liblzma5 | 5.6.1+really5.4.5-1ubuntu0.3  
+liblzma5 | 5.6.1+really5.4.5-1ubuntu0.4  
 libmagic-mgc | 1:5.45-3build1  
 libmagic1t64 | 1:5.45-3build1  
 libmagickcore-6.q16-7t64 | 8:6.9.12.98+dfsg1-5.2ubuntu0.1~esm15  
@@ -447,11 +447,11 @@ libpixman-1-0 | 0.42.2-1build1
 libplacebo338 | 6.338.2-2build1  
 libpng16-16t64 | 1.6.43-5ubuntu0.7  
 libpocketsphinx3 | 0.8.0+real5prealpha+1-15ubuntu5  
-libpostproc57 | 7:6.1.1-3ubuntu5+esm13  
+libpostproc57 | 7:6.1.1-3ubuntu5+esm15  
 libpq5 | 16.15-0ubuntu0.24.04.1  
 libproc2-0 | 2:4.0.4-4ubuntu3.3  
-libprotobuf32t64 | 3.21.12-8.2ubuntu0.3  
-libprotoc32t64 | 3.21.12-8.2ubuntu0.3  
+libprotobuf32t64 | 3.21.12-8.2ubuntu0.4  
+libprotoc32t64 | 3.21.12-8.2ubuntu0.4  
 libpsl5t64 | 0.21.2-1.1build1  
 libpulse0 | 1:16.1+dfsg1-2ubuntu10.1  
 libpython3-stdlib | 3.12.3-0ubuntu2.1  
@@ -502,9 +502,9 @@ libssh-gcrypt-4 | 0.10.6-2ubuntu0.5
 libssl3t64 | 3.0.13-0ubuntu3.16  
 libstdc++6 | 14.2.0-4ubuntu2~24.04.1  
 libsvtav1enc1d1 | 1.7.0+dfsg-2build1  
-libswresample4 | 7:6.1.1-3ubuntu5+esm13  
-libswscale7 | 7:6.1.1-3ubuntu5+esm13  
-libsystemd0 | 255.4-1ubuntu8.17  
+libswresample4 | 7:6.1.1-3ubuntu5+esm15  
+libswscale7 | 7:6.1.1-3ubuntu5+esm15  
+libsystemd0 | 255.4-1ubuntu8.18  
 libtasn1-6 | 4.19.0-3ubuntu0.24.04.2  
 libtcmalloc-minimal4t64 | 2.15-3build1  
 libtext-iconv-perl | 1.7-8build3  
@@ -516,7 +516,7 @@ libtiff6 | 4.5.1+git230720-4ubuntu2.5
 libtiffxx6 | 4.5.1+git230720-4ubuntu2.5  
 libtinfo6 | 6.4+20240113-1ubuntu2.2  
 libtwolame0 | 0.4.0-2build3  
-libudev1 | 255.4-1ubuntu8.17  
+libudev1 | 255.4-1ubuntu8.18  
 libudfread0 | 1.1.2-1build1  
 libunibreak5 | 5.1-2build1  
 libunistring5 | 1.1-2build1.1  
@@ -540,9 +540,9 @@ libwayland-egl1 | 1.22.0-2.1build1
 libwebp7 | 1.3.2-0.4build3  
 libwebpdemux2 | 1.3.2-0.4build3  
 libwebpmux3 | 1.3.2-0.4build3  
-libx11-6 | 2:1.8.7-1build1  
-libx11-data | 2:1.8.7-1build1  
-libx11-xcb1 | 2:1.8.7-1build1  
+libx11-6 | 2:1.8.7-1ubuntu0.1  
+libx11-data | 2:1.8.7-1ubuntu0.1  
+libx11-xcb1 | 2:1.8.7-1ubuntu0.1  
 libx264-164 | 2:0.164.3108+git31e19f9-1  
 libx265-199 | 3.5-2build1  
 libxau6 | 1:1.0.9-1build6  
@@ -622,7 +622,7 @@ sensible-utils | 0.0.22
 shared-mime-info | 2.4-4  
 sysvinit-utils | 3.08-6ubuntu3  
 tar | 1.35+dfsg-3ubuntu0.4  
-tzdata | 2026c-0ubuntu0.24.04.1  
+tzdata | 2026e-0ubuntu0.24.04.1  
 ubuntu-keyring | 2023.11.28.1  
 ucf | 3.0043+nmu1  
 unminimize | 0.2.1  
@@ -649,7 +649,7 @@ base-files | 12ubuntu4.7
 base-passwd | 3.5.52build1  
 bash | 5.1-6ubuntu1.1  
 bsdutils | 1:2.37.2-4ubuntu3.6  
-ca-certificates | 20260601~22.04.1  
+ca-certificates | 20260816ubuntu0.22.04.1  
 coreutils | 8.32-4.1ubuntu1.4  
 curl | 7.81.0-1ubuntu1.30  
 dash | 0.5.11+git20210903+057cd650a4ed-3build1  
@@ -660,8 +660,8 @@ dpkg | 1.21.1ubuntu2.6
 e2fsprogs | 1.46.5-2ubuntu1.2  
 findutils | 4.8.0-1ubuntu3  
 gcc-12-base | 12.3.0-1ubuntu1~22.04.3  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
 gpgv | 2.2.27-3ubuntu2.5  
 grep | 3.7-1build1  
 gzip | 1.10-4ubuntu4.2  
@@ -700,7 +700,7 @@ libkrb5-3 | 1.19.2-2ubuntu0.10
 libkrb5support0 | 1.19.2-2ubuntu0.10  
 libldap-2.5-0 | 2.5.20+dfsg-0ubuntu0.22.04.1  
 liblz4-1 | 1.9.3-2build2  
-liblzma5 | 5.2.5-2ubuntu1.1  
+liblzma5 | 5.2.5-2ubuntu1.2  
 libmount1 | 2.37.2-4ubuntu3.6  
 libncurses6 | 6.3-2ubuntu0.3  
 libncursesw6 | 6.3-2ubuntu0.3  
@@ -773,21 +773,21 @@ base-files | 12ubuntu4.7
 base-passwd | 3.5.52build1  
 bash | 5.1-6ubuntu1.1  
 bsdutils | 1:2.37.2-4ubuntu3.6  
-ca-certificates | 20260601~22.04.1  
+ca-certificates | 20260816ubuntu0.22.04.1  
 chardet | 4.0.0  
 coreutils | 8.32-4.1ubuntu1.4  
-curl | 7.81.0-1ubuntu1.29  
+curl | 7.81.0-1ubuntu1.30  
 dash | 0.5.11+git20210903+057cd650a4ed-3build1  
 debconf | 1.5.79ubuntu1  
 debianutils | 5.5-1ubuntu2  
 dictionaries-common | 1.28.14  
 diffutils | 1:3.8-0ubuntu2.1  
 dirmngr | 2.2.27-3ubuntu2.5  
-distro-info-data | 0.72-0ubuntu0.22.04.1  
+distro-info-data | 2026.10.12-0ubuntu0.22.04.1  
 dpkg | 1.21.1ubuntu2.6  
 e2fsprogs | 1.46.5-2ubuntu1.2  
 emacsen-common | 3.0.4  
-ffmpeg | 7:4.4.2-0ubuntu0.22.04.1+esm16  
+ffmpeg | 7:4.4.2-0ubuntu0.22.04.1+esm17  
 file | 1:5.41-3ubuntu0.1  
 findutils | 4.8.0-1ubuntu3  
 fontconfig | 2.13.1-4.2ubuntu5  
@@ -827,17 +827,17 @@ fonts-urw-base35 | 20200910-1
 fonts-wqy-zenhei | 0.9.45-8  
 gcc-12-base | 12.3.0-1ubuntu1~22.04.3  
 ghostscript | 9.55.0~dfsg1-0ubuntu5.14  
-git | 1:2.34.1-1ubuntu1.17  
-git-man | 1:2.34.1-1ubuntu1.17  
+git | 1:2.34.1-1ubuntu1.18  
+git-man | 1:2.34.1-1ubuntu1.18  
 gnupg | 2.2.27-3ubuntu2.5  
 gnupg-l10n | 2.2.27-3ubuntu2.5  
 gnupg-utils | 2.2.27-3ubuntu2.5  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
 gpg | 2.2.27-3ubuntu2.5  
 gpg-agent | 2.2.27-3ubuntu2.5  
 gpg-wks-client | 2.2.27-3ubuntu2.5  
@@ -877,11 +877,11 @@ libavahi-client3 | 0.8-5ubuntu5.5
 libavahi-common-data | 0.8-5ubuntu5.5  
 libavahi-common3 | 0.8-5ubuntu5.5  
 libavc1394-0 | 0.5.4-5build2  
-libavcodec58 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libavdevice58 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libavfilter7 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libavformat58 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libavutil56 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
+libavcodec58 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libavdevice58 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libavfilter7 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libavformat58 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libavutil56 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
 libblas3 | 3.10.0-2ubuntu1  
 libblkid1 | 2.37.2-4ubuntu3.6  
 libbluray2 | 1:1.3.1-1  
@@ -906,9 +906,9 @@ libcodec2-1.0 | 1.0.1-3
 libcom-err2 | 1.46.5-2ubuntu1.2  
 libcrypt1 | 1:4.4.27-1  
 libcups2 | 2.4.1op1-1ubuntu4.21  
-libcurl3-gnutls | 7.81.0-1ubuntu1.29  
-libcurl4 | 7.81.0-1ubuntu1.29  
-libcurl4-openssl-dev | 7.81.0-1ubuntu1.29  
+libcurl3-gnutls | 7.81.0-1ubuntu1.30  
+libcurl4 | 7.81.0-1ubuntu1.30  
+libcurl4-openssl-dev | 7.81.0-1ubuntu1.30  
 libdatrie1 | 0.2.13-2  
 libdav1d5 | 0.9.2-1  
 libdb5.3 | 5.3.28+dfsg1-0.8ubuntu3  
@@ -995,7 +995,7 @@ libllvm15 | 1:15.0.7-0ubuntu0.22.04.3
 liblqr-1-0 | 0.4.2-2.1  
 libltdl7 | 2.4.6-15build2  
 liblz4-1 | 1.9.3-2build2  
-liblzma5 | 5.2.5-2ubuntu1.1  
+liblzma5 | 5.2.5-2ubuntu1.2  
 libmagic-mgc | 1:5.41-3ubuntu0.1  
 libmagic1 | 1:5.41-3ubuntu0.1  
 libmagickcore-6.q16-6 | 8:6.9.11.60+dfsg-1.3ubuntu0.22.04.5+esm16  
@@ -1054,7 +1054,7 @@ libpgm-5.3-0 | 5.3.128~dfsg-2
 libpixman-1-0 | 0.40.0-1ubuntu0.22.04.1  
 libpng16-16 | 1.6.37-3ubuntu0.7  
 libpocketsphinx3 | 0.8.0+real5prealpha+1-14ubuntu1  
-libpostproc55 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
+libpostproc55 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
 libpq5 | 14.24-0ubuntu0.22.04.1  
 libprocps8 | 2:3.3.17-6ubuntu2.1  
 libprotobuf23 | 3.12.4-1ubuntu7.22.04.6  
@@ -1104,9 +1104,9 @@ libssh-4 | 0.9.6-2ubuntu0.22.04.8
 libssh-gcrypt-4 | 0.9.6-2ubuntu0.22.04.8  
 libssl3 | 3.0.2-0ubuntu1.30  
 libstdc++6 | 12.3.0-1ubuntu1~22.04.3  
-libswresample3 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libswscale5 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libsystemd0 | 249.11-0ubuntu3.22  
+libswresample3 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libswscale5 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libsystemd0 | 249.11-0ubuntu3.23  
 libtasn1-6 | 4.18.0-4ubuntu0.2  
 libtcmalloc-minimal4 | 2.9.1-0ubuntu3  
 libtext-iconv-perl | 1.7-7build3  
@@ -1120,7 +1120,7 @@ libtinfo6 | 6.3-2ubuntu0.3
 libtirpc-common | 1.3.2-2ubuntu0.1  
 libtirpc3 | 1.3.2-2ubuntu0.1  
 libtwolame0 | 0.4.0-2build2  
-libudev1 | 249.11-0ubuntu3.22  
+libudev1 | 249.11-0ubuntu3.23  
 libudfread0 | 1.1.2-1  
 libunistring2 | 1.0-1  
 libunwind8 | 1.3.2-2build2.1  
@@ -1142,9 +1142,9 @@ libwayland-server0 | 1.20.0-1ubuntu0.1
 libwebp7 | 1.2.2-2ubuntu0.22.04.2  
 libwebpdemux2 | 1.2.2-2ubuntu0.22.04.2  
 libwebpmux3 | 1.2.2-2ubuntu0.22.04.2  
-libx11-6 | 2:1.7.5-1ubuntu0.3  
-libx11-data | 2:1.7.5-1ubuntu0.3  
-libx11-xcb1 | 2:1.7.5-1ubuntu0.3  
+libx11-6 | 2:1.7.5-1ubuntu0.4  
+libx11-data | 2:1.7.5-1ubuntu0.4  
+libx11-xcb1 | 2:1.7.5-1ubuntu0.4  
 libx264-163 | 2:0.163.3060+git5db6aa6-2build1  
 libx265-199 | 3.5-2  
 libxau6 | 1:1.0.9-1build5  
@@ -1225,7 +1225,7 @@ sensible-utils | 0.0.17
 shared-mime-info | 2.1-2  
 sysvinit-utils | 3.01-1ubuntu1  
 tar | 1.34+dfsg-1ubuntu0.1.22.04.6  
-tzdata | 2026c-0ubuntu0.22.04.1  
+tzdata | 2026e-0ubuntu0.22.04.1  
 ubuntu-keyring | 2021.03.26  
 ucf | 3.0043  
 unzip | 6.0-26ubuntu3.2  
@@ -1822,6 +1822,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

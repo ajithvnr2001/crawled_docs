@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/netweaver-planning-guide/
 title: SAP NetWeaver planning guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:45:05.226832+00:00
+fetched_at: 2026-10-28T02:31:31.892999+00:00
 ---
 
 # SAP NetWeaver planning guide  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -178,7 +178,7 @@ The following sections provide further details.
 
 ### Machine types
 
-For information about the Compute Engine machine types that SAP has certified for use with SAP NetWeaver, go to [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-machine-types-and-solutions) and in the **Certified SAP solution** menu, select **SAP NetWeaver**.
+For information about the Compute Engine machine types that SAP has certified for use with SAP NetWeaver, go to [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-solutions-and-machine-types) and in the **Certified SAP solution** menu, select **SAP NetWeaver**.
 
 Before selecting a machine type for use, confirm that it is available in the region and zones that you need.
 
@@ -372,7 +372,7 @@ SAP MaxDB on Google Cloud is supported on the following operating systems:
 
 For more information on supported machine types and operating systems, see the [SAP MaxDB planning guide](https://docs.cloud.google.com/sap/docs/sap-maxdb-planning-guide).
 
-To deploy SAP MaxDB with Linux on Google Cloud, contact [Cloud Customer Care](https://cloud.google.com/support). {# TODO(lakshmang): once we have the TF config for MaxDB on Linux, update this sentence }
+To deploy SAP MaxDB with Linux on Google Cloud, contact [Cloud Customer Care](https://cloud.google.com/support).
 
 For information about SAP MaxDB from SAP, see the [SAP MaxDB Library](https://help.sap.com/viewer/9d62a6d2a95149718db6b65b7ffa2052/113/en-US).
 
@@ -758,6 +758,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

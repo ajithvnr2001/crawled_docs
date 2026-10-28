@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform/pa-user/audit-backup-restore/
 title: Create backup and restore audit logs \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:05:39.979908+00:00
+fetched_at: 2026-10-27T22:05:14.590734+00:00
 ---
 
 # Create backup and restore audit logs  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,11 +23,7 @@ Send feedback
 
 #  Create backup and restore audit logs Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to secure audit logs from your Google Distributed Cloud (GDC) air-gapped appliance environment in remote backup buckets to preserve and restore data when necessary. The process includes steps for installing and configuring necessary components to recover historical audit logs from those backups.
-
-Backups ensure that audit logs are preserved even if the original data is lost or corrupted, helping meet requirements and letting you recover information in case of system failures or accidental deletions. Restored audit logs provide access to historical data, enabling analysis of past events, security incidents, and user activity.
-
-Implementing a backup and restore process for audit logs is beneficial for maintaining data integrity, ensuring compliance, and enabling historical analysis.
+Audit log backups in Google Distributed Cloud (GDC) air-gapped appliance preserve historical records in remote storage buckets for compliance, security analysis, and disaster recovery. Configure remote bucket credentials and transfer jobs to back up audit logs, or deploy a restoration instance to query recovered logs in Grafana.
 
 ## Before you begin
 
@@ -704,6 +700,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

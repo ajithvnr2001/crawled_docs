@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/best-practices-tuning-scann/
 title: Best practices for tuning ScaNN indexes in AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:35.959236+00:00
+fetched_at: 2026-10-27T18:43:57.222261+00:00
 ---
 
 # Best practices for tuning ScaNN indexes in AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -34,22 +34,6 @@ The `num_leaves` parameter controls the number of partitions in the index. The m
 
 
 
-## Before you begin
-
-If you want to create a four-level ScaNN index, you must first enable the [Preview](https://cloud.google.com/products#product-launch-stages) feature for your AlloyDB instance. To enable the Preview feature, choose one of the following two methods:
-
-  * Enable the [`scann.enable_preview_features`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#scann.enable_preview_features) database flag.
-
-For more information on configuring database flags, see [Configure database flags](https://docs.cloud.google.com/alloydb/docs/instance-configure-database-flags).
-
-  * Set the session-level [`scann.max_allowed_num_levels`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#scann.max_allowed_num_levels) database flag to `3`.
-        
-        SET scann.max_allowed_num_levels = 3;
-        
-
-
-
-
 ## Two-level tree index
 
 To apply recommendations to help you find the optimal values of `num_leaves` and `num_leaves_to_search` for your dataset, follow these recommended steps:
@@ -69,7 +53,7 @@ If you are working with high dimension vectors (500 dimensions or higher) and wa
      2. Run the test queries again. While you're running the test queries, experiment with reducing `scann.num_leaves_to_search`, finding a value that increases QPS while keeping your recall high. Try different values of `scann.num_leaves_to_search` without rebuilding the index.
   5. Repeat Step 4 until both the QPS and the recall range have reached acceptable values.
 
-**Note:** If the query doesn't return sufficient results with filters, you can adjust the [`scann.satisfy_limit`](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#scann-satisfy-limit) ([Preview](https://cloud.google.com/products#product-launch-stages)) and [`scann.max_num_leaves_to_search_pct`](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#scann-max-pct-leaves-to-search) ([Preview](https://cloud.google.com/products#product-launch-stages)) parameters.
+**Note:** If the query doesn't return sufficient results with filters, you can adjust the [`scann.satisfy_limit`](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#scann-satisfy-limit) and [`scann.max_num_leaves_to_search_pct`](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#scann-max-num-leaves-to-search-pct) parameters.
 
 ## Three-level tree index
 
@@ -100,13 +84,9 @@ If you are working with high dimension vectors (500 dimensions or higher) and wa
   2. Repeat Step 4 until both the QPS and the recall range have reached acceptable values.
 
 
-**Note:** If the query doesn't return sufficient results with filters, you can adjust the [`scann.satisfy_limit`](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#scann-satisfy-limit)([Preview](https://cloud.google.com/products#product-launch-stages)) and [`scann.max_pct_leaves_to_search`](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#scann-max-pct-leaves-to-search)([Preview](https://cloud.google.com/products#product-launch-stages)) parameters.
+**Note:** If the query doesn't return sufficient results with filters, you can adjust the [`scann.satisfy_limit`](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#scann-satisfy-limit) and [`scann.max_num_leaves_to_search_pct`](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#scann-max-num-leaves-to-search-pct) parameters.
 
 ## Four-level tree index
-
-**Preview — Four-level ScaNN indexes**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 In addition to the recommendations for three-level tree indexes, use the following guidance to find the optimal value for [`num_leaves`](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#num_leaves) and [`max_num_levels`](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#max_num_levels):
 
@@ -147,7 +127,7 @@ To address this, AlloyDB offers a feature that allows the search to dynamically 
 
 You can enable the streaming functionality by setting the `scann.satisfy_limit` parameter to `relaxed_order`. When enabled, the vector scan continues searching through additional leaf partitions until it finds enough results to satisfy the `LIMIT` of your query, thereby improving recall.
 
-To prevent a search from continuing for too long and to control the performance impact, you can use the `scann.max_num_leaves_to_search_pct` parameter. This setting acts as a safeguard by setting an upper bound on the percentage of total leaves that a query can visit. The default value for this is `15%`.
+To prevent a search from continuing for too long and to control the performance impact, use the `scann.max_num_leaves_to_search_pct` parameter. This setting sets an upper limit on the percentage of total leaves that a query can visit. The default value for this is `15%`.
 
 ### When to use streaming
 
@@ -158,7 +138,7 @@ Consider using the streaming feature when:
 
 
 
-By enabling `scann.satisfy_limit`, you can improve the recall of your filtered searches. It is recommended to also configure `scann.max_num_leaves_to_search_pct` to reach balance between recall and query performance.
+To improve the recall of your filtered searches, enable `scann.satisfy_limit`. We recommend that you configure `scann.max_num_leaves_to_search_pct` to reach balance between recall and query performance.
 
 ### Optimize performance for filtered queries
 
@@ -178,6 +158,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

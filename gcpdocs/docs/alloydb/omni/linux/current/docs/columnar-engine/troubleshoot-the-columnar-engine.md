@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/current/docs/columnar-engine/troubleshoot-the-columnar-engine/
 title: Troubleshoot the columnar engine \u00a0|\u00a0 AlloyDB Omni using RPM: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:43.936841+00:00
+fetched_at: 2026-10-28T00:32:36.309927+00:00
 ---
 
 # Troubleshoot the columnar engine  |  AlloyDB Omni using RPM: Current (18.4.0)  |  Google Cloud Documentation
@@ -41,16 +41,7 @@ If you run AlloyDB Omni without enough shared memory for the columnar engine, th
     Insufficient shared memory for generating the columnar formats.
     
 
-To address this issue, specify the amount of shared memory that's available to the AlloyDB Omni container.
-
-###  Linux 
-
-  1. Make sure that you already installed AlloyDB Omni with your `/dev/shm` directory mounted on the container. For more information, see [Customize your AlloyDB Omni installation](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/install-psql#one-omni).
-
-  2. Increase the size of your host machine's `/dev/shm` partition by using a technique such as editing your `/etc/fstab` file.
-
-
-
+To address this issue, increase the size of the `/dev/shm` partition on your host machine or decrease the memory allocated to the columnar engine so that it doesn't exceed the available `/dev/shm` size. For more information, see [Configure the columnar engine](https://docs.cloud.google.com/alloydb/omni/linux/current/docs/columnar-engine/configure#configure-memory).
 
 ## Find the tables that are populated in the columnar engine
 
@@ -97,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/network-security/firewall-endpoints/update/
 title: gcloud network-security firewall-endpoints update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T03:31:54.437656+00:00
+fetched_at: 2026-10-27T21:40:24.960981+00:00
 ---
 
 # gcloud network-security firewall-endpoints update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud network-security firewall-endpoints update - update a Firewall Plus endpo
 SYNOPSIS
     
 
-`gcloud network-security firewall-endpoints update` (`FIREWALL_ENDPOINT` : `--organization`=`ORGANIZATION` `--zone`=`ZONE`) [`--async`] [`--description`=`DESCRIPTION`] [`--location`=`LOCATION`] [`--max-wait`=`MAX_WAIT`; default="60m"] [`--update-billing-project`=`BILLING_PROJECT`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud network-security firewall-endpoints update` (`FIREWALL_ENDPOINT` : `--organization`=`ORGANIZATION` `--zone`=`ZONE`) [`--async`] [`--block-partial-http`] [`--content-cloud-region`=`CONTENT_CLOUD_REGION`] [`--description`=`DESCRIPTION`] [`--enable-wildfire`] [`--enable-wildfire-analysis-logging`] [`--location`=`LOCATION`] [`--max-wait`=`MAX_WAIT`; default="60m"] [`--update-billing-project`=`BILLING_PROJECT`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--wildfire-analysis-action`=`WILDFIRE_ANALYSIS_ACTION`] [`--wildfire-analysis-timeout`=`WILDFIRE_ANALYSIS_TIMEOUT`] [`--wildfire-lookup-action`=`WILDFIRE_LOOKUP_ACTION`] [`--wildfire-lookup-timeout`=`WILDFIRE_LOOKUP_TIMEOUT`] [`--wildfire-region`=`WILDFIRE_REGION`] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Update a firewall endpoint. Check the progress of endpoint update by using `[gcloud network-security firewall-endpoints describe](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/firewall-endpoints/describe)`. 
 
@@ -99,8 +99,16 @@ FLAGS
 
 `--async`
      Return immediately, without waiting for the operation in progress to complete. The default is `True`. Enabled by default, use `--no-async` to disable. 
+`--block-partial-http`
+     Block HTTP partial responses. Defaults to false. Use `--block-partial-http` to enable. To disable, use `--no-block-partial-http`. 
+`--content-cloud-region`=`CONTENT_CLOUD_REGION`
+     The content cloud region the endpoint will use. Defaults to the nearest available region. 
 `--description`=`DESCRIPTION`
      Description of the endpoint 
+`--enable-wildfire`
+     Enable WildFire functionality on the endpoint. Use --enable-wildfire to enable. To disable, use --no-enable-wildfire. 
+`--enable-wildfire-analysis-logging`
+     Enable WildFire inline cloud analysis submission timeout logging. This is enabled by default. Use `--no-enable-wildfire-analysis-logging` to disable. 
 `--location`=`LOCATION`
      Location of the endpoint 
 `--max-wait`=`MAX_WAIT`; default="60m"
@@ -112,6 +120,16 @@ FLAGS
 
 Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. Values must contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
 
+`--wildfire-analysis-action`=`WILDFIRE_ANALYSIS_ACTION`
+     The action to take on WildFire inline cloud analysis timeout. `WILDFIRE_ANALYSIS_ACTION` must be one of: `ALLOW`, `DENY`. 
+`--wildfire-analysis-timeout`=`WILDFIRE_ANALYSIS_TIMEOUT`
+     The timeout (in milliseconds) on a file being held while WildFire inline cloud analysis is performed. 
+`--wildfire-lookup-action`=`WILDFIRE_LOOKUP_ACTION`
+     The action to take on WildFire real time signature lookup timeout. `WILDFIRE_LOOKUP_ACTION` must be one of: `ALLOW`, `DENY`. 
+`--wildfire-lookup-timeout`=`WILDFIRE_LOOKUP_TIMEOUT`
+     The timeout (in milliseconds) to hold a file while the WildFire real time signature cloud performs a signature lookup. 
+`--wildfire-region`=`WILDFIRE_REGION`
+     The region WildFire submissions from this endpoint will be sent to for analysis by WildFire. Defaults to the nearest available region. 
 At most one of these can be specified: 
 
 `--clear-labels`
@@ -147,6 +165,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-09 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-09 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

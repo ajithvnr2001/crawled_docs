@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/ext-load-balancer-backend-buckets/
 title: Set up a classic Application Load Balancer with Cloud Storage buckets \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:25:09.701920+00:00
+fetched_at: 2026-10-27T22:55:46.114141+00:00
 ---
 
 # Set up a classic Application Load Balancer with Cloud Storage buckets  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ By default, Cloud Storage [uses the same cache](https://docs.cloud.google.com/st
 
 ## Before you begin
 
-Make sure that your setup meets the following prerequisites. If you are using the `gcloud storage` utility, you can install it by using instructions in [Discover object storage with the gcloud tool](https://docs.cloud.google.com/storage/docs/discover-object-storage-gcloud).
+Make sure that your setup meets the following prerequisites. If you are using the `gcloud storage` utility, you can install it by using instructions in [Discover object storage with the Google Cloud CLI tool](https://docs.cloud.google.com/storage/docs/discover-object-storage-gcloud).
 
 ### Set a default project
 
@@ -139,6 +139,62 @@ We recommend using a Google-managed certificate.
 
 **Warning:** Don't use a self-signed certificate for production purposes.
 
+## Reserve an external IP address
+
+Before you create your load balancer, you can reserve a global static external IP address that your audience uses to reach your load balancer.
+
+This step is optional but recommended, as a static external IP address provides a single address to point your domain at.
+
+**Note:** You can skip this step and have Google Cloud associate an ephemeral IP address with your load balancer's forwarding rule. An ephemeral IP address remains constant while the forwarding rule exists. If you need to delete the forwarding rule and re-add it, the forwarding rule might receive a new IP address. If needed, you can [make an ephemeral IP address static](https://docs.cloud.google.com/vpc/docs/reserve-static-external-ip-address#promote_ephemeral_ip).
+
+###  Console 
+
+  1. In the Google Cloud console, go to the **External IP addresses** page.
+
+[Go to External IP addresses](https://console.cloud.google.com/addresses/list)
+
+  2. Click **Reserve static address**.
+
+  3. In the **Name** box, enter `example-ip`.
+
+  4. Set the **Network Service Tier** to **Premium**.
+
+  5. Set the **IP version** to **IPv4**.
+
+  6. Set the **Type** to **Global**.
+
+  7. Click **Reserve**.
+
+
+
+
+###  gcloud 
+    
+    
+    gcloud compute addresses create example-ip \
+        --network-tier=PREMIUM \
+        --ip-version=IPV4 \
+        --global
+    
+
+Note the IPv4 address that was reserved:
+    
+    
+    gcloud compute addresses describe example-ip \
+        --format="get(address)" \
+        --global
+    
+
+###  Terraform 
+
+To reserve an external IP address, use the [`google_compute_global_address` resource](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_global_address).
+    
+    
+    # Reserve IP address
+    resource "google_compute_global_address" "default" {
+      name = "example-ip"
+    }
+
 ### Optional: Use BYOIP addresses
 
 With bring your own IP (BYOIP), you can import your own public addresses to Google Cloud to use the addresses with Google Cloud resources. For example, if you import your own IPv4 addresses, you can assign one to the forwarding rule when you configure your load balancer. When you follow the instructions in this document to [create the load balancer](https://docs.cloud.google.com/load-balancing/docs/https/ext-load-balancer-backend-buckets#create_an_with_backend_buckets), provide the BYOIP address as the **IP address**.
@@ -153,7 +209,7 @@ The process for preparing your Cloud Storage buckets is as follows:
 
   * Copy content to the buckets.
 
-  * Provide public access to the buckets.
+  * Provide access to the buckets.
 
 
 
@@ -288,181 +344,6 @@ Alternatively, use the [`null_resource` resource](https://registry.terraform.io/
     
 
 In the Google Cloud console, click **Refresh** on each bucket's details page to verify that the file has copied successfully.
-
-## Make your Cloud Storage buckets accessible
-
-You can make your Cloud Storage buckets publicly readable or restrict access to it.
-
-### Make your Cloud Storage buckets publicly readable
-
-When you make Cloud Storage buckets publicly readable, anyone on the internet can list and view their objects, and view their metadata (excluding ACLs). _Don't include sensitive information in your public buckets._
-
-To reduce the likelihood of accidental exposure of sensitive information, don't store public objects and sensitive data in the same bucket.
-
-###  Console 
-
-To grant all users access to view objects in your buckets, repeat the following procedure for each bucket:
-
-  1. In the Google Cloud console, go to the **Cloud Storage Buckets** page.
-
-[Go to Cloud Storage Buckets](https://console.cloud.google.com/storage/browser)
-
-  2. Click the bucket name, followed by the **Permissions** tab.
-
-  3. Click **Add**.
-
-  4. In the **New principals** box, enter `allUsers`.
-
-  5. In the **Select a role** box, select **Cloud Storage > Storage Object Viewer**.
-
-  6. Click **Save**.
-
-  7. Click **Allow public access**.
-
-
-
-
-###  gcloud 
-
-To grant all users access to view objects in your buckets, run the following commands:
-    
-    
-    gcloud storage buckets add-iam-policy-binding gs://BUCKET_1_NAME --member=allUsers --role=roles/storage.objectViewer
-    
-    
-    
-    gcloud storage buckets add-iam-policy-binding gs://BUCKET_2_NAME --member=allUsers --role=roles/storage.objectViewer
-    
-
-###  Terraform 
-
-To grant all users access to view objects in your buckets, use the [`google_storage_bucket_iam_member` resource](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#google_storage_bucket_iam_member) and specify the `allUsers` member.
-    
-    
-    # Make buckets public
-    resource "google_storage_bucket_iam_member" "bucket_1" {
-      bucket = google_storage_bucket.bucket_1.name
-      role   = "roles/storage.objectViewer"
-      member = "allUsers"
-    }
-    
-    resource "google_storage_bucket_iam_member" "bucket_2" {
-      bucket = google_storage_bucket.bucket_2.name
-      role   = "roles/storage.objectViewer"
-      member = "allUsers"
-    }
-
-### Make your Cloud Storage buckets private
-
-To enable access to your private buckets, grant the required IAM role to the service account `**service- PROJECT_NUM@https-lb.iam.gserviceaccount.com**`. This service account is created automatically upon the creation of a backend bucket.
-
-###  Console 
-
-To grant only the service account access to view objects in your buckets, repeat the following procedure for each bucket:
-
-  1. In the Google Cloud console, go to the **Buckets** page.
-
-[Go to Buckets](https://console.cloud.google.com/storage/browser)
-
-  2. Navigate to the bucket that you want to enable access to and click the **Permissions** tab.
-
-  3. In the **Permissions** section, on the **View by principals** tab, click person_add**Grant Access**.
-
-  4. In the **Add principals** section, in the **New principals** field, enter the email address of the calling service account: `**service- PROJECT_NUM@https-lb.iam.gserviceaccount.com**`.
-
-**Important:** This service account is only available for `PROJECT_NUM` after you have created at least one backend bucket resource in the project.
-  5. In the **Assign roles** section, in the **Select a role** field, select **Cloud Storage > Storage Object Viewer**. This role provides read-only access.
-
-**Caution:** Private bucket access is designed for read-only content delivery. It doesn't support methods that modify or delete data, such as `POST`, `PUT`, `PATCH`, or `DELETE`.**Important:** When setting permissions for private bucket access, select the Storage Object Viewer role (`roles/storage.objectViewer`) only.
-  6. Click **Save**.
-
-
-
-
-Additionally, so that all content served from the bucket is cached, [set the cache mode](https://docs.cloud.google.com/cdn/docs/using-cache-modes#cache-mode) to **Force cache all content** and [specify a maximum TTL value](https://docs.cloud.google.com/cdn/docs/using-ttl-overrides#default-ttl).
-
-###  gcloud 
-
-To grant only the service account access to view objects in your buckets, run the following command:
-    
-    
-      gcloud storage buckets add-iam-policy-binding gs://BUCKET_1_NAME \
-          --member=serviceAccount:service-PROJECT_NUM@https-lb.iam.gserviceaccount.com \
-          --role=roles/storage.objectViewer
-    
-    
-    
-      gcloud storage buckets add-iam-policy-binding gs://BUCKET_2_NAME \
-          --member=serviceAccount:service-PROJECT_NUM@https-lb.iam.gserviceaccount.com \
-          --role=roles/storage.objectViewer
-    
-
-Replace the following:
-
-  * `BUCKET_1_NAME` and `BUCKET_2_NAME`: the name of the Cloud Storage buckets to use
-  * `PROJECT_NUM`: the number of your Google Cloud project
-
-**Caution:** Private bucket access is designed for read-only content delivery. It doesn't support methods that modify or delete data, such as `POST`, `PUT`, `PATCH`, or `DELETE`.**Important:** When setting permissions for private bucket access, you must only select the Storage Object Viewer role (`roles/storage.objectViewer`).
-
-
-
-Additionally, so that all content served from the bucket is cached, [set the cache mode](https://docs.cloud.google.com/cdn/docs/using-cache-modes#cache-mode) to **Force cache all content** and [specify a maximum TTL value](https://docs.cloud.google.com/cdn/docs/using-ttl-overrides#default-ttl).
-
-## Reserve an external IP address
-
-After you've set up your Cloud Storage buckets, you can reserve a global static external IP address that your audience uses to reach your load balancer.
-
-This step is optional but recommended, as a static external IP address provides a single address to point your domain at.
-
-**Note:** You can skip this step and have Google Cloud associate an ephemeral IP address with your load balancer's forwarding rule. An ephemeral IP address remains constant while the forwarding rule exists. If you need to delete the forwarding rule and re-add it, the forwarding rule might receive a new IP address. If needed, you can [make an ephemeral IP address static](https://docs.cloud.google.com/vpc/docs/reserve-static-external-ip-address#promote_ephemeral_ip).
-
-###  Console 
-
-  1. In the Google Cloud console, go to the **External IP addresses** page.
-
-[Go to External IP addresses](https://console.cloud.google.com/addresses/list)
-
-  2. Click **Reserve static address**.
-
-  3. In the **Name** box, enter `example-ip`.
-
-  4. Set the **Network Service Tier** to **Premium**.
-
-  5. Set the **IP version** to **IPv4**.
-
-  6. Set the **Type** to **Global**.
-
-  7. Click **Reserve**.
-
-
-
-
-###  gcloud 
-    
-    
-    gcloud compute addresses create example-ip \
-        --network-tier=PREMIUM \
-        --ip-version=IPV4 \
-        --global
-    
-
-Note the IPv4 address that was reserved:
-    
-    
-    gcloud compute addresses describe example-ip \
-        --format="get(address)" \
-        --global
-    
-
-###  Terraform 
-
-To reserve an external IP address, use the [`google_compute_global_address` resource](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_global_address).
-    
-    
-    # Reserve IP address
-    resource "google_compute_global_address" "default" {
-      name = "example-ip"
-    }
 
 ## Create an external Application Load Balancer with backend buckets
 
@@ -719,6 +600,127 @@ NOTE: To change the [mode](https://docs.cloud.google.com/load-balancing/docs/htt
 
 To learn how to apply or remove a Terraform configuration, see [Basic Terraform commands](https://docs.cloud.google.com/docs/terraform/basic-commands).
 
+## Make your Cloud Storage buckets accessible
+
+You can make your Cloud Storage buckets publicly readable or restrict access to it.
+
+### Make your Cloud Storage buckets publicly readable
+
+When you make Cloud Storage buckets publicly readable, anyone on the internet can list and view their objects, and view their metadata (excluding ACLs). _Don't include sensitive information in your public buckets._
+
+To reduce the likelihood of accidental exposure of sensitive information, don't store public objects and sensitive data in the same bucket.
+
+###  Console 
+
+To grant all users access to view objects in your buckets, repeat the following procedure for each bucket:
+
+  1. In the Google Cloud console, go to the **Cloud Storage Buckets** page.
+
+[Go to Cloud Storage Buckets](https://console.cloud.google.com/storage/browser)
+
+  2. Click the bucket name, followed by the **Permissions** tab.
+
+  3. Click **Add**.
+
+  4. In the **New principals** box, enter `allUsers`.
+
+  5. In the **Select a role** box, select **Cloud Storage > Storage Object Viewer**.
+
+  6. Click **Save**.
+
+  7. Click **Allow public access**.
+
+
+
+
+###  gcloud 
+
+To grant all users access to view objects in your buckets, run the following commands:
+    
+    
+    gcloud storage buckets add-iam-policy-binding gs://BUCKET_1_NAME --member=allUsers --role=roles/storage.objectViewer
+    
+    
+    
+    gcloud storage buckets add-iam-policy-binding gs://BUCKET_2_NAME --member=allUsers --role=roles/storage.objectViewer
+    
+
+###  Terraform 
+
+To grant all users access to view objects in your buckets, use the [`google_storage_bucket_iam_member` resource](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam#google_storage_bucket_iam_member) and specify the `allUsers` member.
+    
+    
+    # Make buckets public
+    resource "google_storage_bucket_iam_member" "bucket_1" {
+      bucket = google_storage_bucket.bucket_1.name
+      role   = "roles/storage.objectViewer"
+      member = "allUsers"
+    }
+    
+    resource "google_storage_bucket_iam_member" "bucket_2" {
+      bucket = google_storage_bucket.bucket_2.name
+      role   = "roles/storage.objectViewer"
+      member = "allUsers"
+    }
+
+### Make your Cloud Storage buckets private
+
+To enable access to your private buckets, grant the required IAM role to the service account `**service- PROJECT_NUM@https-lb.iam.gserviceaccount.com**`.
+
+This service account is created automatically upon the creation of a backend bucket.
+
+###  Console 
+
+To grant only the service account access to view objects in your buckets, repeat the following procedure for each bucket:
+
+  1. In the Google Cloud console, go to the **Buckets** page.
+
+[Go to Buckets](https://console.cloud.google.com/storage/browser)
+
+  2. Navigate to the bucket that you want to enable access to and click the **Permissions** tab.
+
+  3. In the **Permissions** section, on the **View by principals** tab, click person_add**Grant Access**.
+
+  4. In the **Add principals** section, in the **New principals** field, enter the email address of the calling service account: `**service- PROJECT_NUM@https-lb.iam.gserviceaccount.com**`.
+
+**Important:** This service account is only available for `PROJECT_NUM` after you have created at least one backend bucket resource in the project. Because you created the load balancer and backend bucket in [Create an external Application Load Balancer with backend buckets](https://docs.cloud.google.com/load-balancing/docs/https/ext-load-balancer-backend-buckets#create_an_with_backend_buckets), the service account is already provisioned in your project and ready to be assigned roles.
+  5. In the **Assign roles** section, in the **Select a role** field, select **Cloud Storage > Storage Object Viewer**. This role provides read-only access.
+
+**Caution:** Private bucket access is designed for read-only content delivery. It doesn't support methods that modify or delete data, such as `POST`, `PUT`, `PATCH`, or `DELETE`.**Important:** When setting permissions for private bucket access, select the Storage Object Viewer role (`roles/storage.objectViewer`) only.
+  6. Click **Save**.
+
+
+
+
+Additionally, so that all content served from the bucket is cached, [set the cache mode](https://docs.cloud.google.com/cdn/docs/using-cache-modes#cache-mode) to **Force cache all content** and [specify a maximum TTL value](https://docs.cloud.google.com/cdn/docs/using-ttl-overrides#default-ttl).
+
+###  gcloud 
+
+To grant only the service account access to view objects in your buckets, run the following command:
+    
+    
+      gcloud storage buckets add-iam-policy-binding gs://BUCKET_1_NAME \
+          --member=serviceAccount:service-PROJECT_NUM@https-lb.iam.gserviceaccount.com \
+          --role=roles/storage.objectViewer
+    
+    
+    
+      gcloud storage buckets add-iam-policy-binding gs://BUCKET_2_NAME \
+          --member=serviceAccount:service-PROJECT_NUM@https-lb.iam.gserviceaccount.com \
+          --role=roles/storage.objectViewer
+    
+
+Replace the following:
+
+  * `BUCKET_1_NAME` and `BUCKET_2_NAME`: the name of the Cloud Storage buckets to use
+  * `PROJECT_NUM`: the number of your Google Cloud project
+
+**Caution:** Private bucket access is designed for read-only content delivery. It doesn't support methods that modify or delete data, such as `POST`, `PUT`, `PATCH`, or `DELETE`.**Important:** When setting permissions for private bucket access, you must only select the Storage Object Viewer role (`roles/storage.objectViewer`).
+
+
+
+Additionally, so that all content served from the bucket is cached, [set the cache mode](https://docs.cloud.google.com/cdn/docs/using-cache-modes#cache-mode) to **Force cache all content** and [specify a maximum TTL value](https://docs.cloud.google.com/cdn/docs/using-ttl-overrides#default-ttl).
+
 ## Send traffic to your load balancer
 
 Several minutes after you have configured your load balancer, you can start sending traffic to the load balancer's IP address.
@@ -785,6 +787,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

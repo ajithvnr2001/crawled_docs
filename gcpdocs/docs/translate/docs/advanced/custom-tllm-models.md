@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/translate/docs/advanced/custom-tllm-models/
 title: Create and manage Translation LLM models \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:34:44.713394+00:00
+fetched_at: 2026-10-27T20:27:57.828417+00:00
 ---
 
 # Create and manage Translation LLM models  |  Google Cloud Documentation
@@ -59,12 +59,12 @@ To create a model tuning job, send a POST request by using the [`tuningJobs.crea
 
 Before using any of the request data, make the following replacements: 
 
-  * PROJECT_ID: PROJECT_ID.
+  * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
   * TUNING_JOB_REGION: The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded. Supported region: `us-central1`.
   * BASE_MODEL: Name of the translation model to tune. Supported values: `translation-llm-002`.
-  * TRAINING_DATASET_URI: Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning dataset](https://docs.cloud.google.com/translate/models/translation-supervised-tuning-prepare).
-  * VALIDATION_DATASET_URIOptional: The Cloud Storage URI of your validation dataset file.
-  * TUNED_MODEL_DISPLAYNAMEOptional: A display name for the tuned model. If not set, a random name is generated.
+  * TRAINING_DATASET_URI: Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/translation/prepare-data).
+  * VALIDATION_DATASET_URI Optional: The Cloud Storage URI of your validation dataset file.
+  * TUNED_MODEL_DISPLAYNAME Optional: A display name for the tuned model. If not set, a random name is generated.
 
 
 
@@ -80,7 +80,7 @@ Request JSON body:
       "baseModel": "BASE_MODEL",
       "supervisedTuningSpec" : {
           "trainingDatasetUri": "TRAINING_DATASET_URI",
-          "validationDatasetUri": "VALIDATION_DATASET_URI",
+          "validationDatasetUri": "VALIDATION_DATASET_URI"
       },
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME"
     }
@@ -125,12 +125,12 @@ You should receive a JSON response similar to the following.
     
     {
       "name": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID",
-      "createTime": CREATE_TIME,
-      "updateTime": UPDATE_TIME,
-      "status": "STATUS",
+      "createTime": "CREATE_TIME",
+      "updateTime": "UPDATE_TIME",
+      "state": "STATE",
       "supervisedTuningSpec": {
             "trainingDatasetUri": "TRAINING_DATASET_URI",
-            "validationDatasetUri": "VALIDATION_DATASET_URI",
+            "validationDatasetUri": "VALIDATION_DATASET_URI"
         },
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME"
     }
@@ -216,7 +216,7 @@ You should receive a JSON response similar to the following.
 
 ## View a list of tuning jobs
 
-You can view a list of tuning jobs in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a GET request by using the `tuningJobs` method.
+You can view a list of tuning jobs in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a GET request by using the [`tuningJobs.list`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/list) method.
 
 ###  REST 
 
@@ -232,7 +232,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL: 
     
     
-    GET https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
+    GET https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
 
 To send your request, choose one of these options:
 
@@ -245,7 +245,7 @@ Execute the following command:
     
     curl -X GET \  
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
-         "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
+         "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs"
 
 #### PowerShell
 
@@ -260,7 +260,7 @@ Execute the following command:
     Invoke-WebRequest `  
         -Method GET `  
         -Headers $headers `  
-        -Uri "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
+        -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following. 
 
@@ -268,7 +268,7 @@ You should receive a JSON response similar to the following.
     
     
     {
-      "tuning_jobs": [
+      "tuningJobs": [
         TUNING_JOB_1, TUNING_JOB_2, ...
       ]
     }
@@ -302,11 +302,11 @@ You should receive a JSON response similar to the following.
 
 ## Get details of a tuning job
 
-You can get the details of a tuning job in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a GET request by using the `tuningJobs` method.
+You can get the details of a tuning job in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method.
 
 ###  REST 
 
-To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TuningJob_ID`.
+To view details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID`.
 
 Before using any of the request data, make the following replacements: 
 
@@ -319,7 +319,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL: 
     
     
-    GET https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID
+    GET https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID
 
 To send your request, choose one of these options:
 
@@ -332,7 +332,7 @@ Execute the following command:
     
     curl -X GET \  
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
-         "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID"
+         "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID"
 
 #### PowerShell
 
@@ -347,7 +347,7 @@ Execute the following command:
     Invoke-WebRequest `  
         -Method GET `  
         -Headers $headers `  
-        -Uri "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID" | Select-Object -Expand Content
+        -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following. 
 
@@ -357,24 +357,24 @@ You should receive a JSON response similar to the following.
     {
       "name": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID",
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME",
-      "createTime": CREATE_TIME,
-      "endTime": END_TIME,
+      "createTime": "CREATE_TIME",
+      "endTime": "END_TIME",
       "tunedModel": {
           "model": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/models/MODEL_ID",
           "endpoint": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID"
       },
       "experiment": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/metadataStores/default/contexts/EXPERIMENT_ID",
-      "tuning_data_statistics": {
+      "tuningDataStats": {
           "supervisedTuningDataStats": {
-              "tuninDatasetExampleCount": "TUNING_DATASET_EXAMPLE_COUNT",
+              "tuningDatasetExampleCount": "TUNING_DATASET_EXAMPLE_COUNT",
               "totalBillableTokenCount": "TOTAL_BILLABLE_TOKEN_COUNT",
               "tuningStepCount": "TUNING_STEP_COUNT"
           }
       },
-      "status": "STATUS",
+      "state": "STATE",
       "supervisedTuningSpec" : {
             "trainingDatasetUri": "TRAINING_DATASET_URI",
-            "validationDataset_uri": "VALIDATION_DATASET_URI",
+            "validationDatasetUri": "VALIDATION_DATASET_URI",
             "hyperParameters": {
                 "epochCount": EPOCH_COUNT,
                 "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
@@ -419,11 +419,11 @@ The details of your model are shown.
 
 ## Cancel a tuning job
 
-You can cancel a tuning job in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a POST request using the `tuningJobs` method.
+You can cancel a tuning job in your current project by using the Google Cloud console, the Google Gen AI SDK, or by sending a POST request using the [`tuningJobs.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel) method.
 
 ###  REST 
 
-To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel) method and specify the `TuningJob_ID`.
+To cancel a model tuning job, send a POST request by using the [`tuningJobs.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel) method and specify the `TUNING_JOB_ID`.
 
 Before using any of the request data, make the following replacements: 
 
@@ -436,7 +436,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL: 
     
     
-    POST https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel
+    POST https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel
 
 To send your request, choose one of these options:
 
@@ -451,7 +451,7 @@ Execute the following command:
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
          -H "Content-Type: application/json; charset=utf-8" \  
          -d "" \  
-         "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel"
+         "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel"
 
 #### PowerShell
 
@@ -466,7 +466,7 @@ Execute the following command:
     Invoke-WebRequest `  
         -Method POST `  
         -Headers $headers `  
-        -Uri "https://aiplatform.TUNING_JOB_REGION.rep.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel" | Select-Object -Expand Content
+        -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following. 
 
@@ -498,7 +498,7 @@ You should receive a JSON response similar to the following.
 
 [Go to **Agent Platform Studio**](https://https://console.cloud.google.com/agent-platform/generative/language/tuning)
 
-  2. In the **Translation tuned models** table, click more_vert **Manage run**.
+  2. In the **Translation LLM tuned models** table, click more_vert **Manage run**.
 
   3. Click **Cancel**.
 
@@ -531,7 +531,7 @@ Before using any of the request data, make the following replacements:
 HTTP method and URL: 
     
     
-    POST https://translation.googleapis.com/v3/projects/PROJECT_ID/locations/LOCATION:translateText
+    POST https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel
 
 Request JSON body: 
     
@@ -559,7 +559,7 @@ Save the request body in a file named `request.json`, and execute the following 
          -H "x-goog-user-project: PROJECT_ID" \  
          -H "Content-Type: application/json; charset=utf-8" \  
          -d @request.json \  
-         "https://translation.googleapis.com/v3/projects/PROJECT_ID/locations/LOCATION:translateText"
+         "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel"
 
 #### PowerShell
 
@@ -576,7 +576,7 @@ Save the request body in a file named `request.json`, and execute the following 
         -Headers $headers `  
         -ContentType: "application/json; charset=utf-8" `  
         -InFile request.json `  
-        -Uri "https://translation.googleapis.com/v3/projects/PROJECT_ID/locations/LOCATION:translateText" | Select-Object -Expand Content
+        -Uri "https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID:cancel" | Select-Object -Expand Content
 
 You should receive a JSON response similar to the following:
     
@@ -636,16 +636,16 @@ The model tuning job automatically collects the following tuning metrics for `tr
 
   * `/train_total_loss`: Loss for the tuning dataset at a training step.
   * `/train_fraction_of_correct_next_step_preds`: The token accuracy at a training step. A single inference consists of a sequence of predicted tokens. This metric measures the accuracy of the predicted tokens when compared to the ground truth in the tuning dataset.
-  * `/train_num_predictions:` Number of predicted tokens at a training step.
+  * `/train_num_predictions`: Number of predicted tokens at a training step.
 
 
 
-### Model validation metrics:
+### Model validation metrics
 
 You can configure a model tuning job to collect the following validation metrics for `translation-llm-002`.
 
   * `/eval_total_loss`: Loss for the validation dataset at a validation step.
-  * `/eval_fraction_of_correct_next_step_preds`: The token accuracy at an validation step. A single inference consists of a sequence of predicted tokens. This metric measures the accuracy of the predicted tokens when compared to the ground truth in the validation dataset.
+  * `/eval_fraction_of_correct_next_step_preds`: The token accuracy at a validation step. A single inference consists of a sequence of predicted tokens. This metric measures the accuracy of the predicted tokens when compared to the ground truth in the validation dataset.
   * `/eval_num_predictions`: Number of predicted tokens at a validation step.
 
 
@@ -662,6 +662,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

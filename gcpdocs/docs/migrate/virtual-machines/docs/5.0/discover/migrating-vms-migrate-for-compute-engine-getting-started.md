@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/virtual-machines/docs/5.0/discover/migrating-vms-migrate-for-compute-engine-getting-started/
 title: Migration journey with Migrate to Virtual Machines \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:55:58.458666+00:00
+fetched_at: 2026-10-27T21:22:28.971954+00:00
 ---
 
 # Migration journey with Migrate to Virtual Machines  |  Google Cloud Documentation

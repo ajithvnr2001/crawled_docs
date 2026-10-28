@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest/
-title: User cluster configuration file 1.30 and higher \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
+title: User cluster configuration file 1.30 and later \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:21.637734+00:00
+fetched_at: 2026-10-28T02:29:59.959969+00:00
 ---
 
-# User cluster configuration file 1.30 and higher  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
+# User cluster configuration file 1.30 and later  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/user-cluster-configuration-file-latest/
 
@@ -19,9 +19,9 @@ fetched_at: 2026-10-23T16:46:21.637734+00:00
 
 Send feedback 
 
-#  User cluster configuration file 1.30 and higher Stay organized with collections  Save and categorize content based on your preferences. 
+#  User cluster configuration file 1.30 and later Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes the fields in the user cluster configuration file for versions 1.30 and higher Google Distributed Cloud.
+The user cluster configuration file lets you define specifications and settings for user clusters in Distributed Cloud software only for VMware. You can generate a template for the file, and then review the required fields, default values, and other fields available in versions 1.30 and later.
 
 ## Generating a template for your configuration file
 
@@ -3721,6 +3721,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

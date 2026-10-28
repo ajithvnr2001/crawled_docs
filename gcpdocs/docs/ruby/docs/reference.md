@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ruby/docs/reference/
 title: Ruby Cloud Client Libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:33.023627+00:00
+fetched_at: 2026-10-28T02:30:02.840528+00:00
 ---
 
 # Ruby Cloud Client Libraries  |  Google Cloud Documentation
@@ -637,9 +637,6 @@ Storage Insights |  [ google-cloud-storage_insights ](https://cloud.google.com/r
   
 Storage Transfer Service |  [ google-cloud-storage_transfer ](https://cloud.google.com/ruby/docs/reference/google-cloud-storage_transfer/latest)   
 [ google-cloud-storage_transfer-v1 ](https://cloud.google.com/ruby/docs/reference/google-cloud-storage_transfer-v1/latest)   
-  
-Tables by Area 120 |  [ google-area120-tables ](https://rubydoc.info/gems/google-area120-tables)   
-[ google-area120-tables-v1alpha1 ](https://rubydoc.info/gems/google-area120-tables-v1alpha1)   
   
 Text-to-Speech |  [ google-cloud-text_to_speech ](https://cloud.google.com/ruby/docs/reference/google-cloud-text_to_speech/latest)   
 [ google-cloud-text_to_speech-v1 ](https://cloud.google.com/ruby/docs/reference/google-cloud-text_to_speech-v1/latest)   

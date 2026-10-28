@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview/
 title: Committed use discounts (CUDs) for Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:42:14.261004+00:00
+fetched_at: 2026-10-27T23:03:39.475947+00:00
 ---
 
 # Committed use discounts (CUDs) for Compute Engine  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ This document explains Google Cloud's committed use discounts (CUDs) and the typ
 
 Google Cloud offers CUDs in return for purchasing committed use contracts (also known as commitments). When you purchase a commitment, you commit either to a minimum amount of resource usage or to a minimum spend amount for a specified term duration of one or three years.
 
-For Compute Engine, you receive deeply discounted prices for your VM instances in return for your 1-year or 3-year commitments.
+For Compute Engine, you receive deeply discounted prices for your Compute Engine instances in return for your 1-year or 3-year commitments.
 
 Depending on your resource usage requirements, you can receive CUDs for Compute Engine resources in one of the following ways:
 
@@ -49,10 +49,10 @@ Resource-based commitments are ideal for predictable and steady state usage. The
 
 Each resource-based commitment is linked to the region and project in which you purchase that commitment. You can use a given commitment to cover resources only in the region that was specified by the commitment.
 
-However, depending on the Cloud Billing account's [CUD sharing](https://docs.cloud.google.com/compute/docs/committed-use-discounts/share-resource-cuds-across-projects) configuration, your commitment can cover resource usage either within the purchasing project or across all projects under the same Cloud Billing account, as follows:
+However, depending on the Cloud Billing account's [CUD sharing](https://docs.cloud.google.com/compute/docs/instances/sharing-committed-use-discounts-across-projects) configuration, your commitment can cover resource usage either within the purchasing project or across all projects under the same Cloud Billing account, as follows:
 
   * By default, all new Cloud Billing accounts that were created on or after June 16, 2026 have CUD sharing enabled. For those accounts, resource-based CUDs from any commitment are shared automatically across eligible usage from all projects in that Cloud Billing account.
-  * If a Cloud Billing account was created before June 16, 2026, then see [CUD scope and default configuration](https://docs.cloud.google.com/compute/docs/committed-use-discounts/share-resource-cuds-across-projects#cud-scope-configuration) for more information.
+  * If a Cloud Billing account was created before June 16, 2026, then see [CUD scope and default configuration](https://docs.cloud.google.com/compute/docs/instances/sharing-committed-use-discounts-across-projects#cud-scope-configuration) for more information.
 
 
 
@@ -92,7 +92,7 @@ When you purchase a resource-based commitment, the commitment becomes active on 
 
 ### Learn more and purchase
 
-To learn more about resource-based CUDs for Compute Engine, see [Resource-based committed use discounts](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts).
+To learn more about resource-based CUDs for Compute Engine, see [Resource-based committed use discounts](https://docs.cloud.google.com/compute/docs/instances/signing-up-for-committed-use-discounts).
 
 For purchase information, see one of the following depending on your use case:
 
@@ -129,7 +129,7 @@ For Compute Engine, the eligible resources include memory, vCPUs, and Local SSD 
 
 For every listed machine series, the resource eligibility applies to all available machine types and sole-tenant node types. For sole-tenant nodes, the resulting sole-tenancy premium is also eligible for compute flexible CUDs.
 
-**Note:** For memory-optimized VMs, compute flexible CUDs are available only for 3-year commitments. When you purchase a 1-year compute flexible commitment for your memory-optimized VMs, you don't receive any discount on your usage. Your eligible memory-optimized VM spend will burn down your otherwise unused commitment without any discount. To view the full list of SKUs that are eligible for compute flexible CUDs, see [SKU Groups - Compute Flexible CUD Eligible SKUs](https://cloud.google.com/skus/sku-groups/compute-flexible-cud-eligible-skus). 
+**Note:** For memory-optimized compute instances, compute flexible CUDs are available only for 3-year commitments. To cover your eligible spend on memory-optimized compute instance usage, you must purchase a 3-year compute flexible commitment. If you only have 1-year compute flexible commitments to cover your memory-optimized compute instance usage, then any eligible spend on that usage consumes your commitment without offering any discount. To view the full list of SKUs that are eligible for compute flexible CUDs, see [SKU Groups - Compute Flexible CUD Eligible SKUs](https://cloud.google.com/skus/sku-groups/compute-flexible-cud-eligible-skus). 
 
 ### Applicable discounts
 
@@ -149,7 +149,7 @@ GKE | GKE Standard and GKE Autopilot | 28% | 46%
 Cloud Run | Cloud Run services with request-based billing | 17% | 17%  
 Cloud Run functions | 17% | 17%  
 Cloud Run services with instance-based billing, Cloud Run jobs, and Cloud Run worker pools | 28% | 46%  
-**Note:** The discounts that you receive may differ for Cloud Billing accounts that have [other on-demand VM savings in effect](https://docs.cloud.google.com/billing/docs/how-to/cud-analysis-flexible). 
+**Note:** The discounts that you receive may differ for Cloud Billing accounts that have [other on-demand compute instance savings in effect](https://docs.cloud.google.com/billing/docs/how-to/cud-analysis-flexible). 
 
 ### How compute flexible commitments work
 
@@ -174,7 +174,7 @@ After your commitment becomes active, you start receiving eligible resources and
 
 Every hour, until your total spend on eligible SKUs equals the commitment fee, the following things happen: 
 
-  * SKUs for eligible usage are charged at the discounted prices as determined by the [CUD consumption model rates](https://docs.cloud.google.com/docs/cuds-multiprice#consumption-model-intro). The consumption model ID is `D97B-0795-975B` for 1-year compute flexible commitments and `70D7-D1AB-12A4` for 3-year compute flexible commitments.
+  * SKUs for eligible usage are charged at the discounted prices as determined by the [CUD consumption model rates](https://docs.cloud.google.com/billing/docs/how-to/cuds-multiprice#consumption-model-intro). The consumption model ID is `D97B-0795-975B` for 1-year compute flexible commitments and `70D7-D1AB-12A4` for 3-year compute flexible commitments.
   * Your commitment fee offsets these discounted usage costs until your total hourly spend equals the commitment fee value. At this point, your compute flexible commitment is considered to be fully utilized.
 
 
@@ -189,11 +189,11 @@ _Example_ : Suppose that you purchased a compute flexible commitment and a legac
 
   2. **Oldest compute flexible commitment first** : If you have multiple compute flexible commitments that can cover the same eligible usage, then Google Cloud first utilizes the active commitment that you purchased first. After Google Cloud fully utilizes that commitment, it uses the next oldest commitment to cover the remaining eligible usage.
 
-_Example_ : Suppose that you have N2 VM usage that can be covered by two compute flexible commitments called `compute-flexible-commitment-1` and `compute-flexible-commitment-2`. If you purchased `compute-flexible-commitment-1` four months ago and purchased `compute-flexible-commitment-2` only a week ago, then Google Cloud first utilizes `compute-flexible-commitment-1`.
+_Example_ : Suppose that you have N2 compute instance usage that can be covered by two compute flexible commitments called `compute-flexible-commitment-1` and `compute-flexible-commitment-2`. If you purchased `compute-flexible-commitment-1` four months ago and purchased `compute-flexible-commitment-2` only a week ago, then Google Cloud first utilizes `compute-flexible-commitment-1`.
 
   3. **Higher discount rates first** : Within a single compute flexible commitment, if you have eligible usage from multiple resource or service types, then the commitment first covers the usage that receives the highest discount off on-demand prices.
 
-_Example_ : Suppose that you have a 3-year compute flexible commitment to cover H3 VM usage (which qualifies for a 38% discount) and Cloud Run functions usage (which qualifies for a 17% discount). In this scenario, your compute flexible commitment first covers your H3 usage and then covers your Cloud Run functions usage.
+_Example_ : Suppose that you have a 3-year compute flexible commitment to cover H3 compute instance usage (which qualifies for a 38% discount) and Cloud Run functions usage (which qualifies for a 17% discount). In this scenario, your compute flexible commitment first covers your H3 usage and then covers your Cloud Run functions usage.
 
   4. **Proportional distribution** : After applying all the preceding criteria, if there's any remaining portion of a compute flexible commitment, then Google Cloud applies that across Compute Engine, GKE, and Cloud Run in proportion to the remaining eligible spend for each service. After Google Cloud fully utilizes the compute flexible commitment, if any eligible usage still remains, then Google Cloud uses these criteria again to check for another compute flexible commitment to cover that usage.
 
@@ -234,7 +234,7 @@ Any overage usage appears on your cost data exports in the following way:
 
 
 
-For detailed information about your cost data exports and how to interpret charges, see [Spend-based CUDs data model updates](https://docs.cloud.google.com/docs/cuds-multiprice-datamodel). 
+For detailed information about your cost data exports and how to interpret charges, see [Spend-based CUDs data model updates](https://docs.cloud.google.com/billing/docs/how-to/cuds-multiprice-datamodel). 
 
 ### Examples of compute flexible commitments
 
@@ -242,7 +242,7 @@ The following examples show how you receive compute flexible CUDs based on wheth
 
 #### Spend limited to Compute Engine
 
-Consider a scenario where your eligible Google Cloud spend is limited to Compute Engine. Suppose that your Cloud Billing account has multiple projects with VM instances that belong to N2, N2D, and C2 machine series, and are located in the `us-central1` and `us-east1` regions. The following example explains how you receive compute flexible CUDs for this commitment:
+Consider a scenario where your eligible Google Cloud spend is limited to Compute Engine. Suppose that your Cloud Billing account has multiple projects with compute instances that belong to N2, N2D, and C2 machine series, and are located in the `us-central1` and `us-east1` regions. The following example explains how you receive compute flexible CUDs for this commitment:
 
 Suppose that you purchase a compute flexible commitment for this Cloud Billing account and commit to a US$100 per hour spend for a 3-year term. The following points explain how this example compute flexible commitment works:
 
@@ -311,7 +311,7 @@ If resources of a specific type are unavailable in a specific location, then Goo
 
 
 
-This flexibility maximizes the utilization of your compute flexible commitments. For G2 and G4 GPUs instances, this flexibility lets you do the following:
+This flexibility maximizes the utilization of your compute flexible commitments. For G2 and G4 GPU instances, this flexibility lets you do the following:
 
   * **Change locations** : If capacity is unavailable in your preferred zone or region, then you can deploy your compute instances in another available location and still receive applicable compute flexible CUDs.
   * **Switch GPU machine types** : You can apply the same compute flexible commitment to either G2 or G4 instances. If capacity for one GPU machine type (for example, G2) isn't available, then you can use the commitment to cover the other GPU machine type.
@@ -321,13 +321,11 @@ This flexibility maximizes the utilization of your compute flexible commitments.
 
 ### Purchase compute flexible commitments
 
-You can purchase compute flexible commitments only at a Cloud Billing account level.
+You can purchase compute flexible commitments only at a Cloud Billing account level. Before you purchase a commitment, read the [Service Specific Terms](https://cloud.google.com/terms/service-terms). 
 
-For more information about how to purchase a compute flexible commitment, see [Purchasing spend-based commitments](https://docs.cloud.google.com/docs/cuds-spend-based#purchasing). 
+For detailed instructions about how to purchase a compute flexible commitment, see [Purchasing spend-based commitments](https://docs.cloud.google.com/billing/docs/how-to/cuds-spend-based#purchasing).
 
-Before you purchase a commitment, read the [Service Specific Terms](https://cloud.google.com/terms/service-terms).
-
-After you purchase a commitment, you can't cancel it. For more information, see [Cancel commitments](https://docs.cloud.google.com/docs/cuds-spend-based#canceling_commitments). 
+After you purchase a commitment, you can't cancel it. For more information, see [Cancel commitments](https://docs.cloud.google.com/billing/docs/how-to/cuds-spend-based#canceling_commitments). 
 
 ## Order of discount application
 
@@ -345,14 +343,14 @@ If you purchase both resource-based and compute flexible commitments for your Co
 
 ## Limitations
 
-  * Resource-based CUDs are available only for resources that are deployed using Compute Engine SKUs, which include VMs that are used by Compute Engine, Google Kubernetes Engine, Managed Service for Apache Spark, Managed Service for Apache Airflow 1, or Vertex AI.
+  * Resource-based CUDs are available only for resources that are deployed using Compute Engine SKUs, which include compute instances that are used by Compute Engine, Google Kubernetes Engine, Managed Service for Apache Spark, Managed Service for Apache Airflow 1, or Vertex AI.
   * Compute flexible CUDs are available only for Compute Engine, Google Kubernetes Engine, and Cloud Run. For the full list of eligible SKUs, see [SKU Groups - Compute Flexible CUD Eligible SKUs](https://cloud.google.com/skus/sku-groups/compute-flexible-cud-eligible-skus).
   * If you use your Compute Engine [reservations](https://docs.cloud.google.com/compute/docs/instances/reservations-overview) with Managed Service for Apache Spark, then those reserved resources aren't eligible for resource-based CUDs.
   * If you use your reservations with Dataflow, then you can receive resource-based CUDs only for usage from [specifically targeted reservations](https://docs.cloud.google.com/compute/docs/instances/reservations-overview#consumption-type) that specify accelerators (GPUs or TPUs).
   * You can purchase compute flexible commitments only at a Cloud Billing account level.
   * For GPUs, you can purchase compute flexible commitments only for GPUs that are used with G2 and G4 machine series. For all other machine series, only memory, vCPUs, and Local SSD resources are eligible for compute flexible CUDs. If you use these eligible resources with any sole-tenant nodes, then the resulting sole-tenancy premium is also eligible.
   * You can't use your compute flexible commitments for [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot) or [preemptible VMs](https://docs.cloud.google.com/compute/docs/instances/create-use-preemptible).
-  * For memory-optimized VMs, compute flexible CUDs are available only for 3-year commitments. If you purchase a 1-year compute flexible commitment, then you don't receive any discounts for your spend on memory-optimized VMs.
+  * For memory-optimized compute instances, compute flexible CUDs are available only for 3-year commitments. If you purchase a 1-year compute flexible commitment, then you don't receive any discounts for your spend on memory-optimized compute instances.
 
 
 
@@ -370,6 +368,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

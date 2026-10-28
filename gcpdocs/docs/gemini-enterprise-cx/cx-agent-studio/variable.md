@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/variable/
 title: Variables \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:41.029528+00:00
+fetched_at: 2026-10-27T23:24:11.538291+00:00
 ---
 
 # Variables  |  CX Agent Studio  |  Google Cloud Documentation
@@ -25,15 +25,15 @@ Variables are used to store and retrieve data across conversational turns. They 
 
 ## Variable types
 
-The agent builder supports two distinct types of variables in instructions: _static variables_ and _dynamic variables_.
+All variables are defined the same way in the agent builder, but you can reference them in your instructions in two ways: as _static variables_ or _dynamic variables_ (in addition to evaluating them directly inside [modular component](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/modular-components) expressions such as `{% if %}`).
 
-Choosing the right type depends on whether the variable's value needs to change during the user's session, and how much you need to optimize for latency.
+Choosing how to reference a variable depends on whether the variable's value changes frequently during the user's session, and how much you need to optimize for latency.
 
 ### Static variables
 
-Static variables are compiled directly into the agent prompt _before_ the model call happens. They act as a direct 1:1 text substitution and are updated infrequently.
+Static variable references are compiled directly into the agent prompt _before_ the model call happens. They act as a direct 1:1 text substitution and are best for values that are updated infrequently.
 
-Static variables maximize instruction following quality and are suitable for conditional instructions for many scenarios. Use static variables for configuration data, rigid business rules, or large contextual payloads that don't change over the life of a single conversation.
+Static variable references maximize instruction following quality. Use them for configuration data, rigid business rules, or large contextual payloads that don't change over the life of a single conversation. To conditionally include or exclude instructions based on a variable's value, use [modular components](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/modular-components) (`{% if %}` blocks) instead of storing instruction text inside a variable.
 
 To reference a static variable by name in your instructions, use double curly braces: `{{variable_name}}`.
 
@@ -44,7 +44,7 @@ For example, if you are creating a retail agent with a large, static product cat
     Please follow these business rules: {{business_rules}}.
     
 
-**Warning:** Updating static variable values invalidates prompt caching, which can potentially lead to higher model call latency.
+**Warning:** Changing rendered instruction text during a conversation (whether by updating a `{{variable_name}}` value or switching `{% if %}` branches) invalidates prompt caching, which can potentially lead to higher model call latency.
 
 ### Dynamic variables
 
@@ -95,7 +95,7 @@ Agent variables use the [ADK context state](https://google.github.io/adk-docs/co
     context.state["variable_name"] = value
     
 
-**Warning:** Instruction templates are rendered _between_ the `before_agent` callback and the `before_model` callback. Variable updates made in a `before_agent` callback take effect immediately on the current turn, whereas variable updates made in a `before_model` callback aren't visible in rendered instructions until the following conversational turn. Reference variables updated by `before_model` callbacks as static `{{variable_name}}` variables rather than dynamic `{variable_name}` variables, because `before_model` callbacks don't append `<state_update>` events to the conversation history.
+**Warning:** Instruction templates are rendered _after_ the `before_agent` callback and _before_ the `before_model` callback. Variable updates made in a `before_agent` callback take effect immediately on the current turn, whereas variable updates made in a `before_model` callback aren't reflected in the rendered instructions until subsequent turns. To update variables that control the current turn's instructions, use `before_agent_callback` (see [Turn execution lifecycle and callback timing](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/modular-components#callback-timing)).
 
 ## Built-in session context variables
 
@@ -111,6 +111,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

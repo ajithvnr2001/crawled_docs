@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/pan-firewall/
 title: Collect Palo Alto Networks firewall logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:44:49.382190+00:00
+fetched_at: 2026-10-27T19:38:48.231625+00:00
 ---
 
 # Collect Palo Alto Networks firewall logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -1479,6 +1479,8 @@ JSON Array | 10.0 and later
     * GlobalProtect
     * SCTP
     * Audit
+    * Config
+    * DNS
   * **PAN-OS version** : Install PAN-OS 10.0 or later on all firewall platforms (PA-Series, VM-Series, and CN-Series). For general firewall setup instructions, see the [PAN-OS Administrator's Guide](https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-admin/getting-started) and [Strata Logging Service deployment prerequisites](https://docs.paloaltonetworks.com/strata-logging-service/activation-and-onboarding/planning).
 
   * **Strata Logging Service license** : Ensure that the `PAN-LGS-DL` license is active on the same Customer Support Portal (CSP) account as the firewall.
@@ -1720,6 +1722,8 @@ See the following sections for the mapping reference of each log type:
   * GlobalProtect
   * SCTP
   * Audit
+  * Config
+  * DNS
 
 
 
@@ -3110,6 +3114,91 @@ TSGID | additional.fields.key/value.string_value
 Vendor | additional.fields.key/value.string_value  
 VendorSeverity | security_result.severity_details  
   
+### Config
+
+The following table lists the log fields of the Config log type and their corresponding UDM fields.
+
+Log field | UDM mapping  
+---|---  
+AdminUsername | principal.user.userid  
+AdminUserDomain | principal.administrative_domain  
+AdminUserName | principal.user.user_display_name  
+AdminUserUUID | principal.user.product_object_id  
+Client | additional.fields.key/value.string_value  
+ConfigVersion | additional.fields.key/value.string_value  
+TenantID | metadata.product_deployment_id  
+DeviceGroup | target.group.product_object_id  
+DGHierarchyLevel1 | additional.fields.key/value.string_value  
+DGHierarchyLevel2 | additional.fields.key/value.string_value  
+DGHierarchyLevel3 | additional.fields.key/value.string_value  
+DGHierarchyLevel4 | additional.fields.key/value.string_value  
+IPaddress | principal.ip/hostname  
+EventDescription | metadata.description  
+EventDetails | additional.fields.key/value.string_value  
+EventName | additional.fields.key/value.string_value  
+EventPath | target.resource.name  
+EventResult | security_result.summary  
+EventTime | metadata.event_timestamp  
+IsDuplicateLog | additional.fields.key/value.string_value  
+LogExported | additional.fields.key/value.string_value  
+LogForwarded | additional.fields.key/value.string_value  
+IsPrismaNetwork | additional.fields.key/value.string_value  
+IsPrismaUsers | additional.fields.key/value.string_value  
+LogCategory | security_result.category_details  
+LogSource | target.resource.attribute.labels  
+LogSourceGroupID | target.resource.attribute.labels  
+LogSourceID | target.resource.attribute.labels  
+LogSourceName | target.resource.attribute.labels  
+LogSourceTimeZoneOffset | additional.fields.key/value.string_value  
+LogTime | metadata.collected_timestamp  
+LogType | additional.fields.key/value.string_value  
+PanoramaSN | observer.asset.hardware.serial_number  
+PlatformType | additional.fields.key/value.string_value  
+SequenceNo | metadata.product_log_id  
+Severity | security_result.severity  
+Subtype | metadata.product_event_type  
+Template | target.resource.attribute.labels  
+TimeGeneratedHighResolution | additional.fields.key/value.string_value  
+VendorName | additional.fields.key/value.string_value  
+VendorSeverity | security_result.severity_details  
+VirtualLocation | target.asset.attribute.labels  
+VirtualSystemID | target.resource.product_object_id  
+VirtualSystemName | target.asset.attribute.labels  
+  
+### DNS
+
+The following table lists the log fields of the DNS log type and their corresponding UDM fields.
+
+Log field | UDM mapping  
+---|---  
+Action | security_result.action  
+CortexDataLakeTenantID | metadata.product_deployment_id  
+DNSResolverIP | target.ip  
+DNSResponse | network.dns.answers.data  
+DNSResponseCode | additional.fields.key/value.string_value  
+DestinationUser | target.user.userid  
+ToZone | additional.fields.key/value.string_value  
+FQDN | network.dns.questions.name  
+FromZone | additional.fields.key/value.string_value  
+ThreatID | security_result.threat_id  
+LogSource | intermediary.resource.attribute.labels  
+LogSourceGroupID | intermediary.resource.attribute.labels  
+DeviceSN | intermediary.asset.hardware.serial_number  
+TimeReceived | metadata.collected_timestamp  
+LogType | additional.fields.key/value.string_value  
+PanoramaSN | observer.asset.hardware.serial_number  
+PlatformType | additional.fields.key/value.string_value  
+DNSSecurityVersion | additional.fields.key/value.string_value  
+RecordType | network.dns.questions.type  
+SourceAddress | principal.ip  
+SourceUser | principal.user.userid  
+Subtype | metadata.product_event_type  
+ThreatName | security_result.threat_name  
+TimeGenerated | metadata.event_timestamp  
+SessionDuration | network.session_duration  
+VendorName | additional.fields.key/value.string_value  
+DNSCategory | security_result.category_details  
+  
 ### Field mapping reference: Log types to UDM event type
 
 The following table lists the Palo Alto Networks Strata Logging Service firewall log types and their corresponding UDM event types. 
@@ -3129,6 +3218,8 @@ Authentication  | STATUS_UNCATEGORIZED
 Globalprotect  | USER_LOGIN/USER_LOGOUT/USER_RESOURCE_ACCESS  If Stage log field value is "login", then USER_LOGIN is set. If Stage log field value is "logout", then USER_LOGOUT is set.  If Stage log field has any other value, then USER_RESOURCE_ACCESS is set.   
 SCTP  | NETWORK_CONNECTION   
 Audit  | GENERIC_EVENT   
+Config  | SETTING_MODIFICATION/SETTING_CREATION/SETTING_DELETION/SETTING_UNCATEGORIZED/GENERIC_EVENT  If the EventName log field value is "add" or "clone", then SETTING_CREATION is set. If the EventName log field value is "delete", then SETTING_DELETION is set. If the EventName log field value is "edit", "move", "rename", "set", or "commit", then SETTING_MODIFICATION is set. If the EventName log field has any other value, then SETTING_UNCATEGORIZED is set. If principal fields are not present, then GENERIC_EVENT is set.  
+DNS  | NETWORK_DNS   
   
 ## What's next
 
@@ -3146,6 +3237,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

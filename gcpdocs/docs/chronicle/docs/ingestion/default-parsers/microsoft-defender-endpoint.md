@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/microsoft-defender-endpoint/
 title: Collect Microsoft Defender for Endpoint logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:52:10.587115+00:00
+fetched_at: 2026-10-27T19:38:55.913763+00:00
 ---
 
 # Collect Microsoft Defender for Endpoint logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -486,10 +486,18 @@ Log field | UDM mapping | Logic
 `properties.CreatedProcessSessionId` | `additional.fields[created_process_session_id]` |   
 `properties.IsProcessRemoteSession` | `additional.fields[is_process_remote_session]` |   
 `` | `extensions.auth.mechanism` | The `extensions.auth.mechanism` UDM field is set to `MECHANISM_UNSPECIFIED`.  
-`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` | If `properties.InitiatingProcessRemoteSessionDeviceName` log field is not empty, then `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to `src.hostname` UDM field.  
-`properties.InitiatingProcessRemoteSessionDeviceName` | `src.asset.hostname` | If `properties.InitiatingProcessRemoteSessionDeviceName` log field is not empty, then `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to `src.asset.hostname` UDM field.  
-`properties.ProcessRemoteSessionDeviceName` | `src.hostname` | If `properties.InitiatingProcessRemoteSessionDeviceName` log field is empty, then `properties.ProcessRemoteSessionDeviceName` log field is mapped to `src.hostname` UDM field.  
-`properties.ProcessRemoteSessionDeviceName` | `src.asset.hostname` | If `properties.InitiatingProcessRemoteSessionDeviceName` log field is empty, then `properties.ProcessRemoteSessionDeviceName` log field is mapped to `src.asset.hostname` UDM field.  
+`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` | If the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is _not_ empty and matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `src.hostname` UDM field.  
+  
+Otherwise, if the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is _not_ empty, then the `additional.fields.key` UDM field is set to `InitiatingProcessRemoteSessionDeviceName` and the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+`properties.InitiatingProcessRemoteSessionDeviceName` | `src.asset.hostname` | If the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is _not_ empty and matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `src.asset.hostname` UDM field.  
+  
+Otherwise, if the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is _not_ empty, then the `additional.fields.key` UDM field is set to `InitiatingProcessRemoteSessionDeviceName` and the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+`properties.ProcessRemoteSessionDeviceName` | `src.hostname` | If the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is empty and the `properties.ProcessRemoteSessionDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.ProcessRemoteSessionDeviceName` log field is mapped to the `src.hostname` UDM field.  
+  
+Otherwise, if the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is empty and the `properties.ProcessRemoteSessionDeviceName` log field value is _not_ empty, then the `additional.fields.key` UDM field is set to `ProcessRemoteSessionDeviceName` and the `properties.ProcessRemoteSessionDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+`properties.ProcessRemoteSessionDeviceName` | `src.asset.hostname` | If the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is empty and the `properties.ProcessRemoteSessionDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.ProcessRemoteSessionDeviceName` log field is mapped to the `src.asset.hostname` UDM field.  
+  
+Otherwise, if the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is empty and the `properties.ProcessRemoteSessionDeviceName` log field value is _not_ empty, then the `additional.fields.key` UDM field is set to `ProcessRemoteSessionDeviceName` and the `properties.ProcessRemoteSessionDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
 `properties.ActionType` | `network.application_protocol` | If the `properties.ActionType` log field contains one of the following values, then the `network.application_protocol` UDM field is set to `DNS`:
 
   * `DnsQueryRequest`
@@ -1527,30 +1535,46 @@ Otherwise, `properties.FileSize` log field is mapped to the `target.file.size` U
 
 then `properties.FileSize` log field is mapped to the `target.process.file.size` UDM field.  
 Otherwise, `properties.FileSize` log field is mapped to the `target.file.size` UDM field.  
-`properties.RemoteDeviceName` | `principal.hostname` | If the `properties.ActionType` log field contains one of the following values, then the `properties.RemoteDeviceName` log field is mapped to the `principal.hostname` and `principal.asset.hostname` UDM field:
+`properties.RemoteDeviceName` | `principal.hostname` | If the `properties.ActionType` log field contains one of the following values:
 
   * `RemoteWmiOperation`
   * `ProcessCreatedUsingWmiQuery`
 
-Otherwise, the `properties.RemoteDeviceName` log field is mapped to the `target.hostname` and `target.asset.hostname` UDM fields.  
-`properties.RemoteDeviceName` | `principal.asset.hostname` | If the `properties.ActionType` log field contains one of the following values, then the `properties.RemoteDeviceName` log field is mapped to the `principal.hostname` and `principal.asset.hostname` UDM field:
+then if the `properties.RemoteDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.RemoteDeviceName` log field is mapped to the `principal.hostname` and `principal.asset.hostname` UDM fields, otherwise the `additional.fields.key` UDM field is set to `RemoteDeviceName` and the `properties.RemoteDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+  
+Otherwise, if the `properties.RemoteDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.RemoteDeviceName` log field is mapped to the `target.hostname` and `target.asset.hostname` UDM fields.  
+  
+Otherwise, the `additional.fields.key` UDM field is set to `RemoteDeviceName` and the `properties.RemoteDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+`properties.RemoteDeviceName` | `principal.asset.hostname` | If the `properties.ActionType` log field contains one of the following values:
 
   * `RemoteWmiOperation`
   * `ProcessCreatedUsingWmiQuery`
 
-Otherwise, the `properties.RemoteDeviceName` log field is mapped to the `target.hostname` and `target.asset.hostname` UDM fields.  
-`properties.RemoteDeviceName` | `target.hostname` | If the `properties.ActionType` log field contains one of the following values, then the `properties.RemoteDeviceName` log field is mapped to the `principal.hostname` and `principal.asset.hostname` UDM field:
+then if the `properties.RemoteDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.RemoteDeviceName` log field is mapped to the `principal.hostname` and `principal.asset.hostname` UDM fields, otherwise the `additional.fields.key` UDM field is set to `RemoteDeviceName` and the `properties.RemoteDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+  
+Otherwise, if the `properties.RemoteDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.RemoteDeviceName` log field is mapped to the `target.hostname` and `target.asset.hostname` UDM fields.  
+  
+Otherwise, the `additional.fields.key` UDM field is set to `RemoteDeviceName` and the `properties.RemoteDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+`properties.RemoteDeviceName` | `target.hostname` | If the `properties.ActionType` log field contains one of the following values:
 
   * `RemoteWmiOperation`
   * `ProcessCreatedUsingWmiQuery`
 
-Otherwise, the `properties.RemoteDeviceName` log field is mapped to the `target.hostname` and `target.asset.hostname` UDM fields.  
-`properties.RemoteDeviceName` | `target.asset.hostname` | If the `properties.ActionType` log field contains one of the following values, then the `properties.RemoteDeviceName` log field is mapped to the `principal.hostname` and `principal.asset.hostname` UDM field:
+then if the `properties.RemoteDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.RemoteDeviceName` log field is mapped to the `principal.hostname` and `principal.asset.hostname` UDM fields, otherwise the `additional.fields.key` UDM field is set to `RemoteDeviceName` and the `properties.RemoteDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+  
+Otherwise, if the `properties.RemoteDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.RemoteDeviceName` log field is mapped to the `target.hostname` and `target.asset.hostname` UDM fields.  
+  
+Otherwise, the `additional.fields.key` UDM field is set to `RemoteDeviceName` and the `properties.RemoteDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+`properties.RemoteDeviceName` | `target.asset.hostname` | If the `properties.ActionType` log field contains one of the following values:
 
   * `RemoteWmiOperation`
   * `ProcessCreatedUsingWmiQuery`
 
-Otherwise, the `properties.RemoteDeviceName` log field is mapped to the `target.hostname` and `target.asset.hostname` UDM fields.  
+then if the `properties.RemoteDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.RemoteDeviceName` log field is mapped to the `principal.hostname` and `principal.asset.hostname` UDM fields, otherwise the `additional.fields.key` UDM field is set to `RemoteDeviceName` and the `properties.RemoteDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+  
+Otherwise, if the `properties.RemoteDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.RemoteDeviceName` log field is mapped to the `target.hostname` and `target.asset.hostname` UDM fields.  
+  
+Otherwise, the `additional.fields.key` UDM field is set to `RemoteDeviceName` and the `properties.RemoteDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
 `properties.RemoteIP` | `principal.ip` | If the `properties.ActionType` log field contains one of the following values, then the `properties.RemoteIP` log field is mapped to the `principal.ip` and `principal.asset.ip` UDM field:
 
   * `RemoteWmiOperation`
@@ -1834,7 +1858,9 @@ Log field | UDM mapping | Logic
 ---|---|---  
 `properties.InitiatingProcessSessionId` | `additional.fields[initiating_process_session_id]` |   
 `properties.IsInitiatingProcessRemoteSession` | `additional.fields[is_initiating_process_remote_session]` |   
-`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` |   
+`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` | If the `properties.InitiatingProcessRemoteSessionDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `src.hostname` UDM field.  
+  
+Otherwise, the `additional.fields.key` UDM field is set to `InitiatingProcessRemoteSessionDeviceName` and the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
 `properties.InitiatingProcessRemoteSessionIP` | `src.ip` |   
 `properties.Timestamp` | `metadata.event_timestamp` |   
 `properties.ActionType` | `metadata.event_type` | If the `properties.ActionType` log field value is equal to `ImageLoaded`, then the `metadata.event_type` UDM field is set to `PROCESS_MODULE_LOAD`.  
@@ -2338,7 +2364,9 @@ Otherwise, if the `properties.ActionType` log field value matches the regular ex
 Otherwise, the `security_result.action` UDM field is set to `UNKNOWN_ACTION`.  
 `properties.InitiatingProcessSessionId` | `additional.fields[initiating_process_session_id]` |   
 `properties.IsInitiatingProcessRemoteSession` | `additional.fields[is_initiating_process_remote_session]` |   
-`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` |   
+`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` | If the `properties.InitiatingProcessRemoteSessionDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `src.hostname` UDM field.  
+  
+Otherwise, the `additional.fields.key` UDM field is set to `InitiatingProcessRemoteSessionDeviceName` and the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
 `properties.InitiatingProcessRemoteSessionIP` | `src.ip` |   
 `properties.LogonType` | `extensions.auth.mechanism` | If the `properties.LogonType` log field value is equal to `Interactive`, then the `extensions.auth.mechanism` UDM field is set to `INTERACTIVE`.  
   
@@ -2398,7 +2426,16 @@ Otherwise, if the `properties.InitiatingProcessTokenElevation` log field value i
 `properties.InitiatingProcessAccountSid` | `principal.user.windows_sid` |   
 `properties.FailureReason` | `security_result.description` |   
 `properties.AccountDomain` | `target.administrative_domain` |   
-`properties.RemoteDeviceName` | `principal.hostname` |   
+`properties.RemoteDeviceName`  
+`properties.DeviceName` | `principal.hostname` | If the `properties.ActionType` log field value is equal to `LogonSuccess` and the `properties.LogonType` log field value is equal to `Local`, then:  
+  
+If the `properties.RemoteDeviceName` log field value is _not_ empty and matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.RemoteDeviceName` log field is mapped to the `principal.hostname` UDM field.  
+  
+Otherwise, if the `properties.RemoteDeviceName` log field value is _not_ empty, then the `additional.fields.key` UDM field is set to `RemoteDeviceName` and the `properties.RemoteDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field, and if the `properties.DeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.DeviceName` log field is mapped to the `principal.hostname` UDM field.  
+  
+Otherwise, if the `properties.RemoteDeviceName` log field value is empty and the `properties.DeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.DeviceName` log field is mapped to the `principal.hostname` UDM field.  
+  
+Otherwise, the `properties.RemoteDeviceName` log field is mapped to the `principal.hostname` UDM field.  
 `properties.RemoteIP` | `principal.ip` |   
 `properties.RemotePort` | `principal.port` |   
 `properties.IsLocalAdmin` | `target.resource.attribute.labels[is_local_admin]` |   
@@ -2461,7 +2498,9 @@ Otherwise, the `security_result.action` UDM field is set to `UNKNOWN_ACTION`.
 `properties.ActionType` | `security_result.summary` |   
 `properties.InitiatingProcessSessionId` | `additional.fields[initiating_process_session_id]` |   
 `properties.IsInitiatingProcessRemoteSession` | `additional.fields[is_initiating_process_remote_session]` |   
-`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` |   
+`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` | If the `properties.InitiatingProcessRemoteSessionDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `src.hostname` UDM field.  
+  
+Otherwise, the `additional.fields.key` UDM field is set to `InitiatingProcessRemoteSessionDeviceName` and the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
 `properties.InitiatingProcessRemoteSessionIP` | `src.ip` |   
 `properties.Timestamp` | `metadata.event_timestamp` |   
 `` | `metadata.event_type` | The `metadata.event_type` UDM field is set to `NETWORK_CONNECTION`.  
@@ -2564,8 +2603,12 @@ Log field | UDM mapping | Logic
 ---|---|---  
 `properties.InitiatingProcessSessionId` | `additional.fields[initiating_process_session_id]` |   
 `properties.IsInitiatingProcessRemoteSession` | `additional.fields[is_initiating_process_remote_session]` |   
-`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` | If `properties.InitiatingProcessRemoteSessionDeviceName` log field is not empty, then `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to `src.hostname` UDM field.  
-`properties.ProcessRemoteSessionDeviceName` | `src.hostname` | If `properties.InitiatingProcessRemoteSessionDeviceName` log field is empty, then `properties.ProcessRemoteSessionDeviceName` log field is mapped to `src.hostname` UDM field.  
+`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` | If the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is _not_ empty and matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `src.hostname` UDM field.  
+  
+Otherwise, if the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is _not_ empty, then the `additional.fields.key` UDM field is set to `InitiatingProcessRemoteSessionDeviceName` and the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
+`properties.ProcessRemoteSessionDeviceName` | `src.hostname` | If the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is empty and the `properties.ProcessRemoteSessionDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.ProcessRemoteSessionDeviceName` log field is mapped to the `src.hostname` UDM field.  
+  
+Otherwise, if the `properties.InitiatingProcessRemoteSessionDeviceName` log field value is empty and the `properties.ProcessRemoteSessionDeviceName` log field value is _not_ empty, then the `additional.fields.key` UDM field is set to `ProcessRemoteSessionDeviceName` and the `properties.ProcessRemoteSessionDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
 `properties.InitiatingProcessRemoteSessionIP` | `src.ip` |   
 `properties.ProcessRemoteSessionIP` | `src.ip` |   
 `properties.CreatedProcessSessionId` | `additional.fields[created_process_session_id]` |   
@@ -2680,7 +2723,9 @@ Log field | UDM mapping | Logic
 ---|---|---  
 `properties.InitiatingProcessSessionId` | `additional.fields[initiating_process_session_id]` |   
 `properties.IsInitiatingProcessRemoteSession` | `additional.fields[is_initiating_process_remote_session]` |   
-`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` |   
+`properties.InitiatingProcessRemoteSessionDeviceName` | `src.hostname` | If the `properties.InitiatingProcessRemoteSessionDeviceName` log field value matches the regular expression pattern `^[a-zA-Z0-9_][a-zA-Z0-9._-]{0,253}[a-zA-Z0-9._$-]?$`, then the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `src.hostname` UDM field.  
+  
+Otherwise, the `additional.fields.key` UDM field is set to `InitiatingProcessRemoteSessionDeviceName` and the `properties.InitiatingProcessRemoteSessionDeviceName` log field is mapped to the `additional.fields.value.string_value` UDM field.  
 `properties.InitiatingProcessRemoteSessionIP` | `src.ip` |   
 `properties.Timestamp` | `metadata.event_timestamp` |   
 `properties.ActionType` | `metadata.event_type` | If the `properties.ActionType` log field value matches the regular expression pattern `(?i)RegistryKeyCreated`, then the `metadata.event_type` UDM field is set to `REGISTRY_CREATION`.  
@@ -6702,6 +6747,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

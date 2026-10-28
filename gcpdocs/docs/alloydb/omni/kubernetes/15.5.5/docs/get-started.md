@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/get-started/
 title: Get started with AlloyDB Omni on VMs \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:38:43.486850+00:00
+fetched_at: 2026-10-28T02:28:17.773590+00:00
 ---
 
 # Get started with AlloyDB Omni on VMs  |  AlloyDB Omni for Kubernetes: 15.5.5  |  Google Cloud Documentation
@@ -48,22 +48,22 @@ AlloyDB Omni is well-suited to the following scenarios:
 
   * You need a scalable and performant version of PostgreSQL, but you can't run a database in the cloud due to regulatory or data sovereignty requirements.
   * You need a database that keeps running even when it's disconnected from the internet.
-  * You want to physically locate your database as close as possible to your users, in order to minimize latency.
+  * You want to physically locate your database as close as possible to your users to minimize latency.
   * You want to migrate away from a legacy database without committing to a full cloud migration.
   * You have workloads that need to run in multiple public clouds, or in a hybrid cloud with private data centers and public clouds intermixed.
 
 
 
-## What it's good for
+## Key benefits
 
 AlloyDB Omni includes many of the performance improvements in AlloyDB for PostgreSQL. AlloyDB Omni has more than twice the throughput of open source PostgreSQL on TPC-C-like tests with HammerDB, and it offers an improvement in response time by up to a hundred times for TPC-H-like analytical queries.
 
-AlloyDB Omni also supports autopilot features from AlloyDB for PostgreSQL in Google Cloud, allowing it to self-update and self-tune. These autopilot features include automatic memory management, adaptive autovacuum, and index advisor. AlloyDB Omni also supports the columnar engine, which can accelerate analytical queries on large data sets by up to 100 times.
+AlloyDB Omni also supports autopilot features from AlloyDB for PostgreSQL in Google Cloud, which lets it self-update and self-tune. These autopilot features include automatic memory management, adaptive autovacuum, and index advisor. AlloyDB Omni also supports the columnar engine, which can accelerate analytical queries on large data sets by up to 100 times.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

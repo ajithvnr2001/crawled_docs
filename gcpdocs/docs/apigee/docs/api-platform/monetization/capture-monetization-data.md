@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/monetization/capture-monetization-data/
 title: Capturing monetization data \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T10:29:20.252395+00:00
+fetched_at: 2026-10-27T18:26:32.431675+00:00
 ---
 
 # Capturing monetization data  |  Apigee  |  Google Cloud Documentation
@@ -76,8 +76,8 @@ The following example assigns the value of the `booking[0].currency` JSON elemen
           <JSONPath>booking[0].currency</JSONPath>
         </JSONPayload>
       </Collect>
-      <DataCollector scope="monetization">currency</DataCollector>
-    </Capture>
+      <DataCollector scope="monetiza>tion&quo<t;currency/Dat>a<Collecto>r
+    /Capture
         
 
 ### perUnitPriceMultiplier
@@ -92,8 +92,8 @@ The following example assigns the value of the `booking[0].factor` JSON element 
           <JSONPath>booking[0].factor</JSONPath>
         </JSONPayload>
       </Collect>
-      <DataCollector scope="monetization">perUnitPriceMultiplier</DataCollector>
-    </Capture>
+      <DataCollector scope="monetiza>tion"perUnitPrice<Multiplier/Dat>a<Collecto>r
+    /Capture
         
 
 ### revShareGrossPrice
@@ -104,12 +104,12 @@ The following example assigns the value of the `minPrice` variable in the respon
     <Capture>
       <Collect>
         <Source>response</Source>
-        <Header name="minPrice">
-          <Pattern ignoreCase="true">{$}</Pattern>
-        </Header>
-      </Collect>
-      <DataCollector scope="monetization">revShareGrossPrice</DataCollector>
-    </Capture>
+        <Header name="minP>rice&qu<ot;
+          Pattern ignoreC>ase<="t>rue&q<uot;{$}>/Pa<ttern
+      >  /<Header
+      /Collect
+      DataCollector >scope="moneti<zation"re>v<ShareGro>ssPrice/DataCollector
+    /Capture
         
 
 ### transactionSuccess
@@ -120,17 +120,17 @@ The following example assigns the value of the `bookingStatus` variable in the r
     <Capture>
       <Collect>
         <Source>response</Source>
-        <Header name="bookingStatus">
-          <Pattern ignoreCase="true">{$}</Pattern>
-        </Header>
-      </Collect>
-      <DataCollector scope="monetization">transactionSuccess</DataCollector>
-    </Capture>
+        <Header name="bookingSt>atus&qu<ot;
+          Pattern ignoreC>ase<="t>rue&q<uot;{$}>/Pa<ttern
+      >  /<Header
+      /Collect
+      DataCollector >scope="moneti<zation"tr>a<nsaction>Success/DataCollector
+    /Capture
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

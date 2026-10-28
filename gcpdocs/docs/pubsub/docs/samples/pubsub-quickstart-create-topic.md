@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-quickstart-create-topic/
 title: Create topic quickstart \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:19.799423+00:00
+fetched_at: 2026-10-27T16:26:34.027720+00:00
 ---
 
 # Create topic quickstart  |  Pub/Sub  |  Google Cloud Documentation
@@ -26,7 +26,6 @@ Creates a topic.
 For detailed documentation that includes this code sample, see the following: 
 
   * [Pub/Sub client libraries](https://docs.cloud.google.com/pubsub/docs/reference/libraries)
-  * [Quickstart: Using client libraries](https://docs.cloud.google.com/app-lifecycle-manager/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/cloud-ftp/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/device-streaming/docs/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/fault-injection-testing/quickstart-client-libraries)

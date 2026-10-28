@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/query-tracker/
 title: Using the Explore query tracker and Performance panel to monitor query performance \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:23.038629+00:00
+fetched_at: 2026-10-27T23:54:40.708806+00:00
 ---
 
 # Using the Explore query tracker and Performance panel to monitor query performance  |  Looker  |  Google Cloud Documentation
@@ -66,6 +66,15 @@ During the **Query Initialization** phase, Looker is performing all of the tasks
 
 The [Understanding query performance metrics](https://docs.cloud.google.com/looker/docs/query-performance-metrics) documentation page describes how to use the **Query Performance Metrics** Explore in [System Activity](https://docs.cloud.google.com/looker/docs/usage-reports-with-system-activity-explores) to view detailed breakdowns of a query. The **Query initialization** phase of the query tracker includes the events that are described in the **[Asynchronous worker phase](https://docs.cloud.google.com/looker/docs/query-performance-metrics#asynchronous_worker_phase_metrics)** , **[Initialization phase](https://docs.cloud.google.com/looker/docs/query-performance-metrics#initialization_phase_metrics)** , and **[Connection handling phase](https://docs.cloud.google.com/looker/docs/query-performance-metrics#connection_handling_phase_metrics)** of the **Query Performance Metrics** Explore.
 
+If you experience performance issues or queries that take a long time during the Query Initialization phase, take the following steps:
+
+  * **Stagger scheduled deliveries:** When many scheduled Looks or dashboards trigger simultaneously (especially at the top of the hour), the sudden burst of simultaneous query requests can overwhelm instance resources and saturate connection pools. This concurrency bottleneck causes queries to wait or spin indefinitely during initialization. Stagger your scheduled content across 15- or 30-minute intervals (for example, at `:15`, `:30`, or `:45`) rather than scheduling them all at `:00`. For more details, see [Optimize Looker server performance](https://docs.cloud.google.com/looker/docs/best-practices/how-to-optimize-looker-server-performance#optimize_looker_server_performance).
+  * **Use datagroups for schedules:** Whenever possible, trigger scheduled deliveries by using [datagroups](https://docs.cloud.google.com/looker/docs/caching-and-datagroups) that align with your ETL cycle rather than by using time-based triggers. Using datagroups distributes query execution and prevents redundant queries being run against unrefreshed data.
+  * **Batch and throttle API calls:** If automated scripts or external tools trigger queries or reports through the Looker API, batch requests or introduce delays to avoid flooding query initialization queues.
+  * **Clear stuck processes:** If a sudden concurrency spike causes queries to become stuck and your instance to become unresponsive, restart the instance to clear in-progress tasks and reset internal queues.
+
+
+
 ### Running Query phase
 
 The **Running Query** phase is when Looker contacts and queries your database and returns the results of the query. Performance issues during this phase could indicate issue with the external database, such as PDTs that take a long time to rebuild and may need to be optimized, or external database tables that may need optimization. The **Running Query** phase includes the following tasks:
@@ -119,6 +128,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-DeleteBackup-sync-flattened/
 title: Delete a backup \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:31.791004+00:00
+fetched_at: 2026-10-27T18:29:01.421350+00:00
 ---
 
 # Delete a backup  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

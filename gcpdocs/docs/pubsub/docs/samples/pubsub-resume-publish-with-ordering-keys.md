@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-resume-publish-with-ordering-keys/
 title: Resume publishing with ordering keys \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:10.303006+00:00
+fetched_at: 2026-10-28T01:38:38.977188+00:00
 ---
 
 # Resume publishing with ordering keys  |  Pub/Sub  |  Google Cloud Documentation

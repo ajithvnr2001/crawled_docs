@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/network-reqs/
 title: Network requirements \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:34.444874+00:00
+fetched_at: 2026-10-27T23:54:33.950646+00:00
 ---
 
 # Network requirements  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,7 @@ Send feedback
 
 #  Network requirements Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document outlines the networking requirements for installing and operating Distributed Cloud software only for bare metal.
-
-This page is for Admins and architects, Operators, and Networking specialists who manage the lifecycle of the underlying tech infrastructure, and design and architect the network for their organization. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+To install and operate Distributed Cloud software only for bare metal, your network must meet the requirements in this document. These requirements cover external connectivity to Google, Layer 2 and Layer 3 connectivity between cluster nodes and load balancers, IP address ranges for Pods and Services, and the ports that cluster components use. If your nodes run Red Hat Enterprise Linux (RHEL) with firewalld, this document also shows how to open the required ports.
 
 ## External network requirements
 
@@ -584,6 +582,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

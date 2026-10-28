@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/using-model-monitoring/
 title: Monitor feature skew and drift \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:00.858572+00:00
+fetched_at: 2026-10-28T02:28:45.094962+00:00
 ---
 
 # Monitor feature skew and drift  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Monitor feature skew and drift Stay organized with collections  Save and categorize content based on your preferences. 
 
-To learn more, run the "Use Model Monitoring to detect drift and training-prediction skew." notebook in one of the following environments: 
+To learn more, run the "Use Gemini Enterprise Agent Platform Model Monitoring to detect drift and training-prediction skew." notebook in one of the following environments: 
 
 [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png)Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png)Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_monitoring%2Fmodel_monitoring.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png)Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fvertex-ai-samples%2Fmain%2Fnotebooks%2Fofficial%2Fmodel_monitoring%2Fmodel_monitoring.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png)View on GitHub](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/official/model_monitoring/model_monitoring.ipynb)
 
@@ -104,11 +104,11 @@ To create a model deployment monitoring job using the Google Cloud console, crea
 
 
 
-### gcloud
+###  gcloud 
 
 To create a model deployment monitoring job using the gcloud CLI, first deploy your model to an endpoint:
 
-  * [Deploy an AutoML tabular classification/regression model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions#deploy-model).
+  * [Deploy a model to an endpoint](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions#deploy-model).
 
   * [Deploy a custom tabular model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment).
 
@@ -182,7 +182,7 @@ For information about the full end-to-end Model Monitoring API workflow, see the
 
   1. If you haven't done so already, deploy your model to an endpoint. During the **Get the endpoint ID** step in the model deployment instructions, note the `deployedModels.id` value in the JSON response for later use:
 
-     * [Deploy an AutoML tabular classification/regression model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions#deploy-model).
+     * [Deploy a model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions#deploy-model).
 
      * [Deploy a custom tabular model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/deployment).
 
@@ -391,7 +391,7 @@ For the following events, Model Monitoring sends an email notification to each e
 
 
 
-### Cloud Logging
+###  Cloud Logging 
 
 To enable logs for scheduled monitoring pipeline runs, set the `enableMonitoringPipelineLogs` field in your [`modelDeploymentMonitoringJobs`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs) configuration to `true`. Debugging logs are written to Cloud Logging when the monitoring job is set up and at each monitoring interval.
 
@@ -444,7 +444,7 @@ At each monitoring interval, if the threshold of at least one feature exceeds th
 
 
 
-### Cloud Logging
+###  Cloud Logging 
 
 To enable Cloud Logging alerts, set the `enableLogging` field of your [`ModelMonitoringAlertConfig`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.modelDeploymentMonitoringJobs#ModelMonitoringAlertConfig) configuration to `true`.
 
@@ -540,7 +540,7 @@ To view metrics, alerts, and monitoring properties for a model:
 
 
 
-### gcloud
+###  gcloud 
 
 Run the following command:
     
@@ -702,6 +702,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

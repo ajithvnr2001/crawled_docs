@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/bigtable/instances/tables/create/
 title: gcloud bigtable instances tables create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:31:19.822183+00:00
+fetched_at: 2026-10-27T21:41:08.737731+00:00
 ---
 
 # gcloud bigtable instances tables create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud bigtable instances tables create - create a new Cloud Bigtable table
 SYNOPSIS
     
 
-`gcloud bigtable instances tables create` (`TABLE` : `--instance`=`INSTANCE`) `--column-families`=[`COLUMN_FAMILIES`,…] [`--change-stream-retention-period`=`CHANGE_STREAM_RETENTION_PERIOD`] [`--deletion-protection`] [`--row-key-schema-definition-file`=`ROW_KEY_SCHEMA_DEFINITION_FILE`] [`--row-key-schema-pre-encoded-bytes`] [`--splits`=[`SPLITS`,…]] [`--enable-automated-backup` | `--automated-backup-locations`=[`LOCATION`,…] `--automated-backup-retention-period`=`AUTOMATED_BACKUP_RETENTION_PERIOD`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud bigtable instances tables create` (`TABLE` : `--instance`=`INSTANCE`) `--column-families`=[`COLUMN_FAMILIES`,…] [`--change-stream-retention-period`=`CHANGE_STREAM_RETENTION_PERIOD`] [`--deletion-protection`] [`--row-key-schema-definition-file`=`ROW_KEY_SCHEMA_DEFINITION_FILE`] [`--row-key-schema-pre-encoded-bytes`] [`--splits`=[`SPLITS`,…]] [`--timestamp-granularity`=`TIMESTAMP_GRANULARITY`] [`--enable-automated-backup` | `--automated-backup-locations`=[`LOCATION`,…] `--automated-backup-retention-period`=`AUTOMATED_BACKUP_RETENTION_PERIOD`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a new Cloud Bigtable table. 
 EXAMPLES
@@ -152,6 +152,13 @@ Use this to indicate that all binary fields are already encoded in the YAML/JSON
 
 `--splits`=[`SPLITS`,…]
      Row keys where the table should initially be split. For example: `car,key`
+`--timestamp-granularity`=`TIMESTAMP_GRANULARITY`
+     The granularity at which timestamps are stored in this table. The granularity is immutable (fixed at table creation) and defaults to `millis`. Timestamps not matching the granularity will be rejected. Microsecond granularity is supported only for Enterprise Plus instances. `TIMESTAMP_GRANULARITY` must be one of: 
+
+`micros`
+     The table keeps data versioned at a granularity of 1 microsecond. 
+`millis`
+     The table keeps data versioned at a granularity of 1 millisecond. 
 At most one of these can be specified: 
 
 `--enable-automated-backup`
@@ -183,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

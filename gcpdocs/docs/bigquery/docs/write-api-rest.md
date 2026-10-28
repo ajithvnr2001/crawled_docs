@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/write-api-rest/
 title: Use the Storage Write API (REST) \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:27.482714+00:00
+fetched_at: 2026-10-27T20:09:47.670874+00:00
 ---
 
 # Use the Storage Write API (REST)  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Use the Storage Write API (REST)
 
-This document describes how to stream data into BigQuery by using the [BigQuery Storage Write API (REST)](https://docs.cloud.google.com/bigquery/docs/reference/v2/tabledata/insertAll), which was previously known as the _legacy`tabledata.insertAll` method_.
+The [BigQuery Storage Write API (REST)](https://docs.cloud.google.com/bigquery/docs/reference/v2/tabledata/insertAll), previously known as the _legacy`tabledata.insertAll` method_, lets you stream rows into BigQuery tables without running a load job. Streamed data becomes available for real-time GoogleSQL analysis as soon as BigQuery acknowledges the write request.
 
-For new projects, we recommend using the [BigQuery Storage Write API (gRPC)](https://docs.cloud.google.com/bigquery/docs/write-api) instead of the Storage Write API (REST). The Storage Write API (gRPC) has lower pricing and more robust features, including exactly-once delivery semantics and streaming into Apache Iceberg managed tables. If you are migrating an existing project from the Storage Write API (REST) to the Storage Write API (gRPC), we recommend selecting the [default stream](https://docs.cloud.google.com/bigquery/docs/write-api-streaming#at-least-once). The Storage Write API (REST) is still fully supported.
+For new projects, use the [BigQuery Storage Write API (gRPC)](https://docs.cloud.google.com/bigquery/docs/write-api) for lower pricing, exactly-once delivery semantics, and streaming into Apache Iceberg managed tables. If you're migrating an existing project from the Storage Write API (REST) to the Storage Write API (gRPC), select the [default stream](https://docs.cloud.google.com/bigquery/docs/write-api-streaming#at-least-once).
 
 ## Before you begin
 
@@ -333,7 +333,7 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     require "google/cloud/bigquery"
     
     def table_insert_rows dataset_id = "your_dataset_id", table_id = "your_table_id"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-reservation/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange-v1beta1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       table    = dataset.table table_id
     
@@ -746,6 +746,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

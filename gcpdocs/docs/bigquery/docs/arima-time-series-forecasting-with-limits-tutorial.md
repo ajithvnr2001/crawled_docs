@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/arima-time-series-forecasting-with-limits-tutorial/
 title: Limit forecasted values for an ARIMA_PLUS time series model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:37:29.394132+00:00
+fetched_at: 2026-10-27T19:38:40.878612+00:00
 ---
 
 # Limit forecasted values for an ARIMA_PLUS time series model  |  BigQuery  |  Google Cloud Documentation
@@ -550,7 +550,7 @@ If you plan to explore multiple architectures, tutorials, or quickstarts, reusin
   * Learn how to [accelerate ARIMA_PLUS to enable forecast 1 million time series within hours](https://docs.cloud.google.com/bigquery/docs/arima-speed-up-tutorial).
   * To learn more about machine learning, see the [Machine learning crash course](https://developers.google.com/machine-learning/crash-course/).
   * For an overview of BigQuery ML, see [Introduction to BigQuery ML](https://docs.cloud.google.com/bigquery/docs/bqml-introduction).
-  * To learn more about the Google Cloud console, see [Using the Google Cloud console](https://docs.cloud.google.com/bigquery/bigquery-web-ui).
+  * To learn more about the Google Cloud console, see [Using the Google Cloud console](https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui).
 
 
 
@@ -558,6 +558,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

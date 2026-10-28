@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/apihub/apis/versions/operations/create/
 title: gcloud alpha apihub apis versions operations create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T09:30:44.572963+00:00
+fetched_at: 2026-10-27T21:41:03.701126+00:00
 ---
 
 # gcloud alpha apihub apis versions operations create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha apihub apis versions operations create - create apiOperations
 SYNOPSIS
     
 
-`gcloud alpha apihub apis versions operations create` (`OPERATION` : `--api`=`API` `--location`=`LOCATION` `--version`=`VERSION`) [`--attributes`=[`ATTRIBUTES`,…]] [`--details-deprecated` `--details-description`=`DETAILS_DESCRIPTION` `--documentation-external-uri`=`DOCUMENTATION_EXTERNAL_URI` `--http-operation-method`=`HTTP_OPERATION_METHOD` `--http-operation-path`=`HTTP_OPERATION_PATH` `--http-operation-path-description`=`HTTP_OPERATION_PATH_DESCRIPTION` | [`--mcp-tool-name`=`MCP_TOOL_NAME` : `--mcp-tool-description`=`MCP_TOOL_DESCRIPTION` `--mcp-tool-input-schema-json`=`MCP_TOOL_INPUT_SCHEMA_JSON` `--mcp-tool-output-schema-json`=`MCP_TOOL_OUTPUT_SCHEMA_JSON` `--mcp-tool-title`=`MCP_TOOL_TITLE` `--mcp-tool-annotations-additional-hints`=[`MCP_TOOL_ANNOTATIONS_ADDITIONAL_HINTS`,…] `--mcp-tool-annotations-destructive-hint` `--mcp-tool-annotations-idempotent-hint` `--mcp-tool-annotations-open-world-hint` `--mcp-tool-annotations-read-only-hint` `--mcp-tool-annotations-title`=`MCP_TOOL_ANNOTATIONS_TITLE`]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha apihub apis versions operations create` (`OPERATION` : `--api`=`API` `--version`=`VERSION`) [`--attributes`=[`ATTRIBUTES`,…]] [`--deployments`=[`DEPLOYMENTS`,…]] [`--location`=`LOCATION`] [`--details-deprecated` `--details-description`=`DETAILS_DESCRIPTION` `--documentation-external-uri`=`DOCUMENTATION_EXTERNAL_URI` `--http-operation-method`=`HTTP_OPERATION_METHOD` `--http-operation-path`=`HTTP_OPERATION_PATH` `--http-operation-path-description`=`HTTP_OPERATION_PATH_DESCRIPTION` | [`--mcp-tool-name`=`MCP_TOOL_NAME` : `--mcp-tool-description`=`MCP_TOOL_DESCRIPTION` `--mcp-tool-input-schema-json`=`MCP_TOOL_INPUT_SCHEMA_JSON` `--mcp-tool-output-schema-json`=`MCP_TOOL_OUTPUT_SCHEMA_JSON` `--mcp-tool-title`=`MCP_TOOL_TITLE` `--mcp-tool-annotations-additional-hints`=[`MCP_TOOL_ANNOTATIONS_ADDITIONAL_HINTS`,…] `--mcp-tool-annotations-destructive-hint` `--mcp-tool-annotations-idempotent-hint` `--mcp-tool-annotations-open-world-hint` `--mcp-tool-annotations-read-only-hint` `--mcp-tool-annotations-title`=`MCP_TOOL_ANNOTATIONS_TITLE`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Create an apiOperation 
 EXAMPLES
@@ -52,6 +52,13 @@ To set the `project` attribute:
 
 
 
+To set the `location` attribute: 
+
+  * provide the argument `operation` on the command line with a fully specified name; 
+  * provide the argument `--location` on the command line. 
+
+
+
 This must be specified. 
 
 `OPERATION`
@@ -72,15 +79,6 @@ To set the `api` attribute:
 
   * provide the argument `operation` on the command line with a fully specified name; 
   * provide the argument `--api` on the command line. 
-
-
-`--location`=`LOCATION`
-     The location id of the operation resource. 
-
-To set the `location` attribute: 
-
-  * provide the argument `operation` on the command line with a fully specified name; 
-  * provide the argument `--location` on the command line. 
 
 
 `--version`=`VERSION`
@@ -155,6 +153,32 @@ This value should be 4-63 characters, and valid characters are /[a-z][0-9]-/.
     
     --attributes=path_to_file.(yaml|json)
 
+Deployment resource - The deployments linked directly to this API operation. For an operation generated from a spec, set the link on the parent spec with `gcloud apihub apis versions specs create --deployments` instead. Format is `projects/{project}/locations/{location}/deployments/{deployment}` This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+
+To set the `project` attribute: 
+
+  * provide the argument `--deployments` on the command line with a fully specified name; 
+  * provide the argument `--project` on the command line; 
+  * set the property `core/project`. 
+
+
+
+To set the `location` attribute: 
+
+  * provide the argument `--deployments` on the command line with a fully specified name; 
+  * provide the argument `--location` on the command line. 
+
+
+`--deployments`=[`DEPLOYMENTS`,…]
+     IDs of the deployments or fully qualified identifiers for the deployments. 
+
+To set the `deployment` attribute: 
+
+  * provide the argument `--deployments` on the command line. 
+
+
+`--location`=`LOCATION`
+     For resources [operation, deployments], provides fallback value for resource location attribute. When the resource's full URI path is not provided, location will fallback to this flag value. 
 The operation details parsed from the spec. 
 `--details-deprecated`
      For OpenAPI spec, this will be set if `operation.deprecated`is marked as `true` in the spec. `
@@ -264,6 +288,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

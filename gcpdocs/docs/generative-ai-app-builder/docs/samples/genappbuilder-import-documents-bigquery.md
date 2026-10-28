@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/generative-ai-app-builder/docs/samples/genappbuilder-import-documents-bigquery/
 title: Import documents from BigQuery \u00a0|\u00a0 Agent Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:20:43.148211+00:00
+fetched_at: 2026-10-27T16:30:45.894660+00:00
 ---
 
 # Import documents from BigQuery  |  Agent Search  |  Google Cloud Documentation

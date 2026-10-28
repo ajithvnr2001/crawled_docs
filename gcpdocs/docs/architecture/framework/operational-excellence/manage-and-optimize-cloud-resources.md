@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/operational-excellence/manage-and-optimize-cloud-resources/
 title: Manage and optimize cloud resources \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:27:45.679176+00:00
+fetched_at: 2026-10-27T23:09:24.588464+00:00
 ---
 
 # Manage and optimize cloud resources  |  Cloud Architecture Center  |  Google Cloud Documentation

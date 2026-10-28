@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/google-secops-soar-toc/
 title: SOAR table of contents \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:42:44.371412+00:00
+fetched_at: 2026-10-28T02:29:34.477608+00:00
 ---
 
 # SOAR table of contents  |  Google Security Operations  |  Google Cloud Documentation
@@ -23,251 +23,167 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 Click ![soar](https://docs.cloud.google.com/static/chronicle/images/soar.png) at the top of each SOAR document to return to this table of contents.
 
-## Google SecOps SOAR
+## Get started
 
-[Product overview](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-overview)
+[Google SecOps SOAR overview](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-overview)
 
-[Getting started](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/getting-started-with-chronicle-soar)
+[Get started with Google SecOps SOAR](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/getting-started-with-chronicle-soar)
 
-[Release Plan for Google SecOps](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release)
+[Navigate the Google SecOps SOAR platform](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/navigating-the-soar-platform)
+
+[Configure user preferences](https://docs.cloud.google.com/chronicle/docs/secops/user-preferences)
+
+[Gemini in Google SecOps overview](https://docs.cloud.google.com/chronicle/docs/secops/gemini-secops)
+
+[Release plan for Google SecOps](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release)
+
+## Administer
+
+### Set up an instance
 
 [Onboard Google SecOps SOAR](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/onboard-chronicle-soar)
 
-[Manage user preferences](https://docs.cloud.google.com/chronicle/docs/secops/user-preferences)
+[Locate your customer ID](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/where-can-i-see-my-customer-id)
 
-### Your Workdesk
+[Provide access to Google Support](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/allow-google-support-access)
 
-[Workdesk overview](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/workdesk)
+### Configure SOAR access
 
-[Fill out a request from the workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/filling-out-request-from-workdesk)
+[Overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/control-access-to-platform)
 
-[Respond to pending actions from the workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/respond-to-pending-actions-from-workdesk)
+[Manage SOC roles](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/working-with-roles)
 
-[View cases from the workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/viewing-your-cases-from-your-workdesk)
+[SOAR API overview](https://docs.cloud.google.com/chronicle/docs/soar/reference/working-with-chronicle-soar-apis)
 
-## Investigating cases and alerts
+[Authenticate to legacy SOAR API](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/working-with-api-keys)
 
-### Working with cases
+#### Manage permission groups
 
-[Cases overview](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/cases-overview)
+[Overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/working-with-permission-groups)
 
-[Explore the cases page layout and options](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/whats-on-the-cases-screen)
+[Understand user groups](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/what-types-of-user-groups-are-there)
 
-[Explore the case queue header](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/whats-on-the-case-queue-header)
+[Work with Managed and Managed-Plus user groups](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/working-with-managed-plus-groups)
 
-[Review case-level data in the Overview tab](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/whats-on-the-case-overview-tab)
+[Work with collaborator user groups](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/working-with-collaborator-groups)
 
-[Create custom fields (Admin)](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/adding-custom-fields)
+#### Manage environments
 
-[Create and manage calculated fields](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/calculated-fields)
+[Overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/environments/work-with-environments)
 
-[Case Wall tab](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/whats-on-the-case-wall-tab)
+[Manage environment groups](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/environments/environment-groups)
 
-[Instant messaging on a case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/instant-messaging-on-a-case)
+[Configure custom environment groups](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/environments/using-dynamic-parameters-in-environments)
 
-[Track tasks in cases](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/manage-tasks-from-the-cases-screen)
+#### Manage user accounts and access
 
-[Manage tags in cases and alerts](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin)
+[Apply multiple control access parameters](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/map-users-with-multiple-control-access-parameters)
 
-[Perform a manual action](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/perform-a-manual-action)
+[View all users](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/where-can-i-see-all-the-users)
 
-[Take actions on a case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case)
+### Configure instance settings
 
-[Create a test case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/create-a-test-case)
+#### Manage operational settings
 
-[Resolve and close cases](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/how-to-close-cases)
+[Define a landing page](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/define-landing-page-on-login)
 
-[Use custom fields in the Close Case dialog](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/custom-fields-in-case-closure)
+[Rebrand your platform](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/rebranding)
 
-[Define a default view for cases (Admin)](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-default-view-for-cases-admin)
+[Set time zone](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/setting-time-zone-for-all-users-admin)
 
-[Gemini Summary](https://docs.cloud.google.com/chronicle/docs/secops/gemini-chronicle#playbook-gemini)
+[Configure email settings](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/setting-up-your-email)
 
-[Add or delete case stages (Admin)](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/adddelete-case-stages-admin)
+[Configure SOAR data retention](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/define-system-data-retention)
 
-[Alert Options menu in the Cases screen](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case#manage-alert-within-case)
+[Monitor SOAR activity](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/monitoring-user-activities)
 
-[View the original SIEM data in a case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/view-the-original-siem-data-in-a-case)
+[Service limits](https://docs.cloud.google.com/chronicle/docs/reference/service-limits)
 
-[Explore entities and alerts (Investigation)](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/explore-entities-and-alerts-investigation)
+#### Manage administrative assets
 
-[Supported entity types](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-entity-types-do-we-support)
+[Create custom lists](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/create-custom-lists)
 
-[Navigate the Entity Explorer screen](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/navigating-the-entity-explorer-screen)
+[Create email HTML templates](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/create-email-html-templates)
 
-[Perform a batch action on several cases at once](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/perform-a-batch-action-on-several-cases-at-once)
+[Create email templates](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/create-email-templates)
 
-[Measure how long security analysts take to close or raise a Case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/measure-how-long-security-analysts-take-to-close-or-raise-a-case)
+[Add variables to email templates](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/using-dynamic-variables-in-email-html-templates)
 
-[Customize the Close Case dialog (Admin)](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/add-new-case-close-root-cause-admin)
+[Create user requests](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/define-requests-for-users-admin)
 
-[Name a case (Admin)](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/naming-a-case-admin)
+[Manage properties metadata](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/manage-properties-metadata)
 
-[Create a manual case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/create-a-manual-case)
+[Manage statistics](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/soar-statistics)
 
-[Move a case to a new environment](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/move-case-to-a-new-environment)
+[Retrieve raw Python logs](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/retrieve-raw-python-logs)
 
-[Add or edit entity properties](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/add-or-edit-entity-properties)
+#### Manage case settings
 
-[Apply and save filters](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/apply-and-save-filters)
+[Manage case stages](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/adddelete-case-stages-admin)
 
-[Entity selection](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/entity-selection)
+[Configure case naming conventions](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/naming-a-case-admin)
 
-### Working with alerts
+[Create custom fields for cases](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/adding-custom-fields)
 
-[Alert Overview tab](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/whats-on-the-alert-overview-tab)
+[Manage custom case closure fields](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/custom-fields-in-case-closure)
 
-[Alert Playbooks tab](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/whats-on-the-alert-playbook-tab)
+[Configure the close case dialog](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/add-new-case-close-root-cause-admin)
 
-[Change alert priority instead of case priority](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/changing-alert-priority-instead-of-case-priority)
+[Configure the default case view](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-default-view-for-cases-admin)
 
-[Alert events tab](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/alert-events-tab)
+[Set the SLA](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/setting-the-sla)
 
-[Alert grouping mechanism overview (Admin)](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/alert-grouping-mechanism-admin)
+#### Manage alert settings
 
-[Rerun playbooks](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/rerun-playbooks)
+[Configure alert grouping](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/alert-grouping-mechanism-admin)
 
-[How to configure the alert overflow mechanism (Admin)](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/define-alert-overflow-admin)
+[Configure alert overflow](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/define-alert-overflow-admin)
 
-[Define the default Alert view (Admin)](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/define-default-alert-view-admin)
+[Configure the default alert view](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/define-default-alert-view-admin)
 
-[Handle large alerts](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/handle-large-alerts)
+[Exclude entities from alerts](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/create-block-list-to-exclude-entities-from-alerts)
 
-### Search
+[Manage case and alert tags](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-tags-in-cases-admin)
 
-[Use SOAR Search](https://docs.cloud.google.com/chronicle/docs/soar/investigate/search/working-with-search-screen)
+#### Configure networks and multi-tenancy
 
-## Ingest data
+[Manage networks](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/manage-networks)
 
-### Connectors
+[Define domains for MSSPs](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/define-domains-for-mssps)
 
-[Ingest your data using connectors](https://docs.cloud.google.com/chronicle/docs/soar/ingest/connectors/ingest-your-data-connectors)
+[Manage environment load balancing](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/environment-load-balancing)
 
-[View connector logs](https://docs.cloud.google.com/chronicle/docs/soar/ingest/connectors/view-connector-logs)
+### Migrate SOAR to Google Cloud
 
-[ElasticSearch connector: Map a custom date and time](https://docs.cloud.google.com/chronicle/docs/soar/ingest/connectors/elasticsearch-connector-mapping-custom-datetime)
+[Overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp)
 
-[Define environments in connectors](https://docs.cloud.google.com/chronicle/docs/soar/ingest/connectors/defining-environments-in-connectors)
+[Pre-migration validation guide](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/soar-pre-validation)
 
-### Webhooks
+[Manage MSSP migration](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-soar-mssp-instance)
 
-[Set up a Webhook](https://docs.cloud.google.com/chronicle/docs/soar/ingest/webhooks/setting-up-a-webhook)
+[Migrate SOAR permissions to IAM](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-soar-permissions-iam)
 
-## Respond to alerts
+[Map SOAR permissions to IAM](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/map-soar-permissions-to-iam)
 
-### Work with Playbooks
+[Migrate to Chronicle API](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/api-migration-guide)
 
-[Explore the Playbooks page](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/whats-on-the-playbooks-screen)
+[SOAR API mapping table](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/endpoint-mapping-table)
 
-[Use triggers in playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-triggers-in-playbooks)
+[Work with Chronicle API list operations](https://docs.cloud.google.com/chronicle/docs/reference/api-list-operations)
 
-[Manage actions in playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-actions-in-playbooks)
+[Migrate remote agent authentication infrastructure](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/migrate-remote-agent-to-google)
 
-[Use flows in playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-flows-in-playbooks)
+[Authenticate remote agents with Workload Identity Federation](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/authenticate-remote-agent-with-workload-identity-federation)
 
-[Use the Expression Builder](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-the-expression-builder)
+[Frequently asked questions](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-soar-faq)
 
-[Work with the Playbook Simulator](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/working-with-playbook-simulator)
+## Build and integrate
 
-[Use the Playbook Navigator](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-playbook-navigator)
+### Deploy centralized content
 
-[Work with playbook blocks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/working-with-playbook-blocks)
+[Run use cases from the Content Hub](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/run-use-cases)
 
-[Automate tasks with Playbook Loops](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/playbook-loops)
-
-[Increase Playbook resilience with automatic retries](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/retry-actions)
-
-[Specify an instance in dynamic mode](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/specify-instance-in-dynamic-mode)
-
-[Overview of playbook monitoring](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/understanding-playbook-monitoring)
-
-[Define custom alert views using Playbook Designer](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/define-customized-alert-views-from-playbook-designer)
-
-[Use alert type triggers in a playbook](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-alert-type-trigger-in-a-playbook)
-
-[Bulk actions and filters in playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/bulk-actions-and-filters-in-playbooks)
-
-[Use the HTML widget](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-the-html-widget)
-
-[Expression Builder use cases](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/use-cases-for-expression-builder)
-
-[Assign actions and playbook blocks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/assign-actions-and-playbook-blocks)
-
-[Configure timeouts for playbook async actions](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/how-do-i-configure-timeouts-for-playbook-async-actions)
-
-[Manage playbook permissions](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/playbook-permissions)
-
-[Assign approval links in actions](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/assign-approval-links-in-actions)
-
-[Use parallel actions](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-parallel-actions)
-
-[Use predefined widgets in playbook view](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-predefined-widgets-in-playbook-views)
-
-[Prevent users from changing playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/playbook-permissions)
-
-[Explore playbook use cases](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/playbooks-use-cases)
-
-[Create a fallback playbook](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/create-a-catch-all-triage-playbook)
-
-[Create an enrichment playbook block](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/create-reusable-enrichment-block)
-
-[Create playbooks with Gemini](https://docs.cloud.google.com/chronicle/docs/secops/gemini-chronicle#playbook-gemini)
-
-### Integrated development environment (IDE)
-
-[Use the IDE](https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/using-the-ide)
-
-[Custom transformation functions and logical operators](https://docs.cloud.google.com/chronicle/docs/soar/respond/custom-transformers-logical-operators)
-
-[Create a custom action](https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/creating-a-custom-action)
-
-[Develop a new integration (Video)](https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/develop-a-new-integration-video)
-
-[Build a custom integration](https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/building-a-custom-integration)
-
-[Write jobs](https://docs.cloud.google.com/chronicle/docs/soar/respond/jobs-scheduler/writing-jobs)
-
-[Test integrations in staging mode](https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/test-integrations-in-staging-mode)
-
-### Integrations Setup
-
-[Configure integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/configure-integrations)
-
-[Roll back response integration version](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/version-rollback)
-
-[Upgrade the Python version to 3.11](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/upgrade-python-versions)
-
-[Support multiple instances](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/supporting-multiple-instances)
-
-[Work with an external vault system](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/working-with-an-external-vault-system)
-
-[Create your first custom integration](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-integration)
-
-[Requirements for publishing integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/requirements-for-publishing-integration)
-
-[Create your first action](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-action)
-
-[My first automation (Playbook)](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-automation)
-
-[Develop your first email connector](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-connector)
-
-[Develop the connector](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/developing-the-connector)
-
-[Configure the connector](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/configuring-the-connector)
-
-[Test a connector](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/testing-the-connector)
-
-[Map and model alerts](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/mapping--modeling)
-
-[Create your first use case](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-use-case)
-
-## Google SecOps Marketplace
-
-[Use the Google SecOps Marketplace](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/using-the-marketplace)
-
-[Run use cases](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/run-use-cases)
-
-### Power Ups
+#### Power ups and utilities
 
 [Connectors](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/connectors)
 
@@ -279,7 +195,7 @@ Click ![soar](https://docs.cloud.google.com/static/chronicle/images/soar.png) at
 
 [Functions](https://docs.cloud.google.com/chronicle/docs/soar/marketplace-and-integrations/power-ups/functions)
 
-[GitSync](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync)
+[Image utilities](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/image-utilities)
 
 [TemplateEngine](https://docs.cloud.google.com/chronicle/docs/soar/marketplace-and-integrations/power-ups/templateengine)
 
@@ -289,204 +205,380 @@ Click ![soar](https://docs.cloud.google.com/static/chronicle/images/soar.png) at
 
 [Tools](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/tools)
 
-## Monitor and report
+### Develop custom capabilities
 
-### Dashboards
+[Use the IDE](https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/using-the-ide)
 
-[SOAR Dashboards overview](https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-dashboards/dashboard-overview)
+[SOAR SDK overview](https://docs.cloud.google.com/chronicle/docs/soar/reference/soar-sdk-overview)
 
-[Add SOAR dashboard widgets](https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-dashboards/add-dashboard-widgets)
+#### Get started
 
-[Explore the SOAR Dashboards page](https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-dashboards/whats-on-the-dashboard-screen)
+[Develop your first custom integration](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-integration)
 
-### Reports
+[Develop your first custom action](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-action)
 
-[Explore SOAR reports](https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-reports/understanding-reports)
+[Develop your first email connector](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-connector)
 
-[Use Looker Explores in SOAR reports](https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-reports/using-looker-explores-in-soar-reports)
+[Develop your first use case](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-use-case)
 
-## SOAR APIs
+#### Build and design custom components
 
-[Google SecOps SOAR APIs](https://docs.cloud.google.com/chronicle/docs/soar/reference/working-with-chronicle-soar-apis)
+[Build custom integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/building-a-custom-integration)
 
-## Settings
+[Create custom actions](https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/creating-a-custom-action)
 
-### Environments
+[Write automated jobs](https://docs.cloud.google.com/chronicle/docs/soar/respond/jobs-scheduler/writing-jobs)
 
-[Work with environments](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/environments/work-with-environments)
+[Create a custom connector](https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/creating-a-custom-connector)
 
-[Create environment groups (SOAR only)](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/environments/environment-groups-soar-only)
+[Publish custom integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/requirements-for-publishing-integration)
 
-[Use dynamic parameters in environments](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/environments/using-dynamic-parameters-in-environments)
+#### Build and configure connectors
 
-[Use dynamic parameters (Video)](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/environments/using-dynamic-parameters-video)
+[Build connector logic](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/developing-the-connector)
 
-### Permissions
+[Configure custom connectors](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/configuring-the-connector)
 
-[Manage permission groups](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/working-with-permission-groups)
+[Test custom connectors](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/testing-the-connector)
 
-[Locate your customer ID](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/where-can-i-see-my-customer-id)
+[Map and model alerts](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/mapping--modeling)
 
-[Manage roles and workloads](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/working-with-roles)
+#### Advanced data modeling
 
-[Manage API keys](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/working-with-api-keys)
+[Develop custom transformers](https://docs.cloud.google.com/chronicle/docs/soar/respond/custom-transformers-logical-operators)
 
-[Let Google Support access your instance](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/allow-google-support-access)
+[Configure calculated fields for cases](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/calculated-fields)
 
-[Define a landing page](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/permissions/define-landing-page-on-login)
+### Manage response integrations
 
-### Work with users (SOAR only)
+[Configure response integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/configure-integrations)
 
-[Manage users and roles](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/how-do-i-add-a-new-user-to-the-platform)
+[Roll back response integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/version-rollback)
 
-[Work with a Collaborator user](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/create-a-collaborator-user)
+[Upgrade the Python version](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/upgrade-python-versions)
 
-[Create a user with view-only permission](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/create-a-view-only-user)
+[Manage integration dependencies](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/managing-integration-dependencies)
 
-[Disable or delete a user account in SOAR](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/how-can-i-disabledelete-a-user-account-in-chronicle-soar)
+[Support multiple instances](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/supporting-multiple-instances)
 
-[Types of users](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/what-types-of-users-are-there)
+[Test response integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/ide/test-integrations-in-staging-mode)
 
-[Create a managed user](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/create-a-managedmanagedplus-user)
+[Manage secrets with secret managers](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/working-with-an-external-vault-system)
 
-[Work with Collaborator user groups](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/working-with-collaborator-groups)
+[Contribute community response integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/integrations-guidelines)
 
-[Work with Managed and Managed Plus user groups](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/working-with-managed-plus-groups)
+### Manage remote agents
 
-[Email invitation prerequisites](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/email-invitation-prerequisites)
+#### Get started
 
-[Manage password settings](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/what-is-soar-password-policy)
+[Overview](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/what-is-a-remote-agent)
 
-[Case management federation (SOAR only)](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/environments/case-federation)
+[Review deployment requirements](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/requirements-and-prerequisites)
 
-### SAML overview (SOAR only)
+[Review data flow and protocols](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/data-flows-and-protocols)
 
-[Authenticate users using SSO](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/external-authentication)
+[Remote agent security](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/remote-agent-security)
 
-[Configure SAML for Google Workspace](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/saml-configuration-for-g-suite)
+#### Deploy remote agents
 
-[Configure SAML for Microsoft Azure](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/saml-configuration-for-azure)
+[Deploy with Docker](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/deploy-agent-with-docker)
 
-[Configure Okta in Google SecOps SOAR](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/saml-configuration-for-okta)
+[Deploy with Podman](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/deploy-agent-with-podman)
 
-[Configure just-in-time provisioning](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/what-is-justintime-user-provisioning)
+[Deploy on Debian](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/create-agent-with-installer-on-debian)
 
-[Map IdP groups to SOAR roles](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/idp-group-mapping-soar-only)
+[Deploy on RHEL](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/create-agent-with-installer-for-rhel)
 
-[Configure multiple SAML providers](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/configure-multiple-saml-providers)
+[Deploy on CentOS](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/create-agent-with-installer-on-centos)
 
-[Troubleshoot SAML issues in Google SecOps SOAR](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/saml-issues-troubleshooting)
+[Configure high availability](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/deploy-high-availability-for-remote-agents)
 
-### Ontology
+[Redeploy connectors](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/redeploy-connectors-remote-agents)
+
+[Configure Workload Identity Federation](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/authenticate-remote-agent-with-workload-identity-federation)
+
+#### Configure and validate connectivity
+
+[Configure the installer and Docker](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/installer-and-docker-agent-configuration)
+
+[Configure remote execution](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/set-up-integrations-and-connectors)
+
+[Test the connection flow](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/test-agents)
+
+#### Manage and upgrade remote agents
+
+[Remote agent scaling strategy](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/remote-agent-scaling-strategy)
+
+[Monitor and manage remote agents](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/manage-remote-agents)
+
+[Perform a standard upgrade](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-remote-agents)
+
+[Major upgrade with Docker](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-docker-image)
+
+[Major upgrade with Podman](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-podman-image)
+
+[Major upgrade with RHEL](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-requirements-for-rhel)
+
+[Major upgrade with CentOS](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-requirements-for-centos)
+
+[Redeploy remote agents](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/redeploy-agent)
+
+[Troubleshoot remote agents](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/troubleshooting)
+
+## Ingest
+
+### Collect data
+
+[Ingest data using SOAR connectors](https://docs.cloud.google.com/chronicle/docs/soar/ingest/connectors/ingest-your-data-connectors)
+
+[Define environments in SOAR connectors](https://docs.cloud.google.com/chronicle/docs/soar/ingest/connectors/defining-environments-in-connectors)
+
+[Map custom date and time in Elasticsearch](https://docs.cloud.google.com/chronicle/docs/soar/ingest/connectors/elasticsearch-connector-mapping-custom-datetime)
+
+[View SOAR connector logs](https://docs.cloud.google.com/chronicle/docs/soar/ingest/connectors/view-connector-logs)
+
+[Set up a SOAR webhook](https://docs.cloud.google.com/chronicle/docs/soar/ingest/webhooks/setting-up-a-webhook)
+
+### Manage alert and event ontology
 
 [Ontology overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/ontology/ontology-overview)
 
-[Visual families](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/ontology/visual-families)
+[Map and model entities](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/ontology/create-entities-mapping--modeling)
+
+[Visual families overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/ontology/visual-families)
 
 [Configure mapping and assign visual families](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/ontology/configure-mapping-and-assign-visual-families)
 
-[Work with entity delimiters](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/ontology/working-with-entity-delimiters)
+[Configure entity delimiters](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/ontology/working-with-entity-delimiters)
 
-[Create entities (Mapping & Modeling)](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/ontology/create-entities-mapping--modeling)
+## Analyze and respond
 
-### Configuration tasks
+### Create and triage cases
 
-[Create a blocklist to exclude entities from alerts](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/create-block-list-to-exclude-entities-from-alerts)
+[Case management overview](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/cases-overview)
 
-[Create custom lists](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/create-custom-lists)
+[Create a case manually](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/create-a-manual-case)
 
-[Create email HTML templates](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/create-email-html-templates)
+[Manage cases from the case queue](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/whats-on-the-case-queue-header)
 
-[Create email templates](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/create-email-templates)
+[Manage large alerts](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/handle-large-alerts)
 
-[Define domains for MSSPs](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/define-domains-for-mssps)
+[Change alert priority](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/changing-alert-priority-instead-of-case-priority)
 
-[Manage environment load balancing](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/environment-load-balancing)
+[Relocate cases between environments](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/move-case-to-a-new-environment)
 
-[Create user requests](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/define-requests-for-users-admin)
+### Investigate cases and alerts
 
-[Manage networks](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/manage-networks)
+[Summarize cases with Gemini](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/using-the-gemini-case-summary-widget)
 
-[Set the service-level agreement (SLA)](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/setting-the-sla)
+[Collaborate using case chat](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/instant-messaging-on-a-case)
 
-[Use dynamic variables in email HTML templates](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/configuration/using-dynamic-variables-in-email-html-templates)
+[Explore the cases page](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/whats-on-the-cases-screen)
 
-### Advanced tasks
+[Explore the case overview tab](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/whats-on-the-case-overview-tab)
 
-[Migrate to Google Cloud](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp)
+[Review alert highlights and context](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/whats-on-the-alert-overview-tab)
 
-[Open a ticket for Google Support](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/open-a-ticket-for-google-support)
+[Investigate entities and alerts](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/explore-entities-and-alerts-investigation)
 
-[Collect SOAR logs](https://docs.cloud.google.com/chronicle/docs/secops/collect-secops-soar-logs)
+[View SIEM data in a case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/view-the-original-siem-data-in-a-case)
 
-[Control access to Google SecOps platform](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/control-access-to-platform)
+[Navigate the Entity Explorer page](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/navigating-the-entity-explorer-screen)
 
-[Define system data retention](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/define-system-data-retention)
+[Manage entity properties](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/add-or-edit-entity-properties)
 
-[Monitor SOAR activity](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/monitoring-user-activities)
+[Filter case and alert data](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/apply-and-save-filters)
 
-[Rebranding](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/rebranding)
+[Perform entity selection](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/entity-selection)
 
-[Set the time zone for all users (Admin)](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/setting-time-zone-for-all-users-admin)
+[Manage cases](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case)
 
-[Set up your email](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/setting-up-your-email)
+[Analyze event details](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/alert-events-tab)
 
-[Service limits](https://docs.cloud.google.com/chronicle/docs/reference/service-limits)
+### Respond and resolve
 
-[Manage property metadata](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/manage-properties-metadata)
+[Track case tasks](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/manage-tasks-from-the-cases-screen)
 
-[Manage statistics](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/soar-statistics)
+[Your workdesk overview](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/workdesk)
 
-[Retrieve raw Python logs](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/retrieve-raw-python-logs)
+[Submit requests from your workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/filling-out-request-from-workdesk)
 
-[Clean up after removing SOAR](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/clean-up-after-removing-instance)
+[Respond to pending actions from your workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/respond-to-pending-actions-from-workdesk)
 
-## Remote Agents
+[Monitor cases from your workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/viewing-your-cases-from-your-workdesk)
 
-[Overview of remote agents](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/what-is-a-remote-agent)
+[Search cases and entities](https://docs.cloud.google.com/chronicle/docs/soar/investigate/search/working-with-search-screen)
 
-[Requirements and prerequisites](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/requirements-and-prerequisites)
+[Resolve and close cases](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/how-to-close-cases)
 
-[Remote agents scaling strategy](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/remote-agent-scaling-strategy)
+[Monitor case response and closure metrics](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/measure-how-long-security-analysts-take-to-close-or-raise-a-case)
 
-[Manage remote agents](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/manage-remote-agents)
+[Validate case workflows with test cases](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/create-a-test-case)
 
-[Create an agent with Docker](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/deploy-agent-with-docker)
+## Automate
 
-[Create an agent with the installer for Debian](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/create-agent-with-installer-on-debian)
+### Automation foundations
 
-[Create an agent with the installer on RHEL](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/create-agent-with-installer-for-rhel)
+[Playbook automation overview](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/whats-on-the-playbooks-screen)
 
-[Create an agent with the installer on CentOS](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/create-agent-with-installer-on-centos)
+[Use the playbook navigator](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-playbook-navigator)
 
-[Upgrade agent Docker image](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-docker-image)
+### Build and design playbooks
 
-[Upgrade agent with installer for RHEL](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-requirements-for-rhel)
+[Create your first playbook](https://docs.cloud.google.com/chronicle/docs/soar/respond/start-developing/my-first-automation)
 
-[Upgrade agent with installer for CentOS](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-agent-requirements-for-centos)
+[Case playbooks overview](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/case-playbooks)
 
-[Edit remote agent](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/edit-remote-agent)
+[Manage playbooks with Gemini](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/create-edit-playbook-with-gemini)
 
-[Redeploy remote agent](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/redeploy-agent)
+[Manage playbook triggers](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-triggers-in-playbooks)
 
-[Installer and Docker agent configuration](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/installer-and-docker-agent-configuration)
+[Use reaction triggers in playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-reaction-triggers-in-playbooks)
 
-[Data flows and protocols](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/data-flows-and-protocols)
+[Trigger playbooks by alert type](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-alert-type-trigger-in-a-playbook)
 
-[Set up integrations and connectors](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/set-up-integrations-and-connectors)
+[Manage playbook actions](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-actions-in-playbooks)
 
-[Test agents](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/test-agents)
+[Manage playbook flows](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-flows-in-playbooks)
 
-[Upgrade remote agents](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/upgrade-remote-agents)
+[Work with playbook blocks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/working-with-playbook-blocks)
 
-[Deploy high availability for remote agents](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/deploy-high-availability-for-remote-agents)
+[Automate tasks with playbook loops](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/playbook-loops)
 
-[Troubleshooting](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/troubleshooting)
+[Attach playbooks to alerts and cases](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/attach-playbooks-to-alerts-cases)
+
+[Configure custom alert views](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/define-customized-alert-views-from-playbook-designer)
+
+[Configure the HTML widget](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-the-html-widget)
+
+[Configure predefined widgets in playbook views](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-predefined-widgets-in-playbook-views)
+
+### Configure playbook logic and behavior
+
+[Build logic with the Expression Builder](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-the-expression-builder)
+
+[Specify an instance in dynamic mode](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/specify-instance-in-dynamic-mode)
+
+[Configure timeouts for async actions](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/how-do-i-configure-timeouts-for-playbook-async-actions)
+
+[Configure parallel actions](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/using-parallel-actions)
+
+[Configure automatic retries](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/retry-actions)
+
+[Assign actions and playbook blocks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/assign-actions-and-playbook-blocks)
+
+[Assign approval links in actions](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/assign-approval-links-in-actions)
+
+### Manage and monitor playbooks
+
+[Manage playbook permissions](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/playbook-permissions)
+
+[Review and manage alert playbook execution](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/whats-on-the-alert-playbook-tab)
+
+[Rerun automated playbooks](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/rerun-playbooks)
+
+[Manage bulk actions and filters in playbooks](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/bulk-actions-and-filters-in-playbooks)
+
+[Monitor playbook performance](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/understanding-playbook-monitoring)
+
+[Test playbooks with the simulator](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/working-with-playbook-simulator)
+
+### Use cases and examples
+
+[Explore playbook use cases](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/playbooks-use-cases)
+
+[Expression Builder examples](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/use-cases-for-expression-builder)
+
+[Create a fallback playbook](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/create-a-catch-all-triage-playbook)
+
+[Create an enrichment playbook block](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/create-reusable-enrichment-block)
+
+## Monitor and troubleshoot
+
+### Troubleshoot system issues
+
+[Troubleshoot remote agents](https://docs.cloud.google.com/chronicle/docs/soar/working-with-remote-agents/troubleshooting)
+
+[Troubleshoot SOAR functionality](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/copy-instance-metadata)
+
+[View connector logs](https://docs.cloud.google.com/chronicle/docs/soar/ingest/connectors/view-connector-logs)
+
+[Collect SOAR platform logs](https://docs.cloud.google.com/chronicle/docs/secops/collect-secops-soar-logs)
+
+### Manage dashboards and reporting
+
+#### Curated dashboard queries by data source
+
+[SOAR data foundations for dashboards](https://docs.cloud.google.com/chronicle/docs/reference/soar-data-dashboard)
+
+[Query SOAR cases](https://docs.cloud.google.com/chronicle/docs/reports/curated-dashboards/dashboard-queries-soar-cases)
+
+[Query SOAR case history](https://docs.cloud.google.com/chronicle/docs/reports/curated-dashboards/dashboard-queries-soar-case-history)
+
+[Query SOAR playbooks](https://docs.cloud.google.com/chronicle/docs/reports/curated-dashboards/dashboard-queries-soar-playbooks)
+
+#### Legacy SOAR dashboards and reports
+
+[Legacy SOAR dashboards overview](https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-dashboards/dashboard-overview)
+
+[Add SOAR dashboard widgets](https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-dashboards/add-dashboard-widgets)
+
+[Explore the SOAR dashboards page](https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-dashboards/whats-on-the-dashboard-screen)
+
+[Explore legacy SOAR reports](https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-reports/understanding-reports)
+
+[Work with SOAR reports](https://docs.cloud.google.com/chronicle/docs/soar/monitor-and-report/soar-reports/using-looker-explores-in-soar-reports)
+
+[SOAR BigQuery schema reference](https://docs.cloud.google.com/chronicle/docs/reference/soar-bq-schema-reference)
+
+## Administer SOAR standalone instances
+
+### Configure authentication
+
+[Authenticate users](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/external-authentication)
+
+[Configure Google Workspace for SAML](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/saml-configuration-for-g-suite)
+
+[Configure Microsoft Azure for SAML](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/saml-configuration-for-azure)
+
+[Configure Okta for SAML](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/saml-configuration-for-okta)
+
+[Configure multiple SAML providers](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/configure-multiple-saml-providers)
+
+[Troubleshoot SAML issues](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/saml-issues-troubleshooting)
+
+### Manage users and access
+
+[Manage SOAR standalone users](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/how-do-i-add-a-new-user-to-the-platform)
+
+[Invite users to the platform](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/email-invitation-prerequisites)
+
+[Create a managed user](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/create-a-managedmanagedplus-user)
+
+[Create a collaborator user](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/create-a-collaborator-user)
+
+[Create a view-only user](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/create-a-view-only-user)
+
+[Delete a user account](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/how-can-i-disabledelete-a-user-account-in-chronicle-soar)
+
+[Manage password policy](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-soar-only/what-is-soar-password-policy)
+
+[Configure just-in-time user provisioning](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/what-is-justintime-user-provisioning)
+
+[Map IdP groups for SOAR standalone access](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/saml-soar-only/idp-group-mapping-soar-only)
+
+### Administration and content tasks
+
+[Configure case federation for SOAR standalone](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/environments/case-federation)
+
+[Use the Content Hub for SOAR standalone](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/using-the-marketplace)
+
+[Deprovision a SOAR standalone instance](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/clean-up-after-removing-instance)
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

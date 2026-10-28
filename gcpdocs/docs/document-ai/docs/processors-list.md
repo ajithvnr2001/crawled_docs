@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/processors-list/
 title: Processor list \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:58.861281+00:00
+fetched_at: 2026-10-27T23:58:47.763261+00:00
 ---
 
 # Processor list  |  Document AI  |  Google Cloud Documentation
@@ -1286,7 +1286,7 @@ Swedish | `sv` | `Latn` |
 |  Uptrainable processor version. Maximum pages (online/synchronous requests) has been increased to 15.   
 `pretrained-invoice-v1.4-2022-10-21` | Release Candidate |  Public Preview  |  None |  Uptrainable processor version. Maximum pages (online/synchronous requests) has been increased to 15.   
 `pretrained-invoice-v1.5-2023-09-15` | Release Candidate |  Public Preview  |  None |   
-`pretrained-invoice-v2.0-2023-12-06` | Stable |  GA  |  None |   
+`pretrained-invoice-v2.0-2023-12-06` | Stable |  GA  |  None |  Not available in the `asia-south1` region.   
   
 For more information, see [Managing processor versions.](https://docs.cloud.google.com/document-ai/docs/manage-processor-versions)  
   
@@ -1519,6 +1519,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

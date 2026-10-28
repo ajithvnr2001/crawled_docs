@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workload-manager/docs/evaluate/set-up-operator-for-openshift/
 title: Set up the Cluster Services for OpenShift Telemetry operator \u00a0|\u00a0 Workload Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:10:28.981826+00:00
+fetched_at: 2026-10-28T01:02:12.711850+00:00
 ---
 
 # Set up the Cluster Services for OpenShift Telemetry operator  |  Workload Manager  |  Google Cloud Documentation
@@ -117,6 +117,8 @@ We strongly recommend using OpenShift version 4.22 or later with the `--key-stor
            
 
      * For OpenShift versions 4.18 to 4.21:
+
+After you install the telemetry operator, you must also complete the mandatory post-install step to restrict the Workload Identity Federation provider.
            
            ccoctl gcp create-all \
              --name=NAME \
@@ -269,6 +271,36 @@ In the output, verify that the value in the **`PHASE`** column for `cluster-serv
 
 
 
+
+## Restrict the Workload Identity Federation provider
+
+If you configured Workload Identity Federation on OpenShift version 4.18 to 4.21 without the `--key-storage-method=pool-jwk-file` flag, your cluster uses a Cloud Storage bucket to host its OIDC configuration. After you install the Cluster Services for OpenShift Telemetry operator, complete the following mandatory post-install steps to restrict the Workload Identity Pool Provider to your cluster's specific service account UID:
+
+  1. Retrieve the unique identifier (`uid`) of the telemetry operator's Kubernetes service account in the `openshift-operators` namespace:
+         
+         KSA_UID=$(oc get serviceaccount google-cloud-cluster-services-telemetry-agent-workloadagent-service-account \
+           -n openshift-operators \
+           -o jsonpath='{.metadata.uid}')
+         
+
+  2. Update the Workload Identity Pool Provider with an attribute condition that pins token exchange to the retrieved service account UID:
+         
+         gcloud iam workload-identity-pools providers update-oidc PROVIDER_ID \
+           --location="global" \
+           --workload-identity-pool="POOL_ID" \
+           --project="PROJECT_ID" \
+           --attribute-condition="assertion['kubernetes.io']['serviceaccount']['uid']=='${KSA_UID}'"
+         
+
+Replace the following:
+
+     * `PROVIDER_ID`: the ID of the Workload Identity Pool Provider created by the `ccoctl` utility (matches `NAME` from the `ccoctl gcp create-all` command)
+     * `POOL_ID`: the ID of the Workload Identity Pool created by the `ccoctl` utility (matches `NAME` from the `ccoctl gcp create-all` command)
+     * `PROJECT_ID`: the project ID of the Google Cloud project where your OpenShift cluster runs
+
+
+
+If the `google-cloud-cluster-services-telemetry-agent-workloadagent-service-account` service account or the operator is deleted and recreated on the cluster, a new UID is generated and you must re-run the `update-oidc` command with the new UID.
 
 ## Enable metrics collection
 
@@ -463,6 +495,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

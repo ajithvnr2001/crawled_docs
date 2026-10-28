@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/redis/clusters/update/
 title: gcloud redis clusters update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T10:17:57.654194+00:00
+fetched_at: 2026-10-27T21:41:24.963361+00:00
 ---
 
 # gcloud redis clusters update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud redis clusters update - update Memorystore Cluster for Redis instance
 SYNOPSIS
     
 
-`gcloud redis clusters update` (`CLUSTER` : `--region`=`REGION`) [`--acl-policy`=`ACL_POLICY`] [`--aof-append-fsync`=`AOF_APPEND_FSYNC`] [`--async`] [`--automated-backup-mode`=`AUTOMATED_BACKUP_MODE`] [`--automated-backup-start-time`=`AUTOMATED_BACKUP_START_TIME`] [`--automated-backup-ttl`=`AUTOMATED_BACKUP_TTL`] [`--deletion-protection`] [`--maintenance-version`=`MAINTENANCE_VERSION`] [`--node-type`=`NODE_TYPE`] [`--persistence-mode`=`PERSISTENCE_MODE`] [`--rdb-snapshot-period`=`RDB_SNAPSHOT_PERIOD`] [`--rdb-snapshot-start-time`=`RDB_SNAPSHOT_START_TIME`] [`--remove-redis-config`=[`KEY`,…]] [`--replica-count`=`REPLICA_COUNT`] [`--rotate-server-certificate`] [`--shard-count`=`SHARD_COUNT`] [`--simulate-maintenance-event`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--update-redis-config`=`KEY`=`VALUE`] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`--maintenance-window-any` | `--maintenance-window-day`=`MAINTENANCE_WINDOW_DAY` `--maintenance-window-hour`=`MAINTENANCE_WINDOW_HOUR`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud redis clusters update` (`CLUSTER` : `--region`=`REGION`) [`--acl-policy`=`ACL_POLICY`] [`--aof-append-fsync`=`AOF_APPEND_FSYNC`] [`--async`] [`--auth-mode`=`AUTH_MODE`] [`--automated-backup-mode`=`AUTOMATED_BACKUP_MODE`] [`--automated-backup-start-time`=`AUTOMATED_BACKUP_START_TIME`] [`--automated-backup-ttl`=`AUTOMATED_BACKUP_TTL`] [`--deletion-protection`] [`--maintenance-version`=`MAINTENANCE_VERSION`] [`--node-type`=`NODE_TYPE`] [`--persistence-mode`=`PERSISTENCE_MODE`] [`--rdb-snapshot-period`=`RDB_SNAPSHOT_PERIOD`] [`--rdb-snapshot-start-time`=`RDB_SNAPSHOT_START_TIME`] [`--remove-redis-config`=[`KEY`,…]] [`--replica-count`=`REPLICA_COUNT`] [`--rotate-server-certificate`] [`--shard-count`=`SHARD_COUNT`] [`--simulate-maintenance-event`] [`--update-labels`=[`KEY`=`VALUE`,…]] [`--update-redis-config`=`KEY`=`VALUE`] [`--clear-labels` | `--remove-labels`=[`KEY`,…]] [`--maintenance-window-any` | `--maintenance-window-day`=`MAINTENANCE_WINDOW_DAY` `--maintenance-window-hour`=`MAINTENANCE_WINDOW_HOUR`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Update the metadata and/or configuration parameters of a Redis cluster. 
 
@@ -94,6 +94,13 @@ FLAGS
      Redis will not explicitly call fsync. 
 `--async`
      Return immediately, without waiting for the operation in progress to complete. 
+`--auth-mode`=`AUTH_MODE`
+     Available authorization mode of a Redis cluster. `AUTH_MODE` must be one of: 
+
+`disabled`
+     Authorization is disabled for the cluster. 
+`token-auth`
+     Token based authorization is enabled for the cluster. 
 `--automated-backup-mode`=`AUTOMATED_BACKUP_MODE`
      Automated backup mode. `AUTOMATED_BACKUP_MODE` must be one of: 
 
@@ -197,6 +204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

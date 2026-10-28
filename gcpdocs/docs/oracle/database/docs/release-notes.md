@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/release-notes/
 title: Oracle Database@Google Cloud release notes \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:47.022712+00:00
+fetched_at: 2026-10-27T21:39:54.948510+00:00
 ---
 
 # Oracle Database@Google Cloud release notes  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -26,6 +26,14 @@ This page documents production updates to Oracle Database@Google Cloud. Check th
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/oracledatabase-release-notes.xml) directly. 
+
+## October 26, 2026
+
+Feature
+
+The Oracle Database@Google Cloud remote MCP server is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) and adds tools to create and manage Database Connections and run SQL statements with `database_connection_executesql`. It lets you interact easily with Oracle Database@Google Cloud resources from LLMs, AI applications, and AI-enabled development platforms.
+
+For more information, see [Use the Oracle Database@Google Cloud remote MCP server](https://docs.cloud.google.com/oracle/database/docs/use-oracledatabase-mcp).
 
 ## September 17, 2026
 
@@ -64,88 +72,6 @@ Feature
 Oracle Database@Google Cloud supports Exascale Storage Vaults for Exadata on Dedicated Infrastructure and Exadata VM Clusters. For more information, see [Create an Exascale Storage Vault for an Exadata Infrastructure](https://docs.cloud.google.com/oracle/database/docs/create-exadata-storage-vaults), [Configure Exascale Storage Vault for Exadata Infrastructure](https://docs.cloud.google.com/oracle/database/docs/configure-exascale-storage), and [Create Exadata VM Clusters with Exascale Storage Vaults](https://docs.cloud.google.com/oracle/database/docs/create-clusters#create-cluster-using-vault).
 
 This feature is [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages).
-
-## June 25, 2026
-
-Feature
-
-You can view the details of your GoldenGate deployments, connections, and related assignments through Google Cloud console. For more information, see [Manage deployments](https://docs.cloud.google.com/oracle/database/docs/manage-deployments), [Manage connections](https://docs.cloud.google.com/oracle/database/docs/manage-connections), and [Manage assignments](https://docs.cloud.google.com/oracle/database/docs/manage-assignments).
-
-This feature is [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages).
-
-## June 18, 2026
-
-Feature
-
-For Exadata Database Service on Exascale infrastructure and Base Database Service, Oracle Database@Google Cloud adds region `asia-northeast2` (Osaka, Japan).
-
-For a list of supported locations, see [Supported regions and zones](https://docs.cloud.google.com/oracle/database/docs/regions-and-zones).
-
-## May 27, 2026
-
-Feature
-
-For Exadata Database Service on Exascale infrastructure, Base Database Service, and Goldengate, Oracle Database@Google Cloud adds the following regions and zones:
-
-  * `australia-southeast2-a-r2` (Melbourne, Australia)
-  * `europe-west8-b-r1` and `europe-west8-a-r1` (Milan, Italy)
-
-
-
-For a list of supported locations, see [Supported regions and zones](https://docs.cloud.google.com/oracle/database/docs/regions-and-zones).
-
-## May 20, 2026
-
-Feature
-
-Oracle Database@Google Cloud supports Oracle Cloud Infrastructure Goldengate. You can [create Goldengate deployments and connections](https://docs.cloud.google.com/oracle/database/docs/deploy-and-connect) to replicate and transform data between systems.
-
-This feature is [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages).
-
-## May 19, 2026
-
-Feature
-
-Oracle Database@Google Cloud lets you [enable Autonomous Data Guard for local peer databases](https://docs.cloud.google.com/oracle/database/docs/manage-dr-type).
-
-This feature is [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages).
-
-## May 14, 2026
-
-Feature
-
-For Exadata Database Service on Exascale infrastructure and Base Database Service, Oracle Database@Google Cloud adds zone `europe-west3-a-r2` in region `europe-west3` (Frankfurt, Germany).
-
-For a list of supported locations, see [Supported regions and zones](https://docs.cloud.google.com/oracle/database/docs/regions-and-zones).
-
-## May 06, 2026
-
-Feature
-
-For Exadata Database Service on Exascale infrastructure and Base Database Service, Oracle Database@Google Cloud supports the following regions and zones:
-
-  * `asia-south1-b-r1` (Mumbai, India)
-  * `asia-south2-b-r1` (Delhi, India)
-
-
-
-For a list of supported locations, see [Supported regions and zones](https://docs.cloud.google.com/oracle/database/docs/regions-and-zones).
-
-## April 20, 2026
-
-Feature
-
-Oracle Database@Google Cloud integrates with Database Center to provide fleet-wide insights, proactive alerts, and actionable recommendations for your Oracle Database@Google Cloud resources, including Oracle Exadata and Autonomous databases. For more information, see [Monitor the health of your Oracle Database@Google Cloud resources in Database Center](https://docs.cloud.google.com/oracle/database/docs/monitor-resource-health).
-
-This feature is [Generally Available (GA)](https://cloud.google.com/products#product-launch-stages).
-
-## April 17, 2026
-
-Feature
-
-You can now use the [Oracle Database@Google Cloud remote MCP server](https://docs.cloud.google.com/oracle/database/docs/use-oracledatabase-mcp). The remote MCP server lets you interact easily with Oracle Database@Google Cloud resources from LLMs, AI applications, and AI-enabled development platforms.
-
-This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
 
 ## March 31, 2026
 
@@ -459,6 +385,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

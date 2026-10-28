@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/generate-table-insights/
 title: Generate table insights \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:22:41.169353+00:00
+fetched_at: 2026-10-27T20:27:34.995226+00:00
 ---
 
 # Generate table insights  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Generate table insights
 
-This document describes how to generate table insights for [standard BigQuery tables](https://docs.cloud.google.com/bigquery/docs/tables-intro) and [BigQuery external tables](https://docs.cloud.google.com/bigquery/docs/external-tables) (including [BigLake tables](https://docs.cloud.google.com/bigquery/docs/biglake-intro)).
-
-Table insights can help you accelerate data exploration by letting you quickly understand the structure and content of a new or unfamiliar table without writing complex queries. You can also generate SQL queries based on natural language questions, which reduces the time and effort required to write queries manually. Table insights can also help non-SQL users understand and analyze data through these natural language queries.
+BigQuery table insights let you quickly understand the structure and content of [standard BigQuery tables](https://docs.cloud.google.com/bigquery/docs/tables-intro), [BigQuery external tables](https://docs.cloud.google.com/bigquery/docs/external-tables), and [BigLake tables](https://docs.cloud.google.com/bigquery/docs/biglake-intro) without writing complex queries. You can generate SQL queries based on natural language questions, which reduces the time and effort required to write queries manually.
 
 For an overview of table and dataset insights, see [Data insights overview](https://docs.cloud.google.com/bigquery/docs/data-insights).
 
@@ -529,6 +527,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

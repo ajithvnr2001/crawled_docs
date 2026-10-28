@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/identity-manage/
 title: Manage identity with GKE Identity Service \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:19.049753+00:00
+fetched_at: 2026-10-28T02:29:43.618577+00:00
 ---
 
 # Manage identity with GKE Identity Service  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,17 +22,13 @@ Send feedback
 
 #  Manage identity with GKE Identity Service Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google Distributed Cloud supports [OpenID Connect (OIDC)](https://openid.net/connect/) and [Lightweight Directory Access Protocol (LDAP)](https://ldap.com/) as authentication mechanisms for interacting with a cluster's Kubernetes API server, using GKE Identity Service. GKE Identity Service is an authentication service that lets you bring your existing identity solutions for authentication to your clusters. Users can log in to and use clusters from the command line (all providers) or from the Google Cloud console (OIDC only), all using your existing identity provider.
+GKE Identity Service lets you integrate existing identity providers to authenticate users to Google Distributed Cloud clusters. Users can connect to the Kubernetes API server from the command line by using [OpenID Connect (OIDC)](https://openid.net/connect/) or [Lightweight Directory Access Protocol (LDAP)](https://ldap.com/), or through the Google Cloud console by using OIDC.
 
-GKE Identity Service works with any kind of bare metal cluster: admin, user, hybrid, or standalone. You can use both on-premises and publicly reachable identity providers. For example, if your enterprise runs an [Active Directory Federation Services (ADFS)](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services) server, the ADFS server could serve as your OpenID provider. You might also use publicly-reachable identity provider services such as Okta. Identity provider certificates may be issued by either a well-known public certificate authority (CA), or by a private CA.
+The service supports admin, user, hybrid, and standalone clusters, connecting to on-premises systems such as [Active Directory Federation Services (ADFS)](https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services) and public providers such as Okta. If your organization uses Google Accounts, use the [connect gateway](https://docs.cloud.google.com/kubernetes-engine/enterprise/multicluster-management/gateway) to manage cluster access.
 
-**Note:** The GKE Identity Service runs as a Pod inside the cluster control plane. During cluster lifecycle phases, the API Server is dynamically configured to use the in-cluster GKE Identity Service as the authentication webhook for all incoming requests. The API Server [isn't able to use in-cluster DNS](https://github.com/kubernetes/minikube/issues/3772). As a result, the API Server is configured to access GKE Identity Service as a REST resource access. In audit logs, this invocation is recorded as a `CREATE` request to the Services or proxy resource by a `system:anonymous` user.
+## Architecture overview
 
-For an overview of how GKE Identity Service works, see [Introducing GKE Identity Service](https://docs.cloud.google.com/kubernetes-engine/enterprise/identity).
-
-If you already use or want to use Google IDs to sign in to your GKE clusters instead of an OIDC or LDAP provider, we recommend using connect gateway for authentication. Find out more in [Connecting to registered clusters with the connect gateway](https://docs.cloud.google.com/kubernetes-engine/enterprise/multicluster-management/gateway).
-
-**Note:** If you use the `ClientConfig` field to configure GKE Identity Service directly inside a cluster, cluster updates can overwrite the field. Instead, use the `authentication` field on the cluster custom resource or set up your GKE Identity Service at the [fleet level](https://docs.cloud.google.com/kubernetes-engine/enterprise/identity/setup/fleet-cluster) so your configuration persists during an update.
+The GKE Identity Service runs as a Pod inside the cluster control plane. During cluster lifecycle phases, the API Server is dynamically configured to use the in-cluster GKE Identity Service as the authentication webhook for all incoming requests. The API Server [isn't able to use in-cluster DNS](https://github.com/kubernetes/minikube/issues/3772). As a result, the API Server is configured to access GKE Identity Service as a REST resource access. In audit logs, this invocation is recorded as a `CREATE` request to the Services or proxy resource by a `system:anonymous` user.
 
 ## Before you begin
 
@@ -52,7 +48,7 @@ GKE Identity Service supports identity providers using the following protocols:
   * [Lightweight Directory Access Protocol (LDAP)](https://ldap.com/). You can use GKE Identity Service to authenticate using LDAP with Active Directory or an LDAP server.
 
 
-
+**Note:** If you use the `ClientConfig` field to configure GKE Identity Service directly inside a cluster, cluster updates can overwrite the field. Instead, use the `authentication` field on the cluster custom resource or set up your GKE Identity Service at the [fleet level](https://docs.cloud.google.com/kubernetes-engine/enterprise/identity/setup/fleet-cluster) so your configuration persists during an update.
 
 ### OIDC
 
@@ -92,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

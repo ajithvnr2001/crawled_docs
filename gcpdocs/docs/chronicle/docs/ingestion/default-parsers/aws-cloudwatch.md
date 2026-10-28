@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-cloudwatch/
 title: Collect AWS CloudWatch logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:49:51.876767+00:00
+fetched_at: 2026-10-27T18:07:21.695316+00:00
 ---
 
 # Collect AWS CloudWatch logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -141,11 +141,19 @@ Amazon Data Firehose requires an IAM role to write logs to your S3 bucket.
      * **Source** : Select **Direct PUT**.
      * **Destination** : Select **Amazon S3**.
   5. In the **Firehose stream name** field, enter `cwlogs-to-secops`.
-  6. Under **Transform records** , in the **Decompress source records from Amazon CloudWatch Logs** section:
+  6. Under **Transform and convert records** , configure the following options:
 
-     1. Select **Turn on decompression**.
-     2. Do **not** select **Turn on message extraction**.
-**Note:** Keeping message extraction disabled preserves CloudWatch metadata (logGroup, logStream, subscriptionFilters) in the delivered logs. The AWS_CLOUDWATCH parser supports the full CloudWatch Logs envelope format including the `logEvents` structure.
+     1. In the **Transform source records with AWS Lambda** section, do **not** select **Turn on data transformation**.
+
+     2. In the **Convert record format** section, do **not** select **Enable record format conversion**.
+
+     3. In the **Decompress source records from Amazon CloudWatch Logs** section:
+
+        1. Select **Turn on decompression**.
+
+        2. Do **not** select **Turn on message extraction**.
+
+**Note:** Standard ingestion does not require an AWS Lambda function for data transformation because Amazon Data Firehose decompresses CloudWatch Logs records natively when **Turn on decompression** is enabled. Keeping **Turn on message extraction** disabled preserves the `logGroup`, `logStream`, and `subscriptionFilters` fields in the delivered logs. The `AWS_CLOUDWATCH` parser supports the full CloudWatch Logs envelope format, including the `logEvents` structure.
   7. Under **Destination settings** :
 
      * **S3 bucket** : Select the S3 bucket `cwlogs-to-secops`.
@@ -802,6 +810,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

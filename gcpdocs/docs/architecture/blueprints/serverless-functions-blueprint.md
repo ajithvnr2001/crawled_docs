@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/blueprints/serverless-functions-blueprint/
 title: Deploy a secured serverless architecture using Cloud Run functions \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:57.009947+00:00
+fetched_at: 2026-10-27T23:07:45.356129+00:00
 ---
 
 # Deploy a secured serverless architecture using Cloud Run functions  |  Cloud Architecture Center  |  Google Cloud Documentation

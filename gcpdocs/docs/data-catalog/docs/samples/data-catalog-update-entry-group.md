@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-catalog/docs/samples/data-catalog-update-entry-group/
 title: Update entry group \u00a0|\u00a0 Data Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:39.466228+00:00
+fetched_at: 2026-10-28T00:01:50.127596+00:00
 ---
 
 # Update entry group  |  Data Catalog  |  Google Cloud Documentation

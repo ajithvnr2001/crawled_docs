@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/how-tos/audit-logging/
 title: Cloud Healthcare API audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:18:15.563862+00:00
+fetched_at: 2026-10-27T16:27:51.756172+00:00
 ---
 
 # Cloud Healthcare API audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Cloud Healthcare API audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes audit logging for Cloud Healthcare API. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Cloud Healthcare API let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Cloud Healthcare API API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -33,11 +35,19 @@ This document describes audit logging for Cloud Healthcare API. Google Cloud ser
 
 ## Service name
 
-Cloud Healthcare API audit logs use the service name `healthcare.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="healthcare.googleapis.com"
-      
+To view the Cloud Healthcare API audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="healthcare.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -86,6 +96,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.healthcare.v1.consent.ConsentService.DeleteConsentStore`  
 `google.cloud.healthcare.v1.consent.ConsentService.UpdateConsentStore`  
 `google.cloud.healthcare.v1.dataset.DatasetService.CreateDataset` (LRO)  
+`google.cloud.healthcare.v1.dataset.DatasetService.DeidentifyDataset` (LRO)  
 `google.cloud.healthcare.v1.dataset.DatasetService.DeleteDataset`  
 `google.cloud.healthcare.v1.dataset.DatasetService.UpdateDataset`  
 `google.cloud.healthcare.v1.dicom.DicomService.CreateDicomStore`  
@@ -103,6 +114,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.healthcare.v1beta1.consent.ConsentService.DeleteConsentStore`  
 `google.cloud.healthcare.v1beta1.consent.ConsentService.UpdateConsentStore`  
 `google.cloud.healthcare.v1beta1.dataset.DatasetService.CreateDataset` (LRO)  
+`google.cloud.healthcare.v1beta1.dataset.DatasetService.DeidentifyDataset` (LRO)  
 `google.cloud.healthcare.v1beta1.dataset.DatasetService.DeleteDataset`  
 `google.cloud.healthcare.v1beta1.dataset.DatasetService.UpdateDataset`  
 `google.cloud.healthcare.v1beta1.dicom.DicomService.CreateDicomStore`  
@@ -234,7 +246,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.healthcare.v1.consent.ConsentService.UpdateAttributeDefinition`  
 `google.cloud.healthcare.v1.consent.ConsentService.UpdateConsent`  
 `google.cloud.healthcare.v1.consent.ConsentService.UpdateUserDataMapping`  
-`google.cloud.healthcare.v1.dataset.DatasetService.DeidentifyDataset` (LRO)  
 `google.cloud.healthcare.v1.deidentify.DeidentifyService.DeidentifyDicomStore` (LRO)  
 `google.cloud.healthcare.v1.deidentify.DeidentifyService.DeidentifyFhirStore` (LRO)  
 `google.cloud.healthcare.v1.dicom.DicomService.ImportDicomData` (LRO)  
@@ -259,7 +270,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.healthcare.v1.hl7v2.Hl7V2Service.DeleteMessage`  
 `google.cloud.healthcare.v1.hl7v2.Hl7V2Service.ImportMessages` (LRO)  
 `google.cloud.healthcare.v1.hl7v2.Hl7V2Service.IngestMessage`  
-`google.cloud.healthcare.v1.hl7v2.Hl7V2Service.RollbackHl7V2Messages`  
+`google.cloud.healthcare.v1.hl7v2.Hl7V2Service.RollbackHl7V2Messages` (LRO)  
 `google.cloud.healthcare.v1.hl7v2.Hl7V2Service.UpdateMessage`  
 `google.cloud.healthcare.v1.storageinfo.StorageInfoService.SetBlobStorageSettings` (LRO)  
 `google.cloud.healthcare.v1beta1.consent.ConsentService.ActivateConsent`  
@@ -278,7 +289,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.healthcare.v1beta1.consent.ConsentService.UpdateAttributeDefinition`  
 `google.cloud.healthcare.v1beta1.consent.ConsentService.UpdateConsent`  
 `google.cloud.healthcare.v1beta1.consent.ConsentService.UpdateUserDataMapping`  
-`google.cloud.healthcare.v1beta1.dataset.DatasetService.DeidentifyDataset` (LRO)  
 `google.cloud.healthcare.v1beta1.deidentify.DeidentifyService.DeidentifyDicomStore` (LRO)  
 `google.cloud.healthcare.v1beta1.deidentify.DeidentifyService.DeidentifyFhirStore` (LRO)  
 `google.cloud.healthcare.v1beta1.dicom.DicomService.ImportDicomData` (LRO)  
@@ -1675,6 +1685,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
+    * `healthcare.fhirResources.get - DATA_READ`
     * `healthcare.fhirResources.update - DATA_WRITE`
     * `healthcare.fhirStores.executeBundle - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
@@ -2056,7 +2067,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `healthcare.hl7V2Stores.rollback - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.healthcare.v1.hl7v2.Hl7V2Service.RollbackHl7V2Messages" `  
 
@@ -3599,10 +3610,9 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `healthcare.fhirResources.create - DATA_WRITE`
+    * `healthcare.fhirResources.patch - DATA_WRITE`
     * `healthcare.fhirResources.update - DATA_WRITE`
     * `healthcare.fhirStores.executeBundle - ADMIN_READ`
-    * `healthcare.fhirStores.import - DATA_WRITE`
-    * `healthcare.fhirStores.searchResources - DATA_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.healthcare.v1beta1.fhir.rest.FhirService.ExecuteBundle" `  
@@ -4177,7 +4187,6 @@ The following audit logs are associated with methods belonging to `google.iam.v1
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
-    * `healthcare.consentStores.getIamPolicy - ADMIN_READ`
     * `healthcare.datasets.getIamPolicy - ADMIN_READ`
     * `healthcare.dicomStores.getIamPolicy - ADMIN_READ`
     * `healthcare.fhirStores.getIamPolicy - ADMIN_READ`
@@ -4261,6 +4270,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

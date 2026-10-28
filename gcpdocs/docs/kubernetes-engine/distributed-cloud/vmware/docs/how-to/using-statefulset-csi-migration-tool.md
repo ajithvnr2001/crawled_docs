@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/using-statefulset-csi-migration-tool/
 title: Using the StatefulSet CSI Migration Tool \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:51.429054+00:00
+fetched_at: 2026-10-28T02:29:59.430215+00:00
 ---
 
 # Using the StatefulSet CSI Migration Tool  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,16 +21,9 @@ Send feedback
 
 #  Using the StatefulSet CSI Migration Tool Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to use the StatefulSet CSI Migration Tool to migrate stateful workloads from an in-tree vSphere volume plugin to the vSphere CSI Driver in Google Distributed Cloud.
+The StatefulSet CSI Migration Tool lets you migrate StatefulSets from the in-tree vSphere volume plugin to the vSphere CSI Driver in Google Distributed Cloud. The tool migrates your PersistentVolumes without application downtime or data loss, so your workloads can use the full set of CSI features, such as Volume Expansion and Volume Snapshot.
 
-The following list shows the launch stage for this tool per version:
-
-  * v1.0: GA
-  * v0.1: [Preview](https://cloud.google.com/products/#product-launch-stages)
-
-
-
-Supported Google Distributed Cloud versions: 1.30 - 1.28.
+The tool is supported only on [fully supported](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/version-history) Google Distributed Cloud versions.
 
 ## Overview
 
@@ -141,6 +134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

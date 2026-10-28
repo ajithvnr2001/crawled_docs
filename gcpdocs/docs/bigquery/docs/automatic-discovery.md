@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/automatic-discovery/
 title: Discover and catalog Cloud Storage data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:37:26.565389+00:00
+fetched_at: 2026-10-27T20:09:46.127230+00:00
 ---
 
 # Discover and catalog Cloud Storage data  |  BigQuery  |  Google Cloud Documentation
@@ -21,15 +21,11 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Discover and catalog Cloud Storage data
 
-This document explains how to use Knowledge Catalog automatic discovery, a feature in BigQuery that lets you scan data in Cloud Storage buckets to extract and then catalog metadata. As part of the discovery scan, automatic discovery creates BigLake or external tables for structured data and object tables for unstructured data. BigLake tables and external tables let you query structured data in external datastores (see [Introduction to BigLake tables](https://docs.cloud.google.com/bigquery/docs/biglake-intro) and [Introduction to external tables](https://docs.cloud.google.com/bigquery/docs/external-tables)), while object tables provide a metadata index over unstructured data in Cloud Storage (see [Introduction to object tables](https://docs.cloud.google.com/bigquery/docs/object-table-introduction)). This centralized table data eases AI-powered data insights, data security, and governance.
-
-To use automatic discovery of Cloud Storage data, you create and run a discovery scan.
-
-Automatic discovery is also called standalone discovery.
+Knowledge Catalog automatic discovery in BigQuery, also called _standalone discovery_ , lets you scan Cloud Storage buckets to extract and catalog file metadata. Discovery scans register structured data as [BigLake tables](https://docs.cloud.google.com/bigquery/docs/biglake-intro) or [external tables](https://docs.cloud.google.com/bigquery/docs/external-tables) and index unstructured data as [object tables](https://docs.cloud.google.com/bigquery/docs/object-table-introduction). Centralizing these tables in BigQuery helps you query external data, apply security and governance policies, and generate AI-powered insights.
 
 ## Discovery scan overview
 
-A discovery scan does the following:
+To use automatic discovery of Cloud Storage data, you create and run a discovery scan. A discovery scan does the following:
 
   * Scans the data in the Cloud Storage bucket or path.
   * Groups structured and semi-structured data into tables.
@@ -696,6 +692,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/17.9.0/docs/release-notes/
 title: AlloyDB Omni release notes \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 17.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:43:17.650322+00:00
+fetched_at: 2026-10-28T01:49:41.519132+00:00
 ---
 
 # AlloyDB Omni release notes  |  AlloyDB Omni using the container orchestrator: 17.9.0  |  Google Cloud Documentation
@@ -221,6 +221,144 @@ If your cluster does not have this annotation, you can migrate to the latest HA 
 
 
 After completing these steps, verify that the new annotation is present on your database cluster.
+
+## June 18, 2026
+
+Feature
+
+AlloyDB Omni documentation now includes documentation for the following AlloyDB AI features available in [GA](https://cloud.google.com/products#product-launch-stages):
+
+  * [Auto vector embeddings](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/generate-manage-auto-embeddings-for-tables) automate the lifecycle of vector embeddings for large datasets, keeping them in sync with transactional data using real-time or batch updates. This feature includes a bulk mode that performs refreshes and migrations up to 130x faster than row-by-row processing."
+
+  * [AI functions](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/evaluate-semantic-queries-ai-operators) integrate LLMs like Gemini to bring world knowledge to your AlloyDB data and incorporate advanced semantic search and ranking capabilities directly into your SQL workflows.
+
+  * Use array-based AI functions to improve the efficiency of large-scale AI operations by enabling batch processing of natural language prompts in your SQL queries. For more information, see [Perform intelligent SQL queries using AI functions](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/evaluate-semantic-queries-ai-operators).
+
+
+
+
+Feature
+
+AlloyDB Omni documentation now includes documentation for the following AlloyDB AI features, which are available in [Preview](https://cloud.google.com/products#product-launch-stages):
+
+  * The AlloyDB columnar engine provides a read-optimized, in-memory cache for HNSW indexes, increasing the number of queries per second (QPS) that your database can handle for vector search workloads. For more information, see [Accelerate vector search with the columnar engine](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/accelerate-with-ce).
+  * Hybrid search supports Elasticsearch, which lets you use the `external_search_fdw` extension to connect to Elasticsearch and perform hybrid searches in AlloyDB. For more information, see [Access Elasticsearch data from AlloyDB](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/elastic-search).
+  * The sentiment analysis and summarization functions let you process and analyze unstructured data in your database. For more information, see [Analyze text sentiment](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/analyze-sentiment) and [Summarize content](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/summarize-content).
+  * You can defer ScaNN index creation on an empty table or a table with insufficient rows until the table has sufficient data. For more information, see [Create a ScaNN index](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/create-scann-index).
+  * The alloydb_scann extension now supports four-level tree indexes, providing support for tables with up to 10 billion vector rows. For more information, see [Four-level ScaNN tree indexes](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/ai/create-scann-index#create-scann-index-manual).
+
+
+
+## June 03, 2026
+
+Announcement
+
+The [AlloyDB Omni Kubernetes operator](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/deploy-kubernetes) version 1.7.1 is generally available ([GA](https://cloud.google.com/products#product-launch-stages)) and includes the following vulnerability fixes:
+
+  * [CVE-2026-32288](https://nvd.nist.gov/vuln/detail/CVE-2026-32288) by upgrading to Golang Version [1.26.2](https://go.dev/doc/devel/release#go1.26.minor).
+  * [CVE-2026-4878](https://nvd.nist.gov/vuln/detail/CVE-2026-4878) (`libcap`).
+  * [CVE-2026-40356](https://nvd.nist.gov/vuln/detail/CVE-2026-40356) (`krb5-libs`) in the `g-pgbouncer` container image.
+
+
+
+## May 08, 2026
+
+Announcement
+
+The AlloyDB Omni Kubernetes operator (version 1.7.0) is officially certified for Red Hat OpenShift. The operator and its associated database images are validated to run optimally and securely on Red Hat OpenShift.
+
+This release includes the following:
+
+  * OpenShift Certified Catalog: the AlloyDB Omni Operator is now officially listed on the [OpenShift Certified Catalog](https://catalog.redhat.com/en/software/container-stacks/detail/6837eb3b9137db6941d32436#overview).
+  * Built-in management: discover, install, and manage the operator using OpenShift's built-in Operator Lifecycle Manager (OLM) user interface.
+  * OLM support: support for OLM bundles is available, facilitating a seamless, one-click installation experience and automated management for enterprise deployments. For more information, see [Install the AlloyDB Omni operator](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/deploy-kubernetes#olm_1).
+  * This certification is supported by AlloyDB Omni versions starting with 16.11.0, 17.7.0, and 18.1.0.
+
+
+
+## April 22, 2026
+
+Change
+
+The naming conventions for AlloyDB Omni deployment options are updated to more accurately reflect their respective installation and orchestration methods.  
+The following table summarizes the primary name changes:
+
+**Original name** |  **New name**  
+---|---  
+AlloyDB Omni for containers |  AlloyDB Omni using containers  
+AlloyDB Omni for Kubernetes |  AlloyDB Omni using the container orchestrator  
+AlloyDB Omni for Linux |  AlloyDB Omni using RPM  
+Red Hat RPM orchestrator |  AlloyDB Omni using the RPM orchestrator  
+  
+This update clarifies the distinction between AlloyDB Omni deployment environments (such as Kubernetes or standalone Linux) and the packaging and orchestration technologies used to manage them. For more information, see [Choose your deployment environment](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment).
+
+## April 09, 2026
+
+Announcement
+
+The [AlloyDB Omni Kubernetes operator](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/deploy-kubernetes) version 1.7.0 is generally available ([GA](https://docs.cloud.google.com/products#product-launch-stages)) and includes the following features and changes:
+
+  * AlloyDB Omni supports PostgreSQL 18.1.0. For more information, see [AlloyDB Omni Kubernetes operator](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/overview). This operator version also supports AlloyDB Omni minor versions 15.15.0, 16.11.0, and 17.7.0.
+  * Enterprise readiness for AlloyDB Omni on [Google Distributed Cloud Software Only](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs) lets the operator manage the full database lifecycle, including [provisioning](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/deploy-kubernetes), [high availability](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/high-availability/setup), and [disaster recovery](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/cross-data-center-replication/about-cross-data-center-replication), directly on your own physical bare metal infrastructure.
+  * Database pods feature a hardened security posture with restricted Kubernetes `securityContext` settings enabled by default, including non-root execution and read-only root filesystems.
+  * Added support for Transparent Data Encryption (TDE) ([Preview](https://cloud.google.com/products#product-launch-stages)), providing at-rest encryption for database clusters. This is available beginning with AlloyDB Omni 18.1.0. For more information, see [Transparent Data Encryption](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/transparent-data-encryption-omni).
+  * Added support for custom configuration of database port numbers for your clusters. For more information, see [Configure custom ports](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/run-connect).
+  * Introduced a framework for defining and collecting custom database metrics to enhance monitoring capabilities. For more information, see [Configure custom metrics](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/improve-observability-custom-monitoring-metrics).
+  * Added detailed memory allocation metrics for improved memory and performance monitoring. For more information, see [AlloyDB Omni metrics](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/reference/omni-metrics).
+  * Improved Active Directory integration with support for `hostssl` connection types, multi-domain LDAP base DNs, and customizable LDAP search attributes. For more information, see [Integrate Active Directory](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/integrate-active-directory-kubernetes-operator).
+  * Added support for rewind trigger functionality in symmetric disaster recovery configurations. For more information, see [Work with cross-data-center replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/cross-data-center-replication/work-with-cross-data-center-replication).
+  * You can perform CPU and memory scaling operations with minimal downtime using Low Downtime Maintenance ([Preview](https://cloud.google.com/products#product-launch-stages)). For more information, see [Scale a database cluster](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/deploy-kubernetes#scale).
+  * Additional [database flags](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/reference/database-flags) are supported.
+  * All current and earlier versions of Helm charts are available in the [Artifact Registry](https://pantheon.corp.google.com/artifacts/docker/alloydb-omni/us/gcr.io/alloydbomni-operator?rapt=AEjHL4NMzSdtsKxud4VKouvR3VJJHW7nf35vtrNV5vp_Ct9bJQYJFIb2a-TObQ1goelzrCPt-J2NFHHDIsEcsykeHublDMDJHkxtsSegSCNviRr4MyZExiQ). However, Helm charts are no longer available in Cloud Storage.
+  * Updated manual major version upgrade instructions to use versioned data directory paths. For more information, see [Upgrade database major version](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/upgrade-kubernetes-database-major-version).
+  * Updated [Choose compatible Kubernetes operator and database cluster versions](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/choose-compatible-versions) with latest versions.
+
+
+
+Change
+
+The AlloyDB Omni Kubernetes operator now automatically scales the `wal_keep_size` and `max_wal_size` database flags based on your configured storage size to optimize storage and [checkpointing](https://www.postgresql.org/docs/current/wal-configuration.html) behavior. If you [manually configure these flags](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/configure-database-flags), your custom values are respected and override the system-selected defaults.
+
+Fixed
+
+Reliability improvement for backups from standby instances: Fixed an issue in the AlloyDB Omni Kubernetes operator version 1.7.0 where backups taken from a standby instance could be incomplete if the primary instance were under heavy load. The backup process now performs a checkpoint before starting to ensure data integrity.
+
+Upgrade required: If you use the backup from standby feature, upgrade to the latest versions of the AlloyDB Omni control plane and data plane. After you perform the upgrade, take a new backup to make sure that your data is fully protected.
+
+Issue
+
+Restore operations might fail if a database backup is running at the same time. If this occurs, retry the restore operation after some delay.
+
+## March 05, 2026
+
+Security
+
+The [AlloyDB Omni Kubernetes operator](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/deploy-kubernetes) version 1.6.3 is generally available ([GA](https://docs.cloud.google.com/products#product-launch-stages)) and includes the following security fixes:
+
+  * A security fix for [CVE-2025-68121](https://security-tracker.debian.org/tracker/CVE-2025-68121) is implemented.
+
+
+
+## February 25, 2026
+
+Announcement
+
+The [AlloyDB Omni Kubernetes operator](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/deploy-kubernetes) version 1.6.2 is generally available ([GA](https://docs.cloud.google.com/products#product-launch-stages)) and includes the following bug fixes:
+
+  * Fixed an issue in Kubernetes clusters where, in some cases, a large number of database parameters in a DBCluster manifest caused redundant configuration updates and reloads, potentially slowing down other operations.
+
+
+
+## February 13, 2026
+
+Announcement
+
+The [AlloyDB Omni Kubernetes operator](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/deploy-kubernetes) version 1.6.1 is generally available ([GA](https://docs.cloud.google.com/products#product-launch-stages)) and includes the following bug fixes:
+
+  * Resolved Kubernetes secret resource quota overcounting by improving Kubernetes client logic and by reducing secret churn.
+  * Fixed PgBouncer status flapping and continuous reconciler requests.
+
+
 
 ## December 15, 2025
 
@@ -701,6 +839,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

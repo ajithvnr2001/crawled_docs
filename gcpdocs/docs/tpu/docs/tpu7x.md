@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tpu/docs/tpu7x/
 title: TPU7x (Ironwood) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:36:13.713538+00:00
+fetched_at: 2026-10-27T23:54:39.990706+00:00
 ---
 
 # TPU7x (Ironwood)  |  Google Cloud Documentation
@@ -47,7 +47,8 @@ Number of TensorCores per chip | 2 | 1 | 2
 Number of SparseCores per chip | 4 | 2 | 4  
 Bidirectional inter-chip interconnect (ICI) bandwidth per chip (GBps) | 1200 | 800 | 1200  
 Data center network (DCN) bandwidth per chip (Gbps) | 50 | 100 | 100  
-  
+**Note:** The TPU system and `libtpu` runtime reserve part of physical high-bandwidth memory (HBM) for reliability and runtime overhead. Tools and frameworks such as `tpu-info`, JAX, and PyTorch therefore report usable HBM capacity that is lower than nominal physical capacity. Each TPU v5p chip has 96 GiB of physical HBM, and the preceding table lists 95 GiB after accounting for reserved memory.
+
 The following diagram illustrates the architecture of Ironwood:
 
 ![Ironwood architecture diagram](https://docs.cloud.google.com/static/tpu/docs/images/ironwood-architecture.png)
@@ -180,7 +181,7 @@ For more information about Hyperdisk, see [ Hyperdisk overview](https://docs.clo
   * [Use TPU7x with All Capacity mode](https://docs.cloud.google.com/tpu/docs/all-capacity-overview)
   * [Use the Google Cloud ML Diagnostics platform to optimize and diagnose your workloads](https://github.com/AI-Hypercomputer/google-cloud-mldiagnostics)
   * [Run a training workload using a recipe optimized for TPU7x](https://github.com/AI-Hypercomputer/tpu-recipes/blob/main/training/ironwood/README.md)
-  * [Run a TPU7x microbenchmark](https://github.com/AI-Hypercomputer/accelerator-microbenchmarks/blob/main/Ironwood/Ironwood_Microbenchmarks_readme.md)
+  * [Run a TPU7x microbenchmark](https://github.com/AI-Hypercomputer/accelerator-microbenchmarks/tree/main)
   * [Ironwood performance optimizations](https://docs.cloud.google.com/tpu/docs/ironwood-performance)
   * [Train large-scale machine learning models on GKE with Multi-Tier Checkpointing](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/machine-learning/training/multi-tier-checkpointing)
 
@@ -190,6 +191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

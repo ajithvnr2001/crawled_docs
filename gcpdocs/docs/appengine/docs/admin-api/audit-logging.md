@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/admin-api/audit-logging/
 title: App Engine audit logging \u00a0|\u00a0 App Engine Admin API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:33:41.130352+00:00
+fetched_at: 2026-10-27T19:00:20.197012+00:00
 ---
 
 # App Engine audit logging  |  App Engine Admin API  |  Google Cloud Documentation
@@ -20,7 +20,9 @@ Send feedback
 
 #  App Engine audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the audited methods for App Engine. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for App Engine let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which App Engine API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -103,8 +105,8 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.appengine.v1alpha.AuthorizedCertificates.DeleteAuthorizedCertificate`  
 `google.appengine.v1alpha.AuthorizedCertificates.UpdateAuthorizedCertificate`  
 `google.appengine.v1alpha.DomainMappings.CreateDomainMapping` (LRO)  
-`google.appengine.v1alpha.DomainMappings.DeleteDomainMapping` (LRO)  
-`google.appengine.v1alpha.DomainMappings.UpdateDomainMapping` (LRO)  
+`google.appengine.v1alpha.DomainMappings.DeleteDomainMapping`  
+`google.appengine.v1alpha.DomainMappings.UpdateDomainMapping`  
 `google.appengine.v1beta.Applications.CreateApplication` (LRO)  
 `google.appengine.v1beta.Applications.RepairApplication` (LRO)  
 `google.appengine.v1beta.Applications.UpdateApplication` (LRO)  
@@ -487,6 +489,7 @@ The following audit logs are associated with methods belonging to `google.appeng
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
+    * `appengine.instances.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.appengine.v1.Instances.GetInstance" `  
@@ -761,7 +764,7 @@ The following audit logs are associated with methods belonging to `google.appeng
 
   * **Permissions** : 
     * `appengine.applications.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.appengine.v1alpha.DomainMappings.DeleteDomainMapping" `  
 
@@ -791,7 +794,7 @@ The following audit logs are associated with methods belonging to `google.appeng
 
   * **Permissions** : 
     * `appengine.applications.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.appengine.v1alpha.DomainMappings.UpdateDomainMapping" `  
 
@@ -1344,7 +1347,6 @@ The following methods don't produce audit logs:
   * `google.appengine.v1.Applications.ListRuntimes`
   * `google.appengine.v1.AuthorizedDomains.ListAuthorizedDomains`
   * `google.appengine.v1beta.Applications.ListRuntimes`
-  * `google.appengine.v1beta.AuthorizedDomains.ListAuthorizedDomains`
   * `google.cloud.location.Locations.GetLocation`
   * `google.cloud.location.Locations.ListLocations`
   * `google.longrunning.Operations.GetOperation`
@@ -1357,6 +1359,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

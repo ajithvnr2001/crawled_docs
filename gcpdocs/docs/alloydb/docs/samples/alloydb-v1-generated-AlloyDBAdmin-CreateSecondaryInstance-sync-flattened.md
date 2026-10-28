@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-CreateSecondaryInstance-sync-flattened/
 title: Create a secondary instance \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:58.425715+00:00
+fetched_at: 2026-10-27T18:27:09.990120+00:00
 ---
 
 # Create a secondary instance  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

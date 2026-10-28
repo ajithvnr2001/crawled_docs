@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/request-logging/
 title: Per-request logging \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:53:06.741398+00:00
+fetched_at: 2026-10-27T19:16:32.220344+00:00
 ---
 
 # Per-request logging  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -116,6 +116,18 @@ You can view the logs for a Cloud Armor security policy only in the Google Cloud
 
 
 
+## Correlate responses with log entries
+
+To correlate a client's request directly with an individual log entry for global external Application Load Balancers and classic Application Load Balancers, you can configure a custom response header on your backend service that includes the `{cloud_trace_id}` variable, as shown in the following example:
+    
+    
+    --custom-response-header='X-Cloud-Trace-Id:{cloud_trace_id}'
+    
+
+The load balancer populates this variable with the 32-character hexadecimal trace ID extracted from or generated for the HTTP request and returns the header to the client, including when Cloud Armor denies the request.
+
+In Cloud Logging, this trace ID is recorded in the top-level `trace` field of the load balancer log entry in the format `projects/PROJECT_ID/traces/TRACE_ID`. You can filter by this `trace` value in the **Logs Explorer** to locate the log entry for a specific allowed or blocked request. For step-by-step instructions, see [Identify and correlate blocked requests in logs](https://docs.cloud.google.com/armor/docs/troubleshooting#identify-blocked-requests).
+
 ## Request data logging
 
 When used with Cloud Armor, `jsonPayload` has the following additional field:
@@ -193,6 +205,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

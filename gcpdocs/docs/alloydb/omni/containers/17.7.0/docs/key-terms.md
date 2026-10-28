@@ -1,16 +1,48 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/
 title: AlloyDB Omni and AlloyDB Omni Kubernetes operator key terms \u00a0|\u00a0 AlloyDB Omni using containers: 17.7.0 \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:20:15.676750+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:28:22.793526+00:00
 ---
 
 # AlloyDB Omni and AlloyDB Omni Kubernetes operator key terms  |  AlloyDB Omni using containers: 17.7.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/
 
-This page documents AlloyDB Omni version **17.7.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
+[ Skip to main content ](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/)
+  * [Deutsch](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/?hl=ko)
 
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/alloydb-color.svg) ](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/overview)
+  * [ AlloyDB Omni ](https://docs.cloud.google.com/alloydb/omni/docs)
+  * [ Containers: 17.7.0 ](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/overview)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [A](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#a)
+  * [D](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#d)
+  * [I](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#i)
+  * [L](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#l)
+  * [T](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#t)
+  * [V](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#v)
+
+
+This page documents AlloyDB Omni version **17.7.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
@@ -18,13 +50,18 @@ This page documents AlloyDB Omni version **17.7.0** using the **containers** dep
   * [ Containers: 17.7.0 ](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/overview)
 
 
-
 Send feedback 
+#  AlloyDB Omni and AlloyDB Omni Kubernetes operator key terms Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [A](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#a)
+  * [D](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#d)
+  * [I](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#i)
+  * [L](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#l)
+  * [T](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#t)
+  * [V](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/key-terms/#v)
 
-#  AlloyDB Omni and AlloyDB Omni Kubernetes operator key terms Stay organized with collections  Save and categorize content based on your preferences. 
 
-Select a documentation version: 17.7.0keyboard_arrow_down
-
+Select a documentation version:  17.7.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/key-terms)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/key-terms)
   * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.3.0/docs/key-terms)
@@ -48,43 +85,34 @@ Select a documentation version: 17.7.0keyboard_arrow_down
   * [ 15.7.0 ](https://docs.cloud.google.com/alloydb/omni/containers/15.7.0/docs/key-terms)
 
 This page provides definitions for AlloyDB Omni terms. 
-
-## A
+## A 
 
 AlloyDB AI
     A suite of features included with AlloyDB Omni that let you build enterprise generative AI applications. For more information, see [Build generative AI applications using AlloyDB AI](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/ai/overview-ai).
-
-## D
+## D 
 
 database cluster
-    A group of interconnected database instances that work together to provide high availability, scalability, and fault tolerance for database applications.
+    A group of interconnected database instances that work together to provide high availability, scalability, and fault tolerance for database applications. 
+
 disk cache
     Accelerates data retrieval in AlloyDB Omni installations in which the active working set of data doesn't fit in memory. For more information, see [Accelerate database performance using disk cache](https://docs.cloud.google.com/alloydb/omni/containers/17.7.0/docs/configure-disk-cache).
-
-## I
+## I 
 
 instance
     A representation of your data housed in one or more virtual machines during the runtime of a computer program, and is the main unit of cloud computing resources in AlloyDB Omni and SQL.
-
-## L
+## L 
 
 latency
     The amount of time it takes to process a single request, usually measured in milliseconds, seconds, or sometimes larger time amounts for complex reporting and analytics use cases. Also known as response time.
-
-## T
+## T 
 
 throughput
     The amount of work the database can process in a given amount of time. Throughput is usually expressed as transactions per second (tps) or transactions per minute (tpm).
-
-## V
+## V 
 
 vCPU
     Virtual central processing unit. A single hardware thread as observed by the operating system and available to be used for execution by an AlloyDB Omni database instance.
-
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

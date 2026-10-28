@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/user-secops/map-users-in-the-secops-platform-first-party/
 title: Map users with Cloud Identity \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:46:40.598035+00:00
+fetched_at: 2026-10-27T20:27:54.926956+00:00
 ---
 
 # Map users with Cloud Identity  |  Google Security Operations  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Supported in:
 
 Google SecOps 
 
-**Note:** "If you've already completed Stage 2 of SOAR migration to Google Cloud, you need to use IAM to manage feature access to Google SecOps including SOAR. The **Permission Group** column is still displayed post migration in the **Group Mapping** page for backward compatibility. Do not delete these assignments. The column will be removed by November 30, 2026 without any customer impact. For more information, see [Migrate to Google Cloud](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp).
+**Note:** "If you've already completed Stage 2 of SOAR migration to Google Cloud, you need to use IAM to manage feature access to Google SecOps including SOAR. The **Permission Group** column is still displayed post migration in the **Group Mapping** page for backward compatibility. Don't delete these assignments. The column will be removed by March 31, 2027 without any customer impact. For more information, see [Migrate to Google Cloud](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp).
 
 This document explains how to authenticate and map users with secure identification to Google Security Operations. 
 
@@ -181,6 +181,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

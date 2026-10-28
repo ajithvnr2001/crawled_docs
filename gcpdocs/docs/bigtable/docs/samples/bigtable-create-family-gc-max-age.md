@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-family-gc-max-age/
 title: Maximum age \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:48:01.432421+00:00
+fetched_at: 2026-10-28T00:00:28.819902+00:00
 ---
 
 # Maximum age  |  Bigtable  |  Google Cloud Documentation

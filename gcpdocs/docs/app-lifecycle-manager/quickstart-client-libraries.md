@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/app-lifecycle-manager/quickstart-client-libraries/
-title: Quickstart: Using client libraries \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
+title: App Lifecycle Manager client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:41:58.189713+00:00
+fetched_at: 2026-10-28T02:30:50.548824+00:00
 ---
 
-# Quickstart: Using client libraries  |  App Lifecycle Manager  |  Google Cloud Documentation
+# App Lifecycle Manager client libraries  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/app-lifecycle-manager/quickstart-client-libraries/
 
@@ -15,196 +15,43 @@ We are looking for your feedback on our feature flags capabilities and user expe
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Application hosting ](https://docs.cloud.google.com/docs/application-hosting)
   * [ App Lifecycle Manager ](https://docs.cloud.google.com/app-lifecycle-manager)
+  * [ Reference ](https://docs.cloud.google.com/app-lifecycle-manager/apis)
 
 
 
-Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
+Send feedback 
 
-#  Quickstart: Using client libraries 
+#  App Lifecycle Manager client libraries Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page shows you how to get started with the App Lifecycle Manager API in your favorite programming language.
+This page shows how to get started with the Cloud Client Libraries for the App Lifecycle Manager API. Client libraries make it easier to access Google Cloud APIs from a supported language. Although you can use Google Cloud APIs directly by making raw requests to the server, client libraries provide simplifications that significantly reduce the amount of code you need to write.
 
-## Before you begin
+Read more about the Cloud Client Libraries and the older Google API Client Libraries in [Client libraries explained](https://docs.cloud.google.com/apis/docs/client-libraries-explained).
 
-  1. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
-  2. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
+**Preview**
 
-**Roles required to select or create a project**
+This library is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA libraries are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-     * **Select a project** : Selecting a project doesn't require a specific IAM role—you can select any project that you've been granted a role on. 
-     * **Create a project** : To create a project, you need the Project Creator role (`roles/resourcemanager.projectCreator`), which contains the `resourcemanager.projects.create` permission. [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
-**Note** : If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project.
-
-[Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
-
-  3. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
-
-  4. Enable the App Lifecycle Manager API, if it is not already enabled. 
-
-**Roles required to enable APIs**
-
-To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
-
-[Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=someapi.googleapis.com)
-
-  5. Create a service account: 
-
-     1. Ensure that you have the Create Service Accounts IAM role (`roles/iam.serviceAccountCreator`) and the Project IAM Admin role (`roles/resourcemanager.projectIamAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
-     2. In the Google Cloud console, go to the **Create service account** page. 
-
-[Go to Create service account](https://console.cloud.google.com/projectselector/iam-admin/serviceaccounts/create?supportedpurview=project)
-     3. Select your project. 
-     4. In the **Service account name** field, enter a name. The Google Cloud console fills in the **Service account ID** field based on this name. 
-
-In the **Service account description** field, enter a description. For example, `Service account for quickstart`. 
-
-     5. Click **Create and continue**. 
-     6. Grant the **Project > Owner** role to the service account. 
-
-To grant the role, find the **Select a role** list, then select **Project > Owner**. 
-
-**Note** : The **Role** field affects which resources the service account can access in your project. You can revoke these roles or grant additional roles later. In production environments, do not grant the Owner, Editor, or Viewer roles. Instead, grant a [predefined role](https://docs.cloud.google.com/iam/docs/understanding-roles#predefined_roles) or [custom role](https://docs.cloud.google.com/iam/docs/understanding-custom-roles) that meets your needs. 
-     7. Click **Continue**. 
-     8. Click **Done** to finish creating the service account. 
-
-Do not close your browser window. You will use it in the next step. 
-
-  6. Create a service account key: 
-
-     1. In the Google Cloud console, click the email address for the service account that you created. 
-     2. Click **Keys**. 
-     3. Click **Add key** , and then click **Create new key**. 
-     4. Click **Create**. A JSON key file is downloaded to your computer. 
-     5. Click **Close**. 
-  7. Set the environment variable `GOOGLE_APPLICATION_CREDENTIALS` to the path of the JSON file that contains your credentials. This variable applies only to your current shell session, so if you open a new session, set the variable again. 
-
-**Example:** Linux or macOS
-         
-         export GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
-
-Replace `KEY_PATH` with the path of the JSON file that contains your credentials.
-
-For example:
-         
-         export GOOGLE_APPLICATION_CREDENTIALS="/home/user/Downloads/service-account-file.json"
-
-**Example:** Windows
-
-For PowerShell:
-         
-         $env:GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
-
-Replace `KEY_PATH` with the path of the JSON file that contains your credentials.
-
-For example:
-         
-         $env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\username\Downloads\service-account-file.json"
-
-For command prompt:
-         
-         set GOOGLE_APPLICATION_CREDENTIALS=KEY_PATH
-
-Replace `KEY_PATH` with the path of the JSON file that contains your credentials.
-
-  8. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
-
-**Roles required to select or create a project**
-
-     * **Select a project** : Selecting a project doesn't require a specific IAM role—you can select any project that you've been granted a role on. 
-     * **Create a project** : To create a project, you need the Project Creator role (`roles/resourcemanager.projectCreator`), which contains the `resourcemanager.projects.create` permission. [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
-**Note** : If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project.
-
-[Go to project selector](https://console.cloud.google.com/projectselector2/home/dashboard)
-
-  9. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
-
-  10. Enable the App Lifecycle Manager API, if it is not already enabled. 
-
-**Roles required to enable APIs**
-
-To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
-
-[Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=someapi.googleapis.com)
-
-  11. Create a service account: 
-
-     1. Ensure that you have the Create Service Accounts IAM role (`roles/iam.serviceAccountCreator`) and the Project IAM Admin role (`roles/resourcemanager.projectIamAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
-     2. In the Google Cloud console, go to the **Create service account** page. 
-
-[Go to Create service account](https://console.cloud.google.com/projectselector/iam-admin/serviceaccounts/create?supportedpurview=project)
-     3. Select your project. 
-     4. In the **Service account name** field, enter a name. The Google Cloud console fills in the **Service account ID** field based on this name. 
-
-In the **Service account description** field, enter a description. For example, `Service account for quickstart`. 
-
-     5. Click **Create and continue**. 
-     6. Grant the **Project > Owner** role to the service account. 
-
-To grant the role, find the **Select a role** list, then select **Project > Owner**. 
-
-**Note** : The **Role** field affects which resources the service account can access in your project. You can revoke these roles or grant additional roles later. In production environments, do not grant the Owner, Editor, or Viewer roles. Instead, grant a [predefined role](https://docs.cloud.google.com/iam/docs/understanding-roles#predefined_roles) or [custom role](https://docs.cloud.google.com/iam/docs/understanding-custom-roles) that meets your needs. 
-     7. Click **Continue**. 
-     8. Click **Done** to finish creating the service account. 
-
-Do not close your browser window. You will use it in the next step. 
-
-  12. Create a service account key: 
-
-     1. In the Google Cloud console, click the email address for the service account that you created. 
-     2. Click **Keys**. 
-     3. Click **Add key** , and then click **Create new key**. 
-     4. Click **Create**. A JSON key file is downloaded to your computer. 
-     5. Click **Close**. 
-  13. Set the environment variable `GOOGLE_APPLICATION_CREDENTIALS` to the path of the JSON file that contains your credentials. This variable applies only to your current shell session, so if you open a new session, set the variable again. 
-
-**Example:** Linux or macOS
-         
-         export GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
-
-Replace `KEY_PATH` with the path of the JSON file that contains your credentials.
-
-For example:
-         
-         export GOOGLE_APPLICATION_CREDENTIALS="/home/user/Downloads/service-account-file.json"
-
-**Example:** Windows
-
-For PowerShell:
-         
-         $env:GOOGLE_APPLICATION_CREDENTIALS="KEY_PATH"
-
-Replace `KEY_PATH` with the path of the JSON file that contains your credentials.
-
-For example:
-         
-         $env:GOOGLE_APPLICATION_CREDENTIALS="C:\Users\username\Downloads\service-account-file.json"
-
-For command prompt:
-         
-         set GOOGLE_APPLICATION_CREDENTIALS=KEY_PATH
-
-Replace `KEY_PATH` with the path of the JSON file that contains your credentials.
-
-
-
+**Note:** The App Lifecycle Manager client libraries currently target the `v1beta1` API surface (`google.cloud.saasplatform.saasservicemgmt.v1beta1`).
 
 ## Install the client library
 
 ### C#
 
-For more on setting up your C# development environment, refer to the [C# Development Environment Setup Guide](https://docs.cloud.google.com/dotnet/docs/setup). 
+Install the [`Google.Cloud.SaasPlatform.SaasServiceMgmt.V1Beta1` package](https://www.nuget.org/packages/Google.Cloud.SaasPlatform.SaasServiceMgmt.V1Beta1) from NuGet. Because this package is in preview, include the prerelease flag:
     
     
-    Install-Package Google.Cloud.PubSub.V1 -Pre
+    dotnet add package Google.Cloud.SaasPlatform.SaasServiceMgmt.V1Beta1 --prerelease
+
+For more information, see [Setting Up a C# Development Environment](https://docs.cloud.google.com/dotnet/docs/setup).
 
 ### Go
     
     
-    go get cloud.google.com/go/pubsub
+    go get cloud.google.com/go/saasplatform/saasservicemgmt/apiv1beta1
+
+For more information, see [Setting Up a Go Development Environment](https://docs.cloud.google.com/go/docs/setup).
 
 ### Java
-
-For more on setting up your Java development environment, refer to the [Java Development Environment Setup Guide](https://docs.cloud.google.com/java/docs/setup). 
 
 If you are using [Maven](https://maven.apache.org/), add the following to your `pom.xml` file. For more information about BOMs, see [The Google Cloud Platform Libraries BOM](https://cloud.google.com/java/docs/bom).
     
@@ -214,7 +61,7 @@ If you are using [Maven](https://maven.apache.org/), add the following to your `
         <dependency>
           <groupId>com.google.cloud</groupId>
           <artifactId>libraries-bom</artifactId>
-          <version>26.76.0</version>
+          <version>26.90.0</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>
@@ -224,23 +71,21 @@ If you are using [Maven](https://maven.apache.org/), add the following to your `
     <dependencies>
       <dependency>
         <groupId>com.google.cloud</groupId>
-        <artifactId>google-cloud-pubsub</artifactId>
+        <artifactId>google-cloud-saasservicemgmt</artifactId>
       </dependency>
-    
     </dependencies>
-    
 
 If you are using [Gradle](https://gradle.org/), add the following to your dependencies:
     
     
-    implementation platform('com.google.cloud:libraries-bom:26.80.0')
+    implementation platform('com.google.cloud:libraries-bom:26.90.0')
     
-    implementation 'com.google.cloud:google-cloud-pubsub'
+    implementation 'com.google.cloud:google-cloud-saasservicemgmt'
 
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-pubsub" % "1.150.2"
+    libraryDependencies += "com.google.cloud" % "google-cloud-saasservicemgmt" % "0.29.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 
@@ -253,278 +98,134 @@ The plugins provide additional functionality, such as key management for service
 
 **Note:** Cloud Java client libraries do not currently support Android.
 
+For more information, see [Setting Up a Java Development Environment](https://docs.cloud.google.com/java/docs/setup).
+
 ### Node.js
+    
+    
+    npm install @google-cloud/saasservicemgmt
 
-For more on setting up your Node.js development environment, refer to the [Node.js Development Environment Setup Guide](https://docs.cloud.google.com/nodejs/docs/setup). 
-    
-    
-    npm install @google-cloud/pubsub
-
-### PHP
-    
-    
-    composer require google/cloud-pubsub
+For more information, see [Setting Up a Node.js Development Environment](https://docs.cloud.google.com/nodejs/docs/setup).
 
 ### Python
+    
+    
+    pip install --upgrade google-cloud-saasplatform-saasservicemgmt
 
-For more on setting up your Python development environment, refer to the [Python Development Environment Setup Guide](https://docs.cloud.google.com/python/docs/setup). 
-    
-    
-    pip install --upgrade google-cloud-pubsub
+For more information, see [Setting Up a Python Development Environment](https://docs.cloud.google.com/python/docs/setup).
 
 ### Ruby
-
-For more on setting up your Ruby development environment, refer to the [Ruby Development Environment Setup Guide](https://docs.cloud.google.com/ruby/docs/setup). 
     
     
-    gem install google-cloud-pubsub
+    gem install google-cloud-saas_platform-saas_service_mgmt
 
-## Do something
+For more information, see [Setting Up a Ruby Development Environment](https://docs.cloud.google.com/ruby/docs/setup).
 
-Now you can use App Lifecycle Manager to do something. Run the following code to perform your first something:
+## Set up authentication
+
+To authenticate calls to Google Cloud APIs, client libraries support [Application Default Credentials (ADC)](https://docs.cloud.google.com/docs/authentication/application-default-credentials); the libraries look for credentials in a set of defined locations and use those credentials to authenticate requests to the API. With ADC, you can make credentials available to your application in a variety of environments, such as local development or production, without needing to modify your application code. 
+
+For production environments, the way you set up ADC depends on the service and context. For more information, see [Set up Application Default Credentials](https://docs.cloud.google.com/docs/authentication/provide-credentials-adc).
+
+For a local development environment, you can set up ADC with the credentials that are associated with your Google Account:
+
+  1. [Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI. After installation, [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the Google Cloud CLI by running the following command: 
+         
+         gcloud init
+
+If you're using an external identity provider (IdP), you must first [ sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud). 
+
+  2. If you're using a local shell, then create local authentication credentials for your user account: 
+         
+         gcloud auth application-default login
+
+You don't need to do this if you're using Cloud Shell.
+
+If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [ signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud). 
+
+A sign-in screen appears. After you sign in, your credentials are stored in the [ local credential file used by ADC](https://docs.cloud.google.com/docs/authentication/application-default-credentials#personal). 
+
+
+
+
+## Additional resources
 
 ### C#
 
-For more information, see the [App Lifecycle Manager C# API reference documentation](https://googleapis.github.io/google-cloud-dotnet/docs/Google.Cloud.Translation.V2/index.html). 
+The following list contains links to more resources related to the client library for C#:
 
-To authenticate to App Lifecycle Manager, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
-    
-    
-    using [Google.Cloud.PubSub.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.PubSub.V1/latest/Google.Cloud.PubSub.V1.html);
-    using [Grpc.Core](https://docs.cloud.google.com/dotnet/docs/reference/Grpc.Core/latest/Grpc.Core.html);
-    using System;
-    
-    public class CreateTopicSample
-    {
-        public Topic CreateTopic(string projectId, string topicId)
-        {
-            [PublisherServiceApiClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.PubSub.V1/latest/Google.Cloud.PubSub.V1.PublisherServiceApiClient.html) publisher = [PublisherServiceApiClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.PubSub.V1/latest/Google.Cloud.PubSub.V1.PublisherServiceApiClient.html).[Create](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.PubSub.V1/latest/Google.Cloud.PubSub.V1.PublisherServiceApiClient.html#Google_Cloud_PubSub_V1_PublisherServiceApiClient_Create)();
-            var topicName = [TopicName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.PubSub.V1/latest/Google.Cloud.PubSub.V1.TopicName.html).[FromProjectTopic](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.PubSub.V1/latest/Google.Cloud.PubSub.V1.TopicName.html#Google_Cloud_PubSub_V1_TopicName_FromProjectTopic_System_String_System_String_)(projectId, topicId);
-            [Topic](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.PubSub.V1/latest/Google.Cloud.PubSub.V1.Topic.html) topic = null;
-    
-            try
-            {
-                topic = publisher.[CreateTopic](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.PubSub.V1/latest/Google.Cloud.PubSub.V1.PublisherServiceApiClient.html#Google_Cloud_PubSub_V1_PublisherServiceApiClient_CreateTopic_Google_Cloud_PubSub_V1_Topic_Google_Api_Gax_Grpc_CallSettings_)(topicName);
-                Console.WriteLine($"Topic {topic.[Name](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.PubSub.V1/latest/Google.Cloud.PubSub.V1.Topic.html#Google_Cloud_PubSub_V1_Topic_Name)} created.");
-            }
-            catch ([RpcException](https://docs.cloud.google.com/dotnet/docs/reference/Grpc.Core/latest/Grpc.Core.RpcException.html) e) when (e.[Status](https://docs.cloud.google.com/dotnet/docs/reference/Grpc.Core/latest/Grpc.Core.Status.html).[StatusCode](https://docs.cloud.google.com/dotnet/docs/reference/Grpc.Core/latest/Grpc.Core.StatusCode.html) == [StatusCode](https://docs.cloud.google.com/dotnet/docs/reference/Grpc.Core/latest/Grpc.Core.StatusCode.html).[AlreadyExists](https://docs.cloud.google.com/dotnet/docs/reference/Grpc.Core/latest/Grpc.Core.StatusCode.html#Grpc_Core_StatusCode_AlreadyExists))
-            {
-                Console.WriteLine($"Topic {topicName} already exists.");
-            }
-            return topic;
-        }
-    }
+  * [API reference](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.SaasPlatform.SaasServiceMgmt.V1Beta1/latest)
+  * [Client libraries best practices](https://docs.cloud.google.com/apis/docs/client-libraries-best-practices)
+  * [Issue tracker](https://github.com/googleapis/google-cloud-dotnet/issues)
+  * [`google-cloud-platform` on Stack Overflow](https://stackoverflow.com/search?q=%5Bgoogle-cloud-platform%5D+%5Bc%23%5D)
+  * [Source code](https://github.com/googleapis/google-cloud-dotnet/tree/main/apis/Google.Cloud.SaasPlatform.SaasServiceMgmt.V1Beta1)
+
+
 
 ### Go
 
-For more information, see the [App Lifecycle Manager Go API reference documentation](https://godoc.org/cloud.google.com/go/translate). 
+The following list contains links to more resources related to the client library for Go:
 
-To authenticate to App Lifecycle Manager, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
-    
-    
-    // Sample pubsub-quickstart creates a Google Cloud Pub/Sub topic.
-    package main
-    
-    import (
-    	"context"
-    	"fmt"
-    	"log"
-    
-    	"cloud.google.com/go/pubsub/v2"
-    	"cloud.google.com/go/pubsub/v2/apiv1/pubsubpb"
-    )
-    
-    func main() {
-    	ctx := context.Background()
-    
-    	// Sets your Google Cloud Platform project ID.
-    	projectID := "YOUR_PROJECT_ID"
-    
-    	// Creates a client.
-    	client, err := pubsub.NewClient(ctx, projectID)
-    	if err != nil {
-    		log.Fatalf("Failed to create client: %v", err)
-    	}
-    	defer client.Close()
-    
-    	// Sets the id for the new topic.
-    	topicID := "my-topic"
-    	pbTopic := &pubsubpb.Topic{
-    		Name: fmt.Sprintf("projects/%s/topics/%s", projectID, topicID),
-    	}
-    
-    	// Creates the new topic.
-    	topic, err := client.TopicAdminClient.CreateTopic(ctx, pbTopic)
-    	if err != nil {
-    		log.Fatalf("Failed to create topic: %v", err)
-    	}
-    
-    	fmt.Printf("Topic %v created.\n", topic)
-    }
-    
+  * [API reference](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/saasplatform/latest/saasservicemgmt/apiv1beta1)
+  * [Client libraries best practices](https://docs.cloud.google.com/apis/docs/client-libraries-best-practices)
+  * [Issue tracker](https://github.com/googleapis/google-cloud-go/issues)
+  * [`google-cloud-platform` on Stack Overflow](https://stackoverflow.com/search?q=%5Bgoogle-cloud-platform%5D+%5Bgo%5D)
+  * [Source code](https://github.com/googleapis/google-cloud-go/tree/main/saasplatform/saasservicemgmt/apiv1beta1)
+
+
 
 ### Java
 
-For more information, see the [App Lifecycle Manager Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/overview). 
+The following list contains links to more resources related to the client library for Java:
 
-To authenticate to App Lifecycle Manager, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
-    
-    
-    import com.google.cloud.pubsub.v1.[TopicAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.cloud.pubsub.v1.TopicAdminClient.html);
-    import com.google.pubsub.v1.[Topic](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.pubsub.v1.Topic.html);
-    import com.google.pubsub.v1.[TopicName](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.pubsub.v1.TopicName.html);
-    import java.io.IOException;
-    
-    public class CreateTopicExample {
-      public static void main(String... args) throws Exception {
-        // TODO(developer): Replace these variables before running the sample.
-        String projectId = "your-project-id";
-        String topicId = "your-topic-id";
-    
-        createTopicExample(projectId, topicId);
-      }
-    
-      public static void createTopicExample(String projectId, String topicId) throws IOException {
-        try ([TopicAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.cloud.pubsub.v1.TopicAdminClient.html) topicAdminClient = [TopicAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.cloud.pubsub.v1.TopicAdminClient.html).create()) {
-          [TopicName](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.pubsub.v1.TopicName.html) topicName = [TopicName](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.pubsub.v1.TopicName.html).of(projectId, topicId);
-          [Topic](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.pubsub.v1.Topic.html) topic = topicAdminClient.createTopic(topicName);
-          System.out.println("Created topic: " + topic.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-pubsub/latest/com.google.pubsub.v1.Topic.html#com_google_pubsub_v1_Topic_getName__)());
-        }
-      }
-    }
+  * [API reference](https://docs.cloud.google.com/java/docs/reference/google-cloud-saasservicemgmt/latest/overview)
+  * [Client libraries best practices](https://docs.cloud.google.com/apis/docs/client-libraries-best-practices)
+  * [Issue tracker](https://github.com/googleapis/google-cloud-java/tree/main/java-saasservicemgmt/issues)
+  * [`google-cloud-platform` on Stack Overflow](https://stackoverflow.com/search?q=%5Bgoogle-cloud-platform%5D+%5Bjava%5D)
+  * [Source code](https://github.com/googleapis/google-cloud-java/tree/main/java-saasservicemgmt)
+
+
 
 ### Node.js
 
-For more information, see the [App Lifecycle Manager Node.js API reference documentation](https://docs.cloud.google.com/nodejs/docs/reference/translate/latest). 
+The following list contains links to more resources related to the client library for Node.js:
 
-To authenticate to App Lifecycle Manager, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
-    
-    
-    // Imports the Google Cloud client library
-    const {PubSub} = require('[@google-cloud/pubsub](https://docs.cloud.google.com/nodejs/docs/reference/pubsub/latest/overview.html)');
-    
-    async function quickstart(
-      projectId = 'your-project-id', // Your Google Cloud Platform project ID
-      topicNameOrId = 'my-topic', // Name for the new topic to create
-      subscriptionName = 'my-sub', // Name for the new subscription to create
-    ) {
-      // Instantiates a client
-      const pubsub = new [PubSub](https://docs.cloud.google.com/nodejs/docs/reference/pubsub/latest/pubsub/pubsub.html)({projectId});
-    
-      // Creates a new topic
-      const [topic] = await pubsub.createTopic(topicNameOrId);
-      console.log(`Topic ${topic.name} created.`);
-    
-      // Creates a subscription on that new topic
-      const [subscription] = await topic.createSubscription(subscriptionName);
-    
-      // Receive callbacks for new messages on the subscription
-      subscripti[on](https://docs.cloud.google.com/nodejs/docs/reference/pubsub/latest/pubsub/subscription-interface.html).[on](https://docs.cloud.google.com/nodejs/docs/reference/pubsub/latest/pubsub/subscription-interface.html)('message', message => {
-        console.log('Received message:', message.data.toString());
-        process.exit(0);
-      });
-    
-      // Receive callbacks for errors on the subscription
-      subscripti[on](https://docs.cloud.google.com/nodejs/docs/reference/pubsub/latest/pubsub/subscription-interface.html).[on](https://docs.cloud.google.com/nodejs/docs/reference/pubsub/latest/pubsub/subscription-interface.html)('error', error => {
-        console.error('Received error:', error);
-        process.exit(1);
-      });
-    
-      // Send a message to the topic
-      await topic.[publishMessage](https://docs.cloud.google.com/nodejs/docs/reference/pubsub/latest/pubsub/topic.html)({data: Buffer.[from](https://docs.cloud.google.com/nodejs/docs/reference/pubsub/latest/pubsub/duration.html)('Test message!')});
-    }
+  * [API reference](https://docs.cloud.google.com/nodejs/docs/reference/saasservicemgmt/latest)
+  * [Client libraries best practices](https://docs.cloud.google.com/apis/docs/client-libraries-best-practices)
+  * [Issue tracker](https://github.com/googleapis/google-cloud-node/issues)
+  * [`google-cloud-platform` on Stack Overflow](https://stackoverflow.com/search?q=%5Bgoogle-cloud-platform%5D+%5Bnode.js%5D)
+  * [Source code](https://github.com/googleapis/google-cloud-node/tree/main/packages/google-cloud-saasservicemgmt)
 
-### PHP
 
-For more information, see the [App Lifecycle Manager PHP API reference documentation](https://googleapis.github.io/google-cloud-php/#/docs/latest/translate/translateclient). 
-
-To authenticate to App Lifecycle Manager, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
-    
-    
-    # Includes the autoloader for libraries installed with composer
-    require __DIR__ . '/vendor/autoload.php';
-    
-    # Imports the Google Cloud client library
-    use Google\Cloud\PubSub\PubSubClient;
-    
-    # Your Google Cloud Platform project ID
-    $projectId = 'YOUR_PROJECT_ID';
-    
-    # Instantiates a client
-    $pubsub = new PubSubClient([
-        'projectId' => $projectId
-    ]);
-    
-    # The name for the new topic
-    $topicName = 'my-new-topic-2';
-    
-    # Creates the new topic
-    $topic = $pubsub->createTopic($topicName);
-    
-    echo 'Topic ' . $topic->name() . ' created.';
 
 ### Python
 
-For more information, see the [App Lifecycle Manager Python API reference documentation](https://googleapis.github.io/google-cloud-python/latest/translate/usage.html). 
+The following list contains links to more resources related to the client library for Python:
 
-To authenticate to App Lifecycle Manager, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
-    
-    
-    from google.cloud import pubsub_v1
-    
-    # TODO(developer)
-    # project_id = "your-project-id"
-    # topic_id = "your-topic-id"
-    
-    publisher = pubsub_v1.[PublisherClient](https://docs.cloud.google.com/python/docs/reference/pubsublite/latest/google.cloud.pubsublite.cloudpubsub.publisher_client.PublisherClient.html)()
-    topic_path = publisher.topic_path(project_id, topic_id)
-    
-    topic = publisher.create_topic(request={"name": topic_path})
-    
-    print(f"Created topic: {topic.name}")
+  * [API reference](https://docs.cloud.google.com/python/docs/reference/google-cloud-saasplatform-saasservicemgmt/latest)
+  * [Client libraries best practices](https://docs.cloud.google.com/apis/docs/client-libraries-best-practices)
+  * [Issue tracker](https://github.com/googleapis/google-cloud-python/issues)
+  * [`google-cloud-platform` on Stack Overflow](https://stackoverflow.com/search?q=%5Bgoogle-cloud-platform%5D+%5Bpython%5D)
+  * [Source code](https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-saasplatform-saasservicemgmt)
+
+
 
 ### Ruby
 
-For more information, see the [App Lifecycle Manager Ruby API reference documentation](https://googleapis.dev/ruby/google-cloud-translate/latest/Google/Cloud/Translate.html). 
+The following list contains links to more resources related to the client library for Ruby:
 
-To authenticate to App Lifecycle Manager, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
-    
-    
-    # Imports the Google Cloud client library
-    require "google/cloud/pubsub"
-    
-    # Instantiates a client
-    pubsub = Google::Cloud::PubSub.new
-    topic_admin = pubsub.topic_admin
-    
-    # The name for the new topic
-    # topic_id = "your-topic-id"
-    
-    # Creates the new topic
-    topic = topic_admin.create_topic name: pubsub.topic_path(topic_id)
-    
-    puts "Topic #{topic.name} created."
-
-Congratulations! You've sent your first request to App Lifecycle Manager. 
-
-## How did it go?
-
-It worked!  **Great!** What did you like about the quickstart? What could we have done better?  Let us know!.  I got stuck.  **We're sorry to hear that.** Let us know what went wrong. We'll want to fix it. 
-
-## Clean up
-
-To avoid incurring charges to your Google Account for the resources used in this quickstart: 
-
-  * Use the [Google Cloud console](https://console.cloud.google.com/) to delete your project if you do not need it.
+  * [API reference](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-saas_platform-saas_service_mgmt/latest)
+  * [Client libraries best practices](https://docs.cloud.google.com/apis/docs/client-libraries-best-practices)
+  * [Issue tracker](https://github.com/googleapis/google-cloud-ruby/issues)
+  * [`google-cloud-platform` on Stack Overflow](https://stackoverflow.com/search?q=%5Bgoogle-cloud-platform%5D+%5Bruby%5D)
+  * [Source code](https://github.com/googleapis/google-cloud-ruby/tree/main/google-cloud-saas_platform-saas_service_mgmt)
 
 
-
-## What's next
-
-Find out more about our [App Lifecycle Manager API Client Libraries](https://docs.cloud.google.com/app-lifecycle-manager/docs/reference/libraries). 
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]] 
+Last updated 2026-10-26 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

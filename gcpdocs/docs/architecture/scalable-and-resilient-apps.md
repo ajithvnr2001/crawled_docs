@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/scalable-and-resilient-apps/
 title: Patterns for scalable and resilient apps \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:54.828563+00:00
+fetched_at: 2026-10-28T01:43:31.211066+00:00
 ---
 
 # Patterns for scalable and resilient apps  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/compliance-manager-apply-framework/
 title: Manage frameworks \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:34:13.880146+00:00
+fetched_at: 2026-10-27T20:45:35.645722+00:00
 ---
 
 # Manage frameworks  |  Security Command Center  |  Google Cloud Documentation
@@ -249,7 +249,7 @@ To create a custom framework, run the `gcloud compliance-manager frameworks crea
 
 Replace the following values:
 
-  * `FRAMEWORK`: the unique alphanumeric identifier for framework
+  * `FRAMEWORK`: the unique alphanumeric identifier for the framework
 
   * `ORGANIZATION`: your organization ID
 
@@ -403,7 +403,7 @@ As a best practice, we recommend that you deploy a framework at the organization
 
 **Note:**
 
-  * If you deploy a framework to a folder or project that has Security Health Analytics enabled, you might receive duplicate findings. Compliance Manager uses a different evaluation engine then Security Health Analytics.
+  * If you deploy a framework to a folder or project that has Security Health Analytics enabled, you might receive duplicate findings. Compliance Manager uses a different evaluation engine than Security Health Analytics.
 
 
 
@@ -558,7 +558,7 @@ Alternatively, you can specify a JSON or YAML file that includes the cloud contr
 
 
 
-For example, to deploy a framework that's named `organizations/3589215982/locations/global/frameworks/builtin-aipp` to an existing folder with the folder ID `example-folder` run the following:
+For example, to deploy a framework that's named `organizations/3589215982/locations/global/frameworks/builtin-aipp` to an existing folder with the folder ID `example-folder`, run the following:
     
     
     gcloud compliance-manager framework-deployments create \
@@ -932,20 +932,20 @@ For example, to remove `example-deployment` from organization `3589215982` and s
 
 For information about optional flags, see [gcloud compliance-manager framework-deployments delete](https://docs.cloud.google.com/sdk/gcloud/reference/compliance-manager/framework-deployments/delete).
 
-## Update a framework to a newer release
+## Update a built-in framework to a newer release
 
 Google publishes regular updates to its built-in frameworks as services deploy new features or as new best practices emerge.
 
 You can view the releases of built-in frameworks in the frameworks dashboard in the **Configure** tab or in the framework details page.
 
-Google notifies you in the console and release notes when the following updates occur:
+Google notifies you in the console when the following updates occur:
 
   * Built-in cloud controls are added or removed from a framework.
   * [Built-in cloud controls are updated](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-manage-cloud-controls#update-cloud-control-version).
 
 
 
-To update a framework, complete the following:
+To update a framework that you've deployed, complete the following:
 
   1. In the Google Cloud console, go to the **Compliance** page.
 
@@ -957,12 +957,218 @@ To update a framework, complete the following:
 
   4. On the **Framework details** page, in the **Assigned resources** table, review the **Update status** for any assignments that are identified as **Update available**.
 
-  5. To apply the changes, complete the following:
+  5. Create a list of the updated cloud controls, including their IDs, parameters, and revision IDs, that you want to include in or remove from the updated framework.
+
+  6. To apply the changes, complete the following:
+
+###  Console 
+
+You can use the Google Cloud console to update frameworks by removing and then redeploying the framework. Use the gcloud CLI or the Cloud Security Compliance REST API to update frameworks in place without impacting your findings dashboard and without having to remove and redeploy the framework.
 
      1. Remove the resource assignment.
 
 **Note:** When you remove a resource assignment, Compliance Manager no longer evaluates that resource using that framework. Findings are no longer created.
      2. Redeploy the framework to your resource so that Compliance Manager can resume evaluating the resource and creating findings.
+
+###  CLI 
+
+To update a framework deployment in place, run the `gcloud compliance-manager framework-deployments update` command. To specify the cloud controls and enforcement modes that apply to the framework, use one of the following options:
+
+     * Specify the cloud controls and enforcement modes inline by using the `--cloud-control-metadata` flag. If you use this flag, you must specify all cloud controls and enforcement modes that apply to the framework.
+     * Specify the cloud controls and enforcement modes in a JSON or YAML file. If you use a file, you must specify all cloud controls and enforcement modes that apply to the framework.
+     * Use the `--add-cloud-control-metadata` and `--remove-cloud-control-metadata` flags to add or remove individual cloud controls.
+
+Run the following command:
+    
+    gcloud compliance-manager framework-deployments update \
+       FRAMEWORK_DEPLOYMENT \
+       --location=LOCATION \
+       (--organization=ORGANIZATION | --project=PROJECT_ID) \
+       [--framework-major-revision-id=FRAMEWORK_MAJOR_REVISION_ID] \
+       [--cloud-control-metadata=[cloudControlDetails=CLOUD_CONTROL_DETAILS],[enforcementMode=ENFORCEMENT_MODE] \
+          | [--add-cloud-control-metadata=[cloudControlDetails=CLOUD_CONTROL_DETAILS],[enforcementMode=ENFORCEMENT_MODE]] \
+            [--remove-cloud-control-metadata=[cloudControlDetails=CLOUD_CONTROL_DETAILS],[enforcementMode=ENFORCEMENT_MODE]]] \
+       [--etag=ETAG_ID] \
+       [--async]
+    
+
+Replace the following:
+
+     * `FRAMEWORK_DEPLOYMENT`: the ID of the framework deployment.
+
+     * `LOCATION`: the region that the framework deployment is stored in.
+
+     * `ORGANIZATION` or `PROJECT_ID`: your organization ID or project ID.
+
+     * `FRAMEWORK_MAJOR_REVISION_ID`: the major revision ID of the framework that you want to update to. If you omit this flag, Compliance Manager updates the deployment to the latest major revision of the framework. You can't downgrade to an earlier major revision ID.
+
+     * One of the following:
+
+       * `--cloud-control-metadata=[cloudControlDetails=CLOUD_CONTROL_DETAILS],[enforcementMode=ENFORCEMENT_MODE]`: the list of cloud controls in the framework, with their names, parameters, revision ID, and enforcement mode, in the following format:
+
+       * `CLOUD_CONTROL_DETAILS`: an object that includes the list of cloud control names, parameters, and revision IDs. It uses the following format:
+
+         * `name=NAME`: the full resource name of the cloud control, in the format `organizations/ORGANIZATION_ID/locations/LOCATION/cloudControls/CLOUD_CONTROL_NAME` or `projects/PROJECT_ID/locations/LOCATION/cloudControls/CLOUD_CONTROL_NAME`.
+
+         * `majorRevisionId=MAJOR_REVISION_ID`: the major version of the cloud control.
+
+         * `parameters=PARAMETERS`: the optional parameters that certain cloud controls require.
+
+       * `ENFORCEMENT_MODE`: whether the control is an `AUDIT`, `DETECTIVE`, or `PREVENTIVE` control.
+
+       * `--cloud-control-metadata=PATH_TO_FILE`: the path to a JSON or YAML file that includes the cloud control details and enforcement modes. Expand the following sections to view example JSON and YAML files.
+
+#### Example JSON file
+             
+             [
+                 {
+                   "cloudControlDetails": {
+                     "name": "organizations/3589215982/locations/global/cloudControls/restrict-bucket-region",
+                     "majorRevisionId": 1,
+                     "parameters": [
+                       {
+                         "name": "location",
+                         "parameterValue": {
+                           "stringValue": "us-west"
+                         }
+                       }
+                     ]
+                   },
+                   "enforcementMode": "DETECTIVE"
+                 },
+                 {
+                   "cloudControlDetails": {
+                     "name": "organizations/3589215982/locations/global/cloudControls/enable-binary-authorization",
+                     "majorRevisionId": 2
+                   },
+                   "enforcementMode": "DETECTIVE"
+                 }
+               ]
+                   
+
+#### Example YAML file
+             
+             - cloudControlDetails:
+                   name: organizations/3589215982/locations/global/cloudControls/restrict-bucket-region
+                   majorRevisionId: 1
+                   parameters:
+                   - name: location
+                     parameterValue:
+                       stringValue: us-west
+                 enforcementMode: DETECTIVE
+               - cloudControlDetails:
+                   name: organizations/3589215982/locations/global/cloudControls/enable-binary-authorization
+                   majorRevisionId: 2
+                 enforcementMode: DETECTIVE
+                   
+
+       * `--add-cloud-control-metadata` or `--remove-cloud-control-metadata`: the cloud controls to add or remove from the framework deployment. You can use both flags in the same command. You can use one of the following options to specify more than one cloud control to add or remove:
+
+         * Repeat the flag for each control.
+         * Include the controls inside a JSON list `[ {...}, {...} ]` in a single flag.
+         * Provide a path to a JSON or YAML file that includes a list of controls. Use the same schema as the `--cloud-control-metadata` flag. For example: `--add-cloud-control-metadata=add-controls.yaml --remove-cloud-control-metadata=remove-controls.yaml`.
+     * `ETAG_ID`: the identifier for the current version of the framework deployment, which helps ensure that you're updating the intended version of the framework deployment. If the identifier doesn't match the current version, then the request fails. If you omit this value, then Compliance Manager updates the framework deployment unconditionally.
+
+Optionally, include the `--async` flag to return immediately without waiting for the long-running update operation to complete.
+
+For example, to update `example-deployment` deployed to organization `3589215982` and stored in the `global` location, run the following command:
+    
+    gcloud compliance-manager framework-deployments update \
+       example-deployment \
+       --organization=3589215982 \
+       --location=global \
+       --framework-major-revision-id=7 \
+       --cloud-control-metadata=cloud-control-metadata.yaml \
+       --etag=MTc3NDU4MjM4OTY0MzU5MjQ5OTI=
+    
+
+For information about optional flags, see [gcloud compliance-manager framework-deployments update](https://docs.cloud.google.com/sdk/gcloud/reference/compliance-manager/framework-deployments/update).
+
+###  REST 
+
+To update a framework deployment in place, call the `frameworkDeployments.patch` method (for [organizations](https://docs.cloud.google.com/security-command-center/docs/reference/cloudsecuritycompliance/rest/v1/organizations.locations.frameworkDeployments/patch) or [projects](https://docs.cloud.google.com/security-command-center/docs/reference/cloudsecuritycompliance/rest/v1/projects.locations.frameworkDeployments/patch)). Specify the target major revision ID and all cloud controls and enforcement modes that apply to the framework in `cloudControlMetadata`.
+
+Before using any of the request data, make the following replacements: 
+
+     * RESOURCE_TYPE: the parent resource container type for the framework deployment: `organizations` or `projects`.
+     * RESOURCE_ID: the numeric organization ID or project ID. For example: `3589215982`.
+     * LOCATION: the location of the framework deployment. Supported value: `global`.
+     * FRAMEWORK_DEPLOYMENT: the ID of the framework deployment that you want to update. For example: `example-deployment`.
+     * UPDATE_MASK: optional comma-separated list of fields to overwrite, relative to the `FrameworkDeployment` resource. For example: `framework.majorRevisionId,cloudControlMetadata`. If omitted, all fields are overwritten.
+     * FRAMEWORK_NAME: the resource name of the framework, in the format `organizations/ORGANIZATION_ID/locations/LOCATION/frameworks/FRAMEWORK_ID` or `projects/PROJECT_ID/locations/LOCATION/frameworks/FRAMEWORK_ID`. For example: `organizations/3589215982/locations/global/frameworks/builtin-aipp`.
+     * FRAMEWORK_MAJOR_REVISION_ID: the major revision ID of the framework that you want to update to. If omitted, Compliance Manager updates the deployment to the latest major revision of the framework.
+     * CLOUD_CONTROL_NAME: the full resource name of a cloud control in the framework, in the format `organizations/ORGANIZATION_ID/locations/LOCATION/cloudControls/CLOUD_CONTROL_ID`.
+     * MAJOR_REVISION_ID: the major revision ID of the cloud control.
+     * ENFORCEMENT_MODE: whether the cloud control is an `AUDIT`, `DETECTIVE`, or `PREVENTIVE` control.
+     * ETAG_ID: optional identifier for the current version of the framework deployment to prevent concurrent updates from overwriting each other. For example: `MTc3NDU4MjM4OTY0MzU5MjQ5OTI=`.
+
+HTTP method and URL: 
+    
+    PATCH https://cloudsecuritycompliance.googleapis.com/v1/RESOURCE_TYPE/RESOURCE_ID/locations/LOCATION/frameworkDeployments/FRAMEWORK_DEPLOYMENT?updateMask=UPDATE_MASK
+
+Request JSON body: 
+    
+    {
+      "framework": {
+        "framework": "FRAMEWORK_NAME",
+        "majorRevisionId": "FRAMEWORK_MAJOR_REVISION_ID"
+      },
+      "cloudControlMetadata": [
+        {
+          "cloudControlDetails": {
+            "name": "CLOUD_CONTROL_NAME",
+            "majorRevisionId": "MAJOR_REVISION_ID",
+            "parameters": []
+          },
+          "enforcementMode": "ENFORCEMENT_MODE"
+        }
+      ],
+      "etag": "ETAG_ID"
+    }
+    
+
+To send your request, choose one of these options:
+
+#### curl
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    curl -X PATCH \  
+         -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
+         -H "Content-Type: application/json; charset=utf-8" \  
+         -d @request.json \  
+         "https://cloudsecuritycompliance.googleapis.com/v1/RESOURCE_TYPE/RESOURCE_ID/locations/LOCATION/frameworkDeployments/FRAMEWORK_DEPLOYMENT?updateMask=UPDATE_MASK"
+
+#### PowerShell
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+
+Save the request body in a file named `request.json`, and execute the following command: 
+    
+    $cred = gcloud auth print-access-token  
+    $headers = @{ "Authorization" = "Bearer $cred" }  
+      
+    Invoke-WebRequest `  
+        -Method PATCH `  
+        -Headers $headers `  
+        -ContentType: "application/json; charset=utf-8" `  
+        -InFile request.json `  
+        -Uri "https://cloudsecuritycompliance.googleapis.com/v1/RESOURCE_TYPE/RESOURCE_ID/locations/LOCATION/frameworkDeployments/FRAMEWORK_DEPLOYMENT?updateMask=UPDATE_MASK" | Select-Object -Expand Content
+
+You should receive a JSON response similar to the following:
+    
+    {
+      "name": "organizations/3589215982/locations/global/operations/operation-1726842525305-6228ddb4dca96-78a6db59-f9dd9a24",
+      "done": false
+    }
+    
+
+The response includes the following information:
+
+     * `name`: a unique string identifier for the long-running update operation, which you can use to track the progress of the update.
+     * `done`: a boolean flag set to `false` when the update operation starts, and set to `true` when the update completes.
 
 
 
@@ -1037,6 +1243,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

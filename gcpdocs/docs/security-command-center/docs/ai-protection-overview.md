@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview/
 title: AI Protection overview \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:36:57.977060+00:00
+fetched_at: 2026-10-28T02:30:50.669114+00:00
 ---
 
 # AI Protection overview  |  Security Command Center  |  Google Cloud Documentation
@@ -23,13 +23,9 @@ Send feedback
 
 Standard, Premium, and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-AI Protection helps you manage the security posture of your AI workloads by providing a view of AI security across your Google Cloud environment, and helping you to detect threats and mitigate risks to your AI inventory. This document provides an overview of AI Protection that includes its benefits and several key concepts.
+AI Protection helps you manage the security posture of your AI workloads across your Google Cloud environment. You can use it to gain visibility into your AI inventory, detect threats, and mitigate risks to your AI systems.
 
-AI Protection is available with organization-level and project-level activations of Security Command Center.
-
-When you activate Security Command Center at the organization level, the **AI Security** dashboard and **AI Security** views in console pages display data that is aggregated from all projects and resources within the organization.
-
-When you activate Security Command Center at the project level, the **AI Security** dashboard and views on console pages display data that is related to resources in the selected project.
+AI Protection is available with organization-level and project-level activations of Security Command Center. Based on your activation scope, the **AI Security** dashboard in the Google Cloud console shows aggregated data across all projects and resources or data for the selected project.
 
 ## Capabilities of AI Protection
 
@@ -271,6 +267,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

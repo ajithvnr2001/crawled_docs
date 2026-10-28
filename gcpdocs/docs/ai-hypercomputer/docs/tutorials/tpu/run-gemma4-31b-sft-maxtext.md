@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/run-gemma4-31b-sft-maxtext/
 title: Run SFT for Gemma 4 31B on multi-host TPU v6e \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:54.578351+00:00
+fetched_at: 2026-10-27T19:53:41.732069+00:00
 ---
 
 # Run SFT for Gemma 4 31B on multi-host TPU v6e  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -118,13 +118,14 @@ Replace the following:
   * `YOUR_PROJECT_ID`: the ID of your Google Cloud project.
   * `YOUR_REGION`: the region where your TPU reservation is located and where you deploy your cluster.
   * `YOUR_ZONE`: the zone where your TPU reservation is located and where you deploy your cluster.
+  * `YOUR_CLUSTER_NAME`: the name of your GKE cluster. The name must start with a lowercase letter, contain only lowercase letters, numbers, and hyphens, and be 20 characters or fewer, so that service account IDs based on this stay within the 30-character limit.
   * `YOUR_BUCKET_NAME`: a globally unique name for a Cloud Storage bucket.
   * `YOUR_RESERVATION_NAME`: the name of your TPU v6e reservation.
   * `YOUR_HF_TOKEN`: your Hugging Face access token.
 
 
 
-By default, the script sets `MODEL_NAME` to `gemma4-31b` (the MaxText model name for `google/gemma-4-31b-it`) and `CLUSTER_NAME` to `gke-tpu-v6e`. If you customize `CLUSTER_NAME`, the name must start with a lowercase letter, contain only lowercase letters, numbers, and hyphens, and be 20 characters or fewer so that generated service account IDs stay within the 30-character limit.
+By default, the script sets `MODEL_NAME` to `gemma4-31b` (the MaxText model name for `google/gemma-4-31b-it`).
 
 ## Install Cluster Toolkit dependencies
 
@@ -352,6 +353,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

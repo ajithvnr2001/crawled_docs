@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/container/clusters/update/
 title: gcloud alpha container clusters update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T15:47:26.988717+00:00
+fetched_at: 2026-10-27T21:41:19.674698+00:00
 ---
 
 # gcloud alpha container clusters update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -560,6 +560,9 @@ The `--tier` flag is deprecated. More info: <https://cloud.google.com/kubernetes
 
 `--update-addons`=[`ADDON`=`ENABLED`|`DISABLED`,…]
      Cluster addons to enable or disable. Options are HorizontalPodAutoscaling=ENABLED|DISABLED HttpLoadBalancing=ENABLED|DISABLED KubernetesDashboard=ENABLED|DISABLED Istio=ENABLED|DISABLED BackupRestore=ENABLED|DISABLED NetworkPolicy=ENABLED|DISABLED CloudRun=ENABLED|DISABLED CloudBuild=ENABLED|DISABLED ConfigConnector=ENABLED|DISABLED NodeLocalDNS=ENABLED|DISABLED GcePersistentDiskCsiDriver=ENABLED|DISABLED GcpFilestoreCsiDriver=ENABLED|DISABLED GcsFuseCsiDriver=ENABLED|DISABLED NodeReadinessController=ENABLED|DISABLED 
+
+The ConfigConnector add-on lags behind the latest open-source release by 12 months or more. For the latest version, CustomResourceDefinition of Google Cloud resources, and independent upgrades, install the self-managed Config Connector Operator instead: <https://cloud.google.com/config-connector/docs/how-to/install-manually#switch-add-on>. 
+
 `--update-labels`=[`KEY`=`VALUE`,…]
      Labels to apply to the Google Cloud resources in use by the Kubernetes Engine cluster. These are unrelated to Kubernetes labels. 
 
@@ -1277,6 +1280,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

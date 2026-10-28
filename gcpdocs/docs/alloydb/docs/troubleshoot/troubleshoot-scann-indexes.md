@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/troubleshoot-scann-indexes/
 title: Troubleshoot ScaNN index errors \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:29.223346+00:00
+fetched_at: 2026-10-28T02:16:26.831389+00:00
 ---
 
 # Troubleshoot ScaNN index errors  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -38,7 +38,6 @@ When you try to generate an index on a table with no data, or if you try to trun
   * Query Example A
         
         create table t1 (a INT, b VECTOR(512));
-        CREATE TABLE
         create index on t1 using ScaNN(b cosine) with (num_leaves = 10, quantizer = 'sq8');
         
 
@@ -53,7 +52,7 @@ When you try to generate an index on a table with no data, or if you try to trun
 ### Recommended fix
 
   * Before you generate a ScaNN index, make sure that your table is populated with embedding vectors.
-  * To create an index on a table with no data, you can enable deferred index creation. For more information, see [Create a deferred index for empty or nearly empty tables](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index#deferred-index-creation-for-empty-or-nearly-empty-tables).
+  * To create an index on a table with no data, you can enable deferred index creation. For more information, see [Create a deferred index for empty or nearly empty tables](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index#deferred-index-creation-for-empty-tables-insufficient-rows).
 
 
 
@@ -71,9 +70,7 @@ When you try to generate an index on a table with few rows populated, the follow
     
     
     create table t1 (a INT, b VECTOR(512));
-    CREATE TABLE
     insert into t1 select (random()*1e9)::int, random_vector(512) from generate_series(1, 5);
-    INSERT 0 5
     create index on t1 using scann(b cosine) with (num_leaves = 100, quantizer = 'sq8');
     
 
@@ -82,7 +79,7 @@ When you try to generate an index on a table with few rows populated, the follow
   * Before you generate a ScaNN index, make sure that your table is populated with embedding vectors. The required number of rows depends on the index creation mode: 
     * For `AUTO` mode, we recommend at least 10,000 rows.
     * For `MANUAL` mode, we recommend that the number of rows in the table is greater than the value defined in the `num_leaves` parameter.
-  * To create an index on a table with an insufficient number of rows, you can enable deferred index creation. For more information, see [Create a deferred index for empty or nearly empty tables](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index#deferred-index-creation-for-empty-or-nearly-empty-tables).
+  * To create an index on a table with an insufficient number of rows, you can enable deferred index creation. For more information, see [Create a deferred index for empty or nearly empty tables](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index#deferred-index-creation-for-empty-tables-insufficient-rows).
 
 
 
@@ -90,7 +87,7 @@ When you try to generate an index on a table with few rows populated, the follow
 
 ### Description
 
-This error happened because ScaNN (and most ANN indexes like IVFFlat) needs a training set to build its internal structures (clusters/leaves). When you insert exactly one row , you get the following error:
+This error happened because ScaNN (and most ANN indexes like IVFFlat) needs a training set to build its internal structures (clusters/leaves). When you insert exactly one row, you get the following error:
     
     
     ERROR: Cannot create ScaNN index "[INDEX_NAME]" for table "[TABLE_NAME]", error: INVALID_ARGUMENT: Number of samples "[NUM_SAMPLES]" must be larger than 1 and the number of leaves "[NUM_LEAVES]"
@@ -100,9 +97,7 @@ This error happened because ScaNN (and most ANN indexes like IVFFlat) needs a tr
     
     
     create table t1 (a INT, b VECTOR(512));
-    CREATE TABLE
     insert into t1 select (random()*1e9)::int, random_vector(512) from generate_series(1, 1);
-    INSERT 0 1
     create index on t1 using scann(b cosine) with (num_leaves = 1, quantizer = 'sq8');
     
 
@@ -152,15 +147,10 @@ If you created partitioned tables from a parent table, then creating a ScaNN ind
     
     
     create table t1 (a INT, b VECTOR(512)) partition by range(a);
-    CREATE TABLE
     CREATE TABLE t1_one_ten PARTITION of t1 for values from (1) to (10);
-    CREATE TABLE
     insert into t1_one_ten select (random()*1e9)::int, random_vector(512) from generate_series(1, 100);
-    INSERT 0 100
     CREATE TABLE t1_eleven_twenty PARTITION of t1 for values from (11) to (20);
-    CREATE TABLE
     insert into t1_eleven_twenty select (random()*1e9)::int, random_vector(512) from generate_series(1, 100);
-    INSERT 0 100
     
     create index on t1 using scann(b cosine) with (num_leaves = 10, quantizer = 'sq8');
     
@@ -177,6 +167,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-catalog/docs/samples/data-catalog-update-entry/
 title: Update entry \u00a0|\u00a0 Data Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:54:39.353285+00:00
+fetched_at: 2026-10-28T00:01:49.514473+00:00
 ---
 
 # Update entry  |  Data Catalog  |  Google Cloud Documentation

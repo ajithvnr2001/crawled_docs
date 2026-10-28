@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/marketplace/docs/partners/offers/modify-offer/
 title: Modify a published offer \u00a0|\u00a0 Google Cloud Marketplace Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:45:40.721677+00:00
+fetched_at: 2026-10-27T21:39:15.008742+00:00
 ---
 
 # Modify a published offer  |  Google Cloud Marketplace Partners  |  Google Cloud Documentation
@@ -58,7 +58,7 @@ The replacement offer starts immediately when it's purchased and approved.
 
 For replacement offers, you can modify certain pricing details based on the pricing model your current offer uses:
 
-  * If your current pricing model is **CUD** , you can modify the commitment and discount percentage. You can't change the type of CUD model (_Commitment discount with additional usage at list price_ or _Commitment with all usage discounted_) or the plan.
+  * If your current pricing model is **CUD** , you can modify the commitment and discount percentage. If the offer has a monthly, quarterly, or annual billing frequency, the new commitment must be equal to or higher than the current offer's commitment. You can't change the type of CUD model (_Commitment discount with additional usage at list price_ or _Commitment with all usage discounted_) or the plan.
 
   * If your current pricing model is **Usage only** , you can modify the discount percentage, or replace the model with a **CUD** model.
 
@@ -105,6 +105,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

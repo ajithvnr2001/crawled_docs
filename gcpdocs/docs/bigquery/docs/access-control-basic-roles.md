@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/access-control-basic-roles/
 title: Basic roles and permissions \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:53.616614+00:00
+fetched_at: 2026-10-27T19:38:22.278943+00:00
 ---
 
 # Basic roles and permissions  |  BigQuery  |  Google Cloud Documentation
@@ -92,7 +92,7 @@ The [BigQuery Data Editor](https://docs.cloud.google.com/bigquery/docs/access-co
 
 A dataset must have at least one entity with the `OWNER` role. A user with the `OWNER` role can't remove their own `OWNER` role. The [BigQuery Data Owner](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataOwner) (`roles/bigquery.dataOwner`) predefined IAM role is mapped to the `OWNER` BigQuery basic role. When you grant BigQuery Data Owner to a principal at the dataset level, the principal is granted `OWNER` access to the dataset.  
   
-For more information on assigning roles at the dataset level, see [Controlling access to datasets](https://docs.cloud.google.com/bigquery/docs/dataset-access-controls).
+For more information on assigning roles at the dataset level, see [Work with dataset access controls](https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam#work_with_dataset_access_controls).
 
 When you create a new dataset, BigQuery adds default dataset access for the following entities. Roles that you specify on dataset creation overwrite the default values.
 
@@ -107,6 +107,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

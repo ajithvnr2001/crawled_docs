@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/preview/compute/network-endpoint-groups/create/
 title: gcloud preview compute network-endpoint-groups create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:17:17.988287+00:00
+fetched_at: 2026-10-27T21:40:47.433681+00:00
 ---
 
 # gcloud preview compute network-endpoint-groups create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud preview compute network-endpoint-groups create - create a Compute Engine 
 SYNOPSIS
     
 
-`gcloud preview compute network-endpoint-groups create` `NAME` [`--default-port`=`DEFAULT_PORT`] [`--network`=`NETWORK`] [`--network-endpoint-type`=`NETWORK_ENDPOINT_TYPE`; default="gce-vm-ip-port"] [`--producer-port`=`PRODUCER_PORT`] [`--psc-target-service`=`PSC_TARGET_SERVICE`] [`--subnet`=`SUBNET`] [`--cloud-function-name`=`CLOUD_FUNCTION_NAME` `--cloud-function-url-mask`=`CLOUD_FUNCTION_URL_MASK` | `--cloud-run-service`=`CLOUD_RUN_SERVICE` `--cloud-run-tag`=`CLOUD_RUN_TAG` `--cloud-run-url-mask`=`CLOUD_RUN_URL_MASK` | `--[no-]app-engine-app` `--app-engine-service`=`APP_ENGINE_SERVICE` `--app-engine-url-mask`=`APP_ENGINE_URL_MASK` `--app-engine-version`=`APP_ENGINE_VERSION`] [`--global` | `--region`=`REGION` | `--zone`=`ZONE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud preview compute network-endpoint-groups create` `NAME` [`--default-port`=`DEFAULT_PORT`] [`--network`=`NETWORK`] [`--network-attachment`=`NETWORK_ATTACHMENT`] [`--network-endpoint-type`=`NETWORK_ENDPOINT_TYPE`; default="gce-vm-ip-port"] [`--producer-port`=`PRODUCER_PORT`] [`--psc-target-service`=`PSC_TARGET_SERVICE`] [`--service-class-id`=`SERVICE_CLASS_ID`] [`--subnet`=`SUBNET`] [`--cloud-function-name`=`CLOUD_FUNCTION_NAME` `--cloud-function-url-mask`=`CLOUD_FUNCTION_URL_MASK` | `--cloud-run-service`=`CLOUD_RUN_SERVICE` `--cloud-run-tag`=`CLOUD_RUN_TAG` `--cloud-run-url-mask`=`CLOUD_RUN_URL_MASK` | `--[no-]app-engine-app` `--app-engine-service`=`APP_ENGINE_SERVICE` `--app-engine-url-mask`=`APP_ENGINE_URL_MASK` `--app-engine-version`=`APP_ENGINE_VERSION`] [`--global` | `--region`=`REGION` | `--zone`=`ZONE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(PREVIEW)` Create a Compute Engine network endpoint group. 
 EXAMPLES
@@ -64,6 +64,11 @@ This is only supported for NEGs with endpoint type `gce-vm-ip-port`, `non-gcp-pr
 
 For Private Service Connect NEGs, you can optionally specify --network and \--subnet if --psc-target-service points to a published service. If \--psc-target-service points to the regional service endpoint of a Google API, do not specify --network or --subnet. 
 
+`--network-attachment`=`NETWORK_ATTACHMENT`
+     URL of the network attachment that this network endpoint group belongs to. Must be specified in the format: `projects/{project}/regions/{region}/networkAttachments/{network_attachment_name}`. 
+
+This flag is only supported for zonal NEGs with endpoint type `gce-vm-ip`. 
+
 `--network-endpoint-type`=`NETWORK_ENDPOINT_TYPE`; default="gce-vm-ip-port"
      Determines the spec of endpoints attached to this group. 
 
@@ -96,6 +101,11 @@ This flag is not supported for NEGs with endpoint type other than `private-servi
 
 `--psc-target-service`=`PSC_TARGET_SERVICE`
      PSC target service name to add to the private service connect network endpoint groups (NEG). 
+`--service-class-id`=`SERVICE_CLASS_ID`
+     Service class ID associated with this network endpoint group. 
+
+This flag is only supported for zonal NEGs with endpoint type `gce-vm-ip`. 
+
 `--subnet`=`SUBNET`
      Name of the subnet to which all network endpoints belong. 
 
@@ -191,6 +201,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

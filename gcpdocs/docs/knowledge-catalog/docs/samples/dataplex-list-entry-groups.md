@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/samples/dataplex-list-entry-groups/
 title: List entry groups \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:53.822654+00:00
+fetched_at: 2026-10-27T20:45:57.721645+00:00
 ---
 
 # List entry groups  |  Knowledge Catalog  |  Google Cloud Documentation

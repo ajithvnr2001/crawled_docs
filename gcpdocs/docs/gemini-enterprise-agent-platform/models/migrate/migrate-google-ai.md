@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/migrate-google-ai/
 title: Migrate from Google AI Studio to Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:23.753993+00:00
+fetched_at: 2026-10-28T02:29:07.247084+00:00
 ---
 
 # Migrate from Google AI Studio to Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -50,7 +50,7 @@ No-cost usage of API & SDK | Yes, [where applicable](https://ai.google.dev/gemin
 Quota (requests per minute) | Varies based on model and pricing plan (see [detailed information](https://ai.google.dev/pricing))  | Varies based on model and region (see [detailed information](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas))   
 Commercial terms | Standard Terms of Service. Doesn't count toward Google Cloud commitments. All customers pay the same price. | Enterprise-ready terms for data processing, security, and privacy. Counts toward Google Cloud commitments. Custom contracts and discounts available for large volume workloads (contact sales).  
 Enterprise support and SLA | No enterprise-level support or Service Level Agreements (SLAs). | 24/7 enterprise-level support and SLAs for service availability.  
-Compliance and governance | No compliance certifications (for example, HIPAA, SOC2). Regulated customers should use Gemini Enterprise Agent Platform instead. | Supports compliance with certifications like HIPAA and SOC2. Provides data residency, customer-managed encryption keys, and Access Transparency.  
+Compliance and governance | No compliance certifications (for example, HIPAA, SOC2). Regulated customers should use Gemini Enterprise Agent Platform instead. | Supports compliance with certifications like HIPAA and SOC2. Provides data residency, Customer-managed encryption keys, and Access Transparency.  
 Security | API key authentication. | Authentication using IAM (service accounts, OAuth) for increased security. Enhanced security through Virtual Private Cloud.  
 Infrastructure | Global endpoint. | Global endpoint and regional endpoints.  
 Dedicated capacity | No access to dedicated capacity. | Access to Provisioned Throughput for dedicated capacity.  
@@ -62,7 +62,7 @@ Google model improvement |
 
 | Your prompts, responses, and data are never used to improve Google products.  
 Advanced features | Standard feature set. | Full support for features like model tuning and a wider variety of embedding models.  
-MLOps | No | Full MLOps on Gemini Enterprise Agent Platform (examples: model evaluation, Model Monitoring, Model Registry)  
+MLOps | No | Full MLOps on Gemini Enterprise Agent Platform (examples: model evaluation, Gemini Enterprise Agent Platform Model Monitoring, Model Registry)  
   
 ## Enable APIs
 
@@ -155,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workforce-sign-in-okta/
 title: Configure Workforce Identity Federation with Okta and sign in users \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:20:10.408923+00:00
+fetched_at: 2026-10-27T18:47:57.118993+00:00
 ---
 
 # Configure Workforce Identity Federation with Okta and sign in users  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -60,8 +60,8 @@ To create the workforce identity pool, run the following command:
     
     gcloud iam workforce-pools create WORKFORCE_POOL_ID \
         --organization=ORGANIZATION_ID \
-        --display-name="DISPLAY_NAME" \
-        --description="DESCRIPTION" \
+        --display-name=&quot;DISPLAY_NAME" \
+        --description=&quot;DESCRIPTION" \
         --session-duration=SESSION_DURATION \
         --location=global
     
@@ -545,10 +545,10 @@ To create a workforce identity pool provider for your Okta app integration, usin
   2. To create a workforce provider for your Okta app, run the following command:
          
          gcloud iam workforce-pools providers create-saml WORKFORCE_PROVIDER_ID \
-             --workforce-pool="WORKFORCE_POOL_ID" \
+             --workforce-pool=&quot;WORKFORCE_POOL_ID" \
              --attribute-mapping="ATTRIBUTE_MAPPING" \
              --attribute-condition="ATTRIBUTE_CONDITION" \
-             --vendor-type="okta" \
+             --vendor-type=&quot;okta" \
              --idp-metadata-path="XML_METADATA_PATH" \
              --detailed-audit-logging \
              --location="global"
@@ -616,7 +616,7 @@ After the key pair is created, to download the public key into a certificate fil
         --workforce-pool WORKFORCE_POOL_ID \
         --provider WORKFORCE_PROVIDER_ID \
         --location global \
-        --format "value(keyData.key)" \
+        --format "value(keyData.key)"; \
         > CERTIFICATE_PATH
 
 Replace the following: 
@@ -895,13 +895,13 @@ The login configuration file content looks similar to the following:
     
     
     {
-      "universe_domain": "googleapis.com",
-      "universe_cloud_web_domain": "cloud.google",
+      "universe_domaigoogleapis.comn": "",
+      "univcloud.googleerse_cloud_web_domain": "",
       "type": "external_account_authorized_user_login_config",
-      "audience": "//iam.googleapis.com/locations/global/workforcePools/WORKFORCE_POOL_ID/providers/WORKFORCE_PROVIDER_ID",
-      "auth_url": "https://auth.cloud.google/authorize",
-      "token_url": "https://sts.googleapis.com/v1/oauthtoken",
-      "token_info_url": "https://sts.googleapis.com/v1/introspect"
+      "audience": &quot;//iam.googleapis.com/locations/global/workforcePools/WORKFcloud.googleORCE_POOL_ID/providers/WORKFORCE_PROVIDERgoogleapis.com_ID",
+      "auth_url": "https://agoogleapis.comuth./authorize",
+      "token_url": "https://sts./v1/oauthtoken",
+      "token_info_url": "https://sts./v1/introspect"
     }
 
 **Caution:** We recommend that you first ensure that the contents of this file are correct and then safeguard the file—for example, by making it read-only and restricting access with an ACL. The file isn't validated; a malicious actor with write access to this file can change the endpoints and intercept credentials. 
@@ -1020,7 +1020,7 @@ When you run the command, it produces an OIDC IdP config file that is formatted 
       "type": "external_account",
       "audience": "//iam.googleapis.com/locations/global/workforcePools/WORKFORCE_POOL_ID/providers/WORKFORCE_PROVIDER_ID",
       "subject_token_type": "urn:ietf:params:oauth:token-type:id_token",
-      "token_url": "https://sts.googleapis.com/v1/token",
+      "token_url": &quot;https://sts.googleapis.com/v1/token",
       "workforce_pool_user_project": "WORKFORCE_POOL_USER_PROJECT",
       "credential_source": {
         "file": "PATH_TO_OIDC_CREDENTIALS_FILE"
@@ -1061,7 +1061,7 @@ The configuration file that is generated looks similar to the following:
       "audience": "//iam.googleapis.com/locations/global/workforcePools/WORKFORCE_POOL_ID/providers/WORKFORCE_PROVIDER_ID",
       "subject_token_type": "urn:ietf:params:oauth:token-type:saml2",
       "token_url": "https://sts.googleapis.com/v1/token",
-      "credential_source": {
+      "credential_source&quot;: {
         "file": "SAML_ASSERTION_PATH"
       },
       "workforce_pool_user_project": "PROJECT_ID"
@@ -1119,7 +1119,7 @@ You now have access to Google Cloud services that support Workforce Identity Fed
 To list Cloud Storage buckets and objects for the project that you have access to, run the following command:
     
     
-    gcloud storage ls --project="TEST_PROJECT_ID"
+    gcloud storage ls --project=&quot;TEST_PROJECT_ID"
     
 
 The principal must have the `serviceusage.services.use` permission on the specified project.
@@ -1155,6 +1155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

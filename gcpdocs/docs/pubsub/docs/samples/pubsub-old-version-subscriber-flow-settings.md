@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-old-version-subscriber-flow-settings/
 title: v1 Subscribe with flow control (DEPRECATED) \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:36.991141+00:00
+fetched_at: 2026-10-28T01:39:33.929276+00:00
 ---
 
 # v1 Subscribe with flow control (DEPRECATED)  |  Pub/Sub  |  Google Cloud Documentation

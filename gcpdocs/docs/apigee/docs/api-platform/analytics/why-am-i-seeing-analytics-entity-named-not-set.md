@@ -1,14 +1,39 @@
 ---
 url: https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/
 title: What does an analytics entity value \"(not set)\" mean? \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T10:35:00.411840+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T17:59:08.578227+00:00
 ---
 
 # What does an analytics entity value "(not set)" mean?  |  Apigee  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/
 
+[ Skip to main content ](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/)
+  * [Deutsch](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=de)
+  * [Español](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=it)
+  * [Português](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/apigee/docs/api-platform/analytics/why-am-i-seeing-analytics-entity-named-not-set/?hl=ko)
+
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/apigee-color.svg) ](https://docs.cloud.google.com/apigee/docs)
+  * [ Apigee ](https://docs.cloud.google.com/apigee/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Application development ](https://docs.cloud.google.com/docs/application-development)
@@ -16,37 +41,24 @@ fetched_at: 2026-10-24T10:35:00.411840+00:00
   * [ Guides ](https://docs.cloud.google.com/apigee/docs/api-platform/get-started/what-apigee)
 
 
-
 Send feedback 
-
-#  What does an analytics entity value "(not set)" mean? Stay organized with collections  Save and categorize content based on your preferences. 
-
+#  What does an analytics entity value "(not set)" mean? Stay organized with collections  Save and categorize content based on your preferences.
 _This page applies to**Apigee** and **Apigee hybrid**._
-
 _View[ Apigee Edge](https://docs.apigee.com/api-platform/get-started/what-apigee-edge) documentation._ ![](https://fonts.gstatic.com/s/i/googlematerialicons/help/v13/gm_grey-24dp/1x/gm_help_gm_grey_24dp.png)
-
 As you review your analytics, you may see an entity value of (not set) displayed, including the parenthesis, for your **API Proxies** , **Product** , **Developer** , **Developer Apps** and other dimensions. This may or may not be an issue.
-
 Oftentimes, `(not set)` means **Apigee doesn't have enough information**. For example, developer apps are associated with developers, API products, and by extension API proxies. When a developer app makes an API call with an API key or OAuth token, all those associations are made in analytics. However, if an API proxy is open and doesn't require an API key, Apigee has no way of knowing if there is a developer, developer app, or product associated with the API call.
-
 Other times, `(not set)` could mean **doesn't apply**. For example, the "Flow Name on Error" dimension shows the named API proxy flows where errors occurred. In that case, all non-error calls will be shown as `(not set)` because there was no error in the calls.
-
-The following table summarizes possible explanations for why you are seeing (not set) on a particular dimensions.
-
-Dimension | Possible Meaning of "(not set)"  
----|---  
-API Proxy | A call to an API proxy reached the Apigee routers, but was malformed, never reached the proxy, and the message processor returned a 404 status code with a classification error. This means that there are some callers that are making malformed calls.  
-API Product | Not all of your API proxies and developer apps are using products. For information about how to get your API proxies and developer apps to use products, see [Managing API products](https://docs.cloud.google.com/apigee/docs/api-platform/publish/create-api-products).  
-AppGroup | Not all of your API proxies and developer apps are using AppGroups. For information on AppGroups, see [ Using AppGroups to organize app ownership](https://docs.cloud.google.com/apigee/docs/api-platform/publish/organizing-client-app-ownership#using-appgroups-to-organize-app-ownership).  
-AppGroup app | Not all of your API proxies and developer apps are using AppGroups. For information on AppGroups, see [ Using AppGroups to organize app ownership](https://docs.cloud.google.com/apigee/docs/api-platform/publish/organizing-client-app-ownership#using-appgroups-to-organize-app-ownership).  
-Developer | Some of your traffic is being generated by unregistered developers. This traffic may originate with an internal-use or public API. For information about how to register your app developers, see [Registering app developers](https://docs.cloud.google.com/apigee/docs/api-platform/publish/adding-developers-your-api-product).  
-Developer Apps | Some of your traffic is being generated by unregistered apps. This traffic may originate with an internal-use or public API. For information about how to register your developers' apps, see [Registering apps and managing API keys](https://docs.cloud.google.com/apigee/docs/api-platform/publish/creating-apps-surface-your-api).  
-Target IP | Apigee cannot determine the target IP address at this time. Possible causes include use of proxy chaining or API proxies designed to handle requests and generate responses entirely within the proxy flow, without calling a target server.  
-  
+The following table summarizes possible explanations for why you are seeing (not set) on a particular dimensions.  
+| Dimension  | Possible Meaning of "(not set)"  |  
+| --- | --- |  
+| API Proxy  | A call to an API proxy reached the Apigee routers, but was malformed, never reached the proxy, and the message processor returned a 404 status code with a classification error. This means that there are some callers that are making malformed calls.  |  
+| API Product  | Not all of your API proxies and developer apps are using products. For information about how to get your API proxies and developer apps to use products, see [Managing API products](https://docs.cloud.google.com/apigee/docs/api-platform/publish/create-api-products).  |  
+| AppGroup  | Not all of your API proxies and developer apps are using AppGroups. For information on AppGroups, see [ Using AppGroups to organize app ownership](https://docs.cloud.google.com/apigee/docs/api-platform/publish/organizing-client-app-ownership#using-appgroups-to-organize-app-ownership).  |  
+| AppGroup app  | Not all of your API proxies and developer apps are using AppGroups. For information on AppGroups, see [ Using AppGroups to organize app ownership](https://docs.cloud.google.com/apigee/docs/api-platform/publish/organizing-client-app-ownership#using-appgroups-to-organize-app-ownership).  |  
+| Developer  | Some of your traffic is being generated by unregistered developers. This traffic may originate with an internal-use or public API. For information about how to register your app developers, see [Registering app developers](https://docs.cloud.google.com/apigee/docs/api-platform/publish/adding-developers-your-api-product).  |  
+| Developer Apps  | Some of your traffic is being generated by unregistered apps. This traffic may originate with an internal-use or public API. For information about how to register your developers' apps, see [Registering apps and managing API keys](https://docs.cloud.google.com/apigee/docs/api-platform/publish/creating-apps-surface-your-api).  |  
+| Target IP  | Apigee cannot determine the target IP address at this time. Possible causes include use of proxy chaining or API proxies designed to handle requests and generate responses entirely within the proxy flow, without calling a target server.  |  
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-24 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

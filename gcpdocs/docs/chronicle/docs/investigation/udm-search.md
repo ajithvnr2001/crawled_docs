@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/investigation/udm-search/
 title: Understand search \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:44:16.390649+00:00
+fetched_at: 2026-10-28T00:20:38.522108+00:00
 ---
 
 # Understand search  |  Google Security Operations  |  Google Cloud Documentation
@@ -171,6 +171,7 @@ For information about the different types of queries that the **SIEM Search** pa
   * For information about constructing Join queries, see [Apply joins in search and dashboards](https://docs.cloud.google.com/chronicle/docs/investigation/search-joins) and [Implement joins without a match section](https://docs.cloud.google.com/chronicle/docs/investigation/joins-without-match-section). 
   * For information about constructing statistical (STATS) queries, see [Analyze search data with statistics](https://docs.cloud.google.com/chronicle/docs/investigation/statistics-aggregations-in-udm-search).
   * For information about constructing Case History queries, see [Search cases and case history from the Search page](https://docs.cloud.google.com/chronicle/docs/investigation/search-and-search-case-history).
+  * For information about projecting or excluding specific fields in query results, see Control query output with `select` and `unselect` and [Control columns with select and unselect keywords](https://docs.cloud.google.com/chronicle/docs/investigation/select-unselect).
 
 
 
@@ -289,6 +290,62 @@ To globally manage how Google SecOps displays automatic suggestions, do the foll
      * **Suggest immediate child fields** : Completes nested fields incrementally, one child node at a time.
      * **Suggest all available paths** : Displays the full, expanded paths for all nested field suggestions.
   4. Click **Save**.
+
+
+
+
+### Control query output with `select` and `unselect`
+
+You can use the `select` and `unselect` keywords in a YARA-L 2.0 search query to project or exclude specific UDM event and Entity Context Graph (ECG) fields directly from storage, reducing response payload size and improving query latency:
+
+  * **`select`** : Returns only the specified leaf fields and `outcome` variables, along with mandatory metadata fields.
+  * **`unselect`** : Returns all fields except the specified leaf fields and `outcome` variables.
+
+
+
+Queries that don't include `select` or `unselect` return full UDM and entity payloads. Selective field projection applies to standalone UDM event and standalone ECG entity searches; multi-event joins, UDM-entity joins, and aggregate queries aren't affected. For additional syntax examples, see [Control columns with select and unselect keywords](https://docs.cloud.google.com/chronicle/docs/investigation/select-unselect).
+
+#### Supported and mandatory fields
+
+  * **Supported fields** : Specify `outcome` variables or full leaf field paths for UDM events (for example, `principal.hostname`, `target.ip`, `security_result.severity`) and ECG entities (for example, `graph.entity.hostname`, `graph.entity.ip`, `graph.metadata.entity_type`, `graph.relations.entity_type`).
+  * **Mandatory fields** : To preserve event identity, timeline ordering, and entity validity intervals, Google SecOps always returns the following core metadata fields, even if you omit them from `select` or include them in `unselect`: 
+    * **UDM events** : `metadata.id`, `metadata.event_timestamp`, `metadata.enrichment_state`
+    * **ECG entities** : `graph.metadata.entity_type`, `graph.metadata.interval.start_time`
+  * **Map fields and repeated list indexing** : Field projection and exclusion operate at the container level for map fields (`additional.fields` and `extracted.fields`) and repeated lists rather than filtering individual map keys or single array positions: 
+    * **With`select`**: Specifying a map key (such as `select: additional.fields["env"]` or `extracted.fields["src"]`) or a list index (such as `select: principal.ip[0]` or `about[0].file.md5`) returns the entire map (`additional.fields` or `extracted.fields`) or the entire repeated field or sub-field across all list elements.
+    * **With`unselect`**: Specifying a map key (such as `unselect: additional.fields["env"]`) or a list index (such as `unselect: principal.ip[0]` or `about[0].file.md5`) excludes the entire map (removing all other keys in that map) or excludes the repeated field or sub-field across all list elements, not only index `0`. Don't include any key from `additional.fields` or `extracted.fields` in `unselect` if you need other keys from that map.
+
+
+
+#### Impact on search results, UI, and APIs
+
+Using `select` or `unselect` affects search results across the Google SecOps web interface, Chronicle API (`udmSearch` and `StreamSearch`), and Search long-running operations (LRO) API (`PaginatedSearchResults`). It isn't supported in the legacy Backstory API.
+
+  * **Events table, Column Manager, and Aggregations** : Only projected fields (along with **Timestamp** and **Event Status**) are available to view, aggregate, filter, or add as columns.
+  * **Event Viewer** : Displays only the projected UDM and entity fields alongside the raw log, and disables **Add to Columns** for unprojected fields.
+  * **Sorting** : You can sort results only on projected fields, mandatory metadata fields (`metadata.event_timestamp` and `metadata.enrichment_state`), and composite quick columns (**Hostname** , **IP** , and **User**) when their underlying fields are projected. In API requests, setting `sort_column` to an unprojected or excluded field returns an `INVALID_ARGUMENT` (`400`) error.
+
+
+
+#### Examples
+
+  * **Include only specific UDM event fields (`select`)**:
+        
+        principal.hostname != "" and target.ip != ""
+        select: principal.hostname, principal.ip, target.ip, security_result.severity
+        
+
+  * **Include only specific ECG entity fields (`select`)**:
+        
+        graph.entity.hostname != ""
+        select: graph.entity.hostname, graph.entity.ip, graph.entity.asset.asset_id
+        
+
+  * **Exclude specific fields (`unselect`)**:
+        
+        metadata.event_type = "NETWORK_HTTP" and principal.hostname != ""
+        unselect: target.hostname, target.ip, security_result.category_details
+        
 
 
 
@@ -1640,6 +1697,7 @@ To optimize query speed and minimize timeout risks:
   * **Avoid leading wildcards in regular expressions** : Queries starting with a wildcard (`principal.hostname = /.*server-.*/`) prevent index lookups and force full table scans. Anchor your regular expression whenever possible (`principal.hostname = /^prod-server-.*/`).
   * **Leverage indexed metadata** : Filter by `metadata.event_type` (`NETWORK_CONNECTION`, `PROCESS_LAUNCH`, `USER_LOGIN`) or `metadata.log_type` early in your `AND` chain to prune irrelevant log sources instantly.
   * **Use`limit: N` for rapid data sampling and quick previews**: You can add the `limit: N` keyword directly to your query (for example, `metadata.event_type = "USER_LOGIN" limit: 50`) for rapid data sampling and quick previews.
+  * **Use`select` and `unselect` to reduce payload size**: Project only the leaf fields you need or exclude large unnecessary fields to improve query latency. For details, see Control query output with `select` and `unselect`.
 
 
 
@@ -1752,6 +1810,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

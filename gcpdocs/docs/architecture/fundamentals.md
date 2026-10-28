@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/fundamentals/
 title: Architecture fundamentals \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:35:29.303903+00:00
+fetched_at: 2026-10-27T18:08:08.807943+00:00
 ---
 
 # Architecture fundamentals  |  Cloud Architecture Center  |  Google Cloud Documentation

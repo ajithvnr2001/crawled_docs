@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/apihub/apis/versions/specs/create/
 title: gcloud apihub apis versions specs create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T00:49:24.520637+00:00
+fetched_at: 2026-10-27T21:41:34.646848+00:00
 ---
 
 # gcloud apihub apis versions specs create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud apihub apis versions specs create - create a Spec
 SYNOPSIS
     
 
-`gcloud apihub apis versions specs create` (`SPEC` : `--api`=`API` `--location`=`LOCATION` `--version`=`VERSION`) `--display-name`=`DISPLAY_NAME` (`--spec-type-enum-values`=[`description`=`DESCRIPTION`],[`displayName`=`DISPLAYNAME`],[`id`=`ID`],[`immutable`=`IMMUTABLE`] | `--spec-type-json-values`=[`SPEC_TYPE_JSON_VALUES`,…] | `--spec-type-string-values`=[`SPEC_TYPE_STRING_VALUES`,…] | `--spec-type-uri-values`=[`SPEC_TYPE_URI_VALUES`,…]) [`--attributes`=[`ATTRIBUTES`,…]] [`--documentation-external-uri`=`DOCUMENTATION_EXTERNAL_URI`] [`--parsing-mode`=`PARSING_MODE`] [`--source-uri`=`SOURCE_URI`] [`--contents`=`CONTENTS` `--contents-mime-type`=`CONTENTS_MIME_TYPE`] [[`--lint-response-create-time`=`LINT_RESPONSE_CREATE_TIME` `--lint-response-linter`=`LINT_RESPONSE_LINTER` `--lint-response-source`=`LINT_RESPONSE_SOURCE` `--lint-response-state`=`LINT_RESPONSE_STATE` : `--lint-response-issues`=[`code`=`CODE`],[`message`=`MESSAGE`],[`path`=`PATH`],[`range`=`RANGE`],[`severity`=`SEVERITY`] `--lint-response-summary`=[`count`=`COUNT`],[`severity`=`SEVERITY`]]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud apihub apis versions specs create` (`SPEC` : `--api`=`API` `--version`=`VERSION`) `--display-name`=`DISPLAY_NAME` (`--spec-type-enum-values`=[`description`=`DESCRIPTION`],[`displayName`=`DISPLAYNAME`],[`id`=`ID`],[`immutable`=`IMMUTABLE`] | `--spec-type-json-values`=[`SPEC_TYPE_JSON_VALUES`,…] | `--spec-type-string-values`=[`SPEC_TYPE_STRING_VALUES`,…] | `--spec-type-uri-values`=[`SPEC_TYPE_URI_VALUES`,…]) [`--attributes`=[`ATTRIBUTES`,…]] [`--deployments`=[`DEPLOYMENTS`,…]] [`--documentation-external-uri`=`DOCUMENTATION_EXTERNAL_URI`] [`--location`=`LOCATION`] [`--parsing-mode`=`PARSING_MODE`] [`--source-uri`=`SOURCE_URI`] [`--contents`=`CONTENTS` `--contents-mime-type`=`CONTENTS_MIME_TYPE`] [[`--lint-response-create-time`=`LINT_RESPONSE_CREATE_TIME` `--lint-response-linter`=`LINT_RESPONSE_LINTER` `--lint-response-source`=`LINT_RESPONSE_SOURCE` `--lint-response-state`=`LINT_RESPONSE_STATE` : `--lint-response-issues`=[`code`=`CODE`],[`message`=`MESSAGE`],[`path`=`PATH`],[`range`=`RANGE`],[`severity`=`SEVERITY`] `--lint-response-summary`=[`count`=`COUNT`],[`severity`=`SEVERITY`]]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a spec 
 EXAMPLES
@@ -52,6 +52,13 @@ To set the `project` attribute:
 
 
 
+To set the `location` attribute: 
+
+  * provide the argument `spec` on the command line with a fully specified name; 
+  * provide the argument `--location` on the command line. 
+
+
+
 This must be specified. 
 
 `SPEC`
@@ -72,15 +79,6 @@ To set the `api` attribute:
 
   * provide the argument `spec` on the command line with a fully specified name; 
   * provide the argument `--api` on the command line. 
-
-
-`--location`=`LOCATION`
-     The location id of the spec resource. 
-
-To set the `location` attribute: 
-
-  * provide the argument `spec` on the command line with a fully specified name; 
-  * provide the argument `--location` on the command line. 
 
 
 `--version`=`VERSION`
@@ -212,9 +210,35 @@ This value should be 4-63 characters, and valid characters are /[a-z][0-9]-/.
     
     --attributes=path_to_file.(yaml|json)
 
+Deployment resource - The deployments linked directly to this spec. Format is `projects/{project}/locations/{location}/deployments/{deployment}` This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+
+To set the `project` attribute: 
+
+  * provide the argument `--deployments` on the command line with a fully specified name; 
+  * provide the argument `--project` on the command line; 
+  * set the property `core/project`. 
+
+
+
+To set the `location` attribute: 
+
+  * provide the argument `--deployments` on the command line with a fully specified name; 
+  * provide the argument `--location` on the command line. 
+
+
+`--deployments`=[`DEPLOYMENTS`,…]
+     IDs of the deployments or fully qualified identifiers for the deployments. 
+
+To set the `deployment` attribute: 
+
+  * provide the argument `--deployments` on the command line. 
+
+
 Documentation details. 
 `--documentation-external-uri`=`DOCUMENTATION_EXTERNAL_URI`
      The uri of the externally hosted documentation. 
+`--location`=`LOCATION`
+     For resources [spec, deployments], provides fallback value for resource location attribute. When the resource's full URI path is not provided, location will fallback to this flag value. 
 `--parsing-mode`=`PARSING_MODE`
      Enum specifying the parsing mode for OpenAPI Specification (OAS) parsing. `PARSING_MODE` must be one of: 
 
@@ -344,6 +368,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

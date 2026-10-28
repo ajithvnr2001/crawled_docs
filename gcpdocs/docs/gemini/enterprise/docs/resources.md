@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/resources/
 title: Resources \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:24:08.365154+00:00
+fetched_at: 2026-10-28T00:17:50.903657+00:00
 ---
 
 # Resources  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -24,7 +24,7 @@ Send feedback
 #  Resources Stay organized with collections  Save and categorize content based on your preferences. 
 
   * ### [Pricing Pricing information for Gemini Enterprise. Contact sales for more details.  ](https://cloud.google.com/gemini-enterprise#gemini-enterprise-app-editions-and-pricing)
-  * ### [Quotas and overages Usage quotas, system limits, and overage pricing for your Gemini Enterprise resources.  ](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages)
+  * ### [Quotas and pay-as-you-go usage Usage quotas, system limits, and pay-as-you-go usage above quota pricing for your Gemini Enterprise resources.  ](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage)
   * ### [Release notes Details about updates to Gemini Enterprise.  ](https://docs.cloud.google.com/gemini/enterprise/docs/release-notes)
   * ### [Data residency and ML regional processing commitments Supported geographic locations.  ](https://docs.cloud.google.com/gemini/enterprise/docs/locations)
   * ### [Compliance certifications and security controls Learn about security controls and compliance certifications for Gemini Enterprise  ](https://docs.cloud.google.com/gemini/enterprise/docs/compliance-security-controls)

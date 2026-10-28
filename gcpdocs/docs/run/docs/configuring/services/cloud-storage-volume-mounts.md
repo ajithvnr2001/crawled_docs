@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/cloud-storage-volume-mounts/
 title: Configure Cloud Storage volume mounts for Cloud Run services \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:46:23.817414+00:00
+fetched_at: 2026-10-28T02:30:55.439512+00:00
 ---
 
 # Configure Cloud Storage volume mounts for Cloud Run services  |  Google Cloud Documentation
@@ -90,25 +90,27 @@ Volume mounts require the second generation [execution environment](https://docs
 
 [Go to Cloud Run](https://console.cloud.google.com/run)
 
-  2. Select **Services** from the Cloud Run navigation menu, and click **Deploy container** to configure a new service. If you are configuring an existing service, click the service, then click the **Containers** tab.
+  2. Select **Services** from the Cloud Run navigation menu:
 
-  3. If you are configuring a new service, fill out the initial service settings page, then click **Containers, Networking, Security** to expand the service configuration page, then click **Volumes**.
+     1. If you are configuring a new service, click **Deploy container** and fill out the initial service settings page. Then click **Containers, Networking, Security** to expand the service configuration page, and click **Volumes**.
 
-  4. Click **Mount volume**.
+     2. If you are configuring an existing service, click the service, then click the **Containers** tab.
 
-  5. Select **Cloud Storage bucket** as the volume type.
+  3. Click **Mount volume**.
 
-  6. In the **Mount path** field, enter the path where you want to mount the volume.
+  4. Select **Cloud Storage bucket** as the volume type.
 
-  7. Browse and select the Cloud Storage bucket or a specific directory to be used for the volume. Optionally, create a new bucket.
+  5. In the **Mount path** field, enter the path where you want to mount the volume.
 
-  8. If you want to make the bucket read-only, select the **Read-only** checkbox.
+  6. Browse and select the Cloud Storage bucket or a specific directory to be used for the volume. Optionally, create a new bucket.
 
-  9. Optionally, expand **Mount options** to specify mount options.
+  7. If you want to make the bucket read-only, select the **Read-only** checkbox.
 
-  10. Click **Save**.
+  8. Optionally, expand **Mount options** to specify mount options.
 
-  11. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
+  9. Click **Save**.
+
+  10. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
 
 
 
@@ -771,6 +773,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

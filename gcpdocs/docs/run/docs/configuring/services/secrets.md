@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/secrets/
 title: Configure secrets for services \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:21.835165+00:00
+fetched_at: 2026-10-28T02:30:54.380956+00:00
 ---
 
 # Configure secrets for services  |  Cloud Run  |  Google Cloud Documentation
@@ -97,15 +97,17 @@ You can make a secret accessible to your service using the Google Cloud console,
 
 ### Console
 
-  1. In the Google Cloud console, go to the Cloud Run **Services** page:
+  1. In the Google Cloud console, go to Cloud Run:
 
-[Go to Cloud Run](https://console.cloud.google.com/run/services)
+[Go to Cloud Run](https://console.cloud.google.com/run)
 
-  2. If you are configuring a new service, click **Deploy container**. Fill out the initial service settings page, then click **Containers, Networking, Security** to expand the service configuration page.
+  2. Select **Services** from the Cloud Run navigation menu:
 
-  3. If you are configuring an existing service, click the service.
+     1. If you are configuring a new service, click **Deploy container** and fill out the initial service settings page. Then click **Containers, Networking, Security** to expand the service configuration page.
 
-  4. Follow the steps to mount the secret as a volume, or expose the secret as an environment variable. 
+     2. If you are configuring an existing service, click the service.
+
+  3. Follow the steps to mount the secret as a volume, or expose the secret as an environment variable. 
 
      * To expose the secret as an environment variable:
 
@@ -381,15 +383,17 @@ To reference a secret from another project, verify that your project's service a
 
 ### Console
 
-  1. In the Google Cloud console, go to the Cloud Run **Services** page:
+  1. In the Google Cloud console, go to Cloud Run:
 
-[Go to Cloud Run](https://console.cloud.google.com/run/services)
+[Go to Cloud Run](https://console.cloud.google.com/run)
 
-  2. If you are configuring a new service, click **Deploy container**. Fill out the initial service settings page, then click **Containers, Networking, Security** to expand the service configuration page.
+  2. Select **Services** from the Cloud Run navigation menu:
 
-  3. If you are configuring an existing service, click the service.
+     1. If you are configuring a new service, click **Deploy container** and fill out the initial service settings page. Then click **Containers, Networking, Security** to expand the service configuration page.
 
-  4. Follow the steps to mount the secret as a volume, or expose the secret as an environment variable. 
+     2. If you are configuring an existing service, click the service.
+
+  3. Follow the steps to mount the secret as a volume, or expose the secret as an environment variable. 
 
      * To expose the secret as an environment variable:
 
@@ -735,6 +739,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

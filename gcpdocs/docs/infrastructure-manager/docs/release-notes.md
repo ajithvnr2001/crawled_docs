@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/infrastructure-manager/docs/release-notes/
 title: Infrastructure Manager release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:52.385372+00:00
+fetched_at: 2026-10-27T20:11:21.704076+00:00
 ---
 
 # Infrastructure Manager release notes  |  Google Cloud Documentation
@@ -73,7 +73,7 @@ For more information, see [Terraform version management policy](https://docs.clo
 
 Feature
 
-You can use Infrastructure Manager maintained Terraform providers when you create or update a deployment or preview deployment. For more information about using Infra Manager maintained Terraform providers, see [Use the Terraform provider for Google Cloud](https://docs.cloud.google.com/infrastructure-manager/docs/terraform#terraform-provider).
+You can use Infrastructure Manager maintained Terraform providers when you create or update a deployment or preview deployment. For more information about using Infra Manager maintained Terraform providers, see [Use the Terraform provider for Google Cloud](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform-provider).
 
 Feature
 
@@ -163,7 +163,7 @@ For more information, see [Locations](https://docs.cloud.google.com/infrastructu
 
 Change
 
-Infrastructure manager supports the following versions of Terraform when creating a [preview of a deployment](https://docs.cloud.google.com/infrastructure-manager/docs/preview-deployment). For more details, see [Supported Terraform Versions](https://docs.cloud.google.com/infrastructure-manager/docs/terraform#terraform_versions).
+Infrastructure manager supports the following versions of Terraform when creating a [preview of a deployment](https://docs.cloud.google.com/infrastructure-manager/docs/preview-deployment). For more details, see [Supported Terraform Versions](https://docs.cloud.google.com/infrastructure-manager/docs/infra-manager-terraform#terraform_versions).
 
   * Terraform version 1.2.3
   * Terraform version 1.3.10
@@ -267,6 +267,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

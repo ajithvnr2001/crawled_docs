@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/code/docs/vscode/skaffold-modules/
 title: Skaffold modules in Cloud Code for VS Code \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:23.678119+00:00
+fetched_at: 2026-10-27T23:27:20.079335+00:00
 ---
 
 # Skaffold modules in Cloud Code for VS Code  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/multi-cloud/docs/aws/how-to/
 title: How-to guides \u00a0|\u00a0 GKE on AWS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:22.328597+00:00
+fetched_at: 2026-10-27T19:55:58.489847+00:00
 ---
 
 # How-to guides  |  GKE on AWS  |  Google Cloud Documentation

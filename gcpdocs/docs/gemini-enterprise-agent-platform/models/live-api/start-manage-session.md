@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session/
 title: Start and manage live sessions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:41:12.492426+00:00
+fetched_at: 2026-10-28T02:27:58.868811+00:00
 ---
 
 # Start and manage live sessions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ This page also shows you how to do the following:
   * Update system instructions and tools during a session with Gemini 3.8 Live
   * Configure the context window of a session
   * Enable transcription for a session
-  * Encrypt session data with a customer-managed encryption key (CMEK)
+  * Encrypt session data with Customer-managed encryption keys (CMEK)
 
 
 
@@ -271,7 +271,7 @@ To enable transparent mode:
 
 ## Encrypt session data with CMEK
 
-Session resumption stores cached session data at rest for up to 24 hours. To protect that data with your own key instead of a Google-owned and Google-managed encryption key, use a _serving profile_. A serving profile links a Cloud KMS key to a project, location, and API scope. While a serving profile exists, Agent Platform encrypts the data automatically—your session configuration and request format don't change.
+Session resumption stores cached session data at rest for up to 24 hours. To protect that data with your own key instead of a Google-owned and Google-managed encryption key, use a _serving profile_. A serving profile links a Cloud Key Management Service key to a project, location, and API scope. While a serving profile exists, Agent Platform encrypts the data automatically—your session configuration and request format don't change.
 
 Serving profile CMEK for the Gemini Live API is supported in the `us` and `eu` multi-regions. The global region isn't supported.
 
@@ -453,6 +453,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

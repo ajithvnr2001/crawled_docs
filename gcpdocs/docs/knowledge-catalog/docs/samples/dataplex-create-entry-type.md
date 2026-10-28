@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/samples/dataplex-create-entry-type/
 title: Create entry type \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:40.040380+00:00
+fetched_at: 2026-10-27T20:46:44.436945+00:00
 ---
 
 # Create entry type  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -43,33 +43,33 @@ To authenticate to Knowledge Catalog, set up Application Default Credentials. Fo
         String projectId = "MY_PROJECT_ID";
         // Available locations: https://cloud.google.com/dataplex/docs/locations
         String location = "MY_LOCATION";
-        String entryTypeId = "[;MY_ENTRY](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html)_TYPE_ID";
+        String entryTypeId = "MY_ENTRY_TYPE_ID";
     
-        EntryType createdEntryType = createEntryType(projectId, location, entryTypeId);
-        System.out.println("Successfully create[d entry](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html#com_google_cloud_dataplex_v1_EntryType_getName__) type: " + createdEntryType.getName());
+        [EntryType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html) createdEntryType = createEntryType(projectId, location, entryTypeId);
+        System.out.println("Successfully created entry type: " + createdEntryType.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html#com_google_cloud_dataplex_v1_EntryType_getName__)());
       }
     
-      // Method to create Entry Type located in projectId, locati[on and wi](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html)th entryTypeId
-      public static EntryType createEntryType(String projectId, String location, String entryTypeId)
+      // Method to create Entry Type located in projectId, location and with entryTypeId
+      public static [EntryType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html) createEntryType(String projectId, String location, String entryTypeId)
           throws Exception {
         // Initialize client that will be used to send requests. This client only needs to be created
-        // once, and can be[ reused for multiple](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.CatalogServiceClient.html) requests.[
-        try (CatalogSer](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.CatalogServiceClient.html)viceClient client =[ CatalogServ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.LocationName.html)iceClient.create[()) {
-          ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.LocationName.html)LocationName locationName = Loca[tionName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html).of(projectId, location)[;](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html)
-          EntryType entryType =
-              EntryType.newBuilder()
+        // once, and can be reused for multiple requests.
+        try ([CatalogServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.CatalogServiceClient.html) client = [CatalogServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.CatalogServiceClient.html).create()) {
+          [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.LocationName.html) locationName = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.LocationName.html).of(projectId, location);
+          [EntryType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html) entryType =
+              [EntryType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html).newBuilder()
                   .setDescription("description of the entry type")
                   // Required aspects will need to be attached to every entry created for this entry
                   // type.
-                  // You cannot change required aspects [for entry type onc](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.Builder.html#com_google_cloud_dataplex_v1_EntryType_Builder_addRequiredAspects_com_google_cloud_dataplex_v1_EntryType_AspectInfo_)e it is created.
-       [         ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html)  .addRequiredAspects(
-                      EntryType.AspectInfo.newBuilder()
+                  // You cannot change required aspects for entry type once it is created.
+                  .[addRequiredAspects](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.Builder.html#com_google_cloud_dataplex_v1_EntryType_Builder_addRequiredAspects_com_google_cloud_dataplex_v1_EntryType_AspectInfo_)(
+                      [EntryType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.EntryType.html).AspectInfo.newBuilder()
                           // Example of system aspect type.
                           // It is also possible to specify custom aspect type.
                           .setType("projects/dataplex-types/locations/global/aspectTypes/schema")
-                    [      ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.CatalogServiceClient.html#com_google_cloud_dataplex_v1_CatalogServiceClient_createEntryTypeAsync__org_jspecify_annotations_Nullable_com_google_cloud_dataplex_v1_LocationName_com_google_cloud_dataplex_v1_EntryType_java_lang_String_).build())
+                          .build())
                   .build();
-          return client.createEntryTypeAsync(locationName, entryType, entryTypeId).get();
+          return client.[createEntryTypeAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-dataplex/latest/com.google.cloud.dataplex.v1.CatalogServiceClient.html#com_google_cloud_dataplex_v1_CatalogServiceClient_createEntryTypeAsync__org_jspecify_annotations_Nullable_com_google_cloud_dataplex_v1_LocationName_com_google_cloud_dataplex_v1_EntryType_java_lang_String_)(locationName, entryType, entryTypeId).get();
         }
       }
     }
@@ -92,17 +92,17 @@ To authenticate to Knowledge Catalog, set up Application Default Credentials. Fo
         # Initialize client that will be used to send requests across threads. This
         # client only needs to be created once, and can be reused for multiple requests.
         # After completing all of your requests, call the "__exit__()" method to safely
-        # clean up any remaining background resources. Alternatively, use the clie[nt as](https://docs.cloud.google.com/python/docs/reference/dataplex/latest)
-        # [a context manager.span>
-        with dataplex_v1.CatalogServiceClient() as client:
+        # clean up any remaining background resources. Alternatively, use the client as
+        # a context manager.
+        with [dataplex_v1](https://docs.cloud.google.com/python/docs/reference/dataplex/latest).[CatalogServiceClient](https://docs.cloud.google.com/python/docs/reference/dataplex/latest/google.cloud.dataplex_v1.services.catalog_service.CatalogServiceClient.html)() as client:
             # The resource name of the Entry Type location
-            parent = f"projects/{project_id](https://docs.cloud.google.com/python/docs/reference/dataplex/latest/google.cloud.dataplex_v1.services.catalog_service.CatalogServiceClient.html)[}/locations](https://docs.cloud.google.com/python/docs/reference/dataplex/latest)/[{location](https://docs.cloud.google.com/python/docs/reference/dataplex/latest/google.cloud.dataplex_v1.types.EntryType.html)}"
-            entry_type = dataplex_v1.EntryType(
+            parent = f"projects/{project_id}/locations/{location}"
+            entry_type = [dataplex_v1](https://docs.cloud.google.com/python/docs/reference/dataplex/latest).[EntryType](https://docs.cloud.google.com/python/docs/reference/dataplex/latest/google.cloud.dataplex_v1.types.EntryType.html)(
                 description="description of the entry type",
                 # Required aspects will need to be attached to every entry created for this entry type.
-                # You cannot change required aspects for entry type once it[ is created](https://docs.cloud.google.com/python/docs/reference/dataplex/latest).[
-     ](https://docs.cloud.google.com/python/docs/reference/dataplex/latest/google.cloud.dataplex_v1.types.EntryType.html)        [   require](https://docs.cloud.google.com/python/docs/reference/dataplex/latest/google.cloud.dataplex_v1.types.EntryType.AspectInfo.html)d_aspects=[
-                    dataplex_v1.EntryType.AspectInfo(
+                # You cannot change required aspects for entry type once it is created.
+                required_aspects=[
+                    [dataplex_v1](https://docs.cloud.google.com/python/docs/reference/dataplex/latest).[EntryType](https://docs.cloud.google.com/python/docs/reference/dataplex/latest/google.cloud.dataplex_v1.types.EntryType.html).[AspectInfo](https://docs.cloud.google.com/python/docs/reference/dataplex/latest/google.cloud.dataplex_v1.types.EntryType.AspectInfo.html)(
                         # Example of system aspect type.
                         # It is also possible to specify custom aspect type.
                         type="projects/dataplex-types/locations/global/aspectTypes/generic"

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/concepts/fleet-packages/
 title: About fleet packages \u00a0|\u00a0 Config Sync \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:22:59.277456+00:00
+fetched_at: 2026-10-28T02:29:31.934619+00:00
 ---
 
 # About fleet packages  |  Config Sync  |  Google Cloud Documentation
@@ -22,15 +22,13 @@ Send feedback
 
 #  About fleet packages Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains fleet packages, the `FleetPackage` API, and how they relate to Config Sync.
+The `FleetPackage` declarative API in Config Sync lets you deploy and manage _fleet packages_ across clusters registered to a fleet. A package is a set of Kubernetes YAML manifests that define cluster configurations. By using fleet packages, you can deploy configuration updates to your fleet all at once or progressively to reduce the risk of broad outages.
 
-A `FleetPackage` is a declarative API that lets you manage packages across a fleet. A **fleet package** is a set of Kubernetes YAML manifests that define cluster configuration. By using fleet packages, you can deploy packages through an all-at-once or progressive rollout to clusters that are registered to your fleet.
-
-You define each `FleetPackage` object once, and then you can update that package with a new revision. When you apply a new revision, the fleet package service picks up those changes and deploys them to your clusters.
+You define each `FleetPackage` object once and then update that package with new revisions as your configurations change. When you apply a new revision, the fleet package service automatically detects those changes and deploys them to your target clusters.
 
 ## Benefits
 
-Use fleet packages to deploy Kubernetes resources across clusters that are registered to a fleet. After you create and apply a fleet package, the fleet package automatically deploys the Kubernetes configuration files in the Git repository to the new cluster. Fleet packages builds upon Config Sync's benefits like automatic drift correction, and offers the following unique advantages:
+Fleet packages build on Config Sync capabilities, such as automatic drift correction, and offer the following advantages:
 
   * **Automate resource rollout:** After you set up a fleet package, the Kubernetes resources it points to are automatically deployed by the fleet package service on all clusters.
 
@@ -242,6 +240,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

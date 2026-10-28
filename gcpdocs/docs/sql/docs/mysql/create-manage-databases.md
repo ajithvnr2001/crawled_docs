@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/create-manage-databases/
 title: Create and manage databases \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:18:31.759378+00:00
+fetched_at: 2026-10-27T19:53:45.963264+00:00
 ---
 
 # Create and manage databases  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -24,7 +24,7 @@ Send feedback
 
 MySQL | [PostgreSQL](https://docs.cloud.google.com/sql/docs/postgres/create-manage-databases "View this page for the PostgreSQL database engine") | [SQL Server](https://docs.cloud.google.com/sql/docs/sqlserver/create-manage-databases "View this page for the SQL Server database engine")
 
-This page contains information about creating, listing, and deleting MySQL databases on a Cloud SQL instance.
+Cloud SQL lets you create, list, and delete MySQL databases on an instance. Managing individual databases helps you store and organize application data while isolating workloads across services.
 
 A newly-created instance has four system databases: 
 
@@ -713,6 +713,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

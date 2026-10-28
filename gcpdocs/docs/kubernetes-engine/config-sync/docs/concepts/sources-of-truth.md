@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/concepts/sources-of-truth/
 title: About sources of truth \u00a0|\u00a0 Config Sync \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:34.975670+00:00
+fetched_at: 2026-10-28T02:29:31.447545+00:00
 ---
 
 # About sources of truth  |  Config Sync  |  Google Cloud Documentation
@@ -22,15 +22,13 @@ Send feedback
 
 #  About sources of truth Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains the different types of sources of truth that Config Sync can sync from.
+Config Sync lets you automate Kubernetes resource deployments across your clusters from a central _source of truth_ , replacing manual `kubectl` commands. In GitOps workflows, a source of truth is the central repository where you store YAML or JSON configuration files that define your cluster resources. Config Sync continuously monitors this repository and automatically applies changes to your clusters.
 
-A key concept in GitOps workflows is the _source of truth_ , a central repository where your configuration files are stored. A configuration file is typically a YAML or JSON file that defines Kubernetes resources. Normally, you might manually apply Kubernetes objects with the `kubectl` command-line tool, but Config Sync can automatically apply those resources from a single source of truth like a Git repository. Config Sync then monitors your specified source of truth and automatically applies any changes to your clusters.
-
-Config Sync can sync configuration files from three different types of sources: Git repositories, Open Container Initiative (OCI) images, and Helm charts. This document explains each of these source types and how Config Sync interacts with them. Reading this document can help you choose the best source option for your workflow and environment.
+You can sync configuration files from three types of sources: Git repositories, Open Container Initiative (OCI) images, and Helm charts. Understanding how Config Sync interacts with each source type helps you choose the best option for your workflow and environment.
 
 ## Git repositories
 
-Git is widely adopted technology for version control and collaboration. With Git, you can organize your repository in the way that suits your needs and get the benefits of version control and branching, if needed. Because Git is a mature and widely adopted technology, you get a variety of options for providers and tools.
+Git is a widely adopted technology for version control and collaboration. With Git, you can organize your repository in the way that suits your needs and get the benefits of version control and branching, if needed. Because Git is mature and widely supported, you get a variety of options for providers and tools.
 
 When you configure Config Sync with a Git repository as the source of truth, Config Sync uses a `git-sync` container within the reconciler Pod to pull configs from the Git repository. You can configure the repository URL, branch, and revision (commit or tag) for greater control over where to pull configs within your Git repository.
 
@@ -167,6 +165,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

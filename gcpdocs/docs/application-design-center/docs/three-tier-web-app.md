@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/three-tier-web-app/
 title: Three-tier web app template \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:30.285289+00:00
+fetched_at: 2026-10-27T19:53:52.184356+00:00
 ---
 
 # Three-tier web app template  |  Application Design Center  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Three-tier web app template Stay organized with collections  Save and categorize content based on your preferences. 
 
-Accelerate your organization's digital transformation by providing a high-availability, production-ready foundation for modern web applications. This guide helps you understand the _Three-tier web app_ application template, which helps you quickly deploy a three-tier web application to Google Cloud.
+The _Three-tier web app_ template in Application Design Center lets you deploy a high-availability web application architecture with frontend, backend API, and database tiers on Google Cloud. You can customize the preconfigured Cloud Load Balancing, Cloud Run, and Cloud SQL components to match your workload requirements before deploying.
 
 For example, you might implement this template to address the following business needs:
 
@@ -59,6 +59,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/deploying-gateways/
 title: Deploying Gateways \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:01.760674+00:00
+fetched_at: 2026-10-27T19:38:20.901221+00:00
 ---
 
 # Deploying Gateways  |  GKE networking  |  Google Cloud Documentation
@@ -95,7 +95,7 @@ For optimal performance, limit the number of Gateways to a maximum of 100. Excee
 
   * Redirecting traffic to a different port is not supported with Cloud Load Balancing. To see the list of fields the GKE Gateway controller supports, see [GatewayClass capabilities](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/gatewayclass-capabilities).
 
-  * GKE Gateway does not support [Wildcards, regular expressions, and dynamic URLs](https://docs.cloud.google.com/load-balancing/docs/url-map-concepts#wildcards-regx-dynamic).
+  * GKE Gateway does not support [wildcards and dynamic URLs](https://docs.cloud.google.com/load-balancing/docs/url-map-concepts#wildcards-regx-dynamic). Regular expressions are not supported with the `gke-l7-gxlb` and `gke-l7-gxlb-mc` GatewayClasses. For more information, see Configure regular expression matching.
 
   * If you specify a Gateway with a regional external gateway class, the controller provisions an internal IP address instead of the external address. To learn how to use a named address with the regional external Application Load Balancer, see deploy a regional external Gateway.
 
@@ -2069,6 +2069,75 @@ For example, with the above configuration, any request to `https://www.example.c
 
 
 
+#### Rewrite using regular expressions
+
+You can use a GCPHTTPFilter resource with `spec.urlRewrite.regexModifier` to rewrite URL paths by using regular expressions before forwarding the request to the backend service.
+
+To rewrite a URL path by using a regular expression:
+
+  1. Save the following manifest as `store-regex-rewrite-filter.yaml`:
+         
+         apiVersion: networking.gke.io/v1
+         kind: GCPHTTPFilter
+         metadata:
+           name: store-regex-rewrite-filter
+         spec:
+           urlRewrite:
+             regexModifier:
+               pathPattern: /service1/
+               pathSubstitution: /service2/
+         
+
+This manifest describes a GCPHTTPFilter with the following properties:
+
+     * `urlRewrite.regexModifier`: configures URL path rewriting by using regular expressions.
+     * `pathPattern`: specifies the RE2 regular expression that matches the request URL path, such as `/service1/([a-zA-Z0-9]+)`.
+     * `pathSubstitution`: specifies the substitution string that replaces the matched URL path, which can reference numbered capture groups from `pathPattern`, such as `/service2/\1`.
+  2. Apply the manifest to the cluster:
+         
+         kubectl apply -f store-regex-rewrite-filter.yaml
+         
+
+  3. Save the following manifest as `www-regex-rewrite.yaml`:
+         
+         apiVersion: gateway.networking.k8s.io/v1
+         kind: HTTPRoute
+         metadata:
+           name: www-regex-rewrite
+         spec:
+           parentRefs:
+           - kind: Gateway
+             name: external-http
+           hostnames:
+           - www.example.com
+           rules:
+           - matches:
+             - path:
+                 type: PathPrefix
+                 value: /service1/
+             filters:
+             - type: ExtensionRef
+               extensionRef:
+                 group: networking.gke.io
+                 kind: GCPHTTPFilter
+                 name: store-regex-rewrite-filter
+             backendRefs:
+             - name: store-v1
+               port: 8080
+         
+
+This manifest describes an HTTPRoute with the following properties:
+
+     * `extensionRef`: references the `store-regex-rewrite-filter` GCPHTTPFilter created in the previous step.
+     * `backendRefs`: forwards the rewritten request to the `store-v1` Service. For example, a request to `https://www.example.com/service1/item123` is rewritten to `/service2/item123` before it is forwarded to the `store-v1` backend service.
+  4. Apply the manifest to the cluster:
+         
+         kubectl apply -f www-regex-rewrite.yaml
+         
+
+
+
+
 ### Verify your configuration
 
 To verify that the filter was applied after creating your HTTPRoute with URL rewrite or path redirects filters, do the following:
@@ -2449,8 +2518,10 @@ The output is similar to the following:
 
 GKE Gateway supports regular expression matching for HTTPRoute paths, query parameters, and headers. You can use regular expressions to define flexible routing rules.
 
-Regular expression matching is supported on the following Envoy-based GatewayClasses:
+Regular expression matching is supported on the following GatewayClasses:
 
+  * `gke-l7-global-external-managed`
+  * `gke-l7-global-external-managed-mc`
   * `gke-l7-regional-external-managed`
   * `gke-l7-regional-external-managed-mc`
   * `gke-l7-rilb`
@@ -2857,6 +2928,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

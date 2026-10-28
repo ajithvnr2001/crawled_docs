@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/fedramp-dod-compliance-scope/
 title: FedRAMP and DoD compliance scope for Google Cloud and Google Workspace \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T10:40:49.799363+00:00
+fetched_at: 2026-10-27T22:51:11.961368+00:00
 ---
 
 # FedRAMP and DoD compliance scope for Google Cloud and Google Workspace  |  Security  |  Google Cloud Documentation
@@ -127,7 +127,6 @@ Service | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5
 [ Cloud Next Generation Firewall (Cloud NGFW)](https://cloud.google.com/security/products/firewall) |  |  |  |   
 [Cloud Next Generation Firewall Essentials](https://docs.cloud.google.com/firewall/docs/about-firewalls#ngfw-tiers) |  |  |  |   
 [Cloud Next Generation Firewall Standard](https://docs.cloud.google.com/firewall/docs/about-firewalls#ngfw-tiers) |  |  |  |   
-[Cloud Next Generation Firewall Enterprise](https://docs.cloud.google.com/firewall/docs/about-firewalls#ngfw-tiers) |  |  |  |   
 [Cloud Profiler](https://docs.cloud.google.com/profiler/docs/about-profiler) |  |  |  |   
 Service | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
 [Cloud Quotas](https://docs.cloud.google.com/docs/quotas/overview) |  |  |  |   
@@ -216,7 +215,7 @@ Service | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5
 Service | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
 [Integration Connectors](https://docs.cloud.google.com/integration-connectors/docs/overview) |  |  | DISA review | DISA review  
 [Key Access Justifications](https://docs.cloud.google.com/assured-workloads/key-access-justifications/docs/overview) |  |  | DISA review | DISA review  
-[Knowledge Catalog](https://cloud.google.com/dataplex) (formerly Dataplex Universal Catalog; replaced [Data Catalog](https://docs.cloud.google.com/data-catalog/docs/concepts/overview)) |  |  |  |   
+[Knowledge Catalog](https://cloud.google.com/dataplex) (replaced Data Catalog) |  |  |  |   
 [Looker (Google Cloud core)](https://docs.cloud.google.com/looker/docs/looker-core-overview) |  |  | DISA review | DISA review  
 [Managed Service for Apache Airflow](https://cloud.google.com/composer) (formerly Cloud Composer) |  |  |  |   
 [Managed Service for Apache Spark](https://cloud.google.com/dataproc) |  |  |  |   

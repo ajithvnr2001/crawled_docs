@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-understanding/
 title: Image understanding \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:38:31.876968+00:00
+fetched_at: 2026-10-28T02:28:19.354032+00:00
 ---
 
 # Image understanding  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -77,6 +77,27 @@ Models | Media details | MIME types
   * Maximum images per prompt: 10 
   * Maximum file size per file for inline data or direct uploads through the console: 20 MB 
   * Maximum file size per file from Google Cloud Storage: 30 MB 
+
+| 
+
+  * `image/png`
+  * `image/jpeg`
+  * `image/webp`
+  * `image/heic`
+  * `image/heif`
+
+  
+  
+  * [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
+
+| 
+
+  * Maximum images per prompt: 14 
+  * Maximum file size per file for inline data or direct uploads through the console: 7 MB 
+  * Maximum file size per file from Google Cloud Storage: 30 MB 
+  * Maximum number of output images per prompt: Limited to 32,768 output tokens 
+  * Supported aspect ratios: 1:1, 3:2, 2:3, 3:4, 1:4, 4:1, 4:3, 4:5, 5:4, 1:8, 8:1, 9:16, 16:9, 21:9 
+  * Supported resolutions: 1K, 2K, 4K 
 
 | 
 
@@ -214,12 +235,11 @@ Models | Media details | MIME types
 
   
   
-  * [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1)
   * [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image)
 
 | 
 
-  * Maximum images per prompt: 14 
+  * Maximum images per prompt: 14 (up to 10 HTTP or HTTPS URLs) 
   * Maximum file size per file for inline data or direct uploads through the console: 7 MB 
   * Maximum file size per file from Google Cloud Storage: 30 MB 
   * Maximum number of output images per prompt: Limited to 32,768 output tokens 
@@ -1639,6 +1659,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

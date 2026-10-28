@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/retry-strategy/
 title: Retry strategy \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:56.784579+00:00
+fetched_at: 2026-10-28T02:27:33.947294+00:00
 ---
 
 # Retry strategy  |  Cloud Storage  |  Google Cloud Documentation
@@ -421,6 +421,52 @@ There is a [subset of Ruby operations](https://docs.cloud.google.com/storage/doc
 
 
 By default, all idempotent operations are retried, and conditionally idempotent operations are retried only if the condition case passes. Non-idempotent operations are not retried. See [Customize retries](https://docs.cloud.google.com/storage/docs/retry-strategy#customize-retries) for examples on how to modify the default retry behavior.
+
+### Rust
+
+By default, operations support retries for the following errors:
+
+  * Transient transport and I/O errors: 
+    * Connection errors, socket timeouts, and unexpected EOF errors.
+    * Transient errors occurring before an RPC is sent (such as credential fetching errors).
+  * HTTP status codes: 
+    * `408 Request Timeout`
+    * `429 Too Many Requests`
+    * `500 Internal Server Error`
+    * `502 Bad Gateway`
+    * `503 Service Unavailable`
+    * `504 Gateway Timeout`
+  * gRPC status codes: 
+    * `DEADLINE_EXCEEDED`
+    * `INTERNAL`
+    * `RESOURCE_EXHAUSTED`
+    * `UNAVAILABLE`
+
+
+
+All exponential backoff and retry settings in the Rust client library are configurable. By default, operations through the Rust client library use the following settings:
+
+Setting | Default value  
+---|---  
+Auto retry | True if idempotent  
+Max number of attempts | No limit  
+Initial retry delay | 1 second  
+Retry delay multiplier | 2.0  
+Maximum retry delay | 60 seconds  
+Total time limit | 300 seconds (5 minutes)  
+  
+There is a [subset of Rust operations](https://docs.cloud.google.com/storage/docs/retry-strategy#idempotency-operations) that are conditionally idempotent (conditionally safe to retry) when they include specific preconditions:
+
+  * `if_generation_match` or `generation`
+
+    * Safe to retry if `if_generation_match` is set on the request, or if a non-zero `generation` is set on `delete_object`.
+  * `if_metageneration_match`
+
+    * Safe to retry if `if_metageneration_match` is set on `update_bucket` or `update_object`.
+
+
+
+By default, all idempotent operations (including resumable uploads) are retried, and conditionally idempotent operations are retried only if the precondition is set. Non-idempotent operations are not retried unless explicitly overridden with `.with_idempotency(true)`. See [Customize retries](https://docs.cloud.google.com/storage/docs/retry-strategy#customize-retries) for examples on how to modify the default retry behavior.
 
 ### REST APIs
 
@@ -871,6 +917,101 @@ To override the number of retries for a particular operation, pass `retries` in 
       puts "File #{file.name} deleted with a customized retry strategy."
     end
 
+### Rust
+
+When you initialize a [`Storage`](https://docs.rs/google-cloud-storage/latest/google_cloud_storage/client/struct.Storage.html) or [`StorageControl`](https://docs.rs/google-cloud-storage/latest/google_cloud_storage/client/struct.StorageControl.html) client, default retry and backoff policies are configured automatically. To customize the retry strategy for all requests made by a client, pass a custom retry policy to `with_retry_policy` and a custom backoff policy to `with_backoff_policy` on the client builder.
+
+You can also override the retry policy, backoff policy, or idempotency (using `with_idempotency`) on individual requests.
+
+See the following code sample to learn how to customize your retry behavior.
+    
+    
+    use google_cloud_gax::exponential_backoff::ExponentialBackoffBuilder;
+    use google_cloud_gax::retry_policy::RetryPolicyExt;
+    use google_cloud_storage::client::{Storage, StorageControl};
+    use google_cloud_storage::retry_policy::RetryableErrors;
+    use std::time::Duration;
+    
+    pub async fn sample(bucket_id: &str) -> anyhow::Result<()> {
+        // Retries all operations for up to 5 minutes, including any backoff time.
+        let retry_policy = RetryableErrors.with_time_limit(Duration::from_secs(60 * 5));
+        // On error, it backs off for a random delay between [0, 1] seconds, then
+        // [0, 3] seconds, then [0, 9] seconds, etc. The backoff time never grows
+        // larger than 1 minute.
+        let backoff_policy = ExponentialBackoffBuilder::new()
+            .with_initial_delay(Duration::from_secs(1))
+            .with_maximum_delay(Duration::from_secs(60))
+            .with_scaling(3)
+            .build()?;
+    
+        let control = StorageControl::builder()
+            .with_retry_policy(retry_policy)
+            .with_backoff_policy(backoff_policy)
+            .build()
+            .await?;
+        // Use the `StorageControl` client as usual:
+        let bucket = control
+            .get_bucket()
+            .set_name(format!("projects/_/buckets/{bucket_id}"))
+            .send()
+            .await?;
+        println!("Bucket {bucket_id} metadata is {bucket:?}");
+    
+        // Retries all operations for up to 5 attempts.
+        let retry_policy = RetryableErrors.with_attempt_limit(5);
+        // On error, it backs off for a random delay between [0, 1] seconds, then
+        // [0, 3] seconds, then [0, 9] seconds, etc. The backoff time never grows
+        // larger than 1 minute.
+        let backoff_policy = ExponentialBackoffBuilder::new()
+            .with_initial_delay(Duration::from_secs(1))
+            .with_maximum_delay(Duration::from_secs(60))
+            .with_scaling(3)
+            .build()?;
+    
+        let client = Storage::builder()
+            .with_retry_policy(retry_policy)
+            .with_backoff_policy(backoff_policy)
+            .build()
+            .await?;
+        // Use the `Storage` client as usual:
+        let reader = client
+            .read_object(format!("projects/_/buckets/{bucket_id}"), "hello-world.txt")
+            .send()
+            .await?;
+        println!("Object highlights: {:?}", reader.object());
+    
+        // Requests are retried only when they are idempotent. Single-shot uploads
+        // are idempotent, and therefore retried, only if they set
+        // `if_generation_match`. A value of `0` means "create the object only if
+        // it does not exist".
+        const NAME: &str = "configure-retries.txt";
+        let object = client
+            .write_object(
+                format!("projects/_/buckets/{bucket_id}"),
+                NAME,
+                "hello world",
+            )
+            .set_if_generation_match(0)
+            .send_unbuffered()
+            .await?;
+        println!("Created object with retries enabled: {object:?}");
+    
+        // Use `with_idempotency(false)` to disable retries for a single request.
+        let object = client
+            .write_object(
+                format!("projects/_/buckets/{bucket_id}"),
+                NAME,
+                "goodbye world",
+            )
+            .set_if_generation_match(object.generation)
+            .with_idempotency(false)
+            .send_unbuffered()
+            .await?;
+        println!("Replaced object with retries disabled: {object:?}");
+    
+        Ok(())
+    }
+
 ### REST APIs
 
 Use the exponential backoff algorithm to implement your own retry strategy.
@@ -923,6 +1064,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

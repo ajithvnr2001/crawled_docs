@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-hub/docs/prepare-for-app-lifecycle-management/
 title: Prepare for application management \u00a0|\u00a0 App Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:43.160844+00:00
+fetched_at: 2026-10-27T21:40:17.909864+00:00
 ---
 
 # Prepare for application management  |  App Hub  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Prepare for application management Stay organized with collections  Save and categorize content based on your preferences. 
 
-This guide describes how to design, deploy, and maintain applications on Google Cloud. Learn how to organize your new or existing resources by registering them as [services](https://docs.cloud.google.com/app-hub/docs/key-concepts#service) and [workloads](https://docs.cloud.google.com/app-hub/docs/key-concepts#workload) in applications.
-
-When you [choose your application setup model](https://docs.cloud.google.com/app-hub/docs/set-up-app-hub), you define your [application management boundary](https://docs.cloud.google.com/app-hub/docs/key-concepts#app-mgmt-boundary), which is the collection of Google Cloud projects or folders containing resources that you can group in App Hub applications. The [management project](https://docs.cloud.google.com/app-hub/docs/key-concepts#mgmt-project) of your application management boundary provides a central repository for your application metadata and configurations.
+You can create applications by organizing your existing Google Cloud resources or deploying new resources together. Planning how you group and deploy your services and workloads helps you align your infrastructure with your business functionality.
 
 For information about products and features that let you manage applications in Google Cloud, see [Application-centric Google Cloud](https://docs.cloud.google.com/app-hub/docs/application-centric-google-cloud).
 
@@ -35,6 +33,8 @@ Use these products together to design, deploy, and manage applications:
   * **Application Design Center** : design and deploy application components using [templates](https://docs.cloud.google.com/app-hub/docs/key-concepts#template) and Infrastructure as Code (IaC).
 
 
+
+When you [choose your application setup model](https://docs.cloud.google.com/app-hub/docs/set-up-app-hub), you define your [application management boundary](https://docs.cloud.google.com/app-hub/docs/key-concepts#app-mgmt-boundary), which is the collection of Google Cloud projects or folders containing resources that you can group in App Hub applications. The [management project](https://docs.cloud.google.com/app-hub/docs/key-concepts#mgmt-project) of your application management boundary provides a central repository for your application metadata and configurations.
 
 Here are recommended ways to manage applications in Google Cloud:
 
@@ -49,6 +49,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/storage/
 title: Troubleshooting storage \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:25.432536+00:00
+fetched_at: 2026-10-28T02:29:58.902814+00:00
 ---
 
 # Troubleshooting storage  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Troubleshooting storage Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document gives troubleshooting guidance for storage issues.
+You can resolve persistent storage problems in Google Distributed Cloud, such as Pods stuck in the `ContainerCreating` state or VolumeSnapshots that never become ready. This document helps you fix volume attach and detach failures, clean up after lost volumes, and address vSphere CSI driver privileges, snapshot limits, and ESXi version requirements.
 
 ## Volume fails to attach
 
@@ -247,7 +247,7 @@ To resolve this issue, use the following steps to update the maximum number of s
 
 Replace the following:
 
-     * ADMIN_KUBECONFIG: the path of your admin cluster kubeconfig file
+     * ADMIN_CLUSTER_KUBECONFIG: the path of your admin cluster kubeconfig file
      * USER_CLUSTER_NAME: the name of your user cluster
   2. Get the value of `data.config` from the Secret, base64 decode it, and save it in a file named `config.txt`:
          
@@ -309,6 +309,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

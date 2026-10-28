@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/eventarc/standard/docs/event-providers-targets/
 title: Event providers and destinations \u00a0|\u00a0 Eventarc Standard \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:18:14.706642+00:00
+fetched_at: 2026-10-27T16:28:10.686584+00:00
 ---
 
 # Event providers and destinations  |  Eventarc Standard  |  Google Cloud Documentation
@@ -393,15 +393,6 @@ Cloud Billing | Cloud Run |
 
   
 Cloud Build | Cloud Run | 
-
-  * [Audit log events](https://docs.cloud.google.com/eventarc/docs/reference/supported-events#using-cloud-audit-logs)
-
-| 
-
-  * [Route audit log events to Cloud Run](https://docs.cloud.google.com/eventarc/standard/docs/run/route-trigger-cloud-audit-logs)
-
-  
-Cloud Data Catalog | Cloud Run | 
 
   * [Audit log events](https://docs.cloud.google.com/eventarc/docs/reference/supported-events#using-cloud-audit-logs)
 
@@ -1795,15 +1786,6 @@ Cloud Billing | GKE |
 
   
 Cloud Build | GKE | 
-
-  * [Audit log events](https://docs.cloud.google.com/eventarc/docs/reference/supported-events#using-cloud-audit-logs)
-
-| 
-
-  * [Route audit log events to GKE](https://docs.cloud.google.com/eventarc/standard/docs/gke/route-trigger-cloud-audit-logs)
-
-  
-Cloud Data Catalog | GKE | 
 
   * [Audit log events](https://docs.cloud.google.com/eventarc/docs/reference/supported-events#using-cloud-audit-logs)
 
@@ -3215,15 +3197,6 @@ Cloud Build | Workflows |
   * [Route audit log events to Workflows](https://docs.cloud.google.com/eventarc/standard/docs/workflows/route-trigger-cloud-audit-logs)
 
   
-Cloud Data Catalog | Workflows | 
-
-  * [Audit log events](https://docs.cloud.google.com/eventarc/docs/reference/supported-events#using-cloud-audit-logs)
-
-| 
-
-  * [Route audit log events to Workflows](https://docs.cloud.google.com/eventarc/standard/docs/workflows/route-trigger-cloud-audit-logs)
-
-  
 Cloud Data Fusion | Workflows | 
 
   * [Audit log events](https://docs.cloud.google.com/eventarc/docs/reference/supported-events#using-cloud-audit-logs)
@@ -4299,6 +4272,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

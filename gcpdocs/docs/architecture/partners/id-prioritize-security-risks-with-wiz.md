@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/partners/id-prioritize-security-risks-with-wiz/
 title: Identify and prioritize security risks with Wiz Security Graph and Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:21:12.142596+00:00
+fetched_at: 2026-10-28T01:47:10.689220+00:00
 ---
 
 # Identify and prioritize security risks with Wiz Security Graph and Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation

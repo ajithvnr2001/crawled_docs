@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/error-codes/
 title: Diagnose error codes \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.12.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:38:08.885665+00:00
+fetched_at: 2026-10-28T00:33:15.188409+00:00
 ---
 
 # Diagnose error codes  |  AlloyDB Omni for Kubernetes: 15.12.0  |  Google Cloud Documentation
@@ -70,12 +70,12 @@ Replace the following:
 
 Error code | Description | Recommended action  
 ---|---|---  
-`DBSE0601.PgBackRest: Failed to backup` | AlloyDB Omni uses [pgBackRest](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/set-up-pgbackrest) for its backup and restore related features.  
+`DBSE0601.PgBackRest: Failed to backup` | AlloyDB Omni uses [pgBackRest](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/backup-kubernetes) for its backup and restore related features.  
 This error can occur on a backup resource when pgBackRest failed to take the requested backup. | If it occurs, check the following logs for more information:  
-pgBackRest backup logs on the `obs` disk of the database Pod in the `/obs/pgbackrest/db-backup.log directory`  
+pgBackRest backup logs on the `obs` disk of the database Pod in the `/obs/pgbackrest/db-backup.log` directory  
   
-PostgreSQL database logs on the `obs` disk of the database Pod in the `/obs/diagnostic/postgresql.log directory`.  
-`DBSE0604.pgBackRest: Failed to restore` | AlloyDB Omni uses [pgBackRest](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/set-up-pgbackrest) for its backup and restore related features.  
+PostgreSQL database logs on the `obs` disk of the database Pod in the `/obs/diagnostic/postgresql.log` directory.  
+`DBSE0604.pgBackRest: Failed to restore` | AlloyDB Omni uses [pgBackRest](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/backup-kubernetes) for its backup and restore related features.  
 This error can occur on a restore resource when pgBackRest failed to restore. | If it occurs, check the following logs for more information:  
 * pgBackRest restore logs on the `obs` disk of the database Pod in the `/obs/pgbackrest/db-restore.log` directory.  
   
@@ -110,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

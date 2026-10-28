@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/marketplace/docs/partners/concepts/
 title: Concepts \u00a0|\u00a0 Google Cloud Marketplace Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:45:50.383850+00:00
+fetched_at: 2026-10-27T21:58:13.537891+00:00
 ---
 
 # Concepts  |  Google Cloud Marketplace Partners  |  Google Cloud Documentation

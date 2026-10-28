@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/connected-devices/mqtt-broker-architecture/
 title: Standalone MQTT broker architecture on Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:35:04.559599+00:00
+fetched_at: 2026-10-27T23:06:20.912135+00:00
 ---
 
 # Standalone MQTT broker architecture on Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation

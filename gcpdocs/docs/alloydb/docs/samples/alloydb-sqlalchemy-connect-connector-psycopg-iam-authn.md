@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-sqlalchemy-connect-connector-psycopg-iam-authn/
 title: Connect using IAM database authentication \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:04.563929+00:00
+fetched_at: 2026-10-27T18:27:58.951731+00:00
 ---
 
 # Connect using IAM database authentication  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

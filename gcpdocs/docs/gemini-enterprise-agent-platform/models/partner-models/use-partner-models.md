@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models/
 title: Gemini Enterprise Agent Platform partner models for MaaS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:34.087613+00:00
+fetched_at: 2026-10-28T01:01:34.286976+00:00
 ---
 
 # Gemini Enterprise Agent Platform partner models for MaaS  |  Google Cloud Documentation
@@ -36,7 +36,7 @@ The following partner models are offered as managed APIs on Gemini Enterprise Ag
 Model name | Modality | Description | Quickstart  
 ---|---|---|---  
 Muse Spark 1.3 from Meta ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language | Muse Spark 1.3 from Meta is a reasoning model trained for agentic workflows and competitive coding. It delivers higher first-attempt accuracy, reliable built-in tool calling with MCP support, and 1M-token long context for multi-step tasks. | [Model details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3)  
-Grok 4.7 ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language | A high-capability model from xAI, built for coding and knowledge work. It works longer on difficult tasks and checks its own work. | [Model card](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.7)  
+Grok 4.7 | Language | A high-capability model from xAI, built for coding and knowledge work. It works longer on difficult tasks and checks its own work. | [Model card](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.7)  
 Grok 4.6 | Language | A high-capability model from xAI, built for coding, agentic tasks, and knowledge work. | [Model card](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.6)  
 Grok 4.3 ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language | xAI's high-performance model. | [Model card](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.3)  
 Grok 4.20 (Reasoning) ([Preview](https://cloud.google.com/products#product-launch-stages)) | Language | Grok 4.20 (Reasoning) is a high-performance model from xAI, featuring a low hallucination rate. It excels at document understanding tasks and long-horizon agentic tool calling. | [Model card](https://console.cloud.google.com/agent-platform/publishers/xai/model-garden/grok-4.20-reasoning)  
@@ -296,6 +296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

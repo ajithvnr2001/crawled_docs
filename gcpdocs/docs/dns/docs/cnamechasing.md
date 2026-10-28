@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/cnamechasing/
 title: CNAME chasing \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T09:07:30.226168+00:00
+fetched_at: 2026-10-27T20:09:45.025108+00:00
 ---
 
 # CNAME chasing  |  Cloud DNS  |  Google Cloud Documentation
@@ -22,6 +22,8 @@ Send feedback
 #  CNAME chasing Stay organized with collections  Save and categorize content based on your preferences. 
 
 CNAME chasing refers to a subsequent lookup of a DNS name returned from a CNAME record answer to an initial query. Public DNS resolvers perform subsequent lookup of CNAME answers according to their configuration. Generally, public resolvers chase CNAME answers in any public zones.
+
+**Important:** Starting on January 5, 2027, CNAME chasing will be updated to follow the complete VPC [name resolution order](https://docs.cloud.google.com/dns/docs/vpc-name-res-order) for each subsequent query in the chain across public and private zones. For more information, see the [announcement](https://docs.cloud.google.com/dns/docs/release-notes#October_27_2026).
 
 When Google Cloud VMs use their metadata server (`169.254.169.254`) as their name server, and no alternative name server is defined in an outbound server policy of the VPC network, Cloud DNS performs CNAME chasing as described in the following table.
 
@@ -43,6 +45,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

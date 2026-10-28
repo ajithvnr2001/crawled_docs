@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-settings/
 title: Call settings \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:41:32.446297+00:00
+fetched_at: 2026-10-27T23:05:23.940057+00:00
 ---
 
 # Call settings  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -715,208 +715,183 @@ Example use cases:
 
 
 
-## Call Settings: Overcapacity deflection and caller announcements
+## Overcapacity deflection and caller announcements
 
-When there are no agents available and wait times are high, Admins can configure various experiences for consumers.
+When there are no agents available and wait times are high, admins can configure various experiences for consumers.
 
-The **Call Settings** page enables the following settings, and the **Languages and Messages** page offers the configuration for voice recordings or Text-to-Speech prompts that are required after certain settings are enabled. Be sure to add the appropriate messages once announcements or deflections are enabled.
+The **Call Settings** page lets you enable specific overcapacity settings, and the **Languages and Messages** page offers the configuration for voice recordings or text-to-speech prompts that are required after certain settings are enabled.
 
-### After hour deflection
+Be sure to add the appropriate messages after announcements or deflections are enabled. When enabled, the **Overcapacity Deflection** and **Overcapacity Deflection Options** messages will play, as well as specific recordings for options like **Overcapacity Deflection Callback**. When you add or remove options, be sure to update the message that lists the options callers have, otherwise, callers won't know the new options exist. These messages can be configured in **Settings > Languages & Messages**.
 
-When After Hour deflection is enabled, calls will be deflected based on the specific operation hours for the queue or language the caller has selected or has been routed to. There are multiple options you can offer callers once this setting is enabled.
+The **Chat Settings** page lets you enable overcapacity deflection if the wait time exceeds a certain threshold, you can disable chat channels if overcapacity, and set deflection links, allow the consumer to keep waiting, or offer email options for consumers waiting in the chat queue to seek assistance.
 
+You can set separate options for handling IVR, web, and mobile SDK calls, and chats outside of operating hours using the after-hours deflection settings. Outside the hours of operation set in **Settings > Support Center Details**, calls deflect to the option you select. See [After hour deflection for calls and chats](https://docs.cloud.google.com/contact-center/ccai-platform/docs/after-hour-deflection) for more information.
+
+The following overcapacity deflection options are available depending on the channel:
+
+IVR | Web/mobile SDK | Chat  
+---|---|---  
+  
+  * **Queue** : Deflects callers to another queue when the overcapacity threshold is reached.
+  * **Phone number or outbound SIP transfer** : Deflects the caller to a phone number or SIP URI that you enter, or to a destination you select from a contact list.
+  * **Voicemail** : Allows the caller to leave a voicemail. Agents assigned to the queue that was called will be alerted of new voicemails. There is an optional setting to **limit** the number of voicemails left by a consumer. CCAI Platform looks to see if a voicemail is already left from the incoming number and can block new voicemails from being recorded. When enabled, configure the TTS or upload a custom greeting in: **Settings > Languages & Messages > Deflection to Voicemail - Request Already Placed Message**
+    * **Limit consumer to 1 voicemail per queue** : a consumer could leave a separate voicemail request on a separate queue
+    * **Limit consumer to 1 voicemail request across all queues** : voicemail option not available if an unattended voicemail is already left from the phone number
+There is also an option to **remove** the amount of voicemail messages left by a consumer. When this option is enabled, the **After Hours Deflection** and **Overcapacity Deflection** settings under **Caller Announcements** for IVR will be grayed out, resulting in all deflection limits to be removed and consumers can leave as many voicemails as they want. **Note** : The voicemail limit only refers to the amount of times a consumer can leave a voicemail. It doesn't affect the amount of time a voicemail call can run. That limit can't be changed and is set to **10 minutes**.
+
+| 
+
+  * **Scheduled call** : Option for the consumers to schedule a time to request a callback. See Scheduled calls.
+  * **Email** : Set in **Settings > Support Center Details**
+    * **Web SDK** : gives the customer the email address to contact.
+    * **Mobile SDK** : default email app is launched with:
+      * Email address in the "To" field
+      * Data like app version and device type call be added to the email body
+      * Subject "Support for [queue path]"
+  * **Phone number or outbound SIP transfer** : _Only for mobile._ Deflects consumers to a phone number or SIP URI that you enter, or to a destination you select from a contact list. When a phone number is configured, the option appears as **Call now** and displays the number to dial.
+  * **Voicemail** : _Only for mobile._ Allows consumers to leave a voicemail. Shows as "Leave a callback message." Voicemails will be delivered to agents assigned to the selected queue menu for calls.
+
+| 
+
+  * **Email** : Set in **Settings > Support Center Details**
+    * **Web SDK** : gives the customer the email address to contact.
+    * **Mobile SDK** : default email app is launched with:
+      * Email address in the "To" field
+      * Data like app version and device type call be added to the email body
+      * Subject "Support for [queue path]"
+  * **Keep waiting** : _Only for web._ Allows the consumer to keep waiting in the queue until an agent is available.
+    * **Default behavior for unresponsive consumers** : the overcapacity message will play, then the overcapacity options message plays one time. If nothing is selected, **Keep Waiting** will be auto-selected, after it's selected, the options will repeat at the set interval.
+  * **Deflection links** : Lets you specify the alternative options you want to present to a consumer to seek assistance. For more information about setting deflection links, see [External deflection links: Admin configuration](https://docs.cloud.google.com/contact-center/ccai-platform/docs/external-deflection-links#admin-configuration).
+
+  
+  
 ### Overcapacity deflection
 
-Overcapacity deflection occurs when a call enters a queue and is not answered within amount of time that you set ("Deflect calls in a particular queue if wait time in the queue is > set duration") AND the [estimated wait time](https://docs.cloud.google.com/contact-center/ccai-platform/docs/Queue_and_Menu_Setup#estimated-wait-time-prediction-calculation) (EWT) is greater than the amount of time that you set. The system then deflects the call based on the deflection options that you configure.
+Overcapacity deflection threshold is reached when a call is placed in queue and isn't answered in the set amount of time ("Deflect calls in a particular queue if wait time in the queue is > [set duration]") AND when the estimated wait time is greater than the set amount of time, the caller will be offered from the selected deflection options.
 
-**Caller messages:** the Overcapacity message will play, then the Overcapacity Options message plays one time. If nothing is selected, "keep waiting" will be auto-selected, If the Keep Waiting option is selected, the options will repeat at the set interval.
+### Estimated wait time (EWT)
+
+For more information about how CCAI Platform calculates the estimated wait time prediction and how to enable an estimated wait announcement see [Estimated wait time prediction](https://docs.cloud.google.com/contact-center/ccai-platform/docs/estimated-wait-time-prediction-calculation).
 
 ### Agent call messages and notifications
 
-You have flexibility based on your individual contact center environment to change how often the agent hears call alerts, what the alert sounds like, and also options for more detailed audible call announcements.
+You have flexibility based on your individual contact center environment to change how often the agent hears call alerts, what the alert sounds like, and also options for more detailed audible call announcements. See the [Agent call messages and notifications](https://docs.cloud.google.com/contact-center/ccai-platform/docs/agent-messages-notifications).
 
 ### Order of caller announcements
 
-CCAI Platform has many options that might or might not be enabled for your environment. If you are using all of the following features, all announcements will be played. If you aren't using overcapacity, or CSAT, or call recording, those specific messages will be skipped.
+CCAI Platform has many options that may or may not be enabled for your environment. If you are using all of the following features, all announcements will be played. If you aren't using overcapacity, or CSAT, or call recording, those specific messages will be skipped.
 
   1. Overcapacity deflection message (if enabled)
 
   2. Estimated wait time announcement (if enabled)
 
-  3. Connecting Message
+  3. Connecting message
 
-  4. Record a Call Message (if enabled)
+  4. Record a call message (if enabled)
 
-  5. Pre-Call Notification of CSAT survey (if enabled)
+  5. Pre-call notification of CSAT survey (if enabled)
 
   6. Any other messages (if applicable)
 
-  7. Wait Time SMS consent voice readout (if enabled and "keep waiting" is selected)
+  7. Wait time SMS consent voice readout (if enabled and "keep waiting" is selected)
 
 
 
 
-### Configure call settings
+### CCAI Platform portal configuration
 
-This section explains configuration options in CCAI Platform.
+This section explains configuration options in the CCAI Platform portal.
 
 #### Universal caller announcement intervals
 
-Announcements such as Overcapacity, CSAT, and Estimated Wait time are set with one global setting.
+Announcements such as overcapacity, CSAT, and estimated wait time are set with one global setting.
 
-  1. Go to **Settings** > **Call.**
+  1. Go to **Settings > Call > Caller Announcements**.
 
-  2. Go to Caller Announcements.
-
-  3. Set the duration in minutes and click **Set Caller Announcements** to save.
+  2. Set the duration in minutes and select **Save Caller Announcements**.
 
 
 
 
 #### Enable overcapacity deflection globally
 
-  1. Toggle **IVR - Enable Overcapacity Deflection** to **On** to deflect customers calling in using IVR when the wait time in queue is greater than the specified duration set in the next step.
+**Note** : Overcapacity deflection threshold will be reached when:
 
-  2. Set the duration a caller should wait in queue before hearing overcapacity options. The duration is set by the **Universal Caller Announcement Intervals** timer.
-
-  3. Click the **Mobile and Web SDK - Enable Overcapacity Deflection** toggle to the on position to deflect customers reaching out using Mobile and Web channels when the wait time in queue is greater than the specified duration.
-
+  * A call is placed in queue and isn't answered within the set amount of time.
+  * When the estimated wait time is greater than the set amount of time, the call will be deflected instead of placing the call in the queue.
 
 
 
-The overcapacity deflection threshold is reached when a call is placed in a queue and is not answered within the set amount of time. When the estimated wait time is greater than the set amount of time, the call is deflected instead of being placed in the queue.
+  1. Turn on **IVR - Enable Overcapacity Deflection** to deflect consumers calling using IVR when the wait time in the queue is greater than the specified duration set in the next step.
+
+  2. Set the duration a caller should wait in a queue before hearing overcapacity options. The duration is set by the **Universal Caller Announcement Intervals** timer.
+
+  3. Under **Web & Mobile Calls**, turn on **Enable Overcapacity Deflection** to deflect consumers reaching out using mobile and web channels when the wait time in queue is greater than the specified duration.
+
+
+
 
 #### Enable overcapacity deflection at the queue level
 
-To enable overcapacity deflection at the queue level, follow these steps:
+  1. Go to **Settings > Queue**.
 
-  1. In the CCAI Platform portal, click **Settings > Queue**. If you don't see the **Settings** menu, click menu **Menu**.
+  2. Select the menu you want to enable overcapacity deflection for.
 
-  2. In the **IVR (Interactive Voice Response)** pane, click **Edit / View**.
+     * If you need to see all the entire menu, you can expand the menu by clicking the caret next to **Overcapacity Deflection Messages**.
+  3. Select **Configure** next to **Overcapacity Deflection** to open the queue level menu.
 
-  3. Click the queue that you want to edit.
+  4. Toggle **Overcapacity Deflection** to **ON** to enable and view overcapacity options.
 
-  4. For **Overcapacity Deflection** , click **Configure**. The **Overcapacity Deflection** pane appears.
+     * **Message** : Plays the message typed (for example, "We are experiencing high volume") and then ends the call. You will see a banner advising you to configure a message if this option is selected. You can click the **Overcapacity Deflection Messages** link to jump to the right section in the menu.
 
-  5. Click **Overcapacity Deflection** to the on position and choose from the following settings:
+     * **Queue** : Select from available queue menu options to redirect the call to.
 
-     1. **Message:** Plays the message typed (for example, "We are experiencing high volume") and then ends the call. You will see a banner advising you to configure a message if this option is selected. You can click the Overcapacity Deflection Messages link to go to the right section in the menu.
+     * **Phone number or outbound SIP transfer** : _Only for mobile._ Deflects consumers to a phone number or SIP URI that you enter, or to a destination you select from a contact list. When a phone number is configured, the option appears as **Call now** and displays the number to dial.
 
-     2. **Queue:** Select from available queue menu options to redirect the call to.
+     * **Voicemail** : Redirects caller to leave a voicemail.
 
-     3. **Phone Number:** Redirects to the number entered.
+     * **Callback** : Keeps the caller's place in queue and ends the call. The caller will receive a callback when they are at the top of the queue. This setting uses the **Overcapacity Deflection Callback Option** message. This should be configured in **Settings > Languages & Messages**. More info here: [IVR message setup - languages and messages](https://docs.cloud.google.com/contact-center/ccai-platform/docs/configure-ivr-messages).
 
-     4. **Voicemail:** Redirects the caller to leave a voicemail.
+     * **Keep waiting** : The consumer remains in the queue until an agent is available.
 
-     5. **Callback:** Keeps the caller's place in the queue and ends the call. The caller receives a callback when they are at the top of the queue. This setting uses the **Overcapacity Deflection Callback Option** message. This should be configured in **Settings > Languages & Messages**. For more information, see [Configure IVR messages](https://docs.cloud.google.com/contact-center/ccai-platform/docs/configure-ivr-messages).
+  5. You can also change the wait time in the **Overcapacity Deflection Criteria** setting. Use the drop-down to change the amount of wait time.
 
-     6. **Keep Waiting:** The end-user remains in the queue until an agent is available.
+  6. Select **Save** to save the new settings.
 
-  6. You can also change the wait time in the **Overcapacity Deflection Criteria** setting. Use the drop-down to change the amount of wait time.
-
-  7. Click **Save**.
-
+     * If you want to revert to the global settings, select **Reset to Global** , then **Save**.
 
 
 
 #### Enable conditional overcapacity deflection globally
 
-To turn on overcapacity deflections globally, follow these steps:
+**Note:** For more information on implementation, contact your account team or Support.
 
-  1. In the CCAI Platform portal, click **Settings > Call**. If you don't see the **Settings** menu, click menu **Menu**.
+  1. Toggle **ON** the **Enable Conditional Overcapacity Deflection** to deflect customers calling using IVR when the wait time in the queue is greater than the specified duration set in the next step.
 
-  2. Go to the **Caller Announcements** pane, and then do one or both of the following:
+     1. You will see the following two options after it's enabled: **Estimated Wait Time** and **Time of the Day**.
 
-     * Click **IVR - Enable Overcapacity Deflection** to the on position.
+     2. Select the radio button next to the settings you want to configure next.
 
-     * Click **Web & Mobile - Enable Overcapacity Deflection** to the on position.
+  2. Under **Estimated Wait Time** , check the boxes for the intervals you want to set conditions for.
 
-  3. For **Enable conditional overcapacity deflection** , select either **Estimated Wait Time** or **Time of the Day** , depending on the deflection criteria that you want.
+  3. Choose the deflection options you want to use based on the specific criteria listed for each checkbox by selecting **Configure**. You can use text-to-speech or audio recordings for the deflection messages.
 
-     * For **Estimated Wait Time** , configure your wait time options. For each wait time option, click **Configure** to configure deflection actions and set up deflection messages. Configure messages for each available language.
+     1. Select **Save Deflection** and close the page to return to the previous menu.
 
-     * For **Time of the Day** , configure your hours of deflection by time interval. You can configure up to five deflection options for both weekday and weekends. For each deflection option, click **Configure** to configure deflection actions and set up deflection messages. Configure messages for each available language.
+     2. **Important** : When you set up deflection messages, be sure to set them up for each language.
 
-  4. Click **Save Caller Announcements.**
+  4. Under **Time of the Day** , check the box next to the days you want to set options for. You can select different options for weekdays and weekends.
 
+     1. Under each set of days, check the box next to the hours you want to set conditional deflection options for. You can select up to 5 intervals with different options for each. Use the drop-down in each field to choose your start and end times for each interval.
 
+     2. To open the configuration menu for each time interval, select **Configure**. You can use text-to-speech or audio recordings for the deflection messages.
 
+     3. Select **Save Deflection** and close the page to return to the previous menu.
 
-#### Select mobile and web SDK call deflection options
-
-When selected, visual options will be displayed when either outside of operating hours or when the estimated wait time is higher than the set Overcapacity threshold. The regular Call or Chat options won't appear in the UI and the options you select in this section will be the only options available.
-
-  * **After Hours Deflection** : Deflects customers by presenting alternative options. See [After Hour Deflection for Calls and Chats](https://docs.cloud.google.com/contact-center/ccai-platform/docs/after-hour-deflection) for details.
-
-  * **Overcapacity Deflection** : When the estimated wait time is greater than the overcapacity threshold, the selected options will be presented.
-
-    * **Scheduled Call** : Option for the consumers to schedule a time to request a callback. See Scheduled calls.
-
-    * **Email**
-
-    * Web SDK: gives the customer the email address to contact.
-
-    * Mobile SDK: default email app is launched with:
-          
-          -   Email address in the \"To\" field.
-          
-          -   Data like app version and device type call be added to the email
-              body.
-          
-          -   Subject \"Support for \[queue path\]\".
-          
-
-    * Email address is set in **Settings** > **Support Center Details.**
-
-    * **Phone Number** : _Only for mobile._ Deflects consumers to another phone number. Shows as "Call now" and displays the number the phone will be dialing.
-
-    * **Voicemail** : _Only for mobile._ Allows customers to leave a voicemail. Shows as "Leave a callback message." Voicemails will be delivered to agents assigned to the selected queue menu for calls.
+  5. After all selections have been made, select **Save Caller Announcements**.
 
 
 
-
-#### IVR call deflection options
-
-  * **After-Hours Deflection** : During the set hours in Support Center Details, calls will deflect to the selected option. See [After Hour Deflection for Calls and Chats](https://docs.cloud.google.com/contact-center/ccai-platform/docs/after-hour-deflection).
-
-  * **Overcapacity Deflection** When enabled, the "Overcapacity Deflection" and "Overcapacity Deflection Options" messages will play, as well as specific recordings for options like "Overcapacity Deflection Callback Option." When you add or remove options, be sure to update the message that lists the options callers have, otherwise, callers won't know the new options exist. These messages can be configured in **Settings** > **Languages & Messages**.
-
-    * **Queue:** Deflects callers to another queue when the Overcapacity threshold is reached.
-
-    * **Phone Number** : Deflects caller to another phone number.
-
-    * **Voicemail** : Allows caller to leave a voicemail. Agents assigned to the queue that was called will be alerted of new voicemails.
-
-    * Optional setting to limit the number of voicemails left by a consumer. CCAI Platform looks to see if a voicemail is already left from the incoming number and can block new voicemails from being recorded. When enabled, configure the TSS or upload a custom greeting in **Settings** > **Languages & Messages** | **Deflection to Voicemail option - Request Already Placed Message.**
-          
-          -   Limit consumer to 1 voicemail per queue: a consumer could leave
-              a separate voicemail request on a separate queue.
-          
-          -   Limit consumer to 1 voicemail request across all queues:
-              voicemail option not available if an unattended voicemail is
-              already left form the phone number.
-          
-
-    * **Callback** : The customer can choose to receive a callback retaining their place and priority in queue. The system will call the phone number they used to dial in when they are next in queue and the call will be routed to an agent the same as a standard incoming call. For more information, see the Custom callback number section of this document.
-
-_Timeout behavior_ : If the caller selects the callback option and the queue goes into after hours before the call is answered, the caller waits until the call times out based on the Unanswered Call Expiration set on the same Call Settings page. For more information, see the Call details section of this document.
-
-    * Optional setting to limit the number of callback requests placed by a consumer. If a callback request was already placed from the incoming number, new callback requests will be blocked. When enabled, configure the TSS or upload a custom greeting in **Settings** > **Languages & Messages** | **Overcapacity deflection callback option - Request Already Placed message.**
-          
-          -   Limit consumer to 1 callback request per queue: a consumer could
-              leave a separate callback request on a different queue than the
-              first request.
-          
-          -   Limit consumer to 1 callback request across all queues.
-          
-
-    * **Keep Waiting** : Allows caller to continue waiting in the queue.
-
-**Note:** When multiple options are selected in settings, the caller will be prompted with the selected options and able to choose one selection.
-
-
-
-Click **Set Deflection** to save the settings.
 
 ## Custom callback number
 
@@ -1223,7 +1198,9 @@ You can use the `@{END_USER_NUMBER}` variable to read out the end-user's phone n
 
 ### Before you begin
 
-Be sure that your instance is configured for overcapacity deflection. For more information, see [Enable overcapacity deflection globally](https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-settings#overcapacity-deflection-global) and [Enable overcapacity deflection at the queue level](https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-settings#overcapacity-deflection-queue-level).
+Be sure that your instance is configured for overcapacity deflection. For more information, see [Enable overcapacity deflection globally](https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-settings#overcapacity-deflection-global) and
+
+[Enable overcapacity deflection at the queue level](https://docs.cloud.google.com/contact-center/ccai-platform/docs/call-settings#overcapacity-deflection-queue-level).
 
 ### Read out the end-user's phone number at the global level
 
@@ -1811,20 +1788,19 @@ To configure after-hours deflection for call scheduling, follow these steps:
   1. To enable after hours deflection, do the following:
 
      1. In the CCAI Platform portal, click **Settings > Call**. If you don't see the **Settings** menu, click menu **Menu**.
+  2. Go to the **Caller Announcements** pane.
 
-     2. Go to the **Caller Announcements** pane.
+     1. Click the **Enable After Hour Deflection** toggle to the on position.
 
-     3. Click the **Enable After Hour Deflection** toggle to the on position.
+     2. Select the **Allow transfers to queues outside of hours of operation** checkbox.
 
-     4. Select the **Allow transfers to queues outside of hours of operation** checkbox.
-
-  2. To let callers schedule a call after after-hours deflection, do the following:
+  3. To let callers schedule a call after after-hours deflection, do the following:
 
      1. Go to the **Web & Mobile Calls** section.
 
      2. For **Overcapacity Deflection** , select the **Scheduled Call** checkbox.
 
-  3. Click **Save Caller Announcements**.
+  4. Click **Save Caller Announcements**.
 
 
 
@@ -1948,12 +1924,10 @@ To turn on and configure agent extensions, follow these steps:
      * To automatically generate phone extensions for your agents, select the **Enable Auto-generated extension** checkbox. The system then automatically generates phone extensions of the length you specified and assigns them to your agents.
 
      * To assign your own extension numbers to your agents, do the following:
-           
-           1.  Clear the **Enable Auto-generated extension** checkbox.
-           
-           1.  [Assign extension numbers to
-               agents](#assign-extension-to-a-user).
-           
+
+       1. Clear the **Enable Auto-generated extension** checkbox.
+
+       2. Assign extension numbers to agents.
 
 You must assign extension numbers to agents for both agent to agent calling and end-user to agent calling.
 
@@ -2611,6 +2585,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

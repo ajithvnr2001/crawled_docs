@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query/
 title: Run a query with GoogleSQL \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:32.541383+00:00
+fetched_at: 2026-10-27T23:10:54.477590+00:00
 ---
 
 # Run a query with GoogleSQL  |  BigQuery  |  Google Cloud Documentation

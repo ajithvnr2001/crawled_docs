@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/certificate-sans/
 title: Add domains to the API server certificate \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:47.304816+00:00
+fetched_at: 2026-10-28T02:29:43.392982+00:00
 ---
 
 # Add domains to the API server certificate  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,13 @@ Send feedback
 
 #  Add domains to the API server certificate Stay organized with collections  Save and categorize content based on your preferences. 
 
-A subject alternative name (SAN) is a feature of SSL certificates that lets you define the domain names and subdomains that are secured by a certificate. On an Google Distributed Cloud cluster, the default SANs for the Kubernetes API server certificate include the IP and VIP addresses of the control plane nodes and the Kubernetes DNS names. With the custom API server certificate extra SANs feature, you can add additional domains, subdomains, and IP addresses as SANs to the Kubernetes API server certificate for the cluster.
+Custom Subject Alternative Names (SANs) let you extend API server certificate coverage to additional domains, subdomains, and IP addresses. On a Google Distributed Cloud cluster, default SANs include only the IP and VIP addresses of control plane nodes and standard Kubernetes DNS names. You can configure custom SANs by using the mutable [`controlPlane.apiServerCertExtraSANs`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/cluster-config-ref#controlplane-apiservercertextrasans) field in your cluster configuration file, either during cluster creation or at any time after.
 
-To specify custom SANs for the API server certificate, you use the [`controlPlane.apiServerCertExtraSANs`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/reference/cluster-config-ref#controlplane-apiservercertextrasans) field in the cluster configuration spec. This field takes a list of domain names and IP addresses. This field is optional and mutable. You can add this field and update it when you create a cluster or any time after.
+## Add domains during cluster creation
+
+When you add extra SANs when you create a cluster, the Kubernetes API server certificate includes the additional specified domains and IP addresses when the cluster becomes available.
+
+The following example shows the `apiServerCertExtraSANs` field in a cluster configuration file:
     
     
     ...
@@ -44,10 +48,6 @@ To specify custom SANs for the API server certificate, you use the [`controlPlan
       clusterNetwork:
       ...
     
-
-## Add domains during cluster creation
-
-When you add extra SANs when you create a cluster, the Kubernetes API server certificate includes the additional specified domains and IP addresses when the cluster becomes available.
 
 ## Add or update domains for an existing cluster
 
@@ -106,6 +106,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

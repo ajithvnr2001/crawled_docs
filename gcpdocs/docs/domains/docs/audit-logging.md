@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/domains/docs/audit-logging/
 title: Cloud Domains audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:19:06.678881+00:00
+fetched_at: 2026-10-27T17:04:34.858180+00:00
 ---
 
 # Cloud Domains audit logging  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 **Note:** On September 7, 2023 Squarespace acquired all domain registrations and related customer accounts from Google Domains. For more information about how this change affects Cloud Domains, see [Cloud Domains feature deprecations](https://docs.cloud.google.com/domains/docs/deprecations/feature-deprecations), [Renew an expired domain registration](https://support.google.com/a/answer/6152355), and [Squarespace purchase of Google Domains FAQ](https://docs.cloud.google.com/domains/docs/faq). 
 
-This document lists the audited methods for Cloud Domains. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Cloud Domains let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Cloud Domains API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -102,12 +104,12 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.domains.v1alpha2.Domains.ExportRegistration`  
 `google.cloud.domains.v1alpha2.Domains.ImportDomain`  
 `google.cloud.domains.v1alpha2.Domains.InitiatePushTransfer`  
-`google.cloud.domains.v1alpha2.Domains.RegisterDomain` (LRO)  
+`google.cloud.domains.v1alpha2.Domains.RegisterDomain`  
 `google.cloud.domains.v1alpha2.Domains.RenewDomain`  
 `google.cloud.domains.v1alpha2.Domains.ResetAuthorizationCode`  
 `google.cloud.domains.v1alpha2.Domains.RetrieveAuthorizationCode`  
 `google.cloud.domains.v1alpha2.Domains.TransferDomain`  
-`google.cloud.domains.v1alpha2.Domains.UpdateRegistration` (LRO)  
+`google.cloud.domains.v1alpha2.Domains.UpdateRegistration`  
 `google.cloud.domains.v1beta1.Domains.ConfigureContactSettings` (LRO)  
 `google.cloud.domains.v1beta1.Domains.ConfigureDnsSettings` (LRO)  
 `google.cloud.domains.v1beta1.Domains.ConfigureManagementSettings` (LRO)  
@@ -116,11 +118,11 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.domains.v1beta1.Domains.ImportDomain`  
 `google.cloud.domains.v1beta1.Domains.InitiatePushTransfer`  
 `google.cloud.domains.v1beta1.Domains.RegisterDomain` (LRO)  
-`google.cloud.domains.v1beta1.Domains.RenewDomain` (LRO)  
+`google.cloud.domains.v1beta1.Domains.RenewDomain`  
 `google.cloud.domains.v1beta1.Domains.ResetAuthorizationCode`  
 `google.cloud.domains.v1beta1.Domains.RetrieveAuthorizationCode`  
 `google.cloud.domains.v1beta1.Domains.TransferDomain`  
-`google.cloud.domains.v1beta1.Domains.UpdateRegistration` (LRO)  
+`google.cloud.domains.v1beta1.Domains.UpdateRegistration`  
 `SetIamPolicy`  
   
 ## API interface audit logs
@@ -593,7 +595,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `domains.registrations.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.domains.v1alpha2.Domains.RegisterDomain" `  
 
@@ -758,7 +760,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `domains.registrations.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.domains.v1alpha2.Domains.UpdateRegistration" `  
 
@@ -927,7 +929,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `domains.registrations.configureManagement - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.domains.v1beta1.Domains.RenewDomain" `  
 
@@ -1077,7 +1079,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `domains.registrations.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.domains.v1beta1.Domains.UpdateRegistration" `  
 
@@ -1174,6 +1176,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/apis/
 title: API reference \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:19:16.508832+00:00
+fetched_at: 2026-10-27T18:13:47.131703+00:00
 ---
 
 # API reference  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/container/fleet/rolloutsequences/upgrade/
 title: gcloud container fleet rolloutsequences upgrade \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T12:56:18.056991+00:00
+fetched_at: 2026-10-27T21:40:26.401253+00:00
 ---
 
 # gcloud container fleet rolloutsequences upgrade  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud container fleet rolloutsequences upgrade - upgrade the clusters in a roll
 SYNOPSIS
     
 
-`gcloud container fleet rolloutsequences upgrade` `ROLLOUTSEQUENCE` (`--control-plane-version`=`CONTROL_PLANE_VERSION` | `--node-version`=`NODE_VERSION`) [`--async`] [`--force`] [`--ignore-cluster-disruption-budgets`] [`--ignore-maintenance-policies`] [`--patch-only`] [`--soak-duration-override-all-stages`=`SOAK_DURATION_OVERRIDE_ALL_STAGES` | `--soak-duration-overrides-per-stage`=[`STAGE_NUMBER`=`DURATION`,…]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud container fleet rolloutsequences upgrade` `ROLLOUTSEQUENCE` (`--control-plane-version`=`CONTROL_PLANE_VERSION` | `--node-version`=`NODE_VERSION`) [`--async`] [`--force`] [`--ignore-cluster-disruption-budgets`] [`--ignore-maintenance-policies`] [`--patch-only`] [`--prioritized`] [`--soak-duration-override-all-stages`=`SOAK_DURATION_OVERRIDE_ALL_STAGES` | `--soak-duration-overrides-per-stage`=[`STAGE_NUMBER`=`DURATION`,…]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Upgrade the clusters in a rollout sequence resource. 
 POSITIONAL ARGUMENTS
@@ -83,6 +83,8 @@ OPTIONAL FLAGS
      If set, the rollout will ignore any maintenance policies (Maintenance Windows and Maintenance Exclusions) set on the clusters. 
 `--patch-only`
      If set, the rollout will only upgrade clusters that are already on the minor version of the target version, but are on an earlier patch version. 
+`--prioritized`
+     If set, conflicting rollouts will be paused, to allow this rollout to progress through the sequence. Conflicting rollouts running on the first stage will be canceled, to allow this rollout to be created. 
 At most one of these can be specified: 
 
 `--soak-duration-override-all-stages`=`SOAK_DURATION_OVERRIDE_ALL_STAGES`
@@ -107,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-09-15 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-09-15 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

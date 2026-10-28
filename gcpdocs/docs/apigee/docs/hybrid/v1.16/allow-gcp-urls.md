@@ -1,13 +1,43 @@
 ---
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/
 title: Google Cloud URLs to allow for Hybrid \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T10:25:30.027100+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T16:45:19.779751+00:00
 ---
 
 # Google Cloud URLs to allow for Hybrid  |  Apigee  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/
+
+[ Skip to main content ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/)
+  * [Deutsch](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=de)
+  * [Español](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=it)
+  * [Português](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/?hl=ko)
+
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/apigee-color.svg) ](https://docs.cloud.google.com/apigee/docs)
+  * [ Apigee ](https://docs.cloud.google.com/apigee/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Google Cloud URLs for all Apigee hybrid installations](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/#gcp)
+  * [ Google Cloud URLs for Anthos installations ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/#anthos)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -16,25 +46,21 @@ fetched_at: 2026-10-24T10:25:30.027100+00:00
   * [ Guides ](https://docs.cloud.google.com/apigee/docs/api-platform/get-started/what-apigee)
 
 
-
 Send feedback 
+#  Google Cloud URLs to allow for Hybrid Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Google Cloud URLs for all Apigee hybrid installations](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/#gcp)
+  * [ Google Cloud URLs for Anthos installations ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls/#anthos)
 
-#  Google Cloud URLs to allow for Hybrid Stay organized with collections  Save and categorize content based on your preferences. 
-
-You are currently viewing version 1.16 of the Apigee hybrid documentation. For more information, see [Supported versions](https://docs.cloud.google.com/apigee/docs/hybrid/supported-platforms#supported-versions).
 
 Version 1.16 keyboard_arrow_down
-
 Supported versions:
-
   * [ v1.17 (latest) ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/allow-gcp-urls.html)
   * [ v1.16 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/allow-gcp-urls.html)
   * [ v1.15 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.15/allow-gcp-urls.html)
   * [ v1.14 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.14/allow-gcp-urls.html)
   * [ List of supported versions ](https://docs.cloud.google.com/apigee/docs/hybrid/supported-platforms#supported-versions)
-
 Unsupported versions:
-
   * [ v1.13 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.13/allow-gcp-urls.html)
   * [ v1.12 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.12/allow-gcp-urls.html)
   * [ v1.11 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.11/allow-gcp-urls.html)
@@ -50,42 +76,31 @@ Unsupported versions:
   * [ v1.1 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.1/allow-gcp-urls.html)
 
 
-
 If you have a restricted VPC environment where external domains need to be allowed, here is a list of Google Cloud urls that Apigee hybrid may need to connect with during install and runtime.
-
 ## Google Cloud URLs for all Apigee hybrid installations
-
-These URLs are used by all Apigee hybrid installations:
-
-URL | Description  
----|---  
-apigee.googleapis.com | The runtime uses these APIs to learn which proxies, shared flows, etc., it should deploy, and to report its current configuration and health.  
-apigeeconnect.googleapis.com | This APIs is needed for apigee-mart-server and apigee-connect communication when you have vpc-sc enabled to talk to the control plane.  
-binaryauthorization.googleapis.com | Optional. Only for Anthos if [binary authorization](https://docs.cloud.google.com/binary-authorization) is enabled  
-gcr.io | Contanier images are hosted in Google Container Registry.  
-iamcredentials.googleapis.com | Required for generating access tokens used by other Google Cloud API calls. For example, for runtime to make calls to download runtime contracts from apigee.googleapis.com, the permission is granted by a service account. So the runtime needs to get an access token before making the call to apigee.googleapis.com.  
-logging.googleapis.com | This API is needed for the logging agent to send logs to Cloud Logging.  
-monitoring.googleapis.com | Cloud Monitoring service endpoint to export metrics.  
-oauth2.googleapis.com | Authentication and authorization  
-pubsub.googleapis.com | The runtime subscribes to a pubsub topic to learn when to initialize debug sessions.  
-quay.io | Container registry used by [cert-manager](https://cert-manager.io/docs/). See [Install cert-manager](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/install-cert-manager) in the install guide.  
-serviceusage.googleapis.com | Inspect and manage quota for service consumers on Google Cloud Platform. Required by Anthos Service Mesh  
-storage.googleapis.com | The runtime downloads proxies, shared flows, resource files, and keystore aliases from Google Cloud Storage in tenant project.  
-sts.googleapis.com | The Security Token Server providers API method for third party developers to exchange third party credentials to Google Cloud Platform tokens.  
-www.googleapis.com | Needed by the [MART](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/what-is-hybrid#mart) component.  
-  
+These URLs are used by all Apigee hybrid installations:  
+| URL  | Description  |  
+| --- | --- |  
+| apigee.googleapis.com  | The runtime uses these APIs to learn which proxies, shared flows, etc., it should deploy, and to report its current configuration and health.  |  
+| apigeeconnect.googleapis.com  | This APIs is needed for apigee-mart-server and apigee-connect communication when you have vpc-sc enabled to talk to the control plane.  |  
+| binaryauthorization.googleapis.com  | Optional. Only for Anthos if [binary authorization](https://docs.cloud.google.com/binary-authorization) is enabled  |  
+| gcr.io  | Contanier images are hosted in Google Container Registry.  |  
+| iamcredentials.googleapis.com  | Required for generating access tokens used by other Google Cloud API calls. For example, for runtime to make calls to download runtime contracts from apigee.googleapis.com, the permission is granted by a service account. So the runtime needs to get an access token before making the call to apigee.googleapis.com.  |  
+| logging.googleapis.com  | This API is needed for the logging agent to send logs to Cloud Logging.  |  
+| monitoring.googleapis.com  | Cloud Monitoring service endpoint to export metrics.  |  
+| oauth2.googleapis.com  | Authentication and authorization  |  
+| pubsub.googleapis.com  | The runtime subscribes to a pubsub topic to learn when to initialize debug sessions.  |  
+| quay.io  | Container registry used by [cert-manager](https://cert-manager.io/docs/). See [Install cert-manager](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/install-cert-manager) in the install guide.  |  
+| serviceusage.googleapis.com  | Inspect and manage quota for service consumers on Google Cloud Platform. Required by Anthos Service Mesh  |  
+| storage.googleapis.com  | The runtime downloads proxies, shared flows, resource files, and keystore aliases from Google Cloud Storage in tenant project.  |  
+| sts.googleapis.com  | The Security Token Server providers API method for third party developers to exchange third party credentials to Google Cloud Platform tokens.  |  
+| www.googleapis.com  | Needed by the [MART](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/what-is-hybrid#mart) component.  |  
 ##  Google Cloud URLs for Anthos installations 
-
 All Apigee hybrid installations on Anthos on-prem use additional Google Cloud URLs. For more information, see:
-
   * [Proxy and firewall rules for Anthos on-prem](https://docs.cloud.google.com/anthos/clusters/docs/on-prem/how-to/firewall-rules)
 
 
-
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-24 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

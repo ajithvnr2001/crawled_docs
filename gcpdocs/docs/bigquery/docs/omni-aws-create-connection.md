@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/omni-aws-create-connection/
 title: Connect to Amazon S3 \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:25:15.066174+00:00
+fetched_at: 2026-10-27T19:30:15.054782+00:00
 ---
 
 # Connect to Amazon S3  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Connect to Amazon S3
 
-As a BigQuery administrator, you can create a [connection](https://docs.cloud.google.com/bigquery/docs/connections-api-intro) to let data analysts access data stored in Amazon Simple Storage Service (Amazon S3) buckets.
+An Amazon Simple Storage Service (Amazon S3) [connection](https://docs.cloud.google.com/bigquery/docs/connections-api-intro) in BigQuery lets data analysts [query data stored in Amazon S3 buckets](https://docs.cloud.google.com/bigquery/docs/omni-aws-create-external-table) and [export query results from BigQuery to Amazon S3](https://docs.cloud.google.com/bigquery/docs/omni-aws-export-results-to-s3). You can create a connection so that [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction) can securely access your Amazon S3 data.
 
-[BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction) accesses Amazon S3 data through connections. Each connection has its unique Amazon Web Services (AWS) Identity and Access Management (IAM) user. You grant permissions to users through AWS IAM roles. The policies within the AWS IAM roles determine what data BigQuery can access for each connection.
-
-Connections are required to [query the Amazon S3 data](https://docs.cloud.google.com/bigquery/docs/omni-aws-create-external-table) and [export query results from BigQuery to your Amazon S3 bucket](https://docs.cloud.google.com/bigquery/docs/omni-aws-export-results-to-s3).
+Each connection has a unique Amazon Web Services (AWS) Identity and Access Management (IAM) user. You grant permissions to that user through AWS IAM roles, whose policies determine what data BigQuery can access for each connection.
 
 ## Before you begin
 
@@ -759,6 +757,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

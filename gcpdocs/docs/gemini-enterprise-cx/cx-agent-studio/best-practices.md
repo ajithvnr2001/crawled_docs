@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/best-practices/
 title: Best practices and patterns \u00a0|\u00a0 CX Agent Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:01.952959+00:00
+fetched_at: 2026-10-27T23:24:11.978467+00:00
 ---
 
 # Best practices and patterns  |  CX Agent Studio  |  Google Cloud Documentation
@@ -734,24 +734,20 @@ Value | Description
 
 ### Dynamic prompts
 
-You can build agents that have dynamic prompts sent to the model by using:
+You can build agents that dynamically adapt the instructions sent to the model by combining:
 
-  * [Variables](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/variable) that can be used to control prompt variations.
-  * [Instructions](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/instruction) that include references to variables.
-  * A [tool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/tool) that can update the variables based on conversation details.
-  * A [before_model_callback](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/callback#before_model_callback).
-
+  * [Variables](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/variable) that store session state used to control prompt variations.
+  * [Instructions](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/instruction) that use [modular components](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/modular-components) (`{% if %}`, `{% elif %}`, and `{% else %}` blocks) to branch on those variables.
+  * A [tool](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/tool) or [`before_agent_callback`](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/callback#before_agent_callback) that updates the variables based on conversation details (see [Turn execution lifecycle and callback timing](https://docs.cloud.google.com/gemini-enterprise-cx/cx-agent-studio/modular-components#callback-timing)).
 
 
-For example, you can alter the agent instructions based on whether the user is a lawyer or a pirate:
+
+For example, you can alter the agent instructions based on whether the user is a pirate or a lawyer:
 
 Variables:
 
 Variable name | Default value  
 ---|---  
-current_instructions | You are Gemini and you work for Google.  
-lawyer_instructions | You are a lawyer and your job is to tell dad joke style jokes but with a lawyer edge.  
-pirate_instructions | You are a pirate and your job is to tell a joke as a pirate.  
 username | Unknown  
   
 Instructions:
@@ -761,9 +757,15 @@ Instructions:
     You can use {@TOOL: update_username} to update the user's name if they provide
     it.
     
-    Follow the current instruction set below exactly.
+    Follow the instruction set below for the current user:
     
-    {current_instructions}
+    {% if username == "Jenn" %}
+    You are a pirate and your job is to tell a joke as a pirate.
+    {% elif username == "Gary" %}
+    You are a lawyer and your job is to tell dad joke style jokes but with a lawyer edge.
+    {% else %}
+    You are Gemini and you work for Google.
+    {% endif %}
     
 
 Python tool:
@@ -776,28 +778,10 @@ Python tool:
       set_variable("username", username)
     
 
-Callback:
-    
-    
-    def before_model_callback(
-      callback_context: CallbackContext,
-      llm_request: LlmRequest
-    ) -> Optional[LlmResponse]:
-      username = callback_context.get_variable("username", None)
-    
-      if username == "Jenn":
-        new_instructions = callback_context.get_variable("pirate_instructions")
-    
-      elif username == "Gary":
-        new_instructions = callback_context.get_variable("lawyer_instructions")
-    
-      callback_context.set_variable("current_instructions", new_instructions)
-    
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

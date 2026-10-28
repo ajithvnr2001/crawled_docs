@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/load-balancing/docs/https/http-load-balancing-best-practices/
-title: External Application Load Balancer performance best practices \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
+title: External Application Load Balancer best practices \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:41.958078+00:00
+fetched_at: 2026-10-27T23:18:02.879132+00:00
 ---
 
-# External Application Load Balancer performance best practices  |  Cloud Load Balancing  |  Google Cloud Documentation
+# External Application Load Balancer best practices  |  Cloud Load Balancing  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/load-balancing/docs/https/http-load-balancing-best-practices/
 
@@ -19,7 +19,7 @@ fetched_at: 2026-10-23T10:24:41.958078+00:00
 
 Send feedback 
 
-#  External Application Load Balancer performance best practices Stay organized with collections  Save and categorize content based on your preferences. 
+#  External Application Load Balancer best practices Stay organized with collections  Save and categorize content based on your preferences. 
 
 [Cloud Load Balancing](https://docs.cloud.google.com/load-balancing/docs/load-balancing-overview) provides mechanisms to distribute user traffic to multiple instances of an application. They do this by spreading the load across application instances and delivering optimal application performance to end users. This page describes some best practices to ensure that the load balancer is optimized for your application. To ensure optimal performance, we recommend benchmarking your application's traffic patterns.
 
@@ -29,8 +29,17 @@ The closer your users or client applications are to your workloads (load balance
 
 For more information, see the following topics:
 
-  * [Traffic distribution for external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https#load_distribution_algorithm)
+  * [Traffic distribution for external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/request-distribution#load_distribution_algorithm)
   * [Best practices for Compute Engine region selection](https://docs.cloud.google.com/solutions/best-practices-compute-engine-region-selection)
+
+
+
+## Configure high availability and failover
+
+To protect against regional or global infrastructure outages and configuration errors, configure multi-region high availability and failover by using Cloud DNS routing policies and health checks:
+
+  * **For global external Application Load Balancers** , deploy regional external Application Load Balancers in multiple regions as failover load balancers. If your architecture doesn't rely on capacity-aware global backend load balancing, prefer an active-active global-to-regional bypass strategy, where a global external Application Load Balancer acts as an edge frontend in front of regional external Application Load Balancers. If your application requires global backend load balancing to distribute and spill traffic across regions based on backend capacity, implement an active-passive global-to-regional failover strategy. For more information, see [Failover for global external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/global-applb-failover-overview).
+  * **For regional external Application Load Balancers** , deploy independent regional external Application Load Balancers in multiple regions and use Cloud DNS health checks and routing policies to implement either active-passive region failover or active-active proximity routing across regions. For more information, see [High availability for regional external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/reg-applb-ha-overview).
 
 
 
@@ -79,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

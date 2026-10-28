@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/configure-egress-dscp-tagging/
 title: Configure DSCP tags for egress traffic \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:47:10.852314+00:00
+fetched_at: 2026-10-27T23:54:33.751190+00:00
 ---
 
 # Configure DSCP tags for egress traffic  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -26,9 +26,7 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This page explains how to configure Differentiated Services Code Point (DSCP) tagging for egress traffic for Distributed Cloud software only for bare metal.
-
-You can prioritize outbound network traffic from your clusters by marking your IP headers with a DSCP value. Your upstream physical network infrastructure uses the DSCP tags to apply Quality of Service (QoS) policies, such as priority queuing or bandwidth shaping.
+Differentiated Services Code Point (DSCP) tagging lets you prioritize outbound network traffic from your clusters in Distributed Cloud software only for bare metal. Your upstream physical network infrastructure uses the DSCP values marked on egress IP headers to apply Quality of Service (QoS) policies, such as priority queuing or bandwidth shaping.
 
 ## Before you begin
 
@@ -326,6 +324,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

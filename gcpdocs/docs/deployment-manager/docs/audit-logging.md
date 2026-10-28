@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/deployment-manager/docs/audit-logging/
 title: Cloud Deployment Manager audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:11:21.583918+00:00
+fetched_at: 2026-10-27T17:04:38.077542+00:00
 ---
 
 # Cloud Deployment Manager audit logging  |  Google Cloud Documentation
@@ -26,7 +26,9 @@ Send feedback
 
 #  Cloud Deployment Manager audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes audit logging for Cloud Deployment Manager. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Cloud Deployment Manager let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Cloud Deployment Manager API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -38,11 +40,19 @@ This document describes audit logging for Cloud Deployment Manager. Google Cloud
 
 ## Service name
 
-Cloud Deployment Manager audit logs use the service name `deploymentmanager.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="deploymentmanager.googleapis.com"
-      
+To view the Cloud Deployment Manager audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="deploymentmanager.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -62,7 +72,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `v2.deploymentmanager.types.list`  
 `v2beta.deploymentmanager.deployments.get`  
 `v2beta.deploymentmanager.deployments.list`  
-`v2beta.deploymentmanager.manifests.get`  
 `v2beta.deploymentmanager.manifests.list`  
 `v2beta.deploymentmanager.operations.get`  
 `v2beta.deploymentmanager.resources.list`  
@@ -465,7 +474,6 @@ The following audit logs are associated with methods belonging to `v2beta.deploy
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
-    * `deploymentmanager.deployments.get - ADMIN_READ`
     * `deploymentmanager.deployments.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
@@ -507,21 +515,6 @@ The following audit logs are associated with methods belonging to `v2beta.deploy
 ### `v2beta.deploymentmanager.manifests`
 
 The following audit logs are associated with methods belonging to `v2beta.deploymentmanager.manifests`.
-
-#### `get`
-
-  * **Method** : `v2beta.deploymentmanager.manifests.get`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `deploymentmanager.manifests.get - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="v2beta.deploymentmanager.manifests.get" `  
-
-
-
 
 #### `list`
 
@@ -580,6 +573,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

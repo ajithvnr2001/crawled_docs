@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy/
 title: SanitizeModelResponse policy \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T10:28:39.874185+00:00
+fetched_at: 2026-10-27T18:54:16.145358+00:00
 ---
 
 # SanitizeModelResponse policy  |  Apigee  |  Google Cloud Documentation
@@ -91,32 +91,32 @@ The [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-pl
 ### Syntax
     
     
-    <SanitizeModelResponse async="false" continueOnError="false" enabled="true" name="sanitize-response">
-      <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-      <DisplayName>sanitize-response-sample</DisplayName>
-      <ModelArmor>
-        <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
-      </ModelArmor>
-      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content)}</UserPromptSource>
-      <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts',response.content)}</LLMResponseSource>
-      <FunctionCallSource>{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content)}</FunctionCallSource>
-    </SanitizeModelResponse>
+    <SanitizeModelResponse async="false" continueOnError="false" enabled="true&>quo<t; name="sanitize-respons<e"
+      IgnoreUnresolved>Var<iables>t>rue/IgnoreUnresolvedVari<ables
+      Disp>lay<Namesaniti>ze-re<sponse-sampl>e/DisplayName
+      ModelArmor
+        TemplateNameprojects/{project}/loc<ations/{locat>ion<}/templates>/{t<emplate-name}/Te>mplateName
+      /ModelArmor
+      UserPromptSource{jsonPath('$<.contents[-1].par>ts[<-1].text',req>uest.content)}/UserPromptSource
+      LLMResponseSource{jsonPath(<'$.candidates[>-1]<.content.parts'>;,response.content)}/LLMResponseSource
+      FunctionCallSource{jsonPath('$.candida<tes[-1].content.par>t<s[-1].functionCall.arg>s',response.content)}/FunctionCallSource
+    /SanitizeModelResponse
 
 ### Default Policy
 
 The following example shows the default settings when you add a SanitizeModelResponse policy to your request flow in the Apigee UI:
     
     
-    <SanitizeModelResponse async="false" continueOnError="false" enabled="true" name="sanitize-response">
-      <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-      <DisplayName>sanitize-response-sample</DisplayName>
-      <ModelArmor>
-        <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
-      </ModelArmor>
-      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content)}</UserPromptSource>
-      <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts',response.content)}</LLMResponseSource>
-      <FunctionCallSource>{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content)}</FunctionCallSource>
-    </SanitizeModelResponse>
+    <SanitizeModelResponse async="false" continueOnError="false" enabled="true&>quo<t; name="sanitize-respons<e"
+      IgnoreUnresolved>Var<iables>t>rue/IgnoreUnresolvedVari<ables
+      Disp>lay<Namesaniti>ze-re<sponse-sampl>e/DisplayName
+      ModelArmor
+        TemplateNameprojects/{project}/loc<ations/{locat>ion<}/templates>/{t<emplate-name}/Te>mplateName
+      /ModelArmor
+      UserPromptSource{jsonPath('$<.contents[-1].par>ts[<-1].text',req>uest.content)}/UserPromptSource
+      LLMResponseSource{jsonPath(<'$.candidates[>-1]<.content.parts'>;,response.content)}/LLMResponseSource
+      FunctionCallSource{jsonPath('$.candida<tes[-1].content.par>t<s[-1].functionCall.arg>s',response.content)}/FunctionCallSource
+    /SanitizeModelResponse
 
 When you insert a new SanitizeModelResponse policy using the Apigee UI, the template contains stubs for all possible operations. See below for information on required elements.
 
@@ -390,13 +390,13 @@ Variables | Where | Example
 ### Example fault rule
     
     
-    <FaultRule name="SanitizeModelResponse Faults">
-        <Step>
-            <Name>SMR-CustomSetVariableErrorResponse</Name>
-            <Condition>(fault.name = "SetVariableFailed")</Condition>
-        </Step>
-        <Condition>(sanitizemodelresponse.failed = true)</Condition>
-    </FaultRule>
+    <FaultRule name="SanitizeModelResponse Fa>ults&<quot>;
+        Ste<p
+      >      NameSMR-CustomSetVariableErr<orRes>ponse/Nam<e
+           > Condition(fault.name = "SetV<ariableFai>led&q<uot;)>/Cond<ition
+       > /Step
+        Condition(sanitizemodelres<ponse.fail>e<d = true)/>Condition
+    /FaultRule
 
 ### Model Armor template error code and error messages
 
@@ -425,6 +425,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

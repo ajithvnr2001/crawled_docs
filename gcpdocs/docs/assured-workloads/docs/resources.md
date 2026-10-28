@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/docs/resources/
 title: Resources \u00a0|\u00a0 Assured Workloads \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:42:59.757728+00:00
+fetched_at: 2026-10-27T18:39:23.896389+00:00
 ---
 
 # Resources  |  Assured Workloads  |  Google Cloud Documentation

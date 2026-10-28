@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/spanner/docs/dc-integration/
-title: Manage resources using Data Catalog \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
+title: Manage resources using Knowledge Catalog \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:32.362571+00:00
+fetched_at: 2026-10-28T02:31:03.513716+00:00
 ---
 
-# Manage resources using Data Catalog  |  Spanner  |  Google Cloud Documentation
+# Manage resources using Knowledge Catalog  |  Spanner  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/spanner/docs/dc-integration/
 
@@ -19,47 +19,44 @@ fetched_at: 2026-10-23T10:32:32.362571+00:00
 
 Send feedback 
 
-#  Manage resources using Data Catalog Stay organized with collections  Save and categorize content based on your preferences. 
+#  Manage resources using Knowledge Catalog Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains how you can search for and manage your Spanner resources by using Data Catalog.
+This document explains how to search for and manage your Spanner resources by using Knowledge Catalog.
 
-**Caution:** Data Catalog is [deprecated](https://docs.cloud.google.com/data-catalog/docs/deprecations) in favor of [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/catalog-overview). Knowledge Catalog is also integrated with Spanner, offering similar capabilities. You can use Knowledge Catalog to enrich your data with aspects, which are the equivalent of Data Catalog tags. For more information, see [Manage aspects and enrich metadata](https://docs.cloud.google.com/dataplex/docs/enrich-entries-metadata). 
+Knowledge Catalog catalogs metadata about Spanner instances, databases, tables, columns, and views across Google Cloud, letting AI agents and analytics tools retrieve grounded, relevant context.
 
-Data Catalog is a fully managed, scalable metadata management service within Knowledge Catalog. It automatically catalogs the following metadata about Spanner instances, databases, tables, columns, and views:
+## About Knowledge Catalog and Spanner
 
-  * Name and fully-qualified name
+Knowledge Catalog refers to the resources in Spanner and in other Google Cloud services as _assets_. In Knowledge Catalog, each Spanner asset, such as an instance, database, table, or view, is represented by a catalog _entry_ that stores technical and business metadata (_aspects_) about the resource.
+
+You can use Knowledge Catalog in the following workflows to discover and understand your Spanner assets:
+
+  * **Analysis** : understand dependencies between data assets and evaluate asset suitability for specific use cases.
+  * **Change management** : track structural modifications across databases.
+  * **Data movement** : trace pipeline origins and destinations.
+  * **Schema evolution** : monitor table and column definitions over time.
+  * **Contextual AI grounding** : provide a schema and business context to AI agents.
+
+
+
+Knowledge Catalog automatically catalogs the following metadata for Spanner resources:
+
+  * Resource name and fully qualified name (FQN)
   * Location (region)
-  * Creation date and last modification date
-  * Schema (for tables and views)
-  * Description
+  * Creation and last modification timestamps
+  * Schema definitions (for tables and views)
+  * Column data types, nullability, and primary key indicators
+  * Descriptions and user labels
 
 
 
-Spanner metadata is automatically synced to Data Catalog at regular intervals, typically every few hours. You can use Data Catalog to discover and understand your Spanner metadata. Use Data Catalog to aid with the following activities:
+Knowledge Catalog metadata discovery is an automated process that scans connected data sources, such as Spanner, to identify data assets like tables, views, and databases. Then, Knowledge Catalog extracts technical metadata from the assets, such as schemas, descriptions, and locations.
 
-  * Analysis, including dependencies and suitability for a use case
-  * Change management
-  * Data movement (pipelines)
-  * Schema evolution
-
-
-
-With Data Catalog, you can curate metadata by attaching tags to Spanner metadata entries. Each tag can have multiple metadata fields, and can be based on a predefined or custom tag template.
-
-For example, you could attach the following tag to a column that contains a social security number, which is personal identifiable information (PII):
-    
-    
-    pii:true
-    pii_type:SSN
-    
-
-When you [move an instance](https://docs.cloud.google.com/spanner/docs/move-instance) that uses tags, the tags aren't automatically moved to the destination instance. Instead, you need to export tags from the source instance before moving the instance, and import the tags into the destination instance. For more information, see Export and import tags.
-
-To learn more about Data Catalog see [What is Data Catalog](https://docs.cloud.google.com/data-catalog/docs/concepts/overview).
-
-**Note:** Data Catalog refers to the resources in Spanner and in other Google Cloud services as _assets_. In this page, we refer to Spanner resources—instances, databases, tables, and views—as Spanner assets. We also use the term _assets_ to refer to both the resources and Data Catalog metadata for the resources.
+Spanner syncs metadata to Knowledge Catalog at regular intervals, typically every six hours, so metadata changes made on Spanner assets can take approximately six hours to propagate.
 
 ## Before you begin
+
+Before using Knowledge Catalog with Spanner, complete the following setup tasks:
 
   1. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
   2. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
@@ -86,227 +83,326 @@ To learn more about Data Catalog see [What is Data Catalog](https://docs.cloud.g
 
   5. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  6. Enable the Data Catalog API for the project. 
+  6. Enable the Dataplex API for the project. 
 
-[Enable the Data Catalog API](https://console.cloud.google.com/apis/enableflow?apiid=datacatalog.googleapis.com)
-
-  7. Check permissions.
-
-You need certain Identity and Access Management (IAM) roles and permissions to search for and attach tags to Spanner assets. For details, see Required IAM roles and permissions for Data Catalog. 
+[Enable the Dataplex API](https://console.cloud.google.com/apis/enableflow?apiid=dataplex.googleapis.com)
 
 
 
 
-## Create tag templates
+### Required roles
 
-Tag temples are reusable structures that you can use to rapidly create new tags. Templates help you avoid duplication of work and incomplete tags. Create as many tag templates as you need.
+To get the permissions that you need to manage Spanner assets in Knowledge Catalog, ask your administrator to grant you the following IAM roles on your project: 
 
-To learn more, see [Tags and tag templates](https://docs.cloud.google.com/data-catalog/docs/tags-and-tag-templates).
+  * View Spanner resources: [Cloud Spanner Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/spanner#spanner.viewer) (`roles/spanner.viewer`) 
+  * Search and view entries in Knowledge Catalog: [Dataplex Catalog Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogViewer) (`roles/dataplex.catalogViewer`) 
+  * Create and manage aspect types: 
+    * [Dataplex Aspect Type Owner ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.aspectTypeOwner) (`roles/dataplex.aspectTypeOwner`)
+    * [Dataplex Catalog Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogAdmin) (`roles/dataplex.catalogAdmin`)
+  * Attach or modify aspects: 
+    * [Dataplex Catalog Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogEditor) (`roles/dataplex.catalogEditor`)
+    * [Dataplex Entry and EntryLink Owner ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.entryOwner) (`roles/dataplex.entryOwner`)
+    * [Dataplex Aspect Type User ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.aspectTypeUser) (`roles/dataplex.aspectTypeUser`)
 
-## Attach tags to Spanner assets
-
-Attaching tags to Spanner assets lets you do the following:
-
-  * Add business metadata to the assets.
-  * Search for assets by business metadata and other custom metadata.
 
 
+For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-To learn more, see [Tags and tag templates](https://docs.cloud.google.com/data-catalog/docs/tags-and-tag-templates).
+These predefined roles contain the permissions required to manage Spanner assets in Knowledge Catalog. To see the exact permissions that are required, expand the **Required permissions** section: 
+
+#### Required permissions
+
+The following permissions are required to manage Spanner assets in Knowledge Catalog:
+
+  * Create an aspect type: `dataplex.aspectTypes.create`
+  * Search for Spanner instances: 
+    * `dataplex.projects.search`
+    * `spanner.instances.get`
+  * Search for Spanner databases, tables, and views: 
+    * `dataplex.projects.search`
+    * `spanner.databases.get`
+  * View aspects on Spanner instances: 
+    * `dataplex.aspectTypes.get`
+    * `spanner.instances.get`
+  * View aspects on Spanner databases, tables, and views: 
+    * `dataplex.aspectTypes.get`
+    * `spanner.databases.get`
+  * Attach an aspect to a Spanner resource using an aspect type: 
+    * `dataplex.aspectTypes.use`
+    * `dataplex.entries.update`
+
+
+
+You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+**Note:** Knowledge Catalog doesn't support Spanner fine-grained access control.
 
 ## Search for Spanner assets
 
-Use the Knowledge Catalog search page in the Google Cloud console to search for Spanner assets.
+Knowledge Catalog supports semantic search, which helps you find resources using everyday language, eliminating the need for complex search syntax. For example, enter a query such as `List all Spanner tables related to sales`.
 
-  1. Go to the Knowledge Catalog search page.
+If you prefer, you can search for resources using specific keywords, filters, and a predicate-based search syntax.
 
-[Go to Search](https://console.cloud.google.com/dataplex/search)
+To search for Spanner assets in Knowledge Catalog, follow these steps:
 
-  2. In the **Filters panel** , under **Systems** , select **Spanner**.
+  1. In the Google Cloud console, go to the Knowledge Catalog **Search** page:
 
-Knowledge Catalog displays all known Spanner assets.
+[Go to Search](https://console.cloud.google.com/dataplex/dp-search-nl)
 
-  3. Optional: Do one of the following to narrow down the search:
+  2. In the **Filters** panel, under **Systems** , select **Spanner**.
 
-     * Use the faceted search on the **Search** page. Select checkboxes under **Data types** , **Projects** , and **Tags**.
+Knowledge Catalog displays all Spanner assets that you have access to in your Google Cloud projects.
 
-     * In the search field, append a search parameter after `system=cloud_spanner`. Separate parameters with spaces.
+  3. Use the search field to enter a natural language query, such as `List all Spanner tables related to sales`.
 
-For example, to view only databases, enter the following text in the search field, and then press `Enter`.
-    
-    system=cloud_spanner type=database
-    
+  4. Optional: Use the filtered search on the **Search** page. Select filters under **Type** , **Projects** , **Locations** , and **Aspect types**.
 
-**Note:** To search for Spanner instances, use `type=service`. To search for an instance configuration, use `instance_config=configuration-name`.
+  5. Optional: In the search field, append a search parameter after `system=spanner`. Separate multiple parameters with spaces or use parentheses and the logical operators `AND`, `OR`, and `NOT`.
 
-You can also use parentheses and the logical operators `and` and `or` for complex expressions. To learn more about the expressions that you can use in the search field, see [Data Catalog search syntax](https://docs.cloud.google.com/data-catalog/docs/how-to/search-reference).
-
-  4. In the results table, click the name of an asset to view the metadata for that asset.
-
-  5. Optional: Do any of the following:
-
-     * Click **ADD OVERVIEW** to add a rich text description of the asset.
-     * Click **ATTACH TAGS** to add a tag to the asset.
-     * For a table, click the **SCHEMA** tab to view the table columns.
-     * For an instance (SERVICE), to view member databases, click the **ENTRY LIST** tab, and then click **VIEW CHILD ENTRIES IN SEARCH**. (If the **ENTRY LIST** tab doesn't appear, then the instance has no databases.)
-
-
-
-## Example workflow - Drill down from instance to columns
-
-In this example workflow, you start by searching for a Spanner instance, then view a member database, then view a table in that database, and then view the columns in the table.
-
-  1. Go to the Knowledge Catalog search page.
-
-[Go to Search](https://console.cloud.google.com/dataplex/search)
-
-  2. In the **Filters panel** , under **Systems** , select **Spanner**.
-
-  3. To view all Spanner instances in Data Catalog, either select the **Service** checkbox under **Data types** , or enter the following text in the search field and press `Enter`.
+For example, to view only databases, enter the following query:
          
-         system=cloud_spanner type=service
+         system=spanner type=database
          
+
+You can also use `type=service` to search for instances, or `instance_config=CONFIGURATION_NAME` to search for an instance configuration.
+
+For more query options, see [Search syntax for Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/search-syntax).
+
+  6. In the search results list, click the name of an asset to open its entry details page in Knowledge Catalog.
+
+
+
+
+From the entry details page, you can do the following:
+
+  * To view asset summaries and add a description, go to the **Details** tab, and then in the **Overview** section, click **Add**.
+  * To view or attach business and operational metadata, go to the **Details** tab, and then in the **Aspects** section, click **Add** next to **Optional aspects**.
+  * To view member databases for an instance, click the **Entry list** tab, and then click **Show all children entries in search**.
+  * To inspect column data types, keys, and definitions for a table, click the **Schema** tab.
+
+
+
+### Use case: Drill down from instance to columns
+
+In this use case, you search for a Spanner instance and then drill down to one of the databases listed in the instance to view its tables and columns.
+
+  1. In the Google Cloud console, go to the Knowledge Catalog **Search** page:
+
+[Go to Search](https://console.cloud.google.com/dataplex/dp-search-nl)
+
+  2. In the **Filters** panel, under **Systems** , select **Spanner**.
+
+  3. To view all Spanner instances in Knowledge Catalog, use the search field to enter a natural language query, such as `List all Spanner instances`, and press `Enter`.
 
   4. Select an instance name.
 
-  5. On the **Spanner service details** page, click the **ENTRY LIST** tab, and then click **VIEW CHILD ENTRIES IN SEARCH**.
+  5. On the **Spanner details** page, click the **Entry list** tab, and then click **Show all children entries in search**.
 
-Knowledge Catalog displays the databases in the instance.
+Knowledge Catalog displays the databases in the instance. If there's no **Entry list** tab, return to the **Search** page and choose a different instance.
 
-**Note:** If there is no **ENTRY LIST** tab, return to the **Search** page and choose a different instance.
-  6. On the **Spanner database details** page, click the **ENTRY LIST** tab, and then click **VIEW CHILD ENTRIES IN SEARCH**.
+  6. Select a database name. On the **Spanner database details** page, click the **Entry list** tab, and then click **Show all children entries in search**.
 
 Knowledge Catalog displays the tables in the database.
 
-  7. Select a table name, and then on the **Spanner table details** page, click **SCHEMA** to see the table columns.
+  7. Select a table name, and then on the **Spanner table details** page, click **Schema** to see the table columns.
 
-  8. Optional: To add a tag to a column, click the plus sign under **Column tags**.
-
-
-**Note:** This workflow demonstrates drilling down from an instance to a table. You can go directly to a list of tables by using the **Filters** panel or by entering `system=cloud_spanner,type=table` in the search field.
-
-## Export and import tags
-
-When you [move a Spanner instance](https://docs.cloud.google.com/spanner/docs/move-instance), the moving process deletes the instance tags that you created in Data Catalog. To preserve your tags, you need to do the following:
-
-  * Query the tags associated with the instance.
-  * Copy the details for the tags.
-  * Create the tags on the moved instance.
+  8. Optional: To add an aspect to a column, select the column and click **Add aspect**.
 
 
 
-Spanner sync data every 6 hours. Any metadata changes made on Spanner assets like instances, databases, tables, views or columns could take approximately 6 hours to propagate to Data Catalog.
 
-### Export tags from the source instance configuration
+## Enrich metadata with aspects
 
-To list the tags for an instance (entry or entry group), use the Google Cloud CLI [`gcloud data-catalog tags list`](https://docs.cloud.google.com/sdk/gcloud/reference/data-catalog/tags/list) command as follows:
+To enrich metadata and search for assets by custom context, you can create aspects based on aspect types (reusable templates) and attach them to your Spanner assets. Aspects let you add structured business metadata, such as data ownership, governance classifications, or retention policies.
+
+For example, you can attach the following aspect to a column that contains a social security number, which is personally identifiable information (PII):
     
     
-    curl \
-    'https://datacatalog.googleapis.com/v1/projects/PROJECT/locations/LOCATION/entryGroups/ENTRY_GROUP/tags?key=API_KEY' \
-      --header 'Authorization: Bearer ACCESS_TOKEN' \
-      --header 'Accept: application/json' \
-      --compressed
+    pii:true
+    pii_type:SSN
     
 
-Replace the following:
+To attach an aspect to a Spanner asset, follow these steps:
 
-  * PROJECT: Project that contains the tags.
-  * LOCATION: Location for the tags.
-  * API_KEY: A unique string that lets you access an API.
-  * ACCESS_TOKEN: The access token that your application uses to authenticate to the service.
-
-
-
-### Import tags into the destination configuration
-
-Before you complete this procedure, do the following:
-
-  * [Move the instance](https://docs.cloud.google.com/spanner/docs/move-instance).
-  * [Update Data Catalog with metadata](https://docs.cloud.google.com/sdk/gcloud/reference/data-catalog/entries/update).
+  1. On the Knowledge Catalog **Search** page, click the asset that you want to enrich.
+  2. On the entry details page, on the **Details** tab, go to the **Aspects** section.
+  3. Next to **Optional aspects** , click **Add**.
+  4. Search for and select the aspect type that you want to add, such as a custom schema for data governance or privacy.
+  5. In the **Add aspect** window, specify the required aspect fields.
+  6. Click **Save**.
 
 
 
-To copy over a tag, create the tags on the moved instance using the [`gcloud data-catalog tags create`](https://docs.cloud.google.com/sdk/gcloud/reference/data-catalog/tags/create) command as follows:
+For detailed instructions on creating aspect types and managing aspects, see [Manage aspects and enrich metadata](https://docs.cloud.google.com/knowledge-catalog/docs/enrich-entries-metadata).
+
+## Export and import aspects
+
+When you [move a Spanner instance](https://docs.cloud.google.com/spanner/docs/move-instance) to a different instance configuration, the process deletes the entries and aspects associated with the source instance configuration in Knowledge Catalog. To preserve your custom aspects, you need to do the following:
+
+  1. Export the aspects associated with the entries in the source instance configuration.
+  2. Move the instance to the destination instance configuration.
+  3. Import the aspects into the destination instance configuration.
+
+
+
+### Export aspects from the source instance configuration
+
+Before you move your instance, retrieve the aspects for your Spanner entries in the source instance configuration by using the Google Cloud CLI, the Dataplex API, or a metadata export job:
+
+###  gcloud 
+
+To retrieve the aspects for a Spanner entry in the `@spanner` system entry group, use the [`gcloud dataplex entries lookup`](https://docs.cloud.google.com/sdk/gcloud/reference/dataplex/entries/lookup) command:
     
     
-    curl --request POST \
-    'https://datacatalog.googleapis.com/v1/entries:lookup?fullyQualifiedName=FQN&location=LOCATION&project=PROJECT&key=API_KEY' \
-      --header 'Authorization: Bearer ACCESS_TOKEN' \
-      --header 'Accept: application/json' \
-      --header 'Content-Type: application/json' \
-      --data '{"column":"myColumnName","name":"myTagName","template":"myTemplateName","fields":{"myDoubleField":{"doubleValue":0}}}' \
-      --compressed
+    gcloud dataplex entries lookup SOURCE_ENTRY_ID \
+      --entry-group=@spanner \
+      --location=LOCATION \
+      --project=PROJECT_ID \
+      --view=all
     
 
 Replace the following:
 
-  * FQN: Fully qualified name (FQN) of the resource. FQNs take two forms:
+  * `SOURCE_ENTRY_ID`: the entry ID of the Spanner resource in the source instance configuration.
 
-For non-regionalized resources: {SYSTEM}:{PROJECT}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}
+How to find the entry ID
 
-For regionalized resources: {SYSTEM}:{PROJECT}.{LOCATION_ID}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}
+To find the entry name or translate a [fully qualified name (FQN)](https://docs.cloud.google.com/knowledge-catalog/docs/fully-qualified-names#predefined-spanner) such as `spanner:PROJECT_ID.INSTANCE_CONFIG_ID.INSTANCE_ID.DATABASE_ID.TABLE_ID`, use the [`gcloud dataplex entries search`](https://docs.cloud.google.com/sdk/gcloud/reference/dataplex/entries/search) command. 
 
-Example for a DPMS table:
+  * `LOCATION`: the region of the Spanner instance configuration, such as `us-central1`.
 
-dataproc_metastore:{PROJECT_ID}.{LOCATION_ID}.{INSTANCE_ID}.{DATABASE_ID}.{TABLE_ID}
-
-  * LOCATION: Location where the lookup is performed.
-
-  * PROJECT: Project where the lookup is performed.
-
-  * API_KEY: A unique string that lets you access an API.
-
-  * ACCESS_TOKEN: The access token that your application uses to authenticate to the service.
+  * `PROJECT_ID`: the ID of the Google Cloud project that contains the Spanner instance.
 
 
 
 
-## Required IAM roles and permissions for Data Catalog
+###  REST API 
 
-The following table shows the required IAM roles and permissions for the various Data Catalog operations.
+To retrieve the aspects for a Spanner entry in the `@spanner` system entry group, send a `GET` request to the [`projects.locations.lookupEntry`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations/lookupEntry) endpoint.
+    
+    
+    curl -X GET \
+    -H "Authorization: Bearer ACCESS_TOKEN" \
+    -H "Accept: application/json" \
+    "https://dataplex.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION:lookupEntry?entry=projects/PROJECT_ID/locations/LOCATION/entryGroups/@spanner/entries/SOURCE_ENTRY_ID&view=ALL"
+    
 
-**Note:** Data Catalog doesn't support Spanner fine-grained access control.**Data Catalog operation** | **Spanner resource** | **Roles or permissions required**  
----|---|---  
-Create a tag template  | N/A  | roles/datacatalog.tagTemplateCreator   
-Search for Spanner resources  | Instance  | spanner.instances.get   
-Database  | spanner.databases.get   
-Table  | spanner.databases.get   
-Views  | spanner.databases.get   
-View public tags  | Instance  | spanner.instances.get   
-Database  | spanner.databases.get   
-Table  | spanner.databases.get   
-Views  | spanner.databases.get   
-View private tags  | Instances  | datacatalog.tagTemplates.getTag + spanner.instances.get   
-Databases  | datacatalog.tagTemplates.getTag + spanner.databases.get   
-Tables  | datacatalog.tagTemplates.getTag + spanner.databases.get   
-Views  | datacatalog.tagTemplates.getTag + spanner.databases.get   
-Attach a tag to a Spanner resource using a tag template  | Instances  | datacatalog.tagTemplates.use + spanner.instances.updateTag   
-Databases  | datacatalog.tagTemplates.use + spanner.databases.updateTag   
-Tables  | datacatalog.tagTemplates.use + spanner.databases.updateTag   
-Views  | datacatalog.tagTemplates.use + spanner.databases.updateTag   
-  
-The `spanner.instances.UpdateTag` permission is included in the following role:
+Replace the following:
 
-  * roles/spanner.admin
+  * `ACCESS_TOKEN`: the access token that your application uses to authenticate to the service. For example, use `$(gcloud auth print-access-token)`.
+
+  * `PROJECT_ID`: the ID of the Google Cloud project that contains the Spanner instance.
+
+  * `LOCATION`: the region of the Spanner instance configuration, such as `us-central1`.
+
+  * `SOURCE_ENTRY_ID`: the entry ID of the Spanner resource in the source instance configuration. 
+
+How to find the entry ID
+
+To find the entry name or translate a [fully qualified name (FQN)](https://docs.cloud.google.com/knowledge-catalog/docs/fully-qualified-names#predefined-spanner) such as `spanner:PROJECT_ID.INSTANCE_CONFIG_ID.INSTANCE_ID.DATABASE_ID.TABLE_ID`, use the [`gcloud dataplex entries search`](https://docs.cloud.google.com/sdk/gcloud/reference/dataplex/entries/search) command. 
 
 
 
-The `spanner.databases.UpdateTag` permission is included in the following roles:
 
-  * roles/spanner.admin
-  * roles/spanner.databaseAdmin
-  * roles/spanner.databaseUser
+###  Export job 
+
+To export metadata for multiple entries in a batch to Cloud Storage, run a [metadata export job](https://docs.cloud.google.com/knowledge-catalog/docs/export-metadata).
+
+### Move the instance to the destination instance configuration
+
+Before you import aspects into the destination instance configuration, do the following:
+
+  1. Move the Spanner instance to the destination instance configuration. Wait for Spanner metadata for the moved instance to sync to Knowledge Catalog, which can take approximately six hours.
+
+  2. To verify that the sync is complete, search for the moved instance using one of the following methods:
+
+     * On the Knowledge Catalog **Search** page, enter the following query:
+           
+           system=spanner instance_config=DESTINATION_CONFIG_NAME
+           
+
+     * Run the [`gcloud dataplex entries search`](https://docs.cloud.google.com/sdk/gcloud/reference/dataplex/entries/search) command:
+           
+           gcloud dataplex entries search "fqn=spanner:PROJECT_ID.DESTINATION_CONFIG_ID.INSTANCE_ID" \
+               --project=PROJECT_ID
+           
+
+When the command returns the entry for the destination instance configuration, the sync is complete.
 
 
 
-For more information, see [Predefined roles](https://docs.cloud.google.com/spanner/docs/iam#roles).
+
+### Import aspects into the destination instance configuration
+
+After the metadata syncs, attach the copied aspects to the entries in the destination instance configuration:
+
+###  gcloud 
+
+To attach the copied aspects to the entry in the destination instance configuration, use the [`gcloud dataplex entries update-aspects`](https://docs.cloud.google.com/sdk/gcloud/reference/dataplex/entries/update-aspects) command:
+    
+    
+    gcloud dataplex entries update-aspects DESTINATION_ENTRY_ID \
+      --entry-group=@spanner \
+      --location=DESTINATION_LOCATION \
+      --project=PROJECT_ID \
+      --aspects=ASPECTS_FILE
+    
+
+Replace the following:
+
+  * `DESTINATION_ENTRY_ID`: the entry ID of the moved Spanner resource in the destination instance configuration.
+
+  * `DESTINATION_LOCATION`: the region of the destination Spanner instance configuration, such as `us-central1`.
+
+  * `PROJECT_ID`: the ID of the Google Cloud project that contains the Spanner instance.
+
+  * `ASPECTS_FILE`: the path to a JSON or YAML file that contains the aspects to add or update.
+
+
+
+
+###  REST API 
+
+To attach the exported aspects to the entry in the destination instance configuration, use the [`projects.locations.entryGroups.entries.patch`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries/patch) REST API method, as shown in the following example:
+    
+    
+    curl -X PATCH \
+    -H "Authorization: Bearer ACCESS_TOKEN" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{"aspects":{"ASPECT_KEY":{"data":{"FIELD_NAME":"FIELD_VALUE"}}}}' \
+    "https://dataplex.googleapis.com/v1/projects/PROJECT_ID/locations/DESTINATION_LOCATION/entryGroups/@spanner/entries/DESTINATION_ENTRY_ID?updateMask=aspects"
+    
+
+Replace the following:
+
+  * `ACCESS_TOKEN`: the access token that your application uses to authenticate to the service. For example, use `$(gcloud auth print-access-token)`.
+
+  * `ASPECT_KEY`: the aspect key in the format `PROJECT_ID.ASPECT_LOCATION.ASPECT_TYPE_ID` for an entry-level aspect, or `PROJECT_ID.ASPECT_LOCATION.ASPECT_TYPE_ID@Schema.COLUMN_NAME` for a column-level aspect.
+
+  * `FIELD_NAME` and `FIELD_VALUE`: the field name and value defined by your aspect type.
+
+  * `PROJECT_ID`: the ID of the project that contains the Spanner instance.
+
+  * `DESTINATION_LOCATION`: the region of the destination Spanner instance configuration, such as `us-central1`.
+
+  * `DESTINATION_ENTRY_ID`: the entry ID of the moved Spanner resource in the destination instance configuration.
+
+
+
+
+###  Import job 
+
+To import aspects for multiple entries in batch from Cloud Storage, run a [metadata import job](https://docs.cloud.google.com/knowledge-catalog/docs/import-metadata).
 
 ## What's next
 
-  * [What is Data Catalog](https://docs.cloud.google.com/data-catalog/docs/concepts/overview)
-  * [Roles to search Google Cloud resources](https://docs.cloud.google.com/data-catalog/docs/concepts/iam#roles_to_search_resources)
-  * [About fine-grained access control](https://docs.cloud.google.com/spanner/docs/fgac-about)
+  * Learn more about [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/introduction).
+  * Learn more about [metadata management in Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview).
+  * Learn how to [search for data assets in Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets).
+  * Learn how to [manage aspects and enrich metadata](https://docs.cloud.google.com/knowledge-catalog/docs/enrich-entries-metadata).
+  * Learn more about [Knowledge Catalog IAM roles](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles) and [permissions](https://docs.cloud.google.com/knowledge-catalog/docs/iam-permissions).
+  * Explore [Fine-grained access control in Spanner](https://docs.cloud.google.com/spanner/docs/fgac-about).
 
 
 
@@ -314,6 +410,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

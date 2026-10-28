@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/vulnerabilities/
 title: Vulnerability fixes \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:29.303114+00:00
+fetched_at: 2026-10-28T02:29:44.918797+00:00
 ---
 
 # Vulnerability fixes  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,7 @@ Send feedback
 
 #  Vulnerability fixes Stay organized with collections  Save and categorize content based on your preferences. 
 
-Upgrading a cluster to the latest Google Distributed Cloud version brings added features and fixes to your cluster. With each patch release, we fix numerous security vulnerabilities which makes upgrading to the latest [recommended patch version](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/version-and-upgrade-support#google_cloud_distributed) all the more important. Upgrading is a shared responsibility between Google and the customer. For more information about shared responsibilities, see [Shared Responsibility Model](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/gke-shared-responsibility#software-only_on_bare_metal).
-
-This page is for Security specialists who support the resolution of security issues or vulnerabilities which need strategic assistance, such as incidents and issues escalated from support. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
+Reviewing fixed vulnerabilities helps you track resolved security issues and determine when to upgrade your Google Distributed Cloud clusters. Each patch release resolves specific vulnerabilities to help maintain a strong security posture across your environments. Upgrading is a shared responsibility between you and Google. For more information, see the [Shared Responsibility Model](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/gke-shared-responsibility#software-only_on_bare_metal).
 
 ## How vulnerabilities are classified
 
@@ -668,6 +666,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

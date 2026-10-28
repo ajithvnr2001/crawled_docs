@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/admin-panel-platform-mcp/
 title: Admin settings - Model Context Protocol (MCP) \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:00.683853+00:00
+fetched_at: 2026-10-28T02:29:57.039351+00:00
 ---
 
 # Admin settings - Model Context Protocol (MCP)  |  Looker  |  Google Cloud Documentation
@@ -21,12 +21,6 @@ Send feedback
 
 #  Admin settings - Model Context Protocol (MCP) Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-**Note:** Provide feedback or report issues with this preview feature by sending a detailed email to [looker-mcp-support-external@google.com](mailto:looker-mcp-support-external@google.com).
-
 The **Model Context Protocol (MCP)** page in the **Platform** section of the **Admin** menu lets you enable and govern the [Looker-managed MCP server](https://docs.cloud.google.com/looker/docs/mcp). The managed MCP server allows AI agents to securely connect to your Looker instance.
 
 ## Required roles
@@ -39,8 +33,17 @@ The **Model Context Protocol (MCP)** page is available for Looker-hosted Looker 
 
 To access the **Model Context Protocol (MCP)** page, follow these steps:
 
-  1. In the **Main menu** menu, click **Admin** to open the **Admin** menu.
+  1. In the menu **Main menu** , click **Admin** to open the **Admin** menu.
   2. In the **Platform** section, select **MCP**.
+
+
+
+## Prerequisites for AI agent connectivity
+
+To connect AI agents to your Looker instance and use MCP tools, a Looker admin must complete the following configuration:
+
+  1. **Configure tool access** : Enable the necessary tools on the **Model Context Protocol (MCP)** page, as described in the Model Context Protocol (MCP) settings section.
+  2. **Enable OAuth client applications** : Enable or register your AI client applications (such as Cursor, VS Code, Claude Code, or Cline) on the **Manage OAuth Clients** page. You can enable pre-configured AI clients from the **Application Library** or register custom clients on the **Custom Clients** tab. For step-by-step instructions, see the [Admin settings - Manage OAuth Clients](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients) documentation page.
 
 
 
@@ -77,18 +80,21 @@ As a security best practice, we recommend only enabling the tools required for y
 
 ### MCP clients and tool updates
 
-**Tip:** After you have changed the enablement status for a tool, reconnect your AI clients to Looker to update the tools in your clients.
-
 When a tool is enabled or disabled on the **Model Context Protocol (MCP)** page, MCP clients won't automatically refresh their list of tools. You must reconnect clients to the Looker-managed MCP server in order for the clients to access a newly enabled tool. If a tool is disabled, client calls to that tool will be rejected, but you must reconnect clients to the MCP server in order to stop exposing the tool to them.
+
+**Tip:** After you have changed the enablement status for a tool, reconnect your AI clients to Looker to update the tools in your clients.
 
 ## What's next
 
-For more information on setting up and using the server, see the [Looker-managed MCP server](https://docs.cloud.google.com/looker/docs/mcp) documentation page.
+  * For more information on setting up and using the server, see the [Looker-managed MCP server](https://docs.cloud.google.com/looker/docs/mcp) documentation page.
+  * To enable or register AI clients that connect to the MCP server, see the [Admin settings - Manage OAuth Clients](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients) documentation page.
+
+
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

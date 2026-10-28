@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/node-pools/
 title: About node pools \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:22.052700+00:00
+fetched_at: 2026-10-27T23:38:01.138191+00:00
 ---
 
 # About node pools  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ To learn more about creating Standard mode clusters, see [Create a regional clus
 
 A node pool is a group of [nodes](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture#nodes) within a cluster that all have the same configuration. Node pools use a [NodeConfig](https://docs.cloud.google.com/kubernetes-engine/docs/reference/rest/v1/NodeConfig) specification. Each node in the pool has a Kubernetes node label, `cloud.google.com/gke-nodepool`, which has the node pool's name as its value.
 
-When you create a Standard mode [cluster](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture), the number of nodes and type of nodes that you specify are used to create the first node pool of the cluster. By default, this first node pool (known as the _default node pool_) consists of three nodes in each of the cluster's compute zones, with the default [node image](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/node-images) `cos_containerd`, and a general-purpose [machine type](https://docs.cloud.google.com/compute/docs/machine-types). You can specify a variety of properties for the node pool, depending on your workload requirements. For example, you might create a node pool in your cluster with [local SSDs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/local-ssd), a [minimum CPU platform](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/min-cpu-platform), [Spot VMs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/spot-vms), a different node image, different [machine types](https://docs.cloud.google.com/compute/docs/machine-types), or a more efficient [virtual network interface](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/using-gvnic).
+When you create a Standard mode [cluster](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture), the number of nodes and type of nodes that you specify are used to create the first node pool of the cluster. By default, this first node pool (known as the _default node pool_) consists of three nodes in each of the cluster's compute zones, with the default [node image](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/node-images) `cos_containerd`, and a general-purpose [machine type](https://docs.cloud.google.com/compute/docs/machine-types). You can specify a variety of properties for the node pool, depending on your workload requirements. For example, you might create a node pool in your cluster with [local SSDs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/local-ssd), a [minimum CPU platform](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/min-cpu-platform), [Spot VMs](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/spot-vms), a different node image, different [machine types](https://docs.cloud.google.com/compute/docs/machine-types), or a more efficient [virtual network interface](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/using-gvnic). If you specify the `--num-nodes=0` flag when you create a cluster, GKE skips creating the default node pool so that you can add custom node pools later. This requires GKE version 1.36.4-gke.1469000 or later, 1.37.1-gke.1153000 or later, or 1.38.0-gke.2352000 or later.
 
 You can then add additional node pools of different sizes and types to your cluster. All nodes in any given node pool are identical to one another.
 
@@ -95,6 +95,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

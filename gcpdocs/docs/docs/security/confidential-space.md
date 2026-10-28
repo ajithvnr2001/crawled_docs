@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/confidential-space/
 title: Confidential Space security overview \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:19:18.236014+00:00
+fetched_at: 2026-10-27T21:08:34.108567+00:00
 ---
 
 # Confidential Space security overview  |  Security  |  Google Cloud Documentation

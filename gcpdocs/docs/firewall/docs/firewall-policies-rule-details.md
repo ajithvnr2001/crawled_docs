@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details/
 title: Firewall policy rule components \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:19:23.103638+00:00
+fetched_at: 2026-10-27T16:24:07.804301+00:00
 ---
 
 # Firewall policy rule components  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -80,17 +80,36 @@ If you don't set an enforcement state when you create a new firewall rule, the f
 
 ## Protocols and ports
 
-Similar to VPC firewall rules, you must specify one or more protocol and port constraints when you create a rule. When specifying TCP or UDP in a rule, you can specify the protocol, the protocol and a destination port, or the protocol and a destination port range; you cannot specify only a port or port range. Also, you can only specify destination ports. Rules based on source ports aren't supported.
+A firewall policy rule stores protocol and port constraints in its Layer 4 configurations list. If you omit Layer 4 configuration information, the firewall policy rule applies to all protocols and all destination ports.
 
-You can use the following protocol names in firewall rules: `tcp`, `udp`, `icmp` (for IPv4 ICMP), `esp`, `ah`, `sctp`, and `ipip`. For all other protocols, use the [IANA protocol numbers](http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+Each Layer 4 configuration in the list can specify one of the following:
 
-Many protocols use the same name and number in both IPv4 and IPv6, but some protocols, such as ICMP, don't. To specify IPv4 ICMP, use `icmp` or protocol number `1`. To specify IPv6 ICMP, use protocol number `58`.
+  * An IP protocol name, such as `tcp`, or an [IANA IP protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml), such as `17`, _without_ any destination port:
 
-Firewall rules don't support specifying ICMP types and codes, just the protocol.
+    * You can use the following IP protocol names: `tcp`, `udp`, `icmp` (for IPv4 ICMP), `esp`, `ah`, `sctp`, and `ipip`.
+    * For all other protocols, use an IANA protocol number. Most protocols use the same name and number in both IPv4 and IPv6, but some protocols, such as ICMP, don't. To specify IPv4 ICMP, use `icmp` or protocol number `1`. To specify IPv6 ICMP, use protocol number `58`. Firewall policy rules don't support the IPv6 Hop-by-Hop protocol.
+  * A combination of a valid IP protocol name and destination port information:
 
-The IPv6 Hop-by-Hop protocol isn't supported in firewall rules.
+    * Valid IP protocols are protocols that use destination ports, such as `tcp` and `udp`.
+    * To specify destination ports, you must include a single protocol name. You can specify a protocol name with either a single destination port number or a destination port range.
 
-If you don't specify protocol and port parameters, the rule applies to all protocols and destination ports.
+
+
+Layer 4 configs don't support the following:
+
+  * Source port information for protocols that use source ports, such as `tcp` and `udp`
+
+  * ICMP types and codes.
+
+
+
+
+When you set the target type of a firewall policy rule to `INTERNAL_MANAGED_LB`, the following additional restrictions apply:
+
+  * You must specify only the TCP protocol (`tcp` or IANA IP protocol number `6`).
+  * You must omit destination port information because the load balancer's forwarding rule defines the destination port.
+
+
 
 ## Logging
 
@@ -134,17 +153,23 @@ To specify which VM network interfaces the firewall rule applies to, use target 
 
     * For target parameter and target parameter combination details, see Specific targets and Specific target combinations.
 
-  * If you set the target type to `INTERNAL_MANAGED_LB`, the firewall rule applies to the managed Envoy proxies that handle traffic for internal Application Load Balancers and internal proxy Network Load Balancers. Only ingress rules are supported.
+  * If you set the target type to `INTERNAL_MANAGED_LB`, the firewall rule applies to the managed Envoy proxies that handle traffic for internal Application Load Balancers and internal proxy Network Load Balancers.
 
     * If you omit the _target forwarding rules_ parameter, the firewall rule applies to the broadest load balancer targets.
 
-    * To restrict the firewall rule to a single load balancer, use the target forwarding rules parameter. For more information, see Specific targets.
+    * To restrict the firewall rule to a single load balancer, use the target forwarding rules parameter. You can't use other specific target parameters, such as secure tags or service accounts. For more information, see Specific targets and Target forwarding rules format.
 
-You can delete a forwarding rule that is defined as a target forwarding rule without removing the firewall policy rule itself. Target forwarding rules are bound to the firewall policy rule by their ID, not by name. If you delete a forwarding rule and create a new forwarding rule with the same name, the firewall policy rule doesn't automatically rebind to the new forwarding rule. To reapply the firewall policy rule, you must update the rule to reference the new forwarding rule.
+If a rule in a global network firewall policy has its target type set to `INTERNAL_MANAGED_LB` and its action set to `apply_security_profile_group`, you must use the target forwarding rules parameter to restrict the rule to a single cross-region internal Application Load Balancer.
 
-    * To use the `apply_security_profile_group` action in a global network firewall policy with the target type set to `INTERNAL_MANAGED_LB`, specify only one cross-region internal Application Load Balancer forwarding rule. To specify the target forwarding rule, use the `target-forwarding-rules` parameter.
+    * Firewall rules with target type set to `INTERNAL_MANAGED_LB` have the following restrictions:
 
-    * You can't use secure tags, network tags, or backend service account attributes to identify load balancer targets.
+      * The rule must be an [ingress rule](https://docs.cloud.google.com/firewall/docs/firewall-policies-overview#ingress-rules).
+
+      * You must omit the rule's destination parameter because the load balancer's forwarding rule defines the destination IP address.
+
+      * In the rule's Layer 4 configurations, you must specify only the TCP protocol (`tcp` or IANA IP protocol number `6`). You must omit destination ports because the load balancer's forwarding rule defines the destination port.
+
+      * You can delete an internal Application Load Balancer or internal proxy Network Load Balancer forwarding rule without removing the firewall rule that targets it. Target forwarding rules are bound to the firewall rule by their ID, not by name. If you create a new forwarding rule with the same name, the firewall rule doesn't automatically rebind to the new forwarding rule. To reapply the firewall rule, you must update the rule to reference the new forwarding rule.
 
 
 
@@ -260,7 +285,7 @@ When a firewall rule target type is either omitted or set to `INSTANCES`, the ru
 
 
 
-When you set the target type of a firewall policy rule to `INTERNAL_MANAGED_LB`, you must leave the destination parameter of the rule unset. The firewall policy rule applies to packets whose destination IP addresses match the forwarding rule IP addresses of the targeted internal Application Load Balancers and internal proxy Network Load Balancers.
+If you set the target type of a firewall rule to `INTERNAL_MANAGED_LB`, you must omit the destination parameter. The internal Application Load Balancer or internal proxy Network Load Balancer forwarding rule defines the destination IP address.
 
 #### Targets and IP addresses for egress rules
 
@@ -374,8 +399,10 @@ Follow these guidelines to add source IP address ranges for egress rules:
 
   * If you have a source IP address range and destination parameters in the egress rule, then the destination parameters are resolved into the same IP version as the source IP version.
 
-
 For example, in an egress rule, you have an IPv4 address range in the source parameter and an [FQDN object](https://docs.cloud.google.com/firewall/docs/fqdn-objects-overview) in the destination parameter. If the FQDN resolves into both IPv4 and IPv6 addresses, only the resolved IPv4 address is used during rule enforcement. 
+
+
+
 
 ### Destinations
 
@@ -387,9 +414,9 @@ You can use the following destinations for ingress firewall rules in both hierar
 
   * **Default—implied by target** : if you omit the destination parameter from an ingress rule, packet destinations are defined implicitly as described in Targets and IP addresses for ingress rules.
 
-  * **Destination IPv4 address ranges** : a list of IPv4 addresses in CIDR format.
+  * **Destination IPv4 address ranges** : a list of IPv4 addresses in CIDR format. You can't use this parameter if you set the target type of the firewall rule to `INTERNAL_MANAGED_LB`.
 
-  * **Destination IPv6 address ranges** : a list of IPv6 addresses in CIDR format.
+  * **Destination IPv6 address ranges** : a list of IPv6 addresses in CIDR format. You can't use this parameter if you set the target type of the firewall rule to `INTERNAL_MANAGED_LB`.
 
 
 
@@ -456,6 +483,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

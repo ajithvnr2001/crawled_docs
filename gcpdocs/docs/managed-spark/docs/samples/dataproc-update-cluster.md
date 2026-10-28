@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/samples/dataproc-update-cluster/
 title: Update a cluster \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:45:00.933601+00:00
+fetched_at: 2026-10-27T21:22:20.673345+00:00
 ---
 
 # Update a cluster  |  Managed Service for Apache Spark  |  Google Cloud Documentation

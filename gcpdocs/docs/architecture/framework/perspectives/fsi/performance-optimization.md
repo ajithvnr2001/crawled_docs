@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/fsi/performance-optimization/
 title: Financial services perspective: Performance optimization \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:09.595933+00:00
+fetched_at: 2026-10-27T23:04:26.663920+00:00
 ---
 
 # Financial services perspective: Performance optimization  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-maas/
 title: Use open models using Model as a Service (MaaS) \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:07.015559+00:00
+fetched_at: 2026-10-28T02:28:00.071292+00:00
 ---
 
 # Use open models using Model as a Service (MaaS)  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 This document describes how to use open models through Model as a Service (MaaS) on Gemini Enterprise Agent Platform. MaaS provides serverless access to selected partner and open-source models, eliminating the need to provision or manage infrastructure.
 
-[Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) is a centralized library of AI and ML models from Google, Google Partners, and open models (open-weight and open-source), including MaaS models. Model Garden provides multiple ways to deploy [available models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) on Gemini Enterprise Agent Platform, including [models from Hugging Face](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models).
+[Gemini Enterprise Agent Platform Model Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) is a centralized library of AI and ML models from Google, Google Partners, and open models (open-weight and open-source), including MaaS models. Model Garden provides multiple ways to deploy [available models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/explore-models) on Gemini Enterprise Agent Platform, including [models from Hugging Face](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hugging-face-models).
 
 For more information about MaaS, see the [partner models documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models).
 
@@ -101,6 +101,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

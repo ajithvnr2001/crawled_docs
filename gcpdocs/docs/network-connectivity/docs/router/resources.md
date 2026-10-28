@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/router/resources/
 title: Resources \u00a0|\u00a0 Cloud Router \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:37:27.693115+00:00
+fetched_at: 2026-10-27T21:05:22.175554+00:00
 ---
 
 # Resources  |  Cloud Router  |  Google Cloud Documentation

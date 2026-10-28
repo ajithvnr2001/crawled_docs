@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/build-on-google-templates/
 title: Build on Google templates \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:22.857523+00:00
+fetched_at: 2026-10-27T19:53:52.380582+00:00
 ---
 
 # Build on Google templates  |  Application Design Center  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback
 
 #  Build on Google templates Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google provides a collection of application templates that are built with best practices in mind. You can explore Google templates and use them as a starting point for your own application development.
-
-This document shows you how to find a suitable template, duplicate it to your own project, customize its components, and deploy it as an application.
-
-**Tip:** For a step-by-step example of duplicating, customizing, and deploying a template, see [Quickstart: Customize and deploy a Google template](https://docs.cloud.google.com/application-design-center/docs/quickstart-deploy-google-template).
+Google-provided application templates in Application Design Center let you start from preconfigured architectures that follow Google Cloud best practices. You can preview a template, duplicate and customize it, and deploy it as an application. For a step-by-step walkthrough, see [Quickstart: Customize and deploy a Google template](https://docs.cloud.google.com/application-design-center/docs/quickstart-deploy-google-template).
 
 ## Before you begin
 
@@ -177,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/graph-query-overview/
 title: Graph query overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:39:53.921168+00:00
+fetched_at: 2026-10-27T22:59:24.304966+00:00
 ---
 
 # Graph query overview  |  BigQuery  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 **Note:** This feature may not be available when using reservations that are created with certain BigQuery editions. For more information about which features are enabled in each edition, see [Introduction to BigQuery editions](https://docs.cloud.google.com/bigquery/docs/editions-intro).
 
-This document provides an overview of the graph query language (GQL) and how to write graph queries for BigQuery Graph. You can run graph queries to find patterns, traverse relationships, and gain insights from your property graph. The examples in this document refer to a graph called `FinGraph`, which shows the relationships between people, accounts they own, and transfers between accounts. For information about the definition of the graph, see [`FinGraph` example](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-schema-statements#fin_graph).
+[BigQuery Graph](https://docs.cloud.google.com/bigquery/docs/graph-overview) lets you write graph queries to match node, edge, and path patterns and traverse relationships by using [Graph Query Language (GQL)](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-intro). The examples in this document refer to a graph called `FinGraph`, which shows the relationships between people, accounts they own, and transfers between accounts. For information about the definition of the graph, see [`FinGraph` example](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-schema-statements#fin_graph).
 
 ## Query structure
 
@@ -167,7 +167,7 @@ The edge pattern in the following query uses a label expression and a property f
     
     
     GRAPH graph_db.FinGraph
-    MATCH -[e:Transfers {order_number: "30412000552971>4"}]-
+    MATCH -[e:Transfers {order_number: "304120005529714"}]->
     RETURN e.Id AS src_account, e.order_number;
     
 
@@ -687,6 +687,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

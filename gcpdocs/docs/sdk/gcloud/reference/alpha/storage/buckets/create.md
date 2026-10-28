@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/storage/buckets/create/
 title: gcloud alpha storage buckets create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T01:54:37.999592+00:00
+fetched_at: 2026-10-27T21:41:17.587687+00:00
 ---
 
 # gcloud alpha storage buckets create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha storage buckets create - create buckets for storing objects
 SYNOPSIS
     
 
-`gcloud alpha storage buckets create` `URL` [`URL` …] [`--additional-headers`=`HEADER`=`VALUE`] [`--default-encryption-key`=`DEFAULT_ENCRYPTION_KEY`, `-k` `DEFAULT_ENCRYPTION_KEY`] [`--default-storage-class`=`DEFAULT_STORAGE_CLASS`, `-c` `DEFAULT_STORAGE_CLASS`, `-s` `DEFAULT_STORAGE_CLASS`] [`--enable-hierarchical-namespace`] [`--enable-per-object-retention`] [`--encryption-enforcement-file`=`ENCRYPTION_ENFORCEMENT_FILE`] [`--ip-filter-file`=`IP_FILTER_FILE`] [`--lifecycle-file`=`LIFECYCLE_FILE`] [`--location`=`LOCATION`, `-l` `LOCATION`] [`--[no-]pap`, `--[no-]public-access-prevention`] [`--placement`=[`REGION`,…]] [`--recovery-point-objective`=`SETTING`, `--rpo`=`SETTING`] [`--retention-period`=`RETENTION_PERIOD`] [`--soft-delete-duration`=`SOFT_DELETE_DURATION`] [`--[no-]uniform-bucket-level-access`, `-b`] [`--autoclass-terminal-storage-class`=`AUTOCLASS_TERMINAL_STORAGE_CLASS` `--[no-]enable-autoclass`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha storage buckets create` `URL` [`URL` …] [`--additional-headers`=`HEADER`=`VALUE`] [`--default-encryption-key`=`DEFAULT_ENCRYPTION_KEY`, `-k` `DEFAULT_ENCRYPTION_KEY`] [`--default-storage-class`=`DEFAULT_STORAGE_CLASS`, `-c` `DEFAULT_STORAGE_CLASS`, `-s` `DEFAULT_STORAGE_CLASS`] [`--enable-hierarchical-namespace`] [`--enable-per-object-retention`] [`--encryption-enforcement-file`=`ENCRYPTION_ENFORCEMENT_FILE`] [`--ip-filter-file`=`IP_FILTER_FILE`] [`--lifecycle-file`=`LIFECYCLE_FILE`] [`--location`=`LOCATION`, `-l` `LOCATION`] [`--[no-]pap`, `--[no-]public-access-prevention`] [`--placement`=[`REGION`,…]] [`--recovery-point-objective`=`SETTING`, `--rpo`=`SETTING`] [`--retention-period`=`RETENTION_PERIOD`] [`--soft-delete-duration`=`SOFT_DELETE_DURATION`] [`--[no-]uniform-bucket-level-access`, `-b`] [`--labels`=[`LABEL_KEYS_AND_VALUES`,…] | `--labels-file`=`LABELS_FILE`] [`--autoclass-terminal-storage-class`=`AUTOCLASS_TERMINAL_STORAGE_CLASS` `--[no-]enable-autoclass`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Create new buckets. 
 EXAMPLES
@@ -134,6 +134,19 @@ For more information about supported configurations, see [Cloud Storage bucket I
      Duration to retain soft-deleted objects. For example, "2w1d" is two weeks and one day. See `[gcloud topic datetimes](https://docs.cloud.google.com/sdk/gcloud/reference/topic/datetimes)` for more information on the duration format. Setting `0` will disable soft delete policy on the bucket. Default is 7 days. 
 `--[no-]uniform-bucket-level-access`, `-b`
      Turns on uniform bucket-level access setting. Default is False. Use `--uniform-bucket-level-access` to enable and `--no-uniform-bucket-level-access` to disable. 
+At most one of these can be specified: 
+
+`--labels`=[`LABEL_KEYS_AND_VALUES`,…]
+     Sets the label configuration for the bucket. Accepts a comma-separated list of key=value pairs. Example: --labels=key1=value1,key2=value2 
+`--labels-file`=`LABELS_FILE`
+     Sets the label configuration for the bucket. An example label JSON document looks like the following: 
+    
+    
+    {
+      "your_label_key": "your_label_value",
+      "your_other_label_key": "your_other_label_value"
+    }
+
 AUTOCLASS FLAGS
     
 
@@ -156,6 +169,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

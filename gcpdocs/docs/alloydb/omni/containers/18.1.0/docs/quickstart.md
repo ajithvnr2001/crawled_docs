@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/quickstart/
 title: Install AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using containers: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:54:35.558788+00:00
+fetched_at: 2026-10-28T02:29:09.345020+00:00
 ---
 
 # Install AlloyDB Omni  |  AlloyDB Omni using containers: 18.1.0  |  Google Cloud Documentation
@@ -106,7 +106,7 @@ macOS |
 * 10 GB of disk space
 | 
 * Docker Desktop 4.20 or higher  
-(*) Arm support is in [Preview](https://cloud.google.com/products?e=48754805&#product-launch-stages).  
+(*) Arm support is in [Preview](https://cloud.google.com/products#product-launch-stages).  
 **Note:** AlloyDB Omni supports Arm ([Preview](https://cloud.google.com/products#product-launch-stages)).
 
 #### Verify that cgroupsv2 is enabled
@@ -148,42 +148,44 @@ Install a container runtime like [Docker](https://docs.docker.com/engine/install
          
          docker run --name my-omni \
              -e POSTGRES_PASSWORD=NEW_PASSWORD \
-              -d google/alloydbomni:IMAGE_TAG
+             -d google/alloydbomni:IMAGE_TAG
 
-Replace the following variables:
+Replace the following:
 
-     * `NEW_PASSWORD`: the password to assign the new container's `postgres` user after its creation.
-     * `IMAGE_TAG`: use `16.8.0` for the latest Debian image or`16.8.0-ubi` for the latest UBI image.
+     * `NEW_PASSWORD`: a password to assign to the newly created container's `postgres` user.
 
-**Note:** By default, AlloyDB Omni stores your data on the container itself, and not on your host file system. The data directory is deleted once you delete your AlloyDB Omni container. To mount a data directory stored on your host file system, see instructions in [Customize your AlloyDB Omni installation](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/install).
-  2. Connect to containerized AlloyDB Omni using `psql`:
+     * `IMAGE_TAG`: the image tag—for example, `18.1.0` for the latest Debian image or `18.1.0-ubi9` for the latest UBI image.
+
+**Note:** By default, AlloyDB Omni stores your data on the container itself, and not on your host file system. Deleting your AlloyDB Omni container also deletes the data directory. To mount a data directory stored on your host file system, see [Customize your AlloyDB Omni installation](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/install).
+  2. Connect to containerized AlloyDB Omni by using `psql`:
          
          docker exec -it my-omni psql -h localhost -U postgres
 
-The terminal window displays `psql` login text that ends with a `postgres=#` prompt.
+The terminal window displays `psql` sign-in text that ends with a `postgres=#` prompt.
 
 
 
 
 ###  Podman 
 
-  1. Use the `docker run` command to create a new container with AlloyDB Omni named `my-omni`:
+  1. Use the `podman run` command to create a new container with AlloyDB Omni named `my-omni`:
          
          podman run --name my-omni \
              -e POSTGRES_PASSWORD=NEW_PASSWORD \
              -d google/alloydbomni:IMAGE_TAG
 
-Replace the following variables:
+Replace the following:
 
-     * `NEW_PASSWORD`: the password to assign the new container's `postgres` user after its creation.
-     * `IMAGE_TAG`: use `16.3.0` for the latest Debian image or`16.3.0-ubi` for the latest UBI image.
+     * `NEW_PASSWORD`: a password to assign to the newly created container's `postgres` user.
 
-**Note:** By default, AlloyDB Omni stores your data on the container itself, and not on your host file system. The data directory is deleted once you delete your AlloyDB Omni container. To mount a data directory stored on your host file system, see instructions in [Customize your AlloyDB Omni installation](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/install).
-  2. Connect to containerized AlloyDB Omni using `psql`:
+     * `IMAGE_TAG`: the image tag—for example, `18.1.0` for the latest Debian image or `18.1.0-ubi9` for the latest UBI image.
+
+**Note:** By default, AlloyDB Omni stores your data on the container itself, and not on your host file system. Deleting your AlloyDB Omni container also deletes the data directory. To mount a data directory stored on your host file system, see [Customize your AlloyDB Omni installation](https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/install).
+  2. Connect to containerized AlloyDB Omni by using `psql`:
          
          podman exec -it my-omni psql -h localhost -U postgres
 
-The terminal window displays `psql` login text that ends with a `postgres=#` prompt.
+The terminal window displays `psql` sign-in text that ends with a `postgres=#` prompt.
 
 
 
@@ -237,6 +239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

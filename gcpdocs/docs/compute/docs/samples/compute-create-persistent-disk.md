@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-create-persistent-disk/
 title: Create a persistent disk \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:47:00.795815+00:00
+fetched_at: 2026-10-27T23:11:11.479847+00:00
 ---
 
 # Create a persistent disk  |  Compute Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/configure-selinux/
 title: Secure your containers using SELinux \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:16.751586+00:00
+fetched_at: 2026-10-28T02:29:43.772613+00:00
 ---
 
 # Secure your containers using SELinux  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  Secure your containers using SELinux Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page shows you how to secure your containers by enabling SELinux. SELinux is supported for Red Hat Enterprise Linux (RHEL). If your host machines are running RHEL and you want to enable SELinux for your cluster, you must enable SELinux in all of your host machines. Starting with Google Distributed Cloud release 1.9.0, you can enable or disable SELinux before or after cluster creation or cluster upgrades. When SELinux is enabled on the host, it is enabled for the container runtime.
+SELinux lets you strengthen container isolation and access control on your host machines. When you enable SELinux on host machines running Red Hat Enterprise Linux (RHEL), SELinux is also enabled for the container runtime. You must enable SELinux across all host machines in your cluster, which you can configure before or after cluster creation or upgrades.
 
 ## Check if SELinux is enabled
 
@@ -74,6 +74,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

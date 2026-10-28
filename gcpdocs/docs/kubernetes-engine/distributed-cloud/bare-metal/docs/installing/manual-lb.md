@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/manual-lb/
 title: Configure manual load balancing \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:09.294368+00:00
+fetched_at: 2026-10-27T23:54:34.762927+00:00
 ---
 
 # Configure manual load balancing  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,9 @@ Send feedback
 
 #  Configure manual load balancing Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains the load-balancing requirements when using manual load balancing. Unlike [bundled load balancing](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/load-balance#bundled_load_balancer_mode) where Google Distributed Cloud deploys load balancers to cluster nodes for control plane and data plane traffic, with manual load balancing you configure your own load-balancing solutions for control plane and data plane traffic.
+Manual load balancing lets you configure your own load-balancing solutions for control plane and data plane traffic in Google Distributed Cloud. Unlike [bundled load balancing](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/load-balance#bundled_load_balancer_mode), where Google Distributed Cloud deploys load balancers to cluster nodes, manual load balancing requires you to set up and manage these solutions yourself.
 
-You must set up an external load balancer for the control plane before creating a bare metal cluster. The external control plane load balancer can also be used for data plane traffic, or you can set up a separate load balancer for the data plane. For example, you can use an in-cluster load balancer like [MetalLB](https://metallb.universe.tf/) for data plane traffic.
-
-In addition to explaining load-balancing requirements, this page describes how to configure manual load balancing using [F5 BIG-IP](https://www.f5.com/products/big-ip-services/local-traffic-manager).
+You must set up an external load balancer for the control plane before you create a bare metal cluster. This load balancer can also handle data plane traffic, or you can use a separate load balancer for the data plane, such as an in-cluster [MetalLB](https://metallb.universe.tf/) deployment. Because Google Distributed Cloud doesn't provision load balancers in this mode, LoadBalancer Services don't work until you configure load balancing for them. This document describes the load-balancing requirements and includes an example configuration that uses [F5 BIG-IP](https://www.f5.com/products/big-ip-services/local-traffic-manager).
 
 ## Prerequisites
 
@@ -267,6 +265,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

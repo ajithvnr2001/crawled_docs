@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations/
 title: Supported configurations \u00a0|\u00a0 Confidential VM \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:23.037102+00:00
+fetched_at: 2026-10-27T23:54:34.509594+00:00
 ---
 
 # Supported configurations  |  Confidential VM  |  Google Cloud Documentation
@@ -242,67 +242,42 @@ You can view which zones support these machine types and Confidential Computing 
 
 ###  AMD SEV 
 
-###  Reference table 
-
-To view which zones support SEV on Confidential VM, complete the following steps.
-
-  1. Go to [**Available regions and zones**](https://docs.cloud.google.com/compute/docs/regions-zones#available).
-
-  2. Click **Select a machine type** , and then select **N2D** , **C2D** , **C3D** , and **C4D**.
-
-  3. Click **Select a CPU** , and then select **AMD EPYC Milan** , **AMD EPYC Genoa** , or **AMD EPYC Turin**.
-
-
-
-
-###  gcloud 
-
-To list the zones available in Google Cloud, run the following command:
+To list the zones that AMD SEV is supported in, run the following command:
     
     
     gcloud compute zones list \
-        --format="value(NAME)"
+        --filter="availableCpuPlatforms.list():'CPU_PLATFORM'" \
+        --format="value(name)" \
+        --sort-by=name
     
 
-To list the available CPU platforms for a specific zone, run the following command and check for AMD Milan, AMD Genoa, or AMD Turin support:
-    
-    
-    gcloud compute zones describe ZONE_NAME \
-        --format="value(availableCpuPlatforms)"
-    
+Replace `CPU_PLATFORM` with the name of the CPU platform that you want to search for:
+
+  * `AMD Milan`
+
+  * `AMD Genoa`
+
+  * `AMD Turin`
+
+
+
 
 ###  AMD SEV-SNP 
 
 AMD SEV-SNP is supported in the following zones, on N2D machine type with AMD Milan CPU platforms:
 
   * asia-southeast1-a
-
   * asia-southeast1-b
-
   * asia-southeast1-c
-
-  * europe-west2-b
-
-  * europe-west2-c
-
   * europe-west3-a
-
   * europe-west3-b
-
   * europe-west3-c
-
   * europe-west4-a
-
   * europe-west4-b
-
   * europe-west4-c
-
   * us-central1-a
-
   * us-central1-b
-
   * us-central1-c
-
 
 
 
@@ -313,53 +288,29 @@ AMD SEV-SNP is supported in the following zones, on N2D machine type with AMD Mi
 Intel TDX is supported in the following zones, on `c3-standard-*` machine types.
 
   * asia-northeast1-b
-
   * asia-south1-b
-
   * asia-southeast1-a
-
   * asia-southeast1-b
-
   * asia-southeast1-c
-
   * europe-west3-a
-
   * europe-west3-b
-
   * europe-west4-a
-
   * europe-west4-b
-
   * europe-west4-c
-
   * europe-west9-a
-
   * europe-west9-b
-
   * us-central1-a
-
   * us-central1-b
-
   * us-central1-c
-
-  * us-east1-b
-
   * us-east1-c
-
+  * us-east1-d
   * us-east4-a
-
   * us-east4-b
-
   * us-east4-c
-
   * us-east5-b
-
   * us-east5-c
-
   * us-west1-a
-
   * us-west1-b
-
 
 
 
@@ -368,29 +319,17 @@ Intel TDX is supported in the following zones, on `c3-standard-*` machine types.
 Intel TDX is supported on `c3-standard-*-lssd` machine types in the following zones:
 
   * asia-southeast1-a
-
   * asia-southeast1-b
-
   * europe-west4-a
-
   * europe-west4-b
-
   * southamerica-east1-a
-
   * us-central1-a
-
   * us-central1-b
-
   * us-east4-b
-
   * us-east4-c
-
   * us-east5-b
-
   * us-east5-c
-
   * us-west1-b
-
 
 
 
@@ -399,131 +338,45 @@ Intel TDX is supported on `c3-standard-*-lssd` machine types in the following zo
 Intel TDX is supported in the following zones, on `c4-standard-*` machine types:
 
   * asia-southeast1-a
-
   * asia-southeast1-b
-
   * asia-southeast1-c
-
   * europe-west1-b
-
   * europe-west3-a
-
   * europe-west3-b
-
   * europe-west4-a
-
   * europe-west4-b
-
   * us-central1-a
-
   * us-central1-b
-
   * us-central1-f
-
   * us-east4-a
-
   * us-east4-b
-
   * us-east4-c
-
   * us-west1-a
-
 
 
 
 ###  NVIDIA Confidential Computing 
 
-###  A3 High machine type 
+###  A3 High 
 
 NVIDIA Confidential Computing is supported in the following zones, on Confidential VM instances with an attached GPU on the A3 High machine type:
 
   * europe-west4-c
-
   * us-central1-a
-
   * us-east5-a
 
 
 
+###  G4 
 
-###  G4 machine type 
-
-NVIDIA Confidential Computing is supported in the following zones, on Confidential VM instances with an attached GPU on the G4 machine type:
-
-  * asia-east1-a
-
-  * asia-east1-b
-
-  * asia-south1-c
-
-  * asia-south2-a
-
-  * asia-south2-c
-
-  * asia-southeast1-a
-
-  * asia-southeast1-b
-
-  * asia-southeast1-c
-
-  * asia-southeast2-b
-
-  * asia-southeast2-c
-
-  * europe-north1-a
-
-  * europe-north1-b
-
-  * europe-north1-c
-
-  * europe-west1-c
-
-  * europe-west2-b
-
-  * europe-west2-c
-
-  * europe-west4-a
-
-  * europe-west4-ai1a
-
-  * europe-west4-b
-
-  * europe-west8-b
-
-  * europe-west10-b
-
-  * us-central1-d
-
-  * us-central1-f
-
-  * us-east1-b
-
-  * us-east1-d
-
-  * us-east4-b
-
-  * us-east4-c
-
-  * us-east5-a
-
-  * us-east5-b
-
-  * us-east5-c
-
-  * us-south1-a
-
-  * us-south1-b
-
-  * us-west1-b
-
-  * us-west1-c
-
-  * us-west3-a
-
-  * us-west4-a
-
-
-
+To list the zones the `g4-standard-48` machine type is available in, run the following command:
+    
+    
+    gcloud compute accelerator-types list \
+        --filter="name ~ ^nvidia-rtx-pro-6000$" \
+        --format="value(zone)" \
+        --sort-by=zone
+    
 
 ## Operating systems
 
@@ -577,7 +430,7 @@ For Confidential VM instances with attached NVIDIA GPUs, the requirements for op
 
   * **A3 High machine type** :
 
-    * **Container-Optimized OS** (`confidential-vm-images` project): `cos-tdx-113-lts` and newer
+    * **Container-Optimized OS** (`confidential-vm-images` project): `cos-121-lts` and newer
 
     * **Ubuntu** (`ubuntu-os-cloud` project): `ubuntu-2204-lts` and newer
 
@@ -630,6 +483,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

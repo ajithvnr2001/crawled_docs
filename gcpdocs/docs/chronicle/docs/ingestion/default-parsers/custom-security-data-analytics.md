@@ -1,13 +1,87 @@
 ---
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/
 title: Collect Custom Security Data Analytics logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:53:25.491968+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:06:51.793638+00:00
 ---
 
 # Collect Custom Security Data Analytics logs  |  Google Security Operations  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/
+
+[ Skip to main content ](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/)
+  * [Deutsch](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/?hl=ko)
+
+Sign in
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/secops-color.svg) ](https://docs.cloud.google.com/chronicle/docs)
+  * [ Google Security Operations ](https://docs.cloud.google.com/chronicle/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Before you begin](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#before_you_begin)
+  * [Choose your ingestion method](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#choose_your_ingestion_method)
+  * [Option 1: Webhook ingestion (Real-time push)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#option_1_webhook_ingestion_real-time_push)
+    * [Create webhook feed in Google SecOps](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_webhook_feed_in)
+    * [Create Google Cloud API key](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_google_cloud_api_key)
+    * [Configure your custom application to send data](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_your_custom_application_to_send_data)
+    * [Authentication methods reference](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#authentication_methods_reference)
+    * [Webhook limits and best practices](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#webhook_limits_and_best_practices)
+  * [Option 2: Amazon S3 V2 ingestion (Batch export)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#option_2_amazon_s3_v2_ingestion_batch_export)
+    * [Create Amazon S3 bucket](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_amazon_s3_bucket)
+    * [Create IAM user with S3 access](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_iam_user_with_s3_access)
+    * [Configure your application to export to S3](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_your_application_to_export_to_s3)
+    * [Configure Google SecOps feed for S3](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_feed_for_s3)
+  * [Option 3: Google Cloud Storage V2 ingestion (Batch export)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#option_3_google_cloud_storage_v2_ingestion_batch_export)
+    * [Create GCS bucket](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_gcs_bucket)
+    * [Configure your application to export to GCS](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_your_application_to_export_to_gcs)
+    * [Get Google SecOps service account](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#get_service_account)
+    * [Grant IAM permissions](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#grant_iam_permissions)
+    * [Configure Google SecOps feed for GCS](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_feed_for_gcs)
+  * [Option 4: Azure Blob Storage V2 ingestion (Batch export)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#option_4_azure_blob_storage_v2_ingestion_batch_export)
+    * [Create Azure Storage Account](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_azure_storage_account)
+    * [Get Storage Account credentials](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#get_storage_account_credentials)
+    * [Create blob container](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_blob_container)
+    * [Configure your application to export to Azure Blob](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_your_application_to_export_to_azure_blob)
+    * [Configure Google SecOps feed for Azure Blob](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_feed_for_azure_blob)
+  * [Option 5: Amazon Data Firehose ingestion (Real-time streaming)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#option_5_amazon_data_firehose_ingestion_real-time_streaming)
+    * [Create Google SecOps Firehose feed](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_firehose_feed)
+    * [Create Google Cloud API key](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_google_cloud_api_key_2)
+    * [Construct the endpoint URL](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#construct_the_endpoint_url)
+    * [Create IAM policy for Firehose](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_iam_policy_for_firehose)
+    * [Create IAM role for CloudWatch Logs](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_iam_role_for_cloudwatch_logs)
+    * [Create Kinesis Data Firehose delivery stream](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_kinesis_data_firehose_delivery_stream)
+    * [Subscribe CloudWatch Log Group to Firehose](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#subscribe_cloudwatch_log_group_to_firehose)
+  * [Create custom parser (optional)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_custom_parser_optional)
+    * [When to create a custom parser](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#when_to_create_a_custom_parser)
+    * [Create custom log type](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_custom_log_type)
+    * [Create custom parser](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_custom_parser)
+    * [Parser configuration example](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#parser_configuration_example)
+  * [Verify data ingestion](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#verify_data_ingestion)
+    * [Check feed status](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#check_feed_status)
+    * [Search for ingested logs](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#search_for_ingested_logs)
+    * [Monitor feed metrics](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#monitor_feed_metrics)
+  * [Troubleshooting](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#troubleshooting)
+    * [Webhook ingestion issues](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#webhook_ingestion_issues)
+    * [S3/GCS/Azure Blob ingestion issues](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#s3gcsazure_blob_ingestion_issues)
+    * [Firehose ingestion issues](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#firehose_ingestion_issues)
+  * [UDM mapping table](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#udm_mapping_table)
+  * [Change Log](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#change_log)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -16,25 +90,67 @@ fetched_at: 2026-10-26T05:53:25.491968+00:00
   * [ Guides ](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview)
 
 
+Was this helpful?
+Send feedback 
+  * On this page
+  * [Before you begin](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#before_you_begin)
+  * [Choose your ingestion method](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#choose_your_ingestion_method)
+  * [Option 1: Webhook ingestion (Real-time push)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#option_1_webhook_ingestion_real-time_push)
+    * [Create webhook feed in Google SecOps](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_webhook_feed_in)
+    * [Create Google Cloud API key](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_google_cloud_api_key)
+    * [Configure your custom application to send data](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_your_custom_application_to_send_data)
+    * [Authentication methods reference](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#authentication_methods_reference)
+    * [Webhook limits and best practices](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#webhook_limits_and_best_practices)
+  * [Option 2: Amazon S3 V2 ingestion (Batch export)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#option_2_amazon_s3_v2_ingestion_batch_export)
+    * [Create Amazon S3 bucket](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_amazon_s3_bucket)
+    * [Create IAM user with S3 access](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_iam_user_with_s3_access)
+    * [Configure your application to export to S3](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_your_application_to_export_to_s3)
+    * [Configure Google SecOps feed for S3](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_feed_for_s3)
+  * [Option 3: Google Cloud Storage V2 ingestion (Batch export)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#option_3_google_cloud_storage_v2_ingestion_batch_export)
+    * [Create GCS bucket](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_gcs_bucket)
+    * [Configure your application to export to GCS](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_your_application_to_export_to_gcs)
+    * [Get Google SecOps service account](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#get_service_account)
+    * [Grant IAM permissions](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#grant_iam_permissions)
+    * [Configure Google SecOps feed for GCS](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_feed_for_gcs)
+  * [Option 4: Azure Blob Storage V2 ingestion (Batch export)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#option_4_azure_blob_storage_v2_ingestion_batch_export)
+    * [Create Azure Storage Account](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_azure_storage_account)
+    * [Get Storage Account credentials](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#get_storage_account_credentials)
+    * [Create blob container](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_blob_container)
+    * [Configure your application to export to Azure Blob](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_your_application_to_export_to_azure_blob)
+    * [Configure Google SecOps feed for Azure Blob](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#configure_feed_for_azure_blob)
+  * [Option 5: Amazon Data Firehose ingestion (Real-time streaming)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#option_5_amazon_data_firehose_ingestion_real-time_streaming)
+    * [Create Google SecOps Firehose feed](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_firehose_feed)
+    * [Create Google Cloud API key](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_google_cloud_api_key_2)
+    * [Construct the endpoint URL](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#construct_the_endpoint_url)
+    * [Create IAM policy for Firehose](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_iam_policy_for_firehose)
+    * [Create IAM role for CloudWatch Logs](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_iam_role_for_cloudwatch_logs)
+    * [Create Kinesis Data Firehose delivery stream](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_kinesis_data_firehose_delivery_stream)
+    * [Subscribe CloudWatch Log Group to Firehose](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#subscribe_cloudwatch_log_group_to_firehose)
+  * [Create custom parser (optional)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_custom_parser_optional)
+    * [When to create a custom parser](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#when_to_create_a_custom_parser)
+    * [Create custom log type](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_custom_log_type)
+    * [Create custom parser](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#create_custom_parser)
+    * [Parser configuration example](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#parser_configuration_example)
+  * [Verify data ingestion](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#verify_data_ingestion)
+    * [Check feed status](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#check_feed_status)
+    * [Search for ingested logs](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#search_for_ingested_logs)
+    * [Monitor feed metrics](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#monitor_feed_metrics)
+  * [Troubleshooting](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#troubleshooting)
+    * [Webhook ingestion issues](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#webhook_ingestion_issues)
+    * [S3/GCS/Azure Blob ingestion issues](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#s3gcsazure_blob_ingestion_issues)
+    * [Firehose ingestion issues](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#firehose_ingestion_issues)
+  * [UDM mapping table](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#udm_mapping_table)
+  * [Change Log](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/custom-security-data-analytics/#change_log)
 
-Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Collect Custom Security Data Analytics logs
-
+# Collect Custom Security Data Analytics logs Stay organized with collections  Save and categorize content based on your preferences.
 **Parser Version:** 6.0
-
 Supported in:
-
 Google SecOps  [ SIEM ](https://docs.cloud.google.com/chronicle/docs/secops/google-secops-siem-toc)
-
 This document explains how to ingest custom security analytics data into Google Security Operations using multiple ingestion methods. This guide is for custom security data sources that don't have a prebuilt parser or log type.
-
 Custom security data analytics encompasses proprietary security telemetry, custom application logs, internal security tools, or any security-relevant data from sources without native Google SecOps integration. You can ingest this data as unstructured logs and optionally normalize it using custom parsers.
-
 ## Before you begin
-
 Make sure you have the following prerequisites:
-
   * A Google SecOps instance
   * Custom security data source capable of exporting logs in JSON, CSV, SYSLOG, or other structured formats
   * Access to one of the following: 
@@ -45,27 +161,19 @@ Make sure you have the following prerequisites:
   * Permissions to create and manage feeds in Google SecOps
 
 
-
 ## Choose your ingestion method
-
-Google SecOps supports multiple ingestion methods for custom security data. Select the method that best fits your data source capabilities:
-
-Ingestion Method | Use Case | Latency | Setup Complexity  
----|---|---|---  
-**Webhook** | Real-time push from applications | Seconds | Low  
-**Amazon S3 V2** | Batch export to S3 bucket | Minutes to hours | Medium  
-**Google Cloud Storage V2** | Batch export to GCS bucket | Minutes to hours | Medium  
-**Azure Blob Storage V2** | Batch export to Azure storage | Minutes to hours | Medium  
-**Amazon Data Firehose** | Real-time streaming from AWS | Seconds | High  
-  
+Google SecOps supports multiple ingestion methods for custom security data. Select the method that best fits your data source capabilities:  
+| Ingestion Method  | Use Case  | Latency  | Setup Complexity  |  
+| --- | --- | --- | --- |  
+| **Webhook**  | Real-time push from applications  | Seconds  | Low  |  
+| **Amazon S3 V2**  | Batch export to S3 bucket  | Minutes to hours  | Medium  |  
+| **Google Cloud Storage V2**  | Batch export to GCS bucket  | Minutes to hours  | Medium  |  
+| **Azure Blob Storage V2**  | Batch export to Azure storage  | Minutes to hours  | Medium  |  
+| **Amazon Data Firehose**  | Real-time streaming from AWS  | Seconds  | High  |  
 ## Option 1: Webhook ingestion (Real-time push)
-
 Use this method when your custom security application can send HTTP POST requests to an external endpoint.
-
 ### Create webhook feed in Google SecOps
-
 #### Create the feed
-
   1. Go to **SIEM Settings > Feeds**.
   2. Click **Add New Feed**.
   3. On the next page, click **Configure a single feed**.
@@ -75,7 +183,7 @@ Use this method when your custom security application can send HTTP POST request
   7. Click **Next**.
   8. Specify values for the following input parameters: 
      * **Split delimiter** : Optional: Enter a delimiter to split multi-line events. Common values: 
-       * `\n` \- Newline delimiter (most common for NDJSON)
+       * `\n` - Newline delimiter (most common for NDJSON)
        * Leave empty if each request contains a single event
      * **Asset namespace** : The [asset namespace](https://docs.cloud.google.com/chronicle/docs/investigation/asset-namespaces)
      * **Ingestion labels** : The label to be applied to the events from this feed
@@ -83,43 +191,31 @@ Use this method when your custom security application can send HTTP POST request
   10. Review your new feed configuration in the **Finalize** screen, and then click **Submit**.
 
 
-
 #### Generate and save secret key
-
 After creating the feed, you must generate a secret key for authentication:
-
   1. On the feed details page, click **Generate Secret Key**.
   2. A dialog displays the secret key.
   3. **Copy and save** the secret key securely.
 
-**Important:** The secret key is displayed only once and cannot be retrieved later. If you lose it, you must generate a new secret key.
-
-
 
 #### Get the feed endpoint URL
-
   1. Go to the **Details** tab of the feed.
   2. In the **Endpoint Information** section, copy the **Feed endpoint URL**.
   3. The URL format is:
-         
-         https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import
-         
+
+```
+https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import
+
+```
 
 Where `{region}` is the region of your Google SecOps instance (for example, `us`, `europe`, or `asia-southeast1`), and `{parent}` is the resource path in the format `projects/<PROJECT_ID>/locations/<LOCATION>/instances/<INSTANCE_ID>/logTypes/<LOG_TYPE>`.
-
   4. Save this URL for the next steps.
-
   5. Click **Done**.
 
 
-
-
 ### Create Google Cloud API key
-
 Google SecOps requires an API key for authentication. Create a restricted API key in the Google Cloud Console.
-
 #### Create the API key
-
   1. Go to the [Google Cloud Console Credentials page](https://console.cloud.google.com/apis/credentials).
   2. Select your project (the project associated with your Chronicle instance).
   3. Click **Create credentials > API key**.
@@ -127,235 +223,229 @@ Google SecOps requires an API key for authentication. Create a restricted API ke
   5. Click **Edit API key** to restrict the key.
 
 
-
 #### Restrict the API key
-
   1. In the **API key** settings page: 
      * **Name** : Enter a descriptive name (for example, `Chronicle Webhook API Key`).
   2. Under **API restrictions** : 
-     1. Select **Restrict key**.
-     2. In the **Select APIs** dropdown, search for and select **Google SecOps API** (or **Chronicle API**).
+    1. Select **Restrict key**.
+    2. In the **Select APIs** dropdown, search for and select **Google SecOps API** (or **Chronicle API**).
   3. Click **Save**.
   4. **Copy** the API key value from the **API key** field at the top of the page.
   5. Save the API key securely.
 
-**Note:** Restricting the API key ensures it can only be used with the Chronicle API, reducing security risk if the key is compromised.
-
-
 
 ### Configure your custom application to send data
-
 Configure your custom security application or script to send HTTP POST requests to the Chronicle webhook endpoint.
-
 #### Construct the webhook URL:
-
   * Combine the Chronicle endpoint URL and API key:
-        
-        <ENDPOINT_URL>?key=<API_KEY>
-        
+
+```
+<ENDPOINT_URL>?key=<API_KEY>
+
+```
 
 **Example:**
-        
-        https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import?key=AIzaSyD...
-        
 
+```
+https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import?key=AIzaSyD...
+
+```
 
 
 
 #### HTTP request format:
-
   * **Method:** POST
-
   * **URL:**
-        
-        <ENDPOINT_URL>?key=<API_KEY>
-        
+
+```
+<ENDPOINT_URL>?key=<API_KEY>
+
+```
 
   * **Headers:**
-        
-        Content-Type: application/json
-        x-chronicle-auth: <SECRET_KEY>
-        
+
+```
+Content-Type: application/json
+x-chronicle-auth: <SECRET_KEY>
+
+```
 
   * **Body (single event):**
-        
-        {
-            "timestamp": "2025-01-15T10:30:00Z",
-            "event_type": "authentication",
-            "user": "john.doe@example.com",
-            "action": "login",
-            "result": "success",
-            "source_ip": "203.0.113.45",
-            "custom_field_1": "value1",
-            "custom_field_2": "value2"
-        }
-        
+
+```
+{
+    "timestamp": "2025-01-15T10:30:00Z",
+    "event_type": "authentication",
+    "user": "john.doe@example.com",
+    "action": "login",
+    "result": "success",
+    "source_ip": "203.0.113.45",
+    "custom_field_1": "value1",
+    "custom_field_2": "value2"
+}
+
+```
 
   * **Body (multiple events with newline delimiter):**
-        
-        {"timestamp": "2025-01-15T10:30:00Z", "event_type": "authentication", "action": "login"}
-        {"timestamp": "2025-01-15T10:30:05Z", "event_type": "file_access", "action": "read"}
-        {"timestamp": "2025-01-15T10:30:10Z", "event_type": "authentication", "action": "logout"}
-        
 
-**Note:** When sending multiple events, configure the Google SecOps feed with split delimiter `\n`.
+```
+{"timestamp": "2025-01-15T10:30:00Z", "event_type": "authentication", "action": "login"}
+{"timestamp": "2025-01-15T10:30:05Z", "event_type": "file_access", "action": "read"}
+{"timestamp": "2025-01-15T10:30:10Z", "event_type": "authentication", "action": "logout"}
+
+```
 
 
 
 #### Examples:
-
   * **Example: Python script** :
-        
-        import requests
-        import json
-        from datetime import datetime
-        
-        # Configuration
-        ENDPOINT_URL = "https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import"
-        API_KEY = "your-api-key-here"
-        SECRET_KEY = "your-secret-key-here"
-        
-        # Construct full URL
-        url = f"{ENDPOINT_URL}?key={API_KEY}"
-        
-        # Headers
-        headers = {
-            "Content-Type": "application/json",
-            "x-chronicle-auth": SECRET_KEY
-        }
-        
-        # Sample event
-        event = {
-            "timestamp": datetime.utcnow().isoformat() + "Z",
-            "event_type": "custom_security_event",
-            "severity": "high",
-            "source": "custom_security_tool",
-            "message": "Suspicious activity detected",
-            "user": "admin@example.com",
-            "ip_address": "192.168.1.100"
-        }
-        
-        # Send request
-        response = requests.post(url, headers=headers, data=json.dumps(event))
-        
-        if response.status_code == 200:
-            print("Event sent successfully")
-        else:
-            print(f"Error: {response.status_code} - {response.text}")
-        
+
+```
+import requests
+import json
+from datetime import datetime
+
+# Configuration
+ENDPOINT_URL = "https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import"
+API_KEY = "your-api-key-here"
+SECRET_KEY = "your-secret-key-here"
+
+# Construct full URL
+url = f"{ENDPOINT_URL}?key={API_KEY}"
+
+# Headers
+headers = {
+    "Content-Type": "application/json",
+    "x-chronicle-auth": SECRET_KEY
+}
+
+# Sample event
+event = {
+    "timestamp": datetime.utcnow().isoformat() + "Z",
+    "event_type": "custom_security_event",
+    "severity": "high",
+    "source": "custom_security_tool",
+    "message": "Suspicious activity detected",
+    "user": "admin@example.com",
+    "ip_address": "192.168.1.100"
+}
+
+# Send request
+response = requests.post(url, headers=headers, data=json.dumps(event))
+
+if response.status_code == 200:
+    print("Event sent successfully")
+else:
+    print(f"Error: {response.status_code} - {response.text}")
+
+```
 
   * **Example: cURL command** :
-        
-        curl -X POST \
-            "https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import?key=YOUR_API_KEY" \
-            -H "Content-Type: application/json" \
-            -H "x-chronicle-auth: YOUR_SECRET_KEY" \
-            -d '{
-                "timestamp": "2025-01-15T10:30:00Z",
-                "event_type": "security_alert",
-                "severity": "critical",
-                "source": "custom_tool",
-                "message": "Threat detected"
-            }'
-        
 
+```
+curl -X POST \
+    "https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import?key=YOUR_API_KEY" \
+    -H "Content-Type: application/json" \
+    -H "x-chronicle-auth: YOUR_SECRET_KEY" \
+    -d '{
+        "timestamp": "2025-01-15T10:30:00Z",
+        "event_type": "security_alert",
+        "severity": "critical",
+        "source": "custom_tool",
+        "message": "Threat detected"
+    }'
+
+```
 
 
 
 ### Authentication methods reference
-
 Google SecOps webhook feeds support multiple authentication methods. Choose the method that your application supports.
-
 #### Method 1: Custom headers (Recommended)
-
 If your application supports custom HTTP headers, use this method for better security.
-
   * **Request format:**
-        
-        POST <ENDPOINT_URL> HTTP/1.1
-        Content-Type: application/json
-        x-goog-chronicle-auth: <API_KEY>
-        x-chronicle-auth: <SECRET_KEY>
-        
-        {
-          "event": "data",
-          "timestamp": "2025-01-15T10:30:00Z"
-        }
-        
+
+```
+POST <ENDPOINT_URL> HTTP/1.1
+Content-Type: application/json
+x-goog-chronicle-auth: <API_KEY>
+x-chronicle-auth: <SECRET_KEY>
+
+{
+  "event": "data",
+  "timestamp": "2025-01-15T10:30:00Z"
+}
+
+```
 
   * **Advantages** :
-
     * The API key and secret are not visible in URL.
     * More secure because headers are not logged in web server access logs.
     * Preferred method when the application supports it.
 
 
-
 #### Method 2: Query parameters
-
 If your application does not support custom headers, append credentials to the URL.
-
   * **URL format:**
-        
-        <ENDPOINT_URL>?key=<API_KEY>&secret=<SECRET_KEY>
-        
+
+```
+<ENDPOINT_URL>?key=<API_KEY>&secret=<SECRET_KEY>
+
+```
 
 **Example:**
-        
-        https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import?key=AIzaSyD...&secret=abcd1234...
-        
+
+```
+https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import?key=AIzaSyD...&secret=abcd1234...
+
+```
 
   * **Request format:**
-        
-        POST <ENDPOINT_URL>?key=<API_KEY>&secret=<SECRET_KEY> HTTP/1.1
-        Content-Type: application/json
-        
-        {
-          "event": "data",
-          "timestamp": "2025-01-15T10:30:00Z"
-        }
-        
+
+```
+POST <ENDPOINT_URL>?key=<API_KEY>&secret=<SECRET_KEY> HTTP/1.1
+Content-Type: application/json
+
+{
+  "event": "data",
+  "timestamp": "2025-01-15T10:30:00Z"
+}
+
+```
 
   * **Disadvantages** :
-
     * Credentials are visible in URL.
     * Credentials may be logged in web server access logs.
     * Less secure than headers.
 
 
-
 #### Method 3: Hybrid (URL + Header)
-
 Some configurations use API key in URL and secret key in header.
-
   * **Request format:**
-        
-        POST <ENDPOINT_URL>?key=<API_KEY> HTTP/1.1
-        Content-Type: application/json
-        x-chronicle-auth: <SECRET_KEY>
-        
-        {
-            "event": "data",
-            "timestamp": "2025-01-15T10:30:00Z"
-        }
-        
 
+```
+POST <ENDPOINT_URL>?key=<API_KEY> HTTP/1.1
+Content-Type: application/json
+x-chronicle-auth: <SECRET_KEY>
+
+{
+    "event": "data",
+    "timestamp": "2025-01-15T10:30:00Z"
+}
+
+```
 
 
 
 ### Webhook limits and best practices
-
-#### Request limits
-
-Limit | Value  
----|---  
-**Max request size** | 4 MB  
-**Max QPS (queries per second)** | 15,000  
-**Request timeout** | 30 seconds  
-**Retry behavior** | Automatic with exponential backoff  
-  
+#### Request limits  
+| Limit  | Value  |  
+| --- | --- |  
+| **Max request size**  | 4 MB  |  
+| **Max QPS (queries per second)**  | 15,000  |  
+| **Request timeout**  | 30 seconds  |  
+| **Retry behavior**  | Automatic with exponential backoff  |  
 #### Best practices
-
   * **Batch events** : Send multiple events in a single request using newline-delimited JSON (NDJSON) format to reduce overhead.
   * **Include timestamps** : Always include a timestamp field in ISO 8601 format for accurate event ordering.
   * **Use structured data** : Send data in JSON format for easier parsing and field extraction.
@@ -363,13 +453,9 @@ Limit | Value
   * **Monitor response codes** : Log and alert on non-200 responses.
 
 
-
 ## Option 2: Amazon S3 V2 ingestion (Batch export)
-
 Use this method when your custom security application can export logs to an Amazon S3 bucket.
-
 ### Create Amazon S3 bucket
-
   1. Open the **Amazon S3 console**.
   2. Click **Create Bucket**.
   3. Provide the following configuration details: 
@@ -378,9 +464,7 @@ Use this method when your custom security application can export logs to an Amaz
   4. Click **Create**.
 
 
-
 ### Create IAM user with S3 access
-
   1. Open the **IAM console**.
   2. Click **Users > Add user**.
   3. Enter a **user name** (for example, `chronicle-s3-reader`).
@@ -395,38 +479,36 @@ Use this method when your custom security application can export logs to an Amaz
   12. Click **Close**.
 
 
-
 ### Configure your application to export to S3
-
 Configure your custom security application to write log files to the S3 bucket. The application should:
-
   * Write logs in a structured format (JSON, CSV, or plain text).
   * Use a consistent file naming convention.
   * Optional: Organize files by date (for example, `logs/2025/01/15/events.json`).
   * Write complete files (avoid partial writes).
-
   * **Example file structure:**
-        
-        s3://custom-security-analytics-logs/
-        ├── security-events/
-        │   ├── 2025/01/15/
-        │   │   ├── events-10-00.json
-        │   │   ├── events-11-00.json
-        │   │   └── events-12-00.json
-        
+
+```
+s3://custom-security-analytics-logs/
+├── security-events/
+│   ├── 2025/01/15/
+│   │   ├── events-10-00.json
+│   │   ├── events-11-00.json
+│   │   └── events-12-00.json
+
+```
 
   * **Example log file format (NDJSON):**
-        
-        {"timestamp": "2025-01-15T10:00:00Z", "event_type": "login", "user": "alice@example.com", "result": "success"}
-        {"timestamp": "2025-01-15T10:05:00Z", "event_type": "file_access", "user": "bob@example.com", "file": "/data/sensitive.txt"}
-        {"timestamp": "2025-01-15T10:10:00Z", "event_type": "logout", "user": "alice@example.com"}
-        
 
+```
+{"timestamp": "2025-01-15T10:00:00Z", "event_type": "login", "user": "alice@example.com", "result": "success"}
+{"timestamp": "2025-01-15T10:05:00Z", "event_type": "file_access", "user": "bob@example.com", "file": "/data/sensitive.txt"}
+{"timestamp": "2025-01-15T10:10:00Z", "event_type": "logout", "user": "alice@example.com"}
+
+```
 
 
 
 ### Configure Google SecOps feed for S3
-
   1. Go to **SIEM Settings > Feeds**.
   2. Click **Add New Feed**.
   3. On the next page, click **Configure a single feed**.
@@ -435,97 +517,78 @@ Configure your custom security application to write log files to the S3 bucket. 
   6. Select **Custom Security Data Analytics** as the **Log type**.
   7. Click **Next**.
   8. Specify values for the following input parameters:
-
      * **S3 URI** : The bucket URI in format: `s3://custom-security-analytics-logs/security-events/`
-
-**Note:** Include the trailing slash (/) at the end of the S3 URI.
      * **Source deletion option** : Select the deletion option according to your preference:
-
        * **Never** : Never deletes any files after transfers (recommended for testing).
        * **Delete transferred files** : Deletes files after successful transfer.
        * **Delete transferred files and empty directories** : Deletes files and empty directories after successful transfer.
      * **Maximum File Age** : Include files modified in the last number of days (default is 180 days).
-
      * **Access Key ID** : Enter the access key from the IAM user.
-
      * **Secret Access Key** : Enter the secret key from the IAM user.
-
      * **Asset namespace** : The [asset namespace](https://docs.cloud.google.com/chronicle/docs/investigation/asset-namespaces).
-
      * **Ingestion labels** : The label to be applied to the events from this feed.
-
   9. Click **Next**.
-
   10. Review your new feed configuration in the **Finalize** screen, and then click **Submit**.
 
 
-
-
 ## Option 3: Google Cloud Storage V2 ingestion (Batch export)
-
 Use this method when your custom security application can export logs to a Google Cloud Storage bucket.
-
 ### Create GCS bucket
-
   1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
   2. Select your project or create a new one.
   3. In the navigation menu, go to **Cloud Storage > Buckets**.
   4. Click **Create bucket**.
-  5. Provide the following configuration details:
-
-Setting | Value  
----|---  
-**Name your bucket** | Enter a globally unique name (for example, `custom-security-analytics-logs`)  
-**Location type** | Choose based on your needs (Region, Dual-region, Multi-region)  
-**Location** | Select the location (for example, `us-central1`)  
-**Storage class** | Standard (recommended for frequently accessed logs)  
-**Access control** | Uniform (recommended)  
-**Protection tools** | Optional: Enable object versioning or retention policy  
+  5. Provide the following configuration details:  
+| Setting  | Value  |  
+| --- | --- |  
+| **Name your bucket**  | Enter a globally unique name (for example, `custom-security-analytics-logs`)  |  
+| **Location type**  | Choose based on your needs (Region, Dual-region, Multi-region)  |  
+| **Location**  | Select the location (for example, `us-central1`)  |  
+| **Storage class**  | Standard (recommended for frequently accessed logs)  |  
+| **Access control**  | Uniform (recommended)  |  
+| **Protection tools**  | Optional: Enable object versioning or retention policy  |  
   6. Click **Create**.
 
 
-
-
 ### Configure your application to export to GCS
-
 Configure your custom security application to write log files to the GCS bucket using one of the following methods:
-
   * **Google Cloud SDK** : Use `gsutil` or client libraries
   * **Service Account** : Create a service account with Storage Object Creator role
   * **Signed URLs** : Generate signed URLs for temporary write access
-
   * **Example using gsutil:**
-        
-        gsutil cp /path/to/logs/events.json gs://custom-security-analytics-logs/security-events/
-        
+
+```
+gsutil cp /path/to/logs/events.json gs://custom-security-analytics-logs/security-events/
+
+```
 
   * **Example using Python client library:**
-        
-        from google.cloud import [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest)
-        import json
-        
-        # Initialize client
-        client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
-        bucket = client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)('custom-security-analytics-logs')
-        
-        # Upload log file
-        blob = bucket.blob('security-events/2025/01/15/events.json')
-        
-        # Write NDJSON data
-        events = [
-            {"timestamp": "2025-01-15T10:00:00Z", "event_type": "login"},
-            {"timestamp": "2025-01-15T10:05:00Z", "event_type": "logout"}
-        ]
-        
-        ndjson_data = '\n'.join([json.dumps(event) for event in events]) + '\n'
-        blob.[upload_from_string](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)(ndjson_data, content_type='application/x-ndjson')
-        
 
+```
+from google.cloud import [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest)
+import json
+
+# Initialize client
+client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)()
+bucket = client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)('custom-security-analytics-logs')
+
+# Upload log file
+blob = bucket.blob('security-events/2025/01/15/events.json')
+
+# Write NDJSON data
+events = [
+    {"timestamp": "2025-01-15T10:00:00Z", "event_type": "login"},
+    {"timestamp": "2025-01-15T10:05:00Z", "event_type": "logout"}
+]
+
+ndjson_data = '\n'.join([json.dumps(event) for event in events]) + '\n'
+blob.[upload_from_string](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)(ndjson_data, content_type='application/x-ndjson')
+
+```
 
 
 
 ### Get Google SecOps service account
-
   1. Go to **SIEM Settings > Feeds**.
   2. Click **Add New Feed**.
   3. Click **Configure a single feed**.
@@ -534,18 +597,16 @@ Configure your custom security application to write log files to the GCS bucket 
   6. Select **Custom Security Data Analytics** as the **Log type**.
   7. Click **Get Service Account**.
   8. A unique service account email will be displayed, for example:
-         
-         chronicle-12345678@chronicle-gcp-prod.iam.gserviceaccount.com
-         
+
+```
+chronicle-12345678@chronicle-gcp-prod.iam.gserviceaccount.com
+
+```
 
   9. Copy this email address for use in the next step.
 
-**Note:** Each Google SecOps instance has a unique service account. Don't use service accounts from other documentation or examples.
-
-
 
 ### Grant IAM permissions
-
   1. Go to **Cloud Storage > Buckets**.
   2. Click on your bucket name.
   3. Go to the **Permissions** tab.
@@ -555,69 +616,49 @@ Configure your custom security application to write log files to the GCS bucket 
      * **Assign roles** : Select **Storage Object Viewer**.
   6. Click **Save**.
 
-**Note:** If you plan to use the deletion option "Delete transferred files" or "Delete transferred files and empty directories," grant **Storage Object Admin** role instead of Storage Object Viewer.
-
-
 
 ### Configure Google SecOps feed for GCS
-
   1. Continue from the feed creation page (or go to **SIEM Settings > Feeds > Add New Feed**).
   2. Click **Next**.
   3. Specify values for the following input parameters:
-
      * **Storage bucket URL** : Enter the GCS bucket URI with the prefix path:
-           
-           gs://custom-security-analytics-logs/security-events/
-           
 
-**Note:** Always include the trailing slash (/) at the end of the URI.
+```
+gs://custom-security-analytics-logs/security-events/
+
+```
+
      * **Source deletion option** : Select the deletion option according to your preference:
-
        * **Never** : Never deletes any files after transfers (recommended for testing).
        * **Delete transferred files** : Deletes files after successful transfer.
        * **Delete transferred files and empty directories** : Deletes files and empty directories after successful transfer.
      * **Maximum File Age** : Include files modified in the last number of days (default is 180 days).
-
      * **Asset namespace** : The [asset namespace](https://docs.cloud.google.com/chronicle/docs/investigation/asset-namespaces).
-
      * **Ingestion labels** : The label to be applied to the events from this feed.
-
   4. Click **Next**.
-
   5. Review your new feed configuration in the **Finalize** screen, and then click **Submit**.
 
 
-
-
 ## Option 4: Azure Blob Storage V2 ingestion (Batch export)
-
 Use this method when your custom security application can export logs to Azure Blob Storage.
-
 ### Create Azure Storage Account
-
   1. In the **Azure portal** , search for **Storage accounts**.
-  2. Click **\+ Create**.
-  3. Provide the following configuration details:
-
-Setting | Value  
----|---  
-**Subscription** | Select your Azure subscription  
-**Resource group** | Select existing or create new  
-**Storage account name** | Enter a unique name (for example, `customsecuritylogs`)  
-**Region** | Select the region (for example, `East US`)  
-**Performance** | Standard (recommended)  
-**Redundancy** | GRS (Geo-redundant storage) or LRS (Locally redundant storage)  
+  2. Click **+ Create**.
+  3. Provide the following configuration details:  
+| Setting  | Value  |  
+| --- | --- |  
+| **Subscription**  | Select your Azure subscription  |  
+| **Resource group**  | Select existing or create new  |  
+| **Storage account name**  | Enter a unique name (for example, `customsecuritylogs`)  |  
+| **Region**  | Select the region (for example, `East US`)  |  
+| **Performance**  | Standard (recommended)  |  
+| **Redundancy**  | GRS (Geo-redundant storage) or LRS (Locally redundant storage)  |  
   4. Click **Review + create**.
-
   5. Review the overview of the account and click **Create**.
-
   6. Wait for the deployment to complete.
 
 
-
-
 ### Get Storage Account credentials
-
   1. Go to the **Storage Account** you just created.
   2. In the left navigation, select **Access keys** under **Security + networking**.
   3. Click **Show keys**.
@@ -626,70 +667,65 @@ Setting | Value
      * **Key 1** or **Key 2** : The shared access key
 
 
-
 ### Create blob container
-
   1. In the same Storage Account, select **Containers** from the left navigation.
-  2. Click **\+ Container**.
+  2. Click **+ Container**.
   3. Provide the following configuration details: 
      * **Name** : Enter a container name (for example, `security-events`)
      * **Public access level** : Select **Private (no anonymous access)**
   4. Click **Create**.
 
 
-
 ### Configure your application to export to Azure Blob
-
 Configure your custom security application to write log files to the Azure Blob container using one of the following methods:
-
   * **Azure CLI** : Use `az storage blob upload`
   * **Azure SDK** : Use client libraries for your programming language
   * **AzCopy** : Use the AzCopy command-line tool
 
 
-
 **Examples** :
-
   * **Example using Azure CLI:**
-        
-        az storage blob upload \
-            --account-name customsecuritylogs \
-            --container-name security-events \
-            --name logs/2025/01/15/events.json \
-            --file /path/to/events.json \
-            --account-key <YOUR_ACCESS_KEY>
-        
+
+```
+az storage blob upload \
+    --account-name customsecuritylogs \
+    --container-name security-events \
+    --name logs/2025/01/15/events.json \
+    --file /path/to/events.json \
+    --account-key <YOUR_ACCESS_KEY>
+
+```
 
   * **Example using Python SDK:**
-        
-        from azure.storage.blob import BlobServiceClient
-        import json
-        
-        # Initialize client
-        connection_string = "DefaultEndpointsProtocol=https;AccountName=customsecuritylogs;AccountKey=<YOUR_KEY>;EndpointSuffix=core.windows.net"
-        blob_service_client = BlobServiceClient.from_connection_string(connection_string)
-        
-        # Get container client
-        container_client = blob_service_client.get_container_client("security-events")
-        
-        # Upload log file
-        blob_client = container_client.get_blob_client("logs/2025/01/15/events.json")
-        
-        # Write NDJSON data
-        events = [
-            {"timestamp": "2025-01-15T10:00:00Z", "event_type": "login"},
-            {"timestamp": "2025-01-15T10:05:00Z", "event_type": "logout"}
-        ]
-        
-        ndjson_data = '\n'.join([json.dumps(event) for event in events]) + '\n'
-        blob_client.upload_blob(ndjson_data, overwrite=True)
-        
 
+```
+from azure.storage.blob import BlobServiceClient
+import json
+
+# Initialize client
+connection_string = "DefaultEndpointsProtocol=https;AccountName=customsecuritylogs;AccountKey=<YOUR_KEY>;EndpointSuffix=core.windows.net"
+blob_service_client = BlobServiceClient.from_connection_string(connection_string)
+
+# Get container client
+container_client = blob_service_client.get_container_client("security-events")
+
+# Upload log file
+blob_client = container_client.get_blob_client("logs/2025/01/15/events.json")
+
+# Write NDJSON data
+events = [
+    {"timestamp": "2025-01-15T10:00:00Z", "event_type": "login"},
+    {"timestamp": "2025-01-15T10:05:00Z", "event_type": "logout"}
+]
+
+ndjson_data = '\n'.join([json.dumps(event) for event in events]) + '\n'
+blob_client.upload_blob(ndjson_data, overwrite=True)
+
+```
 
 
 
 ### Configure Google SecOps feed for Azure Blob
-
   1. Go to **SIEM Settings > Feeds**.
   2. Click **Add New Feed**.
   3. On the next page, click **Configure a single feed**.
@@ -698,39 +734,28 @@ Configure your custom security application to write log files to the Azure Blob 
   6. Select **Custom Security Data Analytics** as the **Log type**.
   7. Click **Next**.
   8. Specify values for the following input parameters:
-
      * **Azure URI** : Enter the Blob Service endpoint URL with the container path:
-           
-           https://customsecuritylogs.blob.core.windows.net/security-events/
-           
 
-**Note:** Include the trailing slash (/) at the end of the URI.
+```
+https://customsecuritylogs.blob.core.windows.net/security-events/
+
+```
+
      * **Source deletion option** : Select the deletion option according to your preference:
-
        * **Never** : Never deletes any files after transfers.
        * **Delete transferred files** : Deletes files after successful transfer.
        * **Delete transferred files and empty directories** : Deletes files and empty directories after successful transfer.
      * **Maximum File Age** : Include files modified in the last number of days (default is 180 days).
-
      * **Shared key** : Enter the shared key value (access key) from the Storage Account.
-
      * **Asset namespace** : The [asset namespace](https://docs.cloud.google.com/chronicle/docs/investigation/asset-namespaces).
-
      * **Ingestion labels** : The label to be applied to the events from this feed.
-
   9. Click **Next**.
-
   10. Review your new feed configuration in the **Finalize** screen, and then click **Submit**.
 
 
-
-
 ## Option 5: Amazon Data Firehose ingestion (Real-time streaming)
-
 Use this method when your custom security application writes logs to Amazon CloudWatch Logs and you need real-time streaming to Google SecOps.
-
 ### Create Google SecOps Firehose feed
-
   1. Go to **SIEM Settings > Feeds**.
   2. Click **Add New Feed**.
   3. In the **Feed name** field, enter a name for the feed (for example, `custom-security-analytics-firehose`).
@@ -750,9 +775,7 @@ Use this method when your custom security application writes logs to Amazon Clou
   14. Click **Done**.
 
 
-
 ### Create Google Cloud API key
-
   1. Go to the **Google Cloud console** **Credentials** page at https://console.cloud.google.com/apis/credentials
   2. Click **Create credentials** , and then select **API key**.
   3. Click **Edit API key** to restrict the key.
@@ -762,130 +785,108 @@ Use this method when your custom security application writes logs to Amazon Clou
   7. **Copy** and **save** the API key.
 
 
-
 ### Construct the endpoint URL
-
   1. Append the API key to the feed endpoint URL in the following format:
-         
-         <FEED_ENDPOINT_URL>?key=<API_KEY>
-         
+
+```
+<FEED_ENDPOINT_URL>?key=<API_KEY>
+
+```
 
 **Example:**
-         
-         https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import?key=AIzaSyD...
-         
+
+```
+https://{region}-chronicle.googleapis.com/v1/{parent}/logs:import?key=AIzaSyD...
+
+```
 
   2. Save this full URL for the next step.
 
 
-
-
 ### Create IAM policy for Firehose
-
   1. In the **AWS Console** , go to **IAM > Policies > Create policy > JSON tab**.
   2. Paste the following policy JSON:
-         
-         {
-             "Version": "2012-10-17",
-             "Statement": [
-                 {
-                     "Effect": "Allow",
-                     "Action": [
-                         "firehose:PutRecord",
-                         "firehose:PutRecordBatch"
-                     ],
-                     "Resource": "arn:aws:firehose:<REGION>:<ACCOUNT_ID>:deliverystream/CustomSecurityToChronicle"
-                 }
-             ]
-         }
-         
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "firehose:PutRecord",
+                "firehose:PutRecordBatch"
+            ],
+            "Resource": "arn:aws:firehose:<REGION>:<ACCOUNT_ID>:deliverystream/CustomSecurityToChronicle"
+        }
+    ]
+}
+
+```
 
   3. Replace the following:
-
      * `<REGION>`: Your AWS region (for example, `us-east-1`).
      * `<ACCOUNT_ID>`: Your AWS account ID (12-digit number).
   4. Name the policy `CloudWatchLogsToFirehosePolicy`.
-
   5. Click **Create policy**.
 
 
-
-
 ### Create IAM role for CloudWatch Logs
-
   1. Go to **IAM > Roles > Create role**.
   2. Select **Custom trust policy** and paste:
-         
-         {
-             "Version": "2012-10-17",
-             "Statement": [
-                 {
-                     "Effect": "Allow",
-                     "Principal": {
-                         "Service": "logs.<REGION>.amazonaws.com"
-                     },
-                     "Action": "sts:AssumeRole"
-                 }
-             ]
-         }
-         
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "logs.<REGION>.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+
+```
 
   3. Replace `<REGION>` with your AWS region.
-
   4. Click **Next**.
-
   5. Search for and select the policy `CloudWatchLogsToFirehosePolicy` that you created in the previous step.
-
   6. Click **Next**.
-
   7. Name the role `CloudWatchLogsToFirehoseRole`.
-
   8. Click **Create role**.
 
 
-
-
 ### Create Kinesis Data Firehose delivery stream
-
   1. In the **AWS Console** , go to **Kinesis > Data Firehose > Create delivery stream**.
   2. Provide the following configuration details:
-
      * **Source and destination:**
-
        * **Source** : Select **Direct PUT or other sources**
        * **Destination** : Select **HTTP endpoint**
      * **Delivery stream name:**
-
        * **Delivery stream name** : Enter `CustomSecurityToChronicle`
      * **HTTP endpoint destination:**
-
        * **HTTP endpoint URL** : Enter the full endpoint URL you constructed earlier (feed endpoint + API key)
        * **Content encoding** : Select **GZIP** (recommended for bandwidth savings)
      * **Custom HTTP headers:**
-
        * Click **Add custom HTTP header**
        * **Header name** : Enter `X-Goog-Chronicle-Auth`
        * **Header value** : Enter the secret key you saved in a previous step
      * **Backup settings:**
-
        * **Source record backup in Amazon S3** : Select **Failed data only** (recommended)
        * **S3 bucket** : Select an existing bucket or create a new one for failed records
      * **Buffer hints:**
-
        * **Buffer size** : Enter `1` MiB (minimum for HTTP endpoints)
        * **Buffer interval** : Enter `60` seconds
      * **Retry duration:**
-
        * **Retry duration** : Enter `300` seconds (5 minutes)
   3. Click **Create delivery stream**.
-
   4. Wait for the delivery stream status to change to **Active** (1-2 minutes).
 
 
-
-
 ### Subscribe CloudWatch Log Group to Firehose
-
   1. In the **AWS Console** , go to **CloudWatch > Logs > Log groups**.
   2. Select the target log group that contains your custom security analytics logs.
   3. Click the **Subscription filters** tab.
@@ -900,24 +901,17 @@ Use this method when your custom security application writes logs to Amazon Clou
   7. Logs will now stream in real-time to Google SecOps via Firehose.
 
 
-
 ## Create custom parser (optional)
-
 After ingesting custom security data as unstructured logs, you can create a custom parser to normalize the data into UDM format for better searchability and detection.
-
 ### When to create a custom parser
-
 Create a custom parser when:
-
   * You need to extract specific fields from your custom log format
   * You want to enable UDM search on your custom data
   * You need to map custom fields to standard UDM fields for detection rules
   * You want to improve search performance by indexing specific fields
 
 
-
 ### Create custom log type
-
   1. Go to **SIEM Settings > Available Log Types**.
   2. Click **Request a Log Type**.
   3. Under the **Create a custom log type or request a prebuilt log type** section, select **Create a custom log type**.
@@ -929,9 +923,7 @@ Create a custom parser when:
   6. The custom log type will be available in approximately 10 minutes.
 
 
-
 ### Create custom parser
-
   1. Go to **SIEM Settings > Parsers**.
   2. Click **Create Parser**.
   3. Select **Custom Parser**.
@@ -943,56 +935,53 @@ Create a custom parser when:
   6. Click **Submit** to activate the parser.
 
 
-
 ### Parser configuration example
-
   * For a custom JSON log format:
-        
-        {
-            "timestamp": "2025-01-15T10:30:00Z",
-            "event_type": "authentication",
-            "user": "john.doe@example.com",
-            "action": "login",
-            "result": "success",
-            "source_ip": "203.0.113.45"
-        }
-        
+
+```
+{
+    "timestamp": "2025-01-15T10:30:00Z",
+    "event_type": "authentication",
+    "user": "john.doe@example.com",
+    "action": "login",
+    "result": "success",
+    "source_ip": "203.0.113.45"
+}
+
+```
 
 **Example parser configuration:**
-        
-        filter {
-            json {
-                fields {
-                    timestamp: timestamp
-                    event_type: event_type
-                    user: user
-                    action: action
-                    result: result
-                    source_ip: source_ip
-                }
-            }
+
+```
+filter {
+    json {
+        fields {
+            timestamp: timestamp
+            event_type: event_type
+            user: user
+            action: action
+            result: result
+            source_ip: source_ip
         }
-        
-        event {
-            $e.metadata.event_timestamp.seconds = parseTimestamp(timestamp, "yyyy-MM-dd'T'HH:mm:ss'Z'")
-            $e.metadata.event_type = "USER_LOGIN"
-            $e.principal.user.email_addresses = user
-            $e.target.ip = source_ip
-            $e.security_result.action = if(result == "success", "ALLOW", "BLOCK")
-        }
-        
+    }
+}
+
+event {
+    $e.metadata.event_timestamp.seconds = parseTimestamp(timestamp, "yyyy-MM-dd'T'HH:mm:ss'Z'")
+    $e.metadata.event_type = "USER_LOGIN"
+    $e.principal.user.email_addresses = user
+    $e.target.ip = source_ip
+    $e.security_result.action = if(result == "success", "ALLOW", "BLOCK")
+}
+
+```
 
 For more information on creating custom parsers, see [Manage prebuilt and custom parsers](https://docs.cloud.google.com/chronicle/docs/event-processing/manage-parser-updates).
 
 
-
-
 ## Verify data ingestion
-
 After you configure your feed, verify that data is being ingested successfully.
-
 ### Check feed status
-
   1. Go to **SIEM Settings > Feeds**.
   2. Find your feed in the list.
   3. Check the **Status** column: 
@@ -1001,26 +990,21 @@ After you configure your feed, verify that data is being ingested successfully.
      * **Paused** : Feed is paused
 
 
-
 ### Search for ingested logs
-
   1. Go to **Search > Raw Log Scan**.
   2. Enter a search query to find your custom logs:
-         
-         metadata.log_type = "CUSTOM_SECURITY_DATA_ANALYTICS"
-         
+
+```
+metadata.log_type = "CUSTOM_SECURITY_DATA_ANALYTICS"
+
+```
 
   3. Adjust the time range if needed.
-
   4. Click **Search**.
-
   5. Verify that your logs appear in the results.
 
 
-
-
 ### Monitor feed metrics
-
   1. Go to **SIEM Settings > Feeds**.
   2. Click on your feed name.
   3. Go to the **Metrics** tab.
@@ -1031,88 +1015,61 @@ After you configure your feed, verify that data is being ingested successfully.
      * **Errors** : Number of ingestion errors
 
 
-
 ## Troubleshooting
-
 ### Webhook ingestion issues
-
   * **Problem: HTTP 401 Unauthorized**
-
     * **Cause** : Invalid API key or secret key
     * **Solution** : Verify that the API key and secret key are correct and have not expired
   * **Problem: HTTP 403 Forbidden**
-
     * **Cause** : API key does not have Chronicle API permissions
     * **Solution** : Edit the API key and ensure **Chronicle API** is selected under API restrictions
   * **Problem: HTTP 400 Bad Request**
-
     * **Cause** : Invalid request format or payload
     * **Solution** : Verify that the Content-Type header is set to `application/json` and the payload is valid JSON
 
 
-
 ### S3/GCS/Azure Blob ingestion issues
-
   * **Problem: No data ingested**
-
     * **Cause** : Incorrect bucket URI or missing permissions
     * **Solution** : Verify the bucket URI includes the trailing slash and the service account has Storage Object Viewer role
   * **Problem: Files not deleted after ingestion**
-
     * **Cause** : Service account does not have delete permissions
     * **Solution** : Grant Storage Object Admin role instead of Storage Object Viewer
   * **Problem: Old files not ingested**
-
     * **Cause** : Maximum File Age setting excludes old files
     * **Solution** : Increase the Maximum File Age value in feed configuration
 
 
-
 ### Firehose ingestion issues
-
   * **Problem: Delivery stream shows errors**
-
     * **Cause** : Invalid endpoint URL or authentication
     * **Solution** : Verify the endpoint URL includes the API key parameter and the X-Goog-Chronicle-Auth header contains the correct secret key
   * **Problem: High data freshness metric**
-
     * **Cause** : Firehose is throttled or experiencing delivery failures
     * **Solution** : Check CloudWatch metrics for `ThrottledRecords` and `DeliveryToHTTP.Success` rate
   * **Problem: No logs streaming from CloudWatch**
-
     * **Cause** : Subscription filter not configured or IAM role missing permissions
     * **Solution** : Verify the subscription filter is active and the IAM role has `firehose:PutRecord` permissions
 
 
-
 ## UDM mapping table
-
 Custom security data analytics logs are ingested as unstructured data. To enable UDM field mapping, create a custom parser as described in the "Create custom parser" section above.
-
-After creating a custom parser, UDM fields will be populated based on your parser configuration. Common UDM fields for security analytics data include:
-
-UDM Field | Description  
----|---  
-`metadata.event_timestamp` | Event timestamp  
-`metadata.event_type` | Event type (for example, USER_LOGIN, FILE_ACCESS)  
-`principal.user.email_addresses` | User email address  
-`principal.ip` | Source IP address  
-`target.resource.name` | Target resource name  
-`security_result.action` | Security action (ALLOW, BLOCK, etc.)  
-`security_result.severity` | Event severity  
-  
+After creating a custom parser, UDM fields will be populated based on your parser configuration. Common UDM fields for security analytics data include:  
+| UDM Field  | Description  |  
+| --- | --- |  
+| `metadata.event_timestamp`  | Event timestamp  |  
+| `metadata.event_type`  | Event type (for example, USER_LOGIN, FILE_ACCESS)  |  
+| `principal.user.email_addresses`  | User email address  |  
+| `principal.ip`  | Source IP address  |  
+| `target.resource.name`  | Target resource name  |  
+| `security_result.action`  | Security action (ALLOW, BLOCK, etc.)  |  
+| `security_result.severity`  | Event severity  |  
 For a complete list of UDM fields, see the [UDM field reference](https://docs.cloud.google.com/chronicle/docs/reference/udm-field-list).
-
 ## Change Log
-
 [View the Change Log for this parser](https://docs.cloud.google.com/chronicle/docs/ingestion/parser-list/custom-security-data-analytics-changelog)
-
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-25 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

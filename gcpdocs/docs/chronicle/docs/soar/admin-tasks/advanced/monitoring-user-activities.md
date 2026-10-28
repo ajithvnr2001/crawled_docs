@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/monitoring-user-activities/
 title: Monitor SOAR activity \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:41.381041+00:00
+fetched_at: 2026-10-27T20:27:52.988450+00:00
 ---
 
 # Monitor SOAR activity  |  Google Security Operations  |  Google Cloud Documentation
@@ -68,7 +68,7 @@ These legacy audit logs are accessible within the Google SecOps platform on the 
 
 ### Chronicle API audit logs
 
-SOAR audit logs will become available in Google Cloud once you complete the SOAR permissions migration to Cloud IAM as part of [Stage 2 of the SOAR migration to Google Cloud](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp#permissions-iam). These include any user actions in Google SecOps and calls made to the modern Chronicle API. Any calls made to the legacy SOAR API until November 30, 2026 will remain accessible as legacy API audit logs on the **Audit** page of the Google SecOps platform.
+SOAR audit logs will become available in Google Cloud once you complete the SOAR permissions migration to Cloud IAM as part of [Stage 2 of the SOAR migration to Google Cloud](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp#permissions-iam). These include any user actions in Google SecOps and calls made to the modern Chronicle API. Any calls made to the legacy SOAR API until March 31, 2027 will remain accessible as legacy API audit logs on the **Audit** page of the Google SecOps platform.
 
 All API calls made using the Chronicle API are automatically audited. These audit logs are available in [Cloud Logging](https://docs.cloud.google.com/logging/docs) within your Google Cloud project. For more details on migrating and accessing these logs, see [migrate SOAR audit logs](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp#migrate-soar-audit-logs).
 
@@ -155,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

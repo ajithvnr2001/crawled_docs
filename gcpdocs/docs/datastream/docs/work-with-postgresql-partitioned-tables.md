@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/work-with-postgresql-partitioned-tables/
 title: Work with PostgreSQL partitioned tables \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:49.300077+00:00
+fetched_at: 2026-10-27T22:59:22.454460+00:00
 ---
 
 # Work with PostgreSQL partitioned tables  |  Datastream  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Work with PostgreSQL partitioned tables Stay organized with collections  Save and categorize content based on your preferences. 
 
-Datastream supports replicating partitioned tables for PostgreSQL source databases. You can replicate the tables as a single root table or as separate partitioned tables. If you want to replicate both the root table and the partitioned tables, you must create two different streams, with two different publications.
+Datastream lets you replicate partitioned tables from a PostgreSQL source database into your destination either as a single root table or as separate partition tables. To replicate both the root table and individual partitions to your destination, you must create two separate streams that use two different PostgreSQL publications.
 
 ## Replicate as a single root table
 
@@ -83,6 +83,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

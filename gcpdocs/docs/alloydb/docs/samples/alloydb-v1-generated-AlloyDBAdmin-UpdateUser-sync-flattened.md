@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-v1-generated-AlloyDBAdmin-UpdateUser-sync-flattened/
 title: Update a database user \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:38.784133+00:00
+fetched_at: 2026-10-28T01:28:47.878338+00:00
 ---
 
 # Update a database user  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

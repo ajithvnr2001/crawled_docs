@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vmware-engine/docs/private-clouds/howto-delete-private-cloud/
 title: Delete a private cloud \u00a0|\u00a0 Google Cloud VMware Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:51.020477+00:00
+fetched_at: 2026-10-27T20:28:12.830667+00:00
 ---
 
 # Delete a private cloud  |  Google Cloud VMware Engine  |  Google Cloud Documentation
@@ -219,8 +219,8 @@ Deleting a private cloud with the Google Cloud VMware Engine library is a one-st
     
     
     def delete_private_cloud(
-        project_id: str, >zone: str, cloud_name: str
-    ) - operation.Operation:
+        project_id: str, zone: str, cloud_name: str
+    ) -> operation.Operation:
         """
         Deletes VMWare Private Cloud.
     
@@ -365,8 +365,8 @@ Replace the following:
     
     
     def cancel_private_cloud_deletion(
-        project_id: str, >zone: str, cloud_name: str
-    ) - operation.Operation:
+        project_id: str, zone: str, cloud_name: str
+    ) -> operation.Operation:
         """
         Cancels in progress deletion of VMWare Private Cloud.
     
@@ -388,6 +388,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

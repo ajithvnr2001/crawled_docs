@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/images/os-details/
 title: Operating system details \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:23:32.454741+00:00
+fetched_at: 2026-10-27T19:16:38.632683+00:00
 ---
 
 # Operating system details  |  Compute Engine  |  Google Cloud Documentation
@@ -366,10 +366,10 @@ The following section summarizes feature support for versions of this OS that ar
 
 OS version | Image project | Image family | [Machine series](https://docs.cloud.google.com/compute/docs/machine-resource#recommendations_for_machine_types) | [Lifecycle stage](https://docs.cloud.google.com/compute/docs/images/os-image-lifecycle#lifecycle-stages) | EOS and image deprecation date  
 ---|---|---|---|---|---  
-CentOS Stream 8  | `centos-cloud` | x86: `centos-stream-8` | N1 | EOS | [May 2024](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance)  
-CentOS 8  | `centos-cloud` | x86: `centos-8` | N1 | EOS | [Dec 2021](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance)  
-CentOS 7  | `centos-cloud` | x86: `centos-7` | N1 | EOS | [June 30, 2024](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance)  
-CentOS 6  | `centos-cloud` | x86: `centos-6` | N1 | EOS | [Nov 30, 2020](https://docs.cloud.google.com/compute/docs/eol/centos6)  
+CentOS Stream 8  | `centos-cloud` | x86: `centos-stream-8` | Only A2, A3, C2, C2D, C3, C3D, E2, G2, H3, M1, M2, M3, N1, N2, N2D, T2D, Z3 | EOS | [May 2024](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance)  
+CentOS 8  | `centos-cloud` | x86: `centos-8` | Only A2, C2, E2, M1, M2, N1, N2, N2D, T2D | EOS | [Dec 2021](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance)  
+CentOS 7  | `centos-cloud` | x86: `centos-7` | Only A2, A3, C2, C2D, C3, C3D, E2, G2, H3, M1, M2, M3, N1, N2, N2D, N4, T2D, X4, Z3 | EOS | [June 30, 2024](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance)  
+CentOS 6  | `centos-cloud` | x86: `centos-6` | Only C2, E2, M1, M2, N1, N2, N2D | EOS | [Nov 30, 2020](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance)  
   
 ### Interfaces
 
@@ -386,7 +386,7 @@ CentOS 6  | Yes | Yes | No | No | No | Yes
 
 OS version | Shielded VM | Confidential VM SEV | Confidential VM SEV-SNP | Confidential VM Intel TDX  
 ---|---|---|---|---  
-CentOS Stream 8  | Yes | No | No | No  
+CentOS Stream 8  | Yes | Yes | No | No  
 CentOS 8  | Yes | No | No | No  
 CentOS 7  | Yes | No | No | No  
 CentOS 6  | No | No | No | No  
@@ -401,15 +401,15 @@ OS version | [Guest environment installed](https://docs.cloud.google.com/compute
 CentOS Stream 8  | Yes | Yes | Yes | Yes  
 CentOS 8  | Yes | Yes | Yes | Yes  
 CentOS 7  | Yes | Yes | Yes | Yes  
-CentOS 6  | Yes | No | No | No  
+CentOS 6  | Yes | Yes | Yes | No  
   
 ### Networking features
 
 OS version | [Tier_1 networking](https://docs.cloud.google.com/compute/docs/networking/configure-vm-with-high-bandwidth-configuration)1 | [200 Gbps network bandwidth](https://docs.cloud.google.com/compute/docs/network-bandwidth#summary-table)1 | [Jumbo frames/MTU](https://docs.cloud.google.com/compute/docs/network-bandwidth#jumbo-mtu)  
 ---|---|---|---  
-CentOS Stream 82 | No | No | No  
-CentOS 82 | No | No | No  
-CentOS 72 | No | No | No  
+CentOS Stream 82 | Yes | Yes | Yes  
+CentOS 82 | No | No | Yes  
+CentOS 72 | Yes | No | Yes  
 CentOS 62 | No | No | No  
   
 1 Only available with certain machine series.  
@@ -423,19 +423,19 @@ For more information about GPU requirements and recommended OSes, see [choosing 
 
 OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
 ---|---|---|---|---|---|---|---|---|---  
-CentOS Stream 8  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-CentOS 8  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-CentOS 7  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-CentOS 6  | No | No | No | No | No | No | No | No | No  
+CentOS Stream 8  | No | No | No | No | Yes | Yes | No | Yes | Yes  
+CentOS 8  | No | No | No | No | No | Yes | No | No | Yes  
+CentOS 7  | No | No | No | No | Yes | Yes | No | Yes | Yes  
+CentOS 6  | No | No | No | No | No | No | No | No | Yes  
   
 ### VM Manager
 
 OS version | [OS Config agent preinstalled](https://docs.cloud.google.com/compute/docs/manage-os#check-install) | [OS inventory](https://docs.cloud.google.com/compute/docs/instances/os-inventory-management) | [OS policies](https://docs.cloud.google.com/compute/docs/os-configuration-management) | [Patch](https://docs.cloud.google.com/compute/docs/os-patch-management) | [Vulnerability reports](https://docs.cloud.google.com/compute/docs/manage-os/vulnerability-reports)  
 ---|---|---|---|---|---  
 CentOS Stream 8  | Yes | Yes | Yes | Yes | Yes  
-CentOS 8  | Yes | Yes | Yes | Yes | Yes  
+CentOS 8  | No | Yes | Yes | Yes | Yes  
 CentOS 7  | Yes | Yes | Yes | Yes | Yes  
-CentOS 6  | No | No | No | No | No  
+CentOS 6  | Yes | Yes | Yes | Yes | No  
   
 ### Import
 
@@ -443,8 +443,8 @@ For operating system support information on migrating VMs using Migrate to Virtu
 
 OS version | [Import disk](https://docs.cloud.google.com/compute/docs/import/importing-virtual-disks) | [Import virtual appliance](https://docs.cloud.google.com/compute/docs/import/import-ovf-files) | [Import machine image](https://docs.cloud.google.com/compute/docs/machine-images/create-machine-images#create-image-from-appliance)  
 ---|---|---|---  
-CentOS Stream 8  | No | No | No  
-CentOS 8  | No | No | No  
+CentOS Stream 8  | Yes | Yes | Yes  
+CentOS 8  | Yes | Yes | Yes  
 CentOS 7  | Yes | Yes | Yes  
 CentOS 6  | Yes | Yes | Yes  
   
@@ -608,10 +608,10 @@ COS 117 LTS  | No | No | No
 OS version | [License type](https://docs.cloud.google.com/compute/docs/licenses/about#license_types_and_pricing) | License URL  
 ---|---|---  
 COS 133 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos `  
-COS 129 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos `  
-COS 125 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos `  
-COS 121 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos `  
-COS 117 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos `  
+COS 129 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos`  
+COS 125 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos`  
+COS 121 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos`  
+COS 117 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos`  
   
 ### End of support COS versions
 
@@ -635,8 +635,18 @@ COS 109 LTS  | `cos-cloud` |
   * Arm: `cos-arm64-109-lts`
 
 | All except A4X, G4, G2, X4, C4A-metal | EOL | September 2025  
-COS 105 LTS  | N/A | N/A | All except A4, G2, X4, C3-metal, C4A-metal | EOS | March 2025  
-COS 101 LTS  | N/A | N/A | N/A | EOS | September 2024  
+COS 105 LTS  | `cos-cloud` | 
+
+  * x86: `cos-105-lts`
+  * Arm: `cos-arm64-105-lts`
+
+| All except A4, G2, X4, C3-metal, C4A-metal | EOS | March 2025  
+COS 101 LTS  | `cos-cloud` | 
+
+  * x86: `cos-101-lts`
+  * Arm: `cos-arm64-101-lts`
+
+| All except G2, X4, C3-metal | EOS | September 2024  
   
 ### Interfaces
 
@@ -690,8 +700,8 @@ OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#g
 ---|---|---|---|---|---|---|---|---|---  
 COS 113 LTS  | No | No | Yes | Yes | Yes | Yes | No | No | Yes  
 COS 109 LTS  | No | No | Yes | Yes | Yes | Yes | No | No | Yes  
-COS 105 LTS  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-COS 101 LTS  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
+COS 105 LTS  | No | No | No | Yes | Yes | Yes | No | No | Yes  
+COS 101 LTS  | No | No | No | No | Yes | Yes | No | No | Yes  
   
 ### VM Manager
 
@@ -717,10 +727,10 @@ COS 101 LTS  | No | No | No
 
 OS version | [License type](https://docs.cloud.google.com/compute/docs/licenses/about#license_types_and_pricing) | License URL  
 ---|---|---  
-COS 113 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos `  
+COS 113 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos`  
 COS 109 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos`  
-COS 105 LTS  | Free | EOS  
-COS 101 LTS  | Free | EOS  
+COS 105 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos`  
+COS 101 LTS  | Free | `https://www.googleapis.com/compute/v1/projects/cos-cloud/global/licenses/cos`  
   
 ## Debian
 
@@ -897,8 +907,8 @@ The following section summarizes feature support for versions of this OS that ar
 OS version | Image project | Image family | [Machine series](https://docs.cloud.google.com/compute/docs/machine-resource#recommendations_for_machine_types) | [Lifecycle stage](https://docs.cloud.google.com/compute/docs/images/os-image-lifecycle#lifecycle-stages) | EOS and image deprecation date  
 ---|---|---|---|---|---  
 Debian 11  | `debian-cloud` | x86: `debian-11` | All except A4X Max, A4X, G4, A4, A3 Ultra, C4-metal, C4A, C4D-metal, C3-metal, X4, N4A, Z4D-metal, Z3-metal | EOS | August 31, 2026  
-Debian 11 Arm  | N/A | N/A | N/A | EOS | August 15, 2024  
-Debian 10  | N/A | N/A | N/A | EOS | [June 30, 2024](https://www.debian.org/News/2024/20240615)  
+Debian 11 Arm  | `debian-cloud` | Arm: `debian-11-arm64` | Only T2A | EOS | August 15, 2024  
+Debian 10  | `debian-cloud` | x86: `debian-10` | Only A2, A3, C2, C2D, E2, G2, M1, M2, N1, N2, N2D, T2D | EOS | [June 30, 2024](https://www.debian.org/News/2024/20240615)  
   
 ### Interfaces
 
@@ -929,7 +939,7 @@ Debian 10  | Yes | Yes | Yes | No
 OS version | [Tier_1 networking](https://docs.cloud.google.com/compute/docs/networking/configure-vm-with-high-bandwidth-configuration)1 | [200 Gbps network bandwidth](https://docs.cloud.google.com/compute/docs/network-bandwidth#summary-table)1 | [Jumbo frames/MTU](https://docs.cloud.google.com/compute/docs/network-bandwidth#jumbo-mtu)  
 ---|---|---|---  
 Debian 11  | Yes | No3 | Yes2  
-Debian 11 Arm  | EOS | EOS | EOS  
+Debian 11 Arm  | No | No | Yes2  
 Debian 10  | No | No | Yes2  
   
 1 Only available with certain machine series.  
@@ -945,8 +955,8 @@ For more information about GPU requirements and recommended OSes, see [choosing 
 OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
 ---|---|---|---|---|---|---|---|---|---  
 Debian 11  | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-Debian 11 Arm  | None | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-Debian 10  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
+Debian 11 Arm  | No | No | No | No | No | No | No | No | No  
+Debian 10  | No | No | No | No | Yes | Yes | No | Yes | Yes  
   
 ### VM Manager
 
@@ -971,8 +981,8 @@ Debian 10  | Yes | Yes | Yes
 OS version | [License type](https://docs.cloud.google.com/compute/docs/licenses/about#license_types_and_pricing) | License URL  
 ---|---|---  
 Debian 11  | Free | `https://www.googleapis.com/compute/v1/projects/debian-cloud/global/licenses/debian-11-bullseye`  
-Debian 11 Arm  | EOS | EOS  
-Debian 10  | EOS | `https://www.googleapis.com/compute/v1/projects/debian-cloud/global/licenses/debian-10-buster`  
+Debian 11 Arm  | Free | `https://www.googleapis.com/compute/v1/projects/debian-cloud/global/licenses/debian-11-bullseye`  
+Debian 10  | Free | `https://www.googleapis.com/compute/v1/projects/debian-cloud/global/licenses/debian-10-buster`  
   
 ## Fedora CoreOS
 
@@ -1760,13 +1770,13 @@ The following section summarizes feature support for versions of this OS that ar
 
 OS version | Image project | Image family | [Machine series](https://docs.cloud.google.com/compute/docs/machine-resource#recommendations_for_machine_types) | [Lifecycle stage](https://docs.cloud.google.com/compute/docs/images/os-image-lifecycle#lifecycle-stages) | EOS and image deprecation date  
 ---|---|---|---|---|---  
-[RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/) | N/A | N/A | All except C4 with 288 vCPUs, G4, X5 | EOS1ELS2 | [June 2024](https://docs.cloud.google.com/compute/docs/eol/rhel-eol) (ELS ends June 2028)  
-[RHEL 6](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6) | N/A | N/A | N/A | EOS1 | [November 2020](https://docs.cloud.google.com/compute/docs/eol/rhel-eol) (ELS ends June 30, 2024)  
+[RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/) | `rhel-cloud` | x86: `rhel-7` | Only A2, A3, C2, C2D, C3, C3D, E2, G2, H3, M1, M2, M3, N1, N2, N2D, N4, T2D, X4, Z3 | EOS1ELS2 | [June 2024](https://docs.cloud.google.com/compute/docs/eol/rhel-eol) (ELS ends June 2028)  
+[RHEL 6](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6) | `rhel-cloud` | x86: `rhel-6` | Only C2, E2, M1, M2, N1, N2, N2D | EOS1 | [November 2020](https://docs.cloud.google.com/compute/docs/eol/rhel-eol) (ELS ends June 30, 2024)  
 [RHEL 9.0 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | N/A | N/A | N/A | EOS1 | May 2026  
 [RHEL 8.6 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | N/A | N/A | N/A | EOS1 | May 2026  
-[RHEL 8.4 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | N/A | N/A | N/A | EOS1 | May 2025  
-[RHEL 8.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | N/A | N/A | N/A | EOS1 | April 2024  
-[RHEL 7.9 for SAP](https://access.redhat.com/articles/3751271) | N/A | N/A | N/A | EOS1ELS2 | [June 2024](https://docs.cloud.google.com/compute/docs/eol/rhel-eol) (ELS ends June 2028)  
+[RHEL 8.4 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-8-4-sap-ha` | All except A4X Max, A4X, G4, A4, T2A, X4, C3-metal, C4A | EOS1 | May 2025  
+[RHEL 8.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | `rhel-sap-cloud` | x86: `rhel-8-2-sap-ha` | Only A2, A3, C2, C2D, C3, C3D, E2, G2, H3, M1, M2, M3, N1, N2, N2D, N4, T2D, Z3 | EOS1 | April 2024  
+[RHEL 7.9 for SAP](https://access.redhat.com/articles/3751271) | `rhel-sap-cloud` | x86: `rhel-7-9-sap-ha` | Only A2, A3, C2, C2D, C3, C3D, E2, G2, H3, M1, M2, M3, N1, N2, N2D, N4, T2D, X4, Z3 | EOS1ELS2 | [June 2024](https://docs.cloud.google.com/compute/docs/eol/rhel-eol) (ELS ends June 2028)  
 [RHEL 9.4 EUS](https://access.redhat.com/articles/rhel-eus) | N/A | N/A | N/A | EOS1 | May 2026  
   
 1**EOS** : End of support.
@@ -1828,7 +1838,7 @@ OS version | [Guest environment installed](https://docs.cloud.google.com/compute
 OS version | [Tier_1 networking](https://docs.cloud.google.com/compute/docs/networking/configure-vm-with-high-bandwidth-configuration)1 | [200 Gbps network bandwidth](https://docs.cloud.google.com/compute/docs/network-bandwidth#summary-table)1 | [Jumbo frames/MTU](https://docs.cloud.google.com/compute/docs/network-bandwidth#jumbo-mtu)  
 ---|---|---|---  
 RHEL 72 | Yes | No3 | Yes4  
-RHEL 62 | EOS | EOS | EOS  
+RHEL 62 | No | No | Yes4  
 RHEL 9.0 for SAP2 | Yes | No3 | Yes4  
 RHEL 8.6 for SAP2 | Yes | No3 | Yes  
 RHEL 8.4 for SAP2 | Yes | No3 | Yes4  
@@ -1849,13 +1859,13 @@ For more information about GPU requirements and recommended OSes, see [choosing 
 
 OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
 ---|---|---|---|---|---|---|---|---|---  
-[RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/) | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-[RHEL 6](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6) | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
+[RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/) | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[RHEL 6](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6) | No | No | No | No | No | No | No | No | Yes  
 [RHEL 9.0 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
 [RHEL 8.6 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-[RHEL 8.4 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-[RHEL 8.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-[RHEL 7.9 for SAP](https://access.redhat.com/articles/3751271) | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
+[RHEL 8.4 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
+[RHEL 8.2 for SAP](https://access.redhat.com/support/policy/updates/errata#Update_Services_for_SAP_Solutions) | No | No | No | No | Yes | Yes | No | Yes | Yes  
+[RHEL 7.9 for SAP](https://access.redhat.com/articles/3751271) | No | No | No | No | Yes | Yes | No | Yes | Yes  
 [RHEL 9.4 EUS](https://access.redhat.com/articles/rhel-eus) | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
   
 ### VM Manager
@@ -2783,10 +2793,10 @@ SLES 15 SP2  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, G4, T2A, N
 SLES 12 SP5  | `suse-cloud` | x86: `sles-12` | All except A4X Max, A4X, A4, G2, T2A, N4A, C4A, C4N, C4D-metal, C4-metal, C3-metal, X5, X4, Z4D-metal, Z3-metal | EOL | Oct 2024  
 SLES 15 SP3 for SAP  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, G4, T2A, N4A, C4A, C4D-metal, C4-metal, C3-metal, X4, X5, Z4D-metal, Z3-metal | EOL | Dec 2025  
 SLES 15 SP2 for SAP  | `suse-byos-cloud` | N/A | All except A4X Max, A4X, A4, T2A, N4A, C4A-metal, C4D-metal, C4-metal, C3-metal, X5, X4, Z4D-metal, Z3-metal | EOL | Dec 2024  
-SLES 15 SP1  | N/A | N/A | N/A | EOS | Jan 2024  
-SLES 12 SP4  | N/A | N/A | N/A | EOS | June 2023  
-SLES 15 SP1 for SAP  | N/A | N/A | N/A | EOS | Jan 2024  
-SLES 12 SP4 for SAP  | N/A | N/A | N/A | EOS | June 2023  
+SLES 15 SP1  | `suse-byos-cloud` | N/A | Only A2, A3, C2, C2D, C3, C3D, E2, G2, H3, M1, M2, N1, N2, N2D, T2D | EOS | Jan 2024  
+SLES 12 SP4  | `suse-byos-cloud` | N/A | Only A2, C2, C2D, C3, E2, M1, M2, N1, N2, N2D, T2D | EOS | June 2023  
+SLES 15 SP1 for SAP  | `suse-sap-cloud` | x86: `sles-15-sp1-sap` | Only A2, A3, C2, C2D, C3, C3D, E2, G2, H3, M1, M2, N1, N2, N2D, T2D | EOS | Jan 2024  
+SLES 12 SP4 for SAP  | `suse-sap-cloud` | x86: `sles-12-sp4-sap` | Only A2, C2, C2D, C3, E2, M1, M2, N1, N2, N2D, T2D | EOS | June 2023  
   
 1**BYOS with LTSS** : Support for this operating system is only offered through the [Long Term Service Pack Support (LTSS)](https://www.suse.com/products/long-term-service-pack-support/) that is available when using BYOS licenses from SUSE.
 
@@ -2869,13 +2879,13 @@ OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#g
 ---|---|---|---|---|---|---|---|---|---  
 SLES 15 SP3  | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
 SLES 15 SP2  | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 12 SP5  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
+SLES 12 SP5  | No | No | No | Yes | Yes | Yes | No | No | Yes  
 SLES 15 SP3 for SAP  | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
 SLES 15 SP2 for SAP  | No | No | No | Yes | Yes | Yes | No | Yes | Yes  
-SLES 15 SP1  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-SLES 12 SP4  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-SLES 15 SP1 for SAP  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-SLES 12 SP4 for SAP  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
+SLES 15 SP1  | No | No | No | No | Yes | Yes | No | Yes | Yes  
+SLES 12 SP4  | No | No | No | No | Yes | Yes | No | No | Yes  
+SLES 15 SP1 for SAP  | No | No | No | No | Yes | Yes | No | Yes | Yes  
+SLES 12 SP4 for SAP  | No | No | No | No | Yes | Yes | No | No | Yes  
   
 ### VM Manager
 
@@ -2923,10 +2933,12 @@ SLES 15 SP2 for SAP  | On-demand | `https://www.googleapis.com/compute/v1/projec
 SLES 15 SP2 for SAP  | BYOS | `https://www.googleapis.com/compute/v1/projects/suse-byos-cloud/global/licenses/sles-sap-15-byos`  
 SLES 15 SP1  | On-demand | `https://www.googleapis.com/compute/v1/projects/suse-cloud/global/licenses/sles-15`  
 SLES 15 SP1  | BYOS | `https://www.googleapis.com/compute/v1/projects/suse-byos-cloud/global/licenses/sles-15-byos`  
-SLES 12 SP4  | EOS | N/A  
+SLES 12 SP4  | On-demand | `https://www.googleapis.com/compute/v1/projects/suse-cloud/global/licenses/sles-12`  
+SLES 12 SP4  | BYOS | `https://www.googleapis.com/compute/v1/projects/suse-byos-cloud/global/licenses/sles-12-byos`  
 SLES 15 SP1 for SAP  | On-demand | `https://www.googleapis.com/compute/v1/projects/suse-sap-cloud/global/licenses/sles-sap-15`  
 SLES 15 SP1 for SAP  | BYOS | `https://www.googleapis.com/compute/v1/projects/suse-byos-cloud/global/licenses/sles-sap-15-byos`  
-SLES 12 SP4 for SAP  | EOS | N/A  
+SLES 12 SP4 for SAP  | On-demand | `https://www.googleapis.com/compute/v1/projects/suse-sap-cloud/global/licenses/sles-sap-12`  
+SLES 12 SP4 for SAP  | BYOS | `https://www.googleapis.com/compute/v1/projects/suse-byos-cloud/global/licenses/sles-sap-12-byos`  
   
 1**BYOS with LTSS** : Support for this operating system is only offered through the [Long Term Service Pack Support (LTSS)](https://www.suse.com/products/long-term-service-pack-support/) that is available when using BYOS licenses from SUSE.
 
@@ -3207,24 +3219,14 @@ OS version | Image project | Image family | [Machine series](https://docs.cloud.
   * Arm: `ubuntu-2004-lts-arm64`
 
 | All except A4X Max, A4X, A4, G4, A3 Ultra | EOL | May 2025 (ESM May 2030)  
-Ubuntu 18.04 LTS  | EOS | 
+Ubuntu 18.04 LTS  | `ubuntu-os-cloud` | 
 
-  * x86: EOS
-  * Arm: EOS
+  * x86: `ubuntu-1804-lts`
+  * Arm: `ubuntu-1804-lts-arm64`
 
-| EOS | Ubuntu ESM1 / Ubuntu Pro2 | [May 2023](https://docs.cloud.google.com/compute/docs/eol/ubuntu-eol) (ESM April 2028)  
-Ubuntu 16.04 LTS  | EOS | 
-
-  * x86: EOS
-  * Arm: EOS
-
-| EOS | Ubuntu ESM1 / Ubuntu Pro2 | [April 2021](https://docs.cloud.google.com/compute/docs/eol/ubuntu-eol) (ESM April 2026)  
-Ubuntu 14.04 LTS  | EOS | 
-
-  * x86: EOS
-  * Arm: EOS
-
-| EOS | EOS | April 2024  
+| Only A2, A3, C2, C2D, C3, C3D, E2, G2, H3, M1, M2, M3, N1, N2, N2D, T2A, T2D, Z3 | Ubuntu ESM1 / Ubuntu Pro2 | [May 2023](https://docs.cloud.google.com/compute/docs/eol/ubuntu-eol) (ESM April 2028)  
+Ubuntu 16.04 LTS  | `ubuntu-os-cloud` | x86: `ubuntu-1604-lts` | Only A2, C2, E2, M1, M2, N1, N2, N2D | Ubuntu ESM1 / Ubuntu Pro2 | [April 2021](https://docs.cloud.google.com/compute/docs/eol/ubuntu-eol) (ESM April 2026)  
+Ubuntu 14.04 LTS  | `ubuntu-os-cloud` | x86: `ubuntu-1404-lts` | Only C2, E2, M1, M2, N1, N2, N2D | EOS | April 2024  
   
 1**Ubuntu ESM** : You can apply your existing [ESM subscription](https://ubuntu.com/esm) to the Google provided OS image. The image that is provided by Google Cloud contains enhancements that might not be included if you bring your own OS image.  
 2**Ubuntu Pro** : To continue using Ubuntu 16.04 and 18.04 LTS images, [upgrade from Ubuntu to Ubuntu Pro](https://docs.cloud.google.com/compute/docs/images/premium/ubuntu-pro/upgrade-from-ubuntu). 
@@ -3306,9 +3308,9 @@ OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#g
 [Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 570](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | Yes | Yes | Yes | No | No | No | No | No  
 [Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 550](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | No | No | No | Yes | No | No | No | No | No  
 [Ubuntu 20.04 LTS](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | No | No | No | No | Yes | Yes | No | Yes | Yes  
-Ubuntu 18.04 LTS  | EOS | EOS | EOS | EOS | EOS | EOS | No | EOS | EOS  
-Ubuntu 16.04 LTS  | EOS | EOS | EOS | EOS | EOS | EOS | No | EOS | EOS  
-Ubuntu 14.04 LTS  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
+Ubuntu 18.04 LTS  | No | No | No | No | Yes | Yes | No | Yes | Yes  
+Ubuntu 16.04 LTS  | No | No | No | No | No | Yes | No | No | Yes  
+Ubuntu 14.04 LTS  | No | No | No | No | No | No | No | No | Yes  
   
 ### VM Manager
 
@@ -3347,9 +3349,9 @@ OS version | [License type](https://docs.cloud.google.com/compute/docs/licenses/
 [Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 570](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | Free | `https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/licenses/ubuntu-2204-lts`  
 [Ubuntu 22.04 LTS Accelerated with NVIDIA driver version 550](https://wiki.ubuntu.com/JammyJellyfish/ReleaseNotes) | Free | `https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/licenses/ubuntu-2204-lts`  
 [Ubuntu 20.04 LTS](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | Free | `https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/licenses/ubuntu-2004-lts`  
-Ubuntu 18.04 LTS  | Ubuntu ESM1 / Ubuntu Pro2 | EOS  
-Ubuntu 16.04 LTS  | Ubuntu ESM1 / Ubuntu Pro2 | EOS  
-Ubuntu 14.04 LTS  | Ubuntu ESM1 | EOS  
+Ubuntu 18.04 LTS  | Ubuntu ESM1 / Ubuntu Pro2 | `https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/licenses/ubuntu-1804-lts`  
+Ubuntu 16.04 LTS  | Ubuntu ESM1 / Ubuntu Pro2 | `https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/licenses/ubuntu-1604-lts`  
+Ubuntu 14.04 LTS  | Ubuntu ESM1 | `https://www.googleapis.com/compute/v1/projects/ubuntu-os-cloud/global/licenses/ubuntu-1404-lts`  
   
 1**Ubuntu ESM** : You can apply your existing [ESM subscription](https://ubuntu.com/esm) to the Google provided OS image. The image that is provided by Google Cloud contains enhancements that might not be included if you bring your own OS image.  
 2**Ubuntu Pro** : To continue using Ubuntu 16.04 and 18.04 LTS images, you must [upgrade from Ubuntu to Ubuntu Pro](https://docs.cloud.google.com/compute/docs/images/premium/ubuntu-pro/upgrade-from-ubuntu). 
@@ -3676,6 +3678,7 @@ The following section summarizes feature support for versions of this OS that ar
 
 OS version | [Lifecycle stage](https://docs.cloud.google.com/compute/docs/images/os-image-lifecycle#lifecycle-stages) 1 | EOS date  
 ---|---|---  
+Windows 11 26h2 x64  | GA | Oct 2029  
 Windows 11 25h2 x64  | GA | Oct 2028  
 Windows 11 24h2 x64  | GA | Oct 2027  
 Windows 11 23h2 x642 | GA | Nov 2026  
@@ -3688,6 +3691,7 @@ Windows 11 23h2 x642 | GA | Nov 2026
 
 OS version | SCSI | NVMe | [Google Virtual NIC (gVNIC)](https://docs.cloud.google.com/compute/docs/instances/create-vm-with-gvnic) | [IRDMA](https://docs.cloud.google.com/compute/docs/networking/using-irdma) | [IDPF](https://docs.cloud.google.com/compute/docs/networking/using-idpf) | [Multiple network interfaces](https://docs.cloud.google.com/vpc/docs/create-use-multiple-interfaces)  
 ---|---|---|---|---|---|---  
+Windows 11 26h2 x64  | Yes | Yes | Yes | No | No | No  
 Windows 11 25h2 x64  | Yes | Yes | Yes | No | No | No  
 Windows 11 24h2 x64  | Yes | Yes | Yes | No | No | No  
 Windows 11 23h2 x64  | Yes | Yes | Yes | No | No | No  
@@ -3696,6 +3700,7 @@ Windows 11 23h2 x64  | Yes | Yes | Yes | No | No | No
 
 OS version | Shielded VM | Confidential VM support  
 ---|---|---  
+Windows 11 26h2 x64  | Yes1 | No  
 Windows 11 25h2 x64  | Yes1 | No  
 Windows 11 24h2 x64  | Yes1 | No  
 Windows 11 23h2 x64  | Yes1 | No  
@@ -3706,6 +3711,7 @@ Windows 11 23h2 x64  | Yes1 | No
 
 OS version | [Guest environment installed](https://docs.cloud.google.com/compute/docs/images/guest-environment) | gcloud CLI installed | [OS Login supported](https://docs.cloud.google.com/compute/docs/oslogin) | [Suspend and resume supported](https://docs.cloud.google.com/compute/docs/instances/suspend-resume-instance)  
 ---|---|---|---|---  
+Windows 11 26h2 x64  | No1 | No2 | No | No4  
 Windows 11 25h2 x64  | No1 | No2 | No | No4  
 Windows 11 24h2 x64  | No1 | No2 | No | No4  
 Windows 11 23h2 x64  | No1 | No2 | No | Yes3  
@@ -3722,6 +3728,7 @@ Windows 11 23h2 x64  | No1 | No2 | No | Yes3
 
 OS version | [Tier_1 networking](https://docs.cloud.google.com/compute/docs/networking/configure-vm-with-high-bandwidth-configuration)1 | [200 Gbps network bandwidth](https://docs.cloud.google.com/compute/docs/network-bandwidth#summary-table)1 | [Jumbo frames/MTU](https://docs.cloud.google.com/compute/docs/network-bandwidth#jumbo-mtu)  
 ---|---|---|---  
+Windows 11 26h2 x64  | Yes | Yes | Yes  
 Windows 11 25h2 x64  | Yes | Yes | Yes  
 Windows 11 24h2 x64  | Yes | Yes | Yes  
 Windows 11 23h2 x64  | Yes | Yes | Yes  
@@ -3738,6 +3745,7 @@ For more information about GPU requirements and recommended OSes, see [choosing 
 
 OS version | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
 ---|---|---|---|---|---|---|---|---  
+Windows 11 26h2 x64  | No | No | No | No | Yes | No | Yes | Yes  
 Windows 11 25h2 x64  | No | No | No | No | Yes | No | Yes | Yes  
 Windows 11 24h2 x64  | No | No | No | No | Yes | No | Yes | Yes  
 Windows 11 23h2 x64  | No | No | No | No | Yes | No | Yes | Yes  
@@ -3746,6 +3754,7 @@ Windows 11 23h2 x64  | No | No | No | No | Yes | No | Yes | Yes
 
 OS version | [OS Config agent preinstalled](https://docs.cloud.google.com/compute/docs/manage-os#check-install) | [OS inventory](https://docs.cloud.google.com/compute/docs/instances/os-inventory-management) | [OS policies](https://docs.cloud.google.com/compute/docs/os-configuration-management) | [Patch](https://docs.cloud.google.com/compute/docs/os-patch-management) | [Vulnerability reports](https://docs.cloud.google.com/compute/docs/manage-os/vulnerability-reports)  
 ---|---|---|---|---|---  
+Windows 11 26h2 x64  | No | No | No | No | No  
 Windows 11 25h2 x64  | No | No | No | No | No  
 Windows 11 24h2 x64  | No | No | No | No | No  
 Windows 11 23h2 x64  | No | No | No | No | No  
@@ -3756,6 +3765,7 @@ For operating system support information on migrating VMs using Migrate to Virtu
 
 OS version | [Import disk](https://docs.cloud.google.com/compute/docs/import/importing-virtual-disks) | [Import virtual appliance](https://docs.cloud.google.com/compute/docs/import/import-ovf-files)  
 ---|---|---  
+Windows 11 26h2 x64  | Yes | Yes  
 Windows 11 25h2 x64  | Yes | Yes  
 Windows 11 24h2 x64  | Yes | Yes  
 Windows 11 23h2 x64  | Yes | Yes  
@@ -3764,6 +3774,7 @@ Windows 11 23h2 x64  | Yes | Yes
 
 OS version | [License type](https://docs.cloud.google.com/compute/docs/licenses/about#license_types_and_pricing) | License URL  
 ---|---|---  
+Windows 11 26h2 x64  | BYOL | `https://www.googleapis.com/compute/v1/projects/windows-cloud/global/licenses/windows-11-x64-byol`  
 Windows 11 25h2 x64  | BYOL | `https://www.googleapis.com/compute/v1/projects/windows-cloud/global/licenses/windows-11-x64-byol`  
 Windows 11 24h2 x64  | BYOL | `https://www.googleapis.com/compute/v1/projects/windows-cloud/global/licenses/windows-11-x64-byol`  
 Windows 11 23h2 x64  | BYOL | `https://www.googleapis.com/compute/v1/projects/windows-cloud/global/licenses/windows-11-x64-byol`  
@@ -3866,13 +3877,13 @@ For more information about GPU requirements and recommended OSes, see [choosing 
 OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
 ---|---|---|---|---|---|---|---|---|---  
 Windows 11 22h2 x64  | No | No | No | No | No | Yes | No | Yes | Yes  
-Windows 11 21h2 x64  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
+Windows 11 21h2 x64  | No | No | No | No | No | Yes | No | Yes | Yes  
 Windows 10 22h2 x64  | No | No | No | No | No | Yes | No | Yes | Yes  
 Windows 10 22h2 x86  | No | No | No | No | No | Yes | No | Yes | Yes  
-Windows 10 21h2 x64  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-Windows 10 21h2 x86  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-Windows 8.1 x64  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
-Windows 8.1 x86  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
+Windows 10 21h2 x64  | No | No | No | No | No | Yes | No | Yes | Yes  
+Windows 10 21h2 x86  | No | No | No | No | No | Yes | No | No | Yes  
+Windows 8.1 x64  | No | No | No | No | No | Yes | No | No | Yes  
+Windows 8.1 x86  | No | No | No | No | No | No | No | No | Yes  
   
 ### VM Manager
 
@@ -4132,8 +4143,8 @@ The following section summarizes feature support for versions of this OS that ar
 
 OS version | Image project | Image family | [Machine series](https://docs.cloud.google.com/compute/docs/machine-resource#recommendations_for_machine_types) | [Lifecycle stage](https://docs.cloud.google.com/compute/docs/images/os-image-lifecycle#lifecycle-stages) 1 | EOS and image deprecation date  
 ---|---|---|---|---|---  
-Windows Server 2012 R2  | N/A | N/A | Only C2, C2D, E2, M1, M2, N1, N2, N2D | EOS | Oct 10, 2023  
-Windows Server 2012  | N/A | N/A | Only C2, C2D, E2, M1, M2, N1, N2, N2D | EOS | Oct 10, 2023  
+Windows Server 2012 R2  | `windows-cloud` | `windows-2012-r2` | Only C2, C2D, E2, M1, M2, N1, N2, N2D | EOS | Oct 10, 2023  
+Windows Server 2012  | `windows-cloud` | `windows-2012` | Only C2, C2D, E2, M1, M2, N1, N2, N2D | EOS | Oct 10, 2023  
   
 1**Lifecycle stage** : Google Cloud Support typically coincides with Extended Support End Date. For information about the end of support (EOS) date for each of the operating systems in the previous table, see the [Microsoft Lifecycle Policy](https://support.microsoft.com/en-us/hub/4095338/microsoft-lifecycle-policy).
 
@@ -4187,7 +4198,7 @@ For more information about GPU requirements and recommended OSes, see [choosing 
 OS version | [A4X Max (GB300)](https://docs.cloud.google.com/compute/docs/gpus#gb300-gpus) | [A4X (GB200)](https://docs.cloud.google.com/compute/docs/gpus#gb200-gpus) | [A4 (B200)](https://docs.cloud.google.com/compute/docs/gpus#b200-gpus) | [A3 (H200)](https://docs.cloud.google.com/compute/docs/gpus#h200-gpus) | [A3 (H100)](https://docs.cloud.google.com/compute/docs/gpus#h100-gpus) | [A2 (A100)](https://docs.cloud.google.com/compute/docs/gpus#a100-gpus) | [G4 (RTX PRO 6000)](https://docs.cloud.google.com/compute/docs/gpus#rtx-6000-gpus) | [G2 (L4)](https://docs.cloud.google.com/compute/docs/gpus#l4-gpus) | [N1+GPU](https://docs.cloud.google.com/compute/docs/gpus#nvidia_gpus_for_compute_workloads)  
 ---|---|---|---|---|---|---|---|---|---  
 Windows Server 2012 R2  | No | No | No | No | No | No | No | No | Yes  
-Windows Server 2012  | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS | EOS  
+Windows Server 2012  | No | No | No | No | No | No | No | No | Yes  
   
 ### VM Manager
 
@@ -4219,6 +4230,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

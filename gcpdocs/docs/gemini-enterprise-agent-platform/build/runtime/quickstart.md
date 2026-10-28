@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart/
 title: Quickstart: Develop and deploy agents on Agent Runtime \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:27:09.933494+00:00
+fetched_at: 2026-10-28T02:27:43.418478+00:00
 ---
 
 # Quickstart: Develop and deploy agents on Agent Runtime  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ This quickstart guides you through the following steps:
 
 
 
-For the quickstart using the Agent Development Kit (ADK), see [Develop and deploy agents on Agent Platform with Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk).
+For the quickstart using the Agent Development Kit (ADK), see [Develop and deploy agents on Agent Platform with ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/quickstart-adk).
 
 ## Before you begin
 
@@ -143,11 +143,11 @@ Run the following command:
 
      1. (Optional) Before testing an agent you develop, you need to import Agent Platform and initialize the SDK as follows:
 
-### Google Cloud project
+###  Google Cloud project 
             
-            import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+            import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
             
-            [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(
+            [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(
                 project="PROJECT_ID",               # Your project ID.
                 location="LOCATION",                # Your cloud region.
             )
@@ -161,11 +161,11 @@ Where:
 
      2. Before deploying an agent, you need to import Agent Platform and initialize the SDK as follows:
 
-### Google Cloud project
+###  Google Cloud project 
             
-            import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+            import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
             
-            client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(
+            client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(
                 project="PROJECT_ID",               # Your project ID.
                 location="LOCATION",                # Your cloud region.
             )
@@ -449,6 +449,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

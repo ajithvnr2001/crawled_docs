@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/delete-kms-resources/
 title: Delete Cloud KMS resources \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:37:16.367629+00:00
+fetched_at: 2026-10-27T23:37:41.151823+00:00
 ---
 
 # Delete Cloud KMS resources  |  Cloud Key Management Service  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ In Cloud KMS, destruction and deletion are different operations:
 
   * **Destruction** : Disables a key version permanently, including irreversibly destroying the underlying key material after the specified destruction period. A key version in the `DESTROYED` state can't be used for cryptographic operations and is no longer billed. You can destroy a key version that was used to encrypt data to _crypto-shred_ data that you want to be permanently unrecoverable. Destroyed key versions are still included in lists of Cloud KMS resources.
 
-  * **Deletion** : Removes a key or key version from lists of Cloud KMS resources in the Google Cloud console, Google Cloud CLI, Cloud Key Management Service API, and client libraries. For projects with many keys or key versions that are no longer active, deletion streamlines search and list operations. Deleted CryptoKey names can't be reused. You can view a list of deleted CryptoKey names that can't be reused using the [`retiredResources.list`](https://docs.cloud.google.com/kms/docs/reference/rest/v1/projects.locations.retiredResources/list) method.
+  * **Deletion** : Removes a key ring, key, or key version from lists of Cloud KMS resources in the Google Cloud console, Google Cloud CLI, Cloud Key Management Service API, and client libraries. For projects with many key rings, keys, or key versions that are no longer active, deletion streamlines search and list operations. When you delete a key ring, its name becomes available for reuse. However, the names of deleted CryptoKeys can't be reused. You can view a list of deleted CryptoKey names that can't be reused by using the [`retiredResources.list`](https://docs.cloud.google.com/kms/docs/reference/rest/v1/projects.locations.retiredResources/list) method.
 
 
 
@@ -938,6 +938,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

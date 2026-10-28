@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/deploy-and-inference-tutorial/
 title: Deploy and inference Gemma using Model Garden and Gemini Enterprise Agent Platform GPU-backed endpoints \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:43.617007+00:00
+fetched_at: 2026-10-28T02:27:56.728244+00:00
 ---
 
 # Deploy and inference Gemma using Model Garden and Gemini Enterprise Agent Platform GPU-backed endpoints  |  Google Cloud Documentation
@@ -1037,7 +1037,7 @@ You can view the endpoint details by clicking **Online prediction > Endpoints** 
 
 [Go to Endpoints](https://console.cloud.google.com/agent-platform/online-prediction/endpoints)
 
-### gcloud
+###  gcloud 
 
 You can view the endpoint details by running the [`gcloud ai endpoints list`](https://docs.cloud.google.com/sdk/gcloud/reference/ai/endpoints/list) command.
         
@@ -1484,7 +1484,7 @@ When you delete the model, all associated model versions and evaluations are del
 
 
 
-### gcloud
+###  gcloud 
 
 To delete the model using the Google Cloud CLI, provide the model's display name and region to the [`gcloud ai models delete`](https://docs.cloud.google.com/sdk/gcloud/reference/ai/models/delete) command.
     
@@ -1511,6 +1511,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

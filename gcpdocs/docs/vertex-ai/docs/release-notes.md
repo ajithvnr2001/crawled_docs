@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/release-notes/
 title: Vertex AI release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:24.251516+00:00
+fetched_at: 2026-10-28T01:01:39.677760+00:00
 ---
 
 # Vertex AI release notes  |  Google Cloud Documentation
@@ -38,6 +38,122 @@ See also:
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/vertex-ai-product-group-release-notes.xml) directly. 
+
+## October 26, 2026
+
+**Agent Platform Workbench**
+
+v2
+
+Change
+
+### 20261025.00_p0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Updated certifi, pip, and conda ca-certificates to the latest versions.
+
+Change
+
+### 20261025.00_p0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Addressed multiple reported security vulnerabilities in bundled packages.
+
+Security
+
+Updated certifi, pip, and conda ca-certificates to the latest versions.
+
+Feature
+
+**Custom organization policies for Agent Platform Workbench instances**
+
+You can now use custom organization policies to allow or deny the creation and update of Agent Platform Workbench instances based on their configuration. Custom constraints for the `notebooks.googleapis.com/Instance` resource are enforced when you create or update an instance, and support dry-run mode. This feature is now generally available ([GA](https://cloud.google.com/products#product-launch-stages)). For more information, see [Create custom organization policy constraints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/custom-constraints).
+
+## October 25, 2026
+
+**Agent Platform Workbench**
+
+v2
+
+Change
+
+### 20261025-2230-rc0 Release
+
+Change
+
+### 20261025-2230-rc0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Security
+
+Updated certifi, pip, and conda ca-certificates to the latest versions.
+
+Fixed
+
+Fixed dataset and table search in the BigQuery panel, which sometimes failed to return results. Root cause is due to Datacatalog API being sunsetted in favor of Dataplex API.
+
+Fixed
+
+Fixed an issue where Jupyter Server terminal configuration could overwrite the Dataproc plugin server extension setting or fail to apply the terminal disable setting on container startup.
+
+Security
+
+Addressed multiple reported security vulnerabilities in bundled packages.
+
+Security
+
+Updated certifi, pip, and conda ca-certificates to the latest versions.
+
+Fixed
+
+Fixed an issue where Jupyter Server terminal configuration could overwrite the Dataproc plugin server extension setting or fail to apply the terminal disable setting on container startup.
+
+Security
+
+Addressed multiple reported security vulnerabilities in bundled packages.
+
+Change
+
+### 20261025-2130-rc0 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+## October 20, 2026
+
+**Agent Platform Workbench**
+
+v2
+
+Change
+
+### M154 Release
+
+Change
+
+Installed latest packages from upstream dependencies.
+
+Fixed
+
+Fixed dataset and table search in the BigQuery panel, which sometimes failed to return results. Root cause is due to Datacatalog API being sunsetted in favor of Dataplex API.
 
 ## October 19, 2026
 
@@ -9893,6 +10009,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

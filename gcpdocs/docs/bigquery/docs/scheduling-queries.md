@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/scheduling-queries/
 title: Scheduling queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:42:31.680147+00:00
+fetched_at: 2026-10-27T19:38:31.100902+00:00
 ---
 
 # Scheduling queries  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Scheduling queries
 
-This page describes how to schedule recurring queries in BigQuery.
-
-You can schedule queries to run on a recurring basis. Scheduled queries must be written in [GoogleSQL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax), which can include [data definition language (DDL)](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language) and [data manipulation language (DML)](https://docs.cloud.google.com/bigquery/docs/data-manipulation-language) statements. You can organize query results by date and time by parameterizing the query string and destination table.
-
-When you create or update the schedule for a query, the scheduled time for the query is converted from your local time to UTC. UTC is not affected by daylight saving time.
+BigQuery scheduled queries let you automate recurring [GoogleSQL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax) workloads, including [data definition language (DDL)](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language) and [data manipulation language (DML)](https://docs.cloud.google.com/bigquery/docs/data-manipulation-language) statements. To organize results by date and time, you can parameterize both your query string and the destination table. When you create or update a schedule, BigQuery converts the scheduled time from your local time to UTC, which isn't affected by daylight saving time.
 
 ## Before you begin
 
@@ -82,7 +78,7 @@ The following sections describe the configuration options.
 
 The query string must be valid and written in [GoogleSQL](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax). Each run of a scheduled query can receive the following [query parameters](https://docs.cloud.google.com/bigquery/docs/parameterized-queries#parameterized-timestamps).
 
-To manually test a query string with `@run_time` and `@run_date` parameters before scheduling a query, use the [bq command-line tool](https://docs.cloud.google.com/bigquery/docs/bq-command-line-tool).
+To manually test a query string with `@run_time` and `@run_date` parameters before scheduling a query, use the [bq command-line tool](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference).
 
 #### Available parameters
 
@@ -1017,7 +1013,7 @@ If you're scheduling an existing query, you might need to update the user creden
 
 Some other situations that could require updating credentials include the following:
 
-  * You want to [query Google Drive data](https://docs.cloud.google.com/bigquery/external-data-drive) in a scheduled query.
+  * You want to [query Google Drive data](https://docs.cloud.google.com/bigquery/docs/external-data-drive) in a scheduled query.
   * You receive an **INVALID_USER** error when you attempt to schedule the query:
 
 `Error code 5 : Authentication failure: User Id not found. Error code: INVALID_USERID`
@@ -1567,6 +1563,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

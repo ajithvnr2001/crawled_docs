@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-logback-quickstart/
 title: Java: Logback Usage \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:35:43.487783+00:00
+fetched_at: 2026-10-27T21:58:43.916644+00:00
 ---
 
 # Java: Logback Usage  |  Cloud Logging  |  Google Cloud Documentation

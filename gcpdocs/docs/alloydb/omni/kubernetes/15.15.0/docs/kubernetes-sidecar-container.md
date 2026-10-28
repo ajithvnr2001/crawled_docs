@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.15.0/docs/kubernetes-sidecar-container/
 title: Use a sidecar container in Kubernetes \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 15.15.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:51:23.641119+00:00
+fetched_at: 2026-10-27T19:16:45.027388+00:00
 ---
 
 # Use a sidecar container in Kubernetes  |  AlloyDB Omni using the container orchestrator: 15.15.0  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ If your database runs in a Kubernetes cluster, then you can add sidecar containe
 
 AlloyDB Omni operator sidecar containers are distinct from Kubernetes built-in [sidecar containers](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/#pod-sidecar-containers).
 
-To manually add a sidecar container to an existing AlloyDB Omni installation, you create a sidecar custom resource (CR) and add it to your database cluster.
+To manually add a sidecar container to an existing AlloyDB Omni installation, you create a [`Sidecar` custom resource (CR)](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.15.0/docs/reference/kubernetes-crds-1.7.0/sidecar) and add it to your database cluster. For complete manifest examples, see the [Custom Sidecar sample](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/samples#custom-sidecar) and the [DBCluster with Custom Sidecar sample](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/samples#dbcluster-custom-sidecar).
 
 **Caution:** Making changes to an active sidecar container restarts the Pod that it runs on, which might result in database downtime.
 
@@ -169,8 +169,10 @@ Replace the following:
 
 ## What's next
 
-  * [Configure AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.15.0/docs/configure-omni).
-  * [Manage and monitor AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.15.0/docs/manage).
+  * [Configure database flags](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.15.0/docs/configure-database-flags)
+  * [Manage and monitor AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.15.0/docs/manage)
+  * [View the `Sidecar` CRD reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.15.0/docs/reference/kubernetes-crds-1.7.0/sidecar)
+  * [Explore Kubernetes configuration samples](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/samples#custom-sidecar)
 
 
 
@@ -178,6 +180,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

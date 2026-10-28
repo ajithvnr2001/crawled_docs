@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/docs/overview/
 title: AlloyDB Omni overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:59:57.553017+00:00
+fetched_at: 2026-10-27T18:55:09.228913+00:00
 ---
 
 # AlloyDB Omni overview  |  Google Cloud Documentation
@@ -168,9 +168,9 @@ Input/Output Operations Per Second (IOPS) is an important factor in database app
 
 The built-in columnar engine accelerates analytical query processing that typically involves full table scans, complex joins, and aggregates.
 
-  * **In-memory column store** : contains table and materialized-view data for selected columns in a column-oriented format. By default, the column store consumes 30% of available memory. To change the amount of memory usable by the column store, set the `google_columnar_engine.memory_size_in_mb` parameter in the `postgresql.conf` used by your AlloyDB Omni instance.
+  * In-memory column store: contains table and materialized-view data for selected columns in a column-oriented format. By default, the column store consumes 30% of available memory. To change the amount of memory usable by the column store, set the `google_columnar_engine.memory_size_in_mb` parameter in the `postgresql.conf` used by your AlloyDB Omni instance.
 
-  * **Columnar query planner and execution engine** : supports the use of the column store in queries.
+  * Columnar query planner and execution engine: supports the use of the column store in queries.
 
 
 
@@ -253,6 +253,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

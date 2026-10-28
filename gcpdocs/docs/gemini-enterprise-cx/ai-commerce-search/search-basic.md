@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/search-basic/
 title: Get search results \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:52:53.927284+00:00
+fetched_at: 2026-10-27T23:24:04.403236+00:00
 ---
 
 # Get search results  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation
@@ -259,9 +259,9 @@ To authenticate to AI Commerce Search, set up Application Default Credentials. F
     
     
     import com.google.cloud.[ServiceOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.ServiceOptions.html);
-    import com.google.cloud.retail.v2.[SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchRequest.html);
-    import com.google.cloud.retail.v2.[SearchResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchResponse.html);
-    import com.google.cloud.retail.v2.[SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchServiceClient.html);
+    import com.google.cloud.retail.v2.[SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchRequest.html);
+    import com.google.cloud.retail.v2.[SearchResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchResponse.html);
+    import com.google.cloud.retail.v2.[SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchServiceClient.html);
     import java.io.IOException;
     import java.util.UUID;
     
@@ -282,8 +282,8 @@ To authenticate to AI Commerce Search, set up Application Default Credentials. F
         [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) visitorId = UUID.randomUUID().toString();
         int pageSize = 10;
     
-        [SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchRequest.html) searchRequest =
-            [SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchRequest.html).newBuilder()
+        [SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchRequest.html) searchRequest =
+            [SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchRequest.html).newBuilder()
                 .setPlacement(defaultSearchPlacementName)
                 .setQuery(queryPhrase)
                 .setVisitorId(visitorId)
@@ -295,9 +295,9 @@ To authenticate to AI Commerce Search, set up Application Default Credentials. F
         // needs to be created once, and can be reused for multiple requests. After
         // completing all of your requests, call the "close" method on the client to
         // safely clean up any remaining background resources.
-        try ([SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchServiceClient.html) client = [SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchServiceClient.html).create()) {
-          [SearchResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchResponse.html) searchResponse = client.search(searchRequest).getPage().getResponse();
-          if (searchResponse.[getTotalSize](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchResponse.html#com_google_cloud_discoveryengine_v1_SearchResponse_getTotalSize__)() == 0) {
+        try ([SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchServiceClient.html) client = [SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchServiceClient.html).create()) {
+          [SearchResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchResponse.html) searchResponse = client.search(searchRequest).getPage().getResponse();
+          if (searchResponse.[getTotalSize](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchResponse.html#com_google_cloud_retail_v2_SearchResponse_getTotalSize__)() == 0) {
             System.out.println("The search operation returned no matching results.");
           } else {
             System.out.println("Search response: " + searchResponse);
@@ -513,9 +513,9 @@ To authenticate to AI Commerce Search, set up Application Default Credentials. F
     
     
     import com.google.cloud.[ServiceOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.ServiceOptions.html);
-    import com.google.cloud.retail.v2.[SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchRequest.html);
-    import com.google.cloud.retail.v2.[SearchResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchResponse.html);
-    import com.google.cloud.retail.v2.[SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchServiceClient.html);
+    import com.google.cloud.retail.v2.[SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchRequest.html);
+    import com.google.cloud.retail.v2.[SearchResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchResponse.html);
+    import com.google.cloud.retail.v2.[SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchServiceClient.html);
     import java.io.IOException;
     import java.util.UUID;
     
@@ -538,8 +538,8 @@ To authenticate to AI Commerce Search, set up Application Default Credentials. F
         [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) pageToken = "";
         [String](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.common.Type.String.html) visitorId = UUID.randomUUID().toString();
     
-        [SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchRequest.html) searchRequest =
-            [SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchRequest.html).newBuilder()
+        [SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchRequest.html) searchRequest =
+            [SearchRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchRequest.html).newBuilder()
                 .setPlacement(defaultSearchPlacementName)
                 .setVisitorId(visitorId)
                 .setQuery(queryPhrase)
@@ -553,9 +553,9 @@ To authenticate to AI Commerce Search, set up Application Default Credentials. F
         // needs to be created once, and can be reused for multiple requests. After
         // completing all of your requests, call the "close" method on the client to
         // safely clean up any remaining background resources.
-        try ([SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchServiceClient.html) client = [SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchServiceClient.html).create()) {
-          [SearchResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchResponse.html) searchResponseFirstPage = client.search(searchRequest).getPage().getResponse();
-          if (searchResponseFirstPage.[getTotalSize](https://docs.cloud.google.com/java/docs/reference/google-cloud-discoveryengine/latest/com.google.cloud.discoveryengine.v1.SearchResponse.html#com_google_cloud_discoveryengine_v1_SearchResponse_getTotalSize__)() == 0) {
+        try ([SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchServiceClient.html) client = [SearchServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchServiceClient.html).create()) {
+          [SearchResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchResponse.html) searchResponseFirstPage = client.search(searchRequest).getPage().getResponse();
+          if (searchResponseFirstPage.[getTotalSize](https://docs.cloud.google.com/java/docs/reference/google-cloud-retail/latest/com.google.cloud.retail.v2.SearchResponse.html#com_google_cloud_retail_v2_SearchResponse_getTotalSize__)() == 0) {
             System.out.println("The search operation returned no matching results.");
           } else {
             System.out.println("Search response: " + searchResponseFirstPage);
@@ -776,6 +776,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

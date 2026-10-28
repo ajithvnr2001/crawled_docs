@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd/
 title: Integrate with CI/CD \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:44.362122+00:00
+fetched_at: 2026-10-27T18:58:43.775568+00:00
 ---
 
 # Integrate with CI/CD  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -518,6 +518,8 @@ You can customize the workflow in the following ways:
 
   * To turn off autofix, delete the `autofix` job and the **Save findings for autofix** step.
 
+  * To verify credentials, configuration, network reachability, and IAM permissions before running a scan (or in a scheduled monitoring workflow), run `cm health --strict` (add `--json` for machine-readable output). For exit codes and flag details, see [Check service connectivity and permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#check-health).
+
 
 
 
@@ -773,6 +775,8 @@ The message can also include `Permission 'aiplatform.interactions.create' denied
 
 
 
+To isolate whether a failure is caused by credentials (exit code `10`), configuration (exit code `20`), network reachability (exit code `30`), or project IAM permissions (exit code `40`), run `cm health --strict` in your pipeline step. For more information, see [Check service connectivity and permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#check-health).
+
 ### Resource setup in progress
 
 If the log shows `Resource setup has just started. Please try again shortly.` or `Resource setup is in progress. Please try again shortly.`, CodeMender is setting up resources for your project, which typically takes a few minutes. Run the job again later.
@@ -818,6 +822,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

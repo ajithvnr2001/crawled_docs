@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/run/worker-pools/update/
 title: gcloud alpha run worker-pools update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T22:18:55.799222+00:00
+fetched_at: 2026-10-27T21:40:37.406248+00:00
 ---
 
 # gcloud alpha run worker-pools update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud alpha run worker-pools update - update Cloud Run environment variables an
 SYNOPSIS
     
 
-`gcloud alpha run worker-pools update` [[`WORKER_POOL`] `--region`=`REGION`] [`--async`] [`--breakglass`=`JUSTIFICATION`] [`--clear-scaling-cpu-target`] [`--clear-vpc-connector`] [`--container`=`CONTAINER`] [`--description`=`DESCRIPTION`] [`--dry-run`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--gpu-type`=`GPU_TYPE`] [`--[no-]gpu-zonal-redundancy`] [`--grace-period`=`GRACE_PERIOD`] [`--instances`=`INSTANCES`] [`--no-promote`] [`--remove-containers`=[`CONTAINER`,…]] [`--revision-suffix`=`REVISION_SUFFIX`] [`--scaling`=`SCALING`] [`--scaling-cpu-target`=`SCALING_CPU_TARGET`] [`--service-account`=`SERVICE_ACCOUNT`] [`--vpc-connector`=`VPC_CONNECTOR`] [`--vpc-egress`=`VPC_EGRESS`] [`--add-cloudsql-instances`=[`CLOUDSQL-INSTANCES`,…] | `--clear-cloudsql-instances` | `--remove-cloudsql-instances`=[`CLOUDSQL-INSTANCES`,…] | `--set-cloudsql-instances`=[`CLOUDSQL-INSTANCES`,…]] [`--add-volume`=[`KEY`=`VALUE`,…] `--clear-volumes` `--remove-volume`=[`VOLUME`,…]] [`--add-volume-mount`=[`volume`=`NAME`,`mount-path`=`MOUNT_PATH`,…] `--args`=[`ARG`,…] `--clear-volume-mounts` `--command`=[`COMMAND`,…] `--cpu`=`CPU` `--depends-on`=[`CONTAINER`,…] `--gpu`=`GPU` `--image`=`IMAGE` `--memory`=`MEMORY` `--remove-volume-mount`=[`MOUNT_PATH`,…] `--[no-]sandbox-launcher` `--workdir`=`WORKDIR` `--clear-env-vars` | `--env-vars-file`=`FILE_PATH` | `--set-env-vars`=[`KEY`=`VALUE`,…] | `--remove-env-vars`=[`KEY`,…] `--update-env-vars`=[`KEY`=`VALUE`,…] `--clear-secrets` | `--set-secrets`=[`KEY`=`VALUE`,…] | `--remove-secrets`=[`KEY`,…] `--update-secrets`=[`KEY`=`VALUE`,…]] [`--binary-authorization`=`POLICY` | `--clear-binary-authorization`] [`--clear-encryption-key-shutdown-hours` | `--encryption-key-shutdown-hours`=`ENCRYPTION_KEY_SHUTDOWN_HOURS`] [`--clear-key` | `--key`=`KEY`] [`--clear-labels` | `--remove-labels`=[`KEY`,…] `--labels`=[`KEY`=`VALUE`,…] | `--update-labels`=[`KEY`=`VALUE`,…]] [`--clear-network` | `--network`=`NETWORK` `--subnet`=`SUBNET` `--clear-network-tags` | `--network-tags`=[`TAG`,…]] [`--clear-post-key-revocation-action-type` | `--post-key-revocation-action-type`=`POST_KEY_REVOCATION_ACTION_TYPE`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud alpha run worker-pools update` [[`WORKER_POOL`] `--region`=`REGION`] [`--add-scaling-pubsub-subscription`=[`KEY`=`VALUE`,…]] [`--async`] [`--breakglass`=`JUSTIFICATION`] [`--clear-scaling-cpu-target`] [`--clear-scaling-pubsub-subscriptions`] [`--clear-vpc-connector`] [`--container`=`CONTAINER`] [`--description`=`DESCRIPTION`] [`--dry-run`] [`--endpoint-mode`=`ENDPOINT_MODE`] [`--gpu-type`=`GPU_TYPE`] [`--[no-]gpu-zonal-redundancy`] [`--grace-period`=`GRACE_PERIOD`] [`--instances`=`INSTANCES`] [`--no-promote`] [`--remove-containers`=[`CONTAINER`,…]] [`--remove-scaling-pubsub-subscription`=[`SUBSCRIPTION`,…]] [`--revision-suffix`=`REVISION_SUFFIX`] [`--scaling`=`SCALING`] [`--scaling-cpu-target`=`SCALING_CPU_TARGET`] [`--service-account`=`SERVICE_ACCOUNT`] [`--vpc-connector`=`VPC_CONNECTOR`] [`--vpc-egress`=`VPC_EGRESS`] [`--add-cloudsql-instances`=[`CLOUDSQL-INSTANCES`,…] | `--clear-cloudsql-instances` | `--remove-cloudsql-instances`=[`CLOUDSQL-INSTANCES`,…] | `--set-cloudsql-instances`=[`CLOUDSQL-INSTANCES`,…]] [`--add-volume`=[`KEY`=`VALUE`,…] `--clear-volumes` `--remove-volume`=[`VOLUME`,…]] [`--add-volume-mount`=[`volume`=`NAME`,`mount-path`=`MOUNT_PATH`,…] `--args`=[`ARG`,…] `--clear-volume-mounts` `--command`=[`COMMAND`,…] `--cpu`=`CPU` `--depends-on`=[`CONTAINER`,…] `--gpu`=`GPU` `--image`=`IMAGE` `--memory`=`MEMORY` `--remove-volume-mount`=[`MOUNT_PATH`,…] `--[no-]sandbox-launcher` `--workdir`=`WORKDIR` `--clear-env-vars` | `--env-vars-file`=`FILE_PATH` | `--set-env-vars`=[`KEY`=`VALUE`,…] | `--remove-env-vars`=[`KEY`,…] `--update-env-vars`=[`KEY`=`VALUE`,…] `--clear-secrets` | `--set-secrets`=[`KEY`=`VALUE`,…] | `--remove-secrets`=[`KEY`,…] `--update-secrets`=[`KEY`=`VALUE`,…]] [`--binary-authorization`=`POLICY` | `--clear-binary-authorization`] [`--clear-encryption-key-shutdown-hours` | `--encryption-key-shutdown-hours`=`ENCRYPTION_KEY_SHUTDOWN_HOURS`] [`--clear-key` | `--key`=`KEY`] [`--clear-labels` | `--remove-labels`=[`KEY`,…] `--labels`=[`KEY`=`VALUE`,…] | `--update-labels`=[`KEY`=`VALUE`,…]] [`--clear-network` | `--network`=`NETWORK` `--subnet`=`SUBNET` `--clear-network-tags` | `--network-tags`=[`TAG`,…]] [`--clear-post-key-revocation-action-type` | `--post-key-revocation-action-type`=`POST_KEY_REVOCATION_ACTION_TYPE`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      `(ALPHA)` Update Cloud Run environment variables and other configuration settings. 
 EXAMPLES
@@ -74,12 +74,21 @@ To set the `region` attribute:
 FLAGS
     
 
+`--add-scaling-pubsub-subscription`=[`KEY`=`VALUE`,…]
+     Adds a Pub/Sub subscription scaling target to the worker pool. To add more than one subscription, specify this flag multiple times. This feature is in private preview and is only available to allowlisted projects. Contact your account team or support to get your project allowlisted. Keys supported: 
+
+`subscription`
+     (Required) The Pub/Sub subscription name or resource name (e.g. `my-sub` or `projects/PROJECT/subscriptions/my-sub`). 
+`target`
+     (Optional) The target value for the unacknowledged messages backlog per instance. Set to a positive integer, or "default". If omitted or set to "default", the system default target is used. 
 `--async`
      Return immediately, without waiting for the operation in progress to complete. 
 `--breakglass`=`JUSTIFICATION`
      Justification to bypass Binary Authorization policy constraints and allow the operation. See <https://cloud.google.com/binary-authorization/docs/using-breakglass> for more information. Next update or deploy command will automatically clear existing breakglass justification. 
 `--clear-scaling-cpu-target`
      Clears the CPU utilization scaling target. This feature is in private preview and is only available to allowlisted projects. Contact your account team or support to get your project allowlisted. 
+`--clear-scaling-pubsub-subscriptions`
+     Clears all Pub/Sub scaling subscriptions from the worker pool. This feature is in private preview and is only available to allowlisted projects. Contact your account team or support to get your project allowlisted. 
 `--clear-vpc-connector`
      Remove the VPC connector for this resource. 
 `--container`=`CONTAINER`
@@ -115,6 +124,8 @@ After a deployment with this flag the LATEST revision will not receive instances
 
 `--remove-containers`=[`CONTAINER`,…]
      List of containers to remove. 
+`--remove-scaling-pubsub-subscription`=[`SUBSCRIPTION`,…]
+     Removes one or more Pub/Sub scaling subscriptions from the worker pool. Subscriptions can be specified as a name (e.g. `my-sub`) or full resource name (e.g. `projects/PROJECT/subscriptions/my-sub`). Specify a comma-separated list or pass the flag multiple times. This feature is in private preview and is only available to allowlisted projects. Contact your account team or support to get your project allowlisted. 
 `--revision-suffix`=`REVISION_SUFFIX`
      Specify the suffix of the revision name. Revision names always start with the service name automatically. For example, specifying [--revision-suffix=v1] for a service named 'helloworld', would lead to a revision named 'helloworld-v1'. Set empty string to clear the suffix and resume server-assigned naming. 
 `--scaling`=`SCALING`
@@ -368,6 +379,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

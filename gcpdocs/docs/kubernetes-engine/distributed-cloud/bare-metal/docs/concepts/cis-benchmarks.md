@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/cis-benchmarks/
 title: CIS Kubernetes benchmarks for Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:47:37.881014+00:00
+fetched_at: 2026-10-28T02:29:50.015556+00:00
 ---
 
 # CIS Kubernetes benchmarks for Distributed Cloud software only for bare metal  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,7 @@ Send feedback
 
 #  CIS Kubernetes benchmarks for Distributed Cloud software only for bare metal Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document introduces the CIS Kubernetes Benchmark, explains how to audit your compliance with the benchmark. For recommendations that you can't implement yourself, the document explains what Distributed Cloud software only for bare metal does to address the recommendation.
+You can audit your compliance against the CIS Kubernetes Benchmark to evaluate and strengthen the security posture of your clusters. For recommendations that you can't implement yourself, this document describes how Distributed Cloud software only for bare metal addresses each one (for example, with an equivalent control) or whether the recommendation isn't met.
 
 ## Using the CIS benchmarks
 
@@ -718,6 +718,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/counters/
 title: Support frequent and distributed counters \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:13.893051+00:00
+fetched_at: 2026-10-27T16:23:49.107993+00:00
 ---
 
 # Support frequent and distributed counters  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -177,7 +177,7 @@ Android
             self._num_shards = num_shards
     
     
-    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/distributed_counters.py#L16-L44)
+    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/distributed_counters.py#L16-L44)
 
 ###  Python  
 (Async)
@@ -213,7 +213,7 @@ Android
             self._num_shards = num_shards
     
     
-    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/distributed_counters.py#L16-L44)
+    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/distributed_counters.py#L16-L44)
 
 ###  Node.js 
 
@@ -245,7 +245,7 @@ Not applicable, see the counter increment snippet below.
     }
     
     
-    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/solution_counters.go#L18-L39)
+    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/solution_counters.go#L18-L39)
 
 ###  PHP 
 
@@ -402,7 +402,7 @@ Android
             col_ref.document(str(num)).set(shard.to_dict())
     
     
-    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/distributed_counters.py#L48-L59)
+    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/distributed_counters.py#L48-L59)
 
 ###  Python  
 (Async)
@@ -421,7 +421,7 @@ Android
             await col_ref.document(str(num)).set(shard.to_dict())
     
     
-    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/distributed_counters.py#L48-L59)
+    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/distributed_counters.py#L48-L59)
 
 ###  Node.js 
 
@@ -447,7 +447,7 @@ Not applicable, see the counter increment snippet below.
     }
     
     
-    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/solution_counters.go#L43-L59)
+    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/solution_counters.go#L43-L59)
 
 ###  PHP 
     
@@ -503,7 +503,7 @@ Not applicable, see the counter increment snippet below.
     
     puts "Distributed counter shards collection created."
     
-    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/99543a6e02d18c66111a30130ea036036d577005/google-cloud-firestore/samples/distributed_counters.rb#L18-L33)
+    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/distributed_counters.rb#L18-L33)
 
 To increment the counter, choose a random shard and increment the count:
 
@@ -595,7 +595,7 @@ Android
         return shard_ref.update({"count": firestore.Increment(1)})
     
     
-    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/distributed_counters.py#L63-L69)
+    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/distributed_counters.py#L63-L69)
 
 ###  Python  
 (Async)
@@ -609,7 +609,7 @@ Android
         return await shard_ref.update({"count": firestore.Increment(1)})
     
     
-    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/distributed_counters.py#L63-L69)
+    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/distributed_counters.py#L63-L69)
 
 ###  Node.js 
     
@@ -636,7 +636,7 @@ Android
     }
     
     
-    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/solution_counters.go#L63-L73)
+    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/solution_counters.go#L63-L73)
 
 ###  PHP 
     
@@ -696,7 +696,7 @@ Android
     
     puts "Counter incremented."
     
-    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/99543a6e02d18c66111a30130ea036036d577005/google-cloud-firestore/samples/distributed_counters.rb#L39-L54)
+    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/distributed_counters.rb#L39-L54)
 
 To get the total count, query for all shards and sum their `count` fields:
 
@@ -818,7 +818,7 @@ Android
         return total
     
     
-    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-client/distributed_counters.py#L73-L80)
+    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/distributed_counters.py#L73-L80)
 
 ###  Python  
 (Async)
@@ -833,7 +833,7 @@ Android
         return total
     
     
-    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/3db968ffa188a3c6d7184be7991add3ea9626f04/firestore/cloud-async-client/distributed_counters.py#L73-L80)
+    [distributed_counters.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/distributed_counters.py#L73-L80)
 
 ###  Node.js 
     
@@ -878,7 +878,7 @@ Android
     }
     
     
-    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/e40726518393d4aafa4a8150136832cc5ce4b334/firestore/solution_counters.go#L77-L100)
+    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/solution_counters.go#L77-L100)
 
 ###  PHP 
     
@@ -926,7 +926,7 @@ Android
     
     puts "Count value is #{count}."
     
-    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/99543a6e02d18c66111a30130ea036036d577005/google-cloud-firestore/samples/distributed_counters.rb#L60-L74)
+    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/distributed_counters.rb#L60-L74)
 
 ## Limitations
 
@@ -941,6 +941,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

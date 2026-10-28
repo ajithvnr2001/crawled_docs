@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/
 title: gcloud CLI overview \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:58.111901+00:00
+fetched_at: 2026-10-27T20:27:48.009711+00:00
 ---
 
 # gcloud CLI overview  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -42,9 +42,9 @@ You can also use the gcloud CLI to deploy App Engine applications, manage authen
 
 ## Download and install the gcloud CLI
 
-The current gcloud CLI version is 590.0.1.
+The current gcloud CLI version is 591.0.0.
 
-**Caution:** Make sure that you use the current version of the gcloud CLI, version 590.0.1. This allows you to use the latest features, including authorizing with [`gcloud init`](https://cloud.google.com/sdk/docs/initialize). If you use older versions of the gcloud CLI, you might encounter errors. To find the version number of gcloud CLI that you have installed, enter the following command: `gcloud version`. To learn how to upgrade to the current version of the gcloud CLI, see [Manage an installation](https://docs.cloud.google.com/sdk/docs/install#manage_an_installation).
+**Caution:** Make sure that you use the current version of the gcloud CLI, version 591.0.0. This allows you to use the latest features, including authorizing with [`gcloud init`](https://cloud.google.com/sdk/docs/initialize). If you use older versions of the gcloud CLI, you might encounter errors. To find the version number of gcloud CLI that you have installed, enter the following command: `gcloud version`. To learn how to upgrade to the current version of the gcloud CLI, see [Manage an installation](https://docs.cloud.google.com/sdk/docs/install#manage_an_installation).
 
 Although we strongly recommend that you use the current version of gcloud CLI, you can also download and install previous versions from the [download archive](https://console.cloud.google.com/storage/browser/cloud-sdk-release).
 
@@ -173,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

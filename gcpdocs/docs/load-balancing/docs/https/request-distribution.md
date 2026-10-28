@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/request-distribution/
 title: Request distribution for external Application Load Balancers \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:58.289259+00:00
+fetched_at: 2026-10-27T19:16:36.296592+00:00
 ---
 
 # Request distribution for external Application Load Balancers  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ Depending on the backend service configuration, the protocol used by each GFE to
 
 HTTP keepalive is enabled by default, as specified in the HTTP 1.1 specification. HTTP keepalives attempt to efficiently use the same TCP session; however, there's no guarantee. The GFE uses a client HTTP keepalive timeout of 610 seconds and a default backend keepalive timeout value of 600 seconds. You can update the client HTTP keepalive timeout but the backend keepalive timeout value is fixed. You can configure the request and response timeout by setting the backend service timeout. Though closely related, an HTTP keepalive and a TCP idle timeout are not the same thing. For more information, see timeouts and retries.
 
-To ensure that traffic is load balanced evenly, the load balancer might cleanly close a TCP connection either by sending a `FIN ACK` packet after completing a response that included a `Connection: close` header, or it might issue an HTTP/2 `GOAWAY` frame after completing a response. This behavior does not interfere with any active requests or responses.
+To ensure that traffic is load balanced evenly, the load balancer periodically closes long-lived client connections. For example, a connection is closed when an active client connection reaches a maximum age of 60 minutes. When this happens, the GFE closes the client connection between requests either by sending a `Connection: close` response header followed by a `FIN ACK` packet (for HTTP/1.1) or by issuing an HTTP/2 or HTTP/3 `GOAWAY` frame after completing a response. This behavior doesn't interfere with any active requests or responses, including upgraded WebSocket connections. Changing backend service settings, such as updating the [capacity scaler](https://docs.cloud.google.com/load-balancing/docs/backend-service#capacity_scaler) (`backendService.backends[].capacityScaler`), affects how GFEs route new requests, but doesn't by itself cause GFEs to close existing client connections.
 
 The numbers of HTTP connections and TCP sessions vary depending on the number of GFEs connecting, the number of clients connecting to the GFEs, the protocol to the backends, and where backends are deployed.
 
@@ -714,6 +714,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

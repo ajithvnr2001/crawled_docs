@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/function-calling/
 title: Function calling reference \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:56.603421+00:00
+fetched_at: 2026-10-27T23:23:57.742320+00:00
 ---
 
 # Function calling reference  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -146,7 +146,8 @@ Parameters
 ---  
 `name` | `string`The name of the function to call.  
 `args` |  `Struct` The function parameters and values in JSON object format.  
-`thought_signature` | Optional: `string`An opaque token that encapsulates the model's internal reasoning state. If present, it must be included in the next turn of the conversation to maintain context for multi-step tool use.  
+`id` | Optional: `string` The unique ID of the function call. Supported in the `v1beta1` API for Gemini 3 and later models. If populated, execute the `functionCall` and return the response with the matching `id`.  
+`thought_signature` | Optional: `string` An opaque token that encapsulates the model's internal reasoning state. If present, it must be included in the next turn of the conversation to maintain context for multi-step tool use.  
   
 #### `functionResponse`
 
@@ -156,7 +157,8 @@ Parameters
 ---  
 `name` | `string`The name of the function to call.  
 `response` | `Struct`The function response in JSON object format.  
-`parts` | Optional: `FunctionResponsePart[]`Optional multimodal parts of the function response. Can be used to return images, audio, or video along with structured JSON response.  
+`id` | Optional: `string` The ID of the function call that this response is for. Supported in the `v1beta1` API for Gemini 3 and later models. Populate this field to match the corresponding `functionCall.id`.  
+`parts` | Optional: `FunctionResponsePart[]` Optional multimodal parts of the function response. Can be used to return images, audio, or video along with structured JSON response.  
   
 #### `FunctionResponsePart`
 
@@ -340,14 +342,13 @@ Save the request body in a file named `request.json`, and execute the following 
         return weather_map.get(location, "unknown")
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    model_id = "gemini-3.5-flash"
+    model_id = "gemini-3.8-flash"
     
     response = client.models.generate_content(
         model=model_id,
         contents="What is the weather like in Boston?",
         config=GenerateContentConfig(
             tools=[get_current_weather],
-            temperature=0,
         ),
     )
     
@@ -1394,6 +1395,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

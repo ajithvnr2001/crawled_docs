@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/monitoring/
 title: Monitor your usage of Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:09:55.756161+00:00
+fetched_at: 2026-10-27T19:43:01.849038+00:00
 ---
 
 # Monitor your usage of Sensitive Data Protection  |  Google Cloud Documentation

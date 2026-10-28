@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/auth-with-api-key-v2/
 title: Authenticate using API key with auth manager \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:20:48.522516+00:00
+fetched_at: 2026-10-27T20:09:42.929678+00:00
 ---
 
 # Authenticate using API key with auth manager  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -61,7 +61,6 @@ To get the permissions that you need to create and use an API key auth provider,
     * [Agent Identity Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/agentidentity#agentidentity.editor) (`roles/agentidentity.editor`)
   * To use auth providers: 
     * [Agent Identity User ](https://docs.cloud.google.com/iam/docs/roles-permissions/agentidentity#agentidentity.user) (`roles/agentidentity.user`)
-    * [Vertex AI User ](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) (`roles/aiplatform.user`)
     * [Service Usage Consumer ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`)
 
 
@@ -127,7 +126,7 @@ Replace `YOUR_API_KEY` with the API key that you generated.
      * To verify a Google Maps Weather API key, run the following command:
            
            curl -X GET \
-             "https://weather.googleapis.com/v1/currentConditions:lookup?key=YOUR_AP&I_KEYlocation.latitude=37&.4220location.longitude=-122.0841"
+             "https://weather.googleapis.com/v1/currentConditions:lookup?key=YOUR_API_KEY&location.latitude=37.4220&location.longitude=-122.0841"
 
 Replace `YOUR_API_KEY` with the API key that you generated.
 
@@ -513,7 +512,7 @@ Reference the auth provider in your agent's code using an authenticated function
             return "Error: No authentication token available."
     
         async with httpx.AsyncClient() as client:
-            response = await client.[get](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.agent_engines.html)(
+            response = await client.[get](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.agent_engines.html)(
                 "https://api.spotify.com/v1/search",
                 headers={"Authorization": f"Bearer {token}"},
                 params={"q": query, "type": "track", "limit": 1},
@@ -559,7 +558,7 @@ The following example demonstrates an `agent.py` configuration that connects an 
     
     weather_auth_config = AuthConfig(
         auth_scheme=GcpAuthProviderScheme(
-            name=&quot;projects/PROJECT_ID/locations/LOCATION/authProviders/AUTH_PROVIDER_NAME"
+            name="projects/PROJECT_ID/locations/LOCATION/authProviders/AUTH_PROVIDER_NAME"
         )
     )
     
@@ -622,7 +621,7 @@ You don't construct an auth scheme for this flow. The MCP server's outbound bind
     CredentialManager.register_auth_provider(GcpAuthProvider())
     
     # Set Agent Registry. LOCATION must be the same region as the auth provider.
-    registry = AgentRegistry(project_id=&quot;PROJECT_ID", location="LOCATION")
+    registry = AgentRegistry(project_id="PROJECT_ID", location="LOCATION")
     
     # The auth provider is resolved from the MCP server's outbound binding.
     toolset = registry.get_mcp_toolset(
@@ -634,7 +633,7 @@ You don't construct an auth scheme for this flow. The MCP server's outbound bind
     )
     
     agent = Agent(
-        name=&quot;AGENT_NAME&quot;,
+        name="AGENT_NAME",
         model="MODEL_NAME",
         instruction="AGENT_INSTRUCTIONS",
         tools=[toolset],
@@ -652,12 +651,12 @@ If you're using the Agent Development Kit (ADK) and the Agent CLI, do the follow
 
   1. In your agent application folder, create a configuration file named `.agent_engine_config.json` to enable Agent Identity:
          
-         echo '{ "identity_type": ">AGENT_IDENTITY" }'  AGENT_NAME/.agent_engine_config.json
+         echo '{ "identity_type": "AGENT_IDENTITY" }' > AGENT_NAME/.agent_engine_config.json
 
   2. Deploy your agent to Agent Runtime on Gemini Enterprise Agent Platform :
          
          uv run adk deploy agent_engine AGENT_NAME \
-             --project=&quot;PROJECT_ID" \
+             --project="PROJECT_ID" \
              --region="LOCATION"
 
 Replace the following:
@@ -675,15 +674,15 @@ If you're deploying programmatically using the Vertex AI Python SDK, use the `id
 **Caution:** The SDK serializes your app object, so the `CredentialManager.register_auth_provider()` call that your local script runs at import time doesn't run in the deployed container. Instead, register the auth provider in your app's `set_up()` method, which the runtime calls when the container starts. Otherwise, the agent fails at query time with `No auth provider registered for custom auth scheme 'gcpAuthProviderScheme'`. For more information, see [Deployment considerations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-custom-agent#deployment-considerations). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html)
-    from vertexai.agent_engines import [AdkApp](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.reasoning_engines.AdkApp.html)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html)
+    from vertexai.agent_engines import [AdkApp](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.AdkApp.html)
     from google.adk.auth.credential_manager import CredentialManager
     from google.adk.integrations.agent_identity import GcpAuthProvider
     
     # Initialize the Vertex AI client with v1beta1 API for Agent Identity support
-    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(
-        project=&quot;PROJECT_ID",
+    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(
+        project="PROJECT_ID",
         location="LOCATION",
         http_options=dict(api_version="v1beta1")
     )
@@ -697,14 +696,14 @@ If you're deploying programmatically using the Vertex AI Python SDK, use the `id
     
     app = AuthenticatedAdkApp(agent=agent)
     
-    # Deploy the agent with Agent Identit[y enabled](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html)
-    remote_app = client.agent_engines.create(
+    # Deploy the agent with Agent Identity enabled
+    remote_app = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).create(
         agent=app,
-        conf[ig](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html)={
-     [       "](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.IdentityType.html);[identity_type&](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.IdentityType.html#vertexai__genai_types_IdentityType_AGENT_IDENTITY)quot;: types.IdentityType.AGENT_IDENTITY,
+        config={
+            "identity_type": [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html).[IdentityType](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.IdentityType.html).[AGENT_IDENTITY](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.IdentityType.html#vertexai__genai_types_IdentityType_AGENT_IDENTITY),
             "requirements": [
-                "google-cloud-aiplatform[agent_eng>ines,adk]",
-                "google-adk[agent-identity,mcp]=2.7.1",
+                "google-cloud-aiplatform[agent_engines,adk]",
+                "google-adk[agent-identity,mcp]>=2.7.1",
             ],
         },
     )
@@ -730,6 +729,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

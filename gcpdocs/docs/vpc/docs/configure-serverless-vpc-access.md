@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/configure-serverless-vpc-access/
 title: Connect to a VPC network \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:47.142076+00:00
+fetched_at: 2026-10-28T02:30:53.875795+00:00
 ---
 
 # Connect to a VPC network  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -1327,29 +1327,31 @@ You can configure Direct VPC egress with a service by using the Google Cloud con
 
 [Go to Cloud Run](https://console.cloud.google.com/run)
 
-  2. Click **Create Service** if you are configuring a new service you are deploying to. If you are configuring and deploying an existing service, click the service.
+  2. Select **Services** from the Cloud Run navigation menu:
 
-  3. If you are configuring a new service, fill out the initial service settings page as needed, then click **Containers, Networking, Security** to expand the service configuration page.
+     1. If you are configuring a new service, click **Deploy container** and fill out the initial service settings page. Then click **Containers, Networking, Security** to expand the service configuration page.
 
-  4. Click the **Networking** tab.
+     2. If you are configuring an existing service, click the service.
 
-  5. Click **Connect to a VPC for outbound traffic**.
+  3. Click the **Networking** tab.
 
-  6. Click **Send traffic directly to a VPC**.
+  4. Click **Connect to a VPC for outbound traffic**.
 
-  7. In the **Network** field, select the VPC network that you want to send traffic to.
+  5. Click **Send traffic directly to a VPC**.
 
-  8. In the **Subnet** field, select the subnet where your service receives IP addresses from. You can deploy multiple services on the same subnet.
+  6. In the **Network** field, select the VPC network that you want to send traffic to.
 
-  9. Optional: Enter the names of the [network tags](https://docs.cloud.google.com/vpc/docs/add-remove-network-tags#restrictions) that you want to associate with your service or services. Network tags are specified at the revision-level. Each service revision can have different network tags, such as `network-tag-2`.
+  7. In the **Subnet** field, select the subnet where your service receives IP addresses from. You can deploy multiple services on the same subnet.
 
-  10. For **Traffic routing** , select one of the following:
+  8. Optional: Enter the names of the [network tags](https://docs.cloud.google.com/vpc/docs/add-remove-network-tags#restrictions) that you want to associate with your service or services. Network tags are specified at the revision-level. Each service revision can have different network tags, such as `network-tag-2`.
+
+  9. For **Traffic routing** , select one of the following:
 
      * **Route only requests to private IPs to the VPC** to send only traffic to internal addresses through the VPC network.
      * **Route all traffic to the VPC** to send all outbound traffic through the VPC network.
-  11. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
+  10. Click **Create** for a new service. Click **View diff & redeploy**, then **Deploy changes** for an existing service.
 
-  12. To verify that your service is on your VPC network, click the service, then click the **Networking** tab. The network and subnet are listed in the **VPC** card.
+  11. To verify that your service is on your VPC network, click the service, then click the **Networking** tab. The network and subnet are listed in the **VPC** card.
 
 You can now send requests from your Cloud Run service to any resource on the VPC network, as allowed by your firewall rules.
 
@@ -1798,6 +1800,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

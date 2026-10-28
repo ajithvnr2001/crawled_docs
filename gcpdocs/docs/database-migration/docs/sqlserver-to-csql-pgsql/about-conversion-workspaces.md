@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/about-conversion-workspaces/
 title: Conversion workspaces \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:52.107470+00:00
+fetched_at: 2026-10-28T00:01:42.831906+00:00
 ---
 
 # Conversion workspaces  |  Database Migration Service for heterogeneous SQL Server to Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -24,6 +24,8 @@ Send feedback
 
 Conversion workspaces help you convert the schema and objects from your source database into the SQL syntax that is compatible with your destination database. This page provides an overview of Database Migration Service conversion workspaces:
 
+  * Source schema initialization options explains how to populate your workspace by connecting directly to your database or by uploading schema files to Cloud Storage.
+
   * Conversion overviews provide a cross-section of your schema conversion progress.
 
   * Objects supported by the deterministic code and schema conversion lists SQL Server objects supported for deterministic schema conversion.
@@ -36,6 +38,17 @@ Conversion workspaces help you convert the schema and objects from your source d
 
 
 
+
+## Source schema initialization options
+
+To convert your database schema, Database Migration Service needs an initial snapshot of your source database objects. You can provide this snapshot in two ways:
+
+  * **Direct database connection:** Database Migration Service connects directly to your running source database through a connection profile and retrieves the schema over a network connection.
+  * **Schema files in Cloud Storage:** You can extract your schema metadata locally using Google-provided extraction scripts, upload the resulting files to a Cloud Storage bucket, and prepare your workspace without connecting to the source database.
+
+
+
+To learn how to create the conversion workspace with a direct database connection or with schema files in Cloud Storage, see [Create a conversion workspace](https://docs.cloud.google.com/database-migration/docs/sqlserver-to-csql-pgsql/create-conversion-workspace).
 
 ## Conversion progress overviews
 
@@ -575,6 +588,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

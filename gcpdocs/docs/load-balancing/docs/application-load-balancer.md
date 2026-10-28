@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/application-load-balancer/
 title: Application Load Balancer overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:35:02.106866+00:00
+fetched_at: 2026-10-27T22:32:31.877137+00:00
 ---
 
 # Application Load Balancer overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -258,14 +258,18 @@ You can use a global external Application Load Balancer to access services that 
 
 You can use an internal Application Load Balancer to send requests to supported regional Google APIs and services. For more information, see [Access Google APIs through backends](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-controls).
 
-### High availability and cross-region failover
+### High availability and failover
 
-Cross-region failover is only available with global external Application Load Balancers, classic Application Load Balancers, and cross-region internal Application Load Balancers. These load balancers let you improve service availability when you create global backend services with backends in multiple regions. If backends in a particular region are down, traffic fails over to another region gracefully.
+Cross-region failover is available with global external Application Load Balancers, classic Application Load Balancers, and cross-region internal Application Load Balancers. These load balancers let you improve service availability when you create global backend services with backends in multiple regions. If backends in a particular region are down, traffic fails over to another region gracefully.
 
-To learn more about how failover works, see the following topics:
+You can also configure high availability with failover at the load balancer level by using Cloud DNS routing policies and health checks.
 
-  * [Global external Application Load Balancers: How requests are distributed](https://docs.cloud.google.com/load-balancing/docs/https#request-distribution)
-  * [Cross-region internal Application Load Balancers: High availability and cross-region failover](https://docs.cloud.google.com/load-balancing/docs/l7-internal#cross-region-failover)
+To learn more about how high availability and failover work, see the following topics:
+
+  * [Failover for global external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/global-applb-failover-overview)
+  * [High availability for regional external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/reg-applb-ha-overview)
+  * [Request distribution for external Application Load Balancers](https://docs.cloud.google.com/load-balancing/docs/https/request-distribution)
+  * [Internal Application Load Balancers: High availability and cross-region failover](https://docs.cloud.google.com/load-balancing/docs/l7-internal#cross-region-failover)
 
 
 
@@ -273,6 +277,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

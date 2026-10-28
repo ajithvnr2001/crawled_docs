@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/troubleshooting/
 title: Troubleshoot \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:55:31.300412+00:00
+fetched_at: 2026-10-27T20:45:33.143383+00:00
 ---
 
 # Troubleshoot  |  Model Armor  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ This error occurs due to client errors in the `SanitizeUserPrompt` or `SanitizeM
 
 ## Model Armor global endpoint errors
 
-Ensure that you are making the API requests to the appropriate regional endpoint instead of the global endpoint.
+Ensure that you're making the API requests to the appropriate regional endpoint instead of the global endpoint.
 
 Model Armor supports the following operations only on its regional endpoints:
 
@@ -51,7 +51,7 @@ Model Armor supports the following operations only on its regional endpoints:
 
 
 
-If you make the API requests for those operations to the global endpoint, you will see the following error.
+If you make the API requests for those operations to the global endpoint, you see the following error:
     
     
     {
@@ -85,22 +85,37 @@ You might see an error message similar to the following:
 
 This error occurs when you attempt to create or update a template in a region with feature restrictions, and the request enables features that aren't supported in that region.
 
-The template configuration includes detectors like malicious URL and CSAM, which are not available in some regions with unsupported features.
-
 To resolve this issue:
 
   1. Identify the unsupported capabilities listed in the error message.
-  2. Review the [feature availability by region](https://docs.cloud.google.com/model-armor/feature-availability-by-region) to confirm which features are not available for your target region.
+  2. Review the [feature availability by region](https://docs.cloud.google.com/model-armor/feature-availability-by-region) to confirm which features aren't available for your target region.
   3. Remove the unsupported features from the template that you're creating or updating.
 
 
 
 Alternatively, use a different Model Armor region that supports the features, if your data residency requirements allow.
 
+## Template data residency compliance is required
+
+You might see a `400` (`FAILED_PRECONDITION`) error message similar to the following:
+    
+    
+    Template data residency compliance is required. The 'Enforce data residency' field must not be set to false.
+    
+
+This error occurs when the **Require Model Armor Template Data Residency Compliance** (`constraints/modelarmor.managed.requireTemplateDataResidencyCompliance`) managed Organization Policy Service constraint is enforced and you create or update a Model Armor template with data residency compliance disabled. Data residency compliance is disabled when you set `data_residency_compliant` to `false` or clear the **Enforce data residency** option. Because this constraint is enforced by default, editing any setting, such as a filter, on an existing template that already has `data_residency_compliant` set to `false` also triggers this error. Existing templates and requests to sanitize prompts and responses aren't affected unless you update the template.
+
+To resolve this issue, do one of the following:
+
+  * Enable data residency compliance on the template by setting `data_residency_compliant` to `true` or by selecting the **Enforce data residency** option.
+  * If you need to keep data residency compliance disabled for the template, follow the steps in [Disable the organization policy constraint for data residency](https://docs.cloud.google.com/model-armor/manage-templates#disable-data-residency-constraint) to have your Organization Policy Administrator disable the constraint.
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

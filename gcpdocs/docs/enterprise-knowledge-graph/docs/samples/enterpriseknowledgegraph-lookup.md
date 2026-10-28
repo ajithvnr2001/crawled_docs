@@ -1,13 +1,42 @@
 ---
 url: https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/
 title: Look up an entity (Advanced) \u00a0|\u00a0 Enterprise Knowledge Graph \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:57:22.706389+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:18:31.450826+00:00
 ---
 
 # Look up an entity (Advanced)  |  Enterprise Knowledge Graph  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/
+
+[ Skip to main content ](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/)
+  * [Deutsch](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/?hl=ko)
+
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/ai-and-machine-learning-color.svg) ](https://docs.cloud.google.com/enterprise-knowledge-graph/docs)
+  * [ Enterprise Knowledge Graph ](https://docs.cloud.google.com/enterprise-knowledge-graph/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Explore further](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/#explore-further)
+  * [Code sample](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/#code-sample)
+  * [What's next](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/#whats-next)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -16,96 +45,92 @@ fetched_at: 2026-10-25T05:57:22.706389+00:00
   * [ Samples ](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples)
 
 
+#  Look up an entity (Advanced) Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Explore further](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/#explore-further)
+  * [Code sample](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/#code-sample)
+  * [What's next](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/#whats-next)
 
-#  Look up an entity (Advanced) Stay organized with collections  Save and categorize content based on your preferences. 
 
 Look up an entity by MID in the Knowledge Graph using Advanced Edition.
-
 ## Explore further
-
 For detailed documentation that includes this code sample, see the following: 
-
   * [Google Knowledge Graph Search API](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/search-api)
 
 
-
 ## Code sample
-
-### Python
-
+[Python](https://docs.cloud.google.com/enterprise-knowledge-graph/docs/samples/enterpriseknowledgegraph-lookup/#python) More
 For more information, see the [Enterprise Knowledge Graph Python API reference documentation](https://docs.cloud.google.com/python/docs/reference/enterpriseknowledgegraph/latest). 
-
 To authenticate to Enterprise Knowledge Graph, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
-    
-    
-    from __future__ import annotations
-    
-    from collections.abc import Sequence
-    
-    from google.cloud import enterpriseknowledgegraph as ekg
-    
-    # TODO(developer): Uncomment these variables before running the sample.
-    # project_id = 'YOUR_PROJECT_ID'
-    # location = 'YOUR_GRAPH_LOCATION'      # Values: 'global'
-    # ids = ['YOUR_LOOKUP_MID']             # https://cloud.google.com/enterprise-knowledge-graph/docs/mid
-    # languages = ['en']                    # Optional: List of ISO 639-1 Codes
-    
-    
-    def lookup_sample(
-        project_id: str,
-        location: str,
-        ids: Sequence[str],
-        languages: Sequence[str] = None,
-    ):
-        # Create a client
-        client = ekg.EnterpriseKnowledgeGraphServiceClient()
-    
-        # The full resource name of the location
-        # e.g. projects/{project_id}/locations/{location}
-        parent = client.common_location_path(project=project_id, location=location)
-    
-        # Initialize request argument(s)
-        request = ekg.LookupRequest(
-            parent=parent,
-            ids=ids,
-            languages=languages,
-        )
-    
-        # Make the request
-        response = client.lookup(request=request)
-    
-        print(f"Lookup IDs: {ids}\n")
-    
-        print(response)
-    
-        # Extract and print date from response
-        for item in response.item_list_element:
-            result = item.get("result")
-    
-            print(f"Name: {result.get('name')}")
-            print(f"- Description: {result.get('description')}")
-            print(f"- Types: {result.get('@type')}\n")
-    
-            detailed_description = result.get("detailedDescription")
-    
-            if detailed_description:
-                print("- Detailed Description:")
-                print(f"\t- Article Body: {detailed_description.get('articleBody')}")
-                print(f"\t- URL: {detailed_description.get('url')}")
-                print(f"\t- License: {detailed_description.get('license')}\n")
-    
-            print(f"- Cloud MID: {result.get('@id')}")
-            for identifier in result.get("identifier"):
-                print(f"\t- {identifier.get('name')}: {identifier.get('value')}")
-    
-            print("\n")
-    
-    
+
+```
+
+from __future__ import annotations
+
+from collections.abc import Sequence
+
+from google.cloud import enterpriseknowledgegraph as ekg
+
+# TODO(developer): Uncomment these variables before running the sample.
+# project_id = 'YOUR_PROJECT_ID'
+# location = 'YOUR_GRAPH_LOCATION'      # Values: 'global'
+# ids = ['YOUR_LOOKUP_MID']             # https://cloud.google.com/enterprise-knowledge-graph/docs/mid
+# languages = ['en']                    # Optional: List of ISO 639-1 Codes
+
+
+def lookup_sample(
+    project_id: str,
+    location: str,
+    ids: Sequence[str],
+    languages: Sequence[str] = None,
+):
+    # Create a client
+    client = ekg.EnterpriseKnowledgeGraphServiceClient()
+
+    # The full resource name of the location
+    # e.g. projects/{project_id}/locations/{location}
+    parent = client.common_location_path(project=project_id, location=location)
+
+    # Initialize request argument(s)
+    request = ekg.LookupRequest(
+        parent=parent,
+        ids=ids,
+        languages=languages,
+    )
+
+    # Make the request
+    response = client.lookup(request=request)
+
+    print(f"Lookup IDs: {ids}\n")
+
+    print(response)
+
+    # Extract and print date from response
+    for item in response.item_list_element:
+        result = item.get("result")
+
+        print(f"Name: {result.get('name')}")
+        print(f"- Description: {result.get('description')}")
+        print(f"- Types: {result.get('@type')}\n")
+
+        detailed_description = result.get("detailedDescription")
+
+        if detailed_description:
+            print("- Detailed Description:")
+            print(f"\t- Article Body: {detailed_description.get('articleBody')}")
+            print(f"\t- URL: {detailed_description.get('url')}")
+            print(f"\t- License: {detailed_description.get('license')}\n")
+
+        print(f"- Cloud MID: {result.get('@id')}")
+        for identifier in result.get("identifier"):
+            print(f"\t- {identifier.get('name')}: {identifier.get('value')}")
+
+        print("\n")
+
+
+```
 
 ## What's next
-
 To search and filter code samples for other Google Cloud products, see the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?product=enterpriseknowledgegraph). 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
 [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]] 

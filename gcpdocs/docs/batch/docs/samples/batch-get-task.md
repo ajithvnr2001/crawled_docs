@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/batch/docs/samples/batch-get-task/
 title: Describe a task \u00a0|\u00a0 Batch \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:11.605405+00:00
+fetched_at: 2026-10-27T22:59:57.153395+00:00
 ---
 
 # Describe a task  |  Batch  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/
 title: gcloud network-security security-profiles wildfire-analysis \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T19:24:34.250347+00:00
+fetched_at: 2026-10-27T21:41:07.560040+00:00
 ---
 
 # gcloud network-security security-profiles wildfire-analysis  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -41,6 +41,10 @@ COMMANDS
 
 `[add-inline-cloud-analysis-rule](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/add-inline-cloud-analysis-rule)`
      Add a WildFire inline cloud analysis rule to a WildFire Analysis Profile. 
+`[add-inline-ml-exception](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/add-inline-ml-exception)`
+     Add a WildFire inline machine learning exception to a WildFire Analysis Profile. 
+`[add-override](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/add-override)`
+     Add an override to a WildFire Analysis Profile. 
 `[add-submission-rule](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/add-submission-rule)`
      Add a WildFire submission rule to a WildFire Analysis Profile. 
 `[create](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/create)`
@@ -49,6 +53,10 @@ COMMANDS
      Delete a WildFire Analysis Profile. 
 `[delete-inline-cloud-analysis-rule](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/delete-inline-cloud-analysis-rule)`
      Delete a WildFire inline cloud analysis rule from a WildFire Analysis Profile. 
+`[delete-inline-ml-exception](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/delete-inline-ml-exception)`
+     Delete a WildFire inline machine learning exception from a WildFire Analysis Profile. 
+`[delete-override](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/delete-override)`
+     Delete an override from a WildFire Analysis Profile. 
 `[delete-submission-rule](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/delete-submission-rule)`
      Delete a WildFire submission rule from a WildFire Analysis Profile. 
 `[describe](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/describe)`
@@ -57,6 +65,8 @@ COMMANDS
      List WildFire Analysis Security Profiles. 
 `[update](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/update)`
      Update a WildFire Analysis Security Profile. 
+`[update-override](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/security-profiles/wildfire-analysis/update-override)`
+     Update an override in a WildFire Analysis Profile. 
 NOTES
      These variants are also available: 
     
@@ -70,6 +80,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

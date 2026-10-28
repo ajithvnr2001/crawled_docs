@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/capacity-planner/docs/audit-logging/
 title: Capacity Planner audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:39.949962+00:00
+fetched_at: 2026-10-27T18:59:54.128947+00:00
 ---
 
 # Capacity Planner audit logging  |  Google Cloud Documentation
@@ -26,7 +26,9 @@ Send feedback
 
 This product is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document lists the audited methods for Capacity Planner. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Capacity Planner let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Capacity Planner API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -58,16 +60,16 @@ Each IAM permission has a `type` property, whose value is an enum that can be on
 
 API methods in the following list that are marked with (LRO) are long-running operations (LROs). These methods usually generate two audit log entries: one when the operation starts and another when it ends. For more information see [Audit logs for long-running operations](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro). Permission type | Methods  
 ---|---  
-`ADMIN_READ` | `google.cloud.capacityplanner.v1alpha.UsageService.ExportForecasts`  
-`google.cloud.capacityplanner.v1alpha.UsageService.ExportMachineShapeUsage`  
-`google.cloud.capacityplanner.v1alpha.UsageService.ExportReservationsUsage`  
-`google.cloud.capacityplanner.v1alpha.UsageService.ExportUsageHistories`  
+`ADMIN_READ` | `google.cloud.capacityplanner.v1alpha.UsageService.ExportForecasts` (LRO)  
+`google.cloud.capacityplanner.v1alpha.UsageService.ExportMachineShapeUsage` (LRO)  
+`google.cloud.capacityplanner.v1alpha.UsageService.ExportReservationsUsage` (LRO)  
+`google.cloud.capacityplanner.v1alpha.UsageService.ExportUsageHistories` (LRO)  
 `google.cloud.capacityplanner.v1alpha.UsageService.QueryForecasts`  
 `google.cloud.capacityplanner.v1alpha.UsageService.QueryReservations`  
 `google.cloud.capacityplanner.v1alpha.UsageService.QueryUsageHistories`  
-`google.cloud.capacityplanner.v1beta.UsageService.ExportForecasts`  
-`google.cloud.capacityplanner.v1beta.UsageService.ExportReservationsUsage`  
-`google.cloud.capacityplanner.v1beta.UsageService.ExportUsageHistories`  
+`google.cloud.capacityplanner.v1beta.UsageService.ExportForecasts` (LRO)  
+`google.cloud.capacityplanner.v1beta.UsageService.ExportReservationsUsage` (LRO)  
+`google.cloud.capacityplanner.v1beta.UsageService.ExportUsageHistories` (LRO)  
 `google.cloud.capacityplanner.v1beta.UsageService.QueryForecasts`  
 `google.cloud.capacityplanner.v1beta.UsageService.QueryReservations`  
 `google.cloud.capacityplanner.v1beta.UsageService.QueryUsageHistories`  
@@ -210,7 +212,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `capacityplanner.forecasts.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.capacityplanner.v1alpha.UsageService.ExportForecasts" `  
 
@@ -226,7 +228,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Permissions** : 
     * `capacityplanner.forecasts.list - ADMIN_READ`
     * `capacityplanner.usageHistories.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.capacityplanner.v1alpha.UsageService.ExportMachineShapeUsage" `  
 
@@ -241,7 +243,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `capacityplanner.usageHistories.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.capacityplanner.v1alpha.UsageService.ExportReservationsUsage" `  
 
@@ -256,7 +258,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `capacityplanner.usageHistories.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.capacityplanner.v1alpha.UsageService.ExportUsageHistories" `  
 
@@ -320,7 +322,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `capacityplanner.forecasts.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.capacityplanner.v1beta.UsageService.ExportForecasts" `  
 
@@ -335,7 +337,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `capacityplanner.usageHistories.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.capacityplanner.v1beta.UsageService.ExportReservationsUsage" `  
 
@@ -350,7 +352,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `capacityplanner.usageHistories.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.capacityplanner.v1beta.UsageService.ExportUsageHistories" `  
 
@@ -524,6 +526,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

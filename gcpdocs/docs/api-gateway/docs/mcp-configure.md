@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/api-gateway/docs/mcp-configure/
 title: Configure Model Context Protocol \u00a0|\u00a0 API Gateway \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:33:37.412797+00:00
+fetched_at: 2026-10-27T23:09:50.323893+00:00
 ---
 
 # Configure Model Context Protocol  |  API Gateway  |  Google Cloud Documentation
@@ -108,7 +108,7 @@ You can also opt-out an operation when globally enabled by setting `x-google-mcp
 
 ### 3\. Authenticate `tools/list` (Recommended)
 
-By default, the `tools/list` method (which enumerates available tools) is unauthenticated. As a security best practice, we strongly recommend that you enforce authentication by configuring `tools-list.security` under `x-google-api-management/mcp`. You can name either a JWT scheme or an API key scheme.
+By default, the `tools/list` method (which enumerates available tools) is unauthenticated. As a security best practice, we strongly recommend that you enforce authentication by configuring `tools-list.security` under `x-google-api-management.mcp`. You can name either a JWT scheme or an API key scheme.
 
 The following example requires a JWT:
     
@@ -140,7 +140,7 @@ The following example requires an API key. Clients must send the key in the `x-a
 
 ### 4\. Create and deploy the API config
 
-Create an API config from your annotated specification and deploy it to a gateway using the standard flow. See [Deploying an API to a gateway](https://docs.cloud.google.com/api-gateway/docs/deploying-api) for details.
+Create an API config from your annotated specification and deploy it to a gateway using the standard flow. See [Deploying an API to a gateway](https://docs.cloud.google.com/api-gateway/docs/deploying-api) for details. To change tools later, see Update exposed MCP tools.
 
 ### 5\. Verify MCP support
 
@@ -221,6 +221,67 @@ Invoke a specific tool. Ensure you include any required authentication tokens if
     }'
     
 
+## Update exposed MCP tools
+
+API configs in API Gateway are immutable, so you can't change the API definition in an existing API config. As a result, the `tools/list` response is static for each deployed API config.
+
+To add, remove, rename, or update exposed MCP tools or `tools/list` security settings, create a new API config and deploy it to your gateway:
+
+  1. Update your OpenAPI 3.x specification, including operations, `operationId` values, summaries, parameters, and the `x-google-api-management.mcp` and `x-google-mcp-tool` extensions.
+  2. Create a new API config with a new API config ID:
+         
+         gcloud api-gateway api-configs create NEW_CONFIG_ID \
+             --api=API_ID \
+             --openapi-spec=API_DEFINITION \
+             --project=PROJECT_ID \
+             --backend-auth-service-account=SERVICE_ACCOUNT_EMAIL
+
+Replace the following:
+
+     * `NEW_CONFIG_ID`: a new ID for the updated API config
+     * `API_ID`: the ID of the API Gateway API
+     * `API_DEFINITION`: the path to your updated OpenAPI 3.x specification
+     * `PROJECT_ID`: your Google Cloud project ID
+     * `SERVICE_ACCOUNT_EMAIL`: the email address of the service account used to sign tokens for backends with authentication configured. Omit this flag if none of your backends require authentication.
+
+For more information, see [Create an API config](https://docs.cloud.google.com/api-gateway/docs/creating-api-config#creating-an-api-config).
+
+  3. Update each gateway that serves the API to use the new API config:
+         
+         gcloud api-gateway gateways update GATEWAY_ID \
+             --api=API_ID \
+             --api-config=NEW_CONFIG_ID \
+             --location=GCP_REGION \
+             --project=PROJECT_ID
+
+Replace the following:
+
+     * `GATEWAY_ID`: the ID of the gateway to update
+     * `GCP_REGION`: the region where the gateway is deployed
+
+For more information, see [Update a gateway](https://docs.cloud.google.com/api-gateway/docs/deploying-api#update_a_gateway).
+
+  4. Call `tools/list` to check the updated tool set. For an example request, see Discover tools.
+
+  5. After no gateway uses the previous API config, delete the superseded API config:
+         
+         gcloud api-gateway api-configs delete OLD_CONFIG_ID \
+             --api=API_ID \
+             --project=PROJECT_ID
+
+Replace `OLD_CONFIG_ID` with the ID of the superseded API config. Don't delete an API config while any gateway still uses it; if your new API config renames or removes quota metrics, gateways that still serve an older API config can return HTTP `500` errors until updated (see [Quotas apply to the whole API](https://docs.cloud.google.com/api-gateway/docs/quotas-overview#quotas_apply_to_the_whole_api)). For more information, see [Delete an API config](https://docs.cloud.google.com/api-gateway/docs/creating-api-config#delete-an-api-config).
+
+
+
+
+Keep the following rollout and client behaviors in mind when you update MCP tools:
+
+  * **Zero-downtime rollout** : API Gateway updates gateways without downtime. While the new API config propagates, some requests might briefly reach the previous API config. If your API is deployed across multiple gateways or regions, update each gateway separately.
+  * **Client tool caches** : Because API Gateway serves MCP over a stateless HTTP transport, the gateway doesn't emit `notifications/tools/list_changed` notifications. After the gateway update completes, MCP clients that cache tool definitions must call `tools/list` again to discover the updated tools.
+  * **API config limits** : Each API is limited to 100 API configs, so delete superseded API configs after updating your gateways. Create API configs one at a time; if you start a second API config for the same API before the first one finishes, one or both might not be usable by a gateway. For more information, see [Quotas and limits](https://docs.cloud.google.com/api-gateway/docs/quotas).
+
+
+
 ## Observability
 
 MCP requests yield standard API Gateway metrics and logs. You can distinguish MCP traffic from standard REST traffic by inspecting the request path (typically ending in `/mcp`) or by configuring custom metrics.
@@ -239,7 +300,7 @@ Missing/Invalid Method or ID | `-32600` | `200` | The body is valid JSON but not
 Method is not supported | `-32601` | `200` | The method is outside the supported scope (e.g., `ping`).  
 Unsupported protocol version | `-32602` | `200` | The `protocolVersion` names a version the gateway does not support.  
 Missing Protocol Version | `-32602` | `200` | The `initialize` params omit `protocolVersion` or it is not a string.  
-Unknown tool | `-32602` | `200` | Tool name not found. Clean client cache or verify deployment.  
+Unknown tool | `-32602` | `200` | Tool name not found in the deployed API config. Refresh the client tool cache, or see Update exposed MCP tools.  
 Invalid tool arguments | `-32602` | `200` | Arguments are missing or invalid. Verify the `body` key nesting.  
 Body too large | `-32000` | `200` | The response payload exceeded size limits.  
 Transport body too large | n/a | `413` | The raw HTTP request body exceeded gateway transport limits.  
@@ -260,6 +321,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

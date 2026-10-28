@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/resources/
 title: Resources \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:50.790530+00:00
+fetched_at: 2026-10-27T20:45:36.963039+00:00
 ---
 
 # Resources  |  Knowledge Catalog  |  Google Cloud Documentation

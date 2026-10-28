@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/quotas-and-limits/
 title: Quotas and limits for Workflow Builder \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:46.037559+00:00
+fetched_at: 2026-10-27T23:54:14.002362+00:00
 ---
 
 # Quotas and limits for Workflow Builder  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Send feedback
 
 A _quota_ is a configurable or allocated limit on the amount of a resource you can use, such as daily agent creations or queries. For seat-based subscriptions, quotas are automatically adjusted based on the number of licenses your organization purchases. A _limit_ is a system constraint or capacity threshold, such as subagent depth, file upload size, or the number of individuals an agent can be shared with. System limits are fixed constraints, unless explicitly noted as an adjustable administrative setting.
 
-For information on overall Gemini Enterprise quotas, pooling across editions, and overage pricing, see [Quotas and overages](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages).
+For information on overall Gemini Enterprise quotas, pooling across editions, and pay-as-you-go usage above quota pricing, see [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage).
 
 **Workflow Builder limits at a glance:**
 
@@ -66,7 +66,7 @@ If the number of registration calls in a day exceeds the number of distributed S
 
 **Deployment recommendation:** If automated deployment scripts or CI/CD pipelines need to register an agent across many apps in a single project (for example, 60+ apps), ensure that an equivalent number of Standard licenses (for example, 60+ seats) are temporarily distributed to the project before initiating the rollout. Alternatively, pace automated registrations across daily quota reset windows.
 
-For more information about how quotas are pooled, calculated, and billed for overages across editions, see [Quotas and overages](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#edition-quotas).
+For more information about how quotas are pooled, calculated, and billed for pay-as-you-go usage above quota across editions, see [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#feature-quotas).
 
 ### Agent capacity limits
 
@@ -151,7 +151,7 @@ Uploaded files and indexed documents consume storage from your organization's st
 
 
 
-If total stored content exceeds the combined pool for your licensed seats, Google bills overages at $5 per GiB per month. For more details, see [Storage and data indexing quota](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages#storage-quotas).
+If total stored content exceeds the combined pool for your licensed seats, Google bills pay-as-you-go usage above quota at $5 per GiB per month. For more details, see [Feature and edition-based quotas](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage#feature-quotas).
 
 ## Execution schedule limits
 
@@ -183,7 +183,7 @@ Skill agents per agent | 100 skills | The maximum number of modular skill agents
   * [Create a workflow](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/create-workflows): Build custom workflows using the flow builder canvas.
   * [Share a chat agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/share-chat-agent) and [Share a workflow](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/share-workflows): Manage access permissions and share agents with team members or Google Groups.
   * [Schedule a chat agent run](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/schedule-chat-agent): Configure automated hourly, daily, or weekly recurrence triggers.
-  * [Quotas and overages](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages): Review organization-wide pooled query quotas, storage indexing limits, and overage billing for Gemini Enterprise.
+  * [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage): Review organization-wide pooled query quotas, storage indexing limits, and pay-as-you-go billing for Gemini Enterprise.
 
 
 
@@ -191,6 +191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

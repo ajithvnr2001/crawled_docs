@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/architecture/scalable-bigquery-backup-automation/
 title: Scalable BigQuery backup automation \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:19.613067+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:22:44.409625+00:00
 ---
 
 # Scalable BigQuery backup automation  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -38,7 +52,7 @@ This document is intended for cloud architects, engineers, and data governance o
 
 The following diagram shows the automated backup architecture:
 
-![Architecture for the automated backup solution.](https://docs.cloud.google.com/static/architecture/images/bq-backup-manager-diagram.svg)![](https://docs.cloud.google.com/static/architecture/images/bq-backup-manager-diagram.svg)
+![Architecture for the automated backup solution.](https://docs.cloud.google.com/static/architecture/images/bq-backup-manager-diagram.svg) ![](https://docs.cloud.google.com/static/architecture/images/bq-backup-manager-diagram.svg)
 
 The workflow that's shown in the preceding diagram includes the following phases:
 

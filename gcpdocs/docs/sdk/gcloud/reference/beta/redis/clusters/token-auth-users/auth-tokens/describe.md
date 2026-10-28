@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/redis/clusters/token-auth-users/auth-tokens/describe/
 title: gcloud beta redis clusters token-auth-users auth-tokens describe \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T02:37:20.291171+00:00
+fetched_at: 2026-10-27T21:40:20.525563+00:00
 ---
 
 # gcloud beta redis clusters token-auth-users auth-tokens describe  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -106,7 +106,10 @@ Run `$ [gcloud help](https://docs.cloud.google.com/sdk/gcloud/reference)` for de
 API REFERENCE
      This command uses the `redis/v1beta1` API. The full documentation for this API can be found at: <https://cloud.google.com/memorystore/docs/redis/>
 NOTES
-     This command is currently in beta and might change without notice. This variant is also available: 
+     This command is currently in beta and might change without notice. These variants are also available: 
+    
+    
+    [gcloud redis clusters token-auth-users auth-tokens describe](https://docs.cloud.google.com/sdk/gcloud/reference/redis/clusters/token-auth-users/auth-tokens/describe)
     
     
     [gcloud alpha redis clusters token-auth-users auth-tokens describe](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/redis/clusters/token-auth-users/auth-tokens/describe)
@@ -115,6 +118,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

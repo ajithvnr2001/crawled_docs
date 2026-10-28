@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-lama-connector-planning/
 title: Connector for SAP Landscape Management planning guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:45:12.400184+00:00
+fetched_at: 2026-10-28T02:31:27.623847+00:00
 ---
 
 # Connector for SAP Landscape Management planning guide  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -195,9 +195,7 @@ Deployment recommendations:
   * Deploy SAP systems to be managed by SAP Landscape Management in accordance with SAP adaptive design or enablement principles. For more information, see: 
     * [SAP Adaptive Design](https://help.sap.com/viewer/e7dead4286c545808b3bd24feee7448c/3.0.15.0/en-US/737a99e86f8743bdb8d1f6cf4b862c79.html)
     * [SAP Landscape Management, Enterprise Edition, Provisioning and Adaptive Design Principles](https://www.sap.com/documents/2021/07/c840f2a9-eb7d-0010-bca6-c68f7e60039b.html)
-  * Run SAP systems that are managed by SAP Landscape Management on Compute Engine VM instances that are certified by SAP. See: 
-    * [Certifications for SAP applications on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-apps)
-    * [Certifications for SAP HANA on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-hana)
+  * Run SAP systems that are managed by SAP Landscape Management on Compute Engine machine types that are certified by SAP. See [SAP certifications for Google Cloud](https://docs.cloud.google.com/sap/docs/sap-certifications)
   * Run SAP HANA databases on dedicated VMs.
 
 
@@ -552,6 +550,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

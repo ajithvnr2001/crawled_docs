@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-disable-transfer/
 title: Disable a transfer configuration \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:43:47.929654+00:00
+fetched_at: 2026-10-27T23:02:38.022585+00:00
 ---
 
 # Disable a transfer configuration  |  BigQuery  |  Google Cloud Documentation

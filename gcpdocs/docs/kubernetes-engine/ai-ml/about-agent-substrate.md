@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/ai-ml/about-agent-substrate/
 title: About Agent Substrate on GKE \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:38:30.709568+00:00
+fetched_at: 2026-10-27T19:53:48.941242+00:00
 ---
 
 # About Agent Substrate on GKE  |  GKE AI/ML  |  Google Cloud Documentation
@@ -100,7 +100,6 @@ Agent Substrate on GKE has the following limitations and requirements:
       * Credential injection
     * **Open connections** : open network connections (such as database sessions or connections to MCP servers) aren't preserved when an agent suspends. Your agent code must handle reconnecting to external services when the agent resumes.
   * **Observability and Managed OpenTelemetry** : [Managed OpenTelemetry for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/managed-otel-gke) has the following limitations: 
-    * Managed OpenTelemetry for GKE is in Preview.
     * Collector connectors aren't supported, which requires using an external proxy meter for telemetry benchmarking.
     * Collector deployments incur memory cache overhead that scales linearly with the number of Pods in large clusters.
     * TLS isn't supported in Managed OpenTelemetry for GKE.
@@ -122,6 +121,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

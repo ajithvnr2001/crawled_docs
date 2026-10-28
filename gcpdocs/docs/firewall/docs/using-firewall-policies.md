@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firewall/docs/using-firewall-policies/
 title: Create hierarchical firewall policies and rules \u00a0|\u00a0 Cloud Next Generation Firewall \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:24:33.715522+00:00
+fetched_at: 2026-10-27T18:58:19.045772+00:00
 ---
 
 # Create hierarchical firewall policies and rules  |  Cloud Next Generation Firewall  |  Google Cloud Documentation
@@ -287,7 +287,7 @@ When you select this option, Cloud NGFW uses VM instances as the target.
 
         * To skip filtering inbound traffic by destination IP address, select **None**.
         * To filter inbound traffic to by destination IP address, select **IPv4** or **IPv6** and then enter one or more CIDRs using the same format used for source IPv4 ranges or source IPv6 ranges.
-     12. **Protocols and ports** : specify the protocols and destination ports for traffic to match the rule. For more information, see [Protocols and ports](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#protocols_and_ports).
+     12. **Protocols and ports** : specify the protocols and destination ports for traffic to match the rule. For more information, see [Protocols and ports](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#protocols_and_ports). 
 
      13. **Enforcement** : specify whether the firewall rule is enforced or not:
 
@@ -320,8 +320,8 @@ When you select this option, Cloud NGFW uses VM instances as the target.
         [--src-fqdns=SRC_DOMAIN_NAMES] \  
         [--src-secure-tags=SRC_SECURE_TAGS] \  
         [--src-region-codes=SRC_COUNTRY_CODES] \  
-        [--src-threat-intelligence=SRC_THREAT_LIST_NAMES] \
-        [--dest-ip-ranges=DEST_IP_RANGES]
+        [--src-threat-intelligence=SRC_THREAT_LIST_NAMES] \  
+        [--dest-ip-ranges=DEST_IP_RANGES]
     
 
 Replace the following:
@@ -346,10 +346,18 @@ Replace the following:
     * `TARGET_NETWORKS`: a comma-separated list of VPC networks specified by their network resource URLs in the form `https://www.googleapis.com/compute/v1/projects/PROJECT_ID/global/networks/NETWORK_NAME`. The `--target-resources` flag can be used by itself or in combination with one other target flag. For more information, see [Specific target combinations](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#target-specific-combinations). 
     * `TARGET_SECURE_TAGS`: a comma-separated list of [secure tag](https://docs.cloud.google.com/firewall/docs/tags-firewalls-overview) values that narrows the broadest instance targets to the network interfaces of VM instances that are bound to at least one of the secure tag values.
     * `TARGET_SERVICE_ACCOUNTS`: a comma-separated list of service accounts that narrows the broadest instance targets to the network interfaces of VM instances that use one of the service accounts.
-  * `LAYER_4_CONFIGS`: a comma-separated list of Layer 4 configs. Each Layer 4 config can be one of the following: 
-    * An IP protocol name (`tcp`) or IANA IP protocol number (`17`) without any destination port.
+
+
+  * `LAYER_4_CONFIGS`: a comma-separated list of Layer 4 configs. Each Layer 4 config can be one of the following:
+
+    * An IP protocol name (`tcp`) or IANA IP protocol number (`6`) without any destination port.
     * An IP protocol name and destination port separated by a colon (`tcp:80`).
-    * An IP protocol name and destination port range separated by a colon using a dash to separate the beginning and ending destination ports (`tcp:5000-6000`). For more information, see [Protocols and ports](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#protocols_and_ports).
+    * An IP protocol name and destination port range separated by a colon using a dash to separate the beginning and ending destination ports (`tcp:5000-6000`).
+
+For more information, see [Protocols and ports](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#protocols_and_ports).
+
+
+
   * Specify a [source for the ingress rule](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#hfp-nfp-ingress-src). For more information, [Ingress rule source combinations](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#hfp-nfp-ingress-src-combinations): 
     * `SRC_NETWORK_CONTEXT`: defines a source network contexts to be used in conjunction with another supported source parameter to produce a source combination. Valid values when `--target-type=INSTANCES` are: `INTERNET`, `NON_INTERNET`, `VPC_NETWORKS`, or `INTRA_VPC`. For more information, see [Network contexts](https://docs.cloud.google.com/firewall/docs/understand-network-contexts).
     * `SRC_VPC_NETWORKS`: a comma-separated list of VPC networks specified by their URL identifiers. Specify this flag only when the `--src-network-context` is `VPC_NETWORKS`.
@@ -446,7 +454,7 @@ When you select this option, Cloud NGFW uses VM instances as the target.
 
         * To skip filtering outgoing traffic by source IP address, select **None**.
         * To filter outgoing traffic to by source IP address, select **IPv4** or **IPv6** and then enter one or more CIDRs using the same format used for destination IPv4 ranges or destination IPv6 ranges.
-     12. **Protocols and ports** : specify the protocols and destination ports for traffic to match the rule. For more information, see [Protocols and ports](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#protocols_and_ports).
+     12. **Protocols and ports** : specify the protocols and destination ports for traffic to match the rule. For more information, see [Protocols and ports](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#protocols_and_ports). 
 
      13. **Enforcement** : specify whether the firewall rule is enforced or not:
 
@@ -477,8 +485,8 @@ When you select this option, Cloud NGFW uses VM instances as the target.
         [--dest-address-groups=DEST_ADDRESS_GROUPS] \  
         [--dest-fqdns=DEST_DOMAIN_NAMES] \  
         [--dest-region-codes=DEST_COUNTRY_CODES] \  
-        [--dest-threat-intelligence=DEST_THREAT_LIST_NAMES] \
-        [--src-ip-ranges=SRC_IP_RANGES]
+        [--dest-threat-intelligence=DEST_THREAT_LIST_NAMES] \  
+        [--src-ip-ranges=SRC_IP_RANGES]
     
 
 Replace the following:
@@ -503,10 +511,18 @@ Replace the following:
     * `TARGET_NETWORKS`: a comma-separated list of VPC networks specified by their network resource URLs in the form `https://www.googleapis.com/compute/v1/projects/PROJECT_ID/global/networks/NETWORK_NAME`. The `--target-resources` flag can be used by itself or in combination with one other target flag. For more information, see [Specific target combinations](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#target-specific-combinations). 
     * `TARGET_SECURE_TAGS`: a comma-separated list of [secure tag](https://docs.cloud.google.com/firewall/docs/tags-firewalls-overview) values that narrows the broadest instance targets to the network interfaces of VM instances that are bound to at least one of the secure tag values.
     * `TARGET_SERVICE_ACCOUNTS`: a comma-separated list of service accounts that narrows the broadest instance targets to the network interfaces of VM instances that use one of the service accounts.
-  * `LAYER_4_CONFIGS`: a comma-separated list of Layer 4 configs. Each Layer 4 config can be one of the following: 
-    * An IP protocol name (`tcp`) or IANA IP protocol number (`17`) without any destination port.
+
+
+  * `LAYER_4_CONFIGS`: a comma-separated list of Layer 4 configs. Each Layer 4 config can be one of the following:
+
+    * An IP protocol name (`tcp`) or IANA IP protocol number (`6`) without any destination port.
     * An IP protocol name and destination port separated by a colon (`tcp:80`).
-    * An IP protocol name and destination port range separated by a colon using a dash to separate the beginning and ending destination ports (`tcp:5000-6000`). For more information, see [Protocols and ports](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#protocols_and_ports).
+    * An IP protocol name and destination port range separated by a colon using a dash to separate the beginning and ending destination ports (`tcp:5000-6000`).
+
+For more information, see [Protocols and ports](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#protocols_and_ports).
+
+
+
   * Specify a [destination for the egress rule](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#hfp-nfp-egress-dest). For more information, [Egress rule destination combinations](https://docs.cloud.google.com/firewall/docs/firewall-policies-rule-details#hfp-nfp-egress-dest-combinations): 
     * `DEST_NETWORK_CONTEXT`: defines a destination network contexts to be used in conjunction with another supported destination parameter to produce a destination combination. Valid values are `INTERNET` and `NON_INTERNET`. For more information, see [Network contexts](https://docs.cloud.google.com/firewall/docs/understand-network-contexts).
     * `DEST_IP_RANGES`: a comma-separated list of IP address ranges in CIDR format. Ranges in the list must all be either IPv4 CIDRs or IPv6 CIDRs, not a combination of both.
@@ -531,6 +547,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-enable-pre-trained-apis/
 title: Enable Vertex AI APIs \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:21:02.629098+00:00
+fetched_at: 2026-10-28T02:29:56.826347+00:00
 ---
 
 # Enable Vertex AI APIs  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,20 +22,9 @@ Send feedback
 
 #  Enable Vertex AI APIs Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page guides you through the setup process for accessing Vertex AI pre-trained APIs within the Google Distributed Cloud (GDC) air-gapped infrastructure, allowing you to integrate AI features into your air-gapped application. You can find details about the prerequisites and the steps for enabling and deactivating the Vertex AI APIs through the GDC console console.
+Vertex AI in Google Distributed Cloud (GDC) air-gapped provides pre-trained APIs for integrating artificial intelligence (AI) and machine learning (ML) into your air-gapped applications. Enable or deactivate these APIs in the GDC console so that users in your organization can interact with AI models and capabilities.
 
-This page is for application developers within application operator groups who are responsible for optimizing air-gapped applications with AI features. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
-
-Vertex AI on Distributed Cloud includes various APIs that you must enable from the GDC console to let users from your organization interact with ML models and AI capabilities. To learn more about these APIs, see the following documentation:
-
-  * **Generative AI** : [Learn about Generative AI capabilities and available models](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/genai/genai-overview).
-  * **Online Prediction** : [Learn about online predictions](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-online-predictions).
-  * **Optical Character Recognition (OCR)** : [Learn about character recognition features](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-ocr).
-  * **Speech-to-Text** : [Learn about speech recognition features](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-stt).
-  * **Vertex AI Translation** : [Learn about translation features](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-translation).
-  * **Vertex AI Workbench** : [Learn about Vertex AI Workbench](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-workbench-intro).
-
-
+In the GDC console, you can enable [Generative AI](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/genai/genai-overview), [Online Prediction](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-online-predictions), [Optical Character Recognition (OCR)](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-ocr), [Speech-to-Text](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-stt), [Vertex AI Translation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-translation), and [Vertex AI Workbench](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-workbench-intro). This document is for application developers in application operator groups who optimize air-gapped applications with AI features. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
 
 ## Before you begin
 
@@ -98,6 +87,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

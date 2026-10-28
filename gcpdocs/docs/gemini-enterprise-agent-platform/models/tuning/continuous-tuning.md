@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/continuous-tuning/
 title: Use continuous tuning for Gemini models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:17.117785+00:00
+fetched_at: 2026-10-28T02:28:02.630146+00:00
 ---
 
 # Use continuous tuning for Gemini models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -71,7 +71,7 @@ When creating a continuous tuning job, note the following:
 
   * Only supervised tuning base models that are tuned on or after July 11, 2025 can be used as base models for continuous tuning.
 
-  * If you're using [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek), your continuous tuning job must use the same CMEK that was used in the tuning job for the pre-tuned model.
+  * If you're using [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek), your continuous tuning job must use the same CMEK that was used in the tuning job for the pre-tuned model.
 
 
 
@@ -80,9 +80,9 @@ When creating a continuous tuning job, note the following:
 
 To configure continuous tuning for a pre-tuned model by using the Google Cloud console, perform the following steps:
 
-  1. In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Agent Platform Studio** page.
+  1. In the Gemini Enterprise Agent Platform section of the Google Cloud console, go to the **Tuning** page.
 
-[Go to **Agent Platform Studio**](https://console.cloud.google.com/agent-platform/generative/language/tuning)
+[Go to **Tuning**](https://console.cloud.google.com/agent-platform/generative/language/tuning)
 
   2. Click **Create tuned model**.
 
@@ -299,6 +299,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

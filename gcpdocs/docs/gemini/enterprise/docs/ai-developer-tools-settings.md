@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-settings/
 title: Configure AI developer tools settings \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:06.994427+00:00
+fetched_at: 2026-10-27T23:54:30.925463+00:00
 ---
 
 # Configure AI developer tools settings  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -219,7 +219,7 @@ Before you configure models, consider the following:
 
   * **Third-party model inference and data handling:** Third-party models are available only after an administrator enables them and accepts the provider's terms. When a developer selects an enabled third-party model, Gemini Enterprise sends the prompt and the code context needed for that request to the model, with the same processing and protections as Gemini models. Prompts and responses aren't used to train models. Third-party model inference is available in the `global`, `us`, and `eu` locations. In-country regions aren't supported. To see the list of countries and regions that can access the model, see Anthropic's [Supported countries and regions](https://www.anthropic.com/supported-countries). For more information on data residency, see [Data residency for Gemini Enterprise Standard and Plus Editions and Gemini Notebook](https://docs.cloud.google.com/gemini/enterprise/docs/locations).
 
-  * **Hybrid execution and billing disclosures:** Gemini models draw from your organization's pooled edition seat credits, while administrator-enabled third-party models are billed as pay-as-you-go usage on your Cloud Billing account. When a developer selects an enabled third-party model (such as **Anthropic Claude Opus 5.5** or **Anthropic Claude Sonnet 5.5**) for primary reasoning, planning, tool orchestration, and code generation tasks, Antigravity continues to use lightweight Gemini models in the background for client-side coordination—such as context management and summaries—and Gemini 3 Pro Image for image generation. Using these models can incur charges. For more information, see [Quotas and overages](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages) and [Track third-party model token usage](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-track-token-usage).
+  * **Hybrid execution and billing disclosures:** Gemini models draw from your organization's pooled edition seat credits, while administrator-enabled third-party models are billed as pay-as-you-go usage on your Cloud Billing account. When a developer selects an enabled third-party model (such as **Anthropic Claude Opus 5.5** or **Anthropic Claude Sonnet 5.5**) for primary reasoning, planning, tool orchestration, and code generation tasks, Antigravity continues to use lightweight Gemini models in the background for client-side coordination—such as context management and summaries—and Gemini 3 Pro Image for image generation. Using these models can incur charges. For more information, see [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage) and [Track third-party model token usage](https://docs.cloud.google.com/gemini/enterprise/docs/ai-developer-tools-track-token-usage).
 
 
 
@@ -268,7 +268,7 @@ Model display name | Provider | Availability in Gemini Enterprise
 **Anthropic Claude Opus 5.5** | Anthropic |  Turned off by default. Requires administrator opt-in (see Enable or turn off third-party models).   
 **Anthropic Claude Sonnet 5.5** | Anthropic |  Turned off by default. Requires administrator opt-in (see Enable or turn off third-party models).   
   
-For information about quotas and pooled edition credits, see [Quotas and overages](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-overages) and [Configure overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages). For third-party model pricing, see the Cloud Billing SKUs for [Anthropic Claude Opus 5.5](https://cloud.google.com/skus?filter=opus&currency=USD&e=48754805) and [Anthropic Claude Sonnet 5.5](https://cloud.google.com/skus?filter=sonnet&currency=USD&e=48754805).
+For information about quotas and pooled edition credits, see [Quotas and pay-as-you-go usage](https://docs.cloud.google.com/gemini/enterprise/docs/quotas-and-pay-as-you-go-usage) and [Configure pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota). For third-party model pricing, see the Cloud Billing SKUs for [Anthropic Claude Opus 5.5](https://cloud.google.com/skus?filter=opus&currency=USD&e=48754805) and [Anthropic Claude Sonnet 5.5](https://cloud.google.com/skus?filter=sonnet&currency=USD&e=48754805).
 
 ### Thinking level for third-party models
 
@@ -276,7 +276,7 @@ Developers can use **Anthropic Claude Opus 5.5** and **Anthropic Claude Sonnet 5
 
 ### Enable or turn off third-party models
 
-Third-party models are billed as pay-as-you-go usage and require overages. Before you enable a third-party model, [turn on overages](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages). If overages are turned off later, developers can't use third-party models until overages are turned back on. To control costs, you can [set a monthly spend limit](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages#set-spend-limit) for your project. The limit applies to all models, including third-party models.
+Third-party models are billed as pay-as-you-go usage and require pay-as-you-go usage above quota. Before you enable a third-party model, [turn on pay-as-you-go usage above quota](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota). If pay-as-you-go usage is turned off later, developers can't use third-party models until pay-as-you-go usage is turned back on. To control costs, you can [set a monthly spend limit](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota#set-spend-limit) for your project. The limit applies to all models, including third-party models.
 
 To enable or manage third-party models (such as **Anthropic Claude Opus 5.5** and **Anthropic Claude Sonnet 5.5**) in the Google Cloud console:
 
@@ -317,9 +317,67 @@ AI models, including third-party models, can follow instructions hidden in conte
   * Turn on **Browser access** and limit agents to a list of **Allowed URLs**.
   * Turn on **Sandbox mode** for projects that work with untrusted code, dependencies, or web content.
   * Encourage developers to review the commands and code changes that agents propose before approving them.
-  * [Set a monthly spend limit](https://docs.cloud.google.com/gemini/enterprise/docs/configure-overages#set-spend-limit) for your project.
+  * [Set a monthly spend limit](https://docs.cloud.google.com/gemini/enterprise/docs/configure-pay-as-you-go-usage-above-quota#set-spend-limit) for your project.
 
 
+
+## Fix a missing service agent
+
+AI developer tools use a Google-managed service agent in your project to handle requests such as pay-as-you-go usage above quota and administrator controls. The service agent is created automatically when you turn on the **AI developer tools** toggle or purchase a Gemini Enterprise subscription.
+
+If the service agent doesn't exist in your project, requests from AI developer tools fail with an error similar to the following:
+    
+    
+    Service agent SERVICE_AGENT_EMAIL not found.
+    
+
+To fix this error, re-create the service agent by using one of the following methods.
+
+### Use the Google Cloud console
+
+  1. In the Google Cloud console, go to **Gemini Enterprise**.
+
+[Go to Gemini Enterprise](https://console.cloud.google.com/gemini-enterprise/)
+
+  2. Click **Settings** , and select the **AI developer tools** tab.
+
+  3. Turn off the **AI developer tools** toggle.
+
+  4. Turn on the **AI developer tools** toggle again.
+
+Turning on the toggle creates the service agent in your project. Turning the toggle off and on again doesn't reset your configured AI developer tools settings.
+
+
+
+
+### Use the gcloud CLI
+
+  1. Create the service agent:
+         
+         gcloud beta services identity create \
+             --service=businessaicode.googleapis.com \
+             --project=PROJECT_ID
+         
+
+Replace `PROJECT_ID` with the ID of your project.
+
+The command output includes the email address of the service agent.
+
+  2. Grant the **Business AI Code Service Agent** (`roles/businessaicode.serviceAgent`) role to the service agent. The `gcloud beta services identity create` command doesn't grant this role automatically.
+         
+         gcloud projects add-iam-policy-binding PROJECT_ID \
+             --member="serviceAccount:SERVICE_AGENT_EMAIL" \
+             --role="roles/businessaicode.serviceAgent"
+         
+
+Replace the following:
+
+     * `PROJECT_ID`: the ID of your project.
+     * `SERVICE_AGENT_EMAIL`: the email address of the service agent from the previous step's output or from the error message.
+
+
+
+For more information, see [`gcloud beta services identity create`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/services/identity/create).
 
 ## What's next
 
@@ -334,6 +392,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

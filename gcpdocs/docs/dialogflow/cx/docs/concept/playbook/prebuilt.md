@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt/
 title: Playbook-based, prebuilt agents \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:22.753974+00:00
+fetched_at: 2026-10-27T20:09:43.028790+00:00
 ---
 
 # Playbook-based, prebuilt agents  |  Dialogflow CX  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Playbook-based, prebuilt agents Stay organized with collections  Save and categorize content based on your preferences. 
 
-Playbook-based, prebuilt agents are a collection of ready-to-use agents built using playbooks for common tasks and scenarios. They can be used to accelerate development for new agents.
+Playbook-based, prebuilt agents are a collection of ready-to-use agents built using playbooks for common tasks and scenarios. You can use them to accelerate development for new agents.
 
 For agents that require integrations with external services, you must modify the configuration of the [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) to integrate with the appropriate endpoints.
 
@@ -56,7 +56,7 @@ To import a prebuilt agent to your project:
   4. Click **Shared resources** in the sidebar menu.
   5. Click **Prebuilt** in the **Templates** section.
   6. Select the **Agents** tab.
-  7. Click the agent of interest, then click **Import as agent**.
+  7. Click the agent of interest, and then click **Import as agent**.
   8. Edit the display name, select a location for the agent, and click **Create**.
   9. Refer to the agent-specific documentation to determine if additional setup for integrations is needed.
   10. Test and customize the agent.
@@ -65,7 +65,7 @@ To import a prebuilt agent to your project:
 
 ## Customizations and settings
 
-Customize the playbook and improve settings by following these steps:
+To customize the playbook and improve settings, complete these steps:
 
   1. Edit the [playbooks](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook) in the imported playbook to meet your business needs.
   2. [Test the agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/console#simulator) using the simulator.
@@ -81,6 +81,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

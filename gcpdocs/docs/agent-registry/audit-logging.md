@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/audit-logging/
 title: Agent Registry audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:43:13.660207+00:00
+fetched_at: 2026-10-27T18:27:20.427687+00:00
 ---
 
 # Agent Registry audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Agent Registry audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the audited methods for Agent Registry. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Agent Registry let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Agent Registry API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -94,15 +96,10 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.agentregistry.v1.AgentRegistry.UpdateService` (LRO)  
 `google.cloud.agentregistry.v1alpha.AgentRegistry.CreateBinding` (LRO)  
 `google.cloud.agentregistry.v1alpha.AgentRegistry.CreateService` (LRO)  
-`google.cloud.agentregistry.v1alpha.AgentRegistry.CreateSkill` (LRO)  
-`google.cloud.agentregistry.v1alpha.AgentRegistry.CreateSkillRevision` (LRO)  
 `google.cloud.agentregistry.v1alpha.AgentRegistry.DeleteBinding` (LRO)  
 `google.cloud.agentregistry.v1alpha.AgentRegistry.DeleteService` (LRO)  
-`google.cloud.agentregistry.v1alpha.AgentRegistry.DeleteSkill` (LRO)  
-`google.cloud.agentregistry.v1alpha.AgentRegistry.DeleteSkillRevision` (LRO)  
 `google.cloud.agentregistry.v1alpha.AgentRegistry.UpdateBinding` (LRO)  
 `google.cloud.agentregistry.v1alpha.AgentRegistry.UpdateService` (LRO)  
-`google.cloud.agentregistry.v1alpha.AgentRegistry.UpdateSkill` (LRO)  
   
 ## API interface audit logs
 
@@ -431,36 +428,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `CreateSkill`
-
-  * **Method** : `google.cloud.agentregistry.v1alpha.AgentRegistry.CreateSkill`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `agentregistry.skills.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.agentregistry.v1alpha.AgentRegistry.CreateSkill" `  
-
-
-
-
-#### `CreateSkillRevision`
-
-  * **Method** : `google.cloud.agentregistry.v1alpha.AgentRegistry.CreateSkillRevision`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `agentregistry.skillRevisions.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.agentregistry.v1alpha.AgentRegistry.CreateSkillRevision" `  
-
-
-
-
 #### `DeleteBinding`
 
   * **Method** : `google.cloud.agentregistry.v1alpha.AgentRegistry.DeleteBinding`  
@@ -487,36 +454,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.agentregistry.v1alpha.AgentRegistry.DeleteService" `  
-
-
-
-
-#### `DeleteSkill`
-
-  * **Method** : `google.cloud.agentregistry.v1alpha.AgentRegistry.DeleteSkill`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `agentregistry.skills.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.agentregistry.v1alpha.AgentRegistry.DeleteSkill" `  
-
-
-
-
-#### `DeleteSkillRevision`
-
-  * **Method** : `google.cloud.agentregistry.v1alpha.AgentRegistry.DeleteSkillRevision`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `agentregistry.skillRevisions.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.agentregistry.v1alpha.AgentRegistry.DeleteSkillRevision" `  
 
 
 
@@ -851,21 +788,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `UpdateSkill`
-
-  * **Method** : `google.cloud.agentregistry.v1alpha.AgentRegistry.UpdateSkill`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `agentregistry.skills.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.agentregistry.v1alpha.AgentRegistry.UpdateSkill" `  
-
-
-
-
 ## Methods that don't produce audit logs
 
 A method might not produce audit logs for one or more of the following reasons: 
@@ -892,6 +814,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

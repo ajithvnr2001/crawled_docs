@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/authentication/get-id-token/
 title: Get an ID token \u00a0|\u00a0 Authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:22.490796+00:00
+fetched_at: 2026-10-27T21:08:43.433921+00:00
 ---
 
 # Get an ID token  |  Authentication  |  Google Cloud Documentation
@@ -214,7 +214,7 @@ To run this code sample, you must install the [Google Auth Library for Node.js](
 To run this code sample, you must install the [Google Auth Python Library](https://github.com/googleapis/google-cloud-python/tree/main/packages/google-auth). 
     
     
-    import [google](https://docs.cloud.google.com/python/docs/reference/pubsub/latest)
+    import [google](https://docs.cloud.google.com/python/docs/reference/googleapis-common-protos/latest)
     from google.auth import compute_engine
     import google.auth.transport.requests
     import google.oauth2.credentials
@@ -231,7 +231,7 @@ To run this code sample, you must install the [Google Auth Python Library](https
                 Examples: http://www.example.com
         """
     
-        request = [google](https://docs.cloud.google.com/python/docs/reference/pubsub/latest).auth.transport.[requests](https://docs.cloud.google.com/python/docs/reference/google-resumable-media/latest/google.resumable_media.requests.html).[Request](https://docs.cloud.google.com/python/docs/reference/policytroubleshooter-iam/latest/google.cloud.policytroubleshooter_iam_v3.types.ConditionContext.Request.html)()
+        request = [google](https://docs.cloud.google.com/python/docs/reference/googleapis-common-protos/latest).auth.transport.[requests](https://docs.cloud.google.com/python/docs/reference/google-resumable-media/latest/google.resumable_media.requests.html).[Request](https://docs.cloud.google.com/python/docs/reference/policytroubleshooter-iam/latest/google.cloud.policytroubleshooter_iam_v3.types.ConditionContext.Request.html)()
         # Set the target audience.
         # Setting "use_metadata_identity_endpoint" to "True" will make the request use the default application
         # credentials. Optionally, you can also specify a specific service account to use by mentioning
@@ -356,6 +356,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

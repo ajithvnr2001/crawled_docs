@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/ccn-distributed-apps-design/connectivity/
 title: Network segmentation and connectivity for distributed applications in Cross-Cloud Network \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:28:06.427038+00:00
+fetched_at: 2026-10-27T23:07:17.062683+00:00
 ---
 
 # Network segmentation and connectivity for distributed applications in Cross-Cloud Network  |  Cloud Architecture Center  |  Google Cloud Documentation

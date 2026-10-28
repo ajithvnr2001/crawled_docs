@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/security-posture-extended-vpc-template/
 title: Predefined posture template for VPC networking, extended \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:18:23.000362+00:00
+fetched_at: 2026-10-27T19:38:52.696256+00:00
 ---
 
 # Predefined posture template for VPC networking, extended  |  Security Command Center  |  Google Cloud Documentation
@@ -23,16 +23,9 @@ Send feedback
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-This page describes the preventative and detective policies that are included in the v.1.0 version of the predefined posture template for Virtual Private Cloud (VPC) networking, extended. This posture template includes two policy sets:
+The v1.0 predefined posture template for Virtual Private Cloud (VPC) networking, extended lets you configure a security posture. This configuration helps protect VPC networking by using preventative and detective policies. This template includes two policy sets that apply to VPC networking: organization policy constraints and Security Health Analytics detectors.
 
-  * A policy set that includes organization policy constraints that apply to VPC networking.
-
-  * A policy set that includes Security Health Analytics detectors that apply to VPC networking.
-
-
-
-
-You can use this predefined posture template to configure a security posture that helps protect VPC networking. If you want to deploy this predefined posture template, you must customize some of the policies so that they apply to your environment.
+Before you deploy this template, you must customize some of its policies so that they apply to your environment.
 
 ## Organization policy constraints
 
@@ -147,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform-application/pa-ao-operations/audit-rm/
 title: Resource manager (RM) \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:18.376623+00:00
+fetched_at: 2026-10-27T21:48:33.977582+00:00
 ---
 
 # Resource manager (RM)  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

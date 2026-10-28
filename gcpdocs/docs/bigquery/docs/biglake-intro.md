@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/biglake-intro/
 title: Introduction to BigLake tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:38:52.738389+00:00
+fetched_at: 2026-10-27T20:09:55.127904+00:00
 ---
 
 # Introduction to BigLake tables  |  BigQuery  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Introduction to BigLake tables
 
-BigLake tables let you query structured data in Cloud Storage, Amazon S3, and Blob Storage with access delegation. A connection associated with a service account retrieves the data, so you grant users access only to the BigLake table, not to the underlying data store. This design lets you enforce fine-grained security, including row-level and column-level security.
+BigLake tables let you query structured data in Cloud Storage, Amazon S3, and Blob Storage with access delegation. A connection associated with a service account retrieves the data, so you grant users access only to the BigLake table, not to the underlying datastore. This design lets you enforce fine-grained security, including row-level and column-level security.
 
 This document provides an overview of BigLake tables and assumes that you're familiar with database tables and Identity and Access Management (IAM).
 
-## Supported data stores
+## Supported datastores
 
-You can use BigLake tables with the following data stores:
+You can use BigLake tables with the following datastores:
 
   * [Amazon S3](https://docs.cloud.google.com/bigquery/docs/omni-aws-introduction) by using [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction)
   * [Blob Storage](https://docs.cloud.google.com/bigquery/docs/omni-azure-introduction) by using [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction)
@@ -35,7 +35,7 @@ You can use BigLake tables with the following data stores:
 
 
 
-To query data stored in these data stores, you must first create BigLake tables and then query them using GoogleSQL syntax:
+To query data stored in these datastores, you must first create BigLake tables and then query them using GoogleSQL syntax:
 
   * [Create Cloud Storage BigLake tables](https://docs.cloud.google.com/bigquery/docs/create-cloud-storage-table-biglake) and then [query](https://docs.cloud.google.com/bigquery/docs/query-cloud-storage-using-biglake).
   * [Create Amazon S3 BigLake tables](https://docs.cloud.google.com/bigquery/docs/omni-aws-create-external-table) and then [query](https://docs.cloud.google.com/bigquery/docs/omni-aws-introduction).
@@ -47,9 +47,9 @@ You can also upgrade an external table to BigLake. For more information, see [Up
 
 BigLake tables let you query structured data in external datastores with access delegation. Access delegation decouples access to the BigLake table from access to the underlying datastore. An [external connection](https://docs.cloud.google.com/bigquery/docs/connections-api-intro) associated with a service account is used to connect to the datastore. Because the service account handles retrieving data from the datastore, you only have to grant users access to the BigLake table. This lets you enforce fine-grained security at the table level, including [row-level](https://docs.cloud.google.com/bigquery/docs/row-level-security-intro) and [column-level](https://docs.cloud.google.com/bigquery/docs/column-level-security-intro) security. For BigLake tables based on Cloud Storage, you can also use [dynamic data masking](https://docs.cloud.google.com/bigquery/docs/column-data-masking). To learn more about multi-cloud analytic solutions using BigLake tables with Amazon S3 or Blob Storage data, see [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction).
 
-## Supported data stores
+## Supported datastores
 
-You can use BigLake tables with the following data stores:
+You can use BigLake tables with the following datastores:
 
   * [Amazon S3](https://docs.cloud.google.com/bigquery/docs/omni-aws-introduction) by using [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction)
   * [Blob Storage](https://docs.cloud.google.com/bigquery/docs/omni-azure-introduction) by using [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction)
@@ -427,6 +427,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

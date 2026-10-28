@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/omni-aws-export-results-to-s3/
 title: Export query results to Amazon S3 \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:47.370850+00:00
+fetched_at: 2026-10-27T19:38:48.876715+00:00
 ---
 
 # Export query results to Amazon S3  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Export query results to Amazon S3 
 
-This document describes how to export the result of a query that runs against a [BigLake table](https://docs.cloud.google.com/bigquery/docs/biglake-intro) to your Amazon Simple Storage Service (Amazon S3) bucket.
+BigQuery lets you export the results of a query that runs against a [BigLake table](https://docs.cloud.google.com/bigquery/docs/biglake-intro) directly to your Amazon Simple Storage Service (Amazon S3) bucket by using the `EXPORT DATA` statement. Exporting query results lets you store and use processed data in your external cloud storage without transferring the results through BigQuery storage.
 
 For information about how data flows between BigQuery and Amazon S3, see [Data flow when exporting data](https://docs.cloud.google.com/bigquery/docs/omni-introduction#export-data).
 
@@ -155,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

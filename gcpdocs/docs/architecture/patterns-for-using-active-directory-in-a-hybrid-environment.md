@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/patterns-for-using-active-directory-in-a-hybrid-environment/
 title: Patterns for using Active Directory in a hybrid environment \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:33:18.222414+00:00
+fetched_at: 2026-10-28T01:43:33.249735+00:00
 ---
 
 # Patterns for using Active Directory in a hybrid environment  |  Cloud Architecture Center  |  Google Cloud Documentation

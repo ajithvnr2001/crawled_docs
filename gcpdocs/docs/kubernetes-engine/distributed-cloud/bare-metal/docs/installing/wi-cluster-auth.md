@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/wi-cluster-auth/
 title: Workload Identity Cluster Authentication \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:39.555170+00:00
+fetched_at: 2026-10-28T02:29:46.466783+00:00
 ---
 
 # Workload Identity Cluster Authentication  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,7 +22,13 @@ Send feedback
 
 #  Workload Identity Cluster Authentication Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to set up and use Workload Identity Cluster Authentication for Distributed Cloud software only for bare metal. Instead of service account keys, Workload Identity Cluster Authentication uses short-lived tokens and Workload Identity Federation to create and secure your clusters. The short-lived credentials for the service account are in the form of OAuth 2.0 access tokens. The access tokens expire after 1 hour by default. Likewise, image pull tokens also expire after 1 hour by default.
+Workload Identity Cluster Authentication lets you create and secure clusters for Distributed Cloud software only for bare metal by using short-lived tokens and Workload Identity Federation. This approach replaces persistent service account keys with OAuth 2.0 access tokens, reducing maintenance overhead and eliminating the security risks of long-lived credentials.
+
+You can enable this feature only when creating new clusters. This feature is available in version 1.33 and later and in [Preview](https://cloud.google.com/products/#product-launch-stages) in versions 1.30, 1.31, and 1.32. You can't update existing clusters to use it. For additional restrictions, see Limitations.
+
+## How Workload Identity Cluster Authentication works
+
+The short-lived credentials for the service account are in the form of OAuth 2.0 access tokens. The access tokens expire after 1 hour by default. Likewise, image pull tokens also expire after 1 hour by default.
 
 By contrast, _keyed mode_ , the standard method for creating and securing clusters, uses downloaded service account keys. When you create a self-managed (admin, hybrid, or standalone) cluster, you specify the path to the downloaded keys. The keys are then stored as Secrets in the cluster and any managed user clusters. By default, service account keys don't expire and are a security risk if not managed correctly. For information on setting an expiration time for your service account keys, see [Expiry times for user-managed keys](https://docs.cloud.google.com/iam/docs/service-account-creds#key-expiry).
 
@@ -34,10 +40,6 @@ Workload Identity Cluster Authentication provides two main benefits over using s
 
 
 
-
-Workload Identity Cluster Authentication was introduced for [Preview](https://cloud.google.com/products/#product-launch-stages) with release 1.30 and it's in GA for release 1.33 and higher. Workload Identity Cluster Authentication can be enabled only when creating new clusters. You can't configure an existing cluster to use Workload Identity Cluster Authentication during an update or upgrade. For additional restrictions, see Limitations.
-
-This page is for Admins and architects and Operators who set up, monitor, and manage the lifecycle of the underlying tech infrastructure. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
 
 ## Before you begin
 
@@ -862,6 +864,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

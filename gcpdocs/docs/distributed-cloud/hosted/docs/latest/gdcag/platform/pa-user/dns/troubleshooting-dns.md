@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/dns/troubleshooting-dns/
 title: Troubleshooting Cloud DNS \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:38:41.826759+00:00
+fetched_at: 2026-10-27T19:53:52.507844+00:00
 ---
 
 # Troubleshooting Cloud DNS  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -93,6 +93,8 @@ Ensure that your client is using the correct DNS servers. If you don't know the 
   * **Windows:** Run `ipconfig /all` and check the DNS Servers listed.
 
 
+
+Platform administrator (PA) and application operator (AO) workstations on the customer network must use DNS resolution that is separate from the IO WAN and OIRv2 network. Because identical GDC domain names resolve to different IP addresses depending on whether the query arrives over the IO WAN or the customer interconnect, it isn't possible to use a shared DNS configuration for both IO and PA or AO workstations. For more information, see [System interconnects](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/infrastructure/external-connectivity#system-interconnects), [DNS domain naming schema](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/infrastructure/external-connectivity#dns-domain-naming-schema), and the [DNS-R0016](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/gdcag-io/service-manual/dns/runbooks/dns-r0016) runbook.
 
 ### Test resolution using standard tools
 
@@ -186,6 +188,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

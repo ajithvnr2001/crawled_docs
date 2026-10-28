@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/connect-to-postgresql/
 title: Connect to PostgreSQL \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:59:34.253095+00:00
+fetched_at: 2026-10-27T17:01:25.612922+00:00
 ---
 
 # Connect to PostgreSQL  |  Data Studio  |  Google Cloud Documentation
@@ -78,14 +78,14 @@ In the connection panel, select **BASIC**. Enter the connection details:
 In the connection panel, select **JDBC URL**. Enter the connection details:
 
   * JDBC URL 
-    * **Example** `jdbc:postgresql://HOSTNAME[:PORT]/DATABASE`
+    * **Example** `jdbc:postgresql://HOSTNAME[:PORT]/DATABASE_NAME`
 
-    * **For Cloud SQL (Private IP)** `jdbc:google:postgresql://INSTANCE_CONNECTION_NAME/DATABASE`
+    * **For Cloud SQL (Private IP)** `jdbc:google:postgresql://< var>INSTANCE_CONNECTION_NAME/DATABASE_NAME`
 
   * Username
   * Password
 
-**Tip:** If you use the JDBC hostname option, you can make sure it's accessible with public DNS lookup tools such as [Whois](https://www.whois.com.au/whois/dns.html).
+**Note:** For Cloud SQL private IP connections, don't prefix the connection string with your organization name or ID, and remove any spaces from the URL. For complete requirements, including required permissions, see Public and private connections.**Tip:** If you use the JDBC hostname option, you can make sure it's accessible with public DNS lookup tools such as [Whois](https://www.whois.com.au/whois/dns.html).
 
 To connect by using an IPv6 literal address, enclose the address in square brackets. For example: `jdbc:postgresql://[2001:db8:1:1:1:1:1:1]/your_db`
 
@@ -142,7 +142,27 @@ Learn more about [PostgreSQL data types](https://www.postgresql.org/docs/9.6/sta
 
 Data Studio supports both public and private IP connections to PostgreSQL on Cloud SQL.
 
-To connect using a private IP, you must use the **JDBC URL** connection option with the format `jdbc:google:postgresql://INSTANCE_CONNECTION_NAME/DATABASE`. Additionally, you must select the **Private path for Google Cloud services** option in your Cloud SQL instance settings.
+To connect to a Cloud SQL for PostgreSQL instance by using a private IP, verify the following requirements:
+
+  * **Identity and Access Management (IAM) permissions:** Grant the Cloud SQL Client (`roles/cloudsql.client`) IAM role on the Google Cloud project that contains the Cloud SQL instance. You must grant this role to the user account that authenticates the connection in Data Studio, or to the data source's credential owner. If the data source uses viewer's credentials, grant this role to each report viewer.
+  * **Instance settings:** Select the [**Private path for Google Cloud services**](https://docs.cloud.google.com/sql/docs/postgres/instance-settings#private-path) option in your Cloud SQL instance settings.
+  * **JDBC URL:** In the connection panel, select the **JDBC URL** connection option and enter the connection string in the following format:
+        
+        jdbc:google:postgresql://INSTANCE_CONNECTION_NAME/DATABASE_NAME
+
+Replace the following:
+
+    * `INSTANCE_CONNECTION_NAME`: the [instance connection name](https://docs.cloud.google.com/sql/docs/postgres/instance-info) in the format `PROJECT_ID:REGION:INSTANCE_ID`
+    * `DATABASE_NAME`: the name of your PostgreSQL database
+
+For example:
+
+`jdbc:google:postgresql://my-project:us-central1:my-instance/my-db`
+
+Don't add your organization name or organization ID as a prefix to the connection string, and remove any spaces from the URL.
+
+
+**Note:** Data Studio doesn't validate the **JDBC URL** field before attempting to connect. An invalid JDBC URL or missing IAM permissions can cause Data Studio to stop responding while loading tables instead of displaying an error message.
 
 ## Firewall and database access
 
@@ -195,6 +215,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

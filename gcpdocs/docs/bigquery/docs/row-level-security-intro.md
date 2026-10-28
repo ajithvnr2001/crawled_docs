@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/row-level-security-intro/
 title: Introduction to BigQuery row-level security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:42:59.000833+00:00
+fetched_at: 2026-10-27T19:38:25.333120+00:00
 ---
 
 # Introduction to BigQuery row-level security  |  Google Cloud Documentation
@@ -264,7 +264,7 @@ For more information about how row-level security interacts with some BigQuery f
     * Row access policies that incorporate subqueries aren't compatible with the [BigQuery Storage Read API](https://docs.cloud.google.com/bigquery/docs/reference/storage). The BigQuery Storage Read API only supports simple filter predicates.
   * Non-query operations, including service account jobs, that need full access to table data can use row-level security with the [`TRUE` filter](https://docs.cloud.google.com/bigquery/docs/using-row-level-security-with-features#the_true_filter). Examples include [table copying](https://docs.cloud.google.com/bigquery/docs/using-row-level-security-with-features#features_that_work_with_the_true_filter), [Managed Service for Apache Spark workflows](https://docs.cloud.google.com/bigquery/docs/using-row-level-security-with-features#tabledata-list), and more. For more information, see [Using row-level security](https://docs.cloud.google.com/bigquery/docs/using-row-level-security-with-features).
 
-  * You can create, replace, or delete row-level access policies with DDL statements or [row access policy APIs](https://docs.cloud.google.com/bigquery/docs/reference/rest#rest-resource:-v2.rowaccesspolicies). You can also perform all available actions in the row access policy APIs in the [bq command-line tool](https://docs.cloud.google.com/bigquery/docs/bq-command-line-tool). You can list and view row-level access policies in the Google Cloud console.
+  * You can create, replace, or delete row-level access policies with DDL statements or [row access policy APIs](https://docs.cloud.google.com/bigquery/docs/reference/rest#rest-resource:-v2.rowaccesspolicies). You can also perform all available actions in the row access policy APIs in the [bq command-line tool](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference). You can list and view row-level access policies in the Google Cloud console.
 
   * [Previewing or browsing tables](https://docs.cloud.google.com/bigquery/docs/managing-table-data#browse-table) is incompatible with row-level security.
 
@@ -310,6 +310,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

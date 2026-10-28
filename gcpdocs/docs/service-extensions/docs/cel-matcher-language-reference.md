@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/cel-matcher-language-reference/
 title: CEL matcher language reference \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:13.374223+00:00
+fetched_at: 2026-10-27T19:53:52.950560+00:00
 ---
 
 # CEL matcher language reference  |  Service Extensions  |  Google Cloud Documentation
@@ -89,8 +89,6 @@ Expression | Description
 ` x.startsWith(y) ` | Returns `true` if the string `x` begins with the substring `y`.  
 ` x.endsWith(y) ` | Returns `true` if the string `x` ends with the substring `y`.  
 ` x.matches(y) ` | Returns `true` if the string `x` matches the specified [ RE2](https://www.wikipedia.org/wiki/RE2_\(software\)) pattern `y`. Service Extensions uses the RE2::Latin1 option when it compiles the RE2 pattern, which disables Unicode features. Edge extensions let you use only one regular expression per CEL expression.  
-`x.lower()` | Returns the lowercase value of string `x`.  
-`x.upper()` | Returns the uppercase value of string `x`.  
 `int(x)` | Converts the string result of `x` to an `int` type. You can use the converted string for integer comparison by using standard arithmetic operators, such as greater than (`>`) and less than or equal to (`≤`). This works only for values that can be integers.  
   
 ## Sample expressions
@@ -122,6 +120,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

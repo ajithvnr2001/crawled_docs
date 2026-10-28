@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-audit-logging/
 title: Looker audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:01.763520+00:00
+fetched_at: 2026-10-28T02:30:01.560104+00:00
 ---
 
 # Looker audit logging  |  Google Cloud Documentation
@@ -485,6 +485,10 @@ Looker (Google Cloud core) audit logging has the following limitations:
 
   * Undefined HTTP request parameters are redacted by default. For documentation on each Looker API endpoint, see the [Looker API documentation](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest).
   * Looker (Google Cloud core) supports redacting entire fields, not specific nested fields.
+  * Standard audit logs don't include granular details about which specific dashboards users have accessed. While this information is available through System Activity, standard Looker instances don't have an out-of-the-box feature to export System Activity data to BigQuery. To export System Activity data to BigQuery, you can use one of the following methods: 
+    * **Looker SDK and API** : Write a custom script (for example, by using Cloud Run functions) to fetch the data from the Looker API by running queries (such as `run_inline_query` against the `history` Explore) and writing the results into a BigQuery dataset.
+    * **Google Sheets integration** : Schedule dashboards or Looks that are built from System Activity to be delivered to Google Sheets, and then use BigQuery's built-in capabilities to load the data from those sheets.
+    * **Elite System Activity** : If you have high-volume logging needs (such as retaining activity data beyond default limits like 90 days or 1 million events) or direct database requirements (such as running direct SQL queries against raw activity data to join with external datasets), consider [Elite System Activity](https://docs.cloud.google.com/looker/docs/elite-system-activity).
 
 
 
@@ -492,6 +496,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

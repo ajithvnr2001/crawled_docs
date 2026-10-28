@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/use-advanced-disaster-recovery/
 title: Use advanced disaster recovery (DR) \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:19:08.943277+00:00
+fetched_at: 2026-10-28T02:29:36.179283+00:00
 ---
 
 # Use advanced disaster recovery (DR)  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -1518,6 +1518,8 @@ You should receive a JSON response similar to the following:
     }
     
 
+**Note:** If secondary indexes were configured on the DR replica using [managed replica indexes](https://docs.cloud.google.com/sql/docs/mysql/replication/read-replica-indexes), then those indexes are automatically dropped when the DR replica becomes the primary instance. To enable managed replica indexes on the former primary instance (which becomes a replica), set the `cloudsql_index_recreate_replica_group` database flag on that instance.
+
 ## Perform DR by invoking a replica failover
 
 In the event of region failure or a disaster, you can perform DR by invoking a replica failover operation to your designated DR replica. To perform a replica failover, you promote the designated DR replica. In contrast with switchover, the promotion of the DR replica is immediate.
@@ -1888,6 +1890,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

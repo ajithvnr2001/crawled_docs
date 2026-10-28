@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/audit-logging/
 title: App Lifecycle Manager audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:42:17.132846+00:00
+fetched_at: 2026-10-27T17:04:42.668062+00:00
 ---
 
 # App Lifecycle Manager audit logging  |  Google Cloud Documentation
@@ -27,7 +27,9 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document lists the audited methods for SaaS Service Management. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for SaaS Service Management let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which SaaS Service Management API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -77,7 +79,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.saasplatform.saasservicemgmt.v1.SaasRollouts.ListRollouts`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.GetRelease`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.GetSaas`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.GetSaasRelease`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.GetTenant`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.GetUnit`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.GetUnitGroup`  
@@ -86,8 +87,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.GetUnitOperation`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListReleases`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListSaas`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListSaasReleases`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListSaasTypes`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListTenants`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListUnitGroupOperations`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListUnitGroups`  
@@ -135,32 +134,20 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.saasplatform.saasservicemgmt.v1.SaasRollouts.UpdateRolloutKind`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateRelease`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateSaas`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateSaasRelease`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateSaasType`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateTenant`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateUnit`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateUnitGroup`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateUnitGroupOperation`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateUnitKind`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateUnitOperation`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteRelease`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteSaas`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteSaasRelease`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteSaasType`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteTenant`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteUnit`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteUnitGroup`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteUnitGroupOperation`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteUnitKind`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteUnitOperation`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateRelease`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateSaas`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateSaasRelease`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateSaasType`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateTenant`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateUnit`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateUnitGroup`  
-`google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateUnitGroupOperation`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateUnitKind`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateUnitOperation`  
 `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasFlags.CreateFlag`  
@@ -832,36 +819,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `CreateSaasRelease`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateSaasRelease`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.saasReleases.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateSaasRelease" `  
-
-
-
-
-#### `CreateSaasType`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateSaasType`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.saasTypes.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateSaasType" `  
-
-
-
-
 #### `CreateTenant`
 
   * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateTenant`  
@@ -888,36 +845,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateUnit" `  
-
-
-
-
-#### `CreateUnitGroup`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateUnitGroup`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.unitGroups.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateUnitGroup" `  
-
-
-
-
-#### `CreateUnitGroupOperation`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateUnitGroupOperation`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.unitGroupOperations.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.CreateUnitGroupOperation" `  
 
 
 
@@ -982,36 +909,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `DeleteSaasRelease`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteSaasRelease`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.saasReleases.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteSaasRelease" `  
-
-
-
-
-#### `DeleteSaasType`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteSaasType`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.saasTypes.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteSaasType" `  
-
-
-
-
 #### `DeleteTenant`
 
   * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteTenant`  
@@ -1038,36 +935,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteUnit" `  
-
-
-
-
-#### `DeleteUnitGroup`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteUnitGroup`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.unitGroups.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteUnitGroup" `  
-
-
-
-
-#### `DeleteUnitGroupOperation`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteUnitGroupOperation`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.unitGroupOperations.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.DeleteUnitGroupOperation" `  
 
 
 
@@ -1128,21 +995,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.GetSaas" `  
-
-
-
-
-#### `GetSaasRelease`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.GetSaasRelease`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.saasReleases.get - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.GetSaasRelease" `  
 
 
 
@@ -1267,36 +1119,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `ListSaasReleases`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListSaasReleases`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.saasReleases.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListSaasReleases" `  
-
-
-
-
-#### `ListSaasTypes`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListSaasTypes`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.saasTypes.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListSaasTypes" `  
-
-
-
-
 #### `ListTenants`
 
   * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.ListTenants`  
@@ -1417,36 +1239,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `UpdateSaasRelease`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateSaasRelease`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.saasReleases.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateSaasRelease" `  
-
-
-
-
-#### `UpdateSaasType`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateSaasType`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.saasTypes.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateSaasType" `  
-
-
-
-
 #### `UpdateTenant`
 
   * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateTenant`  
@@ -1473,36 +1265,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateUnit" `  
-
-
-
-
-#### `UpdateUnitGroup`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateUnitGroup`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.unitGroups.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateUnitGroup" `  
-
-
-
-
-#### `UpdateUnitGroupOperation`
-
-  * **Method** : `google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateUnitGroupOperation`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `saasservicemgmt.unitGroupOperations.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.saasplatform.saasservicemgmt.v1beta1.SaasDeployments.UpdateUnitGroupOperation" `  
 
 
 
@@ -2132,6 +1894,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

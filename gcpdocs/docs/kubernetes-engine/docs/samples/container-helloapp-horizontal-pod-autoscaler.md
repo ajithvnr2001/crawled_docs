@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/samples/container-helloapp-horizontal-pod-autoscaler/
 title: Hello app HPA \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:58.229423+00:00
+fetched_at: 2026-10-27T22:56:36.317008+00:00
 ---
 
 # Hello app HPA  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

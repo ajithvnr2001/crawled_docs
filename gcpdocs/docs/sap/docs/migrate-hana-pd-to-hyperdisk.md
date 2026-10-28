@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/migrate-hana-pd-to-hyperdisk/
 title: Migrate Persistent Disk to Hyperdisk for SAP HANA \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:00:32.631178+00:00
+fetched_at: 2026-10-28T02:31:32.667967+00:00
 ---
 
 # Migrate Persistent Disk to Hyperdisk for SAP HANA  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ To reduce downtime while taking disk snapshots, you can take snapshots of the di
 
 Before you migrate the Persistent Disk volumes used by your SAP HANA database to Hyperdisk volumes, make sure the following conditions are met:
 
-  * SAP HANA is running on [SAP-certified Compute Engine instances](https://docs.cloud.google.com/sap/docs/sap-hana-planning-guide#hana-cert-table-vms) that [support Hyperdisk](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#machine_type_support).
+  * Your SAP HANA workload runs on SAP-certified Compute Engine instances that support Hyperdisk. For information about the certified machine types, go to [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-solutions-and-machine-types), and in the **Certified SAP solution** menu, select "SAP HANA".
   * The `/hana/data` and `/hana/log` volumes are hosted on separate disks.
   * Linux logical volume management is used for SAP HANA storage persistence. While direct storage can be used, it would require explicit device remapping through the `/etc/fstab` table.
   * The [SAP HANA Fast Restart Option](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/ce158d28135147f099b761f8b1ee43fc.html) is enabled for your SAP HANA system.
@@ -416,6 +416,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

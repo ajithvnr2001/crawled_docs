@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/ai-query-engine-landing/
 title: AI functions overview \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:27.989158+00:00
+fetched_at: 2026-10-27T18:44:31.916896+00:00
 ---
 
 # AI functions overview  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ Use SQL functions like `google_ml.embedding()` to generate vector embeddings or 
 
 ## How the AI functions work
 
-When you embed an AI operator like `ai.if()`, `ai.rank()`, or `ai.generate()` into your SQL query, the **AI functions** detect it. This engine, available using the `google_ml_integration` extension, orchestrates the entire process. It securely packages the relevant row data and calls a pre-registered ML model from providers, such as Gemini, OpenAI, or Anthropic. The ML model evaluates the data and returns a prediction—like `true/false` for a filter or a score for ranking. The AI functions seamlessly integrates this prediction back into your query's execution, returning a standard SQL result set. You get AI-powered insights without ever moving your data.
+When you embed an AI operator like `ai.if()`, `ai.rank()`, or `ai.generate()` into your SQL query, the **AI functions** detect it. This engine, available using the `google_ml_integration` extension, orchestrates the entire process. It securely packages the relevant row data and calls a pre-registered ML model from providers, such as Gemini, OpenAI, or Anthropic. The ML model evaluates the data and returns a prediction—like `true/false` for a filter or a score for ranking. The AI functions integrate this prediction back into your query's execution, returning a standard SQL result set. You get AI-powered insights without ever moving your data.
 
 ![Visual overview of AI functions](https://docs.cloud.google.com/static/alloydb/images/query-landing-page.png)
 
@@ -57,7 +57,7 @@ Traditional database query mechanisms are often rigid, forcing developers to har
   * High-performance intelligence: use the following to accelerate performance and handle intelligence at scale with AI functions:
 
     * Use array-based processing to handle up to thousands of rows per second, which is 2,000x faster than row-at-a-time calls. Array-based processing is available for all AI functions. For more information, see [Perform intelligent SQL queries using AI functions](https://docs.cloud.google.com/alloydb/docs/ai/evaluate-semantic-queries-ai-operators).
-    * Use smart batching for AI functions to achieve significantly higher throughput than row-at-a-time calls. For more information, see [Accelerate performance for queries with AI functions](https://docs.cloud.google.com/alloydb/docs/ai/accelerate-ai-queries).
+    * Use AI function acceleration to achieve significantly higher throughput than row-at-a-time calls. This is available for `ai.if` and `ai.rank`. For more information, see [Perform intelligent SQL queries using AI functions](https://docs.cloud.google.com/alloydb/docs/ai/evaluate-semantic-queries-ai-operators).
     * Use optimized `ai.if` to eliminate the costs of using the LLM through improved efficiency, achieving 100,000 rows per second (a 23,000x improvement over row-at-a-time calls) and reducing costs by 6,000x to 1/10th of one cent.
 
 
@@ -71,55 +71,33 @@ The following table describes use cases for AlloyDB AI functions.
 **Description** |   
 **Use case**  
 ---|---|---  
-      
-    
-    ai.if
-
-|   
+`[ai.if](https://docs.cloud.google.com/alloydb/docs/ai/evaluate-semantic-queries-ai-operators#filters-queries)` |   
 Intelligent, cognitive filtering based on natural language. |   
 Determine which customer transactions appear fraudulent based on behavior patterns.  
-      
-    
-    ai.rank
-
-|   
+`[ai.rank](https://docs.cloud.google.com/alloydb/docs/ai/rank-rerank-search-results-rag)` |   
 Reranks vector search results based on deep contextual nuance. |   
 Prioritize breathable fabrics for a `tropical wedding` search even if your database doesn't know what "breathable fabrics" means.  
-      
-    
-    ai.generate
-
-|   
+`[ai.generate](https://docs.cloud.google.com/alloydb/docs/ai/evaluate-semantic-queries-ai-operators#text-generation-summarization)` |   
 Generates new content or transforms data formats. |   
 Convert raw server log data into a structured JSON format for easier analysis.  
-      
-    
-    ai.analyze_sentiment
-
-|   
+`[ai.analyze_sentiment](https://docs.cloud.google.com/alloydb/docs/ai/analyze-sentiment)` |   
 Classifies the emotional tone of text as positive, negative, or neutral. |   
 Classify thousands of product reviews to gauge overall customer satisfaction.  
-      
-    
-    ai.summarize
-
-|   
+`[ai.summarize](https://docs.cloud.google.com/alloydb/docs/ai/summarize-content)` |   
 Condenses lengthy text into essential information. |   
 Extract key decisions and action items from conversational transcripts.  
-      
-    
-    ai.agg_summarize
-
-|   
-An aggregate function that processes multiple rows in a column to generate a single, unified summary for a specified group of rows. |   
-Generate a single, consolidated summary for a specific movie based on all of its individual reviews in a table.  
-      
-    
-    ai.forecast
-
-|   
+`[ai.agg_summarize](https://docs.cloud.google.com/alloydb/docs/ai/summarize-content)` |   
+Produces a summary of aggregated text from multiple rows. |   
+Generate a summary of all user reviews for a specific product.  
+`[ai.forecast](https://docs.cloud.google.com/alloydb/docs/ai/perform-time-series-forecasting)` |   
 Enables time-series forecasting using the [TimesFM model](https://docs.cloud.google.com/alloydb/docs/ai/perform-time-series-forecasting). |   
 Predict future inventory needs based on historical sales data.  
+`[ai.extract](https://docs.cloud.google.com/alloydb/docs/ai/extract-structured-data)` |   
+Extracts specified structured details from unstructured text or documents based on a provided schema. |   
+Parse free-text medical notes or contracts into structured JSON format fields like patient names or ailments and treatments.  
+`[ai.classify](https://docs.cloud.google.com/alloydb/docs/ai/classify-text)` |   
+Categorizes text inputs into a set of predefined classes or labels. |   
+Assign predefined topics, detect spam, or determine user intent behind customer support queries.  
   
 ## Learn more
 
@@ -153,6 +131,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

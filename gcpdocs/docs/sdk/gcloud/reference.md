@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/
 title: gcloud \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T14:34:27.458113+00:00
+fetched_at: 2026-10-27T21:41:42.850901+00:00
 ---
 
 # gcloud  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -289,7 +289,7 @@ GROUPS
 `[parametermanager](https://docs.cloud.google.com/sdk/gcloud/reference/parametermanager)`
      Parameter Manager is a single source of truth for your parameters. 
 `[policy-intelligence](https://docs.cloud.google.com/sdk/gcloud/reference/policy-intelligence)`
-     A platform to help better understand, use, and manage policies at scale. 
+     A platform to help administrators better understand, use, and manage policies at scale. 
 `[policy-troubleshoot](https://docs.cloud.google.com/sdk/gcloud/reference/policy-troubleshoot)`
      Troubleshoot Google Cloud Platform policies. 
 `[preview](https://docs.cloud.google.com/sdk/gcloud/reference/preview)`
@@ -386,6 +386,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-06 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-06 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

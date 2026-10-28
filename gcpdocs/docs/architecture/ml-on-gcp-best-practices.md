@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/ml-on-gcp-best-practices/
 title: Best practices for implementing machine learning on Google Cloud \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:33:51.885444+00:00
+fetched_at: 2026-10-27T18:01:22.530368+00:00
 ---
 
 # Best practices for implementing machine learning on Google Cloud  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -84,7 +84,7 @@ ML workflow step | Recommended tools and products
   * [BigQuery](https://docs.cloud.google.com/bigquery/docs/introduction)
   * [Dataflow (Apache Beam)](https://docs.cloud.google.com/dataflow/docs)
   * [Managed Service for Apache Spark (Apache Spark)](https://docs.cloud.google.com/dataproc/docs)
-  * [Knowledge Catalog (Data Catalog)](https://docs.cloud.google.com/dataplex/docs/introduction)
+  * [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/introduction)
 
   
 [ML training](https://docs.cloud.google.com/architecture/ml-on-gcp-best-practices#operationalized-training) | 

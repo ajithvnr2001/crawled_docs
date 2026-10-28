@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/
 title: gcloud beta app-lifecycle-manager rollout-kinds \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T05:54:59.651475+00:00
+fetched_at: 2026-10-27T21:40:57.286467+00:00
 ---
 
 # gcloud beta app-lifecycle-manager rollout-kinds  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,13 +24,29 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager rollout-kinds - manage App Lifecycle Manager rollout-kinds 
+gcloud beta app-lifecycle-manager rollout-kinds - manage App Lifecycle Manager rollout kinds 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager rollout-kinds` `COMMAND` [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)`
+     `(BETA)` Manage App Lifecycle Manager rollout kinds. A rollout kind describes the settings of rollout execution for the units of a unit kind, such as the orchestration strategy and error budget. 
+EXAMPLES
+     To create a rollout kind named `my-rollout-kind` for the unit kind `my-unit-kind` in location `us-central1`, run: 
+    
+    
+    [gcloud beta app-lifecycle-manager rollout-kinds create](https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/create) my-rollout-kind --location=us-central1 --unit-kind=my-unit-kind
+
+To list the names of all rollout kinds in location `us-central1`, run: 
+    
+    
+    [gcloud beta app-lifecycle-manager rollout-kinds list](https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/list) --location=us-central1 --format="value(name)"
+
+To describe the rollout kind named `my-rollout-kind` in location `us-central1`, run: 
+    
+    
+    [gcloud beta app-lifecycle-manager rollout-kinds describe](https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/describe) my-rollout-kind --location=us-central1
+
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`. 
 
@@ -40,15 +56,15 @@ COMMANDS
      ``COMMAND`` is one of the following: 
 
 `[create](https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/create)`
-     `(BETA)` Create a Rollout Kind. 
+     `(BETA)` Create a rollout kind. 
 `[delete](https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/delete)`
-     `(BETA)` Delete a Rollout Kind. 
+     `(BETA)` Delete a rollout kind. 
 `[describe](https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/describe)`
-     `(BETA)` Describe Rollout Kind. 
+     `(BETA)` Describe a rollout kind. 
 `[list](https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/list)`
-     `(BETA)` List Rollout Kinds. 
+     `(BETA)` List rollout kinds. 
 `[update](https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollout-kinds/update)`
-     `(BETA)` Update a Rollout Kind. 
+     `(BETA)` Update a rollout kind. 
 NOTES
      This command is currently in beta and might change without notice. 
 
@@ -56,6 +72,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

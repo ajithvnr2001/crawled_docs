@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/connect-cluster/create-mirrormaker-connector/
 title: Create a MirrorMaker 2.0 Source connector \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:22.277821+00:00
+fetched_at: 2026-10-28T02:29:40.750127+00:00
 ---
 
 # Create a MirrorMaker 2.0 Source connector  |  Managed Service for Apache Kafka  |  Google Cloud Documentation
@@ -160,7 +160,7 @@ Here's a detailed breakdown of how the MirrorMaker Source connector replicates d
 
   * The connector requires the source and target cluster connection details such as `source.cluster.bootstrap.servers` and `target.cluster.bootstrap.servers`.
 
-  * The connector also requires aliases for the source and target clusters as specified by `source.cluster.alias` and `target.cluster.alias`. By default, replicated topics are automatically renamed using the source alias. For example, a topic named `orders` from a source with alias `primary` becomes `primary.orders` in the target.
+  * The connector also requires aliases for the source and target clusters as specified by `source.cluster.alias` and `target.cluster.alias`. By default, replicated topics are automatically renamed using the source alias. For example, a topic named `orders` from a source with alias `primary` becomes `primary.orders` in the target. To keep the original topic names in the target cluster without a prefix, set `replication.policy.class` to `org.apache.kafka.connect.mirror.IdentityReplicationPolicy`.
 
   * ACLs associated with the replicated topics are also synced from the source to the target cluster. This can be disabled using the `sync.topic.acls.enabled` property.
 
@@ -228,6 +228,8 @@ Some common configurations for all MirrorMaker 2.0 connectors include:
   * **`source.cluster.alias`** : Alias for the source cluster.
 
   * **`target.cluster.alias`** : Alias for the target cluster.
+
+  * **`replication.policy.class`** : Policy class for how replicated topics are named in the target cluster. The default value is `org.apache.kafka.connect.mirror.DefaultReplicationPolicy`, which prefixes replicated topic names with the source cluster alias. If the source cluster alias is `primary`, a topic named `orders` is replicated to `primary.orders` in the target cluster. To retain the original topic names without a prefix, set this property to `org.apache.kafka.connect.mirror.IdentityReplicationPolicy`.
 
 
 
@@ -640,6 +642,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

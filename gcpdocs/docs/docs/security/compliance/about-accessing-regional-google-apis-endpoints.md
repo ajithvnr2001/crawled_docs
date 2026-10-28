@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/about-accessing-regional-google-apis-endpoints/
 title: About accessing regional and multi-regional Google APIs through private endpoints \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-22T08:23:47.686368+00:00
+fetched_at: 2026-10-27T19:53:34.291204+00:00
 ---
 
 # About accessing regional and multi-regional Google APIs through private endpoints  |  Security  |  Google Cloud Documentation
@@ -36,7 +36,7 @@ Global reachability |  If [ global access](https://docs.cloud.google.com/vpc/doc
 [Cloud Interconnect traffic](https://docs.cloud.google.com/vpc/docs/access-regional-google-apis-endpoints#hybrid-access) |   
 [Cloud VPN traffic](https://docs.cloud.google.com/vpc/docs/access-regional-google-apis-endpoints#hybrid-access) |   
 [Access through VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering) |   
-[Connection propagation through NCC](https://docs.cloud.google.com/vpc/docs/about-propagated-connections) |   
+[Connection propagation through NCC](https://docs.cloud.google.com/vpc/docs/about-propagated-connections) |  IPv4 only  
 DNS configuration | [Manual DNS configuration](https://docs.cloud.google.com/vpc/docs/access-regional-google-apis-endpoints#configure-dns)  
 IP version | IPv4 or IPv6  
 **Producer******  

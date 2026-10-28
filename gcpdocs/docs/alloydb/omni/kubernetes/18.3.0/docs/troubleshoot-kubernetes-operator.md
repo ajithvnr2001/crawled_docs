@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/troubleshoot-kubernetes-operator/
 title: Troubleshoot the AlloyDB Omni Kubernetes operator \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.3.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:55:53.448792+00:00
+fetched_at: 2026-10-28T01:02:10.510800+00:00
 ---
 
 # Troubleshoot the AlloyDB Omni Kubernetes operator  |  AlloyDB Omni using the container orchestrator: 18.3.0  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ Select a documentation version: 18.3.0keyboard_arrow_down
   * [ 15.12.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.12.0/docs/troubleshoot-kubernetes-operator)
   * [ 15.7.1 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.1/docs/troubleshoot-kubernetes-operator)
 
-This page shows you how to resolve issues with the AlloyDB Omni Kubernetes operator. 
+This page shows you how to resolve issues with the AlloyDB Omni Kubernetes operator, including workarounds for known issues. 
 
 ## Collect debugging information
 
@@ -213,11 +213,19 @@ If the error message refers to the database pod, check the instances and pod res
     kubectl get pods -l alloydbomni.internal.dbadmin.goog/dbcluster=DB_CLUSTER_NAME,alloydbomni.internal.dbadmin.goog/task-type=database -n DB_CLUSTER_NAMESPACE
     
 
-## Resolve certificate issuance failures in cert-manager
+## Known issues
 
-The AlloyDB Omni operator uses cert-manager to provision Transport Layer Security (TLS) certificates for the operator and database clusters. In `cert-manager` version 1.21.2 and earlier, a known race condition ([cert-manager issue #6331](https://github.com/cert-manager/cert-manager/issues/6331)) might cause certificate issuance to fail and enter a one-hour retry backoff.
+This section describes known issues and workarounds for the AlloyDB Omni operator. For a complete list of release announcements, bug fixes, and security updates, see the [Release notes](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/release-notes).
 
-### Symptoms
+### Certificate issuance fails in cert-manager
+
+The AlloyDB Omni operator uses `cert-manager` to provision Transport Layer Security (TLS) certificates for the operator and database clusters. In `cert-manager` version 1.21.2 and earlier, a known race condition ([cert-manager issue #6331](https://github.com/cert-manager/cert-manager/issues/6331)) might cause certificate issuance to fail and enter a one-hour retry backoff.
+
+#### Affected versions
+
+AlloyDB Omni operator 1.0.0 and later with `cert-manager` 1.21.2 and earlier.
+
+#### Symptoms
 
 When this issue occurs, you might observe the following symptoms:
 
@@ -247,7 +255,7 @@ The output lists the namespace, the name, and the status condition messages of e
       failedIssuanceAttempts: 1
     
 
-### Workaround
+#### Workaround
 
 To prevent controller update conflicts and reduce the retry delay for failed certificate requests from one hour to 15 seconds, upgrade `cert-manager` with the `ServerSideApply` feature gate and reduced backoff durations:
     
@@ -260,17 +268,94 @@ To prevent controller update conflicts and reduce the retry delay for failed cer
         --set "extraArgs={--certificate-request-minimum-backoff-duration=15s,--certificate-request-maximum-backoff-duration=5m}"
     
 
-Replace `CERT_MANAGER_VERSION` with the version of cert-manager that's installed in your Kubernetes cluster—for example, `v1.21.2`. To find the installed version, run the `helm list --namespace cert-manager` command. For example, `v1.12.2`.
+Replace the following:
 
-**Note:** Passing the `--set` flags for the `featureGates` and `extraArgs` keys. replaces their existing values on the Helm release, even when you include the `--reuse-values` flag. If your `cert-manager` release already configures other feature gates or extra arguments, include them in the comma-separated lists. For GKE Autopilot clusters, also include the `--set global.leaderElection.namespace=cert-manager` flag.
+  * `CERT_MANAGER_VERSION`: the version of `cert-manager` installed in your Kubernetes cluster, such as `v1.21.2`. To find the installed version, run the `helm list --namespace cert-manager` command.
 
-After the cert-manager controller restarts, verify that all certificates show `True` in the `READY` column:
+**Note:** Passing the `--set` flags for the `featureGates` and `extraArgs` keys replaces their existing values on the Helm release, even when you include the `--reuse-values` flag. If your `cert-manager` release already configures other feature gates or extra arguments, include them in the comma-separated lists. For GKE Autopilot clusters, also include the `--set global.leaderElection.namespace=cert-manager` flag.
+
+After the `cert-manager` controller restarts, verify that all certificates show `True` in the `READY` column:
     
     
     kubectl get certificates.cert-manager.io --all-namespaces
     
 
 If an installation of the AlloyDB Omni operator failed because of this issue, run the installation again.
+
+### Low-downtime maintenance minor version upgrade stops progressing on a secondary database cluster
+
+#### Affected versions
+
+AlloyDB Omni operator 1.8.0 and later.
+
+#### Symptoms
+
+During a minor version upgrade or downgrade of a cross-data-center replication secondary database cluster that has high availability (HA) standbys, the operation stops progressing after the first standby upgrades. The `DBCluster` resource remains in the `DBCUpgradeInProgress=True` state with the `DBCUpgradeFlowBegins` reason.
+
+#### Workaround
+
+  1. Disable low-downtime maintenance (LDTM) on the secondary database cluster so that the AlloyDB Omni operator completes the upgrade by using the standard rolling upgrade workflow:
+         
+         kubectl annotate dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME \
+             dbcluster.dbadmin.goog/enableLDTM=false \
+             --namespace DB_CLUSTER_NAMESPACE \
+             --overwrite
+         
+
+Replace the following:
+
+     * `DB_CLUSTER_NAME`: the name of your secondary `DBCluster` resource.
+     * `DB_CLUSTER_NAMESPACE`: the namespace of your secondary `DBCluster` resource.
+  2. Verify that the upgrade completes and the `DBCluster` resource reaches the `DBClusterReady` phase:
+         
+         kubectl get dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME \
+             --namespace DB_CLUSTER_NAMESPACE
+         
+
+  3. Re-enable low-downtime maintenance on the secondary database cluster so that the `DBCluster` resource retains low-downtime maintenance capability if it is promoted to a primary database cluster:
+         
+         kubectl annotate dbclusters.alloydbomni.dbadmin.goog DB_CLUSTER_NAME \
+             dbcluster.dbadmin.goog/enableLDTM=true \
+             --namespace DB_CLUSTER_NAMESPACE \
+             --overwrite
+         
+
+
+
+
+### Monitoring agent encounters cgroups permission errors after enabling cross-data-center replication
+
+#### Affected versions
+
+AlloyDB Omni operator 1.9.0.
+
+#### Symptoms
+
+After you enable cross-data-center replication, the monitoring agent encounters permission errors in the container logs when attempting to gather `cgroups` information.
+
+#### Workaround
+
+  1. List the database Pods in your secondary database cluster to find the name of the downstream database Pod:
+         
+         kubectl get pods \
+             --selector alloydbomni.internal.dbadmin.goog/dbcluster=DB_CLUSTER_NAME,alloydbomni.internal.dbadmin.goog/task-type=database \
+             --namespace DB_CLUSTER_NAMESPACE
+         
+
+Replace the following:
+
+     * `DB_CLUSTER_NAME`: the name of your secondary `DBCluster` resource.
+     * `DB_CLUSTER_NAMESPACE`: the namespace of your secondary `DBCluster` resource.
+  2. Delete the downstream database Pod so that the AlloyDB Omni operator recreates and restarts the Pod:
+         
+         kubectl delete pod DB_POD_NAME \
+             --namespace DB_CLUSTER_NAMESPACE
+         
+
+Replace `DB_POD_NAME` with the name of the downstream database Pod from the previous step.
+
+
+
 
 ## Debug memory issues
 
@@ -627,7 +712,7 @@ In another terminal:
     curl http://localhost:9187/metrics | grep HELP
     
 
-For more information about monitoring, see [Monitor AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/manage#kubernetes).
+For more information about monitoring, see [Monitor AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.3.0/docs/manage#monitor).
 
 You can also configure Prometheus to scrape the metrics in your Kubernetes cluster. Refer to the [Prometheus Kubernetes service discovery config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config) for details.
 
@@ -635,6 +720,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

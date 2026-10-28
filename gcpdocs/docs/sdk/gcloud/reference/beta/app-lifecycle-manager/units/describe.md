@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/units/describe/
 title: gcloud beta app-lifecycle-manager units describe \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:25.914598+00:00
+fetched_at: 2026-10-27T21:40:21.361449+00:00
 ---
 
 # gcloud beta app-lifecycle-manager units describe  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,23 +24,28 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager units describe - describe a Unit 
+gcloud beta app-lifecycle-manager units describe - describe a unit 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager units describe` (`UNIT` : `--location`=`LOCATION`) [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Describe a Unit 
+     `(BETA)` Display the details of an App Lifecycle Manager unit. 
 EXAMPLES
-     To describe the Unit, run: 
+     To describe the unit named `my-unit` in location `us-central1`, run: 
     
     
-    gcloud beta app-lifecycle-manager units describe
+    gcloud beta app-lifecycle-manager units describe my-unit --location=us-central1
+
+To display only the state and current release of the unit named `my-unit` in location `us-central1`, run: 
+    
+    
+    gcloud beta app-lifecycle-manager units describe my-unit --location=us-central1 --format="yaml(state,release)"
 
 POSITIONAL ARGUMENTS
     
 
-Unit resource - Name of the resource The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Unit resource - Unit to describe. The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -86,6 +91,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

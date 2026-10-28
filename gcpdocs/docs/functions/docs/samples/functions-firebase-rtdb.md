@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-firebase-rtdb/
 title: Firebase RTDB trigger \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:50.627585+00:00
+fetched_at: 2026-10-27T16:25:09.358962+00:00
 ---
 
 # Firebase RTDB trigger  |  Cloud Run functions  |  Google Cloud Documentation

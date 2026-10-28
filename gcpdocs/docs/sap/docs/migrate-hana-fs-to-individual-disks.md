@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/migrate-hana-fs-to-individual-disks/
 title: Migrate SAP HANA file systems to individual disks \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:00:33.282547+00:00
+fetched_at: 2026-10-28T02:31:33.209049+00:00
 ---
 
 # Migrate SAP HANA file systems to individual disks  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ To illustrate the migration procedure, this guide assumes an example system and 
 
 Before you migrate the SAP HANA file systems that are hosted on a single disk to one disk for each file system, make sure that the following conditions are met:
 
-  * SAP HANA is running on [SAP-certified Compute Engine instances](https://docs.cloud.google.com/sap/docs/sap-hana-planning-guide#hana-cert-table-vms) that [support Hyperdisk](https://docs.cloud.google.com/compute/docs/disks/hyperdisks#machine_type_support).
+  * Your SAP HANA workload runs on SAP-certified Compute Engine instances that support Hyperdisk. For information about the certified machine types, go to [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-solutions-and-machine-types), and in the **Certified SAP solution** menu, select "SAP HANA".
   * A valid backup of the SAP HANA database is available. This backup can be used to restore the database, if required.
   * If the target Compute Engine instance is part of a high-availability (HA) cluster, then make sure that the cluster is in maintenance mode.
   * If your SAP HANA database uses a scale-out deployment, then repeat the procedure in this guide for each SAP HANA instance.
@@ -550,6 +550,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

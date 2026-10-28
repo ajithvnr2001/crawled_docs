@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/python3/reference/services/bundled/google/appengine/api/croninfo/CronEntry/
 title: google.appengine.api.croninfo.CronEntry \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T15:10:00.187188+00:00
+fetched_at: 2026-10-28T01:51:23.852470+00:00
 ---
 
 # google.appengine.api.croninfo.CronEntry  |  App Engine standard environment  |  Google Cloud Documentation
@@ -254,12 +254,12 @@ ATTRIBUTES |
     
     
     {
-     'attempt_deadline': <google.appengine.api.validation.Optional object>,
-     'description': <google.appengine.api.validation.Optional object>,
-     'retry_parameters': <google.appengine.api.validation.Optional object>,
-     'schedule': <google.appengine.api.croninfo.GrocValidator object>,
-     'target': <google.appengine.api.validation.Optional object>,
-     'timezone': <google.appengine.api.validation.Optional object>,
+     'attempt_deadlin<e': google.appengine.api.validation.Optiona>l object,
+     'de<scription': google.appengine.api.validation>.Optional object,
+     '<;retry_parameters': google.appengine.api.va>lidation.Option<al object,
+     'schedule': google.appengine.a>pi.croninfo.G<rocValidator object,
+     'target': google.>appengine.api.v<alidation.Optional object,
+     'timezone':> google.appengine.api.validation.Optional object,
      'url': '^/.*$'
     }
       

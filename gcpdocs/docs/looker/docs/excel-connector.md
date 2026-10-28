@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/excel-connector/
 title: Looker-Excel Connector \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:34:33.366040+00:00
+fetched_at: 2026-10-27T20:09:45.767907+00:00
 ---
 
 # Looker-Excel Connector  |  Google Cloud Documentation
@@ -30,7 +30,7 @@ To use the Looker-Excel Connector, you must have the following:
   * A Windows 64-bit or 32-bit PC.
   * A Looker instance that meets the following requirements: 
     * Running Looker 25.16 or later.
-    * Enabled for the **Microsoft Excel** BI connector. A Looker admin must enable the **Microsoft Excel** toggle on the Looker [**BI Connectors**](https://docs.cloud.google.com/looker/docs/bi-connectors) page.
+    * Enabled for the **Microsoft Excel** BI connector. A Looker admin must enable the pre-configured **Microsoft Excel** client from the **Application Library** tab on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#application-library) page (**Admin > Authentication > Manage OAuth clients**), or enable the **Microsoft Excel** switch on the Looker [**BI Connectors**](https://docs.cloud.google.com/looker/docs/bi-connectors) page.
   * A Looker account with a [user role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#roles) that includes the [`explore`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#explore) permission on the LookML model that the user wants to access with Looker-Excel Connector.
 
 
@@ -47,8 +47,8 @@ To install the ODBC driver, follow these steps:
 
   1. Use the following links to download the latest ODBC installer for your Windows system's architecture (64-bit or 32-bit):
 
-     * [64-bit](https://dl.google.com/looker-odbc-driver/windows/64bit/looker-odbc-installer-x64-1.0.6.exe)
-     * [32-bit](https://dl.google.com/looker-odbc-driver/windows/32bit/looker-odbc-installer-x86-1.0.6.exe)
+     * [64-bit](https://dl.google.com/looker-odbc-driver/windows/64bit/looker-odbc-installer-x64-1.0.7.exe)
+     * [32-bit](https://dl.google.com/looker-odbc-driver/windows/32bit/looker-odbc-installer-x86-1.0.7.exe)
   2. Open the ODBC installer file and follow the on-screen instructions.
 
   3. You may see a Windows dialog that says **Windows protected your PC**. If you see this dialog, click the **More info** link and then click the **Run anyway** button.
@@ -64,12 +64,12 @@ Once the prerequisites are met and the ODBC driver is installed on your computer
 
   1. On your Windows PC, open your Looker instance in a browser.
   2. [Open an Explore](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#explores_are_the_starting_point_for_exploration) and run a query.
-  3. Click the Explore gear menu and select the **Open in Excel** option. 
+  3. Click the Explore gear menu and select the **Open in Excel** option.
   4. In the **Open in Excel** dialog, select one of the following options for **Number of rows and columns to include** :
 
      * **Current result table** : Select this option to include all the rows and columns that are in the current result table in the Explore. The number of rows is limited by the **Row Limit** value of the Explore.
      * **All results** : Select this option to include all the results that are returned by the query to your database. The **All results** option is typically disabled for queries that have [Row Totals](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#displaying_totals) enabled, or that retrieve data from a database dialect that [cannot stream results](https://docs.cloud.google.com/looker/docs/downloading#streaming_query_results) [percent of total](https://docs.cloud.google.com/looker/docs/reference/param-measure-types#percent_of_total), or that contain the following types of measures: [percent of previous](https://docs.cloud.google.com/looker/docs/reference/param-measure-types#percent_of_previous) or [running totals](https://docs.cloud.google.com/looker/docs/reference/param-measure-types#running_total). Warning: Even when the **All results** option is available, you should still use caution when downloading all results. Some queries are very large, containing thousands or millions of rows, which can overwhelm most spreadsheet programs — or even your Looker instance.
-     * **Custom** : Select this option to manually specify the number of rows and columns to include in the ODC file download. 
+     * **Custom** : Select this option to manually specify the number of rows and columns to include in the ODC file download.
      * Users who have [`download_without_limit`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#download_without_limit) permission can enter a row size up to 100,000 and column size up to 200.
      * Users who have [`download_with_limit`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#download_with_limit) permission can enter a row size up to 5,000 rows and column size up to 200.
      * For users with neither `download_with_limit` or `download_without_limit` permission, the **Open In Excel** option will not be displayed.
@@ -88,7 +88,7 @@ Once the prerequisites are met and the ODBC driver is installed on your computer
 
 
 
-Excel runs the query and inserts the data into a new pivot table object. From here, you can use the data in calculations and visualizations. 
+Excel runs the query and inserts the data into a new pivot table object. From here, you can use the data in calculations and visualizations.
 
 If you want to retrieve fresh data, you can do one of the following:
 
@@ -169,6 +169,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

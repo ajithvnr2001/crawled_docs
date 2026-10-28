@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/agent-platform-threat-detection-overview/
 title: Agent Platform Threat Detection overview \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:37:12.590032+00:00
+fetched_at: 2026-10-28T02:30:50.802784+00:00
 ---
 
 # Agent Platform Threat Detection overview  |  Security Command Center  |  Google Cloud Documentation
@@ -27,13 +27,11 @@ Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.co
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document provides an overview of Agent Platform Threat Detection and its detectors.
+Agent Platform Threat Detection is a built-in service of Security Command Center that helps you detect and investigate potential attacks on AI agents that are deployed to [Agent Runtime](https://docs.cloud.google.com/agent-builder/agent-engine/overview). When Agent Platform Threat Detection detects a potential attack, it generates a finding in Security Command Center in near-real time.
 
-Agent Platform Threat Detection is a built-in service of Security Command Center that helps you detect and investigate potential attacks on AI agents that are deployed to [Agent Runtime](https://docs.cloud.google.com/agent-builder/agent-engine/overview). If the Agent Platform Threat Detection service detects a potential attack, it generates a finding in Security Command Center in near-real time.
+Agent Platform Threat Detection monitors [supported AI agents](https://docs.cloud.google.com/security-command-center/docs/use-agent-engine-threat-detection#view-resources) for common runtime threats, including the execution of malicious binaries or scripts, container escapes, reverse shells, and attack tools within the agent's environment.
 
-Agent Platform Threat Detection monitors the [supported AI agents](https://docs.cloud.google.com/security-command-center/docs/use-agent-engine-threat-detection#view-resources) and detects the most common runtime threats. Runtime threats include the execution of malicious binaries or scripts, container escapes, reverse shells, and the use of attack tools within the agent's environment.
-
-In addition, control-plane detectors from [Event Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview) analyze various audit logs (including Identity and Access Management, BigQuery, and Cloud SQL logs) and Agent Runtime logs (`stdout` and `stderr`) to detect suspicious activity. Control-plane threats include data exfiltration attempts, excessive permission denials, and suspicious token generation.
+In addition, control-plane detectors from [Event Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview) analyze audit logs (including Identity and Access Management, BigQuery, and Cloud SQL logs) and Agent Runtime logs (`stdout` and `stderr`) to detect suspicious activity, such as data exfiltration attempts, excessive permission denials, and suspicious token generation.
 
 ## Benefits
 
@@ -186,6 +184,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

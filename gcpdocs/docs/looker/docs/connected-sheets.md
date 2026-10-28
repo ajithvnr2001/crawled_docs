@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/connected-sheets/
 title: Using Connected Sheets for Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:41:27.324285+00:00
+fetched_at: 2026-10-28T02:29:58.071919+00:00
 ---
 
 # Using Connected Sheets for Looker  |  Google Cloud Documentation
@@ -29,9 +29,9 @@ Connected Sheets for Looker lets users interactively explore data from LookML mo
 
 ## Enabling Connected Sheets
 
-To use Connected Sheets:
+To use Connected Sheets, your instance must meet the following requirements:
 
-  * In Looker (original), your Looker admin must enable either the **All Looker BI Connectors** or the **Google Sheets** toggle on the [BI Connectors panel](https://docs.cloud.google.com/looker/docs/bi-connectors#google_sheets) in the **Platform** section of Looker's **Admin** menu. In Looker (Google Cloud core), these options are enabled by default.
+  * In Looker (original), your Looker admin must enable the pre-configured **Connected Sheets** client from the **Application Library** tab on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#application-library) page (**Admin > Authentication > Manage OAuth clients**), or enable either the **All Looker BI Connectors** or the **Google Sheets** switch on the [BI Connectors panel](https://docs.cloud.google.com/looker/docs/bi-connectors#google_sheets) in the **Platform** section of Looker's **Admin** menu. In Looker (Google Cloud core), these options are enabled by default.
   * Your Looker (original) instance must be Looker-hosted.
   * If your Looker (original) instance has an [IP allowlist](https://docs.cloud.google.com/looker/docs/admin-panel-server-ip-allowlist) configured, you must disable the IP allowlist to use Connected Sheets. There is no specific or curated static list of Google Sheets IP addresses that can be added to the allowlist.
   * In Looker (Google Cloud core), Connected Sheets are enabled by default. However, if you're using a Looker (Google Cloud core) instance that has an [IP allowlist](https://docs.cloud.google.com/looker/docs/looker-core-ip-allowlist) configured, the [**Link Google services with this instance** checkbox](https://docs.cloud.google.com/looker/docs/looker-core-ip-allowlist#allowlist-services) must be selected on the [**Details** tab](https://docs.cloud.google.com/looker/docs/looker-core-view-console#details_tab) of the instance's **Instance** page in the Google Cloud console in order to connect to Connected Sheets.
@@ -281,7 +281,7 @@ This indicates that your Looker account email address does not match the email a
 
 ### Error: Bad Request: no enable client found.
 
-This error indicates that the Connected Sheets connector has not been enabled. A Looker admin must enable either the **All Looker BI Connectors** or the **Google Sheets** toggle on the [BI Connectors panel](https://docs.cloud.google.com/looker/docs/bi-connectors#google_sheets) in the **Platform** section of Looker's **Admin** menu.
+This error indicates that the Connected Sheets connector has not been enabled. A Looker admin must enable the pre-configured **Connected Sheets** client from the **Application Library** tab on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#application-library) page (**Admin > Authentication > Manage OAuth clients**), or enable either the **All Looker BI Connectors** or the **Google Sheets** switch on the [BI Connectors panel](https://docs.cloud.google.com/looker/docs/bi-connectors#google_sheets) in the **Platform** section of Looker's **Admin** menu.
 
 ### Error: 403 Forbidden
 
@@ -296,6 +296,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

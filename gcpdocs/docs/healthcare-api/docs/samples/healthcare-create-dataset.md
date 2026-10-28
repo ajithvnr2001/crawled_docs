@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-create-dataset/
 title: Create dataset \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:21:42.321974+00:00
+fetched_at: 2026-10-27T16:28:08.885896+00:00
 ---
 
 # Create dataset  |  Cloud Healthcare API  |  Google Cloud Documentation

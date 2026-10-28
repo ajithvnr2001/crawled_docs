@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/autonomous-embedding-generation/
 title: Autonomous embedding generation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:02.764437+00:00
+fetched_at: 2026-10-27T19:38:39.189962+00:00
 ---
 
 # Autonomous embedding generation  |  BigQuery  |  Google Cloud Documentation
@@ -552,8 +552,8 @@ It can take up to 24 hours for some charges to appear in Cloud Billing.
 
   * Each table supports at most one automatically generated embedding column.
   * Concurrent DML operations can cause delays and temporary failures in embedding generation. For better performance and to reduce costs, we recommend injecting data in batches and avoiding frequent DML updates.
-  * If you are using the [legacy streaming API](https://docs.cloud.google.com/bigquery/docs/streaming-data-into-bigquery) to ingest data, then there might be some delays before the embedding generation starts.
-  * When using the [BigQuery Storage Write API (gRPC)](https://docs.cloud.google.com/bigquery/docs/write-api), background embedding generation jobs may fail if a streaming write job is running concurrently. When this occurs, the Agent Platform quota and background DML costs are wasted. Using the Storage Write API (gRPC) also causes concurrent embedding generation jobs on the table, but this is handled by BigQuery and no Agent Platform quota or background DML costs are wasted.
+  * If you are using the [legacy streaming API](https://docs.cloud.google.com/bigquery/docs/write-api-rest) to ingest data, then there might be some delays before the embedding generation starts.
+  * When using the [BigQuery Storage Write API (gRPC)](https://docs.cloud.google.com/bigquery/docs/write-api-grpc), background embedding generation jobs may fail if a streaming write job is running concurrently. When this occurs, the Agent Platform quota and background DML costs are wasted. Using the Storage Write API (gRPC) also causes concurrent embedding generation jobs on the table, but this is handled by BigQuery and no Agent Platform quota or background DML costs are wasted.
   * For higher throughput on Agent Platform remote endpoints, we recommend using text embedding models over Gemini models. For more information, see Quotas.
   * There is no indication that a column is automatically generated when you view a table's schema using the Google Cloud console or the `ddl` field of the `INFORMATION_SCHEMA.TABLES` view.
   * If you create a copy, clone, or snapshot of a table that has a generated embedding column, only the data is copied. The generation configuration doesn't apply to the new table, and updates to the source column of the new table won't result in new embeddings.
@@ -602,6 +602,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

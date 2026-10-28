@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-v1beta3-generated-Jobs-ListJobs-sync/
 title: List jobs (Ruby) \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:10.046660+00:00
+fetched_at: 2026-10-27T17:01:43.659948+00:00
 ---
 
 # List jobs (Ruby)  |  Cloud Dataflow  |  Google Cloud Documentation

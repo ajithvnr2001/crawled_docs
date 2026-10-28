@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dns/docs/vpc-name-res-order/
 title: Name resolution order \u00a0|\u00a0 Cloud DNS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:55:52.087865+00:00
+fetched_at: 2026-10-27T20:09:46.361670+00:00
 ---
 
 # Name resolution order  |  Cloud DNS  |  Google Cloud Documentation
@@ -24,6 +24,8 @@ Send feedback
 Cloud DNS uses the following procedure to answer queries from Compute Engine virtual machine (VM) instances and Google Kubernetes Engine (GKE) nodes.
 
 For Compute Engine VMs other than GKE nodes, Cloud DNS follows the VPC network resolution order to process queries it receives. Each VM must be configured to use the metadata server IP address (`169.254.169.254`) as its name server.
+
+**Important:** Starting on January 5, 2027, the VPC name resolution order described on this page is evaluated independently for each hop in a CNAME chain. If a query begins in a public zone and resolves to a CNAME target, the subsequent target lookup evaluates VPC response policies, private zones, and forwarding zones before querying the public internet. For more information, see [CNAME chasing](https://docs.cloud.google.com/dns/docs/cnamechasing).
 
 For GKE nodes:
 
@@ -61,7 +63,7 @@ For GKE nodes:
 
 ## VPC network resolution order
 
-  1. **Match using VPC network alternative name server**. If the VPC network has an [outbound server policy](https://docs.cloud.google.com/dns/docs/server-policies-overview#dns-server-policy-out), Google Cloud forwards the query to one of the [alternative name servers](https://docs.cloud.google.com/dns/docs/server-policies-overview#altns-targets) defined in that policy to complete the name resolution process. 
+  1. **Match using VPC network alternative name server**. If the VPC network has an [outbound server policy](https://docs.cloud.google.com/dns/docs/server-policies-overview#dns-server-policy-out), Google Cloud forwards the query to one of the [alternative name servers](https://docs.cloud.google.com/dns/docs/server-policies-overview#altns-targets) defined in that policy to complete the name resolution process.
 
 If two or more alternative name servers exist in the outbound server policy, Cloud DNS ranks the alternative name servers using an internal algorithm. Beginning with equal ranks, alternative name servers increase in rank based on higher rates of successful responses (including `NXDOMAIN` responses) _and_ based on the shortest round-trip time (the lowest response latency).
 
@@ -146,6 +148,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-fetch-processor-types/
 title: List processor types \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:20:32.203122+00:00
+fetched_at: 2026-10-27T21:08:26.684086+00:00
 ---
 
 # List processor types  |  Document AI  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/audit-logging/
 title: Knowledge Catalog audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:57.466191+00:00
+fetched_at: 2026-10-27T19:00:10.319859+00:00
 ---
 
 # Knowledge Catalog audit logging  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 #  Knowledge Catalog audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes audit logging for Knowledge Catalog. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Knowledge Catalog let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Knowledge Catalog API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -35,11 +37,19 @@ This document describes audit logging for Knowledge Catalog. Google Cloud servic
 
 ## Service name
 
-Knowledge Catalog audit logs use the service name `dataplex.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="dataplex.googleapis.com"
-      
+To view the Knowledge Catalog audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="dataplex.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -58,26 +68,15 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.dataplex.v1.CatalogService.ListEntryTypes`  
 `google.cloud.dataplex.v1.CatalogService.ListMetadataJobs`  
 `google.cloud.dataplex.v1.CatalogService.LookupEntry`  
-`google.cloud.dataplex.v1.ContentService.GetContent`  
-`GetIamPolicy`  
-`google.cloud.dataplex.v1.ContentService.ListContent`  
 `google.cloud.dataplex.v1.DataScanService.ListDataScanJobs`  
 `google.cloud.dataplex.v1.DataScanService.ListDataScans`  
-`google.cloud.dataplex.v1.DataTaxonomyService.GetDataAttribute`  
-`google.cloud.dataplex.v1.DataTaxonomyService.GetDataAttributeBinding`  
-`google.cloud.dataplex.v1.DataTaxonomyService.GetDataTaxonomy`  
-`google.cloud.dataplex.v1.DataTaxonomyService.ListDataAttributeBindings`  
-`google.cloud.dataplex.v1.DataTaxonomyService.ListDataAttributes`  
-`google.cloud.dataplex.v1.DataTaxonomyService.ListDataTaxonomies`  
 `google.cloud.dataplex.v1.DataplexService.GetAsset`  
-`google.cloud.dataplex.v1.DataplexService.GetEnvironment`  
 `google.cloud.dataplex.v1.DataplexService.GetJob`  
 `google.cloud.dataplex.v1.DataplexService.GetLake`  
 `google.cloud.dataplex.v1.DataplexService.GetTask`  
 `google.cloud.dataplex.v1.DataplexService.GetZone`  
 `google.cloud.dataplex.v1.DataplexService.ListAssetActions`  
 `google.cloud.dataplex.v1.DataplexService.ListAssets`  
-`google.cloud.dataplex.v1.DataplexService.ListEnvironments`  
 `google.cloud.dataplex.v1.DataplexService.ListJobs`  
 `google.cloud.dataplex.v1.DataplexService.ListLakeActions`  
 `google.cloud.dataplex.v1.DataplexService.ListLakes`  
@@ -99,37 +98,21 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.dataplex.v1.CatalogService.UpdateEntry`  
 `google.cloud.dataplex.v1.CatalogService.UpdateEntryGroup` (LRO)  
 `google.cloud.dataplex.v1.CatalogService.UpdateEntryType` (LRO)  
-`google.cloud.dataplex.v1.ContentService.CreateContent`  
-`google.cloud.dataplex.v1.ContentService.DeleteContent`  
-`SetIamPolicy`  
-`google.cloud.dataplex.v1.ContentService.UpdateContent`  
 `google.cloud.dataplex.v1.DataScanService.CreateDataScan` (LRO)  
 `google.cloud.dataplex.v1.DataScanService.DeleteDataScan` (LRO)  
 `google.cloud.dataplex.v1.DataScanService.RunDataScan`  
 `google.cloud.dataplex.v1.DataScanService.UpdateDataScan` (LRO)  
-`google.cloud.dataplex.v1.DataTaxonomyService.CreateDataAttribute` (LRO)  
-`google.cloud.dataplex.v1.DataTaxonomyService.CreateDataAttributeBinding` (LRO)  
-`google.cloud.dataplex.v1.DataTaxonomyService.CreateDataTaxonomy` (LRO)  
-`google.cloud.dataplex.v1.DataTaxonomyService.DeleteDataAttribute` (LRO)  
-`google.cloud.dataplex.v1.DataTaxonomyService.DeleteDataAttributeBinding` (LRO)  
-`google.cloud.dataplex.v1.DataTaxonomyService.DeleteDataTaxonomy` (LRO)  
-`google.cloud.dataplex.v1.DataTaxonomyService.UpdateDataAttribute` (LRO)  
-`google.cloud.dataplex.v1.DataTaxonomyService.UpdateDataAttributeBinding` (LRO)  
-`google.cloud.dataplex.v1.DataTaxonomyService.UpdateDataTaxonomy` (LRO)  
 `google.cloud.dataplex.v1.DataplexService.CancelJob`  
 `google.cloud.dataplex.v1.DataplexService.CreateAsset` (LRO)  
-`google.cloud.dataplex.v1.DataplexService.CreateEnvironment`  
 `google.cloud.dataplex.v1.DataplexService.CreateLake` (LRO)  
 `google.cloud.dataplex.v1.DataplexService.CreateTask` (LRO)  
 `google.cloud.dataplex.v1.DataplexService.CreateZone` (LRO)  
 `google.cloud.dataplex.v1.DataplexService.DeleteAsset` (LRO)  
-`google.cloud.dataplex.v1.DataplexService.DeleteEnvironment` (LRO)  
 `google.cloud.dataplex.v1.DataplexService.DeleteLake` (LRO)  
 `google.cloud.dataplex.v1.DataplexService.DeleteTask` (LRO)  
 `google.cloud.dataplex.v1.DataplexService.DeleteZone` (LRO)  
 `google.cloud.dataplex.v1.DataplexService.RunTask`  
 `google.cloud.dataplex.v1.DataplexService.UpdateAsset` (LRO)  
-`google.cloud.dataplex.v1.DataplexService.UpdateEnvironment`  
 `google.cloud.dataplex.v1.DataplexService.UpdateLake` (LRO)  
 `google.cloud.dataplex.v1.DataplexService.UpdateTask` (LRO)  
 `google.cloud.dataplex.v1.DataplexService.UpdateZone` (LRO)  
@@ -454,11 +437,8 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
-    * `dataform.repositories.get - ADMIN_READ`
-    * `dataplex.entries.get - ADMIN_READ`
-    * `dataplex.entryGroups.get - ADMIN_READ`
+    * `aiplatform.datasets.get - ADMIN_READ`
     * `dataplex.glossaryTerms.get - ADMIN_READ`
-    * `spanner.databases.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.CatalogService.LookupEntry" `  
@@ -521,121 +501,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.CatalogService.UpdateEntryType" `  
-
-
-
-
-### `google.cloud.dataplex.v1.ContentService`
-
-The following audit logs are associated with methods belonging to `google.cloud.dataplex.v1.ContentService`.
-
-#### `CreateContent`
-
-  * **Method** : `google.cloud.dataplex.v1.ContentService.CreateContent`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.content.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.ContentService.CreateContent" `  
-
-
-
-
-#### `DeleteContent`
-
-  * **Method** : `google.cloud.dataplex.v1.ContentService.DeleteContent`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.content.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.ContentService.DeleteContent" `  
-
-
-
-
-#### `GetContent`
-
-  * **Method** : `google.cloud.dataplex.v1.ContentService.GetContent`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.content.get - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.ContentService.GetContent" `  
-
-
-
-
-#### `GetIamPolicy`
-
-  * **Method** : `GetIamPolicy`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.assets.getIamPolicy - ADMIN_READ`
-    * `dataplex.lakes.getIamPolicy - ADMIN_READ`
-    * `dataplex.tasks.getIamPolicy - ADMIN_READ`
-    * `dataplex.zones.getIamPolicy - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="GetIamPolicy" `  
-
-
-
-
-#### `ListContent`
-
-  * **Method** : `google.cloud.dataplex.v1.ContentService.ListContent`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.content.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.ContentService.ListContent" `  
-
-
-
-
-#### `SetIamPolicy`
-
-  * **Method** : `SetIamPolicy`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.assets.setIamPolicy - ADMIN_WRITE`
-    * `dataplex.datascans.setIamPolicy - ADMIN_WRITE`
-    * `dataplex.lakes.setIamPolicy - ADMIN_WRITE`
-    * `dataplex.zones.setIamPolicy - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="SetIamPolicy" `  
-
-
-
-
-#### `UpdateContent`
-
-  * **Method** : `google.cloud.dataplex.v1.ContentService.UpdateContent`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.content.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.ContentService.UpdateContent" `  
 
 
 
@@ -781,237 +646,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-### `google.cloud.dataplex.v1.DataTaxonomyService`
-
-The following audit logs are associated with methods belonging to `google.cloud.dataplex.v1.DataTaxonomyService`.
-
-#### `CreateDataAttribute`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.CreateDataAttribute`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.dataAttributes.create - ADMIN_WRITE`
-    * `dataplex.dataTaxonomies.configureDataAccess - ADMIN_WRITE`
-    * `dataplex.dataTaxonomies.configureResourceAccess - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.CreateDataAttribute" `  
-
-
-
-
-#### `CreateDataAttributeBinding`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.CreateDataAttributeBinding`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.dataAttributeBindings.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.CreateDataAttributeBinding" `  
-
-
-
-
-#### `CreateDataTaxonomy`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.CreateDataTaxonomy`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.dataTaxonomies.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.CreateDataTaxonomy" `  
-
-
-
-
-#### `DeleteDataAttribute`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.DeleteDataAttribute`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.dataAttributes.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.DeleteDataAttribute" `  
-
-
-
-
-#### `DeleteDataAttributeBinding`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.DeleteDataAttributeBinding`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.dataAttributeBindings.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.DeleteDataAttributeBinding" `  
-
-
-
-
-#### `DeleteDataTaxonomy`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.DeleteDataTaxonomy`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.dataTaxonomies.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.DeleteDataTaxonomy" `  
-
-
-
-
-#### `GetDataAttribute`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.GetDataAttribute`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.dataAttributes.get - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.GetDataAttribute" `  
-
-
-
-
-#### `GetDataAttributeBinding`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.GetDataAttributeBinding`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.dataAttributeBindings.get - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.GetDataAttributeBinding" `  
-
-
-
-
-#### `GetDataTaxonomy`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.GetDataTaxonomy`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.dataTaxonomies.get - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.GetDataTaxonomy" `  
-
-
-
-
-#### `ListDataAttributeBindings`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.ListDataAttributeBindings`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.dataAttributeBindings.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.ListDataAttributeBindings" `  
-
-
-
-
-#### `ListDataAttributes`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.ListDataAttributes`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.dataAttributes.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.ListDataAttributes" `  
-
-
-
-
-#### `ListDataTaxonomies`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.ListDataTaxonomies`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.dataTaxonomies.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.ListDataTaxonomies" `  
-
-
-
-
-#### `UpdateDataAttribute`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.UpdateDataAttribute`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.dataAttributes.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.UpdateDataAttribute" `  
-
-
-
-
-#### `UpdateDataAttributeBinding`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.UpdateDataAttributeBinding`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.dataAttributeBindings.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.UpdateDataAttributeBinding" `  
-
-
-
-
-#### `UpdateDataTaxonomy`
-
-  * **Method** : `google.cloud.dataplex.v1.DataTaxonomyService.UpdateDataTaxonomy`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.dataTaxonomies.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataTaxonomyService.UpdateDataTaxonomy" `  
-
-
-
-
 ### `google.cloud.dataplex.v1.DataplexService`
 
 The following audit logs are associated with methods belonging to `google.cloud.dataplex.v1.DataplexService`.
@@ -1042,21 +676,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataplexService.CreateAsset" `  
-
-
-
-
-#### `CreateEnvironment`
-
-  * **Method** : `google.cloud.dataplex.v1.DataplexService.CreateEnvironment`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.environments.create - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataplexService.CreateEnvironment" `  
 
 
 
@@ -1121,21 +740,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `DeleteEnvironment`
-
-  * **Method** : `google.cloud.dataplex.v1.DataplexService.DeleteEnvironment`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.environments.delete - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataplexService.DeleteEnvironment" `  
-
-
-
-
 #### `DeleteLake`
 
   * **Method** : `google.cloud.dataplex.v1.DataplexService.DeleteLake`  
@@ -1192,21 +796,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataplexService.GetAsset" `  
-
-
-
-
-#### `GetEnvironment`
-
-  * **Method** : `google.cloud.dataplex.v1.DataplexService.GetEnvironment`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.environments.get - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataplexService.GetEnvironment" `  
 
 
 
@@ -1297,21 +886,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataplexService.ListAssets" `  
-
-
-
-
-#### `ListEnvironments`
-
-  * **Method** : `google.cloud.dataplex.v1.DataplexService.ListEnvironments`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `dataplex.environments.list - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataplexService.ListEnvironments" `  
 
 
 
@@ -1436,21 +1010,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
-#### `UpdateEnvironment`
-
-  * **Method** : `google.cloud.dataplex.v1.DataplexService.UpdateEnvironment`  
-
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
-
-  * **Permissions** : 
-    * `dataplex.environments.update - ADMIN_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.cloud.dataplex.v1.DataplexService.UpdateEnvironment" `  
-
-
-
-
 #### `UpdateLake`
 
   * **Method** : `google.cloud.dataplex.v1.DataplexService.UpdateLake`  
@@ -1507,10 +1066,7 @@ The following audit logs are associated with methods belonging to `google.iam.v1
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
-    * `dataplex.assets.getIamPolicy - ADMIN_READ`
-    * `dataplex.lakes.getIamPolicy - ADMIN_READ`
-    * `dataplex.tasks.getIamPolicy - ADMIN_READ`
-    * `dataplex.zones.getIamPolicy - ADMIN_READ`
+    * `dataplex.entryGroups.getIamPolicy - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="GetIamPolicy" `  
@@ -1526,6 +1082,7 @@ The following audit logs are associated with methods belonging to `google.iam.v1
 
   * **Permissions** : 
     * `dataplex.assets.setIamPolicy - ADMIN_WRITE`
+    * `dataplex.dataProducts.setIamPolicy - ADMIN_WRITE`
     * `dataplex.datascans.setIamPolicy - ADMIN_WRITE`
     * `dataplex.lakes.setIamPolicy - ADMIN_WRITE`
     * `dataplex.zones.setIamPolicy - ADMIN_WRITE`
@@ -1548,7 +1105,6 @@ A method might not produce audit logs for one or more of the following reasons:
 
 The following methods don't produce audit logs:
 
-  * `google.cloud.dataplex.v1.ContentService.TestIamPermissions`
   * `google.cloud.location.Locations.GetLocation`
   * `google.cloud.location.Locations.ListLocations`
   * `google.longrunning.Operations.CancelOperation`
@@ -1563,6 +1119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

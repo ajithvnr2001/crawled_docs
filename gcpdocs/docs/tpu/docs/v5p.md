@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tpu/docs/v5p/
 title: TPU v5p \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:36:11.129507+00:00
+fetched_at: 2026-10-27T23:54:39.054261+00:00
 ---
 
 # TPU v5p  |  Google Cloud Documentation
@@ -44,6 +44,9 @@ Number of SparseCores per chip | 4
 Bidirectional inter-chip interconnect (ICI) bandwidth per chip (GBps) | 1200  
 Data center network (DCN) bandwidth per chip (Gbps) | 50  
 Interconnect topology | 3D torus *  
+  
+Each TPU v5p chip has 96 GiB of physical high-bandwidth memory (HBM). The preceding table lists 95 GiB to account for HBM that the TPU system and `libtpu` runtime reserve for reliability and runtime overhead. Tools and frameworks such as `tpu-info`, JAX, and PyTorch report user-allocatable HBM rather than the 96 GiB nominal physical capacity.
+
 **Important:** All 4x4x4 and larger slices (one cube) have full 3D torus connectivity. Slices smaller than a full cube are 3D connected, however, they don't have wrap-around links that make them a 3D torus.
 
 ## Configurations
@@ -143,6 +146,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

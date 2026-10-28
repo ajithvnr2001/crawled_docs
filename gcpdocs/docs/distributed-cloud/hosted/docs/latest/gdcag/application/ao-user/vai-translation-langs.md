@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vai-translation-langs/
 title: Supported languages for Vertex AI Translation \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:51:08.766986+00:00
+fetched_at: 2026-10-28T02:29:56.308967+00:00
 ---
 
 # Supported languages for Vertex AI Translation  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,11 +22,7 @@ Send feedback
 
 #  Supported languages for Vertex AI Translation Stay organized with collections  Save and categorize content based on your preferences. 
 
-Vertex AI Translation lets you translate text between 106 supported languages.
-
-This page contains the list of supported languages for any-to-any translation.
-
-To use the `getSupportedLanguages` method to return the list of languages that the Vertex AI Translation API supports, see [Get supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/quickstart-translation#get-supported-lang).
+Vertex AI Translation in Google Distributed Cloud (GDC) air-gapped lets you translate text between 106 supported languages for any-to-any translation. To query the supported languages programmatically with the `getSupportedLanguages` method, see [Get supported languages](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/quickstart-translation#get-supported-lang).
 
 ## Supported languages
 
@@ -145,6 +141,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

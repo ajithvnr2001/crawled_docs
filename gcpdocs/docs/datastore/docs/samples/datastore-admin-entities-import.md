@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-admin-entities-import/
 title: Import admin entities to Datastore \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:24:37.927277+00:00
+fetched_at: 2026-10-27T22:58:07.131541+00:00
 ---
 
 # Import admin entities to Datastore  |  Firestore in Datastore mode  |  Google Cloud Documentation

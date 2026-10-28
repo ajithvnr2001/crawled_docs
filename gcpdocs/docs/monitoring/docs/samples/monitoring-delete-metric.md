@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/docs/samples/monitoring-delete-metric/
 title: Delete a custom metric \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:00:57.916623+00:00
+fetched_at: 2026-10-27T21:22:40.971522+00:00
 ---
 
 # Delete a custom metric  |  Cloud Monitoring  |  Google Cloud Documentation

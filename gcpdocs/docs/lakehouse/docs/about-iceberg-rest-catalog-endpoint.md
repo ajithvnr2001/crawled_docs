@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint/
 title: About the Apache Iceberg REST catalog endpoint \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:31.868782+00:00
+fetched_at: 2026-10-28T00:17:50.848304+00:00
 ---
 
 # About the Apache Iceberg REST catalog endpoint  |  Lakehouse  |  Google Cloud Documentation
@@ -67,7 +67,7 @@ This approach lets you name your catalog independently of any bucket name, and l
 **Considerations:**
 
   * **Client warehouse configuration (`bl://`)**: When configuring an Iceberg client to connect to a multiple-bucket catalog, specify the warehouse path using the `bl://` URI format: `bl://projects/PROJECT_ID/catalogs/CATALOG_ID`. The `bl://` format is used exclusively during client configuration to identify the catalog. When creating or configuring the catalog itself in Google Cloud, the storage locations (`default_location` and `restricted_locations`) are always specified as Cloud Storage paths (`gs://`).
-  * **Maximum buckets** : You can specify a maximum of 128 buckets per catalog.
+  * **Maximum storage locations** : In addition to `default_location`, you can specify up to 128 Cloud Storage buckets or subpaths in `restricted_locations` per catalog.
   * **Default location** : You provide a path to a bucket (`default_location`) or a subpath (such as `gs://my-bucket/path`) to act as the default storage location. All catalog resources (namespaces and tables) must be located under the specified path. For example, if you specify `gs://my-bucket/path`, you cannot host namespaces or tables under `gs://my-bucket/another/path`. For namespaces created without a specified location, the `default_location` is used.
   * **Restricted locations** : You can also provide an optional `restricted_locations` configuration for additional buckets or paths where namespaces and tables can be created. If you specify a subpath (such as `gs://my-bucket/path`), any resources created using that configuration must be under that path (for example, `gs://my-bucket/another/path` cannot host namespaces or tables).
   * **Geographic region group requirements** : Although buckets can be cross-project, cross-region, and have different configurations (such as single-region, dual-region, or multi-region), all Cloud Storage locations across the default location and restricted locations must be in the same geographic region group (such as the US, Europe, Canada, or Asia). For example, you can't configure a US multi-region bucket with a bucket in Europe or Canada.
@@ -162,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

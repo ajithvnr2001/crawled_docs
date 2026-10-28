@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/maintenance-changelog/sqlserver-2022-web/
 title: SQL Server 2022 Web maintenance changelog \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:02.684460+00:00
+fetched_at: 2026-10-27T19:53:36.250198+00:00
 ---
 
 # SQL Server 2022 Web maintenance changelog  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -31,6 +31,18 @@ Maintenance updates can be performed by you using [self-service maintenance](htt
 To learn more about maintenance updates, see [Maintenance updates on Cloud SQL instances](https://docs.cloud.google.com/sql/docs/sqlserver/maintenance).
 
 To get the latest maintenance changes delivered to you, add the following URL to your feed reader: `https://docs.cloud.google.com/feeds/cloud-sql-sql-server-2022-web-maintenance-changelog.xml`.
+
+## SQLSERVER_2022_WEB_CU25_GDR.R20260809.01_08
+
+**Date released** | **Release type** | **Database minor version**  
+---|---|---  
+2026-10-26 | Self Service | SQL Server 2022 Web CU25 GDR  
+  
+### Security patches
+
+#### Operating system
+
+[CVE-2026-18924](https://nvd.nist.gov/vuln/detail/CVE-2026-18924), [CVE-2026-56131](https://nvd.nist.gov/vuln/detail/CVE-2026-56131), [CVE-2026-56132](https://nvd.nist.gov/vuln/detail/CVE-2026-56132), [CVE-2026-56406](https://nvd.nist.gov/vuln/detail/CVE-2026-56406), [CVE-2026-56407](https://nvd.nist.gov/vuln/detail/CVE-2026-56407), [CVE-2026-56409](https://nvd.nist.gov/vuln/detail/CVE-2026-56409), [CVE-2026-56410](https://nvd.nist.gov/vuln/detail/CVE-2026-56410), [CVE-2026-56411](https://nvd.nist.gov/vuln/detail/CVE-2026-56411), [CVE-2026-66046](https://nvd.nist.gov/vuln/detail/CVE-2026-66046), [CVE-2026-72522](https://nvd.nist.gov/vuln/detail/CVE-2026-72522), [CVE-2026-76641](https://nvd.nist.gov/vuln/detail/CVE-2026-76641), [CVE-2026-76957](https://nvd.nist.gov/vuln/detail/CVE-2026-76957), [CVE-2026-80230](https://nvd.nist.gov/vuln/detail/CVE-2026-80230), [CVE-2026-82209](https://nvd.nist.gov/vuln/detail/CVE-2026-82209)
 
 ## SQLSERVER_2022_WEB_CU25_GDR.R20260809.01_07
 
@@ -362,6 +374,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

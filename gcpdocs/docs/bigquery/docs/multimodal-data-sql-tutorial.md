@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/multimodal-data-sql-tutorial/
 title: Analyze multimodal data with SQL, object tables, and BigQuery DataFrames \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:25:58.736652+00:00
+fetched_at: 2026-10-27T22:34:08.962534+00:00
 ---
 
 # Analyze multimodal data with SQL, object tables, and BigQuery DataFrames  |  Google Cloud Documentation
@@ -21,13 +21,9 @@ Send feedback
 
 #  Analyze multimodal data with SQL, object tables, and BigQuery DataFrames Stay organized with collections  Save and categorize content based on your preferences. 
 
-This tutorial shows you how to use SQL queries, the [`AI.GENERATE` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-generate), the [`AI.EMBED` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-embed) and [BigQuery DataFrames](https://docs.cloud.google.com/bigquery/docs/bigquery-dataframes-introduction) to [analyze multimodal data](https://docs.cloud.google.com/bigquery/docs/analyze-multimodal-data) from the Cymbal pet store public dataset.
+Analyzing multimodal data with SQL and [BigQuery DataFrames](https://docs.cloud.google.com/bigquery/docs/bigquery-dataframes-introduction) lets you combine structured and unstructured data to extract deeper insights. You can call generative AI functions on your [object tables](https://docs.cloud.google.com/bigquery/docs/object-table-introduction) to create embeddings, analyze content, and perform semantic [vector searches](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions#vector_search) to find similar entities across your data.
 
-The `AI.GENERATE` function lets you analyze any combination of structured and unstructured data, and the `AI.EMBED` function lets you create [embeddings](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-embed#embeddings) from text or image data in BigQuery.
-
-You find similar images by using the [`VECTOR_SEARCH`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/search_functions#vector_search) function. The `VECTOR_SEARCH` function lets you perform a semantic search or a hybrid search on embeddings to find similar entities.
-
-This tutorial uses a persistent [object table](https://docs.cloud.google.com/bigquery/docs/object-table-introduction) that stores `ObjectRef` values.
+In this tutorial, you use SQL queries, the [`AI.GENERATE` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-generate), the [`AI.EMBED` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-embed) and [BigQuery DataFrames](https://docs.cloud.google.com/bigquery/docs/bigquery-dataframes-introduction) to [analyze multimodal data](https://docs.cloud.google.com/bigquery/docs/analyze-multimodal-data) from the `cymbal_pets` public dataset.
 
 ## Objectives
 
@@ -1259,6 +1255,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

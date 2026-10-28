@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/quickstart/integrate-cloud-run/
 title: Quickstart: Connect from Cloud Run \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:23.824832+00:00
+fetched_at: 2026-10-28T02:16:28.763914+00:00
 ---
 
 # Quickstart: Connect from Cloud Run  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -54,13 +54,13 @@ You don't need the entire `alloydb-auth-proxy` project to connect to AlloyDB fro
 
   4. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  5. Enable the Compute Engine, Cloud Run, AlloyDB, Cloud Resource Manager, Service Networking, Cloud Build, and Container Registry APIs, if any are not already enabled. 
+  5. Enable the Compute Engine, Cloud Run, AlloyDB, Resource Manager, Service Networking, Cloud Build, and Artifact Registry APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
 To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=alloydb.googleapis.com,compute.googleapis.com,cloudresourcemanager.googleapis.com,cloudbuild.googleapis.com,containerregistry.googleapis.com,servicenetworking.googleapis.com,run.googleapis.com)
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=alloydb.googleapis.com,compute.googleapis.com,cloudresourcemanager.googleapis.com,cloudbuild.googleapis.com,artifactregistry.googleapis.com,servicenetworking.googleapis.com,run.googleapis.com)
 
   6. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
 
@@ -76,13 +76,13 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
   8. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  9. Enable the Compute Engine, Cloud Run, AlloyDB, Cloud Resource Manager, Service Networking, Cloud Build, and Container Registry APIs, if any are not already enabled. 
+  9. Enable the Compute Engine, Cloud Run, AlloyDB, Resource Manager, Service Networking, Cloud Build, and Artifact Registry APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
 To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
-[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=alloydb.googleapis.com,compute.googleapis.com,cloudresourcemanager.googleapis.com,cloudbuild.googleapis.com,containerregistry.googleapis.com,servicenetworking.googleapis.com,run.googleapis.com)
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=alloydb.googleapis.com,compute.googleapis.com,cloudresourcemanager.googleapis.com,cloudbuild.googleapis.com,artifactregistry.googleapis.com,servicenetworking.googleapis.com,run.googleapis.com)
 
   10. Make sure that you have an AlloyDB cluster and primary instance. For more information, see [Create a cluster and its primary instance](https://docs.cloud.google.com/alloydb/docs/cluster-create).
 
@@ -189,13 +189,13 @@ The sample application code for this quickstart is located in the `examples/go` 
 
 [Go to Clusters](https://console.cloud.google.com/alloydb/clusters)
 
-  2. Find the row in the table whose **Resource name** is `my-primary`.
+  2. Find the row in the table whose **Resource name** is `my-cluster-primary`.
 
   3. Take note of that row's **Private IP address**. You need it for the following step of this quickstart.
 
-The example format of the IP address is `172.19.209.2:5432`.
+The example format of the IP address is `172.19.209.2`.
 
-**Note:** If you are using a Free Trial cluster, the **Clusters** page might not display the private IP address. You can run the following command in **Cloud Shell** to find your primary instance's private IP address: 
+**Note:** If you're using a free trial cluster, the **Clusters** page might not display the private IP address. You can run the following command in **Cloud Shell** to find your primary instance's private IP address: 
          
          gcloud alloydb instances describe INSTANCE_ID \
          --cluster=CLUSTER_ID \
@@ -219,7 +219,7 @@ The example format of the IP address is `172.19.209.2:5432`.
 
   5. In the **Select container image** pane, complete the following steps:
 
-     1. Select the **Artifact registry** tab.
+     1. Select the **Artifact Registry** tab.
      2. Expand `us-central1-docker.pkg.dev/PROJECT_ID/cloud-run-source-deploy`.
      3. Expand `run-sql`.
      4. Select the latest image.
@@ -328,6 +328,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

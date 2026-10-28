@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/concepts/cluster-requirements/
 title: Prepare your cluster for Config Sync \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:23:08.338478+00:00
+fetched_at: 2026-10-28T02:29:31.178302+00:00
 ---
 
 # Prepare your cluster for Config Sync  |  Google Cloud Documentation
@@ -22,9 +22,9 @@ Send feedback
 
 #  Prepare your cluster for Config Sync Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains configuration choices and requirements when planning your clusters for use with Config Sync.
+Planning your Google Kubernetes Engine (GKE) cluster configuration before you install Config Sync helps ensure reliable policy and configuration synchronization across your environments. Your clusters must meet specific requirements for the cluster mode of operation, fleet registration, Identity and Access Management (IAM) permissions, platform versions, authentication, networking, and node architecture.
 
-For more information about general best practices when planning your GKE clusters, review the GKE documentation for [Cluster configuration choices](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/types-of-clusters).
+For general best practices when planning your GKE clusters, see [About cluster configuration choices](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/configuration-overview).
 
 ## Choose a GKE mode of operation
 
@@ -137,6 +137,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

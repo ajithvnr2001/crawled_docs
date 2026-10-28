@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-get-as-map/
 title: Retrieve Firestore Document as Map \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:20:02.534412+00:00
+fetched_at: 2026-10-27T18:31:12.799905+00:00
 ---
 
 # Retrieve Firestore Document as Map  |  Google Cloud Documentation

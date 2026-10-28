@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/rollouts/update/
 title: gcloud beta app-lifecycle-manager rollouts update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:21:44.491643+00:00
+fetched_at: 2026-10-27T21:40:56.818894+00:00
 ---
 
 # gcloud beta app-lifecycle-manager rollouts update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,26 +24,36 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager rollouts update - update a Rollout 
+gcloud beta app-lifecycle-manager rollouts update - update a rollout 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager rollouts update` (`ROLLOUT` : `--location`=`LOCATION`) [`--rollout-orchestration-strategy`=`ROLLOUT_ORCHESTRATION_STRATEGY`] [`--unit-filter`=`UNIT_FILTER`] [`--clear-control` `--control-action`=`CONTROL_ACTION` `--[no-]retry-failed-operations`] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Update a Rollout 
+     `(BETA)` Update an App Lifecycle Manager rollout. 
+
+Use `--control-action` to pause, resume, or cancel a rollout. 
+
 EXAMPLES
-     To update the Rollout, run: 
+     To pause the rollout named `my-rollout` in location `us-central1`, run: 
     
     
-    gcloud beta app-lifecycle-manager rollouts update
+    gcloud beta app-lifecycle-manager rollouts update my-rollout --location=us-central1 --control-action=pause
+
+To resume the paused rollout named `my-rollout` without retrying its failed operations, run: 
+    
+    
+    gcloud beta app-lifecycle-manager rollouts update my-rollout --location=us-central1 --control-action=run --no-retry-failed-operations
+
+To cancel the rollout named `my-rollout` permanently, run: 
+    
+    
+    gcloud beta app-lifecycle-manager rollouts update my-rollout --location=us-central1 --control-action=cancel
 
 POSITIONAL ARGUMENTS
     
 
-RolloutId resource - Identifier. The resource name (full URI of the resource) following the standard naming scheme: 
-    
-    
-    "projects/{project}/locations/{location}/rollout/{rollout_id}" The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways.
+RolloutId resource - Rollout to update. The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -79,31 +89,31 @@ FLAGS
     
 
 `--rollout-orchestration-strategy`=`ROLLOUT_ORCHESTRATION_STRATEGY`
-     The strategy to use for executing this rollout. If not provided, the strategy from Rollout Type will be used. 
+     Strategy to use for executing this rollout. Supported values are `Google.Cloud.Simple.AllAtOnce`, `Google.Cloud.Simple.OneLocationAtATime`, `Google.Cloud.Progressive.Gradual.v1`, and `Google.Cloud.Progressive.SingleLocation.v1`. If not set when the rollout is created, the strategy from the rollout kind is used. 
 `--unit-filter`=`UNIT_FILTER`
-     CEL(https://github.com/google/cel-spec) formatted filter string against Unit. The filter will be applied to determine the eligible unit population. This filter can only reduce, but not expand the scope of the rollout. If not provided, the unit_filter from the RolloutType will be used. 
-RolloutControl provides a way to request a change to the execution of a Rollout by pausing or canceling it. 
+     Filter, in Common Expression Language (CEL) format, that selects the eligible units. The filter can only reduce, not expand, the scope of the rollout. If empty, the unit filter from the rollout kind is used. For more information about CEL, see <https://github.com/google/cel-spec>. 
+Rollout control, which requests a change to the execution of the rollout, such as pausing or canceling it. Requests can only be made when the rollout is in a non-terminal state. 
 `--clear-control`
      Set rollout.control back to default value. 
 `--control-action`=`CONTROL_ACTION`
-     Action to be performed on the Rollout. The default behavior is to run the rollout until it naturally reaches a terminal state. `CONTROL_ACTION` must be one of: 
+     Action to perform on the rollout. If no action is set, the rollout runs until it naturally reaches a terminal state. `CONTROL_ACTION` must be one of: 
 
 `cancel`
-     Cancel the Rollout permanently. 
+     Cancel the rollout permanently. 
 `pause`
-     Pause the Rollout until it is resumed (i.e. RUN is requested). 
+     Pause the rollout until it is resumed (that is, until the `run` action is requested). 
 `run`
-     Run the Rollout until it naturally reaches a terminal state. A rollout requested to run will progress through all natural Rollout States (such as RUNNING -> SUCCEEDED or RUNNING -> FAILED). If retriable errors are encountered during the rollout, the rollout will paused by default and can be resumed by re-requesting this RUN action. 
-Arguments for the action params. 
-Parameters for the RUN action controlling the behavior of the rollout when it is resumed from a PAUSED state. 
+     Run the rollout until it naturally reaches a terminal state. A rollout requested to run progresses through all natural rollout states, such as from running to succeeded or from running to failed. If errors that can be retried occur during the rollout, the rollout is paused by default and can be resumed by requesting the `run` action again. 
+Action parameters. 
+Parameters for the `run` action that control the behavior of the rollout when it is resumed from a paused state. By default, the rollout retries failed operations when resumed. Can be specified only when `--control-action=run`. 
 `--[no-]retry-failed-operations`
-     If true, the rollout will retry failed operations when resumed. This is applicable only the current state of the Rollout is PAUSED and the requested action is RUN. Use `--retry-failed-operations` to enable and `--no-retry-failed-operations` to disable. 
+     Retry failed operations when the rollout is resumed. Applies only if the rollout is paused. Use `--retry-failed-operations` to enable and `--no-retry-failed-operations` to disable. 
 Update labels. 
 
 At most one of these can be specified: 
 
 `--labels`=[`LABELS`,…]
-     Set labels to new value. The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Set labels to new value. Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -127,7 +137,7 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--update-labels`=[`UPDATE_LABELS`,…]
-     Update labels value or add key value pair. The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Update labels value or add key value pair. Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -182,6 +192,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

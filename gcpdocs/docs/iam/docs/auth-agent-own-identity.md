@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/auth-agent-own-identity/
 title: Authenticate to Google Cloud using an agent's own identity \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:18:42.413402+00:00
+fetched_at: 2026-10-27T20:09:41.848814+00:00
 ---
 
 # Authenticate to Google Cloud using an agent's own identity  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -46,7 +46,6 @@ To get the permissions that you need to grant an agent access to Google Cloud se
   * Recommended roles for the agent identity: 
     * [Agent Context Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.agentContextEditor) (`roles/aiplatform.agentContextEditor`)
     * [Agent Default Access ](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.agentDefaultAccess) (`roles/aiplatform.agentDefaultAccess`)
-    * [Vertex AI User ](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.user) (`roles/aiplatform.user`)
     * [Service Usage Consumer ](https://docs.cloud.google.com/iam/docs/roles-permissions/serviceusage#serviceusage.serviceUsageConsumer) (`roles/serviceusage.serviceUsageConsumer`)
     * [Browser ](https://docs.cloud.google.com/iam/docs/roles-permissions/browser#browser) (`roles/browser`)
     * [Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) (`roles/storage.objectViewer`)
@@ -216,12 +215,12 @@ Replace `TARGET_SERVICE_URL` with the audience URI or URL of the receiving servi
 When you deploy your agent to Google Cloud, ensure that Agent Identity is enabled. If you're deploying to Agent Runtime on Gemini Enterprise Agent Platform , use the `identity_type=AGENT_IDENTITY` flag:
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html)
-    from vertexai.agent_engines import [AdkApp](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai.preview.reasoning_engines.AdkApp.html)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html)
+    from vertexai.agent_engines import [AdkApp](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai.preview.reasoning_engines.AdkApp.html)
     
     # Initialize the Vertex AI client with v1beta1 API for Agent Identity support
-    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(
+    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(
         project="PROJECT_ID",
         location="LOCATION",
         http_options=dict(api_version="v1beta1")
@@ -231,10 +230,10 @@ When you deploy your agent to Google Cloud, ensure that Agent Identity is enable
     app = AdkApp(agent=agent)
     
     # Deploy the agent with Agent Identity enabled
-    remote_app = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.agent_engines.html).create(
+    remote_app = client.[agent_engines](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.agent_engines.html).create(
         agent=app,
         config={
-            "identity_type": [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html).[IdentityType](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.IdentityType.html).[AGENT_IDENTITY](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.IdentityType.html#vertexai__genai_types_IdentityType_AGENT_IDENTITY),
+            "identity_type": [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html).[IdentityType](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.IdentityType.html).[AGENT_IDENTITY](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.IdentityType.html#vertexai__genai_types_IdentityType_AGENT_IDENTITY),
             "requirements": ["google-cloud-aiplatform[agent_engines,adk]"],
         },
     )
@@ -255,6 +254,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

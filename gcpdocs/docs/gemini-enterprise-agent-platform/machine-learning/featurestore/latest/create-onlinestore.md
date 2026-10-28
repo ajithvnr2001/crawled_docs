@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-onlinestore/
 title: Create an online store instance \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:32.335265+00:00
+fetched_at: 2026-10-28T02:28:26.530808+00:00
 ---
 
 # Create an online store instance  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Note that you can't change the type of online serving after you choose Bigtable 
 
 After you create the online store, you can [add feature views](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featureview) and associate those feature views with feature data sources in BigQuery.
 
-You can encrypt your online store instance by specifying a [customer-managed encryption key (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) when you create your online store instance. Only Bigtable online serving supports encryption using a CMEK. To learn more about the benefits of using a CMEK and to understand whether a CMEK is useful for your online store, see [Benefits of CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#benefits).
+You can encrypt your online store instance by specifying [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek) when you create your online store instance. Only Bigtable online serving supports encryption using a CMEK. To learn more about the benefits of using a CMEK and to understand whether a CMEK is useful for your online store, see [Benefits of CMEK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#benefits).
 
 Using a CMEK can involve additional usage costs, depending on the type of key being used. For more information about pricing, refer to [Cloud Key Management Service pricing](https://cloud.google.com/kms/pricing).
 
@@ -221,11 +221,11 @@ You should receive a JSON response similar to the following:
 
 Use the following steps to create an online store instance for Bigtable online serving that's encrypted with a CMEK.
 
-Using a CMEK encryption can involve additional usage costs, depending on the type of key being used. For more information about pricing, refer to [Cloud Key Management Service pricing](https://cloud.google.com/kms/pricing).
+Using a CMEK encryption can involve additional usage costs, depending on the type of key being used. For more information about pricing, refer to [Cloud KMS pricing](https://cloud.google.com/kms/pricing).
 
 **Note:** Bigtable online serving doesn't support embeddings. If you want to serve embeddings, use [Vector Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview) instead.
 
-  1. [Use Cloud Key Management Service to configure a customer-managed encryption key.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
+  1. [Use Cloud KMS to configure Customer-managed encryption keys.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
 
   2. To create a [`FeatureOnlineStore`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores#resource:-featureOnlineStore) resource, send the following `POST` request by using the [featureOnlineStores.create](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.featureOnlineStores/create) method and specifying the CMEK.
 
@@ -569,6 +569,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

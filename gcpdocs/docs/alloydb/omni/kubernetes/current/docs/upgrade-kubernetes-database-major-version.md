@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/upgrade-kubernetes-database-major-version/
 title: Upgrade to AlloyDB Omni version 18.4.0 on 1.9.0 \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:51:49.537826+00:00
+fetched_at: 2026-10-28T00:32:56.264474+00:00
 ---
 
 # Upgrade to AlloyDB Omni version 18.4.0 on 1.9.0  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ This page describes how to perform a major version upgrade to AlloyDB Omni versi
 
   * If you run external or remote backup systems, perform a full backup and pause any scheduled backups to avoid backing up during the upgrade process.
 
-  * For [high availability (HA) and data resilience (DR)](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/high-availability/overview) environments, decouple your database clusters before upgrading them.
+  * For [high availability (HA) and data resilience (DR)](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/kubernetes-ha) environments, decouple your database clusters before upgrading them.
 
 
 **Note:** Starting with AlloyDB Omni Kubernetes operator version 1.6.0, you can specify the base operating system for the database image using the `databaseImageOSType` field in your `DBCluster` manifest. The recommended value is `UBI9` for improved security and compatibility. If you need to continue using Debian-based images, you can set this field to `Debian`. During a major version upgrade, you can set this field in the patch command.
@@ -433,6 +433,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/configure-access-real-time-data/
 title: Configure AlloyDB access to real-time data in BigQuery \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:32.702548+00:00
+fetched_at: 2026-10-28T02:28:16.479158+00:00
 ---
 
 # Configure AlloyDB access to real-time data in BigQuery  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,13 +21,11 @@ Send feedback
 
 #  Configure AlloyDB access to real-time data in BigQuery Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document explains how to implement _lakehouse federation_ , a capability that lets you query live data in BigQuery directly from AlloyDB without performing complex ETL (extract, transform, load) migrations. Lakehouse federation unifies your operational and analytical data stores, eliminating the need for complex and error-prone data pipelines. For more information, see [Access to real-time data overview](https://docs.cloud.google.com/alloydb/docs/access-real-time-data-overview).
+To query live analytical data in BigQuery directly from AlloyDB for PostgreSQL without running extract, transform, and load (ETL) migrations, you can configure _lakehouse federation_. Lakehouse federation unifies your operational database and analytical data warehouse so that you can support real-time analytics and interactive applications without maintaining separate data pipelines. For more information, see [Access to real-time data overview](https://docs.cloud.google.com/alloydb/docs/access-real-time-data-overview).
 
-By integrating AlloyDB and BigQuery, you can achieve a seamless flow of data between your transactional database and your data warehouse, which supports real-time analytics and helps you build powerful interactive applications.
+With this integration, you can run queries in AlloyDB that access BigQuery data in real time and join operational tables in AlloyDB with foreign tables that reference your BigQuery datasets.
 
-You can use this integration to run queries in AlloyDB that access BigQuery data in real time. You can perform joins between tables in AlloyDB and foreign tables that reference your BigQuery datasets. This is useful when you need the most current data from BigQuery without moving it.
-
-This page assumes that you have an [AlloyDB cluster and primary instance](https://docs.cloud.google.com/alloydb/docs/cluster-create), and that you have a BigQuery dataset and tables. For more information, see [Create datasets](https://docs.cloud.google.com/bigquery/docs/datasets) and [Create and use tables](https://docs.cloud.google.com/bigquery/docs/tables).
+Before you configure lakehouse federation, you need an [AlloyDB cluster and primary instance](https://docs.cloud.google.com/alloydb/docs/cluster-create) and a BigQuery dataset and tables. For more information, see [Create datasets](https://docs.cloud.google.com/bigquery/docs/datasets) and [Create and use tables](https://docs.cloud.google.com/bigquery/docs/tables).
 
 ## Before you begin
 
@@ -283,6 +281,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

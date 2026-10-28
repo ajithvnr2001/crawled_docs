@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/reliability/horizontal-scalability/
 title: Take advantage of horizontal scalability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:25:09.138493+00:00
+fetched_at: 2026-10-28T00:27:14.444088+00:00
 ---
 
 # Take advantage of horizontal scalability  |  Cloud Architecture Center  |  Google Cloud Documentation

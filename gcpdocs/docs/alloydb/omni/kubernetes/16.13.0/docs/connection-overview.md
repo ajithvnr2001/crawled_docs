@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/connection-overview/
 title: Container orchestrator connection overview \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:19:40.757340+00:00
+fetched_at: 2026-10-27T19:18:24.702292+00:00
 ---
 
 # Container orchestrator connection overview  |  AlloyDB Omni using the container orchestrator: 16.13.0  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ This overview describes the critical connection and access configurations for Al
 
 You can configure AlloyDB Omni database clusters—managed by the `DBCluster` custom resource—for internal or external access.
 
-For more details on `DBCluster` networking options, refer to the [DBCluster CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.6.0/dbcluster).
+For more details on `DBCluster` networking options, refer to the [DBCluster CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.8.2/dbcluster).
 
 ### Internal connectivity
 
@@ -74,7 +74,7 @@ To secure external connections, use `spec.primarySpec.sourceCidrRanges` to defin
 
 To manage connections efficiently and reduce instance load, use PgBouncer. The AlloyDB Omni Operator provides a `PgBouncer` Custom Resource (CR) to simplify this operation.
 
-For comprehensive details on configuring PgBouncer, see the [PgBouncer CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.6.0/pgbouncer).
+For comprehensive details on configuring PgBouncer, see the [PgBouncer CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.8.2/pgbouncer).
 
 ### Deployment and configuration
 
@@ -102,14 +102,14 @@ AlloyDB Omni supports multiple methods to verify identities and control access.
 
 ### Authentication methods
 
-  * **Password-based:** Standard PostgreSQL username and password authentication. The administrator password is typically provided using a Kubernetes Secret, as shown in the [Full DBCluster Sample](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/samples#full_dbcluster).
+  * **Password-based:** Standard PostgreSQL username and password authentication. The administrator password is typically provided using a Kubernetes Secret, as shown in the [Full DBCluster Sample](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/samples#full-dbcluster).
   * **Active Directory and Kerberos:** Managed using the `UserDefinedAuthentication` CR. This supports GSSAPI and LDAP group synchronization using the following:
 
     * `spec.keytabSecretRef`: for Kerberos keytabs.
     * `spec.ldapConfiguration`: for group mapping and LDAP settings.
     * `spec.pgHbaEntries`: to configure `pg_hba.conf` rules–for example, `gss` or `ldap`.
 
-For more information, see the [UserDefinedAuthentication CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.6.0/userdefinedauthentication).
+For more information, see the [UserDefinedAuthentication CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.8.2/userdefinedauthentication).
 
   * **Certificate-based (planned):** support for passwordless TLS certificate authentication is planned for a future release.
 
@@ -126,10 +126,10 @@ For more information, see the [UserDefinedAuthentication CRD Reference](https://
 
 ## What's next
 
-  * Review the [DBCluster CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.6.0/dbcluster) for all configuration options.
-  * Learn to deploy connection pooling with the [PgBouncer CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.6.0/pgbouncer).
-  * Understand Active Directory integration in the [UserDefinedAuthentication CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.6.0/userdefinedauthentication).
-  * See a complete example in the [Full DBCluster Sample](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/samples#full_dbcluster).
+  * Review the [DBCluster CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.8.2/dbcluster) for all configuration options.
+  * Learn to deploy connection pooling with the [PgBouncer CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.8.2/pgbouncer).
+  * Understand Active Directory integration in the [UserDefinedAuthentication CRD Reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/reference/kubernetes-crds-1.8.2/userdefinedauthentication).
+  * See a complete example in the [Full DBCluster Sample](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.13.0/docs/samples#full-dbcluster).
   * Consult Kubernetes documentation on [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
 
 
@@ -138,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

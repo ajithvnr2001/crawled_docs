@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/architecture/genai-product-recommendations/
 title: Generative AI use case: Generate personalized product recommendations \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:27:55.236667+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:18:39.279299+00:00
 ---
 
 # Generative AI use case: Generate personalized product recommendations  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -29,7 +43,7 @@ The intended audience for this document includes architects, developers, and adm
 
 The following diagram shows an architecture that uses an AI model to generate personalized product recommendations based on insights from clickstream metrics.
 
-![Architecture for using AI to generate personalized product recommendations.](https://docs.cloud.google.com/static/architecture/images/genai-product-recommendations-architecture.png)![Architecture for using AI to generate personalized product recommendations}.](https://docs.cloud.google.com/static/architecture/images/genai-product-recommendations-architecture.png)
+![Architecture for using AI to generate personalized product recommendations.](https://docs.cloud.google.com/static/architecture/images/genai-product-recommendations-architecture.png) ![Architecture for using AI to generate personalized product recommendations}.](https://docs.cloud.google.com/static/architecture/images/genai-product-recommendations-architecture.png)
 
 The architecture shows the following flows:
 

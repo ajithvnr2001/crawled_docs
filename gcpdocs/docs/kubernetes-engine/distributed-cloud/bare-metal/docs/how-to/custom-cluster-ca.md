@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/custom-cluster-ca/
 title: Use custom cluster certificate authorities \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:30.789796+00:00
+fetched_at: 2026-10-28T02:29:45.017931+00:00
 ---
 
 # Use custom cluster certificate authorities  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,13 @@ Send feedback
 
 #  Use custom cluster certificate authorities Stay organized with collections  Save and categorize content based on your preferences. 
 
-Cluster certificate authorities (CAs) issue and sign certificates to enable secure authentication and encryption between cluster components. By default, in Google Distributed Cloud, the Cluster API creates the cluster CAs when you create a new cluster. This document describes how you can use your own certificate authorities with Google Distributed Cloud. Using custom cluster CAs gives you more control over issuing and managing your cluster certificates. You can also control trust, encryption algorithm parameters, the depth of subordinate certificates, and their purpose.
+Google Distributed Cloud lets you use your own certificate authorities (CAs) to issue and sign certificates that authenticate and encrypt communication between cluster components. Using custom CAs gives you direct control over root trust, encryption algorithm parameters, and subordinate certificate depth and purpose.
 
-To use custom CAs, you provide root CAs, consisting of a CA certificate file and its corresponding private key file. You provide a CA certificate and key file pair for each of the following required cluster CAs:
+You can apply custom CAs during [cluster creation (`bmctl` method only)](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/create-clusters-overview) or [CA rotation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/ca-rotation) across admin, user, hybrid, and standalone clusters.
+
+## Prerequisites
+
+You provide a CA certificate and key file pair for each of the following required cluster CAs:
 
   * **etcd CA** : the certificate for the etcd CA certificate secures communication from the Kubernetes API server to the etcd replicas and also communication between etcd replicas.
 
@@ -34,14 +38,6 @@ To use custom CAs, you provide root CAs, consisting of a CA certificate file and
 
 
 
-
-You can provide a unique certificate-key pair for each CA or you can reuse a certificate-key pair for more than one of the CAs.
-
-You apply the certificate-key pairs during [cluster creation (`bmctl` method only)](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/create-clusters-overview) and [CA rotation](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/ca-rotation). The Custom Cluster CA feature works with all cluster types: admin, user, hybrid, and standalone.
-
-**Note:** When you create a user cluster with `bmctl`, you typically remove the credentials section of the cluster configuration file. To specify custom cluster CAs when you create a user cluster, specify only the custom cluster CA certificate and private key paths in the credentials section.
-
-## Prerequisites
 
 You're responsible for preparing your own root CAs according to the following rules:
 
@@ -74,6 +70,8 @@ When you [create a cluster](https://docs.cloud.google.com/kubernetes-engine/dist
 When you specify the private keys only, `bmctl` looks for the corresponding CA certificate files in the same directory. Certificate files must have the same name as the corresponding private key files and the `.crt` file extension. For example, if the private key path is `/custom-ca/cluster_ca.key`, then `bmctl` expects the certificate path to be `/custom-ca/cluster_ca.crt`.
 
 In either case, the paths are specified in the credentials section of the configuration file as shown in the following examples.
+
+**Note:** When you create a user cluster with `bmctl`, you typically remove the credentials section of the cluster configuration file. To specify custom cluster CAs when you create a user cluster, specify only the custom cluster CA certificate and private key paths in the credentials section.
 
 Example 1: Specify certificate and key paths
 
@@ -280,6 +278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

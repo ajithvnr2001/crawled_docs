@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/
 title: About supervised fine-tuning for Gemini models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:42:46.499570+00:00
+fetched_at: 2026-10-27T20:27:59.106093+00:00
 ---
 
 # About supervised fine-tuning for Gemini models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -106,9 +106,9 @@ Adapter size | Supported values are 1, 2, 4, 8, and 16
 
 Specification | Value  
 ---|---  
-Maximum input and output training tokens | 131,072  
+Maximum input and output tokens per training example | 131,072  
 Maximum input and output serving tokens | Same as base Gemini model  
-Maximum validation dataset size | 5000 examples or 30% of the number of training examples if there are more than 1000 validation examples  
+Maximum number of examples in a validation dataset | 5000 examples or 30% of the number of training examples if there are more than 1000 validation examples  
 Maximum training dataset file size | 1GB for JSONL  
 Maximum training dataset size | 10M text-only examples or 300K multimodal examples  
 Adapter size | Supported values are 1, 2, 4, and 8  
@@ -172,10 +172,11 @@ You can also tune a model in the following situations:
 
 User data, such as the transformed dataset and the tuned model, is stored in the tuning job region. During tuning, computation could be offloaded to other `US` or `EU` regions for available accelerators. The offloading is transparent to users.
 
-  * If you use the Vertex AI SDK, you can specify the region at initialization. For example:
+  * If you use the Google Gen AI SDK, you can specify the region by setting the `GOOGLE_CLOUD_LOCATION` environment variable. For example:
         
-        import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-        [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project='myproject', location='us-central1')
+        export GOOGLE_CLOUD_PROJECT=PROJECT_ID
+        export GOOGLE_CLOUD_LOCATION=us # Use us-central1 for Gemini 2.5 and earlier models
+        export GOOGLE_GENAI_USE_ENTERPRISE=True
         
 
   * If you create a supervised fine-tuning job by sending a POST request using the [`tuningJobs.create`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/create) method, then you use the URL to specify the region where the tuning job runs. For example, in the following URL, you specify a region by replacing both instances of `TUNING_JOB_REGION` with the region where the job runs.
@@ -190,7 +191,7 @@ User data, such as the transformed dataset and the tuned model, is stored in the
         https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
         
 
-  * If you use the [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job), you can select the region name in the **Region** drop-down field on the **Model details** page. This is the same page where you select the base model and a tuned model name.
+  * If you use the [Google Cloud console](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job) (Gemini 2.5 and earlier models only), you can select the region name in the **Region** drop-down field on the **Model details** page. This is the same page where you select the base model and a tuned model name.
 
 
 
@@ -199,7 +200,7 @@ User data, such as the transformed dataset and the tuned model, is stored in the
 
 You can evaluate tuned models in the following ways:
 
-  * **Tuning and validation metrics** : [Evaluate the tuned model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#evaluate_the_tuned_model) using [tuning and validation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#tuning-metrics) after the tuning job completes.
+  * **Tuning and validation metrics** : [Evaluate the tuned model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#evaluate-model) using [tuning and validation metrics](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#tuning-metrics) after the tuning job completes.
 
   * **Integrated evaluation with Gen AI evaluation service** (Preview): [Configure tuning jobs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job) to automatically run evaluations using the [Gen AI evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview) during tuning. The following interfaces, models, and regions are supported for the tuning integration with Gen AI evaluation service:
 
@@ -220,15 +221,15 @@ If you configure the [Gen AI evaluation service](https://docs.cloud.google.com/g
 
 ## Pricing
 
-Pricing for Gemini supervised fine-tuning can be found here: [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing).
+Pricing for Gemini supervised fine-tuning can be found here: [Gemini Enterprise Agent Platform pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing#model-tuning).
 
 The number of training tokens is calculated by multiplying the number of tokens in your training dataset by the number of epochs. After tuning, inference (prediction request) costs for the tuned model still apply. Inference pricing is the same for each stable version of Gemini. For more information, see [Available Gemini stable model versions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions#stable-versions-available).
 
-If you configure the Gen AI evaluation service to run automatically during tuning, evaluations are charged as batch prediction jobs. For more information, see [Pricing](https://cloud.google.com/products/gemini-enterprise-agent-platform/pricing#prediction-prices).
+If you configure the Gen AI evaluation service to run automatically during tuning, evaluations are charged as batch prediction jobs. For more information, see [Pricing](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing).
 
 ## What's next
 
-  * Learn about [supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning).
+  * Learn how to [tune a Gemini model by using supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use).
   * Learn about [deploying a tuned Gemini model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/deploy/overview#deploy_a_tuned_model).
 
 
@@ -237,6 +238,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

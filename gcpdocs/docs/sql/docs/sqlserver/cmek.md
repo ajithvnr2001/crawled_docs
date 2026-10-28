@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/cmek/
 title: About customer-managed encryption keys (CMEK) \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:11:51.269773+00:00
+fetched_at: 2026-10-28T01:01:30.375594+00:00
 ---
 
 # About customer-managed encryption keys (CMEK)  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -57,6 +57,8 @@ The diagrams below show how [data-at-rest encryption](https://docs.cloud.google.
 When decrypting data wrapped with customer-managed encryption keys, Cloud SQL uses the KEK to decrypt the DEK and the unencrypted DEK to decrypt data-at-rest.
 
 ![Data chunk encrypted with DEK and stored with wrapped DEK. A request to unwrap the DEK is sent to KMS storage, which stores the unexportable KEK. KMS Storage returns the unwrapped DEK.](https://docs.cloud.google.com/sql/images/cmekdecrypt.png)
+
+If you enable [data cache](https://docs.cloud.google.com/sql/docs/sqlserver/data-cache) on a CMEK-enabled Cloud SQL Enterprise Plus edition instance, then Cloud SQL also encrypts the local SSD used for data cache.
 
 **Note:** Customer-managed encryption keys differ from Customer-Supplied Encryption Keys (CSEK), which let you specify the _contents_ of the encryption key. Customer-managed encryption keys let you create and manage a key using Cloud KMS, and assign keys to specific resources across Google Cloud. Cloud SQL does not support CSEK.
 
@@ -169,6 +171,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/samples/dataplex-delete-entry-type/
 title: Delete entry type \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:50:50.551662+00:00
+fetched_at: 2026-10-27T20:46:45.487639+00:00
 ---
 
 # Delete entry type  |  Knowledge Catalog  |  Google Cloud Documentation

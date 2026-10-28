@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/custom-headers/
 title: Create custom headers in backend services \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:33:22.786918+00:00
+fetched_at: 2026-10-27T19:16:30.371549+00:00
 ---
 
 # Create custom headers in backend services  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -352,7 +352,9 @@ Custom response headers configured at the backend bucket level are only added to
 
 ## Use custom headers with Google Cloud Armor
 
-When you configure a Cloud Armor security policy, you can configure Cloud Armor to insert a custom header and value. If your Cloud Armor security policy is configured to insert the same custom header name as your global external Application Load Balancer or classic Application Load Balancer's custom headers, then the header value specified in your Cloud Armor security policy is overwritten by the value populated by the load balancer. If you don't want the Cloud Armor policy to be overwritten, ensure that you don't use the same name.
+You can configure a custom response header with the `{cloud_trace_id}` variable on a backend service to return a unique trace ID to clients, including when a request is denied by a Cloud Armor security policy. You can use this trace ID to look up the corresponding request log entry in Logging. For more information, see [Identify and correlate blocked requests in logs](https://docs.cloud.google.com/armor/docs/troubleshooting#identify-blocked-requests).
+
+When you configure a Cloud Armor security policy, you can also configure Cloud Armor to insert a custom request header and value. If your Cloud Armor security policy is configured to insert the same custom header name as your global external Application Load Balancer or classic Application Load Balancer's custom headers, then the header value specified in your Cloud Armor security policy is overwritten by the value populated by the load balancer. If you don't want the Cloud Armor policy to be overwritten, make sure that you don't use the same name.
 
 ## Limitations
 
@@ -373,6 +375,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/web-search/
 title: Web search with Anthropic Claude models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:26.629813+00:00
+fetched_at: 2026-10-28T02:27:59.777913+00:00
 ---
 
 # Web search with Anthropic Claude models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -215,7 +215,7 @@ Usage is metered and included in `message_delta` messages, which includes a cumu
 
 The web search feature for Claude 4.0 and newer models is an optional feature of Anthropic's Claude models. You can enable it by providing the [web search tool](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/web-search-tool#how-to-use-web-search) in the requests. When you activate this feature, you are instructing Gemini Enterprise Agent Platform to enable the Claude models to send search queries derived from your request to a third-party search service provider selected by Anthropic. Google is not responsible for the data processing practices of this third-party provider. Once the search queries are transmitted, the handling of that data is governed by the third-party's own terms of service and privacy policy, not Google's.
 
-Activating the web search feature has direct implications for your data governance and security posture. Gemini Enterprise Agent Platform additional commitments, such as Customer-Managed Encryption Keys (CMEK) and Data Residency, do not apply to the data while being processed by the third-party search provider. If your consumer project is under a VPC-SC perimeter, VertexAI will reject the requests with the following error message:
+Activating the web search feature has direct implications for your data governance and security posture. Gemini Enterprise Agent Platform additional commitments, such as Customer-managed encryption keys (CMEK) and Data Residency, do not apply to the data while being processed by the third-party search provider. If your consumer project is under a VPC-SC perimeter, VertexAI will reject the requests with the following error message:
     
     
     {
@@ -243,6 +243,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

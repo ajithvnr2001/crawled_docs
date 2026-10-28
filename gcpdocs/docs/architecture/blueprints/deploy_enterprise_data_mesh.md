@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/blueprints/deploy_enterprise_data_mesh/
 title: Deploy an enterprise data management and analytics platform \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:01.073397+00:00
+fetched_at: 2026-10-27T23:05:48.474736+00:00
 ---
 
 # Deploy an enterprise data management and analytics platform  |  Cloud Architecture Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning/
 title: Tuning API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:43.437909+00:00
+fetched_at: 2026-10-27T18:56:27.875007+00:00
 ---
 
 # Tuning API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -23,13 +23,13 @@ Send feedback
 
 Model tuning is a crucial process in adapting Gemini to perform specific tasks with greater precision and accuracy. Model tuning works by providing a model with a training dataset that contains a set of examples of specific downstream tasks.
 
-Use the Gemini tuning API for the following use-cases:
+Use the Gemini tuning API for the following use cases:
 
-  * [Supervised fine tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning)
+  * [Supervised fine-tuning](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning)
 
 
 
-#### Supported Models:
+#### Supported models
 
 You can use supervised fine-tuning on the following Gemini models:
 
@@ -48,11 +48,6 @@ Translation LLM V2 (`translation-llm-002`) is also supported.
 
 ## Example syntax
 
-**Note:** The following examples use the Gemini 3 formatting for the URIs. If you are using Gemini 2.5, use the following URI instead: 
-    
-    
-    https://TUNING_JOB_REGION-aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs
-
 Syntax to tune a model.
 
 ### curl
@@ -66,11 +61,11 @@ Syntax to tune a model.
       "baseModel": "...",
       "supervisedTuningSpec" : {
         ...
-          "hyper_parameters": {
+          "hyperParameters": {
             ...
-          },
+          }
       },
-      "tunedModelDisplayName": "",
+      "tunedModelDisplayName": ""
     }'
 
 ### curl
@@ -84,11 +79,11 @@ Syntax to tune a model.
       "baseModel": "...",
       "supervisedTuningSpec" : {
         ...
-          "hyper_parameters": {
+          "hyperParameters": {
             ...
-          },
+          }
       },
-      "tunedModelDisplayName": "",
+      "tunedModelDisplayName": ""
     }'
 
 ## Parameters list
@@ -101,19 +96,19 @@ The request body contains data with the following parameters:
 
 Parameters  
 ---  
-`source_model` | Optional: `string`Name of the foundation model that's being tuned.  
+`baseModel` | `string`Name of the foundation model that's being tuned.  
 `tunedModelDisplayName` | `string`The display name of the `TunedModel`. The name can be up to 128 characters long and can consist of any UTF-8 characters.  
+`supervisedTuningSpec` | `object`The supervised fine-tuning specification. See `supervisedTuningSpec`.  
   
 #### `supervisedTuningSpec`
 
 Parameters  
 ---  
-`training_dataset` | `string`Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [ About supervised tuning datasets.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare#about-datasets)  
-`validation_dataset` | Optional: `string`Cloud Storage URI of your validation dataset. Your dataset must be formatted as a JSONL file. A dataset can contain up to 256 examples. If you provide this file, the data is used to generate validation metrics periodically during fine-tuning. For more information, see [ About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare#about-datasets).  
-`epoch_count` | Optional: `int`Number of complete passes the model makes over the entire training dataset during training. Gemini Enterprise Agent Platform automatically adjusts the default value to your training dataset size. This value is based on benchmarking results to optimize model output quality.  
-`learning_rate_multiplier` | Optional: `float`Multiplier for adjusting the default learning rate.  
-`adapter_size` | Optional: `AdapterSize`Adapter size for tuning.  
-`tuned_model_display_name` | Optional: `string`Display name of the `TunedModel`. The name can be up to 128 characters long and can consist of any UTF-8 characters.  
+`trainingDatasetUri` | `string`Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#about-datasets).  
+`validationDatasetUri` | Optional: `string`Cloud Storage URI of your validation dataset. Your dataset must be formatted as a JSONL file. For the maximum number of validation examples, see [Limitations](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning#limitations). If you provide this file, the data is used to generate validation metrics periodically during fine-tuning. For more information, see [ About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data#about-datasets).  
+`hyperParameters.epochCount` | Optional: `int`Number of complete passes the model makes over the entire training dataset during training. Gemini Enterprise Agent Platform automatically adjusts the default value to your training dataset size. This value is based on benchmarking results to optimize model output quality.  
+`hyperParameters.learningRateMultiplier` | Optional: `float`Multiplier for adjusting the default learning rate.  
+`hyperParameters.adapterSize` | Optional: `AdapterSize`Adapter size for tuning.  
   
 #### `AdapterSize`
 
@@ -123,19 +118,20 @@ Parameters
 ---  
 `ADAPTER_SIZE_UNSPECIFIED` | Unspecified adapter size.  
 `ADAPTER_SIZE_ONE` | Adapter size 1.  
+`ADAPTER_SIZE_TWO` | Adapter size 2.  
 `ADAPTER_SIZE_FOUR` | Adapter size 4.  
 `ADAPTER_SIZE_EIGHT` | Adapter size 8.  
 `ADAPTER_SIZE_SIXTEEN` | Adapter size 16.  
   
 ## Examples
 
-### Create a supervised tuning Job
+### Create a supervised tuning job
 
 You can create a supervised text model tuning job by using the Google Gen AI SDK or by sending a POST request.
 
 #### Basic use case
 
-The basic use case only sets values for `baseModel` and `training_dataset_uri`. All other parameters use the default values.
+The basic use case only sets values for `baseModel` and `trainingDatasetUri`. All other parameters use the default values.
 
 ### Python
     
@@ -222,9 +218,9 @@ To create a model tuning job, send a POST request by using the [`tuningJobs.crea
 Before using any of the request data, make the following replacements: 
 
   * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
-  * TUNING_JOB_REGION: The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  * TUNING_JOB_REGION: The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded. For Gemini 3 and later models, use the `us` or `eu` multi-region endpoint.
   * BASE_MODEL: Name of the foundation model to tune.
-  * TRAINING_DATASET_URI: Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets ](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare).
+  * TRAINING_DATASET_URI: Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data).
 
 
 
@@ -239,8 +235,8 @@ Request JSON body:
     {
       "baseModel": "BASE_MODEL",
       "supervisedTuningSpec" : {
-          "training_dataset_uri": "TRAINING_DATASET_URI"
-      },
+          "trainingDatasetUri": "TRAINING_DATASET_URI"
+      }
     }
     
     
@@ -284,16 +280,16 @@ You should receive a JSON response similar to the following.
     
     {
       "name": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID",
-      "createTime": CREATE_TIME,
-      "updateTime": UPDATE_TIME,
-      "status": "STATUS",
+      "createTime": "CREATE_TIME",
+      "updateTime": "UPDATE_TIME",
+      "state": "STATE",
       "supervisedTuningSpec": {
-            "training_dataset_uri": "TRAINING_DATASET_URI",
-            "validation_dataset_uri": "VALIDATION_DATASET_URI",
-            "hyper_parameters": {
-                "epoch_count": EPOCH_COUNT,
-                "learning_rate_multiplier": LEARNING_RATE_MULTIPLIER
-            },
+            "trainingDatasetUri": "TRAINING_DATASET_URI",
+            "validationDatasetUri": "VALIDATION_DATASET_URI",
+            "hyperParameters": {
+                "epochCount": EPOCH_COUNT,
+                "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
+            }
         },
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME"
     }
@@ -306,9 +302,9 @@ To create a model tuning job, send a POST request by using the [`tuningJobs.crea
 Before using any of the request data, make the following replacements: 
 
   * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
-  * TUNING_JOB_REGION: The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  * TUNING_JOB_REGION: The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded. Multi-region endpoints aren't supported for Gemini 2.5 and earlier models. Use a regional endpoint, such as `us-central1`.
   * BASE_MODEL: Name of the foundation model to tune.
-  * TRAINING_DATASET_URI: Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets ](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare).
+  * TRAINING_DATASET_URI: Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data).
 
 
 
@@ -323,8 +319,8 @@ Request JSON body:
     {
       "baseModel": "BASE_MODEL",
       "supervisedTuningSpec" : {
-          "training_dataset_uri": "TRAINING_DATASET_URI"
-      },
+          "trainingDatasetUri": "TRAINING_DATASET_URI"
+      }
     }
     
     
@@ -368,16 +364,16 @@ You should receive a JSON response similar to the following.
     
     {
       "name": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID",
-      "createTime": CREATE_TIME,
-      "updateTime": UPDATE_TIME,
-      "status": "STATUS",
+      "createTime": "CREATE_TIME",
+      "updateTime": "UPDATE_TIME",
+      "state": "STATE",
       "supervisedTuningSpec": {
-            "training_dataset_uri": "TRAINING_DATASET_URI",
-            "validation_dataset_uri": "VALIDATION_DATASET_URI",
-            "hyper_parameters": {
-                "epoch_count": EPOCH_COUNT,
-                "learning_rate_multiplier": LEARNING_RATE_MULTIPLIER
-            },
+            "trainingDatasetUri": "TRAINING_DATASET_URI",
+            "validationDatasetUri": "VALIDATION_DATASET_URI",
+            "hyperParameters": {
+                "epochCount": EPOCH_COUNT,
+                "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
+            }
         },
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME"
     }
@@ -385,7 +381,7 @@ You should receive a JSON response similar to the following.
 
 #### Advanced use case
 
-The advance use case expands upon the basic use case, but also sets values for optional `hyper_parameters`, such as `epoch_count`, `learning_rate_multiplier` and `adapter_size`.
+The advanced use case expands upon the basic use case, but also sets values for optional `hyperParameters`, such as `epochCount`, `learningRateMultiplier`, and `adapterSize`.
 
 ### Python
     
@@ -472,20 +468,16 @@ To create a model tuning job, send a POST request by using the [`tuningJobs.crea
 Before using any of the request data, make the following replacements: 
 
   * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
-  * TUNING_JOB_REGION: The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  * TUNING_JOB_REGION: The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded. For Gemini 3 and later models, use the `us` or `eu` multi-region endpoint.
   * BASE_MODEL: Name of the foundation model to tune.
-  * TRAINING_DATASET_URI: Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets ](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare).
+  * TRAINING_DATASET_URI: Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data).
   * VALIDATION_DATASET_URI Optional: The Cloud Storage URI of your validation dataset file.
-  * EPOCH_COUNT Optional: The number of complete passes the model makes over the entire training dataset during training. Leave it unset to use the [pre-populated recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec)
+  * EPOCH_COUNT Optional: The number of complete passes the model makes over the entire training dataset during training. Leave it unset to use the [pre-populated recommended value](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec).
   * ADAPTER_SIZE Optional: The [Adapter size](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#adaptersize) to use for the tuning job. The adapter size influences the number of trainable parameters for the tuning job. A larger adapter size implies that the model can learn more complex tasks, but it requires a larger training dataset and longer training times.
-  * LEARNING_RATE_MULTIPLIER: Optional: A multiplier to apply to the recommended learning rate. Leave it unset to use the [recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec)
+  * LEARNING_RATE_MULTIPLIER Optional: A multiplier to apply to the recommended learning rate. Leave it unset to use the [recommended value](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec).
   * EXPORT_LAST_CHECKPOINT_ONLY Optional: Set to `true` to use only the latest checkpoint.
-  * METRIC_SPEC Optional: One or more [metric specs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/evaluation) you are using to run an evaluation using the Gen AI evaluation service. You can use the following metric specs: `"pointwise_metric_spec"`, `"pairwise_metric_spec"`, `"exact_match_spec"`, `"bleu_spec"`, and `"rouge_spec"`.
-  * METRIC_SPEC_FIELD_NAME Optional: The required fields for your chosen metric spec. For example, `"metric_prompt_template"`
-  * METRIC_SPEC_FIELD_NAME_CONTENT Optional: The field content for your chosen metric spec. For example, you can use the following field content for a pointwise evaluation: `"Evaluate the fluency of this sentence: {response}. Give score from 0 to 1. 0 - not fluent at all. 1 - very fluent."`
-  * CLOUD_STORAGE_BUCKET Optional: The Cloud Storage bucket to store the results of an evaluation run by the Gen AI evaluation service.
   * TUNED_MODEL_DISPLAYNAME Optional: A display name for the tuned model. If not set, a random name is generated.
-  * KMS_KEY_NAME Optional: The Cloud KMS resource identifier of the customer-managed encryption key used to protect a resource. The key has the format: `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`. The key needs to be in the same region as where the compute resource is created. For more information, see [Customer-managed encryption keys (CMEK)](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek).
+  * KMS_KEY_NAME Optional: The Cloud KMS resource identifier of the customer-managed encryption key used to protect a resource. The key has the format: `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`. The key needs to be in the same region as where the compute resource is created. For more information, see [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek).
   * SERVICE_ACCOUNT Optional: The service account that the tuningJob workload runs as. If not specified, the Agent Platform Secure Fine-Tuning Service Agent in the project is used. See [Tuning Service Agent](https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-account). If you plan to use a customer-managed Service Account, you must grant the `roles/aiplatform.tuningServiceAgent` role to the service account. Also grant the [Tuning Service Agent](https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-account) `roles/iam.serviceAccountTokenCreator` role to the customer-managed Service Account.
 
 
@@ -504,27 +496,11 @@ Request JSON body:
           "trainingDatasetUri": "TRAINING_DATASET_URI",
           "validationDatasetUri": "VALIDATION_DATASET_URI",
           "hyperParameters": {
-              "epochCount": "EPOCH_COUNT",
+              "epochCount": EPOCH_COUNT,
               "adapterSize": "ADAPTER_SIZE",
-              "learningRateMultiplier": "LEARNING_RATE_MULTIPLIER"
+              "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
           },
-          "exportLastCheckpointOnly": EXPORT_LAST_CHECKPOINT_ONLY,
-          "evaluationConfig": {
-              "metrics": [
-                  {
-                      "aggregation_metrics": ["AVERAGE", "STANDARD_DEVIATION"],
-                      "METRIC_SPEC": {
-                          "METRIC_SPEC_FIELD_NAME":
-                              METRIC_SPEC_FIELD_CONTENT
-                      }
-                  },
-              ],
-              "outputConfig": {
-                  "gcs_destination": {
-                      "output_uri_prefix": "CLOUD_STORAGE_BUCKET"
-                  }
-              },
-          },
+          "exportLastCheckpointOnly": EXPORT_LAST_CHECKPOINT_ONLY
       },
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME",
       "encryptionSpec": {
@@ -573,9 +549,9 @@ You should receive a JSON response similar to the following.
     
     {
       "name": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID",
-      "createTime": CREATE_TIME,
-      "updateTime": UPDATE_TIME,
-      "status": "STATUS",
+      "createTime": "CREATE_TIME",
+      "updateTime": "UPDATE_TIME",
+      "state": "STATE",
       "supervisedTuningSpec": {
             "trainingDatasetUri": "TRAINING_DATASET_URI",
             "validationDatasetUri": "VALIDATION_DATASET_URI",
@@ -583,7 +559,7 @@ You should receive a JSON response similar to the following.
                 "epochCount": EPOCH_COUNT,
                 "adapterSize": "ADAPTER_SIZE",
                 "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
-            },
+            }
         },
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME",
       "encryptionSpec": {
@@ -600,20 +576,20 @@ To create a model tuning job, send a POST request by using the [`tuningJobs.crea
 Before using any of the request data, make the following replacements: 
 
   * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers).
-  * TUNING_JOB_REGION: The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded.
+  * TUNING_JOB_REGION: The [region](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) where the tuning job runs. This is also the default region for where the tuned model is uploaded. Multi-region endpoints aren't supported for Gemini 2.5 and earlier models. Use a regional endpoint, such as `us-central1`.
   * BASE_MODEL: Name of the foundation model to tune.
-  * TRAINING_DATASET_URI: Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets ](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-supervised-tuning-prepare).
+  * TRAINING_DATASET_URI: Cloud Storage URI of your training dataset. The dataset must be formatted as a JSONL file. For best results, provide at least 100 to 500 examples. For more information, see [About supervised tuning datasets](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/prepare-data).
   * VALIDATION_DATASET_URI Optional: The Cloud Storage URI of your validation dataset file.
-  * EPOCH_COUNT Optional: The number of complete passes the model makes over the entire training dataset during training. Leave it unset to use the [pre-populated recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec)
+  * EPOCH_COUNT Optional: The number of complete passes the model makes over the entire training dataset during training. Leave it unset to use the [pre-populated recommended value](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec).
   * ADAPTER_SIZE Optional: The [Adapter size](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#adaptersize) to use for the tuning job. The adapter size influences the number of trainable parameters for the tuning job. A larger adapter size implies that the model can learn more complex tasks, but it requires a larger training dataset and longer training times.
-  * LEARNING_RATE_MULTIPLIER: Optional: A multiplier to apply to the recommended learning rate. Leave it unset to use the [recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec)
+  * LEARNING_RATE_MULTIPLIER Optional: A multiplier to apply to the recommended learning rate. Leave it unset to use the [recommended value](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec).
   * EXPORT_LAST_CHECKPOINT_ONLY Optional: Set to `true` to use only the latest checkpoint.
-  * METRIC_SPEC Optional: One or more [metric specs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/evaluation) you are using to run an evaluation using the Gen AI evaluation service. You can use the following metric specs: `"pointwise_metric_spec"`, `"pairwise_metric_spec"`, `"exact_match_spec"`, `"bleu_spec"`, and `"rouge_spec"`.
-  * METRIC_SPEC_FIELD_NAME Optional: The required fields for your chosen metric spec. For example, `"metric_prompt_template"`
-  * METRIC_SPEC_FIELD_NAME_CONTENT Optional: The field content for your chosen metric spec. For example, you can use the following field content for a pointwise evaluation: `"Evaluate the fluency of this sentence: {response}. Give score from 0 to 1. 0 - not fluent at all. 1 - very fluent."`
+  * METRIC_SPEC Optional: One or more [metric specs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/evaluation) you are using to run an evaluation using the Gen AI evaluation service. You can use the following metric specs: `pointwiseMetricSpec`, `pairwiseMetricSpec`, `exactMatchSpec`, `bleuSpec`, and `rougeSpec`.
+  * METRIC_SPEC_FIELD_NAME Optional: The required fields for your chosen metric spec. For example, `metricPromptTemplate`
+  * METRIC_SPEC_FIELD_CONTENT Optional: The field content for your chosen metric spec. For example, you can use the following field content for a pointwise evaluation: `"Evaluate the fluency of this sentence: {response}. Give score from 0 to 1. 0 - not fluent at all. 1 - very fluent."`
   * CLOUD_STORAGE_BUCKET Optional: The Cloud Storage bucket to store the results of an evaluation run by the Gen AI evaluation service.
   * TUNED_MODEL_DISPLAYNAME Optional: A display name for the tuned model. If not set, a random name is generated.
-  * KMS_KEY_NAME Optional: The Cloud KMS resource identifier of the customer-managed encryption key used to protect a resource. The key has the format: `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`. The key needs to be in the same region as where the compute resource is created. For more information, see [Customer-managed encryption keys (CMEK)](https://cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek).
+  * KMS_KEY_NAME Optional: The Cloud KMS resource identifier of the customer-managed encryption key used to protect a resource. The key has the format: `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`. The key needs to be in the same region as where the compute resource is created. For more information, see [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek).
   * SERVICE_ACCOUNT Optional: The service account that the tuningJob workload runs as. If not specified, the Agent Platform Secure Fine-Tuning Service Agent in the project is used. See [Tuning Service Agent](https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-account). If you plan to use a customer-managed Service Account, you must grant the `roles/aiplatform.tuningServiceAgent` role to the service account. Also grant the [Tuning Service Agent](https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-account) `roles/iam.serviceAccountTokenCreator` role to the customer-managed Service Account.
 
 
@@ -632,27 +608,27 @@ Request JSON body:
           "trainingDatasetUri": "TRAINING_DATASET_URI",
           "validationDatasetUri": "VALIDATION_DATASET_URI",
           "hyperParameters": {
-              "epochCount": "EPOCH_COUNT",
+              "epochCount": EPOCH_COUNT,
               "adapterSize": "ADAPTER_SIZE",
-              "learningRateMultiplier": "LEARNING_RATE_MULTIPLIER"
+              "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
           },
           "exportLastCheckpointOnly": EXPORT_LAST_CHECKPOINT_ONLY,
           "evaluationConfig": {
               "metrics": [
                   {
-                      "aggregation_metrics": ["AVERAGE", "STANDARD_DEVIATION"],
+                      "aggregationMetrics": ["AVERAGE", "STANDARD_DEVIATION"],
                       "METRIC_SPEC": {
                           "METRIC_SPEC_FIELD_NAME":
                               METRIC_SPEC_FIELD_CONTENT
                       }
-                  },
+                  }
               ],
               "outputConfig": {
-                  "gcs_destination": {
-                      "output_uri_prefix": "CLOUD_STORAGE_BUCKET"
+                  "gcsDestination": {
+                      "outputUriPrefix": "CLOUD_STORAGE_BUCKET"
                   }
-              },
-          },
+              }
+          }
       },
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME",
       "encryptionSpec": {
@@ -701,9 +677,9 @@ You should receive a JSON response similar to the following.
     
     {
       "name": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID",
-      "createTime": CREATE_TIME,
-      "updateTime": UPDATE_TIME,
-      "status": "STATUS",
+      "createTime": "CREATE_TIME",
+      "updateTime": "UPDATE_TIME",
+      "state": "STATE",
       "supervisedTuningSpec": {
             "trainingDatasetUri": "TRAINING_DATASET_URI",
             "validationDatasetUri": "VALIDATION_DATASET_URI",
@@ -711,7 +687,7 @@ You should receive a JSON response similar to the following.
                 "epochCount": EPOCH_COUNT,
                 "adapterSize": "ADAPTER_SIZE",
                 "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
-            },
+            }
         },
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME",
       "encryptionSpec": {
@@ -721,7 +697,7 @@ You should receive a JSON response similar to the following.
     }
     
 
-### List tuning Jobs
+### List tuning jobs
 
 You can view a list of tuning jobs in your current project by using the Google Gen AI SDK or by sending a GET request.
 
@@ -790,7 +766,7 @@ You should receive a JSON response similar to the following.
     
     
     {
-      "tuning_jobs": [
+      "tuningJobs": [
         TUNING_JOB_1, TUNING_JOB_2, ...
       ]
     }
@@ -846,7 +822,7 @@ You should receive a JSON response similar to the following.
     
     
     {
-      "tuning_jobs": [
+      "tuningJobs": [
         TUNING_JOB_1, TUNING_JOB_2, ...
       ]
     }
@@ -879,7 +855,7 @@ You can get the details of a tuning job by using the Google Gen AI SDK or by sen
 
 ### REST
 
-To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TuningJob_ID`. 
+To view details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID`. 
 
 Before using any of the request data, make the following replacements: 
 
@@ -930,24 +906,24 @@ You should receive a JSON response similar to the following.
     {
       "name": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID",
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME",
-      "createTime": CREATE_TIME,
-      "endTime": END_TIME,
+      "createTime": "CREATE_TIME",
+      "endTime": "END_TIME",
       "tunedModel": {
           "model": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/models/MODEL_ID",
           "endpoint": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID"
       },
       "experiment": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/metadataStores/default/contexts/EXPERIMENT_ID",
-      "tuning_data_statistics": {
+      "tuningDataStats": {
           "supervisedTuningDataStats": {
-              "tuninDatasetExampleCount": "TUNING_DATASET_EXAMPLE_COUNT",
+              "tuningDatasetExampleCount": "TUNING_DATASET_EXAMPLE_COUNT",
               "totalBillableTokenCount": "TOTAL_BILLABLE_TOKEN_COUNT",
               "tuningStepCount": "TUNING_STEP_COUNT"
           }
       },
-      "status": "STATUS",
+      "state": "STATE",
       "supervisedTuningSpec" : {
             "trainingDatasetUri": "TRAINING_DATASET_URI",
-            "validationDataset_uri": "VALIDATION_DATASET_URI",
+            "validationDatasetUri": "VALIDATION_DATASET_URI",
             "hyperParameters": {
                 "epochCount": EPOCH_COUNT,
                 "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
@@ -958,7 +934,7 @@ You should receive a JSON response similar to the following.
 
 ### REST
 
-To view a list of model tuning jobs, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TuningJob_ID`. 
+To view details of a model tuning job, send a GET request by using the [`tuningJobs.get`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/get) method and specify the `TUNING_JOB_ID`. 
 
 Before using any of the request data, make the following replacements: 
 
@@ -1009,24 +985,24 @@ You should receive a JSON response similar to the following.
     {
       "name": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/tuningJobs/TUNING_JOB_ID",
       "tunedModelDisplayName": "TUNED_MODEL_DISPLAYNAME",
-      "createTime": CREATE_TIME,
-      "endTime": END_TIME,
+      "createTime": "CREATE_TIME",
+      "endTime": "END_TIME",
       "tunedModel": {
           "model": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/models/MODEL_ID",
           "endpoint": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/endpoints/ENDPOINT_ID"
       },
       "experiment": "projects/PROJECT_ID/locations/TUNING_JOB_REGION/metadataStores/default/contexts/EXPERIMENT_ID",
-      "tuning_data_statistics": {
+      "tuningDataStats": {
           "supervisedTuningDataStats": {
-              "tuninDatasetExampleCount": "TUNING_DATASET_EXAMPLE_COUNT",
+              "tuningDatasetExampleCount": "TUNING_DATASET_EXAMPLE_COUNT",
               "totalBillableTokenCount": "TOTAL_BILLABLE_TOKEN_COUNT",
               "tuningStepCount": "TUNING_STEP_COUNT"
           }
       },
-      "status": "STATUS",
+      "state": "STATE",
       "supervisedTuningSpec" : {
             "trainingDatasetUri": "TRAINING_DATASET_URI",
-            "validationDataset_uri": "VALIDATION_DATASET_URI",
+            "validationDatasetUri": "VALIDATION_DATASET_URI",
             "hyperParameters": {
                 "epochCount": EPOCH_COUNT,
                 "learningRateMultiplier": LEARNING_RATE_MULTIPLIER
@@ -1057,7 +1033,7 @@ You can cancel a tuning job by using the Google Gen AI SDK or by sending a POST 
 
 ### REST
 
-To view a list of model tuning jobs, send a POST request by using the [`tuningJobs.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel) method and specify the `TuningJob_ID`. 
+To cancel a model tuning job, send a POST request by using the [`tuningJobs.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel) method and specify the `TUNING_JOB_ID`. 
 
 Before using any of the request data, make the following replacements: 
 
@@ -1112,7 +1088,7 @@ You should receive a JSON response similar to the following.
 
 ### REST
 
-To view a list of model tuning jobs, send a POST request by using the [`tuningJobs.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel) method and specify the `TuningJob_ID`. 
+To cancel a model tuning job, send a POST request by using the [`tuningJobs.cancel`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/rest/v1/projects.locations.tuningJobs/cancel) method and specify the `TUNING_JOB_ID`. 
 
 Before using any of the request data, make the following replacements: 
 
@@ -1169,7 +1145,7 @@ You should receive a JSON response similar to the following.
 
 For detailed documentation, see the following:
 
-  * [Supervised Tuning Job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning#create_a_text_model_supervised_tuning_job)
+  * [Create a supervised fine-tuning job](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/supervised-tuning/use#create_a_text_model_supervised_tuning_job)
   * [Generate content with the Gemini API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference)
 
 
@@ -1178,6 +1154,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/creating-clusters/create-user-cluster-api/
 title: Create a user cluster using GKE On-Prem API clients \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:28.504817+00:00
+fetched_at: 2026-10-27T23:54:35.521821+00:00
 ---
 
 # Create a user cluster using GKE On-Prem API clients  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -156,7 +156,7 @@ When the cluster is created, the GKE On-Prem API applies the Kubernetes role-bas
 **Note:** In addition to the Kubernetes RBAC policies, you must grant some Identity and Access Management (IAM) roles to the users who aren't project owners. For details on granting the IAM roles, see [Grant required roles](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/anthos-ui#grant_required_roles).
   6. In the **Node configuration** section, specify the following:
 
-     * **Maximum Pods per node** : Enter the maximum number of Pods that can be run on a single node. Allowable values are between `32`–`250`, inclusive. Kubernetes assigns a [Classless Inter-Domain Routing (CIDR) block](https://tools.ietf.org/html/rfc1918) to each node so that each pod can have a unique IP address. The size of the CIDR block corresponds to the maximum number of pods per node. For more information about setting the maximum number of pods per node, [Pod networking](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/network-reqs#pod_networking).
+     * **Maximum Pods per node** : Enter the maximum number of Pods that can be run on a single node. Allowable values are between `32`–`250`, inclusive. Kubernetes assigns a [Classless Inter-Domain Routing (CIDR) block](https://tools.ietf.org/html/rfc1918) to each node so that each pod can have a unique IP address. The size of the CIDR block corresponds to the maximum number of pods per node. For more information about setting the maximum number of pods per node, [Pods and Services networking](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/concepts/network-reqs#pods-and-services-networking).
 
      * **Container runtime** : **containerd** is the only available container runtime for your cluster.
 
@@ -1068,6 +1068,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

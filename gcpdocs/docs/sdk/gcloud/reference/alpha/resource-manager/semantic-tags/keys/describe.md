@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/resource-manager/semantic-tags/keys/describe/
 title: gcloud alpha resource-manager semantic-tags keys describe \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T19:30:51.590682+00:00
+fetched_at: 2026-10-27T21:40:59.502632+00:00
 ---
 
 # gcloud alpha resource-manager semantic-tags keys describe  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ POSITIONAL ARGUMENTS
     
 
 `KEY`
-     ID of the Semantic Tag Key to describe (for example, `placement.latency-optimized`), or its full resource name (`projects/gcp-semantic-tags-catalog/locations/{location}/semanticTagKeys/{key}`). 
+     Semantic Tag Key to describe: its key ID (for example, `placement.latency-optimized`), `semanticTagKeys/{key}`, `locations/{location}/semanticTagKeys/{key}`, or its full resource name (`projects/gcp-semantic-tags-catalog/locations/{location}/semanticTagKeys/{key}`). Shorter forms use the `--location` value and the Google Cloud Semantic Tags Catalog project. 
 FLAGS
     
 
@@ -66,6 +66,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

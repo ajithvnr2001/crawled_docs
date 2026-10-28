@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/troubleshoot-workload-management/
 title: Troubleshoot BigQuery workload management \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:41:40.286933+00:00
+fetched_at: 2026-10-28T02:29:09.165837+00:00
 ---
 
 # Troubleshoot BigQuery workload management  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Troubleshoot BigQuery workload management
 
-This document shows you how to troubleshoot common issues with BigQuery workload management, including reservation allocation and assignments, reservation configuration errors, capacity commitments, slot contention, and reservation monitoring.
+This document shows you how to troubleshoot common issues with BigQuery workload management, including reservation allocation and assignments, reservation configuration errors, capacity commitments, slot contention, reservation monitoring, and conversational analytics conversation logging.
 
 To view and manage reservations, commitments, and administrative resource charts, ensure that you have the required Identity and Access Management (IAM) roles, such as the BigQuery Resource Viewer (`roles/bigquery.resourceViewer`) or BigQuery Resource Admin (`roles/bigquery.resourceAdmin`) role on the administration project. For more information, see [Access control with IAM](https://docs.cloud.google.com/bigquery/docs/access-control).
 
@@ -232,12 +232,106 @@ Monitoring dashboards use sampled data, which might not accurately reflect the p
 
 For a more accurate analysis of slot usage, query columns related to idle slots, such as the `borrowed_slots` and `lent_slots` columns in the [`INFORMATION_SCHEMA.RESERVATIONS_TIMELINE` view](https://docs.cloud.google.com/bigquery/docs/information-schema-reservation-timeline#schema).
 
+## Troubleshoot conversation logging
+
+Use the following information to troubleshoot common issues with conversational analytics conversation logging in BigQuery. Because logging errors never fail a conversation turn and aren't reported in the chat or in Cloud Logging, an empty or missing destination table is the primary signal of a configuration or permission issue.
+
+### Log table is missing or empty
+
+If the destination table isn't created or remains empty after a conversation turn, check the following potential causes:
+
+  * **Conversation logging isn't saved or published.** In BigQuery Studio, refresh the page, reopen the agent settings, and confirm that **Enable conversation logging** is turned on, the destination dataset and table are set, and your changes are published.
+
+  * **Destination dataset is missing or in a different project.** Confirm that the destination dataset already exists in the same project as the data agent. You can verify that the dataset exists by running `bq show PROJECT_ID:LOG_DATASET`. Replace `PROJECT_ID` with the ID of the project that contains the data agent, and `LOG_DATASET` with the ID of the destination dataset. The service agent creates the log table on the first logged turn, but it doesn't create the dataset.
+
+  * **Missing service agent or CMEK permissions.** Confirm that the Conversational Analytics API service agent (`service-PROJECT_NUMBER@gcp-sa-geminidataanalytics.iam.gserviceaccount.com`, using the agent project's number rather than the project ID) has the BigQuery Data Editor (`roles/bigquery.dataEditor`) role on the log dataset. If the dataset uses [customer-managed Cloud KMS keys](https://docs.cloud.google.com/bigquery/docs/customer-managed-encryption) (CMEK), confirm that the BigQuery encryption service account (`bq-PROJECT_NUMBER@bigquery-encryption.iam.gserviceaccount.com`) has the `roles/cloudkms.cryptoKeyEncrypterDecrypter` role on the key.
+
+  * **Unsupported conversation surface or agent configuration.** Conversations in the BigQuery Studio **Preview** pane aren't logged. Test from the published agent's main chat screen. Agents that use a search scope instead of specific BigQuery tables, that configure property graphs as knowledge sources, or that don't declare any BigQuery tables, aren't logged. For more information, see [Limitations](https://docs.cloud.google.com/bigquery/docs/conversation-logging-overview#conversation-logging-limitations).
+
+  * **Knowledge-source tables use access policies.** If any knowledge-source table uses row-level access policies, column-level security (policy tags), or dynamic data masking, turns aren't logged.
+
+  * **Schema conflict on an existing destination table.** If you configured an existing table as the destination and a column shares a name with a conversation log schema column but has a different type or mode, BigQuery doesn't write rows to that table.
+
+
+
+
+Rows typically appear within a few seconds after a turn completes. If rows still don't appear after you wait a few minutes, refresh the dataset.
+
+### Some users' conversations aren't logged
+
+**Cause**
+
+Before each turn, the privacy check uses the chatting user's credentials to verify that the agent's knowledge-source tables don't have row-level security, column-level security, or data masking policies. If a user lacks permission to run this check, their turns aren't logged.
+
+**Resolution**
+
+Grant all chatting users the [BigQuery Data Viewer](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.dataViewer) (`roles/bigquery.dataViewer`) role on the knowledge-source tables and the [BigQuery Job User](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.jobUser) (`roles/bigquery.jobUser`) role on the project that runs their queries, or grant a custom role with the `bigquery.tables.get` and `bigquery.rowAccessPolicies.list` permissions on the knowledge-source tables.
+
+### Saving the agent fails with an `INVALID_ARGUMENT` error
+
+**Error message**
+
+  * `The BigQuery Agent Analytics table must be in the same project as the agent (agent project: ..., table project: ...).`
+
+  * `BigQuery Agent Analytics can only be enabled on agents whose datasource is BigQuery. Remove bigquery_agent_analytics_enabled and bigquery_agent_analytics_table, or point the agent at a BigQuery datasource.`
+
+
+
+
+**Cause**
+
+The destination dataset is in a different project from the data agent, or the agent's data source isn't BigQuery.
+
+**Resolution**
+
+Select an existing destination dataset in the same project as the data agent, or configure the data agent with a BigQuery data source.
+
+### Granting dataset access fails because the service agent doesn't exist
+
+**Error message**
+
+  * `Service account service-PROJECT_NUMBER@gcp-sa-geminidataanalytics... does not exist`
+
+
+
+**Cause**
+
+The Conversational Analytics API service agent hasn't been provisioned in the project yet.
+
+**Resolution**
+
+Do one of the following:
+
+  * Configure the log destination on the agent first, and then grant the role again.
+
+  * Provision the service identity by running the following command:
+        
+        gcloud beta services identity create \
+            --service=geminidataanalytics.googleapis.com \
+            --project=PROJECT_ID
+
+Replace `PROJECT_ID` with the ID of the project that contains the data agent.
+
+
+
+
+### Conversation logging settings are unavailable in BigQuery Studio
+
+**Cause**
+
+You are viewing the **Published** version of the data agent, where configuration settings are read-only, or the data agent doesn't have specific BigQuery tables selected as knowledge sources.
+
+**Resolution**
+
+Switch the view selector to **Draft** , make sure that specific BigQuery tables are selected as knowledge sources, update the conversation logging settings, and then publish the agent. 
+
 ## What's next
 
   * Learn more about [workload management using reservations](https://docs.cloud.google.com/bigquery/docs/reservations-workload-management).
   * Learn how to [manage workload reservations](https://docs.cloud.google.com/bigquery/docs/reservations-tasks). 
   * Learn about [purchasing and managing slot commitments](https://docs.cloud.google.com/bigquery/docs/reservations-commitments). 
   * Learn how to [monitor reservations](https://docs.cloud.google.com/bigquery/docs/reservations-monitoring) and [use administrative resource charts](https://docs.cloud.google.com/bigquery/docs/admin-resource-charts).
+  * Learn more about [conversational analytics conversation logging](https://docs.cloud.google.com/bigquery/docs/conversation-logging-overview).
   * Explore other [BigQuery troubleshooting resources](https://docs.cloud.google.com/bigquery/docs/troubleshoot-intro).
 
 
@@ -246,6 +340,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

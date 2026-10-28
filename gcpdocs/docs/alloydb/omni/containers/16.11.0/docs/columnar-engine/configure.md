@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.11.0/docs/columnar-engine/configure/
 title: Configure the columnar engine in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using containers: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:56.668968+00:00
+fetched_at: 2026-10-28T00:01:58.008387+00:00
 ---
 
 # Configure the columnar engine in AlloyDB Omni  |  AlloyDB Omni using containers: 16.11.0  |  Google Cloud Documentation
@@ -135,8 +135,8 @@ To provision disks and create a file system for AlloyDB Omni columnar engine sto
 
   1. Create a volume group from all available physical devices:
          
-         nvme_prefix=&quot;STORAGE_PREFIX"
-         nvme_list=$(ls "$nvme_prefix&quot;*)
+         nvme_prefix="STORAGE_PREFIX"
+         nvme_list=$(ls "$nvme_prefix"*)
          sudo vgcreate VOLUME_GROUP ${nvme_list}
 
 Replace the following:
@@ -306,7 +306,7 @@ By default, when the columnar engine is enabled it refreshes the column store in
 To manually refresh the column engine, run the following SQL query:
     
     
-    SELECT google_columnar_engine_refresh(relation =>&#39;TABLE_NAME');
+    SELECT google_columnar_engine_refresh(relation =>'TABLE_NAME');
     
 
 Replace `TABLE_NAME` with the name of the table or the materialized view you want to manually refresh.
@@ -362,6 +362,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

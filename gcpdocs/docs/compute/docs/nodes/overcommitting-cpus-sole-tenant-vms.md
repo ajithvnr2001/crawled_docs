@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/nodes/overcommitting-cpus-sole-tenant-vms/
 title: Overcommit CPUs on sole-tenant VMs \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:34:43.529911+00:00
+fetched_at: 2026-10-27T19:16:32.073111+00:00
 ---
 
 # Overcommit CPUs on sole-tenant VMs  |  Compute Engine  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ Also consider the utilization of your workload. Workloads with high CPU utilizat
 
 Using CPU overcommit benefits uncorrelated bursty workloads that have high peak utilization and low average utilization because these workloads are more likely to have available CPU resources to share across VMs when some VMs need to burst their utilization. If all of the VMs on a host burst at one time, the host won't have sufficient resources for your VMs.
 
-**Caution:** Depending on the nature of the workload, overcommitting CPUs on sole-tenant nodes might result in performance fluctuations.
+**Caution:** Depending on the nature of the workload, overcommitting CPUs on sole-tenant nodes might result in performance fluctuations. 
 
 ## Limitations
 
@@ -204,7 +204,7 @@ In the Google Cloud console, create a sole-tenant VM on a sole-tenant node group
 
   5. Specify the **Name** , **Region** , and **Zone** for the VM.
 
-  6. Under **Machine configuration** , choose a fixed or custom **Machine type** with at least 4 vCPUs.
+  6. Under **Machine configuration** , choose a fixed or custom **Machine type**.
 
   7. Under **CPU overcommit** , select **Enable CPU overcommit**.
 
@@ -512,6 +512,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

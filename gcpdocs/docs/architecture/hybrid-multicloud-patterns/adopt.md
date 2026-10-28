@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/hybrid-multicloud-patterns/adopt/
 title: Architectural approaches to adopt a hybrid or multicloud architecture \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:23:43.567566+00:00
+fetched_at: 2026-10-28T00:07:03.517972+00:00
 ---
 
 # Architectural approaches to adopt a hybrid or multicloud architecture  |  Cloud Architecture Center  |  Google Cloud Documentation

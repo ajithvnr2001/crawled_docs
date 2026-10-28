@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/checklist-sap-other/
 title: Checklist for SAP on Google Cloud with other databases \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:00:35.027670+00:00
+fetched_at: 2026-10-28T02:31:33.299393+00:00
 ---
 
 # Checklist for SAP on Google Cloud with other databases  |  Google Cloud Documentation
@@ -66,9 +66,15 @@ As you go through the checklist, take into account your own business needs. If y
 
 ###  Pick appropriate machine types and operating systems for SAP with other databases
 
-  * To select a Compute Engine machine type for your database deployment and workloads, see [ SAP Note 2456432 - SAP Applications on Google Cloud: Supported Products and Google Cloud machine types](https://launchpad.support.sap.com/#/notes/2456432) or [Certified machine types](https://docs.cloud.google.com/sap/docs/certifications-sap-apps#sap-certified-vms) (Google Cloud). 
-    * To ensure that the needs of your landscape, such as capacity planning and reservations, can be fulfilled in the region of your choice, work with your Technical Account Manager or designated Customer Engineer.
+  * To select a Compute Engine machine type for your database deployment and workloads, see the following:
+
+    * [ SAP Note 2456432 - SAP Applications on Google Cloud: Supported Products and Google Cloud machine types](https://launchpad.support.sap.com/#/notes/2456432), or
+    * Go to [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-solutions-and-machine-types), and in the **Certified SAP solution** menu, select "SAP NetWeaver".
+
+To ensure that the needs of your landscape, such as capacity planning and reservations, can be fulfilled in the region of your choice, work with your Technical Account Manager or designated Customer Engineer.
+
   * To select an SAP-supported OS that works on Google Cloud, see [ SAP Note 2456432 - SAP Applications on Google Cloud: Supported Products and Google Cloud machine types](https://launchpad.support.sap.com/#/notes/2456432) or the [Quick reference table](https://docs.cloud.google.com/sap/docs/netweaver-os-support#quick_reference_table) (Google Cloud).
+
   * Confirm that the OS has recent patches and updates.
 
     * If you use SUSE Linux Enterprise Server (SLES) in your landscape, then follow these guidelines:
@@ -134,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

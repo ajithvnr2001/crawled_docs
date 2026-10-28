@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/
 title: Agent Runtime \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:10:27.676227+00:00
+fetched_at: 2026-10-28T02:27:40.298831+00:00
 ---
 
 # Agent Runtime  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -110,7 +110,7 @@ Build agents with tools that access data in your database. | [Agent Platform SDK
 Query and understand structured datastores using natural language. | [Agent Platform SDK (Python) notebook - Building a Conversational Search Agent with Agent Runtime and RAG on Agent Search](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/tutorial_vertex_ai_search_rag_agent.ipynb)  
 Query and understand graph databases using natural language | [Blog post - GenAI GraphRAG and AI agents using Agent Runtime with LangChain and Neo4j](https://www.googlecloudcommunity.com/gc/Cloud-Product-Articles/GenAI-GraphRAG-and-AI-agents-using-Vertex-AI-Reasoning-Engine/ta-p/789066)  
 Query and understand vector stores using natural language | [Blog post - Simplify GenAI RAG with MongoDB Atlas and Agent Runtime](https://www.mongodb.com/developer/products/atlas/ragdeployment-vertex-ai-reasoning-engine/)  
-Build agents with Agent Development Kit | Build and deploy agents using Agent Development Kit. | [Agent Development Kit -- Deploy to Agent Runtime](http://google.github.io/adk-docs/deploy/agent-engine)  
+Build agents with ADK | Build and deploy agents using ADK. | [Agent Development Kit -- Deploy to Agent Runtime](http://google.github.io/adk-docs/deploy/agent-engine)  
 Build agents with OSS frameworks | Build and deploy agents using the OneTwo open-source framework. | [Blog post - OneTwo and Agent Runtime: exploring advanced AI agent development on Google Cloud](https://www.googlecloudcommunity.com/gc/Community-Blogs/OneTwo-and-Vertex-AI-Reasoning-Engine-exploring-advanced-AI/ba-p/788254)  
 Build and deploy agents using the LangGraph open-source framework. | [Agent Platform SDK (Python) notebook - Building and Deploying a LangGraph Application with Agent Runtime](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/tutorial_langgraph.ipynb)  
 Debugging and optimizing agents | Build and trace agents using OpenTelemetry and Cloud Trace. | [Agent Platform SDK (Python) notebook - Debugging and Optimizing Agents: A Guide to Tracing in Agent Runtime](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/agent-engine/tracing_agents_in_agent_engine.ipynb)  
@@ -132,7 +132,7 @@ For information about pricing for Agent Runtime, see [Gemini Enterprise Agent Pl
 
 In version 2.0.1 of the Agent Platform SDK, the `agent_engines` module was refactored and renamed to individual modules (such as `runtimes`, `sessions`, `sandboxes`, and `memory_banks`) under the standalone `google-cloud-agentplatform` package (`agentplatform`). The SDK adopts a client-based design for the following key reasons:
 
-  * To align with the [Agent Development Kit](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) (ADK) and Google Gen AI SDK (`google-genai`) in canonical type representations. This ensures a consistent and standardized way of representing data types across different SDKs, which simplifies interoperability and reduces conversion overhead.
+  * To align with the [ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk) (ADK) and Google Gen AI SDK (`google-genai`) in canonical type representations. This ensures a consistent and standardized way of representing data types across different SDKs, which simplifies interoperability and reduces conversion overhead.
   * For client-level scoping of Google Cloud parameters in multi-project multi-location applications. This allows an application to manage interactions with resources across different Google Cloud projects and geographical locations by configuring each client instance (`client = agentplatform.Client(project=..., location=...)`) with its specific project and location settings.
   * To improve discoverability and cohesiveness of Gemini Enterprise Agent Platform services (`client.runtimes`, `client.sessions`, `client.sandboxes`, and `client.memory_banks`).
   * To provide a lightweight, decoupled package (`google-cloud-agentplatform`) tailored for agent workloads while generative AI modules migrate to the Google Gen AI SDK (`google-genai`).
@@ -164,6 +164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

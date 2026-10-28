@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/architectures/sap-business-suite-on-hana/
 title: Reference architecture: SAP Business Suite on SAP HANA on Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:45:09.643658+00:00
+fetched_at: 2026-10-28T02:31:33.688504+00:00
 ---
 
 # Reference architecture: SAP Business Suite on SAP HANA on Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -23,12 +23,7 @@ Send feedback
 
 This reference architecture is intended for people who are evaluating Google Cloud as a platform for deploying SAP Business Suite on SAP HANA workloads. It includes considerations during the planning phase, deployment models and automation, and common operational procedures like backup and DR tasks. 
 
-Google Cloud provides cost-effective, reliable, secure, and high-performance SAP-certified infrastructure for running SAP Business Suite on SAP HANA. For a complete list of supported SAP solutions on Google Cloud, see:
-
-  * [Certifications for SAP applications on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-apps)
-  * [Certifications for SAP HANA on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-hana)
-
-
+Google Cloud provides cost-effective, reliable, secure, and high-performance SAP-certified infrastructure for running SAP Business Suite on SAP HANA. For a complete list of supported SAP solutions on Google Cloud, see [SAP certifications for Google Cloud](https://docs.cloud.google.com/sap/docs/sap-certifications).
 
 ## Architecture
 
@@ -347,7 +342,7 @@ SAP HANA directory | Recommended storage option in Google Cloud
   
 In distributed deployments, `/hana/shared` and `/hanabackup` can also be mounted as a network file system using an NFS solution such as Filestore. 
 
-For information about persistent disk storage that SAP has certified for use with SAP HANA, see [Persistent disk storage for SAP HANA](https://docs.cloud.google.com/sap/docs/certifications-sap-hana#persistent_disk_storage_for_sap_hana).
+For information about persistent disk storage that SAP has certified for use with SAP HANA, see [Persistent disk storage](https://docs.cloud.google.com/sap/docs/sap-hana-planning-guide#persistent_disk_storage).
 
   * Recommended storage options for Linux directory structure on SAP ABAP instance:
 
@@ -358,7 +353,7 @@ Directory | Recommended storage option in Google Cloud
   
 In distributed deployments, `/sapmnt` can also be mounted as a network file system using an NFS solution such as [Filestore](https://docs.cloud.google.com/filestore/docs). 
 
-For information about persistent disk storage that SAP has certified for use with SAP ABAP instances, see [Persistent disk storage for SAP applications](https://docs.cloud.google.com/sap/docs/certifications-sap-apps#persistent_disk_storage_for_sap_applications).
+For information about persistent disk storage that SAP has certified for use with SAP ABAP instances, see [Persistent disk storage](https://docs.cloud.google.com/sap/docs/netweaver-planning-guide#persistent_disk_storage).
 
 
 
@@ -748,6 +743,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

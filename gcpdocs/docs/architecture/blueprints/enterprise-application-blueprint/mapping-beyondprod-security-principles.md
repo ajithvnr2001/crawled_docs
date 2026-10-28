@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/blueprints/enterprise-application-blueprint/mapping-beyondprod-security-principles/
 title: Mapping BeyondProd security principles to the blueprint \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:40:59.721062+00:00
+fetched_at: 2026-10-27T23:05:48.681546+00:00
 ---
 
 # Mapping BeyondProd security principles to the blueprint  |  Cloud Architecture Center  |  Google Cloud Documentation

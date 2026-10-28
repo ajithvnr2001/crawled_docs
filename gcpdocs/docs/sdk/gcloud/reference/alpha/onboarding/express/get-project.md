@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/alpha/onboarding/express/get-project/
 title: gcloud alpha onboarding express get-project \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T19:26:41.505631+00:00
+fetched_at: 2026-10-27T21:41:37.512186+00:00
 ---
 
 # gcloud alpha onboarding express get-project  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ FLAGS
     
 
 `--auto-accept-tos-ids`=[`TOS_ID`,…]
-     List of Terms of Service IDs to automatically accept without prompting. Valid values are: cloud, starter-tier-additional-terms-of-service, pantheon, cloud-free-trial, gmp-demo-api-key. 
+     List of Terms of Service IDs to automatically accept without prompting. Valid values are: cloud, starter-tier-additional-terms-of-service, pantheon, cloud-free-trial, gmp-demo-api-key, firebase. 
 `--region`=`REGION`
      Google Cloud region (for example, `us-east1`) where resources associated with the project will be provisioned. Use this to select a region without prompting. Ignored if no region selection is required. If a region selection is required, this flag is not specified, and prompts are disabled (for example, with `--quiet` or in a non-interactive session), the available regions are listed and the command fails. 
 GCLOUD WIDE FLAGS
@@ -50,6 +50,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

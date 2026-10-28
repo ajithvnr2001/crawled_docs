@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/glue-federated-datasets/
 title: Create and manage AWS Glue federated datasets \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:24:31.618947+00:00
+fetched_at: 2026-10-27T19:38:29.775732+00:00
 ---
 
 # Create and manage AWS Glue federated datasets  |  BigQuery  |  Google Cloud Documentation
@@ -152,7 +152,7 @@ In a command-line environment, create a dataset by using the [`bq mk` command](h
 
 Replace the following:
 
-  * `LOCATION`: the location of your new dataset in BigQuery—for example, `aws-us-east-1`. After you create a dataset, you can't change its location. You can set a default location value by using the [`.bigqueryrc` file](https://docs.cloud.google.com/bigquery/docs/bq-command-line-tool#setting_default_values_for_command-line_flags).
+  * `LOCATION`: the location of your new dataset in BigQuery—for example, `aws-us-east-1`. After you create a dataset, you can't change its location. You can set a default location value by using the [`.bigqueryrc` file](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference#set_default_values_for_command-line_flags).
   * `AWS_GLUE_SOURCE`: the [Amazon Resource Name (ARN)](https://docs.aws.amazon.com/glue/latest/dg/glue-specifying-resource-arns.html) of the AWS Glue database—for example, `arn:aws:glue:us-east-1:123456789:database/test_database`.
   * `PROJECT_ID`: your BigQuery project ID.
   * `CONNECTION_LOCATION`: the location of your AWS connection—for example, `aws-us-east-1`.
@@ -367,6 +367,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

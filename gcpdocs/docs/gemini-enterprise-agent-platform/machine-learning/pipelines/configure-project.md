@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/configure-project/
 title: Configure your Google Cloud project for Gemini Enterprise Agent Platform Pipelines \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:19.048751+00:00
+fetched_at: 2026-10-28T02:28:29.348895+00:00
 ---
 
 # Configure your Google Cloud project for Gemini Enterprise Agent Platform Pipelines  |  Google Cloud Documentation
@@ -35,7 +35,7 @@ We recommend that you create a service account to run your pipelines and then gr
 
   4. Agent Platform Pipelines uses Vertex ML Metadata to store the metadata created by your pipeline runs. When you run a pipeline for the first time, if the metadata store of your project doesn't exist, Gemini Enterprise Agent Platform creates your project's metadata store.
 
-If you want your data encrypted using a customer-managed encryption key (CMEK), you can manually create your metadata store using a CMEK key before you run a pipeline. Otherwise, if there's no existing default metadata store in your project, Gemini Enterprise Agent Platform creates your project's metadata store using the CMEK key used when you run the pipeline for the first time. After the metadata store is created, it uses a CMEK key that's different from the CMEK key used in a pipeline run.
+If you want your data encrypted using Customer-managed encryption keys (CMEK), you can manually create your metadata store using a CMEK key before you run a pipeline. Otherwise, if there's no existing default metadata store in your project, Gemini Enterprise Agent Platform creates your project's metadata store using the CMEK key used when you run the pipeline for the first time. After the metadata store is created, it uses a CMEK key that's different from the CMEK key used in a pipeline run.
 
 
 
@@ -257,7 +257,7 @@ Learn more about [controlling access to Cloud Storage buckets](https://docs.clou
 
 Use the following instructions to create a CMEK and set up a Vertex ML Metadata metadata store that uses this CMEK.
 
-  1. [Use Cloud Key Management Service to configure a customer-managed encryption key.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
+  1. [Use Cloud Key Management Service to configure Customer-managed encryption keys.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#configure-cmek)
 
   2. Use the following REST call to create your project's default metadata store using your CMEK.
 
@@ -352,6 +352,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

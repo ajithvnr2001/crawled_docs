@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-client-authentication/
 title: Configure client authentication \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:40:26.603226+00:00
+fetched_at: 2026-10-27T19:17:17.997241+00:00
 ---
 
 # Configure client authentication  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ Select a documentation version: 18.4.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/configure-client-authentication)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/configure-client-authentication)
 
-This document describes how to configure client authentication on your Kubernetes-based AlloyDB Omni database cluster using the `UserDefinedAuthentication` custom resource (`alloydbomni.dbadmin.goog/v1`). You can customize client authentication behavior—such as restricting client subnets, enforcing SSL/TLS, specifying custom authentication methods, or configuring user mapping—by defining custom `pg_hba.conf` and `pg_ident.conf` entries independently of Active Directory setup. 
+This document describes how to configure client authentication on your Kubernetes-based AlloyDB Omni database cluster using the [`UserDefinedAuthentication`](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/reference/kubernetes-crds-1.9.0/userdefinedauthentication) custom resource (`alloydbomni.dbadmin.goog/v1`). You can customize client authentication behavior—such as restricting client subnets, enforcing SSL/TLS, specifying custom authentication methods, or configuring user mapping—by defining custom `pg_hba.conf` and `pg_ident.conf` entries independently of Active Directory setup. 
 
 This document assumes that you're familiar with [applying Kubernetes manifest files](https://kubernetes.io/docs/concepts/overview/working-with-objects/) and using the `kubectl` command-line tool. For more information, see [Command line tool (kubectl)](https://kubernetes.io/docs/reference/kubectl/).
 
@@ -111,7 +111,7 @@ When you delete the `UserDefinedAuthentication` resource, the AlloyDB Omni opera
 
   * [Manage users and roles](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/database-users/manage-users)
   * [Manage password policies](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/manage-password-policy)
-  * [`UserDefinedAuthentication` CRD reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/reference/kubernetes-crds-1.8.0/userdefinedauthentication)
+  * [`UserDefinedAuthentication` CRD reference](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/reference/kubernetes-crds-1.9.0/userdefinedauthentication)
 
 
 
@@ -119,6 +119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

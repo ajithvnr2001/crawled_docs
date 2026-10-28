@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/configure-private-service-connect/
 title: Connect to an instance using Private Service Connect \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:11.647599+00:00
+fetched_at: 2026-10-28T02:30:03.555821+00:00
 ---
 
 # Connect to an instance using Private Service Connect  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -30,6 +30,7 @@ Depending on whether you are configuring Private Service Connect infrastructure 
 Task | Role | Description  
 ---|---|---  
 Configure Private Service Connect endpoints and network attachments | Compute Network Admin (`roles/compute.networkAdmin`) | Grants full control over the consumer VPC network that initiates a connection to an AlloyDB instance. If you connect from multiple VPC networks, each network is managed by its own administrator.  
+Create Private Service Connect endpoints or client resources in Shared VPC service projects | Compute Network User (`roles/compute.networkUser`) | Grants permissions on the Shared VPC host project or shared subnets so that Service Project Admins and service agents in attached service projects can create Private Service Connect endpoints or client VMs that use the host project's Shared VPC network and subnets.  
 Configure private DNS zones and records | DNS Administrator (`roles/dns.admin`) | Grants full control over Cloud DNS resources, including private DNS zones and record sets.  
 Create and manage AlloyDB clusters and instances | AlloyDB Admin (`roles/alloydb.admin`) | Provides full control of AlloyDB clusters and instances over their lifecycle. If you use a custom role instead, grant `alloydb.clusters.create` (to enable Private Service Connect on a cluster) and `alloydb.instances.create` and `alloydb.instances.update` (to configure allowed consumer projects and network attachment URIs).  
 Connect to an instance as a client | AlloyDB Client (`roles/alloydb.client`) and Service Usage Consumer (`roles/serviceusage.serviceUsageConsumer`) (Optional) | Required if you connect through the AlloyDB Auth Proxy or AlloyDB Language Connectors. If you also use IAM database authentication, grant the AlloyDB Database User (`roles/alloydb.databaseUser`) role. If you connect directly by using built-in database authentication, no IAM roles are required for the client connection.  
@@ -47,7 +48,7 @@ To have AlloyDB create the Private Service Connect endpoint automatically, do th
 
 
 
-You can also create the Private Service Connect endpoint manually.
+You can also create the Private Service Connect endpoint manually or configure endpoints in a multi-project Shared VPC or hub-and-spoke network.
 
 ### Create the endpoint automatically
 
@@ -596,6 +597,109 @@ You can also reserve an internal IP address for the Private Service Connect endp
     }
     
 
+### Configure endpoints in a multi-project Shared VPC or hub-and-spoke network
+
+In a multi-project architecture, you can deploy a centralized Private Service Connect endpoint in a host or hub project. Database clients across multiple service or spoke projects can then connect to an AlloyDB instance through that endpoint.
+
+How clients in spoke projects reach the centralized endpoint depends on your network topology:
+
+  * **Shared VPC** : the host project and attached service projects share a single VPC network. Database clients in any attached service project can reach the endpoint in the same region, or across regions when global access is enabled.
+
+  * **Multi-VPC hub-and-spoke with Network Connectivity Center** : spoke projects use separate VPC networks that connect to a Network Connectivity Center hub. Clients in other VPC spokes can reach a Private Service Connect endpoint in the hub VPC spoke when you enable [Private Service Connect connection propagation](https://docs.cloud.google.com/vpc/docs/about-propagated-connections) on the hub.
+
+  * **Multi-VPC hub-and-spoke with VPC Network Peering** : Private Service Connect endpoints aren't transitively reachable across [VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering). Deploy a separate Private Service Connect endpoint in each peered VPC network instead.
+
+
+
+
+We recommend that you create a service connection policy in the host project to provision the endpoint automatically. If you can't create a service connection policy, you can create a Private Service Connect endpoint manually in a Shared VPC host project as an alternative by completing the following steps:
+
+  1. Allow the project that owns the endpoint in the AlloyDB instance configuration.
+
+Include the ID of the project where you create the endpoint in the `--allowed-psc-projects` flag of the AlloyDB instance. When you deploy a centralized endpoint in the host project, include the host project ID. Service projects that only run client workloads connecting to the host project endpoint don't need to be listed. To let service projects deploy their own endpoints locally, include those service project IDs as well. To update the allowed projects on an existing instance, run the [`gcloud alloydb instances update`](https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/instances/update) command with the `--allowed-psc-projects` flag. The `--allowed-psc-projects` flag replaces the existing list of allowed projects rather than appending to it. Include all existing allowed project IDs along with the new host project ID so that existing endpoints aren't disconnected.
+
+  2. In the host project, reserve an internal IP address for the endpoint by using the [`gcloud compute addresses create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/addresses/create) command:
+         
+         gcloud compute addresses create ADDRESS_NAME \
+             --project=HOST_PROJECT_ID \
+             --region=REGION_ID \
+             --subnet=HOST_SUBNET
+
+Replace the following:
+
+     * `ADDRESS_NAME`: the name to assign to the reserved IP address.
+
+     * `HOST_PROJECT_ID`: the project ID of the Shared VPC host project.
+
+     * `REGION_ID`: the region for the endpoint IP address. This region must be the same region that contains the AlloyDB instance.
+
+     * `HOST_SUBNET`: the name of the host project subnet that provides the endpoint IP address.
+
+  3. In the host project, create the forwarding rule for the endpoint by using the [`gcloud compute forwarding-rules create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/forwarding-rules/create) command:
+         
+         gcloud compute forwarding-rules create ENDPOINT_NAME \
+             --project=HOST_PROJECT_ID \
+             --region=REGION_ID \
+             --network=HOST_NETWORK \
+             --address=ADDRESS_NAME \
+             --target-service-attachment=SERVICE_ATTACHMENT_URL
+
+Replace the following:
+
+     * `ENDPOINT_NAME`: the name to assign to the endpoint.
+
+     * `HOST_PROJECT_ID`: the project ID of the Shared VPC host project.
+
+     * `REGION_ID`: the region for the endpoint.
+
+     * `HOST_NETWORK`: the name of the host VPC network.
+
+     * `ADDRESS_NAME`: the name of the reserved IP address from the previous step.
+
+     * `SERVICE_ATTACHMENT_URL`: the service attachment URL that you retrieved from the AlloyDB instance.
+
+To let clients in any region of the Shared VPC network reach the endpoint, include the optional `--allow-psc-global-access` flag.
+
+  4. Verify that the endpoint connection status is `ACCEPTED` by using the [`gcloud compute forwarding-rules describe`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/forwarding-rules/describe) command:
+         
+         gcloud compute forwarding-rules describe ENDPOINT_NAME \
+             --project=HOST_PROJECT_ID \
+             --region=REGION_ID \
+             --format="value(pscConnectionStatus)"
+
+  5. Grant the Compute Network User (`roles/compute.networkUser`) role on the shared subnet to each service project's administrators and service agents.
+
+Client workloads in a Shared VPC network don't need the `roles/compute.networkUser` role on the endpoint subnet to send network traffic to a host project endpoint. However, a Shared VPC Admin must grant the `roles/compute.networkUser` role on the host project or shared subnets so that Service Project Admins and service agents can provision Compute Engine VMs or Google Kubernetes Engine (GKE) clusters on shared subnets.
+
+To grant the `roles/compute.networkUser` role on a shared subnet, run the [`gcloud compute networks subnets add-iam-policy-binding`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/networks/subnets/add-iam-policy-binding) command:
+         
+         gcloud compute networks subnets add-iam-policy-binding SHARED_SUBNET \
+             --project=HOST_PROJECT_ID \
+             --region=SUBNET_REGION_ID \
+             --member=PRINCIPAL \
+             --role=roles/compute.networkUser
+
+Replace the following:
+
+     * `SHARED_SUBNET`: the name of the shared subnet in the host project where the service project deploys client resources, such as Compute Engine VMs or GKE nodes. This subnet doesn't need to be the `HOST_SUBNET` subnet where you reserved the endpoint IP address.
+
+     * `HOST_PROJECT_ID`: the project ID of the Shared VPC host project.
+
+     * `SUBNET_REGION_ID`: the region of the shared subnet.
+
+     * `PRINCIPAL`: the principal in the service project, such as `user:admin@example.com` or `serviceAccount:SERVICE_PROJECT_NUMBER@cloudservices.gserviceaccount.com`.
+
+If client workloads in a service or spoke project connect by using the AlloyDB Auth Proxy, AlloyDB Language Connectors, or IAM database authentication, grant the required AlloyDB client roles (`roles/alloydb.client` and `roles/alloydb.databaseUser`) to the workload service account in the project that contains the AlloyDB cluster, rather than in the host or hub project.
+
+  6. Configure a private DNS zone and record in the host project and associate the zone with the shared VPC network.
+
+In Shared VPC, all attached service projects share the host VPC network and automatically resolve the instance's `pscDnsName` hostname without separate DNS zones in each service project. In a multi-VPC hub-and-spoke topology where spoke projects use separate VPC networks, bind the private DNS zone to the spoke VPC networks by using [cross-project binding](https://docs.cloud.google.com/dns/docs/zones/cross-project-binding) or [Cloud DNS peering zones](https://docs.cloud.google.com/dns/docs/zones/peering-zones).
+
+
+
+
+Alternatively, to let service project administrators create and manage their own endpoints directly in their respective service projects by using shared subnets, see [Create an endpoint in a Shared VPC service project](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-services#shared-vpc).
+
 ## Configure outbound connectivity
 
 To enable outbound connectivity, set the network attachment URI when you create or update an AlloyDB instance. This URI allows secure connectivity between your project and the AlloyDB instance during outbound operations such as migrations.
@@ -920,6 +1024,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

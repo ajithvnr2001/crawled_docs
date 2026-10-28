@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/apigee/docs/api-platform/debug/trace-overview/
 title: Debug overview \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T10:35:32.886346+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:18:05.185318+00:00
 ---
 
 # Debug overview  |  Apigee  |  Google Cloud Documentation
@@ -29,7 +43,7 @@ _View[ Apigee Edge](https://docs.apigee.com/api-platform/get-started/what-apigee
 
 Debug is a tool for troubleshooting and monitoring API proxies running on Apigee. The Debug tool lets you probe the details of each step through an API proxy flow. Apigee lets you collect debug data, which shows the entire request/response flow of your API proxies. This includes all request/response parameters along with transformations applied to them at policy execution time. This is important for debugging and troubleshooting during API proxy development and deployment.
 
-In previous versions of Apigee, the Debug tool was referred to as the Trace tool.**Terminology:** The terms _debug data_ and _debug session data_ are used interchangeably. 
+In previous versions of Apigee, the Debug tool was referred to as the Trace tool. **Terminology:** The terms _debug data_ and _debug session data_ are used interchangeably. 
 
 ## Debug data collection and transmission
 
@@ -62,7 +76,7 @@ If you are using Apigee hybrid, review the following sections.
 
 The following illustrates the process of creating a new debug session:
 
-![Click to enlarge](https://docs.cloud.google.com/static/apigee/docs/api-platform/images/arch-trace-debug-session.png)![A high-level view of a request to start a debug session:
+![Click to enlarge](https://docs.cloud.google.com/static/apigee/docs/api-platform/images/arch-trace-debug-session.png) ![A high-level view of a request to start a debug session:
     1. You initiate a request to start a debug session, using the UI or API.
     2. The management plane issues a debug session creation request to the runtime plane using the pub/sub model.
     3. The Synchronizer, which subscribes to debug session notifications, propagates the creation request to the Message Processors.
@@ -70,7 +84,7 @@ The following illustrates the process of creating a new debug session:
     5. fluent-bit immediately writes the debug data to the pod's file system.
     6. The UDCA polls the pod's file system for new data files.
     7. When it finds a new data file, UDCA uploads it to the UAP service.
-    8. You can then access the data via Apigee services such as the Apigee hybrid UI or the Apigee APIs.](https://docs.cloud.google.com/static/apigee/docs/api-platform/images/arch-trace-debug-session.png)**Note:** Because of the asynchronous nature of multiple pollings, debug data is not available in real time; instead, there is a slight delay.
+    8. You can then access the data via Apigee services such as the Apigee hybrid UI or the Apigee APIs.](https://docs.cloud.google.com/static/apigee/docs/api-platform/images/arch-trace-debug-session.png) **Note:** Because of the asynchronous nature of multiple pollings, debug data is not available in real time; instead, there is a slight delay.
 
 Debug data is persisted in the management plane for up to 24 hours.
 
@@ -98,6 +112,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

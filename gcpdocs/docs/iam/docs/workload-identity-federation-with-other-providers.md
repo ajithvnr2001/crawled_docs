@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-other-providers/
 title: Configure Workload Identity Federation with other identity providers \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:21:16.129801+00:00
+fetched_at: 2026-10-28T00:17:51.396792+00:00
 ---
 
 # Configure Workload Identity Federation with other identity providers  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -56,6 +56,17 @@ Before you begin, verify that your external IdP meets the following requirements
   * Google Cloud can access a [JSON web key set (JWKS)](https://www.rfc-editor.org/info/rfc7517) that contains [JSON web keys (JWKs)](https://www.rfc-editor.org/info/rfc7517). The JWKs are used to validate OIDC assertion tokens. You can provide access to the JWKS through one of the following methods:
 
     * Google Cloud downloads [OIDC metadata](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata) from the IdP, through a publicly available, well-known, internet-accessible discovery URL. Within the metadata, the JWKS URL must be secured with SSL and TLS. The JWKS URL must start with `https://`. Google Cloud doesn't support JWKS URLs that are secured with self-signed certificates.
+
+By default, Google Cloud appends `/.well-known/openid-configuration` to the issuer URI to locate the discovery URL. If your IdP hosts the discovery metadata at a custom endpoint, you can specify a custom discovery URI (`--discovery-uri`) ([Preview](https://cloud.google.com/products#product-launch-stages)).
+
+The custom discovery URI must meet the following requirements:
+
+      * The URI must start with `https://`.
+      * The URI cannot exceed 2,000 characters.
+      * The scheme, host, and port must match the issuer URI.
+      * The URI path must contain `/.well-known/<suffix>` (where `<suffix>` is not empty, such as `openid-configuration`) and conform to one of the following issuer URL topologies:
+      * The well-known path segment is inserted before the issuer path (for example, `https://example.com/.well-known/openid-configuration/tenant1` for the `https://example.com/tenant1` issuer).
+      * The well-known path segment is appended under the issuer path (for example, `https://example.com/tenant1/.well-known/openid-configuration` for the `https://example.com/tenant1` issuer).
 
 Google Cloud uses these endpoint URLs to download your IdP's JSON web keys (JWKs) and uses these keys to validate tokens. Google Cloud doesn't limit the number of keys that it can download.
 
@@ -118,6 +129,17 @@ Alternatively, you can configure the workload identity pool provider to expect a
   * Tokens contain an `exp` claim that is in the future and an `iat` claim that is in the past.
 
 The value of `exp` must be greater than the value of `iat` by at most 24 hours.
+
+  * **Certificate-bound tokens** ([Preview](https://cloud.google.com/products#product-launch-stages)): Optionally, tokens can include a `cnf` (confirmation) claim containing a SHA-256 certificate fingerprint (`x5t#S256`):
+        
+        "cnf": {
+          "x5t#S256": "BASE64URL_SHA256_CERT_FINGERPRINT"
+        }
+        
+
+The value of `x5t#S256` must be the base64url-encoded SHA-256 hash of the DER encoding of your client's X.509 certificate. When a token containing this claim is presented to Workload Identity Federation over a mutual TLS (mTLS) connection (`sts.mtls.googleapis.com`), Security Token Service validates that the fingerprint matches the client certificate presented during the TLS handshake, and issues a short-lived access token cryptographically bound to the certificate.
+
+To help protect resources against token theft and replay attacks, enforce certificate-bound tokens by configuring Context-Aware Access policies.
 
 
 
@@ -245,6 +267,18 @@ Many IdPs populate the `sub` claim with a unique and immutable ID. For these IdP
 
 Avoid using a claim like `email` for this purpose. Email addresses can typically be reassigned or changed, so they don't uniquely and permanently identify a user.
 
+**Map actor attributes with identity delegation** ([Preview](https://cloud.google.com/products#product-launch-stages)): When you use identity delegation, Security Token Service combines the subject claims and actor claims, exposing the actor claims under the `act` claim object. You can reference actor claims in your attribute mappings using `assertion.act.<claim_name>`.
+
+When performing a delegated token exchange, only the **subject provider's** attribute mappings and attribute conditions are evaluated and applied. Any attribute mappings or attribute conditions configured on the **actor provider** are ignored.
+
+For example, you can map the actor's subject identifier and issuer URI to custom Google attributes:
+    
+    
+    attribute.actor_subject=assertion.act.sub,attribute.actor_issuer=assertion.act.iss
+    
+
+If multi-hop delegation is used, upstream actors are nested within `assertion.act.act`. However, the order of the nested claims is not guaranteed.
+
 ###  SAML 
 
 Your attribute mappings can use the `<Subject>` and `<Attribute>` elements embedded in the assertion issued by the external IdP. SAML attributes can be referred to using the following keywords:
@@ -274,6 +308,20 @@ For example, the following condition restricts access to tokens that contain a c
     
     
     assertion.service_account==true
+    
+
+**Identity delegation (actor token) conditions** ([Preview](https://cloud.google.com/products#product-launch-stages)): When using identity delegation, you can use CEL attribute conditions to restrict which actors are allowed to perform operations on behalf of subjects or enforce specific claims on the actor token.
+
+For example, the following condition requires that an actor token is present and that the actor originated from an expected issuer:
+    
+    
+    has(assertion.act) && assertion.act.iss == 'https://actor-idp.example.com'
+    
+
+To restrict access to a specific actor subject identifier:
+    
+    
+    assertion.act.sub == 'authorized-agent-worker'
     
 
 ###  SAML 
@@ -369,10 +417,12 @@ To add an OIDC workload identity pool provider, execute the following command:
              --location="global" \
              --workload-identity-pool="POOL_ID" \
              --issuer-uri="ISSUER" \
+             --discovery-uri="DISCOVERY_URI" \
              --allowed-audiences="AUDIENCE" \
              --attribute-mapping="MAPPINGS" \
-             --attribute-condition="CONDITIONS"
-             --jwk-json-path="JWK_JSON_PATH"
+             --attribute-condition="CONDITIONS" \
+             --jwk-json-path="JWK_JSON_PATH" \
+             --actor-providers="ACTOR_PROVIDERS"
          
 
 Replace the following:
@@ -380,10 +430,12 @@ Replace the following:
      * `WORKLOAD_PROVIDER_ID`: A unique workload identity pool provider ID of your choice.
      * `POOL_ID`: The workload identity pool ID that you created earlier.
      * `ISSUER`: An issuer URI as it is defined in the OIDC metadata.
+     * `DISCOVERY_URI` [Preview](https://cloud.google.com/products#product-launch-stages): An optional custom discovery URL to fetch OIDC metadata if your IdP doesn't host the well-known OIDC discovery endpoint at `https://<issuer_url>/.well-known/openid-configuration`. The scheme, host, and port must match the `ISSUER`, and the path must conform to the issuer URL topology (containing `/.well-known/<suffix>`).
      * `AUDIENCE`: The expected audience of ID tokens, which, for many providers, matches the client ID.
      * `MAPPINGS`: A comma-separated list of attribute mappings that you created earlier in this guide.
      * `CONDITIONS`: An optional attribute condition that you created earlier in this guide. Remove the parameter if you don't have an attribute condition.
-     * `JWK_JSON_PATH`: An optional path to a [locally uploaded OIDC JWKs](https://docs.cloud.google.com/iam/docs/workload-identity-federation#oidc-credential-security). If this parameter isn't supplied, Google Cloud instead uses your IdP's `/.well-known/openid-configuration` path to source the JWKs containing the public keys.
+     * `JWK_JSON_PATH`: An optional path to a [locally uploaded OIDC JWKs](https://docs.cloud.google.com/iam/docs/workload-identity-federation#oidc-credential-security). If this parameter isn't supplied, Google Cloud instead uses the discovery URL (either `DISCOVERY_URI` or your IdP's `/.well-known/openid-configuration` path) to source the JWKs containing the public keys.
+     * `ACTOR_PROVIDERS` [Preview](https://cloud.google.com/products#product-launch-stages): An optional comma-separated list of the full resource names of workload identity pool providers in the same pool that are authorized to issue actor tokens for this provider (for example, `projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/ACTOR_PROVIDER_ID`). The project container ID in the resource name must match the format used for the subject provider (either both using the numeric project number or both using the project ID). You can specify at most three actor providers. For more information, see Configure identity delegation and actor tokens.
 
 ###  SAML 
 
@@ -493,6 +545,50 @@ Workload identity federation supports the following block encryption algorithms:
      * <http://www.w3.org/2009/xmlenc11#aes128-gcm>
      * <http://www.w3.org/2009/xmlenc11#aes256-gcm>
 
+
+
+
+## Configure Context-Aware Access enforcement for Workload Identity Federation
+
+**Note:** Certificate-bound token validation and Context-Aware Access policy enforcement for OIDC Workload Identity Federation are in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+Context-Aware Access policy enforcement applies only when using certificate-bound tokens. You can strengthen resource security against token replay and theft attacks by [enabling Context-Aware Access](https://docs.cloud.google.com/chrome-enterprise-premium/docs/configure_cba_for_workloads), which enforces mTLS validation and certificate binding for access requests. When Context-Aware Access policies are configured for certificate-bound tokens, Google Cloud evaluates the transport context and client certificate of incoming requests to ensure that access tokens presented by your workload are cryptographically bound to a trusted mTLS client certificate session. Context-Aware Access policy enforcement does not apply to standard unbound tokens.
+
+## Configure identity delegation and actor tokens
+
+**Note:** Identity delegation and actor token support for Workload Identity Federation are in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+In an identity delegation scenario as defined in [RFC 8693: OAuth 2.0 Token Exchange](https://datatracker.ietf.org/doc/html/rfc8693), an acting party (actor) performs operations on behalf of a subject identity.
+
+To configure and authorize identity delegation, meet the following requirements:
+
+  1. **Actor provider authorization** : In the subject provider's actor providers configuration (`--actor-providers`), include the full resource name of the provider that issues the actor token. The actor provider must meet the following criteria:
+
+     * Must reside in the **same workload identity pool** as the subject provider.
+     * The project container ID in the resource name must match the format used for the subject provider (for example, if you're using Google Cloud CLI to create the subject provider, it must be the alpha-numeric project ID).
+     * At most 3 actor providers can be authorized per provider.
+  2. **`may_act` claim in subject token**: The subject ID token must include a `may_act` claim:
+         
+         "may_act": {
+           "sub": "ACTOR_SUBJECT",
+           "iss": "ACTOR_ISSUER"
+         }
+         
+
+Replace the following:
+
+     * `ACTOR_SUBJECT`: The subject identifier of the authorized actor (must match the `sub` claim in the actor token).
+     * `ACTOR_ISSUER`: Optional. The issuer URI of the actor's identity provider (must match the `iss` claim in the actor token). If omitted, the actor is expected to share the same issuer as the subject token.
+  3. **Token exchange parameters** : When performing a token exchange with Workload Identity Federation, the client supplies both the `subject_token` and the `actor_token`, along with their respective token types (`subject_token_type` and `actor_token_type`):
+
+     * `subject_token`: The security token representing the identity on whose behalf the request is made.
+     * `subject_token_type`: An identifier indicating the subject token type (such as `urn:ietf:params:oauth:token-type:jwt` or `urn:ietf:params:oauth:token-type:id_token`).
+     * `actor_token`: The security token representing the identity of the acting party. The actor token must meet the following requirements: 
+       * **Audience (`aud`) claim**: Must contain the full resource URI of the specific actor provider that issues the `actor_token`: `//iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/ACTOR_PROVIDER_ID`. The `aud` claim must contain only one workload identity pool provider resource URI. If multiple actor providers exist in the same workload identity pool, include only the resource URI for the provider that issues the `actor_token`.
+       * **Authorized actor provider** : The actor provider identified in the `aud` claim must reside in the same workload identity pool as the subject provider and be listed in the subject provider's actor providers configuration (`--actor-providers`).
+       * **Matching`sub` and `iss` claims**: The actor token's `sub` claim and optional `iss` claim must match the `sub` and `iss` values declared in the subject token's `may_act` claim.
+     * `actor_token_type`: An identifier indicating the actor token type (`urn:ietf:params:oauth:token-type:jwt` or `urn:ietf:params:oauth:token-type:id_token`). This parameter is required when `actor_token` is present.
+     * **Certificate-bound tokens with delegation** : If the `subject_token` is certificate-bound (contains a `cnf` confirmation claim), the `actor_token` must also be certificate-bound (contain a `cnf` claim). When performing the token exchange over mTLS (`sts.mtls.googleapis.com`), the client certificate presented in the mTLS handshake must match the `actor_token`'s certificate thumbprint.
 
 
 
@@ -1143,6 +1239,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

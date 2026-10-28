@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/checklist-sap-netweaver/
 title: Checklist for SAP NetWeaver on Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:00:35.414293+00:00
+fetched_at: 2026-10-28T02:31:33.535703+00:00
 ---
 
 # Checklist for SAP NetWeaver on Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -74,10 +74,10 @@ As you go through the checklist, take into account your own business needs. If y
 
 ###  Pick appropriate machine types and operating systems for SAP NetWeaver
 
-  * To select a machine type for your SAP NetWeaver deployment, see [Certified machine types](https://docs.cloud.google.com/sap/docs/certifications-sap-apps#sap-certified-vms).
-  * To select an operating system and view available OS images, see [OS support for SAP NetWeaver on Google Cloud](https://docs.cloud.google.com/sap/docs/netweaver-os-support) and the [Quick reference table](https://docs.cloud.google.com/sap/docs/netweaver-os-support#quick_reference_table).
+  * To select a machine type for your SAP NetWeaver deployment, go to [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-solutions-and-machine-types), and in the **Certified SAP solution** menu, select "SAP NetWeaver".
+  * To select an operating system and view available OS images, see [OS support for SAP NetWeaver on Google Cloud](https://docs.cloud.google.com/sap/docs/netweaver-os-support).
 
-  * If you run SAP NetWeaver on the same host as SAP HANA in a two-tier architecture, the SAP HANA machine requirements apply. To see the SAP HANA certified machine types, see [Certifications for SAP HANA on Google Cloud](https://docs.cloud.google.com/sap/docs/certifications-sap-hana).
+  * If you run SAP NetWeaver on the same host as SAP HANA in a two-tier architecture, the SAP HANA machine requirements apply. To see the SAP HANA certified machine types, go to [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-solutions-and-machine-types), and in the **Certified SAP solution** menu, select "SAP HANA".
 
   * For OS image licensing, you can bring your own license provided by your OS vendor. If the guest OS image release you want isn't available in Google Cloud, you can import it as a [custom image](https://docs.cloud.google.com/compute/docs/images#custom_images).
 
@@ -164,6 +164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

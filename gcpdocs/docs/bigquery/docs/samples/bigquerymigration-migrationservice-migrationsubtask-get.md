@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerymigration-migrationservice-migrationsubtask-get/
 title: Get a migration subtask \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:18.204800+00:00
+fetched_at: 2026-10-27T23:03:09.467504+00:00
 ---
 
 # Get a migration subtask  |  BigQuery  |  Google Cloud Documentation
@@ -22,6 +22,56 @@ fetched_at: 2026-10-26T05:41:18.204800+00:00
 Gets the details of a specific migration subtask from the BigQuery Migration Service. This is useful for checking the status or configuration of a component within a larger migration workflow.
 
 ## Code sample
+
+### Java
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.migration.v2.[GetMigrationSubtaskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.GetMigrationSubtaskRequest.html);
+    import com.google.cloud.bigquery.migration.v2.[MigrationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationServiceClient.html);
+    import com.google.cloud.bigquery.migration.v2.[MigrationSubtask](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationSubtask.html);
+    import com.google.cloud.bigquery.migration.v2.[MigrationSubtaskName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationSubtaskName.html);
+    import java.io.IOException;
+    
+    public class GetMigrationSubtask {
+    
+      /**
+       * Gets a previously created migration subtask. A migration subtask is a single unit of work that
+       * is part of a migration workflow.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the migration workflow (for example, "us").
+       * @param workflowId The ID of the migration workflow that contains the subtask (for example,
+       *     "12345678-abcd-4372-a567-0e02b2c3d479").
+       * @param subtaskId The ID of the migration subtask to retrieve (for example,
+       *     "98765432-dcba-4370-971e-7ff74afce823").
+       */
+      public static void getMigrationSubtask(
+          String projectId, String location, String workflowId, String subtaskId) {
+        [MigrationSubtaskName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationSubtaskName.html) name =
+            [MigrationSubtaskName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationSubtaskName.html).of(projectId, location, workflowId, subtaskId);
+    
+        [GetMigrationSubtaskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.GetMigrationSubtaskRequest.html) request =
+            [GetMigrationSubtaskRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.GetMigrationSubtaskRequest.html).newBuilder().setName(name.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationSubtaskName.html#com_google_cloud_bigquery_migration_v2_MigrationSubtaskName_toString__)()).build();
+    
+        try ([MigrationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationServiceClient.html) client = [MigrationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationServiceClient.html).create()) {
+          [MigrationSubtask](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationSubtask.html) subtask = client.getMigrationSubtask(request);
+          System.out.printf("Migration subtask found: %s%n", subtask.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationSubtask.html#com_google_cloud_bigquery_migration_v2_MigrationSubtask_getName__)());
+          System.out.printf("  Type: %s%n", subtask.[getType](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationSubtask.html#com_google_cloud_bigquery_migration_v2_MigrationSubtask_getType__)());
+          System.out.printf("  State: %s%n", subtask.[getState](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerymigration/latest/com.google.cloud.bigquery.migration.v2.MigrationSubtask.html#com_google_cloud_bigquery_migration_v2_MigrationSubtask_getState__)());
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.out.printf("Migration subtask not found: %s%n", name);
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to get migration subtask '%s': %s%n", name, err.getMessage());
+        }
+      }
+    
 
 ### Node.js
 
@@ -84,10 +134,10 @@ To authenticate to BigQuery, set up Application Default Credentials. For more in
     
     
     from google.api_core.exceptions import NotFound
-    from google.cloud import bigquery_migration_v2
+    from google.cloud import [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest)
     
     
-    client = bigquery_migration_v2.[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
+    client = [bigquery_migration_v2](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest).[MigrationServiceClient](https://docs.cloud.google.com/python/docs/reference/bigquerymigration/latest/google.cloud.bigquery_migration_v2.services.migration_service.MigrationServiceClient.html)()
     
     
     def get_migration_subtask(

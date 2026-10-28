@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/query-drive-data/
 title: Query Drive external tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:43:07.339790+00:00
+fetched_at: 2026-10-27T19:38:50.060750+00:00
 ---
 
 # Query Drive external tables  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Query Drive external tables
 
-This document describes how to query data stored in an [Google Drive external table](https://docs.cloud.google.com/bigquery/docs/external-data-drive).
+BigQuery lets you run GoogleSQL queries on data stored in a [Google Drive external table](https://docs.cloud.google.com/bigquery/docs/external-data-drive) so that you can analyze spreadsheets and comma-separated value (CSV) files directly from Drive. You can query both personal and shared Drive files using either a permanent external table or a temporary external table that you create when you run the query.
 
-BigQuery supports queries against both personal Drive files and shared files. For more information on Drive, see [Google Drive training and help](https://support.google.com/a/users/answer/9282958).
-
-You can query Drive data from a permanent external table or from a temporary external table that you create when you run the query.
+For more information about Drive, see [Google Drive training and help](https://support.google.com/a/users/answer/9282958).
 
 ## Limitations
 
@@ -363,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

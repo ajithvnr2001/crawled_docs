@@ -1,16 +1,46 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/
 title: Tune the columnar engine for AlloyDB Omni on a VM \u00a0|\u00a0 AlloyDB Omni using containers: 16.14.0 \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:35:06.240584+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T16:43:18.375780+00:00
 ---
 
 # Tune the columnar engine for AlloyDB Omni on a VM  |  AlloyDB Omni using containers: 16.14.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/
 
-This page documents AlloyDB Omni version **16.14.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
+[ Skip to main content ](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/)
+  * [Deutsch](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/?hl=ko)
 
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/alloydb-color.svg) ](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/overview)
+  * [ AlloyDB Omni ](https://docs.cloud.google.com/alloydb/omni/docs)
+  * [ Containers: 16.14.0 ](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/overview)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Adjust the CPU resources for maintenance tasks](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/#adjust-cpu-resources)
+  * [Increase the speed of worker processes](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/#increase-speed-worker-process)
+  * [Change the auto-columnarization schedule](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/#change-auto-columnarization-schedule)
+  * [Manually populate the columnar engine](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/#manually-populate-columnar-engine)
+
+
+This page documents AlloyDB Omni version **16.14.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
@@ -18,13 +48,16 @@ This page documents AlloyDB Omni version **16.14.0** using the **containers** de
   * [ Containers: 16.14.0 ](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/overview)
 
 
-
 Send feedback 
+#  Tune the columnar engine for AlloyDB Omni on a VM Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Adjust the CPU resources for maintenance tasks](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/#adjust-cpu-resources)
+  * [Increase the speed of worker processes](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/#increase-speed-worker-process)
+  * [Change the auto-columnarization schedule](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/#change-auto-columnarization-schedule)
+  * [Manually populate the columnar engine](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/tune-columnar-engine/#manually-populate-columnar-engine)
 
-#  Tune the columnar engine for AlloyDB Omni on a VM Stay organized with collections  Save and categorize content based on your preferences. 
 
-Select a documentation version: 16.14.0keyboard_arrow_down
-
+Select a documentation version:  16.14.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/columnar-engine/tune-columnar-engine)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/columnar-engine/tune-columnar-engine)
   * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.3.0/docs/columnar-engine/tune-columnar-engine)
@@ -48,51 +81,43 @@ Select a documentation version: 16.14.0keyboard_arrow_down
   * [ 15.7.0 ](https://docs.cloud.google.com/alloydb/omni/containers/15.7.0/docs/columnar-engine/tune-columnar-engine)
 
 This document describes how to tune the columnar engine for AlloyDB Omni. This document assumes that you are familiar with PostgreSQL. 
-
 ### Adjust the CPU resources for maintenance tasks
-
 This example configures the columnar engine to use 50% of the CPU cores.
-    
-    
-    google_job_scheduler.maintenance_cpu_percentage = 50
-    
+
+```
+google_job_scheduler.maintenance_cpu_percentage = 50
+
+```
 
 Columnar engine uses up to 20% of CPU cores for background maintenance jobs, such as population, refresh, and recommendation. To adjust the CPU resources to allow for maintenance tasks, set the `google_job_scheduler.maintenance_cpu_percentage` flag to a value from 20 to 100. The default value is 20. The lowest CPU utilization for background maintenance tasks is 1 vCPU.
-
 ### Increase the speed of worker processes
-
 This example sets four worker processes.
-    
-    
-    google_job_scheduler.max_parallel_workers_per_job = 4
-    
+
+```
+google_job_scheduler.max_parallel_workers_per_job = 4
+
+```
 
 The columnar engine uses up to two worker processes for population and refresh background jobs. To increase the speed of these operations, set the following flag to increase the number of worker processes for background jobs. The default setting is 2 worker processes. These processes run on limited CPU resources as specified in the `google_job_scheduler.maintenance_cpu_percentage` flag. This flag does not require the database to be restarted.
-
 ### Change the auto-columnarization schedule
-
 This example sets the auto-columnarization schedule to six hours.
-    
-    
-    google_columnar_engine.auto_columnarization_schedule = 'EVERY 6 HOURS'
-    
+
+```
+google_columnar_engine.auto_columnarization_schedule = 'EVERY 6 HOURS'
+
+```
 
 The auto-columnarization schedule can be set in the `google_columnar_engine.auto_columnarization_schedule` flag based upon anticipated scan-heavy workloads. Specify one or more hours for this flag. Changing the value of this flag does not require a database restart.
-
 ### Manually populate the columnar engine
-
 This example lets you only manually populate the columnar engine.
-    
-    
-    google_columnar_engine.enable_auto_columnarization = OFF
-    
+
+```
+google_columnar_engine.enable_auto_columnarization = OFF
+
+```
 
 If you prefer to only manually populate the columnar engine, set the `google_columnar_engine.enable_auto_columnarization` flag to `OFF`. By default, the flag is set to `ON`. Changing the value of this flag does not require a database restart. See [Manage Content Manually](https://docs.cloud.google.com/alloydb/omni/containers/16.14.0/docs/columnar-engine/manage-content-manually) section for more details.
-
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

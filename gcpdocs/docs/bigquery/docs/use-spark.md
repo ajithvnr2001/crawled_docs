@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/use-spark/
 title: Run PySpark code in BigQuery Studio notebooks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:54.814061+00:00
+fetched_at: 2026-10-27T19:38:29.582138+00:00
 ---
 
 # Run PySpark code in BigQuery Studio notebooks  |  Google Cloud Documentation
@@ -72,7 +72,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
      * Notebook credentials: By default, your notebook session uses your [user credentials](https://docs.cloud.google.com/docs/authentication#user-accounts). Alternatively, it can use [session service account](https://docs.cloud.google.com/docs/authentication#service-accounts) credentials. 
        * User credentials: Your user account must have the following Identity and Access Management roles: 
-         * [Managed Service for Apache Spark Editor (`roles/dataproc.editor` role)](https://docs.cloud.google.com/iam/docs/roles-permissions/dataproc#dataproc.editor)
+         * [Dataproc Editor (`roles/dataproc.editor` role)](https://docs.cloud.google.com/iam/docs/roles-permissions/dataproc#dataproc.editor)
          * [BigQuery Studio User (`roles/bigquery.studioUser` role)](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.studioUser)
          * [Service Account User (roles/iam.serviceAccountUser) role](https://docs.cloud.google.com/iam/docs/service-account-permissions#user-role) on the [session service account](https://docs.cloud.google.com/dataproc-serverless/docs/concepts/service-account). This role contains the required `iam.serviceAccounts.actAs` permission to impersonate the service account.
        * Service account credentials: If you want to specify service account credentials instead of user credentials for your notebook session, the [session service account](https://docs.cloud.google.com/dataproc-serverless/docs/concepts/service-account) must have the following role: 
@@ -206,7 +206,7 @@ After you create a Spark session in your notebook, use the session to run Spark 
 
 **Tip:** You can check the [Spark SQL API reference](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/index.html) to find out if Spark Connect supports an API. The documentation for a supported API contains a "Supports Spark Connect." message: ![Supports Spark Connect message](https://docs.cloud.google.com/static/dataproc-serverless/docs/images/supports-spark-connect.png)
 
-**Spark Connect notebook direct writes** : Spark sessions in a BigQuery Studio notebook pre-configure the [Spark BigQuery connector](https://docs.cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example) to make DIRECT data writes. The DIRECT write method uses the [BigQuery Storage Write API](https://docs.cloud.google.com/bigquery/docs/write-api), which writes data directly into BigQuery; the INDIRECT write method, which is the default for Managed Service for Apache Spark batches, writes data to an intermediate Cloud Storage bucket, then writes the data to BigQuery (for more information on INDIRECT writes, see [Read and write data from and to BigQuery](https://docs.cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example#read-and-write-data-from-and-to-bigquery)).
+**Spark Connect notebook direct writes** : Spark sessions in a BigQuery Studio notebook pre-configure the [Spark BigQuery connector](https://docs.cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example) to make DIRECT data writes. The DIRECT write method uses the [BigQuery Storage Write API](https://docs.cloud.google.com/bigquery/docs/write-api-grpc), which writes data directly into BigQuery; the INDIRECT write method, which is the default for Managed Service for Apache Spark batches, writes data to an intermediate Cloud Storage bucket, then writes the data to BigQuery (for more information on INDIRECT writes, see [Read and write data from and to BigQuery](https://docs.cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example#read-and-write-data-from-and-to-bigquery)).
 
 **Managed Service for Apache Spark specific APIs:** Managed Service for Apache Spark simplifies adding `PyPI` packages dynamically to your Spark session by extending the `addArtifacts` method. You can specify the list in [`version-scheme`](https://packaging.python.org/en/latest/specifications/version-specifiers/#examples-of-compliant-version-schemes) format, (similar to `pip install`). This instructs the Spark Connect server to install packages and their dependencies on all cluster nodes, making them available to workers for your UDFs.
 
@@ -227,7 +227,7 @@ In the following example, entering `DataprocSparkSession` and holding the pointe
 This section provides BigQuery Studio Python notebook examples with PySpark code to perform the following tasks:
 
   * Run a wordcount against a public Shakespeare dataset.
-  * Create an Iceberg table with metadata saved in [Lakehouse runtime catalog](https://docs.cloud.google.com/bigquery/docs/about-blms).
+  * Create an Iceberg table with metadata saved in [Lakehouse runtime catalog](https://docs.cloud.google.com/biglake/docs/about-blms).
 
 
 
@@ -486,7 +486,7 @@ You can orchestrate BigQuery Studio notebook code in the following ways:
 You can schedule notebook code in the following ways:
 
   * [Schedule the notebook](https://docs.cloud.google.com/bigquery/docs/orchestrate-notebooks).
-  * If notebook code execution is part of a workflow, schedule the notebook as part of a [pipeline](https://docs.cloud.google.com/bigquery/docs/orchestrate-workflows).
+  * If notebook code execution is part of a workflow, schedule the notebook as part of a [pipeline](https://docs.cloud.google.com/bigquery/docs/schedule-pipelines).
 
 
 
@@ -611,8 +611,8 @@ When you encounter a notebook code error, navigating to the last Spark job in th
 ## What's next
 
   * YouTube video demo: [Unleashing the power of Apache Spark integrated with BigQuery](https://www.youtube.com/watch?v=DIZn6Nuur7k).
-  * [Use Lakehouse runtime catalog with Managed Service for Apache Spark](https://docs.cloud.google.com/bigquery/docs/bqms-use-dataproc)
-  * [Use Lakehouse runtime catalog with Managed Service for Apache Spark](https://docs.cloud.google.com/bigquery/docs/bqms-use-dataproc-serverless)
+  * [Use Lakehouse runtime catalog with Managed Service for Apache Spark](https://docs.cloud.google.com/lakehouse/docs/configure-lakehouse-catalog-iceberg-1-10)
+  * [Use Lakehouse runtime catalog with Managed Service for Apache Spark](https://docs.cloud.google.com/lakehouse/docs/configure-lakehouse-catalog-iceberg-1-10)
 
 
 
@@ -620,6 +620,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

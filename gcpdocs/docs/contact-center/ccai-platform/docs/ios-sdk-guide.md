@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/ios-sdk-guide/
 title: iOS SDK guide \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:10:32.185800+00:00
+fetched_at: 2026-10-28T02:30:01.074435+00:00
 ---
 
 # iOS SDK guide  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -23,19 +23,15 @@ Send feedback
 
 The Contact Center AI Platform (CCAI Platform) mobile SDK for the Apple iOS operating system provides the ability to embed the CCAI Platform mobile experience within iOS mobile applications.
 
-## Get started
-
-The following provides a guide on how to get started with the CCAI Platform iOS mobile SDK.
-
-### Requirements
+## Requirements
 
 The iOS mobile SDK has the following requirements:
 
-  * iOS 13.0+
+  * iOS 12.0+
 
 
 
-#### Retrieve company credentials
+### Retrieve company credentials
 
   1. Sign into the Contact Center AI Platform (CCAI Platform) portal using Admin credentials.
 
@@ -45,6 +41,10 @@ The iOS mobile SDK has the following requirements:
 
 
 
+
+## Getting started
+
+The following provides a guide on how to get started with the CCAI Platform iOS mobile SDK.
 
 ## Installation
 
@@ -81,11 +81,11 @@ Integration of the iOS SDK with your application depends on your development env
 
 #### Swift package manager
 
-  1. Add the [Swift Package for iOS SDK](https://github.com/ujet/ujet-ios-sdk-sp.git).
+  1. Add the _Swift Package for iOS SDK_ from [GitHub](https://github.com/ujet/ujet-ios-sdk-sp.git).
 
   2. In your build settings, put -ObjC on Other Linker Flags.
 
-  3. As of Xcode 13.2, there is a [known issue](https://bugs.swift.org/browse/SR-13343) with consuming binary frameworks distributed using the Swift Package Manager. The current workaround to this issue is to add a Run Script Phase to the Build Phases of your Xcode project. This Run Script Phase should come after the Embed Frameworks build phase. This new Run Script Phase should contain the following code:
+  3. As of Xcode 13.2), there is a [known issue](https://bugs.swift.org/browse/SR-13343) with consuming binary frameworks distributed using the Swift Package Manager. The current workaround to this issue is to add a Run Script Phase to the Build Phases of your Xcode project. This Run Script Phase should come after the Embed Frameworks build phase. This new Run Script Phase should contain the following code:
          
          find "${CODESIGNING_FOLDER_PATH}" -name '*.framework' -print0 | while read -d $'0' framework
          do
@@ -112,7 +112,7 @@ Integration of the iOS SDK with your application depends on your development env
 
 #### Carthage
 
-Google Cloud recommends using a dependency manager or manual integration because a CCAI Platform dependency doesn't support Carthage. 
+Google Cloud recommends using a dependency manager or manual integration because a CCAI Platform dependency doesn't support Carthage.
 
 To use a different dependency manager, follow these steps:
 
@@ -134,9 +134,9 @@ To use a different dependency manager, follow these steps:
 
 
 
-#### Manual integration
+##### Manual integration
 
-  1. Download `UJETKit.xcframework`, `UJETFoundationKit.xcframework`, `UJETChatRedKit.xcframework`, `UJETChatBlueKit.xcframework`, `UJETCallRedKit.xcframework`, and all dependencies such as `TwilioVoice.xcframework` and `TwilioConversationsClient.xcframework`.
+  1. Download `UJETKit.xcframework`, `UJETFoundationKit.xcframework`, `UJETChatRedKit.xcframework`, `UJETChatBlueKit.xcframework`, `UJETTwilioCallKit.xcframework`, and all dependencies `TwilioVoice.xcframework` and `TwilioConversationsClient.xcframework`.
 
   2. Add the UJETKit.xcframework to your target by dragging it into the Frameworks, Libraries, and Embedded Content section.
 
@@ -151,7 +151,7 @@ To use a different dependency manager, follow these steps:
 
 If you are going to build the SDK manually with the example project use the steps in the following section.
 
-#### Build the SDK manually with the example project
+##### Build the SDK manually with the example project
 
 Follow these steps in order:
 
@@ -183,18 +183,25 @@ The following sections provide instructions on how to import the framework.
 
 ### Initialize SDK
 
-Initialize CCAI Platform with `UJET_COMPANY_KEY` and your instance's API URL: `https://YOUR_TENANT_HOST/api/v2`. Include `https://` and `/api/v2` one time each.
+Initialize CCAI Platform with `UJET_COMPANY_KEY` and `UJET_SUBDOMAIN`.
     
     
-    [UJET initialize:UJET_COMPANY_KEY
-             baseUrl:@"https://YOUR_TENANT_HOST/api/v2"
-            delegate:self];
+    In application:didFinishLaunchingWithOptions: method:
+    -   (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+        // Initialize CCAI Platform
+        [UJET.initialize:UJET_COMPANY_KEY subdomain:UJET_SUBDOMAIN delegate:self];
+    
+        // YOUR CODE
+    
+        return YES;
+    }
     
 
 You can change log level from `verbose` to `error`. The default log level is `UjetLogLevelInfo`.
     
     
-    [UJET setLogLevel:UjetLogLevelVerbose];
+    [UJET.setLogLevel:UjetLogLevelVerbose];
     
 
 ### End-user authentication
@@ -218,13 +225,13 @@ In `UJETObject.h` from example project:
 Implement `signPayload`: `payloadType`: success: failure: delegate method.
     
     
-    - (void)signPayload:(NSDictionary *)payload payloadType:(UjetPayloadType)payloadType success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure {
+    -   (void)signPayload:(NSDictionary *)payload payloadType:(UjetPayloadType)payloadType success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure {
       if (payloadType == UjetPayloadAuthToken) {
         [self signAuthTokenInLocal:payload success:success failure:failure];
       }
     }
     
-    - (void)signAuthTokenInLocal:(NSDictionary *)payload success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure {
+    -   (void)signAuthTokenInLocal:(NSDictionary *)payload success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure {
         NSMutableDictionary *payloadData = [payload mutableCopy];
     
         NSDictionary *userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user-data"];
@@ -244,7 +251,7 @@ Implement `signPayload`: `payloadType`: success: failure: delegate method.
         }
     }
     
-    - (NSString *)encodeJWT:(NSDictionary *)payload {
+    -   (NSString *)encodeJWT:(NSDictionary *)payload {
         id<JWTAlgorithm> algorithm = [JWTAlgorithmHSBase algorithm384];
         NSString *secret = NSBundle.mainBundle.infoDictionary[@"UJETCompanySecret"];
         return [JWTBuilder encodePayload:payload].secret().algorithm(algorithm).encode;
@@ -259,127 +266,111 @@ For more information, see [SDK End user authentication](https://docs.cloud.googl
 
 ### Set up push notifications
 
-The application sends push notifications to request Smart Actions like verification and photo, as well as reporting an incoming call. The application requires two different types of certificates (VoIP and APNs) to be saved in the Admin Portal.
+CCAI Platform sends push notifications to request smart actions like verification and photo, as well as reporting an incoming call. If your chat queues use Check In (requires iOS SDK 2.16.0 or later), CCAI Platform sends a push notification prompting waiting consumers to return to the chat and confirm they're ready. See [Check In for Mobile SDK](https://support.ujet.co/hc/en-us/articles/59368094378265-Check-In-for-Mobile-SDK). CCAI Platform requires two different types of certificates (VoIP and APNs) to be saved in the CCAI Platform Admin Portal.
 
-#### Prepare VoIP services certificate
+#### Configure certificates
 
-Reference documentation is available for [Apple's VoIP push notification](https://developer.apple.com/library/ios/documentation/Performance/Conceptual/EnergyGuide-iOS/OptimizeVoIP.html).
+CCAI Platform requires two different types of Apple push certificates to be saved in the CCAI Platform Admin Portal:
 
-  1. Create and download the VoIP certificate from the Apple developer site.
+  * An Apple Push Notification service (APNs) SSL certificate — used for standard remote push notifications.
 
-  2. Double-click the certificate to add it to Keychain.
-
-  3. Start the Keychain Access application on your Mac.
-
-  4. Pick the My Certificates category in the left hand sidebar.
-
-  5. Right-click VoIP Services: your.app.id certificate.
-
-  6. In the dialog that appears, choose **Export**.
-
-  7. Save it as cert.p12 without protecting it with a password by leaving the password blank.
-
-  8. Run the following command in terminal.
-         
-         # Extract the certificate
-         openssl pkcs12 -in cert.p12 -out voip_cert.pem -clcerts -nokeys
-         # Extract the private key
-         openssl pkcs12 -in cert.p12 -out voip_key.pem -nocerts -nodes
-         # Combine into a single PEM file
-         cat voip_cert.pem voip_key.pem > cert.pem
-         
-
-  9. The upper part of cert.pem is the certificate and the lower part is the private key.
-
-  10. Check that your certificate is working with Apple's push notification server. See Test push notifications for more information on how to test delivery.
-
-  11. Sign in to the CCAI Platform portal with administrator credentials, and go to **Settings > Developer Settings > Mobile App**.
-
-  12. Fill the certificate in the 'VoIP Services Certificate' section, and save. Be sure to contain boundaries (`-----BEGIN-----` and `-----END-----`) for both certificate and private key.
-
-  13. Check the Sandbox checkbox if you are running an app with a development provisioning profile such as debugging in Xcode. If your app is archived for Ad hoc or App store and is using a distribution provisioning profile, then clear the Sandbox checkbox.
+  * A VoIP services certificate — used for incoming-call notifications and certain call-related smart actions.
 
 
 
 
-#### Prepare Apple push notification service SSL
+Both certificates are created in the Apple developer portal, converted to PEM format, and then uploaded to the CCAI Platform Admin Portal.
 
-The process for this is similar to that for VOIP service certificates. In this case Apple push notification service SSL (Sandbox & Production) certificate is used. You can refer to the [Apple remote notification server documentation](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns) for guidance on how to create the certificate.
+#### Create an APNs SSL certificate
 
-#### Integrate push notification
+Follow these next steps based on Apple's official [Establishing a Certificate-Based Connection to APNs](https://developer.apple.com/documentation/usernotifications/establishing-a-certificate-based-connection-to-apns) guide to create an APNs SSL certificate.
 
-In `AppDelegate.m`:
+  * Sign in to developer.apple.com and navigate to **Certificates, identifiers & profiles**.
+
+  * Click the **+** button to create a new certificate.
+
+  * Under **Services** , select **Apple push notification service SSL (Sandbox & production)**.
+
+  * Choose the App ID that matches your application's bundle identifier, then click **Continue**.
+
+  * Upload a certificate signing request (CSR) generated from keychain access on your Mac:
+
+    * Open **Keychain access > Certificate assistant > Request a certificate from a certificate authority**.
+
+    * Enter your email address, leave **CA email address** empty, select **Saved to disk** , and click **Continue**.
+
+  * Click **Continue** , then **Download the generated`.cer` file**.
+
+  * Double-click the `.cer` file to install it in your keychain.
+
+  * In **Keychain access** , locate the installed certificate, right-click it, and select **Export…** to save it as a `.p12` file. You will be prompted to set an export password.
+
+  * Convert the `.p12` file to PEM format using `openssl`:
+
+
+
     
     
-    @import PushKit;
-    
-    @interface AppDelegate() <PKPushRegistryDelegate>
-    In application:didFinishLaunchingWithOptions: method:
-    // Initialize CCAI Platform
-    [UJET initialize:UJET_COMPANY_KEY
-             baseUrl:@"https://YOUR_TENANT_HOST/api/v2"
-            delegate:self];
-    //  Register for VoIP notifications on launch.
-    PKPushRegistry *voipRegistry = [[PKPushRegistry alloc] initWithQueue: dispatch_get_main_queue()];
-    voipRegistry.delegate = self;
-    voipRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
+    # Extract the certificate
+    openssl pkcs12 -in apns_certificate.p12 -out apns_cert.pem -clcerts -nokeys
+    # Extract the private key
+    openssl pkcs12 -in apns_certificate.p12 -out apns_key.pem -nocerts -nodes
+    # (Optional) Combine into a single PEM file
+    cat apns_cert.pem apns_key.pem > apns_combined.pem
     
 
-Add the following delegate methods in implementing `UIApplicationDelegate` protocol file:
+#### Create a VoIP services certificate
 
-Print your device token to test push notifications.
+VoIP services certificates allow your app to receive high-priority push notifications through Apple's [PushKit](https://developer.apple.com/documentation/PushKit) framework, which can wake your app from a terminated state to handle incoming calls. For the latest official steps, see [Create VoIP services certificates](https://developer.apple.com/help/account/certificates/create-voip-services-certificates/) in the Apple Developer documentation.
+
+  * Sign in to [developer.apple.com](https://developer.apple.com/) and navigate to Certificates, Identifiers & Profiles.
+
+  * Click the **+** button to create a new certificate.
+
+  * Under **Services** , select **VoIP services certificate**.
+
+  * Choose the App ID that matches your application's bundle identifier, then click **Continue**.
+
+  * Upload the same Certificate Signing Request (CSR) you generated in the previous section (or create a new one).
+
+  * Click **Continue** , then **Download the generated`.cer` file**.
+
+  * Double-click the `.cer` file to install it in your Keychain.
+
+  * In **Keychain access** , locate the installed VoIP Services certificate, right-click it, and select **Export…** to save it as a `.p12` file.
+
+  * Convert the `.p12` file to PEM format using `openssl`:
+
+
+
     
     
-    // PKPushRegistryDelegate
+    # Extract the certificate
+    openssl pkcs12 -in voip_certificate.p12 -out voip_cert.pem -clcerts -nokeys
+    # Extract the private key
+    openssl pkcs12 -in voip_certificate.p12 -out voip_key.pem -nocerts -nodes
+    # (Optional) Combine into a single PEM file
+    cat voip_cert.pem voip_key.pem > voip_combined.pem
     
-    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type {
-      [UJET updatePushToken:credentials.token type:UjetPushTypeVoIP];
-    }
-    
-    - (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(PKPushType)type withCompletionHandler:(void (^)(void))completion {
-      if (payload.dictionaryPayload[@"ujet"]) {
-        [UJET receivedNotification:payload.dictionaryPayload completion:completion];
-      } else {
-        completion();
-      }
-    }
-    
-    // UIApplicationDelegate
-    
-    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-      [UJET updatePushToken:deviceToken type:UjetPushTypeAPN];
-    }
-    
-    - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-      if (userInfo[@"ujet"]) {
-        [UJET receivedNotification:userInfo completion:nil];
-      }
-    }
-    
-    // UserNotificationsDelegate overrides [UIApplicationDelegate didReceiveRemoteNotification:]
-    
-    - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
-        NSDictionary *userInfo = notification.request.content.userInfo;
-    
-        if (userInfo[@"ujet"] != nil) {
-            [UJET receivedNotification:userInfo completion:nil];
-        }
-    }
-    
-    - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
-        NSDictionary *userInfo = response.notification.request.content.userInfo;
-    
-        if (userInfo[@"ujet"] != nil) {
-            [UJET receivedNotification:userInfo completion:nil];
-        }
-    }
-    
+
+#### Upload certificates to the CCAI Platform Admin Portal
+
+  * Sign in to the CCAI Platform Admin Portal.
+
+  * Navigate to **Settings > Developer settings > Mobile app**.
+
+  * Upload the APNs PEM certificate.
+
+  * Upload the VoIP PEM certificate.
+
+
+**Warning:** Both certificates are required. If either certificate is missing or expired, the corresponding push notification type will fail silently. APNs certificates handle standard push delivery, while VoIP certificates handle incoming-call and call-related notifications. Make sure to renew both before they expire (Apple certificates are typically valid for one year).
 
 ### Enable push notifications
 
   1. Select your target and open **Capabilities** tab.
 
-  2. Turn on the switch of **Push Notifications**.
+  2. Turn on the switch of **Push notifications**.
 
 
 
@@ -390,7 +381,7 @@ The following sections provide guidance on how to test the push notifications.
 
 #### Push notification debug section
 
-In the administrator portal, navigate to Settings > Developer Settings. On this page, find the section titled **Push Notification Debug** :
+In the administrator portal, navigate to **Settings > Developer Settings**. On this page, find the section titled **Push notification debug** :
 
 Copy and paste the device token in the right text area and select the right Mobile App.
 
@@ -404,7 +395,7 @@ An example device token string looks like this:
 
 Push notifications are usually set in the class which conforms to UIApplicationDelegate or PKPushRegistryDelegate protocol. At some point, the device token is available to you. You can print it out before passing it to the iOS SDK. To get your device token, use the code snippet.
 
-#### Swift
+##### Swift
     
     
     func tokenFromData(data: Data) -> String {
@@ -422,10 +413,10 @@ Push notifications are usually set in the class which conforms to UIApplicationD
     }
     
 
-#### Obj-C
+##### Obj-C
     
     
-    - (NSString *)tokenFromData:(NSData *)data {
+    -   (NSString *)tokenFromData:(NSData *)data {
       const char *d = data.bytes;
       NSMutableString *token = [NSMutableString string];
     
@@ -436,23 +427,23 @@ Push notifications are usually set in the class which conforms to UIApplicationD
       return [[token copy] lowercaseString];
     }
     
-    - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(PKPushType)type {
+    -   (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(PKPushType)type {
       NSLog(@"voip token: %@", [self tokenFromData:credentials.token]);
       ...
     }
     
-    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    -   (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
       NSLog(@"apns token: %@", [self tokenFromData:deviceToken]);
     }
     
 
-#### Result
+##### Result
 
 Once you have entered the certificate PEM file and the device token, click the button.
 
 The result will show a message _Push notification successfully configured_ if the test push notification was successfully delivered.
 
-Push notification is not guaranteed to be delivered, depending on the device's network connection.
+A push notification is not guaranteedto be delivered, depending on the device's network connection.
 
 ### Project configurations
 
@@ -520,91 +511,6 @@ The `menuKey` can be created by creating a **Direct Access Point** (DAP). The Fo
 
 
 
-#### Start a chat faster with a prefetched menu
-
-Starting with iOS SDK 2.17.0, you can shorten the time it takes for a chat to begin. Your app prefetches the menu for a direct access point key before the consumer asks for help, and then starts the chat from the menu ID that the prefetch returns. Updating the SDK alone doesn't enable this behavior. Your app must call the methods described in this section.
-
-Use the following order:
-
-  1. Call `[UJET prefetchMenuWithKey:languageCode:completion:]` when a chat is likely, for example in `viewDidAppear:` of your support screen. Call it on the main thread, after `[UJET initialize:...]`.
-
-  2. Store the `UJETPrefetchedMenu` that the completion returns. The completion runs once, on the main queue.
-
-  3. When the consumer starts a chat, check that the stored result isn't `nil` and that chat is one of its available channels.
-
-  4. If both conditions are met, create the start options with `initWithMenuId:preferredChannel:languageCode:` and chat as the preferred channel. Otherwise, create them with `initWithMenuKey:` and set `preferredChannel` to chat.
-
-
-
-
-A language code is required. Without one, the SDK doesn't prefetch, and the completion returns `nil`. Pass the result's `menuId` and `languageCode` to the start options unchanged. The language you pass becomes the language of the chat session, for its screens and requests, in place of the order described in Preferred language. Pass the language the consumer should see, for example the value you set in `preferredLanguage`.
-    
-    
-    @interface SupportViewController ()
-    @property (nonatomic, strong, nullable) UJETPrefetchedMenu *prefetchedMenu;
-    @property (nonatomic, assign) NSUInteger prefetchGeneration;
-    @end
-    
-    @implementation SupportViewController
-    
-    - (void)viewDidAppear:(BOOL)animated {
-        [super viewDidAppear:animated];
-        self.prefetchGeneration += 1;
-        NSUInteger generation = self.prefetchGeneration;
-        __weak typeof(self) weakSelf = self;
-        // Pass the language the consumer should see in the chat.
-        [UJET prefetchMenuWithKey:@"MENU_KEY" languageCode:@"en" completion:^(UJETPrefetchedMenu *menu) {
-            if (weakSelf.prefetchGeneration == generation) {
-                weakSelf.prefetchedMenu = menu;
-            }
-        }];
-    }
-    
-    - (void)startChat {
-        UJETPrefetchedMenu *menu = self.prefetchedMenu;
-        UJETStartOptions *options;
-    
-        if (menu != nil && [menu isChannelAvailable:UjetPreferredChannelTypeChat]) {
-            options = [[UJETStartOptions alloc] initWithMenuId:menu.menuId
-                                              preferredChannel:UjetPreferredChannelTypeChat
-                                                  languageCode:menu.languageCode];
-        } else {
-            options = [[UJETStartOptions alloc] initWithMenuKey:@"MENU_KEY"];
-            options.preferredChannel = UjetPreferredChannelTypeChat;
-        }
-    
-        [UJET startWithOptions:options];
-    }
-    
-    // Call this as soon as your app signs out or changes the user.
-    - (void)discardPrefetchedMenu {
-        self.prefetchGeneration += 1;
-        self.prefetchedMenu = nil;
-    }
-    
-    // Call this only when the SDK isn't running, for example after
-    // UJETEventSdkDidTerminate. Don't prefetch or start the SDK for the
-    // new user until this has run.
-    // See Clear UJET cache from local if user data has been updated.
-    - (void)clearSDKUserData {
-        [UJET clearUserData];
-    }
-    
-    @end
-    
-
-If you set `unsignedCustomData` or `ticketId`, set them on whichever options you start with.
-
-Start from a menu ID only with a successful prefetch result. Without one, the SDK starts the channel without checking whether it's enabled, deflected, or subject to a pre-session smart action.
-
-The completion returns `nil` when the key doesn't resolve to a single menu that has no sub-menus and no redirection, when the request or authentication fails, or when the prefetch doesn't complete within 30 seconds. A result can also have no available channels. Chat appears in `availableChannels` only when it's enabled for that menu, its module is included in your app, the chat isn't deflected, and no pre-session smart action applies.
-
-Prefetch only after your app knows who the end user is. If no auth token is cached, the prefetch can call your `signPayload:payloadType:success:failure:` delegate method with `UjetPayloadAuthToken`, and the token is signed with the identity your app has at that moment. Network and authentication failures during a prefetch can also reach `didHandleUjetError:`.
-
-The SDK takes the available channels and the deflection status from the prefetch and doesn't check them again when the chat starts. If business hours, deflection, or channel settings change in the CCAI Platform portal after the prefetch, the stored result doesn't reflect the change. Prefetch again each time your support screen appears. The sample keeps the previous result until a newer prefetch completes, and its counter ensures that only the most recent prefetch updates the result.
-
-`[UJET clearUserData]` drops the result that the SDK keeps. Discard your stored result too, and prefetch again before the next chat. A prefetch that started before `clearUserData` completes with `nil`, and the counter makes the sample ignore it. If your app clears user data outside the support screen, keep the counter where both places can reach it.
-
 #### Clear cache from local if user data has been updated
 
 We're caching auth token in the Keychain to re-use and make less frequent requests to sign payload from the host app. The SDK will use it until expired or revoked through clearUserData call. The host app is in charge of revoking this cache whenever user related data has changed or updated such as a sign out event.
@@ -612,27 +518,6 @@ We're caching auth token in the Keychain to re-use and make less frequent reques
     
     [UJET clearUserData];
     
-
-Don't clear user data while a call or chat is in progress. Clearing removes the cached authentication token and can disrupt the session, including preventing a call from connecting.
-
-Call `clearUserData` only when the SDK isn't running. To know when the SDK stops, observe `UJETEventSdkDidTerminate`. Add the observer before you start the SDK, so that your app doesn't miss the event. 
-
-When the end user signs out or the user changes, do these steps:
-
-  1. Discard the prefetched menu result that your app stores. Don't prefetch or start the SDK for the new user until you complete step 3.
-
-  2. If your app started the SDK and hasn't received `UJETEventSdkDidTerminate` since then, call `[UJET disconnect:nil]`. Then wait for `UJETEventSdkDidTerminate`, not for the `disconnect:` completion handler.
-
-  3. Call `[UJET clearUserData]`.
-
-  4. Prefetch the menu or start the SDK for the new user.
-
-
-
-
-Don't use `getStatus` or `UJETEventSessionDidEnd` to decide when to clear. `getStatus` returns `UjetStatusNone` for a call that isn't connected yet. `UJETEventSessionDidEnd` isn't posted for every call that ends before it connects, and a survey or CSAT screen can show after it.
-
-`disconnect:` can't end a call that isn't connected yet. In that case, wait until the call ends and the SDK posts `UJETEventSdkDidTerminate`. Post-session screens, such as a survey or CSAT, can delay this event. The SDK posts `UJETEventSdkDidTerminate` after it removes its call and chat state, so clearing after this event is safe. The completion handler of `disconnect:` doesn't show that the SDK has stopped: it isn't called when `disconnect:` ends a chat that isn't minimized. Step 1 applies to the prefetched result from Start a chat faster with a prefetched menu, which belongs to the previous user.
 
 #### Check for existing session before starting Contact Center AI Platform
 
@@ -650,7 +535,7 @@ If there is an existing session, we should prompt the user to resume the session
     }
     
 
-### Customize SDK theme
+### Customize
 
 There are several options for the SDK theme listed in `UJETGlobalTheme.h`.
 
@@ -664,7 +549,7 @@ Set your theme after `[UJET initialize]`—for example:
     theme.boldFont = [UIFont fontWithName:@"OpenSans-Bold" size: 16.0f];
     theme.tintColor = [UIColor colorWithRed:0.243 green:0.663 blue:0.965 alpha:1.00];
     
-    [UJET setGlobalTheme:theme];
+    [Ujet setGlobalTheme:theme];
     
 
 The company name is retrieved from **Admin Portal > Settings > Support Center Details > Display Name**.
@@ -697,7 +582,7 @@ You can specify a tint of the color you want for dark mode to better legibility 
     @property (nonatomic, strong) UIColor \*tintColorForDarkMode;
     
 
-If you don't set the property then UJETGlobalTheme.tintColor will be used for dark mode. We recommend setting this property if your app supports dark mode. Refer to the following Apple articles on how to pick the right tint color for dark mode:
+If you don't set the property, `UJETGlobalTheme.tintColor` will be used for dark mode. We recommend setting this property if your app supports dark mode. Refer to the following Apple articles on how to pick the right tint color for dark mode:
 
   * [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/)
 
@@ -884,7 +769,7 @@ The signature (HMAC-SHA:256) must be generated using the `data`, signed with the
 
 #### Post session transfer
 
-You can add customization for post session va together with chat customization. This can be accomplished either using the JSON file (see `post_session` property) or by using the `UJETChatPostSessionVaTheme` class. Border width can be only 0 or 1 and if you don't want to differentiate the post session VA experience then you could set `containerColor` white and border to 0.
+You can add customization for post session va together with chat customization. This can be accomplished either using the JSON file (see `post_session` property) or by using the `UJETChatPostSessionVaTheme` class. Border width can be only 0 or 1 and if you don't want to differentiate the post-session virtual agent experience then you could set `containerColor` white and border to 0.
     
     
     func customizeChatTheme() throws {
@@ -912,7 +797,7 @@ You can add customization for post session va together with chat customization. 
 
 #### Chat actions menu
 
-You can add customization for chat actions menu together with chat customization. This can be accomplished either by using the JSON file (see `form_card` property) or by using the UJETChatActionMenuTheme class.
+You can add customization for chat actions menu together with chat customization. This can be accomplished either by using the JSON file (see `form_card` property) or by using the `UJETChatActionMenuTheme` class.
     
     
     func customizeChatTheme() throws {
@@ -972,7 +857,7 @@ To start a new CCAI Platform support session from call history, add the followin
     
     
     AppDelegate.m:
-    - (BOOL)application:(UIApplication *)app continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray * _Nullable))restorationHandler {
+    -   (BOOL)application:(UIApplication *)app continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray * _Nullable))restorationHandler {
         if ([userActivity.activityType isEqualToString:@"INStartAudioCallIntent"]) {
             // Open app from Call history
             [UJET startWithOptions:nil];
@@ -988,7 +873,7 @@ CallKit allows a 40x40 icon to be displayed on the lock screen when receiving a 
 
 You can set several options before starting the SDK.
 
-Take a look at the UJETGlobalOptions class for details.
+Take a look at the `UJETGlobalOptions` class for details.
     
     
     UJETGlobalOptions *options = [UJETGlobalOptions new];
@@ -1092,20 +977,6 @@ You can add a button that lets the user skip the CSAT survey. The following code
     options.skipCsat = true
     
 
-#### Chat check-in after-hours options
-
-If your chat queues use [chat check-in](https://docs.cloud.google.com/contact-center/ccai-platform/docs/chat-check-in), you can control what appears on the after-hours chat check-in screen. Both options are properties of `UJETGlobalOptions`.
-    
-    
-    // YES to hide the "Next availability" message on the after-hours
-    // chat check-in screen. Default is NO.
-    @property (nonatomic, assign) BOOL hideNextAvailability;
-    
-    // YES to hide the "Start over" button on the after-hours chat
-    // check-in screen. Default is NO.
-    @property (nonatomic, assign) BOOL hideStartOver;
-    
-
 #### Customize the activity indicator
 
 You can add your own loader animation (inside a `UIView`) to the SDK and override the default `UIActivityIndicatorView`. Implement the `ujet_activityIndicator` method from the `UJETDelegate` and return the customized view.
@@ -1170,7 +1041,7 @@ There are two methods to send custom data:
 You have to implement signing method. First, you can put your custom data on client side, and send to your server to sign it. On your server you can add additional data by defined form and sign with your company.secret and return it by JWT.
     
     
-    - (void)signPayload:(NSDictionary *)payload payloadType:(UjetPayloadType)payloadType success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure
+    -   (void)signPayload:(NSDictionary *)payload payloadType:(UjetPayloadType)payloadType success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure
     {
         if (payloadType == UjetPayloadCustomData) {
           // sign custom data using UJET_COMPANY_SECRET on your server.
@@ -1209,12 +1080,12 @@ You have to implement signing method. First, you can put your custom data on cli
     }
     
 
-#### Use insecure method to send custom data
+#### Using insecure method to send custom data
 
 This method is not recommended as it creates a potential vulnerability which could open your application to a man-in-the-middle attack. If you choose to use this method, we are not responsible for the security exposure and potential damage which may occur. We encourage you to use the secure method previously described to send custom data in your application. Or you can just start the iOS SDK with `UJETCustomData` instance. In this case, `signPayload` delegate for `UJETPayloadCustomData` should just call success(nil);.
     
     
-    - (void)signPayload:(NSDictionary *)payload payloadType:(UjetPayloadType)payloadType success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure {
+    -   (void)signPayload:(NSDictionary *)payload payloadType:(UjetPayloadType)payloadType success:(void (^)(NSString *))success failure:(void (^)(NSError *))failure {
         if (payloadType == UjetPayloadCustomData) {
           success(nil);
         }
@@ -1225,7 +1096,7 @@ This method is not recommended as it creates a potential vulnerability which cou
     [UJET startWithOptions:options];
     
 
-#### Use unsigned custom data to send external chat transcript
+#### Using unsigned custom data to send external chat transcript
 
 You can send the chat transcript to the SDK when it's started with unsigned custom data by calling setExternalChatTransfer: or setExternalChatTransferWithDictionary: method to set JSON data with NSString or NSDictionary, respectively.
     
@@ -1306,11 +1177,13 @@ JSON example:
 
 You can use Markdown on the text type. Supported syntax include italic, bold, bullet list, hyperlink, and underline (`--text--`).
 
-#### Custom data example
+#### Example of custom data
 
-**JSON encoded to JWT** :
+This section shows an example of custom data.
 
-The JSON file should validate JWT. And the object of custom data is value of the `custom_data` key.
+##### JSON encoded to JWT
+
+The JSON file should validate JWT. And the object of custom data is value of custom_data key.
     
     
     {
@@ -1396,15 +1269,15 @@ The key is unique identifier for the data. label is display name on CRM's page t
 
 
 
-#### CRM examples
+##### CRM example
 
-Here are some examples of how the custom data is displayed in the CRM.
+Here's a CRM example.
 
-**Location** :
+##### Location
 
-Use the `CoreLocation` framework. For more details, refer to `AppDelegate.m`.
+Use CoreLocation framework. For more details, refer to `AppDelegate.m`.
 
-**Device OS version** :
+##### Device OS Version
     
     
     [customData set:@"os_version" label:@"OS Version" stringValue:[[UIDevice currentDevice] systemVersion]];
@@ -1461,9 +1334,11 @@ Set each value to `true` or `false`.
 
 
 
-### Customize flow
+### Customize Flow
 
-Disconnect CCAI Platform for handling Host app events:
+This section describes how to customize the flow.
+
+#### Disconnect CCAI Platform for handling Host app events
     
     
     // CCAI Platform is connected
@@ -1476,10 +1351,10 @@ Disconnect CCAI Platform for handling Host app events:
 
 #### Postpone CCAI Platform incoming call or chat
 
-Implement a delegate method for handling incoming events: 
+Implement a delegate method for handling incoming events:
     
     
-    - (BOOL)shouldConnectUjetIncoming:(NSString *)identifier forType:(UjetIncomingType)type {
+    -   (BOOL)shouldConnectUjetIncoming:(NSString *)identifier forType:(UjetIncomingType)type {
       if (weDoingSomething) {
         // save identifier and type
         return NO; // postpone
@@ -1489,13 +1364,13 @@ Implement a delegate method for handling incoming events:
     }
     
 
-#### Connect postponed event
+##### Connect postponed event
     
     
     [UJET connect:identifier forType:UjetIncomingTypeCall];
     
 
-### Set up deep link
+### Setup Deep link
 
 This enables agents on PSTN calls to use smart actions by SMS for both when an end user has or does not have the app.
 
@@ -1510,7 +1385,7 @@ The universal link and custom URL look like `https://your-company.com/support?ca
 In the delegate method, make sure to only call `[UJET start]` when the URL paths and parameters in the universal link or custom URL are specific for CCAI Platform.
     
     
-    - (BOOL)application:(UIApplication *)app continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray * _Nullable))restorationHandler {
+    -   (BOOL)application:(UIApplication *)app continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray * _Nullable))restorationHandler {
       ...
       if ([NSUserActivityTypeBrowsingWeb isEqualToString:userActivity.activityType]) {
         NSURL *url = userActivity.webpageURL;
@@ -1622,14 +1497,6 @@ We post the following events through NSNotificationCenter.defaultCenter. You can
   * UJETEventSessionDidCreate
 
     * _Session Data_
-  * UJETEventContentCardDidClick, UJETEventContentCardButtonDidClick, UJETEventQuickReplyLinkDidClick
-
-    * _Session Data_
-
-    * event_params: (NSDictionary) nullable
-
-    * link: (NSString) URL or deeplink, nullable
-
   * UJETEventSessionDidEnd
 
     * _Session Data_
@@ -1652,62 +1519,64 @@ We post the following events through NSNotificationCenter.defaultCenter. You can
 
 
 
-#### Event data
+#### Event Data
 
 **Metadata**
 
-  * application: @"iOS"
+  * `application`: @"iOS"
 
-  * app_id: (NSString) bundle identifier
+  * `app_id`: (NSString) bundle identifier
 
-  * app_version: (NSString)
+  * `app_version`: (NSString)
 
-  * company: (NSString) subdomain
+  * `company`: (NSString) subdomain
 
-  * device_model: (NSString)
+  * `device_model`: (NSString)
 
-  * device_version: (NSString)
+  * `device_version`: (NSString)
 
-  * sdk_version: (NSString)
+  * `sdk_version`: (NSString)
 
-  * timestamp: (NSString) ISO 8601
-
-
-
-
-#### Queue menu data
-
-**Metadata**
-
-  * menu_id: NSString
-
-  * menu_key: NSString, nullable
-
-  * menu_name: NSString
-
-  * menu_path : NSString
+  * `timestamp`: (NSString) ISO 8601
 
 
 
 
-#### Session data
+#### Queue Menu Data
 
 **Metadata**
 
-  * session_id: NSString
+  * `menu_id`: NSString
 
-  * type: @"call", @"chat"
+  * `menu_key`: NSString, nullable
 
-  * end_user_identifier: NSString
+  * `menu_name`: NSString
+
+  * `menu_path` : NSString
 
 
 
 
-### Set up screen share
+#### Session Data
 
-If you want to use Screen Share feature, then integrate `UJETCobrowseKit.xcframework`.
+**Metadata**
 
-**CocoaPods:** Add the following subspec to your app target.
+  * `session_id`: NSString
+
+  * `type`: @"call", @"chat"
+
+  * `end_user_identifier`: NSString
+
+
+
+
+### Setup screen share
+
+If you want to use screen share feature, then integrate `UJETCobrowseKit.xcframework`.
+
+#### CocoaPods
+
+Add this subspec to your app target:
     
     
         ruby
@@ -1717,15 +1586,19 @@ If you want to use Screen Share feature, then integrate `UJETCobrowseKit.xcframe
     end
     
 
-**Carthage:** Add the following line on the Cartfile:
+#### Set up screen share with Carthage
+
+Add this line on the Cartfile:
     
     
-    binary "https://sdk.ujet.co/ios/UJETCobrowseKit.json"
+    binary "https://sdk.ujet.co/ios/UJETKit.json"
     
 
-**SwiftPM:** Select `UJET` and `UJETCobrowse` products and add to your app target.
+#### SwiftPM
 
-And set `UJETGlobalOptions.cobrowseKey` property.
+Select `UJET` and `UJETCobrowse` products and add to your app target.
+
+And set the value of `UJETGlobalOptions.cobrowseKey` to your company's cobrowse key.
     
     
     swift
@@ -1741,7 +1614,7 @@ Full device screen sharing allows your support agents to view screens from appli
 
 #### Customize the screen share consent dialog
 
-To customize the Screen Share consent dialog, you need to implement the `UJETCobrowseAlertProvider` protocol in your provider class. In this implementation, return a custom `UIViewController` or any other object inherited `UIViewController` through the respective protocol method. `UIViewController` should have two buttons, one is for accept, the other is for deny.
+To customize the screen share consent dialog, you need to implement the `UJETCobrowseAlertProvider` protocol in your provider class. In this implementation, return a custom `UIViewController` or any other object inherited `UIViewController` through the respective protocol method. `UIViewController` should have two buttons, one is for accept, the other is for deny.
 
 After getting the consent, pass into our SDK by calling the closure `consentStatus`. `UIViewController` from `cobrowseFullDeviceRequestAlert`. The delegate should contain the `RPSystemBroadcastPickerView` with title (see in sample code below) and should have another deny button. Invoke the dismissed closure on click of the deny button.
     
@@ -1824,7 +1697,7 @@ Don't forget to pass this provider to our SDK through the following API:
     UJET.setCobrowseAlertProvider(provider)
     
 
-#### Broadcast extension
+#### Broadcast Extension
 
 The feature requires adding a Broadcast Extension.
 
@@ -1847,7 +1720,7 @@ The feature requires adding a Broadcast Extension.
 
 #### Integrate the SDK
 
-**CocoaPods:** Add the following subspec to your extension target:
+**CocoaPods{** : Add the following subspec to your extension target:
     
     
     target 'MyApp' do
@@ -1863,13 +1736,13 @@ If you're using SwiftPM, select `UJETCobrowseExtension` product and add to your 
 
 #### Set up keychain sharing
 
-Your app and the app extension that you previously created need to share some secrets through the iOS Keychain. They do this using their own Keychain group so they are isolated from the rest of your apps Keychain.
+Your app and the app extension that you previously created need to share some secrets through the iOS Keychain. They do this using their own Keychain group so they are isolated from the rest of your apps keychain.
 
-In **both** your **app target** and your **extension target** add a Keychain Sharing entitlement for the `io.cobrowse` keychain group.
+In Xcode, select both your app target and your extension target. Add a keychain sharing entitlement for the `io.cobrowse` keychain group.
 
 #### Add the bundle ID to your plist
 
-Take the **bundle ID** of the **extension** you previously created and add the following entry in your apps Info.plist (Note: **not** in the extensions Info.plist), replacing the following **bundle ID** with your own:
+Take the bundle ID of the extension you previously created and add this entry in your apps Info.plist.
     
     
     xml
@@ -1877,11 +1750,15 @@ Take the **bundle ID** of the **extension** you previously created and add the f
     <string>your.app.extension.bundle.ID.here</string>
     
 
+**Note:** Don't add this entry in the in the extensions Info.plist. Instead, replace this bundle ID with your own.
+
 #### Implement the extension
 
-Xcode will have added `SampleHandler.m` and `SampleHandler.h` (or `SampleHander.swift`) files as part of the target you created earlier. Replace the content of the files with the following:
+Xcode will have added `SampleHandler.m` and `SampleHandler.h` (or `SampleHandler.swift`) files as part of the target you created earlier. Replace the content of the files with the following:
 
-**Swift:** Select `UJETCobrowseExtension` product and add to your extension target:
+**Swift** :
+
+Select `UJETCobrowseExtension` product and add to your extension target:
     
     
     import CobrowseIOAppExtension
@@ -1961,7 +1838,7 @@ The following code sample shows how to use the `didHandleUjetError` function:
 
 ## Troubleshooting
 
-This section describes common issues and their resolutions.
+This section provides information to help you troubleshoot common issues.
 
 ### App submission rejection
 
@@ -1993,7 +1870,7 @@ Can users receive VoIP calls in your app?
 
 Respond **Yes** to the question.
 
-### Alert notification is unavailable when starting SDK
+### Alert Notification is _unavailable_ when starting SDK
 
 Check the following:
 
@@ -2016,7 +1893,7 @@ If you have already set the certificate for APNS, you don't have to put your cer
 
 Input your certificate (optional) and check whether sandbox or not (optional) and input your test app push notification device token.
 
-### Start a new chat took longer than 30 seconds
+### Starting a new chat took longer than 30 seconds
 
 Check if you are responding to a delegate method of custom data. You should return a valid custom data upon request or just return nil on the success block.
 
@@ -2035,6 +1912,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

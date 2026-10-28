@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-manager/docs/troubleshooting/
 title: Troubleshooting Certificate Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:55.121768+00:00
+fetched_at: 2026-10-27T20:10:58.415753+00:00
 ---
 
 # Troubleshooting Certificate Manager  |  Google Cloud Documentation
@@ -27,6 +27,70 @@ This page describes the most common errors you might encounter when using Certif
 
 For help with resolving issues related to TLS (SSL) certificates, see [Troubleshoot SSL certificates](https://docs.cloud.google.com/load-balancing/docs/ssl-certificates/troubleshooting).
 
+## Troubleshoot Google-managed certificates
+
+For Google-managed certificates, you can check the status of the certificate resource and the authorization status for each domain associated with the certificate.
+
+### Managed certificate state
+
+Check the managed certificate state (`managed.state`):
+    
+    
+    gcloud certificate-manager certificates describe CERTIFICATE_NAME \
+        --location=LOCATION \
+        --format="get(managed.state)"
+    
+
+Replace the following:
+
+  * `CERTIFICATE_NAME`: the name of the certificate.
+  * `LOCATION`: the target Google Cloud location. The default location is `global`.
+
+
+
+Values for the certificate state are as follows:
+
+State | Explanation  
+---|---  
+`PROVISIONING` |  Certificate Manager is provisioning or renewing the certificate. Provisioning a Google-managed certificate can take up to 60 minutes after your DNS and load balancer configuration changes propagate across the internet. If the certificate remains in the `PROVISIONING` state, check the `managed.provisioningIssue` or `managed.authorizationAttemptInfo` fields for more information.  
+`ACTIVE` |  The certificate is provisioned. It is ready to serve traffic after you associate it with a certificate map entry and attach it to a target proxy or load balancer.   
+`FAILED` |  Multiple certificate provisioning attempts or renewals failed, and Certificate Manager stopped provisioning the certificate. Certificate Manager does not retry provisioning in this state. To resolve this issue, correct the underlying DNS or load balancer configuration issues, delete the failed certificate, and create a new managed certificate resource. For details about the failure, check the `managed.provisioningIssue` or `managed.authorizationAttemptInfo` fields.  
+  
+### Domain authorization attempt state
+
+Check the authorization attempt state for the domains associated with a certificate:
+    
+    
+    gcloud certificate-manager certificates describe CERTIFICATE_NAME \
+        --location=LOCATION \
+        --format="get(managed.authorizationAttemptInfo)"
+    
+
+Replace the following:
+
+  * `CERTIFICATE_NAME`: the name of the certificate.
+  * `LOCATION`: the target Google Cloud location. The default location is `global`.
+
+
+
+Each domain associated with the certificate has one of the following states (`managed.authorizationAttemptInfo.state`):
+
+State | Explanation  
+---|---  
+`AUTHORIZING` |  Certificate Manager is provisioning the certificate for this domain and authorizing the domain.   
+`AUTHORIZED` |  The domain is authorized. If the certificate includes multiple domains, the certificate is provisioned and becomes `ACTIVE` only after all its domains reach the `AUTHORIZED` state.   
+`FAILED` |  The attempt to authorize the domain failed. This failure prevents Certificate Manager from issuing the managed certificate. To diagnose the issue, check the `failureReason`, `details`, and `troubleshooting` fields for the failed domain.   
+  
+### Domain authorization failure reasons
+
+When a domain's authorization attempt state is `FAILED`, the `managed.authorizationAttemptInfo.failureReason` field indicates the reason for the failure. The following table describes the possible values:
+
+Failure reason | Explanation  
+---|---  
+`CONFIG` |  Your DNS or load balancer has a configuration issue for this domain. For more information, see the detailed Troubleshooting errors table.  
+`CAA` |  Certificate provisioning failed because of a CAA record issue, such as an explicit CAA restriction or a failure to check the CAA records for the domain. To resolve this issue, make sure your DNS zone configuration allows the Certificate Authority to issue certificates for your domain. For per-project [DNS authorizations](https://docs.cloud.google.com/certificate-manager/docs/domain-authorization#dns-auth) (including all regional certificates), Certificate Manager uses Google Trust Services (`pki.goog`) only, so make sure that your CAA record allows `pki.goog`. For other DNS authorizations and [load balancer authorizations](https://docs.cloud.google.com/certificate-manager/docs/domain-authorization#lb-auth), Certificate Manager can use both Google Trust Services (`pki.goog`) and Let's Encrypt (`letsencrypt.org`). For more information, see [Specify the CAs that can issue your Google-managed certificate](https://docs.cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa).  
+`RATE_LIMITED` |  The request was limited by the certificate authority or the internal system, such as Let's Encrypt weekly limits on certificates per registered domain. To resolve this issue, wait for the rate limit to expire. Do not request unnecessary duplicate certificates across different projects.  
+  
 ## Errors related to Certificate Manager certificates
 
 This section provides troubleshooting information for errors related to the `authorizationAttemptInfo` field of Google-managed Certificate Manager certificates. The errors are displayed in the `managed.authorizationAttemptInfo.troubleshooting` section only when the following fields have these values:
@@ -173,6 +237,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/overview/
 title: Vector Search \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:14.951862+00:00
+fetched_at: 2026-10-28T02:27:42.405262+00:00
 ---
 
 # Vector Search  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -151,7 +151,7 @@ In this course, you'll use text embeddings for tasks like classification and sem
 
 [**Agent Search ranking API**](https://docs.cloud.google.com/generative-ai-app-builder/docs/ranking) The ranking API reranks documents based on relevance to a query using a pre-trained language model, providing precise scores. It's ideal for improving search results from various sources including Vector Search.
 
-[**Gemini Enterprise Agent Platform Feature Store**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore) Lets you manage and serve feature data using BigQuery as the data source. It provisions resources for online serving, acting as a metadata layer to serve the latest feature values directly from BigQuery. Feature Store allows for the instant retrieval of feature values for the items Vector Store returned for queries.
+[**Gemini Enterprise Agent Platform Feature Store**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore) Lets you manage and serve feature data using BigQuery as the data source. It provisions resources for online serving, acting as a metadata layer to serve the latest feature values directly from BigQuery. Agent Platform Feature Store allows for the instant retrieval of feature values for the items Vector Store returned for queries.
 
 [**Agent Platform Pipelines**](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/introduction) Agent Platform Pipelines enables the automation, monitoring, and governance of your ML systems in a serverless manner by orchestrating ML workflows with ML pipelines. You can run ML pipelines defined using Kubeflow Pipelines or the TensorFlow Extended (TFX) framework in batches. Pipelines allows for building automated pipelines to generate embeddings, create and update Vector Search indexes, and form an MLOps setup for production search and recommendation systems.
 
@@ -232,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

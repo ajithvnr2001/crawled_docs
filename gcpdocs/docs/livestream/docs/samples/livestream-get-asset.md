@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/livestream/docs/samples/livestream-get-asset/
 title: Get an asset \u00a0|\u00a0 Live Stream API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:29.526463+00:00
+fetched_at: 2026-10-27T22:34:15.944831+00:00
 ---
 
 # Get an asset  |  Live Stream API  |  Google Cloud Documentation

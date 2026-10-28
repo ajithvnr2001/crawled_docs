@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/data-studio/audit-logging/
 title: Data Studio Pro audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:41:22.563354+00:00
+fetched_at: 2026-10-27T17:04:39.411155+00:00
 ---
 
 # Data Studio Pro audit logging  |  Google Cloud Documentation
@@ -29,7 +29,9 @@ The features and functionality described in this page are available to Data Stud
 
 [Get Data Studio Pro.](https://docs.cloud.google.com/data-studio/about-pro)
 
-This document describes audit logging for Looker Studio. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Looker Studio let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Looker Studio API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -41,11 +43,19 @@ This document describes audit logging for Looker Studio. Google Cloud services g
 
 ## Service name
 
-Looker Studio audit logs use the service name `datastudio.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="datastudio.googleapis.com"
-      
+To view the Looker Studio audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="datastudio.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -62,9 +72,11 @@ API methods in the following list that are marked with (LRO) are long-running op
 `CreateBlockDatasource`  
 `CreateReport`  
 `CreateSubscription`  
+`CreateWorkspace`  
 `GetProjectLicense`  
 `GetProjectLicenseInformation`  
 `MoveAsset`  
+`PersistTempReport`  
 `RestoreProjectSubscription`  
 `RestoreSubscription`  
 `Subscribe`  
@@ -74,9 +86,12 @@ API methods in the following list that are marked with (LRO) are long-running op
 `UpdateProjectLicense`  
 `UpdateProjectSubscription`  
 `ValidateAddOnLicenses`  
+`google.analytics.datastudio.v1.DataStudioService.AddMembers`  
 `google.analytics.datastudio.v1.DataStudioService.RevokeAllPermissions`  
 `google.analytics.datastudio.v1.DataStudioService.UpdatePermissions`  
-`DATA_READ` | `BatchedDataActionV2`  
+`DATA_READ` | `BatchedClaimDatasourceForReport`  
+`BatchedDataActionV2`  
+`ClaimDatasourceForReport`  
 `CopyDatasource`  
 `CreateAlert`  
 `CreateShortLink`  
@@ -89,7 +104,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `GetReport`  
 `GetWorkspace`  
 `ListAlerts`  
-`PersistTempReport`  
 `ReadShareableImage`  
 `Report`  
 `UpdateAlert`  
@@ -100,7 +114,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `CopyDatasource`  
 `CreateNamedRevision`  
 `CreatePages`  
-`CreateWorkspace`  
 `DeleteClaim`  
 `DeletePages`  
 `DeleteRevision`  
@@ -125,7 +138,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `UpdateReportNavigationInfo`  
 `UpdateRevision`  
 `UploadShareableImage`  
-`google.analytics.datastudio.v1.DataStudioService.AddMembers`  
   
 ## API interface audit logs
 
@@ -142,8 +154,7 @@ The following audit logs are associated with methods belonging to `google.analyt
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
-    * `datastudio.reports.legacyOwner - ADMIN_WRITE`
-    * `datastudio.reports.update - DATA_WRITE`
+    * `datastudio.reports.setIamPolicy - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.analytics.datastudio.v1.DataStudioService.AddMembers" `  
@@ -190,9 +201,7 @@ The following audit logs are associated with methods belonging to `google.analyt
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
-    * `datastudio.datasources.legacyOwner - ADMIN_WRITE`
-    * `datastudio.datasources.update - DATA_WRITE`
-    * `datastudio.reports.legacyOwner - ADMIN_WRITE`
+    * `datastudio.reports.setIamPolicy - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.analytics.datastudio.v1.DataStudioService.RevokeAllPermissions" `  
@@ -207,10 +216,7 @@ The following audit logs are associated with methods belonging to `google.analyt
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
-    * `datastudio.datasources.legacyOwner - ADMIN_WRITE`
-    * `datastudio.datasources.update - DATA_WRITE`
-    * `datastudio.reports.legacyOwner - ADMIN_WRITE`
-    * `datastudio.reports.update - DATA_WRITE`
+    * `datastudio.reports.setIamPolicy - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.analytics.datastudio.v1.DataStudioService.UpdatePermissions" `  
@@ -310,7 +316,6 @@ The following audit logs are associated with methods belonging to `other`.
 
   * **Permissions** : 
     * `datastudio.datasources.setIamPolicy - ADMIN_WRITE`
-    * `datastudio.reports.update - DATA_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="ConvertEmbeddedDatasourceToShareable" `  
@@ -341,7 +346,6 @@ The following audit logs are associated with methods belonging to `other`.
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
-    * `datastudio.datasources.get - DATA_READ`
     * `datastudio.datasources.setIamPolicy - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -357,8 +361,6 @@ The following audit logs are associated with methods belonging to `other`.
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
-    * `datastudio.datasources.get - DATA_READ`
-    * `datastudio.reports.get - DATA_READ`
     * `datastudio.reports.setIamPolicy - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -390,7 +392,6 @@ The following audit logs are associated with methods belonging to `other`.
 
   * **Permissions** : 
     * `datastudio.datasources.setIamPolicy - ADMIN_WRITE`
-    * `datastudio.reports.update - DATA_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="CreateBlockDatasource" `  
@@ -542,8 +543,10 @@ The following audit logs are associated with methods belonging to `other`.
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
+    * `datastudio.datasources.delete - DATA_WRITE`
     * `datastudio.folders1.delete - DATA_WRITE`
     * `datastudio.reports.delete - DATA_WRITE`
+    * `datastudio.workspaces.delete - DATA_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="DeleteShareable" `  
@@ -831,10 +834,10 @@ The following audit logs are associated with methods belonging to `other`.
 
   * **Method** : `PersistTempReport`  
 
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
-    * `datastudio.reports.get - DATA_READ`
+    * `datastudio.reports.legacyOwner - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="PersistTempReport" `  
@@ -1075,10 +1078,7 @@ The following audit logs are associated with methods belonging to `other`.
   * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
-    * `datastudio.reports.legacyOwner - ADMIN_WRITE`
-    * `datastudio.reports.update - DATA_WRITE`
-    * `datastudio.workspaces.getIamPolicy - ADMIN_READ`
-    * `datastudio.workspaces.shareCM - ADMIN_WRITE`
+    * `datastudio.reports.setIamPolicy - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="UpdateCloudSharing" `  
@@ -1256,6 +1256,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

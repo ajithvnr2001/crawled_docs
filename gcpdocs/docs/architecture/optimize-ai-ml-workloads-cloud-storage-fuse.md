@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/optimize-ai-ml-workloads-cloud-storage-fuse/
 title: Optimize AI and ML workloads with Cloud Storage FUSE \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:34:37.643955+00:00
+fetched_at: 2026-10-28T01:43:35.726114+00:00
 ---
 
 # Optimize AI and ML workloads with Cloud Storage FUSE  |  Cloud Architecture Center  |  Google Cloud Documentation

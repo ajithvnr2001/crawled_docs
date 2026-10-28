@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-overview/
 title: Gen AI evaluation service overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:44:16.529781+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:28:27.099308+00:00
 ---
 
 # Gen AI evaluation service overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -203,7 +217,7 @@ Alternatively, the following code shows how to complete an evaluation with the G
     
     
     from vertexai import Client
-    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html)
+    from vertexai import [types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html)
     import pandas as pd
     
     client = Client(project=PROJECT_ID, location=LOCATION)
@@ -217,12 +231,12 @@ Alternatively, the following code shows how to complete an evaluation with the G
     })
     
     # Get responses from one or multiple models
-    eval_dataset = client.[evals](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.html).[run_inference](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_run_inference)(model="gemini-2.5-flash", src=prompts_df)
+    eval_dataset = client.[evals](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.html).[run_inference](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_run_inference)(model="gemini-2.5-flash", src=prompts_df)
     
     # Define the evaluation metrics and run the evaluation job
-    eval_result = client.[evals](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.html).[evaluate](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_evaluate)(
+    eval_result = client.[evals](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.html).[evaluate](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.evals.Evals.html#vertexai__genai_evals_Evals_evaluate)(
         dataset=eval_dataset,
-        metrics=[[types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html).RubricMetric.GENERAL_QUALITY]
+        metrics=[[types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html).RubricMetric.GENERAL_QUALITY]
     )
     
     # View the evaluation results
@@ -310,6 +324,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

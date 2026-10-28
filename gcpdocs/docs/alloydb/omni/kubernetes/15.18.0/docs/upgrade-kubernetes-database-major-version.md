@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/upgrade-kubernetes-database-major-version/
 title: Perform a major version upgrade from AlloyDB Omni version 15.x.x on Kubernetes \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 15.18.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:20:48.295200+00:00
+fetched_at: 2026-10-28T00:33:31.145444+00:00
 ---
 
 # Perform a major version upgrade from AlloyDB Omni version 15.x.x on Kubernetes  |  AlloyDB Omni using the container orchestrator: 15.18.0  |  Google Cloud Documentation
@@ -76,7 +76,7 @@ For example, to upgrade from version `15.12.0` to `17.5.0`, you must follow this
 
   * If you run external or remote backup systems, perform a full backup and pause any scheduled backups to avoid backing up during the upgrade process.
 
-  * For [high availability (HA) and data resilience (DR)](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/high-availability/overview) environments, decouple your database clusters before upgrading them.
+  * For [high availability (HA) and data resilience (DR)](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/kubernetes-ha) environments, decouple your database clusters before upgrading them.
 
 
 
@@ -121,7 +121,7 @@ Follow the instructions for the major version you are upgrading to.
 
   2. [Remove your backup plan](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/backup-kubernetes).
 
-  3. Terminate all replication processes. This includes [physical replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/about-pglogical) used for [high availability (HA) and data resilience (DR)](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/high-availability/overview) as well as all [logical replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/create-replication-slots) streams.
+  3. Terminate all replication processes. This includes [physical replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/about-pglogical) used for [high availability (HA) and data resilience (DR)](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/kubernetes-ha) as well as all [logical replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/create-replication-slots) streams.
 
   4. Annotate your database cluster to specify a manual version upgrade.
          
@@ -228,7 +228,7 @@ Replace the following variable:
 
   2. [Remove your backup plan](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/backup-kubernetes).
 
-  3. Terminate all replication processes. This includes [physical replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/about-pglogical) used for [high availability (HA) and data resilience (DR)](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/high-availability/overview) as well as all [logical replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/create-replication-slots) streams.
+  3. Terminate all replication processes. This includes [physical replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/about-pglogical) used for [high availability (HA) and data resilience (DR)](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/kubernetes-ha) as well as all [logical replication](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.18.0/docs/create-replication-slots) streams.
 
   4. Annotate your database cluster to specify a manual version upgrade.
          
@@ -333,6 +333,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

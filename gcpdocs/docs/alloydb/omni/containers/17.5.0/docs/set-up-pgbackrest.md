@@ -1,16 +1,53 @@
 ---
 url: https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/
 title: Set up pgBackRest for AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for containers: 17.5.0 \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:54:28.427264+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T17:56:22.023827+00:00
 ---
 
 # Set up pgBackRest for AlloyDB Omni  |  AlloyDB Omni for containers: 17.5.0  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/
 
-This page documents AlloyDB Omni version **17.5.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
+[ Skip to main content ](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/)
+  * [Deutsch](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=de)
+  * [Español](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=it)
+  * [Português](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/?hl=ko)
 
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/alloydb-color.svg) ](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/overview)
+  * [ AlloyDB Omni ](https://docs.cloud.google.com/alloydb/omni/docs)
+  * [ For containers: 17.5.0 ](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/overview)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Before you begin](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#prerequisites)
+  * [Basic configuration with local backups](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#configure)
+    * [Mount a backup volume to your container](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#mount-backup-volume)
+    * [Configure local backups](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#configure-local-backups)
+  * [Perform a backup](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#backup)
+  * [Set up scheduled backups](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#scheduled)
+  * [Custom configuration and remote backups](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#custom)
+    * [An example configuration using Cloud Storage](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#remote-example)
+  * [What's next](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#whats-next)
+
+
+This page documents AlloyDB Omni version **17.5.0** using the **containers** deployment option. [Choose a different deployment option](https://docs.cloud.google.com/alloydb/omni/docs/choose-deployment). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Databases ](https://docs.cloud.google.com/docs/databases)
@@ -18,13 +55,21 @@ This page documents AlloyDB Omni version **17.5.0** using the **containers** dep
   * [ For containers: 17.5.0 ](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/overview)
 
 
-
 Send feedback 
+#  Set up pgBackRest for AlloyDB Omni Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Before you begin](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#prerequisites)
+  * [Basic configuration with local backups](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#configure)
+    * [Mount a backup volume to your container](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#mount-backup-volume)
+    * [Configure local backups](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#configure-local-backups)
+  * [Perform a backup](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#backup)
+  * [Set up scheduled backups](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#scheduled)
+  * [Custom configuration and remote backups](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#custom)
+    * [An example configuration using Cloud Storage](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#remote-example)
+  * [What's next](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#whats-next)
 
-#  Set up pgBackRest for AlloyDB Omni Stay organized with collections  Save and categorize content based on your preferences. 
 
-Select a documentation version: 17.5.0keyboard_arrow_down
-
+Select a documentation version:  17.5.0keyboard_arrow_down
   * [ Current (18.4.0) ](https://docs.cloud.google.com/alloydb/omni/containers/current/docs/set-up-pgbackrest)
   * [ 18.4.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.4.0/docs/set-up-pgbackrest)
   * [ 18.3.0 ](https://docs.cloud.google.com/alloydb/omni/containers/18.3.0/docs/set-up-pgbackrest)
@@ -51,130 +96,117 @@ Select a documentation version: 17.5.0keyboard_arrow_down
   * [ 15.5.2 ](https://docs.cloud.google.com/alloydb/omni/containers/15.5.2/docs/set-up-pgbackrest)
 
 This page shows you how to protect your data by configuring AlloyDB Omni to work with [pgBackRest](https://pgbackrest.org/), an open-source database backup server. 
-
-The information on this page applies only to AlloyDB Omni for containers. It does not apply to AlloyDB Omni for Kubernetes.
-
 For Kubernetes-based information, see [Back up and restore in Kubernetes](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/backup-kubernetes).
-
 For more information about pgBackRest, see [its user guide](https://pgbackrest.org/user-guide-index.html).
-
 ## Before you begin
-
 Before configuring AlloyDB Omni to work with pgBackRest, complete the following prerequisites:
-
   * [Install and run AlloyDB Omni](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/deploy-vm) on a server that you control.
   * [Set up persistent data storage](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/install#mount-external-data-directory) for your AlloyDB Omni instance.
 
 
-
 ## Basic configuration with local backups
-
-The steps in this section guide you through a basic setup of pgBackRest. Basic configurations don't enable backups on a schedule. For more information, see Set up scheduled backups.
-
+The steps in this section guide you through a basic setup of pgBackRest. Basic configurations don't enable backups on a schedule. For more information, see [Set up scheduled backups](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#scheduled).
 Because pgBackRest is a flexible third-party product compatible with AlloyDB Omni, you can modify any of these steps as appropriate for your own needs and preferences.
-
 ### Mount a backup volume to your container
-
 For organization purposes, we strongly recommend that you create and mount a separate volume for pgBackRest backups. To set up a new volume, complete the following steps:
-
   1. If your container is running, stop and remove it.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker stop CONTAINER_NAME
-         docker rm CONTAINER_NAME
+```
+docker stop CONTAINER_NAME
+docker rm CONTAINER_NAME
+```
 
-### Docker
-         
-         docker stop CONTAINER_NAME
-         docker rm CONTAINER_NAME
+```
+docker stop CONTAINER_NAME
+docker rm CONTAINER_NAME
+```
 
-### Podman
-         
-         podman stop CONTAINER_NAME
-         podman rm CONTAINER_NAME
+```
+podman stop CONTAINER_NAME
+podman rm CONTAINER_NAME
+```
 
-### Podman
-         
-         podman stop CONTAINER_NAME
-         podman rm CONTAINER_NAME
+```
+podman stop CONTAINER_NAME
+podman rm CONTAINER_NAME
+```
 
 Replace the following variable:
-
      * `CONTAINER_NAME`: Name you used for your container.
   2. Create a backup directory in your container's file system.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         mkdir -p BACKUP_DIR
-         
+```
+mkdir -p BACKUP_DIR
 
-### Docker
-         
-         mkdir -p BACKUP_DIR
-         
+```
 
-### Podman
-         
-         mkdir -p BACKUP_DIR
-         
+```
+mkdir -p BACKUP_DIR
 
-### Podman
-         
-         mkdir -p BACKUP_DIR
-         
+```
+
+```
+mkdir -p BACKUP_DIR
+
+```
+
+```
+mkdir -p BACKUP_DIR
+
+```
 
 Replace the following variable:
-
      * `BACKUP_DIR`: Host directory that your backups will be stored in.
   3. Recreate your container with the new backups volume.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker run -d --name CONTAINER_NAME \
-         -e POSTGRES_PASSWORD=NEW_PASSWORD \
-         -v DATA_DIR:/var/lib/postgresql/data \
-         -v BACKUP_DIR:/var/lib/postgresql/backups \
-         -p HOST_PORT:5432 \
-         --restart=always \
-         google/alloydbomni:latest
-         
+```
+docker run -d --name CONTAINER_NAME \
+-e POSTGRES_PASSWORD=NEW_PASSWORD \
+-v DATA_DIR:/var/lib/postgresql/data \
+-v BACKUP_DIR:/var/lib/postgresql/backups \
+-p HOST_PORT:5432 \
+--restart=always \
+google/alloydbomni:latest
 
-### Docker
-         
-         docker run -d --name CONTAINER_NAME \
-         -e POSTGRES_PASSWORD=NEW_PASSWORD \
-         -v DATA_DIR:/var/lib/postgresql/data \
-         -v BACKUP_DIR:/var/lib/postgresql/backups \
-         -p HOST_PORT:5432 \
-         --restart=always \
-         google/alloydbomni:latest
-         
+```
 
-### Podman
-         
-         podman run -d --name CONTAINER_NAME \
-         -e POSTGRES_PASSWORD=NEW_PASSWORD \
-         -v DATA_DIR:/var/lib/postgresql/data \
-         -v BACKUP_DIR:/var/lib/postgresql/backups \
-         -p HOST_PORT:5432 \
-         --restart=always \
-         docker.io/google/alloydbomni:latest
-         
+```
+docker run -d --name CONTAINER_NAME \
+-e POSTGRES_PASSWORD=NEW_PASSWORD \
+-v DATA_DIR:/var/lib/postgresql/data \
+-v BACKUP_DIR:/var/lib/postgresql/backups \
+-p HOST_PORT:5432 \
+--restart=always \
+google/alloydbomni:latest
 
-### Podman
-         
-         podman run -d --name CONTAINER_NAME \
-         -e POSTGRES_PASSWORD=NEW_PASSWORD \
-         -v DATA_DIR:/var/lib/postgresql/data \
-         -v BACKUP_DIR:/var/lib/postgresql/backups \
-         -p HOST_PORT:5432 \
-         --restart=always \
-         docker.io/google/alloydbomni:latest
-         
+```
+
+```
+podman run -d --name CONTAINER_NAME \
+-e POSTGRES_PASSWORD=NEW_PASSWORD \
+-v DATA_DIR:/var/lib/postgresql/data \
+-v BACKUP_DIR:/var/lib/postgresql/backups \
+-p HOST_PORT:5432 \
+--restart=always \
+docker.io/google/alloydbomni:latest
+
+```
+
+```
+podman run -d --name CONTAINER_NAME \
+-e POSTGRES_PASSWORD=NEW_PASSWORD \
+-v DATA_DIR:/var/lib/postgresql/data \
+-v BACKUP_DIR:/var/lib/postgresql/backups \
+-p HOST_PORT:5432 \
+--restart=always \
+docker.io/google/alloydbomni:latest
+
+```
 
 Replace the following variables:
-
      * `CONTAINER_NAME`: Name you used for your container.
      * `NEW_PASSWORD`: Password assigned to the new container's `postgres` user after its creation. Note that `NEW_PASSWORD` will only set a new password when `DATA_DIR` is a new location.
      * `DATA_DIR`: Host directory path that your data is stored in.
@@ -182,539 +214,494 @@ Replace the following variables:
      * `BACKUP_DIR`: Host directory that your backups will be stored in.
      * `HOST_PORT`: TCP port on the host machine that the container should publish its own port `5432` to. To use the PostgreSQL default port on the host machine as well, specify `5432`.
   4. Make the backups directory, in your container, readable by `postgres`.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker exec CONTAINER_NAME chown -R postgres:postgres /var/lib/postgresql/backups
-         
+```
+docker exec CONTAINER_NAME chown -R postgres:postgres /var/lib/postgresql/backups
 
-### Docker
-         
-         docker exec CONTAINER_NAME chown -R postgres:postgres /var/lib/postgresql/backups
-         
+```
 
-### Podman
-         
-         podman exec CONTAINER_NAME chown -R postgres:postgres /var/lib/postgresql/backups
-         
+```
+docker exec CONTAINER_NAME chown -R postgres:postgres /var/lib/postgresql/backups
 
-### Podman
-         
-         podman exec CONTAINER_NAME chown -R postgres:postgres /var/lib/postgresql/backups
-         
+```
+
+```
+podman exec CONTAINER_NAME chown -R postgres:postgres /var/lib/postgresql/backups
+
+```
+
+```
+podman exec CONTAINER_NAME chown -R postgres:postgres /var/lib/postgresql/backups
+
+```
 
 Replace the following variable:
-
      * `CONTAINER_NAME`: Name you used for your container.
-
 
 
 ### Configure local backups
-
 pgBackRest creates subdirectories for each backup taken and includes a plain-text manifest file.
-
 pgBackRest uses the term stanza to refer to the configuration for a PostgreSQL database cluster. The stanza name is arbitrary and doesn't need to match the host server, PostgreSQL cluster, or database name. The pgBackRest documentation suggests naming the stanza after the cluster's function.
-
 The repository is where backups are written. pgBackRest supports writing to more than one repository in a given stanza. Most configuration parameters related to repositories are indexed with a numeric value. For example, `repo1-`. Parameters related to PostgreSQL clusters are also, independently, indexed. For example, `pg1-`.
-
 pgBackRest leverages a configuration file, called `pgbackrest.conf`, to hold global and stanza-specific parameters.
+To build and initialize a configuration file for backing up your AlloyDB Omni cluster, create the `pgbackrest.conf` file in the host-side backups directory you created in [Mount a backup volume to your container](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#mount-backup-volume).
 
-To build and initialize a configuration file for backing up your AlloyDB Omni cluster, create the `pgbackrest.conf` file in the host-side backups directory you created in Mount a backup volume to your container.
-    
-    
-    [global]
-    # Paths (all mandatory):
-    repo1-path=/var/lib/postgresql/backups
-    spool-path=/var/lib/postgresql/backups/spool
-    lock-path=/var/lib/postgresql/backups
-    
-    # Retention details:
-    repo1-retention-full=3
-    repo1-retention-full-type=count
-    repo1-retention-diff=16
-    
-    # Force a checkpoint to start backup immediately:
-    start-fast=y
-    
-    # Logging parameters:
-    log-path=/var/lib/postgresql/backups
-    log-level-console=info
-    log-level-file=info
-    
-    # Recommended ZSTD compression:
-    compress-type=zst
-    
-    # Other performance parameters:
-    archive-async=y
-    archive-push-queue-max=1024MB
-    archive-get-queue-max=256MB
-    archive-missing-retry=y
-    
-    [global:archive-push]
-    process-max=2
-    
-    [global:archive-get]
-    process-max=2
-    
-    [omni]
-    pg1-user=postgres
-    pg1-socket-path=/tmp
-    pg1-path=/var/lib/postgresql/data
-    
+```
+[global]
+# Paths (all mandatory):
+repo1-path=/var/lib/postgresql/backups
+spool-path=/var/lib/postgresql/backups/spool
+lock-path=/var/lib/postgresql/backups
+
+# Retention details:
+repo1-retention-full=3
+repo1-retention-full-type=count
+repo1-retention-diff=16
+
+# Force a checkpoint to start backup immediately:
+start-fast=y
+
+# Logging parameters:
+log-path=/var/lib/postgresql/backups
+log-level-console=info
+log-level-file=info
+
+# Recommended ZSTD compression:
+compress-type=zst
+
+# Other performance parameters:
+archive-async=y
+archive-push-queue-max=1024MB
+archive-get-queue-max=256MB
+archive-missing-retry=y
+
+[global:archive-push]
+process-max=2
+
+[global:archive-get]
+process-max=2
+
+[omni]
+pg1-user=postgres
+pg1-socket-path=/tmp
+pg1-path=/var/lib/postgresql/data
+
+```
 
 Some parameters are mandatory, but others can be adjusted to meet your specific requirements if needed, such as the following:
-
   * [`repo1-path`](https://pgbackrest.org/configuration.html#section-repository/option-repo-path): Directory location where the backups are written to. We recommend a location visible to both the host server and the container.
-
   * [`log-path`](https://pgbackrest.org/configuration.html#section-log/option-log-path): Directory location where the log files are written to. If you want to write the log files to a separate location, not mixed with the backups themselves, adjust this parameter.
-
   * [`repo1-retention-full`](https://pgbackrest.org/configuration.html#section-repository/option-repo-retention-full): Number of full backups to retain.
-
   * [`repo1-retention-full-type`](https://pgbackrest.org/configuration.html#section-repository/option-repo-retention-full-type): Whether the retention is measured by count or time period (days).
-
   * [`repo1-retention-diff`](https://pgbackrest.org/configuration.html#section-repository/option-repo-retention-diff): Number of differential backups to retain.
 
 
-
-
 Other non-critical, but recommended, parameter settings that are compatible with AlloyDB Omni in the configuration file include the following:
-
   * [`log-level-console`](https://pgbackrest.org/configuration.html#section-log/option-log-level-console): Level of logging written to the screen (STDOUT) when running pgBackup commands. You can adjust this to meet your needs in the configuration file, or override this value with the `--log-level-console` command line argument. The default is `warn`.
-
   * [`start-fast`](https://pgbackrest.org/configuration.html#section-backup/option-start-fast): Forces a checkpoint to start the backups quickly. The default is `n`.
-
   * [`archive-async`](https://pgbackrest.org/configuration.html#section-archive/option-archive-async): Push WAL segment files asynchronously for performance. The default is `n`.
-
   * [`process-max`](https://pgbackrest.org/configuration.html#section-general/option-process-max): Maximum number of processes to use for compression and transfer. This is typically set to `max_cpu/4` on a primary or `max_cpu/2` on a standby cluster. The default is `1`.
-
   * [`compress-type`](https://pgbackrest.org/configuration.html#section-general/option-compress-type): Compression algorithm to use. The default is `gz`.
 
 
-
-
 Many other pgBackRest configuration parameters exist and can be adjusted. This documentation covers only the parameters mandatory for the default AlloyDB Omni configuration and some recommended parameter settings. For the full list of configuration parameters, refer to the [pgBackRest Configuration Reference](https://pgbackrest.org/configuration.html) online documentation.
-
 After configuring pgBackRest, the target repositories where backups are written to must be initialized by creating the stanza, which uses the parameters as set in the configuration file.
-
 To configure your database for backups, complete the following steps:
-
   1. Create the stanza using the `stanza-create` command.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni stanza-create
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni stanza-create
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni stanza-create
-         
+```
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni stanza-create
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni stanza-create
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni stanza-create
-         
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni stanza-create
+
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni stanza-create
+
+```
 
 Replace the following variables:
-
      * `CONTAINER_NAME`: Name you used for your container.
   2. Configure your database for backups.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME psql \
-         -c "ALTER SYSTEM SET archive_command='pgbackrest --config-path=/var/lib/postgresql/backups --stanza=omni archive-push %p';" \
-         -c "ALTER SYSTEM SET archive_mode=on;" \
-         -c "ALTER SYSTEM SET max_wal_senders=10;" \
-         -c "ALTER SYSTEM SET wal_level=replica;"
-         
+```
+docker exec -u postgres CONTAINER_NAME psql \
+-c "ALTER SYSTEM SET archive_command='pgbackrest --config-path=/var/lib/postgresql/backups --stanza=omni archive-push %p';" \
+-c "ALTER SYSTEM SET archive_mode=on;" \
+-c "ALTER SYSTEM SET max_wal_senders=10;" \
+-c "ALTER SYSTEM SET wal_level=replica;"
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME psql \
-         -c "ALTER SYSTEM SET archive_command='pgbackrest --config-path=/var/lib/postgresql/backups --stanza=omni archive-push %p';" \
-         -c "ALTER SYSTEM SET archive_mode=on;" \
-         -c "ALTER SYSTEM SET max_wal_senders=10;" \
-         -c "ALTER SYSTEM SET wal_level=replica;"
-         
+```
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME psql \
-         -c "ALTER SYSTEM SET archive_command='pgbackrest --config-path=/var/lib/postgresql/backups --stanza=omni archive-push %p';" \
-         -c "ALTER SYSTEM SET archive_mode=on;" \
-         -c "ALTER SYSTEM SET max_wal_senders=10;" \
-         -c "ALTER SYSTEM SET wal_level=replica;"
-         
+```
+docker exec -u postgres CONTAINER_NAME psql \
+-c "ALTER SYSTEM SET archive_command='pgbackrest --config-path=/var/lib/postgresql/backups --stanza=omni archive-push %p';" \
+-c "ALTER SYSTEM SET archive_mode=on;" \
+-c "ALTER SYSTEM SET max_wal_senders=10;" \
+-c "ALTER SYSTEM SET wal_level=replica;"
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME psql \
-         -c "ALTER SYSTEM SET archive_command='pgbackrest --config-path=/var/lib/postgresql/backups --stanza=omni archive-push %p';" \
-         -c "ALTER SYSTEM SET archive_mode=on;" \
-         -c "ALTER SYSTEM SET max_wal_senders=10;" \
-         -c "ALTER SYSTEM SET wal_level=replica;"
-         
+```
+
+```
+podman exec -u postgres CONTAINER_NAME psql \
+-c "ALTER SYSTEM SET archive_command='pgbackrest --config-path=/var/lib/postgresql/backups --stanza=omni archive-push %p';" \
+-c "ALTER SYSTEM SET archive_mode=on;" \
+-c "ALTER SYSTEM SET max_wal_senders=10;" \
+-c "ALTER SYSTEM SET wal_level=replica;"
+
+```
+
+```
+podman exec -u postgres CONTAINER_NAME psql \
+-c "ALTER SYSTEM SET archive_command='pgbackrest --config-path=/var/lib/postgresql/backups --stanza=omni archive-push %p';" \
+-c "ALTER SYSTEM SET archive_mode=on;" \
+-c "ALTER SYSTEM SET max_wal_senders=10;" \
+-c "ALTER SYSTEM SET wal_level=replica;"
+
+```
 
 Replace the following variables:
-
      * `CONTAINER_NAME`: Name you used for your container.
   3. Restart your container.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker restart CONTAINER_NAME
-         
+```
+docker restart CONTAINER_NAME
 
-### Docker
-         
-         docker restart CONTAINER_NAME
-         
+```
 
-### Podman
-         
-         podman restart CONTAINER_NAME
-         
+```
+docker restart CONTAINER_NAME
 
-### Podman
-         
-         podman restart CONTAINER_NAME
-         
+```
+
+```
+podman restart CONTAINER_NAME
+
+```
+
+```
+podman restart CONTAINER_NAME
+
+```
 
 Replace the following variables:
-
      * `CONTAINER_NAME`: Name you used for your container.
   4. Validate the backup configuration.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME psql \
-         -c "SELECT name, setting
-             FROM pg_catalog.pg_settings
-             WHERE name IN ('archive_command',
-                            'archive_mode',
-                            'max_wal_senders',
-                            'wal_level')
-             ORDER BY name"
-         
+```
+docker exec -u postgres CONTAINER_NAME psql \
+-c "SELECT name, setting
+    FROM pg_catalog.pg_settings
+    WHERE name IN ('archive_command',
+                   'archive_mode',
+                   'max_wal_senders',
+                   'wal_level')
+    ORDER BY name"
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME psql \
-         -c "SELECT name, setting
-             FROM pg_catalog.pg_settings
-             WHERE name IN ('archive_command',
-                            'archive_mode',
-                            'max_wal_senders',
-                            'wal_level')
-             ORDER BY name"
-         
+```
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME psql \
-         -c "SELECT name, setting
-             FROM pg_catalog.pg_settings
-             WHERE name IN ('archive_command',
-                            'archive_mode',
-                            'max_wal_senders',
-                            'wal_level')
-             ORDER BY name"
-         
+```
+docker exec -u postgres CONTAINER_NAME psql \
+-c "SELECT name, setting
+    FROM pg_catalog.pg_settings
+    WHERE name IN ('archive_command',
+                   'archive_mode',
+                   'max_wal_senders',
+                   'wal_level')
+    ORDER BY name"
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME psql \
-         -c "SELECT name, setting
-             FROM pg_catalog.pg_settings
-             WHERE name IN ('archive_command',
-                            'archive_mode',
-                            'max_wal_senders',
-                            'wal_level')
-             ORDER BY name"
-         
+```
+
+```
+podman exec -u postgres CONTAINER_NAME psql \
+-c "SELECT name, setting
+    FROM pg_catalog.pg_settings
+    WHERE name IN ('archive_command',
+                   'archive_mode',
+                   'max_wal_senders',
+                   'wal_level')
+    ORDER BY name"
+
+```
+
+```
+podman exec -u postgres CONTAINER_NAME psql \
+-c "SELECT name, setting
+    FROM pg_catalog.pg_settings
+    WHERE name IN ('archive_command',
+                   'archive_mode',
+                   'max_wal_senders',
+                   'wal_level')
+    ORDER BY name"
+
+```
 
 Replace the following variables:
-
      * `CONTAINER_NAME`: Name you used for your container.
   5. Perform a pgBackRest check.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         check
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+check
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         check
-         
+```
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         check
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+check
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         check
-         
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+check
+
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+check
+
+```
 
 Replace the following variables:
-
      * `CONTAINER_NAME`: Name you used for your container.
-
 
 
 ## Perform a backup
-
   1. Perform a full backup.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         --type=full \
-         backup
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+--type=full \
+backup
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         --type=full \
-         backup
-         
+```
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         --type=full \
-         backup
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+--type=full \
+backup
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         --type=full \
-         backup
-         
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+--type=full \
+backup
+
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+--type=full \
+backup
+
+```
 
 Replace the following variables:
-
      * `CONTAINER_NAME`: Name you used for your container.
   2. Perform a differential backup.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         --type=diff \
-         backup
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+--type=diff \
+backup
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         --type=diff \
-         backup
-         
+```
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         --type=diff \
-         backup
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+--type=diff \
+backup
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         --type=diff \
-         backup
-         
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+--type=diff \
+backup
+
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+--type=diff \
+backup
+
+```
 
 Replace the following variables:
-
      * `CONTAINER_NAME`: Name you used for your container.
   3. Report backups.
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         info
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+info
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         info
-         
+```
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         info
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+info
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         info
-         
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+info
+
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+info
+
+```
 
 Replace the following variables:
-
      * `CONTAINER_NAME`: Name you used for your container.
-
 
 
 ## Set up scheduled backups
-
 To set up scheduled backups, create a cron job that runs the `pgbackrest backup` command as often as needed. For more information, see [Schedule a backup](https://pgbackrest.org/user-guide.html#quickstart/schedule-backup).
-
 ## Custom configuration and remote backups
-
 After you have a basic configuration working, you can tune your configuration file to suit your needs and preferences using the options documented in the [pgBackRest configuration reference](https://pgbackrest.org/configuration.html).
-
 This includes specifying additional backup repositories located on remote machines, or in the cloud. If you define multiple repositories, then pgBackRest simultaneously writes to them all as its default backup action.
-
 For example, pgBackRest supports [using a Cloud Storage bucket as a backup repository](https://pgbackrest.org/release.html#2.33), with [a number of related configuration options](https://pgbackrest.org/configuration.html#section-repository/option-repo-gcs-bucket). The following section demonstrates one way to use these options.
-
 ### An example configuration using Cloud Storage
-
-The steps in this section build on the configuration file introduced in Basic configuration with local backups. These modifications to that file define a second backup repository in a Cloud Storage bucket, accessed through Identity and Access Management (IAM).
-
+The steps in this section build on the configuration file introduced in [Basic configuration with local backups](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#configure). These modifications to that file define a second backup repository in a Cloud Storage bucket, accessed through Identity and Access Management (IAM).
 The automatic authentication style in this example requires an AlloyDB Omni cluster to run on a Compute Engine VM instance. If you don't run AlloyDB Omni on a Compute Engine VM instance, then you can still back up to a Cloud Storage bucket by using another authentication method, such a Google Cloud service account key saved to the local file system.
-
 To extend the earlier configuration file to define a Cloud Storage-based pgBackRest repository, follow these steps:
-
   1. [Configure the bucket permissions](https://docs.cloud.google.com/storage/docs/access-control/using-iam-permissions) to allow the service account attached to your VM instance to write to the bucket. This requires [the Storage Object User IAM role](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#standard-roles) set on that service account.
-
   2. Add these lines to the `[global]` section of your `pgbackrest.conf` file:
-         
-         # Cloud Storage access details:
-         repo2-type=gcs
-         repo2-gcs-key-type=auto
-         repo2-storage-verify-tls=n
-         
-         # Cloud Storage bucket and path details:
-         repo2-gcs-bucket=BUCKET_NAME
-         repo2-path=PATH_IN_BUCKET
-         
-         # Cloud Storage backup retention parameters:
-         repo2-retention-full=8
-         repo2-retention-full-type=count
-         
+
+```
+# Cloud Storage access details:
+repo2-type=gcs
+repo2-gcs-key-type=auto
+repo2-storage-verify-tls=n
+
+# Cloud Storage bucket and path details:
+repo2-gcs-bucket=BUCKET_NAME
+repo2-path=PATH_IN_BUCKET
+
+# Cloud Storage backup retention parameters:
+repo2-retention-full=8
+repo2-retention-full-type=count
+
+```
 
 Replace the following variable:
-
      * `BUCKET_NAME`: Name of the Cloud Storage bucket that you want pgBackRest to store backups to.
      * `PATH_IN_BUCKET`: Directory path in the Cloud Storage bucket that you want pgBackRest to store backups in.
   3. Initialize the cloud-based backup location using the [`pgbackrest stanza-create`](https://pgbackrest.org/command.html#command-stanza-create) command:
+[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootful)[Docker](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#docker-rootless)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootful)[Podman](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/set-up-pgbackrest/#podman-rootless) More
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         stanza-create
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+stanza-create
 
-### Docker
-         
-         docker exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         stanza-create
-         
+```
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         stanza-create
-         
+```
+docker exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+stanza-create
 
-### Podman
-         
-         podman exec -u postgres CONTAINER_NAME pgbackrest \
-         --config-path=/var/lib/postgresql/backups \
-         --stanza=omni \
-         stanza-create
-         
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+stanza-create
+
+```
+
+```
+podman exec -u postgres CONTAINER_NAME pgbackrest \
+--config-path=/var/lib/postgresql/backups \
+--stanza=omni \
+stanza-create
+
+```
 
 Replace the following variable:
-
      * `CONTAINER_NAME`: Name you used for your container.
 
 
-
 After you initialize the backup repository in your Cloud Storage bucket using the `pgbackrest stanza-create` command, pgBackRest may back up to two locations:
-
   * Location in the local file system, defined elsewhere in the configuration file as `repo1-path`. This is the default location when `--repo` is not specified in the `pgbackrest` command.
-
   * Cloud Storage bucket, defined using the `repo2-gcs-bucket` configuration directives set up by this example. To use the Cloud Storage bucket, specify `--repo=2` in the `pgbackrest` command.
 
 
-
-
 ## What's next
-
   * [Restore an AlloyDB Omni cluster using pgBackRest](https://docs.cloud.google.com/alloydb/omni/containers/17.5.0/docs/restore-pgbackrest)
 
 
-
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

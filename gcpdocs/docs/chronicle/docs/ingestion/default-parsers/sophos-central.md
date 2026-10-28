@@ -1,13 +1,63 @@
 ---
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/
 title: Collect Sophos Central logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:47:02.150967+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:08:31.545691+00:00
 ---
 
 # Collect Sophos Central logs  |  Google Security Operations  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/
+
+[ Skip to main content ](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/)
+  * [Deutsch](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=de)
+  * [Español](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=it)
+  * [Português](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/?hl=ko)
+
+Sign in
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/secops-color.svg) ](https://docs.cloud.google.com/chronicle/docs)
+  * [ Google Security Operations ](https://docs.cloud.google.com/chronicle/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Before you begin](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#before_you_begin)
+  * [Get Google SecOps credentials for the Bindplane agent](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#get-auth-file)
+    * [Option 1: Create a service account for the Chronicle API (recommended)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#option_1_create_a_service_account_for_the_chronicle_api_recommended)
+    * [Option 2: Download the ingestion authentication file (legacy)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#option_2_download_the_ingestion_authentication_file_legacy)
+  * [Get Google SecOps customer ID](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#get-customer-id)
+  * [Install the Bindplane agent](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#install_the_bindplane_agent)
+    * [Windows installation](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#windows_installation)
+    * [Linux installation](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#linux_installation)
+    * [Additional installation resources](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#additional_installation_resources)
+  * [Configure the Bindplane agent to ingest Syslog and send to Google SecOps](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#configure-bindplane)
+    * [Legacy ingestion API exporter](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#legacy_ingestion_api_exporter)
+  * [Restart the Bindplane agent to apply the changes](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#restart_the_bindplane_agent_to_apply_the_changes)
+  * [Configure Sophos Central API access](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#configure_sophos_central_api_access)
+  * [Install Python on the additional machine](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#install_python_on_the_additional_machine)
+  * [Download the Sophos integration script](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#download_the_sophos_integration_script)
+  * [Set up the script configuration](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#set_up_the_script_configuration)
+  * [Run the script](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#run_the_script)
+  * [Automate the script to run continuously](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#automate_the_script_to_run_continuously)
+    * [On Windows (using Task Scheduler)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#on_windows_using_task_scheduler)
+    * [On Mac (using Cron Jobs)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#on_mac_using_cron_jobs)
+  * [UDM Mapping Table](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#udm_mapping_table)
+  * [Change Log](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#change_log)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -16,21 +66,39 @@ fetched_at: 2026-10-26T05:47:02.150967+00:00
   * [ Guides ](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview)
 
 
+Was this helpful?
+Send feedback 
+  * On this page
+  * [Before you begin](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#before_you_begin)
+  * [Get Google SecOps credentials for the Bindplane agent](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#get-auth-file)
+    * [Option 1: Create a service account for the Chronicle API (recommended)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#option_1_create_a_service_account_for_the_chronicle_api_recommended)
+    * [Option 2: Download the ingestion authentication file (legacy)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#option_2_download_the_ingestion_authentication_file_legacy)
+  * [Get Google SecOps customer ID](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#get-customer-id)
+  * [Install the Bindplane agent](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#install_the_bindplane_agent)
+    * [Windows installation](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#windows_installation)
+    * [Linux installation](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#linux_installation)
+    * [Additional installation resources](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#additional_installation_resources)
+  * [Configure the Bindplane agent to ingest Syslog and send to Google SecOps](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#configure-bindplane)
+    * [Legacy ingestion API exporter](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#legacy_ingestion_api_exporter)
+  * [Restart the Bindplane agent to apply the changes](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#restart_the_bindplane_agent_to_apply_the_changes)
+  * [Configure Sophos Central API access](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#configure_sophos_central_api_access)
+  * [Install Python on the additional machine](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#install_python_on_the_additional_machine)
+  * [Download the Sophos integration script](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#download_the_sophos_integration_script)
+  * [Set up the script configuration](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#set_up_the_script_configuration)
+  * [Run the script](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#run_the_script)
+  * [Automate the script to run continuously](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#automate_the_script_to_run_continuously)
+    * [On Windows (using Task Scheduler)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#on_windows_using_task_scheduler)
+    * [On Mac (using Cron Jobs)](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#on_mac_using_cron_jobs)
+  * [UDM Mapping Table](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#udm_mapping_table)
+  * [Change Log](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/sophos-central/#change_log)
 
-Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Collect Sophos Central logs
-
+# Collect Sophos Central logs Stay organized with collections  Save and categorize content based on your preferences.
 Supported in:
-
 Google SecOps  [ SIEM ](https://docs.cloud.google.com/chronicle/docs/secops/google-secops-siem-toc)
-
 This document explains how to collect Sophos Central logs by using Bindplane. The parser transforms JSON logs into a unified data model (UDM). It extracts fields from nested JSON structures, maps them to UDM fields, and performs event categorization based on the type field, enriching the data with specific details and actions for different Sophos Central event types.
-
 ## Before you begin
-
 Make sure you have the following prerequisites:
-
   * A Google SecOps instance.
   * You are using Windows 2016 or later, or a Linux host with systemd.
   * You have an additional Windows or Linux machine, capable of continuously running Python.
@@ -38,18 +106,13 @@ Make sure you have the following prerequisites:
   * Privileged access to the Sophos Central Admin console.
 
 
-
 ## Get Google SecOps credentials for the Bindplane agent
-
 To authenticate the Bindplane agent to Google SecOps, choose one of the following methods:
-
   * **New deployments** : Use the Chronicle API (Option 1).
   * **Legacy deployments** : Continue using the ingestion authentication file (Option 2) until the Ingestion API is discontinued on July 20, 2027.
 
 
-
 ### Option 1: Create a service account for the Chronicle API (recommended)
-
   1. Sign in to the [Google Cloud console](https://console.cloud.google.com/) and select the Google Cloud project that is linked to your Google SecOps instance.
   2. Go to **IAM & Admin > Service Accounts**.
   3. Click **Create service account**.
@@ -65,148 +128,132 @@ To authenticate the Bindplane agent to Google SecOps, choose one of the followin
   11. Save the key file as `ingestion-auth.json` in the Bindplane collector directory (`/opt/observiq-otel-collector/ingestion-auth.json` on Linux or `C:\Program Files\observIQ OpenTelemetry Collector\ingestion-auth.json` on Windows), or update `creds_file_path` in `config.yaml` to match the path where you save it.
   12. Go to **IAM & Admin > Settings** and copy the **Project number**. You'll need it for the exporter configuration.
 
-**Note:** The JSON key is a credential. Restrict access to the file on the Bindplane host and rotate the key according to your organization's policy.
 
 ### Option 2: Download the ingestion authentication file (legacy)
-
   1. Sign in to the Google SecOps console.
   2. Go to **SIEM Settings > Collection Agents**.
   3. Download the **ingestion authentication file**.
   4. Save the file securely on the system where the Bindplane agent will be installed.
 
-**Note:** This file authenticates the agent to the legacy Ingestion API (`malachiteingestion-pa.googleapis.com`), which Google has scheduled for end of life on July 20, 2027. Plan to move to Option 1 before that date.
 
 ## Get Google SecOps customer ID
-
   1. Sign in to the **Google SecOps console**.
   2. Go to **SIEM Settings** > **Profile**.
   3. Copy and save the **Customer ID** from the **Organization Details** section.
 
 
-
 ## Install the Bindplane agent
-
 Install the Bindplane agent on your Windows or Linux operating system according to the following instructions.
-
 ### Windows installation
-
   1. Open the **Command Prompt** or **PowerShell** as an administrator.
   2. Run the following command:
-         
-         msiexec /i "[https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi](https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi)" /quiet
-         
 
+```
+msiexec /i "[https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi](https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi)" /quiet
+
+```
 
 
 
 ### Linux installation
-
   1. Open a terminal with root or sudo privileges.
   2. Run the following command:
-         
-         sudo sh -c "$(curl -fsSlL [https://github.com/observiq/bindplane-agent/releases/latest/download/install_unix.sh](https://github.com/observiq/bindplane-agent/releases/latest/download/install_unix.sh))" install_unix.sh
-         
 
+```
+sudo sh -c "$(curl -fsSlL [https://github.com/observiq/bindplane-agent/releases/latest/download/install_unix.sh](https://github.com/observiq/bindplane-agent/releases/latest/download/install_unix.sh))" install_unix.sh
+
+```
 
 
 
 ### Additional installation resources
-
 For additional installation options, consult this [installation guide](https://docs.cloud.google.com/chronicle/docs/ingestion/use-bindplane-agent#install_the_bindplane_agent).
-
-**Note:** The Chronicle API exporter configuration requires Bindplane collector v1.106.0 or later. The previous commands install the latest release. If you're updating an existing installation, upgrade the collector before changing the configuration.
-
 ## Configure the Bindplane agent to ingest Syslog and send to Google SecOps
-
   1. Access the Configuration File:
-
      * Locate the `config.yaml` file. Typically, it's in the `/opt/observiq-otel-collector/` directory on Linux or in the installation directory on Windows.
      * Open the file using a text editor (for example, `nano`, `vi`, or Notepad).
   2. Edit the `config.yaml` file as follows:
-         
-         receivers:
-           udplog:
-             # Replace the port and IP address as required
-             listen_address: "0.0.0.0:514"
-         
-         exporters:
-           chronicle/chronicle_w_labels:
-             protocol: https
-             # Region of your instance, for example us, europe, asia-southeast1
-             location: <LOCATION>
-             # Project number of the Google Cloud project linked to the instance
-             project: '<PROJECT_NUMBER>'
-             compression: gzip
-             # Adjust the path to the credentials file you downloaded in Step 1
-             creds_file_path: '/path/to/ingestion-authentication-file.json'
-             # Replace with your actual customer ID from Step 2
-             customer_id: '<customer_id>'
-             endpoint: chronicle.googleapis.com
-             # Add optional ingestion labels for better organization
-             log_type: 'SOPHOS_CENTRAL'
-             raw_log_field: body
-             ingestion_labels:
-         
-         service:
-           pipelines:
-             logs/source0__chronicle_w_labels-0:
-               receivers:
-                 - udplog
-               exporters:
-                 - chronicle/chronicle_w_labels
-         
+
+```
+receivers:
+  udplog:
+    # Replace the port and IP address as required
+    listen_address: "0.0.0.0:514"
+
+exporters:
+  chronicle/chronicle_w_labels:
+    protocol: https
+    # Region of your instance, for example us, europe, asia-southeast1
+    location: <LOCATION>
+    # Project number of the Google Cloud project linked to the instance
+    project: '<PROJECT_NUMBER>'
+    compression: gzip
+    # Adjust the path to the credentials file you downloaded in Step 1
+    creds_file_path: '/path/to/ingestion-authentication-file.json'
+    # Replace with your actual customer ID from Step 2
+    customer_id: '<customer_id>'
+    endpoint: chronicle.googleapis.com
+    # Add optional ingestion labels for better organization
+    log_type: 'SOPHOS_CENTRAL'
+    raw_log_field: body
+    ingestion_labels:
+
+service:
+  pipelines:
+    logs/source0__chronicle_w_labels-0:
+      receivers:
+        - udplog
+      exporters:
+        - chronicle/chronicle_w_labels
+
+```
 
   3. Replace the port and IP address as required in your infrastructure.
-
   4. Replace `<LOCATION>` with the region of your Google SecOps instance (for example, `us`, `europe`, or `asia-southeast1`). The exporter prefixes `chronicle.googleapis.com` with this value.
-
   5. Replace `<PROJECT_NUMBER>` with the project number from **IAM & Admin > Settings**.
-
   6. Replace `<customer_id>` with the actual **Customer ID**.
-
   7. Update `/path/to/ingestion-authentication-file.json` to the file path where the service account key file (Option 1) was saved in Step 1.
 
 
-
-
 ### Legacy ingestion API exporter
-
   * If you use the ingestion authentication file from Option 2, replace the `exporters` block with the following. Set `creds_file_path` to the path to the ingestion authentication file, and if your instance is outside the US, replace `malachiteingestion-pa.googleapis.com` with your [regional endpoint](https://docs.cloud.google.com/chronicle/docs/reference/ingestion-api#regional-endpoints) (for example, `europe-malachiteingestion-pa.googleapis.com`).
-        
-        exporters:
-          chronicle/chronicle_w_labels:
-            compression: gzip
-            # Adjust the path to the credentials file you downloaded in Step 1
-            creds_file_path: '/path/to/ingestion-authentication-file.json'
-            # Replace with your actual customer ID from Step 2
-            customer_id: '<customer_id>'
-            endpoint: malachiteingestion-pa.googleapis.com
-            # Add optional ingestion labels for better organization
-            log_type: 'SOPHOS_CENTRAL'
-            raw_log_field: body
-            ingestion_labels:
-        
+
+```
+exporters:
+  chronicle/chronicle_w_labels:
+    compression: gzip
+    # Adjust the path to the credentials file you downloaded in Step 1
+    creds_file_path: '/path/to/ingestion-authentication-file.json'
+    # Replace with your actual customer ID from Step 2
+    customer_id: '<customer_id>'
+    endpoint: malachiteingestion-pa.googleapis.com
+    # Add optional ingestion labels for better organization
+    log_type: 'SOPHOS_CENTRAL'
+    raw_log_field: body
+    ingestion_labels:
+
+```
 
 
-**Note:** This exporter will stop working when the Ingestion API is discontinued on July 20, 2027.
 
 ## Restart the Bindplane agent to apply the changes
-
   1. To restart the Bindplane agent in Linux, run the following command:
-         
-         /opt/observiq-otel-collector/config.yaml
-         
+
+```
+/opt/observiq-otel-collector/config.yaml
+
+```
 
   2. To restart the Bindplane agent in Windows, you can either use the **Services** console or enter the following command:
-         
-         net stop BindPlaneAgent && net start BindPlaneAgent
-         
 
+```
+net stop BindPlaneAgent && net start BindPlaneAgent
+
+```
 
 
 
 ## Configure Sophos Central API access
-
   1. Sign in to **Sophos Central Admin**.
   2. Select **Global Settings** > **API Token Management**.
   3. Click **Add Token** to create a new token.
@@ -214,13 +261,10 @@ For additional installation options, consult this [installation guide](https://d
   5. In the **API Token Summary** section, click **Copy** to copy the API access URL and headers.
 
 
-
 ## Install Python on the additional machine
-
   1. Open the web browser and go to the [Python website](https://www.python.org).
   2. Click **Download Python** for your operating system (Windows or Mac).
   3. Install Python:
-
      * On Windows: 
        1. Run the installer.
        2. Check the box that says **Add Python to PATH**.
@@ -228,23 +272,21 @@ For additional installation options, consult this [installation guide](https://d
      * On Mac: 
        1. Python may already be installed; if not, you can install the latest version using the terminal.
        2. Open **Terminal** and type the following command to verify:
-    
-    python --version
-    
 
+```
+python --version
+
+```
 
 
 
 ## Download the Sophos integration script
-
   1. Go to the GitHub page for the [Sophos Central SIEM Integration Repository](https://github.com/sophos/Sophos-Central-SIEM-Integration).
   2. Click the green **Code button** > **Download ZIP**.
   3. Extract the ZIP file.
 
 
-
 ## Set up the script configuration
-
   1. Find and open the `config.ini` file with a text editor.
   2. Edit the configuration file: 
      * **API Token:** Enter the API Key copied earlier from Sophos Central.
@@ -255,9 +297,7 @@ For additional installation options, consult this [installation guide](https://d
   3. **Save** the file.
 
 
-
 ## Run the script
-
   1. Go to the script folder. 
      * On Windows: 
        1. Press the **Windows** key and type `cmd`.
@@ -268,20 +308,17 @@ For additional installation options, consult this [installation guide](https://d
        2. Open **Terminal**.
        3. Navigate to the folder: `bash cd /Users/YourName/Downloads/Sophos-Central-SIEM-Integration`
   2. Run the script:
-
      * Type the following command to start the script:
-    
-    python siem.py
-    
 
-**Note:** The script will start fetching logs from Sophos Central and forwarding them to your syslog server in JSON format.
+```
+python siem.py
+
+```
 
 
 
 ## Automate the script to run continuously
-
 ### On Windows (using Task Scheduler)
-
   1. Open the **Task Scheduler** by typing "Task Scheduler" in the Start menu.
   2. Click **Create Task**.
   3. In the **General** tab: 
@@ -295,102 +332,92 @@ For additional installation options, consult this [installation guide](https://d
   6. Click **OK** to save the task.
 
 
-
 ### On Mac (using Cron Jobs)
-
   1. Open the **Terminal**.
   2. Type `crontab -e` and press **Enter**.
   3. Add a new line at the end of the file:
-         
-         * * * * * /usr/bin/python /Users/YourName/Downloads/Sophos-Central-SIEM-Integration/siem.py
-         
 
-**Note:** This will run the script **every minute**. Adjust the time based on your needs.
+```
+* * * * * /usr/bin/python /Users/YourName/Downloads/Sophos-Central-SIEM-Integration/siem.py
+
+```
+
   4. **Save** and exit the editor.
 
 
-
-
-## UDM Mapping Table
-
-Log Field | UDM Mapping | Logic  
----|---|---  
-`created_at_label` | `additional.fields` | Merged  
-`datastream_label` | `additional.fields` | Merged  
-`security_result.description` | `metadata.description` | Renamed/mapped  
-`end` | `metadata.event_timestamp` | Parsed as `RFC 3339`  
-`when` | `metadata.event_timestamp` | Parsed as `RFC 3339`  
-`has_principal` | `metadata.event_type` | Mapped: `true` → `FILE_OPEN`, `true` → `NETWORK_CONNECTION`, `true` → `SCAN_UNCATEGORIZED`  
-`type` | `metadata.event_type` | Mapped values (14 total, e.g. `Event::Endpoint::DataLossPreventionAutomaticallyAllowed` → `F...  
-`type` | `metadata.product_event_type` | Directly mapped  
-`type` | `network.direction` | Mapped: `Event::Endpoint::WebControlViolation` → `OUTBOUND`, `Event::Endpoint::WindowsFirewa...  
-`type` | `network.ip_protocol` | Mapped: `Event::Endpoint::WebControlViolation` → `TCP`  
-`dhost` | `principal.asset.hostname` | Directly mapped  
-`location` | `principal.asset.hostname` | Directly mapped  
-`data.source_info.ip` | `principal.asset.ip` | Merged  
-`source_info.ip` | `principal.asset.ip` | Merged  
-`dhost` | `principal.hostname` | Directly mapped  
-`location` | `principal.hostname` | Directly mapped  
-`data.source_info.ip` | `principal.ip` | Merged  
-`source_info.ip` | `principal.ip` | Merged  
-`type` | `principal.user.attribute.labels` | Mapped: `Event::Endpoint::DataLossPreventionAutomaticallyAllowed` → `username_label`  
-`username_label` | `principal.user.attribute.labels` | Merged  
-`Username` | `principal.user.user_display_name` | Directly mapped  
-`source` | `principal.user.user_display_name` | Directly mapped  
-`source` | `principal.user.userid` | Directly mapped  
-`suser` | `principal.user.userid` | Directly mapped  
-`user_id` | `principal.user.userid` | Directly mapped  
-`endpoint_type_label` | `security_result.about.labels` | Merged  
-`sec_action` | `security_result.action` | Merged  
-`type` | `security_result.action` | Mapped: `Event::Endpoint::DataLossPreventionAutomaticallyAllowed` → `sec_action`, `Event::En...  
-`group` | `security_result.category_details` | Merged  
-`name` | `security_result.description` | Directly mapped  
-`type` | `security_result.description` | Mapped: `Event::Endpoint::(UpdateRebootRequired/ServiceNotRunning/NonCompliant/OutOfDate)` →...  
-`duid_label` | `security_result.detection_fields` | Merged  
-`id_label` | `security_result.detection_fields` | Merged  
-`rule` | `security_result.rule_name` | Directly mapped  
-`rules` | `security_result.rule_name` | Directly mapped  
-`severity` | `security_result.severity` | Mapped: `low` → `LOW`, `medium` → `MEDIUM`, `high` → `HIGH`  
-`security_result.description` | `security_result.summary` | Renamed/mapped  
-`app` | `target.application` | Directly mapped  
-`application` | `target.application` | Directly mapped  
-`dhost` | `target.asset.hostname` | Directly mapped  
-`endpoint_id` | `target.asset_id` | Directly mapped  
-`f_path` | `target.file.full_path` | Directly mapped  
-`f_size` | `target.file.size` | Renamed/mapped  
-`dhost` | `target.hostname` | Directly mapped  
-`application` | `target.process.file.full_path` | Directly mapped  
-`core_remedy_items.items.0.descriptor` | `target.process.file.full_path` | Directly mapped  
-`data.core_remedy_items.items.0.descriptor` | `target.process.file.full_path` | Directly mapped  
-`file_path_1` | `target.process.file.full_path` | Directly mapped  
-`customer_id` | `target.resource.id` | Directly mapped  
-`p_device` | `target.resource.name` | Directly mapped  
-`scan_name` | `target.resource.name` | Directly mapped  
-`type` | `target.resource.name` | Mapped: `Event::Endpoint::SavDisabled` → `Real time protection`, `Event::Endpoint::Registere...  
-`type` | `target.resource.type` | Mapped values (5 total, e.g. `Event::Endpoint::SavDisabled` → `SETTING`, `Event::Endpoint::R...  
-`url` | `target.url` | Directly mapped  
-`principal.user.userid` | `target.user.userid` | Directly mapped  
-`suser` | `target.user.userid` | Directly mapped  
-N/A | `metadata.event_type` | Constant: `GENERIC_EVENT`  
-N/A | `metadata.product_name` | Constant: `Sophos Central`  
-N/A | `metadata.vendor_name` | Constant: `Sophos`  
-N/A | `network.direction` | Constant: `OUTBOUND`  
-N/A | `network.ip_protocol` | Constant: `TCP`  
-N/A | `security_result.description` | Constant: `security_result.summary`  
-N/A | `security_result.severity` | Constant: `LOW`  
-N/A | `target.resource.name` | Constant: `Real time protection`  
-N/A | `target.resource.type` | Constant: `SETTING`  
-  
+## UDM Mapping Table  
+| Log Field  | UDM Mapping  | Logic  |  
+| --- | --- | --- |  
+| `created_at_label`  | `additional.fields`  | Merged  |  
+| `datastream_label`  | `additional.fields`  | Merged  |  
+| `security_result.description`  | `metadata.description`  | Renamed/mapped  |  
+| `end`  | `metadata.event_timestamp`  | Parsed as `RFC 3339`  |  
+| `when`  | `metadata.event_timestamp`  | Parsed as `RFC 3339`  |  
+| `has_principal`  | `metadata.event_type`  | Mapped: `true` → `FILE_OPEN`, `true` → `NETWORK_CONNECTION`, `true` → `SCAN_UNCATEGORIZED`  |  
+| `type`  | `metadata.event_type`  | Mapped values (14 total, e.g. `Event::Endpoint::DataLossPreventionAutomaticallyAllowed` → `F...  |  
+| `type`  | `metadata.product_event_type`  | Directly mapped  |  
+| `type`  | `network.direction`  | Mapped: `Event::Endpoint::WebControlViolation` → `OUTBOUND`, `Event::Endpoint::WindowsFirewa...  |  
+| `type`  | `network.ip_protocol`  | Mapped: `Event::Endpoint::WebControlViolation` → `TCP`  |  
+| `dhost`  | `principal.asset.hostname`  | Directly mapped  |  
+| `location`  | `principal.asset.hostname`  | Directly mapped  |  
+| `data.source_info.ip`  | `principal.asset.ip`  | Merged  |  
+| `source_info.ip`  | `principal.asset.ip`  | Merged  |  
+| `dhost`  | `principal.hostname`  | Directly mapped  |  
+| `location`  | `principal.hostname`  | Directly mapped  |  
+| `data.source_info.ip`  | `principal.ip`  | Merged  |  
+| `source_info.ip`  | `principal.ip`  | Merged  |  
+| `type`  | `principal.user.attribute.labels`  | Mapped: `Event::Endpoint::DataLossPreventionAutomaticallyAllowed` → `username_label`  |  
+| `username_label`  | `principal.user.attribute.labels`  | Merged  |  
+| `Username`  | `principal.user.user_display_name`  | Directly mapped  |  
+| `source`  | `principal.user.user_display_name`  | Directly mapped  |  
+| `source`  | `principal.user.userid`  | Directly mapped  |  
+| `suser`  | `principal.user.userid`  | Directly mapped  |  
+| `user_id`  | `principal.user.userid`  | Directly mapped  |  
+| `endpoint_type_label`  | `security_result.about.labels`  | Merged  |  
+| `sec_action`  | `security_result.action`  | Merged  |  
+| `type`  | `security_result.action`  | Mapped: `Event::Endpoint::DataLossPreventionAutomaticallyAllowed` → `sec_action`, `Event::En...  |  
+| `group`  | `security_result.category_details`  | Merged  |  
+| `name`  | `security_result.description`  | Directly mapped  |  
+| `type`  | `security_result.description`  | Mapped: `Event::Endpoint::(UpdateRebootRequired/ServiceNotRunning/NonCompliant/OutOfDate)` →...  |  
+| `duid_label`  | `security_result.detection_fields`  | Merged  |  
+| `id_label`  | `security_result.detection_fields`  | Merged  |  
+| `rule`  | `security_result.rule_name`  | Directly mapped  |  
+| `rules`  | `security_result.rule_name`  | Directly mapped  |  
+| `severity`  | `security_result.severity`  | Mapped: `low` → `LOW`, `medium` → `MEDIUM`, `high` → `HIGH`  |  
+| `security_result.description`  | `security_result.summary`  | Renamed/mapped  |  
+| `app`  | `target.application`  | Directly mapped  |  
+| `application`  | `target.application`  | Directly mapped  |  
+| `dhost`  | `target.asset.hostname`  | Directly mapped  |  
+| `endpoint_id`  | `target.asset_id`  | Directly mapped  |  
+| `f_path`  | `target.file.full_path`  | Directly mapped  |  
+| `f_size`  | `target.file.size`  | Renamed/mapped  |  
+| `dhost`  | `target.hostname`  | Directly mapped  |  
+| `application`  | `target.process.file.full_path`  | Directly mapped  |  
+| `core_remedy_items.items.0.descriptor`  | `target.process.file.full_path`  | Directly mapped  |  
+| `data.core_remedy_items.items.0.descriptor`  | `target.process.file.full_path`  | Directly mapped  |  
+| `file_path_1`  | `target.process.file.full_path`  | Directly mapped  |  
+| `customer_id`  | `target.resource.id`  | Directly mapped  |  
+| `p_device`  | `target.resource.name`  | Directly mapped  |  
+| `scan_name`  | `target.resource.name`  | Directly mapped  |  
+| `type`  | `target.resource.name`  | Mapped: `Event::Endpoint::SavDisabled` → `Real time protection`, `Event::Endpoint::Registere...  |  
+| `type`  | `target.resource.type`  | Mapped values (5 total, e.g. `Event::Endpoint::SavDisabled` → `SETTING`, `Event::Endpoint::R...  |  
+| `url`  | `target.url`  | Directly mapped  |  
+| `principal.user.userid`  | `target.user.userid`  | Directly mapped  |  
+| `suser`  | `target.user.userid`  | Directly mapped  |  
+| N/A  | `metadata.event_type`  | Constant: `GENERIC_EVENT`  |  
+| N/A  | `metadata.product_name`  | Constant: `Sophos Central`  |  
+| N/A  | `metadata.vendor_name`  | Constant: `Sophos`  |  
+| N/A  | `network.direction`  | Constant: `OUTBOUND`  |  
+| N/A  | `network.ip_protocol`  | Constant: `TCP`  |  
+| N/A  | `security_result.description`  | Constant: `security_result.summary`  |  
+| N/A  | `security_result.severity`  | Constant: `LOW`  |  
+| N/A  | `target.resource.name`  | Constant: `Real time protection`  |  
+| N/A  | `target.resource.type`  | Constant: `SETTING`  |  
 ## Change Log
-
 [View the Change Log for this parser](https://docs.cloud.google.com/chronicle/docs/ingestion/parser-list/sophos-central-changelog)
-
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-25 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

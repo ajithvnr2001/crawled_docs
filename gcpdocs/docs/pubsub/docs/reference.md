@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/reference/
 title: Reference \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:25.118147+00:00
+fetched_at: 2026-10-28T01:38:17.188150+00:00
 ---
 
 # Reference  |  Pub/Sub  |  Google Cloud Documentation

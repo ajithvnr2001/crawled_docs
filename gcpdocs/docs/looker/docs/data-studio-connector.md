@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/data-studio-connector/
 title: Connecting to Data Studio \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:42:52.848106+00:00
+fetched_at: 2026-10-28T02:29:55.825881+00:00
 ---
 
 # Connecting to Data Studio  |  Looker  |  Google Cloud Documentation
@@ -37,19 +37,21 @@ To interact with a Looker data source in Data Studio, users must meet the permis
 
 ## Enabling and using the connector
 
-To enable the connector, follow these steps:
+To enable the connector, a Looker admin can perform either of the following:
 
-  1. Navigate to the **BI Connectors** page in the **Platform** section of the Looker **Admin** panel.
-  2. Either enable the **All Looker BI Connectors** setting or the **Looker Studio** setting. In Looker (Google Cloud core) instances, these settings are enabled by default.
+  * On the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#application-library) page (**Admin > Authentication > Manage OAuth clients**), enable the pre-configured **Looker Studio** client in the **Application Library** tab.
+  * On the [**BI Connectors**](https://docs.cloud.google.com/looker/docs/bi-connectors) page (**Admin > Platform > BI Connectors**), enable either the **All Looker BI Connectors** setting or the **Looker Studio** setting.
 
 
+
+In Looker (Google Cloud core) instances, these settings are enabled by default.
 
 ## Disabling the connector
 
-To disable the connector, follow these steps:
+To disable the connector, a Looker admin can perform either of the following:
 
-  1. Navigate to the **BI Connectors** page in the **Platform** section of the Looker **Admin** panel.
-  2. Either disable the **All Looker BI Connectors** setting or the **Looker Studio** setting.
+  * On the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#application-library) page (**Admin > Authentication > Manage OAuth clients**), disable the **Looker Studio** client in the **Application Library** tab.
+  * On the [**BI Connectors**](https://docs.cloud.google.com/looker/docs/bi-connectors) page (**Admin > Platform > BI Connectors**), disable either the **All Looker BI Connectors** setting or the **Looker Studio** setting.
 
 
 
@@ -79,6 +81,7 @@ See the [Connect to Looker](https://docs.cloud.google.com/looker/docs/looker-stu
 
 ## Additional resources
 
+  * [Admin settings – Manage OAuth Clients](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients)
   * [Admin settings – BI Connectors](https://docs.cloud.google.com/looker/docs/bi-connectors)
   * [Connect to Looker](https://docs.cloud.google.com/looker/docs/looker-studio-connector)
   * [Understand Looker Explore data on a Data Studio report](https://docs.cloud.google.com/looker/docs/studio/looker-explore-data-on-a-looker-studio-report)
@@ -89,6 +92,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

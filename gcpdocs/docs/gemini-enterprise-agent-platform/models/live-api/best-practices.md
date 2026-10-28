@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/best-practices/
 title: Best practices with Gemini Live API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:42:44.675581+00:00
+fetched_at: 2026-10-27T23:54:31.449671+00:00
 ---
 
 # Best practices with Gemini Live API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -230,6 +230,54 @@ Also mention the following in the system instruction:
 
 For live audio models like `gemini-3.8-live`, you can improve transcription quality for multilingual automatic speech recognition (ASR) by providing language hints in your session configuration. For more information, see [Enable audio transcription for the session](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session#enable-audio-transcription).
 
+## Control speech pacing with a reference voice
+
+On live audio models such as Gemini 3.8 Live, system instruction prompts that ask the model to speak faster or slower don't reliably change the synthesized speaking rate. To control speech pacing, configure a custom voice in the `replicated_voice_config` field with a reference audio sample that's sped up or slowed down. Synthesized responses inherit the speaking rate and cadence of the sample that you pass in the `voice_sample_audio` field.
+
+Custom voices are only available to select customers. To request access, reach out to your Google Cloud account team. You are responsible for securing all consents and rights necessary for the processing of face and/or voice samples. When using this feature, you must comply with the [GenAI Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy), the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup?e=48754805), and the agreement under which you access and use Google Cloud services, including Section 32 of the [Service Specific Terms](https://cloud.google.com/terms/service-terms). 
+
+To adjust speech pacing with a reference voice, complete the following steps:
+
+  1. Obtain a clean 10-20 second audio sample of the target voice. You can record your own voice sample or capture a response from a prebuilt voice using a neutral system instruction without pacing directives. For recording guidelines, see [Use a custom voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice#custom-voice).
+
+  2. Apply pitch-preserving time stretching to speed up or slow down the sample, and export the result as a 24 kHz, 16-bit signed little-endian mono WAV file. Use a pitch-preserving filter such as the `ffmpeg` `atempo` filter with a multiplier between `0.8` and `1.5` so that the speaking rate changes without shifting the voice's pitch or timbre. Values less than `1.0` slow the voice down, and values greater than `1.0` speed it up.
+
+For example, the following `ffmpeg` command speeds up a reference recording to 1.25x while preserving pitch and formatting the output as a 24 kHz, 16-bit mono WAV file:
+         
+         ffmpeg -i INPUT_WAV \
+           -filter:a "atempo=1.25" -ar 24000 -ac 1 -sample_fmt s16 \
+           PACED_WAV
+         
+
+Replace the following:
+
+     * `INPUT_WAV`: the path to your original voice sample.
+     * `PACED_WAV`: the output path for the time-scaled 24 kHz mono WAV file.
+  3. Read the time-scaled WAV file and pass its bytes to `ReplicatedVoiceConfig` in `LiveConnectConfig`:
+         
+         from google.genai import types
+         
+         with open("PACED_WAV", "rb") as f:
+           voice_sample_bytes = f.read()
+         
+         config = types.LiveConnectConfig(
+             response_modalities=[types.Modality.AUDIO],
+             speech_config=types.SpeechConfig(
+                 voice_config=types.VoiceConfig(
+                     replicated_voice_config=types.ReplicatedVoiceConfig(
+                         mime_type="audio/wav",
+                         voice_sample_audio=voice_sample_bytes,
+                     ),
+                 ),
+             ),
+         )
+         
+
+Replace `PACED_WAV` with the path to your time-scaled 24 kHz mono WAV file.
+
+
+
+
 ## Set transcription language code
 
 Specify the transcription language codes to increase the transcription accuracy using the BCP-47 language code format.
@@ -440,6 +488,7 @@ For more information on using Gemini Live API, see:
   * [Gemini Live API overview page](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api)
   * [Gemini Live API reference guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/live-api)
   * [Start and manage live sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session)
+  * [Configure language and voice](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-language-voice)
   * [Configure Gemini capabilities](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities)
 
 
@@ -448,6 +497,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

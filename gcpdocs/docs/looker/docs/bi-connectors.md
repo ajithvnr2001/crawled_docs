@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/bi-connectors/
 title: Admin settings - BI Connectors \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:43:17.096432+00:00
+fetched_at: 2026-10-28T02:29:58.640611+00:00
 ---
 
 # Admin settings - BI Connectors  |  Looker  |  Google Cloud Documentation
@@ -20,6 +20,8 @@ fetched_at: 2026-10-23T10:43:17.096432+00:00
 Send feedback 
 
 #  Admin settings - BI Connectors Stay organized with collections  Save and categorize content based on your preferences. 
+
+**Note:** Individual BI connectors (Connected Sheets, Data Studio, Microsoft Excel, Power BI, and Tableau Desktop) can also be managed from the **Application Library** tab on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients) page (**Admin > Authentication > Manage OAuth clients**). Enabling or disabling a connector on either page automatically synchronizes its status on both pages. The **BI Connectors** page is maintained to support the **Enable Connected Sheets quick link** setting and will be deprecated in a future release.
 
 The **BI Connectors** page in the **Platform** section of the **Admin** menu lets you enable or disable connections from Looker to other business intelligence (BI) applications.
 
@@ -40,6 +42,8 @@ To view the **BI Connectors** page, the following requirements must be met:
 
 Enable or disable the **All Looker BI Connectors** option to control connections to all BI applications to which Looker has a connection. When enabled, this option automatically enables all of the connectors on the Looker instance.
 
+To enable or disable individual connectors rather than all connectors at once, you can also use the **Application Library** tab on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#application-library) page.
+
 ## Google Sheets
 
 Enable or disable this option to allow or disallow [connections to Looker from Google Sheets](https://docs.cloud.google.com/looker/docs/connected-sheets). This option is automatically enabled if the **All Looker BI Connectors** option is enabled.
@@ -50,7 +54,7 @@ For Looker (original) instances, Connected Sheets is supported only for Looker-h
 
 ### Enable Connected Sheets quick link
 
-When the **Google Sheets** toggle is enabled, Looker displays an additional toggle, **Enable Connected Sheets quick link**. This toggle enables the **Connected Sheets** option in the settings **Explore actions** gear menu that opens Google Sheets and initiates a connection from Google Sheets to the Looker Explore. 
+When the **Google Sheets** switch is enabled, Looker displays an additional toggle, **Enable Connected Sheets quick link**. This toggle enables the **Connected Sheets** option in the settings **Explore actions** gear menu that opens Google Sheets and initiates a connection from Google Sheets to the Looker Explore.
 
 See the [Connected Sheets quick link](https://docs.cloud.google.com/looker/docs/connected-sheets-quicklink#admin-config) documentation page for information on how to enable and configure this feature.
 
@@ -90,6 +94,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

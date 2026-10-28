@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-spark/docs/reference/
 title: Dataproc APIs & references \u00a0|\u00a0 Managed Service for Apache Spark \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:44:37.636357+00:00
+fetched_at: 2026-10-27T21:57:58.520091+00:00
 ---
 
 # Dataproc APIs & references  |  Managed Service for Apache Spark  |  Google Cloud Documentation

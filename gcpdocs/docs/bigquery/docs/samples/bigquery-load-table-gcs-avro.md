@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-load-table-gcs-avro/
 title: Load an Avro file \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:51:57.601158+00:00
+fetched_at: 2026-10-27T23:44:51.268354+00:00
 ---
 
 # Load an Avro file  |  BigQuery  |  Google Cloud Documentation

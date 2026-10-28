@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-delete-protection-set/
 title: Change the deletion protection setting for an existing VM \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:41.085936+00:00
+fetched_at: 2026-10-27T23:18:22.961893+00:00
 ---
 
 # Change the deletion protection setting for an existing VM  |  Compute Engine  |  Google Cloud Documentation
@@ -56,7 +56,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// deleteProtection := true
     
     	ctx := context.Background()
-    	instancesClient, err := compute.NewInstancesRESTClient(ctx)
+    	instancesClient, err := compute.[NewInstancesRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_InstancesClient_NewInstancesRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -91,8 +91,8 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.InstancesClient;
-    import com.google.cloud.compute.v1.SetDeletionProtectionInstanceRequest;
+    import com.google.cloud.compute.v1.[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html);
+    import com.google.cloud.compute.v1.[SetDeletionProtectionInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SetDeletionProtectionInstanceRequest.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -120,17 +120,17 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
           String instanceName, boolean deleteProtection)
           throws IOException, ExecutionException, InterruptedException, TimeoutException {
     
-        try (InstancesClient instancesClient = InstancesClient.create()) {
+        try (Inst[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html)tancesClient = Inst[InstancesClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html)ate()) {
     
-          SetDeletionProtectionInstanceRequest request =
-              SetDeletionProtectionInstanceRequest.newBuilder()
+          SetD[SetDeletionProtectionInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SetDeletionProtectionInstanceRequest.html)uest =
+              SetD[SetDeletionProtectionInstanceRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SetDeletionProtectionInstanceRequest.html)Builder()
                   .setProject(projectId)
                   .setZone(zone)
                   .setResource(instanceName)
                   .setDeletionProtection(deleteProtection)
                   .build();
     
-          instancesClient.setDeletionProtectionAsync(request).get(3, TimeUnit.MINUTES);
+          instancesClient.setD[setDeletionProtectionAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.InstancesClient.html#com_google_cloud_compute_v1_InstancesClient_setDeletionProtectionAsync_com_google_cloud_compute_v1_SetDeletionProtectionInstanceRequest_)uest).get(3, TimeUnit.MINUTES);
           ;
           // Retrieve the updated setting from the instance.
           System.out.printf("Updated Delete Protection setting: %s",
@@ -155,11 +155,11 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const instanceName = 'YOUR_INSTANCE_NAME';
     // const deleteProtection = True;
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     // Update the delete protection setting of given instance.
     async function setDeleteProtection() {
-      const instancesClient = new compute.InstancesClient();
+      const instancesClient = new compute.[InstancesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [response] = await instancesClient.setDeletionProtection({
         project: projectId,
@@ -169,7 +169,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         resource: instanceName,
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.ZoneOperationsClient();
+      const operationsClient = new compute.[ZoneOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       // Wait for the create operation to complete.
       while (operation.status !== 'DONE') {
@@ -198,7 +198,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -261,15 +261,12 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
             delete_protection: boolean value indicating if the virtual machine should be
                 protected against deletion or not.
         """
-        instance_client = compute_v1.InstancesClient()
-    
-        request = compute_v1.SetDeletionProtectionInstanceRequest()
-        request.project = project_id
+        instance_client = comp[compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)t[InstancesClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html)    request = comp[compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)D[SetDeletionProtectionInstanceRequest](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.SetDeletionProtectionInstanceRequest.html)   request.project = project_id
         request.zone = zone
         request.resource = instance_name
         request.deletion_protection = delete_protection
     
-        operation = instance_client.set_deletion_protection(request)
+        operation = instinstance_client.[set_deletion_protection](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.instances.InstancesClient.html#google_cloud_compute_v1_services_instances_InstancesClient_set_deletion_protection)uest)
         wait_for_extended_operation(operation, "changing delete protection setting")
     
     

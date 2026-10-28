@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/db-config-google-bigquery/
 title: Google BigQuery \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:51:07.337960+00:00
+fetched_at: 2026-10-28T02:29:29.946816+00:00
 ---
 
 # Google BigQuery  |  Looker  |  Google Cloud Documentation
@@ -308,7 +308,7 @@ If you want to use [persistent derived tables (PDTs)](https://docs.cloud.google.
 
 To enable persistent derived tables (PDTs) for your BigQuery connection, turn on the **Enable PDTs** toggle on the Looker **Connection** page when you are setting up the Looker connection to BigQuery. When you enable PDTs, Looker will display the **Temp Project** and **Temp Database** fields. In these fields, you'll enter the project ID and dataset name that Looker can use to create PDTs. You should configure the database or schema in advance with the appropriate write permissions.
 
-**Note:** **Temp Project** is not supported on Looker instances that are enabled for the [**Use Legacy Connections Page**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#legacy_connections) legacy feature.**Warning:** If your BigQuery connection is configured for OAuth user authentication, you will need to grant users permissions to the temp datbase in order for the users to query PDTs. Be careful when granting users permissions to the temporary dataset, since PDTs may expose data from underlying tables that the user otherwise wouldn't be able to access. When defining PDTs, LookML developers should be aware that with OAuth connections, permissioning for PDTs is independent of permissioning for users. Developers need to consider data access rules when defining PDTs. 
+**Warning:** If your BigQuery connection is configured for OAuth user authentication, you will need to grant users permissions to the temp datbase in order for the users to query PDTs. Be careful when granting users permissions to the temporary dataset, since PDTs may expose data from underlying tables that the user otherwise wouldn't be able to access. When defining PDTs, LookML developers should be aware that with OAuth connections, permissioning for PDTs is independent of permissioning for users. Developers need to consider data access rules when defining PDTs. 
 
 You can set up a temporary dataset using the Google Cloud console:
 
@@ -345,7 +345,6 @@ If you have turned on the **Enable PDTs** toggle for a connection, the Looker **
 
   * **PDT Override Billing Project ID** : Specify the project to use for billing for PDT build and maintenance queries (trigger check queries). Queries against the PDT will still use the billing project specified in the **Billing Project ID** field of the general settings. The PDT override billing project is never used for storage, only for billing. If you're going to use this field, the service account must have at minimum the [bigquery.jobUser role](https://docs.cloud.google.com/bigquery/docs/access-control#bigquery.jobUser).
 
-**Note:** **PDT Billing Project ID** is supported only on Looker instances that use the updated connection workflow, which is documented on the [Connecting Looker to your database](https://docs.cloud.google.com/looker/docs/connecting-to-your-db) page. If you are on a Looker (original) instance and your Looker admin has enabled the [Use Legacy Connections Page](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#legacy_connections) legacy toggle, the **PDT Billing Project ID** field will not be available.
   * **PDT Override Dataset** : The name of the dataset that you want Looker to use for PDTs on the connection.
 
 **Warning:** Changing the **PDT Override Dataset** field for an existing connection will trigger a rebuild of the PDTs on the connection.
@@ -385,7 +384,6 @@ Fill out the connection details. The majority of these settings are common to mo
 
   * **Storage Project ID** :  The project ID of the storage project, if you separate compute and storage in different projects. You can query datasets in a different Google Cloud project if your LookML developers specify fully scoped table names in the `sql_table_name` parameter of your LookML [views](https://docs.cloud.google.com/looker/docs/reference/param-view-sql-table-name), [Explores](https://docs.cloud.google.com/looker/docs/reference/param-explore-sql-table-name), or [joins](https://docs.cloud.google.com/looker/docs/reference/param-explore-join-sql-table-name). For BigQuery, a fully scoped table name uses the format `<project_name>.<dataset_name>.<table_name>`. Without a fully scoped reference, BigQuery looks for the table in the billing project and dataset that you specify in Looker's **Connections** page for the BigQuery connection to Looker. See the [BigQuery documentation](https://docs.cloud.google.com/bigquery/docs/resource-hierarchy) for an explanation of the resource hierarchy in BigQuery.
 
-**Note:** **Storage Project ID** is not supported on Looker instances that are enabled for the [**Use Legacy Connections Page**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#legacy_connections) legacy feature.
   * **Primary Dataset** : The name of the dataset that you want Looker to default to when it queries your database. The default dataset must be located within the billing project that is specified for the connection; you cannot enter a value such as `project_name.dataset_name` in the **Database** field to specify a dataset in a different project.
 
 **Warning:** Changing the **Primary Dataset** field for an existing connection will trigger a rebuild of the PDTs on the connection.
@@ -429,7 +427,7 @@ If your project doesn't have any datasets (which may be the case if you separate
 
   * **Temp Project** : The project ID of the project that contains the dataset you want to use to write PDTs. If a **Temp Project** is not specified, then Looker writes PDTs to the project specified in the **Storage Project ID** field of the **Database Settings** section of the connection settings. If a **Storage Project ID** is not specified, then Looker writes PDTs to the project specified in the **Billing Project ID** field of the **Database Settings** section of the connection settings.
 
-**Note:** **Temp Project** is not supported on Looker instances that are enabled for the [**Use Legacy Connections Page**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#legacy_connections) legacy feature.**Warning:** Changing the **Temp Project** field for an existing connection will trigger a rebuild of the PDTs on the connection. 
+**Warning:** Changing the **Temp Project** field for an existing connection will trigger a rebuild of the PDTs on the connection. 
   * **Temp Database** : The BigQuery dataset that you created in the Google Cloud console to allow Looker to write persistent derived tables to your database. See the Creating a temporary dataset for persistent derived tables section for the procedure.
 
 **Warnings:**
@@ -682,6 +680,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

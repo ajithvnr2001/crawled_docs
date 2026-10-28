@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/samples/documentai-set-default-processor-version/
 title: Change the default processor version \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:19:08.795507+00:00
+fetched_at: 2026-10-27T22:50:48.833312+00:00
 ---
 
 # Change the default processor version  |  Document AI  |  Google Cloud Documentation

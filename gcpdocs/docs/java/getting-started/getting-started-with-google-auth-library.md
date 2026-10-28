@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/java/getting-started/getting-started-with-google-auth-library/
 title: Get started with Google Auth Library \u00a0|\u00a0 Java \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:36:44.391724+00:00
+fetched_at: 2026-10-27T19:53:50.871006+00:00
 ---
 
 # Get started with Google Auth Library  |  Java  |  Google Cloud Documentation
@@ -249,6 +249,67 @@ The following code sample creates `ImpersonatedCredentials`. The principal's cre
       System.out.println(b);
     }
     
+
+### Certificate-bound tokens for agent identities
+
+When your application runs with an [agent identity](https://docs.cloud.google.com/iam/docs/agent-identity-overview) (for example, a Cloud Run service or job deployed with `--identity-type=agent-identity`), `ComputeEngineCredentials` requests **certificate-bound** access tokens and ID tokens from the metadata server by default. A bound token is tied to the workload's X.509 certificate and requires proving possession of the matching private key over mutual TLS (mTLS). Because that private key is only available to the workload, a leaked token can't be used from anywhere else.
+
+A bound token is only accepted when the request that carries it is sent over mTLS with the same certificate. [Cloud Client Libraries for Java](https://docs.cloud.google.com/apis/docs/client-libraries-explained#cloud-client-libraries) configure mTLS and reload rotated workload certificates automatically when agent identity is enabled. If you call Google APIs with your own HTTP client, you must configure mTLS with the workload certificate and reload it when the runtime rotates the certificate on disk. After rotation, newly refreshed tokens are bound to the new certificate; if a new token is sent over an mTLS connection that was established with the previous certificate, the API rejects the request with `401 UNAUTHENTICATED`.
+
+The library requests a bound token only when all of the following are true:
+
+  * A workload certificate is found, either through the file named by the `GOOGLE_API_CERTIFICATE_CONFIG` environment variable or in the default location (`/var/run/secrets/workload-spiffe-credentials/`).
+  * The certificate's SPIFFE ID belongs to an agent identity trust domain.
+  * Token binding and mTLS haven't been turned off (see Turn off token binding).
+
+
+
+In all other environments, `ComputeEngineCredentials` behaves as before and returns unbound tokens.
+
+#### Turn off token binding
+
+**Caution:** We recommend keeping bound tokens enabled because they protect your agent against credential theft.
+
+If you need to turn off token binding (see Known limitations), set the following environment variable:
+    
+    
+    GOOGLE_API_ENABLE_RUNTIME_BOUND_TOKEN=false
+    
+
+Environment variable | Effect  
+---|---  
+`GOOGLE_API_ENABLE_RUNTIME_BOUND_TOKEN` | Set to `false` to request unbound tokens.  
+`GOOGLE_API_USE_CLIENT_CERTIFICATE` | Setting this to `false` turns off mTLS entirely, which also turns off token binding. Prefer `GOOGLE_API_ENABLE_RUNTIME_BOUND_TOKEN=false` if you only need unbound tokens.  
+  
+Values are case-insensitive and surrounding whitespace is ignored. Only `false` turns a feature off; any other value leaves the default in place.
+
+Environment variables apply to the whole process, so turning off token binding affects every library in your application that uses Application Default Credentials, not only the one that needs it. If you only need unbound ID tokens for some targets, use the per-target option described in Request unbound ID tokens for specific targets instead.
+
+#### Request unbound ID tokens for specific targets
+
+A bound ID token includes the workload certificate fingerprint in its `cnf` (`x5t#S256`) claim. Receiving services can validate this claim against the client certificate presented during an mTLS handshake, or ignore the claim if they don't enforce certificate binding.
+
+Cloud Run automatically enforces certificate binding when the `cnf` claim is present in an ID token. If you call a Cloud Run service with a bound ID token, you must call its `*.mtls.run.app` URL over mTLS; requests to a standard `*.run.app` URL or custom domain without mTLS are rejected with `401 Unauthorized`.
+
+If you call a service that enforces certificate binding over a non-mTLS endpoint (such as a standard `*.run.app` URL), or if you don't need certificate binding for a target endpoint, pass `IdTokenProvider.Option.DISABLE_BOUND_ID_TOKEN` to request an unbound ID token for that target only:
+    
+    
+    GoogleCredentials credentials = GoogleCredentials.getApplicationDefault();
+    IdTokenCredentials idTokenCredentials =
+        IdTokenCredentials.newBuilder()
+            .setIdTokenProvider((IdTokenProvider) credentials)
+            .setTargetAudience("https://my-service-12345.us-central1.run.app")
+            .setOptions(Arrays.asList(IdTokenProvider.Option.DISABLE_BOUND_ID_TOKEN))
+            .build();
+    
+
+Access tokens and ID tokens for other targets are still bound. This option is only supported by `ComputeEngineCredentials`; other `IdTokenProvider` implementations don't request bound ID tokens and ignore this option, so the same code also works outside agent identity environments.
+
+#### Known limitations
+
+  * **Agent Development Kit (ADK) for Java** doesn't use mTLS when it calls Google APIs, such as Gemini on Vertex AI. With bound tokens (the default), those calls fail with `com.google.genai.errors.ClientException: 401 . Request had invalid authentication credentials`. To work around this issue, set `GOOGLE_API_ENABLE_RUNTIME_BOUND_TOKEN=false` for agents that use ADK for Java. For more information, see [Authenticate agents on Cloud Run](https://docs.cloud.google.com/run/docs/ai/authenticate-agents).
+
+
 
 ## Workload Identity Federation
 
@@ -1077,6 +1138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

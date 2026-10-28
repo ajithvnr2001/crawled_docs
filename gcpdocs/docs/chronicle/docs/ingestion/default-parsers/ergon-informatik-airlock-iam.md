@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ergon-informatik-airlock-iam/
 title: Collect Ergon Informatik Airlock IAM logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:48:45.951928+00:00
+fetched_at: 2026-10-27T18:45:13.323391+00:00
 ---
 
 # Collect Ergon Informatik Airlock IAM logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -170,9 +170,9 @@ For additional installation options and troubleshooting, see [Bindplane agent in
            chronicle/airlock_iam:
              protocol: https
              # Region of your instance, for example us, europe, asia-southeast1
-             location: <LOCATION>
+             <location>: LOCATION
              # Project number of the Google Cloud project linked to the instance
-             project: '<PROJECT_NUMBER>'
+             <project: '>PROJECT_NUMBER'
              compression: gzip
              creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
              customer_id: 'YOUR_CUSTOMER_ID'
@@ -227,9 +227,9 @@ For additional installation options and troubleshooting, see [Bindplane agent in
       chronicle/airlock_iam:
         protocol: https
         # Region of your instance, for example us, europe, asia-southeast1
-        location: <LOCATION>
+        <location>: LOCATION
         # Project number of the Google Cloud project linked to the instance
-        project: '<PROJECT_NUMBER>'
+        <project: '>PROJECT_NUMBER'
         compression: gzip
         creds_file_path: 'C:\Program Files\observIQ OpenTelemetry Collector\ingestion-auth.json'
         customer_id: 'a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6'
@@ -346,12 +346,12 @@ After editing, save the file:
                  port="514" 
                  protocol="UDP" 
                  format="RFC 5424" 
-                 includeMDC="true" 
-                 mdcId="mdc" 
-                 newLine="true">
-             <ExceptionPattern>%ex{full}</ExceptionPattern>
-             <ThresholdFilter level="INFO"/>
-         </Syslog>
+                 in>clude<MDC="true&q>uot; 
+            <     mdcId>="mdc&q<uot; 
+                 newLine="t>r<ue">;
+             ExceptionPattern%ex{full}/ExceptionPattern
+             ThresholdFilter level="INFO"/
+         /Syslog
          
 
   5. Configure the Syslog appender parameters:
@@ -365,36 +365,36 @@ After editing, save the file:
   6. Add the appender reference inside the `<Root>` logger section:
          
          <Loggers>
-           <Root level="${sys:iam.log.level}">
-             <AppenderRef ref="SYSLOG"/>
-           </Root>
-         </Loggers>
+           <Root level="${sys:iam.log.le>vel}&<quot;
+             AppenderRef ref>=&q<uot;S>Y<SLOG&quo>t;/
+           /Root
+         /Loggers
          
 
   7. Complete example configuration:
          
-         <?xml version="1.0" encoding="UTF-8"?>
-         <Configuration name="Custom Log4j 2 Configuration for All IAM Modules">
-           <Appenders>
-             <Syslog name="SYSLOG" 
+         <?xml version="1.0" encodin>g<="UTF-8"?
+         Configuration name="Custom Log4j 2 Configura>tio<n for All> IAM <Modules"
+           Appenders
+             Syslog name="SYSLOG" 
                      facility="LOCAL1" 
                      host="192.168.1.100" 
                      port="514" 
                      protocol="UDP" 
-                     format="RFC 5424" 
-                     includeMDC="true" 
-                     mdcId="mdc" 
-                     newLine="true">
-               <ExceptionPattern>%ex{full}</ExceptionPattern>
-               <ThresholdFilter level="INFO"/>
-             </Syslog>
-           </Appenders>
-           <Loggers>
-             <Root level="${sys:iam.log.level}">
-               <AppenderRef ref="SYSLOG"/>
-             </Root>
-           </Loggers>
-         </Configuration>
+                     format="RFC 5424>" <
+                     inc>ludeMDC=&<quot;true" 
+         >       <     mdcId="mdc" 
+          >     <      <>/span>newL<ine>="tru<e">
+             <  ExceptionPattern%ex{full>}/ExceptionPat<tern
+               ThresholdFilte>r lev<el=&q>uot<;INFO&qu>o<t;/
+             /Syslo>g
+           /Appenders
+           Loggers
+             Root level="${sys:iam.log.level}"
+               AppenderRef ref="SYSLOG"/
+             /Root
+           /Loggers
+         /Configuration
          
 
   8. Save the configuration file:
@@ -444,12 +444,12 @@ If you prefer TCP delivery instead of UDP:
                  port="514" 
                  protocol="TCP" 
                  format="RFC 5424" 
-                 includeMDC="true" 
-                 mdcId="mdc" 
-                 newLine="true">
-           <ExceptionPattern>%ex{full}</ExceptionPattern>
-           <ThresholdFilter level="INFO"/>
-         </Syslog>
+                 in>clu<deMDC="true>" 
+          <       mdc>Id="m<dc" 
+                 newLine=&qu>o<t;true&>quot;
+           ExceptionPattern%ex{full}/ExceptionPattern
+           ThresholdFilter level="INFO"/
+         /Syslog
          
 
   3. Restart the Bindplane agent to apply the receiver change.
@@ -461,12 +461,12 @@ If you prefer TCP delivery instead of UDP:
 
   * To send only WARNING and higher severity logs:
         
-        <ThresholdFilter level="WARN"/>
+        <ThresholdFilter level="W>ARN"/
         
 
   * To send all logs including DEBUG:
         
-        <ThresholdFilter level="DEBUG"/>
+        <ThresholdFilter level="DE>BUG"/
         
 
 
@@ -493,7 +493,7 @@ Available log levels, from lowest to highest severity:
             # Region of your instance, for example us, europe, asia-southeast1
             location: <LOCATION>
             # Project number of the Google Cloud project linked to the instance
-            project: '<PROJECT_NUMBER>'
+            project: &<#39;PROJECT_NU>MBER'
             compression: gzip
             creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
             customer_id: 'YOUR_CUSTOMER_ID'
@@ -506,10 +506,10 @@ Available log levels, from lowest to highest severity:
         
           chronicle/airlock_iam_dev:
             protocol: https
-            # Region of your instance, for example us, europe, asia-southeast1
-            location: <LOCATION>
-            # Project number of the Google Cloud project linked to the instance
-            project: '<PROJECT_NUMBER>'
+            # Region of your instance, for example us, europe, asia-s<outheast>1
+            location: LOCATION
+            # Project number of the Google Cloud project linked to the< instance
+            >project: 'PROJECT_NUMBER'
             compression: gzip
             creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
             customer_id: 'YOUR_CUSTOMER_ID'
@@ -712,6 +712,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

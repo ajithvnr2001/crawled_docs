@@ -1,13 +1,55 @@
 ---
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/
 title: Collect Tanium audit logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:50:11.155398+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:07:55.417636+00:00
 ---
 
 # Collect Tanium audit logs  |  Google Security Operations  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/
+
+[ Skip to main content ](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/)
+  * [Deutsch](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=de)
+  * [Español](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=it)
+  * [Português](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/?hl=ko)
+
+Sign in
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/secops-color.svg) ](https://docs.cloud.google.com/chronicle/docs)
+  * [ Google Security Operations ](https://docs.cloud.google.com/chronicle/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Before you begin](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#before_you_begin)
+  * [Create an Amazon S3 bucket](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#create_an_amazon_s3_bucket)
+  * [Create an IAM user with full access to Amazon S3](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#create_an_iam_user_with_full_access_to_amazon_s3)
+  * [Configure permissions on Amazon S3 bucket](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#configure_permissions_on_amazon_s3_bucket)
+  * [Configure Tanium Connect for S3 export](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#configure_tanium_connect_for_s3_export)
+    * [Create an AWS S3 connection in Tanium Connect](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#create_an_aws_s3_connection_in_tanium_connect)
+    * [Configure the connection source](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#configure_the_connection_source)
+    * [Configure the AWS S3 destination](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#configure_the_aws_s3_destination)
+    * [Configure the format and schedule](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#configure_the_format_and_schedule)
+    * [Test and run the connection](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#test_and_run_the_connection)
+  * [Optional: Create read-only IAM user & keys for Google SecOps](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#optional-create-iam-user-keys)
+  * [Configure a feed in Google SecOps to ingest Tanium Audit logs](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#create-feed-google-secops)
+  * [UDM Mapping Table](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#udm_mapping_table)
+  * [Change Log](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#change_log)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -16,29 +58,37 @@ fetched_at: 2026-10-26T05:50:11.155398+00:00
   * [ Guides ](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview)
 
 
+Was this helpful?
+Send feedback 
+  * On this page
+  * [Before you begin](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#before_you_begin)
+  * [Create an Amazon S3 bucket](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#create_an_amazon_s3_bucket)
+  * [Create an IAM user with full access to Amazon S3](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#create_an_iam_user_with_full_access_to_amazon_s3)
+  * [Configure permissions on Amazon S3 bucket](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#configure_permissions_on_amazon_s3_bucket)
+  * [Configure Tanium Connect for S3 export](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#configure_tanium_connect_for_s3_export)
+    * [Create an AWS S3 connection in Tanium Connect](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#create_an_aws_s3_connection_in_tanium_connect)
+    * [Configure the connection source](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#configure_the_connection_source)
+    * [Configure the AWS S3 destination](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#configure_the_aws_s3_destination)
+    * [Configure the format and schedule](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#configure_the_format_and_schedule)
+    * [Test and run the connection](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#test_and_run_the_connection)
+  * [Optional: Create read-only IAM user & keys for Google SecOps](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#optional-create-iam-user-keys)
+  * [Configure a feed in Google SecOps to ingest Tanium Audit logs](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#create-feed-google-secops)
+  * [UDM Mapping Table](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#udm_mapping_table)
+  * [Change Log](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-audit/#change_log)
 
-Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Collect Tanium audit logs
-
+# Collect Tanium audit logs Stay organized with collections  Save and categorize content based on your preferences.
 Supported in:
-
 Google SecOps  [ SIEM ](https://docs.cloud.google.com/chronicle/docs/secops/google-secops-siem-toc)
-
 This document explains how to ingest Tanium audit logs to Google Security Operations using Amazon S3 using Tanium Connect's native S3 export capability. The parser extracts the logs, initially clearing numerous default fields. It then parses the log message using grok and the json filter, extracting fields like timestamp, device IP, and audit details. The parser maps these extracted fields to the UDM, handling various data types and conditional logic to populate appropriate UDM fields based on the presence and values of specific Tanium audit log attributes.
-
 ## Before you begin
-
 Make sure you have the following prerequisites:
-
   * A Google SecOps instance
   * Privileged access to **Tanium Connect** and **Tanium Console**
   * Privileged access to **AWS** (S3, IAM)
 
 
-
 ## Create an Amazon S3 bucket
-
   1. Open the **Amazon S3 console**.
   2. If required, you can change the **Region**. 
      * From the **navigation bar** , select the **Region** where you want your **Tanium Audit logs** to reside.
@@ -48,9 +98,7 @@ Make sure you have the following prerequisites:
      * Click **Create**.
 
 
-
 ## Create an IAM user with full access to Amazon S3
-
   1. Open the **IAM console**.
   2. Click **Users > Add user**.
   3. Enter a **user name** (for example, `tanium-connect-s3-user`).
@@ -65,50 +113,45 @@ Make sure you have the following prerequisites:
   12. **Copy** and **save** the **Access Key ID** and **Secret Access Key** for future reference.
 
 
-
 ## Configure permissions on Amazon S3 bucket
-
   1. In the **Amazon S3 console** , choose the bucket that you previously created.
   2. Click **Permissions > Bucket policy**.
   3. In the **Bucket Policy Editor** , add the following policy:
-         
-         {
-           "Version": "2012-10-17",
-           "Statement": [
-             {
-               "Effect": "Allow",
-               "Principal": {
-                 "AWS": "arn:aws:iam::YOUR_ACCOUNT_ID:user/tanium-connect-s3-user"
-               },
-               "Action": [
-                 "s3:PutObject",
-                 "s3:PutObjectAcl",
-                 "s3:GetObject",
-                 "s3:ListBucket"
-               ],
-               "Resource": [
-                 "arn:aws:s3:::tanium-audit-logs",
-                 "arn:aws:s3:::tanium-audit-logs/*"
-               ]
-             }
-           ]
-         }
-         
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::YOUR_ACCOUNT_ID:user/tanium-connect-s3-user"
+      },
+      "Action": [
+        "s3:PutObject",
+        "s3:PutObjectAcl",
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::tanium-audit-logs",
+        "arn:aws:s3:::tanium-audit-logs/*"
+      ]
+    }
+  ]
+}
+
+```
 
   4. Replace the following variables:
-
      * Change `YOUR_ACCOUNT_ID` to your AWS account ID.
      * Change `tanium-audit-logs` to your actual bucket name if different.
      * Change `tanium-connect-s3-user` to your actual IAM username if different.
   5. Click **Save**.
 
 
-
-
 ## Configure Tanium Connect for S3 export
-
 ### Create an AWS S3 connection in Tanium Connect
-
   1. Sign in to the **Tanium Console** as an administrator.
   2. Go to **Tanium Connect > Connections**.
   3. Click **Create Connection**.
@@ -119,9 +162,7 @@ Make sure you have the following prerequisites:
      * **Log Level** : Select **Information** (default) or adjust as needed.
 
 
-
 ### Configure the connection source
-
   1. In the **Configuration** section, for **Source** , select **Tanium Audit**.
   2. Configure the audit source settings: 
      * **Days of History Retrieved** : Enter the number of days of historical audit data to retrieve (for example, `7` for one week).
@@ -136,9 +177,7 @@ Make sure you have the following prerequisites:
        * **Users** : User management activities.
 
 
-
 ### Configure the AWS S3 destination
-
   1. For **Destination** , select **AWS S3**.
   2. Provide the following configuration details: 
      * **Destination Name** : Enter a name (for example, `Google SecOps S3 Bucket`).
@@ -149,9 +188,7 @@ Make sure you have the following prerequisites:
      * **Region** : Select the AWS region where your bucket resides (for example, `us-east-1`).
 
 
-
 ### Configure the format and schedule
-
   1. In the **Format** section, configure the output format: 
      * **Format Type** : Select **JSON**.
      * **Include Column Headers** : Select if you want column headers included.
@@ -163,9 +200,7 @@ Make sure you have the following prerequisites:
   3. Click **Save Changes**.
 
 
-
 ### Test and run the connection
-
   1. From the **Connect Overview** page, go to **Connections**.
   2. Click the connection you created (**Tanium Audit to S3**).
   3. Click **Run Now** to test the connection.
@@ -173,9 +208,7 @@ Make sure you have the following prerequisites:
   5. Monitor the connection status and verify that audit logs are being exported to your S3 bucket.
 
 
-
 ## Optional: Create read-only IAM user & keys for Google SecOps
-
   1. Go to **AWS Console > IAM > Users > Add users**.
   2. Click **Add users**.
   3. Provide the following configuration details: 
@@ -184,39 +217,35 @@ Make sure you have the following prerequisites:
   4. Click **Create user**.
   5. Attach minimal read policy (custom): **Users > secops-reader > Permissions > Add permissions > Attach policies directly > Create policy**.
   6. In the JSON editor, enter the following policy:
-         
-         {
-           "Version": "2012-10-17",
-           "Statement": [
-             {
-               "Effect": "Allow",
-               "Action": ["s3:GetObject"],
-               "Resource": "arn:aws:s3:::tanium-audit-logs/*"
-             },
-             {
-               "Effect": "Allow",
-               "Action": ["s3:ListBucket"],
-               "Resource": "arn:aws:s3:::tanium-audit-logs"
-             }
-           ]
-         }
-         
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject"],
+      "Resource": "arn:aws:s3:::tanium-audit-logs/*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket"],
+      "Resource": "arn:aws:s3:::tanium-audit-logs"
+    }
+  ]
+}
+
+```
 
   7. Set the name to `secops-reader-policy`.
-
   8. Go to **Create policy > search/select > Next > Add permissions**.
-
   9. Go to **Security credentials > Access keys > Create access key**.
-
   10. Download the **CSV** (these values are entered into the feed).
 
 
-
-
 ## Configure a feed in Google SecOps to ingest Tanium Audit logs
-
   1. Go to **SIEM Settings > Feeds**.
-  2. Click **\+ Add New Feed**.
+  2. Click **+ Add New Feed**.
   3. In the **Feed name** field, enter a name for the feed (for example, `Tanium Audit logs`).
   4. Select **Amazon S3 V2** as the **Source type**.
   5. Select **Tanium Audit** as the **Log type**.
@@ -233,86 +262,78 @@ Make sure you have the following prerequisites:
   9. Review your new feed configuration in the **Finalize** screen, and then click **Submit**.
 
 
-
-## UDM Mapping Table
-
-Log Field | UDM Mapping | Logic  
----|---|---  
-`ActionId` | `metadata.product_log_id` | Directly mapped from the `ActionId` field.  
-`ActionName` | `security_result.action_details` | Directly mapped from the `ActionName` field.  
-`Approver` | `additional.fields[Approver].value.string_value` | Directly mapped from the `Approver` field.  
-`Approver` | `principal.user.userid` | Mapped from the `Approver` field if `Issuer` is not present.  
-`audit_name` | `metadata.description` | Directly mapped from the `audit_name` field.  
-`audit_row_id` | `additional.fields[audit_row_id].value.string_value` | Directly mapped from the `audit_row_id` field.  
-`audit_type` | `additional.fields[audit_type].value.string_value` | Directly mapped from the `audit_type` field.  
-`authentication_type` | `principal.user.attribute.labels[authentication_type].value` | Directly mapped from the `authentication_type` field extracted from the `details` field.  
-`Command` | `principal.process.command_line` | Directly mapped from the `Command` field after URL decoding.  
-`creation_time` | `target.resource.attribute.creation_time` | Directly mapped from the `creation_time` field.  
-`details` | `network.session_id` | Extracted from the `details` field using key-value parsing.  
-`details` | `principal.user.attribute.labels[authentication_type].value` | Extracted from the `details` field using key-value parsing.  
-`details` | `principal.asset.ip`, `principal.ip` | The IP address is extracted from the `details` field using key-value parsing and mapped to both `principal.asset.ip` and `principal.ip`.  
-`DistributeOver` | `additional.fields[DistributeOver].value.string_value` | Directly mapped from the `DistributeOver` field.  
-`dvc_ip` | `intermediary.hostname` | Directly mapped from the `dvc_ip` field extracted from the syslog message.  
-`dvc_ip` | `observer.ip` | Directly mapped from the `dvc_ip` field if `logstash.collect.host` is not present.  
-`Expiration` | `additional.fields[Expiration].value.string_value` | Directly mapped from the `Expiration` field.  
-`host.architecture` | `target.asset.hardware.cpu_platform` | Directly mapped from the `host.architecture` field.  
-`host.id` | `target.asset.asset_id` | Directly mapped from the `host.id` field, prefixed with "Host ID:".  
-`host.ip` | `target.ip` | Directly mapped from the `host.ip` field.  
-`host.mac` | `target.mac` | Directly mapped from the `host.mac` field.  
-`host.name` | `target.hostname` | Directly mapped from the `host.name` field if `host.hostname` is not present.  
-`host.os.kernel` | `target.platform_patch_level` | Directly mapped from the `host.os.kernel` field.  
-`host.os.name` | `additional.fields[os_name].value.string_value` | Directly mapped from the `host.os.name` field.  
-`host.os.version` | `target.platform_version` | Directly mapped from the `host.os.version` field.  
-`InsertTime` | `additional.fields[InsertTime].value.string_value` | Directly mapped from the `InsertTime` field.  
-`Issuer` | `additional.fields[Issuer].value.string_value` | Directly mapped from the `Issuer` field.  
-`Issuer` | `principal.user.userid` | Directly mapped from the `Issuer` field if present.  
-`last_modified_by` | `principal.resource.attribute.labels[last_modified_by].value` | Directly mapped from the `last_modified_by` field.  
-`log.source.address` | `principal.ip` | The IP address is extracted from the `log.source.address` field and mapped to `principal.ip`.  
-`log.source.address` | `principal.port` | The port is extracted from the `log.source.address` field.  
-`logstash.collect.host` | `observer.ip` | Directly mapped from the `logstash.collect.host` field if present.  
-`logstash.collect.timestamp` | `metadata.collected_timestamp` | Directly mapped from the `logstash.collect.timestamp` field.  
-`logstash.ingest.timestamp` | `metadata.ingested_timestamp` | Directly mapped from the `logstash.ingest.timestamp` field.  
-`logstash.irm_environment` | `additional.fields[irm_environment].value.string_value` | Directly mapped from the `logstash.irm_environment` field.  
-`logstash.irm_region` | `additional.fields[irm_region].value.string_value` | Directly mapped from the `logstash.irm_region` field.  
-`logstash.irm_site` | `additional.fields[irm_site].value.string_value` | Directly mapped from the `logstash.irm_site` field.  
-`logstash.process.host` | `intermediary.hostname` | Directly mapped from the `logstash.process.host` field.  
-`message` | `dvc_ip`, `json_data`, `timestamp` | Parsed using grok to extract `dvc_ip`, `json_data`, and `timestamp`.  
-`modification_time` | `target.resource.attribute.last_update_time` | Directly mapped from the `modification_time` field.  
-`modifier_user_id` | `principal.resource.attribute.labels[modifier_user_id].value` | Directly mapped from the `modifier_user_id` field.  
-`object_id` | `target.resource.product_object_id` | Directly mapped from the `object_id` field.  
-`object_name` | `target.resource.name` | Directly mapped from the `object_name` field.  
-`object_type_name` | `target.resource.attribute.labels[object_type_name].value` | Directly mapped from the `object_type_name` field.  
-`PackageName` | `additional.fields[PackageName].value.string_value` | Directly mapped from the `PackageName` field.  
-`SourceId` | `additional.fields[SourceId].value.string_value` | Directly mapped from the `SourceId` field.  
-`StartTime` | `additional.fields[StartTime].value.string_value` | Directly mapped from the `StartTime` field.  
-`Status` | `security_result.action` | Mapped to "BLOCK" if `Status` is "Closed", "ALLOW" if `Status` is "Open".  
-`Status` | `security_result.summary` | Directly mapped from the `Status` field.  
-`tanium_audit_type` | `metadata.product_event_type` | Directly mapped from the `tanium_audit_type` field.  
-`timestamp` | `metadata.event_timestamp` | Directly mapped from the `timestamp` field extracted from the syslog message or `message` field.  
-`type` | `additional.fields[type].value.string_value` | Directly mapped from the `type` field.  
-`type_name` | `metadata.product_event_type` | Directly mapped from the `type_name` field.  
-`User` | `principal.user.userid` | Directly mapped from the `User` field. Determined by parser logic based on the presence of `src_ip`, `has_target`, and `has_user`. Can be "NETWORK_CONNECTION", "USER_RESOURCE_ACCESS", "STATUS_UPDATE", or "GENERIC_EVENT". Hardcoded to "TANIUM_AUDIT". Hardcoded to "cybersecurity". Hardcoded to "TANIUM_AUDIT".  
-`@version` | `metadata.product_version` | Directly mapped from the `@version` field.  
-`agent.ephemeral_id` | `additional.fields[ephemeral_id].value.string_value` | Directly mapped from the `agent.ephemeral_id` field.  
-`agent.id` | `observer.asset_id` | Directly mapped from the `agent.id` field, prefixed with "filebeat:".  
-`agent.type` | `observer.application` | Directly mapped from the `agent.type` field.  
-`agent.version` | `observer.platform_version` | Directly mapped from the `agent.version` field.  
-`Comment` | `security_result.description` | Directly mapped from the `Comment` field.  
-`host.hostname` | `target.hostname` | Directly mapped from the `host.hostname` field if present.  
-`input.type` | `network.ip_protocol` | Mapped to "TCP" if `input.type` is "tcp" or "TCP".  
-`syslog_severity` | `security_result.severity` | Mapped to "HIGH" if `syslog_severity` is "error" or "warning", "MEDIUM" if "notice", "LOW" if "information" or "info".  
-`syslog_severity` | `security_result.severity_details` | Directly mapped from the `syslog_severity` field.  
-  
+## UDM Mapping Table  
+| Log Field  | UDM Mapping  | Logic  |  
+| --- | --- | --- |  
+| `ActionId`  | `metadata.product_log_id`  | Directly mapped from the `ActionId` field.  |  
+| `ActionName`  | `security_result.action_details`  | Directly mapped from the `ActionName` field.  |  
+| `Approver`  | `additional.fields[Approver].value.string_value`  | Directly mapped from the `Approver` field.  |  
+| `Approver`  | `principal.user.userid`  | Mapped from the `Approver` field if `Issuer` is not present.  |  
+| `audit_name`  | `metadata.description`  | Directly mapped from the `audit_name` field.  |  
+| `audit_row_id`  | `additional.fields[audit_row_id].value.string_value`  | Directly mapped from the `audit_row_id` field.  |  
+| `audit_type`  | `additional.fields[audit_type].value.string_value`  | Directly mapped from the `audit_type` field.  |  
+| `authentication_type`  | `principal.user.attribute.labels[authentication_type].value`  | Directly mapped from the `authentication_type` field extracted from the `details` field.  |  
+| `Command`  | `principal.process.command_line`  | Directly mapped from the `Command` field after URL decoding.  |  
+| `creation_time`  | `target.resource.attribute.creation_time`  | Directly mapped from the `creation_time` field.  |  
+| `details`  | `network.session_id`  | Extracted from the `details` field using key-value parsing.  |  
+| `details`  | `principal.user.attribute.labels[authentication_type].value`  | Extracted from the `details` field using key-value parsing.  |  
+| `details`  |  `principal.asset.ip`, `principal.ip`  | The IP address is extracted from the `details` field using key-value parsing and mapped to both `principal.asset.ip` and `principal.ip`.  |  
+| `DistributeOver`  | `additional.fields[DistributeOver].value.string_value`  | Directly mapped from the `DistributeOver` field.  |  
+| `dvc_ip`  | `intermediary.hostname`  | Directly mapped from the `dvc_ip` field extracted from the syslog message.  |  
+| `dvc_ip`  | `observer.ip`  | Directly mapped from the `dvc_ip` field if `logstash.collect.host` is not present.  |  
+| `Expiration`  | `additional.fields[Expiration].value.string_value`  | Directly mapped from the `Expiration` field.  |  
+| `host.architecture`  | `target.asset.hardware.cpu_platform`  | Directly mapped from the `host.architecture` field.  |  
+| `host.id`  | `target.asset.asset_id`  | Directly mapped from the `host.id` field, prefixed with "Host ID:".  |  
+| `host.ip`  | `target.ip`  | Directly mapped from the `host.ip` field.  |  
+| `host.mac`  | `target.mac`  | Directly mapped from the `host.mac` field.  |  
+| `host.name`  | `target.hostname`  | Directly mapped from the `host.name` field if `host.hostname` is not present.  |  
+| `host.os.kernel`  | `target.platform_patch_level`  | Directly mapped from the `host.os.kernel` field.  |  
+| `host.os.name`  | `additional.fields[os_name].value.string_value`  | Directly mapped from the `host.os.name` field.  |  
+| `host.os.version`  | `target.platform_version`  | Directly mapped from the `host.os.version` field.  |  
+| `InsertTime`  | `additional.fields[InsertTime].value.string_value`  | Directly mapped from the `InsertTime` field.  |  
+| `Issuer`  | `additional.fields[Issuer].value.string_value`  | Directly mapped from the `Issuer` field.  |  
+| `Issuer`  | `principal.user.userid`  | Directly mapped from the `Issuer` field if present.  |  
+| `last_modified_by`  | `principal.resource.attribute.labels[last_modified_by].value`  | Directly mapped from the `last_modified_by` field.  |  
+| `log.source.address`  | `principal.ip`  | The IP address is extracted from the `log.source.address` field and mapped to `principal.ip`.  |  
+| `log.source.address`  | `principal.port`  | The port is extracted from the `log.source.address` field.  |  
+| `logstash.collect.host`  | `observer.ip`  | Directly mapped from the `logstash.collect.host` field if present.  |  
+| `logstash.collect.timestamp`  | `metadata.collected_timestamp`  | Directly mapped from the `logstash.collect.timestamp` field.  |  
+| `logstash.ingest.timestamp`  | `metadata.ingested_timestamp`  | Directly mapped from the `logstash.ingest.timestamp` field.  |  
+| `logstash.irm_environment`  | `additional.fields[irm_environment].value.string_value`  | Directly mapped from the `logstash.irm_environment` field.  |  
+| `logstash.irm_region`  | `additional.fields[irm_region].value.string_value`  | Directly mapped from the `logstash.irm_region` field.  |  
+| `logstash.irm_site`  | `additional.fields[irm_site].value.string_value`  | Directly mapped from the `logstash.irm_site` field.  |  
+| `logstash.process.host`  | `intermediary.hostname`  | Directly mapped from the `logstash.process.host` field.  |  
+| `message`  |  `dvc_ip`, `json_data`, `timestamp`  | Parsed using grok to extract `dvc_ip`, `json_data`, and `timestamp`.  |  
+| `modification_time`  | `target.resource.attribute.last_update_time`  | Directly mapped from the `modification_time` field.  |  
+| `modifier_user_id`  | `principal.resource.attribute.labels[modifier_user_id].value`  | Directly mapped from the `modifier_user_id` field.  |  
+| `object_id`  | `target.resource.product_object_id`  | Directly mapped from the `object_id` field.  |  
+| `object_name`  | `target.resource.name`  | Directly mapped from the `object_name` field.  |  
+| `object_type_name`  | `target.resource.attribute.labels[object_type_name].value`  | Directly mapped from the `object_type_name` field.  |  
+| `PackageName`  | `additional.fields[PackageName].value.string_value`  | Directly mapped from the `PackageName` field.  |  
+| `SourceId`  | `additional.fields[SourceId].value.string_value`  | Directly mapped from the `SourceId` field.  |  
+| `StartTime`  | `additional.fields[StartTime].value.string_value`  | Directly mapped from the `StartTime` field.  |  
+| `Status`  | `security_result.action`  | Mapped to "BLOCK" if `Status` is "Closed", "ALLOW" if `Status` is "Open".  |  
+| `Status`  | `security_result.summary`  | Directly mapped from the `Status` field.  |  
+| `tanium_audit_type`  | `metadata.product_event_type`  | Directly mapped from the `tanium_audit_type` field.  |  
+| `timestamp`  | `metadata.event_timestamp`  | Directly mapped from the `timestamp` field extracted from the syslog message or `message` field.  |  
+| `type`  | `additional.fields[type].value.string_value`  | Directly mapped from the `type` field.  |  
+| `type_name`  | `metadata.product_event_type`  | Directly mapped from the `type_name` field.  |  
+| `User`  | `principal.user.userid`  | Directly mapped from the `User` field. Determined by parser logic based on the presence of `src_ip`, `has_target`, and `has_user`. Can be "NETWORK_CONNECTION", "USER_RESOURCE_ACCESS", "STATUS_UPDATE", or "GENERIC_EVENT". Hardcoded to "TANIUM_AUDIT". Hardcoded to "cybersecurity". Hardcoded to "TANIUM_AUDIT".  |  
+| `@version`  | `metadata.product_version`  | Directly mapped from the `@version` field.  |  
+| `agent.ephemeral_id`  | `additional.fields[ephemeral_id].value.string_value`  | Directly mapped from the `agent.ephemeral_id` field.  |  
+| `agent.id`  | `observer.asset_id`  | Directly mapped from the `agent.id` field, prefixed with "filebeat:".  |  
+| `agent.type`  | `observer.application`  | Directly mapped from the `agent.type` field.  |  
+| `agent.version`  | `observer.platform_version`  | Directly mapped from the `agent.version` field.  |  
+| `Comment`  | `security_result.description`  | Directly mapped from the `Comment` field.  |  
+| `host.hostname`  | `target.hostname`  | Directly mapped from the `host.hostname` field if present.  |  
+| `input.type`  | `network.ip_protocol`  | Mapped to "TCP" if `input.type` is "tcp" or "TCP".  |  
+| `syslog_severity`  | `security_result.severity`  | Mapped to "HIGH" if `syslog_severity` is "error" or "warning", "MEDIUM" if "notice", "LOW" if "information" or "info".  |  
+| `syslog_severity`  | `security_result.severity_details`  | Directly mapped from the `syslog_severity` field.  |  
 ## Change Log
-
 [View the Change Log for this parser](https://docs.cloud.google.com/chronicle/docs/ingestion/parser-list/tanium-audit-changelog)
-
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-25 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

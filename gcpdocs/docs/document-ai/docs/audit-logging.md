@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/audit-logging/
 title: Document AI audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:20:01.947036+00:00
+fetched_at: 2026-10-27T17:04:37.924580+00:00
 ---
 
 # Document AI audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Document AI audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes audit logging for Document AI. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Document AI let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Document AI API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -33,11 +35,19 @@ This document describes audit logging for Document AI. Google Cloud services gen
 
 ## Service name
 
-Document AI audit logs use the service name `documentai.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="documentai.googleapis.com"
-      
+To view the Document AI audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="documentai.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -45,6 +55,48 @@ Each IAM permission has a `type` property, whose value is an enum that can be on
 
 API methods in the following list that are marked with (LRO) are long-running operations (LROs). These methods usually generate two audit log entries: one when the operation starts and another when it ends. For more information see [Audit logs for long-running operations](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro). Permission type | Methods  
 ---|---  
+`ADMIN_READ` | `google.cloud.documentai.uiv1beta3.DocumentProcessorService.ExportProcessorVersion` (LRO)  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.FetchHumanReviewDetails`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.GetEvaluation`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.GetEvaluationDocument`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.GetHumanReviewConfig`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.GetLabelerPool`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.GetProcessor`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.GetProcessorVersion`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.ListEvaluations`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.ListLabelerPools`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.ListProcessorVersions`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.ListProcessors`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.QueryAnalytics`  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.SearchEvaluationDocuments`  
+`google.cloud.documentai.uiv1beta3.DocumentService.GetAllDatasetSplitStats`  
+`google.cloud.documentai.uiv1beta3.DocumentService.GetDataset`  
+`google.cloud.documentai.uiv1beta3.DocumentService.GetDatasetSchema`  
+`google.cloud.documentai.uiv1beta3.SchemaService.GetSchema`  
+`google.cloud.documentai.uiv1beta3.SchemaService.GetSchemaVersion`  
+`google.cloud.documentai.uiv1beta3.SchemaService.ListSchemaVersions`  
+`google.cloud.documentai.uiv1beta3.SchemaService.ListSchemas`  
+`google.cloud.documentai.v1.DocumentProcessorService.GetEvaluation`  
+`google.cloud.documentai.v1.DocumentProcessorService.GetProcessor`  
+`google.cloud.documentai.v1.DocumentProcessorService.GetProcessorVersion`  
+`google.cloud.documentai.v1.DocumentProcessorService.ListEvaluations`  
+`google.cloud.documentai.v1.DocumentProcessorService.ListProcessorVersions`  
+`google.cloud.documentai.v1.DocumentProcessorService.ListProcessors`  
+`google.cloud.documentai.v1.SchemaService.GetSchema`  
+`google.cloud.documentai.v1.SchemaService.GetSchemaVersion`  
+`google.cloud.documentai.v1.SchemaService.ListSchemaVersions`  
+`google.cloud.documentai.v1.SchemaService.ListSchemas`  
+`google.cloud.documentai.v1beta3.DocumentProcessorService.GetEvaluation`  
+`google.cloud.documentai.v1beta3.DocumentProcessorService.GetProcessor`  
+`google.cloud.documentai.v1beta3.DocumentProcessorService.GetProcessorVersion`  
+`google.cloud.documentai.v1beta3.DocumentProcessorService.ListEvaluations`  
+`google.cloud.documentai.v1beta3.DocumentProcessorService.ListProcessorVersions`  
+`google.cloud.documentai.v1beta3.DocumentProcessorService.ListProcessors`  
+`google.cloud.documentai.v1beta3.DocumentService.GetDatasetSchema`  
+`google.cloud.documentai.v1beta3.SchemaService.GetSchema`  
+`google.cloud.documentai.v1beta3.SchemaService.GetSchemaVersion`  
+`google.cloud.documentai.v1beta3.SchemaService.ListSchemaVersions`  
+`google.cloud.documentai.v1beta3.SchemaService.ListSchemas`  
 `ADMIN_WRITE` | `google.cloud.documentai.uiv1beta3.DocumentProcessorService.CreateLabelerPool` (LRO)  
 `google.cloud.documentai.uiv1beta3.DocumentProcessorService.CreateProcessor`  
 `google.cloud.documentai.uiv1beta3.DocumentProcessorService.DeleteLabelerPool` (LRO)  
@@ -58,10 +110,18 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.documentai.uiv1beta3.DocumentProcessorService.SetDefaultProcessorVersion` (LRO)  
 `google.cloud.documentai.uiv1beta3.DocumentProcessorService.TrainProcessorVersion` (LRO)  
 `google.cloud.documentai.uiv1beta3.DocumentProcessorService.UndeployProcessorVersion` (LRO)  
+`google.cloud.documentai.uiv1beta3.DocumentProcessorService.UpdateHumanReviewConfig`  
 `google.cloud.documentai.uiv1beta3.DocumentService.BatchMoveDocuments` (LRO)  
 `google.cloud.documentai.uiv1beta3.DocumentService.SampleDocuments` (LRO)  
 `google.cloud.documentai.uiv1beta3.DocumentService.UpdateDataset` (LRO)  
 `google.cloud.documentai.uiv1beta3.DocumentService.UpdateDatasetSchema`  
+`google.cloud.documentai.uiv1beta3.SchemaService.CreateSchema`  
+`google.cloud.documentai.uiv1beta3.SchemaService.CreateSchemaVersion`  
+`google.cloud.documentai.uiv1beta3.SchemaService.DeleteSchema` (LRO)  
+`google.cloud.documentai.uiv1beta3.SchemaService.DeleteSchemaVersion` (LRO)  
+`google.cloud.documentai.uiv1beta3.SchemaService.GenerateSchemaVersion`  
+`google.cloud.documentai.uiv1beta3.SchemaService.UpdateSchema`  
+`google.cloud.documentai.uiv1beta3.SchemaService.UpdateSchemaVersion`  
 `google.cloud.documentai.v1.DocumentProcessorService.CreateProcessor`  
 `google.cloud.documentai.v1.DocumentProcessorService.DeleteProcessor` (LRO)  
 `google.cloud.documentai.v1.DocumentProcessorService.DeleteProcessorVersion` (LRO)  
@@ -72,8 +132,14 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.documentai.v1.DocumentProcessorService.SetDefaultProcessorVersion` (LRO)  
 `google.cloud.documentai.v1.DocumentProcessorService.TrainProcessorVersion` (LRO)  
 `google.cloud.documentai.v1.DocumentProcessorService.UndeployProcessorVersion` (LRO)  
+`google.cloud.documentai.v1.SchemaService.CreateSchema`  
+`google.cloud.documentai.v1.SchemaService.CreateSchemaVersion`  
+`google.cloud.documentai.v1.SchemaService.DeleteSchema` (LRO)  
+`google.cloud.documentai.v1.SchemaService.DeleteSchemaVersion` (LRO)  
+`google.cloud.documentai.v1.SchemaService.GenerateSchemaVersion`  
+`google.cloud.documentai.v1.SchemaService.UpdateSchema`  
+`google.cloud.documentai.v1.SchemaService.UpdateSchemaVersion`  
 `google.cloud.documentai.v1beta3.DocumentProcessorService.CreateProcessor`  
-`google.cloud.documentai.v1beta3.DocumentProcessorService.DeleteProcessor` (LRO)  
 `google.cloud.documentai.v1beta3.DocumentProcessorService.DeleteProcessorVersion` (LRO)  
 `google.cloud.documentai.v1beta3.DocumentProcessorService.DeployProcessorVersion` (LRO)  
 `google.cloud.documentai.v1beta3.DocumentProcessorService.DisableProcessor` (LRO)  
@@ -85,7 +151,13 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.documentai.v1beta3.DocumentProcessorService.UndeployProcessorVersion` (LRO)  
 `google.cloud.documentai.v1beta3.DocumentService.UpdateDataset` (LRO)  
 `google.cloud.documentai.v1beta3.DocumentService.UpdateDatasetSchema`  
-`google.longrunning.Operations.CancelOperation`  
+`google.cloud.documentai.v1beta3.SchemaService.CreateSchema`  
+`google.cloud.documentai.v1beta3.SchemaService.CreateSchemaVersion`  
+`google.cloud.documentai.v1beta3.SchemaService.DeleteSchema` (LRO)  
+`google.cloud.documentai.v1beta3.SchemaService.DeleteSchemaVersion` (LRO)  
+`google.cloud.documentai.v1beta3.SchemaService.GenerateSchemaVersion`  
+`google.cloud.documentai.v1beta3.SchemaService.UpdateSchema`  
+`google.cloud.documentai.v1beta3.SchemaService.UpdateSchemaVersion`  
 `DATA_READ` | `google.cloud.documentai.uiv1beta3.DocumentProcessorService.ProcessDocument`  
 `google.cloud.documentai.uiv1beta3.DocumentService.ExportDocuments` (LRO)  
 `google.cloud.documentai.uiv1beta3.DocumentService.GetDocument`  
@@ -93,12 +165,13 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.documentai.uiv1beta3.DocumentService.ListDocuments`  
 `google.cloud.documentai.v1.DocumentProcessorService.BatchProcessDocuments` (LRO)  
 `google.cloud.documentai.v1.DocumentProcessorService.ProcessDocument`  
-`google.cloud.documentai.v1.DocumentProcessorService.ReviewDocument` (LRO)  
+`google.cloud.documentai.v1.DocumentProcessorService.ReviewDocument`  
 `google.cloud.documentai.v1beta3.DocumentProcessorService.BatchProcessDocuments` (LRO)  
 `google.cloud.documentai.v1beta3.DocumentProcessorService.ProcessDocument`  
-`google.cloud.documentai.v1beta3.DocumentProcessorService.ReviewDocument` (LRO)  
+`google.cloud.documentai.v1beta3.DocumentProcessorService.ReviewDocument`  
 `google.cloud.documentai.v1beta3.DocumentService.GetDocument`  
 `google.cloud.documentai.v1beta3.DocumentService.ListDocuments`  
+`google.longrunning.Operations.CancelOperation`  
 `DATA_WRITE` | `google.cloud.documentai.uiv1beta3.DocumentService.AutoLabelDocuments` (LRO)  
 `google.cloud.documentai.uiv1beta3.DocumentService.BatchDeleteDocuments` (LRO)  
 `google.cloud.documentai.uiv1beta3.DocumentService.ImportDocuments` (LRO)  
@@ -461,6 +534,21 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
+#### `QueryAnalytics`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.DocumentProcessorService.QueryAnalytics`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.humanReviewConfigs.get - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.DocumentProcessorService.QueryAnalytics" `  
+
+
+
+
 #### `SearchEvaluationDocuments`
 
   * **Method** : `google.cloud.documentai.uiv1beta3.DocumentProcessorService.SearchEvaluationDocuments`  
@@ -517,6 +605,21 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.DocumentProcessorService.UndeployProcessorVersion" `  
+
+
+
+
+#### `UpdateHumanReviewConfig`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.DocumentProcessorService.UpdateHumanReviewConfig`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.humanReviewConfigs.update - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.DocumentProcessorService.UpdateHumanReviewConfig" `  
 
 
 
@@ -765,6 +868,175 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
+### `google.cloud.documentai.uiv1beta3.SchemaService`
+
+The following audit logs are associated with methods belonging to `google.cloud.documentai.uiv1beta3.SchemaService`.
+
+#### `CreateSchema`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.CreateSchema`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemas.create - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.CreateSchema" `  
+
+
+
+
+#### `CreateSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.CreateSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.create - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.CreateSchemaVersion" `  
+
+
+
+
+#### `DeleteSchema`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.DeleteSchema`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemas.delete - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.DeleteSchema" `  
+
+
+
+
+#### `DeleteSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.DeleteSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.delete - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.DeleteSchemaVersion" `  
+
+
+
+
+#### `GenerateSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.GenerateSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.create - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.GenerateSchemaVersion" `  
+
+
+
+
+#### `GetSchema`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.GetSchema`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemas.get - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.GetSchema" `  
+
+
+
+
+#### `GetSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.GetSchemaVersion`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.get - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.GetSchemaVersion" `  
+
+
+
+
+#### `ListSchemaVersions`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.ListSchemaVersions`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.list - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.ListSchemaVersions" `  
+
+
+
+
+#### `ListSchemas`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.ListSchemas`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemas.list - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.ListSchemas" `  
+
+
+
+
+#### `UpdateSchema`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.UpdateSchema`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemas.update - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.UpdateSchema" `  
+
+
+
+
+#### `UpdateSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.uiv1beta3.SchemaService.UpdateSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.update - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.uiv1beta3.SchemaService.UpdateSchemaVersion" `  
+
+
+
+
 ### `google.cloud.documentai.v1.DocumentProcessorService`
 
 The following audit logs are associated with methods belonging to `google.cloud.documentai.v1.DocumentProcessorService`.
@@ -776,7 +1048,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
-    * `documentai.processorVersions.processBatch - DATA_READ`
     * `documentai.processors.processBatch - DATA_READ`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
@@ -1004,7 +1275,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `documentai.humanReviewConfigs.review - DATA_READ`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.DocumentProcessorService.ReviewDocument" `  
 
@@ -1056,6 +1327,175 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
+### `google.cloud.documentai.v1.SchemaService`
+
+The following audit logs are associated with methods belonging to `google.cloud.documentai.v1.SchemaService`.
+
+#### `CreateSchema`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.CreateSchema`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemas.create - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.CreateSchema" `  
+
+
+
+
+#### `CreateSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.CreateSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.create - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.CreateSchemaVersion" `  
+
+
+
+
+#### `DeleteSchema`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.DeleteSchema`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemas.delete - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.DeleteSchema" `  
+
+
+
+
+#### `DeleteSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.DeleteSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.delete - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.DeleteSchemaVersion" `  
+
+
+
+
+#### `GenerateSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.GenerateSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.create - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.GenerateSchemaVersion" `  
+
+
+
+
+#### `GetSchema`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.GetSchema`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemas.get - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.GetSchema" `  
+
+
+
+
+#### `GetSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.GetSchemaVersion`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.get - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.GetSchemaVersion" `  
+
+
+
+
+#### `ListSchemaVersions`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.ListSchemaVersions`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.list - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.ListSchemaVersions" `  
+
+
+
+
+#### `ListSchemas`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.ListSchemas`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemas.list - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.ListSchemas" `  
+
+
+
+
+#### `UpdateSchema`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.UpdateSchema`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemas.update - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.UpdateSchema" `  
+
+
+
+
+#### `UpdateSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.v1.SchemaService.UpdateSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.update - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1.SchemaService.UpdateSchemaVersion" `  
+
+
+
+
 ### `google.cloud.documentai.v1beta3.DocumentProcessorService`
 
 The following audit logs are associated with methods belonging to `google.cloud.documentai.v1beta3.DocumentProcessorService`.
@@ -1067,7 +1507,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
-    * `documentai.processorVersions.processBatch - DATA_READ`
     * `documentai.processors.processBatch - DATA_READ`
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
@@ -1310,7 +1749,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `documentai.humanReviewConfigs.review - DATA_READ`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.DocumentProcessorService.ReviewDocument" `  
 
@@ -1471,6 +1910,175 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
 
 
+### `google.cloud.documentai.v1beta3.SchemaService`
+
+The following audit logs are associated with methods belonging to `google.cloud.documentai.v1beta3.SchemaService`.
+
+#### `CreateSchema`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.CreateSchema`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemas.create - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.CreateSchema" `  
+
+
+
+
+#### `CreateSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.CreateSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.create - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.CreateSchemaVersion" `  
+
+
+
+
+#### `DeleteSchema`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.DeleteSchema`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemas.delete - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.DeleteSchema" `  
+
+
+
+
+#### `DeleteSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.DeleteSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.delete - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.DeleteSchemaVersion" `  
+
+
+
+
+#### `GenerateSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.GenerateSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.create - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.GenerateSchemaVersion" `  
+
+
+
+
+#### `GetSchema`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.GetSchema`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemas.get - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.GetSchema" `  
+
+
+
+
+#### `GetSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.GetSchemaVersion`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.get - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.GetSchemaVersion" `  
+
+
+
+
+#### `ListSchemaVersions`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.ListSchemaVersions`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.list - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.ListSchemaVersions" `  
+
+
+
+
+#### `ListSchemas`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.ListSchemas`  
+
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+
+  * **Permissions** : 
+    * `documentai.schemas.list - ADMIN_READ`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.ListSchemas" `  
+
+
+
+
+#### `UpdateSchema`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.UpdateSchema`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemas.update - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.UpdateSchema" `  
+
+
+
+
+#### `UpdateSchemaVersion`
+
+  * **Method** : `google.cloud.documentai.v1beta3.SchemaService.UpdateSchemaVersion`  
+
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+
+  * **Permissions** : 
+    * `documentai.schemaVersions.update - ADMIN_WRITE`
+  * **Method is a long-running or streaming operation** : No.  
+
+  * **Filter for this method** : ` protoPayload.methodName="google.cloud.documentai.v1beta3.SchemaService.UpdateSchemaVersion" `  
+
+
+
+
 ### `google.longrunning.Operations`
 
 The following audit logs are associated with methods belonging to `google.longrunning.Operations`.
@@ -1479,7 +2087,7 @@ The following audit logs are associated with methods belonging to `google.longru
 
   * **Method** : `google.longrunning.Operations.CancelOperation`  
 
-  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
+  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
     * `documentai.processorVersions.create - ADMIN_WRITE`
@@ -1532,6 +2140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

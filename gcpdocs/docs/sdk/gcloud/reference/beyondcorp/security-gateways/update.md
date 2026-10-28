@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beyondcorp/security-gateways/update/
 title: gcloud beyondcorp security-gateways update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T23:04:32.076709+00:00
+fetched_at: 2026-10-27T21:41:10.155408+00:00
 ---
 
 # gcloud beyondcorp security-gateways update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beyondcorp security-gateways update - update securityGateways
 SYNOPSIS
     
 
-`gcloud beyondcorp security-gateways update` (`SECURITY_GATEWAY` : `--location`=`LOCATION`) [`--async`] [`--display-name`=`DISPLAY_NAME`] [`--request-id`=`REQUEST_ID`] [`--clear-proxy-protocol-config` `--[no-]proxy-protocol-config-client-ip` `--proxy-protocol-config-gateway-identity`=`PROXY_PROTOCOL_CONFIG_GATEWAY_IDENTITY` `--contextual-headers-output-type`=`CONTEXTUAL_HEADERS_OUTPUT_TYPE` `--device-info-output-type`=`DEVICE_INFO_OUTPUT_TYPE` `--group-info-output-type`=`GROUP_INFO_OUTPUT_TYPE` `--user-info-output-type`=`USER_INFO_OUTPUT_TYPE` `--proxy-protocol-config-allowed-client-headers`=[`PROXY_PROTOCOL_CONFIG_ALLOWED_CLIENT_HEADERS`,…] | `--add-proxy-protocol-config-allowed-client-headers`=[`ADD_PROXY_PROTOCOL_CONFIG_ALLOWED_CLIENT_HEADERS`,…] `--clear-proxy-protocol-config-allowed-client-headers` | `--remove-proxy-protocol-config-allowed-client-headers`=[`REMOVE_PROXY_PROTOCOL_CONFIG_ALLOWED_CLIENT_HEADERS`,…] `--proxy-protocol-config-metadata-headers`=[`PROXY_PROTOCOL_CONFIG_METADATA_HEADERS`,…] | `--update-proxy-protocol-config-metadata-headers`=[`UPDATE_PROXY_PROTOCOL_CONFIG_METADATA_HEADERS`,…] `--clear-proxy-protocol-config-metadata-headers` | `--remove-proxy-protocol-config-metadata-headers`=`REMOVE_PROXY_PROTOCOL_CONFIG_METADATA_HEADERS`] [`--hubs`=[`HUBS`,…] | `--update-hubs`=[`UPDATE_HUBS`,…] `--clear-hubs` | `--remove-hubs`=`REMOVE_HUBS`] [`--service-discovery`=[`apiGateway`=`APIGATEWAY`] | `--clear-service-discovery` `--resource-override-path`=`RESOURCE_OVERRIDE_PATH`] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beyondcorp security-gateways update` (`SECURITY_GATEWAY` : `--location`=`LOCATION`) [`--async`] [`--display-name`=`DISPLAY_NAME`] [`--request-id`=`REQUEST_ID`] [`--clear-proxy-protocol-config` `--[no-]proxy-protocol-config-client-ip` `--proxy-protocol-config-gateway-identity`=`PROXY_PROTOCOL_CONFIG_GATEWAY_IDENTITY` `--contextual-headers-output-type`=`CONTEXTUAL_HEADERS_OUTPUT_TYPE` `--device-info-output-type`=`DEVICE_INFO_OUTPUT_TYPE` `--dispatch-info-output-type`=`DISPATCH_INFO_OUTPUT_TYPE` `--group-info-output-type`=`GROUP_INFO_OUTPUT_TYPE` `--user-info-output-type`=`USER_INFO_OUTPUT_TYPE` `--proxy-protocol-config-allowed-client-headers`=[`PROXY_PROTOCOL_CONFIG_ALLOWED_CLIENT_HEADERS`,…] | `--add-proxy-protocol-config-allowed-client-headers`=[`ADD_PROXY_PROTOCOL_CONFIG_ALLOWED_CLIENT_HEADERS`,…] `--clear-proxy-protocol-config-allowed-client-headers` | `--remove-proxy-protocol-config-allowed-client-headers`=[`REMOVE_PROXY_PROTOCOL_CONFIG_ALLOWED_CLIENT_HEADERS`,…] `--proxy-protocol-config-metadata-headers`=[`PROXY_PROTOCOL_CONFIG_METADATA_HEADERS`,…] | `--update-proxy-protocol-config-metadata-headers`=[`UPDATE_PROXY_PROTOCOL_CONFIG_METADATA_HEADERS`,…] `--clear-proxy-protocol-config-metadata-headers` | `--remove-proxy-protocol-config-metadata-headers`=`REMOVE_PROXY_PROTOCOL_CONFIG_METADATA_HEADERS`] [`--hubs`=[`HUBS`,…] | `--update-hubs`=[`UPDATE_HUBS`,…] `--clear-hubs` | `--remove-hubs`=`REMOVE_HUBS`] [`--service-discovery`=[`apiGateway`=`APIGATEWAY`] | `--clear-service-discovery` `--resource-override-path`=`RESOURCE_OVERRIDE_PATH`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Update a securityGateway 
 EXAMPLES
@@ -109,6 +109,16 @@ Contextual headers configuration.
 The delegated device information configuration. 
 `--device-info-output-type`=`DEVICE_INFO_OUTPUT_TYPE`
      The output type details for the delegated device. `DEVICE_INFO_OUTPUT_TYPE` must be one of: 
+
+`json`
+     JSON output type. 
+`none`
+     Explicitly disable header output. 
+`protobuf`
+     Protobuf output type. 
+The delegated dispatch information configuration. 
+`--dispatch-info-output-type`=`DISPATCH_INFO_OUTPUT_TYPE`
+     The output type details for the delegated dispatch information. `DISPATCH_INFO_OUTPUT_TYPE` must be one of: 
 
 `json`
      JSON output type. 
@@ -338,6 +348,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

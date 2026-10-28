@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/composer/docs/composer-2/upgrade-environments/
 title: Upgrade environments \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:43:41.617924+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:22:31.095836+00:00
 ---
 
 # Upgrade environments  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -101,7 +115,7 @@ Example of upgrade choices for Google Cloud CLI, API, and Terraform:
 
 Managed Airflow displays warnings when your environment's image approaches its end of full support date. You can use these warnings to always keep your environment [supported](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-deprecation-and-support).
 
-![A deprecation message is displayed on the Environment details page](https://docs.cloud.google.com/static/composer/docs/images/environment-deprecation-message-composer-2.png)**Figure 1.** A deprecation message is displayed on the Environment details page 
+![A deprecation message is displayed on the Environment details page](https://docs.cloud.google.com/static/composer/docs/images/environment-deprecation-message-composer-2.png) **Figure 1.** A deprecation message is displayed on the Environment details page 
 
 Managed Airflow keeps track of the Managed Airflow image version that your environment is based on. When it approaches the [end of support date](https://docs.cloud.google.com/composer/docs/composer-versioning-overview#version-deprecation-and-support), you can see a warning in the list of environments and on the **Environment details** page.
 
@@ -247,7 +261,7 @@ Example:
     
     gcloud composer environments check-upgrade example-environment \
       --location us-central1 \
-      --image-version composer-2.17.15-airflow-2.11.1
+      --image-version composer-2.17.16-airflow-2.11.1
     
 
 Example output:
@@ -255,7 +269,7 @@ Example output:
     
     Waiting for [projects/example-project/locations/us-central1/environments/
     example-environment] to be checked for PyPI package conflicts when upgrading
-    to composer-2.17.15-airflow-2.11.1. Operation [projects/example-project/locations/
+    to composer-2.17.16-airflow-2.11.1. Operation [projects/example-project/locations/
     us-central1/operations/04d0e8b2-...]...done.
     ...
     
@@ -417,7 +431,7 @@ For example:
     gcloud composer environments update \
       example-environment \
       --location us-central1 \
-      --image-version composer-2.17.15-airflow-2.11.1
+      --image-version composer-2.17.16-airflow-2.11.1
     
 
 ###  API 
@@ -443,7 +457,7 @@ For example:
     {
       "config": {
         "softwareConfig": {
-          "imageVersion": "composer-2.17.15-airflow-2.11.1"
+          "imageVersion": "composer-2.17.16-airflow-2.11.1"
         }
       }
     }
@@ -485,7 +499,7 @@ Example:
     
       config {
         software_config {
-          image_version = "composer-2.17.15-airflow-2.11.1"
+          image_version = "composer-2.17.16-airflow-2.11.1"
         }
       }
     }
@@ -504,6 +518,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

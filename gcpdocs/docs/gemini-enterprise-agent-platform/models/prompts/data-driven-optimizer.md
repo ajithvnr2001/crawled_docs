@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/data-driven-optimizer/
 title: Data-driven prompt optimizer \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:03.000278+00:00
+fetched_at: 2026-10-28T02:28:03.459120+00:00
 ---
 
 # Data-driven prompt optimizer  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -398,7 +398,7 @@ If you want to run the data-driven optimizer through the notebook, create a conf
   3. In the **Configure optimization settings** section, do the following:
 
      1. In the **TARGET_MODEL** field, enter the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) for which you want to optimize prompts.
-     2. In the **THINKING_BUDGET** field, enter the thinking budget for the target model you want to optimize prompts. Default to -1, which means no thinking for non-thinking models and auto thinking for thinking models like Gemini-2.5. See [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) to learn about manual budget settings.
+     2. In the **THINKING_BUDGET** field, enter the thinking budget for the target model you want to optimize prompts. Default to -1, which means no thinking for non-thinking models and auto thinking for thinking models like Gemini 2.5. See [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking) to learn about manual budget settings.
      3. In the **OPTIMIZATION_MODE** , enter the optimization mode you want to use. Must be one of the following: 
         * `instruction`: Optimizes the system instruction.
         * `demonstration`: Selects sample prompts to add to the system instructions as few-shot examples.
@@ -475,7 +475,7 @@ Replace the following:
      * `PROMPT_TEMPLATE`: the prompt template.
      * `TARGET_MODEL`: the [model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models) for which you want to optimize prompts. For `OPTIMIZATION_TARGET_GEMINI_NANO`, use an instruction-tuned (`-it`) model.
      * `BASE_URL`: The base URL of the model deployed in Model Garden or on your local machine. For example, `https://<var>DEDICATED_ENDPOINT_DNS</var>/v1beta1/projects/<var>PROJECT_NUMBER</var>/locations/<var>LOCATION</var>/endpoints/<var>ENDPOINT_ID</var>` or `http://localhost:8000/v1`. Required for `OPTIMIZATION_TARGET_GEMINI_NANO` configuration.
-     * `THINKING_BUDGET`: the thinking budget for the target model that you want to optimize prompts. Defaults to -1, which means no thinking for non-thinking models and auto thinking for thinking models like Gemini-2.5. To learn about manual budget settings, see [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking). Note that some models, like Gemma models, don't support `thinking_budget`.
+     * `THINKING_BUDGET`: the thinking budget for the target model that you want to optimize prompts. Defaults to -1, which means no thinking for non-thinking models and auto thinking for thinking models like Gemini 2.5. To learn about manual budget settings, see [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking). Note that some models, like Gemma models, don't support `thinking_budget`.
      * `EVALUATION_METRIC_PARAMETERS`: the parameters you specify depend on how many evaluation metrics you're using, and whether your metrics are standard or custom:
 
 ###  Single standard metric 
@@ -749,11 +749,11 @@ Make the following replacements:
     SERVICE_ACCOUNT = f"{PROJECT_NUMBER}-compute@developer.gserviceaccount.com"
     
     # Import Agent Platform SDK and Setup
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     #Create the Agent Platform Client
-    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).Client(project=PROJECT_ID, location=LOCATION)
+    client = [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).Client(project=PROJECT_ID, location=LOCATION)
     
     # Setup the job dictionary
     vapo_config = {
@@ -763,7 +763,7 @@ Make the following replacements:
     }
     
     #Start the Agent Platform Prompt Optimizer
-    client = client.[prompt_optimizer](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.prompt_optimizer.html).optimize(method=[vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).[types](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.html).[PromptOptimizerMethod](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.PromptOptimizerMethod.html).VAPO, config=vapo_config)
+    client = client.[prompt_optimizer](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.prompt_optimizer.html).optimize(method=[vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).[types](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.html).[PromptOptimizerMethod](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.PromptOptimizerMethod.html).VAPO, config=vapo_config)
     
 
 To use Gemma model as the target model, make the following changes:
@@ -862,6 +862,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

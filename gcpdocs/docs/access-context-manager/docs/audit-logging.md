@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/access-context-manager/docs/audit-logging/
 title: Access Context Manager audit logging information \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:33:55.469052+00:00
+fetched_at: 2026-10-27T18:59:55.019641+00:00
 ---
 
 # Access Context Manager audit logging information  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Access Context Manager audit logging information Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the audited methods for Access Context Manager. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Access Context Manager let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Access Context Manager API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -66,7 +68,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.identity.accesscontextmanager.v1.AccessContextManager.ListServicePerimeters`  
 `google.identity.accesscontextmanager.v1alpha.AccessContextManager.GetAccessLevel`  
 `google.identity.accesscontextmanager.v1alpha.AccessContextManager.GetAccessPolicy`  
-`google.identity.accesscontextmanager.v1alpha.AccessContextManager.GetAuthorizedOrgsDesc`  
 `google.identity.accesscontextmanager.v1alpha.AccessContextManager.GetGcpUserAccessBinding`  
 `google.identity.accesscontextmanager.v1alpha.AccessContextManager.GetServicePerimeter`  
 `google.identity.accesscontextmanager.v1alpha.AccessContextManager.ListAccessLevels`  
@@ -770,21 +771,6 @@ The following audit logs are associated with methods belonging to `google.identi
 
 
 
-#### `GetAuthorizedOrgsDesc`
-
-  * **Method** : `google.identity.accesscontextmanager.v1alpha.AccessContextManager.GetAuthorizedOrgsDesc`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `accesscontextmanager.authorizedOrgsDescs.get - ADMIN_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.identity.accesscontextmanager.v1alpha.AccessContextManager.GetAuthorizedOrgsDesc" `  
-
-
-
-
 #### `GetGcpUserAccessBinding`
 
   * **Method** : `google.identity.accesscontextmanager.v1alpha.AccessContextManager.GetGcpUserAccessBinding`  
@@ -1048,6 +1034,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

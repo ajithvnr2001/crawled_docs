@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/release-notes/
 title: Looker release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:25:24.373165+00:00
+fetched_at: 2026-10-27T18:40:20.206020+00:00
 ---
 
 # Looker release notes  |  Google Cloud Documentation
@@ -26,6 +26,28 @@ This page documents production updates for both Looker (original) and Looker (Go
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/looker-release-notes.xml) directly. 
+
+## October 27, 2026
+
+Looker (Google Cloud core) and Looker (original) changes
+
+Feature
+
+The latest version of the Looker-Excel Connector ODBC driver, version 1.0.7, is now available to download. See the [Looker-Excel Connector](https://docs.cloud.google.com/looker/docs/excel-connector#install-driver) documentation page for information.
+
+## October 26, 2026
+
+Looker (Google Cloud core) and Looker (original) changes
+
+Feature
+
+The [Looker-managed Model Context Protocol (MCP) server](https://docs.cloud.google.com/looker/docs/mcp) is now generally available (GA), allowing AI agents to securely interact with business data and LookML models without the need for additional middleware. This launch is supported by a new [**Manage OAuth Clients** admin page](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients), which provides a centralized interface for governing identity-based access for AI agents and other external applications. Administrators can now quickly enable pre-configured integrations from the Application Library or register custom OAuth clients with specific redirect URIs and group-based access controls.
+
+Looker (Google Cloud core) only changes
+
+Feature
+
+[Looker (Google Cloud core) data lineage](https://docs.cloud.google.com/looker/docs/looker-core-lineage) is now generally available (GA). The GA launch adds end-to-end visibility for [LookML dashboards](https://docs.cloud.google.com/looker/docs/building-lookml-dashboards) and [Conversational Analytics agents](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents). Lineage enablement is now managed independently through the Data Lineage API and service-level ingestion controls, which decouples it from Looker's internal Knowledge Catalog metadata settings. For more information, see [About data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage).
 
 ## October 22, 2026
 
@@ -10094,6 +10116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

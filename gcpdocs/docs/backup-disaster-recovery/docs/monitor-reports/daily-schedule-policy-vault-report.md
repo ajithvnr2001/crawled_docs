@@ -1,13 +1,42 @@
 ---
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/
 title: View daily schedule compliance reports for vaulted backups in Cloud Logging. \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:20:31.864980+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T17:57:34.818251+00:00
 ---
 
 # View daily schedule compliance reports for vaulted backups in Cloud Logging.  |  Backup and DR  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/
+
+[ Skip to main content ](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/)
+  * [Deutsch](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=de)
+  * [Español](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=it)
+  * [Português](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/?hl=ko)
+
+
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/operations-color.svg) ](https://docs.cloud.google.com/backup-disaster-recovery/docs)
+  * [ Backup and DR ](https://docs.cloud.google.com/backup-disaster-recovery/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [What's next](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/#whats_next)
+
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -16,19 +45,15 @@ fetched_at: 2026-10-23T10:20:31.864980+00:00
   * [ Guides ](https://docs.cloud.google.com/backup-disaster-recovery/docs/concepts/backup-dr)
 
 
-
 Send feedback 
+#  View daily schedule compliance reports for vaulted backups in Cloud Logging. Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [What's next](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/daily-schedule-policy-vault-report/#whats_next)
 
-#  View daily schedule compliance reports for vaulted backups in Cloud Logging. Stay organized with collections  Save and categorize content based on your preferences. 
 
 This page provides an overview of prebuilt daily backup schedule policy reports, which are available in BigQuery and Data Studio. These reports are displayed for resources that are protected using [backup plans](https://docs.cloud.google.com/backup-disaster-recovery/docs/cloud-console/backup-plan).
-
 You can access these reports after you [execute the prebuilt script](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/logs-route-vault-bigquery#sink) in the same project where the logs are being routed through the log sink.
-
-**Note:** If you want to learn about the daily backup schedule policy report that are protected using the [backup template](https://docs.cloud.google.com/backup-disaster-recovery/docs/create-plan/create-template) in the appliance management console, see [Daily Schedule Compliance reports](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/compliance-reports-bigquery).
-
 The daily backup schedule compliance report includes the following fields.
-
   * **date** : The date that the compliance status is reported on.
   * **resource_type** : The type of resource, for example, a Compute Engine instance.
   * **resource_name** : The name of the resource that is associated with the daily schedule backup policy.
@@ -45,9 +70,7 @@ The daily backup schedule compliance report includes the following fields.
   * **resource_location** : The location of the protected resource.
 
 
-
 ## What's next
-
   * Learn how to [Execute prebuilt reports script](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/logs-route-vault-bigquery#sink)
   * Learn how to [Write custom queries in BigQuery](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/custom-query)
   * Learn how to [View prebuilt reports in Connected Sheets](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/view-reports-sheets)
@@ -55,11 +78,7 @@ The daily backup schedule compliance report includes the following fields.
   * Learn how to [Download prebuilt reports](https://docs.cloud.google.com/backup-disaster-recovery/docs/monitor-reports/view-reports-sheets#download)
 
 
-
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

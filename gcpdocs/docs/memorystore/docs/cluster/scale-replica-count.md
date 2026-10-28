@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/memorystore/docs/cluster/scale-replica-count/
-title: Scale replica count \u00a0|\u00a0 Memorystore for Redis Cluster \u00a0|\u00a0 Google Cloud Documentation
+title: Scale the number of replicas \u00a0|\u00a0 Memorystore for Redis Cluster \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:00:23.491770+00:00
+fetched_at: 2026-10-27T19:53:53.024356+00:00
 ---
 
-# Scale replica count  |  Memorystore for Redis Cluster  |  Google Cloud Documentation
+# Scale the number of replicas  |  Memorystore for Redis Cluster  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/memorystore/docs/cluster/scale-replica-count/
 
@@ -20,13 +20,13 @@ fetched_at: 2026-10-23T11:00:23.491770+00:00
 
 Send feedback 
 
-#  Scale replica count Stay organized with collections  Save and categorize content based on your preferences. 
+#  Scale the number of replicas Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains how to scale the number of replicas used by your instance.
+This page explains how to scale the number of replicas for a cluster.
 
-## Update replica count for an existing instance
+## Update the number of replicas
 
-Updating the number of replicas for an instance allows you to enable replicas, disable replicas, and change the number of replicas.
+You can scale a cluster by updating its number of replicas.
 
 ### Console
 
@@ -34,32 +34,34 @@ Updating the number of replicas for an instance allows you to enable replicas, d
 
 [Memorystore for Redis Cluster](https://console.cloud.google.com/memorystore/redis/clusters)
 
-  2. Click your Cluster ID.
+  2. Click the ID of the cluster that you want to scale.
 
-  3. In the **Configurations** section, click the pencil icon next to **Replica Count**.
+  3. Scroll to the **Configurations** section.
 
-  4. From the **Replicas** menu, select the number of replicas. 
+  4. Next to the **Replicas per shard** field, click **Edit replica count** (_edit_).
 
-  5. Click **Update cluster**.
+  5. From the **Replicas** menu, select the number of replicas that you want for the cluster. You can select 0-5 replicas per shard.
+
+  6. Click **Update cluster**.
 
 
 
 
 ### gcloud
 
-To update the number of replicas, run the `update` command:
+To update the number of replicas, use the [`gcloud redis clusters update`](https://docs.cloud.google.com/sdk/gcloud/reference/redis/clusters/update) command:
     
     
-    gcloud redis clusters update INSTANCE_ID \
+    gcloud redis clusters update CLUSTER_ID \
       --region=REGION_ID \
       --replica-count=REPLICA_COUNT
     
 
-Replace the following:
+Make the following replacements:
 
-  * INSTANCE_ID is the ID of the Memorystore for Redis Cluster instance.
-  * REGION_ID is the region where the instance is located.
-  * REPLICA_COUNT is the number of replicas (per shard) for your instance. Acceptable values are `0`-`5`.
+  * CLUSTER_ID: the ID of the cluster.
+  * REGION_ID: the region where the cluster is located.
+  * REPLICA_COUNT: the number of replicas (per shard) that you want for the cluster. Acceptable values are `0`-`5`.
 
 
 
@@ -67,6 +69,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

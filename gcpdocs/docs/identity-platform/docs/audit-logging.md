@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/audit-logging/
 title: Identity Platform audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:21:06.862528+00:00
+fetched_at: 2026-10-27T16:29:29.561770+00:00
 ---
 
 # Identity Platform audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Identity Platform audit logging
 
-This document describes audit logging for Identity Platform. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Identity Platform let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Identity Platform API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -33,11 +35,19 @@ This document describes audit logging for Identity Platform. Google Cloud servic
 
 ## Service name
 
-Identity Platform audit logs use the service name `identitytoolkit.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="identitytoolkit.googleapis.com"
-      
+To view the Identity Platform audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="identitytoolkit.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -81,6 +91,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.identitytoolkit.admin.v2.TenantManagementService.CreateTenant`  
 `google.cloud.identitytoolkit.admin.v2.TenantManagementService.DeleteTenant`  
 `google.cloud.identitytoolkit.admin.v2.TenantManagementService.UpdateTenant`  
+`google.cloud.identitytoolkit.v1.AuthenticationService.SignUp`  
 `google.cloud.identitytoolkit.v2beta1.ProjectConfigService.CreateDefaultSupportedIdpConfig`  
 `google.cloud.identitytoolkit.v2beta1.ProjectConfigService.CreateInboundSamlConfig`  
 `google.cloud.identitytoolkit.v2beta1.ProjectConfigService.CreateOAuthIdpConfig`  
@@ -104,7 +115,6 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.identitytoolkit.v1.AccountManagementService.GetOobCode`  
 `google.cloud.identitytoolkit.v1.AccountManagementService.SetAccountInfo`  
 `google.cloud.identitytoolkit.v1.AccountManagementService.UploadAccount`  
-`google.cloud.identitytoolkit.v1.AuthenticationService.SignUp`  
 `google.cloud.identitytoolkit.v1.SessionManagementService.CreateSessionCookie`  
   
 ## API interface audit logs
@@ -327,6 +337,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `firebaseauth.configs.get - ADMIN_READ`
+    * `identitytoolkit.tenants.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.admin.v2.ProjectConfigService.ListInboundSamlConfigs" `  
@@ -422,6 +433,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Permissions** : 
     * `firebaseauth.configs.getSecret - ADMIN_READ`
     * `firebaseauth.configs.update - ADMIN_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.admin.v2.ProjectConfigService.UpdateOAuthIdpConfig" `  
@@ -551,6 +563,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `firebaseauth.users.delete - DATA_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v1.AccountManagementService.DeleteAccount" `  
@@ -582,6 +595,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `firebaseauth.users.get - DATA_READ`
+    * `identitytoolkit.tenants.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v1.AccountManagementService.GetAccountInfo" `  
@@ -659,7 +673,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Method** : `google.cloud.identitytoolkit.v1.AuthenticationService.SignUp`  
 
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
+  * **Audit log type** : [Admin activity](https://docs.cloud.google.com/logging/docs/audit#admin-activity)  
 
   * **Permissions** : 
     * `firebaseauth.users.create - DATA_WRITE`
@@ -703,6 +717,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Permissions** : 
     * `firebaseauth.configs.getSecret - ADMIN_READ`
     * `firebaseauth.configs.update - ADMIN_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.CreateDefaultSupportedIdpConfig" `  
@@ -718,6 +733,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `firebaseauth.configs.update - ADMIN_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.CreateInboundSamlConfig" `  
@@ -734,6 +750,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Permissions** : 
     * `firebaseauth.configs.getSecret - ADMIN_READ`
     * `firebaseauth.configs.update - ADMIN_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.CreateOAuthIdpConfig" `  
@@ -749,6 +766,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `firebaseauth.configs.update - ADMIN_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.DeleteDefaultSupportedIdpConfig" `  
@@ -764,6 +782,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `firebaseauth.configs.update - ADMIN_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.DeleteInboundSamlConfig" `  
@@ -779,6 +798,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `firebaseauth.configs.update - ADMIN_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.DeleteOAuthIdpConfig" `  
@@ -842,6 +862,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `firebaseauth.configs.get - ADMIN_READ`
+    * `identitytoolkit.tenants.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.GetInboundSamlConfig" `  
@@ -891,7 +912,6 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `firebaseauth.configs.get - ADMIN_READ`
-    * `identitytoolkit.tenants.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.ListInboundSamlConfigs" `  
@@ -906,8 +926,8 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
+    * `firebaseauth.configs.get - ADMIN_READ`
     * `firebaseauth.configs.getSecret - ADMIN_READ`
-    * `identitytoolkit.tenants.get - ADMIN_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.ListOAuthIdpConfigs" `  
@@ -940,6 +960,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Permissions** : 
     * `firebaseauth.configs.getSecret - ADMIN_READ`
     * `firebaseauth.configs.update - ADMIN_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.UpdateDefaultSupportedIdpConfig" `  
@@ -955,6 +976,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `firebaseauth.configs.update - ADMIN_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.UpdateInboundSamlConfig" `  
@@ -971,6 +993,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Permissions** : 
     * `firebaseauth.configs.getSecret - ADMIN_READ`
     * `firebaseauth.configs.update - ADMIN_WRITE`
+    * `identitytoolkit.tenants.update - ADMIN_WRITE`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.identitytoolkit.v2beta1.ProjectConfigService.UpdateOAuthIdpConfig" `  
@@ -1104,11 +1127,6 @@ The following methods don't produce audit logs:
   * `google.cloud.identitytoolkit.v2.AuthenticationService.GetRecaptchaConfig`
   * `google.cloud.identitytoolkit.v2.AuthenticationService.RevokeToken`
   * `google.cloud.identitytoolkit.v2.AuthenticationService.StartMfaSignIn`
-  * `google.cloud.identitytoolkit.v2alpha1.AccountManagementService.FinalizeMfaEnrollment`
-  * `google.cloud.identitytoolkit.v2alpha1.AccountManagementService.StartMfaEnrollment`
-  * `google.cloud.identitytoolkit.v2alpha1.AccountManagementService.WithdrawMfa`
-  * `google.cloud.identitytoolkit.v2alpha1.AuthenticationV2Alpha1Service.FinalizeMfaSignIn`
-  * `google.cloud.identitytoolkit.v2alpha1.AuthenticationV2Alpha1Service.StartMfaSignIn`
 
 
 
@@ -1116,6 +1134,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

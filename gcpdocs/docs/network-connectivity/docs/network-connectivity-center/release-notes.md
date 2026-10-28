@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/release-notes/
 title: Network Connectivity Center release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:38:49.023803+00:00
+fetched_at: 2026-10-27T19:39:50.543435+00:00
 ---
 
 # Network Connectivity Center release notes  |  Google Cloud Documentation
@@ -152,7 +152,7 @@ You can allow the exchange of [privately used public IPv4 addresses](https://doc
 
 Change
 
-[Site-to-site data transfer locations](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations) in the following countries have been added to Network Connectivity Center: 
+[Site-to-site data transfer locations](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations) in the following countries have been added to Network Connectivity Center:
 
   * Qatar
   * Switzerland
@@ -216,7 +216,7 @@ You can use export filters to configure a VPC spoke to exchange [IPv6 subnet ran
 
 Change
 
-Site-to-site data transfer locations in the following countries have been added to Network Connectivity Center: 
+Site-to-site data transfer locations in the following countries have been added to Network Connectivity Center:
 
   * Belgium
   * Canada
@@ -294,7 +294,7 @@ You can use export filters to configure a VPC spoke to exchange [IPv6 subnet ran
 
 Feature
 
-[Producer VPC Spokes](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/producer-vpc-spokes-overview) is now available in [public preview](https://cloud.google.com/products#product-launch-stages).
+[Producer VPC spokes](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/producer-vpc-spokes-overview) are available in [public preview](https://cloud.google.com/products#product-launch-stages).
 
 If you have a VPC network that consumes a service offered through private services access, you can use a Network Connectivity Center producer VPC spoke to make the service reachable by other spokes on a hub.
 
@@ -310,7 +310,7 @@ Preset topologies let you specify the connectivity configuration across all VPC 
 
 Feature
 
-[Route exchange with VPC spokes](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/dynamic-route-exchange-with-vpc-spokes) is now available in [public preview](https://cloud.google.com/products#product-launch-stages). 
+[Route exchange with VPC spokes](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/dynamic-route-exchange-with-vpc-spokes) is available in [public preview](https://cloud.google.com/products#product-launch-stages).
 
 This feature lets you lets you connect VPC spokes and hybrid spokes, such as Cloud Interconnect VLAN attachments, HA VPN tunnels, and Router appliance VMs on the same hub.
 
@@ -318,7 +318,7 @@ This feature lets you lets you connect VPC spokes and hybrid spokes, such as Clo
 
 Feature
 
-[Include export filters](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/vpc-spokes-overview#include-export-ranges) is now available in [public preview](https://cloud.google.com/products#product-launch-stages). 
+[Include export filters](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/vpc-spokes-overview#include-export-ranges) is available in [public preview](https://cloud.google.com/products#product-launch-stages). 
 
 This feature lets you limit connectivity by specifying a list of permitted CIDR ranges, thereby blocking all but the permitted IP address ranges.
 
@@ -326,7 +326,7 @@ This feature lets you limit connectivity by specifying a list of permitted CIDR 
 
 Feature
 
-[Private Service Connect connection propagation](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/psc-propagated-connection-overview) is now available in [public preview](https://cloud.google.com/products#product-launch-stages). 
+[Private Service Connect connection propagation](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/psc-propagated-connection-overview) is available in [public preview](https://cloud.google.com/products#product-launch-stages). 
 
 The propagation of Private Service Connect services through the Network Connectivity Center hub enables VPC-hosted services in private VPC networks to be reachable across VPC networks.
 
@@ -334,7 +334,7 @@ The propagation of Private Service Connect services through the Network Connecti
 
 Feature
 
-[Preset topologies](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/vpc-spokes-overview#preset-topologies) are now available in [public preview](https://cloud.google.com/products#product-launch-stages). Network Connectivity Center lets you specify connectivity configuration across all VPC spokes.
+[Preset topologies](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/vpc-spokes-overview#preset-topologies) are available in [public preview](https://cloud.google.com/products#product-launch-stages). Network Connectivity Center lets you specify connectivity configuration across all VPC spokes.
 
 ## November 16, 2023
 
@@ -536,6 +536,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

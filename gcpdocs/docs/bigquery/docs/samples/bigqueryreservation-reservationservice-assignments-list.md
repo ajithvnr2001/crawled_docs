@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-assignments-list/
 title: List all assignments for a reservation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:44.960532+00:00
+fetched_at: 2026-10-27T23:02:37.138221+00:00
 ---
 
 # List all assignments for a reservation  |  BigQuery  |  Google Cloud Documentation

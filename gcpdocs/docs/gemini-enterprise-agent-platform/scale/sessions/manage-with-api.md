@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api/
 title: Manage sessions using Google Cloud console or API calls \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:01.453897+00:00
+fetched_at: 2026-10-27T19:39:52.834594+00:00
 ---
 
 # Manage sessions using Google Cloud console or API calls  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -95,6 +95,8 @@ Agent Engine instances that are part of the selected project appear in the list.
 
 
 
+By default, `client.sessions.list` returns sessions sorted by creation time in descending order (`create_time desc`). This default order keeps pagination stable when active sessions update concurrently. The Python SDK doesn't expose an `order_by` option. To sort by a different field, use the REST API.
+
 ###  REST 
 
 Before using any of the request data, make the following replacements: 
@@ -141,6 +143,8 @@ Execute the following command:
 You should see a list of sessions returned. 
 
 Optionally, to list sessions for a specific user, you can add the query parameter `?filter=user_id=\"USER_ID\"`, where USER_ID is the ID of the user you want to query.
+
+To sort the returned sessions, add the query parameter `?orderBy=ORDER_BY`, where ORDER_BY is `create_time`, `update_time`, or `display_name`. You can append `%20desc` for descending order, such as `?orderBy=create_time%20desc`. If you omit `orderBy`, the API returns sessions sorted by `create_time desc`. Use `create_time desc` when you paginate through sessions during concurrent updates so that updates don't shift sessions across page boundaries.
 
 ## Create a session
 
@@ -673,6 +677,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

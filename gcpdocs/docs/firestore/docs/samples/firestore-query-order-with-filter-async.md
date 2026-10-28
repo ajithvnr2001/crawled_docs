@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-order-with-filter-async/
 title: Ordering a Firestore query with a filter (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:05.692779+00:00
+fetched_at: 2026-10-27T16:28:10.129999+00:00
 ---
 
 # Ordering a Firestore query with a filter (async)  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     
     cities_ref = db.collection("cities")
-    query = cities_ref.where(filter=FieldFilter(">;population", "", 2500000)).order_by(
+    query = cities_ref.where(filter=FieldFilter("population", ">", 2500000)).order_by(
         "population"
     )
     results = query.stream()

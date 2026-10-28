@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/run-apache-airflow-dag/
 title: Quickstart: Run an Apache Airflow DAG in Managed Airflow\u00a0(Gen\u00a03) \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:34.513555+00:00
+fetched_at: 2026-10-27T23:27:09.675828+00:00
 ---
 
 # Quickstart: Run an Apache Airflow DAG in Managed Airflow (Gen 3)  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -122,6 +122,8 @@ To create a service account for your environment:
 
 
 
+**Note:** The approximate time to create an environment is 25 minutes.
+
 ## Create a DAG file
 
 An [Airflow DAG](https://airflow.apache.org/docs/stable/concepts.html) is a collection of organized tasks that you want to schedule and run. DAGs are defined in standard Python files.
@@ -163,9 +165,9 @@ Save a copy of the `quickstart.py` file on your local machine:
         default_args=default_args,
         schedule_interval=datetime.timedelta(days=1),
     ) as dag:
-        # Print the dag_run id from the Airf{{ dag_run.id }low logs
+        # Print the dag_run id from the Airflow logs
         print_dag_run_conf = bash.BashOperator(
-            task_id="print_dag_run_conf", bash_command="echo }"
+            task_id="print_dag_run_conf", bash_command="echo {{ dag_run.id }}"
         )
 
 ## Upload the DAG file to your environment's bucket
@@ -281,6 +283,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.1/concepts/
 title: Concepts \u00a0|\u00a0 Kf 2.2 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:59:44.275127+00:00
+fetched_at: 2026-10-27T21:42:13.388135+00:00
 ---
 
 # Concepts  |  Kf 2.2  |  Google Cloud Documentation

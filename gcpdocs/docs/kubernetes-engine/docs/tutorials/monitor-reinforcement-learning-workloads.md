@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/tutorials/monitor-reinforcement-learning-workloads/
 title: Monitor reinforcement learning workloads on GKE \u00a0|\u00a0 GKE AI/ML \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:33:10.415560+00:00
+fetched_at: 2026-10-27T19:53:47.386472+00:00
 ---
 
 # Monitor reinforcement learning workloads on GKE  |  GKE AI/ML  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ This document shows you how to emit, collect, and view key metrics and traces fo
 This document shows you how to do the following:
 
   * Instrument the RL application to emit metrics and traces. The instrumentation used is for metrics and traces that follow the OpenTelemetry format.
-  * Collect metrics and traces when the application runs on GKE. Data is collected using Managed OpenTelemetry for GKE ([Preview](https://cloud.google.com/products#product-launch-stages)).
+  * Collect metrics and traces when the application runs on GKE. Data is collected using Managed OpenTelemetry for GKE.
   * View the collected metrics in Cloud Monitoring and traces in Cloud Trace.
   * Identify and understand critical RL metrics based on OpenTelemetry semantic conventions and golden signals. Golden signals are the four key metrics of a service that provide a high-level overview of its health: _Latency_ , _Traffic_ , _Errors_ , and _Saturation_.
 
@@ -41,7 +41,7 @@ This document shows you how to do the following:
 
   2. Ensure you have a Google Cloud project with billing enabled.
 
-  3. You need a GKE cluster running GKE version 1.34.1-gke.2178000 or higher, which are the versions where Managed OpenTelemetry for GKE ([Preview](https://cloud.google.com/products#product-launch-stages)) is available.
+  3. You need a GKE cluster running GKE version 1.34.1-gke.2178000 or higher, which are the versions where Managed OpenTelemetry for GKE is available.
 
   4. Enable the following Google Cloud APIs:
 
@@ -214,7 +214,7 @@ Now that you have initialized OpenTelemetry and created instruments for specific
 
 ## Enable collection of metrics and trace data in GKE
 
-To collect the telemetry data that the application emits while it runs, you can use Managed OpenTelemetry for GKE ([Preview](https://cloud.google.com/products#product-launch-stages)). This feature collects telemetry data, such as metrics and traces, and sends the data to Google Cloud Observability.
+To collect the telemetry data that the application emits while it runs, you can use Managed OpenTelemetry for GKE. This feature collects telemetry data, such as metrics and traces, and sends the data to Google Cloud Observability.
 
 To enable and configure Managed OpenTelemetry for GKE, do the following:
 
@@ -395,6 +395,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

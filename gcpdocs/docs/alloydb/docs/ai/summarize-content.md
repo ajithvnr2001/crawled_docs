@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/summarize-content/
 title: Summarize content \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:50:15.589403+00:00
+fetched_at: 2026-10-28T01:29:11.348151+00:00
 ---
 
 # Summarize content  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -41,11 +41,11 @@ Make sure that you meet the following requirements before you use the `ai.summar
 
 ### Enable the extension
 
-Make sure that you have the latest version of the `google_ml_integration.enable_preview_ai_functions` extension (version 1.5.7 or higher) installed with Preview functionality enabled.
+Make sure that you have the latest version of the `google_ml_integration.enable_preview_ai_functions` extension (version 1.6.1 or higher) installed with Preview functionality enabled.
 
 To enable the `google_ml_integration.enable_preview_ai_functions` flag in AlloyDB, you use the `SET` command. This flag controls access to preview AI functions like `ai.summarize`.
 
-  1. Make sure that your `google_ml_integration extension` is version 1.5.7 or higher. You can check the version by running the following:
+  1. Make sure that your `google_ml_integration extension` is version 1.6.1 or higher. You can check the version by running the following:
          
          SELECT extversion FROM pg_extension WHERE extname = 'google_ml_integration';
          
@@ -89,7 +89,8 @@ To process a single block of text, use the scalar version of `ai.summarize`.
     
     
     SELECT ai.summarize(
-      prompt => 'TEXT_CONTENT',
+      input => 'TEXT_CONTENT',
+      additional_instructions => 'INSTRUCTIONS', -- Optional
       model_id => 'MODEL_ID' -- Optional
     );
     
@@ -116,8 +117,9 @@ To process multiple records efficiently, use the array-based version.
     
     
     SELECT ai.summarize(
-      prompts => TEXT[],
-      batch_size => INT, -- Optional. The default is 10.
+      inputs => TEXT[],
+      additional_instructions => 'INSTRUCTIONS', -- Optional
+      batch_size => INT, -- Optional. The default value is 10.
       model_id => VARCHAR(100) -- Optional. The default value is gemini-3.5-flash-lite.
     );
     
@@ -129,9 +131,11 @@ The following example shows how to use the array-based version of the `ai.summar
     SELECT
       ARRAY_AGG(id ORDER BY id) as ids,
       ai.summarize(
-        prompts => array_agg( 'Please summarize this in max 10 words, review : ' || review
-          ORDER BY id),
-        batch_size => 15) as summaries
+        inputs => array_agg(review ORDER BY id),
+        additional_instructions =>
+          'Please summarize this in max 10 words, review : ',
+        batch_size => 15
+      ) as summaries
     FROM movie_reviews
     ),
     correlated_results AS (
@@ -165,8 +169,8 @@ The `input_cursor` parameter takes a `REFCURSOR`. This means you need to provide
     
     
     CREATE OR REPLACE FUNCTION ai.summarize(
-      prompt TEXT,
       input_cursor REFCURSOR,
+      additional_instructions TEXT DEFAULT NULL,
       batch_size INT DEFAULT NULL,
       model_id VARCHAR(100) DEFAULT NULL)
     RETURNS REFCURSOR
@@ -188,16 +192,16 @@ The following example creates a table `review_summaries` (if needed), then it it
         result_record   RECORD;
         cursor_response  REFCURSOR;
         id_array        INT[];
-        idx             INT := 1; 
+        idx             INT := 1;
     BEGIN
         -- 1. Open cursor for the input text
-        OPEN review_cursor FOR 
-            SELECT review AS prompt FROM movie_reviews ORDER BY id;
+        OPEN review_cursor FOR
+            SELECT review AS input FROM movie_reviews ORDER BY id;
     
         -- 2. Call the AI summarize function
         cursor_response := ai.summarize(
-            prompt       => 'Please summarize the following review in max 10 words: ',
-            input_cursor => review_cursor
+            input_cursor            => review_cursor,
+            additional_instructions => 'Please summarize the following review in max 10 words: '
         );
     
         -- 3. Map IDs into an array to maintain relational integrity during the loop
@@ -234,6 +238,32 @@ The following is the example output:
              3 | "Gentle, moving exploration of grief with poetic screenplay."
     
 
+## Summarize with additional instructions
+
+The following SQL query passes additional instructions to guide the summary:
+
+**Note:** Additional instructions are optional. You can call the `ai.agg_summarize()` function with only a column argument, such as `ai.agg_summarize(review)`.
+    
+    
+    SELECT ai.agg_summarize(review, 'Please summarize this within 10 words') FROM movie_reviews GROUP BY movie_id;
+    
+
+## Summarize with a specific model
+
+To specify a model without providing additional instructions, you must pass the model ID and explicitly cast it to `VARCHAR` so that it is not mistaken for instructions:
+    
+    
+    SELECT ai.agg_summarize(review, 'gemini-3.5-flash-lite'::VARCHAR) FROM movie_reviews GROUP BY movie_id;
+    
+
+## Summarize with additional instructions and a specific model
+
+The following SQL query passes both additional instructions and a specific model ID:
+    
+    
+    SELECT ai.agg_summarize(review, 'Please summarize this within 10 words', 'gemini-3.5-flash-lite') FROM movie_reviews GROUP BY movie_id;
+    
+
 ## Aggregate summarization across rows
 
 The `ai.agg_summarize` function operates across multiple rows in a column. It aggregates values into a unified prompt to generate a single summary for the entire group.
@@ -241,7 +271,7 @@ The `ai.agg_summarize` function operates across multiple rows in a column. It ag
 The following SQL query uses the `ai.agg_summarize` aggregate function to generate a single, unified summary for every `movie_id` based on all reviews in the `movie_reviews` table.
     
     
-    select ai.agg_summarize(review) from movie_reviews group by movie_id;
+    SELECT ai.agg_summarize(review) FROM movie_reviews GROUP BY movie_id;
     
 
 Unlike `ai.summarize`, which summarizes each row individually, `ai.agg_summarize` combines the text from multiple rows into a single input to produce one consolidated summary for the entire group of rows.
@@ -264,6 +294,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

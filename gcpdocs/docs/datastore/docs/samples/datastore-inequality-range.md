@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastore/docs/samples/datastore-inequality-range/
 title: An example of a valid inequality range filter. \u00a0|\u00a0 Firestore in Datastore mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:00.666177+00:00
+fetched_at: 2026-10-27T22:58:22.583654+00:00
 ---
 
 # An example of a valid inequality range filter.  |  Firestore in Datastore mode  |  Google Cloud Documentation

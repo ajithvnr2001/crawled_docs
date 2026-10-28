@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-create-unwrapped-push-subscription/
 title: Create a push subscription with payload unwrapping enabled. \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:44.278627+00:00
+fetched_at: 2026-10-28T01:39:55.597486+00:00
 ---
 
 # Create a push subscription with payload unwrapping enabled.  |  Pub/Sub  |  Google Cloud Documentation

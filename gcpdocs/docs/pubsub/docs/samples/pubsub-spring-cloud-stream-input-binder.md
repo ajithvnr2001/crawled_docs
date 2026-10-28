@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-spring-cloud-stream-input-binder/
 title: Receive messages in Spring Cloud Stream applications \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:02.008837+00:00
+fetched_at: 2026-10-28T01:38:51.195322+00:00
 ---
 
 # Receive messages in Spring Cloud Stream applications  |  Pub/Sub  |  Google Cloud Documentation

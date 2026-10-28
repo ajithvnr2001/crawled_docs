@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/units/update/
 title: gcloud beta app-lifecycle-manager units update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:21:43.359429+00:00
+fetched_at: 2026-10-27T21:41:33.991671+00:00
 ---
 
 # gcloud beta app-lifecycle-manager units update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,26 +24,28 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager units update - update a Unit 
+gcloud beta app-lifecycle-manager units update - update a unit 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager units update` `UNIT` [`--location`=`LOCATION`] [`--maintenance-pinned-until-time`=`MAINTENANCE_PINNED_UNTIL_TIME`] [`--application`=`APPLICATION` | `--clear-application`] [`--clear-tenant` | `--tenant`=`TENANT`] [`--clear-unit-kind` | `--unit-kind`=`UNIT_KIND`] [`--flag-revisions`=[`FLAG_REVISIONS`,…] | `--add-flag-revisions`=[`ADD_FLAG_REVISIONS`,…] `--clear-flag-revisions` | `--remove-flag-revisions`=[`REMOVE_FLAG_REVISIONS`,…]] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Update a Unit 
+     `(BETA)` Update an App Lifecycle Manager unit. 
 EXAMPLES
-     To update the Unit, run: 
+     To add or update the label `env=prod` on the unit named `my-unit` in location `us-central1`, run: 
     
     
-    gcloud beta app-lifecycle-manager units update
+    gcloud beta app-lifecycle-manager units update my-unit --location=us-central1 --update-labels=env=prod
+
+To pin the current release of the unit named `my-unit` until the end of 2099, run: 
+    
+    
+    gcloud beta app-lifecycle-manager units update my-unit --location=us-central1 --maintenance-pinned-until-time=2099-12-31T23:59:59Z
 
 POSITIONAL ARGUMENTS
     
 
-Unit resource - Identifier. The resource name (full URI of the resource) following the standard naming scheme: 
-    
-    
-    "projects/{project}/locations/{location}/units/{unit}" This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways.
+Unit resource - Unit to update. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -75,9 +77,9 @@ FLAGS
 
 `--location`=`LOCATION`
      For resources [unit, flag-revisions, tenant, unit-kind], provides fallback value for resource location attribute. When the resource's full URI path is not provided, location will fallback to this flag value. 
-Captures requested directives for performing future maintenance on the unit. This includes a request for the unit to skip maintenance for a period of time and remain pinned to its current release as well as controls for postponing maintenance scheduled in future. 
+Requested directives for performing future maintenance on the unit. These directives include a request for the unit to skip maintenance for a period of time and remain pinned to its current release. They also include controls for postponing scheduled maintenance. 
 `--maintenance-pinned-until-time`=`MAINTENANCE_PINNED_UNTIL_TIME`
-     If present, it fixes the release on the unit until the given time; i.e. changes to the release field will be rejected. Rollouts should and will also respect this by not requesting an upgrade in the first place. 
+     Time until which the release of the unit is pinned. Until this time, changes to the release of the unit are rejected, and rollouts do not request an upgrade of the unit. 
 Update application. 
 
 At most one of these can be specified: 
@@ -94,7 +96,7 @@ At most one of these can be specified:
      Clear tenant value and set to null. 
 Tenant resource - Set tenant to new value. 
 
-Reference to the Saas Tenant resource this unit belongs to. This for example informs the maintenance policies to use for scheduling future updates on a unit. (optional and immutable once created) This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Tenant that this unit belongs to. For example, the tenant informs the maintenance policies to use for scheduling future updates on the unit. The tenant is optional and cannot be changed after the unit is created. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -126,7 +128,7 @@ At most one of these can be specified:
      Clear unit_kind value and set to null. 
 UnitKind resource - Set unit_kind to new value. 
 
-Reference to the UnitKind this Unit belongs to. Immutable once set. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Unit kind that this unit belongs to. The unit kind cannot be changed after it is set. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -156,7 +158,7 @@ At most one of these can be specified:
 
 FlagRevision resource - Set flag_revisions to new value. 
 
-List of flag revisions used by this unit This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Flag revisions used by this unit. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -182,7 +184,7 @@ To set the `flag-revision` attribute:
 
 FlagRevision resource - Add new value to flag_revisions list. 
 
-List of flag revisions used by this unit This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Flag revisions used by this unit. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -214,7 +216,7 @@ Or at least one of these can be specified:
 
 FlagRevision resource - Remove value from flag_revisions list. 
 
-List of flag revisions used by this unit This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+Flag revisions used by this unit. This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -243,7 +245,7 @@ Update labels.
 At most one of these can be specified: 
 
 `--labels`=[`LABELS`,…]
-     Set labels to new value. The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Set labels to new value. Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -267,7 +269,7 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--update-labels`=[`UPDATE_LABELS`,…]
-     Update labels value or add key value pair. The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Update labels value or add key value pair. Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -322,6 +324,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

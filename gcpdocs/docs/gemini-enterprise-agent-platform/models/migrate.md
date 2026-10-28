@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/
 title: Migrate to the latest Gemini models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:21.110720+00:00
+fetched_at: 2026-10-28T02:28:04.112087+00:00
 ---
 
 # Migrate to the latest Gemini models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -236,7 +236,7 @@ If you're using Provisioned Throughput, change your Provisioned Throughput order
 
 ## Parameter updates and best practices in Gemini 3.x
 
-The following apply to all Gemini 3.x models, including Gemini 3.5 Flash. They were introduced with Gemini 3 and are listed here as a reminder.
+The following apply to all Gemini 3.x models, including 3.5 Flash. They were introduced with Gemini 3 and are listed here as a reminder.
 
 ### Sampling parameters (deprecated)
 
@@ -288,7 +288,7 @@ Use the following checklists as a quick reference when migrating from previous m
 ### From Gemini 3 Flash Preview
 
   * Update model name: `gemini-3-flash-preview` → `gemini-3.5-flash`.
-  * Review pricing. Gemini 3.5 Flash is more expensive than Gemini 3 Flash Preview.
+  * Review pricing. 3.5 Flash is more expensive than Gemini 3 Flash Preview.
   * Remove `temperature`, `top_p`, `top_k` from your config.
   * Replace `thinking_budget` with `thinking_level`.
   * Test your prompts. Default effort changed from `high` → `medium`.
@@ -364,6 +364,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

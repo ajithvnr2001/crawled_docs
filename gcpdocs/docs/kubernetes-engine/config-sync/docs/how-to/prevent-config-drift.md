@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/how-to/prevent-config-drift/
 title: Prevent config drift \u00a0|\u00a0 Config Sync \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:24:24.565247+00:00
+fetched_at: 2026-10-28T02:29:31.659940+00:00
 ---
 
 # Prevent config drift  |  Config Sync  |  Google Cloud Documentation
@@ -22,20 +22,17 @@ Send feedback
 
 #  Prevent config drift Stay organized with collections  Save and categorize content based on your preferences. 
 
-Config Sync provides two ways to manage drift:
+Config Sync lets you prevent configuration drift so that cluster resources stay aligned with your central source of truth. By default, built-in self-healing in Config Sync automatically detects and reverts drift with minimal impact on cluster performance.
 
-  * **Use Config Sync's built-in self-healing (Recommended, no configuration needed):** Config Sync automatically detects and reverts drift. You can't disable Config Sync's self-healing. Self-healing has a minimal impact on performance.
-  * **Enable the drift prevention feature (this page):** drift prevention uses an admission webhook to block conflicting changes. This feature can cause high memory usage and out-of-memory (OOM) errors, especially in clusters with many CustomResourceDefinitions (CRDs).
+When your environment requires blocking conflicting changes before the cluster applies them, you can enable the Config Sync admission webhook for drift prevention. Because this webhook increases memory overhead and can cause out-of-memory (OOM) errors, rely on built-in self-healing for most use cases.
 
+## Why drift prevention isn't recommended
 
+The admission webhook requires Config Sync to load the Kubernetes OpenAPI schema to validate requests. In clusters with many resources or CustomResourceDefinitions, this schema processing can exceed memory limits, leading to component failures. For most use cases, built-in self-healing in Config Sync provides drift protection without the stability risks of the webhook. You can't disable built-in self-healing.
 
-### Why drift prevention is not recommended
+When enabled, drift prevention protects `RootSync` objects by default. You can configure the feature to protect `RepoSync` objects. To use drift prevention, you must enable the `RootSync` and `RepoSync` APIs. For more information, see [RootSync and RepoSync fields](https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/reference/rootsync-reposync-fields).
 
-The admission webhook requires Config Sync to load the Kubernetes OpenAPI schema to validate requests. In clusters with many resources or CRDs, this schema processing can exceed memory limits, leading to component failures. For most use cases, Config Sync's built-in _self-healing_ provides drift protection without the stability risks of the webhook.
-
-When enabled, drift prevention protects `RootSync` objects by default. You can configure the feature to protect `RepoSync` objects. To use drift prevention, you must enable the [`RootSync` and `RepoSync` APIs](https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/reference/rootsync-reposync-fields).
-
-**Note:** All of these features use [server-side apply](https://kubernetes.io/docs/reference/using-api/server-side-apply/), which means they only prevent or revert changes to fields explicitly specified in the source of truth. Unspecified fields are allowed to drift. This is required because many Kubernetes controllers update metadata and spec fields at runtime, not just status fields.
+**Note:** Both self-healing and drift prevention use [server-side apply](https://kubernetes.io/docs/reference/using-api/server-side-apply/), which means they only prevent or revert changes to fields explicitly specified in the source of truth. Config Sync allows unspecified fields to drift because many Kubernetes controllers update metadata and spec fields at runtime, not just status fields.
 
 ## Before you begin
 
@@ -43,7 +40,7 @@ If you previously installed the Google Cloud CLI, get the latest version by runn
 
 ## Enable drift prevention
 
-You can enable drift prevention by using gcloud CLI. You can't enable drift prevention in the Google Cloud console.
+You can enable drift prevention by using the gcloud CLI. You can't enable drift prevention in the Google Cloud console.
 
 To enable drift prevention, complete the following steps:
 
@@ -210,6 +207,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

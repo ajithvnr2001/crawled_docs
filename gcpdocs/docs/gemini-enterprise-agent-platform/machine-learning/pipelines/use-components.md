@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/use-components/
 title: Use Google Cloud Pipeline Components \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:13.843042+00:00
+fetched_at: 2026-10-28T02:28:28.122509+00:00
 ---
 
 # Use Google Cloud Pipeline Components  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -78,9 +78,9 @@ Replace the following:
 
 Learn more about [VPC Network Peering in Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-peering).
 
-## Use customer-managed encryption keys (CMEK)
+## Use Customer-managed encryption keys (CMEK)
 
-By default, Google Cloud automatically [encrypts data when at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption) using encryption keys managed by Google. If you have specific compliance or regulatory requirements related to the keys that protect your data, you can use customer-managed encryption keys (CMEK) for your resources. Before you start to use customer-managed encryption keys, learn about the [benefits of CMEK on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#benefits) and [current CMEK supported resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#resource-list).
+By default, Google Cloud automatically [encrypts data when at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption) using encryption keys managed by Google. If you have specific compliance or regulatory requirements related to the keys that protect your data, you can use Customer-managed encryption keys (CMEK) for your resources. Before you start to use Customer-managed encryption keys, learn about the [benefits of CMEK on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#benefits) and [current CMEK supported resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek#resource-list).
 
 ### Configuring your component with CMEK
 
@@ -120,7 +120,7 @@ For example, the [`ModelUploadOp`](https://google-cloud-pipeline-components.read
     
     "model": "',"{{$.inputs.artifacts['model'].metadata['resourceName']}}", '"'
 
-For the complete schema of the artifact's metadata, see the [`artifact_types.py` file](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/types/artifact_types.py) in the Kubeflow GitHub repo.
+For the complete schema of the artifact's metadata, see the [`artifact_types.py` file](https://github.com/kubeflow/pipelines/blob/master/components/google-cloud/google_cloud_pipeline_components/types/artifact_types.py) in the Kubeflow GitHub repository.
 
 #### Consume an artifact in a lightweight Python component
     
@@ -229,6 +229,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

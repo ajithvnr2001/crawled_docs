@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/about-data-lineage/
 title: About data lineage \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:38.065068+00:00
+fetched_at: 2026-10-28T02:29:30.282543+00:00
 ---
 
 # About data lineage  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -225,7 +225,7 @@ You can capture lineage events with Dataflow jobs and publish them to the Data L
   * Lakehouse for Iceberg REST catalog tables
 
 **Note:** Lineage is supported at table and column levels for the Iceberg formats. This includes [Lakehouse Iceberg REST catalog tables with Lakehouse runtime catalog](https://docs.cloud.google.com/biglake/docs/about-lakehouse-iceberg-rest-catalog-tables), [Apache Iceberg REST catalog in Lakehouse runtime catalog](https://docs.cloud.google.com/biglake/docs/blms-rest-catalog) or custom Iceberg Catalog for BigQuery in Lakehouse runtime catalog for Managed Service for Apache Spark ([1.10](https://docs.cloud.google.com/biglake/docs/configure-blms-iceberg-1-10) and [1.9](https://docs.cloud.google.com/biglake/docs/configure-blms-iceberg-1-9)).
-  * [Looker (Google Cloud core)](https://docs.cloud.google.com/looker/docs/looker-core-lineage) ([Preview](https://cloud.google.com/products#product-launch-stages))
+  * [Looker (Google Cloud core)](https://docs.cloud.google.com/looker/docs/looker-core-lineage)
 
 Visualizing Looker (Google Cloud core) metadata from BigQuery sources using data lineage is supported. Data lineage must be enabled at the Looker (Google Cloud core) resource level and at the data lineage service level.
 
@@ -409,6 +409,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

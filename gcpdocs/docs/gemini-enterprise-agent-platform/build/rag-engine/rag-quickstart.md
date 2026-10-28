@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-quickstart/
 title: RAG quickstart \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:38:36.454974+00:00
+fetched_at: 2026-10-28T02:27:49.130355+00:00
 ---
 
 # RAG quickstart  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 The [VPC-SC security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) and CMEK are supported by Agent Platform RAG Engine. Data residency and AXT security controls aren't supported.
 
-To see an example of using RAG Engine, run the "Intro to RAG Engine in Gemini Enterprise Agent Platform" notebook in one of the following environments: 
+To see an example of using RAG Engine on Gemini Enterprise Agent Platform, run the "Intro to RAG Engine in Gemini Enterprise Agent Platform" notebook in one of the following environments: 
 
 [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-logo-32px.png)Open in Colab](https://colab.research.google.com/github/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/intro_rag_engine.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/colab-enterprise-logo-32px.png)Open in Colab Enterprise](https://console.cloud.google.com/agent-platform/colab/import/https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Fintro_rag_engine.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/vertex-ai-workbench-logo-32px.png)Open in Agent Platform Workbench](https://console.cloud.google.com/agent-platform/workbench/deploy-notebook?download_url=https%3A%2F%2Fraw.githubusercontent.com%2FGoogleCloudPlatform%2Fgenerative-ai%2Fmain%2Fgemini%2Frag-engine%2Fintro_rag_engine.ipynb) | [![](https://docs.cloud.google.com/static/vertex-ai/images/github-logo-32px.png)View on GitHub](https://github.com/GoogleCloudPlatform/generative-ai/blob/main/gemini/rag-engine/intro_rag_engine.ipynb)
 
@@ -80,18 +80,17 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
     from google import genai
     from google.genai import types as genai_types
     
-    
     # Create a RAG Corpus, Import Files, and Generate a response
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # MODEL_ID = "gemini-3.5-flash"
+    # MODEL_ID = "gemini-3.8-flash"
     # display_name = "test_corpus"
     # gcs_path = "gs://my_bucket/my_files_dir/*"
-    # google_drive_path ="https://drive.google.com/file/d/123"
     
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+    # Initialize Agent Platform client once per session.
+    # See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
     
     # Configure embedding model, for example "text-embedding-005".
     embedding_model_config = types.RagEmbeddingModelConfig(
@@ -120,9 +119,9 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
                     chunk_size=512,
                     chunk_overlap=100,
                 )
-            ), # optional
-            max_embedding_requests_per_min=1000, # optional
-        )
+            ),  # optional
+            max_embedding_requests_per_min=1000,  # optional
+        ),
     )
     
     # Direct context retrieval
@@ -142,8 +141,8 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
         ),
         query=types.RagQuery(
             text="What is RAG and why it is helpful?",
-            rag_retrieval_config=rag_retrieval_config,   
-        )
+            rag_retrieval_config=rag_retrieval_config,
+        ),
     )
     print(response)
     
@@ -167,8 +166,7 @@ To learn how to install or update the Vertex AI SDK for Python, see [Install the
     # Call generate_content with the tool using the GenAI SDK
     
     # Create a GenAI SDK client
-    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-east4")
-    
+    genai_client = genai.Client(vertexai=True, project=PROJECT_ID, location="global")
     
     response = genai_client.models.generate_content(
         model=MODEL_ID,
@@ -316,6 +314,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

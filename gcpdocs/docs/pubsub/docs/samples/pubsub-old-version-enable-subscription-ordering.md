@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-old-version-enable-subscription-ordering/
 title: v1 Enable ordering on subscription (DEPRECATED) \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:50.097598+00:00
+fetched_at: 2026-10-28T01:39:52.480011+00:00
 ---
 
 # v1 Enable ordering on subscription (DEPRECATED)  |  Pub/Sub  |  Google Cloud Documentation

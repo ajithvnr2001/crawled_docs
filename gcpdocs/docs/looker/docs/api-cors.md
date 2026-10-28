@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/api-cors/
 title: Looker API authentication using OAuth \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:43:23.570145+00:00
+fetched_at: 2026-10-28T02:29:53.520075+00:00
 ---
 
 # Looker API authentication using OAuth  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ The Looker API supports being called in browser and across origins using the [Cr
 
 An overview of the OAuth authentication process is as follows:
 
-  1. Register the OAuth client application with the Looker API.
+  1. Register the OAuth client application with your Looker instance.
   2. Add the origin of your OAuth client application to your [embedded domain allowlist](https://docs.cloud.google.com/looker/docs/admin-panel-platform-embed#embedded_domain_allowlist) for the code exchange API call and any subsequent CORS API calls.
 
 **Important:** Don't include a trailing slash (`/`) in the domain URL.
@@ -65,19 +65,29 @@ An overview of the OAuth authentication process is as follows:
 
 ## Registering an OAuth client application
 
-Every OAuth client application that attempts to authenticate into the Looker API using OAuth must first be registered with the Looker instance before Looker will authorize access. To register an OAuth client application:
+Every OAuth client application that attempts to authenticate into the Looker API by using OAuth must first be registered with the Looker instance before Looker will authorize access.
 
-  1. Open the [API Explorer](https://docs.cloud.google.com/looker/docs/api-explorer) on your Looker instance.
-  2. Using the version drop-down menu, choose the **4.0 - stable** version of the API.
-  3. Under the **Auth** method, find the [`register_oauth_client_app()`](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest/methods/Auth/register_oauth_client_app) API endpoint. You can also search for "oauth app" in the **Search** field. You can use `register_oauth_client_app()` to register your OAuth client application with Looker. Click the **Run It** button, and enter the parameters in the API Explorer and click **Run It** again to register the OAuth client application, or use the `register_oauth_client_app()` API endpoint programmatically. The required `register_oauth_client_app()` parameters are:
+Looker admins can register and manage custom OAuth client applications directly in the Looker **Admin** panel on the [**Manage OAuth Clients**](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients) page (**Admin > Authentication > Manage OAuth clients**). This interface lets admins perform the following tasks:
 
-     * `client_guid`: A globally unique ID for the application
-     * `redirect_uri`: The URI where the application will receive an OAuth redirect that includes an authorization code
-     * `display_name`: The name of the application that is displayed to users of the application
-     * `description`: A description of the application that is displayed to users on a disclosure and confirmation page when a user first logs in from the application
+  * Configure one or more authorized **Redirect URIs** for the application to support multiple environments and ports.
+  * Restrict authorization access to members of a specific Looker user group (**Restrict to Group ID**).
+  * View, edit, enable, disable, or delete registered custom applications.
 
-The values in the `client_guid` and `redirect_uri` parameters must match the values the OAuth client application will provide _exactly_ , or authentication will be denied.
 
+
+For step-by-step instructions on registering custom clients in the **Admin** panel, see the [Admin settings - Manage OAuth Clients](https://docs.cloud.google.com/looker/docs/admin-panel-authentication-oauth-clients#custom-clients) documentation page.
+
+**Note:** The Client ID and redirect URI values that are registered in Looker must match the values that your OAuth client application provides _exactly_ , or authentication will be denied.
+
+### Programmatic registration using the API
+
+Alternatively, administrators can register an OAuth client application programmatically by calling the [Register OAuth App endpoint](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest/methods/Auth/register_oauth_client_app) directly or by running it in the [Looker API Explorer](https://docs.cloud.google.com/looker/docs/api-explorer). The parameters include the following:
+
+  * `client_guid`: A unique string ID for the application (cannot start with `com.looker.`).
+  * `redirect_uris`: An array of authorized callback URIs where the application will receive the OAuth redirect and authorization code.
+  * `display_name`: The name of the application that's displayed to users.
+  * `description`: A description of the OAuth client application.
+  * `group_id` (optional): The numeric ID of a Looker group to restrict access to.
 
 
 
@@ -204,6 +214,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

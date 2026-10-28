@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beyondcorp/security-gateways/create/
 title: gcloud beyondcorp security-gateways create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T17:55:43.230929+00:00
+fetched_at: 2026-10-27T21:40:50.701701+00:00
 ---
 
 # gcloud beyondcorp security-gateways create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud beyondcorp security-gateways create - create securityGateways
 SYNOPSIS
     
 
-`gcloud beyondcorp security-gateways create` (`SECURITY_GATEWAY` : `--location`=`LOCATION`) [`--async`] [`--display-name`=`DISPLAY_NAME`] [`--hubs`=[`HUBS`,…]] [`--request-id`=`REQUEST_ID`] [`--proxy-protocol-config-allowed-client-headers`=[`PROXY_PROTOCOL_CONFIG_ALLOWED_CLIENT_HEADERS`,…] `--proxy-protocol-config-client-ip` `--proxy-protocol-config-gateway-identity`=`PROXY_PROTOCOL_CONFIG_GATEWAY_IDENTITY` `--proxy-protocol-config-metadata-headers`=[`PROXY_PROTOCOL_CONFIG_METADATA_HEADERS`,…] `--contextual-headers-output-type`=`CONTEXTUAL_HEADERS_OUTPUT_TYPE` `--device-info-output-type`=`DEVICE_INFO_OUTPUT_TYPE` `--group-info-output-type`=`GROUP_INFO_OUTPUT_TYPE` `--user-info-output-type`=`USER_INFO_OUTPUT_TYPE`] [`--resource-override-path`=`RESOURCE_OVERRIDE_PATH` | `--service-discovery`=[`apiGateway`=`APIGATEWAY`]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud beyondcorp security-gateways create` (`SECURITY_GATEWAY` : `--location`=`LOCATION`) [`--async`] [`--display-name`=`DISPLAY_NAME`] [`--hubs`=[`HUBS`,…]] [`--request-id`=`REQUEST_ID`] [`--proxy-protocol-config-allowed-client-headers`=[`PROXY_PROTOCOL_CONFIG_ALLOWED_CLIENT_HEADERS`,…] `--proxy-protocol-config-client-ip` `--proxy-protocol-config-gateway-identity`=`PROXY_PROTOCOL_CONFIG_GATEWAY_IDENTITY` `--proxy-protocol-config-metadata-headers`=[`PROXY_PROTOCOL_CONFIG_METADATA_HEADERS`,…] `--contextual-headers-output-type`=`CONTEXTUAL_HEADERS_OUTPUT_TYPE` `--device-info-output-type`=`DEVICE_INFO_OUTPUT_TYPE` `--dispatch-info-output-type`=`DISPATCH_INFO_OUTPUT_TYPE` `--group-info-output-type`=`GROUP_INFO_OUTPUT_TYPE` `--user-info-output-type`=`USER_INFO_OUTPUT_TYPE`] [`--resource-override-path`=`RESOURCE_OVERRIDE_PATH` | `--service-discovery`=[`apiGateway`=`APIGATEWAY`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a securityGateway 
 EXAMPLES
@@ -155,6 +155,16 @@ The delegated device information configuration.
      Explicitly disable header output. 
 `protobuf`
      Protobuf output type. 
+The delegated dispatch information configuration. 
+`--dispatch-info-output-type`=`DISPATCH_INFO_OUTPUT_TYPE`
+     The output type details for the delegated dispatch information. `DISPATCH_INFO_OUTPUT_TYPE` must be one of: 
+
+`json`
+     JSON output type. 
+`none`
+     Explicitly disable header output. 
+`protobuf`
+     Protobuf output type. 
 The delegated group configuration details. 
 `--group-info-output-type`=`GROUP_INFO_OUTPUT_TYPE`
      The output type of the delegated group information. `GROUP_INFO_OUTPUT_TYPE` must be one of: 
@@ -218,6 +228,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

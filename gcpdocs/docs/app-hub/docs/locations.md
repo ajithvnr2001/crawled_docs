@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/app-hub/docs/locations/
 title: App Hub locations \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:23.950655+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:19:39.562642+00:00
 ---
 
 # App Hub locations  |  Google Cloud Documentation
@@ -37,16 +51,16 @@ The following table lists the regions in North America where App Hub is availabl
 
 Region name | Region description | Details  
 ---|---|---  
-`northamerica-northeast1` | Montréal, North America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`northamerica-northeast2` | Toronto, North America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`southamerica-east1` | São Paulo, South America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`southamerica-west1` | Santiago, South America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-central1` | Iowa, North America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`northamerica-northeast1` | Montréal, North America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`northamerica-northeast2` | Toronto, North America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`southamerica-east1` | São Paulo, South America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`southamerica-west1` | Santiago, South America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-central1` | Iowa, North America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
 `us-east1` | South Carolina, North America |   
 `us-east4` | Virginia, North America |   
 `us-east5` | Columbus, North America |   
-`us-south1` | Dallas, North America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-west1` | Oregon, North America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-south1` | Dallas, North America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-west1` | Oregon, North America |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
 `us-west2` | Los Angeles, North America |   
 `us-west3` | Salt Lake City, North America |   
 `us-west4` | Las Vegas, North America |   
@@ -83,19 +97,19 @@ The following table lists the regions in Europe where App Hub is available.
 
 Region name | Region description | Details  
 ---|---|---  
-`europe-central2` | Warsaw, Poland |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-north1` | Hamina, Finland |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-north2` | Stockholm, Sweden |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-southwest1` | Madrid, Spain |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west1` | St. Ghislain, Belgium |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west2` | London, England |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-central2` | Warsaw, Poland |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-north1` | Hamina, Finland |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-north2` | Stockholm, Sweden |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-southwest1` | Madrid, Spain |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west1` | St. Ghislain, Belgium |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west2` | London, England |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
 `europe-west3` | Frankfurt, Germany |   
-`europe-west4` | Eemshaven, Netherlands |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west6` | Zurich, Switzerland |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west8` | Milan, Italy |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west9` | Paris, France |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west4` | Eemshaven, Netherlands |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west6` | Zurich, Switzerland |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west8` | Milan, Italy |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west9` | Paris, France |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
 `europe-west10` | Berlin, Germany |   
-`europe-west12` | Turin, Italy |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west12` | Turin, Italy |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg) [Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
   
 ## Middle East
 
@@ -111,6 +125,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

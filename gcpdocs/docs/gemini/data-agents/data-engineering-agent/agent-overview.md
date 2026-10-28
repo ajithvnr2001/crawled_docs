@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/data-agents/data-engineering-agent/agent-overview/
 title: Data Engineering Agent overview \u00a0|\u00a0 Data Agents \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:56:30.190177+00:00
+fetched_at: 2026-10-27T19:53:59.941112+00:00
 ---
 
 # Data Engineering Agent overview  |  Data Agents  |  Google Cloud Documentation
@@ -228,6 +228,18 @@ After you have reviewed the plan and confirmed the mapping logic, you can prompt
 If you have a BigQuery Graph in your project, the agent automatically detects and reads it to provide additional context and improve schema mapping accuracy. The agent can read a BigQuery Graph to understand the semantic relationships between your source and target tables, which lets it generate more accurate mappings and reduces manual user intervention when migrating or transforming complex datasets. When you prompt the agent to generate a schema mapping, the agent automatically scans your dataset and uses a BigQuery Graph if a relevant graph exists.
 
 For more information about BigQuery Graph capabilities, editions, and pricing, see [BigQuery Graph overview](https://docs.cloud.google.com/bigquery/docs/graph-overview). For more information about access control and creating a BigQuery Graph, see [Create and query BigQuery Graph](https://docs.cloud.google.com/bigquery/docs/graph-create).
+
+### Google Drive integration
+
+The Data Engineering Agent can read and load files from Google Drive to include in your data pipelines. When you prompt the agent, provide a link to the file on Drive, and provide the agent with OAuth access to your Drive when requested. The agent is able to read the provided file and create an external table to read from the live Drive file, and load the file through a Dataform pipeline query. To enable Drive access for the external table, see [Authenticate and enable Drive access](https://docs.cloud.google.com/bigquery/docs/external-data-drive#enable-google-drive).
+
+The agent supports the following file types on Drive:
+
+  * CSV
+  * Google Sheets
+  * JSONL (Newline-delimited JSON)
+
+
 
 ## Automatic data enrichment
 
@@ -478,6 +490,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

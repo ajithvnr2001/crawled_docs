@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/auto-vm-selection/
 title: Auto VM Selection \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:13:07.272664+00:00
+fetched_at: 2026-10-28T02:30:01.282579+00:00
 ---
 
 # Auto VM Selection  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -32,10 +32,7 @@ Auto VM Selection is turned off if your pipeline is configured with any of the f
   * [Hyperdisk Balanced](https://docs.cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced) disks or custom provisioned performance (IOPS and throughput) are used. Jobs started with these configurations will fail.
   * [Confidential VM](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/about-cvm) is enabled.
   * Accelerators (GPUs or TPUs) are required.
-
-
-
-Additionally, Auto VM Selection is not supported for jobs using Shuffle Appliance or Streaming Appliance.
+  * Jobs that don't use Dataflow Shuffle or Streaming Engine.
 
 **Note:** To ensure maximum compatibility and allow the use of newer machine generations, don't specify a disk type when using Auto VM Selection.
 
@@ -62,6 +59,10 @@ Dataflow attempts to use 4th generation machine families first (for example, N4 
 
 If you specify a disk type such as `pd-ssd` or `pd-standard` when enabling Auto VM Selection using resource hints (right fitting), Dataflow only provisions compatible 2nd generation machine families. To ensure maximum compatibility and allow the use of newer machine generations, don't assign a disk type.
 
+## Limitations
+
+When using Auto VM Selection, [Portable Runner container image updates](https://docs.cloud.google.com/dataflow/docs/guides/common-errors#portable_runner_harness_update) are disabled for streaming jobs that use the [Portable Runner](https://docs.cloud.google.com/dataflow/docs/portable-runner).
+
 ## Compute Engine reservations
 
 If you use Compute Engine reservations with Auto VM Selection, note the following:
@@ -77,14 +78,20 @@ When using Auto VM Selection, be aware of the following known issues:
 
 ### Unexpected parallelism
 
-If you observe low CPU utilization or unexpected parallelism on worker VMs when using Auto VM Selection with right fitting, it might be due to a known issue where the number of threads per worker isn't automatically set to match the selected machine type's vCPU count.
+If you observe low CPU utilization or unexpected parallelism on worker VMs when using Auto VM Selection with right fitting, check the following settings.
 
-To work around this issue, you can explicitly set the number of worker harness threads by using the `numberOfWorkerHarnessThreads` [pipeline option](https://docs.cloud.google.com/dataflow/docs/reference/pipeline-options#resource_utilization). This option applies globally to all worker pools in the pipeline.
+#### Horizontal Autoscaling
+
+If you disable Horizontal Autoscaling, your job might run with lower parallelism than expected. To avoid this issue, keep Horizontal Autoscaling enabled. For more information, see [Right fitting support and limitations](https://docs.cloud.google.com/dataflow/docs/guides/right-fitting#limitations_and_requirements).
+
+#### Worker harness threads
+
+By default, Dataflow sets the number of threads per worker based on the vCPU count of the selected machine type. If you still observe low CPU utilization or unexpected parallelism, you can override the default by setting the `numberOfWorkerHarnessThreads` or `number_of_worker_harness_threads` [pipeline option](https://docs.cloud.google.com/dataflow/docs/reference/pipeline-options#resource_utilization). This option applies globally to all worker pools in the pipeline.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

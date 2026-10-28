@@ -1,8 +1,22 @@
 ---
 url: https://docs.cloud.google.com/data-studio/quick-start-guide/
 title: Quick start guide \u00a0|\u00a0 Data Studio \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:43:11.140742+00:00
+method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
+Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
+
+Code context:
+1294                   raise RuntimeError(
+1295                       "Cannot create new browser contexts when using "
+1296                       "use_persistent_context=True. Persistent context uses a "
+1297                       "single shared context."
+1298                   )
+1299 →             raise RuntimeError(
+1300                   "Browser is not available. It may have been closed, crashed, "
+1301                   "or not yet started. Ensure the browser is running before "
+1302                   "creating new contexts."
+1303               )
+1304           # Base settings)
+fetched_at: 2026-10-27T16:30:51.059330+00:00
 ---
 
 # Quick start guide  |  Data Studio  |  Google Cloud Documentation
@@ -44,7 +58,7 @@ To view a report that's been shared with you, click the report name in the repor
 To edit a report, follow these steps:
 
   1. View a report.
-  2. In the header, click ![Edit icon](https://docs.cloud.google.com/static/data-studio/images/icmodeeditgrey6002xweb24dp-2016-10-12.png)**Edit**.
+  2. In the header, click ![Edit icon](https://docs.cloud.google.com/static/data-studio/images/icmodeeditgrey6002xweb24dp-2016-10-12.png) **Edit**.
 
 
 
@@ -54,7 +68,7 @@ If you don't see an **Edit** button, then the report has been shared with only *
 
 To create a report, follow these steps:
 
-  1. In the navigation panel, click ![The Create icon.](https://docs.cloud.google.com/static/data-studio/images/rainbow-plus-2019-06-26.png)**Create**.
+  1. In the navigation panel, click ![The Create icon.](https://docs.cloud.google.com/static/data-studio/images/rainbow-plus-2019-06-26.png) **Create**.
   2. Select **Report**.
 
 
@@ -122,9 +136,9 @@ See your report the way it looks to other viewers.
 
 View mode lets users see the data and use any interactive controls that you've placed on the report without being able to change the structure of the report. If you can edit a report, you can switch between view mode and edit mode.
 
-To enter view mode from edit mode, click ![Visibility icon](https://docs.cloud.google.com/static/data-studio/images/gmvisibilitygrey60048dp-2020-03-12.png)**View**.
+To enter view mode from edit mode, click ![Visibility icon](https://docs.cloud.google.com/static/data-studio/images/gmvisibilitygrey60048dp-2020-03-12.png) **View**.
 
-To return to edit mode from view mode, click ![Edit icon.](https://docs.cloud.google.com/static/data-studio/images/gmcreategrey60048dp-2020-03-12.png)**Edit**.
+To return to edit mode from view mode, click ![Edit icon.](https://docs.cloud.google.com/static/data-studio/images/gmcreategrey60048dp-2020-03-12.png) **Edit**.
 
 ## ![](https://docs.cloud.google.com/static/data-studio/images/5-large-2014-10-17-image.png) Share the report
 
@@ -134,7 +148,7 @@ Share reports with other viewers. Collaborate with other editors.
 
 To share a report with users, follow these steps:
 
-  1. In the header, click ![Share icon](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png)**Share**.
+  1. In the header, click ![Share icon](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png) **Share**.
   2. Specify the people or groups with whom you want to share your report.
   3. Use the advanced options to change how individual addresses can access the report.
 
@@ -153,8 +167,8 @@ To share a data source, follow these steps:
   1. Return to the Data Studio home page by clicking the![Data Studio logo](https://docs.cloud.google.com/static/data-studio/images/looker-studio-logo-svg.svg) Data Studio logo.
   2. In the navigation panel, click **Data Sources**.
   3. Locate the data source that you want to share.
-  4. Click ![More](https://docs.cloud.google.com/static/data-studio/images/standard--inline-icon--more-vertical.png)**More options**.
-  5. Click ![Share icon](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png)**Share**.
+  4. Click ![More](https://docs.cloud.google.com/static/data-studio/images/standard--inline-icon--more-vertical.png) **More options**.
+  5. Click ![Share icon](https://docs.cloud.google.com/static/data-studio/images/gmpersonaddgrey60048dp-2020-03-12.png) **Share**.
   6. Specify the people or groups with whom you want to share your data source.
   7. Use the advanced options to change how individual addressees can access the data source.
 
@@ -195,6 +209,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

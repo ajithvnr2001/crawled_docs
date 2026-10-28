@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-old-version-publisher-retry-settings/
 title: v1 Publish with retry settings (DEPRECATED) \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:04:44.753480+00:00
+fetched_at: 2026-10-28T01:39:52.184538+00:00
 ---
 
 # v1 Publish with retry settings (DEPRECATED)  |  Pub/Sub  |  Google Cloud Documentation

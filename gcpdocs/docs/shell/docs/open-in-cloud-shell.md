@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/shell/docs/open-in-cloud-shell/
 title: Open in Cloud Shell \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:46:41.842146+00:00
+fetched_at: 2026-10-28T02:30:02.376082+00:00
 ---
 
 # Open in Cloud Shell  |  Google Cloud Documentation
@@ -20,9 +20,9 @@ Send feedback
 
 #  Open in Cloud Shell Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Open in Cloud Shell feature allows you to publish a link that opens the Google Cloud console with a Git repository cloned into Cloud Shell and/or starts Cloud Shell with a custom image. You can also print instructions to the terminal to help users interact with the content.
+The _Open in Cloud Shell_ feature lets you publish a link that opens the Google Cloud console with a Git repository cloned into Cloud Shell or starts Cloud Shell with a custom image. You can also print instructions to the terminal to help users interact with the content.
 
-Open in Cloud Shell links help developers experiment with your code samples and APIs without having to download the Google Cloud CLI, install required dependencies, or search for relevant source files. This page explains how to add an Open in Cloud Shell link to your Git repository.
+Open in Cloud Shell links help developers experiment with your code samples and APIs without downloading the Google Cloud CLI, installing required dependencies, or searching for relevant source files. This page explains how to add an Open in Cloud Shell link to your Git repository.
 
 **Note:** Only GitHub and Bitbucket repositories are permitted by default. If you would like to add a different repository, [ send feedback](https://docs.cloud.google.com/shell/docs/open-in-cloud-shell/) with the repository type you'd like to use with _Open in Cloud Shell_. 
 
@@ -78,6 +78,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

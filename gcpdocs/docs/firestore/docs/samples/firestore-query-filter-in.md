@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-filter-in/
 title: Query a Firestore collection with an in filter \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:19:02.899675+00:00
+fetched_at: 2026-10-27T16:27:53.029385+00:00
 ---
 
 # Query a Firestore collection with an in filter  |  Google Cloud Documentation

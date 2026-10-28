@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-hub/docs/overview/
 title: App Hub overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:25.524632+00:00
+fetched_at: 2026-10-27T21:40:43.924237+00:00
 ---
 
 # App Hub overview  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback
 
 #  App Hub overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-As you develop your cloud infrastructure, you might organize your Google Cloud resources across multiple projects. You might also have many resources within one or multiple projects that provide an integrated business function that you want to group logically. The resource hierarchy in Google Cloud can make it challenging to manage and organize your infrastructure for these grouping purposes. App Hub provides an application-centric way to group and manage services and workloads, helping you align your infrastructure with your business functions.
+App Hub lets you group and manage Google Cloud infrastructure as applications. This application-centric approach helps you organize your resources around business functionality across multiple projects, rather than through the resource hierarchy alone.
 
-App Hub acts as the foundational data model and central registry for your applications on Google Cloud. It creates a single source of truth that clarifies resource ownership, dependencies, and business context. This, in turn, supports other Google Cloud products with the application-centric context they need. For more information about this application-centric model and its features, see [Application-centric Google Cloud](https://docs.cloud.google.com/app-hub/docs/application-centric-google-cloud).
-
-This document provides a conceptual overview of App Hub to help you understand its capabilities and benefits before you set up or administer it.
+App Hub is the central registry for applications and provides the application data model for [Application-centric Google Cloud](https://docs.cloud.google.com/app-hub/docs/application-centric-google-cloud). The registry is the single source of truth for ownership, dependencies, and business context across Application-centric Google Cloud.
 
 ## Why use App Hub?
 
@@ -171,6 +169,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

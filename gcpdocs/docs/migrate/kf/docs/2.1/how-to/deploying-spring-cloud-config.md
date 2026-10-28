@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/migrate/kf/docs/2.1/how-to/deploying-spring-cloud-config/
 title: Deploying Spring Cloud Config \u00a0|\u00a0 Kf 2.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:55:17.517931+00:00
+fetched_at: 2026-10-27T21:39:42.025666+00:00
 ---
 
 # Deploying Spring Cloud Config  |  Kf 2.1  |  Google Cloud Documentation
@@ -100,7 +100,7 @@ Existing PCF applications that use [Pivotal's Spring Cloud Services client libra
 
   1. Create a user provided service named config-server. This step only has to be done once per configuration server:
          
-         kf cups config-server -p '{"uri":"http://spring-cloud-config"}' -t configuration
+         kf cups config-server -p '{"uri&quot;:"http://spring-cloud-config&quot;}' -t configuration
 
 **Note:** If you want to use a configuration server in a different space, change the URI [to include the space](https://docs.cloud.google.com/migrate/kf/docs/2.1/concepts/service-discovery#how_to_use_service_discovery_with).
   2. For each application that needs get credentials, run:
@@ -159,6 +159,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

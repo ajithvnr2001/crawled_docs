@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/understand-text/
 title: Understand text with the ML.UNDERSTAND_TEXT function \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:27.231698+00:00
+fetched_at: 2026-10-27T23:06:09.080167+00:00
 ---
 
 # Understand text with the ML.UNDERSTAND_TEXT function  |  BigQuery  |  Google Cloud Documentation
@@ -17,47 +17,41 @@ fetched_at: 2026-10-24T08:50:27.231698+00:00
 
 
 
-Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
+Send feedback 
 
-# Understand text with the ML.UNDERSTAND_TEXT function
+#  Understand text with the ML.UNDERSTAND_TEXT function Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to use the [`ML.UNDERSTAND_TEXT` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-understand-text) with a [remote model](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model-service) to perform a natural language text analysis function on text from a [BigQuery standard table](https://docs.cloud.google.com/bigquery/docs/tables-intro#standard-tables).
+The [`ML.UNDERSTAND_TEXT` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-understand-text) lets you analyze unstructured text directly in BigQuery. You can evaluate customer sentiment, identify key entities, and inspect text syntax without building separate data processing pipelines. The function uses a BigQuery ML [remote model](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model-service) to connect BigQuery to the Cloud Natural Language API.
 
-## Required roles
+In this tutorial, you create a remote model over the Cloud Natural Language API and perform sentiment analysis and entity analysis on a public dataset of movie reviews.
 
-To create a remote model and analyze text, you need the following Identity and Access Management (IAM) roles at the project level:
+## Objectives
 
-  * Create and use BigQuery datasets, tables, and models: BigQuery Data Editor (`roles/bigquery.dataEditor`)
-  * Create, delegate, and use BigQuery connections: BigQuery Connections Admin (`roles/bigquery.connectionsAdmin`)
-
-If you don't have a [default connection](https://docs.cloud.google.com/bigquery/docs/default-connections) configured, you can create and set one as part of running the `CREATE MODEL` statement. To do so, you must have BigQuery Admin (`roles/bigquery.admin`) on your project. For more information, see [Configure the default connection](https://docs.cloud.google.com/bigquery/docs/default-connections#configure_the_default_connection).
-
-  * Grant permissions to the connection's service account: Project IAM Admin (`roles/resourcemanager.projectIamAdmin`)
-
-  * Create BigQuery jobs: BigQuery Job User (`roles/bigquery.jobUser`)
+  * Create a dataset and a Cloud resource connection.
+  * Grant permissions to the connection's service account.
+  * Create a BigQuery ML remote model.
+  * Analyze text sentiment and extract entities by using the `ML.UNDERSTAND_TEXT` function.
 
 
 
+## Costs
 
-These predefined roles contain the permissions required to perform the tasks in this document. To see the exact permissions that are required, expand the **Required permissions** section:
+In this document, you use the following billable components of Google Cloud: 
 
-#### Required permissions
-
-  * Create a dataset: `bigquery.datasets.create`
-  * Create, delegate, and use a connection: `bigquery.connections.*`
-  * Set service account permissions: `resourcemanager.projects.getIamPolicy` and `resourcemanager.projects.setIamPolicy`
-  * Create a model and run inference: 
-    * `bigquery.jobs.create`
-    * `bigquery.models.create`
-    * `bigquery.models.getData`
-    * `bigquery.models.updateData`
-    * `bigquery.models.updateMetadata`
+  * **BigQuery** : You incur costs for the data that you process in BigQuery.
+  * **Cloud Natural Language API** : You incur costs for calls to the Natural Language API service that's represented by the remote model.
 
 
 
-You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-permissions).
+To generate a cost estimate based on your projected usage, use the [pricing calculator](https://docs.cloud.google.com/products/calculator). 
+
+New Google Cloud users might be eligible for a [free trial](https://docs.cloud.google.com/free). 
+
+For more information, see [BigQuery pricing](https://cloud.google.com/bigquery/pricing) and [Natural Language API pricing](https://cloud.google.com/natural-language/pricing).
 
 ## Before you begin
+
+###  Console 
 
   1. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
   2. In the Google Cloud console, on the project selector page, select or create a Google Cloud project.
@@ -100,12 +94,125 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=bigquery.googleapis.com,bigqueryconnection.googleapis.com,language.googleapis.com)
 
+  8. Make sure that you have the following role or roles on the project: **BigQuery Admin** , **Project IAM Admin**. 
+
+#### Check for the roles
+
+     1. In the Google Cloud console, go to the **IAM** page. 
+
+[Go to IAM](https://console.cloud.google.com/projectselector/iam-admin/iam?supportedpurview=project)
+     2. Select the project. 
+     3. In the **Principal** column, find all rows that identify you or a group that you're included in. To learn which groups you're included in, contact your administrator. 
+
+     4. For all rows that specify or include you, check the **Role** column to see whether the list of roles includes the required roles. 
+
+#### Grant the roles
+
+     1. In the Google Cloud console, go to the **IAM** page. 
+
+[Go to IAM](https://console.cloud.google.com/projectselector/iam-admin/iam?supportedpurview=project)
+     2. Select the project. 
+     3. Click person_add **Grant access**. 
+     4. In the **New principals** field, enter your user identifier. This is typically the email address for a Google Account.
+
+     5. Click **Select a role** , then search for the role. 
+     6. To grant additional roles, click add **Add another role** and add each additional role. 
+     7. Click **Save**. 
+
+
+
+###  gcloud 
+
+  1. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
+  2. [Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI. 
+
+  3. If you're using an external identity provider (IdP), you must first [ sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud). 
+
+  4. To [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the gcloud CLI, run the following command: 
+         
+         gcloud init
+
+  5. [Create or select a Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+
+**Roles required to select or create a project**
+
+     * **Select a project** : Selecting a project doesn't require a specific IAM role—you can select any project that you've been granted a role on. 
+     * **Create a project** : To create a project, you need the Project Creator role (`roles/resourcemanager.projectCreator`), which contains the `resourcemanager.projects.create` permission. [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+**Note** : If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project.
+     * Create a Google Cloud project:
+           
+           gcloud projects create PROJECT_ID
+
+Replace `PROJECT_ID` with a name for the Google Cloud project you are creating.
+
+     * Select the Google Cloud project that you created:
+           
+           gcloud config set project PROJECT_ID
+
+Replace `PROJECT_ID` with your Google Cloud project name.
+
+  6. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+
+  7. Enable the BigQuery, BigQuery Connection API, and Cloud Natural Language API APIs, if any are not already enabled: 
+
+**Roles required to enable APIs**
+
+To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+         
+         gcloud services enable bigquery.googleapis.com bigqueryconnection.googleapis.com language.googleapis.com
+
+  8. [Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI. 
+
+  9. If you're using an external identity provider (IdP), you must first [ sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud). 
+
+  10. To [initialize](https://docs.cloud.google.com/sdk/docs/initializing) the gcloud CLI, run the following command: 
+         
+         gcloud init
+
+  11. [Create or select a Google Cloud project](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+
+**Roles required to select or create a project**
+
+     * **Select a project** : Selecting a project doesn't require a specific IAM role—you can select any project that you've been granted a role on. 
+     * **Create a project** : To create a project, you need the Project Creator role (`roles/resourcemanager.projectCreator`), which contains the `resourcemanager.projects.create` permission. [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+**Note** : If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project.
+     * Create a Google Cloud project:
+           
+           gcloud projects create PROJECT_ID
+
+Replace `PROJECT_ID` with a name for the Google Cloud project you are creating.
+
+     * Select the Google Cloud project that you created:
+           
+           gcloud config set project PROJECT_ID
+
+Replace `PROJECT_ID` with your Google Cloud project name.
+
+  12. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+
+  13. Enable the BigQuery, BigQuery Connection API, and Cloud Natural Language API APIs, if any are not already enabled: 
+
+**Roles required to enable APIs**
+
+To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+         
+         gcloud services enable bigquery.googleapis.com bigqueryconnection.googleapis.com language.googleapis.com
+
+  14. Grant roles to your user account. Run the following command once for each of the following IAM roles: ` roles/bigquery.admin, roles/resourcemanager.projectIamAdmin `
+         
+         gcloud projects add-iam-policy-binding PROJECT_ID --member="user:USER_IDENTIFIER" --role=ROLE
+
+Replace the following:
+
+     * `PROJECT_ID`: Your project ID.
+     * `USER_IDENTIFIER`: The identifier for your user account. For example, `myemail@example.com`. 
+     * `ROLE`: The IAM role that you grant to your user account.
 
 
 
 ## Create a dataset
 
-Create a BigQuery dataset to contain your resources:
+To create a BigQuery dataset, select one of the following options:
 
 ### Console
 
@@ -119,33 +226,34 @@ Create a BigQuery dataset to contain your resources:
 
 If you don't see the left pane, click last_page **Expand left pane** to open the pane.
 
-  3. In the **Explorer** pane, click your project name.
+  3. In **Explorer** , expand your project, and then click **Datasets**.
 
-  4. Click more_vert **View actions > Create dataset**.
+  4. On the **Datasets** page, click add **Create dataset**.
 
-  5. On the **Create dataset** page, do the following:
+  5. In the **Create dataset** pane, do the following:
 
-     1. For **Dataset ID** , type a name for the dataset.
+     * For **Dataset ID** , enter `bqml_tutorial`.
 
-     2. For **Location type** , select **Region** or **Multi-region**.
+     * For **Data location** , select **US**.
 
-        * If you selected **Region** , then select a location from the **Region** list.
-        * If you selected **Multi-region** , then select **US** or **Europe** from the **Multi-region** list.
-     3. Click **Create dataset**.
+Leave the remaining default settings as they are.
+
+  6. Click **Create dataset**.
 
 
 
 
 ### bq
 
-  1. To create a new dataset, use the [`bq mk`](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference#mk-dataset) command with the `--location` flag:
+To create a new dataset, use the [`bq mk --dataset` command](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference#mk-dataset).
+
+  1. Create a dataset named `bqml_tutorial` with the data location set to `US`:
          
-         bq --location=LOCATION mk -d DATASET_ID
+         bq mk --dataset \
+           --location=US \
+           --description "BigQuery ML tutorial dataset." \
+           bqml_tutorial
 
-Replace the following:
-
-     * `LOCATION`: the dataset's [location](https://docs.cloud.google.com/bigquery/docs/locations).
-     * `DATASET_ID`: the ID of the dataset that you're creating.
   2. Confirm that the dataset was created:
          
          bq ls
@@ -153,11 +261,20 @@ Replace the following:
 
 
 
+###  API 
+
+Call the [`datasets.insert`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/datasets/insert) method with a defined [dataset resource](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/datasets):
+    
+    
+    {
+      "datasetReference": {
+         "datasetId": "bqml_tutorial"
+      }
+    }
+
 ## Create a connection
 
-Create a [Cloud resource connection](https://docs.cloud.google.com/bigquery/docs/create-cloud-resource-connection) and get the connection's service account. Create the connection in the same [location](https://docs.cloud.google.com/bigquery/docs/locations) as the dataset you created in the previous step.
-
-You can skip this step if you either have a default connection configured, or you have the BigQuery Admin role.
+Create a [Cloud resource connection](https://docs.cloud.google.com/bigquery/docs/create-cloud-resource-connection) in the `US` multiregion, where you created the dataset. Then get the connection's service account.
 
 Select one of the following options: 
 
@@ -516,7 +633,7 @@ Wait until Terraform displays the "Apply complete!" message.
 
 **Note:** Terraform samples typically assume that the required APIs are enabled in your Google Cloud project. 
 
-### Grant access to the service account
+## Grant permissions to the connection's service account
 
 Select one of the following options:
 
@@ -561,82 +678,177 @@ Replace the following:
 
 Failure to grant the permission results in an error.
 
-## Create a model
+## Create the remote model
 
-Create a remote model with a [`REMOTE_SERVICE_TYPE`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model-service#remote_service_type) of `CLOUD_AI_NATURAL_LANGUAGE_V1`:
-    
-    
-    CREATE OR REPLACE MODEL
-    `PROJECT_ID.DATASET_ID.MODEL_NAME`
-    REMOTE WITH CONNECTION {DEFAULT | `PROJECT_ID.REGION.CONNECTION_ID`}
-    OPTIONS (REMOTE_SERVICE_TYPE = 'CLOUD_AI_NATURAL_LANGUAGE_V1');
+Use the [`CREATE MODEL`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model-service) statement to create a remote model that represents the hosted Cloud Natural Language API:
 
-Replace the following: 
+  1. In the Google Cloud console, go to the **BigQuery** page.
 
-  * `PROJECT_ID`: your project ID.
-  * `DATASET_ID`: the ID of the dataset to contain the model. This dataset must be in the same [location](https://docs.cloud.google.com/bigquery/docs/locations) as the connection that you are using.
-  * `MODEL_NAME`: the name of the model.
-  * `REGION`: the region used by the connection.
-  * `CONNECTION_ID`: the connection ID—for example, `myconnection`. 
+[Go to BigQuery](https://console.cloud.google.com/bigquery)
 
-When you [view the connection details](https://docs.cloud.google.com/bigquery/docs/working-with-connections#view-connections) in the Google Cloud console, the connection ID is the value in the last section of the fully qualified connection ID that is shown in **Connection ID** —for example `projects/myproject/locations/connection_location/connections/_myconnection_`.
+  2. In the query editor, run the following statement:
+         
+         CREATE OR REPLACE MODEL `bqml_tutorial.nlp_model`
+           REMOTE WITH CONNECTION `LOCATION.CONNECTION_ID`
+           OPTIONS (REMOTE_SERVICE_TYPE = 'CLOUD_AI_NATURAL_LANGUAGE_V1');
+
+Replace the following:
+
+     * `LOCATION`: the connection location
+     * `CONNECTION_ID`: the ID of your BigQuery connection 
+
+When you [view the connection details](https://docs.cloud.google.com/bigquery/docs/working-with-connections#view-connections) in the Google Cloud console, this is the value in the last section of the fully qualified connection ID that is shown in **Connection ID** , for example `projects/myproject/locations/connection_location/connections/_myconnection_`
+
+The query takes several seconds to complete, after which the model `nlp_model` appears in the `bqml_tutorial` dataset. There are no query results.
 
 
 
 
 ## Understand text
 
-Understand text with the `ML.UNDERSTAND_TEXT` function:
+Use the [`ML.UNDERSTAND_TEXT` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-understand-text) and the remote model to analyze text from a public dataset of movie reviews:
+
+  1. In the Google Cloud console, go to the **BigQuery** page.
+
+[Go to BigQuery](https://console.cloud.google.com/bigquery)
+
+  2. In the query editor, run the following statement to perform sentiment analysis on five movie reviews:
+         
+         SELECT
+           *
+         FROM
+           ML.UNDERSTAND_TEXT(
+             MODEL `bqml_tutorial.nlp_model`,
+             (
+               SELECT
+                 review AS text_content
+               FROM
+                 `bigquery-public-data.imdb.reviews`
+               LIMIT 5
+             ),
+             STRUCT('ANALYZE_SENTIMENT' AS nlu_option));
+
+The output is similar to the following:
+         
+         +------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+
+         | text_content                             | ml_understand_text_result                                                                                                                          | ml_understand_text_status |
+         +------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+
+         | Once again Mr. Costner has dragged out   | {"document_sentiment":{"magnitude":0.8,"score":-0.7},"language":"en","sentences":[{"sentiment":{"magnitude":0.8,"score":-0.7},"text":{...}}]}      |                           |
+         | This movie is amazing because the fact...| {"document_sentiment":{"magnitude":0.9,"score":0.8},"language":"en","sentences":[{"sentiment":{"magnitude":0.9,"score":0.8},"text":{...}}]}        |                           |
+         | ...                                      | ...                                                                                                                                                | ...                       |
+         +------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+
+         
+
+A positive score indicates a positive sentiment, while a negative score indicates a negative sentiment. The magnitude indicates the strength of the sentiment.
+
+  3. In the query editor, run the following statement to perform entity analysis on five movie reviews:
+         
+         SELECT
+           *
+         FROM
+           ML.UNDERSTAND_TEXT(
+             MODEL `bqml_tutorial.nlp_model`,
+             (
+               SELECT
+                 review AS text_content
+               FROM
+                 `bigquery-public-data.imdb.reviews`
+               LIMIT 5
+             ),
+             STRUCT('ANALYZE_ENTITIES' AS nlu_option));
+
+The output is similar to the following:
+         
+         +------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+
+         | text_content                             | ml_understand_text_result                                                                                                                          | ml_understand_text_status |
+         +------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+
+         | Once again Mr. Costner has dragged out...| {"entities":[{"mentions":[{"text":{"begin_offset":-1,"content":"Costner"},"type":"PROPER"},{"text":{"begin_offset":-1,"content":"Mr."},"type"...]  |                           |
+         | This movie is amazing because the fact...| {"entities":[{"mentions":[{"text":{"begin_offset":-1,"content":"people"},"type":"COMMON"}],"name":"people","salience":0.37163052,"type":...]       |                           |
+         | ...                                      | ...                                                                                                                                                | ...                       |
+         +------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+
+         
+
+The output shows the entities that are identified in the text, the type of entity, and the salience of the entity. Salience indicates how important the entity is to the text.
+
+
+
+
+## Clean up
+
+To avoid incurring charges to your Google Cloud account for the resources used in this tutorial, either delete the project that contains the resources, or keep the project and delete the individual resources. 
+
+### Delete the project
+
+**Caution** : Deleting a project has the following effects: 
+     * **Everything in the project is deleted.** If you used an existing project for the tasks in this document, when you delete it, you also delete any other work you've done in the project. 
+     * **Custom project IDs are lost.** When you created this project, you might have created a custom project ID that you want to use in the future. To preserve the URLs that use the project ID, such as an `appspot.com` URL, delete selected resources inside the project instead of deleting the whole project. 
+
+If you plan to explore multiple architectures, tutorials, or quickstarts, reusing projects can help you avoid exceeding project quota limits. 
+
+Delete a Google Cloud project:
     
-    
-    SELECT *
-    FROM ML.UNDERSTAND_TEXT(
-      MODEL `PROJECT_ID.DATASET_ID.MODEL_NAME`,
-      { TABLE PROJECT_ID.DATASET_ID.TABLE_NAME | (QUERY) },
-      STRUCT('FEATURE_NAME' AS nlu_option
-      [, 'FLATTEN_JSON_OUTPUT' AS flatten_json_output]
-      [, ENCODING_TYPE AS encoding_type])
-    );
-
-Replace the following: 
-
-  * `PROJECT_ID`: your project ID.
-  * `DATASET_ID`: the ID of the dataset that contains the model.
-  * `MODEL_NAME`: the name of the model.
-  * `TABLE_NAME`: the name of the table that contains the text to analyze in a column named `text_content`. If the text is in a column with a different name, specify `text_content` as an alias for that column.
-  * `QUERY`: a query that contains the text to describe in a column named `text_content`. If the text is in a column with a different name, specify `text_content` as an alias for that column.
-  * `FEATURE_NAME`: the name of a supported [Natural Language API feature](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-understand-text#nlp-syntax).
-  * `FLATTEN_JSON_OUTPUT`: a `BOOL` value that determines whether the JSON content returned by the function is parsed into separate columns.
-  * `ENCODING_TYPE`: a `STRING` value that specifies the encoding that the Cloud Natural Language API uses to determine encoding-dependent information such as the [`beginOffset`](https://docs.cloud.google.com/natural-language/docs/reference/rest/v2/TextSpan) value. For more information, see [`EncodingType`](https://docs.cloud.google.com/natural-language/docs/reference/rest/v1/EncodingType).
+    gcloud projects delete PROJECT_ID
 
 
 
-**Example 1**
 
-The following example inspects the text in the table's `text_content` column and identifies the prevailing emotional opinion within the text:
-    
-    
-    SELECT * FROM ML.UNDERSTAND_TEXT(
-      MODEL `mydataset.mynlpmodel`,
-      TABLE mydataset.mytable,
-      STRUCT('analyze_sentiment' AS nlu_option)
-    );
+### Delete individual resources
 
-**Example 2**
+If you want to reuse the project, then delete the resources that you created for the tutorial.
 
-The following example inspects the text in the table's `comment` column and provides syntactic information about the text:
-    
-    
-    SELECT * FROM ML.UNDERSTAND_TEXT(
-      MODEL `mydataset.mynlpmodel`,
-      (SELECT comment AS text_content from mydataset.mytable),
-      STRUCT('analyze_syntax' AS nlu_option)
-    );
+###  Console 
+
+  1. Delete the dataset. Deleting the dataset also deletes the remote model:
+
+     1. In the **Explorer** pane, expand your project and click **Datasets**.
+
+     2. In the **Datasets** list, click the `bqml_tutorial` dataset.
+
+     3. In the details pane, click delete **Delete**.
+
+     4. In the **Delete dataset** dialog, click **Delete**.
+
+  2. Delete the connection:
+
+     1. In the **Explorer** pane, expand your project and click **Connections**.
+
+     2. In the **Connections** list, click the connection that you created.
+
+     3. In the details pane, click delete **Delete**.
+
+     4. In the **Delete connection** dialog, enter `delete` to confirm deletion.
+
+     5. Click **Delete**.
+
+
+
+
+###  gcloud 
+
+  1. Delete the `bqml_tutorial` dataset and the remote model:
+         
+         bq rm --dataset --recursive bqml_tutorial
+         
+
+  2. Delete the connection:
+         
+         bq rm --connection <var>PROJECT_ID</var>.<var>LOCATION</var>.<var>CONNECTION_ID</var>
+         
+
+Replace the following:
+
+     * `<var>PROJECT_ID</var>`: your Google Cloud project ID
+     * `<var>LOCATION</var>`: the connection location
+     * `<var>CONNECTION_ID</var>`: the connection ID
+
+
 
 ## What's next
 
+  * Learn more about the [`ML.UNDERSTAND_TEXT` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-understand-text).
   * For more information about model inference in BigQuery ML, see [Model inference overview](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/inference-overview).
-  * For more information about supported SQL statements and functions for generative AI models, see [End-to-end user journeys for generative AI models](https://docs.cloud.google.com/bigquery/docs/e2e-journey-genai).
+  * For more information about using Cloud AI APIs to perform AI tasks, see [AI application overview](https://docs.cloud.google.com/bigquery/docs/ai-application-overview).
+  * For information about supported SQL statements and functions for generative AI models, see [End-to-end user journeys for generative AI models](https://docs.cloud.google.com/bigquery/docs/e2e-journey-genai).
   * Try the [Unstructured data analytics with BigQuery ML and Gemini Enterprise Agent Platform pre-trained models](https://github.com/GoogleCloudPlatform/vertex-ai-samples/blob/main/notebooks/community/bigquery_ml/bq_ml_with_vision_translation_nlp.ipynb) notebook.
 
 
@@ -645,6 +857,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

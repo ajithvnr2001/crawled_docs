@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/resizing-the-control-plane-node-for-user-cluster/
 title: Resizing the control plane node for a user cluster \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:09.476566+00:00
+fetched_at: 2026-10-28T02:30:00.398679+00:00
 ---
 
 # Resizing the control plane node for a user cluster  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Resizing the control plane node for a user cluster Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to resize the Google Distributed Cloud control-plane node for the user cluster. Resizing the control-plane node means adding or removing CPUs and changing the amount of memory available to the control-plane node for the user cluster.
+You can resize the control-plane node of a Google Distributed Cloud user cluster to change its number of CPUs and amount of memory, for example, to support more worker nodes as your cluster grows. Because resizing re-creates the node, a user cluster with a single control-plane node might have a small amount of downtime.
 
-You cannot resize the control-plane node manually if you have enabled [automatic node resizing](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/node-auto-resize).
+You can't resize the control-plane node manually if you enable [automatic node resizing](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/node-auto-resize).
 
 To add or remove CPUs and memory in the control-plane node:
 
@@ -71,6 +71,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

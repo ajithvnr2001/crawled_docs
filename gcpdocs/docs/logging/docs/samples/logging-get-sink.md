@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/samples/logging-get-sink/
 title: Get a sink \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:35:43.883616+00:00
+fetched_at: 2026-10-27T21:58:38.296611+00:00
 ---
 
 # Get a sink  |  Cloud Logging  |  Google Cloud Documentation

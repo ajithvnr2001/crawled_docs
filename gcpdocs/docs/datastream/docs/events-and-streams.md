@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/events-and-streams/
 title: Events and streams \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:55:35.575012+00:00
+fetched_at: 2026-10-27T22:58:12.487740+00:00
 ---
 
 # Events and streams  |  Datastream  |  Google Cloud Documentation
@@ -76,6 +76,8 @@ Field | Avro type | JSON type | Description
   * `mysql-backfill-fulldump`
   * `postgres-cdc-wal`
   * `postgresql-backfill`
+  * `sqlserver-cdc`
+  * `sqlserver-backfill`
   * `salesforce-cdc`
   * `salesforce-backfill`
 
@@ -153,23 +155,23 @@ SQL Server | `lsn` | string | string | The log sequence number for the event.
 SQL Server | `tx_id` | string | string | The transaction ID to which the event belongs.  
 SQL Server | `physical_location` | integer array | integer array | The physical location of the log record described by three integers: file ID, page ID and slot ID of the record. | SQL Server | `replication_index` | string array | string array | The list of column names of an index that can uniquely identify a row in the table.  
 SQL Server | `change_type` | string | string | The type of change (`INSERT`, `UPDATE`, `DELETE`) that the event represents.  
-Spanner | `commit_timestamp` | string | string | The commit timestamp of the event.  
+Spanner | `commit_timestamp` | [timestamp-micros](https://avro.apache.org/docs/++version++/specification/#timestamps) | string | The commit timestamp of the event.  
 Spanner | `snapshot` | boolean | boolean | Whether the event is a backfill snapshot event.  
 Spanner | `project_id` | string | string | The Spanner project identifier.  
 Spanner | `instance_id` | string | string | The Spanner instance identifier.  
 Spanner | `database_id` | string | string | The Spanner database identifier.  
-Spanner | `change_stream_name` | string | string | The Spanner change stream.  
+Spanner | `schema` | string | string | The schema associated with the table from the event. Empty if the table isn't in a named schema.  
 Spanner | `table` | string | string | The Spanner table.  
+Spanner | `change_stream_name` | string | string | The Spanner change stream.  
 Spanner | `server_transaction_id` | string | string | The transaction identifier associated with the event.  
-Spanner | `record_sequence` | string | string | The record sequence associated with the event.  
-Spanner | `mod_index` | string | string | The modification number associated with the event.  
+Spanner | `record_sequence` | long or string | long or string | The record sequence associated with the event. For change streams created with the `IMMUTABLE_KEY_RANGE` partition mode, the value is a numeric sequence number of type `long`. For change streams created with the `MUTABLE_KEY_RANGE` partition mode, the value is the `record_sequence` string from the data change record, such as `1cac8f3f38eeaf53-00000000`.   
+Spanner | `mod_number` | long | long | The modification number associated with the event.  
 Spanner | `transaction_tag` | string | string | The tag for the associated transaction.  
-Spanner | `system_transaction` | string | string | Whether the transaction is a system transaction.  
 Spanner | `number_of_records_in_transaction` | long | long | The number of records in the associated transaction.  
-Spanner | `value_capture_type` | enum | enum | The value capture type of the change stream.  
-Spanner | `mod_type` | enum | enum | Whether the record was an `INSERT`, `UPDATE`, or `DELETE`.  
-Spanner | `primary_keys` | array | array | The list of primary key columns for the table.  
-Spanner | `is_deleted` | boolean | boolean | Whether or not the change represents a `DELETE` event.  
+Spanner | `value_capture_type` | string | string | The value capture type of the change stream. Possible values are `NEW_ROW` and `NEW_ROW_AND_OLD_VALUES`.  
+Spanner | `change_type` | string | string | The type of change (`INSERT`, `UPDATE`, or `DELETE`) that the event represents.  
+Spanner | `primary_keys` | string array | string array | The list of primary key columns for the table.  
+Spanner | `is_deleted` | boolean | boolean | Whether the change represents a `DELETE` event.  
 Salesforce | `object_name` | string | string | The name of the Salesforce object associated with the event.  
 Salesforce | `domain` | string | string | The name of the domain associated with the event.  
 Salesforce | `is_deleted` | boolean | boolean | 
@@ -305,21 +307,21 @@ This section covers how Datastream handles ordering and consistency.
 
 ### Ordering
 
-Datastream doesn't guarantee ordering, but each event contains the full row of data and the timestamp of when the data was written to the source. In BigQuery, out-of-order events are merged in the correct sequence automatically. BigQuery uses the event metadata and an internal change sequence number (CSN) to apply the events to the table in the correct order. In Cloud Storage, events from the same time can span more than one file.
+Datastream doesn't guarantee in-order event delivery, but each event contains the full row of data, the timestamp of when the data was written to the source, and ordering metadata.
 
-Events that are generated out of order happen by design when events are backfilled for the initial backfill of data that's created when the stream is initiated.
+Events that are part of an initial backfill have the `read_method` field set to `backfill` or ending with `-backfill`, `-fulldump`, or `-incremental`. Backfill events are generated out of order by design and can be consumed in any order.
 
-Ordering can be inferred on a source-by-source basis. 
+Events that are part of ongoing change data capture (CDC) replication have the `read_method` field set to `cdc` or a source-specific CDC value, such as `mysql-cdc-binlog`, `oracle-cdc-logminer`, `postgres-cdc-wal`, `sqlserver-cdc`, or `salesforce-cdc`. How you order ongoing replication events across all sources depends on your destination:
 
-Source | Description  
+Destination | Description  
 ---|---  
-MySQL | Events that are part of the initial backfill have the `read_method` field starting with `mysql-backfill` (for binlog-based replication) or set to `backfill` (for GTID-based replication). There's no implication to the order in which events are received within the backfill because they can be consumed in any order. Events that are part of ongoing replication have the `read_method` field set to `mysql-cdc-binlog` (for binlog-based replication) or `cdc` (for GTID-based replication). For binlog-based replication, the order can be inferred by the combination of the `log_file` and `log_position` fields. For GTID-based replication, the order can be inferred by the combination of the `binlog_file` and `binlog_position` fields (or the `gtid` field). This combination provides a unique, incrementally increasing number that identifies the order of operations in the database.  
-Oracle | Events that are part of the initial backfill have the `read_method` field starting with `oracle-backfill`. There's no implication to the order in which events are received within the backfill because they can be consumed in any order. Events that are part of the ongoing replication have the `read_method` field set to `oracle-cdc-logminer`.  The order can be inferred by the combination of the `rs_id` (the record set ID) field and the `ssn` (a SQL sequence number) field. This combination provides a unique, incrementally increasing number that identifies the order of operation in the database.  
-PostgreSQL | Events that are part of the initial backfill have the `read_method` field starting with `postgresql-backfill`. There's no implication to the order in which events are received within the backfill because they can be consumed in any order. Events that are part of the ongoing replication have the `read_method` field set to `postgres-cdc-wal`.  The order can be inferred by the combination of the `source_timestamp` field and the `lsn` (log sequence number) field. This combination provides a unique, incrementally increasing number that identifies the order of operation in the database.  
-SQL Server |  Events that are part of the initial backfill have the `read_method` field starting with `sqlserver-backfill`. There's no implication to the order in which events are received within the backfill because they can be consumed in any order. Events that are part of the ongoing replication have the `read_method` field set to `sqlserver-cdc`. The order can be inferred by the combination of the `source_timestamp` field and the `lsn` (log sequence number) field. This combination provides a unique, incrementally increasing number that identifies the order of operation in the database. When replicating to BigQuery, the database creation time is also used to ensure correct ordering. This is important in scenarios where the source database instance might change, for example, during migrations or failover to a replica.  
-Salesforce |  The order can be determined by using the `source_timestamp` of the record as the sort key. The timestamp in Salesforce has one second resolution, but there can't be two change events for the same record happening at the same second.  
-MongoDB |  The order can be determined by using the `ts` field in the operation log or the `clusterTime` field in the change stream for the record. The fields are unique for every record.  
-Spanner |  The order can be determined by using the combination of the `commit_timestamp`, `record_sequence`, and `mod_index` fields. This combination provides a unique, incrementally increasing value that identifies the order of operations in the database.  
+BigQuery |  How events are ordered in BigQuery depends on the [write mode](https://docs.cloud.google.com/datastream/docs/configure-bigquery-destination#configure-write-mode) that you configure for your stream:
+
+  * **Merge write mode** : BigQuery merges out-of-order events in the correct sequence automatically using the event metadata and an internal change sequence number (CSN). Tables without a primary key are written in append-only mode.
+  * **Append-only write mode** , including [Apache Iceberg tables](https://docs.cloud.google.com/datastream/docs/destination-blmt): Datastream appends change events to the destination table and populates the [`datastream_metadata`](https://docs.cloud.google.com/datastream/docs/destination-bigquery#table-metadata) `STRUCT` column. To determine the order in which events occurred at the source, sort the events using the `datastream_metadata.change_sequence_number` field or the `datastream_metadata.sort_keys` array field.
+
+  
+Cloud Storage |  In Cloud Storage, events from the same time period can span more than one file. To determine the order in which events occurred at the source, sort the events using the `sort_keys` array field in the generic metadata.  
   
 ### Consistency
 
@@ -368,6 +370,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-delete-deny-policy/
 title: Delete a deny policy \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:13.064163+00:00
+fetched_at: 2026-10-27T18:15:21.820221+00:00
 ---
 
 # Delete a deny policy  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -105,7 +105,7 @@ To authenticate to IAM, set up Application Default Credentials. For more informa
     
     import com.google.iam.v2.[DeletePolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.DeletePolicyRequest.html);
     import com.google.iam.v2.[PoliciesClient](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.PoliciesClient.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
     import java.io.IOException;
     import java.net.URLEncoder;
     import java.nio.charset.StandardCharsets;
@@ -156,14 +156,14 @@ To authenticate to IAM, set up Application Default Credentials. For more informa
               [DeletePolicyRequest](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.DeletePolicyRequest.html).newBuilder().setName(policyParent).build();
     
           // Delete the policy and wait for the operation to complete.
-          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) operation =
+          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) operation =
               policiesClient
                   .[deletePolicyCallable](https://docs.cloud.google.com/java/docs/reference/google-iam-policy/latest/com.google.iam.v2.PoliciesClient.html#com_google_iam_v2_PoliciesClient_deletePolicyCallable__)()
                   .futureCall(deletePolicyRequest)
                   .get(3, TimeUnit.MINUTES);
     
-          if (operation.[hasError](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_hasError__)()) {
-            System.out.println("Error in deleting the policy " + operation.[getError](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_getError__)());
+          if (operation.[hasError](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_hasError__)()) {
+            System.out.println("Error in deleting the policy " + operation.[getError](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html#com_google_longrunning_Operation_getError__)());
             return;
           }
     

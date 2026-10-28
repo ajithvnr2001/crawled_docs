@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference/
 title: Generate content with the Gemini API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:44.991237+00:00
+fetched_at: 2026-10-27T23:23:58.255252+00:00
 ---
 
 # Generate content with the Gemini API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -512,7 +512,7 @@ Generate a text response from a text input.
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-3.5-flash",
+        model="gemini-3.8-flash",
         contents="How does AI work?",
     )
     print(response.text)
@@ -534,7 +534,7 @@ You can call the Inference API by using the OpenAI library. For more information
     
     # TODO(developer): Update and un-comment below lines
     # project_id = "PROJECT_ID"
-    # location = "us-central1"
+    # location = "global"
     
     # Programmatically get an access token
     credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
@@ -542,12 +542,12 @@ You can call the Inference API by using the OpenAI library. For more information
     
     # OpenAI Client
     client = openai.OpenAI(
-        base_url=f"https://{location}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
+        base_url=f"https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
         api_key=credentials.token,
     )
     
     response = client.chat.completions.create(
-        model="google/gemini-2.0-flash-001",
+        model="google/gemini-3.8-flash",
         messages=[{"role": "user", "content": "Why is the sky blue?"}],
     )
     
@@ -634,7 +634,7 @@ You can call the Inference API by using the OpenAI library. For more information
     
     # TODO(developer): Update and un-comment below lines
     # project_id = "PROJECT_ID"
-    # location = "us-central1"
+    # location = "global"
     
     # Programmatically get an access token
     credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
@@ -642,12 +642,12 @@ You can call the Inference API by using the OpenAI library. For more information
     
     # OpenAI Client
     client = openai.OpenAI(
-        base_url=f"https://{location}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
+        base_url=f"https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
         api_key=credentials.token,
     )
     
     response = client.chat.completions.create(
-        model="google/gemini-2.0-flash-001",
+        model="google/gemini-3.8-flash",
         messages=[
             {
                 "role": "user",
@@ -750,7 +750,7 @@ You can call the Inference API by using the OpenAI library. For more information
     
     # TODO(developer): Update and un-comment below lines
     # project_id = "PROJECT_ID"
-    # location = "us-central1"
+    # location = "global"
     
     # Programmatically get an access token
     credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
@@ -758,12 +758,12 @@ You can call the Inference API by using the OpenAI library. For more information
     
     # OpenAI Client
     client = openai.OpenAI(
-        base_url=f"https://{location}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
+        base_url=f"https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
         api_key=credentials.token,
     )
     
     response = client.chat.completions.create(
-        model="google/gemini-2.0-flash-001",
+        model="google/gemini-3.8-flash",
         messages=[{"role": "user", "content": "Why is the sky blue?"}],
         stream=True,
     )
@@ -826,6 +826,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

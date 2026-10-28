@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/configure-storage-policy/
 title: Configure a storage policy \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:21.045466+00:00
+fetched_at: 2026-10-28T02:30:00.519078+00:00
 ---
 
 # Configure a storage policy  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Configure a storage policy Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document shows how to configure a [VM storage policy](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-1/fleet-management/certificate-management-9-0/configure-a-certificate-authority_9-0.html) for a Google Distributed Cloud cluster.
+A [VM storage policy](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-1/vsphere-storage.html) lets you automate datastore placement for your Google Distributed Cloud clusters. Instead of specifying an individual datastore, you can use policies to provision cluster VMs on storage that meets your capacity and performance requirements.
 
 ## Overview
 
@@ -51,7 +51,7 @@ To do the steps in this example, your vSphere environment must have at least two
 
 The [vSphere cluster](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-1/vsphere-resource-management.html) that will host the nodes for your user cluster must have access to the datastores that you plan to use for this exercise. There is a preflight check that verifies this.
 
-The vCenter account that you use to apply tags must have the following [vSphere tagging privileges](hhttps://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-1/vsphere-security.html) privileges on the root vCenter Server:
+The vCenter account that you use to apply tags must have the following [vSphere tagging privileges](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/9-1/vsphere-security.html) privileges on the root vCenter Server:
 
   * vSphere Tagging.Create vSphere Tag
   * vSphere Tagging.Create vSphere Tag Category
@@ -307,6 +307,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

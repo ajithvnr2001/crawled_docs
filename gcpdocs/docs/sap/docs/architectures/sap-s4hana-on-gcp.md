@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/architectures/sap-s4hana-on-gcp/
 title: Reference architecture: SAP S/4HANA on Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:45:09.365662+00:00
+fetched_at: 2026-10-28T02:31:34.639847+00:00
 ---
 
 # Reference architecture: SAP S/4HANA on Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -317,7 +317,7 @@ SAP HANA directory | Recommended storage option in Google Cloud
   
 In distributed deployments, `/hana/shared` and `/hanabackup` can also be mounted as a network file system using an NFS solution such as Filestore. 
 
-For information about persistent disk storage that SAP has certified for use with SAP HANA, see [Persistent disk storage for SAP HANA](https://docs.cloud.google.com/sap/docs/certifications-sap-hana#persistent_disk_storage_for_sap_hana).
+For information about persistent disk storage that SAP has certified for use with SAP HANA, see [Persistent disk storage](https://docs.cloud.google.com/sap/docs/sap-hana-planning-guide#persistent_disk_storage).
 
   * Recommended storage options for Linux directory structure on SAP ABAP instance:
 
@@ -328,7 +328,7 @@ Directory | Recommended storage option in Google Cloud
   
 In distributed deployments, `/sapmnt` can also be mounted as a network file system using an NFS solution such as [Filestore](https://docs.cloud.google.com/filestore/docs). 
 
-For information about persistent disk storage that SAP has certified for use with SAP ABAP instances, see [Persistent disk storage for SAP applications](https://docs.cloud.google.com/sap/docs/certifications-sap-apps#persistent_disk_storage_for_sap_applications).
+For information about persistent disk storage that SAP has certified for use with SAP ABAP instances, see [Persistent disk storage](https://docs.cloud.google.com/sap/docs/netweaver-planning-guide#persistent_disk_storage).
 
 
 
@@ -716,6 +716,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-custom-mcp-server/
 title: Set up your custom MCP server data store \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:50.998716+00:00
+fetched_at: 2026-10-27T22:55:57.690216+00:00
 ---
 
 # Set up your custom MCP server data store  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -27,17 +27,29 @@ Send feedback
 
 This page explains how to connect your data sources using a custom Model Context Protocol (MCP) server, letting Gemini Enterprise securely access your company's private data.
 
-The custom MCP data store lets you integrate public tools, as well as MCP-compliant third-party systems, directly into Gemini Enterprise. This approach provides a unified method to connect legacy systems when standard connectors are unavailable. With this integration, your AI agents can access business-critical information and specialized logic within your infrastructure. 
+## Overview
+
+The custom MCP data store lets you integrate public and private tools, as well as MCP-compliant third-party systems, directly into Gemini Enterprise. This approach provides a unified method to connect legacy systems when standard connectors are unavailable. With this integration, your AI agents can access business-critical information and specialized logic within your infrastructure.
+
+Access to public MCP servers is routed through the Google-managed network. To enable Agent Gateway egress to your private network, the custom MCP server must be registered within your Gemini Enterprise app and configured to route private traffic through Agent Gateway (supported in `us-central1` and `europe-west1`).
 
 ## Limitations
 
 The custom MCP server has the following limitations:
 
-  * **Server-Sent Events (SSE)** : The old `SSE` transport is not supported. The connector exclusively supports the new `StreamableHTTP` transport.
-  * **TLS certificate requirement** : Both public and private MCP servers must be configured with a TLS certificate signed by a publicly trusted Certificate Authority (CA). Self-signed certificates are not supported.
-  * **Actions limit** : To ensure optimal performance, limit the number of enabled actions in your custom MCP server data store to 100 at a time. For more information, see Enable actions. 
-  * **Existing data stores** : Connecting to an existing data store is not supported. You must create and register a new custom MCP server data store directly within your Gemini Enterprise app.
+  * **Server-Sent Events (SSE)** : The older `SSE` transport isn't supported. The connector exclusively supports the newer `StreamableHTTP` transport.
+
+  * **TLS certificate requirement** : Configure custom MCP servers with a TLS certificate signed by a publicly trusted Certificate Authority (CA), with the following exception:
+
+    * **Private MCP servers with Agent Gateway** : If you route egress traffic through Agent Gateway, you can use private CAs or self-signed certificates by configuring custom TLS trust anchors (`tlsConfig`) in your [agent connectivity template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity#tls-certificate-requirements).
+  * **Actions limit** : To ensure optimal performance, limit the number of enabled actions in your custom MCP server data store to 100 at a time. For more information, see Enable actions.
+
+  * **Agent Gateway binding limit** : A Gemini Enterprise app binds to a single egress Agent Gateway, but multiple Gemini Enterprise apps can share the same Agent Gateway.
+
+  * **App-scoped creation** : You can't link a standalone Custom MCP server data store to a Gemini Enterprise app. Create the data store directly within your app under **Connected Data Stores**.
+
   * **VPC Service Controls** : Egress controls are enforced through organization policy constraints, such as `allowedEgressFqdns` and `allowedDataSources`, rather than runtime traffic enforcement. Custom MCP servers are supported in VPC Service Controls-enabled projects when you explicitly allow the required egress domains and data sources. For more information, see [Override the organization policy for Custom MCP data stores](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/override-constraint-for-custom-mcp-data-stores).
+
 
 
 
@@ -54,40 +66,40 @@ Before you set up your custom MCP server connection, ensure you perform the foll
 **Note:** You only need to add the domain name, not the full URL. For example, for an MCP server URL of `https://api.cymbal.com/mcp` with authorization and token URLs on `auth.cymbal.com`, allow both `api.cymbal.com` and `auth.cymbal.com`.
     * If project enforcement is enabled or the project is VPC Service Controls-protected, you must add `custom_mcp` to the allowed data sources. See [Configure allowed data sources](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/configure-allowed-data-sources).
 
+    * If you route egress traffic through Agent Gateway, ensure your project organization policy permits binding your Gemini Enterprise app to the gateway. For more information, see [Restrict Gemini Enterprise binding to approved Agent Gateways](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#restrict-ge).
 
+  * Optional: If your custom MCP server is hosted inside a private Virtual Private Cloud (VPC) network, complete the prerequisite network attachment, gateway, and firewall configurations. For details, see [Prerequisites to set up a custom MCP server data store with VPC connectivity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/set-up-vpc-custom-mcp-server).
 
-* Grant the **Discovery Engine Editor** role (`roles/discoveryengine.editor`). This role is required for your administrator to create the data store.
+  * Grant the **Discovery Engine Editor** role (`roles/discoveryengine.editor`). This role is required for your administrator to create the data store.
 
 To grant this role, do the following:
 
-  1. In the Google Cloud console, go to the **IAM** page.
+    1. In the Google Cloud console, go to the **IAM** page.
 
 [Go to IAM](https://console.cloud.google.com/iam-admin/iam)
 
-  2. Locate the user account, and click the edit **Edit** icon.
+    2. Locate the user account, and click the edit **Edit** icon.
 
-  3. Grant the `Discovery Engine Editor` role to your user. For more information, see [IAM roles and permissions](https://cloud.google.com/gemini/enterprise/docs/access-control).
+    3. Grant the **Discovery Engine Editor** role to your user. For more information, see [IAM roles and permissions](https://cloud.google.com/gemini/enterprise/docs/access-control).
 
-
-
-* Register Gemini Enterprise as an OAuth client application with your identity provider (for example, Okta, Azure AD, or Google).
+  * Register Gemini Enterprise as an OAuth client application with your identity provider (for example, Okta, Azure AD, or Google).
 
 To register the app, do the following:
 
-  1. Set the authorization redirect URL to `https://vertexaisearch.cloud.google.com/oauth-redirect`.
+    1. Set the authorization redirect URL to `https://vertexaisearch.cloud.google.com/oauth-redirect`.
 
-  2. Grant necessary OAuth scopes to the client app.
-
-
-
+    2. Grant necessary OAuth scopes to the client app.
 
 After you register the client app, obtain the `client_id` and `client_secret` that are needed for configuring the custom MCP server data store in the following steps.
 
-* If your custom MCP server is hosted on Cloud Run and requires authentication, grant the **Cloud Run Invoker** (`roles/run.invoker`) role to the service agent. For more information, see Set up authentication for a custom MCP server on Cloud Run.
+  * If your custom MCP server is hosted on Cloud Run and requires authentication, grant the **Cloud Run Invoker** (`roles/run.invoker`) role to the service agent. For more information, see Set up authentication for a custom MCP server on Cloud Run.
+
+
+
 
 ## Set up authentication for a custom MCP server on Cloud Run
 
-If your custom MCP server is hosted on Cloud Run and requires authentication, Gemini Enterprise can securely connect to private services that do not allow public access.
+If your custom MCP server is hosted on Cloud Run and requires authentication, Gemini Enterprise can securely connect to private services that don't allow public access.
 
 ### How authentication works
 
@@ -96,7 +108,7 @@ When you connect to a Cloud Run service, Gemini Enterprise automatically sends t
   * **`X-Serverless-Authorization`** : Contains a Google-signed ID token that authenticates the Gemini Enterprise service agent.
   * **`Authorization`** : Preserves the user's OAuth token intact.
 
-**Note** : Gemini Enterprise automatically sends the Google-signed ID token only when you connect to a default Cloud Run URL that ends in `.run.app`. The ID token is not sent if your service uses a custom domain.
+**Note** : Gemini Enterprise automatically sends the Google-signed ID token only when you connect to a default Cloud Run URL that ends in `.run.app`. Gemini Enterprise doesn't send the ID token if your service uses a custom domain.
 
 ### Grant access to the service agent
 
@@ -110,7 +122,7 @@ For instructions on how to grant IAM roles on a service, see [Authenticating ser
 
 ## Create the custom MCP server data store
 
-**Note:** By default, outbound traffic to your custom MCP server doesn't route through [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy) unless you configure egress routing in the **Advanced options** section.
+**Note:** By default, outbound traffic to your custom MCP server doesn't route through [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy) unless you select **Route egress through Agent Gateway** on the **MCP Server Configuration** page.
 
 To set up the configuration flow, follow these steps:
 
@@ -118,22 +130,62 @@ To set up the configuration flow, follow these steps:
 
 [Gemini Enterprise](https://console.cloud.google.com/gemini-enterprise/)
 
-  2. In the navigation menu, click **Data stores**.
+  2. In the navigation menu, click **Apps** , and then select the app that requires custom MCP data store connectivity.
 
-  3. Click add **Create data store**.
+  3. Click **Connected Data Stores**.
 
-  4. On the **Select a data source** page, enter _Custom MCP Server_ into the **Search sources** field. The **Custom MCP Server** card displays.
+  4. Click add **New data store**.
 
-  5. Click **Add MCP server**. The **MCP Server Configuration** page displays.
+  5. On the **Select a data source** page, enter _Custom MCP Server_ into the **Search sources** field. The **Custom MCP Server** card displays.
 
-  6. In the **Authentication settings** section, select one of the following options:
+  6. Click **Add MCP server**. The **MCP Server Configuration** page displays.
 
-     * **No authentication** : Select this option if your MCP server does not require authentication.
+  7. Optional: To route outbound traffic through Agent Gateway, select the **Route egress through Agent Gateway** checkbox. Select this option for either of the following scenarios:
 
-       1. Enter the **MCP Server URL**. This is the endpoint where your MCP server is hosted. It must be an HTTPS URL. Gemini Enterprise only supports the `StreamableHTTP` transport. The URL often ends with `/mcp`. For example, `https://mcp.example.com/mcp`.
+     * **Private network hosting** : You host your custom MCP server privately inside a VPC network.
+     * **Static IP egress** : You host your custom MCP server externally (such as on-premises or with a third-party provider) and require incoming requests to originate from reserved static IP addresses. Routing traffic through Agent Gateway into your VPC network lets you egress traffic through a gateway with fixed IP addresses, so you can configure IP-based firewall allowlists on your external server.
+**Note:** This setting only routes tool calls sent to your custom MCP server through Agent Gateway. Other traffic, such as AI model processing and document search, doesn't pass through the gateway. If you leave this checkbox unselected, Gemini Enterprise connects to your MCP server directly over the public internet.
 
-**Note** : If your server is hosted on Cloud Run, enter your default service URL ending in `.run.app`. Gemini Enterprise automatically sends a Google-signed ID token for IAM authentication.
-       2. Click **Continue**.
+In the **Engine resource name** field, enter the resource name of the engine that egress traffic routes to in the following format:
+    
+    projects/PROJECT_NUMBER/locations/LOCATION/collections/default_collection/engines/APP_ID
+    
+
+Replace the following:
+
+     * `PROJECT_NUMBER`: Your Google Cloud project number.
+     * `LOCATION`: The location of your app, such as `global`, `us`, or `eu`.
+     * `APP_ID`: The ID of your app.
+
+### How to obtain your engine resource name
+
+If you don't know your app's engine resource name, you can list the engines in your project using the Discovery Engine API:
+    
+    curl -s -X GET \
+    -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+    -H "X-Goog-User-Project: PROJECT_ID" \
+    "https://ENDPOINT_LOCATION-discoveryengine.googleapis.com/v1/projects/PROJECT_NUMBER/locations/LOCATION/collections/default_collection/engines" \
+    | jq -r '.engines[]? | "App Name: \(.displayName)\nEngine Resource Name: \(.name)\n"'
+
+Replace the following:
+
+     * `PROJECT_ID`: the ID of your project.
+     * `ENDPOINT_LOCATION`: the multi-region for your API request. Specify one of the following values: 
+       * `us` for the US multi-region
+       * `eu` for the EU multi-region
+       * `global` for the Global location
+For more information, see [Specify a multi-region for your data store](https://docs.cloud.google.com/gemini/enterprise/docs/locations#specify_a_multi-region_for_your_data_store). 
+     * `PROJECT_NUMBER`: the number of your Google Cloud project.
+     * `LOCATION`: the location of your app (such as `global`, `us`, or `eu`).
+
+Example output:
+    
+    App Name: Cymbal Math App
+    Engine Resource Name: projects/1234567890/locations/global/collections/default_collection/engines/chat-app-cymbal
+
+For more information, see [`projects.locations.collections.engines.list`](https://docs.cloud.google.com/gemini/enterprise/docs/reference/rest/v1/projects.locations.collections.engines/list).
+
+  8. In the **Authentication settings** section, select one of the following options:
 
      * **OAuth 2.0** : Select this option to add authentication.
 
@@ -141,44 +193,56 @@ To set up the configuration flow, follow these steps:
 
 Field | Description  
 ---|---  
-**MCP Server URL** | This is the endpoint where your MCP server is hosted. It must be an HTTPS URL. Gemini Enterprise only supports the `StreamableHTTP` transport. The URL often ends with `/mcp`. For example, `https://mcp.example.com/mcp`. **Note** : If your server is hosted on Cloud Run, enter your default service URL ending in `.run.app`. Gemini Enterprise automatically sends a Google-signed ID token for IAM authentication.  
-**Authorization URL** | The base URL for the user to authorize Gemini Enterprise to access your MCP server. For example, `https://mcp.example.com/authorize`. **Note** : Enter only the base URL, without query parameters. Gemini Enterprise automatically appends standard OAuth parameters (such as `client_id`, `redirect_uri`, and `scope`) during authorization. If your authorization server requires additional parameters, specify them in the **Authorization URL Parameters** field.  
+**MCP Server URL** | This is the endpoint where your MCP server is hosted. It must be an HTTPS URL. Gemini Enterprise only supports the `StreamableHTTP` transport. The URL often ends with `/mcp`. For example, `https://mcp.cymbal.com/mcp`. **Note** : If your server is hosted on Cloud Run, enter your default service URL ending in `.run.app`. Gemini Enterprise automatically sends a Google-signed ID token for IAM authentication.  
+**Authorization URL** | The base URL for the user to authorize Gemini Enterprise to access your MCP server. For example, `https://mcp.cymbal.com/authorize`. **Note** : Enter only the base URL, without query parameters. Gemini Enterprise automatically appends standard OAuth parameters (such as `client_id`, `redirect_uri`, and `scope`) during authorization. If your authorization server requires additional parameters, specify them in the **Authorization URL Parameters** field.  
 **Authorization URL Parameters** | Optional. Any additional parameters required by your authorization URL. For example, to get a refresh token from a Google MCP server, enter `&access_type=offline&prompt=consent`.   
   
-If your authorization server requires an `audience` parameter, you can add it as a parameter in this setting. For example, `&audience=https://api.your-domain.com/v1/`.   
+If your authorization server requires an `audience` parameter, you can add it as a parameter in this setting. For example, `&audience=https://api.cymbal.com/v1/`.   
 **Token URL** |  The endpoint used to exchange the authorization code for an access token during OAuth authentication. For example, `https://mcp.cymbal.com/token`.   
 **Client ID** | The unique identifier of the OAuth app that you registered in your identity provider to represent Gemini Enterprise.  
-**Enable PKCE Support** |  Optional. Select this checkbox to enable Proof Key for Code Exchange (PKCE, RFC 7636) for additional OAuth security. We recommend this setting if your MCP server's OAuth provider supports PKCE.   
 **Client Secret** |  The confidential key associated with the OAuth app that you registered in your identity provider to represent Gemini Enterprise.   
-**Scopes** | The permissions that define what actions Gemini Enterprise is allowed to perform on behalf of a user, or what data it's allowed to access. The scopes are used to access the MCP server. Gemini Enterprise requests these scopes during user authorization. Ensure that your OAuth app is configured to use these scopes.   
+**Scopes** | The permissions that define what actions Gemini Enterprise can perform on behalf of a user, or what data it can access on the MCP server. Gemini Enterprise requests these scopes during user authorization. Configure your OAuth app to support these scopes.   
   
 When you specify scopes, consider the following: 
           * Provide a space-separated list of scopes. For example, for Box, you provide: `root_readwrite manage_managed_users manage_groups`.
-          * Ensure the scopes provided are sufficient to let the user sign in and use the tools or actions enabled by the administrator; otherwise, the agent cannot access your app.
+          * Ensure the scopes provided are sufficient to let the user sign in and use the tools or actions enabled by the administrator; otherwise, the agent can't access your app.
           * A common scope is `offline_access`, which lets the app request a refresh token.  
+**Enable PKCE Support** |  Optional. Select this checkbox to enable Proof Key for Code Exchange (PKCE, RFC 7636) for additional OAuth security. Enable this setting if your MCP server's OAuth provider supports PKCE.   
+**Use HTTP Basic Authentication** |  Optional. Selected by default. Sends the client ID and client secret in the HTTP `Authorization` header using Basic authentication instead of in the token request body.   
        2. Click **Verify Auth**.
 
        3. Click **Continue**.
 
+     * **No authentication** : Select this option if your MCP server doesn't require authentication.
 
+       1. Enter the **MCP Server URL**. This is the endpoint where your MCP server is hosted. It must be an HTTPS URL. Gemini Enterprise only supports the `StreamableHTTP` transport. The URL often ends with `/mcp`. For example, `https://mcp.cymbal.com/mcp`.
 
-  1. Click **Continue**.
+**Note** : If your server is hosted on Cloud Run, enter your default service URL ending in `.run.app`. Gemini Enterprise automatically sends a Google-signed ID token for IAM authentication.
+       2. Click **Continue**.
 
-  2. In the **Configure your data connector** section, select the **Location of your data connector** from the **Multi-region** field list.
+  9. Optional: In the **Advanced options** section, in the **MCP Server Description** field, describe what the MCP server does and how users can use it.
 
-  3. In **Your data connector name** field, enter a name for your data store.
+  10. Click **Continue**.
 
-  4. Click **Create**. Gemini Enterprise creates your data store and displays your data stores on the Data Stores page.
+  11. In the **Configure your data connector** section, select the **Location of your data connector** from the **Multi-region** field list.
+
+  12. In the **Your data connector name** field, enter a name for your data store.
+
+  13. Optional: In the **Tag** field, enter a tag to uniquely identify this data connector across versions. This tag is immutable after you create it.
+
+  14. Optional: In the **Sensitive data protection policy** field, enter the resource path of a Sensitive Data Protection policy to inspect and mask sensitive data in requests. Use the following format: `projects/PROJECT_ID/locations/LOCATION/contentPolicies/POLICY_ID`.
+
+  15. Click **Create**. Gemini Enterprise creates your data store and displays your data stores on the **Connected Data Stores** page.
 
 **Note:** By default, no tools or actions from your custom MCP servers are enabled. You must enable the tools or actions. For more information, see Enable actions.
 
 
 
-**Verify the state of the custom MCP server**
+### Verify the state of the custom MCP server
 
 To verify the state of the custom MCP server, do the following:
 
-  1. Click your data store in the **Data stores** list. The details of your data store display.
+  1. Click your data store in the **Connected Data Stores** list. The details of your data store display.
 
   2. Monitor the state of your data store until it changes to `Active`. After the state of your data store changes from `Creating` to `Active`, your custom MCP server data store is ready to be used.
 
@@ -208,7 +272,7 @@ When tools from your MCP server are imported as actions into the Gemini Enterpri
 
 If your server provides read-only functionality (such as querying a database) and you want to skip this confirmation for a smoother user experience, you can configure annotations in the specifications of your MCP tools before they are imported as actions.
 
-We recommend configuring the following annotations in your MCP tool definitions to manage user confirmation for data store actions:
+To manage user confirmation for data store actions, configure the following annotations in your MCP tool definitions:
 
   * `readOnlyHint`: Add this annotation to your tool definition if the operation is non-destructive and only reads data. The tool execution bypasses user confirmation.
   * `destructiveHint`: Explicitly use this annotation if the tool modifies data. This maintains the default confirmation behavior.
@@ -240,7 +304,6 @@ To minimize response latency and prevent request timeouts when using a custom MC
 
   * To protect against malicious inputs and outputs, enable Model Armor. For more information, see [Enable Model Armor](https://docs.cloud.google.com/gemini/enterprise/docs/enable-model-armor).
   * If you want to query your MCP server using a custom agent, instead of the Gemini Enterprise assistant, see [Create an agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/create-chat-agent).
-  * If the data store is not connected to an app, see [Connect a data store to app and authorize Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-existing-data-store).
   * To use your agent that's connected to your custom MCP server, see [Use an agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent).
   * To display source citation chips when Gemini Enterprise answers a question using tools on your custom MCP server, see [Configure citations for custom MCP data stores](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/custom-mcp-server/configure-citations-for-custom-mcp-data-stores).
 
@@ -250,6 +313,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

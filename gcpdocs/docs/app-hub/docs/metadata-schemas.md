@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-hub/docs/metadata-schemas/
 title: Extended metadata schemas \u00a0|\u00a0 App Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:41:55.292088+00:00
+fetched_at: 2026-10-27T21:40:17.695254+00:00
 ---
 
 # Extended metadata schemas  |  App Hub  |  Google Cloud Documentation
@@ -25,11 +25,7 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This page provides a catalog of the supported schemas for the extended metadata [property](https://docs.cloud.google.com/app-hub/docs/overview#properties-and-attributes) on services and workloads. Extended metadata adds rich, structured data to App Hub application components, providing context for governance, operations, and integration with other systems.
-
-Each schema is identified by a unique key and defines the structure and fields for a specific type of metadata.
-
-To learn how to visualize this metadata, see [View extended metadata schemas](https://docs.cloud.google.com/app-hub/docs/modify-app-hub-resources#view-schemas).
+App Hub automatically adds [extended metadata](https://docs.cloud.google.com/app-hub/docs/overview#properties-and-attributes) to some services and workloads to improve discoverability, governance, and integration with other systems. A unique key identifies each supported schema and defines the structure and fields for a specific type of metadata. To view this metadata, see [View extended metadata schemas](https://docs.cloud.google.com/app-hub/docs/modify-app-hub-resources#view-schemas).
 
 ## `apphub.googleapis.com/AgentProperties`
 
@@ -129,6 +125,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

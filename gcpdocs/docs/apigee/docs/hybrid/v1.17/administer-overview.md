@@ -1,14 +1,37 @@
 ---
 url: https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/
 title: Hybrid administration overview \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-24T10:31:33.190251+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T17:58:36.577670+00:00
 ---
 
 # Hybrid administration overview  |  Apigee  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/
 
+[ Skip to main content ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/)
+  * [Deutsch](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview/?hl=ko)
+
+Sign in
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/apigee-color.svg) ](https://docs.cloud.google.com/apigee/docs)
+  * [ Apigee ](https://docs.cloud.google.com/apigee/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Application development ](https://docs.cloud.google.com/docs/application-development)
@@ -16,23 +39,17 @@ fetched_at: 2026-10-24T10:31:33.190251+00:00
   * [ Guides ](https://docs.cloud.google.com/apigee/docs/api-platform/get-started/what-apigee)
 
 
-
+Was this helpful?
 Send feedback 
-
-#  Hybrid administration overview Stay organized with collections  Save and categorize content based on your preferences. 
-
+#  Hybrid administration overview Stay organized with collections  Save and categorize content based on your preferences.
 Version 1.17 (latest)keyboard_arrow_down
-
 Supported versions:
-
   * [ v1.17 (latest) ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/administer-overview.html)
   * [ v1.16 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.16/administer-overview.html)
   * [ v1.15 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.15/administer-overview.html)
   * [ v1.14 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.14/administer-overview.html)
   * [ List of supported versions ](https://docs.cloud.google.com/apigee/docs/hybrid/supported-platforms#supported-versions)
-
 Unsupported versions:
-
   * [ v1.13 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.13/administer-overview.html)
   * [ v1.12 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.12/administer-overview.html)
   * [ v1.11 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.11/administer-overview.html)
@@ -48,21 +65,16 @@ Unsupported versions:
   * [ v1.1 ](https://docs.cloud.google.com/apigee/docs/hybrid/v1.1/administer-overview.html)
 
 
-
-This section describes common tasks that you perform during operation and administration of your Apigee hybrid cluster. These tasks include:
-
-Section | Description  
----|---  
-data_usage | **[Data collection](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/data-collection-overview)** | Describes the primary types of data: metrics, logs, analytics, and deployment status. This section also describes how the data are collected and how you can access the collected data.  
-apps | **[Runtime services](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/service-config)** | Explains how to manage the hybrid runtime plane components running in your cluster.   
-settings | **[Cluster management](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/cluster-overview)** | Explains how to configure multi-region clusters, scale services, configure environments, and perform other administration tasks.  
-** quick_reference ** | **[Configuration property reference](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/config-prop-ref)** | Provides a reference of the overrides properties you can use to manage the hybrid runtime plane components.   
-** service_toolbox ** | **[Helm charts reference](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/helm-reference)** | Provides an overview and reference of Helm charts, the tool you will use to manage the hybrid runtime plane components.   
-  
+This section describes common tasks that you perform during operation and administration of your Apigee hybrid cluster. These tasks include:  
+| Section  | Description  |  
+| --- | --- |  
+| data_usage  | **[Data collection](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/data-collection-overview)**  | Describes the primary types of data: metrics, logs, analytics, and deployment status. This section also describes how the data are collected and how you can access the collected data.  |  
+| apps  | **[Runtime services](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/service-config)**  | Explains how to manage the hybrid runtime plane components running in your cluster.   |  
+| settings  | **[Cluster management](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/cluster-overview)**  | Explains how to configure multi-region clusters, scale services, configure environments, and perform other administration tasks.  |  
+| ** quick_reference **  | **[Configuration property reference](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/config-prop-ref)**  | Provides a reference of the overrides properties you can use to manage the hybrid runtime plane components.   |  
+| ** service_toolbox **  | **[Helm charts reference](https://docs.cloud.google.com/apigee/docs/hybrid/v1.17/helm-reference)**  | Provides an overview and reference of Helm charts, the tool you will use to manage the hybrid runtime plane components.   |  
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-24 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

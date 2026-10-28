@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/omni-azure-create-connection/
 title: Connect to Blob Storage \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:27:01.152418+00:00
+fetched_at: 2026-10-27T19:30:14.758329+00:00
 ---
 
 # Connect to Blob Storage  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Connect to Blob Storage
 
-As a BigQuery administrator, you can create a [connection](https://docs.cloud.google.com/bigquery/docs/connections-api-intro) to let data analysts access data stored in Azure Blob Storage.
+An Azure [connection](https://docs.cloud.google.com/bigquery/docs/connections-api-intro) in BigQuery lets users [query data stored in Azure Blob Storage](https://docs.cloud.google.com/bigquery/docs/omni-azure-create-external-table) and [export query results to Blob Storage](https://docs.cloud.google.com/bigquery/docs/omni-azure-export-results-to-azure-storage). You can create a connection so that [BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction) can securely access your Blob Storage data.
 
-[BigQuery Omni](https://docs.cloud.google.com/bigquery/docs/omni-introduction) accesses Blob Storage data through connections. BigQuery Omni supports [Azure workload identity federation](https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation). BigQuery Omni support of Azure workload identity federation lets you grant access for an Azure application in your tenant to a Google service account. There are no application client secrets to be managed by you or Google.
-
-After you create a BigQuery Azure connection, you can either [query the Blob Storage data](https://docs.cloud.google.com/bigquery/docs/omni-azure-create-external-table) or [export query results to Blob Storage](https://docs.cloud.google.com/bigquery/docs/omni-azure-export-results-to-azure-storage).
+BigQuery Omni supports [Azure workload identity federation](https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation), which lets you grant access for an Azure application in your tenant to a Google service account without managing application client secrets.
 
 ## Before you begin
 
@@ -530,6 +528,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

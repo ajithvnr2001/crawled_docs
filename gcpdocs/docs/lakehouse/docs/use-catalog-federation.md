@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/use-catalog-federation/
 title: Query BigQuery tables through the Apache Iceberg REST catalog endpoint \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:31.669558+00:00
+fetched_at: 2026-10-28T00:17:49.839016+00:00
 ---
 
 # Query BigQuery tables through the Apache Iceberg REST catalog endpoint  |  Lakehouse  |  Google Cloud Documentation
@@ -41,9 +41,9 @@ The workflow operates as follows:
 
 ### Considerations
 
-  * Because routing requests to the BigQuery catalog does not create a dedicated Lakehouse catalog resource, other catalog-level concepts and configurations—such as the resource hierarchy, bucket and catalog regions, and the four-part P.C.N.T naming structure—do not apply to this method. In the underlying API, this corresponds to the `CATALOG_TYPE_BIGQUERY` configuration. Note that storage access delegation (credential vending) is not supported for federated BigQuery catalogs.
+  * Because routing requests to the BigQuery catalog does not create a dedicated Lakehouse catalog resource, other catalog-level concepts and configurations—such as the resource hierarchy, bucket and catalog regions, and the four-part P.C.N.T naming structure—do not apply to this method. In the underlying API, this corresponds to the `CATALOG_TYPE_BIGQUERY` configuration. Storage access delegation (credential vending) isn't supported when routing requests to the BigQuery catalog.
 
-  * Exposing BigQuery tables through the REST catalog endpoint is distinct from the cross-cloud data access capability of _borderless Lakehouse_. While this workflow exposes Google Cloud tables to external OSS engines, Lakehouse connects Google Cloud to remote external catalogs, such as Databricks Unity Catalog, to query data stored in other cloud providers directly from BigQuery and OSS engines without migrating data. For more information about that workflow, see [About cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access).
+  * Exposing BigQuery tables through the REST catalog endpoint is distinct from accessing cross-cloud data. While this workflow exposes Google Cloud tables to external OSS engines, Lakehouse connects Google Cloud to remote external catalogs, such as Databricks Unity Catalog, to query data stored in other cloud providers directly from BigQuery and OSS engines without migrating data. For more information about that workflow, see [About cross-cloud data access](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access).
 
 
 
@@ -52,9 +52,9 @@ The workflow operates as follows:
 
 Exposing BigQuery tables through the REST catalog endpoint differs from workflows where the Lakehouse runtime catalog uses the [Apache Iceberg REST catalog endpoint](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog) in the following ways:
 
-  * **Resource management and catalog storage** : Federated tables reside in the BigQuery catalog as BigQuery REST resources, and the Lakehouse runtime catalog acts as a proxy gateway. When the Lakehouse runtime catalog uses the Apache Iceberg REST catalog endpoint, tables are stored directly within the catalog as Lakehouse REST resources.
-  * **Access control** : Federated tables use BigQuery IAM permissions and access control lists (ACLs). When the Lakehouse runtime catalog uses the Apache Iceberg REST catalog endpoint, tables use Lakehouse ACLs.
-  * **Engine read and write capabilities** : Federated tables provide read-write access through BigQuery, but read-only access from external engines such as Spark. When the Lakehouse runtime catalog uses the Apache Iceberg REST catalog endpoint, tables support read-write operations from both BigQuery APIs and external engines such as Spark.
+  * **Resource management and catalog storage** : Tables in the BigQuery catalog reside there as BigQuery REST resources, and the Lakehouse runtime catalog acts as a proxy gateway. When the Lakehouse runtime catalog uses the Apache Iceberg REST catalog endpoint to manage tables directly, those tables are stored as Lakehouse REST resources.
+  * **Access control** : Tables in the BigQuery catalog use BigQuery IAM permissions and access control lists (ACLs). Tables managed directly in the Lakehouse runtime catalog use Lakehouse ACLs.
+  * **Engine read and write capabilities** : Iceberg managed tables provide read-write access through BigQuery, and read-only access from external engines such as Spark. Tables managed directly in the Lakehouse runtime catalog through the Apache Iceberg REST catalog endpoint support read-write operations from both BigQuery and external engines such as Spark.
 
 
 
@@ -80,15 +80,17 @@ To get the permissions that you need to query BigQuery tables through the Apache
   * Read catalog resources and query table data: 
     * [BigLake Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/biglake#biglake.viewer) (`roles/biglake.viewer`) on the project
     * [Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectViewer) (`roles/storage.objectViewer`) on the Cloud Storage bucket
-  * Perform data manipulation language (DML) operations: 
+  * Create namespaces or modify external-engine-created tables: 
     * [BigQuery Data Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/bigquery#bigquery.dataEditor) (`roles/bigquery.dataEditor`) on the project
-    * [Storage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) (`roles/storage.admin`) on the Cloud Storage bucket. If you use query engines such as Managed Service for Apache Spark to perform DML operations, grant these roles to the service account that you use to run jobs in that engine.
+    * [Storage Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.admin) (`roles/storage.admin`) on the Cloud Storage bucket
 
 
 
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
 
 You might also be able to get the required permissions through [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+If you use external query engines such as Managed Service for Apache Spark to create namespaces or modify tables created from external engines, grant these roles to the service account that runs jobs in that engine (Iceberg managed tables are read-only from external engines).
 
 ## Configure your client for the BigQuery warehouse
 
@@ -98,7 +100,7 @@ You can also choose to include a BigQuery location to restrict future requests t
 
 Because these resources are managed by BigQuery, you must have the applicable [required permissions](https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery#required-roles).
 
-### Create namespaces for federated tables
+### Create namespaces in the BigQuery warehouse
 
 After you configure your client, you can create a namespace for your tables.
 
@@ -135,9 +137,9 @@ Replace the following:
 
 
 
-## Query federated tables in BigQuery
+## Query tables in BigQuery
 
-Tables that you create under a federated catalog are visible in BigQuery and can be queried directly using standard BigQuery SQL (without needing a four-part P.C.N.T name):
+Tables that you create in the BigQuery warehouse are visible in BigQuery and can be queried directly using standard BigQuery SQL (without needing a four-part P.C.N.T name):
     
     
     SELECT * FROM `NAMESPACE_NAME.TABLE_NAME`;
@@ -160,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

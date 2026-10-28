@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/geospatial-visualize-colab/
 title: Visualize geospatial analytics data using a Colab notebook \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:23:35.607271+00:00
+fetched_at: 2026-10-27T21:57:36.872184+00:00
 ---
 
 # Visualize geospatial analytics data using a Colab notebook  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Visualize geospatial analytics data using a Colab notebook Stay organized with collections  Save and categorize content based on your preferences. 
 
-In this tutorial, you visualize geospatial analytics data from BigQuery by using a Colab notebook.
-
-This tutorial uses the following BigQuery [public datasets](https://docs.cloud.google.com/bigquery/public-data):
+Visualizing geospatial analytics data in a Colab notebook lets you explore your location data with familiar Python data science tools. In this tutorial, you query the following public datasets directly from your notebook to uncover geographic patterns by rendering interactive scatter plots, polygons, choropleth maps, and heatmaps:
 
   * [San Francisco Ford GoBike Share](https://console.cloud.google.com/bigquery\(cameo:product/san-francisco-public-data/sf-bike-share\))
   * [San Francisco Neighborhoods](https://console.cloud.google.com/bigquery?ws=!1m4!1m3!3m2!1sbigquery-public-data!2ssan_francisco_neighborhoods)
@@ -32,15 +30,6 @@ This tutorial uses the following BigQuery [public datasets](https://docs.cloud.g
 
 
 For information on accessing these public datasets, see [Access public datasets in the Google Cloud console](https://docs.cloud.google.com/bigquery/public-data#public-ui).
-
-You use the public datasets to create the following visualizations:
-
-  * A **scatter plot** of all bike share stations from the Ford GoBike Share dataset
-  * **Polygons** in the San Francisco Neighborhoods dataset
-  * A **choropleth map** of the number of bike share stations by neighborhood
-  * A **heatmap** of incidents from the San Francisco Police Department Reports dataset
-
-
 
 ## Objectives
 
@@ -841,6 +830,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

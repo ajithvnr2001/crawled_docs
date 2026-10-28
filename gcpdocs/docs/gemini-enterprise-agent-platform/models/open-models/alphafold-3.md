@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/alphafold-3/
 title: AlphaFold 3 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:33.321152+00:00
+fetched_at: 2026-10-28T02:27:52.137412+00:00
 ---
 
 # AlphaFold 3  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -115,7 +115,7 @@ The following is a sample Python snippet that shows how to deploy the model in a
     
     import google.auth
     from google.auth.transport.requests import AuthorizedSession
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai import model_garden
     
     PROJECT_ID = "YOUR_PROJECT_ID"
@@ -123,7 +123,7 @@ The following is a sample Python snippet that shows how to deploy the model in a
     MODEL_ID = "google/alphafold3@v3_0_4"
     MACHINE_TYPE = "a3-highgpu-1g"
     
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location=LOCATION)
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location=LOCATION)
     
     # 1. Deploy Model Garden OpenModel to Dedicated Endpoint
     af3_model = model_garden.OpenModel(MODEL_ID)
@@ -157,7 +157,7 @@ The following is a sample Python snippet that shows how to deploy the model in a
             }
         }
     }
-    response = [session](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest/vertexai._genai.types.GenerateMemoriesRequestVertexSessionSourceDict.html#vertexai__genai_types_GenerateMemoriesRequestVertexSessionSourceDict_session).post(url, json=payload)
+    response = [session](https://docs.cloud.google.com/python/docs/reference/vertexai/latest/vertexai._genai.types.GenerateMemoriesRequestVertexSessionSourceDict.html#vertexai__genai_types_GenerateMemoriesRequestVertexSessionSourceDict_session).post(url, json=payload)
     response.raise_for_status()
     print(f"Endpoint Resource Name: {endpoint.resource_name}")
     
@@ -626,7 +626,7 @@ The following is a Python example of how to retrieve saved artifacts from Cloud 
     JOB_NAME = "my_alphafold_job"
     STORAGE_PREFIX = f"af3_results/my_folder/{JOB_NAME}"
     
-    # Initialize GCS client
+    # Initialize Cloud Storage client
     client = [storage](https://docs.cloud.google.com/python/docs/reference/storage/latest).[Client](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html)(project="your-project-id")
     bucket = client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(BUCKET_NAME)
     
@@ -747,6 +747,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

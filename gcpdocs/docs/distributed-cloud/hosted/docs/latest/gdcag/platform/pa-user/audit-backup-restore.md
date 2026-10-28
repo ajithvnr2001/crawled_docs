@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/audit-backup-restore/
 title: Secure and restore audit logs \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:39:40.926122+00:00
+fetched_at: 2026-10-27T22:37:19.400576+00:00
 ---
 
 # Secure and restore audit logs  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,11 +22,7 @@ Send feedback
 
 #  Secure and restore audit logs Stay organized with collections  Save and categorize content based on your preferences. 
 
-Backups ensure that audit logs are preserved even if the original data is lost or corrupted, helping meet requirements and letting you recover information in case of system failures or accidental deletions. Restored audit logs provide access to historical data, enabling analysis of past events, security incidents, and user activity.
-
-Implementing a backup and restore process for audit logs is beneficial for maintaining data integrity, ensuring compliance, and enabling historical analysis.
-
-You can secure audit logs from your Google Distributed Cloud (GDC) air-gapped environment in remote backup buckets to preserve and restore data when necessary. This process is handled by Infrastructure Operators (IOs) who install and configure the necessary components to recover historical audit logs from those backups.
+Audit log backups in Google Distributed Cloud (GDC) air-gapped preserve historical records in remote storage buckets for compliance, security analysis, and disaster recovery. To back up or restore platform audit logs, identify your source log bucket and share its endpoint and credentials with your [infrastructure operator (IO)](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences). Your IO installs and configures the components required to transfer and recover historical audit logs from remote backups.
 
 ## Identify the source bucket
 
@@ -48,6 +44,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

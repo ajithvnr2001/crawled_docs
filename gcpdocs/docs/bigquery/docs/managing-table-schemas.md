@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-table-schemas/
 title: Modifying table schemas \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:01.576895+00:00
+fetched_at: 2026-10-27T19:54:02.085561+00:00
 ---
 
 # Modifying table schemas  |  BigQuery  |  Google Cloud Documentation
@@ -598,7 +598,7 @@ Enter the `load` command as follows:
 
 Replace the following:
 
-  * `LOCATION`: the name of your location. The `--location` flag is optional. For example, if you are using BigQuery in the Tokyo region, set the flag's value to `asia-northeast1`. You can set a default value for the location using the [.bigqueryrc file](https://docs.cloud.google.com/bigquery/docs/bq-command-line-tool#setting_default_values_for_command-line_flags).
+  * `LOCATION`: the name of your location. The `--location` flag is optional. For example, if you are using BigQuery in the Tokyo region, set the flag's value to `asia-northeast1`. You can set a default value for the location using the [.bigqueryrc file](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference#set_default_values_for_command-line_flags).
   * `FORMAT`: the format of the schema. `NEWLINE_DELIMITED_JSON`, `CSV`, `AVRO`, `PARQUET`, `ORC`, or `DATASTORE_BACKUP`.
   * `PROJECT_ID`: your project ID.
   * `DATASET`: the name of the dataset that contains the table you're updating.
@@ -958,7 +958,7 @@ If the table you're appending is in a dataset in a project other than your defau
 
 Replace the following:
 
-  * `LOCATION`: the name of your location. The `--location` flag is optional. For example, if you are using BigQuery in the Tokyo region, set the flag's value to `asia-northeast1`. You can set a default value for the location using the [.bigqueryrc file](https://docs.cloud.google.com/bigquery/docs/bq-command-line-tool#setting_default_values_for_command-line_flags). Note that you cannot append query results to a table in another location.
+  * `LOCATION`: the name of your location. The `--location` flag is optional. For example, if you are using BigQuery in the Tokyo region, set the flag's value to `asia-northeast1`. You can set a default value for the location using the [.bigqueryrc file](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference#set_default_values_for_command-line_flags). Note that you cannot append query results to a table in another location.
   * `PROJECT_ID`: your project ID.
   * `dataset`: the name of the dataset that contains the table you're appending.
   * `TABLE`: the name of the table you're appending.
@@ -1806,7 +1806,7 @@ Enter the `load` command as follows:
 
 Replace the following:
 
-  * `LOCATION`: the name of your location. The `--location` flag is optional. For example, if you are using BigQuery in the Tokyo region, set the flag's value to `asia-northeast1`. You can set a default value for the location using the [.bigqueryrc file](https://docs.cloud.google.com/bigquery/docs/bq-command-line-tool#setting_default_values_for_command-line_flags).
+  * `LOCATION`: the name of your location. The `--location` flag is optional. For example, if you are using BigQuery in the Tokyo region, set the flag's value to `asia-northeast1`. You can set a default value for the location using the [.bigqueryrc file](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference#set_default_values_for_command-line_flags).
   * `FORMAT`: `NEWLINE_DELIMITED_JSON`, `CSV`, `PARQUET`, `ORC`, or `AVRO`. `DATASTORE_BACKUP` files don't require column relaxation. The columns in tables created from Datastore export files are always `NULLABLE`.
   * `PROJECT_ID`: your project ID.
   * ``dataset is the name of the dataset that contains the table.
@@ -2160,7 +2160,7 @@ If the table you're appending is in a dataset in a project other than your defau
 
 Replace the following:
 
-  * `LOCATION`: the name of your location. The `--location` flag is optional. For example, if you are using BigQuery in the Tokyo region, set the flag's value to `asia-northeast1`. You can set a default value for the location using the [.bigqueryrc file](https://docs.cloud.google.com/bigquery/docs/bq-command-line-tool#setting_default_values_for_command-line_flags).
+  * `LOCATION`: the name of your location. The `--location` flag is optional. For example, if you are using BigQuery in the Tokyo region, set the flag's value to `asia-northeast1`. You can set a default value for the location using the [.bigqueryrc file](https://docs.cloud.google.com/bigquery/docs/reference/bq-cli-reference#set_default_values_for_command-line_flags).
   * `PROJECT_ID`: your project ID.
   * `DATASET`: the name of the dataset that contains the table you're appending.
   * `TABLE`: the name of the table you're appending.
@@ -2562,6 +2562,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

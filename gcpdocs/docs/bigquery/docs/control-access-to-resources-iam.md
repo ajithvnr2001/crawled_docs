@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam/
 title: Control access to resources with IAM \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:24.373995+00:00
+fetched_at: 2026-10-27T19:38:24.279223+00:00
 ---
 
 # Control access to resources with IAM  |  BigQuery  |  Google Cloud Documentation
@@ -21,13 +21,13 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Control access to resources with IAM
 
-This document describes how to view, grant, and revoke access controls for BigQuery datasets and for the resources within datasets: tables, views, and routines. Although models are also dataset-level resources, you cannot grant access to individual models using IAM roles.
+To help secure BigQuery datasets and their underlying resources, you can view, grant, and revoke access controls for datasets, tables, views, and routines. Although models are also dataset-level resources, you can't grant access to individual models using Identity and Access Management (IAM) roles.
 
-You can grant access to Google Cloud resources by using _allow policies_ , also known as _Identity and Access Management (IAM) policies_ , which are attached to resources. You can attach only one allow policy to each resource. The allow policy controls access to the resource itself, as well as any descendants of that resource that [inherit the allow policy](https://docs.cloud.google.com/iam/docs/allow-policies#inheritance).
+You can grant access to Google Cloud resources by using _allow policies_ , also known as _IAM policies_ , which are attached to resources. You can attach only one allow policy to each resource. The allow policy controls access to the resource itself, as well as to any descendants of that resource that [inherit the allow policy](https://docs.cloud.google.com/iam/docs/allow-policies#inheritance).
 
 For more information on allow policies, see [Policy structure](https://docs.cloud.google.com/iam/docs/allow-policies#structure) in the IAM documentation.
 
-This document assumes familiarity with the [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) in Google Cloud.
+This document assumes familiarity with [IAM](https://docs.cloud.google.com/iam/docs/overview) in Google Cloud.
 
 ## Limitations
 
@@ -2968,7 +2968,7 @@ To deny access to these resources, add one of the following values to the [`deni
 Value | Use case  
 ---|---  
 `principalSet://goog/public:all` |  Blocks all principals, including BigQuery resources.   
-`principalSet://bigquery.googleapis.com/projects/PROJECT_NUMBER/*` | Blocks all BigQuery authorized resources in the specified project. [`PROJECT_NUMBER`](https://docs.cloud.google.com/resource-manager/docs/view-update-projects#identifying_projects) is an automatically generated unique identifier for your project of type `INT64`.  
+`principalSet://bigquery.googleapis.com/projects/PROJECT_NUMBER/*` | Blocks all BigQuery authorized resources in the specified project. [`PROJECT_NUMBER`](https://docs.cloud.google.com/resource-manager/docs/view-update-projects) is an automatically generated unique identifier for your project of type `INT64`.  
   
 For a list of allowed principals, see [Principal identifiers for deny policies](https://docs.cloud.google.com/iam/docs/principal-identifiers#deny).
 
@@ -2984,7 +2984,7 @@ Format | Description
   
 Replace the following:
 
-    * `PROJECT_NUMBER`: Your [Google Cloud project number](https://docs.cloud.google.com/resource-manager/docs/view-update-projects#identifying_projects).
+    * `PROJECT_NUMBER`: Your [Google Cloud project number](https://docs.cloud.google.com/resource-manager/docs/view-update-projects).
     * `DATASET_ID`: The [ID of the dataset](https://docs.cloud.google.com/bigquery/docs/listing-datasets).
   * BigQuery [caches query results](https://docs.cloud.google.com/bigquery/docs/cached-results#how_cached_results_are_stored) of a job owner for 24 hours, which the job owner can access without needing the `bigquery.tables.getData` permission on the table containing the data. Hence, adding an IAM deny policy to the `bigquery.tables.getData` permission doesn't block access to cached results for the job owner until the cache expires. To block the job owner access to cached results, create a separate deny policy on the `bigquery.jobs.create` permission.
 
@@ -3009,6 +3009,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

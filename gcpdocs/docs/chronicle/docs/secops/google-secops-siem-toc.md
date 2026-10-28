@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/google-secops-siem-toc/
 title: SIEM table of contents \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:43:56.645368+00:00
+fetched_at: 2026-10-28T02:29:34.161158+00:00
 ---
 
 # SIEM table of contents  |  Google Security Operations  |  Google Cloud Documentation
@@ -23,303 +23,249 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 Click ![siem](https://docs.cloud.google.com/static/chronicle/images/siem.png) at the top of each SIEM document to return to this table of contents.
 
-## Google SecOps SIEM
+## Get started
 
-[Product overview](https://docs.cloud.google.com/chronicle/docs/overview)
+[SIEM platform overview](https://docs.cloud.google.com/chronicle/docs/overview)
 
-[Sign in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui)
+[Log in to Google SecOps](https://docs.cloud.google.com/chronicle/docs/log-in-to-ui)
 
-[Quickstart: Conduct a search](https://docs.cloud.google.com/chronicle/docs/review-security-alert)
+[Configure user preferences](https://docs.cloud.google.com/chronicle/docs/secops/user-preferences)
 
-[Quickstart: Investigate an alert](https://docs.cloud.google.com/chronicle/docs/review-alert)
+[Gemini in Google SecOps overview](https://docs.cloud.google.com/chronicle/docs/secops/gemini-secops)
 
-[Configure user preferences (SIEM only)](https://docs.cloud.google.com/chronicle/docs/siem/user-prefs-siem)
+## Administer
 
-## Onboarding to Google SecOps
+### Set up an instance
 
-[Overview of the process](https://docs.cloud.google.com/chronicle/docs/onboard)
+[Understand your billing](https://docs.cloud.google.com/chronicle/docs/onboard/understand-billing)
 
-[Understand your Google SecOps billing components](https://docs.cloud.google.com/chronicle/docs/onboard/understand-billing)
+[Configure a Google Cloud project](https://docs.cloud.google.com/chronicle/docs/onboard/configure-cloud-project)
 
-[Configure Google Cloud project for Google SecOps](https://docs.cloud.google.com/chronicle/docs/onboard/configure-cloud-project)
+[Link an instance to Google Cloud](https://docs.cloud.google.com/chronicle/docs/onboard/link-chronicle-cloud)
 
-[Migrate a Google SecOps instance to a BYOP project](https://docs.cloud.google.com/chronicle/docs/administration/migrate-instance-from-one-project-to-another)
+[Configure feature access](https://docs.cloud.google.com/chronicle/docs/onboard/configure-feature-access)
 
-### Configure an identity provider
+[Permissions for the Chronicle API](https://docs.cloud.google.com/chronicle/docs/reference/feature-rbac-permissions-roles)
 
-[Configure a Google Cloud identity provider](https://docs.cloud.google.com/chronicle/docs/onboard/configure-cloud-authentication)
+[Deprovision an instance](https://docs.cloud.google.com/chronicle/docs/onboard/customer-initiated-secops-deprovision)
 
-[Configure a third-party identity provider](https://docs.cloud.google.com/chronicle/docs/onboard/configure-authentication)
+#### Configure authentication
 
-[Configure feature access control using IAM](https://docs.cloud.google.com/chronicle/docs/onboard/configure-feature-access)
+[Configure Google Cloud identity](https://docs.cloud.google.com/chronicle/docs/onboard/configure-cloud-authentication)
 
-[Configure data RBAC using IAM](https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-users)
+[Configure third-party identity](https://docs.cloud.google.com/chronicle/docs/onboard/configure-authentication)
 
-[RBAC user guide for applications not using IAM](https://docs.cloud.google.com/chronicle/docs/administration/rbac)
+[Change authentication](https://docs.cloud.google.com/chronicle/docs/onboard/change-third-party-idp)
 
-[Google SecOps permissions in IAM](https://docs.cloud.google.com/chronicle/docs/reference/feature-rbac-permissions-roles)
+### Configure data access
 
-[Link Google SecOps to Google Cloud services](https://docs.cloud.google.com/chronicle/docs/onboard/link-chronicle-cloud)
+[Data RBAC overview](https://docs.cloud.google.com/chronicle/docs/administration/datarbac-overview)
 
-## Ingest data
+[Configure data RBAC](https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-users)
 
-[Ingest entity data](https://docs.cloud.google.com/chronicle/docs/ingestion/ingestion-entities)
+[Configure legacy RBAC](https://docs.cloud.google.com/chronicle/docs/administration/rbac)
 
-[Overview of data ingestion](https://docs.cloud.google.com/chronicle/docs/data-ingestion-flow)
+#### Manage RBAC impact
 
-[Supported data sets and default parsers](https://docs.cloud.google.com/chronicle/docs/ingestion/parser-list/supported-default-parsers)
+[Overview](https://docs.cloud.google.com/chronicle/docs/administration/datarbac-impact)
 
-### Data processing
+[Control access to dashboards](https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-dashboards)
 
-[Data Pipeline management](https://docs.cloud.google.com/chronicle/docs/ingestion/data-processing-pipeline)
+[Control access to data tables](https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-data-tables)
 
-[Optimize high-volume log ingestion](https://docs.cloud.google.com/chronicle/docs/ingestion/optimize-ingestion)
+[Control access to reference lists](https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-reference-lists)
 
-## Ingest data to Google SecOps
+### Configure instance settings
 
-[Ingest logs from specific sources](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/default-parser-configuration)
+[Configure SIEM data retention](https://docs.cloud.google.com/chronicle/docs/about/data-retention)
 
-### Install and configure forwarders
+[Manage audit logs](https://docs.cloud.google.com/chronicle/docs/administration/audit-logging)
 
-[Overview of Google SecOps forwarders](https://docs.cloud.google.com/chronicle/docs/install)
+[Google Analytics in Google SecOps](https://docs.cloud.google.com/chronicle/docs/about/chronicle-google-analytics)
 
-[Google SecOps forwarder for Linux](https://docs.cloud.google.com/chronicle/docs/install/forwarder-linux)
+[APIs and libraries overview](https://docs.cloud.google.com/chronicle/docs/reference/google-secops-api-libraries-overview)
 
-[Google SecOps forwarder for Windows on Docker](https://docs.cloud.google.com/chronicle/docs/install/docker-forwarder-windows)
+[CLI user guide](https://docs.cloud.google.com/chronicle/docs/administration/cli-user-guide)
 
-[Google SecOps forwarder executable for Windows](https://docs.cloud.google.com/chronicle/docs/install/forwarder-windows)
+[Service limits](https://docs.cloud.google.com/chronicle/docs/reference/service-limits)
 
-[Manage forwarder configurations through Google SecOps](https://docs.cloud.google.com/chronicle/docs/install/forwarder-management-configurations)
+### Upgrade and migrate
 
-[Troubleshoot common Linux forwarder issues](https://docs.cloud.google.com/chronicle/docs/install/forwarder-management-configurations)
+[SIEM migration overview](https://docs.cloud.google.com/chronicle/docs/administration/migrate-legacy-siem-infra)
 
-### Set up data feeds
+[Migrate to a Google Cloud project](https://docs.cloud.google.com/chronicle/docs/administration/migrate-to-gcp-project)
 
-[Feed management overview](https://docs.cloud.google.com/chronicle/docs/administration/feed-management-overview)
+[Migrate to Google Cloud authentication](https://docs.cloud.google.com/chronicle/docs/administration/migrate-from-legacy-auth-to-gcp-auth)
 
-[Create and manage feeds using the feed management UI](https://docs.cloud.google.com/chronicle/docs/administration/feed-management)
+[Migrate from legacy RBAC to feature RBAC](https://docs.cloud.google.com/chronicle/docs/administration/migrate-from-legacy-rbac-to-feature-rbac)
+
+[Migrate an instance to a BYOP project](https://docs.cloud.google.com/chronicle/docs/administration/migrate-instance-from-one-project-to-another)
+
+[Upgrade Cloud Storage data feeds to v2](https://docs.cloud.google.com/chronicle/docs/administration/upgrade-data-feeds-v2)
+
+#### Migrate from legacy SIEM APIs to Chronicle API
+
+[Migrate from legacy SIEM API to Chronicle API](https://docs.cloud.google.com/chronicle/docs/administration/migrate-from-legacy-api-to-chronicle-api)
+
+[SIEM API endpoint mapping](https://docs.cloud.google.com/chronicle/docs/administration/siem-endpoint-mapping-table)
+
+[Migrate Chronicle API versions](https://docs.cloud.google.com/chronicle/docs/reference/migrate-api-version)
+
+[Work with list operations](https://docs.cloud.google.com/chronicle/docs/reference/api-list-operations)
+
+## Ingest
+
+### Prepare for data ingestion
+
+[Data ingestion overview](https://docs.cloud.google.com/chronicle/docs/secops/secops-ingestion)
+
+[Ingestion methods and data types](https://docs.cloud.google.com/chronicle/docs/ingestion/data-types)
+
+[Ingest and parse log data](https://docs.cloud.google.com/chronicle/docs/ingestion/log-ingestion-and-parsing)
+
+[Parsers overview](https://docs.cloud.google.com/chronicle/docs/event-processing/parsing-overview)
+
+[Data feeds overview](https://docs.cloud.google.com/chronicle/docs/administration/feed-management-overview)
+
+[Data enrichment and aliasing overview](https://docs.cloud.google.com/chronicle/docs/event-processing/overview-of-aliasing-and-enrichment)
+
+### Collect data
+
+[Work with the feeds UI](https://docs.cloud.google.com/chronicle/docs/administration/feed-management)
 
 [Create an Azure Event Hub feed](https://docs.cloud.google.com/chronicle/docs/administration/create-azure-feed)
 
-[Create and manage feeds using the feed management API](https://docs.cloud.google.com/chronicle/docs/reference/feed-management-api)
+[Ingest data with API connectors](https://docs.cloud.google.com/chronicle/docs/reference/feed-management-api)
 
-[Use ingestion scripts deployed as Cloud Functions](https://docs.cloud.google.com/chronicle/docs/ingestion/ingest-using-cloud-functions)
+[Chronicle API ingestion methods](https://docs.cloud.google.com/chronicle/docs/reference/ingestion-methods)
 
-[Use the Ingestion API](https://docs.cloud.google.com/chronicle/docs/reference/ingestion-api)
+[Ingest data with the Ingestion API](https://docs.cloud.google.com/chronicle/docs/reference/ingestion-api)
 
-[DataTap Configuration API](https://docs.cloud.google.com/chronicle/docs/reference/datatapconfig-api)
+[Ingest Google Cloud logs](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/ingest-gcp-logs)
 
-[Use the Bindplane agent](https://docs.cloud.google.com/chronicle/docs/ingestion/use-bindplane-agent)
+[Set up a SIEM webhook](https://docs.cloud.google.com/chronicle/docs/ingestion/setup-siem-webhook)
 
-[Customer Management API](https://docs.cloud.google.com/chronicle/docs/reference/customer-management-api)
+[Deploy the Bindplane agent for collection](https://docs.cloud.google.com/chronicle/docs/ingestion/use-bindplane-agent)
 
-[Data Export API](https://docs.cloud.google.com/chronicle/docs/reference/data-export-api)
+[Ingest logs with Cloud Run functions](https://docs.cloud.google.com/chronicle/docs/ingestion/ingest-using-cloud-functions)
 
-[Data Export API (Enhanced)](https://docs.cloud.google.com/chronicle/docs/reference/data-export-api-enhanced)
+[Buffering and retry configurations](https://docs.cloud.google.com/chronicle/docs/reference/buffering-and-retry-configurations-for-pushbased-systems)
 
-### Monitor data ingestion
+#### Collect data using legacy forwarders
 
-[Use Data Ingestion and Health dashboard](https://docs.cloud.google.com/chronicle/docs/reports/dashboards-overview#ingest)
+[Install and configure the forwarder](https://docs.cloud.google.com/chronicle/docs/install/install-forwarder)
 
-[Use Cloud Monitoring for ingestion notifications](https://docs.cloud.google.com/chronicle/docs/ingestion/ingestion-notifications-for-health-metrics)
+[Configure forwarders in the platform](https://docs.cloud.google.com/chronicle/docs/install/forwarder-management-configurations)
 
-[View your billed ingestion volume](https://docs.cloud.google.com/chronicle/docs/ingestion/view-billed-ingestion-volume)
+[Manage forwarder configurations manually](https://docs.cloud.google.com/chronicle/docs/install/forwarder-configuration-manual)
 
-[Analyze feed activity with Cloud Logging](https://docs.cloud.google.com/chronicle/docs/ingestion/analyze-feed-activity-with-cloud-logging)
+[Install Windows forwarder executable](https://docs.cloud.google.com/chronicle/docs/install/forwarder-windows)
 
-### Work with Google SecOps parsers
+[Install Carbon Black Event Forwarder](https://docs.cloud.google.com/chronicle/docs/ingestion/install-carbon-black-event-forwarder)
 
-[Overview of log parsing](https://docs.cloud.google.com/chronicle/docs/event-processing/parsing-overview)
+### Configure log types and parsers
 
-[Overview of the Unified Data Model](https://docs.cloud.google.com/chronicle/docs/event-processing/udm-overview)
+[Default parsers and log types overview](https://docs.cloud.google.com/chronicle/docs/ingestion/parser-list/supported-default-parsers)
+
+[List of default parser configuration guides](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/default-parser-configuration)
+
+[Request prebuilt and create custom log types](https://docs.cloud.google.com/chronicle/docs/event-processing/request-log-type)
+
+[Support policy for standard parsers](https://docs.cloud.google.com/chronicle/docs/ingestion/standard-parser-support-policy)
+
+### Process and normalize data
+
+[Manage data processing pipelines](https://docs.cloud.google.com/chronicle/docs/ingestion/data-processing-pipeline)
+
+[Optimize ingestion volume](https://docs.cloud.google.com/chronicle/docs/ingestion/optimize-ingestion)
 
 [Manage prebuilt parsers](https://docs.cloud.google.com/chronicle/docs/event-processing/manage-parser-updates)
 
 [Re-parse historical data (Log Replay)](https://docs.cloud.google.com/chronicle/docs/event-processing/reparse-historical-data)
 
-[Configure custom parsers](https://docs.cloud.google.com/chronicle/docs/event-processing/configure-custom-parsers)
-
-[Request prebuilt and create custom log types](https://docs.cloud.google.com/chronicle/docs/event-processing/request-log-type)
-
-[Parser extensions](https://docs.cloud.google.com/chronicle/docs/event-processing/using-parser-extensions)
+[Develop parser extensions](https://docs.cloud.google.com/chronicle/docs/event-processing/using-parser-extensions)
 
 [Parser extension examples](https://docs.cloud.google.com/chronicle/docs/event-processing/parser-extension-examples)
 
-[Important UDM fields for parser data mapping](https://docs.cloud.google.com/chronicle/docs/reference/important-udm-fields)
+[Configure custom parsers](https://docs.cloud.google.com/chronicle/docs/event-processing/configure-custom-parsers)
 
-[Tips and troubleshooting when writing parsers](https://docs.cloud.google.com/chronicle/docs/event-processing/parser-tips-troubleshooting)
+[Troubleshoot parser code](https://docs.cloud.google.com/chronicle/docs/event-processing/parser-tips-troubleshooting)
 
-[Format log data as UDM](https://docs.cloud.google.com/chronicle/docs/unified-data-model/format-events-as-udm)
+[Manage self-service parser options](https://docs.cloud.google.com/chronicle/docs/event-processing/self-service-parser-options)
+
+[Map parser data to key UDM fields](https://docs.cloud.google.com/chronicle/docs/reference/important-udm-fields)
+
+[Auto-extraction overview](https://docs.cloud.google.com/chronicle/docs/event-processing/auto-extraction)
+
+[Implement community parsers in GitHub](https://docs.cloud.google.com/chronicle/docs/ingestion/parsers-github)
 
 [Bypass log validation for parser extensions and custom parsers](https://docs.cloud.google.com/chronicle/docs/event-processing/bypass-log-validations)
 
-### Enrichment
+### Enrich and alias data
 
-[UDM enrichment and aliasing overview](https://docs.cloud.google.com/chronicle/docs/event-processing/overview-of-aliasing-and-enrichment)
+[Configure aliasing](https://docs.cloud.google.com/chronicle/docs/event-processing/aliasing-overview)
 
-[Aliasing](https://docs.cloud.google.com/chronicle/docs/event-processing/aliasing-overview)
+[Configure enrichment](https://docs.cloud.google.com/chronicle/docs/event-processing/data-enrichment)
 
-[Enrichment](https://docs.cloud.google.com/chronicle/docs/event-processing/data-enrichment)
+[Manage enrichment blocks](https://docs.cloud.google.com/chronicle/docs/event-processing/block-enrichment-flows)
 
-[How Google SecOps enriches event and entity data](https://docs.cloud.google.com/chronicle/docs/event-processing/data-enrichment)
+[Entity Context Graph overview](https://docs.cloud.google.com/chronicle/docs/event-processing/entity-graph)
 
-[Block enrichment from specific flows](https://docs.cloud.google.com/chronicle/docs/event-processing/block-enrichment-flows)
+### Monitor and troubleshoot ingestion
 
-[Using the Entity Context Graph (ECG)](https://docs.cloud.google.com/chronicle/docs/event-processing/entity-graph)
+[Check data ingestion health](https://docs.cloud.google.com/chronicle/docs/ingestion/ingestion-overview)
 
-[Auto Extraction overview](https://docs.cloud.google.com/chronicle/docs/event-processing/auto-extraction)
+[Ingestion metrics overview](https://docs.cloud.google.com/chronicle/docs/ingestion/understand-ingestion-metrics)
 
-## Detecting threats
+[Analyze ingestion with Cloud Monitoring](https://docs.cloud.google.com/chronicle/docs/ingestion/ingestion-notifications-for-health-metrics)
 
-[View alerts and IOCs](https://docs.cloud.google.com/chronicle/docs/investigation/alerts-iocs)
+[Configure silent-host monitoring](https://docs.cloud.google.com/chronicle/docs/ingestion/silent-host-monitoring)
 
-[Review potential security threats](https://docs.cloud.google.com/chronicle/docs/review-security-alert)
+[Troubleshoot common Linux forwarder issues](https://docs.cloud.google.com/chronicle/docs/install/troubleshoot-forwarder)
 
-[Single event rules](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#single-event-rule)
+[View billed ingestion volume](https://docs.cloud.google.com/chronicle/docs/ingestion/view-billed-ingestion-volume)
 
-[Multiple event rules](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples#multiple_event_rule)
+[Analyze feed activity with Cloud Logging](https://docs.cloud.google.com/chronicle/docs/ingestion/analyze-feed-activity-with-cloud-logging)
 
-### Composite detections
+[Troubleshoot ingestion issues](https://docs.cloud.google.com/chronicle/docs/ingestion/troubleshooting-ingestion)
 
-[Overview of composite detections](https://docs.cloud.google.com/chronicle/docs/detection/composite-detections)
+## Detect
 
-### Monitor for events using rules
+### Prepare for threat detection
 
-[View rules in the Rules Dashboard](https://docs.cloud.google.com/chronicle/docs/detection/view-all-rules)
+[Detection rules overview](https://docs.cloud.google.com/chronicle/docs/detection/default-rules)
 
-[Manage unified rules](https://docs.cloud.google.com/chronicle/docs/detection/unified-rules/get-started)
+[Get started with YARA-L](https://docs.cloud.google.com/chronicle/docs/yara-l/getting-started)
 
-[Analyze rule effectiveness and efficiency](https://docs.cloud.google.com/chronicle/docs/detection/rule-effectiveness)
+[Transition from SPL to YARA-L 2.0](https://docs.cloud.google.com/chronicle/docs/yara-l/transition_spl_yaral)
 
-[Understand rule quotas](https://docs.cloud.google.com/chronicle/docs/detection/rule-quotas)
+[Composite detections overview](https://docs.cloud.google.com/chronicle/docs/detection/composite-detections)
 
-[Troubleshoot rule runtime errors](https://docs.cloud.google.com/chronicle/docs/detection/troubleshoot-rule-errors)
+[Context-enriched data in rules](https://docs.cloud.google.com/chronicle/docs/detection/use-enriched-data-in-rules)
 
-[Risk-based alerting with entity only rules](https://docs.cloud.google.com/chronicle/docs/detection/risk-based-alerting)
+[Apply YARA-L rule best practices](https://docs.cloud.google.com/chronicle/docs/detection/yara-l-best-practices)
 
-[Understand threat coverage with the MITRE ATT&CK matrix](https://docs.cloud.google.com/chronicle/docs/detection/mitre-dashboard)
+[Review potential security issues](https://docs.cloud.google.com/chronicle/docs/review-security-alert)
 
-[View previous versions of a rule](https://docs.cloud.google.com/chronicle/docs/detection/view-rule-versions)
+[Single and multiple event rules in YARA-L](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples)
 
-[Archive rules](https://docs.cloud.google.com/chronicle/docs/detection/view-all-rules)
+[Detection event sampling](https://docs.cloud.google.com/chronicle/docs/yara-l/detection-event-sampling)
 
-[Download events](https://docs.cloud.google.com/chronicle/docs/detection/downloading-events)
+### Author rules
 
-[Run a rule against live data](https://docs.cloud.google.com/chronicle/docs/detection/run-rule-live-data)
+[Generate rules with Gemini](https://docs.cloud.google.com/chronicle/docs/detection/generate-yara-l-with-gemini)
 
-[Understand rule run scheduling](https://docs.cloud.google.com/chronicle/docs/detection/rule-execution-frequency)
+[Construct composite detection rules](https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules)
 
-[Configure customized schedules for rules](https://docs.cloud.google.com/chronicle/docs/detection/set-customized-schedule)
+[Create context-aware analytics](https://docs.cloud.google.com/chronicle/docs/detection/context-aware-analytics)
 
-[Understand rule replays and MTTD](https://docs.cloud.google.com/chronicle/docs/detection/rule-replays)
+[Incorporate Sensitive Data Protection data](https://docs.cloud.google.com/chronicle/docs/detection/usecase-dlp-high-risk-user-download)
 
-[Understand rule detection delays](https://docs.cloud.google.com/chronicle/docs/detection/detection-delays)
+[Integrate BYOL Threat Intelligence](https://docs.cloud.google.com/chronicle/docs/detection/gti-byol)
 
-[Run a rule against historical data](https://docs.cloud.google.com/chronicle/docs/detection/run-rule-historical-data)
+[Applied Threat Intelligence fusion feed](https://docs.cloud.google.com/chronicle/docs/detection/ati-fusion-feed)
 
-[Optimize detection and reporting performance](https://docs.cloud.google.com/chronicle/docs/detection/optimize-detection-and-reporting-performance)
-
-[Detection limits](https://docs.cloud.google.com/chronicle/docs/detection/detection-limits)
-
-[Rule errors](https://docs.cloud.google.com/chronicle/docs/detection/rule-errors)
-
-### Create context-aware analytics
-
-[Overview of context-aware analytics](https://docs.cloud.google.com/chronicle/docs/detection/context-aware-analytics)
-
-[Use Cloud Sensitive Data Protection data in context-aware analytics](https://docs.cloud.google.com/chronicle/docs/detection/usecase-dlp-high-risk-user-download)
-
-[Use context-enriched data in rules](https://docs.cloud.google.com/chronicle/docs/detection/use-enriched-data-in-rules)
-
-[Use default detection rules](https://docs.cloud.google.com/chronicle/docs/detection/default-rules)
-
-### Risk analytics
-
-[Risk Analytics Quickstart guide](https://docs.cloud.google.com/chronicle/docs/detection/ueba-getting-started)
-
-[Overview of Risk Analytics](https://docs.cloud.google.com/chronicle/docs/detection/risk-analytics-overview)
-
-[Use the Risk Analytics dashboard](https://docs.cloud.google.com/chronicle/docs/detection/risk-analytics-dashboard)
-
-[Metric functions for Risk Analytics rules](https://docs.cloud.google.com/chronicle/docs/detection/metrics-functions)
-
-[Watchlist Quickstart guide](https://docs.cloud.google.com/chronicle/docs/detection/watchlist-getting-started)
-
-[Specify entity risk score in rules](https://docs.cloud.google.com/chronicle/docs/detection/yara-l-entity-risk-score)
-
-[Watchlists FAQ](https://docs.cloud.google.com/chronicle/docs/detection/watchlist-faq)
-
-[Risk Analytics FAQ](https://docs.cloud.google.com/chronicle/docs/detection/risk-analytics-faq)
-
-### Work with curated detections
-
-[Use curated detections to identify threats](https://docs.cloud.google.com/chronicle/docs/detection/use-curated-detections)
-
-[Use curated detection rules for third-party vendor alerts](https://docs.cloud.google.com/chronicle/docs/detection/third-party-vendor-alerts-category)
-
-[Use the curated detections UI](https://docs.cloud.google.com/chronicle/docs/detection/curated-detections)
-
-[Cloud Threats category overview](https://docs.cloud.google.com/chronicle/docs/detection/cloud-threats-category)
-
-[Composite Rules category overview](https://docs.cloud.google.com/chronicle/docs/detection/composite-rules-category)
-
-[Non-prioritized IoC Matching threats category overview](https://docs.cloud.google.com/chronicle/docs/detection/non-prioritized-ioc-matching-threats-category)
-
-[Chrome Enterprise Threats category overview](https://docs.cloud.google.com/chronicle/docs/detection/chrome-enterprise-threats-category)
-
-[Linux Threats category overview](https://docs.cloud.google.com/chronicle/docs/detection/linux-threats-category)
-
-[macOS Threats category overview](https://docs.cloud.google.com/chronicle/docs/detection/macos-threats-category)
-
-[Mandiant Hunting Rules category overview](https://docs.cloud.google.com/chronicle/docs/detection/mandiant-hunt-category)
-
-[Risk Analytics for UEBA category overview](https://docs.cloud.google.com/chronicle/docs/detection/risk-analytics-ueba-category)
-
-[Windows Threats category overview](https://docs.cloud.google.com/chronicle/docs/detection/windows-threats-category)
-
-[Applied Threat Intelligence curated detections overview](https://docs.cloud.google.com/chronicle/docs/detection/ati-curated-detections)
-
-[Verify data ingestion using test rules](https://docs.cloud.google.com/chronicle/docs/detection/verify-data-ingestion)
-
-[Configure rule exclusions](https://docs.cloud.google.com/chronicle/docs/detection/rule-exclusions)
-
-[Rules capacity](https://docs.cloud.google.com/chronicle/docs/detection/rule-quotas#curated-detections-capacity)
-
-### Manage noisy alerts
-
-[Configure alert suppression](https://docs.cloud.google.com/chronicle/docs/investigation/alert-suppression)
-
-[Manage rule exclusion using API](https://docs.cloud.google.com/chronicle/docs/investigation/rule-exclusion-api)
-
-### Applied Threat Intelligence
-
-[Applied Threat Intelligence overview](https://docs.cloud.google.com/chronicle/docs/detection)
-
-[Applied Threat Intelligence prioritization](https://docs.cloud.google.com/chronicle/docs/detection/ati-prioritization)
-
-[View IOCs using Applied Threat Intelligence](https://docs.cloud.google.com/chronicle/docs/detection/ati-view-ioc-page)
-
-[IC score overview](https://docs.cloud.google.com/chronicle/docs/detection/understand-ic-score)
-
-[Applied Threat Intelligence fusion feed overview](https://docs.cloud.google.com/chronicle/docs/detection/ati-fusion-feed)
-
-[Emerging Threats Center](https://docs.cloud.google.com/chronicle/docs/detection/emerging-threats)
-
-[Emerging Threats Center detail view](https://docs.cloud.google.com/chronicle/docs/detection/emerging-threats-detailed-view)
-
-[Answer Threat Intelligence questions with Gemini ](https://docs.cloud.google.com/chronicle/docs/detection/answer-threat-intelligence-questions-gemini)
-
-[Gemini documentation summaries](https://docs.cloud.google.com/chronicle/docs/secops/gemini-docs)
-
-[Use Triage and Investigation Agent to investigate alerts](https://docs.cloud.google.com/chronicle/docs/secops/triage-investigation-agent)
-
-[Triage and Investigation Agent dashboard](https://docs.cloud.google.com/chronicle/docs/secops/triage-investigation-agent-dashboards)
-
-## YARA-L 2.0
-
-[Get Started](https://docs.cloud.google.com/chronicle/docs/yara-l/getting-started)
-
-### Syntax
+#### Define YARA-L rule structure and syntax
 
 [Meta section](https://docs.cloud.google.com/chronicle/docs/yara-l/meta-syntax)
 
@@ -335,147 +281,193 @@ Click ![siem](https://docs.cloud.google.com/static/chronicle/images/siem.png) at
 
 [Expressions, operators, and other constructs](https://docs.cloud.google.com/chronicle/docs/yara-l/expressions)
 
-[Nested if statements](https://docs.cloud.google.com/chronicle/docs/yara-l/nested-if)
+[Functions](https://docs.cloud.google.com/chronicle/docs/yara-l/functions)
 
 [Use OR syntax in the condition section](https://docs.cloud.google.com/chronicle/docs/yara-l/multievent-or)
 
 [Use N OF syntax with event variables](https://docs.cloud.google.com/chronicle/docs/yara-l/multievent-n-of)
 
-[Repeated fields](https://docs.cloud.google.com/chronicle/docs/yara-l/repeated-fields)
+[Use nested if statements](https://docs.cloud.google.com/chronicle/docs/yara-l/nested-if)
 
-[Reference list syntax](https://docs.cloud.google.com/chronicle/docs/yara-l/reference-list-syntax)
+[Work with repeated fields](https://docs.cloud.google.com/chronicle/docs/yara-l/repeated-fields)
 
-[Detection event sampling](https://docs.cloud.google.com/chronicle/docs/yara-l/detection-event-sampling)
+[Use reference lists and data tables in YARA-L 2.0](https://docs.cloud.google.com/chronicle/docs/yara-l/reference-list-syntax)
 
-[YARA-L 2.0 windowing logic](https://docs.cloud.google.com/chronicle/docs/yara-l/windowing-logic)
+[Apply YARA-L 2.0 windowing logic](https://docs.cloud.google.com/chronicle/docs/yara-l/windowing-logic)
 
-### Functions
+### Analyze risk with UEBA
 
-[Functions for Dashboards](https://docs.cloud.google.com/chronicle/docs/reference/yaral-functions-native-dashboards)
+[Identify unusual behavior and entity risk](https://docs.cloud.google.com/chronicle/docs/detection/ueba-getting-started)
 
-### Query and investigate
+[Manage entity watchlists](https://docs.cloud.google.com/chronicle/docs/detection/watchlist-getting-started)
 
-[Statistics and aggregations](https://docs.cloud.google.com/chronicle/docs/investigation/statistics-aggregations-in-udm-search)
+[Risk Analytics overview](https://docs.cloud.google.com/chronicle/docs/detection/risk-analytics-overview)
 
-[Use conditions in Search and Dashboards](https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-conditions)
-
-[Create and save visualizations in Search](https://docs.cloud.google.com/chronicle/docs/reports/visualization-in-search)
-
-[Use metrics in Search](https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-metrics-search)
-
-[Use deduplication in Search and Dashboards](https://docs.cloud.google.com/chronicle/docs/investigation/deduplication-yaral)
-
-[Create multi-stage queries](https://docs.cloud.google.com/chronicle/docs/investigation/multi-stage-yaral)
-
-### Develop detection rules
-
-[Use context-enriched data in rules](https://docs.cloud.google.com/chronicle/docs/detection/use-enriched-data-in-rules)
-
-[Context-aware analysis overview](https://docs.cloud.google.com/chronicle/docs/detection/context-aware-analytics)
+[Analyze risks using the dashboard](https://docs.cloud.google.com/chronicle/docs/detection/risk-analytics-dashboard)
 
 [Specify entity risk score in rules](https://docs.cloud.google.com/chronicle/docs/detection/yara-l-entity-risk-score)
 
 [Use metric functions for Risk Analytics rules](https://docs.cloud.google.com/chronicle/docs/detection/metrics-functions)
 
-[Applied Threat Intelligence fusion feed overview](https://docs.cloud.google.com/chronicle/docs/detection/ati-fusion-feed)
+[Watchlists FAQ](https://docs.cloud.google.com/chronicle/docs/detection/watchlist-faq)
 
-[Composite detections overview](https://docs.cloud.google.com/chronicle/docs/detection/composite-detections)
+[Risk Analytics FAQ](https://docs.cloud.google.com/chronicle/docs/detection/risk-analytics-faq)
 
-[Construct composite detection rules](https://docs.cloud.google.com/chronicle/docs/yara-l/composite-detection-rules)
+### Deploy curated detections
 
-[Rule structure and best practices](https://docs.cloud.google.com/chronicle/docs/detection/yara-l-best-practices)
+[Apply curated detections](https://docs.cloud.google.com/chronicle/docs/detection/use-curated-detections)
 
-### Manage and troubleshoot
+[Manage curated detections](https://docs.cloud.google.com/chronicle/docs/detection/curated-detections)
+
+[Manage third-party vendor alerts](https://docs.cloud.google.com/chronicle/docs/detection/third-party-vendor-alerts-category)
+
+[Verify data ingestion with test rules](https://docs.cloud.google.com/chronicle/docs/detection/verify-data-ingestion)
+
+#### Review curated detection categories
+
+[Applied Threat Intelligence curated detections](https://docs.cloud.google.com/chronicle/docs/detection/ati-curated-detections)
+
+[Chrome Enterprise threats](https://docs.cloud.google.com/chronicle/docs/detection/chrome-enterprise-threats-category)
+
+[Cloud threats](https://docs.cloud.google.com/chronicle/docs/detection/cloud-threats-category)
+
+[Composite rules](https://docs.cloud.google.com/chronicle/docs/detection/composite-rules-category)
+
+[Linux threats](https://docs.cloud.google.com/chronicle/docs/detection/linux-threats-category)
+
+[macOS threats](https://docs.cloud.google.com/chronicle/docs/detection/macos-threats-category)
+
+[Non-prioritized IoC Matching threats](https://docs.cloud.google.com/chronicle/docs/detection/non-prioritized-ioc-matching-threats-category)
+
+[Risk Analytics for UEBA](https://docs.cloud.google.com/chronicle/docs/detection/risk-analytics-ueba-category)
+
+[Windows threats](https://docs.cloud.google.com/chronicle/docs/detection/windows-threats-category)
+
+### Manage and monitor rules
+
+[Understand the rules dashboard](https://docs.cloud.google.com/chronicle/docs/detection/view-all-rules)
+
+[Detect threats with unified rules](https://docs.cloud.google.com/chronicle/docs/detection/unified-rules/get-started)
+
+[Manage unified rules](https://docs.cloud.google.com/chronicle/docs/detection/unified-rules/manage-unified-rules)
+
+[Search the rules list](https://docs.cloud.google.com/chronicle/docs/detection/unified-rules/search-rules-list)
+
+[Manage unified rules with Rules API](https://docs.cloud.google.com/chronicle/docs/detection/unified-rules/unified-rules-api)
+
+[Edit rules in the Rules editor](https://docs.cloud.google.com/chronicle/docs/detection/manage-all-rules)
+
+[Monitor rule performance](https://docs.cloud.google.com/chronicle/docs/detection/rule-effectiveness)
+
+[View rule versions](https://docs.cloud.google.com/chronicle/docs/detection/view-rule-versions)
+
+[Archive rules](https://docs.cloud.google.com/chronicle/docs/detection/archive-a-rule)
+
+[Download events](https://docs.cloud.google.com/chronicle/docs/detection/downloading-events)
+
+[Understand rule quotas](https://docs.cloud.google.com/chronicle/docs/detection/rule-quotas)
+
+[Detection limits](https://docs.cloud.google.com/chronicle/docs/detection/detection-limits)
+
+[Monitor threat coverage (MITRE)](https://docs.cloud.google.com/chronicle/docs/detection/mitre-dashboard)
+
+### Run and optimize rules
+
+[Apply a rule to live data](https://docs.cloud.google.com/chronicle/docs/detection/run-rule-live-data)
 
 [Run a rule against historical data](https://docs.cloud.google.com/chronicle/docs/detection/run-rule-historical-data)
 
-[Configure rule exclusions](https://docs.cloud.google.com/chronicle/docs/detection/rule-exclusions)
+[Optimize rule performance](https://docs.cloud.google.com/chronicle/docs/detection/optimize-detection-and-reporting-performance)
 
-[View and troubleshoot rule errors](https://docs.cloud.google.com/chronicle/docs/detection/rule-errors)
+#### Manage rule scheduling
 
-[Known issues and limitations](https://docs.cloud.google.com/chronicle/docs/detection/yara-l-issues)
+[Understand rule run scheduling](https://docs.cloud.google.com/chronicle/docs/detection/rule-execution-frequency)
 
-### Reference: Query libraries and transitions
+[Configure customized schedules for rules](https://docs.cloud.google.com/chronicle/docs/detection/set-customized-schedule)
 
-[YARA-L 2.0 query reference library](https://docs.cloud.google.com/chronicle/docs/yara-l/yara-l-2-0-examples)
+[Understand rule replays and MTTD](https://docs.cloud.google.com/chronicle/docs/detection/rule-replays)
 
-[YARA-L 2.0 dashboard query library](https://docs.cloud.google.com/chronicle/docs/reference/sample-yaral-for-native-dashboard)
+[Understand rule detection delays](https://docs.cloud.google.com/chronicle/docs/detection/detection-delays)
 
-[Transition from SPL to YARA-L 2.0](https://docs.cloud.google.com/chronicle/docs/yara-l/transition_spl_yaral)
+### Control noisy alerts
 
-[Generate search queries with Gemini](https://docs.cloud.google.com/chronicle/docs/investigation/generate-udm-search-queries-gemini)
+[Enable risk-based alerting](https://docs.cloud.google.com/chronicle/docs/detection/risk-based-alerting)
 
-[Generate a YARA-L 2.0 rule using Gemini](https://docs.cloud.google.com/chronicle/docs/detection/generate-yara-l-with-gemini)
+[Configure alert suppression](https://docs.cloud.google.com/chronicle/docs/investigation/alert-suppression)
 
-## Investigating threats
+[Close alerts in bulk](https://docs.cloud.google.com/chronicle/docs/administration/bulk-close-alerts)
 
-### View Alerts
+[Manage rule exclusions](https://docs.cloud.google.com/chronicle/docs/investigation/rule-exclusion-api)
 
-[Overview](https://docs.cloud.google.com/chronicle/docs/investigation/alerts-iocs)
+## Analyze and respond
 
-[Manage alerts](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-alert)
+### Prepare for investigation
 
-[Investigate a GCTI alert](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-uppercase-alert)
+[Understand search](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search)
+
+[Understand search syntax](https://docs.cloud.google.com/chronicle/docs/investigation/search-syntax-reference)
+
+[UDM overview](https://docs.cloud.google.com/chronicle/docs/event-processing/udm-overview)
+
+[Timestamp definitions](https://docs.cloud.google.com/chronicle/docs/detection/timestamp-definitions)
+
+[Search best practices](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-best-practices)
+
+[Manage search details](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-time-range)
+
+[Procedural filtering overview](https://docs.cloud.google.com/chronicle/docs/investigation/filtering-overview)
+
+### Investigate alerts
 
 [Investigate alerts and entity context](https://docs.cloud.google.com/chronicle/docs/investigation/Investigate-alert-entity-context)
 
-### Searching for data
+[Investigate alerts](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-alert)
 
-[Search for UDM event](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search)
+[Manage alerts and IoC matches](https://docs.cloud.google.com/chronicle/docs/investigation/alerts-iocs)
 
-[Use context-enriched fields in UDM search](https://docs.cloud.google.com/chronicle/docs/investigation/use-enriched-data-in-search)
+[Investigate GCTI alerts](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-uppercase-alert)
 
-[Use UDM Search to investigate an entity](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-investigate-entity)
+[Review alerts](https://docs.cloud.google.com/chronicle/docs/review-alert)
 
-[Investigate detections in Search](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-detections-in-search)
+### Search by data source
 
-[Use UDM Search time range and manage queries](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-time-range)
+#### Search telemetry and raw logs
 
-[Use conditions in search and dashboards](https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-conditions)
-
-[Use deduplication in search and dashboards](https://docs.cloud.google.com/chronicle/docs/investigation/deduplication-yaral)
-
-[Metrics in UDM search using YARA-L 2.0](https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-metrics-search)
-
-[Use joins in Search](https://docs.cloud.google.com/chronicle/docs/investigation/search-joins)
-
-[YARA-L 2.0 statistics and aggregations](https://docs.cloud.google.com/chronicle/docs/investigation/statistics-aggregations-in-udm-search)
-
-[Use aggregations in YARA-L 2.0 queries](https://docs.cloud.google.com/chronicle/docs/investigation/use-aggregations-in-yaral-detection-rules)
-
-[UDM search compared with Rule results](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-vs-rules-results)
-
-[Generate UDM search queries with Gemini](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-best-practices)
-
-[UDM search best practices](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-best-practices)
+[Use context-enriched data in search](https://docs.cloud.google.com/chronicle/docs/investigation/use-enriched-data-in-search)
 
 [Search raw logs](https://docs.cloud.google.com/chronicle/docs/investigation/search-raw-logs)
 
 [Filter data in raw log search](https://docs.cloud.google.com/chronicle/docs/investigation/filter-data-raw-log-scan-view)
 
-[Create a reference list](https://docs.cloud.google.com/chronicle/docs/reference/reference-lists)
+[Investigate detections in search](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-detections-in-search)
 
-### Using investigative views
+[Search data tables](https://docs.cloud.google.com/chronicle/docs/investigation/data-tables)
 
-[Use investigative views](https://docs.cloud.google.com/chronicle/docs/investigation/investigation-views)
+[Reference lists](https://docs.cloud.google.com/chronicle/docs/reference/reference-lists)
 
-[Investigate an asset](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-asset)
+#### Search entities and context
 
-[Work with asset namespaces](https://docs.cloud.google.com/chronicle/docs/investigation/asset-namespaces)
+[Conduct entity context searches](https://docs.cloud.google.com/chronicle/docs/investigation/entity-context-in-search)
 
-[Investigate a domain](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-domain)
+[Investigate assets](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-asset)
+
+[Investigate users](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-user)
+
+[Investigate domains](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-domain)
 
 [Investigate an IP address](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-ipaddress)
 
-[Investigate a user](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-user)
-
 [Investigate a file](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-file)
 
-[View information from VirusTotal](https://docs.cloud.google.com/chronicle/docs/investigation/view-virustotal-information)
+[Investigate an entity using UDM search](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-investigate-entity)
 
-### Filtering data in investigative views
+[View VirusTotal information](https://docs.cloud.google.com/chronicle/docs/investigation/view-virustotal-information)
 
-[Overview of procedural filtering](https://docs.cloud.google.com/chronicle/docs/investigation/filtering-overview)
+[Manage asset namespaces](https://docs.cloud.google.com/chronicle/docs/investigation/asset-namespaces)
+
+#### Filter data in investigative views
+
+[Investigative views overview](https://docs.cloud.google.com/chronicle/docs/investigation/investigation-views)
 
 [Filter data in User view](https://docs.cloud.google.com/chronicle/docs/investigation/filter-data-user-view)
 
@@ -487,96 +479,146 @@ Click ![siem](https://docs.cloud.google.com/static/chronicle/images/siem.png) at
 
 [Filter data in Hash view](https://docs.cloud.google.com/chronicle/docs/investigation/filter-data-hash-view)
 
-## Reporting
+#### Analyze and refine results
 
-[Use context-enriched data in reports](https://docs.cloud.google.com/chronicle/docs/reports/use-enriched-data-in-reports)
+[Use conditions in search and dashboards](https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-conditions)
 
-[Dashboards overview](https://docs.cloud.google.com/chronicle/docs/reports/dashboards-overview)
+[Deduplicate search results](https://docs.cloud.google.com/chronicle/docs/investigation/deduplication-yaral)
 
-### Work with custom dashboards
+[Analyze search data with statistics](https://docs.cloud.google.com/chronicle/docs/investigation/statistics-aggregations-in-udm-search)
+
+[Use aggregations in YARA-L 2.0 queries](https://docs.cloud.google.com/chronicle/docs/investigation/use-aggregations-in-yaral-detection-rules)
+
+[Use metrics in search](https://docs.cloud.google.com/chronicle/docs/investigation/yara-l-2-0-metrics-search)
+
+[Control columns with select and unselect keywords](https://docs.cloud.google.com/chronicle/docs/investigation/select-unselect)
+
+[UDM search compared with rule results](https://docs.cloud.google.com/chronicle/docs/investigation/udm-search-vs-rules-results)
+
+[Apply joins in search and dashboards](https://docs.cloud.google.com/chronicle/docs/investigation/search-joins)
+
+[Implement joins without a match section](https://docs.cloud.google.com/chronicle/docs/investigation/joins-without-match-section)
+
+[Correlate data using outer joins](https://docs.cloud.google.com/chronicle/docs/investigation/outer-joins)
+
+[Create multi-stage queries](https://docs.cloud.google.com/chronicle/docs/investigation/multi-stage-yaral)
+
+[Asynchronous Search APIs](https://docs.cloud.google.com/chronicle/docs/investigation/search-lro-api)
+
+[Visualizations in search](https://docs.cloud.google.com/chronicle/docs/reports/visualization-in-search)
+
+#### Search with GoogleSQL
+
+[Get started with GoogleSQL](https://docs.cloud.google.com/chronicle/docs/reference/standard-sql/getting-started-googlesql)
+
+[Translate YARA-L 2.0 search queries to GoogleSQL](https://docs.cloud.google.com/chronicle/docs/reference/standard-sql/yara-l-google-sql-translate)
+
+[GoogleSQL query performance best practices](https://docs.cloud.google.com/chronicle/docs/reference/standard-sql/query-performance-best-practices)
+
+### Analyze threats with AI
+
+[Answer Threat Intelligence questions with Gemini](https://docs.cloud.google.com/chronicle/docs/detection/answer-threat-intelligence-questions-gemini)
+
+[Generate search queries with Gemini](https://docs.cloud.google.com/chronicle/docs/investigation/generate-udm-search-queries-gemini)
+
+### Understand Threat Intelligence
+
+[Threat Intelligence overview](https://docs.cloud.google.com/chronicle/docs/detection)
+
+[Applied Threat Intelligence overview](https://docs.cloud.google.com/chronicle/docs/detection/applied-threat-intel-overview)
+
+[Applied Threat Intelligence prioritization overview](https://docs.cloud.google.com/chronicle/docs/detection/ati-prioritization)
+
+[Integrate your own threat intelligence feeds](https://docs.cloud.google.com/chronicle/docs/detection/integrate-threat-intel-feeds)
+
+[View IoCs](https://docs.cloud.google.com/chronicle/docs/detection/ati-view-ioc-page)
+
+[GTI score overview](https://docs.cloud.google.com/chronicle/docs/detection/understand-ic-score)
+
+## Monitor and troubleshoot
+
+### Monitor platform health
+
+[Monitor health of data sources](https://docs.cloud.google.com/chronicle/docs/reports/data-health-monitoring-and-troubleshooting-dashboard)
+
+[Monitor ingestion health](https://docs.cloud.google.com/chronicle/docs/reports/dashboards-overview#ingest)
+
+### Troubleshoot system issues
+
+[Troubleshoot ingestion issues](https://docs.cloud.google.com/chronicle/docs/ingestion/troubleshooting-ingestion)
+
+[Troubleshoot detection rules](https://docs.cloud.google.com/chronicle/docs/detection/troubleshoot-rule-errors)
+
+[View and troubleshoot rule errors](https://docs.cloud.google.com/chronicle/docs/detection/rule-errors)
+
+[YARA-L 2.0 known issues](https://docs.cloud.google.com/chronicle/docs/detection/yara-l-issues)
+
+### Manage dashboards and reporting
+
+[Dashboards overview](https://docs.cloud.google.com/chronicle/docs/reports/native-dashboards)
+
+[Manage and configure dashboards](https://docs.cloud.google.com/chronicle/docs/reports/manage-native-dashboards)
+
+[Manage charts in dashboards](https://docs.cloud.google.com/chronicle/docs/reports/manage-native-dashboard-charts)
+
+[Visualize data flows with Sankey charts](https://docs.cloud.google.com/chronicle/docs/reports/manage-native-dashboard-charts-sankey)
+
+[Configure dashboard filters](https://docs.cloud.google.com/chronicle/docs/reports/native-dashboards-filters)
+
+#### Curated dashboard queries by data source
+
+[Curated queries overview](https://docs.cloud.google.com/chronicle/docs/reports/native-curated-dashboards)
+
+[Common curated dashboards](https://docs.cloud.google.com/chronicle/docs/reports/native-curated-dashboards-overview)
+
+[YARA-L 2.0 dashboard query library](https://docs.cloud.google.com/chronicle/docs/reference/sample-yaral-for-native-dashboard)
+
+[Query entities](https://docs.cloud.google.com/chronicle/docs/reports/curated-dashboards/dashboard-queries-entities)
+
+[Query ingestion metrics](https://docs.cloud.google.com/chronicle/docs/reports/curated-dashboards/dashboard-queries-ingestion-metrics)
+
+[View IOC matches](https://docs.cloud.google.com/chronicle/docs/reports/curated-dashboards/dashboard-queries-ioc-matches)
+
+[Query rules and detections](https://docs.cloud.google.com/chronicle/docs/reports/curated-dashboards/dashboard-queries-rules-detections)
+
+[Run UDM queries](https://docs.cloud.google.com/chronicle/docs/reports/curated-dashboards/dashboard-queries-udm-)
+
+[View UDM and datatable queries](https://docs.cloud.google.com/chronicle/docs/reports/curated-dashboards/dashboard-queries-udm-datatable)
+
+[PCI curated dashboards overview](https://docs.cloud.google.com/chronicle/docs/reports/pci-curated-dashboards)
+
+#### Legacy SIEM dashboards
+
+[Legacy SIEM dashboard overview](https://docs.cloud.google.com/chronicle/docs/reports/dashboards-overview)
 
 [Create a custom dashboard](https://docs.cloud.google.com/chronicle/docs/reports/create-custom-dashboard)
 
-[Add a chart to a dashboard](https://docs.cloud.google.com/chronicle/docs/reports/create-chart-visualization)
+[Create a visualization](https://docs.cloud.google.com/chronicle/docs/reports/create-chart-visualization)
 
 [Share a personal dashboard](https://docs.cloud.google.com/chronicle/docs/reports/share-personal-dashboard)
 
 [Schedule dashboard reports](https://docs.cloud.google.com/chronicle/docs/reports/schedule-reports)
 
-[Import and export Google SecOps dashboards](https://docs.cloud.google.com/chronicle/docs/reports/import-export-dashboards)
+[Analyze reports with context-enriched data](https://docs.cloud.google.com/chronicle/docs/reports/use-enriched-data-in-reports)
 
-### Work with Dashboards
+[Import and export dashboards](https://docs.cloud.google.com/chronicle/docs/reports/import-export-dashboards)
 
-[Dashboards overview](https://docs.cloud.google.com/chronicle/docs/reports/native-dashboards)
+### Manage data export
 
-[Curated Dashboards](https://docs.cloud.google.com/chronicle/docs/reports/native-curated-dashboards)
+[BigQuery data schema overview](https://docs.cloud.google.com/chronicle/docs/reports/understand-bigquery-data-schema)
 
-[Manage Native Dashboards](https://docs.cloud.google.com/chronicle/docs/reports/manage-native-dashboards)
+[Export to a Google-managed BigQuery project](https://docs.cloud.google.com/chronicle/docs/reports/overview-chronicle-bigquery)
 
-[Manage charts in Native Dashboards](https://docs.cloud.google.com/chronicle/docs/reports/manage-native-dashboard-charts)
+[Export raw logs to a self-managed Cloud Storage bucket](https://docs.cloud.google.com/chronicle/docs/reports/export-rawLogs-to-self-managed-gcs-bucket)
 
-[Native Dashboard filters](https://docs.cloud.google.com/chronicle/docs/reports/native-dashboards-filters)
+[Data Export API (Enhanced)](https://docs.cloud.google.com/chronicle/docs/reference/data-export-api-enhanced)
 
-[Visualizations in search](https://docs.cloud.google.com/chronicle/docs/reports/visualization-in-search)
-
-[Configure scheduled reports](https://docs.cloud.google.com/chronicle/docs/reports/scheduled-email-reports)
-
-## Data export
-
-[Export to a Google-managed BigQuery project (legacy)](https://docs.cloud.google.com/chronicle/docs/reports/overview-chronicle-bigquery)
-
-[Export to self-managed BigQuery project](https://docs.cloud.google.com/chronicle/docs/reports/export-to-customer-managed-project)
-
-[Stream Data with Advanced BigQuery Export](https://docs.cloud.google.com/chronicle/docs/reports/bigquery-export)
-
-[Understand BigQuery data schema](https://docs.cloud.google.com/chronicle/docs/reports/understand-bigquery-data-schema)
-
-[Export raw logs to self-managed Google Cloud Storage bucket](https://docs.cloud.google.com/chronicle/docs/reports/export-rawLogs-to-self-managed-gcs-bucket)
-
-## Administration
-
-[Close alerts in bulk using the API.](https://docs.cloud.google.com/chronicle/docs/administration/bulk-close-alerts)
-
-### Administer users
-
-[Configure feature access control using IAM](https://docs.cloud.google.com/chronicle/docs/onboard/configure-feature-access)
-
-### Configure VPC Service Controls
-
-[Configure VPC Service Controls for Google SecOps](https://docs.cloud.google.com/chronicle/docs/secops/vpcsc-for-secops)
-
-### Configure data access control
-
-[Overview of data RBAC](https://docs.cloud.google.com/chronicle/docs/administration/datarbac-overview)
-
-[Data RBAC impact on features](https://docs.cloud.google.com/chronicle/docs/administration/datarbac-impact)
-
-[Configure data RBAC for users](https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-users)
-
-[Configure data RBAC for data tables](https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-data-tables)
-
-[Configure data RBAC for reference lists](https://docs.cloud.google.com/chronicle/docs/administration/configure-datarbac-reference-lists)
-
-### Set up data feeds
-
-[Feed management user guide](https://docs.cloud.google.com/chronicle/docs/administration/feed-management)
-
-[CLI user guide](https://docs.cloud.google.com/chronicle/docs/administration/cli-user-guide)
-
-[Configure audit logs](https://docs.cloud.google.com/chronicle/docs/administration/audit-logging)
-
-[Data retention](https://docs.cloud.google.com/chronicle/docs/about/data-retention)
-
-[Google Analytics in Google SecOps](https://docs.cloud.google.com/chronicle/docs/about/chronicle-google-analytics)
-
-### Deprovision
-
-[Self-service deprovisioning for Google SecOps](https://docs.cloud.google.com/chronicle/docs/onboard/customer-initiated-secops-deprovision)
+[Data Export API (legacy)](https://docs.cloud.google.com/chronicle/docs/reference/data-export-api)
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-25 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

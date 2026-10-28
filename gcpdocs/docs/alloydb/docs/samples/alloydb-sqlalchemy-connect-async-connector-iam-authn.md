@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/samples/alloydb-sqlalchemy-connect-async-connector-iam-authn/
 title: Create an asynchronous connection pool with IAM database authentication \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:49:58.633607+00:00
+fetched_at: 2026-10-27T18:28:48.941380+00:00
 ---
 
 # Create an asynchronous connection pool with IAM database authentication  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

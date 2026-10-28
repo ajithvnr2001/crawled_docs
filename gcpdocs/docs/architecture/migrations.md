@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migrations/
 title: Migration resources \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:35:53.691611+00:00
+fetched_at: 2026-10-27T16:22:21.500507+00:00
 ---
 
 # Migration resources  |  Cloud Architecture Center  |  Google Cloud Documentation

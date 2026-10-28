@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/saas/update/
 title: gcloud beta app-lifecycle-manager saas update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T03:36:40.885343+00:00
+fetched_at: 2026-10-27T21:40:56.531070+00:00
 ---
 
 # gcloud beta app-lifecycle-manager saas update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,26 +24,28 @@ Send feedback
 NAME
     
 
-gcloud beta app-lifecycle-manager saas update - update a SaaS 
+gcloud beta app-lifecycle-manager saas update - update a SaaS offering 
 SYNOPSIS
     
 
 `gcloud beta app-lifecycle-manager saas update` (`SAAS` : `--location`=`LOCATION`) [`--application-template`=`APPLICATION_TEMPLATE` `--application-template-revision`=`APPLICATION_TEMPLATE_REVISION` `--clear-application-template`] [`--labels`=[`LABELS`,…] | `--update-labels`=[`UPDATE_LABELS`,…] `--clear-labels` | `--remove-labels`=`REMOVE_LABELS`] [`--locations`=[`name`=`NAME`] | `--add-locations`=[`name`=`NAME`] `--clear-locations` | `--remove-locations`=[`name`=`NAME`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` Update a SaaS 
+     `(BETA)` Update an App Lifecycle Manager SaaS offering. 
 EXAMPLES
-     To update the SaaS, run: 
+     To add or update the label `env=prod` on the SaaS offering named `my-saas` in location `us-central1`, run: 
     
     
-    gcloud beta app-lifecycle-manager saas update my-saas
+    gcloud beta app-lifecycle-manager saas update my-saas --location=us-central1 --update-labels=env=prod
+
+To make the SaaS offering named `my-saas` also available in `europe-west1` and remove the label `env`, run: 
+    
+    
+    gcloud beta app-lifecycle-manager saas update my-saas --location=us-central1 --add-locations=name=europe-west1 --remove-labels=env
 
 POSITIONAL ARGUMENTS
     
 
-Saas resource - Identifier. The resource name (full URI of the resource) following the standard naming scheme: 
-    
-    
-    "projects/{project}/locations/{location}/saas/{saas}" The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways.
+Saas resource - SaaS offering to update. The arguments in this group can be used to specify the attributes of this resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
 
@@ -78,11 +80,11 @@ To set the `location` attribute:
 FLAGS
     
 
-CompositeRef represents a reference to a composite resource. 
+Composite application template. Specify only in source regions; leave unspecified in replica regions. When specified, the template components are imported into their equivalent unit kind, release, and blueprint resources. Deleting the reference does not delete imported resources. 
 `--application-template`=`APPLICATION_TEMPLATE`
-     Reference to the ApplicationTemplate resource. 
+     Full resource name of the Application Design Center composite application template to import. 
 `--application-template-revision`=`APPLICATION_TEMPLATE_REVISION`
-     Revision of the ApplicationTemplate to use. Changes to revision will trigger manual resynchronization. If empty, ApplicationTemplate will be ignored. 
+     Revision of the application template to use. Changes to the revision trigger manual resynchronization. If empty, the application template is ignored. 
 `--clear-application-template`
      Set saas.applicationTemplate back to default value. 
 Update labels. 
@@ -90,7 +92,7 @@ Update labels.
 At most one of these can be specified: 
 
 `--labels`=[`LABELS`,…]
-     Set labels to new value. The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Set labels to new value. Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -114,7 +116,7 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--update-labels`=[`UPDATE_LABELS`,…]
-     Update labels value or add key value pair. The labels on the resource, which can be used for categorization. similar to Kubernetes resource labels. 
+     Update labels value or add key value pair. Labels on the resource, which can be used for categorization, similar to Kubernetes resource labels. 
 
 `KEY`
      Keys must start with a lowercase character and contain only hyphens (`-`), underscores (`_`), lowercase characters, and numbers. 
@@ -160,10 +162,10 @@ Update locations.
 At most one of these can be specified: 
 
 `--locations`=[`name`=`NAME`]
-     Set locations to new value. List of locations that the service is available in. Rollout refers to the list to generate a rollout plan. 
+     Set locations to new value. Locations in which the SaaS offering is available. Rollouts use this list to generate a rollout plan. Repeat the flag to specify multiple locations. 
 
 `name`
-     Name of location. Example flag usage: --locations=name=us-central1. 
+     Name of the location. 
 `Shorthand Example:`
     
     
@@ -182,10 +184,10 @@ At most one of these can be specified:
 Or at least one of these can be specified: 
 
 `--add-locations`=[`name`=`NAME`]
-     Add new value to locations list. List of locations that the service is available in. Rollout refers to the list to generate a rollout plan. 
+     Add new value to locations list. Locations in which the SaaS offering is available. Rollouts use this list to generate a rollout plan. Repeat the flag to specify multiple locations. 
 
 `name`
-     Name of location. Example flag usage: --locations=name=us-central1. 
+     Name of the location. 
 `Shorthand Example:`
     
     
@@ -206,10 +208,10 @@ At most one of these can be specified:
 `--clear-locations`
      Clear locations value and set to empty list. 
 `--remove-locations`=[`name`=`NAME`]
-     Remove existing value from locations list. List of locations that the service is available in. Rollout refers to the list to generate a rollout plan. 
+     Remove existing value from locations list. Locations in which the SaaS offering is available. Rollouts use this list to generate a rollout plan. Repeat the flag to specify multiple locations. 
 
 `name`
-     Name of location. Example flag usage: --locations=name=us-central1. 
+     Name of the location. 
 `Shorthand Example:`
     
     
@@ -239,6 +241,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-20 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-20 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

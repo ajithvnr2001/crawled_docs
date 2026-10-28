@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-setup-dataset-pt1-async/
 title: Add data to Firestore (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:19:26.074371+00:00
+fetched_at: 2026-10-27T16:28:15.852344+00:00
 ---
 
 # Add data to Firestore (async)  |  Google Cloud Documentation

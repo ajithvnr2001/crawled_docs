@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/choose-mc-lb-api/
 title: Choose your multi-cluster load balancing API for GKE \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:42:49.891922+00:00
+fetched_at: 2026-10-27T19:53:58.961017+00:00
 ---
 
 # Choose your multi-cluster load balancing API for GKE  |  GKE networking  |  Google Cloud Documentation
@@ -119,10 +119,10 @@ IPv6  |  (Load balancer-to-backend traffic remains IPv4) |  (Load balancer-to-ba
 **Routing and traffic management** |  |  |   
 Global access  |  close |  |   
 Cross-project load balancing  |  close |  close |   
-Host/Path routing  |  (Prefix, Exact match) |  (Prefix, Exact match) |   
-Header-based routing  |  close |  (Exact match) |   
+Host/Path routing  |  (Prefix, Exact match) |  (Prefix, Exact match, Regular expression) |   
+Header-based routing  |  close |  (Exact match, Regular expression) |   
 Path redirects  |  close |  |   
-URL rewrites  |  close |  |   
+URL rewrites  |  close |  (Prefix match, Regular expression) |   
 Traffic splitting  |  close |  |   
 Traffic mirroring  |  close |  |   
 Traffic cut over  |  close |  |   
@@ -164,6 +164,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

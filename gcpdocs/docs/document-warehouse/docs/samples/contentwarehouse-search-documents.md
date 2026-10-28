@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-warehouse/docs/samples/contentwarehouse-search-documents/
 title: Search documents \u00a0|\u00a0 Document AI Warehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:18:59.340241+00:00
+fetched_at: 2026-10-27T21:08:34.769547+00:00
 ---
 
 # Search documents  |  Document AI Warehouse  |  Google Cloud Documentation

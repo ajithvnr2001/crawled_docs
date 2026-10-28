@@ -1,25 +1,49 @@
 ---
 url: https://docs.cloud.google.com/healthcare-api/docs/concepts/
 title: Concepts \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:44.630957+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T16:57:44.814661+00:00
 ---
 
 # Concepts  |  Cloud Healthcare API  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/healthcare-api/docs/concepts/
 
+[ Skip to main content ](https://docs.cloud.google.com/healthcare-api/docs/concepts/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/healthcare-api/docs/concepts/)
+  * [Deutsch](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=de)
+  * [Español](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=es)
+  * [Español – América Latina](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=it)
+  * [Português](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=pt)
+  * [Português – Brasil](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/healthcare-api/docs/concepts/?hl=ko)
+
+
+[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Fhealthcare-api%2Fdocs%2Fconcepts%2F&prompt=select_account)
+[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/categories/business-intelligence-color.svg) ](https://docs.cloud.google.com/healthcare-api/docs)
+  * [ Cloud Healthcare API ](https://docs.cloud.google.com/healthcare-api/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ Industry solutions ](https://docs.cloud.google.com/docs/industry)
   * [ Cloud Healthcare API ](https://docs.cloud.google.com/healthcare-api/docs)
 
 
-
+Was this helpful?
 Send feedback 
-
-#  Concepts Stay organized with collections  Save and categorize content based on your preferences. 
-
+#  Concepts Stay organized with collections  Save and categorize content based on your preferences.
   * ### [Cloud Healthcare API overview Understand key concepts and the high-level functionality of the Cloud Healthcare API.  ](https://docs.cloud.google.com/healthcare-api/docs/concepts/introduction)
   * ### [Projects, datasets, and data stores Learn about the relationship between Google Cloud projects, Cloud Healthcare API datasets, and Cloud Healthcare API data stores.  ](https://docs.cloud.google.com/healthcare-api/docs/concepts/projects-datasets-data-stores)
   * ### [API structure Understand the structure of Cloud Healthcare API paths and operations and how they can be used to access and manage data.  ](https://docs.cloud.google.com/healthcare-api/docs/concepts/api-structure)
@@ -38,9 +62,7 @@ Send feedback
   * ### [Consent Management API data model Learn about the Consent Management API data model.  ](https://docs.cloud.google.com/healthcare-api/docs/concepts/consent-model)
 
 
-
+Was this helpful?
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
 Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]] 

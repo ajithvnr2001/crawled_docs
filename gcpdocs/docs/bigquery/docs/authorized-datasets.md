@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/authorized-datasets/
 title: Authorized datasets \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:38:51.910064+00:00
+fetched_at: 2026-10-27T19:54:00.114383+00:00
 ---
 
 # Authorized datasets  |  BigQuery  |  Google Cloud Documentation
@@ -309,7 +309,7 @@ Assume you have two datasets, named `private_dataset` and `public_dataset`. The 
 
 You can give a user access to the data returned by the `private_table_filtered` view, but not all of the data in the `private_table` table, as follows:
 
-  1. Grant the `bigquery.dataViewer` role to the user for the `public_dataset` dataset. This role includes the `bigquery.tables.getData` permission, which lets the user query the views in the `public_dataset` dataset. For information about how to grant a role to a user for a dataset, see [Controlling access to datasets](https://docs.cloud.google.com/bigquery/docs/dataset-access-controls).
+  1. Grant the `bigquery.dataViewer` role to the user for the `public_dataset` dataset. This role includes the `bigquery.tables.getData` permission, which lets the user query the views in the `public_dataset` dataset. For information about how to grant a role to a user for a dataset, see [Work with dataset access controls](https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam#work_with_dataset_access_controls).
 
 The user now has permission to query views in the `public_dataset`, but they still cannot access the `private_table` table in `private_dataset`. If the user tries to query the `private_table` table directly, or if they try to access the `private_table` table indirectly by querying the `private_table_filtered` view, they get an error message similar to the following:
 
@@ -337,7 +337,7 @@ The user can now query the `private_table_filtered` view in the `public_dataset`
 
   * For information about authorizing an individual view to access data in a dataset, see [Authorized views](https://docs.cloud.google.com/bigquery/docs/authorized-views).
 
-  * For information about authorizing a table function or a user-defined function to access data in a dataset, see [Authorized functions](https://docs.cloud.google.com/bigquery/docs/authorized-functions). 
+  * For information about authorizing a table function or a user-defined function to access data in a dataset, see [Authorized functions](https://docs.cloud.google.com/bigquery/docs/authorized-routines). 
 
 
 
@@ -346,6 +346,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-dicomweb-retrieve-rendered/
 title: Retrieve DICOM rendered \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:22:15.790116+00:00
+fetched_at: 2026-10-27T16:28:48.420730+00:00
 ---
 
 # Retrieve DICOM rendered  |  Cloud Healthcare API  |  Google Cloud Documentation

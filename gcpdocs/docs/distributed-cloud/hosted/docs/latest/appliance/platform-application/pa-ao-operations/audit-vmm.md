@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform-application/pa-ao-operations/audit-vmm/
 title: Virtual Machine Management (VMM) \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:18.980479+00:00
+fetched_at: 2026-10-27T21:45:33.012181+00:00
 ---
 
 # Virtual Machine Management (VMM)  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

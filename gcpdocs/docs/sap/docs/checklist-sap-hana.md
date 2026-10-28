@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/checklist-sap-hana/
 title: Checklist for SAP HANA on Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:00:35.177822+00:00
+fetched_at: 2026-10-28T02:31:33.795992+00:00
 ---
 
 # Checklist for SAP HANA on Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -66,17 +66,15 @@ To understand how to implement SAP HANA on Google Cloud, see the [SAP HANA plann
 
 ###  Pick appropriate machine types and operating systems for SAP HANA
 
-  * To select a machine type for your SAP HANA deployment and workloads, see the list of [Certified machine types for SAP HANA](https://docs.cloud.google.com/sap/docs/sap-hana-planning-guide#hana-cert-table-vms). 
+  * To select a machine type for your SAP HANA deployment and workloads, go to [Certified solutions and machine types](https://docs.cloud.google.com/sap/docs/sap-certifications#certified-solutions-and-machine-types), and in the **Certified SAP solution** menu, select "SAP HANA". 
     * To confirm that your preferred machine type is available in your preferred region, see [Available regions and zones](https://docs.cloud.google.com/compute/docs/regions-zones#available).
     * To ensure the capacity needs of your landscape can be fulfilled in the region of your choice (such as capacity planning and reservations), work with your Technical Account Manager or designated Customer Engineer.
   * When choosing an operating system (OS): 
     * Select an SAP-supported OS:   
-[Certified operating systems for SAP HANA](https://docs.cloud.google.com/sap/docs/certifications-sap-hana#hana-cert-table-oss) (Google Cloud)
-    * Make sure the OS is certified for use on Google Cloud:   
+[OS support for SAP HANA on Google Cloud](https://docs.cloud.google.com/sap/docs/sap-hana-os-support).
+    * Make sure that the OS is certified for use on Google Cloud:   
 Go to [Certified and supported SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:29), click on the required machine type, and then see **Operating System**.
-    * Confirm that the OS has recent patches and updates:   
-[OS support for SAP HANA on Google Cloud](https://docs.cloud.google.com/sap/docs/sap-hana-os-support)   
-For example, you don't want to install an outdated 2-year-old image with security issues or other problems.
+    * Confirm that the OS has recent patches and updates. For example, you don't want to install an outdated 2-year-old image with security issues or other problems.
     * If you use SUSE Linux Enterprise Server (SLES) in your landscape, follow the guidelines given in the following: 
       * SAP note [1275776 - Linux: Preparing SLES for SAP environments](https://me.sap.com/notes/1275776)
       * SAP note [3577842 - SAP HANA DB: Recommended OS settings for SLES 16 / SLES for SAP Applications 16](https://me.sap.com/notes/3577842)
@@ -195,6 +193,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

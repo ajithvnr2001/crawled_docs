@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/running-jobs/
 title: Running jobs programmatically \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:43:33.663246+00:00
+fetched_at: 2026-10-27T16:28:11.391408+00:00
 ---
 
 # Running jobs programmatically  |  BigQuery  |  Google Cloud Documentation
@@ -21,13 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Running jobs programmatically
 
-To run a BigQuery job programmatically using the REST API or client libraries, you:
-
-  1. Call the [`jobs.insert`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/jobs/insert) method.
-  2. Periodically request the job resource and examine the status property to learn when the job is complete.
-  3. Check to see whether the job finished successfully.
-
-
+The BigQuery REST API and client libraries let you create and manage asynchronous jobs to automate load, query, extract, and copy operations from your applications. After you start a job by calling the [`jobs.insert`](https://docs.cloud.google.com/bigquery/docs/reference/rest/v2/jobs/insert) method, you can poll the job resource's status property to track when execution completes and confirm whether the operation succeeded.
 
 ## Before you begin
 
@@ -226,6 +220,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

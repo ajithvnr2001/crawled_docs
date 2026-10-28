@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/troubleshooting/updates/
 title: Troubleshoot Google Distributed Cloud update issues \u00a0|\u00a0 Google Distributed Cloud software only for VMware \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:17.001888+00:00
+fetched_at: 2026-10-28T02:29:59.087419+00:00
 ---
 
 # Troubleshoot Google Distributed Cloud update issues  |  Google Distributed Cloud software only for VMware  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Troubleshoot Google Distributed Cloud update issues Stay organized with collections  Save and categorize content based on your preferences. 
 
-If you have problems with updating Google Distributed Cloud, the following sections might help you to troubleshoot the issue. For more information on what settings can be updated, see [What can and cannot be updated in clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/updating-general).
+You can diagnose and resolve issues that occur during cluster updates in Google Distributed Cloud, such as operation timeouts, configuration changes that are rejected or ignored, and preflight check failures. For more information about which settings you can update, see [What can and cannot be updated in clusters](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/updating-general).
 
 ## Update timeout
 
@@ -40,11 +40,11 @@ The update timeout is dynamically calculated based on the resources to update. H
 
 
 
-This kind of timeout error can be safely ignored and you can retry the update command. If you retry the command and it times out again with the same error message, reach out to [Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/getting-support).
+You can safely ignore this kind of timeout error, and you can retry the update command. If you retry the command and it times out again with the same error message, reach out to [Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/getting-support).
 
 ## Update contains multiple changes
 
-The `gkectl update admin` and `gkectl update cluster` commands don't allow updating multiple settings in one command. When the config contains a diff with multiple settings being changed, and an error similar to the following example is returned:
+The `gkectl update admin` and `gkectl update cluster` commands don't let you update multiple settings in one command. If your configuration file changes more than one setting, the command returns an error similar to the following example:
     
     
     Update summary for cluster X:
@@ -84,7 +84,7 @@ This error could happen for various reasons, including the following:
 
 
 
-If you encounter this behaviour, review the diff in the error message and update the required settings one by one with multiple `gkectl update` commands. To help identify changes, you can use `gkectl get-config` to [generate configuration files from a cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/get-configuration-file-from-cluster) and view the existing state and configuration.
+If you encounter this error, review the diff in the error message and update the required settings one by one with multiple `gkectl update` commands. To help identify changes, you can use `gkectl get-config` to [generate configuration files from a cluster](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/how-to/get-configuration-file-from-cluster) and view the existing state and configuration.
 
 ## Unsupported changes
 
@@ -99,13 +99,13 @@ The `gkectl update cluster` and `gkectl update admin` commands ignore unsupporte
     , which will be ignored
     
 
-If you encounter this behaviour, review the diff in the error message and perform the following actions:
+If you encounter this error, review the diff in the error message and perform the following actions:
 
   * If the change is unintended, edit the config YAML file and update with only the correct, intended changes. 
     * In the previous example, if you didn't intend to disable `AdvancedNetworking`, set `advancedNetworking: true` in the config YAML file.
   * If the change is intended, the error indicates that the change isn't supported. Perform one of the following actions: 
     * Recreate the cluster if applicable.
-    * Reach out to [Google Support](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/getting-support).
+    * Reach out to [Cloud Customer Care](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/vmware/docs/getting-support).
 
 
 
@@ -130,9 +130,9 @@ The `gkectl update cluster` and `gkectl update admin` commands might fail with `
 
 
 
-These errors can happen if the OS image was removed unexpectedly in your vCenter environment, such as by a periodical cleanup job.
+These errors can happen if the OS image was removed unexpectedly in your vCenter environment, such as by a periodic cleanup job.
 
-To re-import the import OS images, run the `gkectl prepare` command, as follows:
+To re-import the OS images, run the following `gkectl prepare` command:
     
     
     gkectl prepare \
@@ -150,7 +150,7 @@ When you add new node pools, the `gkectl update cluster` command might fail with
       FreeSpace, requires at least xxx  GB
     
 
-This failure indicates that the datastore doesn't have sufficient free space to run the new node pools. Use one of the following options helps to provide space for the operation to succeed:
+This failure indicates that the datastore doesn't have enough free space for the new node pools. To provide enough space for the update to succeed, do one of the following:
 
   * Free up space from the datastore.
   * Configure a different `nodePools[].vsphere.datastore` datastore for the node pool.
@@ -173,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

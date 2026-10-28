@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/billing/docs/how-to/control-usage/
 title: Control resource usage with notifications \u00a0|\u00a0 Cloud Billing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:52.080161+00:00
+fetched_at: 2026-10-27T23:00:54.588382+00:00
 ---
 
 # Control resource usage with notifications  |  Cloud Billing  |  Google Cloud Documentation
@@ -93,12 +93,12 @@ Copy the following to your `requirements.txt` file:
 
 ###  Node.js 
          
-         const {CloudBillingClient} = require('@google-cloud/billing');
-         const {InstancesClient} = require('@google-cloud/compute');
+         const {CloudBillingClient} = require('[@google-cloud/billing](https://docs.cloud.google.com/nodejs/docs/reference/billing/latest/overview.html)');
+         const {InstancesClient} = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
          
          const PROJECT_ID = process.env.GOOGLE_CLOUD_PROJECT;
          const PROJECT_NAME = `projects/${PROJECT_ID}`;
-         const instancesClient = new InstancesClient();
+         const instancesClient = new [InstancesClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
          const ZONE = 'us-central1-a';
          
          exports.limitUse = async pubsubEvent => {
@@ -267,6 +267,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

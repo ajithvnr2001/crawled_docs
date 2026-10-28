@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/resources/release-notes-10/
 title: Google Distributed Cloud air-gapped appliance release notes \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:12.158380+00:00
+fetched_at: 2026-10-27T21:44:28.297321+00:00
 ---
 
 # Google Distributed Cloud air-gapped appliance release notes  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

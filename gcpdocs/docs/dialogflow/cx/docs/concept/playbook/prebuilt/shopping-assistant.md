@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt/shopping-assistant/
-title: Shopping assistant prebuilt agent with Vertex AI Search for retail \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
+title: Shopping Assistant prebuilt agent \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:45.877382+00:00
+fetched_at: 2026-10-27T20:09:43.129864+00:00
 ---
 
-# Shopping assistant prebuilt agent with Vertex AI Search for retail  |  Dialogflow CX  |  Google Cloud Documentation
+# Shopping Assistant prebuilt agent  |  Dialogflow CX  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt/shopping-assistant/
 
@@ -21,19 +21,23 @@ Some products and features are in the process of being renamed. Generative playb
 
 Send feedback 
 
-#  Shopping assistant prebuilt agent with Vertex AI Search for retail Stay organized with collections  Save and categorize content based on your preferences. 
+#  Shopping Assistant prebuilt agent Stay organized with collections  Save and categorize content based on your preferences. 
 
-The shopping assistant [playbook-based prebuilt agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt) provides retail product queries, ordering, order status, and order cancellation. It uses [Vertex AI Search for Retail](https://docs.cloud.google.com/retail/docs) and [custom fulfillment payloads](https://docs.cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/fulfillment), providing a rich visual experience.
+The Shopping Assistant [playbook-based, prebuilt agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt) provides retail product queries, ordering, order status, and order cancellation. It uses [Agent Search for Retail](https://docs.cloud.google.com/retail/docs) and [custom fulfillment payloads](https://docs.cloud.google.com/dialogflow/cx/docs/concept/integration/dialogflow-messenger/fulfillment) to provide a rich visual experience.
 
-## Sample dialogs
+## Sample dialog
 
-The following sample dialogs demonstrate common scenarios handled by this prebuilt agent.
+This sample dialog shows common scenarios that this prebuilt agent handles.
 
 ### Product and review comparison
 
-The user asks to browse traditional sarees. The agent presents some popular options and the user selects the first one. The user asks for matching shoes. The agent presents popular options and the user asks to compare reviews and selects the highest-rated option. The agent asks about the size and confirms the shoes were added to the cart.
+  1. The user asks to browse traditional sarees.
+  2. The agent presents some popular options and the user selects the first one.
+  3. The user asks for matching shoes.
+  4. The agent presents some popular options and the user asks to compare reviews and selects the highest-rated option.
+  5. The agent asks about the size and confirms the shoes were added to the cart.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 show me traditional sarees |   
 | [Presents products] Do any of these products catch your interest, or are you after different options?  
@@ -50,9 +54,16 @@ whichever has the best review and ratings |
   
 ### End-to-end shopping experience
 
-The user browses the product catalog. The agent presents recommendations based on the user's request. After a few searches, the user finds an item to purchase. The agent confirms the size and quantity of the item to purchase, as well as the expected delivery date. The user requests a different delivery date, which is not available, and agrees to the original delivery date. The agent confirms the delivery, payment and contact information on file. The user updates the delivery information and confirms. The agent places the order and provides the user with the order number.
+  1. The user browses the product catalog.
+  2. The agent presents recommendations based on the user's request.
+  3. After a few searches, the user finds an item to purchase.
+  4. The agent confirms the size and quantity of the item to purchase, and the expected delivery date.
+  5. The user requests a different delivery date, which isn't available, and agrees to the original delivery date.
+  6. The agent confirms the delivery, payment, and contact information on file.
+  7. The user updates the delivery information and confirms.
+  8. The agent places the order and provides the user with the order number.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 It is getting cold. Do you have good sweaters |   
 | [Presents products]. Do any of these products catch your interest, or are you after different options?  
@@ -84,9 +95,11 @@ no thanks |
   
 ### Checking the status of an order
 
-The user requests to check the status of an order. The agent collects the order number and retrieves the order information. The agent provides details about the items in the order, as well as its current status and expected delivery date.
+  1. The user requests to check the status of an order.
+  2. The agent collects the order number and retrieves the order information.
+  3. The agent provides details about the items in the order and their expected delivery date.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 Hi |   
 | Feel free to select from the options above, or just type in what you're looking for and I'll assist you.  
@@ -105,9 +118,11 @@ No thanks |
   
 ### Returning an order
 
-The user wants to return an order. The agent collects the order number, retrieves the order details and confirms the item to be returned. The agent then initiates the return process and provides a return label for the user to print and attach to the package.
+  1. The user wants to return an order.
+  2. The agent collects the order number, retrieves the order details and confirms the item to be returned.
+  3. The agent initiates the return process and provides a return label for the user to print and attach to the package.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 Hi |   
 | Feel free to select from the options above, or just type in what you're looking for and I'll assist you.  
@@ -125,66 +140,72 @@ No thanks |
 To set up this prebuilt agent:
 
   1. [Import the prebuilt agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt#import).
-  2. Configure the provided [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) with your external services, see Tool setup.
+  2. Configure the provided [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) with your external services. For more information, see Tool setup.
 
 
 
 ## Tool setup
 
-This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) that are used to integrate with external services. In order to configure these tools, follow these steps:
+This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) that are used to integrate with external services. To configure these tools, follow these steps:
 
   1. Create a [Firestore database](https://docs.cloud.google.com/firestore/docs/manage-databases#create_a_database) named `apparel-db`.
   2. Create a [Firestore Integration connector](https://docs.cloud.google.com/integration-connectors/docs/connectors/gsc_firestore/configure).
   3. [Download](https://storage.googleapis.com/gassets-api-ai/prebuilt_agents/generative-prebuilt-agents/retail_assistant/apparel-search-prod-app-integration.json) the Application Integration for the Shopping Assistant.
   4. Replace all references to `projects/customermod-genai-sa/locations/us-central1/connections/firestore` with the identifier of the connector created in step 2.
   5. [Upload](https://docs.cloud.google.com/application-integration/docs/upload-download-integrations#upload-an-integration) and [publish](https://docs.cloud.google.com/application-integration/docs/test-publish-integrations#publish-integrations) the integration.
-  6. Grant the `Cloud Functions Invoker` roles to your Dialogflow Service Agent.
-  7. Follow the steps to [set up your Retail catalog](https://docs.cloud.google.com/retail/docs/overview)
-  8. Update the [attribute controls](https://docs.cloud.google.com/retail/docs/attribute-config) to make the following fields retrievable: ageGroups, availability, categories, colorFamilies, colors, conditions, cost, currencyCode, description, discount, images, materials, patterns, price, sizes, title, uri.
+  6. Grant the `Cloud Functions Invoker` role to your Dialogflow Service Agent.
+  7. Follow the steps to [set up your Retail catalog](https://docs.cloud.google.com/retail/docs/overview).
+  8. Update the [attribute controls](https://docs.cloud.google.com/retail/docs/attribute-config) to make the following fields retrievable: ageGroups, availability, categories, colorFamilies, colors, conditions, cost, currencyCode, description, discount, images, materials, patterns, price, sizes, title, URI.
   9. [Import](https://docs.cloud.google.com/retail/docs/upload-catalog) the [sample catalog](https://storage.googleapis.com/gassets-api-ai/prebuilt_agents/generative-prebuilt-agents/retail_assistant/products.jsonl) into branch 1 of your catalog and make it the default branch.
-  10. Download the Cloud Run Function available [here](https://github.com/GoogleCloudPlatform/dialogflow-integrations/tree/master/dialogflow-prebuilt-agents/cloud-functions) and update `config.toml`.
+  10. Download the [Cloud Run Function](https://github.com/GoogleCloudPlatform/dialogflow-integrations/tree/master/dialogflow-prebuilt-agents/cloud-functions) and update `config.toml`.
   11. Follow the steps to [deploy the Cloud Run Function](https://docs.cloud.google.com/functions/docs/deploy).
   12. Grant the `Retail Viewer` IAM role to the Cloud Run Function you deployed.
   13. For the following tools: `get-order-status`, `order-lookup`, `place-order` and `return-order`, update the `paths` property to reference the integration you created in step 5 in the OpenAPI specs and choose [Service Account authentication](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool#openapi_tool_api_authentication) with a service account to which you grant the `Application Integration Invoker` role.
-  14. Update the server URL property to the Cloud Run Function you deployed for remaining tools.
+  14. Update the server URL property to the Cloud Run Function you deployed for the remaining tools.
 
 
 
-### Product Search
+### Search Products tool
 
 The `search-products` tool retrieves the best-matched products based on the search query and the offset value from the product catalog. The tool returns a custom payload response which includes product details. This custom payload is used by the UI to display the products in rich content form.
 
-### Product Details
+### Get Product Details tool
 
-The `get-product-details` tool fetches product details from the product catalog using the Retail API. The retrieved product details are then transformed and returned in a simplified format, used by the agent to answer questions about products it has shown the user
+The `get-product-details` tool fetches product details from the product catalog using the AI Commerce Search API. The system then transforms and returns the retrieved product details in a simplified format, which the agent uses to answer questions about the products it has shown the user.
 
-### Product Reviews
+### Get Reviews tool
 
-The `get-reviews` tool is utilized to retrieve reviews for products. It expects a list of shown products and fetches reviews for each product. The generated reviews are transformed into a custom template (review_template) format suitable for display in a rich user interface.
+The `get-reviews` tool retrieves reviews for products. It expects a list of shown products and fetches reviews for each product. The generated reviews are transformed into a custom template (`review_template`) format suitable for display in a rich user interface.
 
-### Similar Products
+### Similar Products tool
 
-The `similar-products` tool facilitates the discovery of products similar to a specified product using the Retail Recommendation API. It accepts a product ID and utilizes the Retail Recommendation API to predict similar products from the product catalog.
+The `similar-products` tool facilitates the discovery of products similar to a specified product using the Retail Recommendation API. It accepts a product ID and uses the Retail Recommendation API to predict similar products from the product catalog.
 
-### Delivery Date
+### Delivery Date tools
 
-The `store-delivery-date` tool is responsible for storing the user's preferred delivery date for items in the shopping cart which should be compared to the earliest estimated delivery date.
+The `store-delivery-date` tool is responsible for storing the user's preferred delivery date for items in the shopping cart that should be compared to the earliest estimated delivery date.
 
-The `get-delivery-date` tool is responsible for estimating the delivery date for items in the shopping cart.
+The `get-delivery-date` tool estimates the delivery date for items in the shopping cart.
 
-### User Details
+### Get User Info tool
 
-The `get-user-info` tool retrieves the user's personal information, including shipping address, payment information, phone number and email, while the update-user-info tool is responsible for updating the user's information.
+The `get-user-info` tool retrieves the user's personal information, including shipping address, payment information, phone number, and email. The `update-user-info` tool updates the user's information.
 
-### Order Management
+### Place Order tool
 
-The `place-order` tool handles the process of placing an order for the shopping cart items. It stores the order in Firestore with the order data which includes order ID, status, creation timestamp, and list of products. It returns the order number to the agent.
+The `place-order` tool places an order for shopping cart items. It stores the order data in Firestore, including the order ID, status, creation timestamp, and product list, and then returns the order number to the agent.
 
-The `order-lookup` tool fetches order data from a Firestore database based on the provided order ID.
+### Order Lookup tool
 
-The `return-order` tool updates the status of an order to 'return_pending' in the Firestore database, indicating that the return has been initiated from the customer, and the order is pending for a return.
+The `order-lookup` tool fetches order data from a Firestore database using the provided order ID and returns the order information to the agent.
 
-The `get-order-status` tool is responsible for fetching the status of an order and, if the order has been shipped, tracking it using the DHL API. It provides appropriate messages based on the status of the order.
+### Return Order tool
+
+The `return-order` tool updates the status of an order to "return_pending" in the Firestore database, indicating that a return was initiated and is pending.
+
+### Get Order Status tool
+
+The `get-order-status` tool fetches the status of an order and, if the order ships, tracks it using the DHL API. It provides appropriate messages based on the order status.
 
 ## Complete
 
@@ -198,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

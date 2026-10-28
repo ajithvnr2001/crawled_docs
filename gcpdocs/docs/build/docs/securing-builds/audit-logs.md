@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/securing-builds/audit-logs/
 title: Cloud Build Audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:41.135644+00:00
+fetched_at: 2026-10-27T19:00:14.409569+00:00
 ---
 
 # Cloud Build Audit logging  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Cloud Build Audit logging Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the audited methods for Cloud Build. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Cloud Build let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Cloud Build API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -89,23 +91,18 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.longrunning.Operations.CancelOperation`  
 `DATA_READ` | `google.devtools.cloudbuild.v1.CloudBuild.GetBitbucketServerConfig`  
 `google.devtools.cloudbuild.v1.CloudBuild.GetGitHubEnterpriseConfig`  
-`google.devtools.cloudbuild.v1.CloudBuild.GetGitLabConfig`  
 `google.devtools.cloudbuild.v1.CloudBuild.ListBitbucketServerConfigs`  
 `google.devtools.cloudbuild.v1.CloudBuild.ListBitbucketServerRepositories`  
 `google.devtools.cloudbuild.v1.CloudBuild.ListGitHubEnterpriseConfigs`  
-`google.devtools.cloudbuild.v1.CloudBuild.ListGitLabConfigs`  
-`google.devtools.cloudbuild.v1.CloudBuild.ListGitLabRepositories`  
 `google.devtools.cloudbuild.v1.CloudBuild.RemoveBitbucketServerConnectedRepository`  
 `google.devtools.cloudbuild.v2.RepositoryManager.FetchGitRefs`  
 `google.devtools.cloudbuild.v2.RepositoryManager.FetchReadToken`  
 `google.devtools.cloudbuild.v2.RepositoryManager.FetchReadWriteToken`  
 `DATA_WRITE` | `google.devtools.cloudbuild.v1.CloudBuild.CreateGitHubEnterpriseConfig` (LRO)  
 `google.devtools.cloudbuild.v1.CloudBuild.DeleteGitHubEnterpriseConfig` (LRO)  
-`google.devtools.cloudbuild.v1.CloudBuild.DeleteGitLabConfig`  
 `google.devtools.cloudbuild.v1.CloudBuild.RemoveBitbucketServerConnectedRepository`  
 `google.devtools.cloudbuild.v1.CloudBuild.UpdateBitbucketServerConfig` (LRO)  
 `google.devtools.cloudbuild.v1.CloudBuild.UpdateGitHubEnterpriseConfig` (LRO)  
-`google.devtools.cloudbuild.v1.CloudBuild.UpdateGitLabConfig` (LRO)  
   
 ## API interface audit logs
 
@@ -281,21 +278,6 @@ The following audit logs are associated with methods belonging to `google.devtoo
 
 
 
-#### `DeleteGitLabConfig`
-
-  * **Method** : `google.devtools.cloudbuild.v1.CloudBuild.DeleteGitLabConfig`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `cloudbuild.integrations.delete - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.devtools.cloudbuild.v1.CloudBuild.DeleteGitLabConfig" `  
-
-
-
-
 #### `DeleteWorkerPool`
 
   * **Method** : `google.devtools.cloudbuild.v1.CloudBuild.DeleteWorkerPool`  
@@ -382,21 +364,6 @@ The following audit logs are associated with methods belonging to `google.devtoo
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.devtools.cloudbuild.v1.CloudBuild.GetGitHubEnterpriseConfig" `  
-
-
-
-
-#### `GetGitLabConfig`
-
-  * **Method** : `google.devtools.cloudbuild.v1.CloudBuild.GetGitLabConfig`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `cloudbuild.integrations.get - DATA_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.devtools.cloudbuild.v1.CloudBuild.GetGitLabConfig" `  
 
 
 
@@ -488,36 +455,6 @@ The following audit logs are associated with methods belonging to `google.devtoo
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.devtools.cloudbuild.v1.CloudBuild.ListGitHubEnterpriseConfigs" `  
-
-
-
-
-#### `ListGitLabConfigs`
-
-  * **Method** : `google.devtools.cloudbuild.v1.CloudBuild.ListGitLabConfigs`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `cloudbuild.integrations.list - DATA_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.devtools.cloudbuild.v1.CloudBuild.ListGitLabConfigs" `  
-
-
-
-
-#### `ListGitLabRepositories`
-
-  * **Method** : `google.devtools.cloudbuild.v1.CloudBuild.ListGitLabRepositories`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `cloudbuild.integrations.list - DATA_READ`
-  * **Method is a long-running or streaming operation** : No.  
-
-  * **Filter for this method** : ` protoPayload.methodName="google.devtools.cloudbuild.v1.CloudBuild.ListGitLabRepositories" `  
 
 
 
@@ -624,21 +561,6 @@ The following audit logs are associated with methods belonging to `google.devtoo
   * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.devtools.cloudbuild.v1.CloudBuild.UpdateGitHubEnterpriseConfig" `  
-
-
-
-
-#### `UpdateGitLabConfig`
-
-  * **Method** : `google.devtools.cloudbuild.v1.CloudBuild.UpdateGitLabConfig`  
-
-  * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
-
-  * **Permissions** : 
-    * `cloudbuild.integrations.update - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
-
-  * **Filter for this method** : ` protoPayload.methodName="google.devtools.cloudbuild.v1.CloudBuild.UpdateGitLabConfig" `  
 
 
 
@@ -966,6 +888,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

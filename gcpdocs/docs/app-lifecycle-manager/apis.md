@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/apis/
 title: APIs and reference \u00a0|\u00a0 App Lifecycle Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:52.671472+00:00
+fetched_at: 2026-10-27T23:23:15.053339+00:00
 ---
 
 # APIs and reference  |  App Lifecycle Manager  |  Google Cloud Documentation
@@ -23,6 +23,7 @@ Send feedback
 
 #  APIs and reference Stay organized with collections  Save and categorize content based on your preferences. 
 
+  * ### [Client libraries Get started with App Lifecycle Manager client libraries in your preferred programming language.  ](https://docs.cloud.google.com/app-lifecycle-manager/reference/libraries)
   * ### [gcloud Reference Reference for App Lifecycle Manager gcloud commands.  ](https://docs.cloud.google.com/sdk/gcloud/reference/beta/app-lifecycle-manager/saas)
   * ### [REST API Overview Overview of App Lifecycle Manager's REST API with a table of high-level methods.  ](https://docs.cloud.google.com/app-lifecycle-manager/reference/rest)
   * ### [MCP tools reference Reference for App Lifecycle Manager's Model Context Protocol (MCP) tools.  ](https://docs.cloud.google.com/app-lifecycle-manager/reference/mcp/alm/mcp)

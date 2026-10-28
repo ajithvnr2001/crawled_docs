@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/domains/docs/resources/
 title: Resources \u00a0|\u00a0 Cloud Domains \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:18:51.883122+00:00
+fetched_at: 2026-10-27T20:54:25.854030+00:00
 ---
 
 # Resources  |  Cloud Domains  |  Google Cloud Documentation

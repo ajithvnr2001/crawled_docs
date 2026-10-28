@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/ai-commerce-search/audit-logging/
 title: AI Commerce Search audit logging \u00a0|\u00a0 AI Commerce Search in Gemini Enterprise for Customer Experience \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:24:20.817763+00:00
+fetched_at: 2026-10-27T16:35:20.813434+00:00
 ---
 
 # AI Commerce Search audit logging  |  AI Commerce Search in Gemini Enterprise for Customer Experience  |  Google Cloud Documentation
@@ -45,7 +45,9 @@ For data modification:
 
 AI Commerce Search audit logging 
 
-This document describes audit logging for Agent Search. Google Cloud services generate audit logs that record administrative and access activities within your Google Cloud resources. For more information about Cloud Audit Logs, see the following: 
+Cloud Audit Logs for Agent Search let you track administrative and data-access operations on your resources to help you monitor access and configuration changes. You can query these logs in the Logs Explorer and check which Agent Search API methods generate Cloud Audit Logs.
+
+For more information about Cloud Audit Logs, see the following documents:
 
   * [Types of audit logs](https://docs.cloud.google.com/logging/docs/audit#types)
   * [Audit log entry structure](https://docs.cloud.google.com/logging/docs/audit#audit_log_entry_structure)
@@ -57,11 +59,19 @@ This document describes audit logging for Agent Search. Google Cloud services ge
 
 ## Service name
 
-Agent Search audit logs use the service name `retail.googleapis.com`. Filter for this service: 
-    
-    
-        protoPayload.serviceName="retail.googleapis.com"
-      
+To view the Agent Search audit logs, do the following:
+
+  1. In the Google Cloud console, go to the Logs Explorer page:
+
+[Go to Logs Explorer](https://console.cloud.google.com/logs/query)
+
+  2. Copy and paste the following query into the **Query** field of the Logs Explorer, and then click **Run query**.
+         
+         protoPayload.serviceName="retail.googleapis.com"
+           
+
+
+
 
 ## Methods by permission type
 
@@ -85,7 +95,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.retail.v2.SearchService.Search`  
 `google.cloud.retail.v2.ServingConfigService.GetServingConfig`  
 `google.cloud.retail.v2.ServingConfigService.ListServingConfigs`  
-`google.cloud.retail.v2alpha.AnalyticsService.ExportAnalyticsMetrics` (LRO)  
+`google.cloud.retail.v2alpha.AnalyticsService.ExportAnalyticsMetrics`  
 `google.cloud.retail.v2alpha.BranchService.GetBranch`  
 `google.cloud.retail.v2alpha.BranchService.ListBranches`  
 `google.cloud.retail.v2alpha.CatalogService.GetAttributesConfig`  
@@ -140,19 +150,19 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.retail.v2.ControlService.CreateControl`  
 `google.cloud.retail.v2.ControlService.DeleteControl`  
 `google.cloud.retail.v2.ControlService.UpdateControl`  
-`google.cloud.retail.v2.ModelService.CreateModel`  
+`google.cloud.retail.v2.ModelService.CreateModel` (LRO)  
 `google.cloud.retail.v2.ModelService.DeleteModel`  
 `google.cloud.retail.v2.ModelService.PauseModel`  
 `google.cloud.retail.v2.ModelService.ResumeModel`  
 `google.cloud.retail.v2.ModelService.TuneModel`  
 `google.cloud.retail.v2.ModelService.UpdateModel`  
-`google.cloud.retail.v2.ProductService.AddFulfillmentPlaces`  
+`google.cloud.retail.v2.ProductService.AddFulfillmentPlaces` (LRO)  
 `google.cloud.retail.v2.ProductService.AddLocalInventories` (LRO)  
 `google.cloud.retail.v2.ProductService.CreateProduct`  
 `google.cloud.retail.v2.ProductService.DeleteProduct`  
 `google.cloud.retail.v2.ProductService.ImportProducts` (LRO)  
 `google.cloud.retail.v2.ProductService.PurgeProducts` (LRO)  
-`google.cloud.retail.v2.ProductService.RemoveFulfillmentPlaces`  
+`google.cloud.retail.v2.ProductService.RemoveFulfillmentPlaces` (LRO)  
 `google.cloud.retail.v2.ProductService.RemoveLocalInventories` (LRO)  
 `google.cloud.retail.v2.ProductService.SetInventory` (LRO)  
 `google.cloud.retail.v2.ProductService.UpdateProduct`  
@@ -204,7 +214,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.retail.v2alpha.ServingConfigService.UpdateServingConfig`  
 `google.cloud.retail.v2alpha.UserEventService.ImportUserEvents` (LRO)  
 `google.cloud.retail.v2alpha.UserEventService.PurgeUserEvents` (LRO)  
-`google.cloud.retail.v2alpha.UserEventService.RejoinUserEvents`  
+`google.cloud.retail.v2alpha.UserEventService.RejoinUserEvents` (LRO)  
 `google.cloud.retail.v2alpha.UserEventService.WriteUserEvent`  
 `google.cloud.retail.v2beta.CatalogService.AddCatalogAttribute`  
 `google.cloud.retail.v2beta.CatalogService.BatchRemoveCatalogAttributes`  
@@ -214,25 +224,25 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.retail.v2beta.CatalogService.UpdateAttributesConfig`  
 `google.cloud.retail.v2beta.CatalogService.UpdateCatalog`  
 `google.cloud.retail.v2beta.CatalogService.UpdateCompletionConfig`  
-`google.cloud.retail.v2beta.CompletionService.ImportCompletionData`  
+`google.cloud.retail.v2beta.CompletionService.ImportCompletionData` (LRO)  
 `google.cloud.retail.v2beta.ControlService.CreateControl`  
 `google.cloud.retail.v2beta.ControlService.DeleteControl`  
 `google.cloud.retail.v2beta.ControlService.UpdateControl`  
-`google.cloud.retail.v2beta.ModelService.CreateModel`  
+`google.cloud.retail.v2beta.ModelService.CreateModel` (LRO)  
 `google.cloud.retail.v2beta.ModelService.DeleteModel`  
 `google.cloud.retail.v2beta.ModelService.PauseModel`  
 `google.cloud.retail.v2beta.ModelService.ResumeModel`  
 `google.cloud.retail.v2beta.ModelService.TuneModel`  
 `google.cloud.retail.v2beta.ModelService.UpdateModel`  
-`google.cloud.retail.v2beta.ProductService.AddFulfillmentPlaces`  
+`google.cloud.retail.v2beta.ProductService.AddFulfillmentPlaces` (LRO)  
 `google.cloud.retail.v2beta.ProductService.AddLocalInventories` (LRO)  
 `google.cloud.retail.v2beta.ProductService.CreateProduct`  
 `google.cloud.retail.v2beta.ProductService.DeleteProduct`  
 `google.cloud.retail.v2beta.ProductService.ImportProducts` (LRO)  
 `google.cloud.retail.v2beta.ProductService.PurgeProducts` (LRO)  
-`google.cloud.retail.v2beta.ProductService.RemoveFulfillmentPlaces`  
-`google.cloud.retail.v2beta.ProductService.RemoveLocalInventories`  
-`google.cloud.retail.v2beta.ProductService.SetInventory`  
+`google.cloud.retail.v2beta.ProductService.RemoveFulfillmentPlaces` (LRO)  
+`google.cloud.retail.v2beta.ProductService.RemoveLocalInventories` (LRO)  
+`google.cloud.retail.v2beta.ProductService.SetInventory` (LRO)  
 `google.cloud.retail.v2beta.ProductService.UpdateProduct`  
 `google.cloud.retail.v2beta.ProjectService.UpdateAlertConfig`  
 `google.cloud.retail.v2beta.ServingConfigService.AddControl`  
@@ -241,8 +251,7 @@ API methods in the following list that are marked with (LRO) are long-running op
 `google.cloud.retail.v2beta.ServingConfigService.RemoveControl`  
 `google.cloud.retail.v2beta.ServingConfigService.UpdateServingConfig`  
 `google.cloud.retail.v2beta.UserEventService.ImportUserEvents` (LRO)  
-`google.cloud.retail.v2beta.UserEventService.PurgeUserEvents` (LRO)  
-`google.cloud.retail.v2beta.UserEventService.RejoinUserEvents`  
+`google.cloud.retail.v2beta.UserEventService.RejoinUserEvents` (LRO)  
 `google.cloud.retail.v2beta.UserEventService.WriteUserEvent`  
   
 ## API interface audit logs
@@ -562,7 +571,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.models.create - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2.ModelService.CreateModel" `  
 
@@ -706,7 +715,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.products.update - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2.ProductService.AddFulfillmentPlaces" `  
 
@@ -826,7 +835,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.products.update - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2.ProductService.RemoveFulfillmentPlaces" `  
 
@@ -1083,7 +1092,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.catalogs.exportAnalyticsMetrics - DATA_READ`
-  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
+  * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2alpha.AnalyticsService.ExportAnalyticsMetrics" `  
 
@@ -1433,6 +1442,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.placements.conversationalSearch - DATA_READ`
+    * `retail.servingConfigs.conversationalSearch - DATA_READ`
   * **Method is a long-running or streaming operation** : [**Streaming RPC**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#streaming)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2alpha.ConversationalSearchService.ConversationalSearch" `  
@@ -2091,7 +2101,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.userEvents.rejoin - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2alpha.UserEventService.RejoinUserEvents" `  
 
@@ -2343,7 +2353,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.catalogs.import - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2beta.CompletionService.ImportCompletionData" `  
 
@@ -2441,7 +2451,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.models.create - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2beta.ModelService.CreateModel" `  
 
@@ -2564,6 +2574,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
   * **Audit log type** : [Data access](https://docs.cloud.google.com/logging/docs/audit#data-access)  
 
   * **Permissions** : 
+    * `retail.placements.predict - DATA_READ`
     * `retail.servingConfigs.predict - DATA_READ`
   * **Method is a long-running or streaming operation** : No.  
 
@@ -2584,7 +2595,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.products.update - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2beta.ProductService.AddFulfillmentPlaces" `  
 
@@ -2719,7 +2730,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.products.update - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2beta.ProductService.RemoveFulfillmentPlaces" `  
 
@@ -2734,7 +2745,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.products.update - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2beta.ProductService.RemoveLocalInventories" `  
 
@@ -2749,7 +2760,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.products.update - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2beta.ProductService.SetInventory" `  
 
@@ -2817,6 +2828,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.placements.search - DATA_READ`
+    * `retail.servingConfigs.search - DATA_READ`
   * **Method is a long-running or streaming operation** : No.  
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2beta.SearchService.Search" `  
@@ -2990,7 +3002,7 @@ The following audit logs are associated with methods belonging to `google.cloud.
 
   * **Permissions** : 
     * `retail.userEvents.rejoin - DATA_WRITE`
-  * **Method is a long-running or streaming operation** : No.  
+  * **Method is a long-running or streaming operation** : [**Long-running operation**](https://docs.cloud.google.com/logging/docs/audit/understanding-audit-logs#lro)   
 
   * **Filter for this method** : ` protoPayload.methodName="google.cloud.retail.v2beta.UserEventService.RejoinUserEvents" `  
 
@@ -3039,6 +3051,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

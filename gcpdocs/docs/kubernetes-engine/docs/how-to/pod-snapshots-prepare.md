@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/pod-snapshots-prepare/
 title: Prepare for Pod snapshots \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:42:13.775235+00:00
+fetched_at: 2026-10-28T02:29:58.474866+00:00
 ---
 
 # Prepare for Pod snapshots  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -228,9 +228,11 @@ For a complete list of options for bucket creation, see [Flags](https://docs.clo
 
 ## Grant workloads access to the Cloud Storage bucket
 
-By default, GKE doesn't have access to Cloud Storage. To read and write Pod snapshots, you must grant an IAM role that contains the corresponding permissions to the Kubernetes ServiceAccount object that your workload Pods use, or enable multi-tenancy using short-lived tokens.
+By default, GKE doesn't have access to Cloud Storage. To read and write Pod snapshots, you must grant an IAM role that contains the corresponding permissions to the Kubernetes ServiceAccount object that your workload Pods use, or enable multi-tenancy by using short-lived tokens.
 
 ### Grant roles to specific Kubernetes ServiceAccount objects
+
+**Warning:** Granting Cloud Storage permissions to a Pod's Kubernetes ServiceAccount (`podKSA`) lets processes running inside the container access the Cloud Storage bucket directly, which can be a security risk. Don't use `podKSA` if the Pod runs untrusted code, such as an agentic sandbox. Instead, enable multi-tenancy by using short-lived tokens (`federatedP4SA`).
 
 To grant roles to specific Kubernetes ServiceAccount objects, follow these steps:
 
@@ -256,12 +258,47 @@ Replace the following:
 
         * `SERVICEACCOUNT_NAME`: the name of your ServiceAccount object.
         * `NAMESPACE`: the namespace for your Pods.
-     2. To let the ServiceAccount object read bucket metadata, grant it the [Storage Bucket Viewer role](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.bucketViewer) (`roles/storage.bucketViewer`):
-            
-            gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
-                --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
-                --role="roles/storage.bucketViewer"
-            
+     2. Grant the ServiceAccount object permission to access the bucket. Choose one of the following options based on your security requirements:
+
+        * **Standard permissions** : grants full read, write, and delete access.
+        * **Write-once permissions** : prevents overwriting or deleting finalized snapshot files, but grants permission to delete temporary objects for parallel composite uploads.
+
+To grant permission, run the commands for your selected option:
+
+###  Standard permissions 
+    
+    gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
+        --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
+        --role="roles/storage.bucketViewer"
+    
+    
+    gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
+        --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
+        --role="roles/storage.objectUser"
+    
+
+###  Write-once permissions 
+    
+    gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
+        --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
+        --role="roles/storage.bucketViewer"
+    
+    
+    gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
+        --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
+        --role="roles/storage.objectCreator"
+    
+    
+    gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
+        --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
+        --role="roles/storage.objectViewer"
+    
+    
+    gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
+        --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
+        --role="roles/storage.objectUser" \
+        --condition='expression=resource.type == "storage.googleapis.com/Object" && (resource.name.extract("/pages.img_{part}") != "" || resource.name.extract("/fs_checkpoint_pages.img_{part}") != ""),title=allow_pcu_temp_part_cleanup,description=Allow deleting temporary parallel composite upload part objects only'
+    
 
 Replace the following:
 
@@ -270,13 +307,6 @@ Replace the following:
         * `PROJECT_ID`: your project ID.
         * `NAMESPACE`: the namespace for your Pods.
         * `SERVICEACCOUNT_NAME`: the name of your ServiceAccount object.
-     3. To let the ServiceAccount object read and write snapshot objects in the bucket, grant it the [Storage Object User role](https://docs.cloud.google.com/iam/docs/roles-permissions/storage#storage.objectUser) (`roles/storage.objectUser`):
-            
-            gcloud storage buckets add-iam-policy-binding gs://BUCKET_NAME \
-                --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
-                --role="roles/storage.objectUser"
-            
-
 
 
 
@@ -327,11 +357,20 @@ Replace the following:
 
 To isolate permissions for snapshots from mutually untrusted Pods, which is useful in multi-tenant use cases, create managed folders. To set up managed folders, follow these steps:
 
-  1. Create a custom IAM role that contains only the necessary permissions for Pod snapshots:
+  1. Create a custom IAM role that contains only the necessary permissions for Pod snapshots. Run the command for your selected option:
+
+###  Standard permissions 
          
          gcloud iam roles create podSnapshotGcsReadWriter \
              --project=PROJECT_ID \
-             --permissions="storage.objects.get,storage.objects.create,storage.objects.delete,storage.folders.create"
+             --permissions="storage.objects.get,storage.objects.list,storage.objects.create,storage.objects.delete,storage.folders.create"
+         
+
+###  Write-once permissions 
+         
+         gcloud iam roles create podSnapshotGcsReadWriter \
+             --project=PROJECT_ID \
+             --permissions="storage.objects.get,storage.objects.list,storage.objects.create,storage.folders.create"
          
 
 Replace `PROJECT_ID` with your project ID.
@@ -360,11 +399,26 @@ Replace the following:
 
         * `BUCKET_NAME`: the name of your bucket.
         * `FOLDER_PATH`: the path for the managed folder (for example, `my-app-snapshots`).
-     2. Grant the ServiceAccount object the custom `podSnapshotGcsReadWriter` role on the managed folder:
+     2. Grant the ServiceAccount object the custom `podSnapshotGcsReadWriter` role on the managed folder. To grant permission, run the commands for your selected option:
+
+###  Standard permissions 
             
             gcloud storage managed-folders add-iam-policy-binding gs://BUCKET_NAME/FOLDER_PATH/ \
                 --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
                 --role="projects/PROJECT_ID/roles/podSnapshotGcsReadWriter"
+            
+
+###  Write-once permissions 
+            
+            gcloud storage managed-folders add-iam-policy-binding gs://BUCKET_NAME/FOLDER_PATH/ \
+                --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
+                --role="projects/PROJECT_ID/roles/podSnapshotGcsReadWriter"
+            
+            
+            gcloud storage managed-folders add-iam-policy-binding gs://BUCKET_NAME/FOLDER_PATH/ \
+                --member="principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/PROJECT_ID.svc.id.goog/subject/ns/NAMESPACE/sa/SERVICEACCOUNT_NAME" \
+                --role="roles/storage.objectUser" \
+                --condition='expression=resource.type == "storage.googleapis.com/Object" && (resource.name.extract("/pages.img_{part}") != "" || resource.name.extract("/fs_checkpoint_pages.img_{part}") != ""),title=allow_pcu_temp_part_cleanup,description=Allow deleting temporary parallel composite upload part objects only'
             
 
 Replace the following:
@@ -402,6 +456,8 @@ Replace the following:
      * `BUCKET_NAME`: the name of your Cloud Storage bucket.
      * `FOLDER_PATH`: the path for the Cloud Storage managed folder.
      * `TOKEN_SOURCE`: the identity provider for access. Use `podKSA` (default) or `federatedP4SA` for multi-tenancy.
+
+**Warning:** `podKSA` lets processes inside the container access the Cloud Storage bucket, which can be a security risk. Don't use `podKSA` if the Pod runs untrusted code, such as an agentic sandbox; use `federatedP4SA` instead.
   2. Apply the manifest:
          
          kubectl apply -f example-pod-snapshot-storage-config.yaml
@@ -418,6 +474,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

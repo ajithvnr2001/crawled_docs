@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/load-data-using-cross-cloud-transfer/
 title: Load data with BigQuery Omni operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:49.527222+00:00
+fetched_at: 2026-10-27T20:09:45.578653+00:00
 ---
 
 # Load data with BigQuery Omni operations  |  Google Cloud Documentation
@@ -21,7 +21,11 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Load data with BigQuery Omni operations
 
-As a BigQuery administrator or analyst, you can load data from an Amazon Simple Storage Service (Amazon S3) bucket or Azure Blob Storage into [BigQuery tables](https://docs.cloud.google.com/bigquery/docs/tables-intro#standard-tables). You can either join the transferred data with the data present in Google Cloud regions or take advantage of BigQuery features like [BigQuery ML](https://docs.cloud.google.com/bigquery/docs/bqml-introduction). You can also create materialized view replicas of certain external sources to make that data available in BigQuery.
+BigQuery Omni lets you load cross-cloud data from Amazon Simple Storage Service (Amazon S3) buckets and Azure Blob Storage into [BigQuery tables](https://docs.cloud.google.com/bigquery/docs/tables-intro#standard-tables).
+
+You can bring external data into BigQuery, or replicate it locally with materialized view replicas to help you join datasets across Google Cloud regions and use [BigQuery ML](https://docs.cloud.google.com/bigquery/docs/bqml-introduction). To transfer large files from Amazon S3 or Blob Storage on a recurring schedule, use [BigQuery Data Transfer Service](https://docs.cloud.google.com/bigquery/docs/dts-introduction) instead.
+
+## Supported transfer methods
 
 You can transfer data into BigQuery in the following ways:
 
@@ -533,6 +537,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

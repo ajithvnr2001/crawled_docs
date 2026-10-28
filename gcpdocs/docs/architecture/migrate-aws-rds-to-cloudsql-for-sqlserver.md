@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/migrate-aws-rds-to-cloudsql-for-sqlserver/
 title: Migrate from AWS to Google Cloud: Migrate from Amazon RDS for SQL Server to Cloud SQL for SQL Server \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:33:16.112166+00:00
+fetched_at: 2026-10-27T16:21:09.794765+00:00
 ---
 
 # Migrate from AWS to Google Cloud: Migrate from Amazon RDS for SQL Server to Cloud SQL for SQL Server  |  Cloud Architecture Center  |  Google Cloud Documentation

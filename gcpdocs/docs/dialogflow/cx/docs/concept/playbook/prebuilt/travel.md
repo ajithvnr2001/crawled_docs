@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt/travel/
 title: Travel prebuilt agent \u00a0|\u00a0 Dialogflow CX \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:45.403766+00:00
+fetched_at: 2026-10-27T20:09:43.932218+00:00
 ---
 
 # Travel prebuilt agent  |  Dialogflow CX  |  Google Cloud Documentation
@@ -23,19 +23,22 @@ Send feedback
 
 #  Travel prebuilt agent Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Travel [playbook-based prebuilt agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt) allows users to search for points of interest (POI), get travel recommendations, and book hotels. The agent uses user profile data to customize recommendations for the user, if provided.
+The Travel [playbook-based prebuilt agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt) lets users search for points of interest (POI), get travel recommendations, and book hotels. The agent uses user profile data to customize recommendations, if provided.
 
-## Sample dialogs
+## Sample dialog
 
-The following sample dialogs demonstrate common scenarios handled by this prebuilt agent.
+This sample dialog shows common scenarios that this prebuilt agent handles.
 
 ### POI search and hotel booking
 
-The user asks about restaurants in Washington DC. The agent recommends a few points of interest, and the user asks to book a hotel. The agent collects required information, including the hotel, check-in date, check-out date, number of travelers, and number of rooms. The user confirms the information and the agent books the stay, providing the user with a confirmation number.
+  1. The user asks about restaurants in Washington DC.
+  2. The agent recommends a few points of interest, and the user asks to book a hotel.
+  3. The agent collects required information, including the hotel, check-in date, check-out date, number of travelers, and number of rooms.
+  4. The user confirms the information and the agent books the stay, providing the user with a confirmation number.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
-hi are there any good seafood restaurants in Washington DC? |   
+Hi, are there any good seafood restaurants in Washington DC? |   
 | Here are some seafood restaurants in Washington DC:  
 \- The Oceanaire Seafood Room  
 \- Tony and Joe's Seafood Place  
@@ -76,9 +79,14 @@ no that's it, thanks! |
   
 ### Travel inspiration
 
-The user says that they would like to take their family on a ski trip. The agent suggests some ski destinations in the United States, and the user asks if the agent has any recommendations out of the country. The agent presents a list of destinations outside of the United States. Finally, the user asks the agent to book a stay at one of the destinations and the agent presents a list of hotels nearby.
+  1. The user says that they want to take their family on a ski trip.
+  2. The agent suggests some ski destinations in the United States.
+  3. The user asks if the agent has any recommendations out of the country.
+  4. The agent presents a list of destinations outside of the United States.
+  5. The user asks the agent to book a stay at one of the destinations.
+  6. The agent presents a list of hotels near the destination.
 
-User input | Agent response  
+User Input | Agent Response  
 ---|---  
 I'd like to take my family on a ski trip, any suggestions? |   
 | I love skiing! Here's a few popular ski destinations in the United States:  
@@ -108,13 +116,13 @@ great, thanks! can you book me a stay at Whistler Blackcomb? |
 To set up this prebuilt agent:
 
   1. [Import the prebuilt agent](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt#import).
-  2. Configure the provided [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) with your external services, see Tool setup.
+  2. Configure the provided [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) with your external services. For more information, see Tool setup.
 
 
 
 ## Tool setup
 
-This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) that are used to integrate with external services. You can use the prebuilt tool installer to deploy sample code and data for your prebuilt agent.
+This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/tool) that integrate with external services. Users can use the prebuilt tool installer to deploy sample code and data for their prebuilt agent.
 
 ####  To deploy and configure sample code and data for the Travel prebuilt agent, expand for instructions. 
 
@@ -154,25 +162,25 @@ This agent includes [tools](https://docs.cloud.google.com/dialogflow/cx/docs/con
 
 
 
-### Places search
+### Places Search tool
 
-The `places_search` tool is used to get information about points of interest, including points of interest near a location.
+The `places_search` tool gets information about points of interest, including points of interest near a location.
 
-### Hotel search
+### Hotel Search tool
 
-The `hotel_search` tool is used to get information about hotels, including hotels near a location.
+The `hotel_search` tool gets information about hotels, including hotels near a location.
 
-### Hotel booking
+### Hotel Booking tool
 
-The `hotel_booking` tool is used to create and get information about hotel bookings.
+The `hotel_booking` tool creates and gets information about hotel bookings. The tool uses the Application Integration to call the `HotelService.CreateBooking` method.
 
-### Get user profile
+### Get User Profile tool
 
-The `get_user_profile` tool is used to retrieve user profiles that can be used to customize recommendations for the user.
+The `get_user_profile` tool retrieves user profiles that let them customize recommendations.
 
 ### Complete
 
-Your agent and its integrations should now be set up and ready to test.
+Your agent and its integrations are set up and ready to test.
 
 [ Previous arrow_back  Shopping assistant  ](https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook/prebuilt/shopping-assistant)
 
@@ -182,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

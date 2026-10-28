@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/deploy-applications/
 title: Deploy applications \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:34:31.266156+00:00
+fetched_at: 2026-10-27T19:53:46.109043+00:00
 ---
 
 # Deploy applications  |  Application Design Center  |  Google Cloud Documentation
@@ -21,18 +21,7 @@ Send feedback
 
 #  Deploy applications Stay organized with collections  Save and categorize content based on your preferences. 
 
-After you create an application draft from a template, you can deploy the application. When you deploy an application using App Design Center, your application is automatically registered in App Hub. The deployment process lets you do the following:
-
-  * Preview changes that Terraform plans to make to your infrastructure.
-  * Enable Google Cloud resource APIs that are required for your application.
-  * Investigate deployment issues.
-  * Assess your design against organization policies.
-  * Use telemetry data to analyze resource performance.
-  * Identify and apply template revisions to your application.
-
-
-
-This document helps you deploy, manage, and apply a template revision to your application.
+Deploying an application draft in App Design Center lets you provision Google Cloud resources and automatically register your application in App Hub. Before you deploy, you can preview the planned Terraform changes, assess your design against organization policies, and enable required Google Cloud APIs. After deployment, you can investigate deployment issues, analyze resource performance using telemetry data, and apply new template revisions to your application.
 
 ## Before you begin
 
@@ -365,6 +354,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/optimize-storage/
 title: Optimize data and storage for sustainability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:26:17.232660+00:00
+fetched_at: 2026-10-27T23:40:27.398120+00:00
 ---
 
 # Optimize data and storage for sustainability  |  Cloud Architecture Center  |  Google Cloud Documentation

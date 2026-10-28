@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/orchestration/
 title: Orchestration \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:21:08.254285+00:00
+fetched_at: 2026-10-28T02:28:06.459862+00:00
 ---
 
 # Orchestration  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -178,7 +178,7 @@ The following focuses on the final steps of the machine learning lifecycle: mana
   * Monitor your pipeline runs and model performance: 
     * Pipeline Monitoring: Track the execution graph, artifacts, and performance of your pipeline runs to debug issues and optimize your orchestration. 
       * [Visualize and analyze pipeline results](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/visualize-pipeline)
-    * Model Monitoring: After deployment, set up monitoring to detect drift and anomalies in your model's prediction performance, which helps maintain the model's accuracy over time. 
+    * Gemini Enterprise Agent Platform Model Monitoring: After deployment, set up monitoring to detect drift and anomalies in your model's prediction performance, which helps maintain the model's accuracy over time. 
       * [Introduction to Gemini Enterprise Agent Platform Model Monitoring](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/overview)
   * Optimize costs and manage the cluster lifecycle: When using automated pipelines, manage the cluster's lifecycle by considering run frequency. 
     * For infrequent runs, add a final pipeline step to [delete the cluster](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/manage-cluster#delete-a-cluster) to save costs. This typically involves creating a [custom pipeline component](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/build-own-components) that calls the delete function.
@@ -190,6 +190,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

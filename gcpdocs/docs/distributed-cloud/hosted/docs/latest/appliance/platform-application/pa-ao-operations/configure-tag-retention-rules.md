@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform-application/pa-ao-operations/configure-tag-retention-rules/
 title: Configure tag retention rules \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:17.188870+00:00
+fetched_at: 2026-10-27T21:45:05.385495+00:00
 ---
 
 # Configure tag retention rules  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

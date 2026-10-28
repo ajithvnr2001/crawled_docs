@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/samples/dataflow-v1beta3-generated-Jobs-CreateJob-sync/
 title: Create a job (Ruby) \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:10.352138+00:00
+fetched_at: 2026-10-27T18:58:56.695536+00:00
 ---
 
 # Create a job (Ruby)  |  Cloud Dataflow  |  Google Cloud Documentation

@@ -1,16 +1,44 @@
 ---
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/
 title: Overview \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
-method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:24:06.212013+00:00
+method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
+fetched_at: 2026-10-27T18:13:01.066415+00:00
 ---
 
 # Overview  |  Gemini Enterprise  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/
 
-**Note:** This documentation set is for the Standard, Plus, Pay-as-you-go, and Frontline editions of Gemini Enterprise. For the Business edition documentation, see the [Gemini Enterprise - Business edition Help Center](https://support.google.com/g). 
+[ Skip to main content ](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/#main-content)
+[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
+`/`
+[ Console ](https://console.cloud.google.com/)
+  * [English](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/)
+  * [Deutsch](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=de)
+  * [Español – América Latina](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=es-419)
+  * [Français](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=fr)
+  * [Indonesia](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=id)
+  * [Italiano](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=it)
+  * [Português – Brasil](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=pt-br)
+  * [עברית](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=he)
+  * [中文 – 简体](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=zh-cn)
+  * [中文 – 繁體](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=zh-tw)
+  * [日本語](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=ja)
+  * [한국어](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/?hl=ko)
 
+
+[ ![](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/gemini-spark-blue-192px.svg) ](https://docs.cloud.google.com/gemini/enterprise/docs)
+  * [ Gemini Enterprise ](https://docs.cloud.google.com/gemini/enterprise/docs)
+
+
+[Start free](https://console.cloud.google.com/freetrial)
+  * On this page
+  * [Supported actions](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/#supported-actions)
+  * [Limitations](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/#limitations)
+  * [What's next](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/#whats-next)
+
+
+**Note:** This documentation set is for the Standard, Plus, Pay-as-you-go, and Frontline editions of Gemini Enterprise. For the Business edition documentation, see the [Gemini Enterprise - Business edition Help Center](https://support.google.com/g). 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ AI and ML ](https://docs.cloud.google.com/docs/ai-ml)
@@ -18,32 +46,26 @@ fetched_at: 2026-10-25T06:24:06.212013+00:00
   * [ Administrator guide ](https://docs.cloud.google.com/gemini/enterprise/docs/before-you-begin)
 
 
-
 Send feedback 
+#  Overview Stay organized with collections  Save and categorize content based on your preferences.
+  * On this page
+  * [Supported actions](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/#supported-actions)
+  * [Limitations](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/#limitations)
+  * [What's next](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/#whats-next)
 
-#  Overview Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Public preview:** The federated search and actions features are in public preview. This feature is subject to the "Pre-GA Offerings Terms" in the [General Service Terms section of the Service Specific Terms](https://cloud.google.com/terms/service-terms). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages). 
 
 The Smartsheet connector for Gemini Enterprise lets you search and read your Smartsheet sheets, workspaces, folders, and discussions using natural language.
-
 ## Supported actions
-
-When the Smartsheet connector is enabled, the end user can use natural language commands in Gemini Enterprise to perform the following actions.
-
-Action | Description  
----|---  
-Add favorites | Marks one or more assets (sheets, reports, dashboards, folders, workspaces, or templates) as favorites for the current user.  
-Add rows | Adds one or more new rows to a sheet.  
-Create sheet | Creates a new sheet in a folder or workspace, either from scratch with custom column definitions or based on an existing template.  
-Create workspace | Creates a new workspace.  
-Update rows | Updates one or more rows in a sheet.  
-**Note:** Additional read-only actions are also available.
-
+When the Smartsheet connector is enabled, the end user can use natural language commands in Gemini Enterprise to perform the following actions.  
+| Action  | Description  |  
+| --- | --- |  
+| Add favorites  | Marks one or more assets (sheets, reports, dashboards, folders, workspaces, or templates) as favorites for the current user.  |  
+| Add rows  | Adds one or more new rows to a sheet.  |  
+| Create sheet  | Creates a new sheet in a folder or workspace, either from scratch with custom column definitions or based on an existing template.  |  
+| Create workspace  | Creates a new workspace.  |  
+| Update rows  | Updates one or more rows in a sheet.  |  
 ## Limitations
-
 The Smartsheet data store for Gemini Enterprise has the following limitations:
-
   * When creating a new app or adding a data store to an existing one, it's recommended to associate only one data store with actions belonging to a single connector type.
 
 
@@ -53,17 +75,11 @@ The Smartsheet data store for Gemini Enterprise has the following limitations:
   * The Smartsheet data store is supported only in the `global`, `us`, and `eu` locations.
 
 
-
 ## What's next
-
   * To create and configure a data store with Smartsheet, see [Set up a Smartsheet data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/smartsheet/set-up-data-store).
 
 
-
 Send feedback 
-
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-
-Last updated 2026-10-22 UTC.
-
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Last updated 2026-10-26 UTC.
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

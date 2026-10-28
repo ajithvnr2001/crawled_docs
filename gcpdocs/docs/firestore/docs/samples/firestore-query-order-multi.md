@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-order-multi/
 title: Ordering a Firestore query on multiple fields \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:18:23.324720+00:00
+fetched_at: 2026-10-27T16:53:49.504981+00:00
 ---
 
 # Ordering a Firestore query on multiple fields  |  Google Cloud Documentation

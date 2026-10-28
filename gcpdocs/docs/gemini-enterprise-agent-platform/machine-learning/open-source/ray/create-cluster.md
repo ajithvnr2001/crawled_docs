@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/create-cluster/
 title: Create a Ray cluster on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:45:35.723046+00:00
+fetched_at: 2026-10-28T02:28:21.645017+00:00
 ---
 
 # Create a Ray cluster on Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ Under **Advanced options** , you can:
 
 
 
-###  Ray on Agent Platform SDK
+###  Ray on Agent Platform SDK 
 
 In accordance with the [OSS Ray best practice](https://docs.ray.io/en/latest/cluster/vms/user-guides/large-cluster-best-practices.html#configuring-the-head-node) recommendation, setting the logical CPU count to 0 on the Ray head node is enforced in order to avoid running any workload on the head node.
 
@@ -151,12 +151,8 @@ Where:
 **Note:** Unlike when using open source Ray, you don't need to use `ray start` or `ray up` to create a Ray cluster on Gemini Enterprise Agent Platform. Gemini Enterprise Agent Platform manages the provisioning of the machines and Ray cluster.
 
 You should see the following output until the status changes to `RUNNING`:
-    
-    
-    [Ray on Agent Platform]: Cluster State = State.PROVISIONING
-    Waiting for cluster provisioning; attempt 1; sleeping for 0:02:30 seconds
-    ...
-    [Ray on Agent Platform]: Cluster State = State.RUNNING
+
+`none [Ray on Agent Platform]: Cluster State = State.PROVISIONING Waiting for cluster provisioning; attempt 1; sleeping for 0:02:30 seconds ... [Ray on Agent Platform]: Cluster State = State.RUNNING`
 
 Note the following:
 
@@ -249,7 +245,7 @@ Follow the [setting up your resources](https://docs.cloud.google.com/gemini-ente
 
 
 
-###  Ray on Agent Platform SDK
+###  Ray on Agent Platform SDK 
 
 The Ray on Agent Platform SDK is a part of the Agent Platform SDK for Python. To learn how to install or update the Agent Platform SDK for Python, see [Install the Agent Platform SDK for Python](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/install-sdk). For more information, see the [Agent Platform SDK for Python API reference](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest) documentation.
     
@@ -401,6 +397,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/symantec-blue-coat-proxysg/
 title: Symantec Blue Coat ProxySG \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:30.230136+00:00
+fetched_at: 2026-10-27T23:24:28.359984+00:00
 ---
 
 # Symantec Blue Coat ProxySG  |  Google Security Operations  |  Google Cloud Documentation

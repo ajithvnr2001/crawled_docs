@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/policy-intelligence/
 title: gcloud beta policy-intelligence \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:33:14.436866+00:00
+fetched_at: 2026-10-27T21:40:51.990371+00:00
 ---
 
 # gcloud beta policy-intelligence  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -24,13 +24,13 @@ Send feedback
 NAME
     
 
-gcloud beta policy-intelligence - a platform to help better understand, use, and manage policies at scale 
+gcloud beta policy-intelligence - a platform to help administrators better understand, use, and manage policies at scale 
 SYNOPSIS
     
 
 `gcloud beta policy-intelligence` `GROUP` | `COMMAND` [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
-     `(BETA)` A platform to help better understand, use, and manage policies at scale. 
+     `(BETA)` A platform to help administrators better understand, use, and manage policies at scale. 
 GCLOUD WIDE FLAGS
      These flags are available to all commands: `[--help](https://docs.cloud.google.com/sdk/gcloud/reference#--help)`. 
 
@@ -51,6 +51,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

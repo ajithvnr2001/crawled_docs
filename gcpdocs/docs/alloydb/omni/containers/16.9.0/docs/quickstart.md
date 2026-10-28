@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.9.0/docs/quickstart/
 title: Install AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for containers: 16.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:36:10.358511+00:00
+fetched_at: 2026-10-28T02:28:32.526034+00:00
 ---
 
 # Install AlloyDB Omni  |  AlloyDB Omni for containers: 16.9.0  |  Google Cloud Documentation
@@ -153,7 +153,7 @@ Install a container runtime like [Docker](https://docs.docker.com/engine/install
 Replace the following variables:
 
      * `NEW_PASSWORD`: the password to assign the new container's `postgres` user after its creation.
-     * `IMAGE_TAG`: use `16.8.0` for the latest Debian image or`16.8.0-ubi` for the latest UBI image.
+     * `IMAGE_TAG`: use `16.8.0` for the latest Debian image or `16.8.0-ubi` for the latest UBI image.
 
 **Note:** By default, AlloyDB Omni stores your data on the container itself, and not on your host file system. The data directory is deleted once you delete your AlloyDB Omni container. To mount a data directory stored on your host file system, see instructions in [Customize your AlloyDB Omni installation](https://docs.cloud.google.com/alloydb/omni/containers/16.9.0/docs/install).
   2. Connect to containerized AlloyDB Omni using `psql`:
@@ -167,7 +167,7 @@ The terminal window displays `psql` login text that ends with a `postgres=#` pro
 
 ###  Podman 
 
-  1. Use the `docker run` command to create a new container with AlloyDB Omni named `my-omni`:
+  1. Use the `podman run` command to create a new container with AlloyDB Omni named `my-omni`:
          
          podman run --name my-omni \
              -e POSTGRES_PASSWORD=NEW_PASSWORD \
@@ -176,7 +176,7 @@ The terminal window displays `psql` login text that ends with a `postgres=#` pro
 Replace the following variables:
 
      * `NEW_PASSWORD`: the password to assign the new container's `postgres` user after its creation.
-     * `IMAGE_TAG`: use `16.3.0` for the latest Debian image or`16.3.0-ubi` for the latest UBI image.
+     * `IMAGE_TAG`: use `16.8.0` for the latest Debian image or `16.8.0-ubi` for the latest UBI image.
 
 **Note:** By default, AlloyDB Omni stores your data on the container itself, and not on your host file system. The data directory is deleted once you delete your AlloyDB Omni container. To mount a data directory stored on your host file system, see instructions in [Customize your AlloyDB Omni installation](https://docs.cloud.google.com/alloydb/omni/containers/16.9.0/docs/install).
   2. Connect to containerized AlloyDB Omni using `psql`:
@@ -235,6 +235,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

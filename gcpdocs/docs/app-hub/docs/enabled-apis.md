@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-hub/docs/enabled-apis/
 title: Enable APIs on the management project \u00a0|\u00a0 App Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:50:26.236745+00:00
+fetched_at: 2026-10-27T21:40:16.742033+00:00
 ---
 
 # Enable APIs on the management project  |  App Hub  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback
 
 #  Enable APIs on the management project Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document contains a list of APIs for the [management project](https://docs.cloud.google.com/app-hub/docs/key-concepts#mgmt-project), categorized as either _Required_ or _Recommended_ for application management. If a product supports [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview), review the linked documentation in the provided list for more information, such as limitations or additional configuration requirements.
+When you [set up application management](https://docs.cloud.google.com/app-hub/docs/set-up-app-hub), the management project centralizes your application operations. Learning about required and recommended APIs for this project helps you understand available application management features and their associated costs.
 
-When you [set up application management](https://docs.cloud.google.com/app-hub/docs/set-up-app-hub), the management project centralizes your application operations. All required APIs are automatically enabled on this project to provide basic, core application features. These required APIs are essential for the following processes:
+## Automatically enabled features
+
+All required APIs are automatically enabled on the management project to provide basic, core application features. These required APIs are essential for the following processes:
 
   * Group your applications, services, and workloads in [App Hub](https://docs.cloud.google.com/app-hub/docs/overview).
   * Design and deploy applications from templates in [Application Design Center](https://docs.cloud.google.com/application-design-center/docs/overview).
@@ -69,6 +71,8 @@ The list of APIs in the Google Cloud console might differ from the list on this 
 
 
 The list of recommended APIs includes many BigQuery dependencies. For more information, see [Manage BigQuery API dependencies](https://docs.cloud.google.com/bigquery/docs/service-dependencies).
+
+If a product supports [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview), review the linked documentation for more information, such as limitations or additional configuration requirements.
 
 ### APIs involved in designing, building, and deploying applications
 
@@ -262,6 +266,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

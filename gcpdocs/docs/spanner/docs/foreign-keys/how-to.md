@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/foreign-keys/how-to/
 title: Create and manage foreign key relationships \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:02.564023+00:00
+fetched_at: 2026-10-27T22:37:10.078832+00:00
 ---
 
 # Create and manage foreign key relationships  |  Spanner  |  Google Cloud Documentation
@@ -178,6 +178,39 @@ The following `CREATE TABLE` DDL statement for the `Orders` table includes the f
 
 The previous statement contains a foreign key constraint with an `ON DELETE CASCADE` clause. The `CustomerID` column is a foreign key that references the `CustomerID` field in the `Customers` table. This means that each `CustomerID` value in the `Orders` table must also exist in the `Customers` table. If someone tries to delete a row from the `Customers` table, all of the rows in the `Orders` table that reference the deleted `CustomerID` value are also deleted in the same transaction.
 
+Similarly, you can use the `ON DELETE SET NULL` action to set the referencing columns to `NULL` instead of deleting the referencing rows. To use `ON DELETE SET NULL`, the referencing columns must be nullable (that is, not marked `NOT NULL`). They can't be part of the referencing table's primary key or generated columns.
+
+For details on how `ON DELETE SET NULL` and `ON DELETE CASCADE` compare in mutations, reads, and cascading behavior, see [Resource usage for foreign key delete actions](https://docs.cloud.google.com/spanner/docs/foreign-keys/overview#fk-delete-action-resource-usage).
+
+The following `CREATE TABLE` DDL statement for the `Orders` table includes a foreign key constraint that references the `Customers` table with an `ON DELETE SET NULL` action. In this example, `CustomerID` in the `Orders` table is nullable.
+
+###  GoogleSQL 
+    
+    
+    CREATE TABLE Orders (
+    OrderID INT64 NOT NULL,
+    CustomerID INT64,
+    Quantity INT64 NOT NULL,
+    ProductID INT64 NOT NULL,
+    CONSTRAINT FK_CustomerOrder FOREIGN KEY (CustomerID)
+      REFERENCES Customers (CustomerID) ON DELETE SET NULL
+    ) PRIMARY KEY (OrderID);
+    
+
+###  PostgreSQL 
+    
+    
+    CREATE TABLE Orders (
+    OrderID BIGINT NOT NULL,
+    CustomerID BIGINT,
+    Quantity BIGINT NOT NULL,
+    ProductID BIGINT NOT NULL,
+    CONSTRAINT FK_CustomerOrder FOREIGN KEY (CustomerID)
+      REFERENCES Customers (CustomerID) ON DELETE SET NULL,
+    PRIMARY KEY (OrderID)
+    );
+    
+
 **Note:** If you don't specify a foreign key action, the default action is `NO ACTION`. This means that if someone tries to delete a row from the `Customers` table, and there are rows in the `Orders` table that reference the deleted `CustomerID` value, the delete operation fails with a foreign key constraint violation error.
 
 ## Add a foreign key with a delete action to a table
@@ -190,7 +223,7 @@ You also want to make sure that orders are only created for products that exist.
         REFERENCES Products (ProductID) ON DELETE CASCADE;
     
 
-Deleting a row from the `Products` table deletes all of the rows in the `Orders` table that reference the deleted `ProductID` value.
+Deleting a row from the `Products` table deletes all of the rows in the `Orders` table that reference the deleted `ProductID` value. You can also use `ON DELETE SET NULL` in an `ALTER TABLE` statement if the referencing column is nullable, isn't part of the primary key, and isn't a generated column.
 
 **Note:** Adding or dropping a foreign key action on an existing foreign key constraint isn't supported. You need to add a new foreign key constraint with an action. For more information, see [Long-running schema changes](https://docs.cloud.google.com/spanner/docs/foreign-keys/how-to#long-running-schema-changes).
 
@@ -441,6 +474,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-dataframes-load-data-from-csv/
 title: Create a BigQuery DataFrame from a CSV file in GCS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:29.202381+00:00
+fetched_at: 2026-10-27T23:09:56.998731+00:00
 ---
 
 # Create a BigQuery DataFrame from a CSV file in GCS  |  Google Cloud Documentation

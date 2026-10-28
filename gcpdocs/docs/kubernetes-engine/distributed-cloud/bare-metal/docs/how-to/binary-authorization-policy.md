@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/binary-authorization-policy/
 title: Set up Binary Authorization policy enforcement \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:41.782254+00:00
+fetched_at: 2026-10-28T02:29:43.704654+00:00
 ---
 
 # Set up Binary Authorization policy enforcement  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,9 +22,7 @@ Send feedback
 
 #  Set up Binary Authorization policy enforcement Stay organized with collections  Save and categorize content based on your preferences. 
 
-Binary Authorization for Google Distributed Cloud is a Google Cloud feature that extends the hosted, deploy-time enforcement of [Binary Authorization](https://docs.cloud.google.com/binary-authorization/docs/overview) to your on-premises clusters. The primary use case for Binary Authorization on Google Distributed Cloud is to secure workloads, but Binary Authorization works with all cluster types. Follow the steps in this guide to apply the enforcement rules of a Binary Authorization policy configured in your Google Cloud project to your clusters. For more information about Binary Authorization policies and rules, see [ Binary Authorization overview](https://docs.cloud.google.com/binary-authorization/docs/key-concepts).
-
-**Note:** If you enabled the ([Preview](https://cloud.google.com/products/#product-launch-stages)) Binary Authorization for Google Distributed Cloud, [disable it and clean up the resources](https://docs.cloud.google.com/binary-authorization/docs/setting-up-on-prem#clean_up) before you enable the GA feature. Use the instructions in this document to enable the GA feature on version 1.16.0 or higher clusters.
+Binary Authorization for Google Distributed Cloud lets you extend hosted, deploy-time enforcement of [Binary Authorization](https://docs.cloud.google.com/binary-authorization/docs/overview) to your on-premises clusters. Although primarily used to help secure workloads, Binary Authorization works with all cluster types to apply policy enforcement rules configured in your Google Cloud project. For more information about policies and rules, see the [Binary Authorization overview](https://docs.cloud.google.com/binary-authorization/docs/key-concepts).
 
 ## Prerequisites
 
@@ -44,7 +42,7 @@ Before you can enable Binary Authorization policy enforcement for a cluster, ens
 If your cluster is running behind a proxy server, make sure the proxy server allows connections to the Binary Authorization API (`binaryauthorization.googleapis.com`). This API provides policy-based deployment validation and control for images deployed to your cluster. For more information about using a proxy configuration, see [Install behind a proxy](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/installing/proxy).
 
 
-
+**Note:** If you enabled the ([Preview](https://cloud.google.com/products/#product-launch-stages)) Binary Authorization for Google Distributed Cloud, [disable it and clean up the resources](https://docs.cloud.google.com/binary-authorization/docs/setting-up-on-prem#clean_up) before you enable the GA feature. Use the instructions in this document to enable the GA feature on version 1.16.0 or higher clusters.
 
 Once you satisfy the prerequisites, you can enable (or disable) the Binary Authorization policy when you create a new cluster or update an existing cluster.
 
@@ -173,6 +171,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

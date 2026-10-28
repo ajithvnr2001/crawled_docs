@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/enable-disable/
 title: Enable and disable key versions \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:21.606285+00:00
+fetched_at: 2026-10-27T23:37:55.757784+00:00
 ---
 
 # Enable and disable key versions  |  Cloud Key Management Service  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Unless otherwise specified in the [Service Health dashboard](https://status.clou
 
 You can also permanently [destroy a key version](https://docs.cloud.google.com/kms/docs/destroy-restore). Depending on your organization policies, you might need to disable a key version before you can destroy it. For more information see [Control key version destruction](https://docs.cloud.google.com/kms/docs/control-key-destruction).
 
-**Note:** Key rings can't be deleted. You can [delete keys and key versions](https://docs.cloud.google.com/kms/docs/delete-kms-resources) in some circumstances, but names of deleted keys can't be reused. This ensures that the [resource identifier](https://docs.cloud.google.com/kms/docs/getting-resource-ids) of a key version is unique and always points to the original key material for that key version unless it has been destroyed. You can store an unlimited number of key rings, enabled or disabled keys, and enabled, disabled, or destroyed key versions. For more information, see [Pricing](https://docs.cloud.google.com/kms/pricing) and [Quotas](https://docs.cloud.google.com/kms/quotas). 
+**Note:** You can [delete key rings, keys, and key versions](https://docs.cloud.google.com/kms/docs/delete-kms-resources) in some circumstances. Deleting a resource removes it from lists of Cloud KMS resources. Destroying a key version permanently deletes its underlying key material. When you delete a key ring, its name becomes available for reuse, but names of deleted keys can't be reused. This ensures that the [resource identifier](https://docs.cloud.google.com/kms/docs/getting-resource-ids) of a key version is unique and always points to the original key material for that key version unless it has been destroyed. You can store an unlimited number of key rings, enabled or disabled keys, and enabled, disabled, or destroyed key versions. For more information, see [Pricing](https://docs.cloud.google.com/kms/pricing) and [Quotas](https://docs.cloud.google.com/kms/quotas). 
 
 ## Disable a key version
 
@@ -369,7 +369,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/kms"
     
     # Create the client.
-    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-inventory-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
+    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
     
     # Build the key version name.
     key_version_name = client.[crypto_key_version_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms-V1-KeyManagementService-Paths.html) project:            project_id,
@@ -740,7 +740,7 @@ To run this code, first [set up a Ruby development environment](https://docs.clo
     require "google/cloud/kms"
     
     # Create the client.
-    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-inventory-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
+    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
     
     # Build the key version name.
     key_version_name = client.[crypto_key_version_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms-V1-KeyManagementService-Paths.html) project:            project_id,
@@ -774,6 +774,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/resource-hierarchy/
 title: Cloud KMS resources \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:50.884598+00:00
+fetched_at: 2026-10-27T23:17:39.286016+00:00
 ---
 
 # Cloud KMS resources  |  Cloud Key Management Service  |  Google Cloud Documentation
@@ -120,7 +120,7 @@ Regardless of the algorithm, Cloud KMS uses probabilistic encryption, so that th
 
 ## Key rings
 
-A key ring organizes keys in a specific Google Cloud location and lets you manage access control on groups of keys. A key ring's name does not need to be unique across a Google Cloud project, but must be unique within a given location. After creation, a key ring cannot be deleted. Key rings don't incur any costs. For a list of available locations, see [Cloud KMS locations](https://docs.cloud.google.com/kms/docs/locations). 
+A key ring organizes keys in a specific Google Cloud location and lets you manage access control on groups of keys. A key ring's name does not need to be unique across a Google Cloud project, but must be unique within a given location. Key rings don't incur any costs. For a list of available locations, see [Cloud KMS locations](https://docs.cloud.google.com/kms/docs/locations). 
 
 ## Key handles
 
@@ -166,7 +166,7 @@ When you are planning how to organize the resources in your Google Cloud project
 
 ## Resource life cycles
 
-Key rings can't be deleted. You can [delete keys and key versions](https://docs.cloud.google.com/kms/docs/delete-kms-resources) in some circumstances, but names of deleted keys can't be reused. This ensures that the [resource identifier](https://docs.cloud.google.com/kms/docs/getting-resource-ids) of a key version is unique and always points to the original key material for that key version unless it has been destroyed. You can store an unlimited number of key rings, enabled or disabled keys, and enabled, disabled, or destroyed key versions. For more information, see [Pricing](https://docs.cloud.google.com/kms/pricing) and [Quotas](https://docs.cloud.google.com/kms/quotas). 
+You can [delete key rings, keys, and key versions](https://docs.cloud.google.com/kms/docs/delete-kms-resources) in some circumstances. Deleting a resource removes it from lists of Cloud KMS resources. Destroying a key version permanently deletes its underlying key material. When you delete a key ring, its name becomes available for reuse, but names of deleted keys can't be reused. This ensures that the [resource identifier](https://docs.cloud.google.com/kms/docs/getting-resource-ids) of a key version is unique and always points to the original key material for that key version unless it has been destroyed. You can store an unlimited number of key rings, enabled or disabled keys, and enabled, disabled, or destroyed key versions. For more information, see [Pricing](https://docs.cloud.google.com/kms/pricing) and [Quotas](https://docs.cloud.google.com/kms/quotas). 
 
 To learn how to destroy or restore a key version, see [Destroying and restoring key versions](https://docs.cloud.google.com/kms/docs/destroy-restore).
 
@@ -185,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

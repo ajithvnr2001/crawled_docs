@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/deployment-archetypes/zonal/
 title: Google Cloud zonal deployment archetype \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:34:27.182075+00:00
+fetched_at: 2026-10-27T23:07:11.678904+00:00
 ---
 
 # Google Cloud zonal deployment archetype  |  Cloud Architecture Center  |  Google Cloud Documentation

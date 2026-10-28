@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/reference/system-packages/
 title: System packages and extensions \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:05:49.895704+00:00
+fetched_at: 2026-10-28T00:41:13.332293+00:00
 ---
 
 # System packages and extensions  |  App Engine standard environment  |  Google Cloud Documentation
@@ -40,21 +40,21 @@ base-files | 12ubuntu4.7
 base-passwd | 3.5.52build1  
 bash | 5.1-6ubuntu1.1  
 bsdutils | 1:2.37.2-4ubuntu3.6  
-ca-certificates | 20260601~22.04.1  
+ca-certificates | 20260816ubuntu0.22.04.1  
 chardet | 4.0.0  
 coreutils | 8.32-4.1ubuntu1.4  
-curl | 7.81.0-1ubuntu1.29  
+curl | 7.81.0-1ubuntu1.30  
 dash | 0.5.11+git20210903+057cd650a4ed-3build1  
 debconf | 1.5.79ubuntu1  
 debianutils | 5.5-1ubuntu2  
 dictionaries-common | 1.28.14  
 diffutils | 1:3.8-0ubuntu2.1  
 dirmngr | 2.2.27-3ubuntu2.5  
-distro-info-data | 0.72-0ubuntu0.22.04.1  
+distro-info-data | 2026.10.12-0ubuntu0.22.04.1  
 dpkg | 1.21.1ubuntu2.6  
 e2fsprogs | 1.46.5-2ubuntu1.2  
 emacsen-common | 3.0.4  
-ffmpeg | 7:4.4.2-0ubuntu0.22.04.1+esm16  
+ffmpeg | 7:4.4.2-0ubuntu0.22.04.1+esm17  
 file | 1:5.41-3ubuntu0.1  
 findutils | 4.8.0-1ubuntu3  
 fontconfig | 2.13.1-4.2ubuntu5  
@@ -94,17 +94,17 @@ fonts-urw-base35 | 20200910-1
 fonts-wqy-zenhei | 0.9.45-8  
 gcc-12-base | 12.3.0-1ubuntu1~22.04.3  
 ghostscript | 9.55.0~dfsg1-0ubuntu5.14  
-git | 1:2.34.1-1ubuntu1.17  
-git-man | 1:2.34.1-1ubuntu1.17  
+git | 1:2.34.1-1ubuntu1.18  
+git-man | 1:2.34.1-1ubuntu1.18  
 gnupg | 2.2.27-3ubuntu2.5  
 gnupg-l10n | 2.2.27-3ubuntu2.5  
 gnupg-utils | 2.2.27-3ubuntu2.5  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
-go | 1.28-20260921-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
+go | 1.28-20261015-RC02  
 gpg | 2.2.27-3ubuntu2.5  
 gpg-agent | 2.2.27-3ubuntu2.5  
 gpg-wks-client | 2.2.27-3ubuntu2.5  
@@ -144,11 +144,11 @@ libavahi-client3 | 0.8-5ubuntu5.5
 libavahi-common-data | 0.8-5ubuntu5.5  
 libavahi-common3 | 0.8-5ubuntu5.5  
 libavc1394-0 | 0.5.4-5build2  
-libavcodec58 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libavdevice58 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libavfilter7 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libavformat58 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libavutil56 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
+libavcodec58 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libavdevice58 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libavfilter7 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libavformat58 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libavutil56 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
 libblas3 | 3.10.0-2ubuntu1  
 libblkid1 | 2.37.2-4ubuntu3.6  
 libbluray2 | 1:1.3.1-1  
@@ -173,9 +173,9 @@ libcodec2-1.0 | 1.0.1-3
 libcom-err2 | 1.46.5-2ubuntu1.2  
 libcrypt1 | 1:4.4.27-1  
 libcups2 | 2.4.1op1-1ubuntu4.21  
-libcurl3-gnutls | 7.81.0-1ubuntu1.29  
-libcurl4 | 7.81.0-1ubuntu1.29  
-libcurl4-openssl-dev | 7.81.0-1ubuntu1.29  
+libcurl3-gnutls | 7.81.0-1ubuntu1.30  
+libcurl4 | 7.81.0-1ubuntu1.30  
+libcurl4-openssl-dev | 7.81.0-1ubuntu1.30  
 libdatrie1 | 0.2.13-2  
 libdav1d5 | 0.9.2-1  
 libdb5.3 | 5.3.28+dfsg1-0.8ubuntu3  
@@ -262,7 +262,7 @@ libllvm15 | 1:15.0.7-0ubuntu0.22.04.3
 liblqr-1-0 | 0.4.2-2.1  
 libltdl7 | 2.4.6-15build2  
 liblz4-1 | 1.9.3-2build2  
-liblzma5 | 5.2.5-2ubuntu1.1  
+liblzma5 | 5.2.5-2ubuntu1.2  
 libmagic-mgc | 1:5.41-3ubuntu0.1  
 libmagic1 | 1:5.41-3ubuntu0.1  
 libmagickcore-6.q16-6 | 8:6.9.11.60+dfsg-1.3ubuntu0.22.04.5+esm16  
@@ -321,7 +321,7 @@ libpgm-5.3-0 | 5.3.128~dfsg-2
 libpixman-1-0 | 0.40.0-1ubuntu0.22.04.1  
 libpng16-16 | 1.6.37-3ubuntu0.7  
 libpocketsphinx3 | 0.8.0+real5prealpha+1-14ubuntu1  
-libpostproc55 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
+libpostproc55 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
 libpq5 | 14.24-0ubuntu0.22.04.1  
 libprocps8 | 2:3.3.17-6ubuntu2.1  
 libprotobuf23 | 3.12.4-1ubuntu7.22.04.6  
@@ -371,9 +371,9 @@ libssh-4 | 0.9.6-2ubuntu0.22.04.8
 libssh-gcrypt-4 | 0.9.6-2ubuntu0.22.04.8  
 libssl3 | 3.0.2-0ubuntu1.30  
 libstdc++6 | 12.3.0-1ubuntu1~22.04.3  
-libswresample3 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libswscale5 | 7:4.4.2-0ubuntu0.22.04.1+esm16  
-libsystemd0 | 249.11-0ubuntu3.22  
+libswresample3 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libswscale5 | 7:4.4.2-0ubuntu0.22.04.1+esm17  
+libsystemd0 | 249.11-0ubuntu3.23  
 libtasn1-6 | 4.18.0-4ubuntu0.2  
 libtcmalloc-minimal4 | 2.9.1-0ubuntu3  
 libtext-iconv-perl | 1.7-7build3  
@@ -387,7 +387,7 @@ libtinfo6 | 6.3-2ubuntu0.3
 libtirpc-common | 1.3.2-2ubuntu0.1  
 libtirpc3 | 1.3.2-2ubuntu0.1  
 libtwolame0 | 0.4.0-2build2  
-libudev1 | 249.11-0ubuntu3.22  
+libudev1 | 249.11-0ubuntu3.23  
 libudfread0 | 1.1.2-1  
 libunistring2 | 1.0-1  
 libunwind8 | 1.3.2-2build2.1  
@@ -409,9 +409,9 @@ libwayland-server0 | 1.20.0-1ubuntu0.1
 libwebp7 | 1.2.2-2ubuntu0.22.04.2  
 libwebpdemux2 | 1.2.2-2ubuntu0.22.04.2  
 libwebpmux3 | 1.2.2-2ubuntu0.22.04.2  
-libx11-6 | 2:1.7.5-1ubuntu0.3  
-libx11-data | 2:1.7.5-1ubuntu0.3  
-libx11-xcb1 | 2:1.7.5-1ubuntu0.3  
+libx11-6 | 2:1.7.5-1ubuntu0.4  
+libx11-data | 2:1.7.5-1ubuntu0.4  
+libx11-xcb1 | 2:1.7.5-1ubuntu0.4  
 libx264-163 | 2:0.163.3060+git5db6aa6-2build1  
 libx265-199 | 3.5-2  
 libxau6 | 1:1.0.9-1build5  
@@ -492,7 +492,7 @@ sensible-utils | 0.0.17
 shared-mime-info | 2.1-2  
 sysvinit-utils | 3.01-1ubuntu1  
 tar | 1.34+dfsg-1ubuntu0.1.22.04.6  
-tzdata | 2026c-0ubuntu0.22.04.1  
+tzdata | 2026e-0ubuntu0.22.04.1  
 ubuntu-keyring | 2021.03.26  
 ucf | 3.0043  
 unzip | 6.0-26ubuntu3.2  
@@ -1093,6 +1093,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

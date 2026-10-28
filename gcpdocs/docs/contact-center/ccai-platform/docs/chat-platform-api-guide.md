@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/chat-platform-api-guide/
 title: Chat platform API integration guide \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:41:33.554193+00:00
+fetched_at: 2026-10-27T23:04:43.967510+00:00
 ---
 
 # Chat platform API integration guide  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -460,7 +460,7 @@ The following example demonstrates a request body for escalating a chat:
 
   * If the target queue is available, the chat moves toward agent handling.
 
-  * If the queue is unavailable because of after-hours or over-capacity conditions, CCAI Platform can return or send deflection options through the chat flow.
+  * If the queue cannot take the chat and deflection alternatives are configured, CCAI Platform keeps the chat with the virtual agent and sends an `escalation_deflected` webhook event carrying the alternatives available to the end user. The alternatives never arrive in the escalation response.
 
   * Your integration renders the available deflection options to the end user.
 
@@ -506,7 +506,7 @@ Send only a supported `deflection_channel` value to this endpoint. `external_lin
 
 **What to expect**
 
-CCAI Platform updates the escalation record and transitions the chat according to the selected option.
+CCAI Platform records the choice on the escalation. Recording a choice does not route the chat — your integration acts on the selection, for example by closing the chat for an email deflection or sending a new escalation with `force_escalate: true` for a keep-waiting choice.
 
 ### End the chat
 
@@ -540,6 +540,8 @@ The following example demonstrates a request body for ending a chat:
 
 
 
+
+If the chat is ending because the end user selected a deflection option, don't use this endpoint in place of recording that selection. Record the choice on the escalation first, or record it and close the chat in a single request with `PATCH /apps/api/v1/chats/{chat_id}`, supplying `escalation_id` and `deflection_channel` alongside status. A chat that ends without a recorded choice leaves the choice unrecorded on the escalation and absent from deflection-outcome reporting.
 
 ## Advanced flows
 
@@ -661,6 +663,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

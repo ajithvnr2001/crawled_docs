@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver-to-alloydb/work-with-conversion-workspaces/
 title: Conversion workspace actions \u00a0|\u00a0 Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:52.303498+00:00
+fetched_at: 2026-10-28T00:01:43.765284+00:00
 ---
 
 # Conversion workspace actions  |  Database Migration Service for heterogeneous SQL Server to AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -94,20 +94,20 @@ You can inspect the converted schema in the **AlloyDB for PostgreSQL draft** tab
 
 You can pull schema and code from your source database into the conversion workspace at any moment. Pulling the source gives you an opportunity to add new, or update existing objects in the conversion.
 
-Pulling updated database schema and code doesn't reset any custom mappings that exist in the conversion workspace unless you explicitly choose to remove custom mappings.
+Pulling updated database schema and code doesn't reset any custom mappings that exist in the conversion workspace unless you explicitly choose to remove custom mappings. Additionally, pulling the source doesn't override SQL changes on your code objects. You can reset these changes directly at the object level.
 
-Additionally, pulling the source doesn't override SQL changes on your code objects. You can reset these changes directly at the object level.
+If you initialized your conversion workspace with JSON metadata files uploaded to Cloud Storage, new objects can't be detected automatically since the files are static representations of your database objects. To refresh the source schema and preserve your existing custom mappings and SQL modifications, perform the extraction again and upload the updated schema files to the same folder in your Cloud Storage bucket (overwriting the previous files) before pulling the snapshot again. For more information, see  Extract schema metadata with Python scripts. If you instead switch the workspace to a different Cloud Storage folder or to a source connection profile using **Edit source configuration** , Database Migration Service resets the workspace and removes all selected objects, draft schemas, custom mappings, and DDL modifications.
 
   1. In the Google Cloud console, go to **Conversion workspaces** and select your workspace. 
 
 [ Go to Conversion workspaces](https://console.cloud.google.com/dbmigration/conversion-workspaces)
 
   2. Click settings **Edit configuration** > **Pull source schema snapshot again**.
-  3. In the dialog box: 
-     1. Optional: Select the **Reset custom mapping** to remove existing custom mappings and DDL modifications. 
+  3. In the dialog: 
+     1. Optional: Select **Remove any custom mapping** to remove existing custom mappings. Pulling the source schema doesn't reset SQL code modifications on your objects. 
      2. Click **Pull schema snapshot**. 
 
-Database Migration Service pulls the new snapshot from your source database.
+Database Migration Service pulls the new snapshot from your configured source.
 
   4. Refresh your converted schema. Click move_down **Convert source**. Database Migration Service now analyzes your changes and generates the updated PostgreSQL schema. 
 
@@ -509,10 +509,33 @@ As a result, the filter displays all matching tables:
 ![Screenshot of example results for filtering objects by a combination of
   type and name properties.](https://docs.cloud.google.com/static/database-migration/docs/images/filter_combined_query_example.png)
 
+## Extract schema metadata with Python scripts
+
+When you create a conversion workspace, you can choose to create the initial schema snapshot with Database Migration Service or manually with Google-provided Python extraction scripts. If your source schema changes or you want to include additional objects, you must run the extraction again to refresh the conversion workspace. Follow these steps:
+
+  1. In the Google Cloud console, go to **Conversion workspaces**. 
+
+[ Go to Conversion workspaces](https://console.cloud.google.com/dbmigration/conversion-workspaces)
+
+  2. Click **Set up workspace**.
+  3. On the **Create a conversion workspace** page: 
+     1. Enter the workspace name, identifier, and region.
+     2. From the **Source database engine** drop-down menu, select your source SQL Server database.
+     3. From the **Destination database engine** drop-down menu, select **AlloyDB for PostgreSQL**.
+     4. _Optional_ : Enable Gemini settings for your workspace and click **Continue**. If you don't plan to use this workspace for conversion, and only want to retrieve the Python extraction scripts, you can skip these settings. 
+  4. On the **Define source and pull schema snapshot** page, in the **Source connection method** section, select **Cloud Storage**. 
+  5. In the **Before selecting a folder** section, next to the **SQL Server metadata extractor** heading, click **Open**. 
+  6. Follow the instructions in the side panel to download and run the extraction utility against your source database to produce the schema metadata JSON files. This utility requires that you are able to establish a network connection with your source database. 
+  7. Upload the extracted metadata JSON files to the same folder in your dedicated Cloud Storage bucket, overwriting the previous files. 
+
+
+
+You can now refresh your conversion workspace with a new source schema snapshot. See  Pull source schema and code snapshot.
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

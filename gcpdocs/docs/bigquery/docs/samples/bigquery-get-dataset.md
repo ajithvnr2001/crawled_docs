@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-get-dataset/
 title: Get dataset properties \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:52:02.188148+00:00
+fetched_at: 2026-10-27T23:10:06.013147+00:00
 ---
 
 # Get dataset properties  |  BigQuery  |  Google Cloud Documentation

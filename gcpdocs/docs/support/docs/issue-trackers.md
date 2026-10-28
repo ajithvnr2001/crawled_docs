@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/docs/issue-trackers/
 title: Report issues and request features \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:34:29.447720+00:00
+fetched_at: 2026-10-28T02:30:55.250441+00:00
 ---
 
 # Report issues and request features  |  Cloud Customer Care  |  Google Cloud Documentation
@@ -116,7 +116,6 @@ Data Analytics |
 [List open BigQuery Covid-19 public datasets issues](https://issuetracker.google.com/issues?q=componentid%3A858131%2B%20status%3Aopen) | [Create new BigQuery Covid-19 public datasets issue](https://issuetracker.google.com/issues/new?component=858131)  
 [List open Managed Service for Apache Airflow issues](https://issuetracker.google.com/issues?q=%28componentid%3A460446%2B%20status%3Aopen%29%20OR%20%28componentid%3A187065%2B%20customfield82940%3A%5C%22Cloud%20Composer%5C%22%20status%3Aopen%29)   
 [View known issues in Managed Service for Apache Airflow](https://docs.cloud.google.com/composer/docs/known-issues) | [Create new Managed Service for Apache Airflow issue](https://issuetracker.google.com/issues/new?component=460446&template=0)  
-[List open Data Catalog issues](https://issuetracker.google.com/issues?q=componentid%3A655468%2B%20status%3Aopen) | [Create new Data Catalog issue](https://issuetracker.google.com/issues/new?component=655468&template=0)  
 [List open Cloud Data Fusion issues](https://issuetracker.google.com/issues?q=componentid%3A716116%2B%20status%3Aopen) | [Create new Cloud Data Fusion issue](https://issuetracker.google.com/issues/new?component=716116&template=0)  
 [List open Dataflow issues](https://issuetracker.google.com/issues?q=%28componentid%3A187168%2B%20status%3Aopen%29%20OR%20%28componentid%3A187065%2B%20customfield82940%3A%5C%22Cloud%20Dataflow%5C%22%20status%3Aopen%29) | [Create new Dataflow issue](https://issuetracker.google.com/issues/new?component=187168&template=0)  
 [List open Managed Service for Apache Spark issues](https://issuetracker.google.com/issues?q=%28componentid%3A187133%2B%20status%3Aopen%29%20OR%20%28componentid%3A187065%2B%20customfield82940%3A%5C%22Cloud%20Dataproc%5C%22%20status%3Aopen%29) | [Create new Managed Service for Apache Spark issue](https://issuetracker.google.com/issues/new?component=187133&template=0)  
@@ -279,6 +278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-external-address-parent-tag/
 title: Create a Compute Engine instance static IP address \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:23.551091+00:00
+fetched_at: 2026-10-27T23:18:23.634176+00:00
 ---
 
 # Create a Compute Engine instance static IP address  |  Google Cloud Documentation

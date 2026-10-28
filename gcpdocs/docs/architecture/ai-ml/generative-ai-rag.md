@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/ai-ml/generative-ai-rag/
 title: Delete the Generative AI RAG with Cloud SQL \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:41:02.473099+00:00
+fetched_at: 2026-10-28T01:43:38.158572+00:00
 ---
 
 # Delete the Generative AI RAG with Cloud SQL  |  Cloud Architecture Center  |  Google Cloud Documentation

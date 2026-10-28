@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/platform-application/pa-ao-operations/mhs-overview/
 title: Managed Harbor Service overview \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:15.464039+00:00
+fetched_at: 2026-10-27T21:45:29.720826+00:00
 ---
 
 # Managed Harbor Service overview  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-manager/docs/permissions/
 title: Roles and permissions \u00a0|\u00a0 Certificate Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:48:28.844511+00:00
+fetched_at: 2026-10-27T20:11:50.840931+00:00
 ---
 
 # Roles and permissions  |  Certificate Manager  |  Google Cloud Documentation
@@ -125,6 +125,15 @@ Delete a trust config
 Create an external account key  
   
 `externalAccountKeys.create` | External account keys | `publicca.externalAccountKeys.create` on the target Google Cloud project  
+Retrieve a long-running operation  
+  
+`operations.get` | Operations | `certificatemanager.operations.get` on the target operation  
+List long-running operations  
+  
+`operations.list` | Operations | `certificatemanager.operations.list` on the target Google Cloud project  
+Delete a completed long-running operation  
+  
+`operations.delete` | Operations | `certificatemanager.operations.delete` on the target operation  
   
 ## Roles
 
@@ -407,6 +416,7 @@ Google Cloud also lets you create custom roles that encapsulate permissions spec
   * [Manage certificate maps](https://docs.cloud.google.com/certificate-manager/docs/maps)
   * [Manage certificate map entries](https://docs.cloud.google.com/certificate-manager/docs/map-entries)
   * [Manage DNS authorizations](https://docs.cloud.google.com/certificate-manager/docs/dns-authorizations)
+  * [Manage long-running operations](https://docs.cloud.google.com/certificate-manager/docs/manage-operations)
 
 
 
@@ -414,6 +424,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

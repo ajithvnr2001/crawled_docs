@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/graph-schema-overview/
 title: Schema overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:39:20.996125+00:00
+fetched_at: 2026-10-27T22:59:25.467236+00:00
 ---
 
 # Schema overview  |  BigQuery  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 **Note:** This feature may not be available when using reservations that are created with certain BigQuery editions. For more information about which features are enabled in each edition, see [Introduction to BigQuery editions](https://docs.cloud.google.com/bigquery/docs/editions-intro).
 
-This document explains the components of a graph schema and shows you how to create and manage a graph schema.
-
-Graphs let you model connected data that represents information as a network of nodes and edges. A graph schema consists of nodes and edges, along with labels that classify type their type, and properties that describe them. You define a graph schema by mapping rows from input tables to graph nodes and edges and defining custom labels and properties. To learn more about BigQuery Graph, see the [BigQuery Graph overview](https://docs.cloud.google.com/bigquery/docs/graph-overview).
+A property graph schema in [BigQuery Graph](https://docs.cloud.google.com/bigquery/docs/graph-overview) lets you map rows from input tables or views to graph nodes and edges to model connected data. A graph schema consists of nodes and edges, labels that classify their types, and properties that describe them. You can create and manage a graph schema and define custom labels and properties by using the [`CREATE PROPERTY GRAPH` statement](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/graph-schema-statements#gql_create_graph).
 
 ## Understand the graph data model
 
@@ -449,6 +447,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

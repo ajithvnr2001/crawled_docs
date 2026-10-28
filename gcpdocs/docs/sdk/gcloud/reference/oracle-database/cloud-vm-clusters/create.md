@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/oracle-database/cloud-vm-clusters/create/
 title: gcloud oracle-database cloud-vm-clusters create \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T19:59:02.388306+00:00
+fetched_at: 2026-10-27T21:41:24.834027+00:00
 ---
 
 # gcloud oracle-database cloud-vm-clusters create  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ gcloud oracle-database cloud-vm-clusters create - create a new CloudVmCluster
 SYNOPSIS
     
 
-`gcloud oracle-database cloud-vm-clusters create` `CLOUD_VM_CLUSTER` `--exadata-infrastructure`=`EXADATA_INFRASTRUCTURE` [`--async`] [`--backup-odb-subnet`=`BACKUP_ODB_SUBNET`] [`--backup-subnet-cidr`=`BACKUP_SUBNET_CIDR`] [`--cidr`=`CIDR`] [`--display-name`=`DISPLAY_NAME`] [`--exascale-db-storage-vault`=`EXASCALE_DB_STORAGE_VAULT`] [`--labels`=[`LABELS`,…]] [`--location`=`LOCATION`] [`--network`=`NETWORK`] [`--odb-network`=`ODB_NETWORK`] [`--odb-subnet`=`ODB_SUBNET`] [`--request-id`=`REQUEST_ID`] [[`--properties-cpu-core-count`=`PROPERTIES_CPU_CORE_COUNT` `--properties-license-type`=`PROPERTIES_LICENSE_TYPE` : `--properties-cluster-name`=`PROPERTIES_CLUSTER_NAME` `--properties-data-storage-size-tb`=`PROPERTIES_DATA_STORAGE_SIZE_TB` `--properties-db-node-storage-size-gb`=`PROPERTIES_DB_NODE_STORAGE_SIZE_GB` `--properties-db-server-ocids`=[`PROPERTIES_DB_SERVER_OCIDS`,…] `--properties-disk-redundancy`=`PROPERTIES_DISK_REDUNDANCY` `--properties-gi-version`=`PROPERTIES_GI_VERSION` `--properties-hostname-prefix`=`PROPERTIES_HOSTNAME_PREFIX` `--properties-local-backup-enabled` `--properties-memory-size-gb`=`PROPERTIES_MEMORY_SIZE_GB` `--properties-node-count`=`PROPERTIES_NODE_COUNT` `--properties-ocpu-count`=`PROPERTIES_OCPU_COUNT` `--properties-scan-listener-port-tcp`=`PROPERTIES_SCAN_LISTENER_PORT_TCP` `--properties-scan-listener-port-tcp-ssl`=`PROPERTIES_SCAN_LISTENER_PORT_TCP_SSL` `--properties-sparse-diskgroup-enabled` `--properties-ssh-public-keys`=[`PROPERTIES_SSH_PUBLIC_KEYS`,…] `--properties-system-version`=`PROPERTIES_SYSTEM_VERSION` `--properties-vm-backup-storage-type`=`PROPERTIES_VM_BACKUP_STORAGE_TYPE` `--properties-vm-file-system-storage-type`=`PROPERTIES_VM_FILE_SYSTEM_STORAGE_TYPE` `--diagnostics-data-collection-options-events-enabled` `--diagnostics-data-collection-options-health-monitoring-enabled` `--diagnostics-data-collection-options-incident-logs-enabled` `--time-zone-id`=`TIME_ZONE_ID` `--time-zone-version`=`TIME_ZONE_VERSION`]] [`GCLOUD_WIDE_FLAG …`]
+`gcloud oracle-database cloud-vm-clusters create` `CLOUD_VM_CLUSTER` `--exadata-infrastructure`=`EXADATA_INFRASTRUCTURE` [`--async`] [`--backup-odb-subnet`=`BACKUP_ODB_SUBNET`] [`--backup-subnet-cidr`=`BACKUP_SUBNET_CIDR`] [`--cidr`=`CIDR`] [`--display-name`=`DISPLAY_NAME`] [`--exascale-db-storage-vault`=`EXASCALE_DB_STORAGE_VAULT`] [`--labels`=[`LABELS`,…]] [`--location`=`LOCATION`] [`--network`=`NETWORK`] [`--odb-dns-zone`=`ODB_DNS_ZONE`] [`--odb-network`=`ODB_NETWORK`] [`--odb-subnet`=`ODB_SUBNET`] [`--request-id`=`REQUEST_ID`] [[`--properties-cpu-core-count`=`PROPERTIES_CPU_CORE_COUNT` `--properties-license-type`=`PROPERTIES_LICENSE_TYPE` : `--properties-cluster-name`=`PROPERTIES_CLUSTER_NAME` `--properties-data-storage-size-tb`=`PROPERTIES_DATA_STORAGE_SIZE_TB` `--properties-db-node-storage-size-gb`=`PROPERTIES_DB_NODE_STORAGE_SIZE_GB` `--properties-db-server-ocids`=[`PROPERTIES_DB_SERVER_OCIDS`,…] `--properties-disk-redundancy`=`PROPERTIES_DISK_REDUNDANCY` `--properties-gi-version`=`PROPERTIES_GI_VERSION` `--properties-hostname-prefix`=`PROPERTIES_HOSTNAME_PREFIX` `--properties-local-backup-enabled` `--properties-memory-size-gb`=`PROPERTIES_MEMORY_SIZE_GB` `--properties-node-count`=`PROPERTIES_NODE_COUNT` `--properties-ocpu-count`=`PROPERTIES_OCPU_COUNT` `--properties-scan-listener-port-tcp`=`PROPERTIES_SCAN_LISTENER_PORT_TCP` `--properties-scan-listener-port-tcp-ssl`=`PROPERTIES_SCAN_LISTENER_PORT_TCP_SSL` `--properties-sparse-diskgroup-enabled` `--properties-ssh-public-keys`=[`PROPERTIES_SSH_PUBLIC_KEYS`,…] `--properties-system-version`=`PROPERTIES_SYSTEM_VERSION` `--properties-vm-backup-storage-type`=`PROPERTIES_VM_BACKUP_STORAGE_TYPE` `--properties-vm-file-system-storage-type`=`PROPERTIES_VM_FILE_SYSTEM_STORAGE_TYPE` `--diagnostics-data-collection-options-events-enabled` `--diagnostics-data-collection-options-health-monitoring-enabled` `--diagnostics-data-collection-options-incident-logs-enabled` `--time-zone-id`=`TIME_ZONE_ID` `--time-zone-version`=`TIME_ZONE_VERSION`]] [`GCLOUD_WIDE_FLAG …`]
 DESCRIPTION
      Create a new CloudVmCluster. 
 EXAMPLES
@@ -40,6 +40,11 @@ ODBNetwork based configuration(This is the recommended way):
     
     
     gcloud oracle-database cloud-vm-clusters create my-instance --location=us-east4 --display-name="my instance" --odb-network=projects/network-project/locations/us-east4/odbNetworks/my-odbnetwork --odb-subnet=projects/network-project/locations/us-east4/odbNetworks/my-odbnetwork/odbSubnets/my-odbsubnet --backup-odb-subnet=projects/network-project/locations/us-east4/odbNetworks/my-odbnetwork/odbSubnets/my-backup-odbsubnet --properties-license-type=LICENSE_INCLUDED --properties-ssh-public-keys="VtTxzlPJtIivthmLOmWdRDFy5l27pKUTwLp02" --properties-gi-version=xx.0.0.0 --properties-hostname-prefix=hostname1 --properties-cpu-core-count=4
+
+To use a custom domain name for the CloudVmCluster, create an OdbDnsZone under the same OdbNetwork and pass it with `--odb-dns-zone`: 
+    
+    
+    gcloud oracle-database cloud-vm-clusters create my-instance --location=us-east4 --display-name="my instance" --odb-network=projects/network-project/locations/us-east4/odbNetworks/my-odbnetwork --odb-subnet=projects/network-project/locations/us-east4/odbNetworks/my-odbnetwork/odbSubnets/my-odbsubnet --backup-odb-subnet=projects/network-project/locations/us-east4/odbNetworks/my-odbnetwork/odbSubnets/my-backup-odbsubnet --odb-dns-zone=projects/network-project/locations/us-east4/odbNetworks/my-odbnetwork/odbDnsZones/my-odb-dns-zone --properties-license-type=LICENSE_INCLUDED --properties-ssh-public-keys="VtTxzlPJtIivthmLOmWdRDFy5l27pKUTwLp02" --properties-gi-version=xx.0.0.0 --properties-hostname-prefix=hostname1 --properties-cpu-core-count=4
 
 Network and CIDR based configuration: 
     
@@ -195,7 +200,7 @@ To set the `exascale-db-storage-vault` attribute:
     --labels=path_to_file.(yaml|json)
 
 `--location`=`LOCATION`
-     For resources [backup-odb-subnet, cloud_vm_cluster, exadata-infrastructure, exascale-db-storage-vault, odb-network, odb-subnet], provides fallback value for resource location attribute. When the resource's full URI path is not provided, location will fallback to this flag value. 
+     For resources [backup-odb-subnet, cloud_vm_cluster, exadata-infrastructure, exascale-db-storage-vault, odb-dns-zone, odb-network, odb-subnet], provides fallback value for resource location attribute. When the resource's full URI path is not provided, location will fallback to this flag value. 
 Network resource - The name of the VPC network. Format: projects/{project}/global/networks/{network} This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
@@ -213,8 +218,39 @@ To set the `network` attribute:
   * provide the argument `--network` on the command line. 
 
 
+OdbDnsZone resource - The name of the OdbDnsZone for using custom domain name for the VM Cluster. Format: projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbDnsZones/{odb_dns_zone} This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
+
+To set the `project` attribute: 
+
+  * provide the argument `--odb-dns-zone` on the command line with a fully specified name; 
+  * provide the argument `--project` on the command line; 
+  * set the property `core/project`. 
+
+
+
+To set the `location` attribute: 
+
+  * provide the argument `--odb-dns-zone` on the command line with a fully specified name; 
+  * provide the argument `--location` on the command line. 
+
+
+
+To set the `odb-network` attribute: 
+
+  * provide the argument `--odb-dns-zone` on the command line with a fully specified name; 
+  * provide the argument `--odb-network` on the command line. 
+
+
+`--odb-dns-zone`=`ODB_DNS_ZONE`
+     ID of the odbDnsZone or fully qualified identifier for the odbDnsZone. 
+
+To set the `odb-dns-zone` attribute: 
+
+  * provide the argument `--odb-dns-zone` on the command line. 
+
+
 `--odb-network`=`ODB_NETWORK`
-     For resources [backup-odb-subnet, odb-network, odb-subnet], provides fallback value for resource odb-network attribute. When the resource's full URI path is not provided, odb-network will fallback to this flag value. 
+     For resources [backup-odb-subnet, odb-dns-zone, odb-network, odb-subnet], provides fallback value for resource odb-network attribute. When the resource's full URI path is not provided, odb-network will fallback to this flag value. 
 OdbSubnet resource - The name of the OdbSubnet associated with the VM Cluster for IP allocation. Format: projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet} This represents a Cloud resource. (NOTE) Some attributes are not given arguments in this group but can be set in other ways. 
 
 To set the `project` attribute: 
@@ -340,6 +376,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-18 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-18 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

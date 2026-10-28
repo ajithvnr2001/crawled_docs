@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/concepts/
 title: Concepts \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T05:43:50.515023+00:00
+fetched_at: 2026-10-28T01:39:06.613908+00:00
 ---
 
 # Concepts  |  Recommender  |  Google Cloud Documentation

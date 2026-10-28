@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/create/create-a4xmax-instance/
 title: Create an AI-optimized instance with A4X Max \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:35:19.983771+00:00
+fetched_at: 2026-10-27T18:56:10.678263+00:00
 ---
 
 # Create an AI-optimized instance with A4X Max  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -146,7 +146,7 @@ Creating an instance with the A4X Max machine type includes the following steps:
 
 
 
-## Create VPC networks
+### Create VPC networks
 
 **Tip:** If you are setting up a quick test, you can skip this step and specify a single NIC `--network-interface=nic-type=IDPF` instead. 
 
@@ -293,7 +293,7 @@ Replace the following:
 
 
 
-## Create an A4X Max instance
+### Create an A4X Max instance
 
 Choose the creation option that aligns with your workload architecture:
 
@@ -302,7 +302,7 @@ Choose the creation option that aligns with your workload architecture:
 
 
 
-### Create an instance in a 72-GPU NVLink domain (1x72 topology)
+#### Create an instance in a 72-GPU NVLink domain (1x72 topology)
 
 To obtain a GPU topology of `1x72`, create 18 A4X Max instances. When you create the instances, apply the compact placement policy that specifies the `gpuTopology` field. Applying the policy ensures that Compute Engine creates all 18 A4X Max instances in one sub-block to use an NVLink domain. If a sub-block lacks capacity for an A4X Max instance, then the request to create the instance fails. 
 
@@ -543,7 +543,7 @@ Replace the following:
 
 
 
-### Create a standalone 4-GPU instance (NVL4)
+#### Create a standalone 4-GPU instance (NVL4)
 
 NVL4 partitions the NVLink domain to create independent instances on the NVLink fabric. To create standalone NVL4 instances, you must specify which sub-block within the reservation to partition. Because each A4X Max instance operates independently, you don't need to use compact placement policies. Intra-node four GPU NVLink communication is fully supported for intra-instance workloads.
 
@@ -771,6 +771,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

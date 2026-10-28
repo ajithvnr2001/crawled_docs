@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/vpc-peering/
 title: Configure VPC peering \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:49.835752+00:00
+fetched_at: 2026-10-27T22:58:51.570125+00:00
 ---
 
 # Configure VPC peering  |  Datastream  |  Google Cloud Documentation
@@ -21,27 +21,27 @@ Send feedback
 
 #  Configure VPC peering Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can use [VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering) to let Datastream communicate with resources in your Virtual Private Cloud (VPC) network privately.
+In Datastream, [VPC Network Peering](https://docs.cloud.google.com/vpc/docs/vpc-peering) lets you establish a dedicated connection between your Virtual Private Cloud (VPC) network and Datastream using internal IP addresses. Before you create a private connectivity configuration, review the supported network topologies and complete the VPC and Shared VPC prerequisites. To connect to a Cloud SQL instance, you can also set up a NAT VM in your VPC network.
 
-VPC Network Peering is a connection between your VPC network and the Datastream private network, enabling Datastream to communicate with internal resources by using internal IP addresses. Using private connectivity establishes a dedicated connection on the Datastream network, meaning no other customers can share it.
+## About VPC Network Peering in Datastream
 
-The VPC Network Peering connection between your VPC network and the Datastream VPC network allows Datastream to connect to:
+Using private connectivity establishes a dedicated connection on the Datastream network, meaning no other customers can share it.
+
+The VPC Network Peering connection between your VPC network and the Datastream VPC network lets Datastream connect to:
 
   * Resources like virtual machines (VMs) and internal load balancers in your VPC network.
-  * Resources in other networks connected to your VPC network using [Cloud VPN tunnels](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview), [Dedicated Interconnect VLAN attachments](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/dedicated-overview), [Partner Interconnect VLAN attachments](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-overview), and [NCC Cloud Routers](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/ra-overview).
+  * Resources in other networks connected to your VPC network using [Cloud VPN tunnels](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview), [Dedicated Interconnect VLAN attachments](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/dedicated-overview), [Partner Interconnect VLAN attachments](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-overview), and [Network Connectivity Center (NCC) Cloud Routers](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/ra-overview).
 
 
 
 The VPC Network Peering connection between your VPC network and the Datastream VPC network doesn't let Datastream connect to:
 
   * Private Service Connect endpoints located in your VPC network.
-  * Resources located in another VPC network, peered with your VPC network, but _not_ peered with the Datastream VPC network. (This is because [VPC Network Peering doesn't provide transitive routing](https://docs.cloud.google.com/vpc/docs/vpc-peering#spec-general).)
+  * Resources located in another VPC network that is peered with your VPC network, but _not_ peered with the Datastream VPC network, because [VPC Network Peering doesn't provide transitive routing](https://docs.cloud.google.com/vpc/docs/vpc-peering#spec-general).
 
 
 
-To establish connectivity between Datastream and a resource that's only accessible from your VPC network, you can use a network address translation (NAT) VM in your VPC network. A common use case for a NAT VM is when Datastream needs to connect to a Cloud SQL instance.
-
-This page describes an example NAT VM configuration that lets Datastream privately connect to a Cloud SQL instance.
+To establish connectivity between Datastream and a resource that's only accessible from your VPC network, such as a Cloud SQL instance, you can use a network address translation (NAT) VM in your VPC network. The following diagram shows an example NAT VM configuration that lets Datastream privately connect to a Cloud SQL instance:
 
 ![Datastream user flow diagram](https://docs.cloud.google.com/static/datastream/docs/images/reverse-proxy-csql.png)
 
@@ -278,6 +278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

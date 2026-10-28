@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/use-secret-manager/
 title: Use Secret Manager to store sensitive data \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:10:50.177392+00:00
+fetched_at: 2026-10-27T22:58:51.723639+00:00
 ---
 
 # Use Secret Manager to store sensitive data  |  Datastream  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Use Secret Manager to store sensitive data Stay organized with collections  Save and categorize content based on your preferences. 
 
-Datastream integrates with [Secret Manager](https://docs.cloud.google.com/security/products/secret-manager) to let you securely store authentication resources, such as source database passwords. Rather than use a plain text password when creating a connection profile, create and use a secret.
+Datastream integrates with [Secret Manager](https://docs.cloud.google.com/secret-manager/docs/overview) to let you store and manage sensitive authentication credentials, such as source database passwords. Instead of entering a plain text password in a connection profile, you can reference a secret version and grant the Datastream service account access.
 
 ## What are secrets
 
@@ -57,6 +57,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/network-secure-intra-cloud-access/
 title: Networking for secure intra-cloud access: Reference architectures \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:33:51.383817+00:00
+fetched_at: 2026-10-28T01:43:36.383698+00:00
 ---
 
 # Networking for secure intra-cloud access: Reference architectures  |  Cloud Architecture Center  |  Google Cloud Documentation

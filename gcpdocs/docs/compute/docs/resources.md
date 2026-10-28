@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/resources/
 title: Resources \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:47:32.953104+00:00
+fetched_at: 2026-10-27T16:44:32.855958+00:00
 ---
 
 # Resources  |  Compute Engine  |  Google Cloud Documentation
@@ -84,9 +84,7 @@ Send feedback
 
 ## End of support (EOS)
 
-  * ### [CentOS 6 end of support Guidance End of support guidance for the CentOS operating system on Compute Engine.  ](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance)
-  * ### [CentOS 8 end of support End of support advisory for the CentOS 8 operating system on Compute Engine.  ](https://docs.cloud.google.com/compute/docs/eol/centos8)
-  * ### [CentOS 6 end of support End of support advisory for the CentOS 6 operating system on Compute Engine.  ](https://docs.cloud.google.com/compute/docs/eol/centos6)
+  * ### [CentOS end of support guidance End of support guidance for the CentOS operating system on Compute Engine.  ](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance)
   * ### [NVIDIA K80 end of support End of support advisory for the NVIDIA K80 operating system on Compute Engine.  ](https://docs.cloud.google.com/compute/docs/eol/k80-eol)
   * ### [RHEL 6 end of support End of support advisory for Red Hat Enterprise Linux (RHEL) 6 operating system on Compute Engine.  ](https://docs.cloud.google.com/compute/docs/eol/RHEL6)
   * ### [Ubuntu LTS end of support End of support advisory for Ubuntu LTS operating system on Compute Engine.  ](https://docs.cloud.google.com/compute/docs/eol/ubuntu-eol)

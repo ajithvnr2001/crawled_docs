@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/receive-metadata-notifications/
 title: Receive notifications with metadata change feeds \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:53:39.056774+00:00
+fetched_at: 2026-10-28T02:03:19.470642+00:00
 ---
 
 # Receive notifications with metadata change feeds  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -492,7 +492,7 @@ Replace the following:
 
 **With filters**
 
-Run the following command to create a metadata change feed with filters (filtering by entry type):
+System entry types are stored in a Google-managed project with project number `655216118709`. Run the following command to create a metadata change feed that filters by the `bigquery-table` system entry type:
     
     
     gcurl -X POST -d "$(cat <<EOF
@@ -503,9 +503,9 @@ Run the following command to create a metadata change feed with filters (filteri
           "projects/PROJECT_ID_2"
         ]
       },
-      "filter": {
+      "filters": {
         "entryTypes": [
-          "projects/PROJECT_ID/locations/global/entryTypes/bigquery-table"
+          "projects/655216118709/locations/global/entryTypes/bigquery-table"
         ]
       },
       "pubsubTopic": "projects/PROJECT_ID_PUBSUB/topics/TOPIC_ID"
@@ -516,6 +516,7 @@ Run the following command to create a metadata change feed with filters (filteri
 
 Replace the following:
 
+  * `PROJECT_ID_1` and `PROJECT_ID_2`: the IDs of the projects that you want to monitor—for example, `example-project-1` and `example-project-2`
   * `PROJECT_ID_PUBSUB`: the project ID where the Pub/Sub topic is located—for example, `example-project`
   * `TOPIC_ID`: the Pub/Sub topic ID to which the metadata change feed messages are published—for example, `example-topic`
   * `FEED_ID`: the metadata change feed ID that you want to create—for example, `example-feed`
@@ -1290,21 +1291,30 @@ To authenticate to Knowledge Catalog, set up Application Default Credentials. Fo
 
 To update a metadata change feed, use the [`projects.locations.metadataFeeds.patch`](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations.metadataFeeds/patch) method.
 
-Run the following command to update the metadata change feed to remove the entry type filters:
+Run the following command to remove the entry type filters from a metadata change feed. The `updateMask` limits the update to `filters.entryTypes`, so the feed's other filters are unchanged. The request body must also include the feed's current `scope` and `pubsubTopic`:
     
     
     gcurl -X PATCH -d "$(cat <<EOF
     {
-      "filter": {
+      "scope": {
+        "projects": [
+          "projects/PROJECT_ID"
+        ]
+      },
+      "filters": {
         "entryTypes": []
-      }
+      },
+      "pubsubTopic": "projects/PROJECT_ID_PUBSUB/topics/TOPIC_ID"
     }
     EOF
-    )" "https://${DATAPLEX_API}/metadataFeeds/FEED_ID?updateMask=filter"
+    )" "https://${DATAPLEX_API}/metadataFeeds/FEED_ID?updateMask=filters.entryTypes"
     
 
 Replace the following:
 
+  * `PROJECT_ID`: the ID of the project in the feed's current scope—for example, `example-project`
+  * `PROJECT_ID_PUBSUB`: the project ID where the feed's Pub/Sub topic is located—for example, `example-project`
+  * `TOPIC_ID`: the feed's current Pub/Sub topic ID—for example, `example-topic`
   * `FEED_ID`: the metadata change feed ID that you want to update—for example, `example-feed`
 
 
@@ -1593,6 +1603,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-24 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

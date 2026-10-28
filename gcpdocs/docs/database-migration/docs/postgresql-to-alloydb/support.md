@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/support/
 title: Support \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T09:12:45.916311+00:00
+fetched_at: 2026-10-27T08:22:50.290124+00:00
 ---
 
 # Support  |  Database Migration Service for SQL Server  |  Google Cloud Documentation

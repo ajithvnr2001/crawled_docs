@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/marketplace/docs/partners/offers/review-offer/
 title: Review and publish your offer \u00a0|\u00a0 Google Cloud Marketplace Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:45:38.353948+00:00
+fetched_at: 2026-10-27T21:59:17.338327+00:00
 ---
 
 # Review and publish your offer  |  Google Cloud Marketplace Partners  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To review your offer:
 
 ## Publish your offer
 
-**Note:** You can't delete or modify an offer after you publish it. If you want to delete or modify a published offer, you must instead create a new offer to replace it.
+**Note:** After you publish an offer, you can't change it in place. To change a published offer that your customer hasn't accepted yet, on the **Private Offers** page, click **Manage your offers** more_vert, and then click **Edit**. This cancels the published offer and opens a new draft with the same details, which you can edit, publish, and send to your customer again. To copy an offer's details into a new draft without canceling the offer, click **Clone**. To change an offer that your customer has already accepted, see [Modify a published offer](https://docs.cloud.google.com/marketplace/docs/partners/offers/modify-offer).
 
 For some offers, Cloud Marketplace requires that Google review and approve the offer before you publish it. This might take up to 24 hours. To see whether Google must review your offer, navigate to the offer in Producer Portal. If the [Vendor Net Revenue Schedule](https://cloud.google.com/terms/marketplace-revenue-share-schedule) applies to the offer, then Google must review and approve the offer if the following criteria are true:
 
@@ -87,6 +87,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

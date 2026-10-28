@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-disk-clone-single-zone/
 title: Create a persistent disk with Debian image on SSD \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T05:48:24.626166+00:00
+fetched_at: 2026-10-27T23:11:11.266203+00:00
 ---
 
 # Create a persistent disk with Debian image on SSD  |  Compute Engine  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/authorized-routines/
 title: Authorized routines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T06:41:47.223794+00:00
+fetched_at: 2026-10-27T19:38:26.021115+00:00
 ---
 
 # Authorized routines  |  BigQuery  |  Google Cloud Documentation
@@ -182,7 +182,7 @@ The following is an end-to-end example of creating and using an authorized UDF.
          ((SELECT COUNT(1) FROM private_dataset.private_table t WHERE t.key = input_key));
          
 
-  4. Grant the `bigquery.dataViewer` role to a user on the `public_dataset` dataset. This role includes the `bigquery.routines.get` permission, which lets the user call the routine. For information about how to assign access controls to a dataset, see [Controlling access to datasets](https://docs.cloud.google.com/bigquery/docs/dataset-access-controls).
+  4. Grant the `bigquery.dataViewer` role to a user on the `public_dataset` dataset. This role includes the `bigquery.routines.get` permission, which lets the user call the routine. For information about how to assign access controls to a dataset, see [Work with dataset access controls](https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam#work_with_dataset_access_controls).
 
 **Note:** Instead of using a built-in role, consider creating a custom role with minimal permissions. For more information, see [Creating and managing custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles).
   5. At this point, the user has permission to call the `count_key` routine but cannot access the table in `private_dataset`. If the user tries to call the routine, they get an error message similar to the following:
@@ -225,6 +225,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

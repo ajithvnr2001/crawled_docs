@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/
 title: Govern your agents \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:43:37.584483+00:00
+fetched_at: 2026-10-27T19:53:51.173662+00:00
 ---
 
 # Govern your agents  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ Agent identities are secured by default with Context-Aware Access which enforces
 Internally, all of these policy types are enforced by using [authorization policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization) or [extension bindings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/extension-bindings-overview) managed through Service Extensions.
 
 Support for token management policies and extension bindings is coming soon. Features and timing are subject to change. To request early access, [sign up here for early preview access](https://docs.google.com/forms/d/e/1FAIpQLSeUpnNRtYQjLRblii-KoUbJJ7DjEV6fvQAfO21IAXgVSqFjpw/viewform). 
-  * **[Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) (Where are policies enforced?)**: Serves as the main entry and exit point for network traffic between clients-to-agents, and agents-to-anywhere. It manages encrypted connections (mTLS), translates protocols (such as MCP, REST, and gRPC), and applies policy checks to all traffic. To learn more, see [How Agent Gateway enforces policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#how-policies-are-enforced).
+  * **[Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) (Where are policies enforced?)**: Serves as the main entry and exit point for network traffic between clients-to-agents and agents-to-anywhere, and applies security and governance policies to all traffic passing through the gateway. To learn more, see [How Agent Gateway enforces policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#how-policies-are-enforced).
 
   * **[Agent observability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview)** : Agent Gateway generates observability telemetry for all agent interactions at the network layer and exports it to Agent Observability to provide you with a comprehensive understanding of agent actions.
 
@@ -245,6 +245,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

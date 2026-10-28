@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/datastream/connection-profiles/update/
 title: gcloud datastream connection-profiles update \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T13:41:03.059593+00:00
+fetched_at: 2026-10-27T21:40:47.636897+00:00
 ---
 
 # gcloud datastream connection-profiles update  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -116,7 +116,7 @@ REQUIRED FLAGS
     
 
 `--type`=`TYPE`
-     Type can be MYSQL, ORACLE, POSTGRESQL, SQLSERVER, SALESFORCE, GOOGLE-CLOUD-STORAGE, BIGQUERY, DATAVERSE, SALESFORCE-MARKETING-CLOUD or SERVICENOW 
+     Type can be MYSQL, ORACLE, POSTGRESQL, SQLSERVER, SALESFORCE, SPANNER, MONGODB, GOOGLE-CLOUD-STORAGE, BIGQUERY, DATAVERSE, SALESFORCE-MARKETING-CLOUD or SERVICENOW 
 OPTIONAL FLAGS
     
 
@@ -195,7 +195,7 @@ At most one of these can be specified:
 `--forward-ssh-password`=`FORWARD_SSH_PASSWORD`
      SSH password. 
 `--forward-ssh-private-key`=`FORWARD_SSH_PRIVATE_KEY`
-     SSH private key.. 
+     SSH private key. 
 At most one of these can be specified: 
 
 `--spanner-host`=`SPANNER_HOST`
@@ -411,6 +411,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-06-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

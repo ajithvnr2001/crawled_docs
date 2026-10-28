@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/security-posture-iso-27001-template/
 title: Predefined posture template for ISO 27001 \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:40:19.800055+00:00
+fetched_at: 2026-10-27T19:38:52.096473+00:00
 ---
 
 # Predefined posture template for ISO 27001  |  Security Command Center  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-This page describes the detective policies that are included in the v1.0 version of the predefined posture template for the [International Organization for Standards (ISO) 27001 standard](https://www.iso.org/standard/27001). This template includes a policy set that defines the Security Health Analytics detectors that apply to workloads that must be compliant with the ISO 27001 standard.
-
-You can deploy this posture template without making any changes.
+The v1.0 predefined posture template for the [International Organization for Standardization (ISO) 27001 standard](https://www.iso.org/standard/27001) helps you monitor your workloads for compliance with the ISO 27001 standard. This template includes a detective policy set of Security Health Analytics detectors that you can deploy without making any changes.
 
 ## Security Health Analytics detectors
 
@@ -184,6 +182,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

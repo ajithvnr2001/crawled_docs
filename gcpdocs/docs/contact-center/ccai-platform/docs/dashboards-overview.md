@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/dashboards-overview/
 title: Advanced reporting dashboards \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:22.976111+00:00
+fetched_at: 2026-10-28T02:29:53.634654+00:00
 ---
 
 # Advanced reporting dashboards  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 With Contact Center AI Platform (CCAI Platform), you can use a variety of advanced reporting dashboards to gain insights into the performance of your contact center. You can quickly access the dashboards using the **Dashboard** menu. To access the advanced capabilities of the dashboards, however, you need to access them from the **Advanced Reporting Landing Page**.
 
-Advanced reporting dashboards are available only in the following regions: `us-east1`, `us-central1`, `us-west1`, `europe-west2`, `asia-northeast1`, `northamerica-northeast1`, `australia-southeast1`, and `southamerica-east1`. You can't turn on the advanced reporting extension unless your instance is in one of these regions. For more information, see Before you begin.
+Advanced reporting dashboards are available only in the following regions: `us-east1`, `us-central1`, `us-west1`, `europe-west2`, `europe-west3`, `asia-northeast1`, `northamerica-northeast1`, `australia-southeast1`, and `southamerica-east1`. You can't turn on the advanced reporting extension unless your instance is in one of these regions. For more information, see Before you begin.
 
 ## Before you begin
 
@@ -137,6 +137,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

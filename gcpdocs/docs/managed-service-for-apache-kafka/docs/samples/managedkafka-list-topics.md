@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/samples/managedkafka-list-topics/
 title: List the Kafka topics \u00a0|\u00a0 Managed Service for Apache Kafka \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:36:49.020329+00:00
+fetched_at: 2026-10-27T21:57:40.621553+00:00
 ---
 
 # List the Kafka topics  |  Managed Service for Apache Kafka  |  Google Cloud Documentation

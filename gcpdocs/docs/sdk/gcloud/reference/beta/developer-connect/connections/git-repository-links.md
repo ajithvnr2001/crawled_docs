@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/gcloud/reference/beta/developer-connect/connections/git-repository-links/
 title: gcloud beta developer-connect connections git-repository-links \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T13:28:11.844456+00:00
+fetched_at: 2026-10-27T21:40:51.898030+00:00
 ---
 
 # gcloud beta developer-connect connections git-repository-links  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -51,8 +51,6 @@ COMMANDS
      `(BETA)` Fetch the read/write token of a given gitRepositoryLink. 
 `[list](https://docs.cloud.google.com/sdk/gcloud/reference/beta/developer-connect/connections/git-repository-links/list)`
      `(BETA)` List all git repository links in a connection. 
-`[update](https://docs.cloud.google.com/sdk/gcloud/reference/beta/developer-connect/connections/git-repository-links/update)`
-     `(BETA)` Update a git repository link to enable metrics collection. 
 NOTES
      This command is currently in beta and might change without notice. These variants are also available: 
     
@@ -66,6 +64,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-05-27 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-05-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/optimize-ai-functions/
 title: Optimize AI function costs with model distillation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:25:56.753722+00:00
+fetched_at: 2026-10-28T02:27:51.737530+00:00
 ---
 
 # Optimize AI function costs with model distillation  |  BigQuery  |  Google Cloud Documentation
@@ -73,8 +73,6 @@ The process works as follows:
 The optimized mode has the following limitations:
 
   * **Minimum row count** : the input to the AI function must contain approximately 3,000 rows to ensure enough data for model training.
-  * **Data types** : for prompts that reference multiple columns, only string columns are supported for optimization.
-  * **Multi-label classification** : `AI.CLASSIFY` with `output_mode => 'multi'` isn't supported in optimized mode.
   * **Function support** : only `AI.IF` and `AI.CLASSIFY` functions support optimized mode; however, when using optimized mode with `AI.CLASSIFY`, queries can fail if distilled model quality is insufficient.
   * **Error ratio** : The `max_error_ratio` argument isn't supported in optimized mode.
 
@@ -302,6 +300,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

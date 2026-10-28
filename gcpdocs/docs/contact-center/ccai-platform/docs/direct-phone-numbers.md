@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/direct-phone-numbers/
 title: Direct phone numbers \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:11.279970+00:00
+fetched_at: 2026-10-27T23:27:26.294372+00:00
 ---
 
 # Direct phone numbers  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation

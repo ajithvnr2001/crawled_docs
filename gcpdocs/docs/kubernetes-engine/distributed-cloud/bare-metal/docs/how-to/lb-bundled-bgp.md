@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/lb-bundled-bgp/
 title: Configure bundled load balancers with BGP \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:27.280981+00:00
+fetched_at: 2026-10-27T23:54:35.737466+00:00
 ---
 
 # Configure bundled load balancers with BGP  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,19 +22,9 @@ Send feedback
 
 #  Configure bundled load balancers with BGP Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to set up and use bundled load balancers with Border Gateway Protocol (BGP) for Google Distributed Cloud. This load-balancing mode supports the advertisement of `ServiceType` `LoadBalancer` virtual IP addresses (VIPs) through external Border Gateway Protocol (eBGP) for your clusters. In this scenario, your cluster network is an autonomous system, which interconnects with another autonomous system, an external network, through peering.
+Bundled load balancers with Border Gateway Protocol (BGP) let you advertise virtual IP addresses (VIPs) for the control plane and for `ServiceType` `LoadBalancer` Services through external BGP (eBGP) for your Google Distributed Cloud clusters. Your cluster network acts as an autonomous system that peers with an external network. When your network uses equal-cost multipath (ECMP) routing and BGP `ADD-PATH`, this feature provides N-way active/active load balancing for faster failover and more efficient use of bandwidth. It works with third-party top-of-rack (ToR) switches and routers that support eBGP. Data centers that run a software-defined networking (SDN) stack can also push the Layer 3 boundary all the way to the clusters.
 
-The bundled load balancers with BGP capability apply to all cluster types, but admin clusters only support the control plane load-balancing part of this capability.
-
-**Note:** Load balancing with BGP is supported in the GKE On-Prem API for user clusters. For details, see [BareMetalLoadBalancerConfig](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/reference/on-prem-api/rest/v1/projects.locations.bareMetalClusters#baremetalloadbalancerconfig) in the GKE On-Prem API documentation. In version 1.34 and later, this feature is supported in the GKE On-Prem API for admin clusters. For details, see [BareMetalAdminLoadBalancerConfig](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/reference/on-prem-api/rest/v1/projects.locations.bareMetalAdminClusters#baremetaladminloadbalancerconfig) in the GKE On-Prem API documentation.
-
-Using the bundled load balancers with BGP feature provides the following benefits:
-
-  * Uses N-way active/active load-balancing capability, providing faster failover and more efficient use of available bandwidth.
-  * Supports Layer 3 protocol that operates with third-party top-of-rack (ToR) switches and routers that are compatible with eBGP.
-  * Enables data centers that are running an advanced software-defined networking (SDN) stack to push the Layer 3 boundary all the way to the clusters.
-
-
+This capability applies to all cluster types, though admin clusters support only control plane load balancing. To configure this feature in the GKE On-Prem API, use [`BareMetalLoadBalancerConfig`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/reference/on-prem-api/rest/v1/projects.locations.bareMetalClusters#baremetalloadbalancerconfig) for user clusters, or, in version 1.34 and later, [`BareMetalAdminLoadBalancerConfig`](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/reference/on-prem-api/rest/v1/projects.locations.bareMetalAdminClusters#baremetaladminloadbalancerconfig) for admin clusters.
 
 ## How bundled load balancing with BGP works
 
@@ -979,6 +969,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

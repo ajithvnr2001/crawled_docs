@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/no-kube-proxy/
 title: Create a cluster without kube-proxy \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:46:41.148158+00:00
+fetched_at: 2026-10-27T23:54:35.205713+00:00
 ---
 
 # Create a cluster without kube-proxy  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -26,9 +26,9 @@ Send feedback
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-This document shows how to create a cluster that does not use `kube-proxy`.
+Dataplane V2 in `kube-proxy-replacement` mode lets you create clusters that don't run `kube-proxy` or rely on its iptables rules. Removing `kube-proxy` avoids the resource cost of maintaining a large set of iptables rules and improves performance, especially in large clusters.
 
-`kube-proxy` is a controller that runs on each worker node in a cluster. It watches Kubernetes Service objects, and creates [iptables](https://help.ubuntu.com/community/IptablesHowTo?action=show&redirect=Iptables) rules to forward packets that are sent to Service addresses. An alternative to using `kube-proxy` and iptables for this purpose is to use Dataplane V2 in kube-proxy-replacement mode. This allows for the removal of `kube-proxy` from the cluster.
+The `kube-proxy` controller runs on each worker node in a cluster. It watches Kubernetes Service objects and creates [iptables](https://help.ubuntu.com/community/IptablesHowTo?action=show&redirect=Iptables) rules to forward packets that are sent to Service addresses. Dataplane V2 handles this forwarding instead, so you can remove `kube-proxy` from the cluster.
 
 ## Supported operating systems
 
@@ -97,6 +97,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-23 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-23 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
