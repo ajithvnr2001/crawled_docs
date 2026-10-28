@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/jobs/live-event-stream-sse/
 title: Live event stream (SSE) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:28.484499+00:00
+fetched_at: 2026-10-28T13:54:35.395746+00:00
 ---
 
 # Live event stream (SSE) - ComfyUI
@@ -671,7 +671,7 @@ requerido
 
 text/event-stream
 
-SSE stream; see `x-sse-events` for the event catalog.
+SSE stream; see `x-sse-events` for the event catalog. Sent with `Cache-Control: no-cache, no-store, no-transform` and `X-Accel-Buffering: no` so intermediaries neither cache, compress nor buffer the stream.
 
 Stream of `event:`/`data:` frames. Data payloads are the JSON schemas listed in x-sse-events.
 

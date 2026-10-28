@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/assets/delete-an-asset-record/
 title: Delete an asset record - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:28.139179+00:00
+fetched_at: 2026-10-28T13:54:35.866803+00:00
 ---
 
 # Delete an asset record - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/jobs/submit-a-workflow-for-execution/
 title: Submit a workflow for execution - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:29.221997+00:00
+fetched_at: 2026-10-28T13:54:35.294628+00:00
 ---
 
 # Submit a workflow for execution - ComfyUI
@@ -1085,6 +1085,7 @@ Ejemplo:
     
     
     { "client": "acme", "batch": "2026-10-05" }
+    
 
 #### Respuesta
 
@@ -1236,6 +1237,7 @@ Ejemplo:
     
     
     { "queue_ms": 9000, "execution_ms": 42000 }
+    
 
 ​
 
@@ -1289,6 +1291,7 @@ Ejemplo:
     
     
     { "client": "acme" }
+    
 
 ¿Esta página le ayudó?
 

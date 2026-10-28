@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/create-a-new-custom-node/
 title: Create a new custom node - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:04:09.346928+00:00
+fetched_at: 2026-10-28T13:54:31.934480+00:00
 ---
 
 # Create a new custom node - ComfyUI

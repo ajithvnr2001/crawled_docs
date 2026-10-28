@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/assets/asset-bytes/
 title: Asset bytes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:27.972107+00:00
+fetched_at: 2026-10-28T13:54:36.641901+00:00
 ---
 
 # Asset bytes - ComfyUI

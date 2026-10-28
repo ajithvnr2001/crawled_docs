@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/jobs/the-workflow-behind-a-job-—-authoring-version-if-pinned-executed-graph-otherwise/
 title: The workflow behind a job \u2014 authoring version if pinned, executed graph otherwise - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:29.308102+00:00
+fetched_at: 2026-10-28T13:54:34.237915+00:00
 ---
 
 # The workflow behind a job — authoring version if pinned, executed graph otherwise - ComfyUI

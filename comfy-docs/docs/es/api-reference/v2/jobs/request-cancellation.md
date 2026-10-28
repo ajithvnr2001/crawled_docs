@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/jobs/request-cancellation/
 title: Request cancellation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:28.582036+00:00
+fetched_at: 2026-10-28T13:54:33.659475+00:00
 ---
 
 # Request cancellation - ComfyUI
@@ -893,7 +893,6 @@ Ejemplo:
     
     
     { "queue_ms": 9000, "execution_ms": 42000 }
-    
 
 ​
 
@@ -947,7 +946,6 @@ Ejemplo:
     
     
     { "client": "acme" }
-    
 
 ¿Esta página le ayudó?
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/changelog/
 title: Registro de cambios - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:48.613316+00:00
+fetched_at: 2026-10-28T13:54:34.710530+00:00
 ---
 
 # Registro de cambios - ComfyUI
@@ -13,6 +13,8 @@ fetched_at: 2026-10-26T14:02:48.613316+00:00
 
 Volver arriba
 
+  * v0.43.1
+  * v0.43.0
   * v0.42.4
   * v0.42.3
   * v0.42.2
@@ -165,6 +167,74 @@ Copiar páginaCopiar página
 Historial de ComfyUI: novedades, mejoras y correcciones de cada versión, actualizado a medida que se publican.
 
 Copiar páginaCopiar página
+
+​
+
+v0.43.1
+
+28 de octubre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**Nodos de textura Patina**](https://github.com/Comfy-Org/ComfyUI/pull/17384): Genera un material PBR con mosaico continuo a partir de una foto o un prompt de texto, con mapas de color base, normal, rugosidad, metalicidad y altura devueltos desde el mismo latente
+  * [**VEED Dubbing**](https://github.com/Comfy-Org/ComfyUI/pull/17388): Traduce el habla de un video a otro idioma, clonando la voz de cada hablante y resincronizando sus labios con la traducción
+
+**Mejoras**
+
+  * [**Plantillas v0.11.98**](https://github.com/Comfy-Org/ComfyUI/pull/17391)
+
+
+
+​
+
+v0.43.0
+
+27 de octubre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**Kling 4.0**](https://github.com/Comfy-Org/ComfyUI/pull/17364): Nodos de texto a video, imagen a video, referencia a video y edición de video, con clips de hasta 30 segundos y audio estéreo generado en la misma pasada
+  * [**Meshy T2.5**](https://github.com/Comfy-Org/ComfyUI/pull/17280): Generación de texto a 3D e imagen a 3D con Smart Topology
+  * [**PixVerse V6 Max**](https://github.com/Comfy-Org/ComfyUI/pull/17287): Un nuevo modelo PixVerse V6 Max, con insignias de precio de V6 actualizadas
+  * [**Nodos guiados de Bria**](https://github.com/Comfy-Org/ComfyUI/pull/17289): Guided Remove Background, Product Holding y Virtual Try-On
+  * [**Ideogram Vector Generate SVG**](https://github.com/Comfy-Org/ComfyUI/pull/17298): Genera vectores SVG a partir de un prompt, o traza una imagen para convertirla en uno
+
+**Nodos nuevos**
+
+  * [**Branch**](https://github.com/Comfy-Org/ComfyUI/pull/16383): Selecciona entre las entradas conectadas por nombre, con entradas que puedes renombrar
+  * [**Pad Image**](https://github.com/Comfy-Org/ComfyUI/pull/17224): Rellena una imagen con un color sólido o con una copia reflejada de sus bordes, incluido el relleno hasta un múltiplo fijo
+  * [**MOSS model merge**](https://github.com/Comfy-Org/ComfyUI/pull/17349): Un nodo de fusión específico del modelo para MOSS
+  * [**ACEScg color space**](https://github.com/Comfy-Org/ComfyUI/pull/17023): Convertir espacio de color de imagen y Guardar Imagen (avanzado) aceptan ACEScg para la salida EXR
+
+**Soporte de modelos de código abierto**
+
+  * [**Fibo 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/17240): Soporte de texto a imagen y edición de imagen para los pesos abiertos de Fibo 2.0
+  * [**LoRAs de edición de MOSS-Image**](https://github.com/Comfy-Org/ComfyUI/pull/17296): Los cargadores de LoRA se aplican a la edición de MOSS-Image
+  * [**Sesgo de atención y fuerza de imagen de MOSS-Image**](https://github.com/Comfy-Org/ComfyUI/pull/17320): Acondicionamiento para el modelo de edición, con un control de cuánto se conserva la imagen de origen
+  * [**Escalado de rope de MOSS-Image**](https://github.com/Comfy-Org/ComfyUI/pull/17172): Soporte de escalado de rope para resoluciones más grandes de MOSS-Image
+
+**Mejoras**
+
+  * [**Rendimiento de Qwen 3.x, parte III**](https://github.com/Comfy-Org/ComfyUI/pull/17273): MTP de árbol adaptativo
+  * [**Comfy-Aimdo 0.6.0**](https://github.com/Comfy-Org/ComfyUI/pull/17274): Con cachés KV de VRAM dinámicas, parte I
+  * [**Fusión del VAE de Flux2**](https://github.com/Comfy-Org/ComfyUI/pull/17196): El VAE de Flux2 se fusiona y se recorta mediante comfy-kitchen
+  * [**Atención de Pytorch en el VAE en AMD**](https://github.com/Comfy-Org/ComfyUI/pull/17271)
+  * [**Plantillas v0.11.96 y v0.11.97**](https://github.com/Comfy-Org/ComfyUI/pull/17368)
+  * [**Documentación integrada v0.5.15**](https://github.com/Comfy-Org/ComfyUI/pull/17366)
+  * [**Frontend 1.57.4**](https://github.com/Comfy-Org/ComfyUI/pull/17329)
+
+**Correcciones de errores**
+
+  * [**Umbral de muestreo top-p**](https://github.com/Comfy-Org/ComfyUI/pull/17221): El umbral ahora se aplica donde corresponde
+  * [**Atención global de Gemma 4 31B**](https://github.com/Comfy-Org/ComfyUI/pull/17220): k_eq_v con 4 cabezas KV globales
+  * [**Prompt negativo de Fibo 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/17285): Los prompts negativos de texto a imagen se manejan correctamente
+  * [**Escalado de rope de Fibo 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/17290): El escalado de RoPE ahora tiene en cuenta NTK
+  * [**Sincronización de streams de offload**](https://github.com/Comfy-Org/ComfyUI/pull/17297): Los streams se sincronizan antes de que se robe un pin
+  * [**Dimensiones de cabeza en gfx11**](https://github.com/Comfy-Org/ComfyUI/pull/17323): La atención de Pytorch ya no se usa para dimensiones de cabeza superiores a 256 en gfx11
+  * [**Pico de memoria de MOSS**](https://github.com/Comfy-Org/ComfyUI/pull/17338): Menor pico de memoria al ejecutar MOSS
+  * [**Variables de entorno de proxy**](https://github.com/Comfy-Org/ComfyUI/pull/17346): El cliente de nodos de socios las respeta
+
+
 
 ​
 

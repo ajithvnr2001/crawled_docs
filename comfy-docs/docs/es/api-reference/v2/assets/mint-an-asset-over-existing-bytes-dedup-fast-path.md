@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/assets/mint-an-asset-over-existing-bytes-dedup-fast-path/
 title: Mint an asset over existing bytes (dedup fast-path) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:28.817567+00:00
+fetched_at: 2026-10-28T13:54:35.637996+00:00
 ---
 
 # Mint an asset over existing bytes (dedup fast-path) - ComfyUI

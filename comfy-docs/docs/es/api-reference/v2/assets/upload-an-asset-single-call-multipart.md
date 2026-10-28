@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/assets/upload-an-asset-single-call-multipart/
 title: Upload an asset (single-call multipart) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:28.694708+00:00
+fetched_at: 2026-10-28T13:54:35.999347+00:00
 ---
 
 # Upload an asset (single-call multipart) - ComfyUI
@@ -817,6 +817,8 @@ string
 
 requerido
 
+The asset's media type. On Comfy Cloud it must be valid UTF-8, not blank, at most 255 bytes, must not start or end with whitespace, and must not contain control characters (C0, DEL, C1, U+2028, U+2029) or any invisible format or default-ignorable character (every Unicode general category Cf character, including the zero-width joiners and direction marks, and the other default-ignorable code points); otherwise the request is refused with 422 `invalid_body` before anything is stored. An accepted value is stored as sent.
+
 Ejemplo:
 
 `"image/png"`
@@ -841,7 +843,7 @@ expected_hash
 
 string
 
-Optional client-computed blake3 (`blake3:<hex>`) of the bytes sent. Verified against the server-computed blake3 of the received bytes, not of the stored bytes; mismatch is rejected with 409 `hash_mismatch`. On serverless deployments no asset is minted and no existing asset's retention is changed; elsewhere the upload is stored before the check, so the 409 returns no asset and a retry with the corrected expectation dedups onto it.
+Optional client-computed blake3 (`blake3:<hex>`) of the bytes sent. Omit the part to skip verification: on Comfy Cloud and on a deployment a part sent empty is refused with 422 as malformed. Send it before `file`: nothing after the `file` field is read, so a trailing `expected_hash` is neither verified nor refused. Verified against the server-computed blake3 of the received bytes, not of the stored bytes; mismatch is rejected with 409 `hash_mismatch`. On serverless deployments no asset is minted and no existing asset's retention is changed; elsewhere the upload is stored before the check, so the 409 returns no asset and a retry with the corrected expectation dedups onto it.
 
 Ejemplo:
 
@@ -853,7 +855,7 @@ tags
 
 string[]
 
-Category tags (e.g. `input`). A create carries at most 64 tags, each a non-empty UTF-8 string of at most 256 bytes (surrounding whitespace included) with no NUL byte. A deployment adds `input` to every asset and counts it, so it takes at most 63 of the caller's own; the `model_type:` tags derived for a model asset are not counted. A tag set breaking a limit is refused with 422. Cloud's hosted API also caps this encoded JSON field at 8 KiB, so a long tag set can be refused (422 `invalid_body`) below these limits. Invalid UTF-8 or a lone surrogate escape (e.g. `\ud800`) inside a JSON-encoded tag is not refused: JSON decoding replaces it with U+FFFD (3 bytes each), and the 256-byte limit applies to the replaced value.
+Category tags (e.g. `input`). A create carries at most 64 tags, each a non-empty UTF-8 string of at most 256 bytes (surrounding whitespace included) with no NUL byte. A deployment adds `input` to every asset and counts it, so it takes at most 63 of the caller's own; the `model_type:` tags derived for a model asset are not counted. A tag set breaking a limit is refused with 422. The rest of this paragraph describes Cloud's hosted API and a deployment, not the self-hosted proxy. Both cap the bytes of all `tags` parts sent before `file` combined: 8 KiB on Cloud's hosted API (422 `invalid_body`) and 64 KiB on a deployment (422 `invalid_request`). The cap counts duplicates before they are removed and JSON escapes before they are decoded, and is checked before the count and 256-byte limits above, so a tag set within them can still be refused. A `quoted-printable` part is counted and read after it is decoded; a part in any other `Content-Transfer-Encoding` is read as sent, so a `base64` part is stored as one tag holding its encoded text, while a `7bit`, `8bit` or `binary` part is read like a part with no encoding. A part is read as a JSON array when it starts with `[` (after leading whitespace) and is valid JSON or continues, after optional whitespace, with `"`: `["a","b"]` is two tags, `[]` adds no tags (nor does an empty part), and a malformed array such as `[1]` or `["a` is refused with 422. Any other non-empty part is one bare tag, kept as literal text, so `foo\ud800` sent as a bare part is stored as written. Invalid UTF-8 in a `tags` part, or a lone surrogate escape (e.g. `\ud800`) in a JSON-array `tags` part, is refused with 422 (`invalid_body` on Cloud, `invalid_request` on a deployment).
 
 ​
 
@@ -1003,6 +1005,7 @@ Ejemplo:
     
     
     { "client": "acme" }
+    
 
 ¿Esta página le ayudó?
 
