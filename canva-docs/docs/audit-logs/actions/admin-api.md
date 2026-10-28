@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/audit-logs/actions/admin-api/
 title: Admin API - Canva Audit Logs Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:49.044665+00:00
+fetched_at: 2026-10-28T16:20:12.691730+00:00
 ---
 
 # Admin API - Canva Audit Logs Documentation
@@ -193,6 +193,51 @@ An `actor` triggers this event when they attempt to delete an API client for the
       "action": {
     
         "type": "DELETE_ADMIN_API_CLIENT"
+    
+      },
+    
+      "outcome": ...,
+    
+      "context": ...
+    
+    }
+
+JSON
+
+Copy
+
+## Send a request to the Admin API
+
+An `actor` (an [Admin API](https://www.canva.dev/docs/admin/) client) triggers this event when it sends a request to an Admin API endpoint. When the `outcome` is `DENIED`, the request was rejected because the client was missing a required scope or did not have sufficient permissions; the `outcome` details carry the reason. These events help administrators detect misuse or reconnaissance by an over-permissioned or misconfigured integration.
+
+`type``string`
+
+**Default value:** `SEND_ADMIN_API_REQUEST`
+
+**Available values:** The only valid value is `SEND_ADMIN_API_REQUEST`.
+
+`operation_id``string`
+
+The Admin API operation the client attempted to invoke.
+
+### Example
+    
+    
+    {
+    
+      "id": ...,
+    
+      "timestamp": ...,
+    
+      "actor": ...,
+    
+      "target": ...,
+    
+      "action": {
+    
+        "type": "SEND_ADMIN_API_REQUEST",
+    
+        "operation_id": "listGroups"
     
       },
     

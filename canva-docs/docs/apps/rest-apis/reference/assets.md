@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/reference/assets/
 title: Assets - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:16.602399+00:00
+fetched_at: 2026-10-28T16:20:12.261189+00:00
 ---
 
 # Assets - Canva REST API reference - Canva Developers SDK Documentation
@@ -85,7 +85,7 @@ The `assets` APIs support images and videos.
 
 ## Images
 
-Image files must be smaller than 50 MB, and we accept the following file formats:
+Image files must be smaller than 50 MB (SVG files have a lower limit, see below), and we accept the following file formats:
 
   * JPEG
   * PNG
@@ -93,8 +93,25 @@ Image files must be smaller than 50 MB, and we accept the following file formats
   * Single-frame GIFs
   * TIFF
   * Single-frame WEBP
+  * SVG
 
 
+
+### SVG files
+
+SVG files must be smaller than 3 MB.
+
+SVG files are validated when you upload them. If a file contains a blocked element or attribute, the upload job fails with the `import_failed` error code. Blocked items include:
+
+  * Scripting and unsafe elements, such as `script`, `foreignObject`, `a`, and `switch`
+  * Event handler attributes, such as `onload` and `onclick`
+  * Animation elements, such as `animate` and `set`
+  * Font elements, such as `font` and `font-face`
+  * Deprecated elements, such as `altGlyph`, `cursor`, and `tref`
+
+
+
+This list isn't exhaustive and might change.
 
 ## Videos
 

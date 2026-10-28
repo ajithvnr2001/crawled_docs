@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/audit-logs/actions/apps/
 title: Apps - Canva Audit Logs Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:48.848213+00:00
+fetched_at: 2026-10-28T16:20:12.591344+00:00
 ---
 
 # Apps - Canva Audit Logs Documentation
@@ -82,6 +82,46 @@ A set of settings.
 
 **Available values:** The only valid value is `ENABLED_FOR_CANVA_AI`: The app is available for Canva AI to use..
 
+`canva_ai_permissions``AppCanvaAiPermissions`
+
+Optional
+
+The permissions for how Canva AI uses an app.
+
+Properties of **canva_ai_permissions**
+
+`enabled``boolean`
+
+`has_server_address``boolean`
+
+  * The `actor` set a server address. The actual value is sensitive and is not included.
+
+
+
+`tool_permissions``AppCanvaAiToolPermission[]`
+
+Optional
+
+The tool permissions the `actor` set for using an app with Canva AI.
+
+Properties of **tool_permissions**
+
+`name``string`
+
+The name of the tool.
+
+`permission``string`
+
+How a tool may be used by Canva AI.
+
+**Available values:**
+
+  * `ALWAYS_ALLOW`: Canva AI is always allowed to use the tool.
+  * `ASK_EVERY_TIME`: Canva AI will always ask before using the tool.
+  * `BLOCKED`: Canva AI is never allowed to use the tool.
+
+
+
 ### Example
     
     
@@ -119,7 +159,27 @@ A set of settings.
     
           "ENABLED_FOR_CANVA_AI"
     
-        ]
+        ],
+    
+        "canva_ai_permissions": {
+    
+          "enabled": true,
+    
+          "has_server_address": true,
+    
+          "tool_permissions": [
+    
+            {
+    
+              "name": "spell-checker-tool",
+    
+              "permission": "ALWAYS_ALLOW"
+    
+            }
+    
+          ]
+    
+        }
     
       },
     
@@ -395,6 +455,249 @@ The setting for an app.
         "old_value": true,
     
         "new_value": true
+    
+      },
+    
+      "outcome": ...,
+    
+      "context": ...
+    
+    }
+
+JSON
+
+Copy
+
+## Update an app's Canva AI permissions
+
+An `actor` triggers this event when they update the Canva AI permissions for an app.
+
+`type``string`
+
+**Default value:** `UPDATE_APP_CANVA_AI_PERMISSIONS`
+
+**Available values:** The only valid value is `UPDATE_APP_CANVA_AI_PERMISSIONS`.
+
+`app``AuditLogApp`
+
+A Canva [app](https://www.canva.dev/docs/audit-logs/what-are-canva-apps-and-integrations/#canva-apps).
+
+Properties of **app**
+
+`id``string`
+
+The app ID.
+
+`name``string`
+
+Optional
+
+The name of the app.
+
+`version``string`
+
+Optional
+
+The version of the app.
+
+`changed_fields``string[]`
+
+Optional
+
+The fields that were changed in this update.
+
+**Available values:**
+
+  * `ENABLED`: The `enabled` field was changed.
+  * `TOOL_PERMISSIONS`: One or more tool permissions were changed.
+  * `SERVER_ADDRESS`: The server address was changed. The actual value is sensitive and is not included.
+
+
+
+`old_enabled``boolean`
+
+Optional
+
+Whether Canva AI permissions were enabled before this update.
+
+`new_enabled``boolean`
+
+Optional
+
+Whether Canva AI permissions were enabled after this update.
+
+`tool_permission_changes``UpdateAppCanvaAiToolPermissionChange[]`
+
+Optional
+
+The tool permissions the `actor` requested changes for in this update.
+
+ADD_APP_CANVA_AI_TOOL_PERMISSIONADD_APP_CANVA_AI_TOOL_PERMISSION
+
+REMOVE_APP_CANVA_AI_TOOL_PERMISSIONREMOVE_APP_CANVA_AI_TOOL_PERMISSION
+
+UPDATE_APP_CANVA_AI_TOOL_PERMISSIONUPDATE_APP_CANVA_AI_TOOL_PERMISSION
+
+The `actor` added a permission for how a tool may be used by Canva AI.
+
+`type``string`
+
+**Default value:** `ADD_APP_CANVA_AI_TOOL_PERMISSION`
+
+**Available values:** The only valid value is `ADD_APP_CANVA_AI_TOOL_PERMISSION`.
+
+`name``string`
+
+The name of the tool.
+
+`permission``string`
+
+How a tool may be used by Canva AI.
+
+**Available values:**
+
+  * `ALWAYS_ALLOW`: Canva AI is always allowed to use the tool.
+  * `ASK_EVERY_TIME`: Canva AI will always ask before using the tool.
+  * `BLOCKED`: Canva AI is never allowed to use the tool.
+
+
+
+The `actor` removed a permission for how a tool may be used by Canva AI.
+
+`type``string`
+
+**Default value:** `REMOVE_APP_CANVA_AI_TOOL_PERMISSION`
+
+**Available values:** The only valid value is `REMOVE_APP_CANVA_AI_TOOL_PERMISSION`.
+
+`name``string`
+
+The name of the tool.
+
+`permission``string`
+
+How a tool may be used by Canva AI.
+
+**Available values:**
+
+  * `ALWAYS_ALLOW`: Canva AI is always allowed to use the tool.
+  * `ASK_EVERY_TIME`: Canva AI will always ask before using the tool.
+  * `BLOCKED`: Canva AI is never allowed to use the tool.
+
+
+
+The `actor` updated a permission for how a tool may be used by Canva AI.
+
+`type``string`
+
+**Default value:** `UPDATE_APP_CANVA_AI_TOOL_PERMISSION`
+
+**Available values:** The only valid value is `UPDATE_APP_CANVA_AI_TOOL_PERMISSION`.
+
+`name``string`
+
+The name of the tool.
+
+`old_permission``string`
+
+How a tool may be used by Canva AI.
+
+**Available values:**
+
+  * `ALWAYS_ALLOW`: Canva AI is always allowed to use the tool.
+  * `ASK_EVERY_TIME`: Canva AI will always ask before using the tool.
+  * `BLOCKED`: Canva AI is never allowed to use the tool.
+
+
+
+`new_permission``string`
+
+How a tool may be used by Canva AI.
+
+**Available values:**
+
+  * `ALWAYS_ALLOW`: Canva AI is always allowed to use the tool.
+  * `ASK_EVERY_TIME`: Canva AI will always ask before using the tool.
+  * `BLOCKED`: Canva AI is never allowed to use the tool.
+
+
+
+### Example
+    
+    
+    {
+    
+      "id": ...,
+    
+      "timestamp": ...,
+    
+      "actor": ...,
+    
+      "target": ...,
+    
+      "action": {
+    
+        "type": "UPDATE_APP_CANVA_AI_PERMISSIONS",
+    
+        "app": {
+    
+          "id": "AAEJQA10wBV",
+    
+          "name": "Magic App",
+    
+          "version": 23
+    
+        },
+    
+        "changed_fields": [
+    
+          "ENABLED",
+    
+          "TOOL_PERMISSIONS",
+    
+          "SERVER_ADDRESS"
+    
+        ],
+    
+        "old_enabled": true,
+    
+        "new_enabled": true,
+    
+        "tool_permission_changes": [
+    
+          {
+    
+            "type": "ADD_APP_CANVA_AI_TOOL_PERMISSION",
+    
+            "name": "spell-checker-tool",
+    
+            "permission": "ALWAYS_ALLOW"
+    
+          },
+    
+          {
+    
+            "type": "REMOVE_APP_CANVA_AI_TOOL_PERMISSION",
+    
+            "name": "spell-checker-tool",
+    
+            "permission": "ALWAYS_ALLOW"
+    
+          },
+    
+          {
+    
+            "type": "UPDATE_APP_CANVA_AI_TOOL_PERMISSION",
+    
+            "name": "spell-checker-tool",
+    
+            "old_permission": "ALWAYS_ALLOW",
+    
+            "new_permission": "ALWAYS_ALLOW"
+    
+          }
+    
+        ]
     
       },
     
