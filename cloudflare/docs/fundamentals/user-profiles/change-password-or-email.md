@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/user-profiles/change-password-or-email/
 title: Email address and password \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:27.874307+00:00
+fetched_at: 2026-10-28T08:03:53.792788+00:00
 ---
 
 # Email address and password · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:27.874307+00:00
 
 # Email address and password
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/user-profiles/change-password-or-email/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChange email addressChange passwordForgot your email addressForgot your password
 
@@ -79,9 +79,11 @@ If you forget the email address associated with your application:
 
 ## Forgot your password
 
+Note
+
 You must be logged out of the Cloudflare dashboard to view the **Forgot your password?** option.
 
-If you forget the password associated with your email address:
+If you forget the password associated with your email address, or if you initially signed up for Cloudflare using social login (for example Google, Apple), you can use this process to set a new password.
 
   1. Go to the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/login) and select **Forgot your password?**.
   2. Enter your email address.

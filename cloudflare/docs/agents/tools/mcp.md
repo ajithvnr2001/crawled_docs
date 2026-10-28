@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/mcp/
 title: MCP \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:08.853114+00:00
+fetched_at: 2026-10-28T08:03:58.433435+00:00
 ---
 
 # MCP · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:08.853114+00:00
 
 # MCP
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/mcp/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBasic patternConfigurationRelated resources
 
@@ -85,7 +85,7 @@ Call `addMcpServer()` to connect to a remote MCP server, then pass `this.mcp.get
     	}
     }
 
-If the server requires OAuth, `addMcpServer()` returns an authentication state and authorization URL. The connection is persisted in the agent's [SQL storage](https://developers.cloudflare.com/agents/runtime/lifecycle/state/).
+If the server requires OAuth, `addMcpServer()` returns an authentication state and authorization URL. The connection is persisted in the agent's [SQL storage](https://developers.cloudflare.com/agents/agent-class/state/).
 
 ## Configuration
 

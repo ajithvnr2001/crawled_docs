@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/guides/connect-mcp-client/
 title: Connect to an MCP server \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:15.320055+00:00
+fetched_at: 2026-10-28T08:04:01.054622+00:00
 ---
 
 # Connect to an MCP server · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:15.320055+00:00
 
 # Connect to an MCP server
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/guides/connect-mcp-client/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat you will buildPrerequisites1\. Create a basic Agent2\. Add MCP connection endpoint3\. Test the connection4\. List available toolsSummaryNext steps
 
@@ -276,7 +276,7 @@ You created an Agent that can:
 
 
 
-Connections persist in the Agent's [SQL storage](https://developers.cloudflare.com/agents/runtime/lifecycle/state/), so they remain active across requests.
+Connections persist in the Agent's [SQL storage](https://developers.cloudflare.com/agents/agent-class/state/), so they remain active across requests.
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/codemode/mcp/
 title: Use MCP tools with Code Mode \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:23.923537+00:00
+fetched_at: 2026-10-28T08:04:05.527546+00:00
 ---
 
 # Use MCP tools with Code Mode · Cloudflare Agents docs
@@ -22,20 +22,20 @@ Tools
 
 # Use MCP tools with Code Mode
 
-Last updated Jul 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/codemode/mcp/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesUse an AI SDK tool collection
 
 Use `McpConnector` to expose tools from an existing Model Context Protocol (MCP) client connection inside the Code Mode sandbox. The connector works with the durable runtime, including discovery, approvals, and execution history.
 
-This page covers an Agent consuming an MCP server. To publish Code Mode as an MCP server, refer to [Code Mode MCP server patterns](https://developers.cloudflare.com/agents/model-context-protocol/codemode/).
+This page covers an Agent consuming an MCP server. To publish Code Mode as an MCP server, refer to [Build a Code Mode MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/build-codemode-mcp-server/).
 
 ## Prerequisites
 
 You need:
 
   * A project with the [durable Code Mode runtime](https://developers.cloudflare.com/agents/tools/codemode/durable-runtime/) configured. That setup provides the Worker Loader binding and the `CodemodeRuntime` export.
-  * An existing Agents SDK MCP connection. To create and authorize the connection, refer to the [McpClient API](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/).
+  * An existing Agents SDK MCP connection. To create and authorize the connection, refer to the [MCP Client](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/).
 
 
 

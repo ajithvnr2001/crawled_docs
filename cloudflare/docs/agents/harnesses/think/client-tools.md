@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/client-tools/
 title: Client tools \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:12.637065+00:00
+fetched_at: 2026-10-28T08:04:01.775611+00:00
 ---
 
 # Client tools · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:12.637065+00:00
 
 # Client tools
 
-Last updated Aug 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/client-tools/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDefining client toolsClient tools over the sub-agent RPC chat() path Behavior notesApproval flowAuto-continuationSurvive restarts while waiting for a humanMessage concurrencyMulti-tab broadcast
 
@@ -174,7 +174,7 @@ When a turn produces several client tool calls at once, Think waits for **all** 
 
 A Durable Object can be evicted at any time, including while a turn is paused on an approval prompt or a client-side tool call. [`Think` durable recovery](https://developers.cloudflare.com/agents/harnesses/think/recovery/) is always on. The SDK treats such a turn as waiting on the human, not stuck. It parks the turn instead of failing it. The user's eventual approval or tool result resumes the conversation.
 
-For which interactions are exempt from recovery budgets, refer to [Turns waiting on a human are not sealed](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/#turns-waiting-on-a-human-are-not-sealed).
+For which interactions are exempt from recovery budgets, refer to [Turns waiting on a human are not sealed](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/#turns-waiting-on-a-human-are-not-sealed).
 
 ## Message concurrency
 

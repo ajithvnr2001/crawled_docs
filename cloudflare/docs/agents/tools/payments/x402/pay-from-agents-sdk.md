@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/payments/x402/pay-from-agents-sdk/
 title: Pay from Agents SDK \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:25.001781+00:00
+fetched_at: 2026-10-28T08:03:54.353105+00:00
 ---
 
 # Pay from Agents SDK · Cloudflare Agents docs
@@ -22,11 +22,13 @@ Tools[Agentic Payments](https://developers.cloudflare.com/agents/tools/payments/
 
 # Pay from Agents SDK
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/payments/x402/pay-from-agents-sdk/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnvironment setupRelated
 
 The Agents SDK includes an MCP client that can pay for x402-protected tools. Use it from your Agents or any MCP client connection.
+
+`agents/x402` needs `@modelcontextprotocol/sdk`, which is an optional peer dependency of `agents`. It does not load the package at runtime, but its types refer to MCP SDK v1. Add the exact version your Agents release expects, such as `@modelcontextprotocol/sdk@1.32.1`, to your `package.json`.
     
     
     import { Agent } from "agents";

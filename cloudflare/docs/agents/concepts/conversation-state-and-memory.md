@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/concepts/conversation-state-and-memory/
 title: Conversation state and memory \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:09.641133+00:00
+fetched_at: 2026-10-28T08:04:03.975880+00:00
 ---
 
 # Conversation state and memory · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:09.641133+00:00
 
 # Conversation state and memory
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/concepts/conversation-state-and-memory/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConversation historyContext memory Read-only context Writable short-form context Searchable context Loadable context (Skills)How agents interact with memory Generated toolsThe system promptGotchas Prompt caching CompactionRelated
 
@@ -26,7 +26,7 @@ Agents need memory to be useful over time. Without it, every conversation starts
 
 The [Session API](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/) provides the memory layer for agents built on the Cloudflare Agents SDK. It manages two kinds of memory: **conversation history** (the messages and tool calls that make up a session) and **context memory** (persistent blocks injected into the system prompt that the agent can read, write, search, and load).
 
-Use this page when you need more than simple synced state or flat chat history. For small UI state, use [Store and sync state](https://developers.cloudflare.com/agents/runtime/lifecycle/state/). For basic chat persistence, `AIChatAgent` stores messages for you. For opinionated long-term memory, Think builds on Session and context blocks.
+Use this page when you need more than simple synced state or flat chat history. For small UI state, use [Store and sync state](https://developers.cloudflare.com/agents/agent-class/state/). For basic chat persistence, `AIChatAgent` stores messages for you. For opinionated long-term memory, Think builds on Session and context blocks.
 
 Experimental
 
@@ -691,7 +691,7 @@ Micro-compaction works at the individual message level rather than across ranges
 
 Full API reference for Session, covering messages, context blocks, compaction, search, tools, and custom providers.
 
-### [Store and sync state](https://developers.cloudflare.com/agents/runtime/lifecycle/state/)
+### [Store and sync state](https://developers.cloudflare.com/agents/agent-class/state/)
 
 setState() for simpler key-value persistence and real-time sync.
 

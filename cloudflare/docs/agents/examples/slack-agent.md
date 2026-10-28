@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/examples/slack-agent/
 title: Slack agent \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:35.873100+00:00
+fetched_at: 2026-10-28T08:04:02.173588+00:00
 ---
 
 # Slack agent · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:35.873100+00:00
 
 # Slack agent
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDeploy your first Slack AgentPrerequisites1\. Create a Slack App Configure OAuth & Permissions Enable Event Subscriptions Get your Slack credentials2\. Create your Slack Agent project3\. Set up your environment variables4\. Create your Slack Agent5\. Test locally Configure Slack Event Subscriptions Install your app to Slack Test your agent6\. Deploy to production Update Slack Event Subscriptions Distribute your appHow it works Multi-tenancy with Durable Objects OAuth flow Event handlingCustomizing your agent Change the AI model Add conversation memory React to specific keywords Use different LLM providersNext stepsRelated resources
 
@@ -164,7 +164,7 @@ The `OPENAI_BASE_URL` is optional but recommended. Using [Cloudflare AI Gateway]
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-27",
     	"compatibility_flags": [
     		"nodejs_compat"
     	],
@@ -193,7 +193,7 @@ The `OPENAI_BASE_URL` is optional but recommended. Using [Cloudflare AI Gateway]
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-27"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[durable_objects.bindings]]
@@ -523,7 +523,7 @@ Replace OpenAI with [Workers AI](https://developers.cloudflare.com/workers-ai/):
   * Add rate limiting to prevent abuse
   * Implement conversation state management
   * Use [Workers Analytics Engine](https://developers.cloudflare.com/analytics/analytics-engine/) to track usage
-  * Add [schedules](https://developers.cloudflare.com/agents/runtime/execution/schedule-tasks/) for scheduled tasks
+  * Add [schedules](https://developers.cloudflare.com/agents/agent-class/schedule-tasks/) for scheduled tasks
 
 
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/
 title: Sessions \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:21.539505+00:00
+fetched_at: 2026-10-28T08:03:59.729614+00:00
 ---
 
 # Sessions · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Runtime
 
 # Sessions
 
-Last updated Jun 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick startCreating a session Builder API (recommended) Direct constructor Builder methodsMessages Reading history BranchingSearchContext blocks Provider types Built-in providers Adding and removing context at runtime Reading and writing context System promptAI tools set_context load_context unload_context search_context session_searchCompaction Setup How compaction works Manual compaction Auto-compactionSessionManager Creating a SessionManager Builder methods Session lifecycle Accessing sessions Message convenience methods Forking Compaction helpers Usage tracking Cross-session searchCustom providersPostgres providers 1\. Create a Hyperdrive config 2\. Create the tables 3\. Wire it up Behavior differences System prompt lifecycleStorage tablesAcknowledgmentsRelated
 
@@ -1183,12 +1183,12 @@ Table | Purpose
 ## Related
 
   * [Think](https://developers.cloudflare.com/agents/harnesses/think/) — opinionated chat agent that uses Session for conversation storage via `configureSession()`
-  * [Chat agents](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/) — `AIChatAgent` with its own message persistence layer
-  * [Store and sync state](https://developers.cloudflare.com/agents/runtime/lifecycle/state/) — `setState()` for simpler key-value persistence
+  * [Chat agents](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/) — `AIChatAgent` with its own message persistence layer
+  * [Store and sync state](https://developers.cloudflare.com/agents/agent-class/state/) — `setState()` for simpler key-value persistence
 
 
 
-[PreviousStore and sync state](https://developers.cloudflare.com/agents/runtime/lifecycle/state/)[NextgetCurrentAgent()](https://developers.cloudflare.com/agents/runtime/lifecycle/get-current-agent/)
+[PreviousDurable recovery](https://developers.cloudflare.com/agents/harnesses/think/recovery/)[NextgetCurrentAgent()](https://developers.cloudflare.com/agents/runtime/lifecycle/get-current-agent/)
 
 Was this helpful?
 

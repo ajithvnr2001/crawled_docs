@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/get-started/durable-agents/
 title: Build a Durable AI Agent \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:24.918651+00:00
+fetched_at: 2026-10-28T08:03:57.103267+00:00
 ---
 
 # Build a Durable AI Agent · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:24.918651+00:00
 
 # Build a Durable AI Agent
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick startPrerequisites1\. Create a new Worker project2\. Define your tools3\. Write your Workflow4\. Write your Agent5\. Configure your project6\. Write your API7\. Develop locally8\. DeployReal-time client integrationLearn more
 
@@ -438,7 +438,7 @@ src/agent.tsts
          	"main": "src/index.ts",
              "upload_source_maps": true,
          	// Set this to today's date
-         	"compatibility_date": "2026-10-13",
+         	"compatibility_date": "2026-10-27",
          	"observability": {
          		"enabled": true
          	},
@@ -470,7 +470,7 @@ src/agent.tsts
          main = "src/index.ts"
          upload_source_maps = true
          # Set this to today's date
-         compatibility_date = "2026-10-13"
+         compatibility_date = "2026-10-27"
          
          [observability]
          enabled = true
@@ -656,7 +656,7 @@ Agent class names are automatically converted to kebab-case for URLs (`ResearchA
 
 ## Learn more
 
-### [Agents SDK Workflows](https://developers.cloudflare.com/agents/runtime/execution/run-workflows/)
+### [Agents SDK Workflows](https://developers.cloudflare.com/agents/agent-class/run-workflows/)
 
 Complete API reference for AgentWorkflow, lifecycle callbacks, and bidirectional communication.
 

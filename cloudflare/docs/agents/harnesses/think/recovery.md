@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/recovery/
 title: Durable recovery \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:04.233785+00:00
+fetched_at: 2026-10-28T08:04:01.173568+00:00
 ---
 
 # Durable recovery · Cloudflare Agents docs
@@ -22,11 +22,11 @@ fetched_at: 2026-10-23T16:40:04.233785+00:00
 
 # Durable recovery
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/recovery/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBounded recoveryonChatRecovery ChatRecoveryContext ChatRecoveryOptions Recovery budgets and limitsRepairing interrupted tool callsContext-window overflow recoveryStability detection hasPendingInteraction waitUntilStable
 
-Think always wraps chat turns in recoverable [fibers](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/). If the Durable Object is evicted mid-stream, Think reconstructs any buffered chunks. It persists partial output and schedules a continuation or retry.
+Think always wraps chat turns in recoverable [fibers](https://developers.cloudflare.com/agents/agent-class/durable-execution/). If the Durable Object is evicted mid-stream, Think reconstructs any buffered chunks. It persists partial output and schedules a continuation or retry.
 
 Note
 
@@ -150,7 +150,7 @@ For pre-stream interruptions, where `ctx.streamId === ""` and `ctx.partialText =
 
 Use `ctx.createdAt` to skip stale recoveries. For example, if the interrupted turn is older than a few minutes, return `{ continue: false }` so the partial response is preserved without starting an old continuation.
 
-Durable bookkeeping remains active when automatic continuation is not appropriate. Return `{ continue: false }` to prevent another model call. For cancellation, side-effect, and cost controls, refer to [Control automatic continuation](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/#control-automatic-continuation).
+Durable bookkeeping remains active when automatic continuation is not appropriate. Return `{ continue: false }` to prevent another model call. For cancellation, side-effect, and cost controls, refer to [Control automatic continuation](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/#control-automatic-continuation).
 
 ### Recovery budgets and limits
 
@@ -209,7 +209,7 @@ Field | Default | Description
 `terminalMessage` | generic message | Message shown to the user when recovery is given up on.  
 `onExhausted` | — | Called once when recovery is given up on. Inspect `ctx.reason`.  
   
-`ctx.reason` on the exhausted hook is one of: `no_progress_timeout` (stuck), `max_attempts_exceeded` (no-progress alarm loop), `work_budget_exceeded` (runaway), `interrupted_attempts_exceeded` (the turn's attempts kept dying, for example in memory-limit resets), `out_of_memory` (sealed by the alarm memory-limit circuit breaker), `recovery_aborted` (your `shouldKeepRecovering` returned `false`), or `stable_timeout` (extreme churn). Refer to [Stream recovery](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/#stream-recovery) for the full shared reference. Think and `@cloudflare/ai-chat` use the same recovery configuration.
+`ctx.reason` on the exhausted hook is one of: `no_progress_timeout` (stuck), `max_attempts_exceeded` (no-progress alarm loop), `work_budget_exceeded` (runaway), `interrupted_attempts_exceeded` (the turn's attempts kept dying, for example in memory-limit resets), `out_of_memory` (sealed by the alarm memory-limit circuit breaker), `recovery_aborted` (your `shouldKeepRecovering` returned `false`), or `stable_timeout` (extreme churn). Refer to [Stream recovery](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/#stream-recovery) for the full shared reference. Think and `@cloudflare/ai-chat` use the same recovery configuration.
 
 ## Repairing interrupted tool calls
 
@@ -356,7 +356,7 @@ Returns a promise that resolves to `true` when the agent reaches a stable state,
     	]);
     }
 
-[PreviousProgrammatic submissions](https://developers.cloudflare.com/agents/harnesses/think/programmatic-submissions/)[NextAgents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
+[PreviousProgrammatic submissions](https://developers.cloudflare.com/agents/harnesses/think/programmatic-submissions/)[NextSessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/)
 
 Was this helpful?
 

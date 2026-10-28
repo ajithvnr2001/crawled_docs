@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/debugging-pages/
 title: Debugging Pages \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:29.354542+00:00
+fetched_at: 2026-10-28T08:04:05.168049+00:00
 ---
 
 # Debugging Pages · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:29.354542+00:00
 
 # Debugging Pages
 
-Last updated Jun 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/configuration/debugging-pages/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCheck your build log Initializing build environment Cloning git repository Building application Deploying to Cloudflare's global networkDifferences between pages.dev and custom domainsDomain stuck in verification Blocked HTTP validation Missing CAA records Zone holds Missing index.html on the root pages.dev URLResources
 
@@ -116,7 +116,7 @@ If your [custom domain](https://developers.cloudflare.com/pages/configuration/cu
 
 ### Blocked HTTP validation
 
-Pages uses HTTP validation and needs to hit an HTTP endpoint during validation. If another Cloudflare product is in the way (such as [Access](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/), [a redirect](https://developers.cloudflare.com/rules/url-forwarding/), [a Worker](https://developers.cloudflare.com/workers/), etc.), validation cannot be completed.
+Pages uses HTTP validation and needs to hit an HTTP endpoint during validation. If another Cloudflare product is in the way (such as [Access](https://developers.cloudflare.com/cloudflare-one/access-controls/policies/), [a redirect](https://developers.cloudflare.com/rules/url-forwarding/), [a Worker](https://developers.cloudflare.com/workers/), [a WAF custom rule](https://developers.cloudflare.com/waf/custom-rules/), or a [Client-Side Security content security rule](https://developers.cloudflare.com/client-side-security/rules/)), validation cannot be completed.
 
 To check this, run a `curl` command against your domain hitting `/.well-known/acme-challenge/randomstring`. For example:
     

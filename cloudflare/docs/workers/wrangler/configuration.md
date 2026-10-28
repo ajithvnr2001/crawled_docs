@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/configuration/
 title: Configuration - Wrangler \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:29.961172+00:00
+fetched_at: 2026-10-28T08:03:57.870253+00:00
 ---
 
 # Configuration - Wrangler · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-21T06:51:29.961172+00:00
 
 # Configuration
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSample Wrangler configurationEnvironmentsAutomatic provisioningTop-level only keysInheritable keysNon-inheritable keysTypes of routes Custom Domains Routes workers.devTriggersObservability IssuesCustom buildsLimitsBindings Browser Run D1 databases Dispatch namespace bindings (Workers for Platforms) Durable Objects Email bindings Environment variables Hyperdrive Images KV namespaces AI Search namespaces AI Search instances Queues R2 buckets Vectorize indexes Service bindings Static assets Analytics Engine Datasets Analytics SQL mTLS Certificates Workers AI WorkflowsAssetsContainers default scheduling policy durable_object scheduling policy Custom instance types SSH Authorized keysBundling Importing modules within a Worker Find additional modules Python WorkersLocal development settingsSecrets secrets configuration property Local developmentModule Aliasing Bundling issues Example: Aliasing dependencies from NPM Example: Aliasing Node.js APIsSource mapsWorkers SitesProxy supportSource of truthGenerated Wrangler configuration Custom build tool example
 
@@ -48,7 +48,7 @@ It is best practice to treat Wrangler's configuration file as the source of trut
     	"main": "src/index.js",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-21",
+    	"compatibility_date": "2026-10-27",
     	"workers_dev": false,
     	"route": {
     		"pattern": "example.org/*",
@@ -83,7 +83,7 @@ It is best practice to treat Wrangler's configuration file as the source of trut
     main = "src/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-21"
+    compatibility_date = "2026-10-27"
     workers_dev = false
     
     [route]
@@ -1406,6 +1406,10 @@ To bind Workflows to your Worker, assign an array of the below object to the `wo
     * `success_retention` `string | number` optional — How long to retain instances that complete successfully or are terminated, as a duration string such as `"3 days"` or a whole number of milliseconds.
     * `error_retention` `string | number` optional — How long to retain instances that end in an errored state, as a duration string such as `"7 days"` or a whole number of milliseconds.
     * Retention is capped at the [retention limit](https://developers.cloudflare.com/workflows/reference/limits/) for your account.
+  * `jurisdiction` `string` optional
+    * The jurisdiction that the instances of this Workflow run and store data in. Valid values: `"eu"`, `"fedramp"`, `"us"`. Refer to [Data location](https://developers.cloudflare.com/workflows/reference/data-location/).
+    * Set when the Workflow is created, and cannot be changed afterwards. Cannot be combined with `script_name`.
+    * Requires Wrangler 4.152.0 or above.
 
 
 
@@ -1448,6 +1452,9 @@ Each Workflow entry in `exports` is keyed by the name of a class that extends `W
     * One or more cron schedules that create new instances of this Workflow automatically. Refer to [Schedule a Workflow directly](https://developers.cloudflare.com/workflows/build/trigger-workflows/#schedule-a-workflow-directly).
   * `default_retention` `object` optional
     * How long to retain the state of instances of this Workflow after they finish. Accepts the same `success_retention` and `error_retention` fields as the `workflows` binding.
+  * `jurisdiction` `string` optional
+    * The jurisdiction that the instances of this Workflow run and store data in. Accepts the same values as the `workflows` binding.
+    * Requires Wrangler 4.152.0 or above.
 
 
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/operations/cross-domain-authentication/
 title: Cross-domain authentication \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:22.528263+00:00
+fetched_at: 2026-10-28T08:03:58.860999+00:00
 ---
 
 # Cross-domain authentication · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Runtime
 
 # Cross-domain authentication
 
-Last updated Aug 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/runtime/operations/cross-domain-authentication/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWebSocket authentication Same origin Cross originUsage examples Static authentication Async authentication JWT refresh patternCross-domain authentication Static cross-domain auth Async cross-domain authServer-side verificationBest practicesNext steps
 
@@ -387,11 +387,11 @@ On the server side, verify the token in the `onConnect` handler:
 
 ## Next steps
 
-### [Routing](https://developers.cloudflare.com/agents/runtime/communication/routing/)
+### [Routing](https://developers.cloudflare.com/agents/agent-class/routing/)
 
 Routing and authentication hooks.
 
-### [WebSockets](https://developers.cloudflare.com/agents/runtime/communication/websockets/)
+### [WebSockets](https://developers.cloudflare.com/agents/agent-class/websockets/)
 
 Real-time bidirectional communication.
 
@@ -399,11 +399,11 @@ Real-time bidirectional communication.
 
 Protect an app built with Agents using GitHub OAuth, HTTP-only cookies, and server-owned Durable Object routing.
 
-### [Agents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
+### [Agents API](https://developers.cloudflare.com/agents/agent-class/)
 
 Complete API reference for the Agents SDK.
 
-[PreviousConfiguration](https://developers.cloudflare.com/agents/runtime/operations/configuration/)[NextUsing AI Models](https://developers.cloudflare.com/agents/runtime/operations/using-ai-models/)
+[PreviousConfiguration](https://developers.cloudflare.com/agents/runtime/operations/configuration/)[NextTracing](https://developers.cloudflare.com/agents/runtime/operations/observability/tracing/)
 
 Was this helpful?
 

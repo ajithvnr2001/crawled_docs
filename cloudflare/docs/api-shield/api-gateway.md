@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/api-gateway/
 title: API Gateway \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:17.492201+00:00
+fetched_at: 2026-10-28T08:03:56.324589+00:00
 ---
 
 # API Gateway · Cloudflare API Shield docs
@@ -17,13 +17,13 @@ fetched_at: 2026-10-08T07:05:17.492201+00:00
 
 # API Gateway
 
-Last updated May 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/api-gateway/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare as your API Gateway API security features Management and Monitoring tools Build APIs with Cloudflare’s Developer PlatformGet started
 
 Cloudflare API Shield provides API security, management tools, and integration with the Cloudflare Developer Platform for building new APIs.
 
-  * **Security** : Protect APIs with JWT validation, mutual TLS (mTLS) authentication, schema validation, and defenses against the [OWASP Top 10 API Security risks ↗︎](https://owasp.org/www-project-api-security/).
+  * **Security** : Protect APIs with JWT validation, mutual TLS (mTLS) authentication, schema validation, and defenses against the [OWASP Top 10 API Security risks ↗︎](https://api-security.owasp.org/).
 
   * **Management and monitoring** : Use endpoint management, analytics, and routing tools to streamline API operations. Monitor risks with Posture Management and gain visibility through Security Analytics.
 

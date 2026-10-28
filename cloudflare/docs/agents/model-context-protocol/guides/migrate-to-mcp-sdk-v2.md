@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/guides/migrate-to-mcp-sdk-v2/
 title: Migrate to MCP SDK v2 \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:15.663445+00:00
+fetched_at: 2026-10-28T08:03:54.298025+00:00
 ---
 
 # Migrate to MCP SDK v2 · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:15.663445+00:00
 
 # Migrate to MCP SDK v2
 
-Last updated Jul 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/guides/migrate-to-mcp-sdk-v2/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose a server pathInstall the MCP packagesDecide whether a temporary legacy lane is requiredMove a stateless server to SDK v2 Handler options for stateless servers Origin validation on Workers Understand compatibility with legacy clientsMigrate an McpAgent server Migrate directly without legacy stateful features Plan stateless equivalents for stateful features Run stateless and legacy lanes togetherUpdate MCP clients Configure elicitation for stateless requests Update custom OAuth providersReview protocol differences Integration compatibilityPlan the rollout
 
@@ -58,50 +58,54 @@ For a stateless server:
 npmyarnpnpmbun
     
     
-    npm i agents @modelcontextprotocol/server@2.0.0 zod
+    npm i agents @modelcontextprotocol/server@2.3.1 zod
     
     
-    yarn add agents @modelcontextprotocol/server@2.0.0 zod
+    yarn add agents @modelcontextprotocol/server@2.3.1 zod
     
     
-    pnpm add agents @modelcontextprotocol/server@2.0.0 zod
+    pnpm add agents @modelcontextprotocol/server@2.3.1 zod
     
     
-    bun add agents @modelcontextprotocol/server@2.0.0 zod
+    bun add agents @modelcontextprotocol/server@2.3.1 zod
 
 For a temporary legacy lane:
 
 npmyarnpnpmbun
     
     
-    npm i agents @modelcontextprotocol/sdk@1.30.0 zod
+    npm i agents @modelcontextprotocol/sdk@1.32.1 zod
     
     
-    yarn add agents @modelcontextprotocol/sdk@1.30.0 zod
+    yarn add agents @modelcontextprotocol/sdk@1.32.1 zod
     
     
-    pnpm add agents @modelcontextprotocol/sdk@1.30.0 zod
+    pnpm add agents @modelcontextprotocol/sdk@1.32.1 zod
     
     
-    bun add agents @modelcontextprotocol/sdk@1.30.0 zod
+    bun add agents @modelcontextprotocol/sdk@1.32.1 zod
 
 For an Agent that connects to MCP servers:
 
 npmyarnpnpmbun
     
     
-    npm i agents @modelcontextprotocol/client@2.0.0
+    npm i agents @modelcontextprotocol/client@2.3.1
     
     
-    yarn add agents @modelcontextprotocol/client@2.0.0
+    yarn add agents @modelcontextprotocol/client@2.3.1
     
     
-    pnpm add agents @modelcontextprotocol/client@2.0.0
+    pnpm add agents @modelcontextprotocol/client@2.3.1
     
     
-    bun add agents @modelcontextprotocol/client@2.0.0
+    bun add agents @modelcontextprotocol/client@2.3.1
 
-Follow peer dependency instructions from your package manager. Update the exact MCP versions with the Agents release that supports them.
+`@modelcontextprotocol/server` and `@modelcontextprotocol/sdk` are optional peer dependencies of `agents`, so your package manager does not install them automatically. Add them to your own `package.json` when you use them. `@modelcontextprotocol/client` is a required peer, because every Agent includes the MCP client. Update the exact MCP versions with the Agents release that supports them.
+
+If an existing legacy server imports `@modelcontextprotocol/sdk` without listing it in `package.json`, it worked only because the package was installed as a dependency of `agents`. Add it explicitly before you upgrade.
+
+The `agents/mcp` entry point loads `@modelcontextprotocol/sdk` even if you only import client helpers from it. Import `RPCClientTransport`, `RPC_DO_PREFIX`, and `McpClientOptions` from `agents/mcp/client` instead. `agents/x402` also needs `@modelcontextprotocol/sdk` installed: it does not load the package at runtime, but its types refer to MCP SDK v1.
 
 ## Decide whether a temporary legacy lane is required
 
@@ -324,7 +328,7 @@ Multi-step interaction state | Return integrity-protected `requestState` with `i
 Pushed elicitation, sampling, or roots requests | Return `inputRequired(...)`. The client fulfils the embedded requests and retries the original operation.  
 Standalone list-change stream | Publish changes through `subscriptions/listen`. Clients reopen the subscription if its stream ends.  
 Session replay or transport recovery | Make each stateless request independently recoverable. Persist business progress in application storage rather than the MCP transport.  
-Agent-to-`McpAgent` RPC | Replace the protocol-session dependency with an explicit application RPC or HTTP boundary, then expose the stateless MCP tools separately.  
+Agent-to-`McpAgent` RPC | Connect the Agent to the `createMcpHandler` server with a URL over Streamable HTTP. There is no RPC transport for stateless servers.  
   
 Do not remove the legacy route as soon as the stateless implementation exists. Serve both lanes while clients migrate and existing sessions drain.
 
@@ -475,15 +479,21 @@ The draft deprecates Roots, Sampling, Logging, the old HTTP+SSE transport, and D
 
 ### Integration compatibility
 
-The following integrations retain SDK v1 server output in this release:
+These integrations accept an SDK v2 `McpServer`. Serve them with `createMcpHandler`:
 
-  * Current Code Mode `codeMcpServer` and `openApiMcpServer` helpers
-  * The server-side `withX402` helper
-  * Existing OpenAI Apps examples that import an SDK v1 `McpServer`
-
+  * The server-side `withX402` helper, from `agents@0.27.0`. Refer to [Charge for MCP tools](https://developers.cloudflare.com/agents/tools/payments/x402/charge-for-mcp-tools/).
+  * OpenAI Apps SDK servers. Refer to the [ChatGPT app demo](https://developers.cloudflare.com/workers/demos/chatgpt-app/).
 
 
-Until these integrations produce SDK v2 servers, isolate their output behind a temporary `createLegacyMcpHandler` route. The Code Mode MCP connector and `withX402Client` accept either client generation.
+
+These integrations still produce or require SDK v1 servers:
+
+  * The Code Mode `codeMcpServer` and `openApiMcpServer` helpers. Refer to [Build a Code Mode MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/build-codemode-mcp-server/).
+  * The `mppx` `Transport.mcpSdk()` payment transport. Refer to [Accept payments](https://developers.cloudflare.com/agents/tools/payments/mpp/accept-payments/).
+
+
+
+Serve their output with `createLegacyMcpHandler`, building a new server for each request, until they produce SDK v2 servers. The Code Mode MCP connector and `withX402Client` accept either client generation.
 
 ## Plan the rollout
 
@@ -514,9 +524,9 @@ Until these integrations produce SDK v2 servers, isolate their output behind a t
 
 Stored HTTP session IDs from Agents releases before v0.20.0 do not include the negotiated protocol version. The upgraded client discards those IDs and reconnects instead of sending an unsafe resumed request. Existing in-flight work tied to an old remote session does not resume.
 
-For API details, refer to [`createMcpHandler`](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/) and [`McpClient`](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/).
+For API details, refer to [`createMcpHandler`](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/) and [MCP Client](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/).
 
-[PreviousHandle OAuth with MCP servers](https://developers.cloudflare.com/agents/model-context-protocol/guides/oauth-mcp-client/)[NextBuild a single-tool Code Mode MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/build-codemode-mcp-server/)
+[PreviousHandle OAuth with MCP servers](https://developers.cloudflare.com/agents/model-context-protocol/guides/oauth-mcp-client/)[NextBuild a Code Mode MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/build-codemode-mcp-server/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/snippets/create-api/
 title: Configure Snippets via API \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:52.451078+00:00
+fetched_at: 2026-10-28T08:04:04.369207+00:00
 ---
 
 # Configure Snippets via API · Cloudflare Rules docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:52.451078+00:00
 
 # Configure Snippets via API
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/snippets/create-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequired permissionsEndpointsExample API calls Create/update code snippet Create/update/delete snippet rules
 
@@ -83,8 +83,8 @@ The name of a snippet can only contain the characters `a-z`, `0-9`, and `_` (und
 
 The required body parameters are:
 
-  * `files`: The file with your JavaScript code.
-  * `metadata`: Object containing `main_module`, which must match the filename of the uploaded file.
+  * `files`: One or more JavaScript files. Every file is treated as a JavaScript ES module. The main module must `export default` an object with a `fetch` handler. Additional files can be imported from the main module by relative path (for example, `import { helper } from "./helper.js"`). Unlike Workers, Snippets do not support non-ESM files such as JSON, text, binary, or WebAssembly files, and reject them when you upload them.
+  * `metadata`: Object containing `main_module`, which must match the filename of the uploaded file that contains the default export.
 
 
 

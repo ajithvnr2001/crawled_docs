@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/channels/
 title: Channels \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:12.560318+00:00
+fetched_at: 2026-10-28T08:04:01.869544+00:00
 ---
 
 # Channels · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:12.560318+00:00
 
 # Channels
 
-Last updated Jun 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/channels/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure channels Channel kindsPer-channel policySelect a channel on a turnDeliver out of bandRelationship to messengersObservabilityReferenceRelated
 
@@ -237,7 +237,7 @@ Member | Description
 
   * [Messengers](https://developers.cloudflare.com/agents/harnesses/think/messengers/) — Chat SDK webhook setup and delivery in depth.
   * [Actions](https://developers.cloudflare.com/agents/harnesses/think/actions/) — record reply attachments for `renderAttachment()`.
-  * [Voice](https://developers.cloudflare.com/agents/communication-channels/voice/) — real-time speech surfaces.
+  * [Voice](https://developers.cloudflare.com/agents/agent-class/communication-channels/voice/) — real-time speech surfaces.
 
 
 

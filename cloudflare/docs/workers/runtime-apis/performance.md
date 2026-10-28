@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/performance/
 title: Performance and timers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:47.385827+00:00
+fetched_at: 2026-10-28T08:03:54.164059+00:00
 ---
 
 # Performance and timers · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:47.385827+00:00
 
 # Performance and timers
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/performance/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBackground performance.now() performance.timeOrigin
 
@@ -53,6 +53,8 @@ Time advances, because a subrequest has occurred between start and end.typescrip
 By wrapping a subrequest in calls to `performance.now()` or `Date.now()` APIs, you can measure the timing of a subrequest, fetching a key from KV, an object from R2, or any other form of I/O in your Worker.
 
 In local development, however, timers will increment regardless of whether I/O happens or not. This means that if you need to measure timing of a piece of code that is CPU intensive, that does not involve I/O, you can run your Worker locally, via [Wrangler](https://developers.cloudflare.com/workers/wrangler/), which uses the open-source Workers runtime, [workerd ↗︎](https://github.com/cloudflare/workerd) — the same runtime that your Worker runs in when deployed to Cloudflare.
+
+If instead you need to measure the CPU time of a Worker that is already deployed to Cloudflare, use [Profiling in production](https://developers.cloudflare.com/workers/observability/profiling-in-production/) to capture a CPU profile of a deployed Worker or Durable Object, rather than relying on the timer APIs described above.
 
 ### `performance.timeOrigin`
 

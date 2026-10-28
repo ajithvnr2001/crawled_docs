@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/ai-controls/mcp-portals/
 title: MCP server portals \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:31.388373+00:00
+fetched_at: 2026-10-28T08:03:54.664466+00:00
 ---
 
 # MCP server portals · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-27T07:31:31.388373+00:00
 
 # MCP server portals
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewKey featuresHow it works Transport Client identity header Built-in portal tools Session lifecycle NamingPrerequisitesAdd an MCP server Connect a private MCP server Configure manual OAuth credentials MCP Apps Server status Reauthenticate the MCP server Synchronize the MCP server Upstream OAuth callback URLsCreate a portal Customize login settingsManage tools and prompts Turn off individual tools or prompts Use an allowlist pattern Rename tools and prompts with aliases Tool and prompt namespacing Portal-native toolsManage portals via API List portals Create a portal List MCP servers Create an MCP server View tool-call analytics Force sync an MCP server Delete a portalConfigure via TerraformCode Mode Code Mode policies Upstream servers with Code Mode turned on Configure a Code Mode policy Connect with Code ModeRoute portal traffic through Gateway How Gateway routing works TLS decryption Supported transports Enable Gateway routing Example Gateway policy What happens when a request is blocked LimitationsConnect to a portal Portal homepage Sign out of a portal Connect with a service token Device authenticationOptimize context Minimize tools Search and executeManage portal sessions Return to the server selection page Enable or disable a server inline Reauthenticate a server Authorize new serversView portal logs Log fields Export logs with LogpushKnown limitationsPolicy limitationsTroubleshooting Portal creation fails because of a zone hold After authenticating to the portal, my user receives the error No allowed servers available, check your Zero Trust Policies. The portal URL does not prompt for authentication when it is added to an MCP client. The portal returns a 522 error. An MCP server is stuck in Waiting status. An MCP server shows Stale status. Tool calls fail with an unauthorized error. OAuth authentication fails with a redirect URI error when connecting to an upstream MCP server. Tool calls fail when Gateway routing is turned on. Users cannot connect from an MCP client The portal homepage shows the wrong name or domain.
 
@@ -684,8 +684,6 @@ Value | Description
   
 #### Manual OAuth credentials
 
-For manual OAuth, allowlist the shared callback URL at the upstream provider. Set `is_shared_oauth_callback_enabled` to `true` when creating the server through the API.
-
 To create an MCP server with a pre-registered OAuth client, set `auth_type` to `oauth` and provide both `auth_credentials` and `client_secret`. The `auth_credentials` value is required and must be a JSON-encoded string:
     
     
@@ -697,9 +695,9 @@ To create an MCP server with a pre-registered OAuth client, set `auth_type` to `
     		"name": "GitHub MCP Server",
     		"hostname": "https://github-mcp.example.com/mcp",
     		"auth_type": "oauth",
-    		"is_shared_oauth_callback_enabled": true,
     		"auth_credentials": "{\"auth_mode\":\"manual\",\"config\":{\"authorization_endpoint\":\"https://github.com/login/oauth/authorize\",\"token_endpoint\":\"https://github.com/login/oauth/access_token\"},\"registration_info\":{\"client_id\":\"<client-id>\",\"token_endpoint_auth_method\":\"client_secret_basic\",\"scope\":\"repo read:user\"}}",
-    		"client_secret": "<client-secret>"
+    		"client_secret": "<client-secret>",
+    		"is_shared_oauth_callback_enabled": true
     	}'
 
 The decoded `auth_credentials` object must contain:
@@ -707,11 +705,13 @@ The decoded `auth_credentials` object must contain:
   * `auth_mode`: Must be `manual`.
   * `config.authorization_endpoint` and `config.token_endpoint`: The upstream provider's OAuth endpoints. `issuer` and `revocation_endpoint` are optional.
   * `registration_info.client_id`: The client ID issued by the upstream provider.
-  * `registration_info.redirect_uris`: Optional when `is_shared_oauth_callback_enabled` is `true`. Cloudflare uses the shared callback URL even if you provide a different URI. This field cannot override the shared callback URL.
+  * `registration_info.redirect_uris`: Cloudflare uses only the first URI in the array. When `is_shared_oauth_callback_enabled` is `true`, omit this field. Cloudflare adds the shared callback URL.
   * `registration_info.token_endpoint_auth_method`: Optional. Accepted values are `none`, `client_secret_post`, and `client_secret_basic`.
   * `registration_info.scope`: Optional space-delimited scope string.
 
 
+
+Before you create the server, add the shared callback URL to the upstream provider's allowed redirect URIs. Set `is_shared_oauth_callback_enabled` to `true`. Cloudflare then uses the shared callback for dashboard authorization and for users who connect through any portal that contains the server.
 
 Do not include `client_secret` or OAuth tokens inside `auth_credentials`. Send `client_secret` as the separate sibling field shown above.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/examples/voice-agent/
 title: Voice agent \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:10.665132+00:00
+fetched_at: 2026-10-28T08:04:02.298129+00:00
 ---
 
 # Voice agent · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:10.665132+00:00
 
 # Voice agent
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/examples/voice-agent/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create the project2\. Configure wrangler3\. Build the server4\. Build the client5\. Run itAdding pipeline hooksUsing third-party providersNext steps
 
@@ -59,7 +59,7 @@ Update `wrangler.jsonc` to include a Workers AI binding and a Durable Object for
     {
     	"name": "voice-agent",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-23",
+    	"compatibility_date": "2026-10-27",
     	"compatibility_flags": ["nodejs_compat"],
     	"main": "src/server.ts",
     	"upload_source_maps": true,
@@ -85,7 +85,7 @@ Update `wrangler.jsonc` to include a Workers AI binding and a Durable Object for
     
     name = "voice-agent"
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-10-27"
     compatibility_flags = [ "nodejs_compat" ]
     main = "src/server.ts"
     upload_source_maps = true
@@ -394,15 +394,15 @@ Swap in third-party STT or TTS providers without changing your agent logic:
 
 ## Next steps
 
-### [Voice agents API reference](https://developers.cloudflare.com/agents/communication-channels/voice/)
+### [Voice agents API reference](https://developers.cloudflare.com/agents/agent-class/communication-channels/voice/)
 
 Full reference for withVoice, withVoiceInput, React hooks, VoiceClient, and all providers.
 
-### [Chat agents](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/)
+### [Chat agents](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/)
 
 Build text-based AI chat with AIChatAgent and useAgentChat.
 
-### [Using AI models](https://developers.cloudflare.com/agents/runtime/operations/using-ai-models/)
+### [Using AI models](https://developers.cloudflare.com/agents/agent-class/using-ai-models/)
 
 Use Workers AI, OpenAI, Anthropic, Gemini, or any provider with your agents.
 

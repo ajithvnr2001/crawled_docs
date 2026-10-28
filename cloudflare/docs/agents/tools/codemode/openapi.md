@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/codemode/openapi/
 title: Use an OpenAPI service with Code Mode \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:24.137329+00:00
+fetched_at: 2026-10-28T08:04:05.430290+00:00
 ---
 
 # Use an OpenAPI service with Code Mode · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Tools
 
 # Use an OpenAPI service with Code Mode
 
-Last updated Jun 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/codemode/openapi/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesCreate an OpenAPI connectorDerived method behaviorRequest escape hatch
 
@@ -30,7 +30,7 @@ Use `OpenApiConnector` to expose an OpenAPI service inside a durable Code Mode r
 
 The model can discover methods with `codemode.search()` and request focused input types with `codemode.describe()`. The complete OpenAPI document does not need to enter the model context.
 
-This page covers an Agent consuming an OpenAPI service. To publish an OpenAPI service to external MCP clients through `search` and `execute`, refer to [Build a search and execute MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/build-codemode-openapi-mcp-server/).
+This page covers an Agent consuming an OpenAPI service. To publish an OpenAPI service to external MCP clients through `search` and `execute`, refer to [Build a Code Mode MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/build-codemode-mcp-server/#publish-a-large-api-with-search-and-execute).
 
 ## Prerequisites
 

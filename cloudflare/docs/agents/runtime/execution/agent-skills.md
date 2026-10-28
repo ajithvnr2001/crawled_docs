@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/execution/agent-skills/
 title: Agent Skills \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.439146+00:00
+fetched_at: 2026-10-28T08:04:01.250992+00:00
 ---
 
 # Agent Skills · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Runtime
 
 # Agent Skills
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUsing skills with ThinkSkill toolsScript executionExampleRelated
 
@@ -32,7 +32,7 @@ Note
 
 Agent Skills are experimental, and script execution in particular is early. The API may change in a future release.
 
-The skills engine lives in `agents/skills` and is framework-agnostic, so any agent (including a plain [`AIChatAgent`](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/) `onChatMessage`) can build a `SkillRegistry`. [`@cloudflare/think`](https://developers.cloudflare.com/agents/harnesses/think/) re-exports it as the `skills` namespace and wires `getSkills()` into the turn automatically.
+The skills engine lives in `agents/skills` and is framework-agnostic, so any agent (including a plain [`AIChatAgent`](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/) `onChatMessage`) can build a `SkillRegistry`. [`@cloudflare/think`](https://developers.cloudflare.com/agents/harnesses/think/) re-exports it as the `skills` namespace and wires `getSkills()` into the turn automatically.
 
 ## Using skills with Think
 
@@ -179,7 +179,7 @@ Refer to the [`agent-skills` example ↗︎](https://github.com/cloudflare/agent
 
 
 
-[PreviousAgents as tools](https://developers.cloudflare.com/agents/runtime/execution/agent-tools/)[NextConfiguration](https://developers.cloudflare.com/agents/runtime/operations/configuration/)
+[PreviousgetCurrentAgent()](https://developers.cloudflare.com/agents/runtime/lifecycle/get-current-agent/)[NextConfiguration](https://developers.cloudflare.com/agents/runtime/operations/configuration/)
 
 Was this helpful?
 

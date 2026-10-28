@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/stream/examples/browser-based-webrtc/
 title: First WebRTC broadcast in the browser \u00b7 Cloudflare Stream docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:46.850971+00:00
+fetched_at: 2026-10-28T08:03:56.215834+00:00
 ---
 
 # First WebRTC broadcast in the browser · Cloudflare Stream docs
@@ -12,7 +12,7 @@ fetched_at: 2026-10-08T07:15:46.850971+00:00
   1. [Home](https://developers.cloudflare.com/)
   2. /[Stream](https://developers.cloudflare.com/stream/)
   3. /[Examples](https://developers.cloudflare.com/stream/examples/)
-  4. /Browser Based Webrtc
+  4. /First WebRTC broadcast in the browser
 
 
 
@@ -20,11 +20,11 @@ fetched_at: 2026-10-08T07:15:46.850971+00:00
 
 Broadcast your webcam to Cloudflare Stream with WHIP and play it back with WHEP, using native browser WebRTC and no third-party libraries.
 
-Last updated Sep 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/stream/examples/browser-based-webrtc/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Before you start1\. Create a live input2\. Broadcast with WHIP3\. Play back with WHEP4\. Stop the broadcast5\. Full working exampleDebuggingNext steps
 
-This tutorial shows how to broadcast ultra-low latency live video from a browser to Cloudflare Stream using [WHIP ↗︎](https://www.ietf.org/archive/id/draft-ietf-wish-whip-16.html) and play it back in a browser using [WHEP ↗︎](https://www.ietf.org/archive/id/draft-murillo-whep-01.html). Both the broadcaster and the player use the browser's built-in [WebRTC](https://developers.cloudflare.com/stream/webrtc-beta/) APIs — there are no libraries to install and no external applications.
+This tutorial shows how to broadcast ultra-low latency live video from a browser to Cloudflare Stream using [WHIP ↗︎](https://www.ietf.org/archive/id/draft-ietf-wish-whip-16.html) and play it back in a browser using [WHEP ↗︎](https://www.ietf.org/archive/id/draft-murillo-whep-01.html). Both the broadcaster and the player use the browser's built-in [WebRTC](https://developers.cloudflare.com/stream/webrtc/) APIs — there are no libraries to install and no external applications.
 
 By the end, you will have a basic HTML page that captures your camera and microphone, streams it to a live input, and plays the same stream back with sub-second latency. You should be able to complete this walkthrough in less than 15 minutes.
 
@@ -141,7 +141,7 @@ broadcast.jsjavascript
     
     startBroadcast().catch(console.error);
 
-Once you call `startBroadcast()` and grant camera and microphone permission, the browser negotiates a connection and begins sending live video and audio to Cloudflare over WebRTC. You do not need to select a codec — the browser will negotiate a [supported codec](https://developers.cloudflare.com/stream/webrtc-beta/#supported-codecs) automatically.
+Once you call `startBroadcast()` and grant camera and microphone permission, the browser negotiates a connection and begins sending live video and audio to Cloudflare over WebRTC. You do not need to select a codec — the browser will negotiate a [supported codec](https://developers.cloudflare.com/stream/webrtc/#supported-codecs) automatically.
 
 This script does not cover selecting between multiple camera or audio sources and will use the default provided by the browser.
 
@@ -320,9 +320,9 @@ Common issues:
 
 ## Next steps
 
-  * Review the [WebRTC reference](https://developers.cloudflare.com/stream/webrtc-beta/) for supported codecs, protocol conformance, and limitations.
-  * Broadcast from other software with the [OBS and FFmpeg instructions](https://developers.cloudflare.com/stream/webrtc-beta/#step-2-go-live-using-whip).
-  * Use a maintained [WHIP or WHEP client library](https://developers.cloudflare.com/stream/webrtc-beta/#supported-whip-and-whep-clients) instead of writing signaling yourself.
+  * Review the [WebRTC reference](https://developers.cloudflare.com/stream/webrtc/) for supported codecs, protocol conformance, and limitations.
+  * Broadcast from other software with the [OBS and FFmpeg instructions](https://developers.cloudflare.com/stream/webrtc/#step-2-go-live-using-whip).
+  * Use a maintained [WHIP or WHEP client library](https://developers.cloudflare.com/stream/webrtc/#supported-whip-and-whep-clients) instead of writing signaling yourself.
 
 
 

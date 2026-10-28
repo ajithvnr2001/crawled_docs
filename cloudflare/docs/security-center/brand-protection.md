@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/security-center/brand-protection/
 title: Brand Protection \u00b7 Cloudflare Security Center docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:30.807239+00:00
+fetched_at: 2026-10-28T08:03:56.703386+00:00
 ---
 
 # Brand Protection · Cloudflare Security Center docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-16T06:38:30.807239+00:00
 
 # Brand Protection
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTypes of queries Domain search Logo search (AI-powered)Investigate a queryReport abuseCease and Desist letters Generate a C&D letterBrand Protection APINotifications and alertsSubscriptions and limitations
 
@@ -57,15 +57,15 @@ To start searching for new domains that might be trying to impersonate your bran
   1. In the Cloudflare dashboard, go to the **Brand Protection** page.
 
 [ Go to **Brand protection** ↗ ](https://dash.cloudflare.com/?to=/:account/security-center/brand-protection)
-  2. In **String query** , provide a name for your query. You can add multiple brand phrases on the same query, and the results will generate matches for all of those. Once you entered the string queries, select **Search matches**.
+  2. In **Strings** , enter a brand phrase, then select **Add string**. Repeat this step to add multiple phrases.
 
-  3. In the **Character distance** , select from `0-3`. This defines how many characters a result can differ from your string (for example, a distance of 1 would catch `clpudflare.com`). The number of characters the results can differ from your domain.
+  3. Select **Save query**. In the **Save brand protection query** dialog, enter a **Query name** , then select **Save query** again.
 
-Note
+Phrase matching
 
-If a brand phrase or search term has less than five characters, you can only choose a max distance of `0` (zero).
+Each string is treated as a complete brand phrase. To monitor individual terms independently, add each as a separate string.
 
-  4. You can select **Save query** to monitor it in the future and perform other actions, such as delete, clone and set up alerts, according to your Paid plan limits.
+  4. After you save a query, Brand Protection monitors newly observed domains and performs a background lookback for recently observed domains. Additional matches may appear while the lookback completes.
 
   5. To export all matches from a saved query, select your **Query name** > select the three dots > **Export matches**.
 

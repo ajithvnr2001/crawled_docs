@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/how-to/talk-to-your-knowledge-base/
 title: Talk to your knowledge base \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:09.584538+00:00
+fetched_at: 2026-10-28T08:03:58.361811+00:00
 ---
 
 # Talk to your knowledge base · Cloudflare AI Search docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-23T16:40:09.584538+00:00
 
 # Talk to your knowledge base
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/how-to/talk-to-your-knowledge-base/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksPrerequisites1\. Create the voice agent2\. Add the AI Search binding3\. Answer from your knowledge base4\. Build the client5\. Run it locally6\. DeployTalk to your knowledge base with multiple peopleNext steps
 
-This tutorial builds a voice agent that you can talk to and that answers out loud from your [AI Search](https://developers.cloudflare.com/ai-search/) knowledge base. It uses the [Cloudflare Agents](https://developers.cloudflare.com/agents/) [`@cloudflare/voice`](https://developers.cloudflare.com/agents/communication-channels/voice/) package for the speech pipeline, and AI Search as the agent's knowledge base, exposed as a retrieval tool the agent's model calls.
+This tutorial builds a voice agent that you can talk to and that answers out loud from your [AI Search](https://developers.cloudflare.com/ai-search/) knowledge base. It uses the [Cloudflare Agents](https://developers.cloudflare.com/agents/) [`@cloudflare/voice`](https://developers.cloudflare.com/agents/agent-class/communication-channels/voice/) package for the speech pipeline, and AI Search as the agent's knowledge base, exposed as a retrieval tool the agent's model calls.
 
 **What you will build:** A voice agent that transcribes your speech, calls AI Search to retrieve relevant content from your indexed knowledge base, generates a grounded answer, and speaks it back.
 
@@ -87,7 +87,7 @@ npmyarnpnpmbun
     
     bun add @cloudflare/voice
 
-The [`@cloudflare/voice`](https://developers.cloudflare.com/agents/communication-channels/voice/) package provides the `withVoice` mixin and the Workers AI providers (`WorkersAIFluxSTT` and `WorkersAITTS`). For a full walkthrough of the voice agent itself, including the browser client, refer to the [Voice agent example](https://developers.cloudflare.com/agents/examples/voice-agent/).
+The [`@cloudflare/voice`](https://developers.cloudflare.com/agents/agent-class/communication-channels/voice/) package provides the `withVoice` mixin and the Workers AI providers (`WorkersAIFluxSTT` and `WorkersAITTS`). For a full walkthrough of the voice agent itself, including the browser client, refer to the [Voice agent example](https://developers.cloudflare.com/agents/examples/voice-agent/).
 
 ## 2\. Add the AI Search binding
 
@@ -99,7 +99,7 @@ Add an [AI Search binding](https://developers.cloudflare.com/ai-search/api/searc
     	"main": "src/server.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-23",
+    	"compatibility_date": "2026-10-27",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": {
     		"binding": "AI",
@@ -133,7 +133,7 @@ Add an [AI Search binding](https://developers.cloudflare.com/ai-search/api/searc
     main = "src/server.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-10-27"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]
@@ -331,7 +331,7 @@ Use a Workers AI model that supports function calling so the model can call the 
 
 ## 4\. Build the client
 
-Replace `src/client.tsx` with a React component that uses the [`useVoiceAgent`](https://developers.cloudflare.com/agents/communication-channels/voice/) hook. The hook manages the microphone, the WebSocket connection to your agent, audio playback, and interrupt detection, so the component only needs to render controls. Set `agent` to your agent class name, `TalkToDocs`.
+Replace `src/client.tsx` with a React component that uses the [`useVoiceAgent`](https://developers.cloudflare.com/agents/agent-class/communication-channels/voice/) hook. The hook manages the microphone, the WebSocket connection to your agent, audio playback, and interrupt detection, so the component only needs to render controls. Set `agent` to your agent class name, `TalkToDocs`.
 
 src/client.tsxtsx
     
@@ -441,7 +441,7 @@ This tutorial builds a single-user voice agent. If you instead need several peop
 
 ## Next steps
 
-### [Voice agents API reference](https://developers.cloudflare.com/agents/communication-channels/voice/)
+### [Voice agents API reference](https://developers.cloudflare.com/agents/agent-class/communication-channels/voice/)
 
 The @cloudflare/voice pipeline, providers, and onTurn contract.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/tools/
 title: Tools \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.816180+00:00
+fetched_at: 2026-10-28T08:04:01.448720+00:00
 ---
 
 # Tools · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-21T06:51:30.816180+00:00
 
 # Tools
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTool merge orderBuilt-in workspace tools Run code with exec Call the agent's tools from code Change the tools Upgrade from @cloudflare/shellCustom toolsTool approvalPer-turn tool overridesMCP toolsCode execution tool Approvals (human-in-the-loop) The runtime handleBrowser toolsExtensions Static extensions LLM-driven extensions Extension context blocks
 
@@ -42,7 +42,7 @@ On every turn, Think merges tools from multiple sources. Later sources override 
 
 
 
-Tools belong to the agent running the turn. For parent-child orchestration, use [Agents as tools](https://developers.cloudflare.com/agents/runtime/execution/agent-tools/) instead of passing one-off tools through `chat()`.
+Tools belong to the agent running the turn. For parent-child orchestration, use [Agents as tools](https://developers.cloudflare.com/agents/agent-class/agent-tools/) instead of passing one-off tools through `chat()`.
 
 ## Built-in workspace tools
 

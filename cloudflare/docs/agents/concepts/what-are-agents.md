@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/concepts/what-are-agents/
 title: What are agents? \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:09.933321+00:00
+fetched_at: 2026-10-28T08:04:03.053205+00:00
 ---
 
 # What are agents? · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:09.933321+00:00
 
 # What are agents?
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/concepts/what-are-agents/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExample: Booking vacations Traditional workflow automation AI Co-pilot AgentComponents of agent systems How agents workBuilding agents on CloudflareNext steps
 
@@ -110,11 +110,11 @@ The Cloudflare Agents SDK provides the infrastructure for building production ag
 
 Build your first agent in 10 minutes.
 
-### [Agents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
+### [Agents API](https://developers.cloudflare.com/agents/agent-class/)
 
 Complete API reference for the Agents SDK.
 
-### [Using AI models](https://developers.cloudflare.com/agents/runtime/operations/using-ai-models/)
+### [Using AI models](https://developers.cloudflare.com/agents/agent-class/using-ai-models/)
 
 Integrate OpenAI, Anthropic, and other providers.
 

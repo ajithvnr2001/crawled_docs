@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/sandbox/
 title: Sandbox \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:57.954045+00:00
+fetched_at: 2026-10-28T08:03:58.560771+00:00
 ---
 
 # Sandbox · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:39:57.954045+00:00
 
 # Sandbox
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/sandbox/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksBasic patternConfigurationNetwork accessSandbox and agent stateSecurity considerationsRelated resources
 
@@ -311,7 +311,7 @@ Files in the sandbox last while the container runs. When the container stops, th
 
 Use agent state for user-visible progress and small metadata, such as the ID of the latest snapshot.
 
-For long-running sandbox work, pair the sandbox with [durable execution with fibers](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/) or [Workflows](https://developers.cloudflare.com/agents/runtime/execution/run-workflows/) so the agent can recover or report progress if work outlives a single request.
+For long-running sandbox work, pair the sandbox with [durable execution with fibers](https://developers.cloudflare.com/agents/agent-class/durable-execution/) or [Workflows](https://developers.cloudflare.com/agents/agent-class/run-workflows/) so the agent can recover or report progress if work outlives a single request.
 
 ## Security considerations
 

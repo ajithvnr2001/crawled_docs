@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/demos/chatgpt-app/
 title: Build an Interactive ChatGPT App \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:28.469266+00:00
+fetched_at: 2026-10-28T08:03:57.357804+00:00
 ---
 
 # Build an Interactive ChatGPT App · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:28.469266+00:00
 
 # Build an Interactive ChatGPT App
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDeploy your first ChatGPT AppPrerequisites1\. Enable ChatGPT Developer Mode2\. Create your ChatGPT App project3\. Configure your project4\. Create the Chess game engine5\. Create the MCP server and UI resource6\. Build the React UI7\. Build and deploy8\. Connect to ChatGPT9\. Play chess in ChatGPTKey concepts MCP Server Game Engine with Agents Callable methods React integration Bidirectional communicationNext stepsRelated resources
 
@@ -91,7 +91,7 @@ npmyarnpnpm
 
     
     
-    npm install agents @modelcontextprotocol/sdk chess.js react react-dom react-chessboard
+    npm install agents @modelcontextprotocol/server zod chess.js react react-dom react-chessboard
 
   4. Install development dependencies:
 
@@ -112,7 +112,7 @@ npmyarnpnpm
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-27",
     	"compatibility_flags": ["nodejs_compat"],
     	"durable_objects": {
     		"bindings": [
@@ -139,7 +139,7 @@ npmyarnpnpm
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-27"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[durable_objects.bindings]]
@@ -359,9 +359,9 @@ npmyarnpnpm
 
     
     
-    import { createMcpHandler } from "agents/mcp";
+    import { createMcpHandler } from "agents/mcp/server";
     import { routeAgentRequest } from "agents";
-    import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+    import { McpServer } from "@modelcontextprotocol/server";
     import { env } from "cloudflare:workers";
     
     const getWidgetHtml = async (host: string) => {
@@ -381,15 +381,13 @@ npmyarnpnpm
     		"chess",
     		"ui://widget/index.html",
     		{},
-    		async (_uri, extra) => {
+    		async (_uri, ctx) => {
     			return {
     				contents: [
     					{
     						uri: "ui://widget/index.html",
     						mimeType: "text/html+skybridge",
-    						text: await getWidgetHtml(
-    							extra.requestInfo?.headers.host as string,
-    						),
+    						text: await getWidgetHtml(ctx.http?.req?.headers.get("host") ?? ""),
     					},
     				],
     			};
@@ -408,7 +406,7 @@ npmyarnpnpm
     				"openai/toolInvocation/invoked": "Chess widget opened",
     			},
     		},
-    		async (_, _extra) => {
+    		async () => {
     			return {
     				content: [
     					{ type: "text", text: "Successfully rendered chess game menu" },
@@ -420,13 +418,14 @@ npmyarnpnpm
     	return server;
     }
     
+    // createMcpHandler builds a fresh server from the factory for every request
+    const mcpHandler = createMcpHandler(createServer);
+    
     export default {
     	async fetch(req: Request, env: Env, ctx: ExecutionContext) {
     		const url = new URL(req.url);
-    		if (url.pathname.startsWith("/mcp")) {
-    			// Create a new server instance per request
-    			const server = createServer();
-    			return createMcpHandler(server)(req, env, ctx);
+    		if (url.pathname === "/mcp") {
+    			return mcpHandler(req, env, ctx);
     		}
     
     		return (
@@ -758,7 +757,7 @@ You might need to manually select the connector in the prompt box the first time
 
 ### MCP Server
 
-The Model Context Protocol (MCP) server defines tools and resources that ChatGPT can access. Note that we create a new server instance per request to prevent cross-client response leakage:
+The Model Context Protocol (MCP) server defines tools and resources that ChatGPT can access. `createMcpHandler` calls the `createServer` factory for every request, so clients never share a server instance:
     
     
     function createServer() {
@@ -769,15 +768,13 @@ The Model Context Protocol (MCP) server defines tools and resources that ChatGPT
     		"chess",
     		"ui://widget/index.html",
     		{},
-    		async (_uri, extra) => {
+    		async (_uri, ctx) => {
     			return {
     				contents: [
     					{
     						uri: "ui://widget/index.html",
     						mimeType: "text/html+skybridge",
-    						text: await getWidgetHtml(
-    							extra.requestInfo?.headers.host as string,
-    						),
+    						text: await getWidgetHtml(ctx.http?.req?.headers.get("host") ?? ""),
     					},
     				],
     			};
@@ -796,7 +793,7 @@ The Model Context Protocol (MCP) server defines tools and resources that ChatGPT
     				"openai/toolInvocation/invoked": "Chess widget opened",
     			},
     		},
-    		async (_, _extra) => {
+    		async () => {
     			return {
     				content: [
     					{ type: "text", text: "Successfully rendered chess game menu" },
@@ -920,7 +917,7 @@ Now that you have a working ChatGPT App, you can:
 
 ## Related resources
 
-### [Agents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
+### [Agents API](https://developers.cloudflare.com/agents/agent-class/)
 
 Complete API reference for the Agents SDK.
 

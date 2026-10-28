@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/messengers/
 title: Messengers \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:12.945317+00:00
+fetched_at: 2026-10-28T08:04:01.688562+00:00
 ---
 
 # Messengers · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:12.945317+00:00
 
 # Messengers
 
-Last updated Jun 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/messengers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallTelegramRoutingConversation targetsStateDelivery and recoveryMessenger contextCustom Chat SDK adaptersAdvanced manual ingress
 
@@ -258,7 +258,7 @@ Every custom messenger must provide `verifyWebhook` or explicitly use `verifyWeb
 
 The `examples/think-chat-sdk` example demonstrates the Think-native `getMessengers()` path with a small Vite dashboard that inspects the root Think conversation over the Agent WebSocket.
 
-The `examples/chat-sdk-messenger` example demonstrates a larger manual ingress agent with an admin dashboard, menu handling, and application-owned reply fibers. Use `getMessengers()` for the simple Think-native path. Use the example when you need to own the Chat SDK runtime and control-plane UI yourself. Refer to [Chat SDK state](https://developers.cloudflare.com/agents/runtime/communication/chat-sdk/) for the underlying state adapter.
+The `examples/chat-sdk-messenger` example demonstrates a larger manual ingress agent with an admin dashboard, menu handling, and application-owned reply fibers. Use `getMessengers()` for the simple Think-native path. Use the example when you need to own the Chat SDK runtime and control-plane UI yourself. Refer to [Chat SDK state](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat-sdk/) for the underlying state adapter.
 
 [PreviousClient tools](https://developers.cloudflare.com/agents/harnesses/think/client-tools/)[NextChannels](https://developers.cloudflare.com/agents/harnesses/think/channels/)
 

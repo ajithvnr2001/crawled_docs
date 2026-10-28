@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/ai-sdk/
 title: AI SDK \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:32.554169+00:00
+fetched_at: 2026-10-28T08:04:04.552419+00:00
 ---
 
 # AI SDK · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-27T07:31:32.554169+00:00
 
 # AI SDK
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallUse an account id and API tokenCall a Workers AI modelCall an AI Gateway catalog modelCall a dynamic routeCall a vendor's model object Unified billing and BYOKStream, call tools, and return structured outputResume a dropped streamUse it in ThinkCache responsesTag requests for logs and analyticsFall back to another modelSet optionsRead gateway metadataHandle errorsUse other modalitiesUse a provider registryLimitationsRelated resources
 
@@ -38,10 +38,6 @@ The provider takes two kinds of model. Both go through the `AI` binding, or over
 A string needs no vendor package and no vendor key. A model object keeps the vendor's own request builder and parser.
 
 `createAI` replaces `workers-ai-provider` and `ai-gateway-provider`. For AI Search, use `ai-search-provider`.
-
-Beta
-
-This provider is in beta. Its API may change in a minor release.
 
 ## Install
 

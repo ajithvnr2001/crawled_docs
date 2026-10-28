@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/lifecycle/get-current-agent/
 title: getCurrentAgent() \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:21.653507+00:00
+fetched_at: 2026-10-28T08:03:59.446882+00:00
 ---
 
 # getCurrentAgent() · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Runtime
 
 # getCurrentAgent()
 
-Last updated Jun 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/runtime/lifecycle/get-current-agent/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAutomatic context for custom methodsHow it worksReal-world example Built-in vs custom methods The context flowCommon use cases Working with AI SDK tools Calling external libraries Accessing request and connection contextWhen context is lostAPI reference getCurrentAgent() Context availabilityBest practicesNext steps
 
@@ -290,6 +290,7 @@ Route the callback through a public method on the agent. Custom methods are wrap
     
     
     import { RpcTarget } from "cloudflare:workers";
+    import { Agent, getCurrentAgent } from "agents";
     
     class HostCallbackBridge extends RpcTarget {
     	agent;
@@ -306,7 +307,7 @@ Route the callback through a public method on the agent. Custom methods are wrap
     	}
     }
     
-    export class MyMcpAgent extends McpAgent {
+    export class MyAgent extends Agent {
     	async handleSandboxCallback() {
     		const { agent } = getCurrentAgent();
     		// `agent` is available again.
@@ -315,11 +316,12 @@ Route the callback through a public method on the agent. Custom methods are wrap
     
     
     import { RpcTarget } from "cloudflare:workers";
+    import { Agent, getCurrentAgent } from "agents";
     
     class HostCallbackBridge extends RpcTarget {
-    	agent: MyMcpAgent;
+    	agent: MyAgent;
     
-    	constructor(agent: MyMcpAgent) {
+    	constructor(agent: MyAgent) {
     		super();
     		this.agent = agent;
     	}
@@ -331,16 +333,14 @@ Route the callback through a public method on the agent. Custom methods are wrap
     	}
     }
     
-    export class MyMcpAgent extends McpAgent {
+    export class MyAgent extends Agent {
     	async handleSandboxCallback() {
-    		const { agent } = getCurrentAgent<MyMcpAgent>();
+    		const { agent } = getCurrentAgent<MyAgent>();
     		// `agent` is available again.
     	}
     }
 
 Context restored this way has `connection`, `request`, and `email` unset. It is not tied to live client I/O.
-
-Server-initiated MCP requests (`elicitInput`, `createMessage`, and `listRoots`) on `McpAgent` do not require this indirection because the MCP transport retains its owning agent.
 
 ## API reference
 
@@ -443,19 +443,19 @@ Queue callback | Yes | Depends | Depends | Depends
 
 ## Next steps
 
-### [Agents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
+### [Agents API](https://developers.cloudflare.com/agents/agent-class/)
 
 Complete API reference for the Agents SDK.
 
-### [Callable methods](https://developers.cloudflare.com/agents/runtime/lifecycle/callable-methods/)
+### [Callable methods](https://developers.cloudflare.com/agents/agent-class/callable-methods/)
 
 Expose methods to clients via RPC.
 
-### [State management](https://developers.cloudflare.com/agents/runtime/lifecycle/state/)
+### [State management](https://developers.cloudflare.com/agents/agent-class/state/)
 
 Manage and sync agent state.
 
-[PreviousSessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/)[NextRouting](https://developers.cloudflare.com/agents/runtime/communication/routing/)
+[PreviousSessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/)[NextAgent Skills](https://developers.cloudflare.com/agents/runtime/execution/agent-skills/)
 
 Was this helpful?
 

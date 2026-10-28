@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/workflows/
 title: Workflows \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:13.756218+00:00
+fetched_at: 2026-10-28T08:04:00.956888+00:00
 ---
 
 # Workflows · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:13.756218+00:00
 
 # Workflows
 
-Last updated Jun 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/workflows/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAPI Behavior notesHow it runsIdempotencyTimeoutsBoundary with other primitives
 
@@ -216,7 +216,7 @@ Use [`getScheduledTasks()`](https://developers.cloudflare.com/agents/harnesses/t
 
 Use [`submitMessages()`](https://developers.cloudflare.com/agents/harnesses/think/programmatic-submissions/) for durable one-off turns where the caller can inspect submission status later.
 
-Use [`startFiber()`](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/#startfiber) for app-owned idempotent Agent jobs that need recovery inside the Agent. Think's workflow notification delivery does not use fibers; it uses a private outbox because it needs to store an event until delivery succeeds.
+Use [`startFiber()`](https://developers.cloudflare.com/agents/agent-class/durable-execution/#startfiber) for app-owned idempotent Agent jobs that need recovery inside the Agent. Think's workflow notification delivery does not use fibers; it uses a private outbox because it needs to store an event until delivery succeeds.
 
 Use Workflows when the process has multiple deterministic steps, long waits, or human approval.
 

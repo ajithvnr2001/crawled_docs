@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/unified-billing/
 title: Unified Billing \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:30.721748+00:00
+fetched_at: 2026-10-28T08:03:54.057415+00:00
 ---
 
 # Unified Billing · Cloudflare AI Gateway docs
@@ -94,7 +94,7 @@ Provider | Endpoint | Request credentials
 Anthropic | Messages (`/anthropic/v1/messages`) | `x-api-key: <PROVIDER_API_KEY>`  
 Anthropic | Chat completions (`/anthropic/v1/chat/completions`) | `Authorization: Bearer <PROVIDER_API_KEY>`  
 Google AI Studio | Native `:generateContent`, `:streamGenerateContent`, and `:embedContent` | `key` URL query parameter  
-Google AI Studio | Chat completions and OpenAI-compatible embeddings | `Authorization: Bearer <PROVIDER_API_KEY>`  
+Google AI Studio | Chat completions | `Authorization: Bearer <PROVIDER_API_KEY>`  
 Google AI Studio | Other endpoints | `x-goog-api-key: <PROVIDER_API_KEY>`  
 Google Vertex AI | Provider-native endpoints | `Authorization: Bearer <ACCESS_TOKEN>` or [service account credentials](https://developers.cloudflare.com/ai-gateway/usage/providers/vertex/) in `Authorization`  
 OpenAI, Groq, and xAI | Provider-native endpoints | `Authorization: Bearer <PROVIDER_API_KEY>`  

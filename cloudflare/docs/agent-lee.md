@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agent-lee/
 title: Overview \u00b7 Agent Lee docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:04.972284+00:00
+fetched_at: 2026-10-28T08:04:06.592110+00:00
 ---
 
 # Overview · Agent Lee docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:04:04.972284+00:00
 
 # Agent Lee
 
-Last updated Sep 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agent-lee/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCapabilities Account-aware answers Write operations Undo a change Network diagnostics Generative UI Dashboard navigation Conversation history Support case handoff Product knowledgeData access and privacy What Agent Lee can access What Agent Lee cannot access Conversation storage Data usageLimitationsBuilt on CloudflareRelated resources
 
@@ -191,7 +191,7 @@ Component | Role
 [Durable Objects](https://developers.cloudflare.com/durable-objects/) | Per-user conversation storage and write approval gate  
 [Workers AI](https://developers.cloudflare.com/workers-ai/) | LLM inference  
 [AI Gateway](https://developers.cloudflare.com/ai-gateway/) | Model request routing, logging, and analytics  
-[Cloudflare MCP server](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/) | Tool definitions for Cloudflare API operations  
+[Cloudflare MCP server](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/) | Tool definitions for Cloudflare API operations  
   
 * * *
 

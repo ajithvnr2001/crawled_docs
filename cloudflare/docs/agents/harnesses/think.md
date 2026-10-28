@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/
 title: Think \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:00.538519+00:00
+fetched_at: 2026-10-28T08:04:02.024851+00:00
 ---
 
 # Think · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:00.538519+00:00
 
 # Think
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick start Install Server Client Configuration TracingThink vs AIChatAgent When to use AIChatAgent When to use ThinkChoose a turn API runTurn() Pick a shortcut Add messages without a turnIn this sectionAcknowledgmentsExampleRelated
 
@@ -174,7 +174,7 @@ That is it. Think handles the WebSocket chat protocol, message persistence, the 
     {
       "$schema": "./node_modules/wrangler/config-schema.json",
       // Set this to today's date
-      "compatibility_date": "2026-10-23",
+      "compatibility_date": "2026-10-27",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -201,7 +201,7 @@ That is it. Think handles the WebSocket chat protocol, message persistence, the 
     
     
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-10-27"
     compatibility_flags = ["nodejs_compat"]
     
     [ai]
@@ -239,7 +239,7 @@ For span attributes, payload controls, exporting traces, and direct AI SDK v6 or
 
 ## Think vs AIChatAgent
 
-Both Think and [`AIChatAgent`](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/) extend `Agent` and speak the same `cf_agent_chat_*` WebSocket protocol. They serve different goals.
+Both Think and [`AIChatAgent`](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/) extend `Agent` and speak the same `cf_agent_chat_*` WebSocket protocol. They serve different goals.
 
 **AIChatAgent** is a protocol adapter. You override `onChatMessage` and are responsible for calling `streamText`, wiring tools, converting messages, and returning a `Response`. AIChatAgent handles the plumbing — message persistence, streaming, abort, resume — but the LLM call is entirely your concern.
 
@@ -433,9 +433,9 @@ Use `addMessages()` to write to the transcript **without** starting a model turn
 
 The supported pattern is "add context, then run a turn": call `addMessages()`, then `runTurn()`.
 
-Use `chat()` for low-level parent-to-child streaming when your code owns forwarding, cancellation, and replay policy. Use [Agents as tools](https://developers.cloudflare.com/agents/runtime/execution/agent-tools/) when a parent model or workflow delegates to a child agent and you want retained child runs, event replay, abort bridging, and UI drill-in.
+Use `chat()` for low-level parent-to-child streaming when your code owns forwarding, cancellation, and replay policy. Use [Agents as tools](https://developers.cloudflare.com/agents/agent-class/agent-tools/) when a parent model or workflow delegates to a child agent and you want retained child runs, event replay, abort bridging, and UI drill-in.
 
-Use [`startFiber()`](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/#startfiber) outside Think when the durable unit is an application job around a turn: accepting a webhook once, restoring a serialized channel or thread target, posting a visible reply, or recording app-level recovery policy. Think submissions own conversation admission and turn serialization; managed fibers own external job acceptance, idempotent side effects, and application recovery.
+Use [`startFiber()`](https://developers.cloudflare.com/agents/agent-class/durable-execution/#startfiber) outside Think when the durable unit is an application job around a turn: accepting a webhook once, restoring a serialized channel or thread target, posting a visible reply, or recording app-level recovery policy. Think submissions own conversation admission and turn serialization; managed fibers own external job acceptance, idempotent side effects, and application recovery.
 
 ## In this section
 
@@ -508,10 +508,10 @@ Explore a multi-session Think assistant with sub-agent routing, shared workspace
 ## Related
 
   * [Sessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/) — context blocks, compaction, search, multi-session (the storage layer Think builds on)
-  * [Sub-agents](https://developers.cloudflare.com/agents/runtime/execution/sub-agents/) — `subAgent()`, `abortSubAgent()`, `deleteSubAgent()` (the base Agent methods for spawning children)
-  * [Chat agents](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/) — `AIChatAgent` for when you need full control over the LLM call
+  * [Sub-agents](https://developers.cloudflare.com/agents/agent-class/sub-agents/) — `subAgent()`, `abortSubAgent()`, `deleteSubAgent()` (the base Agent methods for spawning children)
+  * [Chat agents](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/) — `AIChatAgent` for when you need full control over the LLM call
   * [Long-running agents](https://developers.cloudflare.com/agents/concepts/agentic-patterns/long-running-agents/) — sub-agent delegation patterns for multi-week agent lifetimes
-  * [Durable execution](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/) — `runFiber()` and crash recovery (used by `chatRecovery`)
+  * [Durable execution](https://developers.cloudflare.com/agents/agent-class/durable-execution/) — `runFiber()` and crash recovery (used by `chatRecovery`)
   * [Browse the web](https://developers.cloudflare.com/agents/tools/browser/) — full CDP helper API reference
 
 

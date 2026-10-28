@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/operations/observability/tracing/
 title: Tracing \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:22.623725+00:00
+fetched_at: 2026-10-28T08:03:59.023886+00:00
 ---
 
 # Tracing · Cloudflare Agents docs
@@ -22,7 +22,7 @@ RuntimeOperations
 
 # Tracing
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/runtime/operations/observability/tracing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnable tracingView agent activityTrace structure Agent identity Payload privacyFramework setup Think Flue AI SDK Custom harnessesExporting tracesPricingLimitationsNext steps
 
@@ -329,11 +329,11 @@ Subscribe to structured agent events for state changes, schedules, workflows, an
 
 wrangler.jsonc setup and deployment.
 
-### [Agents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
+### [Agents API](https://developers.cloudflare.com/agents/agent-class/)
 
 Complete API reference for the Agents SDK.
 
-[PreviousUsing AI Models](https://developers.cloudflare.com/agents/runtime/operations/using-ai-models/)[NextDiagnostics channels](https://developers.cloudflare.com/agents/runtime/operations/observability/diagnostics-channels/)
+[PreviousCross-domain authentication](https://developers.cloudflare.com/agents/runtime/operations/cross-domain-authentication/)[NextDiagnostics channels](https://developers.cloudflare.com/agents/runtime/operations/observability/diagnostics-channels/)
 
 Was this helpful?
 

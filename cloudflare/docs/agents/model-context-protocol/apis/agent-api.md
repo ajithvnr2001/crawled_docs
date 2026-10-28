@@ -1,11 +1,11 @@
 ---
 url: https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/
-title: McpAgent \u00b7 Cloudflare Agents docs
+title: McpAgent (deprecated) \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:14.931517+00:00
+fetched_at: 2026-10-28T08:03:55.235839+00:00
 ---
 
-# McpAgent · Cloudflare Agents docs
+# McpAgent (deprecated) · Cloudflare Agents docs
 
 > Source: https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/
 
@@ -16,15 +16,15 @@ fetched_at: 2026-10-08T07:04:14.931517+00:00
 [Model Context Protocol (MCP)](https://developers.cloudflare.com/agents/model-context-protocol/)
 
   4. /APIs
-  5. /McpAgent
+  5. /McpAgent (deprecated)
 
 
 
-# McpAgent
+# McpAgent (deprecated)
 
-Last updated Jul 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewAPI overviewDeploying with McpAgent.serve() With OAuth authenticationData jurisdictionHibernation supportStream resumabilityAuthentication and authorizationState synchronization APIsElicitation on legacy servers Form mode URL mode Handle responsesNext steps
+OverviewAPI overviewDeploying with McpAgent.serve() With OAuth authenticationData jurisdictionHibernation supportStream resumabilityRPC transport Configure bindings Read props from the caller Configure the RPC transport timeoutAuthentication and authorizationState synchronization APIsElicitation on legacy servers Form mode URL mode Handle responsesNext steps
 
 `McpAgent` creates a stateful legacy MCP server backed by a Durable Object.
 
@@ -37,6 +37,22 @@ A server that depends on MCP session state, RPC, pushed server-to-client request
 Keep importing the legacy server `McpServer` from `@modelcontextprotocol/sdk`. An SDK v2 server from `@modelcontextprotocol/server` cannot run inside `McpAgent`.
 
 Refer to [Migrate to MCP SDK v2](https://developers.cloudflare.com/agents/model-context-protocol/guides/migrate-to-mcp-sdk-v2/) for the feature mapping and dual-era rollout.
+
+`McpAgent` requires `@modelcontextprotocol/sdk`, which is an optional peer dependency of `agents`. Install the exact version used by your Agents release:
+
+npmyarnpnpmbun
+    
+    
+    npm i agents @modelcontextprotocol/sdk@1.32.1 zod
+    
+    
+    yarn add agents @modelcontextprotocol/sdk@1.32.1 zod
+    
+    
+    pnpm add agents @modelcontextprotocol/sdk@1.32.1 zod
+    
+    
+    bun add agents @modelcontextprotocol/sdk@1.32.1 zod
     
     
     import { McpAgent } from "agents/mcp";
@@ -78,7 +94,7 @@ src/index.tsts
     	}
     }
 
-This means that each instance of your MCP server has its own durable state, backed by a [Durable Object](https://developers.cloudflare.com/durable-objects/), with its own [SQL database](https://developers.cloudflare.com/agents/runtime/lifecycle/state/).
+This means that each instance of your MCP server has its own durable state, backed by a [Durable Object](https://developers.cloudflare.com/durable-objects/), with its own [SQL database](https://developers.cloudflare.com/agents/agent-class/state/).
 
 A stateless server can define [tools](https://developers.cloudflare.com/agents/model-context-protocol/protocol/tools/) with `@modelcontextprotocol/server` and serve them through `createMcpHandler`.
 
@@ -162,6 +178,10 @@ When using the [OAuth Provider Library ↗︎](https://github.com/cloudflare/wor
     	tokenEndpoint: "/token",
     	clientRegistrationEndpoint: "/register",
     	defaultHandler: AuthHandler,
+    	resourceMetadata: {
+    		// The URL MCP clients connect to. Use http://localhost:8787/mcp with wrangler dev.
+    		resource: "https://my-mcp-server.<your-subdomain>.workers.dev/mcp",
+    	},
     });
     
     
@@ -173,6 +193,10 @@ When using the [OAuth Provider Library ↗︎](https://github.com/cloudflare/wor
     	tokenEndpoint: "/token",
     	clientRegistrationEndpoint: "/register",
     	defaultHandler: AuthHandler,
+    	resourceMetadata: {
+    		// The URL MCP clients connect to. Use http://localhost:8787/mcp with wrangler dev.
+    		resource: "https://my-mcp-server.<your-subdomain>.workers.dev/mcp",
+    	},
     });
 
 ## Data jurisdiction
@@ -242,13 +266,145 @@ Hibernation is enabled by default and requires no additional configuration.
     
     const eventStore = new DurableObjectEventStore(this.ctx.storage);
 
-Refer to [MCP Transport](https://developers.cloudflare.com/agents/model-context-protocol/protocol/transport/) for transport configuration.
+## RPC transport
+
+An Agent can connect to an `McpAgent` through its Durable Object binding instead of over HTTP. The Agent side, `addMcpServer(name, binding, options)`, is documented in [RPC transport](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/#rpc-transport) on the MCP Client page. This section covers the `McpAgent` side.
+
+Only the Worker that defines the `McpAgent` needs `@modelcontextprotocol/sdk`. The Agent that connects to it does not.
+
+Move to Streamable HTTP
+
+The RPC transport is still supported but is not being developed further. There is no RPC transport for [`createMcpHandler`](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/) servers. When you migrate the server, connect the Agent to it with a URL over Streamable HTTP.
+
+The RPC transport has no OAuth flow. Use Streamable HTTP for connections that need authentication.
+
+### Configure bindings
+
+Bind the `McpAgent` class in the Worker that runs the calling Agent:
+    
+    
+    {
+    	"durable_objects": {
+    		"bindings": [
+    			{ "name": "Chat", "class_name": "Chat" },
+    			{ "name": "MyMCP", "class_name": "MyMCP" },
+    		],
+    	},
+    	"migrations": [
+    		{
+    			"new_sqlite_classes": ["MyMCP", "Chat"],
+    			"tag": "v1",
+    		},
+    	],
+    }
+
+### Read props from the caller
+
+The caller passes user context with `addMcpServer("my-mcp", env.MyMCP, { props })`. Declare its shape with the third type parameter and read it from `this.props`:
+    
+    
+    import { McpAgent } from "agents/mcp";
+    import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+    
+    export class MyMCP extends McpAgent {
+    	server = new McpServer({ name: "MyMCP", version: "1.0.0" });
+    
+    	async init() {
+    		this.server.tool("whoami", "Get current user info", {}, async () => {
+    			const userId = this.props?.userId || "anonymous";
+    			const role = this.props?.role || "guest";
+    
+    			return {
+    				content: [{ type: "text", text: `User ID: ${userId}, Role: ${role}` }],
+    			};
+    		});
+    	}
+    }
+    
+    
+    import { McpAgent } from "agents/mcp";
+    import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+    
+    type Props = { userId?: string; role?: string };
+    
+    export class MyMCP extends McpAgent<Env, unknown, Props> {
+    	server = new McpServer({ name: "MyMCP", version: "1.0.0" });
+    
+    	async init() {
+    		this.server.tool("whoami", "Get current user info", {}, async () => {
+    			const userId = this.props?.userId || "anonymous";
+    			const role = this.props?.role || "guest";
+    
+    			return {
+    				content: [{ type: "text", text: `User ID: ${userId}, Role: ${role}` }],
+    			};
+    		});
+    	}
+    }
+
+Props are stored in Durable Object storage and are available before the first tool call.
+
+### Configure the RPC transport timeout
+
+The RPC transport has a configurable timeout for waiting for tool responses. By default, the server waits **60 seconds** for a tool handler to respond. You can customize this by overriding `getRpcTransportOptions()` in your `McpAgent`:
+    
+    
+    import { McpAgent } from "agents/mcp";
+    import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+    import { z } from "zod";
+    
+    export class MyMCP extends McpAgent {
+    	server = new McpServer({ name: "MyMCP", version: "1.0.0" });
+    
+    	getRpcTransportOptions() {
+    		return { timeout: 120000 }; // 2 minutes
+    	}
+    
+    	async init() {
+    		this.server.tool(
+    			"long-running-task",
+    			"A tool that takes a while",
+    			{ input: z.string() },
+    			async ({ input }) => {
+    				await longRunningOperation(input);
+    				return {
+    					content: [{ type: "text", text: "Task completed" }],
+    				};
+    			},
+    		);
+    	}
+    }
+    
+    
+    import { McpAgent } from "agents/mcp";
+    import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+    import { z } from "zod";
+    
+    export class MyMCP extends McpAgent<Env> {
+    	server = new McpServer({ name: "MyMCP", version: "1.0.0" });
+    
+    	protected getRpcTransportOptions() {
+    		return { timeout: 120000 }; // 2 minutes
+    	}
+    
+    	async init() {
+    		this.server.tool(
+    			"long-running-task",
+    			"A tool that takes a while",
+    			{ input: z.string() },
+    			async ({ input }) => {
+    				await longRunningOperation(input);
+    				return {
+    					content: [{ type: "text", text: "Task completed" }],
+    				};
+    			},
+    		);
+    	}
+    }
 
 ## Authentication and authorization
 
-The McpAgent class provides seamless integration with the [OAuth Provider Library ↗︎](https://github.com/cloudflare/workers-oauth-provider) for [authentication and authorization](https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/).
-
-When a user authenticates to your MCP server, their identity information and tokens are made available through the `props` parameter, allowing you to:
+The McpAgent class integrates with the [OAuth Provider Library ↗︎](https://github.com/cloudflare/workers-oauth-provider). When a user authenticates to your MCP server, their identity information and tokens are available through `this.props`, allowing you to:
 
   * access user-specific data
   * check user permissions before performing operations
@@ -257,21 +413,70 @@ When a user authenticates to your MCP server, their identity information and tok
 
 
 
+The third type parameter defines the shape of `props`:
+    
+    
+    import { McpAgent } from "agents/mcp";
+    import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+    
+    export class MyMCP extends McpAgent {
+    	server = new McpServer({ name: "Auth Demo", version: "1.0.0" });
+    
+    	async init() {
+    		this.server.tool("whoami", "Get the current user", {}, async () => ({
+    			content: [{ type: "text", text: `Hello, ${this.props.claims.name}!` }],
+    		}));
+    
+    		if (this.props.permissions?.includes("admin")) {
+    			this.server.tool("adminTool", "Admin only", {}, async () => ({
+    				content: [{ type: "text", text: "Admin action completed" }],
+    			}));
+    		}
+    	}
+    }
+    
+    
+    import { McpAgent } from "agents/mcp";
+    import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+    
+    type AuthContext = {
+    	claims: { sub: string; name: string; email: string };
+    	permissions: string[];
+    };
+    
+    export class MyMCP extends McpAgent<Env, unknown, AuthContext> {
+    	server = new McpServer({ name: "Auth Demo", version: "1.0.0" });
+    
+    	async init() {
+    		this.server.tool("whoami", "Get the current user", {}, async () => ({
+    			content: [{ type: "text", text: `Hello, ${this.props.claims.name}!` }],
+    		}));
+    
+    		if (this.props.permissions?.includes("admin")) {
+    			this.server.tool("adminTool", "Admin only", {}, async () => ({
+    				content: [{ type: "text", text: "Admin action completed" }],
+    			}));
+    		}
+    	}
+    }
+
+For a stateless server, read the same props with `getMcpAuthContext()`. Refer to [Authorization](https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/).
+
 ## State synchronization APIs
 
-The `McpAgent` class provides full access to the [Agent state APIs](https://developers.cloudflare.com/agents/runtime/lifecycle/state/):
+The `McpAgent` class provides full access to the [Agent state APIs](https://developers.cloudflare.com/agents/agent-class/state/):
 
-  * [`state`](https://developers.cloudflare.com/agents/runtime/lifecycle/state/) — Current persisted state
-  * [`initialState`](https://developers.cloudflare.com/agents/runtime/lifecycle/state/#set-the-initial-state-for-an-agent) — Default state when instance starts
-  * [`setState`](https://developers.cloudflare.com/agents/runtime/lifecycle/state/) — Update and persist state
-  * [`onStateChanged`](https://developers.cloudflare.com/agents/runtime/lifecycle/state/#synchronizing-state) — React to state changes
-  * [`sql`](https://developers.cloudflare.com/agents/runtime/agents-api/#sql-api) — Execute SQL queries on embedded database
+  * [`state`](https://developers.cloudflare.com/agents/agent-class/state/) — Current persisted state
+  * [`initialState`](https://developers.cloudflare.com/agents/agent-class/state/#set-the-initial-state-for-an-agent) — Default state when instance starts
+  * [`setState`](https://developers.cloudflare.com/agents/agent-class/state/) — Update and persist state
+  * [`onStateChanged`](https://developers.cloudflare.com/agents/agent-class/state/#synchronizing-state) — React to state changes
+  * [`sql`](https://developers.cloudflare.com/agents/agent-class/#sql-api) — Execute SQL queries on embedded database
 
 
 
 State resets after the session ends
 
-Currently, each client session is backed by an instance of the `McpAgent` class. This is handled automatically for you, as shown in the [getting started guide](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/). This means that when the same client reconnects, they will start a new session, and the state will be reset.
+Each client session is backed by an instance of the `McpAgent` class. This means that when the same client reconnects, they will start a new session, and the state will be reset.
 
 For example, the following code implements an MCP server that remembers a counter value, and updates the counter when the `add` tool is called:
     
@@ -542,27 +747,15 @@ For more human-in-the-loop patterns, refer to [Human-in-the-loop patterns](https
 
 ## Next steps
 
-### [Build a Remote MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/remote-mcp-server/)
+### [Migrate to MCP SDK v2](https://developers.cloudflare.com/agents/model-context-protocol/guides/migrate-to-mcp-sdk-v2/)
 
-Get started with MCP servers on Cloudflare.
-
-### [MCP Tools](https://developers.cloudflare.com/agents/model-context-protocol/protocol/tools/)
-
-Design and add tools to your MCP server.
-
-### [Authorization](https://developers.cloudflare.com/agents/model-context-protocol/protocol/authorization/)
-
-Set up OAuth authentication.
-
-### [Securing MCP servers](https://developers.cloudflare.com/agents/model-context-protocol/guides/securing-mcp-server/)
-
-Security best practices for production.
+Move an McpAgent server to createMcpHandler.
 
 ### [createMcpHandler](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/)
 
 Build stateless MCP servers.
 
-[PreviousMCP handler APIs](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/)[NextMcpClient](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/)
+[PreviousMCP Client](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/)[NextTools](https://developers.cloudflare.com/agents/model-context-protocol/protocol/tools/)
 
 Was this helpful?
 

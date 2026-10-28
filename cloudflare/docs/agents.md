@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/
 title: Agents \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:00.836420+00:00
+fetched_at: 2026-10-28T08:04:03.274074+00:00
 ---
 
 # Agents · Cloudflare Agents docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-23T16:40:00.836420+00:00
 
 # Build Agents on Cloudflare
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Get started Example agents
 
@@ -30,7 +30,7 @@ Channels
 
 5
 
-[Chat](https://developers.cloudflare.com/agents/communication-channels/chat/)[Email](https://developers.cloudflare.com/agents/communication-channels/email/)[Voice](https://developers.cloudflare.com/agents/communication-channels/voice/)[Slack](https://developers.cloudflare.com/agents/communication-channels/slack/)[Webhook](https://developers.cloudflare.com/agents/communication-channels/webhooks/)
+[Chat](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/)[Email](https://developers.cloudflare.com/agents/agent-class/communication-channels/email/)[Voice](https://developers.cloudflare.com/agents/agent-class/communication-channels/voice/)[Slack](https://developers.cloudflare.com/agents/agent-class/communication-channels/slack/)[Webhook](https://developers.cloudflare.com/agents/agent-class/communication-channels/webhooks/)
 
 A
 
@@ -40,15 +40,15 @@ Agent harness
 
 Controls planning, tool use, and response flow.
 
-[Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/)[Build-your-own agent](https://developers.cloudflare.com/agents/runtime/agents-api/)
+[Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/)[Build-your-own agent](https://developers.cloudflare.com/agents/agent-class/)
 
 Agents SDK runtime
 
 Durable identity, state, connections, scheduling, and recovery.
 
-[Agent class](https://developers.cloudflare.com/agents/runtime/agents-api/)
+[Agent class](https://developers.cloudflare.com/agents/agent-class/)
 
-[State](https://developers.cloudflare.com/agents/runtime/lifecycle/state/)[Sessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/)[Routing](https://developers.cloudflare.com/agents/runtime/communication/routing/)[WebSockets](https://developers.cloudflare.com/agents/runtime/communication/websockets/)[Scheduling](https://developers.cloudflare.com/agents/runtime/execution/schedule-tasks/)[Fibers](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/)
+[State](https://developers.cloudflare.com/agents/agent-class/state/)[Sessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/)[Routing](https://developers.cloudflare.com/agents/agent-class/routing/)[WebSockets](https://developers.cloudflare.com/agents/agent-class/websockets/)[Scheduling](https://developers.cloudflare.com/agents/agent-class/schedule-tasks/)[Fibers](https://developers.cloudflare.com/agents/agent-class/durable-execution/)
 
 Tools
 
@@ -60,9 +60,9 @@ Tools
 
 Agents on Cloudflare are composed from four parts:
 
-  * **Communication channels** define how users and systems reach your agent, such as [chat](https://developers.cloudflare.com/agents/communication-channels/chat/), [voice](https://developers.cloudflare.com/agents/communication-channels/voice/), [email](https://developers.cloudflare.com/agents/communication-channels/email/), [Slack](https://developers.cloudflare.com/agents/communication-channels/slack/), [webhooks](https://developers.cloudflare.com/agents/communication-channels/webhooks/), and other event sources.
-  * **The agent harness** defines the loop: how the agent calls models, selects tools, handles tool results, streams responses, and decides whether to continue. Use the [Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/) to run Pi Durable in a Durable Object, or build your own loop directly on the [Agents SDK runtime](https://developers.cloudflare.com/agents/runtime/agents-api/).
-  * **The Agents SDK runtime** provides durable infrastructure: the [`Agent` class](https://developers.cloudflare.com/agents/runtime/lifecycle/agent-class/), [state](https://developers.cloudflare.com/agents/runtime/lifecycle/state/), [sessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/), [routing](https://developers.cloudflare.com/agents/runtime/communication/routing/), [WebSockets](https://developers.cloudflare.com/agents/runtime/communication/websockets/), [scheduling](https://developers.cloudflare.com/agents/runtime/execution/schedule-tasks/), [fibers](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/), and [observability](https://developers.cloudflare.com/agents/runtime/operations/observability/).
+  * **Communication channels** define how users and systems reach your agent, such as [chat](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/), [voice](https://developers.cloudflare.com/agents/agent-class/communication-channels/voice/), [email](https://developers.cloudflare.com/agents/agent-class/communication-channels/email/), [Slack](https://developers.cloudflare.com/agents/agent-class/communication-channels/slack/), [webhooks](https://developers.cloudflare.com/agents/agent-class/communication-channels/webhooks/), and other event sources.
+  * **The agent harness** defines the loop: how the agent calls models, selects tools, handles tool results, streams responses, and decides whether to continue. Use the [Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/) to run Pi Durable in a Durable Object, or build your own loop directly on the [Agents SDK runtime](https://developers.cloudflare.com/agents/agent-class/).
+  * **The Agents SDK runtime** provides durable infrastructure: the [`Agent` class](https://developers.cloudflare.com/agents/agent-class/internals/), [state](https://developers.cloudflare.com/agents/agent-class/state/), [sessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/), [routing](https://developers.cloudflare.com/agents/agent-class/routing/), [WebSockets](https://developers.cloudflare.com/agents/agent-class/websockets/), [scheduling](https://developers.cloudflare.com/agents/agent-class/schedule-tasks/), [fibers](https://developers.cloudflare.com/agents/agent-class/durable-execution/), and [observability](https://developers.cloudflare.com/agents/runtime/operations/observability/).
   * **Tools** give the agent capabilities: [browser automation](https://developers.cloudflare.com/agents/tools/browser/), [sandboxed code execution](https://developers.cloudflare.com/agents/tools/sandbox/), [AI Search](https://developers.cloudflare.com/agents/tools/ai-search/), [MCP tools](https://developers.cloudflare.com/agents/tools/mcp/), and [payments](https://developers.cloudflare.com/agents/tools/payments/). [Code Mode](https://developers.cloudflare.com/agents/tools/codemode/) lets models discover and orchestrate multiple tools by writing code.
 
 

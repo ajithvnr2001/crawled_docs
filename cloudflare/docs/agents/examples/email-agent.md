@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/examples/email-agent/
 title: Email agent \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:11.174196+00:00
+fetched_at: 2026-10-28T08:04:02.866532+00:00
 ---
 
 # Email agent · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:11.174196+00:00
 
 # Email agent
 
-Last updated Aug 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/examples/email-agent/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites Domain setup Wrangler configurationQuick startSending outbound email Using sendEmail()Routing inbound mail createAddressBasedEmailResolver createSecureReplyEmailResolver createCatchAllEmailResolver Combining resolversHandling emails in your Agent The AgentEmail interface Parsing email content Detecting auto-reply emails Replying to emails Deferred replies Forwarding emails Rejecting emailsError handling Common error codesSecure reply routing How it works Setup Enforcement behaviorComplete exampleAPI reference EmailAddress sendEmail routeAgentEmail createSecureReplyEmailResolver signAgentHeadersNext steps
 
@@ -1023,19 +1023,19 @@ Useful when sending emails through external services while maintaining secure re
 
 ## Next steps
 
-### [HTTP and SSE](https://developers.cloudflare.com/agents/runtime/communication/http-sse/)
+### [HTTP and SSE](https://developers.cloudflare.com/agents/agent-class/http-sse/)
 
 Handle HTTP requests in your Agent.
 
-### [Webhooks](https://developers.cloudflare.com/agents/communication-channels/webhooks/)
+### [Webhooks](https://developers.cloudflare.com/agents/agent-class/communication-channels/webhooks/)
 
 Receive events from external services.
 
-### [Agents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
+### [Agents API](https://developers.cloudflare.com/agents/agent-class/)
 
 Complete API reference for the Agents SDK.
 
-[PreviousBrowser agent](https://developers.cloudflare.com/agents/examples/browser-agent/)[NextOverview](https://developers.cloudflare.com/agents/model-context-protocol/)
+[PreviousBrowser agent](https://developers.cloudflare.com/agents/examples/browser-agent/)[NextOverview](https://developers.cloudflare.com/agents/agent-class/)
 
 Was this helpful?
 

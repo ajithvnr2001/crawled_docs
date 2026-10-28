@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/runtime/operations/configuration/
 title: Configuration \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:34.933593+00:00
+fetched_at: 2026-10-28T08:03:59.311081+00:00
 ---
 
 # Configuration · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Runtime
 
 # Configuration
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProject structureWrangler configuration file Key fieldsTypeScript configurationVite configurationGenerating types Automatic generation Custom output path Without runtime types Example generated output Manual type definition Adding to package.jsonEnvironment variables and secrets Local development (.env) Production secrets Non-secret variables Environment-specific variablesLocal development Starting the dev server Local state persistence Clearing local state Inspecting local SQLiteDashboard setup Automatic resources Viewing Durable Objects Real-time logsProduction deployment Basic deploy Custom domain Preview deployments RollbacksMulti-environment setup Environment configuration Deploying to environments Separate Durable ObjectsAgent class lifecycle Adding a new agent Renaming an agent class Deleting an agent class Class lifecycle best practicesTroubleshooting No such Durable Object class Cannot find module in types Secrets not loading locally Migration tag conflict (legacy migrations only)Next steps
 
@@ -57,7 +57,7 @@ The `wrangler.jsonc` file configures your Cloudflare Worker and its bindings. He
     	"main": "src/server.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-27",
     	"compatibility_flags": ["nodejs_compat"],
     
     	// Static assets (optional)
@@ -109,7 +109,7 @@ The `wrangler.jsonc` file configures your Cloudflare Worker and its bindings. He
     main = "src/server.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-27"
     compatibility_flags = [ "nodejs_compat" ]
     
     [assets]
@@ -380,7 +380,7 @@ vite.config.tsts
 
 The `agents()` plugin is safe to include even if your project does not use decorators. It only runs the transform on files that contain `@` syntax.
 
-The starter template and all examples include this plugin by default. If you encounter `SyntaxError: Invalid or unexpected token` with decorators, refer to [Callable methods — Troubleshooting](https://developers.cloudflare.com/agents/runtime/lifecycle/callable-methods/#troubleshooting).
+The starter template and all examples include this plugin by default. If you encounter `SyntaxError: Invalid or unexpected token` with decorators, refer to [Callable methods — Troubleshooting](https://developers.cloudflare.com/agents/agent-class/callable-methods/#troubleshooting).
 
 ## Generating types
 
@@ -759,7 +759,7 @@ Define environments in the Wrangler configuration file:
     
     	// Base configuration (shared)
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-27",
     	"compatibility_flags": ["nodejs_compat"],
     	"durable_objects": {
     		"bindings": [{ "name": "MyAgent", "class_name": "MyAgent" }],
@@ -796,7 +796,7 @@ Define environments in the Wrangler configuration file:
     main = "src/server.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-27"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[durable_objects.bindings]]
@@ -1036,15 +1036,15 @@ Consider converting to the declarative [`exports`](https://developers.cloudflare
 
 ## Next steps
 
-### [Agents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
+### [Agents API](https://developers.cloudflare.com/agents/agent-class/)
 
 Complete API reference for the Agents SDK.
 
-### [Routing](https://developers.cloudflare.com/agents/runtime/communication/routing/)
+### [Routing](https://developers.cloudflare.com/agents/agent-class/routing/)
 
 Route requests to your agent instances.
 
-### [Schedule tasks](https://developers.cloudflare.com/agents/runtime/execution/schedule-tasks/)
+### [Schedule tasks](https://developers.cloudflare.com/agents/agent-class/schedule-tasks/)
 
 Background processing with delayed and cron-based tasks.
 

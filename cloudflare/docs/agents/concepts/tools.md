@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/concepts/tools/
 title: Tools \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:09.687416+00:00
+fetched_at: 2026-10-28T08:04:03.348339+00:00
 ---
 
 # Tools · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:09.687416+00:00
 
 # Tools
 
-Last updated Jun 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/concepts/tools/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose the model interface Direct tool calls Code ModeChoose where tools runConnect external tools with MCPControl side effects
 
@@ -67,9 +67,9 @@ Execution location describes where a tool implementation runs. It is independent
 
 Location | Use when | Start here  
 ---|---|---  
-Worker | The tool calls an API, queries SQL, or uses server-side bindings and secrets. | [Server-side tools](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/#server-side-tools)  
-Browser | The tool needs geolocation, clipboard, local storage, or other browser APIs. | [Client-side tools](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/#client-side-tools)  
-Another Agent | A chat-capable Agent should execute as a retained, streaming tool. | [Agents as tools](https://developers.cloudflare.com/agents/runtime/execution/agent-tools/)  
+Worker | The tool calls an API, queries SQL, or uses server-side bindings and secrets. | [Server-side tools](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/#server-side-tools)  
+Browser | The tool needs geolocation, clipboard, local storage, or other browser APIs. | [Client-side tools](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/#client-side-tools)  
+Another Agent | A chat-capable Agent should execute as a retained, streaming tool. | [Agents as tools](https://developers.cloudflare.com/agents/agent-class/agent-tools/)  
   
 With direct tool calls, the model calls the tool and the framework routes execution to the configured location.
 
@@ -86,7 +86,7 @@ An Agent can expose MCP tools through either model interface:
 
 
 
-An MCP server can also expose Code Mode itself. For example, it can present one `code` tool or separate `search` and `execute` tools. For these server-side patterns, refer to [Code Mode MCP server patterns](https://developers.cloudflare.com/agents/model-context-protocol/codemode/).
+An MCP server can also expose Code Mode itself. For example, it can present one `code` tool or separate `search` and `execute` tools. For these server-side patterns, refer to [Build a Code Mode MCP server](https://developers.cloudflare.com/agents/model-context-protocol/guides/build-codemode-mcp-server/).
 
 ## Control side effects
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/pi/
 title: Pi \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:00.287203+00:00
+fetched_at: 2026-10-28T08:04:05.099526+00:00
 ---
 
 # Pi · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:00.287203+00:00
 
 # Pi
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/pi/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksInstallCreate the agentOptionsAdd tools and a system promptSend prompts Label input the user did not type Inputs queued behind a failed runWork with sessionsStream events to clientsRecovery Parked tasksLimitationsRelated resources
 
@@ -31,10 +31,6 @@ Pi runs the agent loop: the transcript, the inbox of follow-ups and steers, mode
 To start from a complete app, deploy the [Pi harness example ↗︎](https://github.com/cloudflare/agents/tree/main/examples/next/harnesses/pi). It streams sessions to a browser UI over WebSockets, and gives Pi a durable filesystem and JavaScript execution from `@cloudflare/computer`.
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/agents/tree/main/examples/next/harnesses/pi)
-
-Beta
-
-`PiHarness` is in beta. [Pi Durable ↗︎](https://earendil.com/posts/pi-durable/) is a new, experimental package, and the `PiHarness` API will likely change as Pi Durable matures.
 
 ## How it works
 
@@ -75,7 +71,7 @@ The `agents/models/pi-ai` entry point supports AI Gateway and Workers AI models,
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-23",
+    	"compatibility_date": "2026-10-27",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": {
     		"binding": "AI",
@@ -91,7 +87,7 @@ The `agents/models/pi-ai` entry point supports AI Gateway and Workers AI models,
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-10-27"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/
 title: Models \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:10.051339+00:00
+fetched_at: 2026-10-28T08:04:04.269699+00:00
 ---
 
 # Models · Cloudflare Agents docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-23T16:40:10.051339+00:00
 
 # Models
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/models/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow a model is chosenWhat every model getsConnect to CloudflareChoose a provider
 
@@ -29,10 +29,6 @@ Import | Framework | Use it with
 `agents/models/pi-ai` | [Pi AI ↗︎](https://github.com/earendil-works/pi/tree/main/packages/ai) | The [Pi harness](https://developers.cloudflare.com/agents/harnesses/pi/), and Pi AI's `stream`  
   
 Both take the same options, route through the same gateway, and handle Workers AI the same way. The [OpenCode harness](https://developers.cloudflare.com/agents/harnesses/opencode/) has a third, `agents/models/opencode`, built on the AI SDK provider.
-
-Beta
-
-The model providers are in beta. Their APIs may change in a minor release.
 
 ## How a model is chosen
 

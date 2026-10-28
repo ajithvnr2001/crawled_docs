@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/languages/typescript/
 title: Write Cloudflare Workers in TypeScript \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:26.054404+00:00
+fetched_at: 2026-10-28T08:03:56.896004+00:00
 ---
 
 # Write Cloudflare Workers in TypeScript · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-10T14:39:26.054404+00:00
 
 # TypeScript
 
-Last updated Oct 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Resources
 
@@ -175,7 +175,7 @@ Most projects will have existing build and development scripts, as well as some 
     		"dev": "existing-dev-command",
     		"build": "existing-build-command",
     		"generate-types": "wrangler types",
-    		"type-check": "generate-types && tsc"
+    		"type-check": "wrangler types && tsc"
     	}
     }
 
@@ -224,7 +224,7 @@ Alternatively, if you commit your generated types file, use `--check` in CI:
 
 
 
-[PreviousExamples ↗︎](https://developers.cloudflare.com/workers/examples/?languages=JavaScript)[NextExamples ↗︎](https://developers.cloudflare.com/workers/examples/?languages=TypeScript)
+[PreviousOverview](https://developers.cloudflare.com/workers/languages/javascript/)[NextOverview](https://developers.cloudflare.com/workers/languages/python/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/speed/troubleshooting/slow-website/
 title: Troubleshooting a slow website \u00b7 Cloudflare Speed docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:36.884441+00:00
+fetched_at: 2026-10-28T08:04:04.916883+00:00
 ---
 
 # Troubleshooting a slow website · Cloudflare Speed docs
@@ -12,13 +12,13 @@ fetched_at: 2026-10-08T07:15:36.884441+00:00
   1. [Home](https://developers.cloudflare.com/)
   2. /[Speed](https://developers.cloudflare.com/speed/)
   3. /[Troubleshooting](https://developers.cloudflare.com/speed/troubleshooting/)
-  4. /Slow Website
+  4. /Troubleshooting a slow website
 
 
 
 # Troubleshooting a slow website
 
-Last updated Jun 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/speed/troubleshooting/slow-website/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you start: Verify traffic goes through Cloudflare Check for the cf-ray header Verify DNS is pointing to CloudflareGather information about the slow requestsStep 1: Use Observatory to analyze performance Run a speed test Understand the results Enable recommended optimizationsStep 2: Identify slow resources Use browser developer toolsStep 3: Analyze origin performance Check origin response times Check for slow WorkersStep 4: Measure performance from the command line Basic performance test Understand the metrics Test from different locationsStep 5: Investigate caching Check if assets are cached Use Cache Analytics Investigate why static content is not cached Cache additional static content Use Cloudflare Trace to debug cache rulesStep 6: Diagnose network issues Test your Internet connection Run MTR from your location to Cloudflare Run MTR from your origin to CloudflareStep 7: Understand network routing Identify which data center serves your requests Why routing matters Troubleshoot unexpected routing Solutions for origin distance Enable Argo Smart RoutingContact Support if the problem persistsRelated resources
 
@@ -402,13 +402,13 @@ Add `/cdn-cgi/trace` to your domain to see which Cloudflare data center is servi
     
     Invoke-RestMethod -Uri "https://www.example.com/cdn-cgi/trace"
 
-The `colo` field shows the three-letter airport code of the serving data center (for example, `colo=SJC` for San Jose). You can find the full list of Cloudflare data centers and their codes on the [Cloudflare status page ↗︎](https://www.cloudflarestatus.com/).
+The `colo` field shows the three-letter airport code of the serving data center (for example, `colo=SJC` for San Jose). You can also check the [`cf-ray`](https://developers.cloudflare.com/fundamentals/reference/http-headers/#cf-ray) response header. The three-letter code at the end of the value identifies the data center that processed the request. You can find the full list of Cloudflare data centers and their codes on the [Cloudflare status page ↗︎](https://www.cloudflarestatus.com/).
 
 ### Why routing matters
 
 When a request reaches Cloudflare:
 
-  1. The request is routed to a nearby Cloudflare data center based on anycast[routing ↗︎](https://www.cloudflare.com/learning/cdn/glossary/anycast-network/).
+  1. The request is routed to a Cloudflare data center based on anycast[routing ↗︎](https://www.cloudflare.com/learning/cdn/glossary/anycast-network/). This is not always the data center closest geographically.
   2. If the content is cached, it is served immediately.
   3. If not cached, Cloudflare fetches from your origin server.
 
@@ -418,9 +418,13 @@ If your origin server is geographically distant from the Cloudflare data center 
 
 ### Troubleshoot unexpected routing
 
-If requests are being routed to a data center that seems far from the user, this may be due to Cloudflare's automated traffic engineering or a user’s ISP routing traffic.
+Requests may be sent to data centers that are not the closest geographically. Cloudflare continuously adds capacity to its global network and improves its automated traffic engineering systems to manage congestion and other network events. Cloudflare aims to serve traffic from the closest location for the best performance, but reliability takes priority.
 
-While Cloudflare always strives to provide the best possible performance by serving traffic from the closest location, reliability is the top priority. In instances where performance and reliability are in conflict, Cloudflare's systems are designed to prioritize a stable connection over a local one.
+When performance and reliability conflict, Cloudflare's systems prioritize a stable connection over a local one.
+
+Cloudflare does not pick a data center for each visitor. The visitor's Internet service provider (ISP) decides which Cloudflare data center receives the request, based on its own routing and peering policies. These policies do not always favor the geographically closest location. For example, an ISP may send traffic to a distant city where it has a direct connection with Cloudflare instead of a nearby one where it does not.
+
+Cloudflare's traffic engineering can influence these paths across the network as a whole, but it cannot direct individual visitors to a specific data center. Data center selection cannot be configured per zone, per account, or by support request.
 
 For more details, refer to [Cloudflare traffic not being sent to the geographically closest data center](https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/geographic-traffic-routing/).
 
@@ -429,6 +433,7 @@ Common causes of unexpected routing:
 Symptom | Explanation  
 ---|---  
 Requests route to a distant data center | Cloudflare traffic engineering for reliability, or ISP routing decisions  
+`cf-ray` shows a different location than a traceroute | Traffic can enter Cloudflare's network at one location and be processed at another  
 Routing changes between requests | Normal behavior - routing adapts to network conditions or ISP load balancing  
 Consistent routing to a distant region | ISP peering location or Cloudflare capacity management  
 High latency despite nearby data center | Network congestion on the path  

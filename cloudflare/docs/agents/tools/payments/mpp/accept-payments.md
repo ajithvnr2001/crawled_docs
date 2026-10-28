@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/payments/mpp/accept-payments/
 title: Accept payments with MPP \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:12.669138+00:00
+fetched_at: 2026-10-28T08:04:05.289461+00:00
 ---
 
 # Accept payments with MPP · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Tools[Agentic Payments](https://developers.cloudflare.com/agents/tools/payments/
 
 # Accept payments with MPP
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/payments/mpp/accept-payments/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesCharge for a Worker routeCharge for an MCP tool
 
@@ -141,7 +141,7 @@ The Worker returns `402 Payment Required` and a `WWW-Authenticate: Payment` head
 
 ## Charge for an MCP tool
 
-Add the MPP transport to an [`McpAgent`](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/):
+Charge for a tool call from an MCP server on Workers. `mppx` reads payment credentials through the MCP SDK v1 request context (`Transport.mcpSdk()`), so this server uses an SDK v1 `McpServer` with `createLegacyMcpHandler`. It is still stateless: the Worker builds a new server for each request and needs no Durable Object.
 
   1. Install the required packages in an Agents project:
 
@@ -155,7 +155,7 @@ npmyarnpnpmbun
          
          bun add agents mppx @modelcontextprotocol/sdk zod
 
-  2. Bind the `McpAgent` Durable Object in the Wrangler configuration:
+  2. Configure the Worker:
          
          {
            "$schema": "./node_modules/wrangler/config-schema.json",
@@ -163,25 +163,9 @@ npmyarnpnpmbun
            "main": "src/index.ts",
            "upload_source_maps": true,
            // Set this to today's date
-           "compatibility_date": "2026-10-23",
+           "compatibility_date": "2026-10-27",
            "compatibility_flags": [
              "nodejs_compat"
-           ],
-           "durable_objects": {
-             "bindings": [
-               {
-                 "name": "MCP_OBJECT",
-                 "class_name": "PaidMCP"
-               }
-             ]
-           },
-           "migrations": [
-             {
-               "tag": "v1",
-               "new_sqlite_classes": [
-                 "PaidMCP"
-               ]
-             }
            ]
          }
          
@@ -189,16 +173,8 @@ npmyarnpnpmbun
          main = "src/index.ts"
          upload_source_maps = true
          # Set this to today's date
-         compatibility_date = "2026-10-23"
+         compatibility_date = "2026-10-27"
          compatibility_flags = ["nodejs_compat"]
-         
-         [[durable_objects.bindings]]
-         name = "MCP_OBJECT"
-         class_name = "PaidMCP"
-         
-         [[migrations]]
-         tag = "v1"
-         new_sqlite_classes = ["PaidMCP"]
 
   3. Store `MPP_SECRET_KEY` as a Worker secret:
 
@@ -215,86 +191,96 @@ npmyarnpnpm
 src/index.jsjs
          
          import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-         import { McpAgent } from "agents/mcp";
+         import { createLegacyMcpHandler } from "agents/mcp";
          import { Mppx, tempo, Transport } from "mppx/server";
          import { z } from "zod";
          
-         export class PaidMCP extends McpAgent {
-         	server = new McpServer({ name: "paid-search", version: "1.0.0" });
+         function createServer(env) {
+         	const server = new McpServer({ name: "paid-search", version: "1.0.0" });
+         	const mppx = Mppx.create({
+         		methods: [tempo.charge({ testnet: true })],
+         		secretKey: env.MPP_SECRET_KEY,
+         		transport: Transport.mcpSdk(),
+         	});
          
-         	async init() {
-         		const mppx = Mppx.create({
-         			methods: [tempo.charge({ testnet: true })],
-         			secretKey: this.env.MPP_SECRET_KEY,
-         			transport: Transport.mcpSdk(),
-         		});
+         	server.registerTool(
+         		"premium_search",
+         		{
+         			description: "Search premium content",
+         			inputSchema: { query: z.string() },
+         		},
+         		async ({ query }, extra) => {
+         			const payment = await mppx.charge({
+         				amount: "0.01",
+         				currency: "0x20c0000000000000000000000000000000000000",
+         				description: "Premium search",
+         				recipient: "<YOUR_WALLET_ADDRESS>",
+         			})(extra);
          
-         		this.server.tool(
-         			"premium_search",
-         			"Search premium content",
-         			{ query: z.string() },
-         			async ({ query }, extra) => {
-         				const payment = await mppx.charge({
-         					amount: "0.01",
-         					currency: "0x20c0000000000000000000000000000000000000",
-         					description: "Premium search",
-         					recipient: "<YOUR_WALLET_ADDRESS>",
-         				})(extra);
+         			if (payment.status === 402) throw payment.challenge;
          
-         				if (payment.status === 402) throw payment.challenge;
+         			return payment.withReceipt({
+         				content: [{ type: "text", text: `Results for: ${query}` }],
+         			});
+         		},
+         	);
          
-         				return payment.withReceipt({
-         					content: [{ type: "text", text: `Results for: ${query}` }],
-         				});
-         			},
-         		);
-         	}
+         	return server;
          }
          
-         export default PaidMCP.serve("/mcp");
+         export default {
+         	fetch(request, env, ctx) {
+         		return createLegacyMcpHandler(createServer(env))(request, env, ctx);
+         	},
+         };
 
 src/index.tsts
          
          import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-         import { McpAgent } from "agents/mcp";
+         import { createLegacyMcpHandler } from "agents/mcp";
          import { Mppx, tempo, Transport } from "mppx/server";
          import { z } from "zod";
          
          type PaymentEnv = Env & { MPP_SECRET_KEY: string };
          
-         export class PaidMCP extends McpAgent<PaymentEnv> {
-           server = new McpServer({ name: "paid-search", version: "1.0.0" });
+         function createServer(env: PaymentEnv) {
+           const server = new McpServer({ name: "paid-search", version: "1.0.0" });
+           const mppx = Mppx.create({
+             methods: [tempo.charge({ testnet: true })],
+             secretKey: env.MPP_SECRET_KEY,
+             transport: Transport.mcpSdk(),
+           });
          
-           async init() {
-             const mppx = Mppx.create({
-               methods: [tempo.charge({ testnet: true })],
-               secretKey: this.env.MPP_SECRET_KEY,
-               transport: Transport.mcpSdk(),
-             });
+           server.registerTool(
+             "premium_search",
+             {
+               description: "Search premium content",
+               inputSchema: { query: z.string() },
+             },
+             async ({ query }, extra) => {
+               const payment = await mppx.charge({
+                 amount: "0.01",
+                 currency: "0x20c0000000000000000000000000000000000000",
+                 description: "Premium search",
+                 recipient: "<YOUR_WALLET_ADDRESS>",
+               })(extra);
          
-             this.server.tool(
-               "premium_search",
-               "Search premium content",
-               { query: z.string() },
-               async ({ query }, extra) => {
-                 const payment = await mppx.charge({
-                   amount: "0.01",
-                   currency: "0x20c0000000000000000000000000000000000000",
-                   description: "Premium search",
-                   recipient: "<YOUR_WALLET_ADDRESS>",
-                 })(extra);
+               if (payment.status === 402) throw payment.challenge;
          
-                 if (payment.status === 402) throw payment.challenge;
+               return payment.withReceipt({
+                 content: [{ type: "text", text: `Results for: ${query}` }],
+               });
+             },
+           );
          
-                 return payment.withReceipt({
-                   content: [{ type: "text", text: `Results for: ${query}` }],
-                 });
-               },
-             );
-           }
+           return server;
          }
          
-         export default PaidMCP.serve("/mcp");
+         export default {
+           fetch(request, env, ctx) {
+             return createLegacyMcpHandler(createServer(env))(request, env, ctx);
+           },
+         } satisfies ExportedHandler<PaymentEnv>;
 
   5. Deploy the Worker:
 

@@ -1,11 +1,11 @@
 ---
 url: https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/
-title: McpClient \u00b7 Cloudflare Agents docs
+title: MCP Client \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:10.507950+00:00
+fetched_at: 2026-10-28T08:03:55.590180+00:00
 ---
 
-# McpClient · Cloudflare Agents docs
+# MCP Client · Cloudflare Agents docs
 
 > Source: https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/
 
@@ -16,17 +16,17 @@ fetched_at: 2026-10-23T16:40:10.507950+00:00
 [Model Context Protocol (MCP)](https://developers.cloudflare.com/agents/model-context-protocol/)
 
   4. /APIs
-  5. /McpClient
+  5. /MCP Client
 
 
 
-# McpClient
+# MCP Client
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewOverviewQuick startAdding MCP servers Stable server IDs Transport options Custom headers URL security Return valueOAuth authentication How it works Handling OAuth in your agent OAuth callback Protecting instance names in OAuth callbacks Custom OAuth callback handlingUsing MCP capabilities Get available tools Resources and prompts ElicitationManaging servers List all servers Get server status Remove a serverClient-side integrationAPI reference addMcpServer() removeMcpServer() getMcpServers() configureOAuthCallback() configureElicitationHandlers()Custom OAuth provider Custom storage backendAdvanced: MCPClientManager Step-by-step connection Event subscription Lifecycle methodsError handlingNext steps
+OverviewOverviewQuick startAdding MCP servers Stable server IDs Transport options RPC transport Custom headers URL security Return valueOAuth authentication How it works Handling OAuth in your agent OAuth callback Protecting instance names in OAuth callbacks Custom OAuth callback handlingUsing MCP capabilities Get available tools Resources and prompts ElicitationManaging servers List all servers Get server status Remove a serverClient-side integrationAPI reference addMcpServer() removeMcpServer() getMcpServers() configureOAuthCallback() configureElicitationHandlers()Custom OAuth provider Custom storage backendAdvanced: MCPClientManager Step-by-step connection Event subscription Lifecycle methodsError handlingNext steps
 
-Connect your agent to external [Model Context Protocol (MCP)](https://developers.cloudflare.com/agents/model-context-protocol/) servers to use their tools, resources, and prompts. Agents SDK v0.20.0 uses `@modelcontextprotocol/client` and negotiates stateless or legacy behavior automatically.
+Connect your agent to external [Model Context Protocol (MCP)](https://developers.cloudflare.com/agents/model-context-protocol/) servers to use their tools, resources, and prompts. Agents SDK v0.20.0 uses `@modelcontextprotocol/client` and negotiates stateless or legacy behavior automatically. The MCP client does not need `@modelcontextprotocol/sdk` or `@modelcontextprotocol/server`.
 
 Refer to [Migrate to MCP SDK v2](https://developers.cloudflare.com/agents/model-context-protocol/guides/migrate-to-mcp-sdk-v2/) for package, type, OAuth provider, and rollout changes.
 
@@ -43,7 +43,7 @@ The MCP client capability lets your agent:
 
 Note
 
-This page covers connecting to MCP servers as a client. To create your own MCP server, refer to [Creating MCP servers](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/).
+This page covers connecting to MCP servers as a client. To create your own MCP server, refer to [`createMcpHandler`](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/).
 
 ## Quick start
     
@@ -95,7 +95,7 @@ This page covers connecting to MCP servers as a client. To create your own MCP s
     	}
     }
 
-Connections persist in the agent's [SQL storage](https://developers.cloudflare.com/agents/runtime/lifecycle/state/), and when an agent connects to an MCP server, all tools from that server become available automatically.
+Connections persist in the agent's [SQL storage](https://developers.cloudflare.com/agents/agent-class/state/), and when an agent connects to an MCP server, all tools from that server become available automatically.
 
 ## Adding MCP servers
 
@@ -167,6 +167,43 @@ Transport | Description
 `streamable-http` | HTTP with streaming  
 `sse` | Server-Sent Events - legacy/compatibility transport  
   
+### RPC transport
+
+`addMcpServer()` can also connect to an [`McpAgent`](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/) through its Durable Object binding instead of a URL. Messages travel over [Workers RPC](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/rpc/), so the server needs no HTTP endpoint.
+
+Use Streamable HTTP for new servers
+
+The RPC transport is still supported, but it only connects to `McpAgent`, which is deprecated. There is no RPC transport for servers built with [`createMcpHandler`](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/). For new servers, serve them with `createMcpHandler` and connect with a URL over Streamable HTTP.
+    
+    
+    export class MyAgent extends Agent {
+    	async onStart() {
+    		// env.MyMCP is the Durable Object binding for an McpAgent class
+    		await this.addMcpServer("my-mcp", this.env.MyMCP, {
+    			props: { userId: "user-123", role: "admin" },
+    		});
+    	}
+    }
+    
+    
+    export class MyAgent extends Agent<Env> {
+    	async onStart() {
+    		// env.MyMCP is the Durable Object binding for an McpAgent class
+    		await this.addMcpServer("my-mcp", this.env.MyMCP, {
+    			props: { userId: "user-123", role: "admin" },
+    		});
+    	}
+    }
+
+  * **No authentication.** The RPC transport has no OAuth flow. Pass user context in `props`. The `McpAgent` reads it as `this.props`.
+  * **Restored after hibernation.** The binding name and props are stored, so the connection comes back without extra code.
+  * **Deduplicated by name.** Calling `addMcpServer()` again with a name that already has an active RPC connection returns the existing connection, so it is safe to call in `onStart()`.
+  * **No MCP SDK v1 on the Agent side.** Connecting does not need `@modelcontextprotocol/sdk`. Import `RPCClientTransport` and `RPC_DO_PREFIX` from `agents/mcp/client`, not `agents/mcp`, which loads the v1 SDK.
+
+
+
+For the server side, including bindings and the tool timeout, refer to [RPC transport](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/#rpc-transport) in the `McpAgent` reference.
+
 ### Custom headers
 
 For servers behind authentication (like Cloudflare Access) or using bearer tokens:
@@ -207,8 +244,6 @@ MCP server URLs are validated before connection to prevent Server-Side Request F
 
 
 Loopback addresses (`localhost`, `127.x.x.x`, `[::1]`) are **allowed** for local development.
-
-For production connections to internal services, use the [RPC transport](https://developers.cloudflare.com/agents/model-context-protocol/protocol/transport/) with a Durable Object binding instead of HTTP.
 
 ### Return value
 
@@ -782,9 +817,9 @@ A handler returns a promise, but the response often comes from a browser. Broadc
 
 The example uses a 55-second timeout because MCP SDK requests default to 60 seconds. If your client call sets a longer request timeout, adjust this timeout to finish first.
 
-Refer to the [`mcp-client` example ↗︎](https://github.com/cloudflare/agents/tree/main/examples/mcp-client) for the browser implementation. [`mcp-elicitation-mrtr` ↗︎](https://github.com/cloudflare/agents/tree/main/examples/mcp-elicitation-mrtr) demonstrates stateless elicitation. [`mcp-elicitation` ↗︎](https://github.com/cloudflare/agents/tree/main/examples/mcp-elicitation) demonstrates legacy elicitation.
+Refer to the [`mcp-client` example ↗︎](https://github.com/cloudflare/agents/tree/main/examples/mcp-client) for the browser implementation. [`mcp-elicitation-mrtr` ↗︎](https://github.com/cloudflare/agents/tree/main/examples/mcp-elicitation-mrtr) demonstrates stateless elicitation.
 
-For server-side patterns, refer to [Elicitation with a stateless handler](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/#elicitation-with-a-stateless-handler) and [Elicitation on legacy servers](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/#elicitation-on-legacy-servers).
+For the server side, refer to [Elicitation with a stateless handler](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/#elicitation-with-a-stateless-handler).
 
 ## Managing servers
 
@@ -942,15 +977,13 @@ URLs are normalized before comparison (trailing slashes, default ports, and host
       | { id: string; state: "ready" }
     >
     
-    // RPC transport (Durable Object binding — no HTTP overhead)
+    // RPC transport (Durable Object binding for an McpAgent)
     async addMcpServer(
       serverName: string,
-      binding: DurableObjectNamespace,
+      binding: DurableObjectNamespace<McpAgent>,
       options?: {
         id?: string;
         props?: Record<string, unknown>;
-        client?: McpClientOptions;
-        retry?: RetryOptions;
       }
     ): Promise<{ id: string; state: "ready" }>
 
@@ -967,35 +1000,31 @@ URLs are normalized before comparison (trailing slashes, default ports, and host
     * `transport` — Transport layer configuration: 
       * `headers` — Custom HTTP headers for authentication
       * `type` — Transport type: `"auto"` (default), `"streamable-http"`, or `"sse"`
-    * `retry` — Retry options for connection and reconnection attempts. Persisted and used when restoring connections after hibernation or after OAuth completion. Default: 3 attempts, 500ms base delay, 5s max delay. Refer to [Retries](https://developers.cloudflare.com/agents/runtime/execution/retries/) for details on `RetryOptions`.
+    * `retry` — Retry options for connection and reconnection attempts. Persisted and used when restoring connections after hibernation or after OAuth completion. Default: 3 attempts, 500ms base delay, 5s max delay. Refer to [Retries](https://developers.cloudflare.com/agents/agent-class/retries/) for details on `RetryOptions`.
 
 
 
 #### Parameters (RPC transport)
 
   * `serverName` (string, required) — Display name for the MCP server
-  * `binding` (`DurableObjectNamespace`, required) — The Durable Object binding for the `McpAgent` class
-  * `options` (object, optional) — Connection configuration: 
+  * `binding` (`DurableObjectNamespace`, required) — Durable Object binding for an `McpAgent` class
+  * `options` (object, optional): 
     * `id` — Optional stable, caller-supplied server ID. Refer to Stable server IDs
-    * `props` — Initialization data passed to the `McpAgent`'s `onStart(props)`. Use this to pass user context, configuration, or other data to the MCP server instance
-    * `client` — MCP client configuration options
-    * `retry` — Retry options for the connection
+    * `props` — Data passed to the `McpAgent` and available as `this.props`, such as user context
 
 
 
-RPC transport connects your Agent directly to an `McpAgent` via Durable Object bindings without HTTP overhead. Refer to [MCP Transport](https://developers.cloudflare.com/agents/model-context-protocol/protocol/transport/) for details on configuring RPC transport.
+The RPC transport only connects to the deprecated `McpAgent`. Prefer the HTTP transport with a [`createMcpHandler`](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/) server. Refer to RPC transport.
 
 #### Returns
 
 A Promise that resolves to a discriminated union based on connection state:
 
-  * When `state` is `"authenticating"`:
-
+  * When `state` is `"authenticating"`: 
     * `id` (string) — Unique identifier for this server connection
     * `state` (`"authenticating"`) — Server is waiting for OAuth authorization
     * `authUrl` (string) — OAuth authorization URL for user authentication
-  * When `state` is `"ready"`:
-
+  * When `state` is `"ready"`: 
     * `id` (string) — Unique identifier for this server connection
     * `state` (`"ready"`) — Server is fully connected and operational
 
@@ -1416,7 +1445,7 @@ For fine-grained control, use `this.mcp` directly:
 
 Note
 
-MCP server list broadcasts (`cf_agent_mcp_servers`) are automatically filtered to exclude connections where [`shouldSendProtocolMessages`](https://developers.cloudflare.com/agents/runtime/communication/protocol-messages/) returned `false`.
+MCP server list broadcasts (`cf_agent_mcp_servers`) are automatically filtered to exclude connections where [`shouldSendProtocolMessages`](https://developers.cloudflare.com/agents/agent-class/protocol-messages/) returned `false`.
 
 ### Lifecycle methods
 
@@ -1477,7 +1506,7 @@ Wait for all in-flight MCP connection and discovery operations to settle. This i
 
 Note
 
-`AIChatAgent` calls this automatically via its [`waitForMcpConnections`](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/#waitformcpconnections) property (defaults to `{ timeout: 10_000 }`). You only need `waitForConnections()` directly when using `Agent` with MCP, or when you want finer control inside `onChatMessage`.
+`AIChatAgent` calls this automatically via its [`waitForMcpConnections`](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/#waitformcpconnections) property (defaults to `{ timeout: 10_000 }`). You only need `waitForConnections()` directly when using `Agent` with MCP, or when you want finer control inside `onChatMessage`.
 
 #### `this.mcp.closeConnection()`
 
@@ -1596,19 +1625,19 @@ Use error detection utilities to handle connection errors:
 
 ## Next steps
 
-### [Creating MCP servers](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/)
+### [Creating MCP servers](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/)
 
-Build your own MCP server.
+Build your own MCP server with createMcpHandler.
 
-### [Client SDK](https://developers.cloudflare.com/agents/communication-channels/chat/client-sdk/)
+### [Client SDK](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/client-sdk/)
 
 Connect from browsers with onMcpUpdate.
 
-### [Store and sync state](https://developers.cloudflare.com/agents/runtime/lifecycle/state/)
+### [Store and sync state](https://developers.cloudflare.com/agents/agent-class/state/)
 
 Learn about agent persistence.
 
-[PreviousMcpAgent](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/)[NextTools](https://developers.cloudflare.com/agents/model-context-protocol/protocol/tools/)
+[PreviousMCP Server](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/)[NextMcpAgent (deprecated)](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/)
 
 Was this helpful?
 

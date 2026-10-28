@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/performance-review/cache-analytics/
 title: Cache Analytics \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:45.603565+00:00
+fetched_at: 2026-10-28T08:04:04.966058+00:00
 ---
 
 # Cache Analytics · Cloudflare Cache (CDN) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:45.603565+00:00
 
 # Cache Analytics
 
-Last updated Aug 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/performance-review/cache-analytics/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityAccess Cache AnalyticsRequests vs Data TransferAdd filtersReview cache statusReview requests by source Empty content types
 
@@ -61,6 +61,10 @@ To add filters, under **Cache Performance** , select **Add filter**. Select **Ap
 The **Requests summary** graph shows how your traffic changes over time, such as in response to a high-traffic event or a recent configuration change. The Requests summary is based on a sample of requests, not the full dataset. Totals are extrapolated from the sample to represent overall traffic. For more information on how sampling works, refer to [Understanding sampling in Cloudflare Analytics](https://developers.cloudflare.com/analytics/sampling/).
 
 **Served by Cloudflare** indicates content served by Cloudflare that did not require contacting your origin web server. **Served by Origin** indicates traffic served from the origin web server.
+
+Tip
+
+In Cache Analytics, **Served by Cloudflare** reflects cache hits. For the broader definition — which also covers Workers responses, [URL forwarding](https://developers.cloudflare.com/rules/url-forwarding/) redirects, and `/cdn-cgi/` endpoints — refer to [Security Analytics — Request activity](https://developers.cloudflare.com/waf/analytics/security-analytics/#request-activity).
 
 Revalidated requests — where Cloudflare checks with your origin to confirm cached content is still current — are counted differently depending on the view. In the **Data Transfer** view, revalidated requests count as **Served by Cloudflare** because the response body is served from cache, not re-downloaded from the origin. In the **Requests** view, revalidated requests count as **Served by Origin** because Cloudflare still contacts the origin server to verify the content.
 

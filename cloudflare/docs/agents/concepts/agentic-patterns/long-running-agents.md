@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/concepts/agentic-patterns/long-running-agents/
 title: Long-running agents \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:09.356773+00:00
+fetched_at: 2026-10-28T08:04:04.166419+00:00
 ---
 
 # Long-running agents · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Concepts
 
 # Long-running agents
 
-Last updated Aug 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/concepts/agentic-patterns/long-running-agents/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhy Cloudflare for long-running agentsThe lifecycle of a long-running agent What survives What does not surviveRunning example: a project manager agentWaking up: how agents get activatedStaying alive during long work When keepAlive is not enoughSurviving crashes: fibers and recoveryHandling long async operations Pattern: webhook callback Pattern: polling with schedule Pattern: workflow delegationReconstructing context after a long waitPlanning as a durability strategyDelegating to sub-agentsRecovering interrupted LLM streamsManaging state over time Housekeeping Conversation history managementEnd of lifeWhen to use Workflows vs agent-internal patternsSummaryRelated
 
@@ -146,7 +146,7 @@ Wake source | How it works | Example
 ---|---|---  
 **HTTP request** | Any request to the agent's URL triggers `onRequest()` | A webhook from GitHub  
 **WebSocket connection** | A client connects, triggering `onConnect()` | A team member opens the dashboard  
-**RPC call** | Another Worker or agent calls a method via [service binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) or [`@callable`](https://developers.cloudflare.com/agents/runtime/lifecycle/callable-methods/) | A coordinator agent delegates a task  
+**RPC call** | Another Worker or agent calls a method via [service binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) or [`@callable`](https://developers.cloudflare.com/agents/agent-class/callable-methods/) | A coordinator agent delegates a task  
 **Scheduled alarm** | A stored schedule fires, triggering your callback | Daily standup reminder at 9am  
 **Email** | An inbound email triggers `onEmail()` | A team member replies to a status email  
   
@@ -239,16 +239,16 @@ Duration | Strategy
 Seconds | Normal request handling  
 Minutes | `keepAlive()` / `keepAliveWhile()`  
 Minutes | `startFiber()` when retryable acceptance matters  
-Minutes to hours | [Workflows](https://developers.cloudflare.com/agents/runtime/execution/run-workflows/)  
+Minutes to hours | [Workflows](https://developers.cloudflare.com/agents/agent-class/run-workflows/)  
 Hours to days | Async pattern: start job, hibernate, wake on completion  
   
 ## Surviving crashes: fibers and recovery
 
 An agent can be evicted at any time — a deploy, a platform restart, or hitting resource limits. If the agent was mid-task, that work is lost unless it was checkpointed.
 
-[`runFiber()`](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/) provides crash-recoverable execution. It persists a row in SQLite for the duration of the work, and lets you `stash()` intermediate state. If the agent is evicted, the fiber row survives, and `onFiberRecovered()` is called on the next activation.
+[`runFiber()`](https://developers.cloudflare.com/agents/agent-class/durable-execution/) provides crash-recoverable execution. It persists a row in SQLite for the duration of the work, and lets you `stash()` intermediate state. If the agent is evicted, the fiber row survives, and `onFiberRecovered()` is called on the next activation.
 
-Use [`startFiber()`](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/#startfiber) when the important boundary is durable acceptance. It adds an idempotency key, retained status records, inspection, cancellation, and cleanup on top of the same fiber machinery. By default it returns after acceptance; pass `waitForCompletion: true` when the request should stay open until the accepted job reaches a terminal status. This is a good fit for webhooks where the provider may retry delivery and the agent must avoid starting duplicate visible side effects.
+Use [`startFiber()`](https://developers.cloudflare.com/agents/agent-class/durable-execution/#startfiber) when the important boundary is durable acceptance. It adds an idempotency key, retained status records, inspection, cancellation, and cleanup on top of the same fiber machinery. By default it returns after acceptance. Pass `waitForCompletion: true` when the request should stay open until the accepted job reaches a terminal status. This is a good fit for webhooks where the provider may retry delivery and the agent must avoid starting duplicate visible side effects.
     
     
     export class ProjectManager extends Agent<Env, ProjectState> {
@@ -286,7 +286,7 @@ Testing recovery locally
 
 In `wrangler dev`, fiber recovery works identically to production. Kill the wrangler process (Ctrl-C or SIGKILL), restart it, and recovery fires automatically. SQLite and alarm state persist to disk between restarts.
 
-For the full API reference — `FiberContext`, `FiberRecoveryContext`, concurrent fibers, inline vs fire-and-forget patterns — refer to [Durable Execution](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/).
+For the full API reference — `FiberContext`, `FiberRecoveryContext`, concurrent fibers, inline vs fire-and-forget patterns — refer to [Durable Execution](https://developers.cloudflare.com/agents/agent-class/durable-execution/).
 
 ## Handling long async operations
 
@@ -376,7 +376,7 @@ Not every external service supports callbacks. When the project manager submits 
 
 ### Pattern: workflow delegation
 
-A production deployment involves multiple steps that must each retry independently — build, test, stage, promote. The project manager should not manage these steps internally; it delegates to a [Workflow](https://developers.cloudflare.com/agents/runtime/execution/run-workflows/) that handles retries and step sequencing:
+A production deployment involves multiple steps that must each retry independently — build, test, stage, promote. The project manager should not manage these steps internally; it delegates to a [Workflow](https://developers.cloudflare.com/agents/agent-class/run-workflows/) that handles retries and step sequencing:
     
     
     export class ProjectManager extends Agent<Env, ProjectState> {
@@ -547,7 +547,7 @@ Sub-agents have their own state, schedules, durable fibers, and lifecycle. They 
 
 Because facets do not have independent alarm slots, the top-level parent owns the physical Durable Object alarm. The Agents SDK records which sub-agent owns each schedule or fiber recovery lease, wakes the parent, and routes the callback back into the child. The parent does not need to stay active while the sub-agent works — it can start the work, hibernate, and be woken by the child-owned schedule or recovery check.
 
-For the full `subAgent()` API — typed RPC stubs, client routing, access control, storage isolation, and alarm-backed APIs — refer to [Sub-agents](https://developers.cloudflare.com/agents/runtime/execution/sub-agents/). For AI-specific sub-agent streaming (running full LLM turns through a child agent), refer to [Think: Sub-agent RPC](https://developers.cloudflare.com/agents/harnesses/think/sub-agents/).
+For the full `subAgent()` API — typed RPC stubs, client routing, access control, storage isolation, and alarm-backed APIs — refer to [Sub-agents](https://developers.cloudflare.com/agents/agent-class/sub-agents/). For AI-specific sub-agent streaming (running full LLM turns through a child agent), refer to [Think: Sub-agent RPC](https://developers.cloudflare.com/agents/harnesses/think/sub-agents/).
 
 ## Recovering interrupted LLM streams
 
@@ -709,20 +709,20 @@ The agent does not need to run continuously to do any of this. It just needs to 
 
 ## Related
 
-  * [Durable Execution](https://developers.cloudflare.com/agents/runtime/execution/durable-execution/) — `runFiber()`, `startFiber()`, `stash()`, and crash recovery
-  * [Schedule tasks](https://developers.cloudflare.com/agents/runtime/execution/schedule-tasks/) — delayed, cron, and interval tasks
-  * [Retries](https://developers.cloudflare.com/agents/runtime/execution/retries/) — retry options and patterns
-  * [Workflows](https://developers.cloudflare.com/agents/runtime/execution/run-workflows/) — durable multi-step processing
-  * [Store and sync state](https://developers.cloudflare.com/agents/runtime/lifecycle/state/) — `setState()` and persistence
-  * [WebSockets](https://developers.cloudflare.com/agents/runtime/communication/websockets/) — lifecycle hooks and hibernation
-  * [Callable methods](https://developers.cloudflare.com/agents/runtime/lifecycle/callable-methods/) — RPC via `@callable` and service bindings
-  * [Email routing](https://developers.cloudflare.com/agents/communication-channels/email/) — receiving inbound email
-  * [Webhooks](https://developers.cloudflare.com/agents/communication-channels/webhooks/) — receiving external events
+  * [Durable Execution](https://developers.cloudflare.com/agents/agent-class/durable-execution/) — `runFiber()`, `startFiber()`, `stash()`, and crash recovery
+  * [Schedule tasks](https://developers.cloudflare.com/agents/agent-class/schedule-tasks/) — delayed, cron, and interval tasks
+  * [Retries](https://developers.cloudflare.com/agents/agent-class/retries/) — retry options and patterns
+  * [Workflows](https://developers.cloudflare.com/agents/agent-class/run-workflows/) — durable multi-step processing
+  * [Store and sync state](https://developers.cloudflare.com/agents/agent-class/state/) — `setState()` and persistence
+  * [WebSockets](https://developers.cloudflare.com/agents/agent-class/websockets/) — lifecycle hooks and hibernation
+  * [Callable methods](https://developers.cloudflare.com/agents/agent-class/callable-methods/) — RPC via `@callable` and service bindings
+  * [Email routing](https://developers.cloudflare.com/agents/agent-class/communication-channels/email/) — receiving inbound email
+  * [Webhooks](https://developers.cloudflare.com/agents/agent-class/communication-channels/webhooks/) — receiving external events
   * [Human in the loop](https://developers.cloudflare.com/agents/concepts/agentic-patterns/human-in-the-loop/) — approval flows
 
 
 
-[PreviousHuman-in-the-loop patterns](https://developers.cloudflare.com/agents/concepts/agentic-patterns/human-in-the-loop/)[NextChat agents](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/)
+[PreviousHuman-in-the-loop patterns](https://developers.cloudflare.com/agents/concepts/agentic-patterns/human-in-the-loop/)[NextFile system](https://developers.cloudflare.com/agents/tools/filesystem/)
 
 Was this helpful?
 

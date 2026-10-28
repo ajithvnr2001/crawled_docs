@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/platform/limits/
 title: Limits \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:17.318093+00:00
+fetched_at: 2026-10-28T08:04:00.875937+00:00
 ---
 
 # Limits · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:17.318093+00:00
 
 # Limits
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Limits that apply to authoring, deploying, and running Agents are detailed below.
 
@@ -44,12 +44,12 @@ To request an adjustment to a limit, complete the [Limit Increase Request Form �
 
   2. You can deploy up to [500 scripts per account](https://developers.cloudflare.com/workers/platform/limits/), but each script (project) can define multiple Agents. Each deployed script can be up to 10 MB on the [Workers Paid Plan](https://developers.cloudflare.com/workers/platform/pricing/#workers) ↩
 
-  3. Compute (CPU) time per Agent is limited to 30 seconds, but this is refreshed when an Agent receives a new HTTP request, runs a [scheduled task](https://developers.cloudflare.com/agents/runtime/execution/schedule-tasks/), or an incoming WebSocket message. ↩ ↩2
+  3. Compute (CPU) time per Agent is limited to 30 seconds, but this is refreshed when an Agent receives a new HTTP request, runs a [scheduled task](https://developers.cloudflare.com/agents/agent-class/schedule-tasks/), or an incoming WebSocket message. ↩ ↩2
 
 
 
 
-[PreviousCode Mode MCP server patterns](https://developers.cloudflare.com/agents/model-context-protocol/codemode/)
+[PreviousCloudflare Community MCP Server](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/community-mcp-server/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/api-shield/security/
 title: Security \u00b7 Cloudflare API Shield docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:18.049105+00:00
+fetched_at: 2026-10-28T08:03:56.269920+00:00
 ---
 
 # Security · Cloudflare API Shield docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:05:18.049105+00:00
 
 # Security
 
-Last updated Aug 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/api-shield/security/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExample Cloudflare solutions
 
@@ -37,7 +37,7 @@ Discovery & management | Posture management | Runtime protection
   
 ## Example Cloudflare solutions
 
-Cloudflare API Shield, together with other Cloudflare products, helps protect your API from the [OWASP API Security Top 10 ↗︎](https://owasp.org/www-project-api-security/). These are the most common API security risks, ranging from unauthorized data access to denial of service.
+Cloudflare API Shield, together with other Cloudflare products, helps protect your API from the [OWASP API Security Top 10 ↗︎](https://api-security.owasp.org/). These are the most common API security risks, ranging from unauthorized data access to denial of service.
 
 The following table maps each OWASP vulnerability to the Cloudflare features that address it:
 

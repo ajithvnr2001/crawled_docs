@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/codemode/browser/
 title: Browser integration \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:08.966847+00:00
+fetched_at: 2026-10-28T08:03:58.664576+00:00
 ---
 
 # Browser integration · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Tools
 
 # Browser integration
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/codemode/browser/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall Code ModeAdd Code Mode to an Agent chat UIIframe execution and securityApproval constraints
 
@@ -336,7 +336,7 @@ The timeout cannot interrupt a tight synchronous loop such as `while (true) {}`.
 
 `createBrowserCodeTool()` excludes any tool whose `needsApproval` value is `true` or a function. Code Mode does not pause iframe execution to request approval for those tools.
 
-Keep approval-gated actions outside the Code Mode descriptor. Register them as standard tools and use the [`useAgentChat()` approval flow](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/#tool-approval-human-in-the-loop) instead.
+Keep approval-gated actions outside the Code Mode descriptor. Register them as standard tools and use the [`useAgentChat()` approval flow](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/#tool-approval-human-in-the-loop) instead.
 
 [PreviousUse Code Mode with TanStack AI](https://developers.cloudflare.com/agents/tools/codemode/tanstack-ai/)[NextMCP](https://developers.cloudflare.com/agents/tools/codemode/mcp/)
 

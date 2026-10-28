@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/concepts/workflows/
 title: Using Agents with Workflows \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:09.888101+00:00
+fetched_at: 2026-10-28T08:04:02.965721+00:00
 ---
 
 # Using Agents with Workflows · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:09.888101+00:00
 
 # Using Agents with Workflows
 
-Last updated Jul 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/concepts/workflows/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat are Workflows? Agents vs. Workflows When to use eachHow Agents and Workflows communicate Workflow to Agent Agent to WorkflowDurable vs. non-durable operations Non-durable (may repeat on retry) Durable (idempotent, won't repeat)Durability guaranteesWorkflow trackingCommon patterns Background processing with progress Human-in-the-loop approval Resilient external API calls State synchronizationRelated resources
 
@@ -232,7 +232,7 @@ A Workflow updates Agent state at key milestones using `step.updateAgentState()`
 
 ## Related resources
 
-### [Run Workflows API](https://developers.cloudflare.com/agents/runtime/execution/run-workflows/)
+### [Run Workflows API](https://developers.cloudflare.com/agents/agent-class/run-workflows/)
 
 Implementation details for agent workflows.
 

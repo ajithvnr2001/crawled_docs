@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/concepts/agentic-patterns/human-in-the-loop/
 title: Human-in-the-loop patterns \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:36.104569+00:00
+fetched_at: 2026-10-28T08:04:03.786063+00:00
 ---
 
 # Human-in-the-loop patterns · Cloudflare Agents docs
@@ -22,7 +22,7 @@ Concepts
 
 # Human-in-the-loop patterns
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhy human-in-the-loop? Common use casesChoosing a patternWorkflow-based approval Basic pattern Agent methods for approval Timeout handling Escalation with scheduling Audit trail with SQL ConfigurationMCP elicitationDurable Code Mode approvalsBuild Workflow approval UIs Pending approvals listAdd multiple Workflow approversBest practicesNext steps
 
@@ -481,7 +481,7 @@ Use `this.sql` to maintain an immutable audit trail:
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-10-27",
     	"compatibility_flags": ["nodejs_compat"],
     	"durable_objects": {
     		"bindings": [{ "name": "EXPENSE_AGENT", "class_name": "ExpenseAgent" }],
@@ -501,7 +501,7 @@ Use `this.sql` to maintain an immutable audit trail:
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-27"
     compatibility_flags = [ "nodejs_compat" ]
     
     [[durable_objects.bindings]]
@@ -548,7 +548,7 @@ Configure the user-facing handlers in `onStart()`:
     
     
     import { Agent } from "agents";
-    import type { ElicitRequest, ElicitResult } from "agents/mcp";
+    import type { ElicitRequest, ElicitResult } from "agents/mcp/client";
     
     export class MyAgent extends Agent<Env> {
     	onStart() {
@@ -571,7 +571,7 @@ Configure the user-facing handlers in `onStart()`:
     	}
     }
 
-For the complete form, URL, and browser forwarding patterns, refer to [MCP client elicitation](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/#elicitation). For the server-side request API, refer to [McpAgent elicitation](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/#elicitation).
+For the complete form, URL, and browser forwarding patterns, refer to [MCP client elicitation](https://developers.cloudflare.com/agents/model-context-protocol/apis/client-api/#elicitation). For the server side, refer to [Elicitation with a stateless handler](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/#elicitation-with-a-stateless-handler).
 
 ## Durable Code Mode approvals
 
@@ -888,7 +888,7 @@ For sensitive operations requiring multiple approvers:
 
 ## Next steps
 
-### [Run Workflows](https://developers.cloudflare.com/agents/runtime/execution/run-workflows/)
+### [Run Workflows](https://developers.cloudflare.com/agents/agent-class/run-workflows/)
 
 Complete waitForApproval() API reference.
 
@@ -896,7 +896,7 @@ Complete waitForApproval() API reference.
 
 Handle elicitation requests in an Agent acting as an MCP client.
 
-### [MCP servers](https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/)
+### [MCP servers](https://developers.cloudflare.com/agents/model-context-protocol/apis/handler-api/)
 
 Request form or URL elicitation from an MCP server.
 

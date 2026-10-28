@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/
 title: Cloudflare's own MCP servers \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:03.919503+00:00
+fetched_at: 2026-10-28T08:04:06.542532+00:00
 ---
 
 # Cloudflare's own MCP servers · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-23T16:40:03.919503+00:00
 
 # Cloudflare's own MCP servers
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare API MCP server Connect to the Cloudflare API MCP server Install via agent and IDE pluginsProduct-specific MCP servers
 
@@ -38,7 +38,7 @@ The [Cloudflare API MCP server ↗︎](https://github.com/cloudflare/mcp) at `ht
 
 The server provides the `search()` and `execute()` tools to find and call API endpoints, and the `docs()` tool to search Cloudflare developer documentation.
 
-It uses [the search-and-execute Code Mode pattern](https://developers.cloudflare.com/agents/model-context-protocol/codemode/#search-and-execute), a technique where the model writes JavaScript against a typed representation of the OpenAPI spec and the Cloudflare API client, rather than loading individual tool definitions for each endpoint. The generated code runs inside an isolated [Dynamic Worker](https://developers.cloudflare.com/dynamic-workers/) sandbox.
+It uses [the search-and-execute Code Mode pattern](https://developers.cloudflare.com/agents/model-context-protocol/guides/build-codemode-mcp-server/#publish-a-large-api-with-search-and-execute), a technique where the model writes JavaScript against a typed representation of the OpenAPI spec and the Cloudflare API client, rather than loading individual tool definitions for each endpoint. The generated code runs inside an isolated [Dynamic Worker](https://developers.cloudflare.com/dynamic-workers/) sandbox.
 
 This approach uses approximately 1,000 tokens regardless of how many API endpoints exist. An equivalent MCP server that exposed every endpoint as a native tool would consume over 1 million tokens — more than the entire context window of most foundation models.
 

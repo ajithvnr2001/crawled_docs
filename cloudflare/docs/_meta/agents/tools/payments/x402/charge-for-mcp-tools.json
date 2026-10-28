@@ -3,8 +3,5 @@
   "file": "agents/tools/payments/x402/charge-for-mcp-tools.md",
   "title": "Charge for MCP tools \u00b7 Cloudflare Agents docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:04:25.063096+00:00",
-  "html_len": 132013,
-  "md_len": 4165,
-  "depth": 0
+  "fetched_at": "2026-10-28T08:03:54.739313+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/concepts/calling-llms/
 title: Calling LLMs \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:11.498793+00:00
+fetched_at: 2026-10-28T08:04:03.470634+00:00
 ---
 
 # Calling LLMs · Cloudflare Agents docs
@@ -18,17 +18,17 @@ fetched_at: 2026-10-23T16:40:11.498793+00:00
 
 # Calling LLMs
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/concepts/calling-llms/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewState as contextSurviving disconnectionsAutonomous model callsMulti-model pipelinesCaching and cost controlNext steps
 
 Agents change how you work with LLMs. In a stateless Worker, every request starts from scratch — you reconstruct context, call a model, return the response, and forget everything. An Agent keeps state between calls, stays connected to clients over WebSocket, and can call models on its own schedule without a user present.
 
-This page covers the patterns that become possible when your LLM calls happen inside a stateful Agent. For provider setup and code examples, refer to [Using AI Models](https://developers.cloudflare.com/agents/runtime/operations/using-ai-models/).
+This page covers the patterns that become possible when your LLM calls happen inside a stateful Agent. For provider setup and code examples, refer to [Using AI Models](https://developers.cloudflare.com/agents/agent-class/using-ai-models/).
 
 ## State as context
 
-Every Agent has a built-in [SQL database](https://developers.cloudflare.com/agents/runtime/lifecycle/state/) and key-value state. Instead of passing an entire conversation history from the client on every request, the Agent stores it and builds prompts from its own storage.
+Every Agent has a built-in [SQL database](https://developers.cloudflare.com/agents/agent-class/state/) and key-value state. Instead of passing an entire conversation history from the client on every request, the Agent stores it and builds prompts from its own storage.
     
     
     import { Agent } from "agents";
@@ -126,7 +126,7 @@ An Agent keeps running after the client disconnects. When the response arrives, 
     	}
     }
 
-With [`AIChatAgent`](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/), this is handled automatically — messages are persisted to SQLite and streams resume on reconnect.
+With [`AIChatAgent`](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/), this is handled automatically — messages are persisted to SQLite and streams resume on reconnect.
 
 ## Autonomous model calls
 
@@ -312,19 +312,19 @@ For provider-level caching and rate limit management across multiple agents, use
 
 ## Next steps
 
-### [Using AI Models](https://developers.cloudflare.com/agents/runtime/operations/using-ai-models/)
+### [Using AI Models](https://developers.cloudflare.com/agents/agent-class/using-ai-models/)
 
 Provider setup, streaming, and code examples for Workers AI, OpenAI, Anthropic, and more.
 
-### [Chat agents](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/)
+### [Chat agents](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/)
 
 AIChatAgent handles message persistence, resumable streaming, and tools automatically.
 
-### [Store and sync state](https://developers.cloudflare.com/agents/runtime/lifecycle/state/)
+### [Store and sync state](https://developers.cloudflare.com/agents/agent-class/state/)
 
 SQL database and key-value state APIs for building context and caching.
 
-### [Schedule tasks](https://developers.cloudflare.com/agents/runtime/execution/schedule-tasks/)
+### [Schedule tasks](https://developers.cloudflare.com/agents/agent-class/schedule-tasks/)
 
 Run autonomous model calls on a delay, schedule, or cron.
 

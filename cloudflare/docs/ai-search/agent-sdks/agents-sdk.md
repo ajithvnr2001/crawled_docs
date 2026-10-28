@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/agent-sdks/agents-sdk/
 title: Agents SDK \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:09.239427+00:00
+fetched_at: 2026-10-28T08:03:58.014513+00:00
 ---
 
 # Agents SDK · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-23T16:40:09.239427+00:00
 
 # Agents SDK
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/agent-sdks/agents-sdk/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create a Worker project2\. Install the Agents SDK packages3\. Bind your Worker to AI Search4\. Write the agent How the tools work5\. Test it locally6\. DeployNext steps
 
@@ -101,7 +101,7 @@ Replace your [Wrangler configuration file](https://developers.cloudflare.com/wor
       "main": "src/server.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-23",
+      "compatibility_date": "2026-10-27",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -138,7 +138,7 @@ Replace your [Wrangler configuration file](https://developers.cloudflare.com/wor
     main = "src/server.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-10-27"
     compatibility_flags = ["nodejs_compat"]
     
     [ai]
@@ -409,7 +409,7 @@ Generate types and start the development server:
     npx wrangler types
     npm run dev
 
-`AIChatAgent` speaks its chat protocol over a WebSocket, so drive it from a chat client rather than a plain `curl` request. The quickest way is to point a UI built with the Agents SDK [`useAgentChat`](https://developers.cloudflare.com/agents/communication-channels/chat/chat-agents/) hook at your local server.
+`AIChatAgent` speaks its chat protocol over a WebSocket, so drive it from a chat client rather than a plain `curl` request. The quickest way is to point a UI built with the Agents SDK [`useAgentChat`](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/) hook at your local server.
 
 Send a message such as `How do I get started?`. On the first message, the agent creates and seeds the instance, so the first response can take a minute or two while the seed document indexes.
 

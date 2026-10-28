@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/how-to/human-in-the-loop-knowledge-base/
 title: Human-in-the-loop knowledge base updates \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:34.298431+00:00
+fetched_at: 2026-10-28T08:03:58.230993+00:00
 ---
 
 # Human-in-the-loop knowledge base updates · Cloudflare AI Search docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:34.298431+00:00
 
 # Human-in-the-loop knowledge base updates
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat you will buildPrerequisitesHow it works1\. Create a Worker project2\. Configure Wrangler3\. Create the AI Search connector4\. Build the agent5\. Deploy6\. Try the approval and rollback flowWhat you builtNext steps
 
@@ -129,7 +129,7 @@ Replace your [Wrangler configuration file](https://developers.cloudflare.com/wor
       "main": "src/server.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-13",
+      "compatibility_date": "2026-10-27",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -171,7 +171,7 @@ Replace your [Wrangler configuration file](https://developers.cloudflare.com/wor
     main = "src/server.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-10-27"
     compatibility_flags = ["nodejs_compat"]
     
     [ai]
@@ -632,7 +632,7 @@ The model receives one `codemode` tool. When you ask it to find and save content
 
 `aiSearch.search()` runs immediately. When the program reaches `aiSearch.saveDocument()`, the runtime records the call as pending and pauses the execution before the upload runs.
 
-Your client sends the chat message that starts the run, then drives the approval with the `@callable()` methods. The following script uses the [Agents SDK client](https://developers.cloudflare.com/agents/communication-channels/chat/client-sdk/) to do both. Save it as `client.mjs`, set `HOST` to your deployed Worker, and run it with `node client.mjs`:
+Your client sends the chat message that starts the run, then drives the approval with the `@callable()` methods. The following script uses the [Agents SDK client](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/client-sdk/) to do both. Save it as `client.mjs`, set `HOST` to your deployed Worker, and run it with `node client.mjs`:
 
 client.mjsjs
     

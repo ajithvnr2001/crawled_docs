@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/stream/pricing/
 title: Pricing \u00b7 Cloudflare Stream docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:06.420287+00:00
+fetched_at: 2026-10-28T08:03:56.120274+00:00
 ---
 
 # Pricing · Cloudflare Stream docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-15T14:53:06.420287+00:00
 
 # Pricing
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPricing for Stream Minutes of video stored Minutes of video delivered Example scenariosPricing for Media Transformations
 
@@ -80,7 +80,7 @@ Delivery is a post-paid, usage-based pricing dimension billed at $1 per 1,000 mi
 Delivery is counted for the following uses:
 
   * Playback using [Stream's built-in player](https://developers.cloudflare.com/stream/viewing-videos/using-the-stream-player/) or the [HLS or DASH manifests](https://developers.cloudflare.com/stream/viewing-videos/using-own-player/)
-  * [WebRTC (WHEP)](https://developers.cloudflare.com/stream/webrtc-beta/) playback
+  * [WebRTC (WHEP)](https://developers.cloudflare.com/stream/webrtc/) playback
   * MP4 Downloads
   * Simulcasting via SRT or RTMP live outputs
 

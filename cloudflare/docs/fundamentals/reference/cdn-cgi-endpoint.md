@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/cdn-cgi-endpoint/
 title: /cdn-cgi/ endpoint \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:37.224111+00:00
+fetched_at: 2026-10-28T08:04:04.720460+00:00
 ---
 
 # /cdn-cgi/ endpoint · Cloudflare Fundamentals docs
@@ -18,13 +18,17 @@ fetched_at: 2026-10-13T08:48:37.224111+00:00
 
 # /cdn-cgi/ endpoint
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRecommended exclusions Exclude from security scanners Disallow using robots.txt
 
 When you [add a domain to Cloudflare](https://developers.cloudflare.com/fundamentals/manage-domains/add-site/), Cloudflare adds a `/cdn-cgi/` endpoint (`www.example.com/cdn-cgi/`) to that domain.
 
 This endpoint is managed and served by Cloudflare. It cannot be modified or customized. The endpoint is not used by every Cloudflare product, but you may find some products use the endpoint in its URL.
+
+Note
+
+Traffic to `/cdn-cgi/` endpoints is classified as **Served by Cloudflare** in [Security Analytics](https://developers.cloudflare.com/waf/analytics/security-analytics/#request-activity).
 
 A few examples include (but are not limited to):
 

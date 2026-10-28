@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/reusable-components/custom-pages/access-block-page/
 title: Access custom block pages \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:47.274247+00:00
+fetched_at: 2026-10-28T08:03:53.979060+00:00
 ---
 
 # Access custom block pages · Cloudflare One docs
@@ -22,9 +22,13 @@ Reusable components
 
 # Access custom block pages
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/reusable-components/custom-pages/access-block-page/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewTypes of block pages Identity versus non-identityCreate a custom block page
+OverviewTypes of block pages Custom redirect URL parameters Identity versus non-identityCreate a custom block page
+
+Access custom pages
+
+To customize login, denial, and command-line approval pages with HTML and Liquid, follow [Access custom pages](https://developers.cloudflare.com/cloudflare-one/reusable-components/custom-pages/access-custom-pages/). This article describes legacy block-page templates.
 
 You can customize the block page that displays when users fail to authenticate to an Access application. Each application can have a different block page.
 
@@ -41,6 +45,25 @@ Cloudflare Access offers three different block page options:
   * **Custom Page Template** \- (Only available on Pay-as-you-go and Enterprise plans) Displays a [custom HTML page](https://developers.cloudflare.com/cloudflare-one/reusable-components/custom-pages/access-block-page/#create-a-custom-block-page) hosted by Cloudflare.
 
 
+
+### Custom redirect URL parameters
+
+When Access redirects a blocked request to your **Custom Redirect URL** , it includes these query parameters:
+
+Parameter | Description  
+---|---  
+`kid` | The application audience (AUD) tag.  
+`account_id` | The Cloudflare account ID that owns the application. Omitted when account context is unavailable.  
+`original_url` | The requested hostname and path, including any query string. Included when request state is available.  
+  
+For example, a request to `app.example.com/admin` can redirect to:
+    
+    
+    https://denied.example.com/?kid=<APP_AUD>&account_id=<ACCOUNT_ID>&original_url=app.example.com%2Fadmin
+
+Use `account_id` to identify the account when looking up the application through the [Access applications API](https://developers.cloudflare.com/api/resources/zero_trust/subresources/access/subresources/applications/methods/list/). Match `kid` to the application's AUD tag, not its application ID.
+
+These parameters provide context for your block page. Do not use them as proof of authentication or authorization: a visitor can modify URL query parameters.
 
 ### Identity versus non-identity
 
@@ -89,7 +112,7 @@ To create a custom block page for Access:
 
 You can now select this block page when you [configure an Access application](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/).
 
-[PreviousAccess login page](https://developers.cloudflare.com/cloudflare-one/reusable-components/custom-pages/access-login-page/)[NextOverview](https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/)
+[PreviousAccess login page](https://developers.cloudflare.com/cloudflare-one/reusable-components/custom-pages/access-login-page/)[NextAccess custom pages](https://developers.cloudflare.com/cloudflare-one/reusable-components/custom-pages/access-custom-pages/)
 
 Was this helpful?
 

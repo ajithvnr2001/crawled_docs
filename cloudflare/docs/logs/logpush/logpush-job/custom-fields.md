@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/logs/logpush/logpush-job/custom-fields/
 title: Custom fields \u00b7 Cloudflare Logs docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:11.183033+00:00
+fetched_at: 2026-10-28T08:03:55.973653+00:00
 ---
 
 # Custom fields · Cloudflare Logs docs
@@ -22,13 +22,15 @@ fetched_at: 2026-10-08T07:12:11.183033+00:00
 
 # Custom fields
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/logs/logpush/logpush-job/custom-fields/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEnable custom rules via API 1\. Create a rule to configure the list of custom fields 2\. Include the custom fields in your Logpush jobEnable custom fields via dashboardUse case: Logging mTLS certificate headersLimitations
 
 The HTTP requests dataset includes most standard log information by default. However, if you need to capture additional request or response headers or cookies, you can use custom fields to tailor the logs to your specific needs
 
-Custom fields are configured per zone and, once set up, are enabled for all Logpush jobs in that zone that use the HTTP requests dataset and include the request headers, response headers, or cookie fields. You can log these fields in their raw form or as transformed values.
+Custom fields are configured per zone. They apply to all HTTP requests Logpush jobs that process the zone, including account-scoped jobs. The job must include the request headers, response headers, or cookie fields. You can log these fields in their raw form or as transformed values.
+
+Account-scoped jobs honor the custom fields configuration for each zone. You cannot configure custom fields once for every zone in an account.
 
 By default:
 
@@ -43,7 +45,7 @@ Custom fields can be enabled via API or the Cloudflare dashboard.
 
 Note
 
-Custom fields are only available for the [HTTP requests dataset](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/http_requests/).
+Custom fields are only available for the HTTP requests dataset. They apply to [account-scoped](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/http_requests/) and [zone-scoped](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/http_requests/) jobs.
 
 Note
 
