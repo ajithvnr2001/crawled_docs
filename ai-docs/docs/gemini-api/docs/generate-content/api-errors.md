@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/generate-content/api-errors/
 title: API errors
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T08:36:44.252567+00:00
+fetched_at: 2026-10-28T10:18:57.348422+00:00
 ---
 
 # API errors
@@ -17,7 +17,7 @@ The following table lists common backend error codes, explanations for their cau
 
 **HTTP Code** | **Status** | **Description** | **Example** | **Solution**  
 ---|---|---|---|---  
-400  | INVALID_ARGUMENT | The request body is malformed. | There is a typo, or a missing required field in your request. | Check the [API reference](https://ai.google.dev/api) for request format, examples, and supported versions. Using features from a newer API version with an older endpoint can cause errors.  
+400  | INVALID_ARGUMENT | The request body is malformed. | There is a typo, or a missing required field in your request. | Check the [API reference](https://ai.google.dev/api/generate-content) for request format, examples, and supported versions. Using features from a newer API version with an older endpoint can cause errors.  
 400  | FAILED_PRECONDITION | Gemini API free tier is not available in your country. Please enable billing on your project in Google AI Studio. | You are making a request in a region where the free tier is not supported, and you have not enabled billing on your project in Google AI Studio. | To use the Gemini API, you will need to setup a paid plan using [Google AI Studio](https://aistudio.google.com/apikey).  
 402  | RESOURCE_EXHAUSTED | Your Prepay credit balance is depleted. | Your billing account has run out of Prepay credits, so every API key linked to that billing account stops working. | [Add credits](https://ai.google.dev/gemini-api/docs/billing#buy-credits) to your billing account, or turn on [auto-reload](https://ai.google.dev/gemini-api/docs/billing#auto-reload). Don't retry this request: it won't succeed until credits are added.  
 403  | PERMISSION_DENIED | Your API key doesn't have the required permissions, or your project's API access is restricted. | You are using the wrong or a leaked API key, your project is not eligible for the free tier, your billing account has an outstanding balance, or you are trying to use a tuned model without going through [proper authentication](https://ai.google.dev/gemini-api/docs/model-tuning). | Check that your API key is valid and active, verify your project's billing and tier status in [Google AI Studio](https://aistudio.google.com/billing), or see [Troubleshoot project restricted or unavailable](https://ai.google.dev/gemini-api/docs/troubleshooting#project-unavailable).  

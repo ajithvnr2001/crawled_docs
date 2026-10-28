@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/troubleshooting/
 title: Troubleshooting guide
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:39.926670+00:00
+fetched_at: 2026-10-28T10:18:56.180602+00:00
 ---
 
 # Troubleshooting guide
@@ -44,10 +44,10 @@ Verify that your model parameters are within the following values:
 
 **Model parameter** | **Values (range)**  
 ---|---  
-Candidate count  | 1-8 (integer)  
-Temperature  | 0.0-1.0  
+Candidate count  | 1-8 (integer, unsupported on Gemini 3 and 4)  
+Temperature  |  0.0-1.0 (ignored on Gemini 3.6+ and 4; keep at default on earlier Gemini 3 models)   
 Max output tokens  |  Use the [models page](https://ai.google.dev/gemini-api/docs/models) to determine the maximum number of tokens for the model you are using.   
-TopP  | 0.0-1.0  
+TopP  |  0.0-1.0 (ignored on Gemini 3.6+ and 4; keep at default on earlier Gemini 3 models)   
   
 In addition to checking parameter values, make sure you're using the correct [API version](https://ai.google.dev/gemini-api/docs/api-versions) (e.g., `/v1` or `/v1beta`) and model that supports the features you need. For example, if a feature is in Beta release, it will only be available in the `/v1beta` API version.
 
@@ -73,13 +73,13 @@ If you see `BlockedReason.OTHER`, the query or response may violate the [terms o
 
 ## Recitation issue
 
-If you see the model stops generating output due to the RECITATION reason, this means the model output may resemble certain data. To fix this, try to make prompt / context as unique as possible and use a higher temperature.
+If you see the model stops generating output due to the RECITATION reason, this means the model output may resemble certain data. To fix this, try to make prompt / context as unique as possible. For earlier models that support sampling parameters, you can also use a higher temperature.
 
 ## Repetitive tokens issue
 
-If you see repeated output tokens, try the following suggestions to help reduce or eliminate them.
+If you see repeated output tokens, try the following suggestions to help reduce or eliminate them. Temperature adjustments apply only to earlier models that support sampling parameters; for Gemini 3 and Gemini 4 models, use the prompt and system instruction workarounds instead.
 
-Description | Cause | Suggested workaround | Repeated hyphens in Markdown tables |  This can occur when the contents of the table are long as the model tries to create a visually aligned Markdown table. However, the alignment in Markdown is not necessary for correct rendering.  |  Add instructions in your prompt to give the model specific guidelines for generating Markdown tables. Provide examples that follow those guidelines. You can also try adjusting the temperature. For generating code or very structured output like Markdown tables, high temperature have shown to work better (>= 0.8). The following is an example set of guidelines you can add to your prompt to prevent this issue: 
+Description | Cause | Suggested workaround | Repeated hyphens in Markdown tables |  This can occur when the contents of the table are long as the model tries to create a visually aligned Markdown table. However, the alignment in Markdown is not necessary for correct rendering.  |  Add instructions in your prompt to give the model specific guidelines for generating Markdown tables. Provide examples that follow those guidelines. For earlier models that support sampling parameters, you can also try adjusting the temperature (>= 0.8). The following is an example set of guidelines you can add to your prompt to prevent this issue: 
     
     
               # Markdown Table Format
@@ -119,7 +119,7 @@ Repeated tokens in Markdown tables  |  Similar to the repeated hyphens, this occ
         FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.
                   
 
-  * Try adjusting the temperature. Higher temperatures (>= 0.8) generally helps to eliminate repetitions or duplication in the output. 
+  * For earlier models that support sampling parameters, try a higher temperature (>= 0.8) to reduce repetitions in the output. 
 
   
 Repeated newlines (`\n`) in structured output  |  When the model input contains unicode or escape sequences like `\u` or `\t`, it can lead to repeated newlines.  | 
@@ -149,7 +149,7 @@ Repetitive tool calling  |  This can occur if the model loses the context of pre
 Repetitive text that's not part of structured output  |  This can occur if the model gets stuck on a request that it can't resolve.  | 
 
   * If thinking is turned on, avoid giving explicit orders for how to think through a problem in the instructions. Just ask for the final output. 
-  * Try a higher temperature >= 0.8. 
+  * For earlier models that support sampling parameters, try a higher temperature >= 0.8. 
   * Add instructions like "Be concise", "Don't repeat yourself", or "Provide the answer once". 
 
   

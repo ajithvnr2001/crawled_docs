@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/models/
 title: Models
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:00:03.424200+00:00
+fetched_at: 2026-10-28T10:18:40.521827+00:00
 ---
 
 # Models
@@ -47,7 +47,7 @@ The request body must be empty.
     
     client = genai.Client()
     model_info = client.models.get(model="gemini-3.8-flash")
-    print(model_info)[models.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/models.py#L41-L45)
+    print(model_info)[models.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/models.py#L41-L45)
 
 ### Go
     
@@ -66,7 +66,7 @@ The request body must be empty.
     	log.Fatal(err)
     }
     
-    fmt.Println(modelInfo)[models.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/models.go#L54-L68)
+    fmt.Println(modelInfo)[models.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/models.go#L54-L68)
 
 ### Shell
     
@@ -122,7 +122,7 @@ The request body must be empty.
     for m in client.models.list():
       for action in m.supported_actions:
         if action == "embedContent":
-          print(m.name)[models.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/models.py#L22-L36)
+          print(m.name)[models.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/models.py#L22-L36)
 
 ### Go
     
@@ -160,7 +160,7 @@ The request body must be empty.
     			break
     		}
     	}
-    }[models.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/models.go#L14-L47)
+    }[models.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/models.go#L14-L47)
 
 ### Shell
     

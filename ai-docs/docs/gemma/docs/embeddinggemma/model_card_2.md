@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemma/docs/embeddinggemma/model_card_2/
 title: EmbeddingGemma 2 model card
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:45:48.068169+00:00
+fetched_at: 2026-10-28T10:18:42.031511+00:00
 ---
 
 # EmbeddingGemma 2 model card
@@ -11,7 +11,7 @@ fetched_at: 2026-10-23T11:45:48.068169+00:00
 
 ![](https://ai.google.dev/static/gemma/images/embeddinggemma2_banner.png)
 
-[Hugging Face](https://huggingface.co/google/embeddinggemma-2) | [GitHub](https://github.com/google-gemma) | [Launch Blog](https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2) | [Documentation](https://ai.google.dev/gemma/docs/embeddinggemma) |   
+[Hugging Face](https://huggingface.co/google/embeddinggemma-2) | [GitHub](https://github.com/google-gemma) | [Launch Blog](https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2) | [Documentation](https://ai.google.dev/gemma/docs/embeddinggemma) | [Technical Report](https://arxiv.org/abs/2610.37364)   
 **License** : [Apache 2.0](https://ai.google.dev/gemma/docs/gemma_4_license) | **Authors** : [Google DeepMind](https://deepmind.google/models/gemma/)
 
 **EmbeddingGemma 2** is an open multimodal embedding model built by Google DeepMind which maps text (incl. code), images, video, and audio inputs—and combinations thereof—into a single, unified 768-dimensional vector space. The model has 740M total parameters, combining a 270M parameter text model with modular vision (170M) and audio (300M) encoders.
@@ -63,12 +63,12 @@ Modality | Benchmark | Metric | EmbeddingGemma 2 | EmbeddingGemma 1
 ---|---|---|---|---  
 _Text_ | Massive Text Embedding Benchmark (MTEB, multilingual, v2) | Mean(Task), Multiple | 61.36 | 61.15  
 | Massive Text Embedding Benchmark (MTEB, code, v1) | Mean(Task), NDCG@10 | 78.68 | 68.76  
-_Image_ | Massive Image Embedding Benchmark (MIEB, lite) | Mean(TaskType), Multiple | 64.64 | -  
+_Image_ | Massive Image Embedding Benchmark (MIEB, lite) | Mean(TaskType), Multiple | 65.67 | -  
 | Massive Multimodal Embedding Benchmark (MMEB v2 - Image) | Mean(Task), Hit@1 | 57.28 | -  
 | Massive Multimodal Embedding Benchmark (MMEB v2 - VisDoc) | Mean(Task), NDCG@5 | 67.84 | -  
 _Video_ | Massive Multimodal Embedding Benchmark (MMEB v2 - Video) | Mean(Task), Hit@1 | 50.67 | -  
 _Audio_ | Massive Sound Embedding Benchmark (MSEB, Retrieval) | Mean(Task), MRR@10 | 69.54 | -  
-| Massive Audio Embedding Benchmark (MAEB) _Hugging Face_ | Mean(Task), Multiple | 49.39 | -  
+| Massive Audio Embedding Benchmark (MAEB) _Hugging Face_ | Mean(Task), Multiple | 49.87 | -  
   
 ### Evaluation Results with Vector Truncation
 
@@ -76,10 +76,10 @@ With MRL, EmbeddingGemma 2 representations can be truncated below the native 768
 
 Output Dimension | Compression Ratio | MTEB _(multilingual, v2) Mean(Task)_ | MTEB _(eng, v2) Mean(Task)_ | MTEB _(code, v1) Mean(Task)_ | MIEB _(lite) Mean(TaskType)_ | MMEB (v2) _Overall_ | MSEB _(Retrieval) Mean(Task)_ | MAEB _Mean(Task)_  
 ---|---|---|---|---|---|---|---|---  
-768d (Full) | 1:1 | 61.36 | 68.46 | 78.68 | 64.64 | 59.01 | 69.54 | 49.39  
-512d | 1:1.5 | 61.17 | 68.41 | 77.24 | 64.32 | 58.38 | 69.18 | 49.21  
-256d | 1:3 | 60.41 | 67.78 | 76.18 | 63.13 | 56.24 | 66.76 | 48.91  
-128d | 1:6 | 57.89 | 65.68 | 71.41 | 59.06 | 45.65 | 56.71 | 46.92  
+768d (Full) | 1:1 | 61.36 | 68.46 | 78.68 | 65.67 | 59.01 | 69.54 | 49.87  
+512d | 1:1.5 | 61.17 | 68.41 | 77.24 | 65.34 | 58.38 | 69.18 | 49.76  
+256d | 1:3 | 60.41 | 67.78 | 76.18 | 64.16 | 56.24 | 66.76 | 49.13  
+128d | 1:6 | 57.89 | 65.68 | 71.41 | 59.97 | 45.65 | 56.71 | 47.28  
   
 ## **Quick Start**
 
@@ -326,3 +326,19 @@ In creating an open embedding model, we have carefully considered the following:
 EmbeddingGemma 2 is among the strongest multimodal embedding models under 1B parameters. We’re excited to see how developers will use and adapt this model for on-device or edge AI applications. 
 
 The model is designed from the ground up for responsible AI development, like other Gemma-family models.
+
+## **Citation**
+
+If you find our work helpful, please consider citing it:
+    
+    
+    @misc{embeddinggemma2_2026,
+        title={EmbeddingGemma 2: Unified and Efficient Multimodal Representations},
+        author={Schechter Vera, Henrique and Dua, Sahil and Team, EmbeddingGemma},
+        year={2026},
+        eprint={2610.37364},
+        archivePrefix={arXiv},
+        primaryClass={cs.LG},
+        url={https://arxiv.org/abs/2610.37364}
+    }
+    

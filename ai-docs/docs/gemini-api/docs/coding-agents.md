@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/coding-agents/
 title: Coding agent setup & developer resources
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:42:57.168047+00:00
+fetched_at: 2026-10-28T10:18:49.129337+00:00
 ---
 
 # Coding agent setup & developer resources
@@ -13,7 +13,7 @@ AI coding agents rely on training data that cuts off at a set date. Because of t
 
 Connecting your agent to official Gemini developer resources helps it write accurate code using current models, the `google-genai` SDK, and the [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview).
 
-You can give your coding agent access to Gemini documentation and rules in four ways:
+You can connect your coding agent to Gemini documentation, rules, and CLI tools in five ways:
 
 ## Summary of agent resources
 
@@ -23,6 +23,7 @@ Resource | What it provides | Availability
 **[Gemini Docs MCP Server](https://ai.google.dev/gemini-api/docs/coding-agents#mcp-setup)** | Live search (`gemini_search_docs`) and full page reads (`gemini_get_doc`) across all documentation. | Supported in Claude Code, Cursor, OpenAI Codex, and VS Code.  
 **[Gemini API Plugin](https://ai.google.dev/gemini-api/docs/coding-agents#gemini-api-plugin)** | Bundled package with official Gemini skills, the Docs MCP server, and API key tools. | Antigravity.  
 **[Machine-Readable Docs](https://ai.google.dev/gemini-api/docs/coding-agents#machine-readable-docs)** | Clean Markdown pages and `llms.txt` indexes. | All documentation pages on `ai.google.dev/gemini-api/docs`.  
+**[Gemini API CLI](https://ai.google.dev/gemini-api/docs/cli)** | Stateless CLI (`gemini-api`) to generate media, analyze files, and run managed agents from the shell without writing SDK code. | Install on macOS, Linux, or Windows with the install script, Go, or prebuilt binaries.  
   
 ## Install Gemini agent skills
 
@@ -249,6 +250,7 @@ Environment | MCP verification | Skills verification
 
 ## What's next
 
+  * [Gemini API CLI](https://ai.google.dev/gemini-api/docs/cli)
   * [Gemini API Skills guide](https://aistudio.google.com/learn/gemini-api-skills)
   * [Gemini API skills on GitHub](https://github.com/google-gemini/gemini-skills)
   * [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview)

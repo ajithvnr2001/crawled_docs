@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026/
 title: Interactions API: Breaking changes migration guide (May 2026)
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:03.975139+00:00
+fetched_at: 2026-10-28T10:18:54.549983+00:00
 ---
 
 # Interactions API: Breaking changes migration guide (May 2026)
@@ -432,13 +432,13 @@ Streaming exposes new event types:
 
   * `interaction.created`
   * `interaction.completed`
-  * `interaction.in_progress`
-  * `interaction.requires_action`
   * `step.start`
   * `step.delta`
   * `step.stop`
 
 
+
+`interaction.status_update` is unchanged. It carries the new `status` (for example `in_progress` or `requires_action`). Every event names its type in the `event_type` field of the JSON payload, matching the SSE `event:` line.
 
 #### Deprecated event types
 
@@ -449,7 +449,6 @@ The following legacy event types are replaced by the new events listed above:
   * `content.delta` → `step.delta`
   * `content.stop` → `step.stop`
   * `interaction.complete` → `interaction.completed`
-  * `interaction.status_update` → replaced by `interaction.in_progress`, `interaction.requires_action`, etc.
 
 
 
@@ -579,8 +578,8 @@ The following legacy event types are replaced by the new events listed above:
      // event: interaction.created
      // data: {"interaction": {"id": "int_xyz", "status": "in_progress", "object": "interaction", "model": "gemini-3.8-flash"}, "event_type": "interaction.created"}
      //
-     // event: interaction.in_progress
-     // data: {"interaction_id": "int_xyz", "event_type": "interaction.in_progress"}
+     // event: interaction.status_update
+     // data: {"interaction_id": "int_xyz", "status": "in_progress", "event_type": "interaction.status_update"}
      //
      // event: step.start
      // data: {"index": 0, "step": {"type": "thought", "signature": "abc123..."}, "event_type": "step.start"}
@@ -595,10 +594,10 @@ The following legacy event types are replaced by the new events listed above:
      // data: {"index": 1, "delta": {"text": " a time...", "type": "text"}, "event_type": "step.delta"}
      //
      // event: step.stop
-     // data: {"type": "step.stop", "index": 1, "status": "done"}
+     // data: {"index": 1, "event_type": "step.stop"}
      //
      // event: interaction.completed
-     // data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}}} // NEW: Dedicated completion event
+     // data: {"interaction": {"id": "int_xyz", "status": "completed", "usage": {"total_input_tokens": 10, "total_output_tokens": 5, "total_tokens": 15}}, "event_type": "interaction.completed"} // NEW: Dedicated completion event
     
 
 ### Stateless Conversation History

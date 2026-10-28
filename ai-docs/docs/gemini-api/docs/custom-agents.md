@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/custom-agents/
 title: Building managed agents
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:43:11.174403+00:00
+fetched_at: 2026-10-28T10:18:50.736239+00:00
 ---
 
 # Building managed agents

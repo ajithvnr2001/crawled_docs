@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/pricing/
 title: Gemini Developer API pricing
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:32.408604+00:00
+fetched_at: 2026-10-28T10:18:58.535333+00:00
 ---
 
 # Gemini Developer API pricing

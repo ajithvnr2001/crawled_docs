@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/latest-model/
 title: What's new in Gemini 4 Argon
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:32.790839+00:00
+fetched_at: 2026-10-28T10:18:57.923028+00:00
 ---
 
 # What's new in Gemini 4 Argon

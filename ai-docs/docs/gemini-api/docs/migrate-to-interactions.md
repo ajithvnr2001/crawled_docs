@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions/
 title: Migrating to the Interactions API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:31.671076+00:00
+fetched_at: 2026-10-28T10:18:56.121054+00:00
 ---
 
 # Migrating to the Interactions API
@@ -242,7 +242,7 @@ The most common convenience property is **`.output_text`** (String), which autom
     
     
     # Request
-    curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+    curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "Content-Type: application/json" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -d '{
@@ -625,7 +625,7 @@ The Interactions API manages state on the server. You continue a conversation by
     
     
     # First Request
-    curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+    curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "Content-Type: application/json" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -d '{
@@ -634,7 +634,7 @@ The Interactions API manages state on the server. You continue a conversation by
     }'
     
     # Second Request (using ID from first response)
-    curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+    curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "Content-Type: application/json" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -d '{
@@ -983,7 +983,7 @@ In the Interactions API, you pass an array to the `input` field. You retrieve ou
     
     
     # Request
-    curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+    curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "Content-Type: application/json" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -d '{
@@ -1228,7 +1228,7 @@ In `generateContent`, you configure output format using the `response_mime_type`
 
 ### After (Interactions API)
 
-In the Interactions API, output format controls move to a top-level `response_format` array.
+In the Interactions API, output format controls move to a top-level `response_format` field. Pass a single format object, or an array of format objects when you request more than one output type.
 
 ### Python
     
@@ -1245,13 +1245,11 @@ In the Interactions API, output format controls move to a top-level `response_fo
     interaction = client.interactions.create(
         model="gemini-3.8-flash",
         input="Give me a recipe for chocolate chip cookies.",
-        response_format=[
-            {
-                "type": "text",
-                "mime_type": "application/json",
-                "schema": Recipe.model_json_schema(),
-            }
-        ],
+        response_format={
+            "type": "text",
+            "mime_type": "application/json",
+            "schema": Recipe.model_json_schema(),
+        },
     )
     
     print(interaction.output_text)
@@ -1267,23 +1265,21 @@ In the Interactions API, output format controls move to a top-level `response_fo
     const interaction = await client.interactions.create({
         model: 'gemini-3.8-flash',
         input: 'Give me a recipe for chocolate chip cookies.',
-        response_format: [
-            {
-                type: 'text',
-                mime_type: 'application/json',
-                schema: {
-                    type: 'object',
-                    properties: {
-                        recipe_name: { type: 'string' },
-                        ingredients: {
-                            type: 'array',
-                            items: { type: 'string' }
-                        }
-                    },
-                    required: ['recipe_name', 'ingredients']
-                }
+        response_format: {
+            type: 'text',
+            mime_type: 'application/json',
+            schema: {
+                type: 'object',
+                properties: {
+                    recipe_name: { type: 'string' },
+                    ingredients: {
+                        type: 'array',
+                        items: { type: 'string' }
+                    }
+                },
+                required: ['recipe_name', 'ingredients']
             }
-        ]
+        }
     });
     console.log(interaction.output_text);
     
@@ -1322,12 +1318,11 @@ In the Interactions API, output format controls move to a top-level `response_fo
             .input(InteractionsInput.of("Give me a recipe for chocolate chip cookies."))
             .responseFormat(
                 CreateModelInteractionResponseFormat.of(
-                    Arrays.asList(
-                        ResponseFormat.of(
-                            TextResponseFormat.builder()
-                                .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
-                                .schema(schema)
-                                .build()))))
+                    ResponseFormat.of(
+                        TextResponseFormat.builder()
+                            .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                            .schema(schema)
+                            .build())))
             .build();
     
     Interaction interaction =
@@ -1394,29 +1389,27 @@ In the Interactions API, output format controls move to a top-level `response_fo
     
     
     # Request
-    curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+    curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "Content-Type: application/json" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -d '{
         "model": "gemini-3.8-flash",
         **"input" : "Give me a recipe for chocolate chip cookies.",
-        "response_format": [
-            {
-                "type": "text",
-                "mime_type": "application/json",
-                "schema": {
-                    "type": "OBJECT",
-                    "properties": {
-                        "recipe_name": { "type": "STRING" },
-                        "ingredients": {
-                            "type": "ARRAY",
-                            "items": { "type": "STRING" }
-                        }
-                    },
-                    "required": ["recipe_name", "ingredients"]
-                }
+        "response_format": {
+            "type": "text",
+            "mime_type": "application/json",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "recipe_name": { "type": "string" },
+                    "ingredients": {
+                        "type": "array",
+                        "items": { "type": "string" }
+                    }
+                },
+                "required": ["recipe_name", "ingredients"]
             }
-        ]**
+        }**
     }'
     
     # Response
@@ -1883,7 +1876,7 @@ Furthermore, the API returns citations **inline**. Instead of mapping indices fr
     
     
     # Request
-    curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+    curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "Content-Type: application/json" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -d '{
@@ -2473,7 +2466,7 @@ Tool calls and results are now distinct steps in the timeline.
     
     
     # Initial Request
-    curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+    curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "Content-Type: application/json" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -d '{
@@ -2516,7 +2509,7 @@ Tool calls and results are now distinct steps in the timeline.
     }
     
     # Submit Tool Result Request
-    curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+    curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "Content-Type: application/json" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -d '{
@@ -2818,7 +2811,7 @@ In the Interactions API, streaming uses Server-Sent Events (SSE) and specialized
 
 ### REST
 
-# Example SSE stream output **event: interaction.created data: {"type": "interaction.created", "interaction": {"id": "int_xyz", "status": "created"}} event: interaction.in_progress data: {"type": "interaction.in_progress", "interaction": {"id": "int_xyz", "status": "in_progress"}} event: step.start data: {"type": "step.start", "index": 0, "step": {"type": "thought"}} event: step.delta data: {"type": "step.delta", "index": 0, "delta": {"type": "thought", "text": "User wants an explanation."}} event: step.stop data: {"type": "step.stop", "index": 0, "status": "done"} event: step.start data: {"type": "step.start", "index": 1, "step": {"type": "model_output"}} event: step.delta data: {"type": "step.delta", "index": 1, "delta": {"type": "text", "text": "Hello"}} event: step.stop data: {"type": "step.stop", "index": 1, "status": "done"} event: interaction.completed data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}}}** ```
+# Example SSE stream output **event: interaction.created data: {"interaction": {"id": "int_xyz", "status": "in_progress"}, "event_type": "interaction.created"} event: interaction.status_update data: {"interaction_id": "int_xyz", "status": "in_progress", "event_type": "interaction.status_update"} event: step.start data: {"index": 0, "step": {"type": "thought"}, "event_type": "step.start"} event: step.delta data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "User wants an explanation."}}, "event_type": "step.delta"} event: step.stop data: {"index": 0, "event_type": "step.stop"} event: step.start data: {"index": 1, "step": {"type": "model_output"}, "event_type": "step.start"} event: step.delta data: {"index": 1, "delta": {"type": "text", "text": "Hello"}, "event_type": "step.delta"} event: step.stop data: {"index": 1, "event_type": "step.stop"} event: interaction.completed data: {"interaction": {"id": "int_xyz", "status": "completed", "usage": {"total_input_tokens": 10, "total_output_tokens": 5, "total_tokens": 15}}, "event_type": "interaction.completed"}** ```
 
 ### Streaming tools and function calls
 
@@ -2994,7 +2987,7 @@ With `generateContent`, streaming function calls arrived complete in a single ch
 
 #### After (Interactions API)
 
-The Interactions API streams function call arguments character-by-character as `arguments` events. The entire tool lifecycle — thought, call, result, and output — plays out as a series of distinct steps.
+The Interactions API streams function call arguments character-by-character as `arguments_delta` events. The entire tool lifecycle — thought, call, result, and output — plays out as a series of distinct steps.
 
 ### Python
     
@@ -3015,8 +3008,8 @@ The Interactions API streams function call arguments character-by-character as `
             if getattr(event.step, "type", None) == "function_call":
                 print(f"Calling: {event.step.name}")
         elif event.event_type == "step.delta" and event.delta:
-            if getattr(event.delta, "type", None) == "arguments":
-                print(f"  args: {event.delta.partial_arguments}")
+            if getattr(event.delta, "type", None) == "arguments_delta":
+                print(f"  args: {event.delta.arguments}")
             elif getattr(event.delta, "type", None) == "text" and getattr(event.delta, "text", None):
                 print(event.delta.text, end="")
         elif event.event_type == "interaction.completed":
@@ -3043,8 +3036,8 @@ The Interactions API streams function call arguments character-by-character as `
                 console.log(`Calling: ${event.step.name}`);
             }
         } else if (event.event_type === 'step.delta' && event.delta) {
-            if (event.delta.type === 'arguments' && event.delta.partial_arguments) {
-                console.log(`  args: ${event.delta.partial_arguments}`);
+            if (event.delta.type === 'arguments_delta' && event.delta.arguments) {
+                console.log(`  args: ${event.delta.arguments}`);
             } else if (event.delta.type === 'text' && event.delta.text) {
                 process.stdout.write(event.delta.text);
             }
@@ -3205,7 +3198,7 @@ The Interactions API streams function call arguments character-by-character as `
     
     
     # Request
-    curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+    curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "Content-Type: application/json" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -d '{
@@ -3216,72 +3209,75 @@ The Interactions API streams function call arguments character-by-character as `
     }'
     
     # Response stream
-    // Interaction created
+    // Stream 1: the model calls the function
     event: interaction.created
-    data: {"type": "interaction.created", "interaction": {"id": "int_xyz", "status": "created"}}
+    data: {"interaction": {"id": "int_1", "status": "in_progress"}, "event_type": "interaction.created"}
     
-    event: interaction.in_progress
-    data: {"type": "interaction.in_progress", "interaction": {"id": "int_xyz", "status": "in_progress"}}
+    event: interaction.status_update
+    data: {"interaction_id": "int_1", "status": "in_progress", "event_type": "interaction.status_update"}
     
     // ── Step 0: Thought ──────────────────────────────────
     event: step.start
-    data: {"type": "step.start", "index": 0, "step": {"type": "thought"}}
+    data: {"index": 0, "step": {"type": "thought"}, "event_type": "step.start"}
     
     event: step.delta
-    data: {"type": "step.delta", "index": 0, "delta": {"type": "thought", "text": "The user wants weather data for Boston. I'll call the get_weather tool."}}
+    data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "The user wants weather data for Boston. I'll call the get_weather tool."}}, "event_type": "step.delta"}
     
     event: step.stop
-    data: {"type": "step.stop", "index": 0, "status": "done"}
+    data: {"index": 0, "event_type": "step.stop"}
     
     // ── Step 1: Function Call (arguments streamed) ───────
     event: step.start
-    data: {"type": "step.start", "index": 1, "step": {"type": "function_call", "id": "fc_1", "name": "get_weather"}}
+    data: {"index": 1, "step": {"type": "function_call", "id": "fc_1", "name": "get_weather", "arguments": {}}, "event_type": "step.start"}
     
     event: step.delta
-    data: {"type": "step.delta", "index": 1, "delta": {"type": "arguments", "partial_arguments": "{\"location\": \"Boston, MA\"}"}}
+    data: {"index": 1, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"Boston, MA\"}"}, "event_type": "step.delta"}
     
     event: step.stop
-    data: {"type": "step.stop", "index": 1, "status": "waiting"}
+    data: {"index": 1, "event_type": "step.stop"}
     
-    // The interaction pauses — the model needs the tool result before continuing.
-    event: interaction.requires_action
-    data: {"type": "interaction.requires_action", "interaction": {"id": "int_xyz", "status": "requires_action"}}
+    // The stream ends with status requires_action: the model needs the tool result.
+    event: interaction.completed
+    data: {"interaction": {"id": "int_1", "status": "requires_action", "usage": {"total_input_tokens": 34, "total_output_tokens": 15, "total_tokens": 49}}, "event_type": "interaction.completed"}
+    
+    event: done
+    data: [DONE]
     
     // ── (Client submits the tool result) ──────────────────
     // The client calls interactions.create with the function_result as input
-    // and the previous interaction's ID, then resumes consuming the stream.
+    // and previous_interaction_id set to "int_1". This opens a new stream.
     
-    event: interaction.in_progress
-    data: {"type": "interaction.in_progress", "interaction": {"id": "int_xyz", "status": "in_progress"}}
+    // Stream 2: the model uses the result
+    event: interaction.created
+    data: {"interaction": {"id": "int_2", "status": "in_progress"}, "event_type": "interaction.created"}
     
-    // ── Step 2: Function Result (echoed back, no deltas) ─
+    event: interaction.status_update
+    data: {"interaction_id": "int_2", "status": "in_progress", "event_type": "interaction.status_update"}
+    
+    // ── Step 0: Thought ──────────────────────────────────
     event: step.start
-    data: {"type": "step.start", "index": 2, "step": {"type": "function_result", "call_id": "fc_1", "name": "get_weather", "result": [{"type": "text", "text": "52°F, rain"}]}}
-    
-    event: step.stop
-    data: {"type": "step.stop", "index": 2, "status": "done"}
-    
-    // ── Step 3: Thought ──────────────────────────────────
-    event: step.start
-    data: {"type": "step.start", "index": 3, "step": {"type": "thought"}}
+    data: {"index": 0, "step": {"type": "thought"}, "event_type": "step.start"}
     
     event: step.delta
-    data: {"type": "step.delta", "index": 3, "delta": {"type": "thought", "text": "Got weather data. Composing the final response."}}
+    data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "Got weather data. Composing the final response."}}, "event_type": "step.delta"}
     
     event: step.stop
-    data: {"type": "step.stop", "index": 3, "status": "done"}
+    data: {"index": 0, "event_type": "step.stop"}
     
-    // ── Step 4: Model Output (text streamed) ─────────────
+    // ── Step 1: Model Output (text streamed) ─────────────
     event: step.start
-    data: {"type": "step.start", "index": 4, "step": {"type": "model_output"}}
+    data: {"index": 1, "step": {"type": "model_output"}, "event_type": "step.start"}
     
     event: step.delta
-    data: {"type": "step.delta", "index": 4, "delta": {"type": "text", "text": "It's currently 52°F and rainy in Boston."}}
+    data: {"index": 1, "delta": {"type": "text", "text": "It's currently 52°F and rainy in Boston."}, "event_type": "step.delta"}
     
     event: step.stop
-    data: {"type": "step.stop", "index": 4, "status": "done"}
+    data: {"index": 1, "event_type": "step.stop"}
     
     // ── Interaction complete ─────────────────────────────
     event: interaction.completed
-    data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
+    data: {"interaction": {"id": "int_2", "status": "completed", "usage": {"total_input_tokens": 256, "total_output_tokens": 128, "total_tokens": 384}}, "event_type": "interaction.completed"}
+    
+    event: done
+    data: [DONE]
     

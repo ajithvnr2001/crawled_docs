@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/generate-content/
 title: Generating content
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:00:12.350901+00:00
+fetched_at: 2026-10-28T10:18:45.442821+00:00
 ---
 
 # Generating content
@@ -80,7 +80,7 @@ The request body contains data with the following structure: | Fields
         model="gemini-3.8-flash",
         contents="Write a story about a magic backpack.",
     )
-    print(response.text)[text_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/text_generation.py#L26-L33)
+    print(response.text)[text_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/text_generation.py#L26-L33)
 
 ### Node.js
     
@@ -93,7 +93,7 @@ The request body contains data with the following structure: | Fields
       model: 'gemini-3.8-flash',
       contents: 'Write a story about a magic backpack.',
     });
-    console.log(response.text);[text_generation.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/text_generation.js#L32-L40)
+    console.log(response.text);[text_generation.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/text_generation.js#L32-L40)
 
 ### Go
     
@@ -113,7 +113,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    printResponse(response)[text_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/text_generation.go#L16-L31)
+    printResponse(response)[text_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/text_generation.go#L16-L31)
 
 ### Shell
     
@@ -136,7 +136,7 @@ The request body contains data with the following structure: | Fields
         client.models.generateContent(
             "gemini-3.8-flash", "Write a story about a magic backpack.", null);
     
-    System.out.println(response.text());[TextGeneration.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/TextGeneration.java#L33-L39)
+    System.out.println(response.text());[TextGeneration.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/TextGeneration.java#L33-L39)
 
 ### Image
 
@@ -152,7 +152,7 @@ The request body contains data with the following structure: | Fields
         model="gemini-3.8-flash",
         contents=["Tell me about this instrument", organ],
     )
-    print(response.text)[text_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/text_generation.py#L52-L61)
+    print(response.text)[text_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/text_generation.py#L52-L61)
 
 ### Node.js
     
@@ -174,7 +174,7 @@ The request body contains data with the following structure: | Fields
         ]),
       ],
     });
-    console.log(response.text);[text_generation.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/text_generation.js#L66-L83)
+    console.log(response.text);[text_generation.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/text_generation.js#L66-L83)
 
 ### Go
     
@@ -210,7 +210,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    printResponse(response)[text_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/text_generation.go#L66-L97)
+    printResponse(response)[text_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/text_generation.go#L66-L97)
 
 ### Shell
     
@@ -261,7 +261,7 @@ The request body contains data with the following structure: | Fields
     GenerateContentResponse response =
         client.models.generateContent("gemini-3.8-flash", content, null);
     
-    System.out.println(response.text());[TextGeneration.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/TextGeneration.java#L65-L78)
+    System.out.println(response.text());[TextGeneration.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/TextGeneration.java#L65-L78)
 
 ### Audio
 
@@ -276,7 +276,7 @@ The request body contains data with the following structure: | Fields
         model="gemini-3.8-flash",
         contents=["Give me a summary of this audio file.", sample_audio],
     )
-    print(response.text)[text_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/text_generation.py#L122-L130)
+    print(response.text)[text_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/text_generation.py#L122-L130)
 
 ### Node.js
     
@@ -298,7 +298,7 @@ The request body contains data with the following structure: | Fields
         ]),
       ],
     });
-    console.log(response.text);[text_generation.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/text_generation.js#L181-L198)
+    console.log(response.text);[text_generation.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/text_generation.js#L181-L198)
 
 ### Go
     
@@ -336,7 +336,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    printResponse(response)[text_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/text_generation.go#L256-L289)
+    printResponse(response)[text_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/text_generation.go#L256-L289)
 
 ### Shell
     
@@ -411,7 +411,7 @@ The request body contains data with the following structure: | Fields
     response = client.models.generate_content(
         model="gemini-3.8-flash", contents=[myfile, "Describe this video clip"]
     )
-    print(f"{response.text=}")[text_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/text_generation.py#L150-L168)
+    print(f"{response.text=}")[text_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/text_generation.py#L150-L168)
 
 ### Node.js
     
@@ -441,7 +441,7 @@ The request body contains data with the following structure: | Fields
         ]),
       ],
     });
-    console.log(response.text);[text_generation.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/text_generation.js#L233-L258)
+    console.log(response.text);[text_generation.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/text_generation.js#L233-L258)
 
 ### Go
     
@@ -491,7 +491,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    printResponse(response)[text_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/text_generation.go#L342-L387)
+    printResponse(response)[text_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/text_generation.go#L342-L387)
 
 ### Shell
     
@@ -569,7 +569,7 @@ The request body contains data with the following structure: | Fields
         model="gemini-3.8-flash",
         contents=["Give me a summary of this document:", sample_pdf],
     )
-    print(f"{response.text=}")[text_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/text_generation.py#L198-L206)
+    print(f"{response.text=}")[text_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/text_generation.py#L198-L206)
 
 ### Go
     
@@ -607,7 +607,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    printResponse(response)[text_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/text_generation.go#L452-L485)
+    printResponse(response)[text_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/text_generation.go#L452-L485)
 
 ### Shell
     
@@ -688,7 +688,7 @@ The request body contains data with the following structure: | Fields
     response = chat.send_message(message="I have 2 dogs in my house.")
     print(response.text)
     response = chat.send_message(message="How many paws are in my house?")
-    print(response.text)[chat.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/chat.py#L25-L47)
+    print(response.text)[chat.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/chat.py#L25-L47)
 
 ### Node.js
     
@@ -718,7 +718,7 @@ The request body contains data with the following structure: | Fields
     const response2 = await chat.sendMessage({
       message: 'How many paws are in my house?',
     });
-    console.log('Chat response 2:', response2.text);[chat.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/chat.js#L29-L54)
+    console.log('Chat response 2:', response2.text);[chat.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/chat.js#L29-L54)
 
 ### Go
     
@@ -753,7 +753,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    fmt.Println(secondResp.Text())[chat.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/chat.go#L16-L46)
+    fmt.Println(secondResp.Text())[chat.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/chat.go#L16-L46)
 
 ### Shell
     
@@ -802,7 +802,7 @@ The request body contains data with the following structure: | Fields
     
     GenerateContentResponse response2 = chat.sendMessage("How many paws are in my house?");
     System.out.println(response2.text());
-    [ChatSession.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/ChatSession.java#L31-L55)
+    [ChatSession.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/ChatSession.java#L31-L55)
 
 ### Cache
 
@@ -830,7 +830,7 @@ The request body contains data with the following structure: | Fields
         contents="Please summarize this transcript",
         config=types.GenerateContentConfig(cached_content=cache.name),
     )
-    print(response.text)[cache.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/cache.py#L25-L46)
+    print(response.text)[cache.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/cache.py#L25-L46)
 
 ### Node.js
     
@@ -864,7 +864,7 @@ The request body contains data with the following structure: | Fields
       contents: 'Please summarize this transcript',
       config: {cachedContent: cache.name},
     });
-    console.log('Response text:', response.text);[cache.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/cache.js#L29-L58)
+    console.log('Response text:', response.text);[cache.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/cache.js#L29-L58)
 
 ### Go
     
@@ -919,7 +919,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    printResponse(response)[cache.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/cache.go#L16-L66)
+    printResponse(response)[cache.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/cache.go#L16-L66)
 
 ### Tuned Model
 
@@ -950,7 +950,7 @@ The request body contains data with the following structure: | Fields
             response_mime_type="application/json", response_schema=list[Recipe]
         ),
     )
-    print(result)[controlled_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/controlled_generation.py#L25-L41)
+    print(result)[controlled_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/controlled_generation.py#L25-L41)
 
 ### Node.js
     
@@ -976,7 +976,7 @@ The request body contains data with the following structure: | Fields
         },
       },
     });
-    console.log(response.text);[controlled_generation.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/controlled_generation.js#L29-L50)
+    console.log(response.text);[controlled_generation.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/controlled_generation.js#L29-L50)
 
 ### Go
     
@@ -1019,7 +1019,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    printResponse(response)[controlled_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/controlled_generation.go#L14-L52)
+    printResponse(response)[controlled_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/controlled_generation.go#L14-L52)
 
 ### Shell
     
@@ -1080,7 +1080,7 @@ The request body contains data with the following structure: | Fields
         client.models.generateContent(
             "gemini-3.8-flash", "List a few popular cookie recipes.", config);
     
-    System.out.println(response.text());[ControlledGeneration.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/ControlledGeneration.java#L38-L69)
+    System.out.println(response.text());[ControlledGeneration.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/ControlledGeneration.java#L38-L69)
 
 ### Code execution
 
@@ -1105,7 +1105,7 @@ The request body contains data with the following structure: | Fields
     
     print("-" * 80)
     # The .text accessor concatenates the parts into a markdown-formatted text.
-    print("\n", response.text)[code_execution.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/code_execution.py#L22-L40)
+    print("\n", response.text)[code_execution.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/code_execution.py#L22-L40)
 
 ### Go
     
@@ -1136,7 +1136,7 @@ The request body contains data with the following structure: | Fields
     printResponse(response)
     
     fmt.Println("--------------------------------------------------------------------------------")
-    fmt.Println(response.Text())[code_execution.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/code_execution.go#L14-L40)
+    fmt.Println(response.Text())[code_execution.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/code_execution.go#L14-L40)
 
 ### Java
     
@@ -1157,7 +1157,7 @@ The request body contains data with the following structure: | Fields
     }
     
     System.out.println("-".repeat(80));
-    System.out.println(response.text());[CodeExecution.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/CodeExecution.java#L31-L47)
+    System.out.println(response.text());[CodeExecution.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/CodeExecution.java#L31-L47)
 
 ### Function Calling
 
@@ -1198,7 +1198,7 @@ The request body contains data with the following structure: | Fields
             " total?"
         )
     )
-    print(response.text)[function_calling.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/function_calling.py#L22-L56)
+    print(response.text)[function_calling.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/function_calling.py#L22-L56)
 
 ### Go
     
@@ -1301,7 +1301,7 @@ The request body contains data with the following structure: | Fields
     	log.Fatal(err)
     }
     
-    printResponse(finalResponse)[function_calling.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/function_calling.go#L63-L161)
+    printResponse(finalResponse)[function_calling.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/function_calling.go#L63-L161)
 
 ### Node.js
     
@@ -1484,7 +1484,7 @@ The request body contains data with the following structure: | Fields
     const chatResponse = await chat.sendMessage({
       message: 'The final result is ' + resultValue,
     });
-    console.log(chatResponse.text);[function_calling.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/function_calling.js#L22-L200)
+    console.log(chatResponse.text);[function_calling.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/function_calling.js#L22-L200)
 
 ### Shell
     
@@ -1667,7 +1667,7 @@ The request body contains data with the following structure: | Fields
     Number secondParam = (Number) arguments.get().get("secondParam");
     Double result = function.apply(firstParam.doubleValue(), secondParam.doubleValue());
     
-    System.out.println(result);[FunctionCalling.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/FunctionCalling.java#L36-L156)
+    System.out.println(result);[FunctionCalling.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/FunctionCalling.java#L36-L156)
 
 ### Generation config
 
@@ -1688,7 +1688,7 @@ The request body contains data with the following structure: | Fields
             temperature=1.0,
         ),
     )
-    print(response.text)[configure_model_parameters.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/configure_model_parameters.py#L22-L36)
+    print(response.text)[configure_model_parameters.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/configure_model_parameters.py#L22-L36)
 
 ### Node.js
     
@@ -1708,7 +1708,7 @@ The request body contains data with the following structure: | Fields
       },
     });
     
-    console.log(response.text);[configure_model_parameters.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/configure_model_parameters.js#L22-L37)
+    console.log(response.text);[configure_model_parameters.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/configure_model_parameters.js#L22-L37)
 
 ### Go
     
@@ -1742,7 +1742,7 @@ The request body contains data with the following structure: | Fields
     	log.Fatal(err)
     }
     
-    printResponse(response)[configure_model_parameters.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/configure_model_parameters.go#L13-L42)
+    printResponse(response)[configure_model_parameters.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/configure_model_parameters.go#L13-L42)
 
 ### Shell
     
@@ -1784,7 +1784,7 @@ The request body contains data with the following structure: | Fields
         client.models.generateContent(
             "gemini-3.8-flash", "Tell me a story about a magic backpack.", config);
     
-    System.out.println(response.text());[ConfigureModelParameters.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/ConfigureModelParameters.java#L28-L42)
+    System.out.println(response.text());[ConfigureModelParameters.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/ConfigureModelParameters.java#L28-L42)
 
 ### Safety Settings
 
@@ -1820,7 +1820,7 @@ The request body contains data with the following structure: | Fields
     except Exception:
       print("No information generated by the model.")
     
-    print(response.candidates[0].safety_ratings)[safety_settings.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/safety_settings.py#L49-L78)
+    print(response.candidates[0].safety_ratings)[safety_settings.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/safety_settings.py#L49-L78)
 
 ### Node.js
     
@@ -1853,7 +1853,7 @@ The request body contains data with the following structure: | Fields
     } catch (error) {
       console.log('No information generated by the model.');
     }
-    console.log('Safety ratings:', response.candidates[0].safetyRatings);[safety_settings.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/safety_settings.js#L49-L77)
+    console.log('Safety ratings:', response.candidates[0].safetyRatings);[safety_settings.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/safety_settings.js#L49-L77)
 
 ### Go
     
@@ -1904,7 +1904,7 @@ The request body contains data with the following structure: | Fields
     	fmt.Println("Safety ratings:", string(safetyRatings))
     } else {
     	fmt.Println("No candidate returned.")
-    }[safety_settings.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/safety_settings.go#L60-L106)
+    }[safety_settings.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/safety_settings.go#L60-L106)
 
 ### Shell
     
@@ -1957,7 +1957,7 @@ The request body contains data with the following structure: | Fields
       System.out.println("No information generated by the model");
     }
     
-    System.out.println(response.candidates().get().getFirst().safetyRatings());[SafetySettings.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/SafetySettings.java#L58-L89)
+    System.out.println(response.candidates().get().getFirst().safetyRatings());[SafetySettings.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/SafetySettings.java#L58-L89)
 
 ### System Instruction
 
@@ -1975,7 +1975,7 @@ The request body contains data with the following structure: | Fields
             system_instruction="You are a cat. Your name is Neko."
         ),
     )
-    print(response.text)[system_instruction.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/system_instruction.py#L22-L33)
+    print(response.text)[system_instruction.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/system_instruction.py#L22-L33)
 
 ### Node.js
     
@@ -1990,7 +1990,7 @@ The request body contains data with the following structure: | Fields
         systemInstruction: 'You are a cat. Your name is Neko.',
       },
     });
-    console.log(response.text);[system_instruction.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/system_instruction.js#L22-L32)
+    console.log(response.text);[system_instruction.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/system_instruction.js#L22-L32)
 
 ### Go
     
@@ -2018,7 +2018,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    printResponse(response)[system_instruction.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/system_instruction.go#L13-L36)
+    printResponse(response)[system_instruction.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/system_instruction.go#L13-L36)
 
 ### Shell
     
@@ -2047,7 +2047,7 @@ The request body contains data with the following structure: | Fields
     GenerateContentResponse response =
         client.models.generateContent("gemini-3.8-flash", "Good morning! How are you?", config);
     
-    System.out.println(response.text());[SystemInstruction.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/SystemInstruction.java#L30-L42)
+    System.out.println(response.text());[SystemInstruction.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/SystemInstruction.java#L30-L42)
 
 ### Response body
 
@@ -2102,7 +2102,7 @@ The request body contains data with the following structure: | Fields
     )
     for chunk in response:
       print(chunk.text)
-      print("_" * 80)[text_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/text_generation.py#L38-L47)
+      print("_" * 80)[text_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/text_generation.py#L38-L47)
 
 ### Node.js
     
@@ -2119,7 +2119,7 @@ The request body contains data with the following structure: | Fields
     for await (const chunk of response) {
       console.log(chunk.text);
       text += chunk.text;
-    }[text_generation.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/text_generation.js#L47-L59)
+    }[text_generation.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/text_generation.js#L47-L59)
 
 ### Go
     
@@ -2145,7 +2145,7 @@ The request body contains data with the following structure: | Fields
     		log.Fatal(err)
     	}
     	fmt.Print(response.Candidates[0].Content.Parts[0].Text)
-    }[text_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/text_generation.go#L38-L59)
+    }[text_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/text_generation.go#L38-L59)
 
 ### Shell
     
@@ -2170,7 +2170,7 @@ The request body contains data with the following structure: | Fields
       response.append(res.text());
     }
     
-    responseStream.close();[TextGeneration.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/TextGeneration.java#L46-L58)
+    responseStream.close();[TextGeneration.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/TextGeneration.java#L46-L58)
 
 ### Image
 
@@ -2188,7 +2188,7 @@ The request body contains data with the following structure: | Fields
     )
     for chunk in response:
       print(chunk.text)
-      print("_" * 80)[text_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/text_generation.py#L66-L77)
+      print("_" * 80)[text_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/text_generation.py#L66-L77)
 
 ### Node.js
     
@@ -2214,7 +2214,7 @@ The request body contains data with the following structure: | Fields
     for await (const chunk of response) {
       console.log(chunk.text);
       text += chunk.text;
-    }[text_generation.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/text_generation.js#L90-L111)
+    }[text_generation.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/text_generation.js#L90-L111)
 
 ### Go
     
@@ -2254,7 +2254,7 @@ The request body contains data with the following structure: | Fields
     		log.Fatal(err)
     	}
     	fmt.Print(response.Candidates[0].Content.Parts[0].Text)
-    }[text_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/text_generation.go#L104-L139)
+    }[text_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/text_generation.go#L104-L139)
 
 ### Shell
     
@@ -2302,7 +2302,7 @@ The request body contains data with the following structure: | Fields
       response.append(res.text());
     }
     
-    responseStream.close();[TextGeneration.java](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/java/src/main/java/com/example/gemini/TextGeneration.java#L85-L104)
+    responseStream.close();[TextGeneration.java](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/java/src/main/java/com/example/gemini/TextGeneration.java#L85-L104)
 
 ### Audio
 
@@ -2319,7 +2319,7 @@ The request body contains data with the following structure: | Fields
     )
     for chunk in response:
       print(chunk.text)
-      print("_" * 80)[text_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/text_generation.py#L135-L145)
+      print("_" * 80)[text_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/text_generation.py#L135-L145)
 
 ### Go
     
@@ -2363,7 +2363,7 @@ The request body contains data with the following structure: | Fields
     		log.Fatal(err)
     	}
     	fmt.Print(result.Candidates[0].Content.Parts[0].Text)
-    }[text_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/text_generation.go#L296-L335)
+    }[text_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/text_generation.go#L296-L335)
 
 ### Shell
     
@@ -2438,7 +2438,7 @@ The request body contains data with the following structure: | Fields
     )
     for chunk in response:
       print(chunk.text)
-      print("_" * 80)[text_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/text_generation.py#L173-L193)
+      print("_" * 80)[text_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/text_generation.py#L173-L193)
 
 ### Node.js
     
@@ -2472,7 +2472,7 @@ The request body contains data with the following structure: | Fields
     for await (const chunk of response) {
       console.log(chunk.text);
       text += chunk.text;
-    }[text_generation.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/text_generation.js#L265-L294)
+    }[text_generation.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/text_generation.js#L265-L294)
 
 ### Go
     
@@ -2528,7 +2528,7 @@ The request body contains data with the following structure: | Fields
     		log.Fatal(err)
     	}
     	fmt.Print(result.Candidates[0].Content.Parts[0].Text)
-    }[text_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/text_generation.go#L394-L445)
+    }[text_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/text_generation.go#L394-L445)
 
 ### Shell
     
@@ -2604,7 +2604,7 @@ The request body contains data with the following structure: | Fields
     
     for chunk in response:
       print(chunk.text)
-      print("_" * 80)[text_generation.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/text_generation.py#L211-L222)
+      print("_" * 80)[text_generation.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/text_generation.py#L211-L222)
 
 ### Go
     
@@ -2648,7 +2648,7 @@ The request body contains data with the following structure: | Fields
     		log.Fatal(err)
     	}
     	fmt.Print(result.Candidates[0].Content.Parts[0].Text)
-    }[text_generation.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/text_generation.go#L492-L531)
+    }[text_generation.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/text_generation.go#L492-L531)
 
 ### Shell
     
@@ -2734,7 +2734,7 @@ The request body contains data with the following structure: | Fields
       print(chunk.text)
       print("_" * 80)
     
-    print(chat.get_history())[chat.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/chat.py#L52-L81)
+    print(chat.get_history())[chat.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/chat.py#L52-L81)
 
 ### Node.js
     
@@ -2774,7 +2774,7 @@ The request body contains data with the following structure: | Fields
       console.log('_'.repeat(80));
     }
     
-    console.log(chat.getHistory());[chat.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/chat.js#L62-L97)
+    console.log(chat.getHistory());[chat.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/chat.js#L62-L97)
 
 ### Go
     
@@ -2813,7 +2813,7 @@ The request body contains data with the following structure: | Fields
     	fmt.Println(strings.Repeat("_", 64))
     }
     
-    fmt.Println(chat.History(false))[chat.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/chat.go#L54-L88)
+    fmt.Println(chat.History(false))[chat.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/chat.go#L54-L88)
 
 ### Shell
     

@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemma/docs/embeddinggemma/multimodal-embeddinggemma-with-sentence-transformers/
 title: Multimodal Embeddings with EmbeddingGemma 2
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T08:55:32.256969+00:00
+fetched_at: 2026-10-28T10:18:42.928869+00:00
 ---
 
 # Multimodal Embeddings with EmbeddingGemma 2

@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/files/
 title: Using files
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:00:06.835506+00:00
+fetched_at: 2026-10-28T10:18:40.404881+00:00
 ---
 
 # Using files
@@ -135,7 +135,7 @@ The request body must be empty.
     print(file_name)  # "files/*"
     
     myfile = client.files.get(name=file_name)
-    print(myfile)[files.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/files.py#L137-L145)
+    print(myfile)[files.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/files.py#L139-L147)
 
 ### Node.js
     
@@ -150,7 +150,7 @@ The request body must be empty.
     console.log(fileName);
     
     const fetchedFile = await ai.files.get({name: fileName});
-    console.log(fetchedFile);[files.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/files.js#L176-L186)
+    console.log(fetchedFile);[files.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/files.js#L181-L191)
 
 ### Go
     
@@ -179,7 +179,7 @@ The request body must be empty.
     if err != nil {
     	log.Fatal(err)
     }
-    fmt.Println(file)[files.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/files.go#L298-L322)
+    fmt.Println(file)[files.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/files.go#L301-L325)
 
 ### Shell
     
@@ -233,7 +233,7 @@ The request body must be empty.
     client = genai.Client()
     print("My files:")
     for f in client.files.list():
-      print("  ", f.name)[files.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/files.py#L127-L132)
+      print("  ", f.name)[files.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/files.py#L129-L134)
 
 ### Node.js
     
@@ -253,7 +253,7 @@ The request body must be empty.
       }
       if (!pager.hasNextPage()) break;
       page = await pager.nextPage();
-    }[files.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/files.js#L154-L169)
+    }[files.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/files.js#L159-L174)
 
 ### Go
     
@@ -273,7 +273,7 @@ The request body must be empty.
     }
     for _, f := range page.Items {
     	fmt.Println("  ", f.Name)
-    }[files.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/files.go#L276-L291)
+    }[files.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/files.go#L279-L294)
 
 ### Shell
     
@@ -344,13 +344,13 @@ The request body must be empty.
       )
       print(result)
     except genai.errors.ClientError:
-      pass[files.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/files.py#L150-L163)
+      pass[files.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/files.py#L152-L165)
 
 ### Node.js
     
     
     // The Gen AI SDK for TypeScript and JavaScript is in preview.
-    // Some features have not been implemented.[README.md](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/README.md#L20-L21)
+    // Some features have not been implemented.[README.md](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/README.md#L20-L21)
 
 ### Go
     
@@ -393,7 +393,7 @@ The request body must be empty.
     if err != nil {
     	return nil
     }
-    return fmt.Errorf("expected an error when using deleted file")[files.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/files.go#L329-L367)
+    return fmt.Errorf("expected an error when using deleted file")[files.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/files.go#L332-L370)
 
 ### Shell
     
@@ -502,7 +502,7 @@ Fields
             "Can you tell me about the instruments in this photo?",
         ],
     )
-    print(f"{result.text=}")[files.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/files.py#L40-L54)
+    print(f"{result.text=}")[files.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/files.py#L40-L54)
 
 ### Node.js
     
@@ -524,7 +524,7 @@ Fields
         'Can you tell me about the instruments in this photo?',
       ]),
     });
-    console.log('result.text=', result.text);[files.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/files.js#L55-L72)
+    console.log('result.text=', result.text);[files.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/files.js#L55-L72)
 
 ### Go
     
@@ -564,7 +564,7 @@ Fields
     	log.Fatal(err)
     }
     text := response.Text()
-    fmt.Printf("result.text=%s\n", text)[files.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/files.go#L59-L94)
+    fmt.Printf("result.text=%s\n", text)[files.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/files.go#L59-L94)
 
 ### Shell
     
@@ -633,7 +633,7 @@ Fields
     result = client.models.generate_content(
         model="gemini-3.8-flash", contents=[myfile, "Describe this audio clip"]
     )
-    print(f"{result.text=}")[files.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/files.py#L59-L68)
+    print(f"{result.text=}")[files.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/files.py#L59-L68)
 
 ### Node.js
     
@@ -654,7 +654,7 @@ Fields
         'Describe this audio clip',
       ]),
     });
-    console.log('result.text=', result.text);[files.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/files.js#L79-L95)
+    console.log('result.text=', result.text);[files.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/files.js#L79-L95)
 
 ### Go
     
@@ -693,7 +693,7 @@ Fields
     	log.Fatal(err)
     }
     text := response.Text()
-    fmt.Printf("result.text=%s\n", text)[files.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/files.go#L101-L135)
+    fmt.Printf("result.text=%s\n", text)[files.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/files.go#L101-L135)
 
 ### Shell
     
@@ -760,7 +760,7 @@ Fields
         model="gemini-3.8-flash",
         contents=[myfile, "\n\n", "Can you add a few more lines to this poem?"],
     )
-    print(f"{result.text=}")[files.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/files.py#L25-L35)
+    print(f"{result.text=}")[files.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/files.py#L25-L35)
 
 ### Node.js
     
@@ -781,7 +781,7 @@ Fields
         'Can you add a few more lines to this poem?',
       ]),
     });
-    console.log('result.text=', result.text);[files.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/files.js#L32-L48)
+    console.log('result.text=', result.text);[files.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/files.js#L32-L48)
 
 ### Go
     
@@ -822,7 +822,7 @@ Fields
     	log.Fatal(err)
     }
     text := response.Text()
-    fmt.Printf("result.text=%s\n", text)[files.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/files.go#L16-L52)
+    fmt.Printf("result.text=%s\n", text)[files.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/files.go#L16-L52)
 
 ### Shell
     
@@ -901,6 +901,8 @@ Fields
     
     # Poll until the video file is completely processed (state becomes ACTIVE).
     while not myfile.state or myfile.state.name != "ACTIVE":
+      if myfile.state and myfile.state.name == "FAILED":
+        raise ValueError(f"Video file processing failed: {getattr(myfile, 'error', None) or 'state is FAILED'}")
       print("Processing video...")
       print("File state:", myfile.state)
       time.sleep(5)
@@ -909,7 +911,7 @@ Fields
     result = client.models.generate_content(
         model="gemini-3.8-flash", contents=[myfile, "Describe this video clip"]
     )
-    print(f"{result.text=}")[files.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/files.py#L73-L91)
+    print(f"{result.text=}")[files.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/files.py#L73-L93)
 
 ### Node.js
     
@@ -925,6 +927,11 @@ Fields
     
     // Poll until the video file is completely processed (state becomes ACTIVE).
     while (!myfile.state || myfile.state.toString() !== 'ACTIVE') {
+      if (myfile.state && myfile.state.toString() === 'FAILED') {
+        throw new Error(
+          `Video file processing failed: ${myfile.error?.message || 'state is FAILED'}`,
+        );
+      }
       console.log('Processing video...');
       console.log('File state: ', myfile.state);
       await sleep(5000);
@@ -938,7 +945,7 @@ Fields
         'Describe this video clip',
       ]),
     });
-    console.log('result.text=', result.text);[files.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/files.js#L102-L126)
+    console.log('result.text=', result.text);[files.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/files.js#L102-L131)
 
 ### Go
     
@@ -964,7 +971,10 @@ Fields
     fmt.Printf("myfile=%+v\n", myfile)
     
     // Poll until the video file is completely processed (state becomes ACTIVE).
-    for myfile.State == genai.FileStateUnspecified || myfile.State != genai.FileStateActive {
+    for myfile.State != genai.FileStateActive {
+    	if myfile.State == genai.FileStateFailed {
+    		return nil, fmt.Errorf("video file processing failed: %v", myfile.State)
+    	}
     	fmt.Println("Processing video...")
     	fmt.Println("File state:", myfile.State)
     	time.Sleep(5 * time.Second)
@@ -989,7 +999,7 @@ Fields
     	log.Fatal(err)
     }
     text := response.Text()
-    fmt.Printf("result.text=%s\n", text)[files.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/files.go#L142-L188)
+    fmt.Printf("result.text=%s\n", text)[files.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/files.go#L142-L191)
 
 ### Shell
     
@@ -1065,7 +1075,7 @@ Fields
         model="gemini-3.8-flash",
         contents=["Give me a summary of this pdf file.", sample_pdf],
     )
-    print(response.text)[files.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/files.py#L96-L104)
+    print(response.text)[files.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/files.py#L98-L106)
 
 ### Go
     
@@ -1103,7 +1113,7 @@ Fields
     	log.Fatal(err)
     }
     text := response.Text()
-    fmt.Println(text)[files.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/files.go#L195-L228)
+    fmt.Println(text)[files.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/files.go#L198-L231)
 
 ### Response body
 

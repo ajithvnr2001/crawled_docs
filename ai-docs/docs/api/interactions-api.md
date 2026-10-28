@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/interactions-api/
 title: Gemini Interactions API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:35.957491+00:00
+fetched_at: 2026-10-28T10:18:57.108518+00:00
 ---
 
 # Gemini Interactions API
@@ -35,7 +35,7 @@ model ModelOption (optional)
 The name of the `Model` used for generating the interaction.   
 **Required if `agent` is not provided.**
 
-The model that will complete your prompt.\n\nSee [models](https://ai.google.dev/gemini-api/docs/models) for additional details.
+The model that will complete your prompt.\n\nSee [models](https://aistudio.google.com/docs/models) for additional details.
 
 #### Possible values
 
@@ -1314,7 +1314,7 @@ model ModelOption (optional)
 
 The name of the `Model` used for generating the interaction.
 
-The model that will complete your prompt.\n\nSee [models](https://ai.google.dev/gemini-api/docs/models) for additional details.
+The model that will complete your prompt.\n\nSee [models](https://aistudio.google.com/docs/models) for additional details.
 
 #### Possible values
 

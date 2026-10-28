@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/webhooks/
 title: Gemini Webhooks API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:36.068329+00:00
+fetched_at: 2026-10-28T10:18:45.558833+00:00
 ---
 
 # Gemini Webhooks API

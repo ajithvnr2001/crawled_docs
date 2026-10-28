@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/triggers.md.txt
 title: triggers
 method: httpx-raw-text
-fetched_at: 2026-10-27T09:34:38.061936+00:00
+fetched_at: 2026-10-28T10:18:46.519790+00:00
 ---
 
 # triggers

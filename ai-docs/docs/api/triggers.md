@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/triggers/
 title: Gemini Triggers API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:38.017441+00:00
+fetched_at: 2026-10-28T10:18:47.864381+00:00
 ---
 
 # Gemini Triggers API

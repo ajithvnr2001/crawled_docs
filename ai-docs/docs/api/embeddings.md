@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/embeddings/
 title: Embeddings
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T12:00:04.354842+00:00
+fetched_at: 2026-10-28T10:18:38.656178+00:00
 ---
 
 # Embeddings
@@ -61,7 +61,7 @@ The request body contains data with the following structure: | Fields
         contents=text,
         config=types.EmbedContentConfig(output_dimensionality=10),
     )
-    print(result.embeddings)[embed.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/embed.py#L22-L32)
+    print(result.embeddings)[embed.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/embed.py#L22-L32)
 
 ### Node.js
     
@@ -75,7 +75,7 @@ The request body contains data with the following structure: | Fields
       contents: text,
       config: {outputDimensionality: 10},
     });
-    console.log(result.embeddings);[embed.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/embed.js#L22-L31)
+    console.log(result.embeddings);[embed.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/embed.js#L22-L31)
 
 ### Go
     
@@ -106,7 +106,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    fmt.Println(string(embeddings))[embed.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/embed.go#L15-L41)
+    fmt.Println(string(embeddings))[embed.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/embed.go#L15-L41)
 
 ### Shell
     
@@ -118,7 +118,7 @@ The request body contains data with the following structure: | Fields
          "content": {
          "parts":[{
          "text": "What is the meaning of life?"}]}
-        }'[embed.sh](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/rest/embed.sh#L4-L12)
+        }'[embed.sh](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/rest/embed.sh#L4-L12)
 
 ### Response body
 
@@ -172,7 +172,7 @@ The request body contains data with the following structure: | Fields
         contents=texts,
         config=types.EmbedContentConfig(output_dimensionality=10),
     )
-    print(result.embeddings)[embed.py](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/python/embed.py#L37-L51)
+    print(result.embeddings)[embed.py](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/python/embed.py#L37-L51)
 
 ### Node.js
     
@@ -190,7 +190,7 @@ The request body contains data with the following structure: | Fields
       contents: texts,
       config: {outputDimensionality: 10},
     });
-    console.log(result.embeddings);[embed.js](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/javascript/embed.js#L38-L51)
+    console.log(result.embeddings);[embed.js](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/javascript/embed.js#L38-L51)
 
 ### Go
     
@@ -222,7 +222,7 @@ The request body contains data with the following structure: | Fields
     if err != nil {
     	log.Fatal(err)
     }
-    fmt.Println(string(embeddings))[embed.go](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/go/embed.go#L48-L75)
+    fmt.Println(string(embeddings))[embed.go](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/go/embed.go#L48-L75)
 
 ### Shell
     
@@ -244,7 +244,7 @@ The request body contains data with the following structure: | Fields
           "model": "models/gemini-embedding-001",
           "content": {
           "parts":[{
-            "text": "How does the brain work?"}]}, }, ]}' 2> /dev/null | grep -C 5 values[embed.sh](https://github.com/google-gemini/api-examples/blob/67c0ba4eda7b03a683c553bd38f5954f7a3161c5/rest/embed.sh#L16-L34)
+            "text": "How does the brain work?"}]}, }, ]}' 2> /dev/null | grep -C 5 values[embed.sh](https://github.com/google-gemini/api-examples/blob/695514f9dad6b3f832780357def2796cd5837e6f/rest/embed.sh#L16-L34)
 
 ### Response body
 

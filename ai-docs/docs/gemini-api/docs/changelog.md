@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/changelog/
 title: Release notes
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:57.439875+00:00
+fetched_at: 2026-10-28T10:18:49.996499+00:00
 ---
 
 # Release notes
@@ -10,6 +10,12 @@ fetched_at: 2026-10-27T09:34:57.439875+00:00
 > Source: https://ai.google.dev/gemini-api/docs/changelog/
 
 This page documents updates to the Gemini API.
+
+## October 27, 2026
+
+  * **Gemini API CLI (`gemini-api`) beta**: Released the [Gemini API CLI](https://ai.google.dev/gemini-api/docs/cli) (`gemini-api`), a stateless, zero-dependency command-line client for AI coding agents, scripts, and CI pipelines. Use `gemini-api` on the [Interactions API](https://ai.google.dev/gemini-api/docs/interactions) to generate text and media, analyze files, and run [Gemini managed agents](https://ai.google.dev/gemini-api/docs/agents). See the [Gemini API CLI guide](https://ai.google.dev/gemini-api/docs/cli) to get started.
+
+
 
 ## October 26, 2026
 

@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/environments/
 title: Gemini Environments API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:38.215056+00:00
+fetched_at: 2026-10-28T10:18:47.982581+00:00
 ---
 
 # Gemini Environments API
