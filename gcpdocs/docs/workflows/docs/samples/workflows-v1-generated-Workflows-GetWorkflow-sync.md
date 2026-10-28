@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-v1-generated-Workflows-GetWorkflow-sync/
 title: Get a workflow using Python or Ruby. \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:49.970448+00:00
+fetched_at: 2026-10-28T05:48:45.055069+00:00
 ---
 
 # Get a workflow using Python or Ruby.  |  Workflows  |  Google Cloud Documentation

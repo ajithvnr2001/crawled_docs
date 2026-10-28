@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation/
 title: Agent evaluation \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:01:21.199101+00:00
+fetched_at: 2026-10-28T05:43:23.176360+00:00
 ---
 
 # Agent evaluation  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -83,7 +83,7 @@ Installation instructions follow each skill.
 
 ### Agents CLI eval skill
 
-A CLI-driven workflow to evaluate and optimize Agent Development Kit (ADK) agents using the `agents-cli eval` commands. This skill covers:
+A CLI-driven workflow to evaluate and optimize ADK agents using the `agents-cli eval` commands. This skill covers:
 
   * Preparing eval datasets and synthesizing multi-turn scenarios with user simulation
   * Running inference, grading traces, and analyzing failure clusters
@@ -97,9 +97,9 @@ To install, run the following command:
     npx skills add https://github.com/google/agents-cli --skill google-agents-cli-eval
     
 
-### Agent Platform GenAI Evaluation Service flywheel skill
+### Agent Platform Gen AI evaluation service flywheel skill
 
-An SDK-driven playbook to evaluate and improve models and agents through the Gemini Enterprise Agent Platform GenAI Evaluation Service, using the Agent Platform GenAI Evaluation SDK (`client.evals.evaluate()`). This skill covers:
+An SDK-driven playbook to evaluate and improve models and agents through the Gemini Enterprise Agent Platform Gen AI evaluation service, using the Agent Platform GenAI Evaluation SDK (`client.evals.evaluate()`). This skill covers:
 
   * Building eval datasets from session traces, DataFrames, or synthetic generation
   * Selecting, configuring, and writing custom metrics with LLM-as-judge scoring
@@ -126,6 +126,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

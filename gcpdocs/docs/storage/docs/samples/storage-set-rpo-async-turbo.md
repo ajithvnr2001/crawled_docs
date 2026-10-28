@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-rpo-async-turbo/
 title: Set the rpo setting of bucket metadata to ASYNC_TURBO \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:55.274044+00:00
+fetched_at: 2026-10-28T05:46:00.437090+00:00
 ---
 
 # Set the rpo setting of bucket metadata to ASYNC_TURBO  |  Cloud Storage  |  Google Cloud Documentation

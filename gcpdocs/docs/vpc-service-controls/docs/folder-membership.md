@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc-service-controls/docs/folder-membership/
 title: Folder support in service perimeters \u00a0|\u00a0 VPC Service Controls \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:47.687667+00:00
+fetched_at: 2026-10-28T05:46:37.277949+00:00
 ---
 
 # Folder support in service perimeters  |  VPC Service Controls  |  Google Cloud Documentation
@@ -111,7 +111,7 @@ When transitioning from explicit project memberships to folder-based memberships
 
   1. Add the target parent folder to the service perimeter.
   2. Move the projects under that parent folder in the resource hierarchy.
-  3. **Wait at least 48 hours** : Retain the explicit project entries in the perimeter configuration for at least 48 hours. This waiting period allows resource hierarchy propagation to complete across all systems.
+  3. Retain the explicit project entries in the perimeter configuration until resource hierarchy propagation completes across all systems. Propagation typically takes a few minutes but in some cases can take longer.
   4. Remove the explicit project configurations from the perimeter. The projects remain protected through folder inheritance.
 
 
@@ -120,7 +120,7 @@ When transitioning from explicit project memberships to folder-based memberships
 
 Moving folders or projects changes their effective perimeter protection. To help prevent unexpected access denials, coordinate all hierarchy moves with your Resource Manager administrator.
 
-If you move projects that you have configured in a perimeter into another folder and add that folder to the same perimeter, you must retain the existing explicit project membership configurations in the perimeter for at least 48 hours. This waiting period allows for resource hierarchy propagation and prevents unexpected perimeter enforcement issues when you remove the explicit project configurations from the perimeter.
+If you move projects that you have configured in a perimeter into another folder and add that folder to the same perimeter, retain the existing explicit project membership configurations in the perimeter until resource hierarchy propagation completes. Propagation typically takes a few minutes but can take longer. This waiting period helps prevent unexpected perimeter enforcement issues when you remove the explicit project configurations from the perimeter.
 
 ## Limitations
 
@@ -148,6 +148,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

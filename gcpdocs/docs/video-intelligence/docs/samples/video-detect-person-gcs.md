@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-intelligence/docs/samples/video-detect-person-gcs/
 title: Detect a person in a video on Cloud Storage \u00a0|\u00a0 Video Intelligence API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:07.874002+00:00
+fetched_at: 2026-10-28T05:41:12.002740+00:00
 ---
 
 # Detect a person in a video on Cloud Storage  |  Video Intelligence API  |  Google Cloud Documentation

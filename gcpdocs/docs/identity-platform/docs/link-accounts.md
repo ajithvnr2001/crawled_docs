@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/link-accounts/
 title: Linking multiple providers to an account \u00a0|\u00a0 Identity Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:29:06.240998+00:00
+fetched_at: 2026-10-28T05:49:28.437361+00:00
 ---
 
 # Linking multiple providers to an account  |  Identity Platform  |  Google Cloud Documentation
@@ -243,7 +243,7 @@ Note that a [federated provider](https://docs.cloud.google.com/identity-platform
 
 ## Handling the account-exists-with-different-credential error
 
-If you enabled the **Link accounts that use the same email** setting in Google Cloud console, when a user tries to sign in to a provider (such as SAML) with an email that already exists for another provider (such as Google), the error `auth/account-exists-with-different-credential` is thrown (along with an `AuthCredential` object).
+If you enabled the **Link accounts that use the same email** setting in Google Cloud console, when a user tries to sign in to a provider with an email that already exists for another provider (such as Google), it fails with the `auth/account-exists-with-different-credential` error and an `AuthCredential` object.
 
 To handle this error, prompt the user to sign in with the existing provider. Then call `linkWithCredential()`, `linkWithPopup()`, or `linkWithRedirect()` to associate the new provider to their account using the `AuthCredential`.
 
@@ -369,6 +369,8 @@ Using a redirect is similar to a popup, except you'll need to cache the pending 
 
 Note that some providers, such as Google and Microsoft, serve as both email and social identity providers. Email providers are considered authoritative for all addresses related to their hosted email domain. This means a user logging in with an email address hosted by the same provider will never raise this error (for example, signing in with Google using an `@gmail.com` email, or Microsoft using an `@live.com` or `@outlook.com` email).
 
+Signing in with a trusted provider (such as SAML) won't result in an `auth/account-exists-with-different-credential` error. If the existing account has a verified email, Identity Platform automatically links the new provider to the existing account and retains the existing credentials. If the existing account has an unverified email (such as an unverified email or password account), the trusted provider overwrites the unverified account and removes the existing password and unverified provider credentials to prevent pre-account takeover.
+
 ## Merging accounts manually
 
 If a user attempts to sign in with credentials that are already linked to another user account using the same provider, the client SDK's built-in methods for account linking will fail. In this situation, you'll need to merge the accounts manually, and then delete the second account. For example:
@@ -463,6 +465,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

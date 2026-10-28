@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-parallel-aggregate/
 title: Aggregate data using a parallel loop \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:56:55.740144+00:00
+fetched_at: 2026-10-28T05:49:35.771270+00:00
 ---
 
 # Aggregate data using a parallel loop  |  Workflows  |  Google Cloud Documentation

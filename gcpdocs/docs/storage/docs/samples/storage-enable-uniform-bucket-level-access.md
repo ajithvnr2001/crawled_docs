@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-enable-uniform-bucket-level-access/
 title: Enable uniform bucket-level access \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:51.225737+00:00
+fetched_at: 2026-10-28T05:48:19.275585+00:00
 ---
 
 # Enable uniform bucket-level access  |  Cloud Storage  |  Google Cloud Documentation

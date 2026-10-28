@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/release/release-notes/
 title: Apigee release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:29:12.407122+00:00
+fetched_at: 2026-10-28T05:40:43.539018+00:00
 ---
 
 # Apigee release notes  |  Google Cloud Documentation
@@ -286,6 +286,7 @@ Bug ID | Description
 **563557547** | Fixed EventFlow (Server-Sent Events) coalescing multiple events into a single policy invocation under burst load on the http-adaptor data path, which produced malformed SSE output to the client.  
 **562740573** | Apigee Analytics now populates the `processing_mode` dimension, distinguishing proxy traffic from extension-processor traffic. This dimension is not populated in billing-only analytics mode.  
 **357042873** | Stopped redirecting `apigee-cassandra-schema-readiness` init container logs to `/dev/null`, improving troubleshooting. Workloads undergo a rolling restart upon upgrade.  
+**564969400** | Fixed an issue where variables initialized from an empty `<Value/>` element in `AssignMessage` (`AssignVariable`) were not treated as empty strings when referenced in message template functions such as `replaceAll`.  
 **N/A** | Updates to infrastructure and libraries.  
   
 ## September 21, 2026

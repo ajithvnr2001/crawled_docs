@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/translate/docs/setup/
 title: Setup \u00a0|\u00a0 Cloud Translation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:10:05.047594+00:00
+fetched_at: 2026-10-28T05:45:54.038729+00:00
 ---
 
 # Setup  |  Cloud Translation  |  Google Cloud Documentation
@@ -140,7 +140,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-translate" % "2.99.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-translate" % "2.100.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 
@@ -229,7 +229,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-translate" % "2.99.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-translate" % "2.100.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

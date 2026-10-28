@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/docs/resources/
 title: Resources \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:36:52.934290+00:00
+fetched_at: 2026-10-28T05:52:52.146816+00:00
 ---
 
 # Resources  |  Google Cloud SDK  |  Google Cloud Documentation

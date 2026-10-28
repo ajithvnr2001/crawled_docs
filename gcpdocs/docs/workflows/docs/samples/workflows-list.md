@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-list/
 title: Define lists \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:35.157399+00:00
+fetched_at: 2026-10-28T05:50:29.140578+00:00
 ---
 
 # Define lists  |  Workflows  |  Google Cloud Documentation

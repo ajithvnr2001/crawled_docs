@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-deactivate-hmac-key/
 title: Deactivate a service account HMAC key \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:41.634983+00:00
+fetched_at: 2026-10-28T05:48:43.277154+00:00
 ---
 
 # Deactivate a service account HMAC key  |  Cloud Storage  |  Google Cloud Documentation

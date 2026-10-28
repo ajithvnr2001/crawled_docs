@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-intelligence/docs/samples/
 title: All Video Intelligence code samples \u00a0|\u00a0 Video Intelligence API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:41.936934+00:00
+fetched_at: 2026-10-28T05:46:03.592433+00:00
 ---
 
 # All Video Intelligence code samples  |  Video Intelligence API  |  Google Cloud Documentation

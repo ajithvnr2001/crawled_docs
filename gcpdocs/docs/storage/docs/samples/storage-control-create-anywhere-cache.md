@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-control-create-anywhere-cache/
 title: Storage Control Create Anywhere Cache \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:59.778459+00:00
+fetched_at: 2026-10-28T05:48:03.636632+00:00
 ---
 
 # Storage Control Create Anywhere Cache  |  Google Cloud Documentation

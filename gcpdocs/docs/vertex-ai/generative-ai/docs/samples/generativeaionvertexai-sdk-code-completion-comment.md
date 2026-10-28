@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-sdk-code-completion-comment/
 title: Code completion \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:36.176199+00:00
+fetched_at: 2026-10-28T05:49:47.195281+00:00
 ---
 
 # Code completion  |  Generative AI on Vertex AI  |  Google Cloud Documentation

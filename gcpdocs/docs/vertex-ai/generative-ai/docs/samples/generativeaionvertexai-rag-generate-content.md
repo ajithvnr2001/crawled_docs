@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-generate-content/
 title: Generate responses using the RAG file \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:09.229132+00:00
+fetched_at: 2026-10-28T05:49:46.863638+00:00
 ---
 
 # Generate responses using the RAG file  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+    # corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
     
     rag_retrieval_tool = genai_types.Tool(
         retrieval=genai_types.Retrieval(
@@ -73,14 +73,14 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     )
     
     # Create a GenAI SDK client to make a generate_content request
-    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-central1")
+    genai_client = genai.Client(vertexai=True, project=PROJECT_ID, location="global")
     
     response = genai_client.models.generate_content(
-        model="gemini-2.5-pro",
+        model="gemini-3.8-flash",
         contents="Why is the sky blue?",
         config=genai_types.GenerateContentConfig(
             tools=[rag_retrieval_tool]
-        )
+        ),
     )
     print(response.text)
     # Example response:

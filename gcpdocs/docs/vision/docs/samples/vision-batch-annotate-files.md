@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-batch-annotate-files/
 title: Annotate a batch of local files \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:34.329861+00:00
+fetched_at: 2026-10-28T05:48:00.515484+00:00
 ---
 
 # Annotate a batch of local files  |  Cloud Vision API  |  Google Cloud Documentation
@@ -227,19 +227,19 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
     
     
-    from google.cloud import vision_v1
+    from google.cloud import [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest)
     
     
     def sample_batch_annotate_files(file_path="path/to/your/document.pdf"):
         """Perform batch file annotation."""
-        client = vision_v1.[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
+        client = [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
     
         # Supported mime_type: application/pdf, image/tiff, image/gif
         mime_type = "application/pdf"
         with open(file_path, "rb") as f:
             content = f.read()
         input_config = {"mime_type": mime_type, "content": content}
-        features = [{"type_": vision_v1.[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.DOCUMENT_TEXT_DETECTION}]
+        features = [{"type_": [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.DOCUMENT_TEXT_DETECTION}]
     
         # The service can process up to 5 pages per document file. Here we specify
         # the first, second, and last page of the document to be processed.

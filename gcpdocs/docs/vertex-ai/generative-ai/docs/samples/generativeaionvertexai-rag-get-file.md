@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-get-file/
 title: Get a RAG file \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:43.938011+00:00
+fetched_at: 2026-10-28T05:48:39.387299+00:00
 ---
 
 # Get a RAG file  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -48,15 +48,16 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # file_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
+    # file_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}/ragFiles/{rag_file_id}"
     
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session.
+    # See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
     
     rag_file = client.rag.get_file(name=file_name)
     print(rag_file)
     # Example response:
-    # RagFile(name='projects/1234567890/locations/us-central1/ragCorpora/11111111111/ragFiles/22222222222',
+    # RagFile(name='projects/1234567890/locations/us-east5/ragCorpora/11111111111/ragFiles/22222222222',
     # display_name='file_display_name', description='file description')
     
 

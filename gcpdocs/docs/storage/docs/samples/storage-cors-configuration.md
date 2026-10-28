@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-cors-configuration/
 title: Configure CORS for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:45.885764+00:00
+fetched_at: 2026-10-28T05:48:05.349953+00:00
 ---
 
 # Configure CORS for a bucket  |  Cloud Storage  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-prompt-template-create-generate-save/
 title: Create and use a Vertex AI Prompt to generate text \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:08.125083+00:00
+fetched_at: 2026-10-28T05:48:39.171755+00:00
 ---
 
 # Create and use a Vertex AI Prompt to generate text  |  Generative AI on Vertex AI  |  Google Cloud Documentation

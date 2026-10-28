@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-copy-file/
 title: Copy an object between buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:43.499967+00:00
+fetched_at: 2026-10-28T05:48:05.116460+00:00
 ---
 
 # Copy an object between buckets  |  Cloud Storage  |  Google Cloud Documentation

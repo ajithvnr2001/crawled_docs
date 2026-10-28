@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-print-file-acl/
 title: Get an object's ACL \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:46.315481+00:00
+fetched_at: 2026-10-28T05:46:14.891424+00:00
 ---
 
 # Get an object's ACL  |  Cloud Storage  |  Google Cloud Documentation

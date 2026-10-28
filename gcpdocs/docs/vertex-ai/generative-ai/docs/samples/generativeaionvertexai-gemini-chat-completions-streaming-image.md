@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-gemini-chat-completions-streaming-image/
 title: Generate streaming text to describe an image by using the Chat Completions API \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:29.221475+00:00
+fetched_at: 2026-10-28T05:49:04.945005+00:00
 ---
 
 # Generate streaming text to describe an image by using the Chat Completions API  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     # TODO(developer): Update and un-comment below lines
     # project_id = "PROJECT_ID"
-    # location = "us-central1"
+    # location = "global"
     
     # Programmatically get an access token
     credentials, _ = default(scopes=["https://www.googleapis.com/auth/cloud-platform"])
@@ -50,12 +50,12 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     # OpenAI Client
     client = openai.OpenAI(
-        base_url=f"https://{location}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
+        base_url=f"https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/{location}/endpoints/openapi",
         api_key=credentials.token,
     )
     
     response = client.chat.completions.create(
-        model="google/gemini-2.0-flash-001",
+        model="google/gemini-3.8-flash",
         messages=[
             {
                 "role": "user",

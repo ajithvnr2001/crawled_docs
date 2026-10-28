@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-stitcher/docs/samples/videostitcher-update-cdn-key-akamai/
 title: Update an Akamai CDN key \u00a0|\u00a0 Video Stitcher API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:15.831143+00:00
+fetched_at: 2026-10-28T05:50:03.547006+00:00
 ---
 
 # Update an Akamai CDN key  |  Video Stitcher API  |  Google Cloud Documentation

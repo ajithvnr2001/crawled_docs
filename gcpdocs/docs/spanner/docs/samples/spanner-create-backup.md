@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-create-backup/
 title: Create backup \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:31:15.719197+00:00
+fetched_at: 2026-10-28T05:40:38.748161+00:00
 ---
 
 # Create backup  |  Spanner  |  Google Cloud Documentation

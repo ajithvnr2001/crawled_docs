@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-list-files/
 title: List RAG files in an index \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:29.258794+00:00
+fetched_at: 2026-10-28T05:48:36.560793+00:00
 ---
 
 # List RAG files in an index  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -48,10 +48,11 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+    # corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
     
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session.
+    # See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
     
     files_response = client.rag.list_files(name=corpus_name)
     for file in files_response.rag_files:
@@ -59,9 +60,9 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         print(file.name)
     # Example response:
     # g-drive_file.txt
-    # projects/1234567890/locations/us-central1/ragCorpora/111111111111/ragFiles/222222222222
+    # projects/1234567890/locations/us-east5/ragCorpora/111111111111/ragFiles/222222222222
     # g_cloud_file.txt
-    # projects/1234567890/locations/us-central1/ragCorpora/111111111111/ragFiles/333333333333
+    # projects/1234567890/locations/us-east5/ragCorpora/111111111111/ragFiles/333333333333
     
 
 ## What's next

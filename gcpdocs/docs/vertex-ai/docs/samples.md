@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/
 title: All Vertex AI code samples \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:39.816935+00:00
+fetched_at: 2026-10-28T05:46:03.187750+00:00
 ---
 
 # All Vertex AI code samples  |  Google Cloud Documentation
@@ -27,6 +27,6 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 This page contains code samples for Vertex AI. To search and filter code samples for other Google Cloud products, see the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples). 
 
-SampleNotebookPythonJavaNode.jsGoRubyTerraform
+PythonJavaNode.jsGoTerraform
 
 Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-claude-3-tool-use/
 title: Use function calling with Anthropic to enhance the capabilities of Claude \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:56:44.836948+00:00
+fetched_at: 2026-10-28T05:50:24.219123+00:00
 ---
 
 # Use function calling with Anthropic to enhance the capabilities of Claude  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -54,7 +54,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     client = AnthropicVertex(project_id=PROJECT_ID, region="us-east5")
     message = client.messages.create(
-        model="claude-3-5-sonnet-v2@20241022",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         tools=[
             {

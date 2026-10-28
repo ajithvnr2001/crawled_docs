@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/reliability/perform-testing-for-recovery-from-failures/
 title: Perform testing for recovery from failures \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:46.422549+00:00
+fetched_at: 2026-10-28T05:47:03.154992+00:00
 ---
 
 # Perform testing for recovery from failures  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Perform testing for recovery from failures Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-12-30 UTC
+Last reviewed 2026-10-27 UTC
 
 This principle in the reliability pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you design and run tests for recovery in the event of failures.
 
@@ -31,7 +31,7 @@ To be sure that your system can recover from failures, you must periodically run
 
 This testing helps you to practice responses to events that pose major risks to reliability, such as the outage of an entire [region](https://docs.cloud.google.com/docs/geography-and-regions#regions_and_zones). This testing also helps you verify that your system behaves as intended during a disruption.
 
-In the unlikely event of an entire region going down, you need to fail over all traffic to another region. During normal operation of your workload, when data is modified, it needs to be synchronized from the primary region to the failover region. You need to verify that the replicated data is always very recent, so that users don't experience data loss or session breakage. The load balancing system must also be able to shift traffic to the failover region at any time without service interruptions. To minimize downtime after a regional outage, operations engineers also need to be able to manually and efficiently shift user traffic away from a region, in as less time as possible. This operation is sometimes called _draining a region_ , which means you stop the inbound traffic to the region and move all the traffic elsewhere.
+In the unlikely event of an entire region going down, you need to fail over all traffic to another region. During normal operation of your workload, when data is modified, it needs to be synchronized from the primary region to the failover region. You need to verify that the replicated data is always very recent, so that users don't experience data loss or session breakage. The load balancing system must also be able to shift traffic to the failover region at any time without service interruptions. To minimize downtime after a regional outage, operations engineers also need to be able to manually and efficiently shift user traffic away from a region, in as little time as possible. This operation is sometimes called _draining a region_ , which means you stop the inbound traffic to the region and move all the traffic elsewhere.
 
 ## Recommendations
 
@@ -55,7 +55,7 @@ Choose an appropriate environment, preferably a staging or sandbox environment t
 
 Create a backup plan. Take snapshots or backups of critical databases and services to prevent data loss during the test. Ensure that your team is prepared to do manual interventions if the automated failover mechanisms fail.
 
-To prevent test disruptions, ensure that your IAM roles, policies, and failover configurations are correctly set up. Verify that the necessary permissions are in place for the test tools and scripts.
+To prevent test disruptions, ensure that your Identity and Access Management (IAM) roles, policies, and failover configurations are correctly set up. Verify that the necessary permissions are in place for the test tools and scripts.
 
 Inform stakeholders, including operations, DevOps, and application owners, about the test schedule, scope, and potential impact. Provide stakeholders with an estimated timeline and the expected behaviors during the test.
 
@@ -119,6 +119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-12-30 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-12-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

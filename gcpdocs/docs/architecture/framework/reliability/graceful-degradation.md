@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/reliability/graceful-degradation/
 title: Design for graceful degradation \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:47:51.156175+00:00
+fetched_at: 2026-10-28T05:47:03.993940+00:00
 ---
 
 # Design for graceful degradation  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Design for graceful degradation Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-12-30 UTC
+Last reviewed 2026-10-27 UTC
 
 This principle in the reliability pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you to design your Google Cloud workloads to fail gracefully.
 
@@ -29,7 +29,7 @@ This principle is relevant to the _response_ [focus area](https://docs.cloud.goo
 
 Graceful degradation is a design approach where a system that experiences a high load continues to function, possibly with reduced performance or accuracy. Graceful degradation ensures continued availability of the system and prevents complete failure, even if the system's work isn't optimal. When the load returns to a manageable level, the system resumes full functionality.
 
-For example, during periods of high load, Google Search prioritizes results from higher-ranked web pages, potentially sacrificing some accuracy. When the load decreases, Google Search recomputes the search results.
+For example, during periods of high load, Google Search prioritizes results from higher-ranked web pages, potentially sacrificing some accuracy. When the load decreases, Search recomputes the search results.
 
 ## Recommendations
 
@@ -43,7 +43,7 @@ Use tools like [Apigee](https://docs.cloud.google.com/apigee/docs/api-platform/g
 
 ### Drop excess requests early
 
-Configure your systems to drop excess requests at the frontend layer to protect backend components. Dropping some requests prevents global failures and enables the system to recover more gracefully.With this approach, some users might experience errors. However, you can minimize the impact of outages, in contrast to an approach like _circuit-breaking_ , where _all_ traffic is dropped during an overload.
+Configure your systems to drop excess requests at the frontend layer to protect backend components. Dropping some requests prevents global failures and enables the system to recover more gracefully. With this approach, some users might experience errors. However, you can minimize the impact of outages, in contrast to an approach like _circuit-breaking_ , where _all_ traffic is dropped during an overload.
 
 ### Handle partial errors and retries
 
@@ -65,6 +65,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-12-30 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-12-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

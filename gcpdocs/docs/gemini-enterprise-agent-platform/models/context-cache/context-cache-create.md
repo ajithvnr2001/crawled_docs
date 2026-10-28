@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create/
 title: Create a context cache \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:00:43.713628+00:00
+fetched_at: 2026-10-28T05:45:15.860121+00:00
 ---
 
 # Create a context cache  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ Context caching supports the [global endpoint](https://docs.cloud.google.com/gem
 
 ### Encryption key support
 
-Context caching supports Customer-Managed Encryption Keys (CMEKs), allowing you to control the encryption of your cached data and protect your sensitive information with encryption keys that you manage and own. This provides an additional layer of security and compliance.
+Context caching supports Customer-managed encryption keys (CMEKs), allowing you to control the encryption of your cached data and protect your sensitive information with encryption keys that you manage and own. This provides an additional layer of security and compliance.
 
 Refer to the example for more details.
 
@@ -511,7 +511,7 @@ You should receive a JSON response similar to the following:
 
 ## Create a context cache with CMEK
 
-To implement context caching with CMEKs, create a CMEK by following [the instructions](https://docs.cloud.google.com/kms/docs/create-key) and make sure the Gemini Enterprise Agent Platform per-product, per-project service account (P4SA) has the necessary Cloud Key Management Service CryptoKey Encrypter/Decrypter permissions on the key. This lets you securely create and manage cached content as well as make other calls like {`List`, `Update`, `Delete`, `Get`} `CachedContent`(s) without repeatedly specifying a KMS key.
+To implement context caching with CMEKs, create a CMEK by following [the instructions](https://docs.cloud.google.com/kms/docs/create-key) and make sure the Gemini Enterprise Agent Platform per-product, per-project service account (P4SA) has the necessary Cloud Key Management Service CryptoKey Encrypter/Decrypter permissions on the key. This lets you securely create and manage cached content as well as make other calls like {`List`, `Update`, `Delete`, `Get`} `CachedContent`(s) without repeatedly specifying a Cloud KMS key.
 
 ### REST
 
@@ -797,6 +797,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

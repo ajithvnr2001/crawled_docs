@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/securing/ingress/
 title: Restrict network endpoint ingress for Cloud Run services and instances \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:56.410742+00:00
+fetched_at: 2026-10-28T05:54:02.812738+00:00
 ---
 
 # Restrict network endpoint ingress for Cloud Run services and instances  |  Google Cloud Documentation

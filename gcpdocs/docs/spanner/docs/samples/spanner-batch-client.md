@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-batch-client/
 title: Read data in parallel \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:26.876021+00:00
+fetched_at: 2026-10-28T05:40:52.950623+00:00
 ---
 
 # Read data in parallel  |  Spanner  |  Google Cloud Documentation
@@ -451,7 +451,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     total_records = Concurrent::AtomicFixnum.new
     
     # Create a new Spanner batch client
-    spanner        = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner        = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
     batch_client   = spanner.[batch_client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     # Get a strong timestamp bound batch_snapshot

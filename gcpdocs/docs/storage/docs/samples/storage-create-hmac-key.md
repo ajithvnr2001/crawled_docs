@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-create-hmac-key/
 title: Create a service account HMAC key \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:47.056998+00:00
+fetched_at: 2026-10-28T05:49:27.941746+00:00
 ---
 
 # Create a service account HMAC key  |  Cloud Storage  |  Google Cloud Documentation

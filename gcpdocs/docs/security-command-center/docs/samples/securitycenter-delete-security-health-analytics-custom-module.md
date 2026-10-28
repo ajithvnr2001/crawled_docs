@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/samples/securitycenter-delete-security-health-analytics-custom-module/
 title: Delete a Security Health Analytics custom module \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:32:59.609030+00:00
+fetched_at: 2026-10-28T05:50:41.604371+00:00
 ---
 
 # Delete a Security Health Analytics custom module  |  Security Command Center  |  Google Cloud Documentation

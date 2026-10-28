@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-tools-func-def-with-txt/
 title: Generate Content using Pydantic Function Calling \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:57:01.232833+00:00
+fetched_at: 2026-10-28T05:46:51.858083+00:00
 ---
 
 # Generate Content using Pydantic Function Calling  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -62,14 +62,13 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         return weather_map.get(location, "unknown")
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
-    model_id = "gemini-3.5-flash"
+    model_id = "gemini-3.8-flash"
     
     response = client.models.generate_content(
         model=model_id,
         contents="What is the weather like in Boston?",
         config=GenerateContentConfig(
             tools=[get_current_weather],
-            temperature=0,
         ),
     )
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/file-small-batch/
 title: Small batch file annotation online \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:35.236971+00:00
+fetched_at: 2026-10-28T05:48:23.302851+00:00
 ---
 
 # Small batch file annotation online  |  Cloud Vision API  |  Google Cloud Documentation
@@ -766,19 +766,19 @@ To authenticate to Vision, set up Application Default Credentials. For more info
     
     
     
-    from google.cloud import vision_v1
+    from google.cloud import [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest)
     
     
     def sample_batch_annotate_files(file_path="path/to/your/document.pdf"):
         """Perform batch file annotation."""
-        client = vision_v1.[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
+        client = [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
     
         # Supported mime_type: application/pdf, image/tiff, image/gif
         mime_type = "application/pdf"
         with open(file_path, "rb") as f:
             content = f.read()
         input_config = {"mime_type": mime_type, "content": content}
-        features = [{"type_": vision_v1.[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.DOCUMENT_TEXT_DETECTION}]
+        features = [{"type_": [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.DOCUMENT_TEXT_DETECTION}]
     
         # The service can process up to 5 pages per document file. Here we specify
         # the first, second, and last page of the document to be processed.
@@ -1215,7 +1215,7 @@ Before trying this sample, follow the Python setup instructions in the [Vision q
 To authenticate to Vision, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import vision_v1
+    from google.cloud import [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest)
     
     
     def sample_batch_annotate_files(
@@ -1224,11 +1224,11 @@ To authenticate to Vision, set up Application Default Credentials. For more info
         """Perform batch file annotation."""
         mime_type = "application/pdf"
     
-        client = vision_v1.[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
+        client = [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
     
         gcs_source = {"uri": storage_uri}
         input_config = {"gcs_source": gcs_source, "mime_type": mime_type}
-        features = [{"type_": vision_v1.[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.DOCUMENT_TEXT_DETECTION}]
+        features = [{"type_": [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.DOCUMENT_TEXT_DETECTION}]
     
         # The service can process up to 5 pages per document file.
         # Here we specify the first, second, and last page of the document to be
@@ -1326,6 +1326,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

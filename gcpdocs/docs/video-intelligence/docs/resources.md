@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-intelligence/docs/resources/
 title: Resources \u00a0|\u00a0 Video Intelligence API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:48.658558+00:00
+fetched_at: 2026-10-28T05:47:49.262146+00:00
 ---
 
 # Resources  |  Video Intelligence API  |  Google Cloud Documentation

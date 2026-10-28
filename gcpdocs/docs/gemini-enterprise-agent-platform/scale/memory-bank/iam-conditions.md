@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/iam-conditions/
 title: Control access to Memory Bank with IAM Conditions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:59:31.013703+00:00
+fetched_at: 2026-10-28T05:42:34.158300+00:00
 ---
 
 # Control access to Memory Bank with IAM Conditions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -95,7 +95,7 @@ To grant a role to a [service agent](https://docs.cloud.google.com/iam/docs/serv
 
   4. Select a role to grant from the drop-down list. For best security practices, choose a role that includes only the permissions that your principal needs. You can choose one of the specialized Memory Bank IAM roles.
 
-  5. Add a condition to the role, using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the below examples for some possible condition statements.
+  5. Add a condition to the role, using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the examples for some possible condition statements.
 
   6. Click **Save**. The principal is granted the role on the resource.
 
@@ -175,13 +175,9 @@ If you are using Terraform to set your IAM policies, you can include a condition
 Replace the following variables: 
 
   * `PROJECT_ID`: Your Google Cloud project ID. Project IDs are alphanumeric, like `my-project`. 
-
   * `ROLE`: The IAM role to grant, for example, `roles/aiplatform.memoryEditor`. 
-
   * `MEMBER`: The principal to grant the role to, for example, `user:developerA@corp.com`. For a full list of the values that `MEMBER` can have, see [Principal identifiers](https://docs.cloud.google.com/iam/docs/principal-identifiers). 
-
-  * `CONDITION`: Your IAM condition statement using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the below examples for some possible condition statements. 
-
+  * `CONDITION`: Your IAM condition statement using `aiplatform.googleapis.com/memoryScope` as the API attribute. See the examples for some possible condition statements. 
 
 
 
@@ -334,6 +330,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

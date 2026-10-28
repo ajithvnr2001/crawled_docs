@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-list-buckets/
 title: List buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:49.464871+00:00
+fetched_at: 2026-10-28T05:49:28.736808+00:00
 ---
 
 # List buckets  |  Cloud Storage  |  Google Cloud Documentation

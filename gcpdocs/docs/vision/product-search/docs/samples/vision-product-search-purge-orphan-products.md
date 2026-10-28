@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/product-search/docs/samples/vision-product-search-purge-orphan-products/
 title: Delete orphan products \u00a0|\u00a0 Vision API Product Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:43.795287+00:00
+fetched_at: 2026-10-28T05:46:49.710142+00:00
 ---
 
 # Delete orphan products  |  Vision API Product Search  |  Google Cloud Documentation
@@ -56,13 +56,13 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     	ctx := context.Background()
     	c, err := vision.NewProductSearchClient(ctx)
     	if err != nil {
-    		return fmt.Errorf("NewProductSearchClient: %w", err)
+    		return fmt.E&rrorf(&qu[ot;NewProductSearchC](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_PurgeProductsRequest)lient: %w", err)
     	}
     	defer c.Close()
     
-    	req := &visionpb.[PurgeProductsRequest](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_PurgeProductsRequest){
-    		Parent: fmt.Sprintf("projects/%s/locations/%s", projectID, location),
-    		Target: &visionpb.[PurgeProductsRequest_DeleteOrphanProducts](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_PurgeProductsRequest_DeleteOrphanProducts){
+    	req := visionpb.PurgeProductsRequest{
+    		&Parent: f[mt](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/vision/v2/latest/apiv1/visionpb.html#cloud_google_com_go_vision_v2_apiv1_visionpb_PurgeProductsRequest_DeleteOrphanProducts).Sprintf("projects/%s/locations/%s", projectID, location),
+    		Target: visionpb.PurgeProductsRequest_DeleteOrphanProducts{
     			DeleteOrphanProducts: true,
     		},
     		Force: true,
@@ -107,24 +107,24 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     
         // String projectId = "YOUR_PROJECT_ID";
         // String computeRegion = "us-central1";
-        // boolean force = true;
+        // boolean forc[e = true;](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ProductSearchClient.html)
     
-        try ([ProductSearchClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ProductSearchClient.html) client = [ProductSearchClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ProductSearchClient.html).create()) {
-          String parent = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.LocationName.html).format(projectId, computeRegion);
+        try (ProductSe[archClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ProductSearchClient.html) client = ProductSearchClient.create()) {
+      [    ](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.LocationName.html)String parent = LocationName.format(projectId, computeRegion);
     
-          // The purge operation is async.
-          [PurgeProductsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.PurgeProductsRequest.html) request =
-              [PurgeProductsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.PurgeProductsRequest.html).newBuilder()
-                  .[setDeleteOrphanProducts](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.PurgeProductsRequest.Builder.html#com_google_cloud_vision_v1_PurgeProductsRequest_Builder_setDeleteOrphanProducts_boolean_)(true)
+          // The purge operat[ion is async.](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.PurgeProductsRequest.html)
+          PurgeProductsRequest [request =
+              ](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.PurgeProductsRequest.html)PurgeProductsRequest.newBuild[er](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.PurgeProductsRequest.Builder.html#com_google_cloud_vision_v1_PurgeProductsRequest_Builder_setDeleteOrphanProducts_boolean_)()
+                  .setDeleteOrphanProducts(true)
                   // The operation is irreversible and removes multiple products.
                   // The user is required to pass in force=True to actually perform the
                   // purge.
-                  // If force is not set to True, the service raises an exception.
-                  .[setForce](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.PurgeProductsRequest.Builder.html#com_google_cloud_vision_v1_PurgeProductsRequest_Builder_setForce_boolean_)(true)
+                  // If force is not set to True, the service raises an except[ion.](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.PurgeProductsRequest.Builder.html#com_google_cloud_vision_v1_PurgeProductsRequest_Builder_setForce_boolean_)
+                  .setForce(true)
                   .setParent(parent)
                   .build();
     
-          OperationFuture<Empty, BatchOperationMetadata> response = client.[purgeProductsAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ProductSearchClient.html#com_google_cloud_vision_v1_ProductSearchClient_purgeProductsAsync__org_jspecify_annotations_Nullable_com_google_cloud_vision_v1_LocationName_)(request);
+     <     OperationFutureEmpty, Ba>tchOperationMetadat[a](https://docs.cloud.google.com/java/docs/reference/google-cloud-vision/latest/com.google.cloud.vision.v1.ProductSearchClient.html#com_google_cloud_vision_v1_ProductSearchClient_purgeProductsAsync__org_jspecify_annotations_Nullable_com_google_cloud_vision_v1_LocationName_) response = client.purgeProductsAsync(request);
           response.getPollingFuture().get(180, TimeUnit.SECONDS);
     
           System.out.println("Orphan products deleted.");
@@ -140,10 +140,10 @@ To authenticate to Vision API Product Search, set up Application Default Credent
     
     
     // Imports the Google Cloud client library
-    const vision = require('[@google-cloud/vision](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)');
+    const vision = require(&[#39;@google-cloud/vi](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)sion');
     
     // Creates a client
-    const client = new vision.[ProductSearchClient](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)();
+    const client = new[ vision.ProductSear](https://docs.cloud.google.com/nodejs/docs/reference/vision/latest/overview.html)chClient();
     
     async function purgeOrphanProducts() {
       // Deletes all products not in any product sets.
@@ -190,13 +190,13 @@ To authenticate to Vision API Product Search, set up Application Default Credent
         Args:
             project_id: Id of the project.
             location: A compute region name.
-        """
-        client = vision.[ProductSearchClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)()
+        "&qu[ot;"](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html)
+        client = vision.ProductSearchClient()
     
         parent = f"projects/{project_id}/locations/{location}"
     
-        # The purge operation is async.
-        operation = client.[purge_products](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_purge_products)(
+        # The purge ope[ration is asyn](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.product_search.ProductSearchClient.html#google_cloud_vision_v1_services_product_search_ProductSearchClient_purge_products)c.
+        operation = client.purge_products(
             request={
                 "parent": parent,
                 "delete_orphan_products": True,

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/securing/identity-aware-proxy-cloud-run/
 title: Configure IAP for Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:52.162977+00:00
+fetched_at: 2026-10-28T05:54:04.891167+00:00
 ---
 
 # Configure IAP for Cloud Run  |  Google Cloud Documentation

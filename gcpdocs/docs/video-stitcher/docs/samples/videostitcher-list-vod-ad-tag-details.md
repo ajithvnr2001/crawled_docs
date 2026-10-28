@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-stitcher/docs/samples/videostitcher-list-vod-ad-tag-details/
 title: List VOD ad tag details \u00a0|\u00a0 Video Stitcher API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:20.851386+00:00
+fetched_at: 2026-10-28T05:49:00.199910+00:00
 ---
 
 # List VOD ad tag details  |  Video Stitcher API  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-get-requester-pays-status/
 title: Get the Requester Pays status on a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:47.311411+00:00
+fetched_at: 2026-10-28T05:47:12.211689+00:00
 ---
 
 # Get the Requester Pays status on a bucket  |  Cloud Storage  |  Google Cloud Documentation

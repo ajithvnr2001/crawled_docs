@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/concurrency/
 title: Set maximum concurrent requests per instance \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:56.516574+00:00
+fetched_at: 2026-10-28T05:54:03.648888+00:00
 ---
 
 # Set maximum concurrent requests per instance  |  Cloud Run  |  Google Cloud Documentation

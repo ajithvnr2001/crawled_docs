@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-crop-hint-detection/
 title: Apply crop hints to a local image \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:57:17.205796+00:00
+fetched_at: 2026-10-28T05:46:54.154270+00:00
 ---
 
 # Apply crop hints to a local image  |  Cloud Vision API  |  Google Cloud Documentation

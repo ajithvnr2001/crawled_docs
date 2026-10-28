@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-deploy-model-sample/
 title: Deploy a model \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:27:01.356581+00:00
+fetched_at: 2026-10-28T05:48:14.326541+00:00
 ---
 
 # Deploy a model  |  Vertex AI  |  Google Cloud Documentation
@@ -29,8 +29,8 @@ Deploys a model using the deploy_model method.
 
 For detailed documentation that includes this code sample, see the following: 
 
-  * [Get inferences from a image object detection model](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/get-predictions)
-  * [Get inferences from an image classification model](https://docs.cloud.google.com/vertex-ai/docs/image-data/classification/get-predictions)
+  * [Get inferences from an image classification model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/classification/get-predictions)
+  * [Get inferences from an image object detection model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions)
 
 
 
@@ -342,7 +342,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
 
 ## What's next
 
-To search and filter code samples for other Google Cloud products, see the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?product=aiplatform). 
+To search and filter code samples for other Google Cloud products, see the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?product=vertexai). 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 

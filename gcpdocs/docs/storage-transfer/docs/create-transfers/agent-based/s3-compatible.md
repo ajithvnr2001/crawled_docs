@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage-transfer/docs/create-transfers/agent-based/s3-compatible/
 title: Transfer from S3-compatible storage to Cloud Storage \u00a0|\u00a0 Storage Transfer Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:10.624004+00:00
+fetched_at: 2026-10-28T05:49:29.908710+00:00
 ---
 
 # Transfer from S3-compatible storage to Cloud Storage  |  Storage Transfer Service  |  Google Cloud Documentation
@@ -322,11 +322,11 @@ To create a transfer from an S3-compatible source using the REST API, create a J
           "s3Metadata":{
             "protocol": "NETWORK_PROTOCOL_HTTPS",
             "requestModel": "REQUEST_MODEL_VIRTUAL_HOSTED_STYLE",
-            "authMethod": &quot;AUTH_METHOD_AWS_SIGNATURE_V4"
+            "authMethod": "AUTH_METHOD_AWS_SIGNATURE_V4"
           },
-          &quot;endpoint": "example.com",
+          "endpoint": "example.com",
           "bucketName": "BUCKET_NAME",
-          "path": "PATH&quot;,
+          "path": "PATH",
         },
         "gcsDataSink": {
           "bucketName": "SINK_NAME",
@@ -383,66 +383,66 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
     	// The S3 region of the source bucket.
     	region := "us-east-1"
     
-    	// The S3 compatible[ endpoint.](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1/storagetransferpb.html#cloud_google_com_go_storagetransfer_apiv1_storagetransferpb_S3CompatibleMetadata_NETWORK_PROTOCOL_UNSPECIFIED_S3CompatibleMetadata_NETWORK_PROTOCOL_HTTPS_S3CompatibleMetadata_NETWORK_PROTOCOL_HTTP)
+    	// The S3 compatible endpoint.
     	endpoint := "us-east-1.example.com"
     
     	// The S3 compatible network protocol.
-    	protocol := stora[getransferpb](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1/storagetransferpb.html#cloud_google_com_go_storagetransfer_apiv1_storagetransferpb_S3CompatibleMetadata_REQUEST_MODEL_UNSPECIFIED_S3CompatibleMetadata_REQUEST_MODEL_VIRTUAL_HOSTED_STYLE_S3CompatibleMetadata_REQUEST_MODEL_PATH_STYLE).S3CompatibleMetadata_NETWORK_PROTOCOL_HTTPS
+    	protocol := storagetransferpb.[S3CompatibleMetadata_NETWORK_PROTOCOL_HTTPS](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1/storagetransferpb.html#cloud_google_com_go_storagetransfer_apiv1_storagetransferpb_S3CompatibleMetadata_NETWORK_PROTOCOL_UNSPECIFIED_S3CompatibleMetadata_NETWORK_PROTOCOL_HTTPS_S3CompatibleMetadata_NETWORK_PROTOCOL_HTTP)
     
     	// The S3 compatible request model.
-    	requestModel := storagetransf[erpb](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1/storagetransferpb.html#cloud_google_com_go_storagetransfer_apiv1_storagetransferpb_S3CompatibleMetadata_AUTH_METHOD_UNSPECIFIED_S3CompatibleMetadata_AUTH_METHOD_AWS_SIGNATURE_V4_S3CompatibleMetadata_AUTH_METHOD_AWS_SIGNATURE_V2).S3CompatibleMetadata_REQUEST_MODEL_VIRTUAL_HOSTED_STYLE
+    	requestModel := storagetransferpb.[S3CompatibleMetadata_REQUEST_MODEL_VIRTUAL_HOSTED_STYLE](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1/storagetransferpb.html#cloud_google_com_go_storagetransfer_apiv1_storagetransferpb_S3CompatibleMetadata_REQUEST_MODEL_UNSPECIFIED_S3CompatibleMetadata_REQUEST_MODEL_VIRTUAL_HOSTED_STYLE_S3CompatibleMetadata_REQUEST_MODEL_PATH_STYLE)
     
     	// The S3 Compatible auth method.
-    	authMethod := [storagetr](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1.html#cloud_google_com_go_storagetransfer_apiv1_Client_NewClient)ansferpb.S3CompatibleMetadata_AUTH_METHOD_AWS_SIGNATURE_V4
+    	authMethod := storagetransferpb.[S3CompatibleMetadata_AUTH_METHOD_AWS_SIGNATURE_V4](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1/storagetransferpb.html#cloud_google_com_go_storagetransfer_apiv1_storagetransferpb_S3CompatibleMetadata_AUTH_METHOD_UNSPECIFIED_S3CompatibleMetadata_AUTH_METHOD_AWS_SIGNATURE_V4_S3CompatibleMetadata_AUTH_METHOD_AWS_SIGNATURE_V2)
     
     	ctx := context.Background()
-    	client, err :[=](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1.html#cloud_google_com_go_storagetransfer_apiv1_Client_Close) storagetransfer&.NewClient(ctx)
+    	client, err := storagetransfer.[NewClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1.html#cloud_google_com_go_storagetransfer_apiv1_Client_NewClient)(ctx)
     	if err != nil {
-    		return nil, fmt.Errorf(&&quot;storagetransfer.NewClient: %w", err)
+    		return nil, fmt.Errorf("storagetransfer.NewClient: %w", err)
     	}
-    	defer client.Close()
+    	defer client.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1.html#cloud_google_com_go_storagetransfer_apiv1_Client_Close)()
     
-    &	req := storagetransferpb.CreateTransferJobRequest{
-    		TransferJob: storagetransferpb.TransferJ&ob{
+    	req := &storagetransferpb.CreateTransferJobRequest{
+    		TransferJob: &storagetransferpb.TransferJob{
     			ProjectId: projectID,
-    			TransferSpec: storagetransferpb.TransferSpec{
-    				SourceAg&entPoolName: sourceAgentPoolName,
-    				DataSource: storagetransferpb.TransferSpec_AwsS3CompatibleDataSource{
-    					AwsS3CompatibleDataSource: storagetransferpb.AwsS3CompatibleData{
-    &						BucketName: sourceBucketName,
+    			TransferSpec: &storagetransferpb.TransferSpec{
+    				SourceAgentPoolName: sourceAgentPoolName,
+    				DataSource: &storagetransferpb.TransferSpec_AwsS3CompatibleDataSource{
+    					AwsS3CompatibleDataSource: &storagetransferpb.AwsS3CompatibleData{
+    						BucketName: sourceBucketName,
     						Path:       sourcePath,
-    			&			Endpoint:   endpoint,
+    						Endpoint:   endpoint,
     						Region:     region,
-    						DataProvider: storagetransferpb.AwsS3CompatibleData_S3Metadata{
-    							S3Metadata: storagetransferpb.S3CompatibleMetadata{
-    				&				AuthMethod:   authMethod,
-    								RequestModel: requestMod&el,
+    						DataProvider: &storagetransferpb.AwsS3CompatibleData_S3Metadata{
+    							S3Metadata: &storagetransferpb.S3CompatibleMetadata{
+    								AuthMethod:   authMethod,
+    								RequestModel: requestModel,
     								Protocol:     protocol,
     							},
     						},
     					}},
-    				DataSink: storagetransferpb.TransferSpec_GcsDataSink{
-    					GcsDataSin[k](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1/storagetransferpb.html#cloud_google_com_go_storagetransfer_apiv1_storagetransferpb_TransferJob_STATUS_UNSPECIFIED_TransferJob_ENABLED_TransferJob_DISABLED_TransferJob_DELETED): storagetransferpb.GcsData{
+    				DataSink: &storagetransferpb.TransferSpec_GcsDataSink{
+    					GcsDataSink: &storagetransferpb.GcsData{
     						BucketName: gcsSinkBucket,
     						Path:       gcsPath,
     					},
     				},
     			},
-    			Status: storagetransferpb.TransferJob_ENABLED,
+    			Status: storagetransferpb.[TransferJob_ENABLED](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1/storagetransferpb.html#cloud_google_com_go_storagetransfer_apiv1_storagetransferpb_TransferJob_STATUS_UNSPECIFIED_TransferJob_ENABLED_TransferJob_DISABLED_TransferJob_DELETED),
     		},
     	}
     
-    	resp, err := client.CreateTransferJ&ob(ctx, req)
+    	resp, err := client.CreateTransferJob(ctx, req)
     	if err != nil {
-    		return nil, fmt.Errorf("failed to create trans[fer ](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1.html#cloud_google_com_go_storagetransfer_apiv1_RunTransferJobOperation_Name)job: %w", err)
+    		return nil, fmt.Errorf("failed to create transfer job: %w", err)
     	}
-    	if _, err = client.RunTransferJob(ctx, storagetransferpb.RunTransferJobRequest{
+    	if _, err = client.RunTransferJob(ctx, &storagetransferpb.RunTransferJobRequest{
     		ProjectId: projectID,
-    		JobName:   resp.Name,
+    		JobName:   resp.[Name](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1.html#cloud_google_com_go_storagetransfer_apiv1_RunTransferJobOperation_Name),
     	}); err != nil {
-    		return nil, fmt.Errorf("[;fai](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1.html#cloud_google_com_go_storagetransfer_apiv1_RunTransferJobOperation_Name)led to run transfer job: %w", err)
+    		return nil, fmt.Errorf("failed to run transfer job: %w", err)
     	}
-    	fmt.Fprintf(w, "Created and ran transfer job from %v to %v with name %v", sourceBucketName, gcsSinkBucket, resp.Name)
+    	fmt.Fprintf(w, "Created and ran transfer job from %v to %v with name %v", sourceBucketName, gcsSinkBucket, resp.[Name](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/storagetransfer/latest/apiv1.html#cloud_google_com_go_storagetransfer_apiv1_RunTransferJobOperation_Name))
     	return resp, nil
     }
     
@@ -494,16 +494,16 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
         String region = "us-east-1";
     
         // The S3 compatible endpoint
-        String endpoint = &q[uot;us-east-1.e](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.html)xample.com&q[uot;](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.html);
+        String endpoint = "us-east-1.example.com";
     
         // The S3 compatible network protocol
-        NetworkProtocol protocol = Netw[orkProtocol](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.html).NETWORK_PROTOCOL[_HTTPS](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.html);
+        [NetworkProtocol](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.html) protocol = [NetworkProtocol](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.html).NETWORK_PROTOCOL_HTTPS;
     
         // The S3 compatible request model
-        RequestModel requestModel = RequestMode[l](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.html).REQUEST_MODEL_VIRTUAL_[HOSTED_STY](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.html)LE;
+        [RequestModel](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.html) requestModel = [RequestModel](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.html).REQUEST_MODEL_VIRTUAL_HOSTED_STYLE;
     
         // The S3 Compatible auth method
-        AuthMethod authMethod = AuthMethod.AUTH_METHOD_AWS_SIGNATURE_V4;
+        [AuthMethod](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.html) authMethod = [AuthMethod](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.html).AUTH_METHOD_AWS_SIGNATURE_V4;
     
         transferFromS3CompatibleSource(
             projectId,
@@ -522,50 +522,50 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
       public static void transferFromS3CompatibleSource(
           String projectId,
           String sourceAgentPoolName,
-          String sourceBucketN[ame](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.html),
+          String sourceBucketName,
           String sourcePath,
-      [    ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.html)String region,
-          String e[ndpoint](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.html),
-          NetworkProtocol protocol,
-          RequestModel requestModel,
-          AuthMethod authMethod,
-     [     ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.html)String gcsSinkBucket,
-          S[tring](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.html) gcsPath)
+          String region,
+          String endpoint,
+          [NetworkProtocol](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.NetworkProtocol.html) protocol,
+          [RequestModel](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.RequestModel.html) requestModel,
+          [AuthMethod](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.AuthMethod.html) authMethod,
+          String gcsSinkBucket,
+          String gcsPath)
           throws IOException {
-        TransferJob transferJob =
-            TransferJob.newBuilder()
-       [         ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.html).setProjectId(projectId)
-                .[setTransferSpec(
-         ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_TransferSpec_Builder_setSourceAgentPoolName_java_lang_String_)           TransferSpec.newBuilder()
-          [              ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_TransferSpec_Builder_setAwsS3CompatibleDataSource_com_google_storagetransfer_v1_proto_TransferTypes_AwsS3CompatibleData_).setSourceAgentPoolName(sourceAgentPoolN[ame](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.html))
-                        .setAwsS3CompatibleDataSource(
-                        [    ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_AwsS3CompatibleData_Builder_setRegion_java_lang_String_)TransferTypes.AwsS3CompatibleData.newBuilde[r](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_AwsS3CompatibleData_Builder_setEndpoint_java_lang_String_)()
-                                .setRegion(region)
-                                .setEndpoint(endpoint)
-                                .setBucketName(sourceBucketName[)
-               ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_AwsS3CompatibleData_Builder_setS3Metadata_com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_)                 .setPath(sourcePa[th](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.html))
-                                .setS3Metadata(
-                                    Trans[ferTypes](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_Builder_setProtocol_com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_NetworkProtocol_).S3CompatibleMetadata.newBuilder()
-                    [               ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_Builder_setRequestModel_com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_RequestModel_)     .setProtocol(protocol)
-                            [            ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_Builder_setAuthMethod_com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_AuthMethod_).setRequestModel(requestModel)
-                                        .setAuthMethod(authMethod)
+        [TransferJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.html) transferJob =
+            [TransferJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.html).newBuilder()
+                .setProjectId(projectId)
+                .setTransferSpec(
+                    [TransferSpec](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.html).newBuilder()
+                        .[setSourceAgentPoolName](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_TransferSpec_Builder_setSourceAgentPoolName_java_lang_String_)(sourceAgentPoolName)
+                        .[setAwsS3CompatibleDataSource](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferSpec.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_TransferSpec_Builder_setAwsS3CompatibleDataSource_com_google_storagetransfer_v1_proto_TransferTypes_AwsS3CompatibleData_)(
+                            [TransferTypes](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.html).AwsS3CompatibleData.newBuilder()
+                                .[setRegion](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_AwsS3CompatibleData_Builder_setRegion_java_lang_String_)(region)
+                                .[setEndpoint](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_AwsS3CompatibleData_Builder_setEndpoint_java_lang_String_)(endpoint)
+                                .setBucketName(sourceBucketName)
+                                .setPath(sourcePath)
+                                .[setS3Metadata](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.AwsS3CompatibleData.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_AwsS3CompatibleData_Builder_setS3Metadata_com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_)(
+                                    [TransferTypes](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.html).S3CompatibleMetadata.newBuilder()
+                                        .[setProtocol](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_Builder_setProtocol_com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_NetworkProtocol_)(protocol)
+                                        .[setRequestModel](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_Builder_setRequestModel_com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_RequestModel_)(requestModel)
+                                        .[setAuthMethod](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.S3CompatibleMetadata.Builder.html#com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_Builder_setAuthMethod_com_google_storagetransfer_v1_proto_TransferTypes_S3CompatibleMetadata_AuthMethod_)(authMethod)
                                         .build())
-                       [       ](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.GcsData.html)  .build())
+                                .build())
                         .setGcsDataSink(
-                            GcsData.newBuilder()[.](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.html)setBucketName(gcsSinkBucket).setPath(gcsPath).build()))
-                .setStatus(TransferJob.Status.ENABLED)
+                            [GcsData](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.GcsData.html).newBuilder().setBucketName(gcsSinkBucket).setPath(gcsPath).build()))
+                .setStatus([TransferJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.html).Status.ENABLED)
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
-        // the "close" method on the client to safely clean up any remaining backgrou[nd resources,](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.StorageTransferServiceClient.html)
-        // or use "try-with-clos[e" statement to do this](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.StorageTransferServiceClient.html) automatically.
-        try (StorageTransferServiceClient[ storageTra](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.html)nsfer = StorageTransferServiceClient.create()) {
+        // the "close" method on the client to safely clean up any remaining background resources,
+        // or use "try-with-close" statement to do this automatically.
+        try ([StorageTransferServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.StorageTransferServiceClient.html) storageTransfer = [StorageTransferServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.StorageTransferServiceClient.html).create()) {
     
-          // Create the t[ransfer job](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferProto.html)
-          TransferJob response =
+          // Create the transfer job
+          [TransferJob](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferTypes.TransferJob.html) response =
               storageTransfer.createTransferJob(
-                  TransferProto.CreateTransferJobRequest.newBuilder()
+                  [TransferProto](https://docs.cloud.google.com/java/docs/reference/google-cloud-storage-transfer/latest/com.google.storagetransfer.v1.proto.TransferProto.html).CreateTransferJobRequest.newBuilder()
                       .setTransferJob(transferJob)
                       .build());
     
@@ -589,7 +589,7 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
     
     
     // Imports the Google Cloud client library
-    const storageTransfer = require(&[#39;@google-cloud/storage-tran](https://docs.cloud.google.com/nodejs/docs/reference/storage-transfer/latest/overview.html)sfer');
+    const storageTransfer = require('[@google-cloud/storage-transfer](https://docs.cloud.google.com/nodejs/docs/reference/storage-transfer/latest/overview.html)');
     
     /**
      * TODO(developer): Uncomment the following lines before running the sample.
@@ -628,10 +628,10 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
     // const requestModel = RequestModel.REQUEST_MODEL_VIRTUAL_HOSTED_STYLE;
     
     // The S3-compatible auth method
-    // const authMethod = AuthMethod.AUTH[_METHOD_AWS_SIGNATURE_V4;](https://docs.cloud.google.com/nodejs/docs/reference/storage-transfer/latest/overview.html)
+    // const authMethod = AuthMethod.AUTH_METHOD_AWS_SIGNATURE_V4;
     
     // Creates a client
-    const client = new storageTransfer.StorageTransferServiceClient();
+    const client = new storageTransfer.[StorageTransferServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/storage-transfer/latest/overview.html)();
     
     /**
      * Creates a transfer from an AWS S3-compatible source to GCS
@@ -655,11 +655,11 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
               path: sourcePath,
             },
             gcsDataSink: {
-              bucke[tName](https://docs.cloud.google.com/nodejs/docs/reference/storage-transfer/latest/storage-transfer/protos.google.storagetransfer.v1.transferjob.status.html): gcsSinkBucket,
+              bucketName: gcsSinkBucket,
               path: gcsPath,
             },
           },
-          status: 'ENABLED',
+          status: '[ENABLED](https://docs.cloud.google.com/nodejs/docs/reference/storage-transfer/latest/storage-transfer/protos.google.storagetransfer.v1.transferjob.status.html)',
         },
       });
     
@@ -669,7 +669,7 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
       });
     
       console.log(
-        `Created and ran a transfer job from '${sourceBucketName}&#39; to '${gcsSinkBucket}' with name ${transferJob.name}`
+        `Created and ran a transfer job from '${sourceBucketName}' to '${gcsSinkBucket}' with name ${transferJob.name}`
       );
     }
     
@@ -705,7 +705,7 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
     ) -> None:
         """Creates a transfer from an AWS S3-compatible source to GCS"""
     
-    [    client = storage_transfe](https://docs.cloud.google.com/python/docs/reference/storagetransfer/latest/google.cloud.storage_transfer_v1.services.storage_transfer_service.StorageTransferServiceClient.html)r.StorageTransferServiceClient()
+        client = storage_transfer.[StorageTransferServiceClient](https://docs.cloud.google.com/python/docs/reference/storagetransfer/latest/google.cloud.storage_transfer_v1.services.storage_transfer_service.StorageTransferServiceClient.html)()
     
         # The ID of the Google Cloud Platform Project that owns the job
         # project_id = 'my-project'
@@ -741,15 +741,15 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
         # The S3-compatible request model
         # request_model = RequestModel.REQUEST_MODEL_VIRTUAL_HOSTED_STYLE
     
-        # The S3-compatib[le auth method](https://docs.cloud.google.com/python/docs/reference/storagetransfer/latest/google.cloud.storage_transfer_v1.types.CreateTransferJobRequest.html)
+        # The S3-compatible auth method
         # auth_method = AuthMethod.AUTH_METHOD_AWS_SIGNATURE_V4
     
-        transfer_job_request = storage_transfer.CreateTransferJobRequest(
+        transfer_job_request = storage_transfer.[CreateTransferJobRequest](https://docs.cloud.google.com/python/docs/reference/storagetransfer/latest/google.cloud.storage_transfer_v1.types.CreateTransferJobRequest.html)(
             {
-                "transfer_job": {[
-              ](https://docs.cloud.google.com/python/docs/reference/storagetransfer/latest/google.cloud.storage_transfer_v1.types.TransferJob.html)      "project_id": project_id,
+                "transfer_job": {
+                    "project_id": project_id,
                     "description": description,
-                    "status": storage_transfer.TransferJob.Status.ENABLED,
+                    "status": storage_transfer.[TransferJob](https://docs.cloud.google.com/python/docs/reference/storagetransfer/latest/google.cloud.storage_transfer_v1.types.TransferJob.html).Status.ENABLED,
                     "transfer_spec": {
                         "source_agent_pool_name": source_agent_pool_name,
                         "aws_s3_compatible_data_source": {
@@ -761,7 +761,7 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
                             },
                             "endpoint": endpoint,
                             "bucket_name": source_bucket_name,
-                            "path&quo[t;](https://docs.cloud.google.com/python/docs/reference/storagetransfer/latest/google.cloud.storage_transfer_v1.services.storage_transfer_service.StorageTransferServiceClient.html#google_cloud_storage_transfer_v1_services_storage_transfer_service_StorageTransferServiceClient_create_transfer_job): source_path,
+                            "path": source_path,
                         },
                         "gcs_data_sink": {
                             "bucket_name": gcs_sink_bucket,
@@ -772,7 +772,7 @@ To authenticate to Storage Transfer Service, set up Application Default Credenti
             }
         )
     
-        result = client.create_transfer_job(transfer_job_request)
+        result = client.[create_transfer_job](https://docs.cloud.google.com/python/docs/reference/storagetransfer/latest/google.cloud.storage_transfer_v1.services.storage_transfer_service.StorageTransferServiceClient.html#google_cloud_storage_transfer_v1_services_storage_transfer_service_StorageTransferServiceClient_create_transfer_job)(transfer_job_request)
         print(f"Created transferJob: {result.name}")
     
     
@@ -833,6 +833,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

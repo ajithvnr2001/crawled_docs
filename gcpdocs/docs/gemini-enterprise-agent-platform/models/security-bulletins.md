@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:15:30.519602+00:00
+fetched_at: 2026-10-28T05:44:14.752936+00:00
 ---
 
 # Security bulletins  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -51,7 +51,7 @@ On September 23, 2025, we discovered a technical issue in the Gemini Enterprise 
     * The issue has been fixed as of September 28, 2025, at 11:00 AM PDT. 
   * [Self-deployed models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models) for which the 'StreamRawPredict', 'ChatCompletions', 'GenerateContent', or 'StreamGenerateContent' method was invoked using [public endpoints](https://docs.cloud.google.com/vertex-ai/docs/predictions/create-public-endpoint)
     * The issue has been fixed as of September 28, 2025, at 7:10 PM PDT. 
-    * Neither [dedicated](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-dedicated-endpoints) (the default on Model Garden) nor private endpoints were impacted. 
+    * Neither [dedicated](https://docs.cloud.google.com/vertex-ai/docs/predictions/using-dedicated-endpoints) (the default on Gemini Enterprise Agent Platform Model Garden) nor private endpoints were impacted. 
 
 | Medium |  [CVE-2025-11915](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-11915)  
   
@@ -67,6 +67,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

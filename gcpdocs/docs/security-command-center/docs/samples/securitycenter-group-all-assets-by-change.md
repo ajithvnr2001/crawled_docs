@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/samples/securitycenter-group-all-assets-by-change/
 title: Group assets by state \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:33:02.067433+00:00
+fetched_at: 2026-10-28T05:51:30.406379+00:00
 ---
 
 # Group assets by state  |  Security Command Center  |  Google Cloud Documentation

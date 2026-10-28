@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/in-memory-volume-mounts/
 title: Configure in-memory volume mounts for services \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:56.644690+00:00
+fetched_at: 2026-10-28T05:53:31.193820+00:00
 ---
 
 # Configure in-memory volume mounts for services  |  Cloud Run  |  Google Cloud Documentation

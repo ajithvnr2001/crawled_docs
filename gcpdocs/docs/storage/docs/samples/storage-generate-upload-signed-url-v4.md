@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-generate-upload-signed-url-v4/
 title: Create a PUT-signed URL using Cloud Storage libraries (V4) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:49.679643+00:00
+fetched_at: 2026-10-28T05:48:19.151814+00:00
 ---
 
 # Create a PUT-signed URL using Cloud Storage libraries (V4)  |  Google Cloud Documentation

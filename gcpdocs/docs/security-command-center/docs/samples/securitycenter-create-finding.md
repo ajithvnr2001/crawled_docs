@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/samples/securitycenter-create-finding/
 title: Create a finding \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:33:12.565362+00:00
+fetched_at: 2026-10-28T05:51:30.606821+00:00
 ---
 
 # Create a finding  |  Security Command Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-quickstart/
 title: Detect labels on an image \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:00.736900+00:00
+fetched_at: 2026-10-28T05:47:42.300472+00:00
 ---
 
 # Detect labels on an image  |  Cloud Vision API  |  Google Cloud Documentation

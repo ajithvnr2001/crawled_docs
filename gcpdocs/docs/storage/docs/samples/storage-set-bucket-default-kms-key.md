@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-bucket-default-kms-key/
 title: Set a default KMS key for a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:48.958128+00:00
+fetched_at: 2026-10-28T05:46:01.668219+00:00
 ---
 
 # Set a default KMS key for a bucket  |  Cloud Storage  |  Google Cloud Documentation

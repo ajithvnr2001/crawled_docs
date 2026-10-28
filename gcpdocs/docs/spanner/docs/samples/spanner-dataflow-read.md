@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-dataflow-read/
 title: Dataflow read \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:31:22.535811+00:00
+fetched_at: 2026-10-28T05:40:38.529371+00:00
 ---
 
 # Dataflow read  |  Spanner  |  Google Cloud Documentation

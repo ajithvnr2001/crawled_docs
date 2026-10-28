@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tpu/docs/samples/
 title: Samples \u00a0|\u00a0 Cloud TPU \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:36:37.429187+00:00
+fetched_at: 2026-10-28T05:49:46.801089+00:00
 ---
 
 # Samples  |  Cloud TPU  |  Google Cloud Documentation

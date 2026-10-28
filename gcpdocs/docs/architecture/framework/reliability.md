@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/reliability/
 title: Well-Architected Framework: Reliability pillar \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:19.967971+00:00
+fetched_at: 2026-10-28T05:47:04.484622+00:00
 ---
 
 # Well-Architected Framework: Reliability pillar  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,9 +19,9 @@ Send feedback
 
 #  Well-Architected Framework: Reliability pillar Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-10-13 UTC
+Last reviewed 2026-10-27 UTC
 
-To view the content in the reliability pillar on a single page or to to get a PDF output of the content, see [View on one page](https://docs.cloud.google.com/architecture/framework/reliability/printable). 
+To view the content in the reliability pillar on a single page or to get a PDF output of the content, see [View on one page](https://docs.cloud.google.com/architecture/framework/reliability/printable). 
 
 The reliability pillar in the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides principles and recommendations to help you design, deploy, and manage reliable workloads in Google Cloud.
 
@@ -50,7 +50,7 @@ Set a clear expectation that the entire organization is responsible for reliabil
 
 Every team must understand the reliability targets and risks of their applications. The teams must be accountable to these requirements. Conflicts between reliability and regular product feature development must be prioritized and escalated accordingly.
 
-Plan and manage reliability holistically, across all your functions and teams. Consider setting up a Cloud Centre of Excellence (CCoE) that includes a reliability pillar. For more information, see [Optimize your organization's cloud journey with a Cloud Center of Excellence](https://cloud.google.com/blog/topics/training-certifications/optimize-your-organizations-cloud-journey-with-a-cloud-center-of-excellence).
+Plan and manage reliability holistically, across all your functions and teams. Consider setting up a Cloud Center of Excellence (CCoE) that includes a reliability pillar. For more information, see [Optimize your organization's cloud journey with a Cloud Center of Excellence](https://cloud.google.com/blog/topics/training-certifications/optimize-your-organizations-cloud-journey-with-a-cloud-center-of-excellence).
 
 ## Focus areas for reliability
 
@@ -133,6 +133,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

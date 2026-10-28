@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-view-secret-labels/
 title: View secret labels \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:35.707703+00:00
+fetched_at: 2026-10-28T05:53:14.182127+00:00
 ---
 
 # View secret labels  |  Secret Manager  |  Google Cloud Documentation

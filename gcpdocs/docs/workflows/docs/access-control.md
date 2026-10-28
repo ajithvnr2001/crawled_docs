@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/access-control/
 title: Workflows roles and permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:21:56.895409+00:00
+fetched_at: 2026-10-28T05:46:47.058085+00:00
 ---
 
 # Workflows roles and permissions  |  Google Cloud Documentation

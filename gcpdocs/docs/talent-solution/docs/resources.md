@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/docs/resources/
 title: Resources \u00a0|\u00a0 Cloud Talent Solution \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:37:03.846931+00:00
+fetched_at: 2026-10-28T05:47:32.169753+00:00
 ---
 
 # Resources  |  Cloud Talent Solution  |  Google Cloud Documentation

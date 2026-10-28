@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/reliability/define-reliability-based-on-user-experience-goals/
 title: Define reliability based on user-experience goals \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:38.996107+00:00
+fetched_at: 2026-10-28T05:47:03.862579+00:00
 ---
 
 # Define reliability based on user-experience goals  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Define reliability based on user-experience goals Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-12-30 UTC
+Last reviewed 2026-10-27 UTC
 
 This principle in the reliability pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) helps you to assess your users' experience, and then map the findings to reliability goals and metrics.
 
@@ -43,7 +43,7 @@ Ideally, collect this data directly from the user's device or browser. If this d
 
 ### Analyze user journeys
 
-To understand how users interact with your system, you can use tracing tools like [Cloud Trace](https://docs.cloud.google.com/trace/docs/overview). By following a user's journey through your application, you can find bottlenecks and latency issues that might degrade the user's experience. Cloud Trace captures detailed performance data for each _hop_ in your service architecture. This data helps you identify and address performance issues more efficiently, which can lead to a more reliable and satisfying user experience.
+To understand how users interact with your system, you can use tracing tools like [Cloud Trace](https://docs.cloud.google.com/trace/docs/overview). By following a user's journey through your application, you can find bottlenecks and latency issues that might degrade the user's experience. Trace captures detailed performance data for each _hop_ in your service architecture. This data helps you identify and address performance issues more efficiently, which can lead to a more reliable and satisfying user experience.
 
 [ Previous arrow_back  Overview  ](https://docs.cloud.google.com/architecture/framework/reliability)
 
@@ -53,6 +53,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-12-30 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-12-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

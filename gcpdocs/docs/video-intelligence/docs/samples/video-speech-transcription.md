@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-intelligence/docs/samples/video-speech-transcription/
 title: Transcribe speech in a local video file \u00a0|\u00a0 Video Intelligence API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:03.743502+00:00
+fetched_at: 2026-10-28T05:41:08.483214+00:00
 ---
 
 # Transcribe speech in a local video file  |  Video Intelligence API  |  Google Cloud Documentation

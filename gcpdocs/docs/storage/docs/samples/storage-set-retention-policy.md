@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-set-retention-policy/
 title: Set a retention policy \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:57.607864+00:00
+fetched_at: 2026-10-28T05:46:32.633052+00:00
 ---
 
 # Set a retention policy  |  Cloud Storage  |  Google Cloud Documentation

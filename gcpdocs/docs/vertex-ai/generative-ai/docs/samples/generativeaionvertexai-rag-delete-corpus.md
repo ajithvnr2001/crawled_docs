@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-delete-corpus/
 title: Delete an index \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:16.338599+00:00
+fetched_at: 2026-10-28T05:49:46.100540+00:00
 ---
 
 # Delete an index  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -47,16 +47,17 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+    # corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
     
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session.
+    # See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
     
     client.rag.delete_corpus(name=corpus_name)
     print(f"Corpus {corpus_name} deleted.")
     # Example response:
     # Successfully deleted the RagCorpus.
-    # Corpus projects/[PROJECT_ID]/locations/us-central1/ragCorpora/123456789012345 deleted.
+    # Corpus projects/[PROJECT_ID]/locations/us-east5/ragCorpora/123456789012345 deleted.
     
 
 ## What's next

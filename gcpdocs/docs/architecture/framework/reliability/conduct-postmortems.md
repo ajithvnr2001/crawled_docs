@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/reliability/conduct-postmortems/
 title: Conduct thorough postmortems \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:42.049798+00:00
+fetched_at: 2026-10-28T05:47:04.579896+00:00
 ---
 
 # Conduct thorough postmortems  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Conduct thorough postmortems Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-12-30 UTC
+Last reviewed 2026-10-27 UTC
 
 This principle in the reliability pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you conduct effective postmortems after failures and incidents.
 
@@ -55,7 +55,7 @@ Conduct postmortem analyses after major events and non-major events like the fol
 
 ## Recommendations
 
-Define postmortem criteria before an incident occurs so that everyone knows when a post mortem is necessary.
+Define postmortem criteria before an incident occurs so that everyone knows when a postmortem is necessary.
 
 To conduct effective postmortems, consider the recommendations in the following subsections.
 
@@ -88,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-12-30 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-12-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

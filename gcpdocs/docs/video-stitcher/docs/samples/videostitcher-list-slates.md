@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-stitcher/docs/samples/videostitcher-list-slates/
 title: List slates \u00a0|\u00a0 Video Stitcher API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:59.963138+00:00
+fetched_at: 2026-10-28T05:48:31.612311+00:00
 ---
 
 # List slates  |  Video Stitcher API  |  Google Cloud Documentation

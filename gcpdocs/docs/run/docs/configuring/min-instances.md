@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/min-instances/
 title: Set minimum instances for services \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:56.924652+00:00
+fetched_at: 2026-10-28T05:54:01.318548+00:00
 ---
 
 # Set minimum instances for services  |  Cloud Run  |  Google Cloud Documentation

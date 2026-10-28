@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-copy-file-archived-generation/
 title: Copy an archived object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:11.460180+00:00
+fetched_at: 2026-10-28T05:48:32.695333+00:00
 ---
 
 # Copy an archived object  |  Cloud Storage  |  Google Cloud Documentation

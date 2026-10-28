@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/transcoder/docs/samples/transcoder-create-job-with-standalone-captions/
 title: Create a job that can use captions from a standalone file \u00a0|\u00a0 Transcoder API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:45.955486+00:00
+fetched_at: 2026-10-28T05:46:21.754671+00:00
 ---
 
 # Create a job that can use captions from a standalone file  |  Transcoder API  |  Google Cloud Documentation

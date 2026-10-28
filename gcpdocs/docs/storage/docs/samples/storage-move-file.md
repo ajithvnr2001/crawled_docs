@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-move-file/
 title: Move objects by copying \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:50.788019+00:00
+fetched_at: 2026-10-28T05:46:21.913398+00:00
 ---
 
 # Move objects by copying  |  Cloud Storage  |  Google Cloud Documentation

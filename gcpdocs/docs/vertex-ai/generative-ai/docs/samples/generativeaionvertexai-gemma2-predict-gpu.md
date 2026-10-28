@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-gemma2-predict-gpu/
 title: Generate text with Gemma2 model with GPU accelerators \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:35.379490+00:00
+fetched_at: 2026-10-28T05:49:48.892275+00:00
 ---
 
 # Generate text with Gemma2 model with GPU accelerators  |  Generative AI on Vertex AI  |  Google Cloud Documentation

@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-adk/
-title: Manage sessions with Agent Development Kit \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
+title: Manage sessions with ADK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:32:28.418563+00:00
+fetched_at: 2026-10-28T05:43:18.384482+00:00
 ---
 
-# Manage sessions with Agent Development Kit  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
+# Manage sessions with ADK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-adk/
 
@@ -19,11 +19,11 @@ fetched_at: 2026-10-27T16:32:28.418563+00:00
 
 Send feedback 
 
-#  Manage sessions with Agent Development Kit Stay organized with collections  Save and categorize content based on your preferences. 
+#  Manage sessions with ADK Stay organized with collections  Save and categorize content based on your preferences. 
 
 This page describes how you can connect an Agent Development Kit (ADK) agent with Agent Platform Sessions and use managed sessions in the local and production environment.
 
-**Note:** If you've already followed the instructions in [Develop an Agent Development Kit agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent), you don't need to follow this guide, since the `AdkApp` template is already connected to Agent Platform Sessions through `session_service`.**Important:** ADK primarily uses [asynchronous functions](https://google.github.io/adk-docs/runtime/#async-is-primary-run_async). If you're running code in a notebook like Colab, you can directly `await` async functions because an event loop is already running. If you're running this code as a standard Python script, you need to wrap your async function calls with `asyncio.run()` to create and manage an event loop to execute your async functions. Otherwise, you might get an error like `'await' outside function`.
+**Note:** If you've already followed the instructions in [Develop an ADK agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-an-adk-agent), you don't need to follow this guide, since the `AdkApp` template is already connected to Agent Platform Sessions through `session_service`.**Important:** ADK primarily uses [asynchronous functions](https://google.github.io/adk-docs/runtime/#async-is-primary-run_async). If you're running code in a notebook like Colab, you can directly `await` async functions because an event loop is already running. If you're running this code as a standard Python script, you need to wrap your async function calls with `asyncio.run()` to create and manage an event loop to execute your async functions. Otherwise, you might get an error like `'await' outside function`.
 
 ## Before you begin
 
@@ -96,7 +96,7 @@ Replace the following:
 
 **Note:** Make sure you have installed ADK version **1.0.0** or later. This version is included in `google-cloud-agentplatform[adk,agent_engine]`.
 
-To create your ADK agent, follow the instructions in [Agent Development Kit](https://google.github.io/adk-docs/), or use the following code to create an agent that greets a user with fixed greetings. Save this code in a file named `agent.py`.
+To create your ADK agent, follow the instructions in [ADK](https://google.github.io/adk-docs/), or use the following code to create an agent that greets a user with fixed greetings. Save this code in a file named `agent.py`.
     
     
     # file: my_agent/agent.py
@@ -174,7 +174,7 @@ Replace the following:
 
 After defining your agent and setting up Agent Platform Sessions, you can interact with your agent to check that the session history and states persist.
 
-### ADK UI
+###  ADK UI
 
 To test your agent with the ADK user interface and connect to Agent Platform Sessions, run the `adk web` command in your terminal.
 
@@ -421,6 +421,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/web-risk/docs/samples/webrisk-submit-uri/
 title: Submit a URI \u00a0|\u00a0 Web Risk \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:41:06.311593+00:00
+fetched_at: 2026-10-28T05:47:42.399033+00:00
 ---
 
 # Submit a URI  |  Web Risk  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ To authenticate to Web Risk, set up Application Default Credentials. For more in
     
     
     import com.google.cloud.webrisk.v1.[WebRiskServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-webrisk/latest/com.google.cloud.webrisk.v1.WebRiskServiceClient.html);
-    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html);
+    import com.google.longrunning.[Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html);
     import com.google.webrisk.v1.[Submission](https://docs.cloud.google.com/java/docs/reference/google-cloud-webrisk/latest/com.google.webrisk.v1.Submission.html);
     import com.google.webrisk.v1.[SubmitUriRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-webrisk/latest/com.google.webrisk.v1.SubmitUriRequest.html);
     import com.google.webrisk.v1.[ThreatDiscovery](https://docs.cloud.google.com/java/docs/reference/google-cloud-webrisk/latest/com.google.webrisk.v1.ThreatDiscovery.html);
@@ -110,7 +110,7 @@ To authenticate to Web Risk, set up Application Default Credentials. For more in
               .[setThreatDiscovery](https://docs.cloud.google.com/java/docs/reference/google-cloud-webrisk/latest/com.google.webrisk.v1.SubmitUriRequest.Builder.html#com_google_webrisk_v1_SubmitUriRequest_Builder_setThreatDiscovery_com_google_webrisk_v1_ThreatDiscovery_)(threatDiscovery)
               .build();
     
-          [Operation](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.longrunning.Operation.html) submissionResponse = webRiskServiceClient.[submitUriCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-webrisk/latest/com.google.cloud.webrisk.v1.WebRiskServiceClient.html#com_google_cloud_webrisk_v1_WebRiskServiceClient_submitUriCallable__)()
+          [Operation](https://docs.cloud.google.com/java/docs/reference/proto-google-common-protos/latest/com.google.longrunning.Operation.html) submissionResponse = webRiskServiceClient.[submitUriCallable](https://docs.cloud.google.com/java/docs/reference/google-cloud-webrisk/latest/com.google.cloud.webrisk.v1.WebRiskServiceClient.html#com_google_cloud_webrisk_v1_WebRiskServiceClient_submitUriCallable__)()
               .futureCall(submitUriRequest)
               .get(30, TimeUnit.SECONDS);
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-rotate-encryption-key/
 title: Rotate an encryption key \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:17.514142+00:00
+fetched_at: 2026-10-28T05:46:20.019001+00:00
 ---
 
 # Rotate an encryption key  |  Cloud Storage  |  Google Cloud Documentation

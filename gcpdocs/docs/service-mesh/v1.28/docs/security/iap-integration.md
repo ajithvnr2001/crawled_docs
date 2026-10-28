@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.28/docs/security/iap-integration/
 title: Integrating IAP with Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:52.877698+00:00
+fetched_at: 2026-10-28T05:50:00.815319+00:00
 ---
 
 # Integrating IAP with Cloud Service Mesh  |  Google Cloud Documentation
@@ -440,8 +440,8 @@ The expected output is similar to `"{\"BACKEND_SERVICE_ID\":\"HEALTHY\"}"`. For 
   4. Update `IapSettings` with the RCToken audience.
          
          cat iapSettings.json | jq --arg RCTOKEN_AUD_STR $RCTOKEN_AUD \
-         '. + {applicationSettings: {csmSettings: {rctokenAud: $RCTOKEN_AUD_STR}}}>' \
-          updatedIapSettings.json
+         '. + {applicationSettings: {csmSettings: {rctokenAud: $RCTOKEN_AUD_STR}}}' \
+         > updatedIapSettings.json
          
          
          gcloud iap settings set updatedIapSettings.json --format json \
@@ -507,8 +507,8 @@ To test the policy:
   1. Create an [`IapSettings`](https://docs.cloud.google.com/iap/docs/reference/rest/v1/IapSettings) request object, but set the `rctokenAud` to a different string:
          
          cat iapSettings.json | jq --arg RCTOKEN_AUD_STR wrong-rctoken-aud \
-         '. + {applicationSettings: {csmSettings: {rctokenAud: $RCTOKEN_AUD_STR}}}>' \
-          wrongIapSettings.json
+         '. + {applicationSettings: {csmSettings: {rctokenAud: $RCTOKEN_AUD_STR}}}' \
+         > wrongIapSettings.json
          
 
   2. Call the `IapSettings` API to set the RCtoken audience.
@@ -551,6 +551,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

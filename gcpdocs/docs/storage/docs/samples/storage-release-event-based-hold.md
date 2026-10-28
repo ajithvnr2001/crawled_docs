@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-release-event-based-hold/
 title: Release an event-based hold on an object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:59.634607+00:00
+fetched_at: 2026-10-28T05:46:30.156818+00:00
 ---
 
 # Release an event-based hold on an object  |  Cloud Storage  |  Google Cloud Documentation

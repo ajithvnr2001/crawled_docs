@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-label-detection-gcs/
 title: Detect labels in a Cloud Storage file \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:41.343330+00:00
+fetched_at: 2026-10-28T05:47:26.838910+00:00
 ---
 
 # Detect labels in a Cloud Storage file  |  Cloud Vision API  |  Google Cloud Documentation

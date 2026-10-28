@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-import-data-image-object-detection-sample/
 title: Import data for image object detection \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:26:59.683201+00:00
+fetched_at: 2026-10-28T05:47:06.214144+00:00
 ---
 
 # Import data for image object detection  |  Vertex AI  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ Imports data for image object detection using the import_data method.
 
 For detailed documentation that includes this code sample, see the following: 
 
-  * [Create a dataset for training image object detection models](https://docs.cloud.google.com/vertex-ai/docs/image-data/object-detection/create-dataset)
+  * [Create a dataset for training image object detection models](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/create-dataset)
 
 
 
@@ -205,7 +205,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
 
 ## What's next
 
-To search and filter code samples for other Google Cloud products, see the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?product=aiplatform). 
+To search and filter code samples for other Google Cloud products, see the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?product=vertexai). 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 

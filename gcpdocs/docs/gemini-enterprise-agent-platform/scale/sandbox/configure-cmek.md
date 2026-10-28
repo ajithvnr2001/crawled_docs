@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek/
-title: Configure Customer-Managed Encryption Keys (CMEK) for sandboxes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
+title: Configure Customer-managed encryption keys (CMEK) for sandboxes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:18:07.864757+00:00
+fetched_at: 2026-10-28T05:42:32.253763+00:00
 ---
 
-# Configure Customer-Managed Encryption Keys (CMEK) for sandboxes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
+# Configure Customer-managed encryption keys (CMEK) for sandboxes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek/
 
@@ -19,13 +19,13 @@ fetched_at: 2026-10-27T18:18:07.864757+00:00
 
 Send feedback 
 
-#  Configure Customer-Managed Encryption Keys (CMEK) for sandboxes Stay organized with collections  Save and categorize content based on your preferences. 
+#  Configure Customer-managed encryption keys (CMEK) for sandboxes Stay organized with collections  Save and categorize content based on your preferences. 
 
 Encrypt a sandbox's data at rest with a Cloud Key Management Service key that you own and control.
 
 ## Overview
 
-By default, Google Cloud encrypts your data at rest with Google-owned and Google-managed encryption keys. [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek) let you create and manage a [Cloud Key Management Service](https://docs.cloud.google.com/kms/docs) encryption key so you can audit its use, rotate it, and disable or destroy it to make the protected data unreadable.
+By default, Google Cloud encrypts your data at rest with Google-owned and Google-managed encryption keys. [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/kms/docs/cmek) let you create and manage a [Cloud KMS](https://docs.cloud.google.com/kms/docs) encryption key so you can audit its use, rotate it, and disable or destroy it to make the protected data unreadable.
 
 The Gemini Enterprise Agent Platform sandbox runs your agent's code, browser, or custom container in an isolated environment. That environment writes customer content to disk and can be checkpointed to snapshots, which CMEK protects when you enable it on the sandbox's parent Gemini Enterprise Agent Platform instance.
 
@@ -54,7 +54,7 @@ To encrypt [custom container images](https://docs.cloud.google.com/gemini-enterp
 
 ## Before you begin
 
-  * Have or create a Cloud Key Management Service [key ring and key](https://docs.cloud.google.com/kms/docs/resource-hierarchy). As a best practice, keep keys in a separate project from your Gemini Enterprise Agent Platform workloads, managed by a different administrator.
+  * Have or create a Cloud KMS [key ring and key](https://docs.cloud.google.com/kms/docs/resource-hierarchy). As a best practice, keep keys in a separate project from your Gemini Enterprise Agent Platform workloads, managed by a different administrator.
   * Confirm you hold the roles to create and manage keys (`roles/cloudkms.admin`) and to create the Gemini Enterprise Agent Platform instance.
   * Create an Agent Runtime service agent, if you haven't already:
         
@@ -67,7 +67,7 @@ To encrypt [custom container images](https://docs.cloud.google.com/gemini-enterp
 
 
 
-## Create a Cloud Key Management Service key
+## Create a Cloud KMS key
 
 Create a single-region key in the same region as your Gemini Enterprise Agent Platform instance:
     
@@ -91,7 +91,7 @@ Replace the following:
 
 ## Grant the Agent Platform service agent access to your key
 
-Grant the Agent Runtime service agent the Cloud Key Management Service CryptoKey Encrypter/Decrypter role (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) on the key:
+Grant the Agent Runtime service agent the Cloud KMS CryptoKey Encrypter/Decrypter role (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) on the key:
     
     
     # Grant Encrypter/Decrypter on the key
@@ -150,15 +150,15 @@ Using the REST API, set the same value at `reasoningEngines.encryptionSpec.kmsKe
 
   1. [Create your sandbox template and sandbox](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/custom-containers) under the CMEK-protected Gemini Enterprise Agent Platform instance.
   2. Confirm the Gemini Enterprise Agent Platform instance reports your key in `encryption_spec.kms_key_name` by [getting the instance details](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/manage-deployed-agents#get).
-  3. Optionally, check [Cloud Key Management Service audit logs](https://docs.cloud.google.com/kms/docs/audit-logging) to confirm encrypt and decrypt operations occur as sandboxes start and snapshots are written.
+  3. Optionally, check [Cloud KMS audit logs](https://docs.cloud.google.com/kms/docs/audit-logging) to confirm encrypt and decrypt operations occur as sandboxes start and snapshots are written.
 
 
 
 ## What's next
 
-  * Read [Customer-managed encryption keys for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek).
+  * Read [CMEK for Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek).
   * See [Deploy agents](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/deploy-an-agent) for enabling CMEK on the Agent Runtime.
-  * Review [CMEK integrations](https://docs.cloud.google.com/kms/docs/cmek) and [key rotation](https://docs.cloud.google.com/kms/docs/key-rotation) in Cloud Key Management Service.
+  * Review [CMEK integrations](https://docs.cloud.google.com/kms/docs/cmek) and [key rotation](https://docs.cloud.google.com/kms/docs/key-rotation) in Cloud KMS.
   * Read the [Sandbox overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox) and [Manage snapshots](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/manage-snapshots).
 
 
@@ -167,6 +167,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

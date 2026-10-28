@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-list-reasoning-engines/
 title: List all Reasoning Engine instances \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:33.885716+00:00
+fetched_at: 2026-10-28T05:49:27.501605+00:00
 ---
 
 # List all Reasoning Engine instances  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -35,12 +35,12 @@ Before trying this sample, follow the Python setup instructions in the [Vertex A
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest)
+    import [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest)
     from vertexai.preview import reasoning_engines
     
     # TODO(developer): Update and un-comment below line
     # PROJECT_ID = "your-project-id"
-    [vertexai](https://docs.cloud.google.com/python/docs/reference/agentplatform/latest).init(project=PROJECT_ID, location="us-central1")
+    [vertexai](https://docs.cloud.google.com/python/docs/reference/vertexai/latest).init(project=PROJECT_ID, location="us-central1")
     
     reasoning_engine_list = reasoning_engines.ReasoningEngine.list()
     print(reasoning_engine_list)

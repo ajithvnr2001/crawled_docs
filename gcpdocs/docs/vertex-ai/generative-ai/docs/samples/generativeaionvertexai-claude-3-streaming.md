@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-claude-3-streaming/
 title: Generate streaming text by using a Claude model from Anthropic \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:51.674870+00:00
+fetched_at: 2026-10-28T05:50:14.412033+00:00
 ---
 
 # Generate streaming text by using a Claude model from Anthropic  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -57,7 +57,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     result = []
     
     with client.messages.stream(
-        model="claude-3-5-sonnet-v2@20241022",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
         messages=[
             {

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-batch-annotate-files-gcs/
 title: Annotate a batch of files in Cloud Storage \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:36.834072+00:00
+fetched_at: 2026-10-28T05:47:02.932024+00:00
 ---
 
 # Annotate a batch of files in Cloud Storage  |  Cloud Vision API  |  Google Cloud Documentation
@@ -222,7 +222,7 @@ Before trying this sample, follow the Python setup instructions in the [Vision q
 To authenticate to Vision, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    from google.cloud import vision_v1
+    from google.cloud import [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest)
     
     
     def sample_batch_annotate_files(
@@ -231,11 +231,11 @@ To authenticate to Vision, set up Application Default Credentials. For more info
         """Perform batch file annotation."""
         mime_type = "application/pdf"
     
-        client = vision_v1.[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
+        client = [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[ImageAnnotatorClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorClient.html)()
     
         gcs_source = {"uri": storage_uri}
         input_config = {"gcs_source": gcs_source, "mime_type": mime_type}
-        features = [{"type_": vision_v1.[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.DOCUMENT_TEXT_DETECTION}]
+        features = [{"type_": [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[Feature](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.Feature.html).Type.DOCUMENT_TEXT_DETECTION}]
     
         # The service can process up to 5 pages per document file.
         # Here we specify the first, second, and last page of the document to be

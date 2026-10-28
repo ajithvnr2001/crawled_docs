@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/migrate-from-step-functions/
 title: Migrate from AWS Step Functions to Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:12.643639+00:00
+fetched_at: 2026-10-28T05:46:37.779891+00:00
 ---
 
 # Migrate from AWS Step Functions to Workflows  |  Google Cloud Documentation
@@ -843,7 +843,7 @@ To migrate the preceding Step Functions example to Workflows, you can create the
                    "init": {
                      "assign": [
                        {
-                         "projectId": "${sys.get_env(\"GOOGLE_CLOUD_PROJECT_ID\")}"
+                         "projectId": "${sys.get_env(\"GOOGLE_CLOUD_PROJECT_ID\";)}";
                        },
                        {
                          "region": "LOCATION"
@@ -1018,7 +1018,7 @@ Replace `CALLBACK_URL` with the rest of the path to your callback endpoint.
 
   5. Once the workflow has successfully completed, you can [receive the message from the Pub/Sub subscription](https://docs.cloud.google.com/pubsub/docs/create-topic-gcloud#receive_messages). For example:
          
-         gcloud pubsub subscriptions pull stock_example-sub  --format="value(message.data)" | jq
+         gcloud pubsub subscriptions pull stock_example-sub  --format="value(message.data)&quot; | jq
          
 
 The output message should be similar to the following (either a `buy` or a `sell`):
@@ -1047,6 +1047,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-disable-bucket-lifecycle-management/
 title: Disable a lifecycle policy \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:42.651925+00:00
+fetched_at: 2026-10-28T05:48:44.592201+00:00
 ---
 
 # Disable a lifecycle policy  |  Cloud Storage  |  Google Cloud Documentation

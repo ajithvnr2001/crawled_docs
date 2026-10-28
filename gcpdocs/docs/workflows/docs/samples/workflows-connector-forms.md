@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connector-forms/
 title: Connector for Google Forms \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:01.651890+00:00
+fetched_at: 2026-10-28T05:47:41.802285+00:00
 ---
 
 # Connector for Google Forms  |  Workflows  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/rust/docs/pagination/
 title: Working with list operations \u00a0|\u00a0 Rust \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:34.421422+00:00
+fetched_at: 2026-10-28T05:53:20.197777+00:00
 ---
 
 # Working with list operations  |  Rust  |  Google Cloud Documentation
@@ -58,7 +58,7 @@ To iterate over the items, use the `by_item` method.
         .by_item();
     while let Some(secret) = list.next().await {
         let secret = secret?;
-        println!("  secret={}&quot;, secret.name)
+        println!("  secret={}", secret.name)
     }
 
 In rare cases, pages might contain extra information that you need access to, or you may need to checkpoint your progress across processes. If needed, you can iterate over full pages instead of individual items.
@@ -110,11 +110,11 @@ You may want to use these APIs in the larger Rust ecosystem of asynchronous stre
              .set_parent(format!("projects/{project_id}"))
              .by_item()
              .into_stream();
-         list.map(>|secret| - g<ax>::Result() {
+         list.map(|secret| -> gax::Result<()> {
              println!("  secret={}", secret?.name);
              Ok(())
          })
-         .fold(Ok(()), a>sync |acc, r<es>ult| - gax::Result() {
+         .fold(Ok(()), async |acc, result| -> gax::Result<()> {
              acc.and(result)
          })
          .await?;
@@ -131,11 +131,11 @@ Similarly, you can use the `into_stream` function to convert `Paginator` into a 
         .by_page()
         .into_stream();
     list.enumerate()
-        .map(|(index>, page)| - g<ax>::Result() {
+        .map(|(index, page)| -> gax::Result<()> {
             println!("page={}, next_page_token={}", index, page?.next_page_token);
             Ok(())
         })
-        .fold(Ok(()), a>sync |acc, r<es>ult| - gax::Result() {
+        .fold(Ok(()), async |acc, result| -> gax::Result<()> {
             acc.and(result)
         })
         .await?;
@@ -183,6 +183,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

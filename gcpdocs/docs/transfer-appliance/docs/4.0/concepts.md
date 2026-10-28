@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/transfer-appliance/docs/4.0/concepts/
 title: Concepts \u00a0|\u00a0 Transfer Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:30.543499+00:00
+fetched_at: 2026-10-28T05:46:06.795048+00:00
 ---
 
 # Concepts  |  Transfer Appliance  |  Google Cloud Documentation

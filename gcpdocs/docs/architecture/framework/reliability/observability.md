@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/reliability/observability/
 title: Detect potential failures by using observability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:19:54.685942+00:00
+fetched_at: 2026-10-28T05:47:03.593274+00:00
 ---
 
 # Detect potential failures by using observability  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Detect potential failures by using observability Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-12-30 UTC
+Last reviewed 2026-10-27 UTC
 
 This principle in the reliability pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you proactively identify areas where errors and failures might occur.
 
@@ -57,7 +57,7 @@ When you configure logging, consider the associated [costs](https://cloud.google
 
 ### Optimize resource utilization
 
-Monitor CPU consumption, network I/O metrics, and disk I/O metrics to detect under-provisioned and over-provisioned resources in services like GKE, Compute Engine, and Managed Service for Apache Spark. For a complete list of supported services, see [Cloud Monitoring overview](https://docs.cloud.google.com/monitoring/docs/monitoring-overview).
+Monitor CPU consumption, network I/O metrics, and disk I/O metrics to detect under-provisioned and over-provisioned resources in services like Google Kubernetes Engine, Compute Engine, and Managed Service for Apache Spark. For a complete list of supported services, see [Monitoring overview](https://docs.cloud.google.com/monitoring/docs/monitoring-overview).
 
 ### Prioritize alerts
 
@@ -71,6 +71,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-12-30 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-12-30 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vision/docs/samples/vision-face-detection-tutorial-run-application/
 title: Running the app for face detection \u00a0|\u00a0 Cloud Vision API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:24.250816+00:00
+fetched_at: 2026-10-28T05:48:01.561626+00:00
 ---
 
 # Running the app for face detection  |  Cloud Vision API  |  Google Cloud Documentation

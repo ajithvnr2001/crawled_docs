@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-compose-file/
 title: Compose multiple objects \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:18.498391+00:00
+fetched_at: 2026-10-28T05:48:29.576160+00:00
 ---
 
 # Compose multiple objects  |  Cloud Storage  |  Google Cloud Documentation

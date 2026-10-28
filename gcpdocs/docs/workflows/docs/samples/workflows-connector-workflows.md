@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connector-workflows/
 title: Connector for Workflows definitions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:56:54.671880+00:00
+fetched_at: 2026-10-28T05:47:58.994993+00:00
 ---
 
 # Connector for Workflows definitions  |  Google Cloud Documentation

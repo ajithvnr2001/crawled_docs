@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-upload-file/
 title: Upload a RAG file \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:28.540614+00:00
+fetched_at: 2026-10-28T05:49:48.018695+00:00
 ---
 
 # Upload a RAG file  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -48,12 +48,13 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+    # corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
     # path = "path/to/local/file.txt"
     # display_name = "file_display_name"
     
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+    # Initialize Agent Platform client once per session.
+    # See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
     
     rag_file = client.rag.upload_file(
         corpus_name=corpus_name,
@@ -61,7 +62,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         display_name=display_name,
     )
     print(rag_file)
-    # RagFile(name='projects/[PROJECT_ID]/locations/us-central1/ragCorpora/1234567890/ragFiles/09876543',
+    # RagFile(name='projects/[PROJECT_ID]/locations/us-east5/ragCorpora/1234567890/ragFiles/09876543',
     #  display_name='file_display_name')
     
 

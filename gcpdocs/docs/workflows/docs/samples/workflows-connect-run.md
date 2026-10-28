@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connect-run/
 title: Invoke a Cloud Run workload that requires authentication \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:57:24.620292+00:00
+fetched_at: 2026-10-28T05:48:01.933048+00:00
 ---
 
 # Invoke a Cloud Run workload that requires authentication  |  Workflows  |  Google Cloud Documentation

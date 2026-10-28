@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/samples/workflows-connector-integrations/
 title: Connector for Application Integration \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:57:34.974079+00:00
+fetched_at: 2026-10-28T05:47:33.114601+00:00
 ---
 
 # Connector for Application Integration  |  Workflows  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-create-bucket-class-location/
 title: Create a bucket with options \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:08.185931+00:00
+fetched_at: 2026-10-28T05:48:08.590602+00:00
 ---
 
 # Create a bucket with options  |  Cloud Storage  |  Google Cloud Documentation

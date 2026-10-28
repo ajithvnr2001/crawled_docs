@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workflows/docs/audit-logging/
 title: Audit logging for workflows \u00a0|\u00a0 Workflows \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:59:52.433560+00:00
+fetched_at: 2026-10-28T05:46:29.818232+00:00
 ---
 
 # Audit logging for workflows  |  Workflows  |  Google Cloud Documentation

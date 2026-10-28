@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/secrets/
 title: Configure secrets for services \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:54.380956+00:00
+fetched_at: 2026-10-28T05:53:33.117260+00:00
 ---
 
 # Configure secrets for services  |  Cloud Run  |  Google Cloud Documentation

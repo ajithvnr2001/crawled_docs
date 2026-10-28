@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-textgen-chat-with-txt/
 title: Create a chat session with a Generative Model \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:57:00.728341+00:00
+fetched_at: 2026-10-28T05:47:52.186106+00:00
 ---
 
 # Create a chat session with a Generative Model  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -198,7 +198,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     chat_session = client.chats.create(
-        model="gemini-3.5-flash",
+        model="gemini-3.8-flash",
         history=[
             UserContent(parts=[Part(text="Hello")]),
             ModelContent(

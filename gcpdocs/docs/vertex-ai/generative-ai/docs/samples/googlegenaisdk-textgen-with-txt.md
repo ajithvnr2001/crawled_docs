@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/googlegenaisdk-textgen-with-txt/
 title: Generate text using Generative AI Model \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:56:57.831123+00:00
+fetched_at: 2026-10-28T05:46:55.772328+00:00
 ---
 
 # Generate text using Generative AI Model  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -211,7 +211,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     client = genai.Client(http_options=HttpOptions(api_version="v1"))
     response = client.models.generate_content(
-        model="gemini-3.5-flash",
+        model="gemini-3.8-flash",
         contents="How does AI work?",
     )
     print(response.text)

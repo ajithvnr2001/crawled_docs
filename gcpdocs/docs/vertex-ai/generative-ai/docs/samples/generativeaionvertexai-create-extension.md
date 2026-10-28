@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-create-extension/
 title: Create a code interpreter extension \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:21.050020+00:00
+fetched_at: 2026-10-28T05:50:22.953990+00:00
 ---
 
 # Create a code interpreter extension  |  Generative AI on Vertex AI  |  Google Cloud Documentation

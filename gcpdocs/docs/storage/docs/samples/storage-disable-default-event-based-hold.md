@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-disable-default-event-based-hold/
 title: Disable a default event-based hold on a bucket \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:47.186585+00:00
+fetched_at: 2026-10-28T05:47:30.567560+00:00
 ---
 
 # Disable a default event-based hold on a bucket  |  Cloud Storage  |  Google Cloud Documentation

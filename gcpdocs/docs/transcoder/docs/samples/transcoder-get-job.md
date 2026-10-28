@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/transcoder/docs/samples/transcoder-get-job/
 title: Get a job \u00a0|\u00a0 Transcoder API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:46.758570+00:00
+fetched_at: 2026-10-28T05:46:07.863458+00:00
 ---
 
 # Get a job  |  Transcoder API  |  Google Cloud Documentation

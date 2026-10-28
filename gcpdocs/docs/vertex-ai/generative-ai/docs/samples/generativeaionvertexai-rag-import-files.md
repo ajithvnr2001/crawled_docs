@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-import-files/
 title: Import a set of RAG files \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:17.366350+00:00
+fetched_at: 2026-10-28T05:49:05.434434+00:00
 ---
 
 # Import a set of RAG files  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -52,34 +52,25 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # corpus_name = "projects/{PROJECT_ID}/locations/us-central1/ragCorpora/{rag_corpus_id}"
+    # corpus_name = "projects/{PROJECT_ID}/locations/us-east5/ragCorpora/{rag_corpus_id}"
+    # paths = ["gs://my_bucket/my_files_dir/*"]
     
-    # Supports Google Cloud Storage and Google Drive Links
-    # paths = ["https://drive.google.com/file/d/123", "gs://my_bucket/my_files_dir/*"]
-    
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-central1")
+    # Initialize Agent Platform client once per session.
+    # See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
     
     response = client.rag.import_files(
         name=corpus_name,
         import_config=types.ImportRagFilesConfig(
-            gcs_source=genai_types.GcsSource(uris=[paths[1]]),
-            google_drive_source=types.GoogleDriveSource(
-                resource_ids=[
-                    types.GoogleDriveSourceResourceId(
-                        resource_id=paths[0],
-                        resource_type=types.ResourceType.RESOURCE_TYPE_FILE
-                    )
-                ]
-            ), # optional
+            gcs_source=genai_types.GcsSource(uris=paths),
             rag_file_transformation_config=types.RagFileTransformationConfig(
                 rag_file_chunking_config=types.RagFileChunkingConfig(
                     chunk_size=512,
                     chunk_overlap=100,
                 )
-            ), # optional
-            max_embedding_requests_per_min=900, # optional
-        )
+            ),  # optional
+            max_embedding_requests_per_min=900,  # optional
+        ),
     )
     
     print(f"Imported {response.imported_rag_files_count} files.")

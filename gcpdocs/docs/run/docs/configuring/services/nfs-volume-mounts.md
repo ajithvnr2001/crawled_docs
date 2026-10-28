@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/nfs-volume-mounts/
 title: Configure NFS volume mounts for services \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:55.776626+00:00
+fetched_at: 2026-10-28T05:53:35.202886+00:00
 ---
 
 # Configure NFS volume mounts for services  |  Cloud Run  |  Google Cloud Documentation

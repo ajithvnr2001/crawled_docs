@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-iam-revoke-access/
 title: IAM revoke access \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:04.952541+00:00
+fetched_at: 2026-10-28T05:53:10.321754+00:00
 ---
 
 # IAM revoke access  |  Secret Manager  |  Google Cloud Documentation

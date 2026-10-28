@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway/
 title: Monitor traffic through Agent Gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:30:31.673428+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-28T05:42:26.721722+00:00
 ---
 
 # Monitor traffic through Agent Gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -225,7 +211,7 @@ Replace the following:
 
 After enabling distributed tracing and sending traffic through your gateway, you can view trace details in the Google Cloud console:
 
-  1. In the Google Cloud console, go to the ![](https://docs.cloud.google.com/static/stackdriver/images/trace-explorer-icon.png) **Trace explorer** page: 
+  1. In the Google Cloud console, go to the ![](https://docs.cloud.google.com/static/stackdriver/images/trace-explorer-icon.png)**Trace explorer** page: 
 
 [Go to **Trace explorer**](https://console.cloud.google.com/traces/explorer)
 
@@ -237,15 +223,15 @@ To learn more about using the Trace explorer UI, see [Find and explore traces](h
 
 ###  Trace explorer 
 
-![Trace Explorer view in Cloud Trace](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/cloud-trace-details-view.png) Trace explorer view in Trace
+![Trace Explorer view in Cloud Trace](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/cloud-trace-details-view.png)Trace explorer view in Trace
 
 ###  Trace timeline view 
 
-![Timeline view in Cloud Trace](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/cloud-trace-timeline-view.png) Timeline view in Trace
+![Timeline view in Cloud Trace](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/cloud-trace-timeline-view.png)Timeline view in Trace
 
 ###  Trace graph view 
 
-![Graph view in Cloud Trace](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/cloud-trace-graph-view.png) Graph view in Trace
+![Graph view in Cloud Trace](https://docs.cloud.google.com/static/gemini-enterprise-agent-platform/images/cloud-trace-graph-view.png)Graph view in Trace
 
 
 
@@ -312,6 +298,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

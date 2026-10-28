@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-delete-model-sample/
 title: Delete a model \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:22.834001+00:00
+fetched_at: 2026-10-28T05:47:39.123610+00:00
 ---
 
 # Delete a model  |  Vertex AI  |  Google Cloud Documentation
@@ -34,12 +34,12 @@ Before trying this sample, follow the Java setup instructions in the [Vertex AI 
 To authenticate to Vertex AI, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.api.gax.longrunning.OperationFuture;
-    import com.google.cloud.aiplatform.v1.DeleteOperationMetadata;
-    import com.google.cloud.aiplatform.v1.ModelName;
-    import com.google.cloud.aiplatform.v1.ModelServiceClient;
-    import com.google.cloud.aiplatform.v1.ModelServiceSettings;
-    import com.google.protobuf.Empty;
+    import com.google.api.gax.longrunning.[OperationFuture](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.longrunning.OperationFuture.html);
+    import com.google.cloud.aiplatform.v1.[DeleteOperationMetadata](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.DeleteOperationMetadata.html);
+    import com.google.cloud.aiplatform.v1.[ModelName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelName.html);
+    import com.google.cloud.aiplatform.v1.[ModelServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceClient.html);
+    import com.google.cloud.aiplatform.v1.[ModelServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceSettings.html);
+    import com.google.protobuf.[Empty](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Empty.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -56,19 +56,19 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     
       static void deleteModel(String project, String modelId)
           throws IOException, ExecutionException, InterruptedException, TimeoutException {
-        ModelServiceSettings modelServiceSettings =
-            ModelServiceSettings.newBuilder()
+        [ModelServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceSettings.html) modelServiceSettings =
+            [ModelServiceSettings](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceSettings.html).newBuilder()
                 .setEndpoint("us-central1-aiplatform.googleapis.com:443")
                 .build();
     
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the "close" method on the client to safely clean up any remaining background resources.
-        try (ModelServiceClient modelServiceClient = ModelServiceClient.create(modelServiceSettings)) {
+        try ([ModelServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceClient.html) modelServiceClient = [ModelServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceClient.html).create(modelServiceSettings)) {
           String location = "us-central1";
-          ModelName modelName = ModelName.of(project, location, modelId);
+          [ModelName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelName.html) modelName = [ModelName](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelName.html).of(project, location, modelId);
           OperationFuture<Empty, DeleteOperationMetadata> operationFuture =
-              modelServiceClient.deleteModelAsync(modelName);
+              modelServiceClient.[deleteModelAsync](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.ModelServiceClient.html#com_google_cloud_aiplatform_v1_ModelServiceClient_deleteModelAsync__org_jspecify_annotations_Nullable_com_google_cloud_aiplatform_v1_ModelName_)(modelName);
           System.out.format("Operation name: %s\n", operationFuture.getInitialFuture().get().getName());
           System.out.println("Waiting for operation to finish...");
           operationFuture.get(300, TimeUnit.SECONDS);
@@ -94,7 +94,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     // const location = 'YOUR_PROJECT_LOCATION';
     
     // Imports the Google Cloud Model Service Client library
-    const {ModelServiceClient} = require('@google-cloud/aiplatform');
+    const {ModelServiceClient} = require('[@google-cloud/aiplatform](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)');
     
     // Specifies the location of the api endpoint
     const clientOptions = {
@@ -102,7 +102,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     };
     
     // Instantiates a client
-    const modelServiceClient = new ModelServiceClient(clientOptions);
+    const modelServiceClient = new [ModelServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/aiplatform/latest/overview.html)(clientOptions);
     
     async function deleteModel() {
       // Configure the resource
@@ -142,9 +142,9 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         client_options = {"api_endpoint": api_endpoint}
         # Initialize client that will be used to create and send requests.
         # This client only needs to be created once, and can be reused for multiple requests.
-        client = aiplatform.gapic.ModelServiceClient(client_options=client_options)
-        name = client.model_path(project=project, location=location, model=model_id)
-        response = client.delete_model(name=name)
+        client = aiplatform.gapic.[ModelServiceClient](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.model_service.ModelServiceClient.html)(client_options=client_options)
+        name = client.[model_path](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.model_service.ModelServiceClient.html#google_cloud_aiplatform_v1_services_model_service_ModelServiceClient_model_path)(project=project, location=location, model=model_id)
+        response = client.[delete_model](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.model_service.ModelServiceClient.html#google_cloud_aiplatform_v1_services_model_service_ModelServiceClient_delete_model)(name=name)
         print("Long running operation:", response.operation.name)
         delete_model_response = response.result(timeout=timeout)
         print("delete_model_response:", delete_model_response)
@@ -153,7 +153,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
 
 ## What's next
 
-To search and filter code samples for other Google Cloud products, see the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?product=aiplatform). 
+To search and filter code samples for other Google Cloud products, see the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?product=vertexai). 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 

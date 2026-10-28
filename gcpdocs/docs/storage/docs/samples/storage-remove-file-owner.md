@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-remove-file-owner/
 title: Remove owner access to an object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:19.901187+00:00
+fetched_at: 2026-10-28T05:46:08.885423+00:00
 ---
 
 # Remove owner access to an object  |  Cloud Storage  |  Google Cloud Documentation

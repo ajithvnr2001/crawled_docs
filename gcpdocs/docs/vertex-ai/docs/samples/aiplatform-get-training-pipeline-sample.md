@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-get-training-pipeline-sample/
 title: Get a training pipeline \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:26:59.805101+00:00
+fetched_at: 2026-10-28T05:47:08.028358+00:00
 ---
 
 # Get a training pipeline  |  Vertex AI  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ Gets a training pipeline using the get_training_pipeline method.
 
 For detailed documentation that includes this code sample, see the following: 
 
-  * [Train an AutoML Edge model using the Vertex AI API](https://docs.cloud.google.com/vertex-ai/docs/training/automl-edge-api)
+  * [Train an AutoML Edge model using the Agent Platform API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/automl-edge-api)
 
 
 
@@ -276,7 +276,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
 
 ## What's next
 
-To search and filter code samples for other Google Cloud products, see the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?product=aiplatform). 
+To search and filter code samples for other Google Cloud products, see the [Google Cloud sample browser](https://docs.cloud.google.com/docs/samples?product=vertexai). 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 

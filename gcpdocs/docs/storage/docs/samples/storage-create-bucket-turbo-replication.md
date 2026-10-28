@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-create-bucket-turbo-replication/
 title: Create a dual-region bucket with turbo replication \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:44.379916+00:00
+fetched_at: 2026-10-28T05:48:45.209117+00:00
 ---
 
 # Create a dual-region bucket with turbo replication  |  Cloud Storage  |  Google Cloud Documentation

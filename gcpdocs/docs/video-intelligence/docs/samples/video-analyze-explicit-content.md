@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-intelligence/docs/samples/video-analyze-explicit-content/
 title: Detect explicit content in a local video file \u00a0|\u00a0 Video Intelligence API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:37:56.572863+00:00
+fetched_at: 2026-10-28T05:47:49.365551+00:00
 ---
 
 # Detect explicit content in a local video file  |  Video Intelligence API  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-stitcher/docs/samples/videostitcher-get-slate/
 title: Get a slate \u00a0|\u00a0 Video Stitcher API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:35:21.124559+00:00
+fetched_at: 2026-10-28T05:50:01.660646+00:00
 ---
 
 # Get a slate  |  Video Stitcher API  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/docs/support/
 title: Resources \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:41:48.376261+00:00
+fetched_at: 2026-10-28T05:46:54.916658+00:00
 ---
 
 # Resources  |  Cloud Customer Care  |  Google Cloud Documentation

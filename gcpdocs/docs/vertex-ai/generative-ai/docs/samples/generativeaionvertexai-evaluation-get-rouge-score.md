@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-evaluation-get-rouge-score/
 title: Evaluate a model response against a reference (ground truth) using the ROUGE metric \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:20.987946+00:00
+fetched_at: 2026-10-28T05:49:06.105635+00:00
 ---
 
 # Evaluate a model response against a reference (ground truth) using the ROUGE metric  |  Generative AI on Vertex AI  |  Google Cloud Documentation

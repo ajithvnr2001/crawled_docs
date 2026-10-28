@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/tracing/
 title: Set up tracing \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:31:11.045376+00:00
+fetched_at: 2026-10-28T05:41:43.329062+00:00
 ---
 
 # Set up tracing  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -97,7 +97,7 @@ Note the following:
 **Note:** Ensure you have any necessary end user consents, notices, and data handling policies in place for your collection of this information.**Important:** Logging of `user.id` is included when opting in to "Enable logging of prompt inputs and response outputs" effective May 22, 2026, with Agent Development Kit version 2.1. If you opted in prior to May 22, your logging does not include `user.id`. You will need to redeploy your agents and opt-in again for this setting to take effect.
   * To use trace ingestion, you need to [enable the Telemetry API](https://console.cloud.google.com/flows/enableapi?apiid=telemetry.googleapis.com). For more information, see [Telemetry (OTLP) API overview](https://docs.cloud.google.com/stackdriver/docs/reference/telemetry/overview).
 
-  * To use log ingestion, you need to [enable the Logging API](https://console.cloud.google.com/flows/enableapi?apiid=logging.googleapis.com). For more information, see [Cloud Logging API overview](https://docs.cloud.google.com/logging/docs/reference/api-overview).
+  * To use log ingestion, you need to [enable the Cloud Logging API](https://console.cloud.google.com/flows/enableapi?apiid=logging.googleapis.com). For more information, see [Cloud Logging API overview](https://docs.cloud.google.com/logging/docs/reference/api-overview).
 
 
 **Note:** If you were previously setting the `enable_tracing` flag, we recommend you use the environment variables instead. For example, set `GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=true` instead of `enable_tracing=true`, and set `GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=false` instead of `enable_tracing=false`.
@@ -200,6 +200,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

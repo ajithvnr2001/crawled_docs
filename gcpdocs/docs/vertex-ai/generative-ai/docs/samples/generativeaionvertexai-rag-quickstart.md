@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/generative-ai/docs/samples/generativeaionvertexai-rag-quickstart/
 title: Use the quickstart to get familiar with RAG \u00a0|\u00a0 Generative AI on Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:41.061354+00:00
+fetched_at: 2026-10-28T05:49:39.093781+00:00
 ---
 
 # Use the quickstart to get familiar with RAG  |  Generative AI on Vertex AI  |  Google Cloud Documentation
@@ -49,18 +49,17 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     from google import genai
     from google.genai import types as genai_types
     
-    
     # Create a RAG Corpus, Import Files, and Generate a response
     
     # TODO(developer): Update and un-comment below lines
     # PROJECT_ID = "your-project-id"
-    # MODEL_ID = "gemini-3.5-flash"
+    # MODEL_ID = "gemini-3.8-flash"
     # display_name = "test_corpus"
     # gcs_path = "gs://my_bucket/my_files_dir/*"
-    # google_drive_path ="https://drive.google.com/file/d/123"
     
-    # Initialize Agent Platform client once per session
-    client = agentplatform.Client(project=PROJECT_ID, location="us-east4")
+    # Initialize Agent Platform client once per session.
+    # See https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview#supported-regions
+    client = agentplatform.Client(project=PROJECT_ID, location="us-east5")
     
     # Configure embedding model, for example "text-embedding-005".
     embedding_model_config = types.RagEmbeddingModelConfig(
@@ -89,9 +88,9 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
                     chunk_size=512,
                     chunk_overlap=100,
                 )
-            ), # optional
-            max_embedding_requests_per_min=1000, # optional
-        )
+            ),  # optional
+            max_embedding_requests_per_min=1000,  # optional
+        ),
     )
     
     # Direct context retrieval
@@ -111,8 +110,8 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
         ),
         query=types.RagQuery(
             text="What is RAG and why it is helpful?",
-            rag_retrieval_config=rag_retrieval_config,   
-        )
+            rag_retrieval_config=rag_retrieval_config,
+        ),
     )
     print(response)
     
@@ -136,8 +135,7 @@ To authenticate to Vertex AI, set up Application Default Credentials. For more i
     # Call generate_content with the tool using the GenAI SDK
     
     # Create a GenAI SDK client
-    genai_client = genai.Client(enterprise=True, project=PROJECT_ID, location="us-east4")
-    
+    genai_client = genai.Client(vertexai=True, project=PROJECT_ID, location="global")
     
     response = genai_client.models.generate_content(
         model=MODEL_ID,

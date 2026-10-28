@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/manual-scaling/
 title: Manual scaling \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:54.540474+00:00
+fetched_at: 2026-10-28T05:53:34.605745+00:00
 ---
 
 # Manual scaling  |  Cloud Run  |  Google Cloud Documentation

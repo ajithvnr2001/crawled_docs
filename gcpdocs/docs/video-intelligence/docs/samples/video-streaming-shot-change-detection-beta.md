@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-intelligence/docs/samples/video-streaming-shot-change-detection-beta/
 title: Detect shot changes in a streaming video \u00a0|\u00a0 Video Intelligence API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:36:05.458149+00:00
+fetched_at: 2026-10-28T05:43:18.719834+00:00
 ---
 
 # Detect shot changes in a streaming video  |  Video Intelligence API  |  Google Cloud Documentation

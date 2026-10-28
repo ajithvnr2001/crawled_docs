@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/video-intelligence/docs/quickstarts/
 title: Quickstarts \u00a0|\u00a0 Video Intelligence API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:56:47.237183+00:00
+fetched_at: 2026-10-28T05:47:33.483662+00:00
 ---
 
 # Quickstarts  |  Video Intelligence API  |  Google Cloud Documentation

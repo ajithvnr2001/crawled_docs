@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-list-file-archived-generations/
 title: List archived generations \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:14.067635+00:00
+fetched_at: 2026-10-28T05:48:39.720351+00:00
 ---
 
 # List archived generations  |  Cloud Storage  |  Google Cloud Documentation

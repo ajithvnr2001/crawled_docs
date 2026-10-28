@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/abuse-monitoring/
 title: Abuse monitoring \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:52.829167+00:00
+fetched_at: 2026-10-28T05:42:04.408658+00:00
 ---
 
 # Abuse monitoring  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -42,7 +42,7 @@ As outlined in Section 4.3 "Generative AI Safety and Abuse" of [Google Cloud Pla
 
 As outlined in Section 34 of the [Service Specific Terms](https://cloud.google.com/terms/service-terms), "Google Frontier Models," Google uses the following process to detect potential abuse and violations of its agreements, including the [Acceptable Use Policy](https://cloud.google.com/terms/aup) and [Prohibited Use Policy](https://policies.google.com/terms/generative-ai/use-policy), as part of providing Generative AI Services to customers.
 
-  * **Prompt and response logging for abuse monitoring** : Google may log customer prompts and responses solely for ensuring safe use of the Google Frontier Models and compliance with customer's Google agreement ("Purpose" set forth in the [Service Specific Terms](https://cloud.google.com/terms/service-terms)). This includes automated processing to create anonymized shingles and analyze usage patterns solely for the purpose described above. This data won't be used to train or fine-tune any AI/ML models. These logs are stored securely inside the customer's environment for up to 30 days. Prompt logs for the purposes of abuse monitoring are not encrypted by Customer-managed encryption keys (CMEK). Customers are not charged for this logging.
+  * **Prompt and response logging for abuse monitoring** : Google may log customer prompts and responses solely for ensuring safe use of the Google Frontier Models and compliance with customer's Google agreement ("Purpose" set forth in the [Service Specific Terms](https://cloud.google.com/terms/service-terms)). This includes automated processing to create anonymized shingles and analyze usage patterns solely for the purpose described above. This data won't be used to train or fine-tune any AI/ML models. These logs are stored securely inside the customer's environment for up to 30 days. Prompt logs for the purposes of abuse monitoring are not encrypted by CMEK. Customers are not charged for this logging.
 
   * **ZDR-aligned abuse logging for customers with Cloud Master Agreements** : Section 34 "Google Frontier Models" of [Service Specific Terms](https://cloud.google.com/terms/service-terms) does not give Google the right to conduct human review. Consequently, these logs adhere to ZDR standards for customers with Cloud Master Agreements, as they are stored inside the customer's environment and exempt from human review.
 
@@ -59,7 +59,7 @@ As outlined in Section 34 of the [Service Specific Terms](https://cloud.google.c
 
 As outlined in the [Advanced AI Safety Addendum](https://cloud.google.com/terms/advanced-ai-safety-addendum), Google Cloud has implemented a more rigorous abuse monitoring system for models designated as "Advanced AI".
 
-  * **Prompt and response logging** : All prompts and responses will be logged and securely stored for up to 30 days for the sole purpose of monitoring for abuse. This data won't be used to train or fine-tune any AI/ML models. This data is stored in the same region or multi-region selected by the customer for their project and adheres to Google Cloud assurances, such as Data Residency, Access Transparency and VPC Service Controls. Prompt and response logs for the purposes of abuse monitoring are not encrypted by Customer-managed encryption keys (CMEK). It may not be possible to opt-out of prompt-response logging when using some Advanced AI features. Please contact your account team for clarification.
+  * **Prompt and response logging** : All prompts and responses will be logged and securely stored for up to 30 days for the sole purpose of monitoring for abuse. This data won't be used to train or fine-tune any AI/ML models. This data is stored in the same region or multi-region selected by the customer for their project and adheres to Google Cloud assurances, such as Data Residency, Access Transparency and VPC Service Controls. Prompt and response logs for the purposes of abuse monitoring are not encrypted by CMEK. It may not be possible to opt-out of prompt-response logging when using some Advanced AI features. Please contact your account team for clarification.
 
   * **Automated investigation** : Google deploys automated investigative tools, including safety classifiers, to analyze logged data and detect potential abuse and violations.
 
@@ -112,6 +112,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/iam-roles/
 title: IAM roles for Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:20:59.160649+00:00
+fetched_at: 2026-10-28T05:47:47.421597+00:00
 ---
 
 # IAM roles for Cloud Storage  |  Google Cloud Documentation
