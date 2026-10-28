@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/upload/
 title: Create Upload URL | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:20.856062+00:00
+fetched_at: 2026-10-28T06:34:34.952354+00:00
 ---
 
 # Create Upload URL | Sarvam API Docs
@@ -65,7 +65,7 @@ Creates a direct-upload handle for a file to be processed later.
 
   1. Call this endpoint with the MIME type you will upload (e.g. `application/pdf`).
   2. Upload the file using the returned `method`, `url` and `headers` before `expires_at`.
-  3. Pass the returned `upload_id` through the `upload_ids` field on a later digitise or extract job request.
+  3. Pass the returned `upload_id` through the `upload_ids` field on a later parse or extract job request.
 
 
 
@@ -91,7 +91,7 @@ Created
 
 upload_idstring
 
-Handle for the uploaded file. Pass it through `upload_ids` on a later digitise or extract job request.
+Handle for the uploaded file. Pass it through `upload_ids` on a later parse or extract job request.
 
 methodstring
 
@@ -135,7 +135,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-export-status)[Digitise DocumentNext](https://docs.sarvam.ai/api-reference/doc-ai/job/digitise)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-export-status)[Parse DocumentNext](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * API Reference
 
@@ -165,8 +165,11 @@ YesNo
 
     * Document Intelligence
       * [POSTCreate Upload URL](https://docs.sarvam.ai/api-reference/doc-ai/job/upload)
-      * [POSTDigitise Document](https://docs.sarvam.ai/api-reference/doc-ai/job/digitise)
+      * [POSTParse Document](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)
       * [POSTExtract Fields](https://docs.sarvam.ai/api-reference/doc-ai/job/extract)
+      * [POSTClassify Document](https://docs.sarvam.ai/api-reference/doc-ai/job/classify)
+      * [POSTSplit Document](https://docs.sarvam.ai/api-reference/doc-ai/job/split)
+      * [GETGet Capabilities](https://docs.sarvam.ai/api-reference/doc-ai/capabilities)
       * [GETGet Job Status](https://docs.sarvam.ai/api-reference/doc-ai/job/status)
       * [GETGet Job Results](https://docs.sarvam.ai/api-reference/doc-ai/job/results)
       * [GETGet Download URL](https://docs.sarvam.ai/api-reference/doc-ai/job/download-url)
@@ -241,8 +244,11 @@ YesNo
   * [Trigger Export](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-trigger-export)
   * [Export Status](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-export-status)
   * [Create Upload URL](https://docs.sarvam.ai/api-reference/doc-ai/job/upload)
-  * [Digitise Document](https://docs.sarvam.ai/api-reference/doc-ai/job/digitise)
+  * [Parse Document](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)
   * [Extract Fields](https://docs.sarvam.ai/api-reference/doc-ai/job/extract)
+  * [Classify Document](https://docs.sarvam.ai/api-reference/doc-ai/job/classify)
+  * [Split Document](https://docs.sarvam.ai/api-reference/doc-ai/job/split)
+  * [Get Capabilities](https://docs.sarvam.ai/api-reference/doc-ai/capabilities)
   * [Get Job Status](https://docs.sarvam.ai/api-reference/doc-ai/job/status)
   * [Get Job Results](https://docs.sarvam.ai/api-reference/doc-ai/job/results)
   * [Get Download URL](https://docs.sarvam.ai/api-reference/doc-ai/job/download-url)

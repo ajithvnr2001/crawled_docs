@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/sdks/
 title: Libraries & SDKs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:38.343518+00:00
+fetched_at: 2026-10-28T06:34:21.946018+00:00
 ---
 
 # Libraries & SDKs | Sarvam API Docs
@@ -193,17 +193,20 @@ PythonJavaScript
 HTTP status| Python exception| JavaScript exception  
 ---|---|---  
 `400` Bad request| `BadRequestError`| `SarvamAI.BadRequestError`  
+`402` Payment required / credits exhausted²| `ApiError` (`PaymentRequiredError` on some endpoints)| `SarvamAIError` (`SarvamAI.PaymentRequiredError` on some endpoints)  
 `403` Forbidden / invalid key¹| `ForbiddenError`| `SarvamAI.ForbiddenError`  
 `404` Not found| `NotFoundError`| `SarvamAI.NotFoundError`  
 `413` Payload too large| `ContentTooLargeError`| `SarvamAI.ContentTooLargeError`  
 `422` Unprocessable entity| `UnprocessableEntityError`| `SarvamAI.UnprocessableEntityError`  
-`429` Rate limited / quota| `TooManyRequestsError`| `SarvamAI.TooManyRequestsError`  
+`429` Rate limited / model capacity / seat budget| `TooManyRequestsError`| `SarvamAI.TooManyRequestsError`  
 `500` Server error| `InternalServerError`| `SarvamAI.InternalServerError`  
 `503` Service unavailable| `ServiceUnavailableError`| `SarvamAI.ServiceUnavailableError`  
 Any of the above (base)| `ApiError`| `SarvamAIError`  
 Client-side timeout| `httpx.TimeoutException`| `SarvamAITimeoutError`  
   
 ¹ Auth failures return **HTTP 403** (`invalid_api_key_error`), not 401. See the [auth status-code note](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting).
+
+² Most endpoints, including Chat, Speech-to-Text, Text-to-Speech and Translate, have no dedicated 402 exception, so an empty credit balance raises the base error with `status_code == 402` in Python or `statusCode === 402` in JavaScript (`insufficient_quota_error`). Document Intelligence, Document Translation and Voice Cloning raise `PaymentRequiredError`. Catch the base error, check the status code, and do not retry. See [Errors & Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting).
 
 ## Streaming support
 
@@ -227,11 +230,11 @@ STT-translate over WebSocket _(legacy. Prefer STT WebSocket with`mode="translate
 
 ## Document AI (file uploads)
 
-Document AI is the one group that takes **file uploads** rather than JSON, so its call shape differs from the rest of the SDK. Both clients expose it as a `doc_ai` / `docAi` group, and a job is created in a single `digitise()` or `extract()` call.
+Document AI is the one group that takes **file uploads** rather than JSON, so its call shape differs from the rest of the SDK. Both clients expose it as a `doc_ai` / `docAi` group, and a job is created in a single `parse()` or `extract()` call.
 
 Capability| Python| JavaScript  
 ---|---|---  
-Digitise a document (full-page OCR)| `doc_ai.digitise`| `docAi.digitise`  
+Parse a document (full-page OCR)| `doc_ai.parse`| `docAi.parse`  
 Extract schema-defined fields| `doc_ai.extract`| `docAi.extract`  
 Poll job status| `doc_ai.get_status`| `docAi.getStatus`  
 Fetch extracted fields| `doc_ai.get_results`| `docAi.getResults`  
@@ -251,7 +254,7 @@ PythonJavaScript
     
     with open("document.pdf", "rb") as f:
     
-        job = client.doc_ai.digitise(
+        job = client.doc_ai.parse(
     
             file=[("document.pdf", f, "application/pdf")],
     
@@ -287,7 +290,7 @@ PythonJavaScript
 
 The JavaScript SDK is generated without a serialization layer, so request parameters and response fields use wire names (`output_format`, `job_id`, `pages_processed`), not camelCase. This is unlike the rest of the SDK.
 
-See the [Document AI overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview) for schema rules, output formats, and the full job lifecycle. The older `document_intelligence` group (`create_job()` / `upload_file()` / `start()` / `wait_until_complete()` / `download_output()`) is still present for existing integrations, but new work should use `doc_ai`.
+See the [Document AI overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview) for the four operations, [How to extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract) for schema rules, and [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle) for the full job lifecycle. The older `document_intelligence` group (`create_job()` / `upload_file()` / `start()` / `wait_until_complete()` / `download_output()`) is still present for existing integrations, but new work should use `doc_ai`.
 
 ## Versioning
 
@@ -454,7 +457,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -498,6 +506,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

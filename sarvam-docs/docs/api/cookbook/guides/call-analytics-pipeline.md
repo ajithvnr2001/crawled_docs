@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/cookbook/guides/call-analytics-pipeline/
 title: Call Analytics Pipeline | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:39.811918+00:00
+fetched_at: 2026-10-28T06:34:22.982673+00:00
 ---
 
 # Call Analytics Pipeline | Sarvam API Docs
@@ -675,7 +675,8 @@ Below is the analysis you’d get by running the pipeline on the sample [Sample_
 You may encounter these errors while using the API:
 
   * **403 Forbidden** (`invalid_api_key_error`), invalid API key. Use a valid key from the [Sarvam AI Dashboard](https://indus.sarvam.ai/key-management?ref=docs).
-  * **429 Too Many Requests** (`insufficient_quota_error` / `rate_limit_exceeded_error`), credits exhausted or rate limit hit. Retry with exponential backoff.
+  * **402 Payment Required** (`insufficient_quota_error`), credits exhausted. Add credits in the [Sarvam AI Dashboard](https://indus.sarvam.ai/billing?ref=docs); retrying will not help.
+  * **429 Too Many Requests** (`rate_limit_exceeded_error` / `model_rate_limit_exceeded_error`), rate limit or model capacity. Retry with exponential backoff.
   * **500 Internal Server Error** (`internal_server_error`), issue on our servers. Try again later; contact support if persistent.
 
 
@@ -751,6 +752,7 @@ YesNo
       * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
       * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
       * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+      * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
       * [Example Projects on GitHub](https://github.com/sarvamai/sarvam-ai-cookbook/tree/main/examples "Example Projects on GitHub")
 
     * Example Voice Agents
@@ -853,7 +855,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -897,6 +904,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

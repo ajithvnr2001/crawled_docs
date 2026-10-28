@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/livekit-production-best-practices/
 title: LiveKit in Production | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:24.927149+00:00
+fetched_at: 2026-10-28T06:34:38.924211+00:00
 ---
 
 # LiveKit in Production | Sarvam API Docs
@@ -480,7 +480,26 @@ For confirmations, legal disclaimers, or OTP readback, disable interruptions per
 
 Use `bulbul:v4-flash` (latest) or `bulbul:v3`. `dict_id` works on both (not on `bulbul:v2`). `temperature` applies to `bulbul:v3` only: v4 Flash ignores it, so leave it out. v4 Flash takes persona speaker IDs such as `ritu_hi_customer`, not v3 short names such as `priya`; see [Voices](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/voices) for the full list.
 
-**Validation ranges** (enforced client-side, `ValueError` unless noted): `pace` 0.3 to 3.0, `loudness` 0.5 to 2.0, `temperature` 0.01 to 2.0, `min_buffer_size` 30 to 200, `max_chunk_length` 50 to 500, `output_audio_bitrate` one of 32k/64k/96k/128k/192k, `speech_sample_rate` one of 8000/16000/22050/24000/32000/44100/48000, `output_audio_codec` one of mp3/opus/flac/aac/wav/linear16/mulaw/alaw. `pitch` (-0.75 to 0.75) is the one exception: out-of-range values are clamped with a warning instead of raising. Speaker and model compatibility is validated at construction, so an unsupported voice fails at startup rather than mid-call.
+**Validation ranges.** The plugin checks these client-side. Out-of-range values raise `ValueError`, except `pitch`, which is clamped to the nearest bound with a warning. `bulbul:v4-flash` has tighter limits than v2 and v3:
+
+Parameter| `bulbul:v2` / `bulbul:v3`| `bulbul:v4-flash`  
+---|---|---  
+`pace`| 0.3 to 3.0| 0.5 to 2.0  
+`pitch` (clamped)| -0.75 to 0.75| -0.5 to 0.5  
+`loudness`| 0.5 to 2.0| 0.1 to 2.5  
+`temperature`| 0.01 to 2.0| 0.01 to 1.0 (the model ignores it)  
+`speech_sample_rate` when streaming| 8000, 16000, 22050, 24000, 32000, 44100, 48000| 8000, 16000, 22050, 24000 (8000, 16000, 24000 with `opus`)  
+  
+`bulbul:v3` doesn’t use `pitch` or `loudness`, so the plugin doesn’t send them for v3. For every model, `min_buffer_size` is 30 to 200, `max_chunk_length` is 50 to 500, `output_audio_bitrate` is one of 32k/64k/96k/128k/192k, and `output_audio_codec` is one of mp3/opus/flac/aac/wav/linear16/mulaw/alaw.
+
+Most of these checks run at construction, so a bad value fails the worker at startup. Speaker and model compatibility is checked there too. The v4 Flash sample-rate check is the exception: it runs when the websocket opens, so a bad `speech_sample_rate` fails on the first utterance instead.
+
+Two more v4 Flash limits:
+
+  * **No Malayalam or Odia voices yet.** v4 Flash accepts `ml-IN` and `od-IN`, but has no personas for them. Keep Malayalam and Odia traffic on `bulbul:v3`.
+  * **Text normalisation is always on.** v3 and v4 Flash always normalise numbers, dates and mixed-script text, so `enable_preprocessing=False` has no effect on them.
+
+
 
 **Latency levers, in order of impact:**
 
@@ -507,6 +526,8 @@ Lever| Default| Recommendation| Effect
     server = AgentServer(setup_fnc=setup)
 
 Verify it worked: `TTSMetrics.connection_reused` should read `True` and `acquire_time` near zero from the second turn on. If it’s `False` every turn, you’re likely constructing a new `sarvam.TTS()` per session instead of reusing one.
+
+Changing `model` or `send_completion_event` through `tts.update_options(...)` also retires the pooled sockets, because both are fixed when a socket opens. The next utterance pays the connection cost again, so set them at construction.
 
 Leave `send_completion_event=True`; setting it `False` means the receive loop never sees a completion signal and blocks until it times out as `APITimeoutError`.
 
@@ -624,7 +645,7 @@ New builds should use `STTStreaming`. Migrating is mostly a constructor swap plu
 
 For calls you can’t afford to drop, wrap STT and TTS in a `FallbackAdapter`; a failed TTS is a silent agent, which is worse than a wrong one.
 
-**Websocket close codes** are the most useful operational signal available:
+**STT websocket close codes** are the most useful operational signal available. This table covers the realtime STT socket; the TTS socket is covered below it:
 
 Code| Meaning| Retryable| Action  
 ---|---|---|---  
@@ -637,6 +658,8 @@ Code| Meaning| Retryable| Action
 Non-fatal `error` events (`is_fatal: false`) log a warning and let the session continue; watch their rate as an early degradation signal, since it’s otherwise invisible. Fatal errors raise `APIStatusError`. `ValueError` on any parameter fires at construction time, so instantiate `sarvam.STTStreaming` and `sarvam.TTS` in `setup_fnc`, not the entrypoint, so config errors fail the worker at startup rather than the caller’s session.
 
 Sarvam closes idle TTS websockets after 60 s. The plugin defends on two layers, a transport-level ping every 20 s and an application-level ping every 30 s, so stale pooled connections are detected and replaced transparently. Size your key’s rate limits against peak concurrent calls times two (one STT socket plus one TTS socket per call), not average volume, and alert on close code 1003.
+
+**TTS websocket closes** don’t follow the STT table. Any close other than 1000 or 1001 raises `APIStatusError`, with the close code as its `status_code`, so log that code. The plugin’s connection pool also retires each TTS socket after one hour (3600 s) and opens a fresh one on the next utterance.
 
 * * *
 
@@ -1064,7 +1087,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)

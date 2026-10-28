@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/quickstart/
 title: Developer Quickstart | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:37.396299+00:00
+fetched_at: 2026-10-28T06:34:23.125321+00:00
 ---
 
 # Developer Quickstart | Sarvam API Docs
@@ -164,7 +164,7 @@ Use `transcribe` for same-language output, `translate` to convert audio to Engli
 
 Pick up where you left off, based on the API you just tried:
 
-[Speech to TextREST, Batch, and Streaming APIs, output modes, and language support.](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)[Text to SpeechVoices, pacing, audio formats, and streaming output.](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/best-practices)[Instant Voice CloningGenerate speech in a cloned voice from a short reference clip (beta).](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)[Chat CompletionAvailable models, reasoning modes, and streaming responses.](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/overview)[Text TranslationSupported languages and translation model options.](https://docs.sarvam.ai/api/getting-started/models/sarvam-translate)[Document TranslationJob lifecycle, style guidelines, and native numeral formatting.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[Document IntelligenceDigitise vs. Extract, config IDs, and structured output formats.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[DubbingVoice cloning, job lifecycle, and export formats.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview)[Browse the CookbookStep-by-step tutorials and end-to-end example projects.](https://docs.sarvam.ai/api/cookbook)[Join our DiscordEarly access to new releases, biweekly challenges, office hours with the team, and India’s AI builder community.](https://discord.com/invite/5rAsykttcs)
+[Speech to TextREST, Batch, and Streaming APIs, output modes, and language support.](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)[Text to SpeechVoices, pacing, audio formats, and streaming output.](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/best-practices)[Instant Voice CloningGenerate speech in a cloned voice from a short reference clip (beta).](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)[Chat CompletionAvailable models, reasoning modes, and streaming responses.](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/overview)[Text TranslationSupported languages and translation model options.](https://docs.sarvam.ai/api/getting-started/models/sarvam-translate)[Document TranslationJob lifecycle, style guidelines, and native numeral formatting.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[Document IntelligenceParse vs. Extract, config IDs, and structured output formats.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[DubbingVoice cloning, job lifecycle, and export formats.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview)[Browse the CookbookStep-by-step tutorials and end-to-end example projects.](https://docs.sarvam.ai/api/cookbook)[Join our DiscordEarly access to new releases, biweekly challenges, office hours with the team, and India’s AI builder community.](https://discord.com/invite/5rAsykttcs)
 
 Was this page helpful?
 
@@ -313,7 +313,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -357,6 +362,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

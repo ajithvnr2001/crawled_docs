@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/developer-tools/mcp/
 title: MCP Server | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:38.319698+00:00
+fetched_at: 2026-10-28T06:34:23.548289+00:00
 ---
 
 # MCP Server | Sarvam API Docs
@@ -99,7 +99,7 @@ Tool| What it does| Default model
 `sarvam_text_analytics`| Typed Q&A over text| —  
 `sarvam_llm_complete`| Chat completions| `sarvam-105b`  
 `sarvam_vision_extract`| Extracts structured key-value pairs from any document| Sarvam Vision  
-`sarvam_vision_digitise`| Parses your documents| Sarvam Vision  
+`sarvam_vision_parse`| Parses your documents| Sarvam Vision  
 `sarvam_pronunciation_list`| List pronunciation dictionaries| —  
 `sarvam_pronunciation_get`| Get a pronunciation dictionary| —  
 `sarvam_pronunciation_create`| Create a pronunciation dictionary| —  
@@ -283,7 +283,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -327,6 +332,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

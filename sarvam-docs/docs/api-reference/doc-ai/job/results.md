@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/results/
 title: Get Job Results | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:20.983048+00:00
+fetched_at: 2026-10-28T06:34:35.484620+00:00
 ---
 
 # Get Job Results | Sarvam API Docs
@@ -23,7 +23,7 @@ GET
 
 https://api.sarvam.ai/doc-ai/v1/job/:job_id/results
 
-Extract resultsDigitise results
+Extract resultsParse resultsClassify resultsSplit results
 
 GET
 
@@ -153,7 +153,7 @@ Try it
 
 Returns terminal job results. Results are never available while a job is running; requesting them before a terminal status returns `409`.
 
-**Digitise results** include `job_id`, `type`, `status`, `usage` and `documents`.
+**Parse results** include `job_id`, `type`, `status`, `usage` and `documents`.
 
 **Extract results** include `job_id`, `type`, `status`, `usage`, `result`, `annotations` and `version`. `annotations` mirrors the result shape; every leaf has `confidence` and `sources`.
 
@@ -177,6 +177,12 @@ Output format of the results. Choose `md` for Markdown, `html` for HTML, or `jso
 
 Allowed values:mdhtmljson
 
+includeenumOptional
+
+Set to `details` for Classify and Split jobs to add inspected pages, provenance and boundary details. Supporting evidence also needs `output.include_evidence` on the request.
+
+Allowed values:details
+
 ### Response
 
 OK
@@ -189,11 +195,27 @@ Show 7 properties
 
 OR
 
-digitiseobject
+parseobject
 
-Job results for the `digitise` pipeline.
+Job results for the `parse` pipeline.
 
 Show 5 properties
+
+OR
+
+classifyobject
+
+Job results for the `classify` pipeline.
+
+Show 8 properties
+
+OR
+
+splitobject
+
+Job results for the `split` pipeline.
+
+Show 7 properties
 
 ### Errors
 
@@ -239,8 +261,11 @@ YesNo
 
     * Document Intelligence
       * [POSTCreate Upload URL](https://docs.sarvam.ai/api-reference/doc-ai/job/upload)
-      * [POSTDigitise Document](https://docs.sarvam.ai/api-reference/doc-ai/job/digitise)
+      * [POSTParse Document](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)
       * [POSTExtract Fields](https://docs.sarvam.ai/api-reference/doc-ai/job/extract)
+      * [POSTClassify Document](https://docs.sarvam.ai/api-reference/doc-ai/job/classify)
+      * [POSTSplit Document](https://docs.sarvam.ai/api-reference/doc-ai/job/split)
+      * [GETGet Capabilities](https://docs.sarvam.ai/api-reference/doc-ai/capabilities)
       * [GETGet Job Status](https://docs.sarvam.ai/api-reference/doc-ai/job/status)
       * [GETGet Job Results](https://docs.sarvam.ai/api-reference/doc-ai/job/results)
       * [GETGet Download URL](https://docs.sarvam.ai/api-reference/doc-ai/job/download-url)
@@ -315,8 +340,11 @@ YesNo
   * [Trigger Export](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-trigger-export)
   * [Export Status](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-export-status)
   * [Create Upload URL](https://docs.sarvam.ai/api-reference/doc-ai/job/upload)
-  * [Digitise Document](https://docs.sarvam.ai/api-reference/doc-ai/job/digitise)
+  * [Parse Document](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)
   * [Extract Fields](https://docs.sarvam.ai/api-reference/doc-ai/job/extract)
+  * [Classify Document](https://docs.sarvam.ai/api-reference/doc-ai/job/classify)
+  * [Split Document](https://docs.sarvam.ai/api-reference/doc-ai/job/split)
+  * [Get Capabilities](https://docs.sarvam.ai/api-reference/doc-ai/capabilities)
   * [Get Job Status](https://docs.sarvam.ai/api-reference/doc-ai/job/status)
   * [Get Job Results](https://docs.sarvam.ai/api-reference/doc-ai/job/results)
   * [Get Download URL](https://docs.sarvam.ai/api-reference/doc-ai/job/download-url)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/models/openweight/
 title: Open-Weight Models | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:39.206801+00:00
+fetched_at: 2026-10-28T06:34:22.122130+00:00
 ---
 
 # Open-Weight Models | Sarvam API Docs
@@ -186,7 +186,7 @@ Symptom| Likely cause| Fix
 Empty `content`, `finish_reason: "length"`| Reasoning used the token budget| Raise `max_tokens` or lower `reasoning_effort`  
 `400` on `logprobs` or `n > 1`| Unsupported on `glm5.3`| See the comparison table above  
 `402 insufficient_quota_error`| No credits left| Add credits in the [dashboard](https://indus.sarvam.ai/billing?ref=docs)  
-`429 rate_limit_exceeded_error` or `503`| Rate limit or overload| Retry with exponential backoff  
+`429 rate_limit_exceeded_error` / `model_rate_limit_exceeded_error`, or `503 model_overloaded`| Rate limit, model capacity, or overload| Retry with exponential backoff  
   
 ## Production tips
 
@@ -396,7 +396,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -440,6 +445,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

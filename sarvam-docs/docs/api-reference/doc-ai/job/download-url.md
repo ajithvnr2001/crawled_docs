@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/download-url/
 title: Get Download URL | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:22.498027+00:00
+fetched_at: 2026-10-28T06:34:35.852568+00:00
 ---
 
 # Get Download URL | Sarvam API Docs
@@ -141,8 +141,11 @@ YesNo
 
     * Document Intelligence
       * [POSTCreate Upload URL](https://docs.sarvam.ai/api-reference/doc-ai/job/upload)
-      * [POSTDigitise Document](https://docs.sarvam.ai/api-reference/doc-ai/job/digitise)
+      * [POSTParse Document](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)
       * [POSTExtract Fields](https://docs.sarvam.ai/api-reference/doc-ai/job/extract)
+      * [POSTClassify Document](https://docs.sarvam.ai/api-reference/doc-ai/job/classify)
+      * [POSTSplit Document](https://docs.sarvam.ai/api-reference/doc-ai/job/split)
+      * [GETGet Capabilities](https://docs.sarvam.ai/api-reference/doc-ai/capabilities)
       * [GETGet Job Status](https://docs.sarvam.ai/api-reference/doc-ai/job/status)
       * [GETGet Job Results](https://docs.sarvam.ai/api-reference/doc-ai/job/results)
       * [GETGet Download URL](https://docs.sarvam.ai/api-reference/doc-ai/job/download-url)
@@ -217,8 +220,11 @@ YesNo
   * [Trigger Export](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-trigger-export)
   * [Export Status](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-export-status)
   * [Create Upload URL](https://docs.sarvam.ai/api-reference/doc-ai/job/upload)
-  * [Digitise Document](https://docs.sarvam.ai/api-reference/doc-ai/job/digitise)
+  * [Parse Document](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)
   * [Extract Fields](https://docs.sarvam.ai/api-reference/doc-ai/job/extract)
+  * [Classify Document](https://docs.sarvam.ai/api-reference/doc-ai/job/classify)
+  * [Split Document](https://docs.sarvam.ai/api-reference/doc-ai/job/split)
+  * [Get Capabilities](https://docs.sarvam.ai/api-reference/doc-ai/capabilities)
   * [Get Job Status](https://docs.sarvam.ai/api-reference/doc-ai/job/status)
   * [Get Job Results](https://docs.sarvam.ai/api-reference/doc-ai/job/results)
   * [Get Download URL](https://docs.sarvam.ai/api-reference/doc-ai/job/download-url)

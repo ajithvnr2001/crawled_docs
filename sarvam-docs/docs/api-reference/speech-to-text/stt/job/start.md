@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/speech-to-text/stt/job/start/
 title: Batch - Start Job | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:15.347186+00:00
+fetched_at: 2026-10-28T06:34:30.024587+00:00
 ---
 
 # Batch - Start Job | Sarvam API Docs
@@ -280,8 +280,11 @@ YesNo
   * [Trigger Export](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-trigger-export)
   * [Export Status](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-export-status)
   * [Create Upload URL](https://docs.sarvam.ai/api-reference/doc-ai/job/upload)
-  * [Digitise Document](https://docs.sarvam.ai/api-reference/doc-ai/job/digitise)
+  * [Parse Document](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)
   * [Extract Fields](https://docs.sarvam.ai/api-reference/doc-ai/job/extract)
+  * [Classify Document](https://docs.sarvam.ai/api-reference/doc-ai/job/classify)
+  * [Split Document](https://docs.sarvam.ai/api-reference/doc-ai/job/split)
+  * [Get Capabilities](https://docs.sarvam.ai/api-reference/doc-ai/capabilities)
   * [Get Job Status](https://docs.sarvam.ai/api-reference/doc-ai/job/status)
   * [Get Job Results](https://docs.sarvam.ai/api-reference/doc-ai/job/results)
   * [Get Download URL](https://docs.sarvam.ai/api-reference/doc-ai/job/download-url)

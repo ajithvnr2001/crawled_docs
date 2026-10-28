@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/welcome/
 title: Welcome to Sarvam Model APIs Documentation | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:37.991137+00:00
+fetched_at: 2026-10-28T06:34:23.214120+00:00
 ---
 
 # Welcome to Sarvam Model APIs Documentation | Sarvam API Docs
@@ -38,7 +38,7 @@ Sarvam AI gives you production-ready APIs for transcription, translation, transl
 
 ### Explore by API
 
-[Speech-to-TextTranscribe, translate, and caption audio in real time or batch with Saaras v3, across code-mixed and regional speech.](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)[Text-to-SpeechGenerate natural, expressive speech in Indian languages with Bulbul v3’s 30+ voices, streamed or batch.](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview)[Chat CompletionBuild conversational AI with Sarvam-105B, tuned for deep Indic language reasoning.](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/overview)[Text ProcessingTranslate, transliterate, and detect languages across 22+ Indian languages with Mayura and Sarvam-Translate.](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/overview)[Document AITurn PDFs, scans, and handwritten documents into structured, searchable data with Sarvam Vision. Digitise a whole document, or extract just the fields you define.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Document TranslationTranslate whole PDF, Word, spreadsheet, presentation, and web page files into 23 languages, layout preserved.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[DubbingLocalize video and audio into Indian languages with speaker voice cloning, tone control, and multi-format exports.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview)[Instant Voice CloningGenerate speech in a cloned voice from a short reference clip, in 12 Indian languages, with cross-lingual cloning.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)
+[Speech-to-TextTranscribe, translate, and caption audio in real time or batch with Saaras v3, across code-mixed and regional speech.](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)[Text-to-SpeechGenerate natural, expressive speech in Indian languages with Bulbul v3’s 30+ voices, streamed or batch.](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview)[Chat CompletionBuild conversational AI with Sarvam-105B, tuned for deep Indic language reasoning.](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/overview)[Text ProcessingTranslate, transliterate, and detect languages across 22+ Indian languages with Mayura and Sarvam-Translate.](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/overview)[Document AITurn PDFs, scans, and handwritten documents into structured, searchable data with Sarvam Vision. Parse a whole document, or extract just the fields you define.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Document TranslationTranslate whole PDF, Word, spreadsheet, presentation, and web page files into 23 languages, layout preserved.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[DubbingLocalize video and audio into Indian languages with speaker voice cloning, tone control, and multi-format exports.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview)[Instant Voice CloningGenerate speech in a cloned voice from a short reference clip, in 12 Indian languages, with cross-lingual cloning.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)
 
 ### Learn More
 
@@ -204,7 +204,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -248,6 +253,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

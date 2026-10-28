@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/speech-to-text/faq/
 title: FAQs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:33.993095+00:00
+fetched_at: 2026-10-28T06:34:22.305715+00:00
 ---
 
 # FAQs | Sarvam API Docs
@@ -22,7 +22,7 @@ On this page
   * Technical Questions
   * Duration Limits
   * 1\. Authentication Errors (403)
-  * 2\. Rate Limit / Quota Errors (429)
+  * 2\. Rate Limit / Quota Errors (429 / 402)
   * 3\. Invalid Input (400)
   * 4\. Failed to read the file (400)
   * Billing & Support
@@ -284,7 +284,7 @@ Common errors and solutions:
 
 Solution: Check API key validity and proper configuration. **Note:** Sarvam returns HTTP `403` (not `401`) for invalid/missing API keys. See the [Authentication](https://docs.sarvam.ai/api-reference/authentication) page.
 
-### 2\. Rate Limit / Quota Errors (429)
+### 2\. Rate Limit / Quota Errors (429 / 402)
     
     
     {
@@ -293,13 +293,13 @@ Solution: Check API key validity and proper configuration. **Note:** Sarvam retu
     
         "code": "insufficient_quota_error",
     
-        "message": "API quota exceeded"
+        "message": "No credits available."
     
       }
     
     }
 
-Solution: Implement exponential backoff or upgrade plan. A `429` with `rate_limit_exceeded_error` means too many requests; `insufficient_quota_error` means credits are exhausted. See [Errors & Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting).
+Solution: A `402` with `insufficient_quota_error` means the credit balance is exhausted, so add credits on **Settings → Billing** ; retrying will not help. A `429` with `rate_limit_exceeded_error` means too many requests, so implement exponential backoff. See [Errors & Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting).
 
 ### 3\. Invalid Input (400)
     
@@ -715,7 +715,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -759,6 +764,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

@@ -59,7 +59,7 @@ Build, deploy, and monitor voice and chat agents. Bring your own telephony or re
 
 [Doc Agents](/docai/getting-started/overview)
 
-Extract fields and digitise documents (invoices, KYC, land deeds, handwritten manuscripts) into JSON, CSV, Markdown, or DOCX.
+Extract fields and parse documents (invoices, KYC, land deeds, handwritten manuscripts) into JSON, CSV, Markdown, or DOCX.
 
 [Document Translation](/api/api-guides-tutorials/doc-translation/overview)
 
@@ -238,15 +238,23 @@ Real-time transcription and translation with the streaming STT API, Flask-Socket
 
 Turn a script into a multi-speaker podcast episode with distinct Bulbul voices.
 
+[Support voice notes](/api/cookbook/guides/support-voice-notes)
+
+Clone a support agent once, then reply to WhatsApp text and voice notes in that voice.
+
 ## What's new
 
 [Full changelog →](/changelog)
 
+[October 2026 Optional language on Instant Voice Cloning](/api/api-guides-tutorials/voice-cloning/supported-languages)
+
+Omit `language_code` on clone, stream, and WebSocket to detect the language from the text. Pass the code when pronunciation has to be exact.
+
+Read the changelog →
+
 [October 2026 Forwarded Call Recordings, Call Traces, and Provider Details in the Analytics API](/voice-agents/api/analytics/overview)
 
 Download the recording of a transferred call's forwarded leg, get a step-by-step event trace of any call, and match calls to your telephony provider's records with the new provider details.
-
-Read the changelog →
 
 [October 2026 Bulbul V3 End of Life for Voice Agents](/voice-agents/build/voice-language)
 
@@ -255,10 +263,6 @@ Bulbul V3 reaches end of life on Voice Agents on November 10, 2026. Switch your 
 [October 2026 Volume Adjustment for Voice Agents](/voice-agents/build/voice-language#volume)
 
 A new Volume slider in the agent's voice settings sets how loud the agent sounds, from 0.7 to 2.0.
-
-[October 2026 Instant Voice Cloning in the sarvamai SDKs](/api/api-guides-tutorials/voice-cloning/overview)
-
-Python and TypeScript SDKs expose Instant Voice Cloning (beta) with the same convert / convertStream / WebSocket shape as Bulbul TTS.
 
 ## Resources
 
@@ -312,7 +316,7 @@ Community
   - [Overview](https://docs.sarvam.ai/voice-agents/overview.md)
   - [Quickstart](https://docs.sarvam.ai/voice-agents/quickstart.md)
   - [MCP Server](https://docs.sarvam.ai/voice-agents/mcp.md)
-- [Doc Agents](https://docs.sarvam.ai/docai/llms.txt): Extract & digitise documents
+- [Doc Agents](https://docs.sarvam.ai/docai/llms.txt): Extract & parse documents
   - [Overview](https://docs.sarvam.ai/docai/getting-started/overview.md)
   - [Extract structured fields](https://docs.sarvam.ai/docai/how-to/extract-fields-from-a-document/extract-structured-fields.md)
   - [Extract as CSV/Excel](https://docs.sarvam.ai/docai/extract-as-csv-excel.md)

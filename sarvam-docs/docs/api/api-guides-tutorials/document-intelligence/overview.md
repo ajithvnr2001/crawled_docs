@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview/
 title: Document Intelligence Overview | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:24.403463+00:00
+fetched_at: 2026-10-28T06:34:23.822925+00:00
 ---
 
 # Document Intelligence Overview | Sarvam API Docs
@@ -13,25 +13,11 @@ Skip to navigation
 
 On this page
 
-  * Four ways to process a document
-  * What’s new
-  * Key Features
-  * Supported Languages
-  * Supported Input Formats
-  * Output Formats
-  * Digitise
-  * Extract
-  * Quick Start: Digitise
-  * Quick Start: Extract
-  * Schema rules
-  * Job Lifecycle
-  * Job States
-  * Status Response
-  * Error Handling
-  * Error Codes
-  * Best Practices
-  * Limits
-  * Next Steps
+  * Pick an operation
+  * Before you start
+  * How a job works
+  * Combine operations
+  * Next steps
 
 
 
@@ -45,483 +31,82 @@ Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/api-guide
 
 This page is for Model APIs.
 
-Sarvam’s Document AI API provides enterprise-grade document processing powered by [Sarvam Vision 1.5](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision), our state-of-the-art multimodal model.
+Sarvam’s Document AI API turns scanned and digital documents into structured, machine-readable data. It is powered by [Sarvam Vision 2.1](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision) and supports 23 languages (22 Indian + English), so a Hindi invoice and an English contract go through the same API.
 
-Turn any document into structured, searchable, machine-readable data, whether you need the full page digitized or specific fields extracted.
+## Pick an operation
 
-[Sarvam Vision 1.5An upgraded Sarvam Vision, trained to do both OCR and key-value extraction. SOTA performance on global and Indic document benchmarks.](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision)
+Four operations share one job model. Pick based on what you need out the other end.
 
-## Four ways to process a document
+[ParseYou need the **whole page** as text, with layout and tables preserved. Use it for archival, search, and RAG. Output: HTML, Markdown, or JSON.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)[ExtractYou need **specific values** , such as a total or an ID number. Use it for KYC, invoices, and forms. Output: JSON, CSV, or XLSX.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)[Split**One file holds several documents** , such as a scanned stack. Output: child documents with their page ranges.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)[ClassifyYou need to know **what kind of document** it is, to route or triage files. Output: a type, with evidence and a review flag.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
 
-Document AI gives you four operations over the same job lifecycle. Pick based on what you need out the other end.
-
-Digitise
-
-Full-document OCR. Extracts all text, preserves layout and reading order, and parses tables into HTML, Markdown, or JSON. Use when you want the **whole document** as clean, structured content.
-
-Extract
-
-Schema-based key-value extraction. You define the fields you want; Sarvam Vision returns them as structured JSON. Use when you want **specific fields** , not the whole page.
-
-Split
-
-Divides a bundle of pages into separate documents. Split by fixed page groups, explicit page ranges, matching markers (QR code, barcode, blank page, text, or photo), or let the model find the boundaries. Use when one file holds **several documents**.
-
-Classify
-
-Labels a document — or each page — against the categories you define, or lets the API suggest a type. Use when you need to **route or triage** documents before processing them.
-
-Aspect| Digitise| Extract| Split| Classify  
+| Parse| Extract| Split| Classify  
 ---|---|---|---|---  
-**Output**|  Full text + layout (HTML, Markdown, or JSON)| The fields you define (JSON / CSV / XLSX)| Child documents, each with its page ranges| A document type (or one per page), with evidence and a review flag  
-**You provide**|  A document| A document + a schema (or saved `config_id`)| A document (+ a split method)| A document (+ categories, optional)  
-**Best for**|  Archival, search, RAG ingestion, reading-order-faithful conversion| KYC, invoices, forms, structured data capture| Separating scanned bundles into individual documents| Routing and triage before downstream processing  
-**Endpoint**| `POST /doc-ai/v1/job/digitise`| `POST /doc-ai/v1/job/extract`| `POST /doc-ai/v1/job/split`| `POST /doc-ai/v1/job/classify`  
+**You provide**|  A document| A document + a schema (or `config_id`)| A document (+ a split method)| A document (+ categories, optional)  
+**Fetch output with**| `get_download_url()`| `get_results()`| `get_results()`| `get_results()`  
+**Endpoint**| `POST /doc-ai/v1/job/parse`| `POST /doc-ai/v1/job/extract`| `POST /doc-ai/v1/job/split`| `POST /doc-ai/v1/job/classify`  
   
-## What’s new
+## Before you start
 
-**Document AI supersedes the earlier Document Digitization API.** Two changes matter most:
+[1](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview#get-an-api-key)
 
-  1. Processing is now powered by an **upgraded Sarvam Vision 1.5** , trained to do both OCR and key-value extraction.
-  2. Alongside full-document **Digitise** (OCR), we now offer **Extract** for schema-based field extraction.
+### Get an API key
+
+Create one on the [Sarvam dashboard](https://indus.sarvam.ai/key-management?ref=docs) and export it as `SARVAM_API_KEY`.
+    
+    
+    export SARVAM_API_KEY="YOUR_SARVAM_API_KEY"
+
+[2](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview#install-the-sdk)
+
+### Install the SDK
+
+PythonJavaScript
+    
+    
+    pip install -U sarvamai
+
+Prefer plain HTTP? Every how-to also has a cURL version. See the [Quickstart](https://docs.sarvam.ai/api/getting-started/quickstart) for the full setup.
+
+## How a job works
+
+Every operation follows the same three steps:
+
+  1. **Submit** with `parse()`, `extract()`, `split()`, or `classify()`. One call creates the job and returns a `job_id`.
+  2. **Poll** `get_status()` until the job finishes.
+  3. **Fetch** the output with `get_results()` or `get_download_url()`.
 
 
 
-The API namespace is `doc_ai`, and jobs are created with a single `digitise()` or `extract()` call.
+Job states, the status response, and error handling are covered in [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle).
 
-## Key Features
+## Combine operations
 
-23 Language Support
+The operations are designed to chain.
 
-Native support for all Constitutionally recognized Indian languages and English with script-native accuracy.
-
-Digitise + Extract
-
-Full-document digitization and targeted key-value extraction from one API and one job model.
-
-Table Extraction
-
-Intelligent table detection and conversion to structured HTML, Markdown, or JSON.
-
-Schema-Based Fields
-
-Define exactly the fields you want in Extract, returned as structured data.
-
-Layout Preservation
-
-Intelligent reading-order detection and complex layout handling.
-
-Enterprise-Ready
-
-Scalable API with job management, progress tracking, and error handling.
-
-## Supported Languages
-
-Document AI supports all 22 Constitutionally recognized Indian languages plus English:
-
-Language| Code  
+Goal| Chain  
 ---|---  
-Hindi| `hi-IN`  
-Bengali| `bn-IN`  
-Tamil| `ta-IN`  
-Telugu| `te-IN`  
-Marathi| `mr-IN`  
-Gujarati| `gu-IN`  
-Kannada| `kn-IN`  
-Malayalam| `ml-IN`  
-Odia| `od-IN`  
-Punjabi| `pa-IN`  
-Assamese| `as-IN`  
-Bodo| `brx-IN`  
-Dogri| `doi-IN`  
-Kashmiri| `ks-IN`  
-Konkani| `kok-IN`  
-Maithili| `mai-IN`  
-Manipuri| `mni-IN`  
-Nepali| `ne-IN`  
-Sanskrit| `sa-IN`  
-Santali| `sat-IN`  
-Sindhi| `sd-IN`  
-Urdu| `ur-IN`  
-English| `en-IN`  
+Process a scanned bundle| **Split** the file, then **classify** each child document by its `document_ref`  
+Route by document type| **Classify** , then **extract** with the schema (or `config_id`) that matches the type  
+Index a document archive| **Parse** to Markdown, then chunk and embed the output  
+Capture the same fields at scale| Save a schema as a [`config_id`](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract#reuse-a-schema) and reuse it across **extract** calls  
   
-## Supported Input Formats
+**Document AI supersedes the earlier Document Digitization API.** The namespace is `doc_ai`, and each operation is a single call.
 
-Format| Extension| Description  
----|---|---  
-PDF| `.pdf`| Multi-page PDF documents (max 30 pages for Digitise, 20 for Extract)  
-PNG| `.png`| Document page images  
-JPEG| `.jpg`, `.jpeg`| Document page images  
-ZIP| `.zip`| Flat archive of document page images (JPG or PNG, max 30 images for Digitise, 20 for Extract)  
-  
-**Page Limit:** PDF and ZIP uploads are limited to **30 pages for Digitise** and **20 pages for Extract**. Exceeding the limit returns a `400 Bad Request` with code `invalid_request_error`. Split larger documents into batches before uploading.
+## Next steps
 
-For ZIP files, include only JPG and PNG document pages in a flat structure (no nested folders). The API processes all pages in the archive and maintains page order based on filename.
-
-## Output Formats
-
-### Digitise
-
-The `output_format` parameter controls the primary content format. Choose `html` (the default), `md` (Markdown), or `json`.
-
-Format| `output_format` value| Description  
----|---|---  
-HTML| `html`| Rich HTML output for web rendering (default)  
-Markdown| `md`| Human-readable Markdown output  
-JSON| `json`| Structured JSON with blocks containing text, tag, and bounding box  
-  
-The download is a ZIP archive holding the primary file, a `metadata/page_NNN.json` per page, and a `manifest.json`.
-
-### Extract
-
-Format| `output_format` value| Description  
----|---|---  
-JSON| `json`| Structured field values (default)  
-CSV| `csv`| Flat tabular output, one row per document  
-XLSX| `xlsx`| Spreadsheet output  
-  
-## Quick Start: Digitise
-
-**API parameter names:** Document AI uses `language` and `output_format` values `"md"`, `"html"`, or `"json"`. Do not use `language_code` (it’s ignored) or `"markdown"` (it returns `400`; use `"md"` instead). This differs from STT, translate, and LID endpoints.
-
-PythonJavaScriptcURL
-    
-    
-    import os, time
-    
-    from sarvamai import SarvamAI
-    
-    from sarvamai.core.api_error import ApiError
-    
-    client = SarvamAI(api_subscription_key=os.environ["SARVAM_API_KEY"])
-    
-    try:
-    
-        # Create and submit a digitise job in one call
-    
-        with open("./sample-document.pdf", "rb") as f:
-    
-            job = client.doc_ai.digitise(
-    
-                file=[("sample-document.pdf", f, "application/pdf")],
-    
-                language="en-IN",
-    
-                output_format="md",
-    
-            )
-    
-        print("job created:", job.job_id, "| status:", job.status)
-    
-        # Poll until the job reaches a terminal state
-    
-        TERMINAL = {"completed", "partially_completed", "failed", "rejected"}
-    
-        while True:
-    
-            st = client.doc_ai.get_status(job_id=job.job_id)
-    
-            print(f"status={st.status} pages={st.usage.pages_processed}/{st.usage.pages_total}")
-    
-            if st.status.lower() in TERMINAL:
-    
-                break
-    
-            time.sleep(5)
-    
-        # Fetch the output
-    
-        if st.status.lower() in ("completed", "partially_completed"):
-    
-            dl = client.doc_ai.get_download_url(job_id=job.job_id)
-    
-            print("download:", dl.method, dl.url)
-    
-    except FileNotFoundError:
-    
-        print("Document file not found: ./sample-document.pdf")
-    
-    except ApiError as e:
-    
-        print(f"API error {e.status_code}: {e.body}")
-
-## Quick Start: Extract
-
-Extract takes the same document input, plus a **schema** describing the fields you want (or a saved `config_id`). The result is structured JSON with the field values you defined.
-
-PythonJavaScriptcURL
-    
-    
-    import json, os, time
-    
-    from sarvamai import SarvamAI
-    
-    from sarvamai.core.api_error import ApiError
-    
-    client = SarvamAI(api_subscription_key=os.environ["SARVAM_API_KEY"])
-    
-    # Define the fields you want back
-    
-    schema = {
-    
-        "type": "object",
-    
-        "properties": {
-    
-            "policy_number": {"type": "string", "description": "Insurance policy number"},
-    
-            "insured_name":  {"type": "string", "description": "Name of the insured person"},
-    
-            "sum_insured":   {"type": "number", "description": "Total sum insured, in INR"},
-    
-        },
-    
-    }
-    
-    try:
-    
-        # Create and submit an extract job in one call
-    
-        with open("./insurance-policy.pdf", "rb") as f:
-    
-            job = client.doc_ai.extract(
-    
-                file=[("insurance-policy.pdf", f, "application/pdf")],
-    
-                schema=json.dumps(schema),   # or: config_id="cfg_abc123"
-    
-                language="en-IN",
-    
-                output_format="json",
-    
-            )
-    
-        print("job created:", job.job_id, "| status:", job.status)
-    
-        # Poll until the job reaches a terminal state
-    
-        TERMINAL = {"completed", "partially_completed", "failed", "rejected"}
-    
-        while True:
-    
-            st = client.doc_ai.get_status(job_id=job.job_id)
-    
-            print(f"status={st.status} pages={st.usage.pages_processed}/{st.usage.pages_total}")
-    
-            if st.status.lower() in TERMINAL:
-    
-                break
-    
-            time.sleep(5)
-    
-        # Fetch the extracted fields
-    
-        if st.status.lower() in ("completed", "partially_completed"):
-    
-            results = client.doc_ai.get_results(job_id=job.job_id)
-    
-            print(results.result)        # {"policy_number": ..., "insured_name": ..., "sum_insured": ...}
-    
-    except FileNotFoundError:
-    
-        print("Document file not found: ./insurance-policy.pdf")
-    
-    except ApiError as e:
-    
-        print(f"API error {e.status_code}: {e.body}")
-
-**Provide exactly one of`schema` or `config_id`.** Use an inline `schema` for ad-hoc extraction, or a saved `config_id` for a schema you’ve set up on the platform. Sending both, or neither, returns a `400`.
-
-**Pass`schema` as a JSON string, not an object.** It’s sent as a multipart form field, so both SDKs type it as a string. Use `json.dumps(schema)` in Python and `JSON.stringify(schema)` in JavaScript. Passing a dict in Python raises `AttributeError: 'dict' object has no attribute 'read'`.
-
-Note also that the JavaScript SDK is generated without a serialization layer, so its request parameters and response fields use the wire names (`output_format`, `job_id`, `pages_processed`), not camelCase. `file` takes an **array** , and `job_id` is a **positional** argument, `getStatus(job_id)`, not `getStatus({ job_id })`.
-
-### Schema rules
-
-The inline schema is a JSON object with these constraints:
-
-  * Root must be `type: "object"` with a non-empty `properties` map.
-  * Every field needs a `type` and a non-empty `description`. The description guides the model, so make it specific.
-  * Supported field types: `string`, `number`, `integer`, `boolean`, `object`, `array`.
-  * An optional `enum` may be supplied to constrain values.
-  * Maximum nesting depth is 4.
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle): states, polling, status response, and error codes.
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits): supported languages, input formats, and page and file-size limits.
+  * [Sarvam Vision 2.1](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision): the model behind Document AI.
+  * [API Reference](https://docs.sarvam.ai/api-reference/doc-ai/job/parse): every parameter and option.
+  * [API Dashboard](https://indus.sarvam.ai/?ref=docs): upload and process documents without writing code.
 
 
-
-## Job Lifecycle
-
-Both `digitise()` and `extract()` create and submit a job in a single call, returning a `job_id` and an initial status. You then poll `get_status()` until the job reaches a terminal state, and fetch output with `get_results()` (structured data) or `get_download_url()` (output file).
-    
-    
-    digitise() / extract()  →  poll get_status()  →  get_results() / get_download_url()
-
-### Job States
-
-State| Description  
----|---  
-`pending`| Job created, queued for processing  
-`running`| Job is being processed  
-`completed`| All pages processed successfully  
-`partially_completed`| Some pages succeeded, some failed  
-`failed`| All pages failed or a job-level error occurred  
-`rejected`| Job rejected before processing (e.g. validation or entitlement)  
-  
-Terminal states are `completed`, `partially_completed`, `failed`, and `rejected`.
-
-### Status Response
-    
-    
-    {
-    
-      "job_id": "019fb81e-2543-70bd-a737-b5a2d62a3bb7",
-    
-      "status": "completed",
-    
-      "pipeline": "digitise",
-    
-      "usage": {
-    
-        "pages_total": 1,
-    
-        "pages_processed": 1,
-    
-        "pages_succeeded": 1,
-    
-        "pages_failed": 0
-    
-      },
-    
-      "created_at": "2026-07-31T12:20:11Z",
-    
-      "updated_at": "2026-07-31T12:20:15Z"
-    
-    }
-
-## Error Handling
-
-###### Error Handling Code Example
-    
-    
-    import json, os
-    
-    from sarvamai import SarvamAI
-    
-    from sarvamai.core.api_error import ApiError
-    
-    client = SarvamAI(api_subscription_key=os.environ["SARVAM_API_KEY"])
-    
-    try:
-    
-        with open("./insurance-policy.pdf", "rb") as f:
-    
-            job = client.doc_ai.extract(
-    
-                file=[("insurance-policy.pdf", f, "application/pdf")],
-    
-                schema=json.dumps({
-    
-                    "type": "object",
-    
-                    "properties": {
-    
-                        "policy_number": {"type": "string", "description": "Insurance policy number"},
-    
-                    },
-    
-                }),
-    
-                output_format="json",
-    
-            )
-    
-        # ... poll get_status() until terminal ...
-    
-        results = client.doc_ai.get_results(job_id=job.job_id)
-    
-        print(results.result)
-    
-    except ApiError as e:
-    
-        if e.status_code == 400:
-    
-            print(f"Bad request or invalid schema: {e.body}")
-    
-        elif e.status_code in (402, 403):
-    
-            print("Billing or entitlement error")
-    
-        elif e.status_code == 409:
-    
-            print("Results requested before the job reached a terminal state")
-    
-        elif e.status_code == 413:
-    
-            print("File too large")
-    
-        elif e.status_code == 429:
-    
-            print("Rate limit exceeded")
-    
-        else:
-    
-            print(f"Error {e.status_code}: {e.body}")
-    
-    except FileNotFoundError:
-    
-        print("Document file not found: ./insurance-policy.pdf")
-
-### Error Codes
-
-The full error-code table, retry guidance, and SDK exception reference live on the central [Errors & Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting) page. Errors specific to this API:
-
-HTTP Status| Description  
----|---  
-`400`| Invalid request or schema (includes documents exceeding the page limit)  
-`402` / `403`| Billing or entitlement error  
-`404`| Resource unavailable (e.g. job not found)  
-`409`| Results or download requested before the job reached a terminal state  
-`413`| File too large  
-`422`| Invalid file format or corrupted file  
-`429`| Rate or admission limit  
-`503`| Billing unavailable  
-  
-## Best Practices
-
-Digitise vs. Extract
-
-Reach for Digitise when you want the whole document, and Extract when you want specific fields. Don’t post-process a full digitise just to pull three fields; define a schema and let Extract do it.
-
-Write Specific Descriptions
-
-In Extract, each field’s `description` guides the model. “Insurance policy number, top-right, format ABC-1234” outperforms “policy number”.
-
-Specify Language
-
-Digitise defaults to Indic when `language` is omitted. Set `language` to `en-IN` to process English documents, and always pass the correct code for best accuracy. Sarvam Vision supports 22 Indian languages plus English — see the [Sarvam Vision model page](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision) for the full list.
-
-Handle Large Documents
-
-Monitor `usage` in the status response to track progress, and handle `partially_completed` jobs gracefully.
-
-## Limits
-
-Limit| Value  
----|---  
-Max pages per PDF| 30 for Digitise, 20 for Extract (`400 invalid_request_error` if exceeded)  
-Max images per ZIP| 30 for Digitise, 20 for Extract  
-Max file size| 200 MB  
-Supported input formats| PDF, PNG, JPG, ZIP  
-Rate limit| Varies by plan — see [Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits)  
-  
-## Next Steps
-
-[Sarvam Vision 1.5Learn about the upgraded model powering Document AI.](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision)[API ReferenceComplete API documentation with all parameters and options.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Try in API DashboardUpload and process documents in the API Dashboard.](https://indus.sarvam.ai/?ref=docs)
 
 Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)[Get your config_idNext](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)[How to parse a documentNext](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * Getting Started
 
@@ -551,6 +136,9 @@ YesNo
     * Document Intelligence
       * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
       * How-to
+
+      * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+      * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
 
     * Document Translation
 
@@ -666,7 +254,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)

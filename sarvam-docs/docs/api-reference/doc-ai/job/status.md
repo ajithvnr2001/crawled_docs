@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/status/
 title: Get Job Status | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:20.452722+00:00
+fetched_at: 2026-10-28T06:34:35.132762+00:00
 ---
 
 # Get Job Status | Sarvam API Docs
@@ -55,8 +55,6 @@ Try it
     
       "status": "string",
     
-      "pipeline": "string",
-    
       "usage": {
     
         "pages_total": 1,
@@ -65,13 +63,39 @@ Try it
     
         "pages_succeeded": 1,
     
-        "pages_failed": 1
+        "pages_failed": 1,
+    
+        "pages_selected": 1,
+    
+        "pages_semantically_inspected": 1,
+    
+        "pages_source": 1
     
       },
     
       "created_at": "string",
     
-      "updated_at": "string"
+      "updated_at": "string",
+    
+      "pipeline": "string",
+    
+      "type": "string",
+    
+      "phase": "string",
+    
+      "progress": {},
+    
+      "result_revision": 1,
+    
+      "run_id": "string",
+    
+      "results_url": "string",
+    
+      "documents": [
+    
+        {}
+    
+      ]
     
     }
 
@@ -103,13 +127,9 @@ statusstring
 
 Current status of the job. Terminal statuses: `completed`, `partially_completed`, `failed`, `rejected`.
 
-pipelinestring
-
-Job pipeline: `digitise` or `extract`.
-
 usageobject
 
-Show 4 properties
+Show 7 properties
 
 created_atstring
 
@@ -118,6 +138,38 @@ Job creation timestamp.
 updated_atstring
 
 Timestamp of the last job update.
+
+pipelinestringOptional
+
+Job pipeline: `parse` or `extract`. Classify and Split jobs report `type` instead.
+
+typestringOptional
+
+Job type. Present for Classify and Split jobs: `classify` or `split`.
+
+phasestringOptional
+
+Processing phase of a Classify or Split job, e.g. `commit` when finished.
+
+progressmap from strings to anyOptional
+
+Progress counters for a Classify or Split job, such as `pages_read`, `pages_analyzed` and `pages_total_selected`.
+
+result_revisionintegerOptional
+
+Revision of the result. Present for Classify and Split jobs.
+
+run_idstringOptional
+
+The unique identifier of the job run.
+
+results_urlstringOptional
+
+Path to fetch the results from.
+
+documentslist of maps from strings to anyOptional
+
+For a batch, one entry per submitted document with its own `job_id`, `status` and URLs.
 
 ### Errors
 
@@ -129,7 +181,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/doc-ai/job/extract)[Get Job ResultsNext](https://docs.sarvam.ai/api-reference/doc-ai/job/results)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/doc-ai/capabilities)[Get Job ResultsNext](https://docs.sarvam.ai/api-reference/doc-ai/job/results)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
 
   * API Reference
 
@@ -159,8 +211,11 @@ YesNo
 
     * Document Intelligence
       * [POSTCreate Upload URL](https://docs.sarvam.ai/api-reference/doc-ai/job/upload)
-      * [POSTDigitise Document](https://docs.sarvam.ai/api-reference/doc-ai/job/digitise)
+      * [POSTParse Document](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)
       * [POSTExtract Fields](https://docs.sarvam.ai/api-reference/doc-ai/job/extract)
+      * [POSTClassify Document](https://docs.sarvam.ai/api-reference/doc-ai/job/classify)
+      * [POSTSplit Document](https://docs.sarvam.ai/api-reference/doc-ai/job/split)
+      * [GETGet Capabilities](https://docs.sarvam.ai/api-reference/doc-ai/capabilities)
       * [GETGet Job Status](https://docs.sarvam.ai/api-reference/doc-ai/job/status)
       * [GETGet Job Results](https://docs.sarvam.ai/api-reference/doc-ai/job/results)
       * [GETGet Download URL](https://docs.sarvam.ai/api-reference/doc-ai/job/download-url)
@@ -235,8 +290,11 @@ YesNo
   * [Trigger Export](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-trigger-export)
   * [Export Status](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-export-status)
   * [Create Upload URL](https://docs.sarvam.ai/api-reference/doc-ai/job/upload)
-  * [Digitise Document](https://docs.sarvam.ai/api-reference/doc-ai/job/digitise)
+  * [Parse Document](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)
   * [Extract Fields](https://docs.sarvam.ai/api-reference/doc-ai/job/extract)
+  * [Classify Document](https://docs.sarvam.ai/api-reference/doc-ai/job/classify)
+  * [Split Document](https://docs.sarvam.ai/api-reference/doc-ai/job/split)
+  * [Get Capabilities](https://docs.sarvam.ai/api-reference/doc-ai/capabilities)
   * [Get Job Status](https://docs.sarvam.ai/api-reference/doc-ai/job/status)
   * [Get Job Results](https://docs.sarvam.ai/api-reference/doc-ai/job/results)
   * [Get Download URL](https://docs.sarvam.ai/api-reference/doc-ai/job/download-url)

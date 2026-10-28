@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/ratelimits/
 title: Credits & Rate Limits | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:34.871207+00:00
+fetched_at: 2026-10-28T06:34:23.462406+00:00
 ---
 
 # Credits & Rate Limits | Sarvam API Docs
@@ -32,10 +32,9 @@ On this page
   * Sarvam-105B model
   * Dubbing
   * Document AI
-  * Digitise
-  * Extract
   * Exceeding Your Limits
   * REST rate limits (429 / 503)
+  * Exhausted credits (402)
   * WebSocket connection limits
   * Plan Overview
   * Upgrading Your Limits
@@ -195,23 +194,14 @@ Applies to: `sarvam-105b`, `sarvam-105b-conversations`
 
 ### Document AI
 
-Document AI limits scale with your plan.
+Document AI limits are set per operation and scale with your plan. Each limit assumes the number of pages per request shown below.
 
-#### Digitise
-
-Rate limits assume **20 pages per request**.
-
-| Pay as you go| Pro| Growth  
----|---|---|---  
-**Rate Limit**|  200 req/min| 300 req/min| 400 req/min  
-  
-#### Extract
-
-Rate limits assume **30 pages per request**.
-
-| Pay as you go| Pro| Growth  
----|---|---|---  
-**Rate Limit**|  30 req/min| 50 req/min| 60 req/min  
+Operation| Pages per request| Pay as you go| Pro| Growth  
+---|---|---|---|---  
+**Parse**|  20| 200 req/min| 300 req/min| 400 req/min  
+**Extract**|  30| 30 req/min| 50 req/min| 60 req/min  
+**Split**|  500| 60 req/min| 120 req/min| 180 req/min  
+**Classify**|  20| 100 req/min| 150 req/min| 200 req/min  
   
 * * *
 
@@ -235,6 +225,10 @@ When your account exceeds a rate limit, the API returns a `429 Too Many Requests
     }
 
 A `503 Service Unavailable` can also occur under high backend load. Retry it the same way you would a 429, using a fixed exponential backoff. See [Retry with exponential backoff](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting#retry-with-exponential-backoff) for a reference implementation.
+
+### Exhausted credits (402)
+
+A `402 Payment Required` is **not** a rate limit. It means the organisation’s credit balance is empty, and no retry will clear it. Add credits on **Settings → Billing** and the account resumes immediately, with no key rotation or redeploy. See [Billing & payments](https://docs.sarvam.ai/api/platform/billing) and [Out of credits](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting).
 
 ### WebSocket connection limits
 
@@ -296,7 +290,7 @@ For limits beyond the Growth plan, contact our team for an Enterprise arrangemen
 
 ## Managing Your Credits
 
-If your credits are exhausted, API requests will return errors. You can add credits at any time, adding credits does **not** change your plan or rate limits.
+If your credits are exhausted, API requests fail with `402` (`insufficient_quota_error`), which is separate from a `429` rate limit. You can add credits at any time, adding credits does **not** change your plan or rate limits.
 
   1. **Add Credits** : Top up from the [Billing page](https://indus.sarvam.ai/billing?ref=docs) at any time. Credits never expire.
   2. **Upgrade Your Plan** : Higher plans include bonus credits and increased rate limits.
@@ -451,7 +445,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -495,6 +494,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

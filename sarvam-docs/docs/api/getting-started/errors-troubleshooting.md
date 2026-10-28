@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/errors-troubleshooting/
 title: Errors & Troubleshooting | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:33.176449+00:00
+fetched_at: 2026-10-28T06:34:23.344831+00:00
 ---
 
 # Errors & Troubleshooting | Sarvam API Docs
@@ -15,6 +15,8 @@ On this page
 
   * Error response shape
   * HTTP status quick reference
+  * Out of credits (402)
+  * Rate limits and capacity (429)
   * SDK handling (Python)
   * SDK handling (JavaScript)
   * Retry with exponential backoff
@@ -59,10 +61,17 @@ Most REST errors return JSON:
 `invalid_request_error`| 400 / 413 / 422| Bad parameters, payload, or file  
 `unprocessable_entity_error`| 422| Schema valid but business rule failed  
 `not_found_error`| 404| Resource does not exist (e.g. unknown job ID)  
-`insufficient_quota_error`| 429| Credits exhausted  
-`rate_limit_exceeded_error`| 429 / 503| Too many requests or high load  
+`insufficient_quota_error`| **402**|  Credit balance is empty  
+`rate_limit_exceeded_error`| 429 / 503| Too many requests on your own account  
+`model_rate_limit_exceeded_error`| 429| Model or upstream capacity, not your quota  
+`seat_budget_exhausted_error`| 429| Seat spend budget used up  
+`audio_duration_busy_error`| 429| Gateway busy reading audio duration  
 `internal_server_error`| 500| Server-side failure, retry with backoff  
+`model_call_failed`| 502| Model backend unreachable, retry  
+`model_overloaded`| 503| Model overloaded, retry with backoff  
   
+**`402` is a wallet problem, `429` is a “not now” problem.** An empty credit balance returns `402` with `insufficient_quota_error` and the message `No credits available.` Rate limits, model capacity and seat budgets return `429`, with four different codes behind it that need different responses — see **Rate limits and capacity** below. Adding credits clears a `402` immediately; only some `429`s clear by waiting.
+
 Some endpoints add their own codes for product-specific rules, for example Document Digitization returns `invalid_request_error` (400) when a file exceeds the 10-page limit. These are listed in the “Errors” section of each API guide.
 
 **Auth failures use HTTP`403`, not `401`.** Treat `403` with `invalid_api_key_error` as an authentication problem. See [Authentication](https://docs.sarvam.ai/api-reference/authentication#status-codes-for-authentication-failures).
@@ -72,11 +81,52 @@ Some endpoints add their own codes for product-specific rules, for example Docum
 Status| When it happens| What to do  
 ---|---|---  
 400| Invalid body or parameters| Fix request; do not retry blindly  
+402| Credit balance exhausted| Add credits in [Billing & payments](https://docs.sarvam.ai/api/platform/billing); retrying will not help  
 403| Invalid API key (or forbidden)| Check `error.code` and key header  
 422| Validation failed (e.g. wrong field name)| Compare with OpenAPI / guides  
-429| Rate limit or quota| Back off; see [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits)  
-500 / 503| Transient server issues| Retry with exponential backoff  
+429| Rate limit, model capacity, or seat budget| Back off for rate and capacity; top up for `seat_budget_exhausted_error`  
+500 / 502 / 503| Transient server or model issues| Retry with exponential backoff  
   
+## Out of credits (`402`)
+
+A `402` means the organisation’s credit balance is empty, not that you are being rate limited. The balance is shared by every workspace, API key and product, so a `402` from one service means the whole organisation is out of credits.
+    
+    
+    {
+    
+      "error": {
+    
+        "message": "No credits available.",
+    
+        "code": "insufficient_quota_error"
+    
+      }
+    
+    }
+
+To recover:
+
+  1. Add credits on **Settings → Billing**. See [Billing & payments](https://docs.sarvam.ai/api/platform/billing).
+  2. Turn on **Auto-Recharge** so a low balance tops up before production traffic stops.
+  3. Retry the failed request once credits land. No key rotation or redeploy is needed.
+
+
+
+Do not put `402` in your exponential-backoff retry set. It will not clear on its own, and retrying only burns your own request budget.
+
+## Rate limits and capacity (`429`)
+
+Every `429` says “not now”, but four different codes sit behind it and they need different responses:
+
+`error.code`| What it means| What to do  
+---|---|---  
+`rate_limit_exceeded_error`| Your account has hit its requests-per-minute limit| Back off and retry; capacity refills continuously. See [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits)  
+`model_rate_limit_exceeded_error`| The model or its upstream provider is saturated, which is not your quota| Back off and retry; honour `Retry-After` when it is present  
+`seat_budget_exhausted_error`| A seat in your organisation has used its spend budget for the period| Top up or raise the budget; retrying will not clear it. The response also carries a `spend_limits` snapshot  
+`audio_duration_busy_error`| The gateway’s audio-duration readers are busy| Retry after a short delay  
+  
+Only the first is your own quota. Treating all four as “rate limited, back off” leaves an exhausted seat budget looking like a temporary blip.
+
 ## SDK handling (Python)
     
     
@@ -104,9 +154,15 @@ Status| When it happens| What to do
     
             print("Check SARVAM_API_KEY, auth uses 403, not 401")
     
+        elif e.status_code == 402:
+    
+            print("Credits exhausted, add credits on Settings -> Billing")
+    
         elif e.status_code == 429:
     
-            print("Rate limited, retry after delay")
+            # rate limit, model capacity, or seat budget: check e.body["error"]["code"]
+    
+            print("Rate limited or out of capacity, retry after delay")
     
         else:
     
@@ -139,13 +195,15 @@ Status| When it happens| What to do
     
       // SDK wraps HTTP errors, inspect status and body
     
+      // 402 = out of credits, 429 = rate limit / capacity / seat budget
+    
       console.error(err.statusCode, err.body);
     
     }
 
 ## Retry with exponential backoff
 
-Use retries only for **429** , **500** , and **503** : not for 400/403/422.
+Use retries only for **429** , **500** , **502** and **503** : not for 400, 402, 403 or 422. A `402` needs credits, not another attempt, and a `429` carrying `seat_budget_exhausted_error` needs a top-up rather than a backoff.
 
 PythonJavaScript
     
@@ -164,7 +222,7 @@ PythonJavaScript
     
             except ApiError as e:
     
-                if e.status_code not in (429, 500, 503) or attempt == max_retries - 1:
+                if e.status_code not in (429, 500, 502, 503) or attempt == max_retries - 1:
     
                     raise
     
@@ -176,9 +234,12 @@ PythonJavaScript
 
 Symptom| Likely cause| Fix  
 ---|---|---  
+402 `insufficient_quota_error`| Organisation credit balance is exhausted| Add credits on **Settings → Billing** , or enable auto-recharge. See [Billing & payments](https://docs.sarvam.ai/api/platform/billing)  
+429 `seat_budget_exhausted_error`| A seat has used its spend budget for the period| Top up or raise the budget; read `error.spend_limits`. Waiting does not help  
+429 `model_rate_limit_exceeded_error`| The model or upstream provider is saturated| Back off and retry; this is not your own quota  
 403 on every call| Wrong or missing `api-subscription-key`| Set `SARVAM_API_KEY`; handle **403** not 401  
 422 on doc digitization| Used `language_code` instead of `language`| Use `language`, flat in [Document AI](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview), nested as `job_parameters.language` in the legacy API  
-400 `output_format`| Sent `"markdown"`| Use `"md"` or `"html"` only (digitise rejects `"json"`)  
+400 `output_format`| Sent `"markdown"`| Use `"md"` or `"html"` only (parse rejects `"json"`)  
 405 on doc/STT download| Used GET| Legacy API: use **POST** with `job_id` \+ `files` array. Document AI: `GET /doc-ai/v1/job/{job_id}/download-url`  
 409 on doc translation export| Translation not yet `Completed` for that language| Check each language’s `state` in `translations[]` from `live-status`; export only languages where `state` is `Completed`  
 Doc translation stuck in `Accepted`| File never uploaded or `start` never called| `PUT` the file to `upload_url`, then call `POST /translate/document/jobs/{job_id}/start`  
@@ -205,6 +266,7 @@ Batch webhook empty transcript| Expected text in webhook| Webhook is `JobStatusR
 
   * [Authentication](https://docs.sarvam.ai/api-reference/authentication)
   * [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits)
+  * [Billing & payments](https://docs.sarvam.ai/api/platform/billing)
   * [Pricing](https://docs.sarvam.ai/api/getting-started/pricing)
   * [SDKs & Libraries](https://docs.sarvam.ai/api/getting-started/sdks)
 
@@ -357,7 +419,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -401,6 +468,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)
