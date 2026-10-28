@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-access-secret-version/
 title: Access secret version \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:57.720064+00:00
+fetched_at: 2026-10-28T09:46:38.930474+00:00
 ---
 
 # Access secret version  |  Secret Manager  |  Google Cloud Documentation

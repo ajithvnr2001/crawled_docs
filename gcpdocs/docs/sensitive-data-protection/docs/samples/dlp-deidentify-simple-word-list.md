@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-deidentify-simple-word-list/
 title: De-identify sensitive data with a simple word list \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:52:11.356388+00:00
+fetched_at: 2026-10-28T09:38:36.011296+00:00
 ---
 
 # De-identify sensitive data with a simple word list  |  Sensitive Data Protection  |  Google Cloud Documentation

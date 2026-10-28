@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/managing-backups/
 title: Manage backups \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:25:55.929171+00:00
+fetched_at: 2026-10-28T10:57:15.514398+00:00
 ---
 
 # Manage backups  |  Bigtable  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ The steps to delete, update, copy, and restore a backup are the same whether the
 
 You can extend the expiration date of a backup or backup copy. For more information, see Modify a backup or backup copy.
 
-Consider the following factors if you plan to enable automated backup:
+If you plan to enable automated backup, consider the following factors:
 
   * If a cluster is added to an instance that contains a table with automated backup enabled, daily backups aren't created on the added cluster. To create daily backups on all clusters, including the newly added cluster, disable automated backup for the table, and then re-enable automated backup.
   * If a table with automated backup enabled is deleted and subsequently undeleted, you need to re-enable automated backup on the recovered table.
@@ -585,6 +585,8 @@ Instances that don't have enough storage for the new table are unavailable. If y
 
 If you restore from a backup that is protected by CMEK, the destination instance must be CMEK-protected as well.
 
+If you restore from a backup of a table with [microsecond timestamp granularity](https://docs.cloud.google.com/bigtable/docs/data-types#timestamp_granularity), the destination instance must be an Enterprise Plus instance.
+
 You are not able to restore to a different project using the Google Cloud console. If you need to, use the gcloud CLI instead.
 
   6. Enter a unique ID for the table that will be created from the backup. You are not able to change this ID later.
@@ -606,9 +608,15 @@ For all commands, substitute actual values for the following:
   * INSTANCE_ID_SOURCE: The permanent ID for the source instance.
   * PROJECT_ID_DESTINATION: The ID of the project where you want to restore to. This flag is optional. If you don't specify this option, the backup is restored to a new table in the same instance where it was created.
   * INSTANCE_ID_DESTINATION: The permanent ID for the destination instance.
+
+If you restore from a backup of a table with [microsecond timestamp granularity](https://docs.cloud.google.com/bigtable/docs/data-types#timestamp_granularity), the destination instance must be an Enterprise Plus instance.
+
   * CLUSTER_ID: The permanent identifier for the cluster. 
+
   * BACKUP_ID: The ID of the backup you want to restore from.
+
   * TABLE_ID_NEW: The ID for the new table.
+
 
 
   1. If you don't know the instance ID, use the [`bigtable instances list` command](https://docs.cloud.google.com/sdk/gcloud/reference/bigtable/instances/list) to view a list of your project's instances: 
@@ -999,6 +1007,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

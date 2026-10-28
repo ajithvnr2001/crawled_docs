@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview/
 title: AI Protection overview \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:50.669114+00:00
+fetched_at: 2026-10-28T10:56:18.926660+00:00
 ---
 
 # AI Protection overview  |  Security Command Center  |  Google Cloud Documentation

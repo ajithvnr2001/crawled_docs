@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/networking-best-practices/
 title: Best practices for Cloud Run networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:54:26.089324+00:00
+fetched_at: 2026-10-28T09:24:22.383535+00:00
 ---
 
 # Best practices for Cloud Run networking  |  Google Cloud Documentation
@@ -29,13 +29,14 @@ Monitor IP address usage.
 Use non-RFC 1918 IP addresses.  
 Use IPv4 and IPv6 (dual-stack) subnets.  
 Use connection pooling and reuse connections.  
+Isolate outbound internet traffic.  
 Faster external throughput to the internet.  
 Faster internal throughput to a Google API.  
 
 
 ## Monitor IP address usage
 
-If you're using Direct VPC egress, [make sure that you have enough IP addresses for your subnet](https://docs.cloud.google.com/run/docs/configuring/vpc-direct-vpc#before_you_begin). The number of IP addresses you use depends on the number of instances that your workloads run, so we recommend monitoring your IP address usage. Be sure that your IP usage over time stays within the bounds supported by the subnet.
+If you're using Direct VPC egress, [make sure that you have enough IP addresses for your subnet](https://docs.cloud.google.com/run/docs/configuring/vpc-direct-vpc#before_you_begin). The number of IP addresses you use depends on the number of container instances that your workloads run, so we recommend monitoring your IP address usage. Be sure that your IP usage over time stays within the bounds supported by the subnet.
 
 To estimate your IP address usage:
 
@@ -43,7 +44,7 @@ To estimate your IP address usage:
 
 [Go to Cloud Monitoring Metrics explorer](https://console.cloud.google.com/monitoring/metrics-explorer)
 
-  2. Look up the number of instances in your project by using the metric type [`run.googleapis.com/container/instance_count`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_p_z#gcp-run). Cloud Monitoring lets you view this metric's value over time.
+  2. Look up the number of container instances in your project by using the metric type [`run.googleapis.com/container/instance_count`](https://docs.cloud.google.com/monitoring/api/metrics_gcp_p_z#gcp-run). Cloud Monitoring lets you view this metric's value over time.
 
   3. Multiply the instance count metric's value by 2 to get an estimate of the number of IP addresses in use.
 
@@ -80,6 +81,19 @@ The following section describes strategies for reducing port exhaustion with Clo
 ### Use connection pooling and reuse connections
 
 When sending a large number of requests to a single destination IP address, use connection pooling to maintain and reuse connections to the destination. High connection rates to a single IP address can exhaust outbound ports and cause connection refused errors.
+
+## Isolate outbound internet traffic
+
+By default, Cloud Run sends outbound internet traffic through a regional pool of dynamic IP addresses shared across serverless workloads. Don't use this default shared pool for workloads that depend on IP reputation or generate high-volume probing traffic.
+
+Instead, configure [Direct VPC egress](https://docs.cloud.google.com/run/docs/configuring/vpc-direct-vpc) with [`--vpc-egress=all-traffic`](https://docs.cloud.google.com/sdk/gcloud/reference/run/deploy#--vpc-egress), and route traffic through Cloud NAT with dedicated [static outbound IP addresses](https://docs.cloud.google.com/run/docs/configuring/static-outbound-ip) in the following cases:
+
+  * Your workload connects to reputation-sensitive external endpoints, such as payment gateways, hosted databases, or partner APIs behind third-party web application firewalls (WAFs). Dedicated static IP addresses prevent noisy traffic from other tenants on the shared pool from triggering external WAF blocks or `HTTP 403` errors.
+  * Your workload runs authorized network scanning, port enumeration, host fingerprinting, vulnerability probing, web scraping, or load testing. Running these workloads over the default shared IP pool degrades IP reputation, can disrupt service for other customers in violation of the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup), and might cause Google to throttle or suspend your workload.
+
+
+
+When you run authorized scanning or high-connection workloads through Cloud NAT, allocate enough static IP addresses and configure [port reservation](https://docs.cloud.google.com/nat/docs/ports-and-addresses) to prevent port exhaustion.
 
 ## Performance and throughput strategies
 
@@ -145,6 +159,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

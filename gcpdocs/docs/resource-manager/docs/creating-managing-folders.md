@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/creating-managing-folders/
 title: Create folders \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:10.286410+00:00
+fetched_at: 2026-10-28T09:52:41.224760+00:00
 ---
 
 # Create folders  |  Resource Manager  |  Google Cloud Documentation

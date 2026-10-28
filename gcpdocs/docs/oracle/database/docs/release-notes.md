@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/oracle/database/docs/release-notes/
 title: Oracle Database@Google Cloud release notes \u00a0|\u00a0 Oracle Database at Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:39:54.948510+00:00
+fetched_at: 2026-10-28T08:38:08.187270+00:00
 ---
 
 # Oracle Database@Google Cloud release notes  |  Oracle Database at Google Cloud  |  Google Cloud Documentation
@@ -26,6 +26,14 @@ This page documents production updates to Oracle Database@Google Cloud. Check th
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/oracledatabase-release-notes.xml) directly. 
+
+## October 27, 2026
+
+Feature
+
+For Exadata Database Service, Oracle Database@Google Cloud is available in `northamerica-south1` (Querétaro, Mexico) region.
+
+For a list of supported locations, see [Supported regions and zones](https://docs.cloud.google.com/oracle/database/docs/regions-and-zones).
 
 ## October 26, 2026
 

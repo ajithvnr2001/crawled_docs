@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/
 title: SAP on Google Cloud documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:31:34.193676+00:00
+fetched_at: 2026-10-28T11:09:37.541997+00:00
 ---
 
 # SAP on Google Cloud documentation  |  Google Cloud Documentation

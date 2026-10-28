@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/troubleshooting/
 title: Troubleshoot Cloud Armor issues \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:16:30.644045+00:00
+fetched_at: 2026-10-28T09:39:08.493771+00:00
 ---
 
 # Troubleshoot Cloud Armor issues  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -74,7 +74,7 @@ To fix this, follow these steps:
 
 Replace `BACKEND` with the name of the backend service.
 
-  2. Review the HTTP(S) logs to determine which policy and rule were matched for your traffic along with the associated action. To view the logs, use [Cloud Logging](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface).
+  2. Review the HTTP(S) logs to determine which policy and rule were matched for your traffic along with the associated action. To view the logs, use [Logging](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface).
 
 The following is a sample log of an allowed request with the interesting fields highlighted. Check for the following fields and make sure that they match the rule that you configured to deny the traffic:
 
@@ -260,7 +260,7 @@ Because Cloud Armor evaluates data progressively as it is received, up to the co
 
 ### View matched subexpressions in logs
 
-When troubleshooting rules, you can enable [verbose logging](https://docs.cloud.google.com/armor/docs/verbose-logging) by setting the `--log-level` flag to `VERBOSE`, and use Cloud Logging to see which subexpressions in a rule matched. If a rule contains multiple subexpressions, Cloud Armor only logs details about the most recently matched subexpression.
+When troubleshooting rules, you can enable [verbose logging](https://docs.cloud.google.com/armor/docs/verbose-logging) by setting the `--log-level` flag to `VERBOSE`, and use Logging to see which subexpressions in a rule matched. If a rule contains multiple subexpressions, Cloud Armor only logs details about the most recently matched subexpression.
 
 The following example expression contains two subexpressions:
 
@@ -432,9 +432,9 @@ For assistance with this issue, [contact the Cloud Support team](https://docs.cl
 
 Use these instructions to help you resolve issues with Adaptive Protection.
 
-### Adaptive Protection is enabled for a security policy but there are no logs in Cloud Logging
+### Adaptive Protection is enabled for a security policy but there are no logs in Logging
 
-Adaptive Protection logs are generated separately from Cloud Armor request logs and appear under a different resource in Cloud Logging. Adaptive Protection logs and events are under the **Network Security Policy** resource in Cloud Logging. There is a training period of at least an hour after Adaptive Protection is enabled in a security policy before Adaptive Protection starts generating alerts for suspected attacks. During the training period, Adaptive Protection learns from incoming request traffic and develops distinct baselines for each backend service that is protected by that security policy. Adaptive Protection is subsequently able to identify suspicious activity.
+Adaptive Protection logs are generated separately from Cloud Armor request logs and appear under a different resource in Logging. Adaptive Protection logs and events are under the **Network Security Policy** resource in Logging. There is a training period of at least an hour after Adaptive Protection is enabled in a security policy before Adaptive Protection starts generating alerts for suspected attacks. During the training period, Adaptive Protection learns from incoming request traffic and develops distinct baselines for each backend service that is protected by that security policy. Adaptive Protection is subsequently able to identify suspicious activity.
 
 If you enable Adaptive Protection for a security policy and you don't observe any alerts after a one-hour training period, this suggests that there is no activity that can be identified as potentially malicious targeting of any of the backend services associated with that security policy.
 
@@ -442,9 +442,9 @@ If the potential attack or anomalous traffic persists for longer periods of time
 
 Adaptive Protection analyzes traffic that can otherwise be allowed through a Cloud Armor security policy. If you set the default rule to deny access with a restricted allowlist of traffic, then Adaptive Protection only detects malicious activity on the traffic that passes evaluation with respect to the allowlist.
 
-### There are too many alerts or too many logs in Cloud Logging from Adaptive Protection
+### There are too many alerts or too many logs in Logging from Adaptive Protection
 
-An Adaptive Protection alert provides a confidence score, indicating how strongly Adaptive Protection models identify the detected activity as anomalous and potentially an attack. You can filter on the log's specific entry through Cloud Logging to only surface (or forward to downstream) the alerts that have a confidence score above a particular threshold.
+An Adaptive Protection alert provides a confidence score, indicating how strongly Adaptive Protection models identify the detected activity as anomalous and potentially an attack. You can filter on the log's specific entry through Logging to only surface (or forward to downstream) the alerts that have a confidence score above a particular threshold.
 
 Adaptive Protection provides a mechanism for reporting alerts as false positives, which is described in the section [Monitoring, feedback and reporting event errors](https://docs.cloud.google.com/armor/docs/adaptive-protection-overview#monitor-feedback-report-errors). Note that false positive reporting might not result in immediate changes to what Adaptive Protection alerts on. Over time, Adaptive Protection models learn that such traffic patterns are normal and acceptable, and Adaptive Protection stops alerting on these patterns.
 
@@ -534,6 +534,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

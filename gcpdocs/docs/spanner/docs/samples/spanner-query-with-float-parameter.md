@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-query-with-float-parameter/
 title: Query with FLOAT parameter \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:03.653026+00:00
+fetched_at: 2026-10-28T09:38:54.547368+00:00
 ---
 
 # Query with FLOAT parameter  |  Spanner  |  Google Cloud Documentation
@@ -320,7 +320,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     sql_query = "SELECT VenueId, VenueName, PopularityScore FROM Venues

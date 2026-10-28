@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-scaleout-with-standby-nodes-manual-config-sles/
 title: Manual deployment: SAP HANA scale-out with host auto-failover on SLES \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:31:29.193953+00:00
+fetched_at: 2026-10-28T11:10:18.503046+00:00
 ---
 
 # Manual deployment: SAP HANA scale-out with host auto-failover on SLES  |  SAP on Google Cloud  |  Google Cloud Documentation

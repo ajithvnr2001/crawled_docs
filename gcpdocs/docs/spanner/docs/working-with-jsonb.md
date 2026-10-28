@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/working-with-jsonb/
 title: Work with JSONB data \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:38:14.593332+00:00
+fetched_at: 2026-10-28T09:52:34.323271+00:00
 ---
 
 # Work with JSONB data  |  Spanner  |  Google Cloud Documentation

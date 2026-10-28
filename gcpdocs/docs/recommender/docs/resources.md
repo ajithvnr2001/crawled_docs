@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/resources/
 title: Resources \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:04.246622+00:00
+fetched_at: 2026-10-28T09:52:44.673466+00:00
 ---
 
 # Resources  |  Recommender  |  Google Cloud Documentation

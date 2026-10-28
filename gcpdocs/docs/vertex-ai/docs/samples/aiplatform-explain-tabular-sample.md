@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-explain-tabular-sample/
 title: Explain for tabular \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:38.314959+00:00
+fetched_at: 2026-10-28T09:39:10.811668+00:00
 ---
 
 # Explain for tabular  |  Vertex AI  |  Google Cloud Documentation

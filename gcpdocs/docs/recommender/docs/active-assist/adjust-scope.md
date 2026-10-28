@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/active-assist/adjust-scope/
 title: Adjust the scope of your recommendations \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:16.054094+00:00
+fetched_at: 2026-10-28T09:52:58.119853+00:00
 ---
 
 # Adjust the scope of your recommendations  |  Recommender  |  Google Cloud Documentation

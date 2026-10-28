@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:04:49.706300+00:00
+fetched_at: 2026-10-28T10:04:23.669937+00:00
 ---
 
 # Security bulletins  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -48,16 +48,27 @@ For more information on how Google manages security vulnerabilities and patches 
 ## GCP-2026-071
 
 **Published:** 2026-10-23  
+**Updated:** 2026-10-27  
 **Reference:** [CVE-2026-111943](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-111943)
+
+**2026-10-27 Update:** Added patch versions for Ubuntu and GKE 1.37 on Container-Optimized OS, and clarified that GKE system containers and Go runtime components are patched.
 
 Description | Severity  
 ---|---  
-Multiple eMudhra (`emSign`) subordinate Certificate Authority (CA) private keys were compromised (CVE-2026-111943). Unpatched TLS clients and container runtimes that trust these authorities are vulnerable to active network Man-in-the-Middle (MitM) interception and traffic spoofing on external TLS connections. Internal GKE cluster control-plane and node mutual TLS (mTLS) communication is unaffected because it uses an isolated per-cluster private PKI. However, external TLS connections from node daemons (such as `containerd` pulling images from external registries) or control-plane components (such as `kube-apiserver` calling external HTTPS webhooks without an explicit `caBundle`) rely on the system or Go runtime root CA store. Most of these connections occur to registries or endpoints that are also on Google Cloud traveling over [encrypted links](https://docs.cloud.google.com/docs/security/encryption-in-transit#encryption-transit-with-networks) that are not at risk of a MitM attack. All currently supported GKE Standard and GKE Autopilot versions running Container-Optimized OS or Ubuntu node images are **impacted**. Node images and GKE system containers are being updated to distrust the compromised CAs. Customer application containers do **not** inherit the host node's root CA store and must be updated independently.
+  
+#### What happened?
+
+Multiple eMudhra (`emSign`) subordinate Certificate Authority (CA) private keys were compromised (CVE-2026-111943). Unpatched TLS clients and container runtimes that trust these authorities are vulnerable to active network Man-in-the-Middle (MitM) interception and traffic spoofing on external TLS connections. Internal GKE cluster control-plane and node mutual TLS (mTLS) communication is unaffected because it uses an isolated per-cluster private PKI. However, external TLS connections from node daemons (such as `containerd` pulling images from external registries) or control-plane components (such as `kube-apiserver` calling external HTTPS webhooks without an explicit `caBundle`) rely on the system or Go runtime root CA store. Most of these connections occur to registries or endpoints that are also on Google Cloud traveling over [encrypted links](https://docs.cloud.google.com/docs/security/encryption-in-transit#encryption-transit-with-networks) that are not at risk of a MitM attack.
+
+#### Am I impacted?
+
+All currently supported GKE Standard and GKE Autopilot versions running Container-Optimized OS or Ubuntu node images are **impacted**. Node images and GKE system containers (compiled with patched Go runtimes) are being updated to distrust the compromised CAs. Customer application containers do **not** inherit the host node's root CA store and must be updated independently.
 
 #### What should I do?
 
 The following versions of GKE have been updated to fix this vulnerability in Container-Optimized OS. For security purposes, even if you have node auto-upgrade enabled, we recommend that you [manually upgrade](https://cloud.google.com/kubernetes-engine/docs/how-to/upgrading-a-container-cluster) your cluster and Container-Optimized OS node pools to one of the following GKE versions or later:
 
+  * `1.37.1-gke.3011000`
   * `1.36.5-gke.1817000`
   * `1.35.9-gke.1390000`
   * `1.34.12-gke.1508000`
@@ -65,7 +76,14 @@ The following versions of GKE have been updated to fix this vulnerability in Con
   * `1.32.13-gke.2883000`
   * `1.31.14-gke.3093000`
 
-_Note: We'll update this bulletin when Ubuntu patch versions are available._ If you don't see these versions in the Google Cloud console, use the `gcloud container clusters upgrade` command to specify the versions and upgrade your node pools. Once patch versions are available in the Rapid channel, they can be installed on other channels, see [run patch versions from a newer channel](https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels#newer-patch-versions). If you are unable to patch, you can implement the following mitigations:
+The following versions of GKE have been updated to fix this vulnerability in Ubuntu. Upgrade your Ubuntu node pools to one of the following GKE versions or later:
+
+  * `1.35.9-gke.1390000`
+  * `1.34.12-gke.1508000`
+  * `1.32.13-gke.2883000`
+  * `1.31.14-gke.3093000`
+
+_Note: Patched Ubuntu node versions for 1.33, 1.36, and 1.37 are currently in qualification and will be added to this bulletin when available._ If you don't see these versions in the Google Cloud console, use the `gcloud container clusters upgrade` command to specify the versions and upgrade your node pools. Once patch versions are available in the Rapid channel, they can be installed on other channels, see [run patch versions from a newer channel](https://cloud.google.com/kubernetes-engine/docs/concepts/release-channels#newer-patch-versions). If you are unable to patch, you can implement the following mitigations:
 
   * **Enforce container image pull integrity:** Use image digest pinning (`@sha256:...`) in Pod specifications or enforce Binary Authorization so that a network MitM cannot substitute untrusted container images during registry pulls.
   * **Verify admission webhook`caBundle` configurations:** When `clientConfig.caBundle` is omitted on a `ValidatingWebhookConfiguration` or `MutatingWebhookConfiguration`, `kube-apiserver` falls back to the system WebPKI root store. Ensure all external HTTPS webhooks specify an explicit `caBundle`. You can check for webhooks with an empty `caBundle` by running: 
@@ -16716,6 +16734,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

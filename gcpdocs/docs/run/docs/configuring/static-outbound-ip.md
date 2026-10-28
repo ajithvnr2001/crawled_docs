@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/static-outbound-ip/
 title: Static outbound IP address \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:47.060768+00:00
+fetched_at: 2026-10-28T09:24:22.654549+00:00
 ---
 
 # Static outbound IP address  |  Cloud Run  |  Google Cloud Documentation
@@ -21,19 +21,25 @@ Send feedback
 
 #  Static outbound IP address Stay organized with collections  Save and categorize content based on your preferences. 
 
-By default, a Cloud Run service connects to external endpoints on the internet using a dynamic IP address pool. If the Cloud Run service connects to an external endpoint that requires a static IP address such as a database or API using an IP address-based firewall, you must configure your Cloud Run service to route requests using a static IP address.
+By default, Cloud Run workloads connect to external endpoints on the internet using a regional pool of dynamic IP addresses shared across all serverless workloads. Because other workloads share this pool, you shouldn't rely on it when you need a predictable origin IP address or isolated IP reputation.
 
-This page describes how to enable a Cloud Run service to send requests using a static IP address.
+Configure your Cloud Run workloads to route outbound requests using a dedicated static IP address in the following situations:
 
-We recommend configuring Cloud Run to send traffic to a VPC network using [Direct VPC egress](https://docs.cloud.google.com/run/docs/configuring/vpc-direct-vpc). However, you have the option to [Create a connector](https://docs.cloud.google.com/run/docs/configuring/vpc-connectors#create-connector). 
+  * You connect to an external database or API that uses an IP address allowlist or firewall.
+  * You connect to reputation-sensitive external endpoints, such as payment gateways, hosted databases, or partner APIs protected by third-party web application firewalls (WAFs). Noisy traffic from another tenant on the default shared IP pool can degrade IP reputation and cause external WAFs to block or throttle your requests.
+  * You run authorized network scanning, port enumeration, host fingerprinting, vulnerability probing, web scraping, or load testing workloads.
+
+**Warning:** Don't run network scanning, host fingerprinting, vulnerability probing, or load testing over the default shared IP address pool. This traffic degrades shared IP reputation, can disrupt service for other customers in violation of the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup), and might cause Google to throttle or suspend your workload.
+
+To send outbound requests from a dedicated static IP address, configure your Cloud Run service to use [Direct VPC egress](https://docs.cloud.google.com/run/docs/configuring/vpc-direct-vpc). You also have the option to [create a connector](https://docs.cloud.google.com/run/docs/configuring/vpc-connectors#create-connector). 
 
 ## Task overview
 
-To enable a Cloud Run service to route requests using a static IP address, configure the Cloud Run service's [VPC egress](https://docs.cloud.google.com/run/docs/configuring/connecting-vpc) to route all outbound traffic through a [VPC network](https://docs.cloud.google.com/vpc/docs) that has a [Cloud NAT](https://docs.cloud.google.com/nat/docs) gateway configured with the static IP address.
+To route requests using a static IP address, configure the service's [VPC egress](https://docs.cloud.google.com/run/docs/configuring/connecting-vpc) to send all outbound traffic (`--vpc-egress=all-traffic`) through a [VPC network](https://docs.cloud.google.com/vpc/docs). Attach a [Cloud NAT](https://docs.cloud.google.com/nat/docs) gateway to that network with your reserved static IP address.
 
-In this tutorial, you configure Cloud NAT in manual mode and assign a single static IP address to it. If your Cloud Run workloads scale up to large numbers, you might need to assign multiple static IP addresses to Cloud NAT. Learn more about how Cloud NAT gateways use [IP addresses and ports](https://docs.cloud.google.com/nat/docs/ports-and-addresses).
+In this tutorial, you configure Cloud NAT in manual mode and assign a single static IP address to it. If your workloads scale to many container instances or open many concurrent connections, such as during authorized network scanning, assign multiple static IP addresses to Cloud NAT. You can also increase the minimum ports per container instance or enable dynamic port allocation to prevent port exhaustion. Learn more about how Cloud NAT gateways use [IP addresses and ports](https://docs.cloud.google.com/nat/docs/ports-and-addresses).
 
-Routing your traffic through [Cloud NAT](https://docs.cloud.google.com/nat/docs) does not cause an additional hop in your networking stack since the Cloud NAT gateway and the Cloud Router provide only a control plane and the packets don't pass through the NAT gateway or the Cloud Router.
+Routing your traffic through [Cloud NAT](https://docs.cloud.google.com/nat/docs) doesn't add an extra hop in your networking stack because the Cloud NAT gateway and the Cloud Router provide only a control plane, and packets don't pass through the NAT gateway or the Cloud Router.
 
 ## Configure network address translation (NAT)
 
@@ -319,6 +325,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

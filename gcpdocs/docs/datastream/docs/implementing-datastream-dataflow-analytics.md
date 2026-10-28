@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/implementing-datastream-dataflow-analytics/
 title: Implement Datastream and Dataflow for analytics \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:58.622159+00:00
+fetched_at: 2026-10-28T09:19:54.769782+00:00
 ---
 
 # Implement Datastream and Dataflow for analytics  |  Google Cloud Documentation
@@ -23,19 +23,13 @@ Send feedback
 
 Datastream
 
-Datastream supports streaming data from Oracle, MySQL and PostgreSQL databases directly into [BigQuery](https://docs.cloud.google.com/bigquery) datasets. However, if you need more control over the stream processing logic, such as data transformation or manual setting of logical primary keys, you can integrate Datastream with Dataflow job templates.
+Integrating Datastream with Dataflow job templates lets you customize your stream processing logic when you replicate data into BigQuery for near real-time analytics. For example, you can transform in-flight data or manually set logical primary keys before writing to your destination tables.
 
-This tutorial shows you how Datastream integrates with [Dataflow](https://docs.cloud.google.com/dataflow) by using Dataflow job templates to stream up-to-date materialized views in BigQuery for analytics.
+In this tutorial, you use Datastream to stream inserts, updates, and deletes from a source MySQL database into a Cloud Storage bucket. You then configure Pub/Sub notifications on the bucket for new change files and run a Dataflow job to process and merge those changes into BigQuery.
 
-For organizations with many isolated data sources, access to enterprise data across the organization, especially in a real-time manner, can be limited and slow. This restricts the organization's ability to introspect.
+The following diagram illustrates the architecture for integrating Datastream and Dataflow:
 
-Datastream provides near real-time access to change data from various on-premises and cloud-based data sources. Datastream provides a setup experience where you don't have to do much configuration for streaming data; Datastream does this for you. Datastream also has a unified consumption API which democratizes your organization's access to the freshest available enterprise data to build integrated scenarios.
-
-One such scenario is transferring data from a source database into a cloud-based storage service or messaging queue. After Datastream streams the data, the data is transformed into a form that other applications and services can read. In this tutorial, Dataflow is the web service that communicates with the storage service or messaging queue to capture and process data on Google Cloud.
-
-You learn how to use Datastream to stream changes (data that's inserted, updated, or deleted) from a source MySQL database into a folder in a [Cloud Storage](https://docs.cloud.google.com/storage) bucket. Then, you configure the Cloud Storage bucket to send notifications that Dataflow uses to learn about any new files containing the data changes that Datastream streams from the source database. A Dataflow job then processes the files and transfer the changes into BigQuery.
-
-![integration user flow diagram](https://docs.cloud.google.com/static/datastream/docs/images/integrating-datastream-and-dataflow-overview.png)
+![Integration user flow diagram](https://docs.cloud.google.com/static/datastream/docs/images/integrating-datastream-and-dataflow-overview.png)
 
 ## Objectives
 
@@ -698,6 +692,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/reconcile-legacy-terminology/
 title: Reconcile Admin Console and Google Cloud console terminology \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:00.741376+00:00
+fetched_at: 2026-10-28T09:52:41.905797+00:00
 ---
 
 # Reconcile Admin Console and Google Cloud console terminology  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

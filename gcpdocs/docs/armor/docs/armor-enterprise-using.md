@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/armor-enterprise-using/
 title: Set up Cloud Armor Enterprise \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:05:07.487406+00:00
+fetched_at: 2026-10-28T09:37:48.759037+00:00
 ---
 
 # Set up Cloud Armor Enterprise  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -188,7 +188,7 @@ If the project is enrolled in Cloud Armor Enterprise Standard, which is the defa
 
 ## Unsubscribe a billing account from Cloud Armor Enterprise Annual
 
-A Cloud Armor Enterprise Annual subscription is a one-year commitment that's renewed automatically. To prevent renewal at the end of the one-year term, you must disable automatic renewal. After automatic renewal is disabled, your current one-year subscription period continues to the end. At the end of the subscription period, your Cloud Armor Enterprise subscription isn't renewed. If your project has effective hierarchical security policies, your project is downgraded to Cloud Armor Enterprise Paygo. Otherwise, all projects in the billing account that are enrolled in Cloud Armor Enterprise Annual revert to Cloud Armor Enterprise Standard.
+A Cloud Armor Enterprise Annual subscription is a one-year commitment that's renewed automatically. To prevent renewal at the end of the one-year term, you must disable automatic renewal. After automatic renewal is disabled, your current one-year subscription period continues to the end. At the end of the subscription period, your Cloud Armor Enterprise subscription isn't renewed. If your project has effective organization security policies, your project is downgraded to Cloud Armor Enterprise Paygo. Otherwise, all projects in the billing account that are enrolled in Cloud Armor Enterprise Annual revert to Cloud Armor Enterprise Standard.
 
 To cancel Cloud Armor Enterprise Annual auto-renewal, follow these steps.
 
@@ -272,6 +272,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

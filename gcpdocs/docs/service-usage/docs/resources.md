@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-usage/docs/resources/
 title: Resources \u00a0|\u00a0 Service Usage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:09:37.615213+00:00
+fetched_at: 2026-10-28T09:38:56.010155+00:00
 ---
 
 # Resources  |  Service Usage  |  Google Cloud Documentation

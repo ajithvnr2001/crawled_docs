@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/monitor-agents/
 title: Monitor agent traffic \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:01.479245+00:00
+fetched_at: 2026-10-28T09:52:59.756986+00:00
 ---
 
 # Monitor agent traffic  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

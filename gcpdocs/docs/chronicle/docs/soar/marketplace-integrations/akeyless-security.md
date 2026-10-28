@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/akeyless-security/
 title: Integrate Akeyless with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:22:14.680128+00:00
+fetched_at: 2026-10-28T08:21:34.383676+00:00
 ---
 
 # Integrate Akeyless with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ This document explains how to integrate Akeyless with Google Security Operations
 
 ## Use cases
 
-The **Akeyless** integration uses Google SecOps capabilities to support the following use cases:
+The Akeyless integration uses Google SecOps capabilities to support the following use cases:
 
   * **Synchronize integration credentials** : Automatically update credentials and sensitive parameters across Google SecOps integration instances, connectors, and jobs using secrets stored in Akeyless.
 
@@ -44,30 +44,56 @@ The **Akeyless** integration uses Google SecOps capabilities to support the foll
 
 ## Before you begin
 
-Before you configure the integration in the Google SecOps platform, verify that you have the following:
+Before you configure the Akeyless integration in the Google SecOps platform, complete the following prerequisite steps:
 
-  * **API key credentials** : An Akeyless **Access ID** and **Access Key** for authentication.
+  1. Create Akeyless API key credentials for your Google SecOps instance.
 
-For more information, see [Akeyless API Key Authentication](https://docs.akeyless.io/docs/auth-with-api-key).
+  2. Configure role-based access control permissions in Akeyless following the principle of least privilege.
 
-  * **Access permissions** : Read permissions granted to your authentication method for the secrets that Google SecOps retrieves.
+  3. Verify network connectivity between Google SecOps and your Akeyless API gateway.
 
-For more information, see [Akeyless Role-Based Access Control (RBAC)](https://docs.akeyless.io/docs/rbac).
 
-  * **Network connectivity** : Network access from your Google SecOps instance or remote agent to your Akeyless API Gateway URL.
 
+
+### Create Akeyless API key credentials
+
+The Akeyless integration authenticates with Akeyless using the API key authentication method. Create a dedicated API key authentication method in the Akeyless console or CLI for Google SecOps and record the generated values required for the integration parameters:
+
+  * `Access ID`: The unique identifier for the authentication method (typically prefixed with `p-`).
+  * `Access Key`: The secret key paired with the `Access ID`.
+
+
+
+### Configure access permissions (least privilege)
+
+In Akeyless RBAC, create a dedicated access role, associate it with your Google SecOps API key authentication method, and grant only the permissions required for the secret paths that your playbooks and jobs retrieve. Avoid assigning broad administrative roles or granting write or delete permissions to the Google SecOps authentication method.
+
+Refer to the minimal Akeyless permissions required for each component in the following table:
+
+Component | Akeyless Target Type | Required Permission | Endpoint and Scope Details  
+---|---|---|---  
+**Ping** (Action) | Authentication Method | Valid API key | Authenticates using `POST /auth` with `access_type="access_key"` to verify connectivity and credentials. Requires no item or secret permissions.  
+**Get Secret Value** (Action) | Items (Static Secrets) | `Read` | Retrieves static secret values using `POST /get-secret-value`. Grant `Read` permission scoped only to the specific secret paths or folders that playbooks access.  
+**Sync Integration Credentials Job** (Job) | Items (Static Secrets) | `Read` | Retrieves static secret values using `POST /get-secret-value`. Grant `Read` permission scoped only to the secret paths referenced in the job's `Credential Mapping` parameter.  
+  
+### Verify network connectivity
+
+Verify that your Google SecOps instance or remote agent allows outbound HTTPS (`TCP/443`, or your custom gateway port) connectivity to your Akeyless API gateway URL:
+
+  * **Akeyless SaaS** : Allow outbound HTTPS traffic to `https://api.akeyless.io`.
+  * **Self-hosted Akeyless Gateway** : Allow outbound HTTPS traffic to the REST API endpoint of your Akeyless Gateway instance (for example, port `8080` or `8081`, depending on your gateway deployment). If your environment routes traffic through an HTTP or HTTPS proxy, the integration automatically honors standard proxy environment variables (`HTTPS_PROXY`, `HTTP_PROXY`, and `NO_PROXY`).
 
 
 
 ## Integration parameters
 
-The **Akeyless** integration requires the following parameters:
+The Akeyless integration requires the following parameters:
 
 Parameter | Description  
 ---|---  
-`API Gateway URL` | Optional. The URL of your Akeyless API Gateway. The default value is `https://api.akeyless.io`.  
-`Access ID` | Required. The access ID for your Akeyless API key authentication method.  
-`Access Key` | Required. The access key associated with your Akeyless access ID.  
+`API Gateway URL` | Optional. The URL of your Akeyless API gateway. The default value is `https://api.akeyless.io`.  
+`Access ID` | Required. The access ID for your Akeyless API key authentication method, such as `p-12345abcde`.  
+`Access Key` | Required. The access key associated with your Akeyless `Access ID`.  
 `Verify SSL` | Required. If selected, the integration validates the SSL certificate when connecting to the Akeyless server. Enabled by default.  
   
 For instructions about how to configure an integration in Google SecOps, see [Configure integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/configure-integrations).
@@ -122,7 +148,7 @@ The following example shows the JSON result output received when using the **Get
 
 ##### Output messages
 
-On the **Case Wall** , the **Get Secret Value** action provides the following output messages:
+The **Get Secret Value** action can return the following output messages:
 
 Output message | Message description  
 ---|---  
@@ -164,7 +190,7 @@ Script result | Available
   
 ##### Output messages
 
-On the **Case Wall** , the **Ping** action provides the following output messages:
+The **Ping** action can return the following output messages:
 
 Output message | Message description  
 ---|---  
@@ -187,21 +213,21 @@ For more information on jobs, see [ Configure a new job](https://cloud.google.co
 
 Use the **Sync Integration Credentials Job** to automatically synchronize secrets stored in Akeyless with your configured Google SecOps integration instances, connectors, and jobs.
 
-#### Job parameters
+#### Job inputs
 
 The **Sync Integration Credentials Job** requires the following parameters:
 
 Parameter | Description  
 ---|---  
-`API Gateway URL` | Optional. The URL of your Akeyless API Gateway. The default value is `https://api.akeyless.io`.  
-`Access ID` | Required. The access ID for your Akeyless API key authentication method.  
-`Access Key` | Required. The access key associated with your Akeyless access ID.  
+`API Gateway URL` | Optional. The URL of your Akeyless API gateway. The default value is `https://api.akeyless.io`.  
+`Access ID` | Required. The access ID for your Akeyless API key authentication method, such as `p-12345abcde`.  
+`Access Key` | Required. The access key associated with your Akeyless `Access ID`.  
 `Verify SSL` | Required. If selected, the integration validates the SSL certificate when connecting to the Akeyless server. Enabled by default.  
 `Environment Name` | Required. The Google SecOps environment where the target integration instances, connectors, and jobs are configured. The default value is `Default Environment`.  
 `Credential Mapping` | Required. A JSON or YAML dictionary that maps target integration instances, connectors, and jobs to the Akeyless secrets containing their parameter values. Include at least one mapped parameter under the `integration_instances`, `connectors`, or `jobs` keys. When mapping a parameter, you must reference versions in one of the following ways:
 
-  * **Latest version (`SECRET_NAME` or `SECRET_NAME:latest`)** : Retrieves the latest secret value from Akeyless and updates the mapped parameter each time the job runs.Use this format for secrets that rotate regularly.
-  * **Specific version (`SECRET_NAME:VERSION_NUMBER`)** : Retrieves a specific version of the secret, where ` VERSION_NUMBER` is a positive integer (for example, `/secops/prod/jira-api-token:2`).After the parameter is updated to that version, subsequent job runs skip updating the parameter unless you change the mapped secret or version.
+  * **Latest version (` SECRET_NAME` or `SECRET_NAME:latest`)**: Retrieves the latest secret value from Akeyless and updates the mapped parameter each time the job runs.Use this format for secrets that rotate regularly.
+  * **Specific version (` SECRET_NAME:VERSION_NUMBER`)**: Retrieves a specific version of the secret, where `VERSION_NUMBER` is a positive integer (for example, `/secops/prod/jira-api-token:2`).After the parameter is updated to that version, subsequent job runs skip updating the parameter unless you change the mapped secret or version.
 
 To see an example, see Example `Credential Mapping`. The default value is `{"integration_instances": {"Integration_Instance_Name": {"Parameter_Name": "Secret_Name"}}}`.  
   
@@ -238,6 +264,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

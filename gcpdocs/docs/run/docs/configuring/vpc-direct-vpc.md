@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/vpc-direct-vpc/
 title: Direct VPC with a VPC network \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:56.243301+00:00
+fetched_at: 2026-10-28T09:51:59.283789+00:00
 ---
 
 # Direct VPC with a VPC network  |  Cloud Run  |  Google Cloud Documentation

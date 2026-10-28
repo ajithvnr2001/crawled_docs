@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/samples/cloud-sql-sqlserver-databasesql-lifetime/
 title: Set the connection timeout when using Go \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:19:28.826208+00:00
+fetched_at: 2026-10-28T09:40:31.460100+00:00
 ---
 
 # Set the connection timeout when using Go  |  Cloud SQL for SQL Server  |  Google Cloud Documentation

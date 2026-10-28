@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/deprecation-policy-mobile/
 title: Deprecation and shutdown policy for mobile SDKs \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:17.759571+00:00
+fetched_at: 2026-10-28T09:52:37.696680+00:00
 ---
 
 # Deprecation and shutdown policy for mobile SDKs  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

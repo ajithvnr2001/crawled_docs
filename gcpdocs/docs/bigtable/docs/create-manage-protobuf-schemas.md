@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/create-manage-protobuf-schemas/
 title: Create and manage protobuf schemas \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:54.987090+00:00
+fetched_at: 2026-10-28T10:57:21.286166+00:00
 ---
 
 # Create and manage protobuf schemas  |  Bigtable  |  Google Cloud Documentation
@@ -508,7 +508,7 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
 
 Schema bundles have the following limitations:
 
-  * You can create a maximum of 10 schema bundles per table.
+  * You can create up to 10 schema bundles per table. This limit applies to both protobuf and Avro schema bundles.
   * The total size of the serialized protocol buffer descriptors within a schema bundle can't exceed 4 MB. There is no direct limit on the number of individual schemas you can include in a bundle, as long as the total size of the bundle doesn't exceed this limit.
 
 
@@ -516,6 +516,7 @@ Schema bundles have the following limitations:
 ## What's next
 
   * Learn how to [query protobuf data](https://docs.cloud.google.com/bigtable/docs/query-protobuf-data).
+  * Learn how to [create and manage Avro schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas).
   * Read about [changing or uncertain queries](https://docs.cloud.google.com/bigtable/docs/schema-design#changing-or-uncertain-queries).
   * Refer to [GoogleSQL for Bigtable overview](https://docs.cloud.google.com/bigtable/docs/googlesql-overview).
 
@@ -525,6 +526,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

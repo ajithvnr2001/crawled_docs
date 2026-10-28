@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/quotas/
 title: Quotas and limits \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:16.030010+00:00
+fetched_at: 2026-10-28T10:49:36.440707+00:00
 ---
 
 # Quotas and limits  |  Cloud Load Balancing  |  Google Cloud Documentation

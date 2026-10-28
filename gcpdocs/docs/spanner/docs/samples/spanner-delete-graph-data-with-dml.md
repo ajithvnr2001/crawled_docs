@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-delete-graph-data-with-dml/
 title: Delete graph data with DML \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:18.712917+00:00
+fetched_at: 2026-10-28T09:38:13.893225+00:00
 ---
 
 # Delete graph data with DML  |  Spanner  |  Google Cloud Documentation

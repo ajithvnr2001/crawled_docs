@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ambient-egress-swp/
 title: Route ambient egress traffic through Secure Web Proxy \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:23.538786+00:00
+fetched_at: 2026-10-28T09:59:53.443102+00:00
 ---
 
 # Route ambient egress traffic through Secure Web Proxy  |  GKE networking  |  Google Cloud Documentation

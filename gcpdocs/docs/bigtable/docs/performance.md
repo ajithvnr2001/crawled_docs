@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/performance/
 title: Understand performance \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:59.743980+00:00
+fetched_at: 2026-10-28T10:57:14.179971+00:00
 ---
 
 # Understand performance  |  Bigtable  |  Google Cloud Documentation
@@ -250,12 +250,13 @@ If you're using the [Bigtable client library for Java](https://github.com/google
 
 Bigtable supports direct connectivity for application traffic that meets certain criteria, bypassing the Google frontend and optimizing performance. Upgrading to the latest version of your client library to take advantage of direct connectivity can improve throughput and latency. Direct connectivity is provided for applications with the following characteristics:
 
-  * Running on a Compute Engine or Google Kubernetes Engine (GKE) virtual machine in a [Virtual Private Cloud (VPC) network](https://docs.cloud.google.com/vpc/docs/vpc)
   * Using a supported Bigtable client library
   * Using a standard app profile (not Data Boost)
-  * In a network configured with routes and firewall rules that allow egress traffic to reach `34.126.0.0/18` and `2001:4860:8040::/42`
+  * In a [Virtual Private Cloud (VPC) network](https://docs.cloud.google.com/vpc/docs/vpc) configured with routes and firewall rules that allow egress traffic to reach `34.126.0.0/18` and `2001:4860:8040::/42`
 
 
+
+Direct connectivity is available only to clients running on Compute Engine or Google Kubernetes Engine (GKE). Direct connectivity uses [Application Layer Transport Security (ALTS)](https://docs.cloud.google.com/docs/security/encryption-in-transit/application-layer-transport-security), which authenticates each connection using credentials provided by Google. Machines outside Google Cloud, including on-premises environments connected through Cloud Interconnect or Cloud VPN, don't have these Google-provided credentials. As a result, clients running on such machines use a standard connection instead of direct connectivity.
 
 Direct connectivity is supported and enabled by default when you use one of the following Bigtable client libraries:
 
@@ -281,6 +282,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

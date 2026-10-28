@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/compute-k-map/
 title: Computing k-map for a dataset \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:55.104624+00:00
+fetched_at: 2026-10-28T09:30:05.277080+00:00
 ---
 
 # Computing k-map for a dataset  |  Sensitive Data Protection  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/bq-export/export-recommendations-to-bq/
 title: Export recommendations to BigQuery \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:14.889685+00:00
+fetched_at: 2026-10-28T09:52:52.211961+00:00
 ---
 
 # Export recommendations to BigQuery  |  Recommender  |  Google Cloud Documentation

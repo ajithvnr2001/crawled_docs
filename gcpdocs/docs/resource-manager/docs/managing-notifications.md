@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/managing-notifications/
 title: Set up notification preferences \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:26.589879+00:00
+fetched_at: 2026-10-28T09:52:37.170643+00:00
 ---
 
 # Set up notification preferences  |  Resource Manager  |  Google Cloud Documentation

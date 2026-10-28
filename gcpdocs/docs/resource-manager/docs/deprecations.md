@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/deprecations/
 title: Resource Manager deprecations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:38:55.386381+00:00
+fetched_at: 2026-10-28T09:52:59.321916+00:00
 ---
 
 # Resource Manager deprecations  |  Google Cloud Documentation

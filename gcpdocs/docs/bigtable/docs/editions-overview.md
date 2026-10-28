@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/editions-overview/
 title: Editions overview \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:39.383413+00:00
+fetched_at: 2026-10-28T10:57:18.698252+00:00
 ---
 
 # Editions overview  |  Bigtable  |  Google Cloud Documentation
@@ -63,7 +63,7 @@ The following table compares the features, performance limits, and capabilities 
 
 | Enterprise | Enterprise Plus  
 ---|---|---  
-**Performance** |  [High performance, low-latency, and high throughput.](https://docs.cloud.google.com/bigtable/docs/performance) An SSD node provides up to 17,000 reads and 14,000 writes per second, with less than 5 ms of latency. |  [Enterprise-level performance, which provides sub-millisecond read latency, greater throughput, and hotspot mitigation.](https://docs.cloud.google.com/bigtable/docs/performance) An SSD node provides up to 17,000 reads and 14,000 writes per second, with less than 5 ms of latency. [In-memory tier](https://docs.cloud.google.com/bigtable/docs/in-memory-overview) ([Preview](https://cloud.google.com/products#product-launch-stages)) provides nodes that support up to 120,000 reads per second with sub-millisecond read latency.  
+**Performance** |  [High performance, low-latency, and high throughput.](https://docs.cloud.google.com/bigtable/docs/performance) An SSD node provides up to 17,000 reads and 14,000 writes per second, with less than 5 ms of latency. |  [Enterprise-level performance, which provides sub-millisecond read latency, greater throughput, and hotspot mitigation.](https://docs.cloud.google.com/bigtable/docs/performance) An SSD node provides up to 17,000 reads and 14,000 writes per second, with less than 5 ms of latency. [In-memory tier](https://docs.cloud.google.com/bigtable/docs/in-memory-overview) ([Preview](https://cloud.google.com/products#product-launch-stages)) provides nodes that support up to 120,000 reads per second with sub-millisecond read latency. [Microsecond timestamps](https://docs.cloud.google.com/bigtable/docs/data-types#timestamp_granularity), which help you avoid write collisions for workloads with high event rates.  
 **Availability and disaster recovery** |  This service is included, as defined in the [Bigtable SLA.](https://cloud.google.com/bigtable/sla) [Multi-region replication](https://docs.cloud.google.com/bigtable/docs/replication-overview) |  This service is included, as defined in the [Bigtable SLA.](https://cloud.google.com/bigtable/sla) [Multi-region replication](https://docs.cloud.google.com/bigtable/docs/replication-overview)  
 **Resource management** |  [Autoscaling](https://docs.cloud.google.com/bigtable/docs/autoscaling) [Tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) (up to **32 TB** per node) ([Preview](https://cloud.google.com/products#product-launch-stages)) [2x node scaling](https://docs.cloud.google.com/bigtable/docs/scaling#node-scaling-factor) |  [Autoscaling](https://docs.cloud.google.com/bigtable/docs/autoscaling) [Tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) (up to **64 TB** per node) ([Preview](https://cloud.google.com/products#product-launch-stages)) [2x node scaling](https://docs.cloud.google.com/bigtable/docs/scaling#node-scaling-factor) [In-memory tier vertical scaling](https://docs.cloud.google.com/bigtable/docs/performance#in-memory) ([Preview](https://cloud.google.com/products#product-launch-stages))  
 **Analytics and query capabilities** |  [Data Boost](https://docs.cloud.google.com/bigtable/docs/data-boost-overview) [Continuous materialized views](https://docs.cloud.google.com/bigtable/docs/continuous-materialized-views) |  Advanced [Data Boost](https://docs.cloud.google.com/bigtable/docs/data-boost-overview) capabilities: query with SQL, and read data from HDD and tiered storage [Continuous materialized views](https://docs.cloud.google.com/bigtable/docs/continuous-materialized-views)  
@@ -103,8 +103,8 @@ For more information about pricing for Bigtable editions, see [Bigtable pricing]
 
 The following limitations apply to editions:
 
-  * After you create an Enterprise Plus instance or upgrade an existing instance to Enterprise Plus, you can't downgrade it to the Enterprise edition for 48 hours.
-  * Enterprise Plus instances and Enterprise Plus features aren't available in the [free trial](https://docs.cloud.google.com/bigtable/docs/free-trial-instance) version of Bigtable.
+  * Enterprise Plus instances and Enterprise Plus features aren't available in the free trial version of Bigtable.
+  * For more information about limitations that apply to downgrading an edition, see [Downgrade to Enterprise](https://docs.cloud.google.com/bigtable/docs/modifying-instance#downgrade-edition).
 
 
 
@@ -118,6 +118,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

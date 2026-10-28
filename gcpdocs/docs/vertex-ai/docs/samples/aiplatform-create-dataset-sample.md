@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-create-dataset-sample/
 title: Create a dataset \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:13.078209+00:00
+fetched_at: 2026-10-28T09:39:55.098594+00:00
 ---
 
 # Create a dataset  |  Vertex AI  |  Google Cloud Documentation

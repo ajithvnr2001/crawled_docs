@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/token-attr-ca/
 title: reCAPTCHA token attributes for Google Cloud Armor \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:00.127368+00:00
+fetched_at: 2026-10-28T09:52:46.251791+00:00
 ---
 
 # reCAPTCHA token attributes for Google Cloud Armor  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

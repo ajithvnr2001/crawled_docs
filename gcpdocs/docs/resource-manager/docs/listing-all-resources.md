@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/listing-all-resources/
 title: List all projects and folders in your hierarchy \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:27.811436+00:00
+fetched_at: 2026-10-28T09:52:54.364228+00:00
 ---
 
 # List all projects and folders in your hierarchy  |  Resource Manager  |  Google Cloud Documentation

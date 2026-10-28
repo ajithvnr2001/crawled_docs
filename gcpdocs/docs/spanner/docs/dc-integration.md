@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/dc-integration/
 title: Manage resources using Knowledge Catalog \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:31:03.513716+00:00
+fetched_at: 2026-10-28T09:14:23.345955+00:00
 ---
 
 # Manage resources using Knowledge Catalog  |  Spanner  |  Google Cloud Documentation

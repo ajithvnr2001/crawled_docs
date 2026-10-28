@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-import-data-image-classification-single-label-sample/
 title: Import data for image classification single label \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:11.684789+00:00
+fetched_at: 2026-10-28T09:38:47.457607+00:00
 ---
 
 # Import data for image classification single label  |  Vertex AI  |  Google Cloud Documentation

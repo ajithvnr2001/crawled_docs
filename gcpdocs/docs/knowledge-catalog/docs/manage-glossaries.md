@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/manage-glossaries/
 title: Manage a business glossary \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:47:14.573050+00:00
+fetched_at: 2026-10-28T09:51:01.013479+00:00
 ---
 
 # Manage a business glossary  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -103,7 +103,7 @@ A related term is a relationship that indicates that two terms are associated wi
 To get the permissions that you need to create and manage glossaries, ask your administrator to grant you the following IAM roles on your project: 
 
   * For data administrators, get full access to glossaries, categories, terms, synonyms, and related terms, and to set IAM policies: [Dataplex Catalog Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogAdmin) (`roles/dataplex.catalogAdmin`) 
-  * For data stewards or data owners, get access to creating, editing or deleting glossaries, categories, terms, links between terms, links between terms and [data assets](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview#metamodel-overview), and search: [Dataplex Catalog Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogEditor) (`roles/dataplex.catalogEditor`) 
+  * For data stewards or data owners, get access to creating, editing, or deleting glossaries, categories, terms, links between terms, links between terms and [data assets](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview#metamodel-overview), and search: [Dataplex Catalog Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogEditor) (`roles/dataplex.catalogEditor`) 
   * For data analysts or data consumers, get read-only access to glossaries, categories, terms, links between terms and between terms and data assets, and search: [Dataplex Catalog Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogViewer) (`roles/dataplex.catalogViewer`) 
 
 
@@ -117,8 +117,7 @@ These predefined roles contain the permissions required to create and manage glo
 The following permissions are required to create and manage glossaries:
 
   * Create, read, update, and delete a business glossary, category, and terms in your project: 
-    * `dataplex.glossaries.list` on unknown
-
+    * `dataplex.glossaries.list`
     * `dataplex.glossaries.create`
     * `dataplex.glossaries.get`
     * `dataplex.glossaries.update`
@@ -132,8 +131,26 @@ The following permissions are required to create and manage glossaries:
     * `dataplex.glossaryTerms.list`
     * `dataplex.glossaryTerms.get`
     * `dataplex.glossaryTerms.update`
-    * `dataplex.glossaryTerms.delete` on unknown
-      * Create, look up, and delete synonym term-to-term links in your project
+    * `dataplex.glossaryTerms.delete`
+  * Create, look up, and delete synonym term-to-term links in your project: 
+    * `dataplex.entryLinks.create` on the Knowledge Catalog entry group in the project in which either of the glossary terms is present. The link is created in the entry group for which the permission is given.
+    * `dataplex.entryGroups.useSynonymEntryLink` on the Knowledge Catalog entry group in the project in which either of the glossary terms is present. The link is created in the entry group for which the permission is given.
+    * `dataplex.glossaryTerms.use` on the glossaries whose terms need to be associated.
+    * `dataplex.glossaryTerms.get` on the term whose synonym links you are looking up. Knowledge Catalog redacts synonym terms in the response if you lack the `dataplex.glossaryTerms.get` permission for those terms.
+    * `dataplex.entryLinks.delete` on the Knowledge Catalog entry group in the project in which the link is present.
+  * Create, look up, and delete related term-to-term links in your project: 
+    * `dataplex.entryLinks.create` on the Knowledge Catalog entry group in the project in which either of the glossary terms is present. The link is created in the entry group for which the permission is given.
+    * `dataplex.entryGroups.useRelatedEntryLink` on the Knowledge Catalog entry group in the project in which either of the glossary terms is present. The link is created in the entry group for which the permission is given.
+    * `dataplex.entries.link` on the Knowledge Catalog entry group in projects in which entries corresponding to glossary terms are present.
+    * `dataplex.glossaryTerms.get` on the term whose related links you are looking up. Knowledge Catalog redacts related terms in the response if you lack the `dataplex.glossaryTerms.get` permission for those terms.
+    * `dataplex.entryLinks.delete` on the Knowledge Catalog entry group in the project in which the link is present.
+  * Create, look up, and delete links between terms and data assets or columns in your project: 
+    * `dataplex.entryLinks.create` on the system entry group corresponding to data assets or columns in the project. The link is created in the project for which the permission is given.
+    * `dataplex.entryGroups.useDefinitionEntryLink` on the system entry group corresponding to data assets or columns in the project. The link is created in the project for which permission is given.
+    * `dataplex.entries.link` on the system entry group corresponding to data assets or columns in the project. The link is created in the project for which the permission is given.
+    * `dataplex.glossaryTerms.use` on the glossary whose term needs to be associated.
+    * Source system read permission (for example, `bigquery.tables.get` or `dataplex.glossaryTerms.get`) on the entry whose links you are looking up. Knowledge Catalog redacts data assets in the response if you lack the source system read permission for those assets.
+    * `dataplex.entryLinks.delete` on the system entry group in which the link is present.
 
 
 
@@ -2441,6 +2458,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

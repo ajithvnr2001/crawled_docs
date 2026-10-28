@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/concepts/ambient-overview/
 title: Ambient networking overview \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:26.010910+00:00
+fetched_at: 2026-10-28T09:59:52.925063+00:00
 ---
 
 # Ambient networking overview  |  GKE networking  |  Google Cloud Documentation

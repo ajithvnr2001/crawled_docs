@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/essential-contacts-fallback-contacts/
 title: Fallback contacts \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:28.877818+00:00
+fetched_at: 2026-10-28T09:52:35.050200+00:00
 ---
 
 # Fallback contacts  |  Resource Manager  |  Google Cloud Documentation

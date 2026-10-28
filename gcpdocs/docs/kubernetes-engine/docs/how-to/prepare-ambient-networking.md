@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/prepare-ambient-networking/
 title: Prepare GKE ambient networking \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:18.438675+00:00
+fetched_at: 2026-10-28T09:59:53.050634+00:00
 ---
 
 # Prepare GKE ambient networking  |  GKE networking  |  Google Cloud Documentation

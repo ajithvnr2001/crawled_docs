@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/policy-engine/
 title: Set up Policy Engine with a Universal key \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:01.101868+00:00
+fetched_at: 2026-10-28T09:52:43.887473+00:00
 ---
 
 # Set up Policy Engine with a Universal key  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

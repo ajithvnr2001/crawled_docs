@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-api-status/
 title: View service status and endpoints \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:24.864746+00:00
+fetched_at: 2026-10-28T09:52:30.216636+00:00
 ---
 
 # View service status and endpoints  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,9 +22,9 @@ Send feedback
 
 #  View service status and endpoints Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to check the service status and endpoints for Vertex AI within Google Distributed Cloud (GDC) air-gapped. An endpoint lets you access Vertex AI pre-trained models through their APIs using JupyterLab notebook or the command-line interface. Confirming the service status and endpoints lets you verify new deployments, troubleshoot integration issues, and monitor the operational status of AI features across your applications. 
+Vertex AI in Google Distributed Cloud (GDC) air-gapped provides endpoints that let you access pre-trained models from a JupyterLab notebook or the command-line interface. Checking the service status and endpoints helps you verify deployments, troubleshoot integration issues, and monitor the health of AI features across your applications. 
 
-This page is for application developers within application operator groups responsible for ensuring AI features are operational in applications running in a secure air-gapped environment. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
+This document is for application developers in application operator groups who maintain AI features in applications running in an air-gapped environment. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
 
 Use the following steps to view the service status of Vertex AI APIs and their endpoints:
 
@@ -45,6 +45,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/quotas/
 title: Quotas and limits \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:15.596258+00:00
+fetched_at: 2026-10-28T09:52:34.806725+00:00
 ---
 
 # Quotas and limits  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/resources/
 title: Resources \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:40:54.947692+00:00
+fetched_at: 2026-10-28T09:48:07.695300+00:00
 ---
 
 # Resources  |  Cloud Storage  |  Google Cloud Documentation

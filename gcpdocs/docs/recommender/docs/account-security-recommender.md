@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/account-security-recommender/
 title: Account security recommender \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:06.966653+00:00
+fetched_at: 2026-10-28T09:52:56.240079+00:00
 ---
 
 # Account security recommender  |  Recommender  |  Google Cloud Documentation

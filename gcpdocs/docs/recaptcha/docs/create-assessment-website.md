@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/create-assessment-website/
 title: Create assessments for websites \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:18.874511+00:00
+fetched_at: 2026-10-28T09:52:51.347119+00:00
 ---
 
 # Create assessments for websites  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

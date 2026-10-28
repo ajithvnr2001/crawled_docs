@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-manager/docs/deploy-google-managed-lb-auth/
 title: Deploy a global Google-managed certificate with load balancer authorization \u00a0|\u00a0 Certificate Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:56.237805+00:00
+fetched_at: 2026-10-28T08:57:33.786360+00:00
 ---
 
 # Deploy a global Google-managed certificate with load balancer authorization  |  Certificate Manager  |  Google Cloud Documentation
@@ -374,6 +374,29 @@ The output is similar to the following:
 
 You can attach the certificate map to a new target proxy or an existing target proxy.
 
+###  Console 
+
+**Note:** If a target proxy isn't part of a load balancer, then you can't use the Google Cloud console to attach a certificate map to it. To perform this step, use the gcloud CLI or Terraform.
+
+If the target proxy is part of an existing load balancer, then you can attach the certificate map by editing the load balancer's frontend configuration.
+
+  1. In the Google Cloud console, go to the **Load balancing** page.
+
+[Go to Load balancing](https://console.cloud.google.com/net-services/loadbalancing/list/loadBalancers)
+
+  2. Click the name of the load balancer that you want to update, and then click edit**Edit**.
+
+  3. Click **Frontend configuration** , and then select the frontend IP address and port configuration that you want to edit.
+
+  4. If **Choose certificate repository** appears, select **Use certificate map**.
+
+  5. In the **Select a certificate map** list, select your certificate map.
+
+  6. Click **Done** , and then click **Update**.
+
+
+
+
 ###  gcloud 
 
 To attach the certificate map to a new target proxy, use the [`gcloud compute target-https-proxies create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/target-https-proxies/create):
@@ -552,6 +575,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

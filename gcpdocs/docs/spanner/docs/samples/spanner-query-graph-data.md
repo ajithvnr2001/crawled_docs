@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-query-graph-data/
 title: Query data in a graph \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:10:11.583153+00:00
+fetched_at: 2026-10-28T09:38:33.528343+00:00
 ---
 
 # Query data in a graph  |  Spanner  |  Google Cloud Documentation

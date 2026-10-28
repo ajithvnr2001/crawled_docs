@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/billing-questions/
 title: Billing questions \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:10.693204+00:00
+fetched_at: 2026-10-28T09:52:50.158705+00:00
 ---
 
 # Billing questions  |  Resource Manager  |  Google Cloud Documentation

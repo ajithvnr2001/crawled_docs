@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-field-access-on-struct-parameters/
 title: Field access on a STRUCT \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:43.142216+00:00
+fetched_at: 2026-10-28T09:38:33.756439+00:00
 ---
 
 # Field access on a STRUCT  |  Spanner  |  Google Cloud Documentation
@@ -323,7 +323,7 @@ To authenticate to Spanner, set up Application Default Credentials. For more inf
     
     require "google/cloud/spanner"
     
-    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/activerecord-spanner-adapter/latest/Google-Cloud-Spanner.html).new project: project_id
+    spanner = Google::Cloud::[Spanner](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner-admin-instance-v1/latest/Google-Cloud-Spanner.html).new project: project_id
     client  = spanner.[client](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-spanner/latest/Google-Cloud-Spanner-Project.html) instance_id, database_id
     
     name_struct = { FirstName: "Elena", LastName: "Campbell" }

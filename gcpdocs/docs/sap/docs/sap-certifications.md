@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-certifications/
 title: SAP certifications for Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:31:29.945187+00:00
+fetched_at: 2026-10-28T11:10:24.224249+00:00
 ---
 
 # SAP certifications for Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation

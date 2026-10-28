@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/interpret-assessment-website/
 title: Interpret assessments for websites \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:02.605799+00:00
+fetched_at: 2026-10-28T09:52:41.074073+00:00
 ---
 
 # Interpret assessments for websites  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

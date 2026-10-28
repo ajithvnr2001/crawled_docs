@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/backup-recovery/pitr/
 title: Perform point-in-time recovery (PITR) \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:30.090236+00:00
+fetched_at: 2026-10-28T08:56:26.907845+00:00
 ---
 
 # Perform point-in-time recovery (PITR)  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -72,7 +72,7 @@ Replace the following:
     
     gcloud sql instances clone SOURCE_INSTANCE_NAME \
     NEW_INSTANCE_NAME \
-    --point-in-time &#39;TIMESTAMP'
+    --point-in-time 'TIMESTAMP'
 
 ### REST v1
 
@@ -264,7 +264,7 @@ To perform a PITR on an instance from the backup vault, you'll need to find the 
     
     gcloud sql instances point-in-time-restore DATA_SOURCE \
         TARGET_INSTANCE_NAME \
-        &#39;PITR_TIMESTAMP' \
+        'PITR_TIMESTAMP' \
         --project=TARGET_PROJECT \
         --region=REGION
     
@@ -715,7 +715,7 @@ To restore your deleted instance using a PITR, run the following command:
     
     gcloud sql instances clone SOURCE_INSTANCE_NAME \
     NEW_INSTANCE_NAME \
-    --point-in-time=&#39;PITR_TIMESTAMP' \
+    --point-in-time='PITR_TIMESTAMP' \
     --source-instance-deletion-time=SOURCE_INSTANCE_DELETION_TIMESTAMP
     
 
@@ -745,7 +745,7 @@ To restore your deleted instance using a PITR, run the following command:
     
     gcloud sql instances point-in-time-restore DATA_SOURCE \
         TARGET_INSTANCE_NAME \
-        &#39;PITR_TIMESTAMP' \
+        'PITR_TIMESTAMP' \
         --project=TARGET_PROJECT \
         --region=REGION
     
@@ -970,7 +970,7 @@ To get the earliest and latest time to which you can recover a Cloud SQL deleted
     
     
     gcloud sql instances get-latest-recovery-time INSTANCE_NAME \
-        --source-instance-deletion-time=&#39;SOURCE_INSTANCE_DELETION_TIMESTAMP'
+        --source-instance-deletion-time='SOURCE_INSTANCE_DELETION_TIMESTAMP'
     
 
 Replace the following:
@@ -1214,6 +1214,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

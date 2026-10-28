@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/export-logs-bigquery/
 title: Export logs to BigQuery \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:17.361998+00:00
+fetched_at: 2026-10-28T09:52:34.531268+00:00
 ---
 
 # Export logs to BigQuery  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

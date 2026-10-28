@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/release-schedule/
 title: GKE release schedule \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:09:45.183412+00:00
+fetched_at: 2026-10-28T08:21:33.693522+00:00
 ---
 
 # GKE release schedule  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -57,13 +57,12 @@ The following table describes the schedule for clusters enrolled in a [release c
 Minor version ([release date](https://kubernetes.io/releases/)) | Rapid | Regular | Stable | Extended | End of standard support (formerly _end of life_)3 | End of extended support3  
 ---|---|---|---|---|---|---  
 Available1 | Auto Upgrade2 | Available1 | Auto Upgrade2 | Available1 | Auto Upgrade2 | Available1 | Auto Upgrade2  
-1.30 | 2024-04-30 | 2024-07-30 | 2024-07-30 | 2024-09-17 | 2024-08-13 | 2024-09-24 | 2024-07-30 | 2025-12-03 | 2025-09-30 | 2026-07-30  
 1.31 | 2024-08-20 | 2024-09-17 | 2024-10-22 | 2025-03-11 | 2025-01-28 | 2025-04-30 | 2024-10-22 | 2026-06-09 | 2026-01-16 | 2026-10-22  
 1.32 | 2024-12-17 | 2025-03-11 | 2025-02-11 | 2025-05-13 | 2025-03-04 | 2025-07-22 | 2025-02-11 | 2026-08-25 | 2026-04-27 | 2027-02-11  
 1.33 | 2025-05-07 | 2025-06-10 | 2025-06-04 | 2025-09-09 | 2025-07-22 | 2025-10-14 | 2025-06-04 | _2026-12_4 | 2026-08-12 | 2027-06-12  
 1.34 | 2025-09-02 | 2025-10-28 | 2025-11-26 | 2026-03-10 | 2026-02-18 | 2026-06-09 | 2025-12-03 | _2027-Q2_4 | 2027-01-25 | 2027-11-25  
 1.35 | 2025-12-24 | 2026-02-11 | 2026-02-11 | 2026-04-28 | 2026-04-07 | 2026-09-15 | 2026-02-11 | _2027-Q3_4 | 2027-04-11 | 2028-02-11  
-1.36 | 2026-04-28 | 2026-06-19 | 2026-06-09 | _2026-11_4 | 2026-10-27 | _2027-01_4 | 2026-06-09 | _2027-Q4_4 | 2027-08-09 | 2028-06-09  
+1.36 | 2026-04-28 | 2026-06-19 | 2026-06-09 | _2026-11-11_5 | 2026-10-27 | _2027-01_4 | 2026-06-09 | _2027-Q4_4 | 2027-08-09 | 2028-06-09  
 1.37 | 2026-09-02 | _2026-10-28_5 | 2026-10-22 | _2027-01_4 | _2027-01_4 | _2027-Q1_4 | 2026-10-22 | _2028-Q2_4 | 2027-12-22 | 2028-10-22  
 **Caution:** GKE version 1.29 and earlier have reached [end of support](https://docs.cloud.google.com/kubernetes-engine/versioning#lifecycle) and are no longer supported.
 
@@ -115,6 +114,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

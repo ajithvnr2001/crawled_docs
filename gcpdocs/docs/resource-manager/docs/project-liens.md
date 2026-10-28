@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/project-liens/
 title: Protect projects with liens \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:25.364873+00:00
+fetched_at: 2026-10-28T09:52:54.636465+00:00
 ---
 
 # Protect projects with liens  |  Resource Manager  |  Google Cloud Documentation

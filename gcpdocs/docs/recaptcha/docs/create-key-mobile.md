@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/create-key-mobile/
 title: Create reCAPTCHA keys for mobile applications \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:18.429645+00:00
+fetched_at: 2026-10-28T09:52:35.899919+00:00
 ---
 
 # Create reCAPTCHA keys for mobile applications  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

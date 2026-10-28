@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/full-text-search/tokenization/
 title: Tokenization \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:26.150865+00:00
+fetched_at: 2026-10-28T11:09:30.500410+00:00
 ---
 
 # Tokenization  |  Spanner  |  Google Cloud Documentation

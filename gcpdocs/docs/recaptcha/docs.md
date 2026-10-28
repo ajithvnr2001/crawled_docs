@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/
 title: Google Cloud Fraud Defense documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:30.267669+00:00
+fetched_at: 2026-10-28T09:52:59.880357+00:00
 ---
 
 # Google Cloud Fraud Defense documentation  |  Google Cloud Documentation

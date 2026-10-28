@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/whatis-activeassist/
 title: What is Active Assist \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:12.086519+00:00
+fetched_at: 2026-10-28T09:52:42.295915+00:00
 ---
 
 # What is Active Assist  |  Recommender  |  Google Cloud Documentation

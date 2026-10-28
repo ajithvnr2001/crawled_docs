@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-imports-hbase/
 title: Import modules (HBase) \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:22.057595+00:00
+fetched_at: 2026-10-28T10:56:32.906027+00:00
 ---
 
 # Import modules (HBase)  |  Bigtable  |  Google Cloud Documentation

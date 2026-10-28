@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/diagnose-issues/
 title: Diagnose issues \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:10.066261+00:00
+fetched_at: 2026-10-28T09:19:55.280113+00:00
 ---
 
 # Diagnose issues  |  Datastream  |  Google Cloud Documentation
@@ -21,17 +21,9 @@ Send feedback
 
 #  Diagnose issues Stay organized with collections  Save and categorize content based on your preferences. 
 
-The stream might incur errors during runtime.
+When a stream encounters a runtime error in Datastream, you can view details on the **Streams** or **Stream details** page in the Google Cloud console. You can also retrieve diagnostic information using the Datastream API. Some issues, such as an invalid password, are recoverable, and replication resumes automatically after you fix them. Other errors affect a single object, such as an unsupported data type, or stop the stream when Datastream can't connect to the source.
 
-  * Some errors, such as a bad password on the source database, are recoverable, meaning they can be fixed and the stream resumes automatically.
-  * Errors may impact a single object, such as an event containing unsupported data types. Other errors may impact several objects or the entire stream, such as when Datastream can't connect to the source database.
-  * Depending on the error, information is provided in the **Streams** or **Stream details** pages of the Datastream UI. You can also use Datastream's APIs to retrieve information about the error.
-
-
-
-To troubleshoot an error, navigate to the stream to view the error, and follow the steps outlined in the error message.
-
-This page contains information about configuration, connectivity, Oracle, and MySQL errors, along with steps for troubleshooting the errors.
+To troubleshoot an issue, check the error message and follow the steps for configuration, connectivity, source, or BigQuery destination errors.
 
 ## Configuration and connectivity errors
 
@@ -280,6 +272,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts/
 title: Essential Contacts overview \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:28.041102+00:00
+fetched_at: 2026-10-28T09:52:36.733630+00:00
 ---
 
 # Essential Contacts overview  |  Resource Manager  |  Google Cloud Documentation

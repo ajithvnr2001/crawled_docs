@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/project-suspension-guidelines/
 title: Project suspension guidelines \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:24.487405+00:00
+fetched_at: 2026-10-28T09:52:35.314412+00:00
 ---
 
 # Project suspension guidelines  |  Resource Manager  |  Google Cloud Documentation

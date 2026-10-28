@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-static-outbound-parent-tag/
 title: Configure a Cloud Run service with a static IP address \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:58:30.002618+00:00
+fetched_at: 2026-10-28T09:52:15.462259+00:00
 ---
 
 # Configure a Cloud Run service with a static IP address  |  Google Cloud Documentation

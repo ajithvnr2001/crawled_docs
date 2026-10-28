@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-reidentify-fpe/
 title: Re-identify content encrypted by FPE \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:56.959129+00:00
+fetched_at: 2026-10-28T09:47:28.701269+00:00
 ---
 
 # Re-identify content encrypted by FPE  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -64,14 +64,14 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
             var infotype = surrogateType ?? new [InfoType](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InfoType.html) { Name = "SSN_TOKEN" };
     
             // Specify how to un-encrypt the previously de-identified information.
-            var cryptoReplaceFfxFpeCon[fig](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.CryptoReplaceFfxFpeConfig.html) = new CryptoReplaceFfxFpeConfig
+            var cryptoReplaceFfxFpeConfig = new [CryptoReplaceFfxFpeConfig](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.CryptoReplaceFfxFpeConfig.html)
             {
-                Crypto[Key](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.CryptoKey.html) = new CryptoKey
+                CryptoKey = new [CryptoKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.CryptoKey.html)
                 {
-                    KmsWrap[ped](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.KmsWrappedCryptoKey.html) = new KmsWrappedCryptoKey
+                    KmsWrapped = new [KmsWrappedCryptoKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.KmsWrappedCryptoKey.html)
                     {
                         CryptoKeyName = keyName,
-                        Wra[ppedKey](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html) = B[yteString](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html#Google_Protobuf_ByteString_FromBase64_System_String_).FromBase64(wrappedKey)
+                        WrappedKey = [ByteString](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html).[FromBase64](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.ByteString.html#Google_Protobuf_ByteString_FromBase64_System_String_)(wrappedKey)
                     }
                 },
                 CommonAlphabet = alphabet,
@@ -79,15 +79,15 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
             };
     
             // Construct reidentify config using above created crypto replace config.
-            var reidentifyCon[fig](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DeidentifyConfig.html) = new DeidentifyConfig
+            var reidentifyConfig = new [DeidentifyConfig](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.DeidentifyConfig.html)
             {
-                InfoTypeTransformati[ons](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InfoTypeTransformations.html) = new InfoTypeTransformations
+                InfoTypeTransformations = new [InfoTypeTransformations](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InfoTypeTransformations.html)
                 {
                     Transformations =
                     {
                         new InfoTypeTransformations.Types.InfoTypeTransformation
                         {
-                            PrimitiveTransformat[ion](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.PrimitiveTransformation.html) = new PrimitiveTransformation
+                            PrimitiveTransformation = new [PrimitiveTransformation](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.PrimitiveTransformation.html)
                             {
                                 CryptoReplaceFfxFpeConfig = cryptoReplaceFfxFpeConfig,
                             },
@@ -98,11 +98,11 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
             };
     
             // Construct the inspect config.
-            var inspectCon[fig](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InspectConfig.html) = new InspectConfig
+            var inspectConfig = new [InspectConfig](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.InspectConfig.html)
             {
                 CustomInfoTypes =
                 {
-              [      ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.CustomInfoType.html)new CustomInfoType
+                    new [CustomInfoType](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.CustomInfoType.html)
                     {
                         InfoType = infotype,
                         SurrogateType = new CustomInfoType.Types.SurrogateType()
@@ -111,19 +111,19 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
             };
     
             // Construct the request.
-            var requ[est](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.ReidentifyContentRequest.html) = new ReidentifyContentRequest
+            var request = new [ReidentifyContentRequest](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.ReidentifyContentRequest.html)
             {
-                ParentAsLocationN[ame](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.ResourceNames.LocationName.html) = new LocationName(projectId, "global"),
+                ParentAsLocationName = new [LocationName](https://docs.cloud.google.com/dotnet/docs/reference/Google.Api.Gax/latest/Google.Api.Gax.ResourceNames.LocationName.html)(projectId, "global"),
                 InspectConfig = inspectConfig,
                 ReidentifyConfig = reidentifyConfig,
-       [         ](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.ContentItem.html)Item = new ContentItem { Value = text },
+                Item = new [ContentItem](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.ContentItem.html) { Value = text },
             };
     
             // Call the API.
             var response = dlp.ReidentifyContent(request);
     
             // Inspect the response.
-            Console.WriteLine($"Reidentified[ cont](https://docs.cloud.google.com/dotnet/docs/reference/Google.Protobuf/latest/Google.Protobuf.WellKnownTypes.Value.html)ent: {response.Item.Value}");
+            Console.WriteLine($"Reidentified content: {response.Item.[Value](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Dlp.V2/latest/Google.Cloud.Dlp.V2.Value.html)}");
     
             return response;
         }
@@ -156,77 +156,77 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     	// projectID := "my-project-id"
     	// input := "My SSN is 123456789"
     	// keyFileName := "projects/YOUR_GCLOUD_PROJECT/locations/YOUR_LOCATION/keyRings/YOUR_KEYRING_NAME/cryptoKeys/YOUR_KEY_NAME"
-    	// cryptoKeyName := "YOUR_ENCRYPTE[D_AES_256](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_NewClient)_KEY"
+    	// cryptoKeyName := "YOUR_ENCRYPTED_AES_256_KEY"
     	// surrogateInfoType := "AGE"
     	ctx := context.Background()
-    	clie[nt](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_Close), err := dlp.NewClient(ctx)
+    	client, err := dlp.[NewClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_NewClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("dlp.NewClient: %w", err)
     	}
-    	defer client.Close()
+    	defer client.[Close](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2.html#cloud_google_com_go_dlp_apiv2_Client_Close)()
     
     	// Specify an encrypted AES-256 key and the name of the Cloud KMS key that encrypted it.
     	kmsWrappedCryptoKey, err := base64.StdEncoding.DecodeString(wrappedAesKey)
     	if err != nil {
-    		fmt.Fprintf(w, &"error %v", err)
-    &		return err
+    		fmt.Fprintf(w, "error %v", err)
+    		return err
     	}
     
-    	// Specify the crypto key& configuration that will used for encryption.
-    	cryptoKey := dlppb.CryptoKey{
-    		Source: dlppb.CryptoKey_KmsWrapped{
-    			KmsWrapped: dlppb.KmsWrappedCryptoKe&y{
+    	// Specify the crypto key configuration that will used for encryption.
+    	cryptoKey := &dlppb.CryptoKey{
+    		Source: &dlppb.CryptoKey_KmsWrapped{
+    			KmsWrapped: &dlppb.KmsWrappedCryptoKey{
     				WrappedKey:    kmsWrappedCryptoKey,
     				CryptoKeyName: kmsKeyName,
     			},
     		},
     	}
     
-    	// Create a configured reque&st.
-    	req := dlppb.ReidentifyContentRequest{&
+    	// Create a configured request.
+    	req := &dlppb.ReidentifyContentRequest{
     		Parent: fmt.Sprintf("projects/%s/locations/global", projectID),
-    &		ReidentifyConfig: dlppb.DeidentifyConfig{
-    			Transformation: dlppb.DeidentifyConfig_InfoTypeTransformations{
-    				InfoTypeTransformations: dlppb.InfoTypeTransformations{
-    					Transformatio&ns: []*dlppb.InfoTypeTransformations_InfoTypeTransforma&tion{
+    		ReidentifyConfig: &dlppb.DeidentifyConfig{
+    			Transformation: &dlppb.DeidentifyConfig_InfoTypeTransformations{
+    				InfoTypeTransformations: &dlppb.InfoTypeTransformations{
+    					Transformations: []*dlppb.InfoTypeTransformations_InfoTypeTransformation{
     						{
     							InfoTypes: []*dlppb.InfoType{},
-    							PrimitiveTransformation: dlppb.Pr&imitiveTransformation{
-    								Transformation: dlppb.PrimitiveTransformation_CryptoReplaceFfxFpeConfig{
-    									CryptoReplaceFfxFpeConfig: dlppb.&CryptoReplaceFfxFpeConfig{
+    							PrimitiveTransformation: &dlppb.PrimitiveTransformation{
+    								Transformation: &dlppb.PrimitiveTransformation_CryptoReplaceFfxFpeConfig{
+    									CryptoReplaceFfxFpeConfig: &dlppb.CryptoReplaceFfxFpeConfig{
     										CryptoKey: cryptoKey,
-    										// Set the a[lphabet used for the encrypted fields.<](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2/dlppb.html#cloud_google_com_go_dlp_apiv2_dlppb_CryptoReplaceFfxFpeConfig_FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED_CryptoReplaceFfxFpeConfig_NUMERIC_CryptoReplaceFfxFpeConfig_HEXADECIMAL_CryptoReplaceFfxFpeConfig_UPPER_CASE_ALPHA_NUMERIC_CryptoReplaceFfxFpeConfig_ALPHA_NUMERIC)/span>
-    										Alphabet: dlppb.CryptoReplaceFfxFpeConfig_CommonAlphabet{
-    											CommonAlphabet: dlppb.CryptoReplaceF&fxFpeConfig_ALPHA_NUMERIC,
+    										// Set the alphabet used for the encrypted fields.
+    										Alphabet: &dlppb.CryptoReplaceFfxFpeConfig_CommonAlphabet{
+    											CommonAlphabet: dlppb.[CryptoReplaceFfxFpeConfig_ALPHA_NUMERIC](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/dlp/latest/apiv2/dlppb.html#cloud_google_com_go_dlp_apiv2_dlppb_CryptoReplaceFfxFpeConfig_FFX_COMMON_NATIVE_ALPHABET_UNSPECIFIED_CryptoReplaceFfxFpeConfig_NUMERIC_CryptoReplaceFfxFpeConfig_HEXADECIMAL_CryptoReplaceFfxFpeConfig_UPPER_CASE_ALPHA_NUMERIC_CryptoReplaceFfxFpeConfig_ALPHA_NUMERIC),
     										},
     										// Set the surrogate info type used during deidentification.
-    										SurrogateInfoType: dlppb.InfoType{
+    										SurrogateInfoType: &dlppb.InfoType{
     											Name: surrogateInfoType,
     										},
     									},
-    								}&,
+    								},
     							},
     						},
     					},
     				},
     			},
     		},
-    		// The InspectConfig must identify the& surrogate info type to reidentify.
-    		InspectConfig: dlppb.Inspect&Config{
+    		// The InspectConfig must identify the surrogate info type to reidentify.
+    		InspectConfig: &dlppb.InspectConfig{
     			CustomInfoTypes: []*dlppb.CustomInfoType{
-    				{&
-    					InfoType: dlppb.InfoType{
+    				{
+    					InfoType: &dlppb.InfoType{
     						Name: surrogateInfoType,
     					},
-    					Type: dlppb.CustomInfo&Type_SurrogateType_{
-    						Surro&gateType: dlppb.CustomInfoType_SurrogateType{},
+    					Type: &dlppb.CustomInfoType_SurrogateType_{
+    						SurrogateType: &dlppb.CustomInfoType_SurrogateType{},
     					},
     				},
     			},
     		},
     		// The item to analyze.
-    		Item: dlppb.ContentItem{
-    			DataItem: dlppb.ContentItem_Value{
+    		Item: &dlppb.ContentItem{
+    			DataItem: &dlppb.ContentItem_Value{
     				Value: input,
     			},
     		},
@@ -290,69 +290,69 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
           throws IOException {
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
-        // the "close" metho[d on the client ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html)to safe[ly clean up any ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html)remaining background resources.
-        try (DlpServiceClient dlp = DlpServiceClient.crea[te](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ContentItem.html)()) {
-          // Specify w[hat content](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ContentItem.html) you want the service to re-identify
-          ContentItem contentItem = ContentItem.newBuilder().setValue(textToReIdentify).build();
+        // the "close" method on the client to safely clean up any remaining background resources.
+        try ([DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html) dlp = [DlpServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.cloud.dlp.v2.DlpServiceClient.html).create()) {
+          // Specify what content you want the service to re-identify
+          [ContentItem](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ContentItem.html) contentItem = [ContentItem](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ContentItem.html).newBuilder().setValue(textToReIdentify).build();
     
           // Specify the type of info the inspection will re-identify. This must use the same custom
-         [ ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoType.html)// into type that was used a[s a surr](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoType.html)ogate during the initial encryption.
-          InfoType[ surrogateInfo](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CustomInfoType.html)Type = InfoType.newBuilder()[.](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CustomInfoType.html)setName(";SSN_TOKEN").build();
+          // into type that was used as a surrogate during the initial encryption.
+          [InfoType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoType.html) surrogateInfoType = [InfoType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoType.html).newBuilder().setName("SSN_TOKEN").build();
     
-          CustomInfoType customInfoType =
-             [ ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CustomInfoType.Builder.html#com_google_privacy_dlp_v2_CustomInfoType_Builder_setSurrogateType_com_google_privacy_dlp_v2_CustomInfoType_SurrogateType_)CustomInfoType.n[ewBuilder](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CustomInfoType.SurrogateType.html)()
+          [CustomInfoType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CustomInfoType.html) customInfoType =
+              [CustomInfoType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CustomInfoType.html).newBuilder()
                   .setInfoType(surrogateInfoType)
-            [      ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html).setSurrogateType(SurrogateType.ge[tDefaultInsta](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html)nce())
-           [       ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.Builder.html#com_google_privacy_dlp_v2_InspectConfig_Builder_addCustomInfoTypes_com_google_privacy_dlp_v2_CustomInfoType_).build();
-          InspectConfig inspectConfig =
-              InspectConfig.newBuilder().addCustomInfoTypes(customInfoType).build();
-    
-          // S[pecify an encrypted](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.KmsWrappedCryptoKey.html) AES-256 key and the name of the [Cloud KMS key that ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.KmsWrappedCryptoKey.html)encrypted it
-          KmsWrapped[CryptoKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.KmsWrappedCryptoKey.Builder.html#com_google_privacy_dlp_v2_KmsWrappedCryptoKey_Builder_setWrappedKey_com_google_protobuf_ByteString_) kmsW[rappedCryp](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html)t[oKey](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___) =
-              KmsWrappedCryptoKey.newBuilder()
-                  .setWr[appedKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.KmsWrappedCryptoKey.Builder.html#com_google_privacy_dlp_v2_KmsWrappedCryptoKey_Builder_setCryptoKeyName_java_lang_String_)(ByteString.copyFrom(BaseEncoding.base64().decode(w[rappedAes](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoKey.html)Key)))
-          [        ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoKey.html).setCryptoKeyNa[me](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoKey.Builder.html#com_google_privacy_dlp_v2_CryptoKey_Builder_setKmsWrapped_com_google_privacy_dlp_v2_KmsWrappedCryptoKey_)(kmsKeyName)
+                  .[setSurrogateType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CustomInfoType.Builder.html#com_google_privacy_dlp_v2_CustomInfoType_Builder_setSurrogateType_com_google_privacy_dlp_v2_CustomInfoType_SurrogateType_)([SurrogateType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CustomInfoType.SurrogateType.html).getDefaultInstance())
                   .build();
-          CryptoKey cryptoKey = CryptoKey.newBuilder().setKmsWrapped(kmsWrappedCryptoKey).bu[ild](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.html)();
+          [InspectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html) inspectConfig =
+              [InspectConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.html).newBuilder().[addCustomInfoTypes](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InspectConfig.Builder.html#com_google_privacy_dlp_v2_InspectConfig_Builder_addCustomInfoTypes_com_google_privacy_dlp_v2_CustomInfoType_)(customInfoType).build();
     
-          // Specify how to un-encrypt the previously de-ide[ntified information](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.html)
-          CryptoReplaceFfxFpeConfig cryptoReplaceFfxFpeConfig =
-              CryptoReplaceFfxFpeConfig.newBuilder()
+          // Specify an encrypted AES-256 key and the name of the Cloud KMS key that encrypted it
+          [KmsWrappedCryptoKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.KmsWrappedCryptoKey.html) kmsWrappedCryptoKey =
+              [KmsWrappedCryptoKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.KmsWrappedCryptoKey.html).newBuilder()
+                  .[setWrappedKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.KmsWrappedCryptoKey.Builder.html#com_google_privacy_dlp_v2_KmsWrappedCryptoKey_Builder_setWrappedKey_com_google_protobuf_ByteString_)([ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html).[copyFrom](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html#com_google_protobuf_ByteString_copyFrom_byte___)(BaseEncoding.base64().decode(wrappedAesKey)))
+                  .[setCryptoKeyName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.KmsWrappedCryptoKey.Builder.html#com_google_privacy_dlp_v2_KmsWrappedCryptoKey_Builder_setCryptoKeyName_java_lang_String_)(kmsKeyName)
+                  .build();
+          [CryptoKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoKey.html) cryptoKey = [CryptoKey](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoKey.html).newBuilder().[setKmsWrapped](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoKey.Builder.html#com_google_privacy_dlp_v2_CryptoKey_Builder_setKmsWrapped_com_google_privacy_dlp_v2_KmsWrappedCryptoKey_)(kmsWrappedCryptoKey).build();
+    
+          // Specify how to un-encrypt the previously de-identified information
+          [CryptoReplaceFfxFpeConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.html) cryptoReplaceFfxFpeConfig =
+              [CryptoReplaceFfxFpeConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.html).newBuilder()
                   .setCryptoKey(cryptoKey)
                   // Set of characters in the input text. For more info, see
-                  // https://cloud.google.com/dlp/docs/reference/rest/v2/or[ganizations.deide](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.Builder.html#com_google_privacy_dlp_v2_CryptoReplaceFfxFpeConfig_Builder_setCommonAlphabet_com_google_privacy_dlp_v2_CryptoReplaceFfxFpeConfig_FfxCommonNativeAlphabet_)n[tifyTemplates#Deidentif](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.FfxCommonNativeAlphabet.html)yTemplate.FfxCommonNativeAlphabet
-                  .setCommonAlphabet(FfxCommonNativeAlphabet.NUME[RIC](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.PrimitiveTransformation.html))
+                  // https://cloud.google.com/dlp/docs/reference/rest/v2/organizations.deidentifyTemplates#DeidentifyTemplate.FfxCommonNativeAlphabet
+                  .[setCommonAlphabet](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.Builder.html#com_google_privacy_dlp_v2_CryptoReplaceFfxFpeConfig_Builder_setCommonAlphabet_com_google_privacy_dlp_v2_CryptoReplaceFfxFpeConfig_FfxCommonNativeAlphabet_)([FfxCommonNativeAlphabet](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.CryptoReplaceFfxFpeConfig.FfxCommonNativeAlphabet.html).NUMERIC)
                   .setSurrogateInfoType(surrogateInfoType)
-    [              .build();](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.PrimitiveTransformation.html)
-          PrimitiveTransformatio[n](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.PrimitiveTransformation.Builder.html#com_google_privacy_dlp_v2_PrimitiveTransformation_Builder_setCryptoReplaceFfxFpeConfig_com_google_privacy_dlp_v2_CryptoReplaceFfxFpeConfig_) primitiveTransformation =
-              PrimitiveTransformation.newBuilder()
-               [   ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformation.html).setCryptoReplaceFfxFpeConfig(cryptoReplaceFfxFpeConfig[)
-                  .build](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformation.html)();
-          InfoTypeTransformation infoTypeTransformation =
-              InfoTypeTransformation.newBuilder()
-                  .setPrimitiveTransformation(primitiveTra[nsformation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoTypeTransformations.html))
-                  .addInfoTypes(surrogateIn[foType](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoTypeTransformations.html))
                   .build();
-         [ ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoTypeTransformations.Builder.html#com_google_privacy_dlp_v2_InfoTypeTransformations_Builder_addTransformations_com_google_privacy_dlp_v2_InfoTypeTransformations_InfoTypeTransformation_)InfoTypeTransformations transformations =
-              InfoTy[peTransformation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.DeidentifyConfig.html)s.newBuilder().addTransformati[ons](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.DeidentifyConfig.html)(infoTypeTransformation).build();
+          [PrimitiveTransformation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.PrimitiveTransformation.html) primitiveTransformation =
+              [PrimitiveTransformation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.PrimitiveTransformation.html).newBuilder()
+                  .[setCryptoReplaceFfxFpeConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.PrimitiveTransformation.Builder.html#com_google_privacy_dlp_v2_PrimitiveTransformation_Builder_setCryptoReplaceFfxFpeConfig_com_google_privacy_dlp_v2_CryptoReplaceFfxFpeConfig_)(cryptoReplaceFfxFpeConfig)
+                  .build();
+          [InfoTypeTransformation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformation.html) infoTypeTransformation =
+              [InfoTypeTransformation](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoTypeTransformations.InfoTypeTransformation.html).newBuilder()
+                  .setPrimitiveTransformation(primitiveTransformation)
+                  .addInfoTypes(surrogateInfoType)
+                  .build();
+          [InfoTypeTransformations](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoTypeTransformations.html) transformations =
+              [InfoTypeTransformations](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoTypeTransformations.html).newBuilder().[addTransformations](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.InfoTypeTransformations.Builder.html#com_google_privacy_dlp_v2_InfoTypeTransformations_Builder_addTransformations_com_google_privacy_dlp_v2_InfoTypeTransformations_InfoTypeTransformation_)(infoTypeTransformation).build();
     
-          DeidentifyConfig reidentifyConfig =
-              DeidentifyConfig.newBuilder().setInfoTypeTransformations(transfo[rmations](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ReidentifyContentRequest.html)).build();
+          [DeidentifyConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.DeidentifyConfig.html) reidentifyConfig =
+              [DeidentifyConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.DeidentifyConfig.html).newBuilder().setInfoTypeTransformations(transformations).build();
     
-          // Combine configur[ations into a request fo](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ReidentifyContentRequest.html)r the service.
-          ReidentifyContentR[equest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.LocationName.html) request =
-              ReidentifyContentRequest.newBuilder()
-                  .setParent(LocationName.of(projectId, "global").toString()[)](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ReidentifyContentRequest.Builder.html#com_google_privacy_dlp_v2_ReidentifyContentRequest_Builder_setReidentifyConfig_com_google_privacy_dlp_v2_DeidentifyConfig_)
+          // Combine configurations into a request for the service.
+          [ReidentifyContentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ReidentifyContentRequest.html) request =
+              [ReidentifyContentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ReidentifyContentRequest.html).newBuilder()
+                  .setParent([LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.LocationName.html).of(projectId, "global").toString())
                   .setItem(contentItem)
                   .setInspectConfig(inspectConfig)
-                  .setReidentifyConfig(reidentifyCon[fig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ReidentifyContentResponse.html))
+                  .[setReidentifyConfig](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ReidentifyContentRequest.Builder.html#com_google_privacy_dlp_v2_ReidentifyContentRequest_Builder_setReidentifyConfig_com_google_privacy_dlp_v2_DeidentifyConfig_)(reidentifyConfig)
                   .build();
     
           // Send the request and receive response from the service
-          ReidentifyContentResponse response = dlp.reidentifyContent(request[);
+          [ReidentifyContentResponse](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ReidentifyContentResponse.html) response = dlp.reidentifyContent(request);
     
-       ](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ReidentifyContentResponse.html#com_google_privacy_dlp_v2_ReidentifyContentResponse_getItem__)   // Print the results
-          System.out.println("Text after re-identification: " + response.getItem().getValue());
+          // Print the results
+          System.out.println("Text after re-identification: " + response.[getItem](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.ReidentifyContentResponse.html#com_google_privacy_dlp_v2_ReidentifyContentResponse_getItem__)().getValue());
         }
       }
     }
@@ -365,10 +365,10 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
     
     // Imports the Google Cloud Data Loss Prevention library
-    const DLP = require(&[#39;@google-cloud](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)/dlp');
+    const DLP = require('[@google-cloud/dlp](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)');
     
     // Instantiates a client
-    const dlp = [new DLP.DlpServi](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)ceClient();
+    const dlp = new DLP.[DlpServiceClient](https://docs.cloud.google.com/nodejs/docs/reference/dlp/latest/overview.html)();
     
     // The project ID to run the API call under
     // const projectId = 'my-project';
@@ -490,60 +490,60 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
         // Create the wrapped crypto key configuration object
         $kmsWrappedCryptoKey = (new KmsWrappedCryptoKey())
-     >       -setWrappedKey(base64_decode($wrappedKey))
-     >       -setCryptoKeyName($keyName);
+            ->setWrappedKey(base64_decode($wrappedKey))
+            ->setCryptoKeyName($keyName);
     
         // Create the crypto key configuration object
         $cryptoKey = (new CryptoKey())
-     >       -setKmsWrapped($kmsWrappedCryptoKey);
+            ->setKmsWrapped($kmsWrappedCryptoKey);
     
         // Create the surrogate type object
         $surrogateType = (new InfoType())
-     >       -setName($surrogateTypeName);
+            ->setName($surrogateTypeName);
     
         $customInfoType = (new CustomInfoType())
-     >       -setInfoType($surrogateType)
-     >       -setSurrogateType(new SurrogateType());
+            ->setInfoType($surrogateType)
+            ->setSurrogateType(new SurrogateType());
     
         // Create the crypto FFX FPE configuration object
         $cryptoReplaceFfxFpeConfig = (new CryptoReplaceFfxFpeConfig())
-     >       -setCryptoKey($cryptoKey)
-     >       -setCommonAlphabet($commonAlphabet)
-     >       -setSurrogateInfoType($surrogateType);
+            ->setCryptoKey($cryptoKey)
+            ->setCommonAlphabet($commonAlphabet)
+            ->setSurrogateInfoType($surrogateType);
     
         // Create the information transform configuration objects
         $primitiveTransformation = (new PrimitiveTransformation())
-     >       -setCryptoReplaceFfxFpeConfig($cryptoReplaceFfxFpeConfig);
+            ->setCryptoReplaceFfxFpeConfig($cryptoReplaceFfxFpeConfig);
     
         $infoTypeTransformation = (new InfoTypeTransformation())
-     >       -setPrimitiveTransformation($primitiveTransformation);
+            ->setPrimitiveTransformation($primitiveTransformation);
     
         $infoTypeTransformations = (new InfoTypeTransformations())
-     >       -setTransformations([$infoTypeTransformation]);
+            ->setTransformations([$infoTypeTransformation]);
     
         // Create the inspect configuration object
         $inspectConfig = (new InspectConfig())
-     >       -setCustomInfoTypes([$customInfoType]);
+            ->setCustomInfoTypes([$customInfoType]);
     
         // Create the reidentification configuration object
         $reidentifyConfig = (new DeidentifyConfig())
-     >       -setInfoTypeTransformations($infoTypeTransformations);
+            ->setInfoTypeTransformations($infoTypeTransformations);
     
         $item = (new ContentItem())
-     >       -setValue($string);
+            ->setValue($string);
     
         $parent = "projects/$callingProjectId/locations/global";
     
         // Run request
-        $reidentifyContentRequest = (new ReidentifyContentRe>quest())
-            -setParent(>$parent)
-            -setReidentifyConfig($reidentif>yConfig)
-            -setInspectConfig($inspec>tConfig)
-            -setItem($item);
-       > $response = $dlp-reidentifyContent($reidentifyContentRequest);
+        $reidentifyContentRequest = (new ReidentifyContentRequest())
+            ->setParent($parent)
+            ->setReidentifyConfig($reidentifyConfig)
+            ->setInspectConfig($inspectConfig)
+            ->setItem($item);
+        $response = $dlp->reidentifyContent($reidentifyContentRequest);
     
         // Print the results
-        $reidentified>Value = $r>esponse-getItem()-getValue();
+        $reidentifiedValue = $response->getItem()->getValue();
         print($reidentifiedValue);
     }
 
@@ -585,10 +585,10 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
                 should be encrypted using the Cloud KMS key specified by key_name.
         Returns:
             None; the response from the API is printed to the terminal.
-        ""&quo[t;an>
+        """
     
-       ](https://docs.cloud.google.com/python/docs/reference/dlp/latest)[ # Instantiate a](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html) client
-        dlp = google.cloud.dlp_v2.DlpServiceClient()
+        # Instantiate a client
+        dlp = google.cloud.[dlp_v2](https://docs.cloud.google.com/python/docs/reference/dlp/latest).[DlpServiceClient](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html)()
     
         # Convert the project id into a full resource id.
         parent = f"projects/{project}/locations/global"
@@ -621,7 +621,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
     
         inspect_config = {
             "custom_info_types": [
-           [     {"info_t](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html#google_cloud_dlp_v2_services_dlp_service_DlpServiceClient_reidentify_content)ype": {"name": surrogate_type}, "surrogate_type": {}}
+                {"info_type": {"name": surrogate_type}, "surrogate_type": {}}
             ]
         }
     
@@ -629,7 +629,7 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
         item = {"value": input_str}
     
         # Call the API
-        response = dlp.reidentify_content(
+        response = dlp.[reidentify_content](https://docs.cloud.google.com/python/docs/reference/dlp/latest/google.cloud.dlp_v2.services.dlp_service.DlpServiceClient.html#google_cloud_dlp_v2_services_dlp_service_DlpServiceClient_reidentify_content)(
             request={
                 "parent": parent,
                 "reidentify_config": reidentify_config,

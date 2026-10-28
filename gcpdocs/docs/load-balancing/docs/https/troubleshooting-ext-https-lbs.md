@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/troubleshooting-ext-https-lbs/
 title: Troubleshoot issues with external Application Load Balancers \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:16.772039+00:00
+fetched_at: 2026-10-28T09:19:54.578757+00:00
 ---
 
 # Troubleshoot issues with external Application Load Balancers  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -207,6 +207,23 @@ After you verify that the VM uses the HTTP/2 protocol, make sure your firewall s
 
 If there are no problems with the firewall setup, ensure that the load balancer is configured to talk to the correct port on the VM.
 
+## Troubleshoot connection drops for clients operating behind a carrier-grade NAT
+
+When a client connects to an external Application Load Balancer through an intermediate stateful device, such as a carrier-grade NAT (CGNAT), the CGNAT tracks each active TCP connection in a state table. Many CGNATs enforce a short idle timeout—shorter than both the load balancer's [client HTTP keepalive timeout](https://docs.cloud.google.com/load-balancing/docs/https/request-distribution#http-keepalive-timeout) (610 seconds by default) and the idle connection timeout in the client's HTTP connection pool.
+
+If a connection stays idle longer than the CGNAT's idle timeout, the CGNAT silently removes the connection entry from its state table without sending a TCP `FIN` or `RST` packet to either endpoint. Because both the client and the load balancer still consider the connection open, the next HTTP request that the client sends over that connection is dropped or rejected by the CGNAT, causing the request to fail.
+
+To prevent silent connection drops for clients operating behind CGNATs or other stateful devices, do one of the following:
+
+  * Reduce the idle connection timeout in your HTTP client's connection pool to a value shorter than both the CGNAT idle timeout and the load balancer's client HTTP keepalive timeout so that the client closes idle connections gracefully before the NAT state expires.
+
+  * Configure application-level keepalives (such as periodic HTTP/2 `PING` frames) at an interval shorter than the CGNAT idle timeout (but at least 30 seconds between `PING` frames on idle connections to avoid rate limiting). While HTTP/2 `PING` frames don't reset the load balancer's client HTTP keepalive timeout when no streams are active, they keep the intermediary NAT mapping active so that the connection remains valid or can close gracefully.
+
+  * Reduce the client-side operating system TCP keepalive interval (for example, `net.ipv4.tcp_keepalive_time` on Linux) to a value shorter than the CGNAT idle timeout so that periodic outbound TCP probes prevent the NAT mapping from timing out. Note that TCP keepalive probes are processed at the transport layer and don't reset the load balancer's client HTTP keepalive timeout.
+
+
+
+
 ## Troubleshoot gRPC issues
 
 If you are using bidirectional gRPC streaming and the client connects to a global external Application Load Balancer, the backend server might hang if a client performs an immediate half-close (sends an `END_STREAM` flag immediately after stream creation without sending any data). This occurs due to a conflict between HTTP/2 optimization and gRPC framing specifications.
@@ -342,6 +359,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

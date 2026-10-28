@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/fraud-prevention/
 title: Protect payment transactions with Transaction defense \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:16.873531+00:00
+fetched_at: 2026-10-28T09:52:44.788531+00:00
 ---
 
 # Protect payment transactions with Transaction defense  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

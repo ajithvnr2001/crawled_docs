@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages-policy/
 title: Install policy-based challenge keys on websites \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:03.455885+00:00
+fetched_at: 2026-10-28T09:52:42.377164+00:00
 ---
 
 # Install policy-based challenge keys on websites  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

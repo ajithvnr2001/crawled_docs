@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/full-text-search/json-indexes/
 title: JSON search indexes \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:26.863553+00:00
+fetched_at: 2026-10-28T11:09:33.346473+00:00
 ---
 
 # JSON search indexes  |  Spanner  |  Google Cloud Documentation

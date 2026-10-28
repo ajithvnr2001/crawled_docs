@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/python/tutorials/bookshelf-deployment-manager/
 title: Deploying the Python Bookshelf app using Cloud Deployment Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:21.967912+00:00
+fetched_at: 2026-10-28T09:52:44.910268+00:00
 ---
 
 # Deploying the Python Bookshelf app using Cloud Deployment Manager  |  Google Cloud Documentation

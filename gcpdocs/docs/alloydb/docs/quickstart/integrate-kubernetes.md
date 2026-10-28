@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/quickstart/integrate-kubernetes/
 title: Connect from Google Kubernetes Engine (GKE) to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:19:55.640439+00:00
+fetched_at: 2026-10-28T09:52:32.974010+00:00
 ---
 
 # Connect from Google Kubernetes Engine (GKE) to AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ This tutorial uses billable components of Google Cloud, including:
 
 
 
-Use the [pricing calculator](https://cloud.google.com/products/calculator/) to generate a cost estimate based on your projected usage.
+Use the [pricing calculator](https://cloud.google.com/products/calculator) to generate a cost estimate based on your projected usage.
 
 ## Before you begin
 
@@ -77,7 +77,7 @@ Use the [pricing calculator](https://cloud.google.com/products/calculator/) to g
   6. Verify that you have the permissions required to complete this tutorial.
   7. Enable the Cloud APIs required to create and connect to AlloyDB.
 
-[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=alloydb.googleapis.com,compute.googleapis.com,cloudresourcemanager.googleapis.com,cloudbuild.googleapis.com,containerregistry.googleapis.com,servicenetworking.googleapis.com,artifactregistry.googleapis.com,container.googleapis.com)
+[Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=alloydb.googleapis.com,compute.googleapis.com,cloudresourcemanager.googleapis.com,cloudbuild.googleapis.com,servicenetworking.googleapis.com,artifactregistry.googleapis.com,container.googleapis.com)
 
      1. In the **Confirm project** step, click **Next** to confirm the name of the project you are going to make changes to.
 
@@ -88,7 +88,6 @@ Use the [pricing calculator](https://cloud.google.com/products/calculator/) to g
         * Compute Engine API
         * Cloud Resource Manager API
         * Cloud Build API
-        * Container Registry API
         * Kubernetes Engine API
         * Service Networking API
 **Note:** If you've already enabled any or all of these APIs, you won't see them listed here. 
@@ -196,7 +195,6 @@ Replace `PROJECT_ID` with your [project ID](https://support.google.com/googleapi
              compute.googleapis.com \
              cloudresourcemanager.googleapis.com \
              cloudbuild.googleapis.com \
-             containerregistry.googleapis.com \
              servicenetworking.googleapis.com \
              artifactregistry.googleapis.com \
              container.googleapis.com
@@ -206,9 +204,9 @@ Replace `PROJECT_ID` with your [project ID](https://support.google.com/googleapi
 
 ## Create an AlloyDB cluster and its primary instance
 
-Your AlloyDB cluster comprises a number of nodes within a Google Virtual Private Cloud (VPC). When you create a cluster, you also configure private services access between one of your VPCs and the Google-managed VPC containing your new cluster. We recommend that you use an internal IP access to avoid exposure of the database to the public internet.
+Your AlloyDB cluster comprises a number of nodes within a Google Virtual Private Cloud (VPC). When you create a cluster, you also configure private services access between one of your VPC networks and the Google-managed VPC network containing your new cluster. Use internal IP access to avoid exposure of the database to the public internet.
 
-To connect to an AlloyDB for PostgreSQL cluster from outside its configured VPC, you configure Private Service Access configuration in the VPC for AlloyDB and use the default VPC network to run queries from an application deployed on a GKE cluster.
+To connect to an AlloyDB for PostgreSQL cluster from outside its configured VPC network, configure private services access in the VPC for AlloyDB and use the default VPC network to run queries from an application deployed on a GKE cluster.
 
 ###  Console 
 
@@ -232,7 +230,7 @@ To connect to an AlloyDB for PostgreSQL cluster from outside its configured VPC,
 
      3. Select a machine type and specify the number of virtual processing units NUM_CPU, such as `2`.
 
-     4. To ensure an IP range is assigned to service peering, configure the **Private Services Access (PSA)** connection:
+     4. To assign an IP range to service peering, configure the private services access connection:
 
         1. In the **Network** list, select `default`.
 
@@ -502,7 +500,7 @@ Wait for the GKE cluster to get created. This can take several minutes.
 
 ## Connect to AlloyDB using the AlloyDB Auth Proxy
 
-We recommend that you use [AlloyDB Auth Proxy](https://cloud.google.com/alloydb/docs/auth-proxy/overview) to connect to AlloyDB. The AlloyDB Auth Proxy provides strong encryption and authentication using Identity and Access Management (IAM), which can help keep your database secure.
+Use the [AlloyDB Auth Proxy](https://docs.cloud.google.com/alloydb/docs/auth-proxy/overview) to connect to AlloyDB. The AlloyDB Auth Proxy provides strong encryption and authentication using Identity and Access Management (IAM), which can help keep your database secure.
 
 When you connect using the AlloyDB Auth Proxy, it is added to your Pod using the `sidecar` container pattern. The AlloyDB Auth Proxy container is in the same Pod as your application, which enables the application to connect to the AlloyDB Auth Proxy using `localhost`, increasing security and performance.
 
@@ -775,14 +773,14 @@ Use a Kubernetes `SECRET`, such as `gke-alloydb-secret` to store the connection 
       --from-literal=username=USERNAME \
       --from-literal=password=DATABASE_PASSWORD
 
-### Deploy and run the AlloyDB Proxy in a sidecar pattern
+### Deploy and run the AlloyDB Auth Proxy in a sidecar pattern
 
-We recommend that you run the AlloyDB Proxy in a `sidecar` pattern as an additional container sharing a Pod with your application for the following reasons:
+Run the Auth Proxy in a `sidecar` pattern as an additional container sharing a Pod with your application for the following reasons:
 
-  * Prevents your SQL traffic from being exposed locally. The AlloyDB Proxy provides encryption on outgoing connections, but you need to limit exposure for incoming connections.
+  * Prevents your SQL traffic from being exposed locally. The Auth Proxy provides encryption on outgoing connections, but you need to limit exposure for incoming connections.
   * Prevents a single point of failure. Each application's access to your database is independent from the others, making it more resilient.
-  * Limits access to the AlloyDB Proxy, allowing you to use IAM permissions per application rather than exposing the database to the entire cluster.
-  * Lets you scope resource requests more accurately. Because the AlloyDB Proxy consumes resources linearly to usage, this pattern lets you more accurately scope and request resources to match your applications as it scales.
+  * Limits access to the Auth Proxy, allowing you to use IAM permissions per application rather than exposing the database to the entire cluster.
+  * Lets you scope resource requests more accurately. Because the Auth Proxy consumes resources linearly to usage, this pattern lets you more accurately scope and request resources to match your applications as it scales.
   * Lets you configure your application to connect using `127.0.0.1` on the DB_PORT you specified in the command section.
 
 
@@ -791,7 +789,7 @@ After you create a GKE cluster and build a container image for your application,
 
 ###  Console 
 
-In this tutorial, you deploy the sample vote-collecting web application, `gke-alloydb-app`, that uses AlloyDB as the Datastore.
+In this tutorial, you deploy the sample vote-collecting web application, `gke-alloydb-app`, that uses AlloyDB as the data store.
 
   1. Get the connection URI (`INSTANCE_URI`) for the AlloyDB primary instance:
 
@@ -861,7 +859,7 @@ You specify this `INSTANCE_URI` in the `proxy_sidecar_deployment.yaml` definitio
                           key: database
                   - name: alloydb-proxy
                     # This uses the latest version of the AlloyDB Auth proxy
-                    image: gcr.io/alloydb-connectors/alloydb-auth-proxy:1.10.1
+                    image: gcr.io/alloydb-connectors/alloydb-auth-proxy:1.17.2
                     command:
                       - "/alloydb-auth-proxy"
                       #AlloyDB instance name as parameter for the AlloyDB proxy
@@ -928,9 +926,9 @@ Replace `SAMPLE_APPLICATION` with your application name, such as `gke-alloydb-ap
 
 ###  gcloud 
 
-In this tutorial, you deploy the sample vote-collecting web application, `gke-alloydb-app`, that uses AlloyDB as the Datastore.
+In this tutorial, you deploy the sample vote-collecting web application, `gke-alloydb-app`, that uses AlloyDB as the data store.
 
-  1. Get the instance connection INSTANCE_URI for the AlloyDB primary instance you want AlloyDB proxy to connect to:
+  1. Get the instance connection INSTANCE_URI for the AlloyDB primary instance you want Auth Proxy to connect to:
          
          gcloud alloydb instances describe INSTANCE_ID \
             --cluster=CLUSTER_ID \
@@ -1009,7 +1007,7 @@ The output contains the INSTANCE_URI you specify in the `proxy_sidecar_deploymen
                     # This uses the latest version of the AlloyDB Auth proxy
                     # It is recommended to use a specific version for production environments.
                     # See: https://github.com/GoogleCloudPlatform/alloydb-auth-proxy
-                    image: gcr.io/alloydb-connectors/alloydb-auth-proxy:1.10.1
+                    image: gcr.io/alloydb-connectors/alloydb-auth-proxy:1.17.2
                     command:
                       - "/alloydb-auth-proxy"
                       #AlloyDB instance name as parameter for the AlloyDB proxy
@@ -1240,6 +1238,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

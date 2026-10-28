@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-dml-partitioned-update/
 title: Bulk update with partitioned DML \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:30.905236+00:00
+fetched_at: 2026-10-28T09:39:24.578847+00:00
 ---
 
 # Bulk update with partitioned DML  |  Spanner  |  Google Cloud Documentation

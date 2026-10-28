@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/looker/
 title: Create dashboards with Data Studio \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:01.939485+00:00
+fetched_at: 2026-10-28T09:52:55.802642+00:00
 ---
 
 # Create dashboards with Data Studio  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

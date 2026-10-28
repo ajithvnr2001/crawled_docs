@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/troubleshoot-bigquery-fdw/
 title: Troubleshoot the BigQuery foreign data wrapper extension \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:14:37.923682+00:00
+fetched_at: 2026-10-28T09:52:30.692023+00:00
 ---
 
 # Troubleshoot the BigQuery foreign data wrapper extension  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 If queries that use the `bigquery_fdw` extension fail, use the following error messages and recommended fixes to restore real-time access to your BigQuery data from AlloyDB for PostgreSQL. Common causes include a disabled extension, missing BigQuery permissions for the cluster service account, and foreign table definitions that don't match the column names or data types in BigQuery.
 
-For information about using the BigQuery foreign data wrapper to access data, see [Configure AlloyDB access to real-time data in BigQuery](https://docs.cloud.google.com/alloydb/docs/configure-access-real-time-data).
+For information about using the BigQuery foreign data wrapper to access data, see [Configure AlloyDB for PostgreSQL access to real-time data in BigQuery](https://docs.cloud.google.com/alloydb/docs/configure-access-real-time-data).
 
 ## Extension and metadata issues
 
@@ -60,7 +60,7 @@ The extension failed to create a BigQuery read session with the following error:
     Error in non-idempotent operation: Access Denied: Table TABLE_NAME: Permission bigquery.tables.get denied on table TABLE_NAME (or it may not exist).
     
 
-This indicates that the AlloyDB for PostgreSQL cluster service account lacks BigQuery data viewer permissions.
+This indicates that the AlloyDB cluster service account lacks BigQuery data viewer permissions.
 
 **Recommended fix**
 
@@ -173,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

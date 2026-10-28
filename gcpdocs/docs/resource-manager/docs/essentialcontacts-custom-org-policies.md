@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/essentialcontacts-custom-org-policies/
 title: Create custom constraints for Essential Contacts \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:28.633709+00:00
+fetched_at: 2026-10-28T09:52:39.413022+00:00
 ---
 
 # Create custom constraints for Essential Contacts  |  Resource Manager  |  Google Cloud Documentation

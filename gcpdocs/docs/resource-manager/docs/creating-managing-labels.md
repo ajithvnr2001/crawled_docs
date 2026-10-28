@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/creating-managing-labels/
 title: Create and update labels for projects \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:09.577108+00:00
+fetched_at: 2026-10-28T09:52:53.976895+00:00
 ---
 
 # Create and update labels for projects  |  Resource Manager  |  Google Cloud Documentation

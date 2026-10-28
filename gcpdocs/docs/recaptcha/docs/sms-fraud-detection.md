@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/sms-fraud-detection/
 title: Detect and prevent SMS fraud \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:00.207954+00:00
+fetched_at: 2026-10-28T09:52:42.237003+00:00
 ---
 
 # Detect and prevent SMS fraud  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

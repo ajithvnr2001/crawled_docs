@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/full-text-search/mix-full-text-and-non-text-queries/
 title: Mix full-text and non-text queries \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:26.597165+00:00
+fetched_at: 2026-10-28T11:09:32.515835+00:00
 ---
 
 # Mix full-text and non-text queries  |  Spanner  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/writes/
 title: Writes \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:29.681745+00:00
+fetched_at: 2026-10-28T10:56:56.869453+00:00
 ---
 
 # Writes  |  Bigtable  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Writes
 
-This page lists the types of write requests you can send to Bigtable and describes when you should use them and when you shouldn't. For information on aggregating data in a cell at write time, see [Aggregate values at write time](https://docs.cloud.google.com/bigtable/docs/aggregates).
+**Note:** This page includes features that are available only in the Enterprise Plus edition. For more information, see [Editions overview](https://docs.cloud.google.com/bigtable/docs/editions-overview).
 
-The Bigtable Data API and client libraries allow you to programmatically write data to your tables. Bigtable sends back a response or acknowledgement for each write.
+This page lists the types of write requests you can send to Bigtable and describes when to use them and when not to use them. For information on aggregating data in a cell at write time, see [Aggregate values at write time](https://docs.cloud.google.com/bigtable/docs/aggregates).
+
+The Bigtable Data API and client libraries let you programmatically write data to your tables. Bigtable sends back a response or acknowledgement for each write.
 
 Each client library offers the ability to send the following types of write requests:
 
@@ -60,7 +62,7 @@ All write requests include the following basic components:
 
 The timestamp of a mutation has a default value of the current date and time, measured as the time that has elapsed since the Unix epoch, 00:00:00 UTC on January 1, 1970.
 
-A timestamp that you send to Bigtable must be a microsecond value with at most millisecond precision. A timestamp with microsecond precision, such as `3023483279876543`, is rejected. In this example, the acceptable timestamp value is `3023483279876000`. 
+By default, a timestamp that you send to Bigtable must be a microsecond value with at most millisecond precision. Bigtable rejects timestamps with microsecond precision, such as `3023483279876543`, unless you write to a table with [microsecond timestamp granularity](https://docs.cloud.google.com/bigtable/docs/data-types#timestamp_granularity). Tables with microsecond granularity accept user-provided timestamps with full microsecond precision. This feature is available only for instances in the Enterprise Plus edition. 
 
 All mutations in a single write request have the same timestamp unless you override them. You can set the timestamp of all mutations in a write request to be the same or different from each other.
 
@@ -263,6 +265,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

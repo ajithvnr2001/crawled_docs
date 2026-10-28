@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/compare-tiers/
 title: Compare features between Google Cloud Fraud Defense tiers \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:18.262658+00:00
+fetched_at: 2026-10-28T09:52:52.979908+00:00
 ---
 
 # Compare features between Google Cloud Fraud Defense tiers  |  Google Cloud Documentation

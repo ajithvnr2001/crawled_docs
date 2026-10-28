@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-inspect-string-custom-excluding-substring/
 title: Inspect a string for sensitive data, excluding a custom substring \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:52:14.308204+00:00
+fetched_at: 2026-10-28T09:39:01.789018+00:00
 ---
 
 # Inspect a string for sensitive data, excluding a custom substring  |  Sensitive Data Protection  |  Google Cloud Documentation

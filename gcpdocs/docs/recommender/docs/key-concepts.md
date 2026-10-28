@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/key-concepts/
 title: Recommendations \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:06.276993+00:00
+fetched_at: 2026-10-28T09:52:47.148009+00:00
 ---
 
 # Recommendations  |  Recommender  |  Google Cloud Documentation

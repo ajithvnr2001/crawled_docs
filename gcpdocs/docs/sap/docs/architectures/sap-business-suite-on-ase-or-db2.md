@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/architectures/sap-business-suite-on-ase-or-db2/
 title: Reference architecture: SAP Business Suite on SAP ASE or IBM Db2 on Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:31:34.064108+00:00
+fetched_at: 2026-10-28T11:14:14.850535+00:00
 ---
 
 # Reference architecture: SAP Business Suite on SAP ASE or IBM Db2 on Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation

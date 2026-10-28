@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-upload-with-kms-key/
 title: Upload an object with a specified KMS key \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:38.473402+00:00
+fetched_at: 2026-10-28T09:41:09.801645+00:00
 ---
 
 # Upload an object with a specified KMS key  |  Cloud Storage  |  Google Cloud Documentation

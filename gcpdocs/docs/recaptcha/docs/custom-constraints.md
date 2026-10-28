@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/custom-constraints/
 title: Use custom organization policies for reCAPTCHA keys and firewall policies \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:17.897387+00:00
+fetched_at: 2026-10-28T09:52:38.515999+00:00
 ---
 
 # Use custom organization policies for reCAPTCHA keys and firewall policies  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

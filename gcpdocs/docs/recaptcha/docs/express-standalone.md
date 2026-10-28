@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/express-standalone/
 title: Set up reCAPTCHA express on application servers \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:16.960210+00:00
+fetched_at: 2026-10-28T09:52:35.129571+00:00
 ---
 
 # Set up reCAPTCHA express on application servers  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/labels/
 title: Usage reporting using labels \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:02.087987+00:00
+fetched_at: 2026-10-28T09:52:53.561952+00:00
 ---
 
 # Usage reporting using labels  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

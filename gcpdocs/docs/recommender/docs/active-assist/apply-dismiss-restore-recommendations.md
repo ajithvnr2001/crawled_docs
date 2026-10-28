@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/active-assist/apply-dismiss-restore-recommendations/
 title: Apply, dismiss, or restore recommendations \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:16.307732+00:00
+fetched_at: 2026-10-28T09:52:49.479849+00:00
 ---
 
 # Apply, dismiss, or restore recommendations  |  Recommender  |  Google Cloud Documentation

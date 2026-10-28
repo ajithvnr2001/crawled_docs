@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/hierarchical-policies-overview/
 title: Hierarchical security policies overview \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:07:02.163504+00:00
+fetched_at: 2026-10-28T09:37:48.520640+00:00
 ---
 
 # Hierarchical security policies overview  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -146,7 +146,7 @@ Cloud Armor has a rule action that is exclusive to hierarchical security policie
 
 Consider an example in which you have a hierarchical security policy at the organization-level with many rules that you want to use to restrict requests across your entire organization. You want to let requests that come from a certain IP address range skip evaluating these organization-wide rules. Therefore, you create a top-priority rule that matches on that IP address range with the action `goto_next`. The requests from that IP address range are evaluated against this rule first, and because they meet the match condition, they aren't evaluated against any other rules in this organization-level hierarchical security policy.
 
-In the same example, if you used an `allow` or `deny` action instead of the `goto_next` action, the request is allowed or denied as soon as the match condition is met. This hierarchical evaluation means that no additional security policies are evaluated against that request.
+In the same example, if you used an `allow` or `deny` action instead of the `goto_next` action, the request is allowed or denied as soon as the match condition is met. This organization-level evaluation means that no additional security policies are evaluated against that request.
 
 ## Google Cloud Armor Enterprise enrollment and billing behavior
 
@@ -184,6 +184,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-deidentify-date-shift/
 title: Date shifting of a CSV file \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:17.897771+00:00
+fetched_at: 2026-10-28T08:57:35.929530+00:00
 ---
 
 # Date shifting of a CSV file  |  Sensitive Data Protection  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/release-notes/
 title: SAP on Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:31:31.601880+00:00
+fetched_at: 2026-10-28T11:09:35.730037+00:00
 ---
 
 # SAP on Google Cloud release notes  |  Google Cloud Documentation

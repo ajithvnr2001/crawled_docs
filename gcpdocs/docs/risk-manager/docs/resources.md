@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/risk-manager/docs/resources/
 title: Resources \u00a0|\u00a0 Cyber Insurance Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:22.662827+00:00
+fetched_at: 2026-10-28T09:52:28.492556+00:00
 ---
 
 # Resources  |  Cyber Insurance Hub  |  Google Cloud Documentation

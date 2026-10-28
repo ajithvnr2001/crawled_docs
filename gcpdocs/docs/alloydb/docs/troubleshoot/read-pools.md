@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/read-pools/
 title: Troubleshoot read pool queries \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:28:47.824396+00:00
+fetched_at: 2026-10-28T09:52:32.322002+00:00
 ---
 
 # Troubleshoot read pool queries  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ The output includes a section labeled `nodes`, resembling this:
 
 The `id` and `ip` fields for each entry are especially relevant to the other techniques described on this page:
 
-  * The `ip` field shows the node's IP address within the cluster's VPC.
+  * The `ip` field shows the node's IP address within the cluster's VPC network.
 
   * The `id` field contains the node's full Google Cloud ID string. Only the final four characters of this string appear in logged entries for a node.
 
@@ -92,7 +92,7 @@ For example, to find log entries involving the first of the two nodes in the pre
 
 ## Connect directly to a node
 
-Once you know the IP address of a node, you can connect directly to its PostgreSQL server. For example, to use `psql` to connect to a VM in your cluster's VPC, follow the instructions in [Run the psql client](https://docs.cloud.google.com/alloydb/docs/connect-psql#run-psql). When you do, provide the node's IP address rather than that of its read pool instance:
+Once you know the IP address of a node, you can connect directly to its PostgreSQL server. For example, to use `psql` to connect to a VM in your cluster's VPC network, follow the instructions in [Run the psql client](https://docs.cloud.google.com/alloydb/docs/connect-psql#run-psql). When you do, provide the node's IP address rather than that of its read pool instance:
     
     
     psql -h NODE_IP_ADDRESS -U USERNAME
@@ -108,7 +108,7 @@ AlloyDB includes node IDs in log entries about queries handled by read pools. Ge
 
 ### Determine which node is handling a known query
 
-If you know that a certain read pool is processing a long-running query, then Log Explorer can help you determine the ID of the particular node handling that query.
+If you know that a certain read pool is processing a long-running query, you can use the Logs Explorer to determine the ID of the particular node handling that query.
 
 Note that this technique works only on read pool instances that have [enabled the pgAudit extension](https://docs.cloud.google.com/alloydb/docs/pgaudit/enable-audit).
 
@@ -122,7 +122,7 @@ Note that this technique works only on read pool instances that have [enabled th
 
   4. Click **Run query**.
 
-  5. Use Log Explorer's controls to tune and re-run the query as needed to filter the results down to the most relevant ones.
+  5. Use Logs Explorer controls to tune and rerun the query as needed to filter the results down to the most relevant ones.
 
   6. Click a log entry in the results list to expand its display.
 
@@ -143,11 +143,11 @@ If you want to connect directly to a particular node's PostgreSQL server based o
 
   2. List the nodes for the read pool.
 
-  3. In that list, find a node with the ID string that ends wth the four characters you noted in the first step. It is possible that none of the listed nodes match.
+  3. In that list, find a node with the ID string that ends with the four characters you noted in the first step. It is possible that none of the listed nodes match.
 
   4. If you do find a matching node, use its matching IP address to connect to that node's PostgreSQL server.
 
-Otherwise, if none of the read pool's nodes listed in the previous step have IDs matching the logged node, the read pool has decommissioned that node in the time that has passed since the original log entry. This is normal behavior for AlloyDB read pools, as described in A note about node ephermerality. In this case, you can't establish a direct connection to that node.
+Otherwise, if none of the read pool's nodes listed in the previous step have IDs matching the logged node, the read pool has decommissioned that node in the time that has passed since the original log entry. This is normal behavior for AlloyDB read pools, as described in A note about node ephemerality. In this case, you can't establish a direct connection to that node.
 
 
 
@@ -201,6 +201,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

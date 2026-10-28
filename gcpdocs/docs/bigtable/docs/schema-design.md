@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/schema-design/
 title: Schema design best practices \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:00:23.514094+00:00
+fetched_at: 2026-10-28T10:56:58.682028+00:00
 ---
 
 # Schema design best practices  |  Bigtable  |  Google Cloud Documentation
@@ -341,16 +341,17 @@ To reduce storage costs and improve read and write efficiency, you can group rel
 
 
 
-For more information, see [Create and manage protobuf schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-protobuf-schemas).
+For more information, see [Create and manage protobuf schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-protobuf-schemas) and [Create and manage Avro schemas](https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas) ([Preview](https://docs.cloud.google.com/products#product-launch-stages)).
 
 ## What's next
 
-  * [Design a schema for time-series data.](https://docs.cloud.google.com/bigtable/docs/schema-design-time-series)
-  * [Review the steps involved in planning a schema.](https://docs.cloud.google.com/bigtable/docs/schema-design-steps)
-  * [Learn the types of write requests that you can send to Bigtable.](https://docs.cloud.google.com/bigtable/docs/writes)
-  * [Implement counters by using aggregate cells.](https://docs.cloud.google.com/bigtable/docs/aggregates)
-  * [Review the applicable quotas and limits.](https://docs.cloud.google.com/bigtable/quotas)
-  * [Query protobuf data.](https://docs.cloud.google.com/bigtable/docs/query-protobuf-data)
+  * [Design a schema for time-series data](https://docs.cloud.google.com/bigtable/docs/schema-design-time-series)
+  * [Review the steps involved in planning a schema](https://docs.cloud.google.com/bigtable/docs/schema-design-steps)
+  * [Learn the types of write requests that you can send to Bigtable](https://docs.cloud.google.com/bigtable/docs/writes)
+  * [Implement counters by using aggregate cells](https://docs.cloud.google.com/bigtable/docs/aggregates)
+  * [Review the applicable quotas and limits](https://docs.cloud.google.com/bigtable/quotas)
+  * [Query protobuf data](https://docs.cloud.google.com/bigtable/docs/query-protobuf-data)
+  * [Query Avro data](https://docs.cloud.google.com/bigtable/docs/query-avro-data)
 
 
 
@@ -358,6 +359,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

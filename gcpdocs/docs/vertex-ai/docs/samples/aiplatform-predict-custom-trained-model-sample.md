@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-predict-custom-trained-model-sample/
 title: Predict for custom trained model \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:19.639806+00:00
+fetched_at: 2026-10-28T09:39:54.824097+00:00
 ---
 
 # Predict for custom trained model  |  Vertex AI  |  Google Cloud Documentation

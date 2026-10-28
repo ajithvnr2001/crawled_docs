@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/organization-restrictions/configure-organization-restrictions/
 title: Configure organization restrictions \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:26.354658+00:00
+fetched_at: 2026-10-28T09:52:40.084281+00:00
 ---
 
 # Configure organization restrictions  |  Resource Manager  |  Google Cloud Documentation

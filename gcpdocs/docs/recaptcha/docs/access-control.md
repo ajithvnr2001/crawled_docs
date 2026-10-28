@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/access-control/
 title: Access control with IAM \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:21.663934+00:00
+fetched_at: 2026-10-28T09:52:34.882242+00:00
 ---
 
 # Access control with IAM  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

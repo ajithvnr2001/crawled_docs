@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/release-notes/
 title: Cloud Load Balancing release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:53:58.161895+00:00
+fetched_at: 2026-10-28T08:21:34.875605+00:00
 ---
 
 # Cloud Load Balancing release notes  |  Google Cloud Documentation

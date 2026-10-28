@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/support/getting-support/
 title: Getting support \u00a0|\u00a0 Network Connectivity Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:14:04.668179+00:00
+fetched_at: 2026-10-28T09:54:14.467633+00:00
 ---
 
 # Getting support  |  Network Connectivity Center  |  Google Cloud Documentation

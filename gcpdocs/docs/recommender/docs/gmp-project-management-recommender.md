@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/gmp-project-management-recommender/
 title: Google Maps Platform project management recommender \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:06.191570+00:00
+fetched_at: 2026-10-28T09:52:48.879990+00:00
 ---
 
 # Google Maps Platform project management recommender  |  Recommender  |  Google Cloud Documentation

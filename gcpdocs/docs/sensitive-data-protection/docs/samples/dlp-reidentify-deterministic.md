@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-reidentify-deterministic/
 title: Re-identify content encrypted by deterministic encryption \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:58.056528+00:00
+fetched_at: 2026-10-28T09:47:28.135636+00:00
 ---
 
 # Re-identify content encrypted by deterministic encryption  |  Sensitive Data Protection  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/support/billing-questions/
 title: Billing questions \u00a0|\u00a0 Network Connectivity Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:14:04.735033+00:00
+fetched_at: 2026-10-28T09:53:01.370000+00:00
 ---
 
 # Billing questions  |  Network Connectivity Center  |  Google Cloud Documentation

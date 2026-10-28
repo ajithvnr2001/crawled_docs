@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/table-options/
 title: Configure table options \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:17:49.944369+00:00
+fetched_at: 2026-10-28T09:59:52.607135+00:00
 ---
 
 # Configure table options  |  Lakehouse  |  Google Cloud Documentation

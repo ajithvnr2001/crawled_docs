@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/ssl-certificates/
 title: SSL certificates overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:13:51.146926+00:00
+fetched_at: 2026-10-28T09:52:28.832930+00:00
 ---
 
 # SSL certificates overview  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -210,9 +210,17 @@ After a client connects to the load balancer, the client and load balancer negot
 
     * If the client sends an SNI hostname that didn't match any certificate common name (CN) and that doesn't match any certificate subject alternative name (SAN), load balancer uses the first certificate in its certificate list.
 
-    * In all other situations: The load balancer selects a certificate using the following matching process:
+    * In all other situations, the load balancer selects a certificate using the following matching process:
 
-      * Matching is done by longest suffix against both the common name (CN) and subject alternative name (SAN) certificate attributes, with a preference for ECDSA certificates over RSA certificates.
+      * Matching is done against both the common name (CN) and subject alternative name (SAN) certificate attributes. If only one certificate matches the SNI hostname, the load balancer selects that certificate. If multiple certificates match the SNI hostname, the load balancer prioritizes them in the following order:
+
+        * **Exact hostname match** : exact matches against the CN or SAN take precedence over wildcard matches.
+
+        * **Wildcard hostname match** : if there is no exact match, the load balancer checks for a wildcard CN or SAN match. A wildcard (`*`) matches only the first-level subdomain (for example, `*.pets.example.com` matches `cats.pets.example.com` rather than `*.example.com`).
+
+        * **Certificate key type** : ECDSA certificates are preferred over RSA certificates.
+
+        * **Certificate chain size** : if multiple certificates have the same match specificity and public key algorithm, the load balancer prioritizes the certificate with the smaller certificate chain size (in bytes) to minimize network bandwidth during the TLS handshake.
 
       * To illustrate the matching method, consider a target proxy that references the following two certificates:
 
@@ -227,7 +235,9 @@ After a client connects to the load balancer, the client and load balancer negot
       * Now consider the following scenarios:
 
         * If the SNI hostname sent by the client is `cats.pets.example.com`, the load balancer uses Certificate A.
-        * If the SNI hostname sent by the client is `ferrets.pets.example.com`, there's no exact match, so the load balancer selects _either_ Certificate A or Certificate B because both include `*.pets.example.com` in their SANs list. You cannot control which certificate is selected in this situation.
+
+        * If the SNI hostname sent by the client is `ferrets.pets.example.com`, there's no exact match, and both Certificate A and Certificate B match `*.pets.example.com` in their SANs list. If both certificates use the same public key algorithm, the load balancer selects the certificate with the smaller certificate chain size. If the certificate chain sizes are also identical, the load balancer selects _either_ Certificate A or Certificate B, and you cannot control which certificate is selected.
+
   * After a certificate has been selected, the load balancer sends the client that certificate _only if_ the selected certificate uses a public key algorithm that is compatible with a cipher sent by the client in the `ClientHello`. TLS negotiation fails if the client doesn't support a cipher suite that includes the public key algorithm (ECDSA or RSA) of the certificate that the load balancer selected.
 
 
@@ -261,6 +271,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

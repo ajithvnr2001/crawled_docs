@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/trace/docs/migrate-to-otlp-endpoints/
 title: Migrate from the Trace exporter to the OTLP endpoint \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:32.372177+00:00
+fetched_at: 2026-10-28T09:40:52.299390+00:00
 ---
 
 # Migrate from the Trace exporter to the OTLP endpoint  |  Google Cloud Documentation
@@ -144,7 +144,7 @@ You might also be able to get the required permissions through [custom roles](ht
 
 ## Migration guide for manual instrumentation
 
-This section describes how to modify your application so that it sends your trace data to your Google Cloud project by using the [Telemetry API](https://docs.cloud.google.com/stackdriver/docs/reference/telemetry/overview). You can't send metric or log data to this endpoint.
+This section describes how to modify your application so that it sends your trace data to your Google Cloud project by using the [Telemetry API](https://docs.cloud.google.com/stackdriver/docs/reference/telemetry/overview).
 
 ### Add dependencies
 
@@ -550,6 +550,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

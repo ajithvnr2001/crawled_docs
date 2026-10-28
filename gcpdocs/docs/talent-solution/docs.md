@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/docs/
 title: Cloud Talent Solution features \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:39.646203+00:00
+fetched_at: 2026-10-28T09:47:40.893406+00:00
 ---
 
 # Cloud Talent Solution features  |  Google Cloud Documentation

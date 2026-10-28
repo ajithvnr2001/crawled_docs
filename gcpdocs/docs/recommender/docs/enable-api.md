@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/enable-api/
 title: Enable the API \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:06.370733+00:00
+fetched_at: 2026-10-28T09:52:57.542752+00:00
 ---
 
 # Enable the API  |  Recommender  |  Google Cloud Documentation

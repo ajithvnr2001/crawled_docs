@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/samples/storage-upload-file/
 title: Upload an object \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:38:38.640586+00:00
+fetched_at: 2026-10-28T09:40:24.024147+00:00
 ---
 
 # Upload an object  |  Cloud Storage  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/interpret-assessment-mobile/
 title: Interpret assessments for mobile applications \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:02.992294+00:00
+fetched_at: 2026-10-28T09:52:59.076893+00:00
 ---
 
 # Interpret assessments for mobile applications  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

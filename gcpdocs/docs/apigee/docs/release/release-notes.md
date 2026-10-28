@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/release/release-notes/
 title: Apigee release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:40:43.539018+00:00
+fetched_at: 2026-10-28T09:13:38.178492+00:00
 ---
 
 # Apigee release notes  |  Google Cloud Documentation
@@ -58,6 +58,20 @@ rss_feed Subscribe:
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/apigee-x-release-notes.xml) directly. 
+
+## October 27, 2026
+
+Feature
+
+The **Apigee API Health & Availability** dashboard is now generally available in [Cloud Monitoring](https://console.cloud.google.com/monitoring/dashboards) to help you monitor the health, performance, and availability of your Apigee API proxies in real time:
+
+  * **Golden signal scorecards** : track aggregate **Traffic** (requests per second), **Error Rate (5xx)** , and **Latency (p95)** scorecards.
+  * **Status code and error trends** : visualize the **Request Rate by Status Code** chart over time and identify problematic APIs using the dedicated **5xx Error Rate by Proxy** and **4xx Error Rate by Proxy** charts.
+  * **Granular filtering** : filter telemetry by `project_id`, `location`, and `proxy_name` to troubleshoot specific regions or proxies.
+
+
+
+For more information, see [API Monitoring](https://docs.cloud.google.com/apigee/docs/api-monitoring).
 
 ## October 26, 2026
 

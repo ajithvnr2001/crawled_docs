@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-predict-sample/
 title: Predict \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:22.125417+00:00
+fetched_at: 2026-10-28T09:39:53.719224+00:00
 ---
 
 # Predict  |  Vertex AI  |  Google Cloud Documentation

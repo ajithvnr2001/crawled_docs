@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/columnar-engine/
 title: Troubleshoot the columnar engine \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:30:22.886688+00:00
+fetched_at: 2026-10-28T09:52:31.824263+00:00
 ---
 
 # Troubleshoot the columnar engine  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ A _query fragment_ in this context is a query that can have multiple scan nodes.
 
   1. Check supported data types.
 
-Make sure that AlloyDB supports all the data types of the columns that you intend to use with the columnar engine. For more information, see [Supported data types](https://docs.cloud.google.com/alloydb/docs/columnar-engine/about#supported-data-types). If AlloyDB doesn't support a critical data type, consider contacting [Google Cloud Support](https://cloud.google.com/support).
+Make sure that AlloyDB supports all the data types of the columns that you intend to use with the columnar engine. For more information, see [Supported data types](https://docs.cloud.google.com/alloydb/docs/columnar-engine/about#supported-data-types). If AlloyDB doesn't support a critical data type, consider contacting [Cloud Customer Care](https://docs.cloud.google.com/support).
 
   2. Check supported operators.
 
@@ -69,6 +69,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

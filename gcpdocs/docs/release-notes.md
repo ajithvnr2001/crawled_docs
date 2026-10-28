@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:17:48.102307+00:00
+fetched_at: 2026-10-28T10:09:16.484779+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -48,6 +48,20 @@ The following AlloyDB AI functions and improvements are available in [Preview](h
 
 
 
+
+**Apigee X**
+
+Feature
+
+The **Apigee API Health & Availability** dashboard is now generally available in [Cloud Monitoring](https://console.cloud.google.com/monitoring/dashboards) to help you monitor the health, performance, and availability of your Apigee API proxies in real time:
+
+  * **Golden signal scorecards** : track aggregate **Traffic** (requests per second), **Error Rate (5xx)** , and **Latency (p95)** scorecards.
+  * **Status code and error trends** : visualize the **Request Rate by Status Code** chart over time and identify problematic APIs using the dedicated **5xx Error Rate by Proxy** and **4xx Error Rate by Proxy** charts.
+  * **Granular filtering** : filter telemetry by `project_id`, `location`, and `proxy_name` to troubleshoot specific regions or proxies.
+
+
+
+For more information, see [API Monitoring](https://docs.cloud.google.com/apigee/docs/api-monitoring).
 
 **BigQuery**
 
@@ -5123,6 +5137,16 @@ Security
 
 Starting October 15, 2026, Application Integration enforces security fixes for IAM, run-as service accounts, and `iam.serviceAccounts.actAs` checks, requiring the correct permissions for the test feature and any new integrations. For more information, see the [GCP-2026-067](https://docs.cloud.google.com/application-integration/docs/security-bulletins#gcp-2026-067) security bulletin and [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
 
+**Assured Workloads**
+
+Feature
+
+The [Data Boundary for ITAR](https://docs.cloud.google.com/assured-workloads/docs/control-packages/itar) supports the following products:
+
+  * Looker (Google Cloud core)
+
+
+
 **Backup for GKE**
 
 Change
@@ -7984,8 +8008,27 @@ Bug ID | Description
 **563557547** | Fixed EventFlow (Server-Sent Events) coalescing multiple events into a single policy invocation under burst load on the http-adaptor data path, which produced malformed SSE output to the client.  
 **562740573** | Apigee Analytics now populates the `processing_mode` dimension, distinguishing proxy traffic from extension-processor traffic. This dimension is not populated in billing-only analytics mode.  
 **357042873** | Stopped redirecting `apigee-cassandra-schema-readiness` init container logs to `/dev/null`, improving troubleshooting. Workloads undergo a rolling restart upon upgrade.  
+**564969400** | Fixed an issue where variables initialized from an empty `<Value/>` element in `AssignMessage` (`AssignVariable`) were not treated as empty strings when referenced in message template functions such as `replaceAll`.  
 **N/A** | Updates to infrastructure and libraries.  
   
+**Assured Workloads**
+
+Feature
+
+The [Data Boundary for Impact Level 5 (IL5)](https://docs.cloud.google.com/assured-workloads/docs/control-packages/il5) supports the following products:
+
+  * Google Security Operations SIEM
+
+
+
+Feature
+
+The [Data Boundary for Impact Level 4 (IL4)](https://docs.cloud.google.com/assured-workloads/docs/control-packages/il4) supports the following products:
+
+  * Google Security Operations SIEM
+
+
+
 **BigQuery**
 
 Feature
@@ -8852,6 +8895,14 @@ This addresses the following vulnerability:
 
   
   
+**Assured Workloads**
+
+Feature
+
+You can now acknowledge multiple compliance violations at once in the Google Cloud console to add violation exceptions in bulk, up to 100 organization policy violations and up to 400 resource violations in a single operation.
+
+For more information, see how to add violation exceptions when [monitoring a folder](https://docs.cloud.google.com/assured-workloads/docs/monitor-folder#exception) or [monitoring frameworks](https://docs.cloud.google.com/assured-workloads/docs/monitor-frameworks#exception).
+
 **Backup and DR**
 
 Deprecated
@@ -10326,6 +10377,19 @@ Feature
 The API Keys remote Model Context Protocol (MCP) server is available in [Preview](https://cloud.google.com/products#product-launch-stages). You can connect to the API Keys remote MCP server from AI applications to create, inspect, restrict, and manage the lifecycle of API keys in your Google Cloud projects.
 
 For more information, see the [API Keys MCP reference](https://docs.cloud.google.com/api-keys/docs/reference/mcp).
+
+**Assured Workloads**
+
+Feature
+
+The [Switzerland Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/switzerland-data-boundary) supports the following products:
+
+  * Datastore
+  * Document AI
+  * Google Cloud Observability
+  * Vertex AI Workbench
+
+
 
 **Audit Manager**
 
@@ -17325,6 +17389,41 @@ To get a gateway's URL, read its `defaultHostname` property.
 
 For more information, see [Deploy an API to a gateway](https://docs.cloud.google.com/api-gateway/docs/deploying-api).
 
+**Assured Workloads**
+
+Feature
+
+The [Data Boundary for FedRAMP High](https://docs.cloud.google.com/assured-workloads/docs/control-packages#fedramp-high) supports the following products:
+
+  * Backup and DR Service
+  * Cloud Next Generation Firewall Enterprise
+  * Flow Analyzer
+  * Privileged Access Manager
+
+
+
+Feature
+
+The [Data Boundary for FedRAMP Moderate](https://docs.cloud.google.com/assured-workloads/docs/control-packages#fedramp-moderate) supports the following products:
+
+  * Backup and DR Service
+  * Cloud Next Generation Firewall Enterprise
+  * Flow Analyzer
+  * Privileged Access Manager
+
+
+
+Feature
+
+The [Data Boundary for Impact Level 2 (IL2)](https://docs.cloud.google.com/assured-workloads/docs/control-packages/il2) supports the following products:
+
+  * Backup and DR Service
+  * Cloud Next Generation Firewall Enterprise
+  * Flow Analyzer
+  * Privileged Access Manager
+
+
+
 **BigQuery**
 
 Feature
@@ -18280,6 +18379,289 @@ Fraud Defense Mobile SDK v18.9.3 is available for Android. This version includes
 
 ## August 31, 2026
 
+**Assured Workloads**
+
+Feature
+
+The [EU Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary) and [EU Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary-support) support the following products:
+
+  * AI Protection
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+  * Vertex AI Tuning
+
+
+
+Feature
+
+The [South Africa Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/south-africa-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+Feature
+
+The [Taiwan Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/taiwan-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+Feature
+
+The [Israel Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/israel-data-boundary) and [Israel Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/israel-data-boundary-support) support the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+Feature
+
+The [UK Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/uk-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+
+
+
+Feature
+
+The [Qatar Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/qatar-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+Feature
+
+The [Indonesia Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/indonesia-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+Feature
+
+The [Australia Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/australia-data-boundary) and [Australia Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/australia-data-boundary-support) support the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+
+
+
+Feature
+
+The [Chile Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/chile-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+Feature
+
+The [Switzerland Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/switzerland-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+Feature
+
+The [Brazil Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/brazil-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+Feature
+
+The [South Korea Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/south-korea-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+
+
+
+Feature
+
+The [Singapore Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/singapore-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+  * Vertex AI Tuning
+
+
+
+Feature
+
+The [Japan Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/japan-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+Feature
+
+The [Canada Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/canada-data-boundary) and [Canada Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/canada-data-boundary-support) support the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+
+
+
+Feature
+
+The [India Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/india-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+
+
+
+Feature
+
+The [US Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary) and [US Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary-support) support the following products:
+
+  * AI Protection
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+  * Vertex AI Tuning
+
+
+
+Feature
+
+The [Hong Kong Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/hong-kong-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
 **BigQuery**
 
 Feature
@@ -19218,14 +19600,6 @@ Announcement
 Release 6.3.99 is being rolled out to the first phase of regions as listed [here](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/soar-gradual-release).
 
 This release contains internal and customer bug fixes.
-
-## August 29, 2026
-
-**Google SecOps SOAR**
-
-Announcement
-
-[Release 6.3.98](https://docs.cloud.google.com/chronicle/docs/soar/release-notes#August_16_2026) is now available for all regions.
 
 Send feedback 
 

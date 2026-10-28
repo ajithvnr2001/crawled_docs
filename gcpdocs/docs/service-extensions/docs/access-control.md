@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-extensions/docs/access-control/
 title: Roles and permissions \u00a0|\u00a0 Service Extensions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:20:59.976972+00:00
+fetched_at: 2026-10-28T08:56:47.210600+00:00
 ---
 
 # Roles and permissions  |  Service Extensions  |  Google Cloud Documentation

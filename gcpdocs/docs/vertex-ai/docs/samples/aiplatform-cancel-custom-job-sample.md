@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-cancel-custom-job-sample/
 title: Cancel a custom job \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:40.893511+00:00
+fetched_at: 2026-10-28T09:39:11.649254+00:00
 ---
 
 # Cancel a custom job  |  Vertex AI  |  Google Cloud Documentation

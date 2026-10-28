@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/securing/security/
 title: Security design overview \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:24.582469+00:00
+fetched_at: 2026-10-28T09:24:21.983083+00:00
 ---
 
 # Security design overview  |  Cloud Run  |  Google Cloud Documentation
@@ -122,7 +122,7 @@ Egress traffic that exits from Cloud Run is treated as transport layer 4 (TCP an
 By default, egress traffic takes one of the following paths when exiting Cloud Run:
 
   * **Target destination is in VPC network:** traffic travels to a VPC network or Shared VPC network in your project by using [Direct VPC egress](https://docs.cloud.google.com/run/docs/configuring/vpc-direct-vpc) or a [Serverless VPC Access](https://docs.cloud.google.com/vpc/docs/serverless-vpc-access) connector. The connector is a regional resource that sits directly on the VPC network.
-  * **Target destination is not in VPC network:** traffic routes directly to the target destination within Google's network or the public internet.
+  * **Target destination is not in VPC network:** traffic routes directly to the target destination within Google's network or the public internet. Outbound connections to the public internet use a regional pool of dynamic IP addresses shared across Cloud Run and other serverless workloads.
 
 [ ![Cloud Run networking path to VPC and non-VPC networks](https://docs.cloud.google.com/static/run/docs/images/cloud-run-security-egress-connector.svg)](https://docs.cloud.google.com/static/run/docs/images/cloud-run-security-egress-connector.svg) **Figure 3.** Egress traffic can travel to a VPC or to a non-VPC network using Direct VPC egress or a connector.
 
@@ -134,10 +134,22 @@ Once it's on the VPC network, you can use VPC tools to manage the traffic, for e
 
   * Apply [firewall rules](https://docs.cloud.google.com/vpc/docs/configure-serverless-vpc-access#restrict-access) to your service's traffic, or change the way your traffic is [routed](https://docs.cloud.google.com/vpc/docs/routes).
   * Enable [VPC Flow Logs](https://docs.cloud.google.com/vpc/docs/using-flow-logs) to inspect the traffic.
+  * Configure [Cloud NAT with dedicated static IP addresses](https://docs.cloud.google.com/run/docs/configuring/static-outbound-ip) to isolate your outbound internet traffic from the default shared IP address pool.
 
 
 
 Organization administrators can also enforce egress by setting the [Allowed VPC egress settings (Cloud Run)](https://docs.cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints#available_constraints) list constraint.
+
+#### Shared internet egress risks and acceptable use
+
+By default, outbound traffic to the public internet uses a regional pool of dynamic IP addresses shared with other serverless workloads. Keep the following risks and responsibilities in mind:
+
+  * Noisy or abusive traffic from another workload in the region can degrade the reputation of the shared IP address pool. External firewalls and third-party web application firewalls (WAFs) might throttle or block requests from these shared IP addresses, causing connection timeouts or `HTTP 403` errors.
+  * Don't use the default shared IP pool for reputation-sensitive external endpoints, such as payment gateways, hosted databases, or partner APIs behind WAFs. Instead, route all outbound traffic (`--vpc-egress=all-traffic`) through your VPC network and use [Cloud NAT with dedicated static IP addresses](https://docs.cloud.google.com/run/docs/configuring/static-outbound-ip).
+  * Don't run network scanning, port enumeration, host fingerprinting, vulnerability probing, web scraping, or load testing over the default shared internet egress path. This activity degrades shared IP reputation, can disrupt service for other customers in violation of the [Google Cloud Acceptable Use Policy](https://cloud.google.com/terms/aup), and might cause Google to throttle or suspend your workload.
+  * If you run authorized security scanning, host fingerprinting, or load testing workloads, you must isolate your outbound traffic. Configure [Direct VPC egress](https://docs.cloud.google.com/run/docs/configuring/vpc-direct-vpc) with `--vpc-egress=all-traffic` and route requests through Cloud NAT using your own [static outbound IP addresses](https://docs.cloud.google.com/run/docs/configuring/static-outbound-ip).
+
+
 
 ### Ingress (inbound) traffic
 
@@ -299,6 +311,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/offboard-ambient-networking/
 title: Offboard ambient networking \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:17.302753+00:00
+fetched_at: 2026-10-28T09:59:52.841161+00:00
 ---
 
 # Offboard ambient networking  |  GKE networking  |  Google Cloud Documentation

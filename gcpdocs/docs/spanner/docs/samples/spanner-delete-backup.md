@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-delete-backup/
 title: Delete backup \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:09:47.075531+00:00
+fetched_at: 2026-10-28T09:39:33.677919+00:00
 ---
 
 # Delete backup  |  Spanner  |  Google Cloud Documentation

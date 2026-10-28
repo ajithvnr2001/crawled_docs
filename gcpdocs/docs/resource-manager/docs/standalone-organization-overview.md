@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/standalone-organization-overview/
 title: Set up standalone organizations \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:24.098339+00:00
+fetched_at: 2026-10-28T09:52:34.404624+00:00
 ---
 
 # Set up standalone organizations  |  Resource Manager  |  Google Cloud Documentation

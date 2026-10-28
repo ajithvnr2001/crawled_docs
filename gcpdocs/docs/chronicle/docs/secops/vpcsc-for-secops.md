@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/vpcsc-for-secops/
 title: Configure VPC Service Controls \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:45.577627+00:00
+fetched_at: 2026-10-28T09:49:25.638920+00:00
 ---
 
 # Configure VPC Service Controls  |  Google Security Operations  |  Google Cloud Documentation
@@ -108,6 +108,120 @@ Replace `PROJECT_NUMBER` with your Google SecOps-linked Google Cloud project num
 ### Configure the rules for SIEM
 
 This section describes how to configure VPC Service Controls for the SIEM side of the platform.
+
+#### Ingress and egress rules for Cloud Storage-based V2 feeds
+
+Configure [ingress and egress rules](https://docs.cloud.google.com/vpc-service-controls/docs/configuring-ingress-egress-policies) based on the service perimeter configuration. See [Service perimeter overview](https://docs.cloud.google.com/vpc-service-controls/docs/service-perimeters) for more information. If VPC Service Controls is enabled on the Google Cloud project that hosts your source Cloud Storage bucket or on your Google SecOps-linked Google Cloud project (BYOP), configure the required ingress and egress rules based on your perimeter setup:
+
+Case | Source bucket project | Google SecOps-linked project (BYOP) | Rules for Source Perimeter | Rules for BYOP Perimeter  
+---|---|---|---|---  
+Case one | In a perimeter | In the **same** perimeter | None | None  
+Case two | In CUSTOMER_SOURCE_PERIMETER | In CUSTOMER_BYOP_PERIMETER (different perimeter) | Rule A1 (Ingress) and Rule A2 (Egress) | Rule B1 (Egress)  
+Case three | In CUSTOMER_SOURCE_PERIMETER | Not in a perimeter | Rule A1 (Ingress) and Rule A2 (Egress) | None  
+Case four | Not in a perimeter | In CUSTOMER_BYOP_PERIMETER | None | Rule B1 (Egress)  
+  
+Replace these placeholders in the ingress and egress rules that follow:
+
+  * `CUSTOMER_SOURCE_PROJECT_NUMBER`: The numeric project ID of the Google Cloud project that hosts the source Cloud Storage bucket.
+  * `CUSTOMER_SOURCE_PERIMETER`: The VPC-SC perimeter protecting the source bucket project.
+  * `CUSTOMER_BYOP_PROJECT_NUMBER`: The numeric project ID of your Google SecOps-linked Google Cloud project (BYOP).
+  * `CUSTOMER_BYOP_PERIMETER`: The VPC-SC perimeter protecting your BYOP project.
+  * `CHRONICLE_STS_SERVICE_AGENT`: The Storage Transfer Service (STS) service account shown in Google SecOps when configuring the Cloud Storage V2 feed (for example, project-123456789@storage-transfer-service.iam.gserviceaccount.com).
+
+
+
+##### A. Rules for the source bucket project perimeter (`CUSTOMER_SOURCE_PERIMETER`)
+
+Apply these rules for case **two** and **three** as defined in the preceding table.
+
+###### Rule A1: Ingress rule
+    
+    
+      {
+        "ingressFrom": {
+          "identities": [
+            "serviceAccount:<CHRONICLE_STS_SERVICE_AGENT>"
+          ],
+          "sources": [
+            {
+              "accessLevel": "*"
+            }
+          ]
+        },
+        "ingressTo": {
+          "operations": [
+            {
+              "serviceName": "storage.googleapis.com",
+              "methodSelectors": [
+                { "method": "*" }
+              ]
+            }
+          ],
+          "resources": [
+            "projects/<CUSTOMER_SOURCE_PROJECT_NUMBER>"
+          ]
+        }
+      }
+    
+
+###### Rule A2: Egress rule
+    
+    
+      {
+        "egressFrom": {
+          "identities": [
+            "serviceAccount:<CHRONICLE_STS_SERVICE_AGENT>"
+          ]
+        },
+        "egressTo": {
+          "operations": [
+            {
+              "serviceName": "storage.googleapis.com",
+              "methodSelectors": [
+                { "method": "google.storage.objects.create" },
+                { "method": "google.storage.objects.delete" }
+              ]
+            }
+          ],
+          "resources": [
+            "projects/<CUSTOMER_BYOP_PROJECT_NUMBER>"
+          ]
+        }
+      }
+    
+
+##### B. Rules for the BYOP project perimeter (`CUSTOMER_BYOP_PERIMETER`)
+
+Apply this rule for case **two** and **four** as defined in the preceding table.
+
+###### Rule B1: Egress rule
+    
+    
+      {
+        "egressFrom": {
+          "identities": [
+            "serviceAccount:<CHRONICLE_STS_SERVICE_AGENT>"
+          ]
+        },
+        "egressTo": {
+          "operations": [
+            {
+              "serviceName": "storage.googleapis.com",
+              "methodSelectors": [
+                { "method": "*" }
+              ]
+            }
+          ],
+          "resources": [
+            "projects/<CUSTOMER_SOURCE_PROJECT_NUMBER>"
+          ]
+        }
+      }
+    
+
+**Warning:** After you set up the ingress and egress rules, run Google SecOps with VPC Service Controls in [_dry-run mode_](https://docs.cloud.google.com/vpc-service-controls/docs/dry-run-mode) for the first couple of weeks. Audit your Cloud Audit Logs for any violations before moving the setup to enforced mode. Possible causes of violations might be [Content Hub](https://docs.cloud.google.com/chronicle/docs/secops/content_hub) response integrations in your system without the necessary ingress or egress rules.
+
+If you encounter issues with VPC Service Controls, use the VPC Service Controls violation analyzer to debug and analyze the issue. For more information, see [Diagnose an access denial in violation analyzer](https://docs.cloud.google.com/vpc-service-controls/docs/violation-analyzer).
 
 #### Ingress rule for Advanced BigQuery Export
 
@@ -284,6 +398,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

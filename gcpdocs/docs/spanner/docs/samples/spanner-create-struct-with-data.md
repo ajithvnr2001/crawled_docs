@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-create-struct-with-data/
 title: Create STRUCT object with data \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:57:44.595265+00:00
+fetched_at: 2026-10-28T09:37:48.276235+00:00
 ---
 
 # Create STRUCT object with data  |  Spanner  |  Google Cloud Documentation

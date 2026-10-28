@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-create-batch-prediction-job-bigquery-sample/
 title: Create a batch prediction job for BigQuery \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:03.220861+00:00
+fetched_at: 2026-10-28T09:37:37.605785+00:00
 ---
 
 # Create a batch prediction job for BigQuery  |  Vertex AI  |  Google Cloud Documentation

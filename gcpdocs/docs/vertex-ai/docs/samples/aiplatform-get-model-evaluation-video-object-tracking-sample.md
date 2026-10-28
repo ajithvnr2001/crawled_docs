@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-get-model-evaluation-video-object-tracking-sample/
 title: Get a model evaluation for video object tracking \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:22.344174+00:00
+fetched_at: 2026-10-28T09:39:28.370476+00:00
 ---
 
 # Get a model evaluation for video object tracking  |  Vertex AI  |  Google Cloud Documentation

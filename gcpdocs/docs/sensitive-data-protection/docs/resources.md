@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/resources/
 title: Resources \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:32:18.610713+00:00
+fetched_at: 2026-10-28T08:56:38.375844+00:00
 ---
 
 # Resources  |  Sensitive Data Protection  |  Google Cloud Documentation

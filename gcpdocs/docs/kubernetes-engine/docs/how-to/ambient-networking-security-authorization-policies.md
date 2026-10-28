@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/how-to/ambient-networking-security-authorization-policies/
 title: Ambient networking security and authorization policies \u00a0|\u00a0 GKE networking \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:54:21.257465+00:00
+fetched_at: 2026-10-28T09:59:53.172781+00:00
 ---
 
 # Ambient networking security and authorization policies  |  GKE networking  |  Google Cloud Documentation

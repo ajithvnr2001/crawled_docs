@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/verify/
 title: Verify user response tokens with legacy SiteVerify \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:38:56.693314+00:00
+fetched_at: 2026-10-28T09:52:39.585779+00:00
 ---
 
 # Verify user response tokens with legacy SiteVerify  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

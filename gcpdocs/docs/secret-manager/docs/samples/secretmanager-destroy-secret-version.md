@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/secret-manager/docs/samples/secretmanager-destroy-secret-version/
 title: Destroy secret version \u00a0|\u00a0 Secret Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:39:49.740593+00:00
+fetched_at: 2026-10-28T09:46:37.895191+00:00
 ---
 
 # Destroy secret version  |  Secret Manager  |  Google Cloud Documentation

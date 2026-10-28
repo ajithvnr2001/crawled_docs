@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/platform-logging/
 title: Working with platform logs \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:01.158421+00:00
+fetched_at: 2026-10-28T09:52:57.823960+00:00
 ---
 
 # Working with platform logs  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

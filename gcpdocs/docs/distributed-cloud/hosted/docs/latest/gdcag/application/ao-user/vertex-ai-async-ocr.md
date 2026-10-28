@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/application/ao-user/vertex-ai-async-ocr/
 title: Detect text in files \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:22.845066+00:00
+fetched_at: 2026-10-28T09:52:31.636455+00:00
 ---
 
 # Detect text in files  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,14 +22,7 @@ Send feedback
 
 #  Detect text in files Stay organized with collections  Save and categorize content based on your preferences. 
 
-The Optical Character Recognition (OCR) service of Vertex AI on Google Distributed Cloud (GDC) air-gapped detects text in PDF and TIFF files using the following two API methods:
-
-  * `BatchAnnotateFiles`: Detect text with inline requests.
-  * `AsyncBatchAnnotateFiles`: Detect text with offline (asynchronous) requests.
-
-**Note:** The `BatchAnnotateFiles` API method only supports a single request per batch call.
-
-This page shows you how to detect text in files using the OCR API on Distributed Cloud.
+The Optical Character Recognition (OCR) service of Vertex AI in Google Distributed Cloud (GDC) air-gapped detects and extracts text from PDF and TIFF files. You can send local files in inline requests to the `BatchAnnotateFiles` API method or process files stored in buckets asynchronously with the `AsyncBatchAnnotateFiles` API method. The `BatchAnnotateFiles` API method supports a single request per batch call.
 
 ## Before you begin
 
@@ -536,6 +529,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

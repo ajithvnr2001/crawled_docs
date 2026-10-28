@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/destination-gcs/
 title: Configure a Cloud Storage destination \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:33.890788+00:00
+fetched_at: 2026-10-28T09:19:56.055442+00:00
 ---
 
 # Configure a Cloud Storage destination  |  Datastream  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Configure a Cloud Storage destination Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to configure Datastream to write data to a Cloud Storage bucket.
+Streaming data to Cloud Storage in Datastream lets you store source change events in Google Cloud inside object containers called _buckets_. When you replicate data to [Cloud Storage buckets](https://docs.cloud.google.com/storage/docs/buckets), Datastream organizes files by object name and event timestamp for consumption with the Cloud Storage API.
 
-Cloud Storage is a service for storing data in Google Cloud. You store the data as objects, in containers called _buckets_. When you stream to Cloud Storage, Datastream organizes data by object name and timestamp. You can then consume your data using the Cloud Storage API. For more information, see [About Cloud Storage buckets](https://docs.cloud.google.com/storage/docs/buckets).
+To configure your destination, enable the Datastream API and specify your target bucket and file prefix. If your bucket is in a different project, also grant cross-project service account permissions.
 
 ## Enable the API
 
@@ -68,6 +68,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/feed-management/
 title: Work with the feeds UI \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:12.934979+00:00
+fetched_at: 2026-10-28T09:49:30.440380+00:00
 ---
 
 # Work with the feeds UI  |  Google Security Operations  |  Google Cloud Documentation
@@ -288,7 +288,7 @@ When you configure **Include prefixes** (`include_prefixes`), follow these synta
 
 Different source types require specific authentication and networking configurations to communicate with Google SecOps. This section describes how to configure permissions and set up service accounts. The setup outlined focuses on Cloud Storage ingestion (pull based), multi-cloud ingestion (cross-cloud pull), and push-based ingestion (API or real-time).
 
-**Note:** If you use VPC Service Controls, see [Configure VPC Service Controls for Google SecOps](https://docs.cloud.google.com/chronicle/docs/secops/vpcsc-for-secops) for more information. 
+**Note:** If you use VPC Service Controls see [Configure VPC Service Controls for Google SecOps](https://docs.cloud.google.com/chronicle/docs/secops/vpcsc-for-secops) for more information (includes details for configuring rules for Cloud Storage-based V2 feeds).
 
 ### Google Cloud Storage feed setup example
 
@@ -1030,7 +1030,7 @@ If your system doesn't store and retry sending the data to Google SecOps, the da
   * **Ingestion quotas:** To avoid impacting real-time data ingestion, backfill data is processed with a lower priority than live data. Pull-based data backfill is also rate-limited, typically to one-third (33%) of your tenant's burst limit per log type. This ensures critical push-based feeds, such as EDR agents, aren't negatively affected.
   * **Dynamic rate limiting:** If the backfill consumes all the available pull quota, ingestion is paused for the remainder of the five-minute interval and resumes automatically when the interval restarts.
   * **Cloud storage:** You can use feed settings to control backfill, such as filters for new or updated files, or date range filters, such as "Maximum file age".
-  * **Large backlogs:** If a large backlog from a pull-based feed causes issues upon re-enabling, you can contact Google Support to clear the backlog. This means the feed will start ingesting only new data going forward, and the missed data will not be backfilled.
+  * **Large backlogs:** If a large backlog from a pull-based feed causes issues upon re-enabling, you can contact Google Support to clear the backlog. This means the feed will start ingesting only new data going forward, and the missed data won't be backfilled.
   * **Editing disabled feeds:** Any configuration changes made to a feed while it is disabled will apply as soon as the feed is re-enabled.
 
 
@@ -1093,6 +1093,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

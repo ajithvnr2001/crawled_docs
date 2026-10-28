@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/v3/docs/best-practices/
 title: Job search API parameters: Best practices (v3) \u00a0|\u00a0 Cloud Talent Solution - Job Search v3 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:40:36.434579+00:00
+fetched_at: 2026-10-28T09:50:52.372375+00:00
 ---
 
 # Job search API parameters: Best practices (v3)  |  Cloud Talent Solution - Job Search v3  |  Google Cloud Documentation

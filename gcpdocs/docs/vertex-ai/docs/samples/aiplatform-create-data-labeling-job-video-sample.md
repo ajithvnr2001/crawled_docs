@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-create-data-labeling-job-video-sample/
 title: Create a data labeling job for video \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:25.442993+00:00
+fetched_at: 2026-10-28T09:40:22.159190+00:00
 ---
 
 # Create a data labeling job for video  |  Vertex AI  |  Google Cloud Documentation

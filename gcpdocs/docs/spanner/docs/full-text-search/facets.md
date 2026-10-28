@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/full-text-search/facets/
 title: Perform a search using facets \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:27.333375+00:00
+fetched_at: 2026-10-28T11:09:29.927922+00:00
 ---
 
 # Perform a search using facets  |  Spanner  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/active-assist/dashboard-overview/
 title: Active Assist dashboard overview \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:15.247749+00:00
+fetched_at: 2026-10-28T09:52:51.612040+00:00
 ---
 
 # Active Assist dashboard overview  |  Recommender  |  Google Cloud Documentation

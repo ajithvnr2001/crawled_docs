@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/organization-restrictions/examples-org-restrictions/
 title: Examples of organization restrictions \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:26.223380+00:00
+fetched_at: 2026-10-28T09:52:41.627333+00:00
 ---
 
 # Examples of organization restrictions  |  Resource Manager  |  Google Cloud Documentation

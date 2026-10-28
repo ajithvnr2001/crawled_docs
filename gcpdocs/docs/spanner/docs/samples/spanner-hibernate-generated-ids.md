@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/samples/spanner-hibernate-generated-ids/
 title: Hibernate generated IDs \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:09:42.990105+00:00
+fetched_at: 2026-10-28T09:39:33.864404+00:00
 ---
 
 # Hibernate generated IDs  |  Spanner  |  Google Cloud Documentation

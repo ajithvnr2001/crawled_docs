@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-create-family-gc-intersection/
 title: Intersection garbage-collection policy \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:00:24.270325+00:00
+fetched_at: 2026-10-28T10:56:37.416964+00:00
 ---
 
 # Intersection garbage-collection policy  |  Bigtable  |  Google Cloud Documentation

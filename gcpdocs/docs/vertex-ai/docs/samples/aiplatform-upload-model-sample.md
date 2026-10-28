@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-upload-model-sample/
 title: Upload a model \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:10.991268+00:00
+fetched_at: 2026-10-28T09:37:43.356327+00:00
 ---
 
 # Upload a model  |  Vertex AI  |  Google Cloud Documentation

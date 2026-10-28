@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/manage-backfill-for-the-objects-of-a-stream/
 title: Manage backfill for the objects of a stream \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:54.957173+00:00
+fetched_at: 2026-10-28T09:19:54.287456+00:00
 ---
 
 # Manage backfill for the objects of a stream  |  Datastream  |  Google Cloud Documentation
@@ -21,17 +21,9 @@ Send feedback
 
 #  Manage backfill for the objects of a stream Stay organized with collections  Save and categorize content based on your preferences. 
 
-A stream in Datastream can backfill historical data, as well as stream ongoing changes into a destination. As part of creating a stream, you [configured information about the source database for the stream](https://docs.cloud.google.com/datastream/docs/create-a-stream#configuresourcedbinfo).
+Backfill in Datastream lets you load a snapshot of historical data from your source objects into your destination alongside ongoing change data capture. You can manually initiate a full or partial backfill if you didn't select **Backfill historical data** when you [configured your source](https://docs.cloud.google.com/datastream/docs/create-a-stream#configuresourcedbinfo). Initiating a backfill also lets you resynchronize destination objects if data is accidentally deleted.
 
-If you selected the **Backfill historical data** checkbox, then Datastream streams all existing data, in addition to changes to the data, from the source into the destination.
-
-If you didn't select this checkbox, then Datastream streams only changes to the data. To have Datastream stream a snapshot of all existing data from the source to the destination, you must initiate backfill for the objects that contain this data. The objects are in the form of database schemas, tables, and columns.
-
-Another reason for initiating backfill for an object is if data is out of sync between the source and the destination. For example, a user can delete data in the destination inadvertently, and the data is now lost. In this case, initiating backfill for the object serves as a reset mechanism because all data is streamed into the destination in one shot. As a result, the data is synced between the source and the destination.
-
-After initiating backfill for an object, you can stop backfill for it. In the preceding example, the user modifies the database schema, and the schema or data is corrupted. You don't want this schema or data to be streamed into the destination, and so you stop backfill for the object.
-
-You can also stop backfill for objects for load balancing purposes. Datastream can run multiple backfills in parallel. This may put an additional load on the source. If the load is significant, stop backfill for the objects, and then initiate backfill for them, one by one.
+While a stream runs, you can monitor object statuses and stop an active backfill at any time. Stopping an operation prevents corrupted schema or data from replicating and lets you run parallel tasks one at a time to reduce source load.
 
 ## Object statuses
 
@@ -208,6 +200,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

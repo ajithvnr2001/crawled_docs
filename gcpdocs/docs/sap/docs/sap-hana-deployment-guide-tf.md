@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-hana-deployment-guide-tf/
 title: Terraform: SAP HANA scale-up deployment guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:31:30.424882+00:00
+fetched_at: 2026-10-28T11:10:23.655923+00:00
 ---
 
 # Terraform: SAP HANA scale-up deployment guide  |  SAP on Google Cloud  |  Google Cloud Documentation

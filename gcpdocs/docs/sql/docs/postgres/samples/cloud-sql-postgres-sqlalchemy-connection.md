@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/samples/cloud-sql-postgres-sqlalchemy-connection/
 title: PostgreSQL SQLAlchemy opening and closing connections \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:12:00.210164+00:00
+fetched_at: 2026-10-28T09:40:26.794495+00:00
 ---
 
 # PostgreSQL SQLAlchemy opening and closing connections  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

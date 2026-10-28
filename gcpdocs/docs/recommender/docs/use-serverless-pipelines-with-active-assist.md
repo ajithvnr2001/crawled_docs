@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/use-serverless-pipelines-with-active-assist/
 title: Using serverless pipelines with Active Assist \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:15.194582+00:00
+fetched_at: 2026-10-28T09:52:50.355146+00:00
 ---
 
 # Using serverless pipelines with Active Assist  |  Recommender  |  Google Cloud Documentation

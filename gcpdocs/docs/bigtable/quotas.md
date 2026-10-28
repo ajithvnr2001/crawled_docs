@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/quotas/
 title: Quotas and limits \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:17.085402+00:00
+fetched_at: 2026-10-28T10:56:55.356256+00:00
 ---
 
 # Quotas and limits  |  Bigtable  |  Google Cloud Documentation
@@ -235,6 +235,7 @@ The following are the minimum and maximum ID lengths (number of characters) supp
   * Cluster: 6-40
   * Column family: 1-64
   * Instance: 6-33
+  * Schema bundle: 1-50
   * Table: 1-50
   * View: 1-128
 
@@ -295,8 +296,8 @@ This feature is subject to the "Pre-GA Offerings Terms" in the General Service T
 
 The following limits apply to schema bundles:
 
-  * **Schema bundles per table** : You can create a maximum of 10 schema bundles per table.
-  * **Schema bundle size** : The total size of the serialized protocol buffer descriptors within a schema bundle can't exceed 4 MB.
+  * **Schema bundles per table** : You can create a maximum of 10 schema bundles per table. This limit applies to both protobuf and Avro schema bundles.
+  * **Schema bundle size** : The serialized protocol buffer descriptors or JSON-formatted Avro schemas within a schema bundle can't exceed 4 MB.
 
 
 
@@ -331,6 +332,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

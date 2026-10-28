@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/how-to/create-producer-vpc-spoke/
 title: Create a producer VPC spoke \u00a0|\u00a0 Network Connectivity Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:14:05.002532+00:00
+fetched_at: 2026-10-28T09:54:47.429982+00:00
 ---
 
 # Create a producer VPC spoke  |  Network Connectivity Center  |  Google Cloud Documentation

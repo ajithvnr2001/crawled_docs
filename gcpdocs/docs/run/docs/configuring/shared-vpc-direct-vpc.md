@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/shared-vpc-direct-vpc/
 title: Direct VPC egress with a Shared VPC network \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:53.259167+00:00
+fetched_at: 2026-10-28T09:52:16.345554+00:00
 ---
 
 # Direct VPC egress with a Shared VPC network  |  Cloud Run  |  Google Cloud Documentation

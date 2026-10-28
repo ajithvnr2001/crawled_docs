@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/managing-tables/
 title: Create and manage tables \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:11:23.366195+00:00
+fetched_at: 2026-10-28T10:56:48.968067+00:00
 ---
 
 # Create and manage tables  |  Bigtable  |  Google Cloud Documentation
@@ -64,23 +64,25 @@ The **Tables** page displays a list of tables in the instance.
 
 You can add columns now or later. A table must have at least one column family before you can write data to it or read a change stream from it.
 
-  7. Optional: Enable a change stream for the table. Before you enable a change stream, make sure that you understand the implications, including increased storage costs and app profile usage requirements. To review these details, see the [Overview of change streams](https://docs.cloud.google.com/bigtable/docs/change-streams-overview).
+  7. Optional, **Enterprise Plus edition** : To use [microsecond timestamp granularity](https://docs.cloud.google.com/bigtable/docs/data-types#timestamp_granularity), select **Use microsecond timestamps**.
+
+  8. Optional: Enable a change stream for the table. Before you enable a change stream, make sure that you understand the implications, including increased storage costs and app profile usage requirements. For more information, see [Change streams overview](https://docs.cloud.google.com/bigtable/docs/change-streams-overview).
 
      1. Select **Enable change stream**.
 
      2. In the **Retention time** field, enter a number from 1 to 7 to specify the number of days that the change stream data should be retained.
 
-  8. Optional: If you don't want Bigtable to create a daily backup of the table, clear the **Enable automated backup** checkbox. For more information, see [Use automated backup](https://docs.cloud.google.com/bigtable/docs/managing-backups#use-automated-backup).
+  9. Optional: If you don't want Bigtable to create a daily backup of the table, clear the **Enable automated backup** checkbox. For more information, see [Use automated backup](https://docs.cloud.google.com/bigtable/docs/managing-backups#use-automated-backup).
 
-  9. Optional: Enable infrequent access for the table as part of [tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) ([Preview](https://cloud.google.com/products#product-launch-stages)):
+  10. Optional: Enable infrequent access for the table as part of [tiered storage](https://docs.cloud.google.com/bigtable/docs/tiered-storage) ([Preview](https://cloud.google.com/products#product-launch-stages)):
 
      1. Select **Enable tiered storage**.
 
      2. In the **Age threshold** field, enter the number of days after which Bigtable moves data from SSD storage to infrequent access storage. The number must be 30 or greater.
 
-  10. Optional, **Enterprise Plus edition** : By default, a daily backup is created in all clusters in the table's instance. To choose clusters where Bigtable must create a daily backup of the table, select cluster locations in the **Select clusters to back up** field. For more information, see [Configure automated backup cluster locations](https://docs.cloud.google.com/bigtable/docs/managing-backups#automated-backup-cluster-locations).
+  11. Optional, **Enterprise Plus edition** : By default, a daily backup is created in all clusters in the table's instance. To choose clusters where Bigtable must create a daily backup of the table, select cluster locations in the **Select clusters to back up** field. For more information, see [Configure automated backup cluster locations](https://docs.cloud.google.com/bigtable/docs/managing-backups#automated-backup-cluster-locations).
 
-  11. Optional: To configure row key schema, select **Define row key schema** , and then do the following:
+  12. Optional: To configure row key schema, select **Define row key schema** , and then do the following:
 
      1. In the **Encoding** list, select a type of encoding for your row key schema.
 
@@ -94,7 +96,7 @@ You can add columns now or later. A table must have at least one column family b
 
      6. Optional: if your row key segment has more than one part, click **Add row key segment** to add additional fields.
 
-  12. Click **Create**.
+  13. Click **Create**.
 
 
 
@@ -123,7 +125,7 @@ Optional:
 
   * To protect the table from deletion, append the command with `--deletion-protection`. If you don't apply this setting, the table can be deleted. You can also explicitly allow table deletion by appending `--no-deletion-protection`.
 
-  * To enable a change stream for the table, specify a retention period for the change stream data. Before you enable a change stream, make sure that you understand the implications, including increased storage costs and app profile usage requirements. To review these details, see the [Overview of change streams](https://docs.cloud.google.com/bigtable/docs/change-streams-overview).
+  * To enable a change stream for the table, specify a retention period for the change stream data. Before you enable a change stream, make sure that you understand the implications, including increased storage costs and app profile usage requirements. For more information, see [Change streams overview](https://docs.cloud.google.com/bigtable/docs/change-streams-overview).
         
         --change-stream-retention-period=RETENTION_PERIOD
         
@@ -151,6 +153,15 @@ To configure a different retention period, use the `--automated-backup-retention
             --instance=INSTANCE_ID \
             --project=PROJECT_ID \
             --tiered-storage-infrequent-access-older-than=AGE_THRESHOLD
+        
+
+  * To configure the [timestamp granularity](https://docs.cloud.google.com/bigtable/docs/data-types#timestamp_granularity) for the table, use the `--timestamp-granularity` flag and replace TIMESTAMP_GRANULARITY with the level of precision. The default precision is millisecond and the value is `MILLIS`. If you want the table to accept timestamps with microsecond precision, set the value to `MICROS`. Microsecond precision timestamps are available only for instances in the Enterprise Plus edition.
+        
+        gcloud bigtable instances tables create TABLE_ID \
+            --instance=INSTANCE_ID \
+            --project=PROJECT_ID \
+            --column-families=COLUMN-FAMILIES \
+            --timestamp-granularity=TIMESTAMP_GRANULARITY
         
 
 
@@ -747,6 +758,7 @@ The following limitations apply:
   * You can't undelete a table by using the Google Cloud console, the Cloud Bigtable client libraries, or the `cbt` CLI .
   * You can't undelete a table from an instance that was deleted.
   * You can't undelete a table that had CMEK enabled.
+  * If you downgraded the instance to the Enterprise edition, you can't undelete a table with microsecond timestamp granularity. To undelete a table, the instance must be in the Enterprise Plus edition.
   * When you undelete a table, Bigtable doesn't restore any fine-grained IAM policy bindings to the deleted table.
 
 
@@ -916,6 +928,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

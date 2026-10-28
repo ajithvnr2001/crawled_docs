@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/docs/samples/job-search-batch-delete-job/
 title: Batch delete jobs (v4beta1) \u00a0|\u00a0 Job Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:34:25.452872+00:00
+fetched_at: 2026-10-28T09:41:13.686062+00:00
 ---
 
 # Batch delete jobs (v4beta1)  |  Job Search  |  Google Cloud Documentation

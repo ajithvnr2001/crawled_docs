@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/vpn/quotas/
 title: Quotas and limits \u00a0|\u00a0 Cloud VPN \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:40:39.222101+00:00
+fetched_at: 2026-10-28T10:49:35.735254+00:00
 ---
 
 # Quotas and limits  |  Cloud VPN  |  Google Cloud Documentation

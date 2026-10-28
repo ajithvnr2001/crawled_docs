@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/resources/
 title: Resources \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:39:17.390172+00:00
+fetched_at: 2026-10-28T09:31:05.734114+00:00
 ---
 
 # Resources  |  Security Command Center  |  Google Cloud Documentation

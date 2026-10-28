@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/integrate-account-verification/
 title: Configure multi-factor authentication \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:02.925225+00:00
+fetched_at: 2026-10-28T09:52:46.761535+00:00
 ---
 
 # Configure multi-factor authentication  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

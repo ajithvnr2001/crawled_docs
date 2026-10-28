@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-writes-simple/
 title: Perform a simple write \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:55:08.641466+00:00
+fetched_at: 2026-10-28T10:56:27.395192+00:00
 ---
 
 # Perform a simple write  |  Bigtable  |  Google Cloud Documentation

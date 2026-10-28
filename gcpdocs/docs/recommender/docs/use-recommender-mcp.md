@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/use-recommender-mcp/
 title: Use the Recommender remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:12.584480+00:00
+fetched_at: 2026-10-28T09:52:44.505886+00:00
 ---
 
 # Use the Recommender remote MCP server  |  Google Cloud Documentation

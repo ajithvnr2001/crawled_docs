@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/schema-design-time-series/
 title: Schema design for time series data \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:00:25.196944+00:00
+fetched_at: 2026-10-28T10:56:58.834682+00:00
 ---
 
 # Schema design for time series data  |  Bigtable  |  Google Cloud Documentation
@@ -112,6 +112,8 @@ us-west2#3698#pressure#week1 | "" (t2021-03-05-1200) | "" (t2021-03-05-1201) | "
 ### Adding new cells for new events
 
 In this time bucket pattern, you add new cells to existing columns when you write a new event. This pattern lets you take advantage of Bigtable's ability to let you store multiple timestamped cells in a given row and column. It's important to specify garbage collection rules when you use this pattern.
+
+If your workload has a high event rate, multiple events might occur within the same millisecond, which can cause data loss due to timestamp collisions. To prevent this when adding new cells for new events, you can configure your table to use [microsecond timestamp granularity](https://docs.cloud.google.com/bigtable/docs/data-types#timestamp_granularity). This feature is available only for instances in the Enterprise Plus edition.
 
 Using the weather balloon data as an example, each row contains all the measurements for a single weather balloon over the course of a week. The row key prefix is an identifier for the week, so you can read an entire week's worth of data for multiple balloons with a single query. The other row key segments are the location where the balloon operates and the ID number for the balloon. The table has one column family, `measurements`, and that column family has one column for each type of measurement: `pressure`, `temperature`, `humidity`, and `altitude`.
 
@@ -241,6 +243,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

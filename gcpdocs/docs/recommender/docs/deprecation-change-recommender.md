@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/deprecation-change-recommender/
 title: Cloud deprecation and breaking changes general recommender \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:06.565762+00:00
+fetched_at: 2026-10-28T09:52:48.663325+00:00
 ---
 
 # Cloud deprecation and breaking changes general recommender  |  Recommender  |  Google Cloud Documentation

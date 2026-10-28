@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-deidentify-table-fpe/
 title: De-identify table data with format-preserving encryption \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:14.566626+00:00
+fetched_at: 2026-10-28T09:38:38.074831+00:00
 ---
 
 # De-identify table data with format-preserving encryption  |  Sensitive Data Protection  |  Google Cloud Documentation

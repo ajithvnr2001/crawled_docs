@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/full-text-search/search-multiple-columns/
 title: Search multiple columns in search indexes \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:26.311172+00:00
+fetched_at: 2026-10-28T11:09:31.880310+00:00
 ---
 
 # Search multiple columns in search indexes  |  Spanner  |  Google Cloud Documentation

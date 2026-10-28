@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/organization-setup/
 title: Organization resource setup wizard \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:25.124511+00:00
+fetched_at: 2026-10-28T09:52:56.577615+00:00
 ---
 
 # Organization resource setup wizard  |  Resource Manager  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/cloud-storage-volume-mounts/
 title: Configure Cloud Storage volume mounts for Cloud Run services \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:55.439512+00:00
+fetched_at: 2026-10-28T09:51:55.409994+00:00
 ---
 
 # Configure Cloud Storage volume mounts for Cloud Run services  |  Google Cloud Documentation

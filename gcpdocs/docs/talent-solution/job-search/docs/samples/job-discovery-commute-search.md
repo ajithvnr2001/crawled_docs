@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/docs/samples/job-discovery-commute-search/
 title: Commute search (v3) \u00a0|\u00a0 Job Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:41:10.814908+00:00
+fetched_at: 2026-10-28T09:47:41.574840+00:00
 ---
 
 # Commute search (v3)  |  Job Search  |  Google Cloud Documentation

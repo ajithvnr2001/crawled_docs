@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-sdk-embedding/
 title: Get text embeddings (Generative AI) \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:31.816720+00:00
+fetched_at: 2026-10-28T09:38:48.392860+00:00
 ---
 
 # Get text embeddings (Generative AI)  |  Vertex AI  |  Google Cloud Documentation

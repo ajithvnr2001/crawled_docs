@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-servlet-backoff/
 title: Retry a failed connection when using HikariCP \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:19:22.317980+00:00
+fetched_at: 2026-10-28T08:57:06.379855+00:00
 ---
 
 # Retry a failed connection when using HikariCP  |  Cloud SQL for MySQL  |  Google Cloud Documentation

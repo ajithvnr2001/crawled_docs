@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/release-notes/
 title: Bigtable release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:59:33.235651+00:00
+fetched_at: 2026-10-28T10:56:19.935942+00:00
 ---
 
 # Bigtable release notes  |  Google Cloud Documentation
@@ -26,6 +26,18 @@ This page documents production updates to Bigtable. You can periodically check t
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/bigtable-release-notes.xml) directly. 
+
+## October 28, 2026
+
+Feature
+
+You can configure Bigtable tables with microsecond timestamp granularity to capture and store high-frequency data. By supporting microsecond precision for cell timestamps, Bigtable helps you prevent data loss from write collisions in workloads with high event rates. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for instances in the Enterprise Plus edition. For more information, see [Data type enforcement in Bigtable](https://docs.cloud.google.com/bigtable/docs/data-types).
+
+## October 27, 2026
+
+Feature
+
+You can [use Apache Avro schema bundles](https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas) to query individual fields within Avro records stored as serialized bytes in Bigtable. You can [query your Avro data](https://docs.cloud.google.com/bigtable/docs/query-avro-data) using GoogleSQL for Bigtable, continuous materialized views, and logical views. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
 
 ## October 01, 2026
 
@@ -6025,6 +6037,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

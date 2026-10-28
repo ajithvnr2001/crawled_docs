@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/data-types/
 title: Data type enforcement in Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:54.779248+00:00
+fetched_at: 2026-10-28T10:57:19.786649+00:00
 ---
 
 # Data type enforcement in Bigtable  |  Google Cloud Documentation
@@ -21,6 +21,8 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Data type enforcement in Bigtable
 
+**Note:** This page includes features that are available only in the Enterprise Plus edition. For more information, see [Editions overview](https://docs.cloud.google.com/bigtable/docs/editions-overview).
+
 Bigtable's flexible schema lets you store data of any type – strings, dates, numbers, JSON documents, or even images or PDFs – in a Bigtable table.
 
 This document describes when Bigtable enforces type, requiring you to encode or decode it in your application code. For a list of Bigtable data types, see [Type](https://docs.cloud.google.com/bigtable/docs/reference/data/rpc/google.bigtable.v2#type_1) in the Data API reference documentation.
@@ -31,7 +33,8 @@ Data type is enforced for the following data:
 
   * Aggregate column families (counters)
   * Timestamps
-  * Materialized views
+  * Continuous materialized views
+  * Structured row keys
 
 
 
@@ -58,7 +61,41 @@ For more information about creating tables with aggregate column families, see [
 
 ### Timestamps
 
-Each Bigtable cell has an `Int64` timestamp that must be a microsecond value with, at most, millisecond precision. Bigtable rejects a timestamp with microsecond precision, such as 3023483279876543. In this example, the acceptable timestamp value is 3023483279876000. A timestamp is the number of microseconds since the [Unix epoch](https://wikipedia.org/wiki/Unix_time), `1970-01-01 00:00:00 UTC`.
+Each Bigtable cell has an `Int64` timestamp that represents the number of microseconds since the [Unix epoch](https://wikipedia.org/wiki/Unix_time), `1970-01-01 00:00:00 UTC`.
+
+#### Timestamp origin
+
+Every timestamp in a Bigtable table has an origin that indicates how the timestamp was set. Bigtable recognizes the following timestamp origins:
+
+  * **User-specified** : timestamps set by you or by an application.
+  * **Bigtable-generated** : timestamps set by the client library that uses the client's local system clock or server-generated that use the server's current time.
+
+
+
+#### Timestamp granularity and precision
+
+Bigtable supports the following levels of timestamp granularity:
+
+  * **Millisecond granularity (default)** : the timestamp must be a microsecond value with at most millisecond precision, such as `3023483279876000`. Bigtable rejects user-specified timestamps with microsecond precision and truncates Bigtable-generated timestamps with microsecond precision to millisecond precision.
+  * **Microsecond granularity** : the timestamp can have full microsecond precision, such as `3023483279876543`. Bigtable accepts user-specified and Bigtable-generated timestamps with microsecond precision.
+
+
+
+You set timestamp granularity when you [create a table](https://docs.cloud.google.com/bigtable/docs/managing-tables#create-table).
+
+#### Timestamp limitations
+
+The following limitations apply to tables with microsecond timestamp granularity:
+
+  * Only the [Bigtable client library for Java](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/overview) version 2.82.0 or later supports microsecond timestamp granularity. Read or write requests that use another client fail.
+  * Microsecond timestamp granularity is available only for instances in the Enterprise Plus edition.
+  * You can't change the timestamp granularity of a table after it's created.
+  * You can't create [continuous materialized views](https://docs.cloud.google.com/bigtable/docs/continuous-materialized-views) on tables with microsecond granularity.
+  * You can't create [logical views](https://docs.cloud.google.com/bigtable/docs/create-manage-logical-views) on tables with microsecond granularity.
+  * You can't downgrade an instance from Enterprise Plus to Enterprise if it contains any tables with microsecond granularity. You must delete these tables before you start a downgrade.
+  * Backups of tables with microsecond granularity can only be restored to Enterprise Plus instances.
+
+
 
 ### Continuous materialized views
 
@@ -117,6 +154,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

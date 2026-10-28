@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/talent-solution/job-search/docs/samples/job-search-create-tenant/
 title: Create tenant (v4beta1) \u00a0|\u00a0 Job Search \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T09:34:38.835021+00:00
+fetched_at: 2026-10-28T09:40:38.588213+00:00
 ---
 
 # Create tenant (v4beta1)  |  Job Search  |  Google Cloud Documentation

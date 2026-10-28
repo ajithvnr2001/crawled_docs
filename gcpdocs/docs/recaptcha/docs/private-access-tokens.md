@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/private-access-tokens/
 title: Understand how Fraud Defense uses Private Access Tokens \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:00.963751+00:00
+fetched_at: 2026-10-28T09:52:54.298513+00:00
 ---
 
 # Understand how Fraud Defense uses Private Access Tokens  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

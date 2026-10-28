@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/understand-cost-recs/
 title: Understanding how cost savings are calculated in recommendations \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:13.079729+00:00
+fetched_at: 2026-10-28T09:52:54.507053+00:00
 ---
 
 # Understanding how cost savings are calculated in recommendations  |  Recommender  |  Google Cloud Documentation

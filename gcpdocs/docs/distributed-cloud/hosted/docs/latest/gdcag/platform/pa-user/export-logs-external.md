@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/export-logs-external/
 title: Export logs to a SIEM system \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:13:57.366092+00:00
+fetched_at: 2026-10-28T10:58:28.047101+00:00
 ---
 
 # Export logs to a SIEM system  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -55,6 +55,10 @@ Replace `KUBECONFIG_PATH` with the path to the kubeconfig file for the Managemen
 
 ## Configure log export
 
+Create the secret and the `SIEMOrgForwarder` custom resource in the same namespace. You can use any project namespace. Each `SIEMOrgForwarder` exports platform logs from all clusters in the organization, so you don't need to create these resources in other projects or clusters.
+
+As a best practice, use the `platform-obs` namespace because `SIEMOrgForwarder` exports only platform logs. The SIEM Export Org roles also grant read access to all secrets in the namespace where they are granted, so ask your IAM Org Admin to grant these roles only to Platform Administrators.
+
 **Important:** The logging stack limits the number of retries to establish a connection with the SIEM solution and send an audit log. The Infrastructure Operator can manually configure the exact number of retries, but the default is set to _five_. If the connection fails after the specified retries, the logging stack doesn't send audit logs to the SIEM solution.
 
 Export logs to an external SIEM system:
@@ -76,7 +80,7 @@ Export logs to an external SIEM system:
 Replace the following:
 
      * `SECRET_NAME`: the name of your secret.
-     * `SECRET_FIELD`: the name of the field where you want to store the secret. It is username in case of Elastic.
+     * `SECRET_FIELD`: the name of the field where you want to store the secret. For Elastic, use the same value as `HTTP_USER_NAME` in the custom resource.
      * `FIELD_VALUE`: FIELD_VALUE is token in case of Splunk and password for Elastic.
      * `TOKEN`: your token.
 **Note:** Consider using separate tokens for audit and operational logs, deploying two secrets accordingly. You must reference the corresponding secret name in the `SIEMOrgForwarder` custom resource.
@@ -144,7 +148,7 @@ Replace the following:
      * `LOG_TYPE`: the log type you are exporting. Accepted values are `audit` and `operational`.
      * `SIEM_HOST`: the name of the SIEM host.
      * `SIEM_PORT`: the port of the SIEM instance.
-     * `HTTP_USER_NAME`: the username of the SIEM instance.
+     * `HTTP_USER_NAME`: the username of the SIEM instance. This value must also be the `SECRET_FIELD` key in the secret that stores the password.
      * `SECRET_NAME`: the name of your secret.
      * `TLS`: the status of the Transport Layer Security (TLS). Accepted values are `"On"` and `"Off"`.
      * `NET_CONNECT_TIMEOUT`: the maximum time in seconds to wait for a connection to be established. For example, a value of `180` means to wait 180 seconds.
@@ -168,6 +172,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/sap-maxdb-planning-guide/
 title: SAP MaxDB planning guide \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:31:24.465936+00:00
+fetched_at: 2026-10-28T11:10:16.004892+00:00
 ---
 
 # SAP MaxDB planning guide  |  SAP on Google Cloud  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/use-anthos-toolchain-with-active-assist/
 title: Using the GKE Enterprise toolchain with Active Assist \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:12.707950+00:00
+fetched_at: 2026-10-28T09:52:53.268279+00:00
 ---
 
 # Using the GKE Enterprise toolchain with Active Assist  |  Recommender  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/access-control-folders/
 title: Access control for folders with IAM \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:11.582406+00:00
+fetched_at: 2026-10-28T09:52:54.123139+00:00
 ---
 
 # Access control for folders with IAM  |  Resource Manager  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/garbage-collection/
 title: Garbage collection overview \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:34.554494+00:00
+fetched_at: 2026-10-28T10:56:52.124671+00:00
 ---
 
 # Garbage collection overview  |  Bigtable  |  Google Cloud Documentation
@@ -46,7 +46,7 @@ Each column family in a table has its own garbage collection policy. The garbage
 
 In Bigtable, the intersection of a row and a column can have multiple cells, which contain timestamped versions of the value for that intersection. Each cell has a timestamp. A timestamp is the number of microseconds since the [Unix epoch](https://wikipedia.org/wiki/Unix_time), `1970-01-01 00:00:00 UTC`. You can use default timestamps or set them when you send [write requests](https://docs.cloud.google.com/bigtable/docs/writes).
 
-A timestamp that you send to Bigtable must be a microsecond value with at most millisecond precision. A timestamp with microsecond precision, such as `3023483279876543`, is rejected. In this example, the acceptable timestamp value is `3023483279876000`. 
+By default, a timestamp that you send to Bigtable must be a microsecond value with at most millisecond precision. Bigtable rejects timestamps with microsecond precision, such as `3023483279876543`, unless you write to a table with [microsecond timestamp granularity](https://docs.cloud.google.com/bigtable/docs/data-types#timestamp_granularity). Tables with microsecond granularity accept user-provided timestamps with full microsecond precision. This feature is available only for instances in the Enterprise Plus edition. 
 
 The timestamp property of a cell can be a "real" timestamp, reflecting the actual time the value for the cell is written, or it can be an "artificial" timestamp. Artificial timestamps include sequential numbers, zeroes, or timestamp-formatted values that are not the actual time the cell was written. Before you use artificial timestamps, review the use cases for artificial timestamps, including the risks of using them:
 
@@ -168,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

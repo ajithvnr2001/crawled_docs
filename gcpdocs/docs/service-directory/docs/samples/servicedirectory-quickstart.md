@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-directory/docs/samples/servicedirectory-quickstart/
 title: Quickstart \u00a0|\u00a0 Service Directory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:46.721834+00:00
+fetched_at: 2026-10-28T08:56:53.795891+00:00
 ---
 
 # Quickstart  |  Service Directory  |  Google Cloud Documentation

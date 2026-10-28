@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-get-batch-prediction-job-sample/
 title: Get a batch prediction job \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:54.800626+00:00
+fetched_at: 2026-10-28T09:40:36.373363+00:00
 ---
 
 # Get a batch prediction job  |  Vertex AI  |  Google Cloud Documentation

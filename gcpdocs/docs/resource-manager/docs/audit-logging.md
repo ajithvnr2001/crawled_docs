@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/audit-logging/
 title: Resource Manager audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:10.895578+00:00
+fetched_at: 2026-10-28T09:52:58.042860+00:00
 ---
 
 # Resource Manager audit logging  |  Google Cloud Documentation

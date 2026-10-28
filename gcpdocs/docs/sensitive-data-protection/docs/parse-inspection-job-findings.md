@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/parse-inspection-job-findings/
 title: Parse findings stored as Protobuf text \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T05:40:09.969393+00:00
+fetched_at: 2026-10-28T09:14:38.796465+00:00
 ---
 
 # Parse findings stored as Protobuf text  |  Sensitive Data Protection  |  Google Cloud Documentation
@@ -32,10 +32,10 @@ To learn how to install and use the client library for Sensitive Data Protection
 To authenticate to Sensitive Data Protection, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.privacy.dlp.v2.Finding;
-    import com.google.privacy.dlp.v2.SaveToGcsFindingsOutput;
-    import com.google.protobuf.ByteString;
-    import com.google.protobuf.TextFormat;
+    import com.google.privacy.dlp.v2.[Finding](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Finding.html);
+    import com.google.privacy.dlp.v2.[SaveToGcsFindingsOutput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html);
+    import com.google.protobuf.[ByteString](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ByteString.html);
+    import com.google.protobuf.[TextFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.TextFormat.html);
     import java.io.FileInputStream;
     import java.io.IOException;
     import java.io.InputStreamReader;
@@ -53,16 +53,16 @@ To authenticate to Sensitive Data Protection, set up Application Default Credent
       // Processes a file containing findings from a DLP inspect job.
       public static void processFindingsGcsFile(String inputPath)
           throws IOException {
-        SaveToGcsFindingsOutput.Builder builder = SaveToGcsFindingsOutput.newBuilder();
+        [SaveToGcsFindingsOutput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html).Builder builder = [SaveToGcsFindingsOutput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html).newBuilder();
         try (Reader reader =
             new InputStreamReader(new FileInputStream(inputPath), StandardCharsets.UTF_8)) {
-          TextFormat.merge(reader, builder);
+          [TextFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.TextFormat.html).merge(reader, builder);
         }
-        SaveToGcsFindingsOutput output = builder.build();
+        [SaveToGcsFindingsOutput](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html) output = [builder](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.TextFormatParseInfoTree.html#com_google_protobuf_TextFormatParseInfoTree_builder__).build();
     
         // Parse the converted proto and process results
-        System.out.println("Findings: " + output.getFindingsCount());
-        for (Finding f : output.getFindingsList()) {
+        System.out.println("Findings: " + output.[getFindingsCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html#com_google_privacy_dlp_v2_SaveToGcsFindingsOutput_getFindingsCount__)());
+        for ([Finding](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.Finding.html) f : output.[getFindingsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-dlp/latest/com.google.privacy.dlp.v2.SaveToGcsFindingsOutput.html#com_google_privacy_dlp_v2_SaveToGcsFindingsOutput_getFindingsList__)()) {
           System.out.println("\tInfo type: " + f.getInfoType().getName());
           System.out.println("\tLikelihood: " + f.getLikelihood());
         }
@@ -73,6 +73,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

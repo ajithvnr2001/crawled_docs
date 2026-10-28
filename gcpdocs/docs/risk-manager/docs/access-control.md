@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/risk-manager/docs/access-control/
 title: Access control with IAM \u00a0|\u00a0 Cyber Insurance Hub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:21:03.982990+00:00
+fetched_at: 2026-10-28T09:52:24.224311+00:00
 ---
 
 # Access control with IAM  |  Cyber Insurance Hub  |  Google Cloud Documentation

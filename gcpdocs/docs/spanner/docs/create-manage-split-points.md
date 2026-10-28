@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/create-manage-split-points/
 title: Create and manage split points \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:46.204473+00:00
+fetched_at: 2026-10-28T09:14:50.341219+00:00
 ---
 
 # Create and manage split points  |  Spanner  |  Google Cloud Documentation
@@ -372,12 +372,12 @@ You should receive a successful status code (2xx) and an empty response.
 ### Java
     
     
-    import com.google.cloud.spanner.[Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html);
-    import com.google.cloud.spanner.[SpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerException.html);
-    import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html);
+    import com.google.cloud.spanner.[Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html);
+    import com.google.cloud.spanner.[SpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerException.html);
+    import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.spanner.admin.database.v1.[DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html);
     import com.google.protobuf.[ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html);
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html);
+    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Value.html);
     import com.google.spanner.admin.database.v1.[DatabaseName](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.DatabaseName.html);
     import com.google.spanner.admin.database.v1.[SplitPoints](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.html);
     import java.io.IOException;
@@ -411,9 +411,9 @@ You should receive a successful status code (2xx) and an empty response.
     
       static void addSplitPoints(String projectId, String instanceId, String databaseId)
           throws IOException {
-        try ([Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html) spanner =
-                [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html).newBuilder().setProjectId(projectId).build().getService();
-            [DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html) databaseAdminClient = spanner.[createDatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createDatabaseAdminClient__)()) {
+        try ([Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html) spanner =
+                [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html).newBuilder().setProjectId(projectId).build().getService();
+            [DatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.admin.database.v1.DatabaseAdminClient.html) databaseAdminClient = spanner.[createDatabaseAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_createDatabaseAdminClient__)()) {
           List<com.google.spanner.admin.database.v1.[SplitPoints](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.html)> splitPoints = new ArrayList<>();
     
           // table key
@@ -424,7 +424,7 @@ You should receive a successful status code (2xx) and an empty response.
                       com.google.spanner.admin.database.v1.SplitPoints.Key.newBuilder()
                           .[setKeyParts](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.Key.Builder.html#com_google_spanner_admin_database_v1_SplitPoints_Key_Builder_setKeyParts_com_google_protobuf_ListValue_)(
                               [ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html).newBuilder()
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("42").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("42").build())
                                   .build()))
                   .build();
     
@@ -436,8 +436,8 @@ You should receive a successful status code (2xx) and an empty response.
                       com.google.spanner.admin.database.v1.SplitPoints.Key.newBuilder()
                           .[setKeyParts](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.Key.Builder.html#com_google_spanner_admin_database_v1_SplitPoints_Key_Builder_setKeyParts_com_google_protobuf_ListValue_)(
                               [ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html).newBuilder()
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("John").build())
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("Doe").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("John").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("Doe").build())
                                   .build()))
                   .build();
     
@@ -449,14 +449,14 @@ You should receive a successful status code (2xx) and an empty response.
                       com.google.spanner.admin.database.v1.SplitPoints.Key.newBuilder()
                           .[setKeyParts](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.Key.Builder.html#com_google_spanner_admin_database_v1_SplitPoints_Key_Builder_setKeyParts_com_google_protobuf_ListValue_)(
                               [ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html).newBuilder()
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("Jane").build())
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("Doe").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("Jane").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("Doe").build())
                                   .build()))
                   .[addKeys](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.Builder.html#com_google_spanner_admin_database_v1_SplitPoints_Builder_addKeys_com_google_spanner_admin_database_v1_SplitPoints_Key_)(
                       com.google.spanner.admin.database.v1.SplitPoints.Key.newBuilder()
                           .[setKeyParts](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.spanner.admin.database.v1.SplitPoints.Key.Builder.html#com_google_spanner_admin_database_v1_SplitPoints_Key_Builder_setKeyParts_com_google_protobuf_ListValue_)(
                               [ListValue](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.html).newBuilder()
-                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("38").build())
+                                  .[addValues](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.ListValue.Builder.html#com_google_protobuf_ListValue_Builder_addValues_com_google_protobuf_Value_)([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Value.html).newBuilder().setStringValue("38").build())
                                   .build()))
                   .build();
     
@@ -468,7 +468,7 @@ You should receive a successful status code (2xx) and an empty response.
     
         } catch (Exception e) {
           // If the operation failed during execution, expose the cause.
-          throw ([SpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerException.html)) e.getCause();
+          throw ([SpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerException.html)) e.getCause();
         }
       }
     }
@@ -932,6 +932,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-22 UTC.
+Last updated 2026-10-26 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-22 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 

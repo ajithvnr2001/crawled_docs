@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-predict-text-classification-single-label-sample/
 title: Predict for text classification single label \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:19.249213+00:00
+fetched_at: 2026-10-28T09:38:27.441121+00:00
 ---
 
 # Predict for text classification single label  |  Vertex AI  |  Google Cloud Documentation

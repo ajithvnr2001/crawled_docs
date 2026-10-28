@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/quickstart/integrate-cloud-run/
 title: Quickstart: Connect from Cloud Run \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:16:28.763914+00:00
+fetched_at: 2026-10-28T09:52:32.474895+00:00
 ---
 
 # Quickstart: Connect from Cloud Run  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

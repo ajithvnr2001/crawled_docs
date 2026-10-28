@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/media-cdn/quotas/
 title: Quotas and limits \u00a0|\u00a0 Media CDN \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:22:17.703301+00:00
+fetched_at: 2026-10-28T10:49:36.927918+00:00
 ---
 
 # Quotas and limits  |  Media CDN  |  Google Cloud Documentation

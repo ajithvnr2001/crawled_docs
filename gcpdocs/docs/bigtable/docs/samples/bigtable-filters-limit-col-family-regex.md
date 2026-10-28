@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-filters-limit-col-family-regex/
 title: Read using a family regex filter \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:25.823112+00:00
+fetched_at: 2026-10-28T10:56:34.706125+00:00
 ---
 
 # Read using a family regex filter  |  Bigtable  |  Google Cloud Documentation

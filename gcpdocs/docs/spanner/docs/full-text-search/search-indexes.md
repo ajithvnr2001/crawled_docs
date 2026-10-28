@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/full-text-search/search-indexes/
 title: Search indexes \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:27.181555+00:00
+fetched_at: 2026-10-28T09:39:05.659730+00:00
 ---
 
 # Search indexes  |  Spanner  |  Google Cloud Documentation

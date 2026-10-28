@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ruby/docs/
 title: Ruby documentation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:38:55.210878+00:00
+fetched_at: 2026-10-28T09:53:00.848140+00:00
 ---
 
 # Ruby documentation  |  Google Cloud Documentation

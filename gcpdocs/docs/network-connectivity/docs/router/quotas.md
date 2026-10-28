@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/router/quotas/
 title: Quotas and limits \u00a0|\u00a0 Cloud Router \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:05:03.751398+00:00
+fetched_at: 2026-10-28T10:49:36.572217+00:00
 ---
 
 # Quotas and limits  |  Cloud Router  |  Google Cloud Documentation

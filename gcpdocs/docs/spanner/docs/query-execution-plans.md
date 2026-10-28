@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/query-execution-plans/
 title: Query execution plans \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:50.460056+00:00
+fetched_at: 2026-10-28T09:13:09.860326+00:00
 ---
 
 # Query execution plans  |  Spanner  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/use-resourcemanager-mcp/
 title: Use the Resource Manager remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:23.673741+00:00
+fetched_at: 2026-10-28T09:52:46.125762+00:00
 ---
 
 # Use the Resource Manager remote MCP server  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/docs/issue-trackers/
 title: Report issues and request features \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:55.250441+00:00
+fetched_at: 2026-10-28T09:47:52.881962+00:00
 ---
 
 # Report issues and request features  |  Cloud Customer Care  |  Google Cloud Documentation

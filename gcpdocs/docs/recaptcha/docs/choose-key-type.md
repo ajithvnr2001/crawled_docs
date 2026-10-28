@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/choose-key-type/
 title: Choose the appropriate key type \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:19.239071+00:00
+fetched_at: 2026-10-28T09:52:37.871178+00:00
 ---
 
 # Choose the appropriate key type  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

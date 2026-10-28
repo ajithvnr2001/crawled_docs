@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/identify-attacks/
 title: Identify and investigate attacks \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:16.454855+00:00
+fetched_at: 2026-10-28T09:52:44.012183+00:00
 ---
 
 # Identify and investigate attacks  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

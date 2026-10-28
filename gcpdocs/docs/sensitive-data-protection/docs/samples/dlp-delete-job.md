@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-delete-job/
 title: Delete a job \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:33:36.721622+00:00
+fetched_at: 2026-10-28T09:39:50.061234+00:00
 ---
 
 # Delete a job  |  Sensitive Data Protection  |  Google Cloud Documentation

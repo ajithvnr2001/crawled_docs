@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/ip-allowlists-and-regions/
 title: IP allowlists and regions \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:36.670004+00:00
+fetched_at: 2026-10-28T09:19:55.891485+00:00
 ---
 
 # IP allowlists and regions  |  Datastream  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  IP allowlists and regions Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can configure your source database to allow incoming connections from Datastream public IP addresses.
+When you use IP allowlists for public network connectivity, you configure your source firewall to allow incoming connections from Datastream. You must allow the public IP addresses for the region where you create your resource.
 
-The following table shows the [locations](https://cloud.google.com/about/locations) of all Datastream regions and their associated public IP addresses.
+The following table lists the [locations](https://cloud.google.com/about/locations) of all Datastream regions and their associated public IP addresses:
 
 Region | IP addresses |   
 ---|---|---  
@@ -278,6 +278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

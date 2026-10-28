@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-get-model-evaluation-tabular-regression-sample/
 title: Get a model evaluation for tabular regression \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:19.452989+00:00
+fetched_at: 2026-10-28T09:39:55.984302+00:00
 ---
 
 # Get a model evaluation for tabular regression  |  Vertex AI  |  Google Cloud Documentation

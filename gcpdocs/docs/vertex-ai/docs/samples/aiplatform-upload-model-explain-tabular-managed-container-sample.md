@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/samples/aiplatform-upload-model-explain-tabular-managed-container-sample/
 title: Upload a model for explain tabular managed container \u00a0|\u00a0 Vertex AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:04.106143+00:00
+fetched_at: 2026-10-28T09:39:27.089210+00:00
 ---
 
 # Upload a model for explain tabular managed container  |  Vertex AI  |  Google Cloud Documentation

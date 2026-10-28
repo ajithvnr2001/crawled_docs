@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/database-inplace-major-version-upgrade-errors/
 title: Database in-place major version upgrade errors \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:29:07.660515+00:00
+fetched_at: 2026-10-28T09:52:33.592906+00:00
 ---
 
 # Database in-place major version upgrade errors  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -29,17 +29,17 @@ The following sections describe the error messages that can occur during a major
 
 ### Error: Database: database_name. extension_violation: DEPRECATED, action_required: DELETE_EXTENSION
 
-**Description:** AlloyDB detects deprecated extension. The error indicates which extensions caused an error:
+**Description:** AlloyDB detects a deprecated extension. The error indicates which extensions caused an error:
     
     
-    database_name. extension_violation: DEPRECATED_EXTENSION, action_required: DELETE_EXTENSION."+" Query format to delete the extensions: `DROP EXTENSION {extension_name}; Violation list: [extensions]
+    database_name. extension_violation: DEPRECATED_EXTENSION, action_required: DELETE_EXTENSION. Query format to delete the extensions: DROP EXTENSION {extension_name}; Violation list: [extensions]
     
 
 **Recommended fix:** Delete the extension. The query format to delete an extension is `DROP EXTENSION {extension_name};`.
 
 ### Error: Database: database_name. extension_violation: INVALID_EXTENSION_VERSION, action_required: UPGRADE_EXTENSION
 
-**Description:** AlloyDB detects invalid extension version.
+**Description:** AlloyDB detects an invalid extension version.
 
 **Recommended fix:** Upgrade the extension. The query format to upgrade an extension is `ALTER EXTENSION {extension_name} UPDATE TO {target_version};`.
 
@@ -78,6 +78,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

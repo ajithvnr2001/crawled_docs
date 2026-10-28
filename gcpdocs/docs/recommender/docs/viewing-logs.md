@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/viewing-logs/
 title: View logs \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:12.152048+00:00
+fetched_at: 2026-10-28T09:52:41.555953+00:00
 ---
 
 # View logs  |  Recommender  |  Google Cloud Documentation

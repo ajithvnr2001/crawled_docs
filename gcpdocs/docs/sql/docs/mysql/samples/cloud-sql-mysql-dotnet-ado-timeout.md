@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/samples/cloud-sql-mysql-dotnet-ado-timeout/
 title: Set the connection timeout when using ADO.NET \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:12:03.051771+00:00
+fetched_at: 2026-10-28T08:57:19.583400+00:00
 ---
 
 # Set the connection timeout when using ADO.NET  |  Cloud SQL for MySQL  |  Google Cloud Documentation

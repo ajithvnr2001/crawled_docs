@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/migration-v1/
 title: Migrate to the v1 API \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:01.550506+00:00
+fetched_at: 2026-10-28T09:52:43.358040+00:00
 ---
 
 # Migrate to the v1 API  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

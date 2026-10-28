@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/samples/cloudrun-imageproc-handler-analyze/
 title: Use Cloud Vision API to determine if image is safe \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T10:03:22.807794+00:00
+fetched_at: 2026-10-28T09:52:12.220704+00:00
 ---
 
 # Use Cloud Vision API to determine if image is safe  |  Cloud Run  |  Google Cloud Documentation

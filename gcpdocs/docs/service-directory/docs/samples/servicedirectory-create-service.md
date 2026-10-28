@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-directory/docs/samples/servicedirectory-create-service/
 title: Create service \u00a0|\u00a0 Service Directory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T05:44:38.931298+00:00
+fetched_at: 2026-10-28T09:14:45.021978+00:00
 ---
 
 # Create service  |  Service Directory  |  Google Cloud Documentation

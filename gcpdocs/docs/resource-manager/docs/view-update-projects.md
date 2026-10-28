@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/view-update-projects/
 title: View and update projects \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:23.460155+00:00
+fetched_at: 2026-10-28T09:52:49.217101+00:00
 ---
 
 # View and update projects  |  Resource Manager  |  Google Cloud Documentation

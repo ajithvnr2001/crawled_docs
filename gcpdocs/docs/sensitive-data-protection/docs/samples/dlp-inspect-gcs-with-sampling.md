@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-inspect-gcs-with-sampling/
 title: Inspect storage with sampling \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:34:23.157972+00:00
+fetched_at: 2026-10-28T09:39:45.632667+00:00
 ---
 
 # Inspect storage with sampling  |  Sensitive Data Protection  |  Google Cloud Documentation

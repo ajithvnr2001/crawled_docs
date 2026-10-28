@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/application/ao-user/quickstart-ocr-images/
 title: Detect text in images \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:45:28.177095+00:00
+fetched_at: 2026-10-28T09:52:26.120296+00:00
 ---
 
 # Detect text in images  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  Detect text in images Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page shows you how to detect image text using the Optical Character Recognition (OCR) API on Google Distributed Cloud (GDC) air-gapped appliance.
-
-The OCR service of Vertex AI on GDC air-gapped appliance detects text in images using the `BatchAnnotateImages` API method. The service supports JPEG and PNG files for images.
+The Optical Character Recognition (OCR) service of Vertex AI in Google Distributed Cloud (GDC) air-gapped appliance detects and extracts text from JPEG and PNG images. You can process images and retrieve structured text annotations by sending inline requests to the `BatchAnnotateImages` API method.
 
 ## Before you begin
 
@@ -223,6 +221,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

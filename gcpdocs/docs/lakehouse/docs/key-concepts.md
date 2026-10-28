@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/key-concepts/
 title: Key concepts \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:17:50.671541+00:00
+fetched_at: 2026-10-28T09:59:51.774800+00:00
 ---
 
 # Key concepts  |  Lakehouse  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sensitive-data-protection/docs/samples/dlp-inspect-gcs/
 title: Inspect a Cloud Storage file \u00a0|\u00a0 Sensitive Data Protection \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:32:43.852571+00:00
+fetched_at: 2026-10-28T09:38:40.585843+00:00
 ---
 
 # Inspect a Cloud Storage file  |  Sensitive Data Protection  |  Google Cloud Documentation

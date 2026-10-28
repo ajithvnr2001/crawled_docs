@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/active-assist/get-support/
 title: Get support \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:14.964822+00:00
+fetched_at: 2026-10-28T09:52:41.298786+00:00
 ---
 
 # Get support  |  Recommender  |  Google Cloud Documentation

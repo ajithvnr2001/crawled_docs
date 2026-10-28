@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes/
 title: Prepare for upcoming authorization changes \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:09:33.753313+00:00
+fetched_at: 2026-10-28T09:50:58.789844+00:00
 ---
 
 # Prepare for upcoming authorization changes  |  Application Integration  |  Google Cloud Documentation
@@ -45,10 +45,10 @@ Integration | When the updates apply
 ---|---  
 Created **on or after October 15, 2026** | From the first version you create. Every version you publish afterward retains the new behavior.  
 Created **before October 15, 2026** | These integrations keep their current behavior until a later date, which Application Integration announces separately.  
-**Note:** Editing an integration doesn't change its stage, and a sub-integration runs in the stage of the integration it belongs to. Two things don't depend on the stage: 
+**Note:** Editing an integration doesn't change its stage, and a sub-integration runs in its own stage, not in the stage of the integration that calls it. The following conditions do not depend on the stage: 
 
-  * Service Account User checks apply to every integration, whatever its creation date.
-  * Every test uses the new behavior, including tests that you start from the Google Cloud console and tests of integrations created before October 15, 2026.
+  * Service Account User checks apply to every integration, regardless of its creation date.
+  * Every test uses the new behavior, including tests started from the Google Cloud console and tests of integrations created before October 15, 2026.
 
 
 
@@ -100,6 +100,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

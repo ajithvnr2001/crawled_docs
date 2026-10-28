@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/resource-manager-overview/
 title: Resource Manager overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:24.195249+00:00
+fetched_at: 2026-10-28T09:52:45.193548+00:00
 ---
 
 # Resource Manager overview  |  Google Cloud Documentation

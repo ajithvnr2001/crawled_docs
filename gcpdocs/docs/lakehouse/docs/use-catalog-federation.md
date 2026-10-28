@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/use-catalog-federation/
 title: Query BigQuery tables through the Apache Iceberg REST catalog endpoint \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:17:49.839016+00:00
+fetched_at: 2026-10-28T09:59:51.907339+00:00
 ---
 
 # Query BigQuery tables through the Apache Iceberg REST catalog endpoint  |  Lakehouse  |  Google Cloud Documentation

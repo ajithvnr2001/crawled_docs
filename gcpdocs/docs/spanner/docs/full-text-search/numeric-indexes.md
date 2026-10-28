@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/full-text-search/numeric-indexes/
 title: Numeric search indexes \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:52.263257+00:00
+fetched_at: 2026-10-28T09:40:15.812981+00:00
 ---
 
 # Numeric search indexes  |  Spanner  |  Google Cloud Documentation

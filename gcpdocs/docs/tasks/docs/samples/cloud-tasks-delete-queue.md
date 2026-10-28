@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tasks/docs/samples/cloud-tasks-delete-queue/
 title: Delete a queue \u00a0|\u00a0 Cloud Tasks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T08:58:45.492799+00:00
+fetched_at: 2026-10-28T09:50:59.999822+00:00
 ---
 
 # Delete a queue  |  Cloud Tasks  |  Google Cloud Documentation

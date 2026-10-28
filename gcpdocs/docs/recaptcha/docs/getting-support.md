@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/getting-support/
 title: Getting support \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:16.251385+00:00
+fetched_at: 2026-10-28T09:52:37.230982+00:00
 ---
 
 # Getting support  |  Google Cloud Fraud Defense  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-delete-table-hbase/
 title: Delete a table (HBase) \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:18.791044+00:00
+fetched_at: 2026-10-28T10:56:33.102322+00:00
 ---
 
 # Delete a table (HBase)  |  Bigtable  |  Google Cloud Documentation

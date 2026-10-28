@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recommender/docs/quickstart-active-assist/
 title: Find recommendations with Active Assist \u00a0|\u00a0 Recommender \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:39:04.819892+00:00
+fetched_at: 2026-10-28T09:52:49.104184+00:00
 ---
 
 # Find recommendations with Active Assist  |  Recommender  |  Google Cloud Documentation

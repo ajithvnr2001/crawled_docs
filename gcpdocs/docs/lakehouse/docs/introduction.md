@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/introduction/
 title: What is borderless Lakehouse? \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:17:50.475986+00:00
+fetched_at: 2026-10-28T09:59:51.691758+00:00
 ---
 
 # What is borderless Lakehouse?  |  Google Cloud Documentation
