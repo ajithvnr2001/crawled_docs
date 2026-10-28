@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/llamaindex/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:52:30.607124+00:00
+fetched_at: 2026-10-28T09:32:17.586837+00:00
 ---
 
 # Introduction
