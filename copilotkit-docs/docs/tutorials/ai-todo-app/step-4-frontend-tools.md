@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/tutorials/ai-todo-app/step-4-frontend-tools/
 title: CopilotKit: bring your agent into any app
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:24.159528+00:00
+fetched_at: 2026-10-29T09:46:34.368727+00:00
 ---
 
 # CopilotKit: bring your agent into any app
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/learning)
 
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
 
 Hosting
 
@@ -118,9 +122,9 @@ Connect your agent to your app with interactive UI, shared state, and human appr
 
 ## AG-UI Streams
 
-Persist and resume rich conversations with generative UI, messages, tool activity, and app state. Import existing thread history so users can pick up where they left off.
+Complement any existing thread system with AG-UI Streams. Add the full spectrum of generative UI, multimodal inputs and file uploads, plus reconnection and catch-up after network interruptions and across tabs and devices.
 
-[Explore AG-UI Streams](https://docs.copilotkit.ai/threads)
+[Explore AG-UI Streams](https://docs.copilotkit.ai/AG-UI-Streams)
 
 ## Automatic Learning
 
@@ -164,6 +168,6 @@ ReactReact SPAVueReact NativeAngularSlackTeams
 
 ### Your agent backend
 
-[CopilotKit](https://docs.copilotkit.ai/quickstart)[DeepAgents](https://docs.copilotkit.ai/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/ag2)[Agno](https://docs.copilotkit.ai/agno)[LlamaIndex](https://docs.copilotkit.ai/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/crewai-crews)
+[CopilotKit](https://docs.copilotkit.ai/quickstart)[Langchain DeepAgents](https://docs.copilotkit.ai/deepagents)LangChain[Google ADK](https://docs.copilotkit.ai/google-adk)AWS StrandsMicrosoft Agent Framework[Mastra](https://docs.copilotkit.ai/mastra)[Claude Agent SDK (Python)](https://docs.copilotkit.ai/claude-sdk-python)[Claude Agent SDK (TypeScript)](https://docs.copilotkit.ai/claude-sdk-typescript)[PydanticAI](https://docs.copilotkit.ai/pydantic-ai)[MS Agent Harness (.NET)](https://docs.copilotkit.ai/ms-agent-harness-dotnet)[AG2](https://docs.copilotkit.ai/ag2)[Agno](https://docs.copilotkit.ai/agno)[LlamaIndex](https://docs.copilotkit.ai/llamaindex)[CrewAI Flows](https://docs.copilotkit.ai/crewai-crews)
 
 [View on GitHub](https://github.com/CopilotKit/CopilotKit)Start building 

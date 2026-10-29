@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/telemetry/
 title: Open-source Telemetry
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:18.927612+00:00
+fetched_at: 2026-10-29T09:46:36.304824+00:00
 ---
 
 # Open-source Telemetry
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/learning)
 
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
 
 Hosting
 

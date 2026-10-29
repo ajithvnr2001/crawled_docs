@@ -1,0 +1,239 @@
+---
+url: https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/surfaces/
+title: Surfaces
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T09:45:54.728778+00:00
+---
+
+# Surfaces
+
+> Source: https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/surfaces/
+
+[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
+
+[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
+
+[](https://docs.copilotkit.ai/)
+
+FrontendReactAgent backendLangGraph (TypeScript)
+
+[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
+
+[Introduction](https://docs.copilotkit.ai/langgraph-typescript)[Quickstart](https://docs.copilotkit.ai/langgraph-typescript/quickstart)[Build with agents](https://docs.copilotkit.ai/langgraph-typescript/build-with-agents)[Intelligence](https://docs.copilotkit.ai/langgraph-typescript/intelligence/overview)
+
+Basics
+
+Chat
+
+Threads
+
+[Frontend-tools](https://docs.copilotkit.ai/langgraph-typescript/frontend-tools)
+
+Generative UI
+
+Controlled
+
+Declarative
+
+[Components and surfaces](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components)
+
+[Surfaces](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/surfaces)[Catalogs](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/catalogs)[Standard catalog](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/standard-catalog)[State and actions](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/state-and-actions)[Theming](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/theming)[Transports](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/transports)[Markdown mode](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/markdown-mode)[Adopt from A2UI](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/from-a2ui)
+
+[A2UI](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/a2ui)
+
+[JSON Render](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/json-render)[Hashbrown](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/hashbrown)
+
+Open-ended
+
+Interactivity
+
+Shared state
+
+Human-in-the-loop
+
+[WebMCP](https://docs.copilotkit.ai/langgraph-typescript/webmcp)
+
+Agent capabilities
+
+LangGraph (TypeScript)
+
+[Sub-agents](https://docs.copilotkit.ai/langgraph-typescript/multi-agent/subagents)
+
+Intelligence
+
+[Overview](https://docs.copilotkit.ai/langgraph-typescript/intelligence/overview)
+
+Get started
+
+Features
+
+AG-UI Streams
+
+[Automatic Learning](https://docs.copilotkit.ai/langgraph-typescript/learning)
+
+[User Memories](https://docs.copilotkit.ai/langgraph-typescript/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/langgraph-typescript/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/langgraph-typescript/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/langgraph-typescript/intelligence/analytics)[Channels](https://docs.copilotkit.ai/langgraph-typescript/intelligence/channels)
+
+Hosting
+
+Backend
+
+Runtime
+
+Deployment
+
+Debugging
+
+Learn
+
+Concepts
+
+[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
+
+Other
+
+Contributing
+
+Troubleshooting
+
+[Open-source telemetry](https://docs.copilotkit.ai/langgraph-typescript/telemetry)[Community frameworks](https://docs.copilotkit.ai/langgraph-typescript/community-frameworks)
+
+Talk to an engineer
+
+[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
+
+Surfaces
+
+Generative UIDeclarativeComponents and surfaces
+
+# Surfaces
+
+Render generated UI in the chat, or in named areas of your page that the chat can change.
+
+Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+
+View prompt
+
+Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+
+## What is this?#
+
+The chat is a good place for an answer. It is a bad place for the product grid of your shop. When a user asks "show me cheap running shoes", the shoes belong in the product row of the page, not in a chat bubble.
+
+A **surface** is one piece of generated UI. Each surface renders in a **target** , a place where generated UI can go:
+
+  * **The chat.** Always there. The agent can use every component of the catalog.
+  * **A page target.** An area of your page that you mark with `GenerativeUISurface`. The agent sees it only while it is on screen.
+
+
+
+## Add a page target#
+
+Wrap an area of your page in `GenerativeUISurface`. Give it an id, and tell the agent what the area is for:
+
+app/page.tsx
+    
+    
+    import { GenerativeUISurface } from "@copilotkit/react-core/v2/generative-ui";
+    import { shopUI } from "./catalog";
+    
+    export function FeaturedProducts({ products }: { products: Product[] }) {
+      return (
+        <GenerativeUISurface
+          id="featured"
+          ui={shopUI}
+          description="The Featured Products row of the home page. When the customer asks to see products here, show them as a ProductGrid with one ProductCard for each product. When they ask for the featured products again, delete this surface."
+          components={["ProductGrid", "ProductCard"]}
+          fallback={<ProductRow products={products} />}
+        />
+      );
+    }
+
+What each prop does:
+
+  * `id`: the target id. The agent names it when it renders here.
+  * `description`: what the area is and what belongs in it. The agent reads it on every run, so write it like an instruction.
+  * `fallback`: shows until the agent renders here, and again after the agent deletes its surface.
+  * `ui` and `components`: the only components the agent can use here. See Limit the components.
+
+
+
+Now "show me cheap running shoes" swaps the row, and "show the featured products again" brings your own row back.
+
+## Limit the components#
+
+A product row must hold product cards, not a slider or a chart. `components` names the only components that the agent can use in this target, the root included:
+    
+    
+    <GenerativeUISurface id="featured" ui={shopUI} components={["ProductGrid", "ProductCard"]} />
+
+  * The agent gets the list, so it knows what fits.
+  * An operation with another component is rejected, and the agent gets the reason.
+  * `ui` types the names, so a typo is a type error. Pass the same catalog that you gave the provider.
+
+
+
+Leave out `components` (and `ui`) to allow every component of the catalog.
+
+## Scroll to the surface#
+
+When the agent starts to render into a target, the page scrolls to it, unless it is already on screen. Turn this off for one target:
+    
+    
+    <GenerativeUISurface id="sidebar-notes" autoScroll={false} />
+
+With a sticky header, give surfaces some room at the top in your CSS:
+    
+    
+    [data-generative-ui-surface] {
+      scroll-margin-top: 6rem;
+    }
+
+## One target for each item#
+
+A target can be specific. A product page can give each product its own target, so its recommendations stay with it when the user moves between products:
+    
+    
+    <GenerativeUISurface
+      key={product.id}
+      id={`recommendations-${product.id}`}
+      description={`The "You might also like" row under ${product.name}. Show related products here. Never include ${product.name} itself.`}
+    />
+
+## When a component fails#
+
+Each component renders inside its own error boundary. One broken component shows a small fallback, and the rest of the surface keeps working. To report errors, or to draw your own fallback:
+    
+    
+    <CopilotKitProvider
+      runtimeUrl="/api/copilotkit"
+      generativeUI={{
+        ui: shopUI,
+        errorBoundary: {
+          onError: (info) => console.warn(info.kind, info.surfaceId, info.error.message),
+          fallback: ({ retry }) => <button onClick={retry}>Try again</button>,
+        },
+      }}
+    >
+
+## What the agent knows about surfaces#
+
+On every run, the agent gets:
+
+  * The targets that are on screen, with their descriptions and component limits.
+  * The surfaces that already exist, so it can update one in place instead of building a new one.
+  * The values the user typed into a surface. The agent cannot write over those values.
+  * The operations that the browser rejected, with the reason, so the agent can fix them.
+
+
+
+To see the same data, open the **Surfaces** tab of the Generative UI pane in Inspector. If a surface stays empty, see [When something does not render](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components#when-something-does-not-render).
+
+Next: decide what the agent can render in a surface, with a [catalog](https://docs.copilotkit.ai/langgraph-typescript/generative-ui/components/catalogs).
+
+### On this page
+
+What is this?Add a page targetLimit the componentsScroll to the surfaceOne target for each itemWhen a component failsWhat the agent knows about surfaces

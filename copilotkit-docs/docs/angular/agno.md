@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/agno/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:19.605213+00:00
+fetched_at: 2026-10-29T09:46:32.815406+00:00
 ---
 
 # Introduction
@@ -47,7 +47,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/angular/agno/learning)
 
-[User Memories](https://docs.copilotkit.ai/angular/agno/intelligence/memories)[Standalone collector](https://docs.copilotkit.ai/angular/agno/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/angular/agno/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/angular/agno/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/agno/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/angular/agno/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/angular/agno/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/angular/agno/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/angular/agno/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/agno/intelligence/channels)
 
 Hosting
 

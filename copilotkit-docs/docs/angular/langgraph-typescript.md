@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/langgraph-typescript/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:19.172696+00:00
+fetched_at: 2026-10-29T09:46:32.116973+00:00
 ---
 
 # Introduction
@@ -47,7 +47,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/angular/langgraph-typescript/learning)
 
-[User Memories](https://docs.copilotkit.ai/angular/langgraph-typescript/intelligence/memories)[Standalone collector](https://docs.copilotkit.ai/angular/langgraph-typescript/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/angular/langgraph-typescript/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/angular/langgraph-typescript/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/langgraph-typescript/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/angular/langgraph-typescript/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/angular/langgraph-typescript/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/angular/langgraph-typescript/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/angular/langgraph-typescript/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/langgraph-typescript/intelligence/channels)
 
 Hosting
 

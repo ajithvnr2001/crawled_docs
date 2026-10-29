@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/google-adk/
 title: ADK
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:18.956620+00:00
+fetched_at: 2026-10-29T09:46:32.712018+00:00
 ---
 
 # ADK
@@ -47,7 +47,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/angular/google-adk/learning)
 
-[User Memories](https://docs.copilotkit.ai/angular/google-adk/intelligence/memories)[Standalone collector](https://docs.copilotkit.ai/angular/google-adk/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/angular/google-adk/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/angular/google-adk/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/google-adk/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/angular/google-adk/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/angular/google-adk/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/angular/google-adk/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/angular/google-adk/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/google-adk/intelligence/channels)
 
 Hosting
 

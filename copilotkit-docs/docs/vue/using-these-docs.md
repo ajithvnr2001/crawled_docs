@@ -1,11 +1,11 @@
 ---
 url: https://docs.copilotkit.ai/vue/using-these-docs/
-title: Vue: Docs status
+title: Vue: Using these docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:24.648642+00:00
+fetched_at: 2026-10-29T09:46:33.988933+00:00
 ---
 
-# Vue: Docs status
+# Vue: Using these docs
 
 > Source: https://docs.copilotkit.ai/vue/using-these-docs/
 
@@ -19,25 +19,79 @@ FrontendVueAgent backendCopilotKit
 
 [Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
 
-Getting Started
+[Quickstart](https://docs.copilotkit.ai/vue)[Using these docs](https://docs.copilotkit.ai/vue/using-these-docs)[Build with agents](https://docs.copilotkit.ai/vue/build-with-agents)[Intelligence](https://docs.copilotkit.ai/vue/intelligence/overview)
 
-[Quickstart](https://docs.copilotkit.ai/vue)[Docs status](https://docs.copilotkit.ai/vue/using-these-docs)
+Basics
 
-Guides
+Chat
 
-[Generative UI in Vue](https://docs.copilotkit.ai/vue/guides/generative-ui)[Reference docs](https://docs.copilotkit.ai/reference)
+Threads
 
-Guides coming soon...Vue is feature complete, but the docs are still catching up. The [quickstart](https://docs.copilotkit.ai/vue) and [reference](https://docs.copilotkit.ai/reference) guides are ready with more guides on the way.
+[Frontend-tools](https://docs.copilotkit.ai/vue/frontend-tools)
+
+Generative UI
+
+Controlled
+
+Open-ended
+
+Interactivity
+
+Shared state
+
+Human-in-the-loop
+
+[WebMCP](https://docs.copilotkit.ai/vue/webmcp)
+
+Agent capabilities
+
+[Sub-agents](https://docs.copilotkit.ai/vue/multi-agent/subagents)
+
+Intelligence
+
+[Overview](https://docs.copilotkit.ai/vue/intelligence/overview)
+
+Get started
+
+Features
+
+AG-UI Streams
+
+[Automatic Learning](https://docs.copilotkit.ai/vue/learning)
+
+[User Memories](https://docs.copilotkit.ai/vue/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/vue/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/vue/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/vue/intelligence/analytics)[Channels](https://docs.copilotkit.ai/vue/intelligence/channels)
+
+Hosting
+
+Backend
+
+Runtime
+
+Deployment
+
+Debugging
+
+Learn
+
+Concepts
+
+Other
+
+Troubleshooting
+
+[Community frameworks](https://docs.copilotkit.ai/vue/community-frameworks)[Reference docs](https://docs.copilotkit.ai/reference/vue)
 
 Talk to an engineer
 
 [](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
 
-Getting Started
+# Using these docs
 
-# Docs status
-
-What to expect while this frontend's full guide set is being written.
+How Vue documentation follows the shared CopilotKit documentation structure.
 
 Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
 
@@ -45,14 +99,4 @@ View prompt
 
 Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
 
-This frontend is feature complete, but the docs are still catching up. Its quickstart and reference guides are ready with more guides on the way.
-
-Use these docs in three layers:
-
-  1. Start with the quickstart in this sidebar. It shows the install, provider, and first working connection for this frontend.
-  2. Use the Reference docs link in this sidebar for the most specific API surface available.
-  3. For broader product patterns, use the React docs as the complete feature map, then translate the implementation with the frontend-specific reference.
-
-
-
-When you find a feature you want in the React docs, point your coding agent at the React page for the product pattern and the reference docs for the exact API surface.
+React's root routes define the documentation route and navigation structure. Framework-neutral pages are reused at their Vue routes, while Vue variants provide Vue APIs and templates where they differ. The canonical Vue API reference is available at [Vue reference](https://docs.copilotkit.ai/reference/vue).

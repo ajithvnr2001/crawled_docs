@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/llamaindex/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:17.586837+00:00
+fetched_at: 2026-10-29T09:46:30.864638+00:00
 ---
 
 # Introduction
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/llamaindex/learning)
 
-[User Memories](https://docs.copilotkit.ai/llamaindex/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/llamaindex/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/llamaindex/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/llamaindex/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/llamaindex/intelligence/analytics)[Channels](https://docs.copilotkit.ai/llamaindex/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/llamaindex/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/llamaindex/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/llamaindex/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/llamaindex/intelligence/analytics)[Channels](https://docs.copilotkit.ai/llamaindex/intelligence/channels)
 
 Hosting
 

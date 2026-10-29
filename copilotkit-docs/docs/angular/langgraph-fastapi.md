@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/langgraph-fastapi/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:19.331682+00:00
+fetched_at: 2026-10-29T09:46:33.007510+00:00
 ---
 
 # Introduction
@@ -47,7 +47,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/angular/langgraph-fastapi/learning)
 
-[User Memories](https://docs.copilotkit.ai/angular/langgraph-fastapi/intelligence/memories)[Standalone collector](https://docs.copilotkit.ai/angular/langgraph-fastapi/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/angular/langgraph-fastapi/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/angular/langgraph-fastapi/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/langgraph-fastapi/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/angular/langgraph-fastapi/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/angular/langgraph-fastapi/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/angular/langgraph-fastapi/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/angular/langgraph-fastapi/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/langgraph-fastapi/intelligence/channels)
 
 Hosting
 

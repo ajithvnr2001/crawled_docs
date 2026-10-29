@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/vue/
 title: Vue quickstart
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:24.625696+00:00
+fetched_at: 2026-10-29T09:46:34.104814+00:00
 ---
 
 # Vue quickstart
@@ -19,21 +19,75 @@ FrontendVueAgent backendCopilotKit
 
 [Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
 
-Getting Started
+[Quickstart](https://docs.copilotkit.ai/vue)[Using these docs](https://docs.copilotkit.ai/vue/using-these-docs)[Build with agents](https://docs.copilotkit.ai/vue/build-with-agents)[Intelligence](https://docs.copilotkit.ai/vue/intelligence/overview)
 
-[Quickstart](https://docs.copilotkit.ai/vue)[Docs status](https://docs.copilotkit.ai/vue/using-these-docs)
+Basics
 
-Guides
+Chat
 
-[Generative UI in Vue](https://docs.copilotkit.ai/vue/guides/generative-ui)[Reference docs](https://docs.copilotkit.ai/reference)
+Threads
 
-Guides coming soon...Vue is feature complete, but the docs are still catching up. The [quickstart](https://docs.copilotkit.ai/vue) and [reference](https://docs.copilotkit.ai/reference) guides are ready with more guides on the way.
+[Frontend-tools](https://docs.copilotkit.ai/vue/frontend-tools)
+
+Generative UI
+
+Controlled
+
+Open-ended
+
+Interactivity
+
+Shared state
+
+Human-in-the-loop
+
+[WebMCP](https://docs.copilotkit.ai/vue/webmcp)
+
+Agent capabilities
+
+[Sub-agents](https://docs.copilotkit.ai/vue/multi-agent/subagents)
+
+Intelligence
+
+[Overview](https://docs.copilotkit.ai/vue/intelligence/overview)
+
+Get started
+
+Features
+
+AG-UI Streams
+
+[Automatic Learning](https://docs.copilotkit.ai/vue/learning)
+
+[User Memories](https://docs.copilotkit.ai/vue/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/vue/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/vue/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/vue/intelligence/analytics)[Channels](https://docs.copilotkit.ai/vue/intelligence/channels)
+
+Hosting
+
+Backend
+
+Runtime
+
+Deployment
+
+Debugging
+
+Learn
+
+Concepts
+
+Other
+
+Troubleshooting
+
+[Community frameworks](https://docs.copilotkit.ai/vue/community-frameworks)[Reference docs](https://docs.copilotkit.ai/reference/vue)
 
 Talk to an engineer
 
 [](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-Getting Started
 
 # Vue
 
@@ -94,6 +148,12 @@ npmpnpmyarn
 
 Add a small Node server that hosts Copilot Runtime at `/api/copilotkit` and registers a `default` built-in agent:
 
+Already have an agent? Do not use BuiltInAgent
+
+`BuiltInAgent` is CopilotKit's own agent — it calls the model directly. Registering it as `default` means chat talks to it, not to an agent you already wrote. It replaces your agent rather than connecting to it.
+
+If you already have a LangGraph, CrewAI, Mastra, ADK, Pydantic AI, or other agent, use your framework's quickstart for the runtime wiring so it registers your agent instead. You can still use the Vue frontend steps on this page.
+
 server.ts
     
     
@@ -124,6 +184,10 @@ server.ts
       );
     });
 
+Vite and Copilot Runtime run on separate origins
+
+Vite serves the Vue app (usually on `http://localhost:5173`) while this Node server runs on `http://localhost:8200`. Because the browser calls across those origins, `cors: true` is required for local development; the Node listener does not enable CORS by default.
+
 ### Import the styles#
 
 Import the package stylesheet once in your app entry. It's self-contained, so the chat renders without any other CSS.
@@ -151,7 +215,6 @@ src/App.vue
     <template>
       <CopilotKitProvider
         runtime-url="http://localhost:8200/api/copilotkit"
-        show-dev-console="auto"
       >
         <div style="height: 100vh">
           <CopilotChat />
@@ -161,7 +224,7 @@ src/App.vue
 
 Pick your chat layout
 
-`CopilotChat` is a full-height chat. Swap it for `CopilotSidebar` (a collapsible side panel) or `CopilotPopup` (a floating widget) for a different layout. They take the same props.
+`CopilotChat` is the full-height chat surface. Use `CopilotSidebar` for a fixed side panel with open/close behavior, or `CopilotPopup` for a floating panel with a toggle button. They share core agent and chat wiring, but each surface also has layout-specific props and behavior.
 
 ### Run the runtime and app#
 
@@ -182,7 +245,7 @@ Troubleshooting
 
   * **Chat renders unstyled** : Make sure you imported `@copilotkit/vue/styles.css` in your app entry.
   * **No response from the agent** : Confirm the runtime server is running and `http://localhost:8200/api/copilotkit/info` returns agent information.
-  * **CORS errors** : Keep `cors: true` in `createCopilotNodeListener` for local development, or configure CORS to allow your Vue app's origin in production.
+  * **CORS errors** : The Vite app and Node runtime use different origins. Keep `cors: true` in `createCopilotNodeListener` for local development; the Node listener is CORS-disabled by default. Configure an explicit allowed origin before deploying.
   * **Model auth errors** : Confirm `OPENAI_API_KEY` is set in the terminal running `npx tsx server.ts`.
 
 
@@ -201,11 +264,13 @@ More detail: [Inspector](https://docs.copilotkit.ai/inspector).
 
 ## Where to go next#
 
-  * [Generative UI in Vue](https://docs.copilotkit.ai/vue/guides/generative-ui): render a tool result as a card, an A2UI surface, or sandboxed UI instead of plain text. This is the same regardless of which agent framework you put behind the runtime.
-  * [Copilot Runtime](https://docs.copilotkit.ai/backend/copilot-runtime): runtime setup, auth, middleware, and routing.
-  * [Built-in Agent quickstart](https://docs.copilotkit.ai/quickstart): configure the in-process agent used in this quickstart.
-  * [Integrations](https://docs.copilotkit.ai/integrations/langgraph): connect LangGraph, CrewAI, Mastra, and other agents through the runtime.
+  * [Copilot Runtime](https://docs.copilotkit.ai/backend/copilot-runtime): the backend layer this frontend connects to.
+  * [Built-in Agent quickstart](https://docs.copilotkit.ai/quickstart): a framework-neutral path if you want CopilotKit to own the agent too.
+  * [Generative UI](https://docs.copilotkit.ai/vue/generative-ui/tool-based): render a tool result as a card or another interactive surface instead of plain text.
+  * [AG-UI Streams](https://docs.copilotkit.ai/vue/AG-UI-Streams): persist conversations and work with the thread API directly.
+  * [Threads Drawer](https://docs.copilotkit.ai/vue/prebuilt-components/copilot-threads-drawer): add a ready-made thread switcher beside the chat.
+  * [Vue API reference](https://docs.copilotkit.ai/reference/vue): find the current `@copilotkit/vue/v2` component and composable APIs.
 
 
 
-The composables (`useAgent`, `useFrontendTool`, `useHumanInTheLoop`, and more) mirror the React SDK. See the [`@copilotkit/vue` README](https://github.com/CopilotKit/CopilotKit/tree/main/packages/vue) for the full API, slot-based customization, and Nuxt SSR setup.
+The Vue reference also covers slot-based customization, thread management, interrupts, and lazy-loaded custom elements for SSR.

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/ag2/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:19.807483+00:00
+fetched_at: 2026-10-29T09:46:33.268768+00:00
 ---
 
 # Introduction
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/ag2/learning)
 
-[User Memories](https://docs.copilotkit.ai/ag2/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/ag2/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/ag2/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/ag2/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/ag2/intelligence/analytics)[Channels](https://docs.copilotkit.ai/ag2/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/ag2/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/ag2/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/ag2/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/ag2/intelligence/analytics)[Channels](https://docs.copilotkit.ai/ag2/intelligence/channels)
 
 Hosting
 

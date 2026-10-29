@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/threads-import/
 title: Add AG-UI Streams to Existing Threads
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:18.998106+00:00
+fetched_at: 2026-10-29T09:46:36.460051+00:00
 ---
 
 # Add AG-UI Streams to Existing Threads
@@ -61,11 +61,15 @@ Features
 
 AG-UI Streams
 
-[Overview](https://docs.copilotkit.ai/threads)[Bring your own thread system](https://docs.copilotkit.ai/intelligence/bring-your-own-thread-system)[Add to Existing Threads](https://docs.copilotkit.ai/threads-import)[Thread & History Lifecycle](https://docs.copilotkit.ai/threads-lifecycle)[Streams & Framework Threads](https://docs.copilotkit.ai/intelligence/threads-explained)
+[Overview](https://docs.copilotkit.ai/AG-UI-Streams)[Bring your own thread system](https://docs.copilotkit.ai/intelligence/bring-your-own-thread-system)[Add to Existing Threads](https://docs.copilotkit.ai/threads-import)[Thread & History Lifecycle](https://docs.copilotkit.ai/threads-lifecycle)[Streams & Framework Threads](https://docs.copilotkit.ai/intelligence/threads-explained)
 
 [Automatic Learning](https://docs.copilotkit.ai/learning)
 
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
 
 Hosting
 
@@ -119,7 +123,7 @@ For a concrete example without historical import, see [keep an existing LangGrap
 
 ## Include earlier conversations (optional)#
 
-If you also want users to reopen history recorded before Intelligence was connected, copy supported history into Intelligence using the steps below. This guide covers Google ADK, LangGraph, and Mastra stores. It copies historical content; it does not enable live delivery, recover past execution, or establish ongoing database replication.
+If you also want users to reopen history recorded before Intelligence was connected, copy supported history into Intelligence using the steps below. This guide covers Google ADK, LangGraph, Mastra, and AWS Strands stores. It copies historical content; it does not enable live delivery, recover past execution, or establish ongoing database replication.
 
 Use Threads Drawer or `useThreads` to select a conversation, and pass its `threadId` to your chat. Imported and new conversations then use the same UI. Importing cannot recover content the source no longer exposes.
 
@@ -128,8 +132,9 @@ Use Threads Drawer or `useThreads` to select a conversation, and pass its `threa
 Source| Import guide| Supported history  
 ---|---|---  
 Google ADK| [Add AG-UI streams to ADK sessions](https://docs.copilotkit.ai/google-adk/threads-import)| Persisted ADK sessions from a database session service or Vertex/Agent Engine session service.  
-LangGraph| [Add AG-UI streams to LangGraph threads](https://docs.copilotkit.ai/langgraph-python/threads-import)| LangGraph Server, LangGraph Platform, or LangSmith Deployment threads exposed through the LangGraph SDK thread/run APIs.  
+LangGraph| [Add AG-UI streams to LangGraph threads](https://docs.copilotkit.ai/langgraph-python/threads-import)| Saved conversations from LangGraph Server / LangSmith deployments or Python FastAPI apps with durable persistence.  
 Mastra| [Add AG-UI streams to Mastra conversations](https://docs.copilotkit.ai/mastra/threads-import)| Saved conversations from a local LibSQL database or a Mastra server.  
+AWS Strands| [Python](https://docs.copilotkit.ai/strands/threads-import) · [TypeScript](https://docs.copilotkit.ai/strands-typescript/threads-import)| Saved single-agent conversations from local session files or S3; Python also supports AgentCore Memory native sessions.  
   
 ## What gets imported?#
 

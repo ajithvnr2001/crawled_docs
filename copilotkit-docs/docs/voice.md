@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/voice/
 title: Voice
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:24.109685+00:00
+fetched_at: 2026-10-29T09:46:34.166365+00:00
 ---
 
 # Voice
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/learning)
 
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
 
 Hosting
 
@@ -183,9 +187,20 @@ The chat handles this for you; these are the rules if you post to the route dire
 
 `TranscriptionService` from `@copilotkit/runtime/v2` is an abstract class. Subclass it to plug in any transcription provider — Whisper, AssemblyAI, Deepgram, your own model. The library ships `TranscriptionServiceOpenAI` as the canonical reference implementation.
 
+TranscriptionServiceOpenAI takes an openai 5.x client
+
+`@copilotkit/voice` depends on `openai` `^5.9.0`, and the `openai` option of `TranscriptionServiceOpenAI` is typed against the copy of `openai` that `@copilotkit/voice` resolves. Pass an `OpenAI` instance created from that same installed copy. The `OpenAI` class has private (`#private`) members, so an instance from another copy or another major version fails type-checking, even when it looks the same.
+
+If your app uses `openai` v4, v6 or v7 (npm's latest is 7.x), either:
+
+  * align your app on `openai` 5.x, so your app and `@copilotkit/voice` share one copy, or
+  * subclass `TranscriptionService` and call your own client inside `transcribeFile`.
+
+
+
 Return a string, and let provider errors through
 
-`transcribe` returns the transcript as a string — the handler wraps it into `{ transcription }` itself, so returning a richer object is a type error.
+`transcribeFile` returns the transcript as a string — the handler wraps it into `{ transcription }` itself, so returning a richer object is a type error.
 
 Let the provider's own errors propagate unchanged. The runtime classifies failures by reading the error text for markers like `rate`, `429`, `auth` and `too long`, so a provider message such as `OpenAI returned 429 rate limited` maps to the right error code on its own. Replacing it with your own wording bypasses that and everything lands as a generic provider error.
 

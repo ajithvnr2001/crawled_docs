@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/mastra/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:17.434416+00:00
+fetched_at: 2026-10-29T09:46:30.655779+00:00
 ---
 
 # Introduction
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/mastra/learning)
 
-[User Memories](https://docs.copilotkit.ai/mastra/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/mastra/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/mastra/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/mastra/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/mastra/intelligence/analytics)[Channels](https://docs.copilotkit.ai/mastra/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/mastra/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/mastra/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/mastra/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/mastra/intelligence/analytics)[Channels](https://docs.copilotkit.ai/mastra/intelligence/channels)
 
 Hosting
 

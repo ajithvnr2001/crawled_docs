@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/crewai-crews/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:19.465060+00:00
+fetched_at: 2026-10-29T09:46:32.764581+00:00
 ---
 
 # Introduction
@@ -47,7 +47,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/angular/crewai-crews/learning)
 
-[User Memories](https://docs.copilotkit.ai/angular/crewai-crews/intelligence/memories)[Standalone collector](https://docs.copilotkit.ai/angular/crewai-crews/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/angular/crewai-crews/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/angular/crewai-crews/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/crewai-crews/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/angular/crewai-crews/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/angular/crewai-crews/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/angular/crewai-crews/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/angular/crewai-crews/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/crewai-crews/intelligence/channels)
 
 Hosting
 

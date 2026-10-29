@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands/history-and-transcripts/
 title: Microsoft Teams + AWS Strands (Python): History and transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:11.098633+00:00
+fetched_at: 2026-10-29T09:46:37.492053+00:00
 ---
 
 # Microsoft Teams + AWS Strands (Python): History and transcripts
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/strands/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/strands/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/strands/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/strands/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/strands/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/strands/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/strands/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/strands/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/strands/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/strands/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/strands/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/strands/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/strands/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/strands/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/strands/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/strands/threads-and-state)
 
 Production
 

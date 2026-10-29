@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/strands-typescript/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:18.107223+00:00
+fetched_at: 2026-10-29T09:46:31.619669+00:00
 ---
 
 # Introduction
@@ -47,7 +47,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/angular/strands-typescript/learning)
 
-[User Memories](https://docs.copilotkit.ai/angular/strands-typescript/intelligence/memories)[Standalone collector](https://docs.copilotkit.ai/angular/strands-typescript/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/angular/strands-typescript/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/angular/strands-typescript/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/strands-typescript/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/angular/strands-typescript/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/angular/strands-typescript/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/angular/strands-typescript/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/angular/strands-typescript/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/strands-typescript/intelligence/channels)
 
 Hosting
 

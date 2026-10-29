@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:17.231498+00:00
+fetched_at: 2026-10-29T09:46:30.318963+00:00
 ---
 
 # Introduction
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/strands/learning)
 
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/strands/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/strands/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
 
 Hosting
 

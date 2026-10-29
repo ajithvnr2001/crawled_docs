@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/strands-typescript/
 title: Microsoft Teams: Channels
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:02.343008+00:00
+fetched_at: 2026-10-29T09:46:39.325298+00:00
 ---
 
 # Microsoft Teams: Channels
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/strands-typescript/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/strands-typescript/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/strands-typescript/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/strands-typescript/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/strands-typescript/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/strands-typescript/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/strands-typescript/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/strands-typescript/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/strands-typescript/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/strands-typescript/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/strands-typescript/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/strands-typescript/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/strands-typescript/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/strands-typescript/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/strands-typescript/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/strands-typescript/threads-and-state)
 
 Production
 
@@ -63,7 +63,7 @@ Channels connects the agent and application logic you run to the provider connec
 
 As explained in the [CopilotKit Intelligence overview](https://docs.copilotkit.ai/teams/strands-typescript/intelligence/overview), the dividing line between CopilotKit open source and CopilotKit Intelligence is durable data: functionality that runs without it is open source, while functionality built on connections to durable data — databases and the state kept in them — is part of CopilotKit Intelligence. A channel runner needs durable data to run correctly in production: simultaneous participants, race conditions, retries, and delivery guarantees all depend on it. CopilotKit Intelligence provides the managed channel runner, and channels running on it also get the rest of CopilotKit Intelligence, including Product Analytics, Automatic Learning, and governance. You can absolutely build and operate your own channel runner on the open-source Channels SDK — you implement the durable-data layer yourself.
 
-[More channels are on the waySlack and Microsoft Teams are generally available on cloud-hosted Intelligence. Direct SDK adapters also support Teams, Discord, WhatsApp, and Telegram.Book time with an engineer](https://copilotkit.ai/talk-to-an-engineer?utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=docs_channels_more_channels_contact&utm_frontend=teams&utm_backend=strands-typescript)
+[More channels are on the waySlack and Microsoft Teams are generally available on cloud-hosted Intelligence. Direct SDK adapters also support Teams, Discord, and WhatsApp.Book time with an engineer](https://copilotkit.ai/talk-to-an-engineer?utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=docs_channels_more_channels_contact&utm_frontend=teams&utm_backend=strands-typescript)
 
 Each message moves through the same five stages:
 
@@ -91,6 +91,8 @@ Production self-hosting keeps your Channels configuration, provider credentials,
 ## Next step#
 
 Continue to [Configure the Channel in Intelligence](https://docs.copilotkit.ai/teams/strands-typescript/intelligence) to create the managed Microsoft Teams connection.
+
+To post an app component as an image, see [Posting JSX as images](https://docs.copilotkit.ai/teams/strands-typescript/posting-jsx-as-images).
 
 ### On this page
 

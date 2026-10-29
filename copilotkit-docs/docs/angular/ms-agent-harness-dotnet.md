@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:18.525918+00:00
+fetched_at: 2026-10-29T09:46:31.876246+00:00
 ---
 
 # Introduction
@@ -47,7 +47,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/learning)
 
-[User Memories](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/intelligence/memories)[Standalone collector](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/intelligence/channels)
 
 Hosting
 

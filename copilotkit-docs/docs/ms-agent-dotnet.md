@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/ms-agent-dotnet/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:17.305567+00:00
+fetched_at: 2026-10-29T09:46:30.762175+00:00
 ---
 
 # Introduction
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/ms-agent-dotnet/learning)
 
-[User Memories](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/analytics)[Channels](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/analytics)[Channels](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/channels)
 
 Hosting
 

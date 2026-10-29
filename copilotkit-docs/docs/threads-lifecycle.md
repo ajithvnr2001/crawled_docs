@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/threads-lifecycle/
 title: Thread & History Lifecycle
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:19.309594+00:00
+fetched_at: 2026-10-29T09:46:36.250091+00:00
 ---
 
 # Thread & History Lifecycle
@@ -61,11 +61,15 @@ Features
 
 AG-UI Streams
 
-[Overview](https://docs.copilotkit.ai/threads)[Bring your own thread system](https://docs.copilotkit.ai/intelligence/bring-your-own-thread-system)[Add to Existing Threads](https://docs.copilotkit.ai/threads-import)[Thread & History Lifecycle](https://docs.copilotkit.ai/threads-lifecycle)[Streams & Framework Threads](https://docs.copilotkit.ai/intelligence/threads-explained)
+[Overview](https://docs.copilotkit.ai/AG-UI-Streams)[Bring your own thread system](https://docs.copilotkit.ai/intelligence/bring-your-own-thread-system)[Add to Existing Threads](https://docs.copilotkit.ai/threads-import)[Thread & History Lifecycle](https://docs.copilotkit.ai/threads-lifecycle)[Streams & Framework Threads](https://docs.copilotkit.ai/intelligence/threads-explained)
 
 [Automatic Learning](https://docs.copilotkit.ai/learning)
 
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
 
 Hosting
 

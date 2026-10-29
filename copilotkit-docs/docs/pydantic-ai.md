@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/pydantic-ai/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:17.040052+00:00
+fetched_at: 2026-10-29T09:46:30.711547+00:00
 ---
 
 # Introduction
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/pydantic-ai/learning)
 
-[User Memories](https://docs.copilotkit.ai/pydantic-ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/pydantic-ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/pydantic-ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/pydantic-ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/pydantic-ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/pydantic-ai/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/pydantic-ai/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/pydantic-ai/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/pydantic-ai/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/pydantic-ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/pydantic-ai/intelligence/channels)
 
 Hosting
 

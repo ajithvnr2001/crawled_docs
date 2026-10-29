@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/troubleshooting/common-issues/
 title: Common Copilot Issues
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:34:20.633804+00:00
+fetched_at: 2026-10-29T09:46:36.167483+00:00
 ---
 
 # Common Copilot Issues
@@ -63,7 +63,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/learning)
 
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
 
 Hosting
 
@@ -167,7 +171,7 @@ Make sure your backend:
 
 
 
-Revisit the [quickstart](https://docs.copilotkit.ai/troubleshooting/quickstart) if you want to double-check your setup.
+Revisit the [quickstart](https://docs.copilotkit.ai/quickstart) if you want to double-check your setup.
 
 ## "Remote Endpoint not found" error#
 
@@ -222,13 +226,13 @@ Usually one of:
 
   * The LLM model string isn't supported by the runtime's provider. Check it against [Model Selection](https://docs.copilotkit.ai/model-selection).
   * The Built-in Agent's `prompt` is empty and the user message gives it nothing useful to do. Give the agent a system prompt.
-  * A frontend tool is throwing during its handler and the agent is treating the empty result as the turn output. See [Error Debugging](https://docs.copilotkit.ai/troubleshooting/common-issues/error-debugging) for the `tool_handler_failed` code.
+  * A frontend tool is throwing during its handler and the agent is treating the empty result as the turn output. See [Error Debugging](https://docs.copilotkit.ai/error-debugging) for the `tool_handler_failed` code.
 
 
 
 ## Tools I registered don't show up#
 
-  * Open the [Inspector](https://docs.copilotkit.ai/troubleshooting/inspector). Go to **Agents** , then **Frontend Tools**. If the tool isn't listed, the hook call didn't land. Confirm the component is actually mounted.
+  * Open the [Inspector](https://docs.copilotkit.ai/inspector). Go to **Agents** , then **Frontend Tools**. If the tool isn't listed, the hook call didn't land. Confirm the component is actually mounted.
   * If the tool is listed but the agent never calls it, the model may not know when to use it. Tweak the `description` to include the trigger phrase. For LangGraph agents, also add an explicit instruction in `system_prompt` — especially for mandatory data-fetch tools where the agent must call the tool before answering. See [Ensuring your agent reliably calls frontend tools](https://docs.copilotkit.ai/integrations/langgraph/frontend-tools#ensuring-your-agent-reliably-calls-frontend-tools) for the recommended pattern.
   * For v1 to v2 migrations, `useCopilotAction` split into `useFrontendTool`, `useComponent`, and `useHumanInTheLoop`. Make sure you're using the right one.
 
@@ -250,7 +254,7 @@ The prebuilt components connect to the agent named `"default"` unless you pass a
     
     new CopilotRuntime({ agents: { default: myAgent } });
 
-Confirm the agent shows up by hitting [`GET {runtimeUrl}/info`](https://docs.copilotkit.ai/backend/runtime-endpoints) directly. See also the [error reference](https://docs.copilotkit.ai/troubleshooting/common-issues/error-reference#agent-not-found--agent-id-does-not-exist).
+Confirm the agent shows up by hitting [`GET {runtimeUrl}/info`](https://docs.copilotkit.ai/backend/runtime-endpoints) directly. See also the [error reference](https://docs.copilotkit.ai/error-reference#agent-not-found--agent-id-does-not-exist).
 
 connect() runs before run() on a new thread
 

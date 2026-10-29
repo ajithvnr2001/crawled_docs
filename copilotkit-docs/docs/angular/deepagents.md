@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/deepagents/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:32:19.271876+00:00
+fetched_at: 2026-10-29T09:46:33.061232+00:00
 ---
 
 # Introduction
@@ -15,7 +15,7 @@ fetched_at: 2026-10-28T09:32:19.271876+00:00
 
 [](https://docs.copilotkit.ai/)
 
-FrontendAngularAgent backendDeep Agents
+FrontendAngularAgent backendLangchain DeepAgents
 
 [Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
 
@@ -49,7 +49,11 @@ AG-UI Streams
 
 [Automatic Learning](https://docs.copilotkit.ai/angular/deepagents/learning)
 
-[User Memories](https://docs.copilotkit.ai/angular/deepagents/intelligence/memories)[Standalone collector](https://docs.copilotkit.ai/angular/deepagents/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/angular/deepagents/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/angular/deepagents/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/deepagents/intelligence/channels)
+[User Memories](https://docs.copilotkit.ai/angular/deepagents/intelligence/memories)
+
+[Trajectories](https://docs.copilotkit.ai/angular/deepagents/intelligence/trajectories)
+
+[Standalone collector](https://docs.copilotkit.ai/angular/deepagents/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/angular/deepagents/intelligence/analytics)[Channels](https://docs.copilotkit.ai/angular/deepagents/intelligence/channels)
 
 Hosting
 
@@ -145,7 +149,7 @@ Step 1 of 4Setup
 
 Tell us what you already have. We’ll tailor your setup.
 
-Existing projectAdd a Deep Agents agent to your appExisting agentConnect your Deep Agents agent to your appNew projectBuild an app and agent from scratch
+Existing projectAdd a Langchain DeepAgents agent to your appExisting agentConnect your Langchain DeepAgents agent to your appNew projectBuild an app and agent from scratch
 
 Step 1 of 4Setup
 
