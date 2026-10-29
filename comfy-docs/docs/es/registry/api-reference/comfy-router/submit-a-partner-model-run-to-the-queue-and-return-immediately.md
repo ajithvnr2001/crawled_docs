@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/submit-a-partner-model-run-to-the-queue-and-return-immediately/
 title: Submit a partner model run to the queue and return immediately. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:33.015693+00:00
+fetched_at: 2026-10-29T14:00:20.009031+00:00
 ---
 
 # Submit a partner model run to the queue and return immediately. - ComfyUI
@@ -152,6 +152,8 @@ cURL
 
 422
 
+429
+
 503
     
     
@@ -183,6 +185,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -191,6 +200,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -199,6 +215,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -207,6 +230,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -215,6 +245,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -223,6 +260,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -231,6 +275,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -254,6 +305,28 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -435,6 +508,8 @@ cURL
 
 422
 
+429
+
 503
     
     
@@ -466,6 +541,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -474,6 +556,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -482,6 +571,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -490,6 +586,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -498,6 +601,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -506,6 +616,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -514,6 +631,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -537,6 +661,28 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -619,7 +765,7 @@ model_provider
 
 string
 
-Selects an alternate provider to serve this model, instead of its current default. Omitting it runs native dispatch on the model's own default provider; `default`, `comfy`, and `comfyui` are aliases for that same native behavior and name no override, because Comfy Router is never itself a serving backend. The alternate providers Router can retarget a model onto are `fal`, `wavespeed`, `runware`, and `higgsfield`; which of them a given model supports is reported by `GET /v2/models/{provider}/{model}`. When an alternate provider is selected, the native request body is translated into that provider's real schema unless `strict_mode=true`; see `strict_mode` and `fallback_provider`. Its refusals are checked in a fixed order, and an earlier one answers whether or not a later one would. A value that is not a registered provider at all is refused `400` with `error_type: invalid_input`. Then a request whose body selects a multipart operation (an edit - for example gpt-image's `image` field) is refused `409`, also with `error_type: invalid_input`, whose `detail` begins "this request's `image` selects the edit operation" - but only when the named provider's translator for this model cannot itself serve that operation; a leg whose translator does carry the media is not refused and proceeds normally, so this is a per-leg refusal rather than a blanket one. Then a request that has already resolved a bring-your-own-key credential for the provider in the path is refused `409`, also with `error_type: invalid_input`, whose `detail` begins `this request resolved a BYOK credential` \- see the `409` on this route, where that `detail` is the only thing separating this case, and the multipart case above, from the `Idempotency-Key` one. That BYOK check runs whether or not the named provider has a leg for this model. Then the named provider's own gate refuses `403` with `error_type: not_enabled` when that provider is not turned on for you, and `503` with `error_type: service_unavailable` when the gate cannot be evaluated - a flag-evaluation failure, or a missing or nil gate entry. Only past all of those is a real provider that does not serve this model refused `400` with `error_type: invalid_input`, the same answer as a value that is not a registered provider at all - both mean the `model_provider` value cannot serve this model, and that `400`'s `detail` is human-readable and not a contract, so read `GET /v2/models/{provider}/{model}` to learn which providers a model does support rather than parsing it; past that `400`, this workspace's partner-provider policy for the named vendor is evaluated too and can refuse `403` or `503` of its own. Neither this parameter nor `fallback_provider` is available on a BYOK request, and the two are unavailable in different ways: the credential was resolved for the provider named in the path while every alternate leg dispatches on Comfy's own key, so an explicit `model_provider` is refused with that `409`, and `fallback_provider` is inert rather than refused - no retry against an alternate provider is attempted and the first attempt's own failure is what the caller receives. The same split applies to a multipart body: only an explicit `model_provider` reaches the `409` above, and only for a leg whose translator cannot serve the operation, while the automatic on-failure retry `fallback_provider` controls is simply skipped (inert, not refused) for any multipart body. Router defines no `provider_not_available` or `validation_error` `error_type`: these conditions fold onto `invalid_input`. The `error_type` set can still grow, so treat any value you do not recognize as `internal_error` rather than switching exhaustively.
+Selects an alternate provider to serve this model, instead of its current default. Omitting it runs native dispatch on the model's own default provider; `default`, `comfy`, and `comfyui` are aliases for that same native behavior and name no override, because Comfy Router is never itself a serving backend. The alternate providers Router can retarget a model onto are `fal`, `wavespeed`, `runware`, and `higgsfield`; which of them a given model supports is reported by `GET /v2/models/{provider}/{model}`. When an alternate provider is selected, the native request body is translated into that provider's real schema unless `strict_mode=true`; see `strict_mode` and `fallback_provider`. Its refusals are checked in a fixed order, and an earlier one answers whether or not a later one would. A value that is not a registered provider at all is refused `400` with `error_type: invalid_input`. Then a workspace configured for direct provider calls only refuses any non-default `model_provider` with `403` and `error_type: forbidden`, and Router never runs its `fallback_provider` retry for it; a resubmit carrying the `Idempotency-Key` of a request already accepted is answered as a replay of that request rather than refused. Then a request whose body selects a multipart operation (an edit - for example gpt-image's `image` field) is refused `409`, also with `error_type: invalid_input`, whose `detail` begins "this request's `image` selects the edit operation" - but only when the named provider's translator for this model cannot itself serve that operation; a leg whose translator does carry the media is not refused and proceeds normally, so this is a per-leg refusal rather than a blanket one. Then a request that has already resolved a bring-your-own-key credential for the provider in the path is refused `409`, also with `error_type: invalid_input`, whose `detail` begins `this request resolved a BYOK credential` \- see the `409` on this route, where that `detail` is the only thing separating this case, and the multipart case above, from the `Idempotency-Key` one. That BYOK check runs whether or not the named provider has a leg for this model. Then the named provider's own gate refuses `403` with `error_type: not_enabled` when that provider is not turned on for you, and `503` with `error_type: service_unavailable` when the gate cannot be evaluated - a flag-evaluation failure, or a missing or nil gate entry. Only past all of those is a real provider that does not serve this model refused `400` with `error_type: invalid_input`, the same answer as a value that is not a registered provider at all - both mean the `model_provider` value cannot serve this model, and that `400`'s `detail` is human-readable and not a contract, so read `GET /v2/models/{provider}/{model}` to learn which providers a model does support rather than parsing it. Then, on a Seedance 2.x model, a body carrying an `asset://` reference in any `content[]` image, video or audio url is refused `400` with `error_type: invalid_input`: those ids are BytePlus virtual-library assets no other provider can serve, so send the media itself as an http(s) URL or a `data:` URI to use `model_provider`. Past those `400`s, this workspace's partner-provider policy for the named vendor is evaluated too and can refuse `403` or `503` of its own. Neither this parameter nor `fallback_provider` is available on a BYOK request, and the two are unavailable in different ways: the credential was resolved for the provider named in the path while every alternate leg dispatches on Comfy's own key, so an explicit `model_provider` is refused with that `409`, and `fallback_provider` is inert rather than refused - no retry against an alternate provider is attempted and the first attempt's own failure is what the caller receives. The same split applies to a multipart body: only an explicit `model_provider` reaches the `409` above, and only for a leg whose translator cannot serve the operation, while the automatic on-failure retry `fallback_provider` controls is simply skipped (inert, not refused) for any multipart body. Router defines no `provider_not_available` or `validation_error` `error_type`: these conditions fold onto `invalid_input`. The `error_type` set can still grow, so treat any value you do not recognize as `internal_error` rather than switching exhaustively.
 
 ​
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/admin/generate-a-short-lived-jwt-admin-token/
 title: Generate a short-lived JWT admin token - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:30.985582+00:00
+fetched_at: 2026-10-29T14:00:25.282665+00:00
 ---
 
 # Generate a short-lived JWT admin token - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/get-the-status-of-the-precision-v2-upscaling-task/
 title: Get the status of the Precision V2 upscaling task - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:32.717207+00:00
+fetched_at: 2026-10-29T14:00:23.553242+00:00
 ---
 
 # Get the status of the Precision V2 upscaling task - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/ask-for-one-submitted-request-to-be-cancelled/
 title: Ask for one submitted request to be cancelled. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:31.473684+00:00
+fetched_at: 2026-10-29T14:00:20.420302+00:00
 ---
 
 # Ask for one submitted request to be cancelled. - ComfyUI
@@ -138,6 +138,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -146,6 +153,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -154,6 +168,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -162,6 +183,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -176,6 +204,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -184,6 +219,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -359,6 +401,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -367,6 +416,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -375,6 +431,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -383,6 +446,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -397,6 +467,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -405,6 +482,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -489,7 +573,7 @@ application/json
 
 Accepted - `CANCELLATION_REQUESTED`. The ask was accepted for a request that had not yet reached a terminal state. It is not a statement that the run has stopped; read the status endpoint to learn what it did.
 
-The answer to a cancellation ask on the two statuses that describe a request this route resolved - the `202` and the `400`. One body shape across both rather than a success envelope plus an error envelope, because both are the same statement - what cancelling found - and a client that has to parse a different type per status code gains nothing from the split. The `404` is NOT this shape. It answers in the shared Router request-level error body, because it also carries the `model_not_found` miss every route on this surface shares; see `RouterQueueCancelStatus` for why that outcome is read off the status code rather than off this body.
+The answer to a cancellation ask on the two statuses that describe a request this route resolved - the `202` and the `409`. One body shape across both rather than a success envelope plus an error envelope, because both are the same statement - what cancelling found - and a client that has to parse a different type per status code gains nothing from the split. The `404` is NOT this shape. It answers in the shared Router request-level error body, because it also carries the `model_not_found` miss every route on this surface shares; see `RouterQueueCancelStatus` for why that outcome is read off the status code rather than off this body.
 
 ​
 

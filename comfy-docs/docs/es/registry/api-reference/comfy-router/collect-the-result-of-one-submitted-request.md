@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/collect-the-result-of-one-submitted-request/
 title: Collect the result of one submitted request. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:32.314955+00:00
+fetched_at: 2026-10-29T14:00:20.258804+00:00
 ---
 
 # Collect the result of one submitted request. - ComfyUI
@@ -126,8 +126,6 @@ cURL
 
 410
 
-422
-
 503
 
 504
@@ -152,6 +150,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -160,6 +165,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -168,6 +180,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -176,6 +195,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -184,29 +210,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
-      "refusal_subject": "<string>",
-      "upstream_detail": "<string>"
-    }
-    
-    
-    {
-      "detail": [
-        {
-          "loc": [
-            "<string>"
-          ],
-          "msg": "<string>",
-          "type": "image_too_small",
-          "ctx": {},
-          "input": "<unknown>"
-        }
-      ]
-    }
-    
-    
-    {
-      "detail": "<string>",
-      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -215,6 +225,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -223,6 +240,28 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -382,8 +421,6 @@ cURL
 
 410
 
-422
-
 503
 
 504
@@ -408,6 +445,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -416,6 +460,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -424,6 +475,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -432,6 +490,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -440,29 +505,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
-      "refusal_subject": "<string>",
-      "upstream_detail": "<string>"
-    }
-    
-    
-    {
-      "detail": [
-        {
-          "loc": [
-            "<string>"
-          ],
-          "msg": "<string>",
-          "type": "image_too_small",
-          "ctx": {},
-          "input": "<unknown>"
-        }
-      ]
-    }
-    
-    
-    {
-      "detail": "<string>",
-      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -471,6 +520,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -479,6 +535,28 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }

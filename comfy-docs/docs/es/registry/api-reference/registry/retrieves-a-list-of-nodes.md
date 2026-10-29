@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieves-a-list-of-nodes/
 title: Retrieves a list of nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:37.395116+00:00
+fetched_at: 2026-10-29T14:00:25.133229+00:00
 ---
 
 # Retrieves a list of nodes - ComfyUI
@@ -497,7 +497,7 @@ sort
 
 string[]
 
-Database column to use as ascending ordering. Add `;desc` as suffix on each column for descending sort
+Node column to order by, ascending; append `;desc` to the value (e.g. `name;desc`) for descending. Generated clients and params-object helpers escape the `;` for you; only a hand-built raw query string must write it as `%3B` (`sort=name%3Bdesc`), because a raw `;` makes Go's query parser discard the whole `sort=...` pair before the handler sees it. Allowed columns: `id`, `normalized_id`, `publisher_id`, `name`, `category`, `author`, `status`, `create_time`, `update_time`, `total_install`, `total_star`, `total_review`, `github_stars`, `search_ranking`. Column and direction are case-insensitive. At most 2 sort terms are applied (a primary order and a tie-breaker); an unknown column, a malformed term, a repeated column or a term past the second is ignored rather than rejected, and the listing is returned without that ordering.
 
 ​
 

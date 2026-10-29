@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/read-the-queue-state-of-one-submitted-request/
 title: Read the queue state of one submitted request. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:32.217003+00:00
+fetched_at: 2026-10-29T14:00:20.093827+00:00
 ---
 
 # Read the queue state of one submitted request. - ComfyUI
@@ -141,6 +141,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -149,6 +156,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -157,6 +171,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -165,6 +186,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -173,6 +201,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -181,6 +216,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -191,7 +233,7 @@ Comfy Router
 
 Copiar páginaCopiar página
 
-The poll endpoint. It answers with the request’s current state and never with the result, so a client can watch a long generation without transferring its output on every poll - the result is collected once, from the read below, when this says `COMPLETED`. THERE ARE EXACTLY THREE STATES: `IN_QUEUE`, `IN_PROGRESS` and `COMPLETED`. There is no separate failed state and no separate cancelled state. A run that failed, and a run the caller cancelled, are both `COMPLETED` carrying an `error_type` \- the same coarse bucket the synchronous route puts on `X-Comfy-Error-Type`. That is a deliberate shape rather than an omission: a polling client’s loop is written against “is it finished yet”, and every terminal outcome answering the same value means the loop has exactly one exit rather than one per way a run can end. Whether the run SUCCEEDED is then a separate question with a separate answer - the presence of `error_type` \- and a client that only wants the result does not have to ask it at all, because the result read below returns the failure in Router’s error envelope on its own. `Retry-After` hints how long to wait before polling again. It is a HINT and not a bound: the read is not refused for arriving early, and the number moves with how far the request has actually got. Honour it anyway - it is the interval Router itself would wait, and a client that ignores it spends its own rate-limit allowance learning nothing. The response repeats `status_url`, `response_url` and `cancel_url`, so a client that persisted only the `request_id` can recover the addresses without composing them. A `request_id` that names no request of the caller’s UNDER THIS MODEL is a `404`, including the case where the id is valid but the `{provider}/{model}` in the URL is a different model’s. The path parameters are redundant with the row and this contract resolves that redundancy strictly rather than by ignoring them. This operation is deliberately tagged `Comfy Router` and NOT `API Nodes`, for the reason given on the synchronous route.
+The poll endpoint. It answers with the request’s current state and never with the result, so a client can watch a long generation without transferring its output on every poll - the result is collected once, from the read below, when this says `COMPLETED`. THERE ARE EXACTLY THREE STATES: `IN_QUEUE`, `IN_PROGRESS` and `COMPLETED`. There is no separate failed state and no separate cancelled state. A run that failed, and a run the caller cancelled, are both `COMPLETED` carrying an `error_type` \- the same coarse bucket the synchronous route puts on `X-Comfy-Error-Type`. That is a deliberate shape rather than an omission: a polling client’s loop is written against “is it finished yet”, and every terminal outcome answering the same value means the loop has exactly one exit rather than one per way a run can end. Whether the run SUCCEEDED is then a separate question with a separate answer - the presence of `error_type` \- and a client that only wants the result does not have to ask it at all, because the result read below returns the failure in Router’s error envelope on its own. `Retry-After` hints how long to wait before polling again. It is a HINT and not a bound: the read is not refused for arriving early, and the number moves with how far the request has actually got. Honour it anyway - a client that polls faster rarely learns anything sooner, and spends its own rate-limit allowance doing it. The response repeats `status_url`, `response_url` and `cancel_url`, so a client that persisted only the `request_id` can recover the addresses without composing them. A `request_id` that names no request of the caller’s UNDER THIS MODEL is a `404`, including the case where the id is valid but the `{provider}/{model}` in the URL is a different model’s. The path parameters are redundant with the row and this contract resolves that redundancy strictly rather than by ignoring them. This operation is deliberately tagged `Comfy Router` and NOT `API Nodes`, for the reason given on the synchronous route.
 
 Copiar páginaCopiar página
 
@@ -359,6 +401,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -367,6 +416,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -375,6 +431,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -383,6 +446,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -391,6 +461,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -399,6 +476,13 @@ default
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -481,7 +565,7 @@ Ejemplo:
 
 application/json
 
-OK - the request's current queue state. `status` is one of the three states; `queue_position` is present while the request is still `IN_QUEUE`; `error_type` is present only on a `COMPLETED` request that failed or was cancelled.
+OK - the request's current queue state. `status` is one of the three states; `queue_position` is present while the request is still `IN_QUEUE`; `error_type` is present only on a `COMPLETED` request that failed or was cancelled. `X-Comfy-Credits-Used` is present on a request that completed successfully once its cost is known, with the value the result collect carries.
 
 One queued request's current state, composed with the same three URLs the submission returned.
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/list-the-models-comfy-router-can-run/
 title: List the models Comfy Router can run. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:31.956841+00:00
+fetched_at: 2026-10-29T14:00:20.774696+00:00
 ---
 
 # List the models Comfy Router can run. - ComfyUI
@@ -144,6 +144,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -152,6 +159,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -160,6 +174,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -168,6 +189,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -329,6 +357,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -337,6 +372,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -345,6 +387,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
@@ -353,6 +402,13 @@ cURL
     {
       "detail": "<string>",
       "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
       "refusal_subject": "<string>",
       "upstream_detail": "<string>"
     }
