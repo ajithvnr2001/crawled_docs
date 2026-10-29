@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/latest/
 title: API reference - GA API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:57:59.257205+00:00
+fetched_at: 2026-10-29T16:27:55.696834+00:00
 ---
 
 # API reference - GA API reference - Canva Developers SDK Documentation
@@ -47,7 +47,7 @@ Intents: Content
 
 Intents: Data
 
-[prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)
+[prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)[requestDataTable](https://www.canva.dev/docs/apps/api/latest/intents-data-request-data-table/)
 
 Intents: Design
 
@@ -169,6 +169,7 @@ We provide the following APIs for Canva Apps:
 ## Intents: Data
 
   * [prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)
+  * [requestDataTable](https://www.canva.dev/docs/apps/api/latest/intents-data-request-data-table/)
 
 
 

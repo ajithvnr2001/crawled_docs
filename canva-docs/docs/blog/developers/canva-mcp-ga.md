@@ -1,11 +1,11 @@
 ---
 url: https://www.canva.dev/blog/developers/canva-mcp-ga/
-title: Canva MCP is now generally available to developers - Canva Developers Blog
+title: How to use Canva MCP in your AI application - Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T15:35:45.965324+00:00
+fetched_at: 2026-10-29T16:27:55.478931+00:00
 ---
 
-# Canva MCP is now generally available to developers - Canva Developers Blog
+# How to use Canva MCP in your AI application - Canva Developers Blog
 
 > Source: https://www.canva.dev/blog/developers/canva-mcp-ga/
 
@@ -17,11 +17,11 @@ Developers Blog
 
 MCP
 
-# Canva MCP is now generally available to developers
+# How to use Canva MCP in your AI application
 
-Connect your AI assistant or platform to Canva's design capabilities with self-serve access to the Canva MCP server.
+Learn how to connect your AI assistant or platform to Canva's design capabilities with the Canva MCP server.
 
-![](https://www.canva.dev/_next/static/media/thumbnail.58070274.jpg)
+![](https://www.canva.dev/_next/static/media/thumbnail.0b616771.jpg)
 
 * * *
 
@@ -32,11 +32,11 @@ Connect your AI assistant or platform to Canva's design capabilities with self-s
 
 * * *
 
-Canva MCP is now generally available to developers building AI assistants, platforms, and connectors. You can create an app in the Developer Portal, enable Canva MCP, and connect to Canva's remote MCP server without applying for access through the waitlist when you use the Developer Portal OAuth client.
+You can now add Canva MCP to your AI assistant, platform, or connector yourself, with no waiting on approval. Create an app in the Developer Portal, turn on Canva MCP, and connect to Canva’s remote MCP server using your app’s OAuth client.
 
 With Canva MCP, your users can work with their Canva designs through the AI tools they already use. They can generate designs from a brief, find existing designs, make edits, manage assets, and export their work through natural-language workflows.
 
-## What you can build
+## What you can do with Canva MCP
 
 The Canva MCP server exposes tools for common design workflows, including:
 
@@ -94,9 +94,9 @@ As you build, keep these details in mind:
 
 For example requests and detailed implementation guidance, see [Canva MCP best practices](https://www.canva.dev/docs/apps/mcp/best-practices/), the [tool reference](https://www.canva.dev/docs/apps/mcp/tools/), and [Verify your Canva MCP app](https://www.canva.dev/docs/apps/mcp/verify-app/).
 
-## Choose the right connection
+## Choose the right Canva connection
 
-This announcement is for developers adding Canva to their own AI experience. If you want to connect a popular AI assistant to Canva, most already have a Canva connection. Follow the [Canva AI Connector setup guide⁠(opens in a new tab or window)](https://www.canva.com/help/mcp-agent-setup/).
+Use Canva MCP when you're adding Canva to your own AI experience. If you want to connect a popular AI assistant to Canva, most already have a Canva connection. Follow the [Canva AI Connector setup guide⁠(opens in a new tab or window)](https://www.canva.com/help/mcp-agent-setup/).
 
 To learn more about Canva for AI assistants, start with the [Canva MCP overview](https://www.canva.dev/docs/apps/mcp/) and [access and permissions guide](https://www.canva.dev/docs/apps/mcp/access/).
 

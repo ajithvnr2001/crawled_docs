@@ -2,7 +2,7 @@
 url: https://www.canva.dev/blog/developers/
 title: Canva Developers Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T15:35:50.865026+00:00
+fetched_at: 2026-10-29T16:27:54.481214+00:00
 ---
 
 # Canva Developers Blog
@@ -21,9 +21,9 @@ All the latest announcements, insights, and best practices for the developers bu
 
 ![](https://www.canva.dev/_next/static/media/graphic.906444fc.png)
 
-[![](https://www.canva.dev/_next/static/media/thumbnail.58070274.jpg)](https://www.canva.dev/blog/developers/canva-mcp-ga/)
+[![](https://www.canva.dev/_next/static/media/thumbnail.0b616771.jpg)](https://www.canva.dev/blog/developers/canva-mcp-ga/)
 
-[MCPCanva MCP is now generally available to developersConnect your AI assistant or platform to Canva's design capabilities with self-serve access to the Canva MCP server.](https://www.canva.dev/blog/developers/canva-mcp-ga/)
+[MCPHow to use Canva MCP in your AI applicationLearn how to connect your AI assistant or platform to Canva's design capabilities with the Canva MCP server.](https://www.canva.dev/blog/developers/canva-mcp-ga/)
 
   * 
 

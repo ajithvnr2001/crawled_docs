@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/latest/asset-type-declarations/
 title: @canva/asset types - GA API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:16:28.273242+00:00
+fetched_at: 2026-10-29T16:28:14.628343+00:00
 ---
 
 # @canva/asset types - GA API reference - Canva Developers SDK Documentation
@@ -47,7 +47,7 @@ Intents: Content
 
 Intents: Data
 
-[prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)
+[prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)[requestDataTable](https://www.canva.dev/docs/apps/api/latest/intents-data-request-data-table/)
 
 Intents: Design
 

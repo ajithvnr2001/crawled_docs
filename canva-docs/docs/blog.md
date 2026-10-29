@@ -2,15 +2,15 @@
 url: https://www.canva.dev/blog/
 title: Canva Engineering Blog
 method: crawl4ai+scrapegraph
-fetched_at: 2026-10-27T15:35:57.475402+00:00
+fetched_at: 2026-10-29T16:28:07.276603+00:00
 ---
 
 # Canva Engineering Blog
 
 > Source: https://www.canva.dev/blog/
 
-[Skip navigation](https://www.canva.dev/blog/engineering/#_R_2d6_)
-[Skip to main content](https://www.canva.dev/blog/engineering/#_R_2d6H1_)
+[Skip navigation](https://www.canva.dev/blog/engineering/#_R_2dm_)
+[Skip to main content](https://www.canva.dev/blog/engineering/#_R_2dmH1_)
 Engineering Blog
 [Overview](https://www.canva.dev/blog/engineering/)[Subscribe](https://www.canva.dev/blog/subscribe/)
 Discover more

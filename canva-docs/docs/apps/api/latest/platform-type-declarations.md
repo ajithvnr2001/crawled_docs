@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/latest/platform-type-declarations/
 title: @canva/platform types - GA API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:16:30.252621+00:00
+fetched_at: 2026-10-29T16:28:15.491039+00:00
 ---
 
 # @canva/platform types - GA API reference - Canva Developers SDK Documentation
@@ -47,7 +47,7 @@ Intents: Content
 
 Intents: Data
 
-[prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)
+[prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)[requestDataTable](https://www.canva.dev/docs/apps/api/latest/intents-data-request-data-table/)
 
 Intents: Design
 

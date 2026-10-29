@@ -2,15 +2,15 @@
 url: https://www.canva.dev/docs/print-partnerships/support/
 title: Support - Support - Canva Print Partnerships Documentation
 method: crawl4ai+scrapegraph
-fetched_at: 2026-10-21T14:08:39.155435+00:00
+fetched_at: 2026-10-29T16:28:19.989815+00:00
 ---
 
 # Support - Support - Canva Print Partnerships Documentation
 
 > Source: https://www.canva.dev/docs/print-partnerships/support/
 
-[Skip navigation](https://www.canva.dev/docs/print-partnerships/support/#_R_d6_)
-[Skip to main content](https://www.canva.dev/docs/print-partnerships/support/#_R_d6H1_)
+[Skip navigation](https://www.canva.dev/docs/print-partnerships/support/#_R_dm_)
+[Skip to main content](https://www.canva.dev/docs/print-partnerships/support/#_R_dmH1_)
 We are not accepting new Applications for Print Partners.
 Support
 [General support](https://www.canva.dev/docs/print-partnerships/support/general-support/)[Incident response process](https://www.canva.dev/docs/print-partnerships/support/incident-response-process/)

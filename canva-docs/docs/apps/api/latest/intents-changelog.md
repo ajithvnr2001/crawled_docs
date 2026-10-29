@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/latest/intents-changelog/
 title: Changelog for @canva/intents - GA API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:54:55.926018+00:00
+fetched_at: 2026-10-29T16:27:55.584681+00:00
 ---
 
 # Changelog for @canva/intents - GA API reference - Canva Developers SDK Documentation
@@ -47,7 +47,7 @@ Intents: Content
 
 Intents: Data
 
-[prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)
+[prepareDataConnector](https://www.canva.dev/docs/apps/api/latest/intents-data-prepare-data-connector/)[requestDataTable](https://www.canva.dev/docs/apps/api/latest/intents-data-request-data-table/)
 
 Intents: Design
 
@@ -86,6 +86,15 @@ Test
 The latest changes for the Canva Apps SDK @canva/intents package.
 
 Copy page
+
+## 2.8.0 - 2026-10-28
+
+### Added
+
+  * Added `requestDataTable` to `@canva/intents/data`, which retrieves a `DataTable` from the app's own Data Connector.
+  * Added `image_reference` and `video_reference` values to media cells in `DataTable`, which refer to media that is already in the user's Canva media library.
+
+
 
 ## 2.7.1 - 2026-09-21
 
