@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/spectrum/reference/limitations/
 title: Limitations \u00b7 Cloudflare Spectrum docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:33.364454+00:00
+fetched_at: 2026-10-29T08:14:03.983588+00:00
 ---
 
 # Limitations · Cloudflare Spectrum docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:33.364454+00:00
 
 # Limitations
 
-Last updated Sep 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/spectrum/reference/limitations/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIPv4 hostname quotaHTTPSUDPMinecraftUniversal SSLPrivate Network Load BalancingCloudflare TunnelListen on ports configurationIP access control
 
@@ -65,22 +65,17 @@ When using [Spectrum](https://developers.cloudflare.com/load-balancing/private-n
 
 ## Cloudflare Tunnel
 
-Integrating Spectrum with [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/) is only supported for **HTTP/HTTPS** applications. This is because Spectrum must upstream the request through the [Layer 7 CDN products](https://developers.cloudflare.com/spectrum/reference/layer-7-analytics/#the-overlap-layer-7-traffic-being-proxied-through-spectrum) to reach the Tunnel service.
+You can use [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/) as a private origin for Spectrum TCP and UDP applications through a [virtual network](https://developers.cloudflare.com/cloudflare-one/networks/virtual-networks/). Spectrum routes traffic through the Cloudflare Tunnel connector associated with the virtual network.
 
-To correctly route traffic from Spectrum through a Cloudflare Tunnel, you must:
+The origin must be a single private IP address that is routable within the specified virtual network. Port ranges, hostname origins (`origin_dns`), and multiple addresses in `origin_direct` are not supported. [Proxy Protocol](https://developers.cloudflare.com/spectrum/how-to/enable-proxy-protocol/) is not supported, so `proxy_protocol` must be set to `off`.
 
-  1. Configure your Spectrum application with the type set to **HTTP** or **HTTPS**.
-  2. Point the Spectrum application's origin to a hostname that is already [routing traffic](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/routing-to-tunnel/) through your Cloudflare Tunnel (for example, via a [DNS record](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/routing-to-tunnel/dns/) or [Cloudflare Load Balancer](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/routing-to-tunnel/public-load-balancers/)).
-
-
-
-Using a Spectrum application of any other type (for example, TCP) with a Cloudflare Tunnel origin directly is not supported. Pointing a Spectrum application's origin directly to your Tunnel's subdomain (`<UUID>.cfargotunnel.com`) is also not a valid configuration and will not work.
+For setup instructions, refer to [Create a Spectrum application using a virtual network origin](https://developers.cloudflare.com/spectrum/get-started/#create-a-spectrum-application-using-a-virtual-network-origin).
 
 Alternative L4 routing
 
-To route non-HTTP (TCP or UDP) traffic from a public Spectrum application to a private endpoint via Cloudflare Tunnel, configure a [Cloudflare Load Balancer with Private Network Load Balancing (LTM)](https://developers.cloudflare.com/load-balancing/private-network/) in between.
+To route non-HTTP (TCP or UDP) traffic from a public Spectrum application to a private endpoint via Cloudflare Tunnel, you can also configure a [Cloudflare Load Balancer with Private Network Load Balancing (LTM)](https://developers.cloudflare.com/load-balancing/private-network/) in between.
 
-By defining private IP addresses as origins inside your Load Balancer pool and associating them with your tunnel's Virtual Network ID (`virtual_network_id`), the Load Balancer will receive the L4 traffic from Spectrum and route it to your private origin over the Cloudflare Tunnel.
+By defining private IP addresses as origins inside your Load Balancer pool and associating them with your tunnel's Virtual Network ID (`virtual_network_id`), the Load Balancer receives the L4 traffic from Spectrum and routes it to your private origin over the Cloudflare Tunnel.
 
 ## Listen on ports configuration
 

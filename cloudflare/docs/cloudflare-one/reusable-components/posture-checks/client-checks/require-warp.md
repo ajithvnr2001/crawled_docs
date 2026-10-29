@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/client-checks/require-warp/
 title: Require WARP \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:50.986691+00:00
+fetched_at: 2026-10-29T08:14:01.863666+00:00
 ---
 
 # Require WARP · Cloudflare One docs
@@ -22,9 +22,9 @@ Reusable components[Posture checks](https://developers.cloudflare.com/cloudflare
 
 # Require WARP
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/client-checks/require-warp/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewPrerequisites1\. Enable the WARP check2\. Add the check to an Access policy
+OverviewCheck result per client modePrerequisites1\. Enable the WARP check2\. Add the check to an Access policy
 
 Note
 
@@ -32,6 +32,18 @@ This device posture attribute will check for all versions of WARP, including the
 
 Cloudflare One enables you to restrict access to your applications to devices running the Cloudflare One Client. This allows you to flexibly ensure that a user's traffic is secure and encrypted before allowing access to a resource protected behind Cloudflare One.
 
+## Check result per client mode
+
+The check result depends on the [client mode](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/modes/) configured on the device.
+
+Client mode | Result | Reason  
+---|---|---  
+Traffic and DNS mode | ✅ Pass | An active Cloudflare One Client tunnel is established  
+Traffic only mode | ✅ Pass | An active Cloudflare One Client tunnel is established  
+DNS only mode | ❌ Fail | No Cloudflare One Client tunnel is established; only DNS is forwarded  
+Local proxy mode | ⚠️ Partial | The Cloudflare One Client is running and authenticated, and traffic explicitly routed through the local SOCKS/HTTP proxy on port `40000` is tunneled through Cloudflare. Traffic not routed through the proxy bypasses the client and fails the check.  
+Posture only mode | ❌ Fail | The client is enrolled and collects posture data, but does not establish a Cloudflare One Client tunnel  
+  
 ## Prerequisites
 
   * Cloudflare One Client is [deployed](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/) on the device. For a list of supported modes and operating systems, refer to [Cloudflare One Client Checks](https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/client-checks/).

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/platform/limits/
 title: Limits \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:05.785186+00:00
+fetched_at: 2026-10-29T08:14:00.825968+00:00
 ---
 
 # Limits · Cloudflare Artifacts docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-23T16:40:05.785186+00:00
 
 # Limits
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/artifacts/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Limits that apply to creating, importing, cloning, and pushing Artifacts are detailed below.
 
-These limits cover naming rules, storage, and request rates for control-plane and Git operations.
+These limits cover naming rules, storage, request rates for control-plane and Git operations, and the size of each push.
 
 Feature | Limit  
 ---|---  
@@ -34,6 +34,11 @@ Maximum number of repositories | Unlimited
 Maximum number of namespaces | Unlimited  
 Namespace name length | 2–63 characters  
 Namespace and repo names | Start with a letter or digit. Remaining characters may include letters, digits, `.`, `_`, and `-`.  
+Maximum push size | 64 MiB per push. Includes all data sent in the push. Split larger work into several smaller pushes.  
+Maximum objects per push | 50,000 objects, such as file versions, folders, and commits.  
+Maximum file size | 32 MiB per file. Already-compressed files, like images, video, or zip archives, may be rejected slightly below 32 MiB.  
+Maximum ref updates per push | 1 MiB of branch and tag updates per push.  
+Maximum entries per folder | 100,000 files and subfolders in a single folder.  
   
 [PreviousPricing](https://developers.cloudflare.com/artifacts/platform/pricing/)[NextChangelog](https://developers.cloudflare.com/artifacts/platform/changelog/)
 

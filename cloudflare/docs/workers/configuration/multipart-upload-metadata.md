@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/configuration/multipart-upload-metadata/
 title: Multipart upload metadata \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:15.413247+00:00
+fetched_at: 2026-10-29T08:14:04.283928+00:00
 ---
 
 # Multipart upload metadata · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:15.413247+00:00
 
 # Multipart upload metadata
 
-Last updated Jul 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/configuration/multipart-upload-metadata/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSample metadataAttributesAdditional attributes: Workers Script Upload APIAdditional attributes: Version Upload APIBindings
 
@@ -62,6 +62,7 @@ At a minimum, the `main_module` key is required to upload a Worker.
 
     * [Asset](https://developers.cloudflare.com/workers/static-assets/) configuration for a Worker.
     * `config` `object` optional
+      * [`base_path`](https://developers.cloudflare.com/workers/static-assets/routing/advanced/serving-a-subdirectory/) determines the URL path prefix where static assets are available.
       * [html_handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/) determines the redirects and rewrites of requests for HTML content.
       * [not_found_handling](https://developers.cloudflare.com/workers/static-assets/#routing-behavior) determines the response when a request does not match a static asset.
     * `jwt` field provides a token authorizing assets to be attached to a Worker.

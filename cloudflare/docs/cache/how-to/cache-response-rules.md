@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/how-to/cache-response-rules/
 title: Cache Response Rules \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:42.322622+00:00
+fetched_at: 2026-10-29T08:14:00.011971+00:00
 ---
 
 # Cache Response Rules · Cloudflare Cache (CDN) docs
@@ -18,11 +18,15 @@ fetched_at: 2026-10-08T07:05:42.322622+00:00
 
 # Cache Response Rules
 
-Last updated Aug 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/how-to/cache-response-rules/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityTroubleshootingRelationship with Cache Rules Example: OCC precedence over Edge TTLDifference from Workers and Transform RulesNotes
 
 Cache Response Rules allow you to configure cache settings based on request and response attributes. These rules execute prior to caching in the `http_response_cache_settings` phase, which runs after Cloudflare receives the origin response.
+
+Note
+
+Cache Response Rules evaluate the request as it is sent to your origin. If an [Origin Rule](https://developers.cloudflare.com/rules/origin-rules/) rewrites the `Host` header, expressions that match on `http.host` must use the rewritten hostname. The equivalent Cache Rule still sees the original hostname because Cache Rules run before Origin Rules are applied.
 
 With Cache Response Rules you can:
 

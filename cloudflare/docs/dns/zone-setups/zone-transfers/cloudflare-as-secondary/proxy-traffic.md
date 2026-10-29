@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/zone-setups/zone-transfers/cloudflare-as-secondary/proxy-traffic/
 title: Proxy traffic with Secondary DNS override \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:05.050161+00:00
+fetched_at: 2026-10-29T08:14:03.056698+00:00
 ---
 
 # Proxy traffic with Secondary DNS override · Cloudflare DNS docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:11:05.050161+00:00
 
 # Proxy traffic
 
-Last updated May 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/dns/zone-setups/zone-transfers/cloudflare-as-secondary/proxy-traffic/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesSet up Secondary DNS overrideProxied A and AAAA recordsCNAME record on the zone apexVerify that your records are proxied
 
@@ -43,6 +43,8 @@ Before you set up Secondary DNS override, make sure that you have:
   * Set your [DNSSEC with Secondary DNS ↗︎](https://dash.cloudflare.com/?to=/:account/:zone/dns/settings/) option to either **Unsigned** or **Live Signing**. If set to [Pre-signed](https://developers.cloudflare.com/dns/zone-setups/zone-transfers/cloudflare-as-secondary/dnssec-for-secondary/#set-up-pre-signed-dnssec), Cloudflare will treat all your DNS records as unproxied (DNS only).
 
   * Removed all nameservers from your registrar except for those provided by Cloudflare (highly recommended).
+
+  * For full Cloudflare proxy coverage (required for Spectrum, WAF, and CDN), use a [hidden primary configuration](https://developers.cloudflare.com/dns/zone-setups/zone-transfers/cloudflare-as-secondary/setup/#hidden-primary) where your primary DNS server is not listed at the registrar. If both your primary and Cloudflare nameservers are listed, resolvers will split queries and approximately 50% of traffic will bypass Cloudflare.
 
 Caution
 

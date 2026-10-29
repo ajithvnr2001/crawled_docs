@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/
 title: Local development \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:02.962624+00:00
+fetched_at: 2026-10-29T08:14:00.202973+00:00
 ---
 
 # Local development · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-23T16:40:02.962624+00:00
 
 # Local development
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/local-development/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSecurity considerationsCore concepts Worker execution vs BindingsStart a local development server Defaults Bindings during local developmentRemote bindings Example configuration Integration with environments Recommended remote bindings Unsupported remote bindings Important Considerations Connect to Access-protected Workers APIwrangler dev --remote (Legacy) When to use Remote development Considerations Limitations
 
@@ -121,7 +121,7 @@ During local development, your Worker code interacts with these bindings using t
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-23",
+    	"compatibility_date": "2026-10-29",
     
     	"r2_buckets": [
     		{
@@ -135,7 +135,7 @@ During local development, your Worker code interacts with these bindings using t
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-10-29"
     
     [[r2_buckets]]
     bucket_name = "screenshots-bucket"
@@ -154,7 +154,7 @@ Remote Bindings work well together with [Workers Environments](https://developer
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-23",
+    	"compatibility_date": "2026-10-29",
     
     	"env": {
     		"production": {
@@ -180,7 +180,7 @@ Remote Bindings work well together with [Workers Environments](https://developer
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-10-29"
     
     [[env.production.r2_buckets]]
     bucket_name = "screenshots-bucket"
@@ -343,8 +343,6 @@ If `remote: true` is specified in Wrangler configuration for any of the followin
   * [**Static Assets**](https://developers.cloudflare.com/workers/wrangler/configuration/#assets) Static assets are always served from your local disk during development for speed and direct feedback on changes.
 
   * [**Version Metadata**](https://developers.cloudflare.com/workers/runtime-apis/bindings/version-metadata/): Since your Worker code is running locally, version metadata (like commit hash, version tags) associated with a specific deployed version is not applicable or accurate.
-
-  * [**Analytics Engine**](https://developers.cloudflare.com/analytics/analytics-engine/): Local development sessions typically don't contribute data directly to production Analytics Engine.
 
   * [**Hyperdrive**](https://developers.cloudflare.com/workers/wrangler/configuration/#hyperdrive): This is being actively worked on, but is currently unsupported.
 

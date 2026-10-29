@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/cloudflare-one-client/
 title: Use the Cloudflare One Client as an on-ramp \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:41.557509+00:00
+fetched_at: 2026-10-29T08:14:02.812128+00:00
 ---
 
 # Use the Cloudflare One Client as an on-ramp · Cloudflare One docs
@@ -22,7 +22,7 @@ NetworksConnectors[Cloudflare WAN](https://developers.cloudflare.com/cloudflare-
 
 # WARP
 
-Last updated Aug 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/zero-trust/cloudflare-one-client/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesIP rangesSet up the Cloudflare One Client with Cloudflare WAN 1\. Route packets back to Cloudflare One Client devices 2\. Configure Split Tunnels 3\. Install the Cloudflare One Client on your deviceDouble encapsulation The Cloudflare One Client and Cloudflare One ApplianceTest Cloudflare One Client integration
 
@@ -89,7 +89,7 @@ When a Cloudflare One Client user connects from a location (such as an office) w
 
 Since Cloudflare One Client traffic is already protected on its own, set up Cloudflare WAN to exclude Cloudflare One Client traffic, sending it to the Internet through regular connections.
 
-To learn which IP addresses and UDP ports you should exclude to accomplish this, refer to [WARP ingress IP](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/firewall/#warp-ingress-ip).
+To learn which IP addresses and UDP ports you should exclude to accomplish this, refer to [Cloudflare One Client ingress IP](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/firewall/#warp-ingress-ip).
 
 ### The Cloudflare One Client and Cloudflare One Appliance
 

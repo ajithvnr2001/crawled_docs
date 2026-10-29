@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/troubleshoot/
 title: Troubleshooting builds \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T07:00:53.820613+00:00
+fetched_at: 2026-10-29T08:14:01.225043+00:00
 ---
 
 # Troubleshooting builds · Cloudflare Workers docs
@@ -22,13 +22,15 @@ fetched_at: 2026-10-24T07:00:53.820613+00:00
 
 # Troubleshooting builds
 
-Last updated Oct 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewKnown issues or limitations Workers name requirement Missing Wrangler configuration file Incorrect account_id Stale API token Build timed out Build succeeds but the site returns a 404 or blank page npm ci reports that package.json and package-lock.json are out of sync Git integration issuesFor additional support
 
 This guide explains how to identify and resolve build errors, as well as troubleshoot common issues in the Workers Builds deployment process.
 
 To view your build history, go to your Worker project in the Cloudflare dashboard, select **Deployment** , select **View Build History** at the bottom of the page, and select the build you want to view. To retry a build, select the ellipses next to the build and select **Retry build**. Alternatively, you can select **Retry build** on the Build Details page.
+
+Builds and their build logs are retained for 90 days after they finish. Refer to [Limits & pricing](https://developers.cloudflare.com/workers/ci-cd/builds/limits-and-pricing/).
 
 ## Known issues or limitations
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/hyperdrive/reference/supported-databases-and-features/
 title: Supported databases and features \u00b7 Cloudflare Hyperdrive docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:34.419103+00:00
+fetched_at: 2026-10-29T08:14:03.390534+00:00
 ---
 
 # Supported databases and features · Cloudflare Hyperdrive docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:34.419103+00:00
 
 # Supported databases and features
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/hyperdrive/reference/supported-databases-and-features/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDatabase supportSupported database providersSupported TLS (SSL) modes PostgreSQL MySQLSupported PostgreSQL authentication modesUnsupported PostgreSQL features:Unsupported MySQL features:
 
@@ -42,6 +42,7 @@ Hyperdrive also supports databases that are compatible with the Postgres or MySQ
 Database Engine | Supported | Known supported versions | Details  
 ---|---|---|---  
 AWS Aurora | ✅ | All | Postgres-compatible and MySQL-compatible. Refer to AWS Aurora examples for [MySQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-database-providers/aws-rds-aurora/) and [Postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/aws-rds-aurora/).  
+ClickHouse Managed Postgres | ✅ | All | Refer to the [ClickHouse Managed Postgres guide](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/clickhouse-managed-postgres/) to connect.  
 Neon | ✅ | All | Neon currently runs Postgres 15.x  
 Supabase | ✅ | All | Supabase currently runs Postgres 15.x  
 Timescale | ✅ | All | See the [Timescale guide](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/timescale/) to connect.  

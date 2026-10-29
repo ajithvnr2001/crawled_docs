@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/browser/
 title: Browser \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:00.136383+00:00
+fetched_at: 2026-10-29T08:14:03.929006+00:00
 ---
 
 # Browser · Cloudflare Agents docs
@@ -18,13 +18,13 @@ fetched_at: 2026-10-23T16:40:00.136383+00:00
 
 # Browser
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/tools/browser/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewReturn to the same browser Use it with Pi Durable Tabs, logins, and interruptions Use another harnessLive View and human takeover Hand off to a person Close the browserRecordingCDP APIRead pages without a browserLegacy browser tools Basic pattern Configuration Session lifecycle Host-side helpers Approval and human handoff Legacy CDP methods Session recording Kitesurf Quick Action tools Browser agent exampleRelated resources
+OverviewReturn to the same browser Use it with Pi Durable Tabs, logins, and interruptions Use another harnessInternal hostnames Add internal hostnames Let the model choose what a host serves LimitsLive View and human takeover Hand off to a person Close the browserRecordingBrowser APIRead pages without a browserLegacy browser tools Basic pattern Configuration Session lifecycle Host-side helpers Approval and human handoff Legacy CDP methods Session recording Kitesurf Quick Action tools Browser agent exampleRelated resources
 
 Give your agent a browser it can return to on later turns. [Browser Run](https://developers.cloudflare.com/browser-run/) keeps the remote browser open, so your agent can continue from the same page with its tabs, cookies, and login session intact while the browser session remains alive.
 
-Use browser tools to interact with websites, inspect pages rendered with JavaScript, or capture screenshots.
+Use browser tools to interact with websites, inspect pages rendered with JavaScript, or capture screenshots. With internal hostnames, the browser can also open sites that only your agent serves, such as a dev server in its sandbox or a folder in its workspace.
 
 ## Return to the same browser
 
@@ -34,7 +34,7 @@ The browser runs outside your agent's Durable Object. The object saves its sessi
 
 ### Use it with Pi Durable
 
-Start with a [Pi Durable agent](https://developers.cloudflare.com/agents/harnesses/pi/). Install the browser runtime alongside the Pi packages:
+Start with a [Pi Durable agent](https://developers.cloudflare.com/agents/harnesses/pi/). Install the Agents SDK alongside the Pi packages:
 
 npmyarnpnpmbun
     
@@ -64,8 +64,6 @@ src/index.jsjs
     import { Lifecycle } from "agents/lifecycle";
     import { createAI } from "agents/models/pi-ai";
     
-    export { CodemodeRuntime } from "agents/browser";
-    
     export class BrowserAssistant extends DurableObject {
     	ai = createAI({ binding: this.env.AI });
     	browser = new Browser({ provider: browserRun(this.env.BROWSER) });
@@ -78,11 +76,7 @@ src/index.jsjs
     			this.registry.install({
     				name: "browser",
     				tools: [
-    					browserTool({
-    						ctx: this.ctx,
-    						browser: this.browser,
-    						loader: this.env.LOADER,
-    					}),
+    					browserTool({ browser: this.browser, loader: this.env.LOADER }),
     				],
     			});
     			return Harness.open(
@@ -122,8 +116,6 @@ src/index.tsts
     import { Lifecycle } from "agents/lifecycle";
     import { createAI } from "agents/models/pi-ai";
     
-    export { CodemodeRuntime } from "agents/browser";
-    
     export class BrowserAssistant extends DurableObject<Env> {
     	ai = createAI({ binding: this.env.AI });
     	browser = new Browser({ provider: browserRun(this.env.BROWSER) });
@@ -136,11 +128,7 @@ src/index.tsts
     			this.registry.install({
     				name: "browser",
     				tools: [
-    					browserTool({
-    						ctx: this.ctx,
-    						browser: this.browser,
-    						loader: this.env.LOADER,
-    					}),
+    					browserTool({ browser: this.browser, loader: this.env.LOADER }),
     				],
     			});
     			return Harness.open(
@@ -177,7 +165,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     	"name": "persistent-browser-agent",
     	"main": "src/index.ts",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-23",
+    	"compatibility_date": "2026-10-29",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": { "binding": "AI" },
     	"browser": { "binding": "BROWSER" },
@@ -192,7 +180,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     name = "persistent-browser-agent"
     main = "src/index.ts"
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-10-29"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]
@@ -212,7 +200,9 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     tag = "v1"
     new_sqlite_classes = [ "BrowserAssistant" ]
 
-Generate the `Env` type with [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types). The `LOADER` binding runs model-written browser code in a sandbox. The `CodemodeRuntime` export makes that runtime available to the Worker.
+Generate the `Env` type with [`wrangler types`](https://developers.cloudflare.com/workers/wrangler/commands/general/#types). The `LOADER` binding runs the model's browser code in a new [Dynamic Worker](https://developers.cloudflare.com/dynamic-workers/) for each call, with no network access. The code reaches the browser only through the browser API.
+
+`browserTool` does not use Code Mode, but keep `@cloudflare/codemode` installed. `agents/browser` still exports the legacy browser tools, which need it.
 
 To try persistence, send two prompts to the same assistant within the browser's idle timeout:
     
@@ -228,7 +218,7 @@ Each Pi conversation gets its own active tab by default. Sessions, forks, and su
 
 Within a conversation, browser calls run sequentially. The model can use `sessionId: "active"` in its CDP commands to return to its active tab. To share a tab deliberately, pass the same `scope` string to the Pi tools.
 
-If a browser expires, closes, or crashes, the next use creates a replacement. A returning scope receives `restarted: true` in the result, indicating that its previous browser state is gone. The tool runs against the new browser; it does not restore the old session.
+If a browser expires, closes, or crashes, the next use creates a replacement. The result's `notice` tells a returning scope that its previous browser state is gone. The tool runs against the new browser. It does not restore the old session. `notice` also tells the model when the page opened new tabs, or when another conversation closed its tab or is working in it too.
 
 Pi does not automatically replay a browser call interrupted by eviction: repeating it could submit a form or click a button twice. The model receives an interrupted result and can decide how to continue. Stopping a conversation does not cancel a browser call already running. The call finishes or reaches `timeoutMs`, which defaults to 60 seconds.
 
@@ -236,13 +226,14 @@ Set `keepAliveMs`, `recording`, and hostname `guardrails` on `browserRun(binding
 
 ### Use another harness
 
-The same `Browser` instance works with the AI SDK and TanStack AI adapters. Pass `ctx` when using a plain Durable Object, as in the Pi example.
+Internal hostnames are a capability of the browser, independent of your agent harness. The Agents SDK provides browser-tool adapters for Pi Durable, AI SDK, and TanStack AI. To connect another harness, implement a tool with `browser.session()`. No prebuilt adapter is required.
 
 Harness | Import | Usage  
 ---|---|---  
 Pi Durable | `browserTool` from `agents/browser/pi` | Install in a Pi registry extension's `tools` array.  
 AI SDK | `browserTool` from `agents/browser/ai-sdk` | Add to the `tools` object passed to `generateText` or `streamText`.  
 TanStack AI | `browserTool` from `agents/browser/tanstack-ai` | Add to the `tools` array passed to `chat`.  
+Other harnesses | `Browser` from `agents/browser` | Implement a tool using `browser.session()`; no prebuilt adapter is required.  
   
 For example, create an AI SDK tool inside your Durable Object:
     
@@ -251,7 +242,6 @@ For example, create an AI SDK tool inside your Durable Object:
     
     const tools = {
     	browser: browserTool({
-    		ctx: this.ctx,
     		browser: this.browser,
     		loader: this.env.LOADER,
     		scope: conversationId,
@@ -264,7 +254,6 @@ For example, create an AI SDK tool inside your Durable Object:
     
     const tools = {
     	browser: browserTool({
-    		ctx: this.ctx,
     		browser: this.browser,
     		loader: this.env.LOADER,
     		scope: conversationId,
@@ -274,7 +263,224 @@ For example, create an AI SDK tool inside your Durable Object:
 
 Unlike Pi, the AI SDK and TanStack AI adapters share one active tab when `scope` is omitted. Pass your conversation identifier to give each conversation its own active tab. The AI SDK adapter exposes screenshots to your UI and sends the model a text summary. TanStack AI omits screenshots and directs the model to read page content instead.
 
-For a custom harness, use `Browser.connect({ scope })` from your tool implementation. It returns a CDP connection, the active tab identifier, and a `restarted` flag. Use `setActiveTarget()` to remember a tab and `cdp.disconnect()` to release the connection without closing the browser.
+For a harness without a prebuilt adapter, or to drive the browser from your own code, call `browser.session({ scope })`. This works whether you use an existing framework or write your own harness. It returns the connection that `browserTool` is built on, with the same `sessionId: "active"` handling. Close it when you are done to save the scope's active tab and get a report of what happened to the browser:
+    
+    
+    const session = this.browser.session({ scope: conversationId });
+    try {
+    	await session.send({
+    		method: "Page.navigate",
+    		params: { url: "https://example.com" },
+    		sessionId: "active",
+    	});
+    } finally {
+    	const report = await session.close();
+    	// { restarted, newTabs, tabClosed, tabShared }, or undefined if unused
+    }
+    
+    
+    const session = this.browser.session({ scope: conversationId });
+    try {
+    	await session.send({
+    		method: "Page.navigate",
+    		params: { url: "https://example.com" },
+    		sessionId: "active",
+    	});
+    } finally {
+    	const report = await session.close();
+    	// { restarted, newTabs, tabClosed, tabShared }, or undefined if unused
+    }
+
+## Internal hostnames
+
+Agents that build websites need to check their work in a real browser. Internal hostnames let your agent's browser preview a dev server running in a container without exposing that server to the public Internet.
+
+Internal hostnames give the browser sites that your agent serves instead of the Internet, such as static assets in an R2 bucket, a folder in the agent's workspace, a dev server in its sandbox, or another Worker. Only this browser can reach these hostnames.
+
+Requests for an internal hostname do not leave Cloudflare. Browser Run sends them to your Worker through [outbound Workers](https://developers.cloudflare.com/browser-run/features/outbound-workers/), and the `Browser` runs the matching host's `fetch` function inside your Durable Object, so it can use the object's bindings and state.
+
+![An animated diagram of three kinds of hostname: example.com goes out to the Internet; the model points preview.internal at port 5173 with browser.assignHost\(\), then the browser opens it and your agent serves it from the sandbox; and api.internal goes straight to another Worker, skipping your agent](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=960,height=524,format=svg/_astro/browser-internal-hostnames.FAVHfafR.svg)
+
+### Add internal hostnames
+
+To add internal hostnames, make sure you have [Agents SDK v0.31.0 ↗︎](https://github.com/cloudflare/agents/releases/tag/agents%400.31.0) or later installed. Pass `internalHosts` to `browserRun()`. This configuration works with the browser-tool adapters or a tool you implement using `browser.session()`:
+
+src/index.jsjs
+    
+    
+    import { DurableObject } from "cloudflare:workers";
+    import { Browser, browserRun } from "agents/browser";
+    import { Lifecycle } from "agents/lifecycle";
+    import { z } from "zod";
+    // Your own code: serve a workspace folder's files, and reach a port on your
+    // sandbox. Each returns a Response.
+    import { fetchSandboxPort, serveWorkspaceFolder } from "./hosts";
+    
+    // Browser Run calls back into your Worker through this entrypoint.
+    export { InternalHostRouter } from "agents/browser";
+    
+    export class BrowserAssistant extends DurableObject {
+    	browser = new Browser({
+    		provider: browserRun(this.env.BROWSER, {
+    			guardrails: { allowedDomains: [] }, // internal hosts only
+    			internalHosts: {
+    				router: this.ctx.exports.InternalHostRouter,
+    				hosts: {
+    					"assets.internal": {
+    						description: "Your app's static assets, served from an R2 bucket",
+    						fetch: async (request) => {
+    							const { pathname } = new URL(request.url);
+    							const file = await this.env.ASSETS_BUCKET.get(
+    								decodeURIComponent(pathname.slice(1)),
+    							);
+    							if (!file) return new Response("Not found", { status: 404 });
+    							const headers = new Headers();
+    							file.writeHttpMetadata(headers); // its Content-Type
+    							return new Response(file.body, { headers });
+    						},
+    					},
+    					"site.internal": {
+    						description: "A workspace folder, such as a production build",
+    						target: z.object({
+    							folder: z
+    								.string()
+    								.startsWith("/workspace/")
+    								.refine((path) => !path.split("/").includes("..")),
+    						}),
+    						fetch: (request, { folder }) =>
+    							serveWorkspaceFolder(folder, request),
+    					},
+    					"preview.internal": {
+    						description: "Your dev servers",
+    						target: z.object({ port: z.number().int().min(1024) }),
+    						fetch: (request, { port }) => fetchSandboxPort(port, request),
+    					},
+    					"api.internal": { worker: this.env.API },
+    				},
+    			},
+    		}),
+    	});
+    
+    	lifecycle = Lifecycle.install(this).use(this.browser);
+    
+    	// InternalHostRouter calls this method to reach your Browser.
+    	fetchInternalHost(message) {
+    		return this.browser.fetchInternalHost(message);
+    	}
+    }
+
+src/index.tsts
+    
+    
+    import { DurableObject } from "cloudflare:workers";
+    import { Browser, browserRun, type InternalHostMessage } from "agents/browser";
+    import { Lifecycle } from "agents/lifecycle";
+    import { z } from "zod";
+    // Your own code: serve a workspace folder's files, and reach a port on your
+    // sandbox. Each returns a Response.
+    import { fetchSandboxPort, serveWorkspaceFolder } from "./hosts";
+    
+    // Browser Run calls back into your Worker through this entrypoint.
+    export { InternalHostRouter } from "agents/browser";
+    
+    export class BrowserAssistant extends DurableObject<Env> {
+    	browser = new Browser({
+    		provider: browserRun(this.env.BROWSER, {
+    			guardrails: { allowedDomains: [] }, // internal hosts only
+    			internalHosts: {
+    				router: this.ctx.exports.InternalHostRouter,
+    				hosts: {
+    					"assets.internal": {
+    						description: "Your app's static assets, served from an R2 bucket",
+    						fetch: async (request) => {
+    							const { pathname } = new URL(request.url);
+    							const file = await this.env.ASSETS_BUCKET.get(
+    								decodeURIComponent(pathname.slice(1)),
+    							);
+    							if (!file) return new Response("Not found", { status: 404 });
+    							const headers = new Headers();
+    							file.writeHttpMetadata(headers); // its Content-Type
+    							return new Response(file.body, { headers });
+    						},
+    					},
+    					"site.internal": {
+    						description: "A workspace folder, such as a production build",
+    						target: z.object({
+    							folder: z
+    								.string()
+    								.startsWith("/workspace/")
+    								.refine((path) => !path.split("/").includes("..")),
+    						}),
+    						fetch: (request, { folder }) =>
+    							serveWorkspaceFolder(folder, request),
+    					},
+    					"preview.internal": {
+    						description: "Your dev servers",
+    						target: z.object({ port: z.number().int().min(1024) }),
+    						fetch: (request, { port }) => fetchSandboxPort(port, request),
+    					},
+    					"api.internal": { worker: this.env.API },
+    				},
+    			},
+    		}),
+    	});
+    
+    	lifecycle = Lifecycle.install(this).use(this.browser);
+    
+    	// InternalHostRouter calls this method to reach your Browser.
+    	fetchInternalHost(message: InternalHostMessage) {
+    		return this.browser.fetchInternalHost(message);
+    	}
+    }
+
+Each host has either a `fetch` function or a `worker`, and an optional `description` that the model reads:
+
+  * A host with `fetch` runs that function in your Durable Object for each request and returns its `Response`.
+  * A host with `worker`, a service binding or a `ctx.exports` entrypoint, sends requests straight to that Worker, without passing through your Durable Object.
+
+
+
+`fetch` hosts need two pieces of wiring. Export `InternalHostRouter` from your Worker's main module and pass it as `router`. Browser Run calls it, and it calls your Durable Object's `fetchInternalHost()` method. The `Agent` class has this method built in, so leave it out on an Agent. If you have more than one `Browser` on a Durable Object, use `message.browser` to pick the one it names.
+
+`browserTool` lists each host, with its description, in the tool's description. The model can open `http://assets.internal/` or call `browser.listHosts()` to see each host and what it points at.
+
+### Let the model choose what a host serves
+
+A host with only `fetch` always serves the same thing. Add a `target` schema and the model chooses what the host serves. In its browser code, the model calls `browser.assignHost()`, and then navigates to the URL it returns:
+    
+    
+    const { url } = await browser.assignHost({
+    	host: "preview.internal",
+    	target: { port: 5173 },
+    });
+    await browser.cdp({
+    	method: "Page.navigate",
+    	params: { url },
+    	sessionId: "active",
+    });
+
+The target is checked against the schema, stored, and passed to your `fetch` function as its second argument. `target` accepts a [Standard JSON Schema ↗︎](https://standardschema.dev/), such as Zod 4.2 or later, ArkType, or Valibot through its adapter, which also types the argument. It also accepts a plain JSON Schema object, which leaves the argument typed as `unknown`.
+
+The model picks the target. If part of it becomes a path, URL, or command in your `fetch` function, restrict it in the schema, for example with an enum, a pattern, or a range, as `site.internal` does with its folder.
+
+Assignments last until they are cleared. They survive the browser being replaced, Durable Object eviction, and redeploys. An assignable host responds with a `502` until it has a target. The model can call `browser.clearHost({ host })` to remove one. From your own code, use `this.browser.internalHosts.assign(host, target)`, `.clear(host)`, and `.list()`.
+
+### Limits
+
+  * A browser can have at most eight internal hostnames.
+  * Hostnames are bare, lowercase names ending in `.internal`, `.test`, `.example`, or `.invalid`, such as `preview.internal`, not `http://preview.internal:5173`. These suffixes never resolve on the public Internet, so a host cannot shadow a real site.
+  * Internal hosts use plain HTTP on port 80. They do not support HTTPS or WebSockets, so a dev server's hot reload cannot connect.
+  * The set of hostnames is fixed when the browser starts. Changing the set replaces the browser on its next use. Changing a `fetch` function does not. Pointing a `worker` host at a different Worker does not either, so call `browser.close()` after that change.
+  * [Guardrails](https://developers.cloudflare.com/browser-run/features/guardrails/) do not apply to internal hosts. Set `allowedDomains: []` to let the browser reach only its internal hosts.
+  * When a host's `fetch` function throws, the browser receives a `502` and the error is logged. The page does not see the error message.
+  * Internal hosts only work when your Worker is deployed. In local development, the browser starts without them and logs a warning.
+  * Install the `Browser` on a top-level Durable Object or Agent. Sub-agents are not supported yet.
+
+
+
+Caution
+
+Any page open in the browser over plain HTTP can send requests to internal hosts, including a page on another internal host. Chrome blocks these requests from HTTPS pages as mixed content. Set `allowedDomains: []` unless the model needs the public Internet. If requests to a host have side effects, check that their `Origin` header names that host.
 
 ## Live View and human takeover
 
@@ -353,7 +559,7 @@ Live View URLs are bearer credentials. Anyone with a link can control the browse
 
 ### Close the browser
 
-Call `browser.close()` to end the browser. It deletes the Browser Run session and returns `false` if no browser was open. The next use of the `Browser` starts a new browser, and each scope that worked in the old browser receives `restarted: true`.
+Call `browser.close()` to end the browser. It deletes the Browser Run session and returns `false` if no browser was open. The next use of the `Browser` starts a new browser, and the result's `notice` tells each scope that worked in the old browser that its state is gone.
     
     
     await this.browser.close();
@@ -419,24 +625,38 @@ Caution
 
 A persistent browser's recording spans every turn and every scope that shares the `Browser`, until that browser closes. If several users share one `Browser`, one recording can include all of their activity. rrweb masks input fields by default, but treat every recording as sensitive.
 
-## CDP API
+## Browser API
 
-Model code runs in a sandbox with a `cdp` object. Methods with arguments take a single object:
+The model writes an async arrow function against a `browser` object. Methods with arguments take a single object:
 
 Method | Description  
 ---|---  
-`cdp.send({ method, params?, sessionId?, timeoutMs? })` | Send a CDP command and return its result.  
-`cdp.attachToTarget({ targetId, timeoutMs? })` | Attach to a tab and return `{ sessionId }`, a handle for page-scoped `send` calls.  
-`cdp.spec()` | Return the searchable, normalized CDP protocol description from the live browser.  
-`cdp.getDebugLog({ limit? })` | Return recent CDP traffic, including sends, receives, and warnings, for this run.  
-`cdp.clearDebugLog()` | Clear the debug log.  
+`browser.cdp({ method, params?, sessionId?, timeoutMs? })` | Send a CDP command and return its result.  
+`browser.attachToTarget({ targetId, timeoutMs? })` | Attach to a tab, make it active, and return `{ sessionId }` for page-scoped calls.  
+`browser.spec({ domain? })` | List the CDP protocol's domains, or return one domain's commands, events, and types.  
+`browser.getDebugLog({ limit? })` | Return recent CDP traffic for this call, including sends, receives, and warnings.  
+`browser.clearDebugLog()` | Clear the debug log.  
+`browser.listHosts()` | List the internal hostnames and what each one points at.  
+`browser.assignHost({ host, target })` | Point an assignable internal host at a target and return `{ url }`.  
+`browser.clearHost({ host })` | Remove an internal host's target.  
   
-The `cdp` object also follows these rules:
+`listHosts()` is available when the browser has internal hostnames, and `assignHost()` and `clearHost()` when one of them has a `target` schema. The tool's description covers this API and the CDP mistakes models commonly make, so the model does not need a discovery pass first.
+
+The browser API also follows these rules:
 
   * `sessionId: "active"` addresses the scope's active tab. `Browser.*` and `Target.*` commands take no `sessionId`.
-  * `cdp.attachToTarget()` makes the tab active. Its handle keeps working in later runs.
-  * The model cannot send `Browser.close` or `Browser.crash`, because your application owns the browser. To close a tab, the model sends `Target.closeTarget`.
-  * A single `cdp.send` result over 1 MB fails the run. To capture a long page, take a viewport screenshot or use JPEG.
+  * A `sessionId` from `browser.attachToTarget()` keeps working in later calls.
+  * Each call runs in a new Dynamic Worker with no network access. `fetch()` and `connect()` are blocked, so `browser` is the code's only way out.
+  * Each call times out after `timeoutMs`, which defaults to 60 seconds.
+  * Results are cut to about 24,000 characters, and console output to 100 lines. A screenshot can be at most 1 MB. To capture a long page, take a viewport screenshot or use JPEG.
+
+
+
+The model cannot send these commands, because your application owns the browser and its Live View links:
+
+  * `Browser.close`, `Browser.crash`, and `Browser.crashGpuProcess`. To close a tab, the model sends `Target.closeTarget`.
+  * `Cloudflare.getLiveView` and `Cloudflare.handoff`.
+  * `Target.sendMessageToTarget` and `Target.exposeDevToolsProtocol`, which could otherwise send the other refused commands.
 
 
 
@@ -455,7 +675,7 @@ Use `browserTool` when the page needs a browser:
 
 ## Legacy browser tools
 
-`createBrowserTools` and `createBrowserRuntime` from `agents/browser/ai` are still supported, but they are legacy. The same applies to `createBrowserTools` from `agents/browser/tanstack-ai` and to the [Think browser tools](https://developers.cloudflare.com/agents/harnesses/think/tools/) in `@cloudflare/think/tools/browser`, which are built on them. New code should use `Browser` with `browserTool`.
+`createBrowserTools` and `createBrowserRuntime` from `agents/browser/ai` are deprecated. They keep working until they are removed, but will not change. The same applies to `createBrowserTools` from `agents/browser/tanstack-ai`, to `BrowserConnector` from `agents/browser`, to the Quick Action tools, and to the [Think browser tools](https://developers.cloudflare.com/agents/harnesses/think/tools/) in `@cloudflare/think/tools/browser`, which are built on them. New code should use `Browser` with `browserTool`.
 
 You might still use the legacy tools for the following:
 
@@ -469,7 +689,7 @@ You do not need the legacy tools to get a fresh browser for each run. With `brow
 
 ### Basic pattern
 
-Create browser tools with the Browser Run and Worker Loader bindings, then pass those tools to your model call. The model writes code against the CDP API in the `browser_execute` tool.
+Create browser tools with the Browser Run and Worker Loader bindings, then pass those tools to your model call. The model writes code against a `cdp` object in the `browser_execute` tool, described in Legacy CDP methods.
     
     
     import { AIChatAgent } from "@cloudflare/ai-chat";
@@ -539,7 +759,12 @@ The TanStack AI `createBrowserTools` returns only `browser_execute`. To discover
 
 ### Configuration
 
-The legacy tools use the same `BROWSER` and `LOADER` bindings and the same `CodemodeRuntime` export as `browserTool`. Refer to Use it with Pi Durable for the Wrangler configuration. The `@cloudflare/codemode/vite` plugin adds the `CodemodeRuntime` export automatically.
+The legacy tools use the same `BROWSER` and `LOADER` bindings as `browserTool`. Refer to Use it with Pi Durable for the Wrangler configuration. Unlike `browserTool`, they also need a `CodemodeRuntime` export from your Worker:
+    
+    
+    export { CodemodeRuntime } from "agents/browser";
+
+The `@cloudflare/codemode/vite` plugin adds the `CodemodeRuntime` export automatically.
 
 `createBrowserTools` and `createBrowserRuntime` accept the following options:
 
@@ -663,7 +888,17 @@ Every `cdp.*` call is recorded in the runtime's durable log. If a run pauses for
 
 ### Legacy CDP methods
 
-In addition to the shared CDP API, `browser_execute` provides these methods:
+Model code in `browser_execute` uses a `cdp` object. Methods with arguments take a single object:
+
+Method | Description  
+---|---  
+`cdp.send({ method, params?, sessionId?, timeoutMs? })` | Send a CDP command and return its result.  
+`cdp.attachToTarget({ targetId, timeoutMs? })` | Attach to a tab and return `{ sessionId }`, a handle for page-scoped `send` calls.  
+`cdp.spec()` | Return the searchable, normalized CDP protocol description from the live browser.  
+`cdp.getDebugLog({ limit? })` | Return recent CDP traffic, including sends, receives, and warnings, for this run.  
+`cdp.clearDebugLog()` | Clear the debug log.  
+  
+`browser_execute` also provides these methods:
 
 Method | Availability | Description  
 ---|---|---  

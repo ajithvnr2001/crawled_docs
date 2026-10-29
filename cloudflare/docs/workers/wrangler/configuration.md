@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/configuration/
 title: Configuration - Wrangler \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:57.870253+00:00
+fetched_at: 2026-10-29T08:14:00.580444+00:00
 ---
 
 # Configuration - Wrangler · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:03:57.870253+00:00
 
 # Configuration
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSample Wrangler configurationEnvironmentsAutomatic provisioningTop-level only keysInheritable keysNon-inheritable keysTypes of routes Custom Domains Routes workers.devTriggersObservability IssuesCustom buildsLimitsBindings Browser Run D1 databases Dispatch namespace bindings (Workers for Platforms) Durable Objects Email bindings Environment variables Hyperdrive Images KV namespaces AI Search namespaces AI Search instances Queues R2 buckets Vectorize indexes Service bindings Static assets Analytics Engine Datasets Analytics SQL mTLS Certificates Workers AI WorkflowsAssetsContainers default scheduling policy durable_object scheduling policy Custom instance types SSH Authorized keysBundling Importing modules within a Worker Find additional modules Python WorkersLocal development settingsSecrets secrets configuration property Local developmentModule Aliasing Bundling issues Example: Aliasing dependencies from NPM Example: Aliasing Node.js APIsSource mapsWorkers SitesProxy supportSource of truthGenerated Wrangler configuration Custom build tool example
 
@@ -48,7 +48,7 @@ It is best practice to treat Wrangler's configuration file as the source of trut
     	"main": "src/index.js",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-27",
+    	"compatibility_date": "2026-10-29",
     	"workers_dev": false,
     	"route": {
     		"pattern": "example.org/*",
@@ -83,7 +83,7 @@ It is best practice to treat Wrangler's configuration file as the source of trut
     main = "src/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-27"
+    compatibility_date = "2026-10-29"
     workers_dev = false
     
     [route]
@@ -1271,6 +1271,8 @@ To bind Analytics Engine datasets to your Worker, assign an array of the below o
     * The binding name used to refer to the dataset.
   * `dataset` `string` optional
     * The dataset name to write to. This will default to the same name as the binding if it is not supplied.
+  * `remote` `boolean` optional
+    * Whether the binding should write to the remote dataset during local development. Data points are discarded locally by default. Refer to [remote bindings](https://developers.cloudflare.com/workers/local-development/#remote-bindings).
 
 
 
@@ -1502,6 +1504,8 @@ The following options are available under the `assets` key.
     * Not required if you're using the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/), which will automatically point to the client build output.
   * `binding` `string` optional
     * The binding name used to refer to the assets. Optional, and only useful when a Worker script is set with `main`.
+  * `base_path` `string` optional, defaults to "/"
+    * The URL path prefix where static assets are available. For example, set this to `/docs` to serve the root of `assets.directory` from `/docs/`. Refer to [Serving a subdirectory](https://developers.cloudflare.com/workers/static-assets/routing/advanced/serving-a-subdirectory/).
   * `run_worker_first` `boolean | string[]` optional, defaults to false
     * Controls whether static assets are fetched directly, or a Worker script is invoked. Can be a boolean (`true`/`false`) or an array of route pattern strings with support for glob patterns (`*`) and exception patterns (`!` prefix). Patterns must begin with `/` or `!/`. Supports at most 100 entries (duplicates count toward the limit). Learn more about fetching assets when using [`run_worker_first`](https://developers.cloudflare.com/workers/static-assets/routing/worker-script/#run-your-worker-script-first).
   * `html_handling`: `"auto-trailing-slash" | "force-trailing-slash" | "drop-trailing-slash" | "none"` optional, defaults to "auto-trailing-slash"
@@ -1518,6 +1522,7 @@ Example:
     	"assets": {
     		"directory": "./public",
     		"binding": "ASSETS",
+    		"base_path": "/docs",
     		"html_handling": "force-trailing-slash",
     		"not_found_handling": "404-page",
     	},
@@ -1527,6 +1532,7 @@ Example:
     [assets]
     directory = "./public"
     binding = "ASSETS"
+    base_path = "/docs"
     html_handling = "force-trailing-slash"
     not_found_handling = "404-page"
 

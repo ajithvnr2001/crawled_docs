@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/diagnostic-logs/
 title: Diagnostic logs \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:03.967603+00:00
+fetched_at: 2026-10-29T08:14:02.220308+00:00
 ---
 
 # Diagnostic logs · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Diagnostic logs
 
-Last updated Jun 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/diagnostic-logs/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewmacOS/Windows/Linux Collect logs via the CLI Collect logs via the dashboard warp-diag logs Extra debug logging Log retention windowiOS/Android/ChromeOS Collect logs Mobile app logs
 
@@ -262,7 +262,7 @@ File name | Description
 `System.evtx` | Windows system event log.  
 `taskdump.log` | If the daemon hangs, this file will contain a dump of the currently running processes. This is helpful in debugging hangs, deadlocks, and tasks.  
 `timezone.txt` | Local timezone of the device specified as a UTC offset.  
-`traceroute.txt` | Traceroute to the [WARP ingress IPs](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/firewall/#warp-ingress-ip) showing the path from the device to Cloudflare's global network.  
+`traceroute.txt` | Traceroute to the [Cloudflare One Client ingress IPs](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/firewall/#warp-ingress-ip) showing the path from the device to Cloudflare's global network.  
 `*-traceroute-*.txt` | One-shot traceroute to Tunnel edge connection IPs, Device API endpoint hostname and IPs, and DNS resolver hostname and IPs; started when extra debug logging is first enabled.  
 `uname.txt` | Linux-only system information including kernel version.  
 `updater/` | Directory containing per-attempt installer logs and downloaded package metadata for [client version assignments](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/client-version-assignments/). Useful for diagnosing failed updates triggered from the Cloudflare dashboard.  

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/limits-and-pricing/
 title: Limits & pricing \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:13.063871+00:00
+fetched_at: 2026-10-29T08:14:00.962157+00:00
 ---
 
 # Limits & pricing · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:17:13.063871+00:00
 
 # Limits & pricing
 
-Last updated May 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/ci-cd/builds/limits-and-pricing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDefinitions
 
@@ -39,6 +39,7 @@ Metric | Free plan | Paid plans
 **Disk space** | 20 GB | 20 GB  
 **Environment variables** | 64 | 64  
 **Size per environment variable** | 5 KB | 5 KB  
+**Build and build log retention** | 90 days | 90 days  
   
 ## Definitions
 
@@ -51,6 +52,7 @@ Metric | Free plan | Paid plans
   * **Disk space** : The amount of disk space available to your build.
   * **Environment variables** : The number of custom environment variables you can configure per Worker.
   * **Size per environment variable** : The maximum size for each individual environment variable.
+  * **Build and build log retention** : How long a build and its build logs are retained after the build finishes. Versions and deployments created by the build are not removed, and you can still [roll back](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/) to them.
 
 
 

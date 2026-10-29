@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/how-to/cache-response-rules/settings/
 title: Cache Response Rules settings \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:42.483870+00:00
+fetched_at: 2026-10-29T08:14:00.067328+00:00
 ---
 
 # Cache Response Rules settings · Cloudflare Cache (CDN) docs
@@ -22,11 +22,15 @@ Cache configuration
 
 # Available settings
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/how-to/cache-response-rules/settings/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewExpression fields Request fields Response fieldsFunctionsOperatorsAvailable actions Action: set_cache_settings Action: set_cache_tags Action: set_cache_control
 
 These are the settings that you can configure when creating a Cache Response Rule. Because Cache Response Rules execute after Cloudflare receives the origin response, both request and response fields are available for rule matching.
+
+Note
+
+Request fields describe the request as Cloudflare sends it to your origin. If an [Origin Rule](https://developers.cloudflare.com/rules/origin-rules/) changes the `Host` header, `http.host` returns the changed value. Match on the hostname your origin receives, not the hostname visitors request.
 
 ## Expression fields
 
@@ -35,7 +39,7 @@ These are the settings that you can configure when creating a Cache Response Rul
 Field | Type | Description  
 ---|---|---  
 `http.cookie` | String | Full cookie header value  
-`http.host` | String | The HTTP Host header  
+`http.host` | String | The `Host` header received by your origin, which can differ from the requested hostname if an [Origin Rule](https://developers.cloudflare.com/rules/origin-rules/) changed it  
 `http.referer` | String | The HTTP Referer header  
 `http.user_agent` | String | The HTTP User-Agent header  
 `http.request.method` | String | The HTTP request method  

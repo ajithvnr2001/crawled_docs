@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/routing/advanced/serving-a-subdirectory/
 title: Serving a subdirectory \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:26.624370+00:00
+fetched_at: 2026-10-29T08:14:04.212770+00:00
 ---
 
 # Serving a subdirectory · Cloudflare Workers docs
@@ -22,26 +22,25 @@ fetched_at: 2026-10-13T08:48:26.624370+00:00
 
 # Serving a subdirectory
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+
+Set `assets.base_path` to serve static assets from a URL subpath. The files remain at the root of `assets.directory`.
 
 Note
 
-This feature requires Wrangler v3.98.0 or later.
+This option requires Wrangler 4.148.0 or later. With [`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/), use `worker.assets.basePath` and `cf` 1.0.0-beta.13 or later. Your build configuration supplies the asset directory.
 
-Like with any other Worker, [you can configure a Worker with assets to run on a path of your domain](https://developers.cloudflare.com/workers/configuration/routing/routes/). Assets defined for a Worker must be nested in a directory structure that mirrors the desired path.
-
-For example, to serve assets from `example.com/blog/*`, create a `blog` directory in your asset directory.
+For example, use this asset directory to serve a blog:
 
   * dist 
-    * blog 
-      * index.html
-      * posts 
-        * post1.html
-        * post2.html
+    * index.html
+    * posts 
+      * post1.html
+      * post2.html
 
 
 
-With a [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/) like so:
+Set `assets.base_path` to `/blog` in your Wrangler configuration file:
     
     
     {
@@ -51,7 +50,8 @@ With a [Wrangler configuration file](https://developers.cloudflare.com/workers/w
     	"upload_source_maps": true,
     	"route": "example.com/blog/*",
     	"assets": {
-    		"directory": "dist"
+    		"directory": "dist",
+    		"base_path": "/blog"
     	}
     }
     
@@ -64,10 +64,13 @@ With a [Wrangler configuration file](https://developers.cloudflare.com/workers/w
     
     [assets]
     directory = "dist"
+    base_path = "/blog"
 
-In this example, requests to `example.com/blog/` will serve the `index.html` file, and requests to `example.com/blog/posts/post1` will serve the `post1.html` file.
+Requests to `example.com/blog/` serve `dist/index.html`. Requests to `example.com/blog/posts/post1` serve `dist/posts/post1.html`.
 
-If you have a file outside the configured path, it will not be served, unless it is part of the `assets.not_found_handling` for [Single Page Applications](https://developers.cloudflare.com/workers/static-assets/routing/single-page-application/) or [custom 404 pages](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/). For example, if you have a `home.html` file in the root of your asset directory, it will not be served when requesting `example.com/blog/home`. However, if needed, these files can still be manually fetched over [the binding](https://developers.cloudflare.com/workers/static-assets/binding/#binding).
+Requests outside `/blog` do not resolve static assets. Requests made through the [assets binding](https://developers.cloudflare.com/workers/static-assets/binding/#binding) also use the mounted public path. Forwarding the original request works unchanged. When constructing a request, include `/blog` in its pathname, for example, `env.ASSETS.fetch("https://assets.local/blog/posts/post1")`.
+
+Paths in `_headers`, `_redirects`, and `assets.run_worker_first` use the public URL path. Include `/blog` in those paths when they apply to this example.
 
 [PreviousHTML handling](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/)[NextHeaders](https://developers.cloudflare.com/workers/static-assets/headers/)
 

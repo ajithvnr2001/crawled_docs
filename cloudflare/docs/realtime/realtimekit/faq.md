@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/realtime/realtimekit/faq/
 title: FAQ \u00b7 Cloudflare Realtime docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:34.460942+00:00
+fetched_at: 2026-10-29T08:14:03.599011+00:00
 ---
 
 # FAQ · Cloudflare Realtime docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-27T07:31:34.460942+00:00
 
 # FAQ
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview API token APIs Auth tokens Meetings Participants Presets Client Side SDKs Camera Microphone Screen Share Chat Notifications Recording Network access Demo App Billing
 
@@ -92,6 +92,16 @@ What happens if a participant uses an expired or invalidated auth token?
 The participant cannot join the meeting. The RealtimeKit UI and Core SDK report that the token is invalid.
 
 Because RealtimeKit rejects the participant before they enter the meeting stage, they are not billed.
+
+What happens to a participant already in a meeting when their auth token expires?
+
+The participant stays connected. RealtimeKit does not disconnect a participant when their token's `expires_on` time passes. The participant remains in the meeting until they leave or are removed.
+
+To remove a participant from an active session, [revoke their token](https://developers.cloudflare.com/realtime/realtimekit/concepts/participant/#revoke-tokens) or [delete the participant](https://developers.cloudflare.com/api/resources/realtime_kit/subresources/meetings/methods/delete_meeting_participant/).
+
+Does the SDK check the auth token again when it reconnects?
+
+Yes. Any socket reconnect, such as after a network drop, reuses the same token. If the token has expired, RealtimeKit rejects the connection with a `401` error.
 
 Can a participant with a valid auth token join an inactive meeting?
 

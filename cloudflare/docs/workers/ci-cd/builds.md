@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/
 title: Builds \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:30.515002+00:00
+fetched_at: 2026-10-29T08:14:01.026481+00:00
 ---
 
 # Builds · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-16T06:38:30.515002+00:00
 
 # Builds
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet started Connect a new Worker Connect an existing WorkerAutomatic project configurationView build and Preview URLWorkers with ContainersDisconnecting builds
 
@@ -89,7 +89,7 @@ For details about supported frameworks and what files are created, refer to [Dep
 
 ## View build and Preview URL
 
-You can monitor a build's status and its build logs by navigating to **View build history** at the bottom of the **Deployments** tab of your Worker.
+You can monitor a build's status and its build logs by navigating to **View build history** at the bottom of the **Deployments** tab of your Worker. Builds and their build logs are retained for 90 days after they finish. Refer to [Limits & pricing](https://developers.cloudflare.com/workers/ci-cd/builds/limits-and-pricing/).
 
 A successful build produces different output depending on the branch:
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/client-checks/require-gateway/
 title: Require Gateway \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:50.855803+00:00
+fetched_at: 2026-10-29T08:14:02.344559+00:00
 ---
 
 # Require Gateway · Cloudflare One docs
@@ -22,12 +22,24 @@ Reusable components[Posture checks](https://developers.cloudflare.com/cloudflare
 
 # Require Gateway
 
-Last updated Apr 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/client-checks/require-gateway/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewPrerequisites1\. Enable the Gateway check2\. Add the check to an Access application
+OverviewCheck result per client modePrerequisites1\. Enable the Gateway check2\. Add the check to an Access application
 
 With Require Gateway, you can allow access to your applications only to devices enrolled in your Zero Trust organization. Unlike [Require WARP](https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/client-checks/require-warp/), which will check for any WARP instance (including the consumer version), Require Gateway will only allow requests coming from devices whose traffic is filtered by your organization's Cloudflare Gateway configuration. This policy is best used when you want to protect company-owned assets by only allowing access to employees.
 
+## Check result per client mode
+
+The check result depends on the [client mode](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/modes/) configured on the device.
+
+Client mode | Result | Reason  
+---|---|---  
+Traffic and DNS mode | ✅ Pass | Device traffic is routed through and filtered by Gateway  
+Traffic only mode | ✅ Pass | Device traffic is routed through Gateway except the DNS queries  
+DNS only mode | ❌ Fail | Only DNS queries are forwarded; network traffic does not flow through Gateway  
+Local proxy mode | ⚠️ Partial | The check passes only for traffic explicitly configured to use the local SOCKS/HTTP proxy on port `40000`, as this traffic is tunneled through Gateway. Traffic not routed through the proxy bypasses Gateway and fails the check.  
+Posture only mode | ❌ Fail | The client is enrolled and collects posture data, but does not route traffic through Gateway  
+  
 ## Prerequisites
 
   * Cloudflare One Client is [deployed](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/) on the device. For a list of supported modes and operating systems, refer to [Cloudflare One Client Checks](https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/client-checks/).

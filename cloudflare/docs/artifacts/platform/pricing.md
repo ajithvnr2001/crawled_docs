@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/artifacts/platform/pricing/
 title: Pricing \u00b7 Cloudflare Artifacts docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:21.996646+00:00
+fetched_at: 2026-10-29T08:14:01.164084+00:00
 ---
 
 # Pricing · Cloudflare Artifacts docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:21.996646+00:00
 
 # Pricing
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/artifacts/platform/pricing/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewArtifacts pricingStorage usage
 
@@ -26,7 +26,7 @@ Artifacts is currently only available on the Workers Paid plan.
 
 Note
 
-Cloudflare will begin billing for Artifacts operations and storage on October 14, 2026.
+Cloudflare will begin billing for Artifacts operations and storage on November 12, 2026.
 
 Artifacts pricing is billed on two dimensions:
 

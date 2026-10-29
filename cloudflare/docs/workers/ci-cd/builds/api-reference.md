@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/api-reference/
 title: Builds API reference \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:11.616632+00:00
+fetched_at: 2026-10-29T08:14:01.139185+00:00
 ---
 
 # Builds API reference · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:17:11.616632+00:00
 
 # Builds API reference
 
-Last updated Sep 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/ci-cd/builds/api-reference/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you start 1\. Create an API token with the correct permissions 2\. Worker tags (documented as external_script_id) 3\. What is a trigger?Workflow overviewStep 1: Get your Worker tagStep 2: Get your trigger UUIDStep 3: Work with builds Trigger a manual build List builds for a Worker Get build logs Cancel a running buildUpdate trigger configurationManage build environment variables List environment variables Set environment variables Delete an environment variablePurge build cacheExamples Set up Workers Builds from scratch Redeploy current deploymentTroubleshooting "Resource not found" errorRelated resources
 
@@ -174,7 +174,7 @@ Use the [`GET /builds/workers/{tag}/builds`](https://developers.cloudflare.com/a
       --header "Authorization: Bearer <API_TOKEN>" \
       | jq '.result[] | {build_uuid, status, branch, created_at}'
 
-The response includes `build_uuid` for each build, which you need for getting logs or canceling builds.
+The response includes `build_uuid` for each build, which you need for getting logs or canceling builds. Builds older than 90 days are not returned. Refer to [Limits & pricing](https://developers.cloudflare.com/workers/ci-cd/builds/limits-and-pricing/).
 
 ### Get build logs
 
@@ -190,6 +190,8 @@ Use the [`GET /builds/builds/{uuid}/logs`](https://developers.cloudflare.com/api
     
     curl -s "https://api.cloudflare.com/client/v4/accounts/{account_id}/builds/builds/{build_uuid}/logs" \
       --header "Authorization: Bearer <API_TOKEN>"
+
+Build logs are retained for 90 days after the build finishes. To keep them longer, save the response from this endpoint.
 
 ### Cancel a running build
 

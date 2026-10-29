@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/buckets/bucket-locks/
 title: Bucket locks \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.363703+00:00
+fetched_at: 2026-10-29T08:14:03.166183+00:00
 ---
 
 # Bucket locks · Cloudflare R2 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-21T06:51:30.363703+00:00
 
 # Bucket locks
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet started with bucket locks Enable bucket lock via dashboard Enable bucket lock via Wrangler Enable bucket lock via APIGet bucket lock rules for your R2 bucket Dashboard Wrangler APIRemove bucket lock rules from your R2 bucket Dashboard Wrangler APIBucket lock rulesNotes
 
@@ -180,6 +180,7 @@ If multiple rules apply to the same prefix or object key, the strictest (longest
   * Rules without prefix apply to all objects in the bucket.
   * Bucket locks protect both existing objects and objects created after the rule is enabled. They do not prevent new object creation.
   * Once a rule update succeeds, changes to protected objects are blocked from that point on. This includes overwrites, deletes, completing uploads that started earlier, and removal by lifecycle rules.
+  * A single-object S3 API request blocked by a bucket lock rule fails with HTTP `409` and the `ObjectLockedByBucketPolicy` error code. For multi-object deletes (`DeleteObjects`), R2 returns HTTP `200` and reports `ObjectLockedByBucketPolicy` for each locked key in the response body. The lock check runs before conditions on the object being written, such as `If-None-Match` or `If-Match`, so a write that fails both checks returns `ObjectLockedByBucketPolicy`, not `PreconditionFailed` (`412`). In either case the existing object is not modified.
   * Bucket lock rules take precedence over [lifecycle rules](https://developers.cloudflare.com/r2/buckets/object-lifecycles/). For example, if a lifecycle rule attempts to delete an object at 30 days but a bucket lock rule requires it be retained for 90 days, the object will not be deleted until the 90-day requirement is met.
   * A bucket cannot be emptied while any bucket lock rules are configured. Remove all lock rules before [emptying a bucket](https://developers.cloudflare.com/r2/buckets/delete-buckets/#empty-a-bucket). Bucket lock rules also apply when [deleting folders](https://developers.cloudflare.com/r2/objects/delete-objects/) from the dashboard.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/
 title: Device client settings \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:16.469660+00:00
+fetched_at: 2026-10-29T08:14:01.385685+00:00
 ---
 
 # Device client settings · Cloudflare One docs
@@ -22,9 +22,9 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Device client settings
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewGlobal device client settings Allow admin override codes Install CA to system certificate store Assign a unique IP address to each device Allow all Cloudflare One traffic to reach enrolled devicesGlobal disconnection settings Disconnect the Cloudflare One Client on all devices Manage device connection using an external signal Manage device connection using a local fileDevice profile settings Captive portal detection Mode switch Device tunnel protocol Lock device client switch Allow device to leave organization Allow updates Auto connect Support URL Service mode Local Domain Fallback Split Tunnels Directly route Microsoft 365 traffic Allow users to enable local network exclusion Client interface IP DNS registration SCCM VPN boundary support NetBIOS over TCPIP VNET availability  DNS search suffixes 
+OverviewGlobal device client settings Allow admin override codes Install CA to system certificate store Assign a unique IP address to each device Allow all Cloudflare One traffic to reach enrolled devicesGlobal disconnection settings Disconnect the Cloudflare One Client on all devices Manage device connection using an external signal Manage device connection using a local fileDevice profile settings Captive portal detection Mode switch Device tunnel protocol Lock device client switch Allow device to leave organization Device Management Protection  Allow updates Auto connect Support URL Service mode Local Domain Fallback Split Tunnels Directly route Microsoft 365 traffic Allow users to enable local network exclusion Client interface IP DNS registration SCCM VPN boundary support NetBIOS over TCPIP VNET availability  DNS search suffixes 
 
 Device client settings (formerly WARP) allow you to customize the Cloudflare One Client modes and permissions available to end users.
 
@@ -315,6 +315,27 @@ Operating Systems | [Client modes](https://developers.cloudflare.com/cloudflare-
 All systems | Any mode | All plans  
   
 When `Enabled`, users can log out from your Zero Trust organization by selecting **Logout from Zero Trust** in the Cloudflare One Client UI. The **Logout from Zero Trust** button is only available for devices that were [enrolled manually](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/manual-deployment/). Devices that enrolled using an MDM file are always prevented from leaving your Zero Trust organization.
+
+On Windows, Device Management Protection prevents users from logging out, even when this setting is `Enabled`.
+
+### Device Management Protection Beta
+
+Feature availability
+
+[Client modes](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/modes/) | [Zero Trust plans ↗︎](https://www.cloudflare.com/teams-pricing/)  
+---|---  
+All modes | All plans  
+  
+System | Availability | Minimum client version  
+---|---|---  
+Windows | ✅ | 2026.9.0.0  
+macOS | ❌ |   
+Linux | ❌ |   
+iOS | ❌ |   
+Android | ❌ |   
+ChromeOS | ❌ |   
+  
+When `Enabled`, protects the Cloudflare One Client against unauthorized modification or uninstallation. Users must provide an administrator-generated code to uninstall, upgrade, or downgrade the client. Users also cannot log out of your Zero Trust organization. For more information, refer to [Uninstall protection](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/settings/uninstall-protection/).
 
 ### Allow updates
 

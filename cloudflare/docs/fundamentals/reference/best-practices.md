@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/best-practices/
 title: Account and domain management best practices \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:24.984182+00:00
+fetched_at: 2026-10-29T08:13:59.882837+00:00
 ---
 
 # Account and domain management best practices · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:24.984182+00:00
 
 # Account and domain management best practices
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/reference/best-practices/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRelationships, partnerships, and business venturesEmail addressesBilling informationDeceased account holder or registrant
 
@@ -57,7 +57,7 @@ Most if not all online services have automated billing processes that will attem
 
 ## Deceased account holder or registrant
 
-While often overlooked, an important part of having an online presence is ensuring continuity in the event of an unexpected accident or incapacitation of the account holder. Create clear instructions for domain or account management in the event the account holder is unable to administer the account. If you learn no instructions are available on how to access the account of the deceased, Cloudflare may be able to assist you.
+While often overlooked, an important part of having an online presence is ensuring continuity in the event of an unexpected accident or incapacitation of the account holder. Create clear instructions for domain or account management in the event the account holder is unable to administer the account. If no account access instructions were left by the deceased, Cloudflare may be able to assist you.
 
 [Previous/cdn-cgi/ endpoint](https://developers.cloudflare.com/fundamentals/reference/cdn-cgi-endpoint/)[NextCloudflare and Google Analytics](https://developers.cloudflare.com/fundamentals/reference/google-analytics/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/how-to/cache-response-rules/create-dashboard/
 title: Create a Cache Response Rule in the dashboard \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:42.516060+00:00
+fetched_at: 2026-10-29T08:13:59.975034+00:00
 ---
 
 # Create a Cache Response Rule in the dashboard · Cloudflare Cache (CDN) docs
@@ -22,7 +22,7 @@ Cache configuration
 
 # Create a rule in the dashboard
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/how-to/cache-response-rules/create-dashboard/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
   1. In the Cloudflare dashboard, go to **Cache** > **Cache Rules**.
 
@@ -41,7 +41,7 @@ Note
 
 Rules can be further customized by using the **Edit expression** option. You can find more information in [Edit expressions in the dashboard](https://developers.cloudflare.com/ruleset-engine/rules-language/expressions/edit-expressions/).
 
-  7. Following the selection of the field and operator, enter the corresponding value that will trigger the Cache Response Rule. For example, if the selected field is `Hostname` and the operator is `equals`, a value of `example.com` would mean the rule matches any request to that hostname.
+  7. Following the selection of the field and operator, enter the corresponding value that will trigger the Cache Response Rule. For example, if the selected field is `Hostname` and the operator is `equals`, a value of `example.com` would mean the rule matches any request to that hostname. If an [Origin Rule](https://developers.cloudflare.com/rules/origin-rules/) rewrites the `Host` header, enter the hostname your origin receives instead, otherwise the rule will not match.
 
   8. Under **Then** , select one of the following actions:
 

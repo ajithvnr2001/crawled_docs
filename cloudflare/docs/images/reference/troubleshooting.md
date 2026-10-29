@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/reference/troubleshooting/
 title: Troubleshooting \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:31.569606+00:00
+fetched_at: 2026-10-29T08:14:01.750636+00:00
 ---
 
 # Troubleshooting · Cloudflare Images docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-16T06:38:31.569606+00:00
 
 # Troubleshooting
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewRequests without resizing enabledError responses from resizingLimitsAuthorization and cookies are not supportedCaching and purging
+OverviewRequests without resizing enabledError responses from resizingWarnings from resizing cache-control is too restrictiveLimitsAuthorization and cookies are not supportedCaching and purging Purge when using URL rewrite rules
 
 ## Requests without resizing enabled
 
@@ -63,6 +63,36 @@ When resizing fails, the response body contains an error message explaining the 
 
 
 
+## Warnings from resizing
+
+Some conditions do not fail a transformation, but stop Cloudflare from optimizing an image as well as it otherwise would. The image is still returned with a `200` status code, and a `Warning` response header explains why. A response can include more than one `Warning` header. Warnings are advisory and never change the status code.
+
+### `cache-control is too restrictive`
+
+Optimizing an image costs CPU time, and that cost is only worthwhile if the result can be reused from cache. Before transforming a remote image, Cloudflare inspects the cache directives on the source image response. If the optimized image is unlikely to stay in cache for at least an hour, Cloudflare returns:
+    
+    
+    Warning: cf-images 299 "cache-control is too restrictive"
+
+The source image is treated as poorly cacheable when any of the following is true:
+
+  * The directives include `private` or `no-store`.
+  * The directives include `no-cache` or `must-revalidate`, and the response has neither an `ETag` nor a `Last-Modified` header.
+  * `max-age` is less than `3600` seconds. If `s-maxage` is present, it is used instead of `max-age`.
+
+
+
+Cloudflare then optimizes the image with reduced effort.
+
+To restore full-effort optimization, make the source image cacheable for at least an hour:
+
+  * Return `Cache-Control: public, max-age=3600` or longer from your origin. Images often suit much longer lifetimes, for example `max-age=604800`.
+  * If you cannot change your origin, use a [Cache Response Rule](https://developers.cloudflare.com/cache/how-to/cache-response-rules/) to set the `max-age` directive on origin responses before they reach the Cloudflare cache.
+
+
+
+After changing the headers, purge the source image URL so the new directives take effect. Refer to Caching and purging.
+
 * * *
 
 ## Limits
@@ -94,6 +124,19 @@ Image requests consists of two parts: running Worker code, and image processing.
 Because responses from Workers themselves are not cached at the edge, purging of _Worker URLs_ does nothing. Resized image variants are cached together under their source’s URL. When purging, use the (full-size) source image’s URL, rather than URLs of the Worker that requested resizing.
 
 If the origin server sends an `Etag` HTTP header, the resized images will have an `Etag` HTTP header that has a format `cf-<gibberish>:<etag of the original image>`. You can compare the second part with the `Etag` header of the source image URL to check if the resized image is up to date.
+
+### Purge when using URL rewrite rules
+
+If you use [URL rewrite rules](https://developers.cloudflare.com/images/optimization/transformations/rewrite-rules/) to send image requests through `/cdn-cgi/image/`, rewrite rules are also evaluated on purge requests. This can cause a [single-file purge](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/) to return a success response without clearing the cached image.
+
+To resolve this, exclude purge requests from the rewrite rule by adding the following to the rule expression:
+    
+    
+    and (not (http.request.method eq "PURGE"))
+
+If you cannot modify your rewrite rules, [purge by prefix](https://developers.cloudflare.com/cache/how-to/purge-cache/purge_by_prefix/) and [purge by cache tag](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-tags/) are alternatives.
+
+For related guidance on purging URLs that a Transform Rule modifies, refer to [Purge by single file](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/#additional-notes).
 
 [PreviousWebP may be skipped](https://developers.cloudflare.com/images/polish/no-webp/)[NextSecurity](https://developers.cloudflare.com/images/reference/security/)
 

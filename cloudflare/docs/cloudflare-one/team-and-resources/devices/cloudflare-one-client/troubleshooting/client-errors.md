@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/client-errors/
 title: Client errors \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:03.610127+00:00
+fetched_at: 2026-10-29T08:14:02.628585+00:00
 ---
 
 # Client errors · Cloudflare One docs
@@ -22,7 +22,7 @@ Team and resources[Devices](https://developers.cloudflare.com/cloudflare-one/tea
 
 # Client errors
 
-Last updated May 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/client-errors/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCF_CAPTIVE_PORTAL_TIMED_OUT Symptoms Cause ResolutionCF_CONNECTIVITY_FAILURE_UNKNOWN Symptoms Cause ResolutionCF_DNS_LOOKUP_FAILURE Symptoms Cause ResolutionCF_DNS_PROXY_FAILURE Symptoms Cause ResolutionCF_FAILED_READ_SYSTEM_DNS_CONFIG Symptoms Cause ResolutionCF_FAILED_TO_SET_MTLS Symptoms Cause ResolutionCF_HAPPY_EYEBALLS_MITM_FAILURE Symptoms Cause ResolutionCF_HOST_UNREACHABLE_CHECK Symptoms Cause ResolutionCF_INSUFFICIENT_DISK Symptoms Cause ResolutionCF_INSUFFICIENT_FILE_DESCRIPTORS Symptoms Cause ResolutionCF_INSUFFICIENT_MEMORY Symptoms Cause ResolutionCF_LOCAL_POLICY_FILE_FAILED_TO_PARSE Symptoms Cause ResolutionCF_NO_NETWORK Symptoms Cause ResolutionCF_REGISTRATION_MISSING Symptoms Cause Resolution CF_REGISTRATION_MISSING (Revoked)CF_TLS_INTERCEPTION_BLOCKING_DOH Symptoms Cause ResolutionCF_TLS_INTERCEPTION_CHECK Symptoms Cause ResolutionAdmin directed disconnect Symptoms Cause Resolution
 
@@ -205,7 +205,7 @@ A router, firewall, antivirus software, or other third-party security product is
 
 ### Resolution
 
-  1. Configure the third-party security product to allow the [WARP ingress IPs and ports](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/firewall/#warp-ingress-ip).
+  1. Configure the third-party security product to allow the [Cloudflare One Client ingress IPs and ports](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/firewall/#warp-ingress-ip).
   2. Ensure that your Internet router is working properly and try rebooting the router.
   3. Check that the device is not revoked by going to **Team & Resources** > **Devices**.
 

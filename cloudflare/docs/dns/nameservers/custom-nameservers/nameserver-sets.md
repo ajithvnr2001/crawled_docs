@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/dns/nameservers/custom-nameservers/nameserver-sets/
 title: Nameserver sets \u00b7 Cloudflare DNS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T06:57:11.474294+00:00
+fetched_at: 2026-10-29T08:14:04.143866+00:00
 ---
 
 # Nameserver sets · Cloudflare DNS docs
@@ -22,11 +22,11 @@ fetched_at: 2026-10-14T06:57:11.474294+00:00
 
 # Nameserver sets
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewAvailabilityHow nameserver sets workIP setsLimitsCreate a nameserver set Standard nameserver set Advanced Custom Nameserver setPrepare nameserver address recordsAssign a nameserver set to a zoneUpdate the nameserversActivation requirementsDelete a nameserver set
+OverviewAvailabilityHow nameserver sets workIP setsLimits Set namesCreate a nameserver set Standard nameserver set Advanced Custom Nameserver setRename a nameserver setPrepare nameserver address recordsAssign a nameserver set to a zoneUpdate the nameserversActivation requirementsDelete a nameserver set
 
-A nameserver set is an account-level group of two to five custom nameserver names, together with the IP addresses that Cloudflare assigns to those names. You create a set once and then assign it to zones in the same account.
+A nameserver set is an account-level group of two to five custom nameserver names, together with the IP addresses that Cloudflare assigns to those names. You create a set once and then assign it to zones in the same account. Each set has a name to identify it.
 
 Nameserver sets are a separate configuration from [zone](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/zone-custom-nameservers/), [account](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/account-custom-nameservers/), and [tenant](https://developers.cloudflare.com/dns/nameservers/custom-nameservers/tenant-custom-nameservers/) custom nameservers. A zone uses either a nameserver set or one of those configurations, never both. Existing configurations cannot be converted into nameserver sets.
 
@@ -42,7 +42,7 @@ To use a nameserver set, a zone must be in the same account as the set.
   * Each nameserver set is either standard or Advanced.
   * Nameserver names can belong to any domain, even a domain that does not exist as a zone in Cloudflare.
   * The same nameserver name can be used in more than one set within your account.
-  * Sets are immutable. You can create and delete a set, but you cannot change one.
+  * Sets are immutable. You can create and delete a set, but you cannot change one. Only the name can be changed later.
   * Cloudflare does not create or update DNS records for a nameserver set. You manage the required `A`, `AAAA`, and `NS` records, plus glue where DNS requires it.
   * Currently, nameserver sets cannot yet be used as a [DNS zone default](https://developers.cloudflare.com/dns/additional-options/dns-zone-defaults/) for new zones.
 
@@ -72,11 +72,17 @@ IPv4 and IPv6 addresses per nameserver name | 1 to 3 each (`ip_count`, defaults 
   
 All nameserver names in an Advanced set must use the same `ip_count` value.
 
+### Set names
+
+The top-level `name` is a label for the set. Choose a name that helps you find or identify the set later.
+
+Set names must be unique within an account.
+
 ## Create a nameserver set
 
 To create a set, use the [Create Custom Nameserver Set](https://developers.cloudflare.com/api/resources/dns/subresources/settings/subresources/account/subresources/nameserver_sets/methods/create/) endpoint.
 
-Each name in a set must be unique and lowercase. Internationalized domain names must use Punycode.
+Include a top-level `name` to identify the set. Each nameserver name in `nameservers` must be unique within the set and lowercase. Internationalized domain names must use Punycode.
 
 ### Standard nameserver set
 
@@ -89,6 +95,7 @@ Create Custom Nameserver Setbash
     	--request POST \
     	--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
     	--json '{
+    		"name": "Production",
     		"ip_set": 1,
     		"nameservers": [
     				{
@@ -101,12 +108,13 @@ Create Custom Nameserver Setbash
     		]
     	}'
 
-The response contains the set ID and the addresses assigned to each nameserver name:
+The response contains the set ID, set name, and addresses assigned to each nameserver name:
     
     
     {
     	"result": {
     		"id": "0e1f2a3b4c5d6e7f8091a2b3c4d5e6f7",
+    		"name": "Production",
     		"advanced": false,
     		"ip_set": 1,
     		"nameservers": [
@@ -141,6 +149,7 @@ Create Custom Nameserver Setbash
     	--request POST \
     	--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
     	--json '{
+    		"name": "Production Advanced",
     		"advanced": true,
     		"ip_set": 1,
     		"nameservers": [
@@ -165,6 +174,7 @@ Advanced set responses include an anycast group for each address:
     {
     	"result": {
     		"id": "1f2a3b4c5d6e7f8091a2b3c4d5e6f708",
+    		"name": "Production Advanced",
     		"advanced": true,
     		"ip_set": 1,
     		"nameservers": [
@@ -204,6 +214,30 @@ Groups `a` and `b` are advertised from two separate sets of data centers that do
 An account cannot contain two sets with exactly the same nameserver names and addresses.
 
 To [list the sets in your account](https://developers.cloudflare.com/api/resources/dns/subresources/settings/subresources/account/subresources/nameserver_sets/methods/list/), send a `GET` request to the same endpoint, using the `page` and `per_page` query parameters to page through the results. To [retrieve a single set](https://developers.cloudflare.com/api/resources/dns/subresources/settings/subresources/account/subresources/nameserver_sets/methods/get/), add its ID to the path.
+
+## Rename a nameserver set
+
+To rename a set, send a `PATCH` request to `/accounts/{account_id}/dns_settings/nameserver_sets/{nameserver_set_id}` with only the new `name`:
+
+Required API token permissions
+
+At least one of the following [token permissions](https://developers.cloudflare.com/fundamentals/api/reference/permissions/) is required:
+
+  * `Account DNS Settings Write`
+
+Update Custom Nameserver Setbash
+    
+    
+    curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/dns_settings/nameserver_sets/$NAMESERVER_SET_ID" \
+    	--request PATCH \
+    	--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+    	--json '{
+    		"name": "Production primary"
+    	}'
+
+Choose a set name that is unique within your account. Only the top-level `name` field can be updated.
+
+Renaming a set does not affect DNS resolution or require DNS record or delegation changes.
 
 ## Prepare nameserver address records
 

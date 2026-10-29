@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/vite-plugin/reference/static-assets/
 title: Static Assets \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:05.402415+00:00
+fetched_at: 2026-10-29T08:14:04.354760+00:00
 ---
 
 # Static Assets · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:18:05.402415+00:00
 
 # Static Assets
 
-Last updated Aug 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/vite-plugin/reference/static-assets/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigurationFeaturesHeaders and redirects
 
@@ -59,6 +59,8 @@ The `assets` configuration should be used, however, if you wish to set [routing 
     
     [assets]
     not_found_handling = "single-page-application"
+
+To serve built assets from a URL path prefix, set `assets.base_path` in your Wrangler configuration or `worker.assets.basePath` in [`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/). Refer to [Serving a subdirectory](https://developers.cloudflare.com/workers/static-assets/routing/advanced/serving-a-subdirectory/).
 
 ## Features
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/r2/api/error-codes/
 title: Error codes \u00b7 Cloudflare R2 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:42.617146+00:00
+fetched_at: 2026-10-29T08:14:03.267596+00:00
 ---
 
 # Error codes · Cloudflare R2 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:42.617146+00:00
 
 # Error codes
 
-Last updated Jul 31, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/r2/api/error-codes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow errors are returnedError code reference Authentication and authorization errors Bucket errors Object errors Upload and request errors Multipart upload errors Service errors
 
@@ -75,7 +75,7 @@ Error Code | S3 Code | HTTP Status | Details | Recommended Fix
 10020 | InvalidObjectName | 400 | Object key contains invalid characters or is too long. | Use valid UTF-8 characters. Maximum key length is 1024 bytes.  
 100100 | EntityTooLarge | 400 | Object exceeds maximum size (5 GiB for single upload, 5 TiB for multipart). | Use [multipart upload](https://developers.cloudflare.com/r2/objects/upload-objects/#multipart-upload) for objects larger than 5 GiB. Maximum object size is 5 TiB.  
 10012 | MetadataTooLarge | 400 | Custom metadata exceeds the 8,192 byte limit. | Reduce custom metadata size. Maximum is 8,192 bytes total for all custom metadata.  
-10069 | ObjectLockedByBucketPolicy | 403 | Object is protected by a bucket lock rule and cannot be modified or deleted. | Wait for the retention period to expire. Refer to [bucket locks](https://developers.cloudflare.com/r2/buckets/bucket-locks/).  
+10069 | ObjectLockedByBucketPolicy | 409 | Object is protected by a bucket lock rule and cannot be modified or deleted. If a conditional header on the object being written would also fail, this error is returned instead of `PreconditionFailed`. When `CopyObject` copies to a different key, changes the storage class, or uses SSE-C, source conditions (`x-amz-copy-source-if-*`) are evaluated before the destination lock check and return `412`. When an object is copied onto itself, the lock check runs first and returns `409`. | Wait for the retention period to expire. Refer to [bucket locks](https://developers.cloudflare.com/r2/buckets/bucket-locks/).  
   
 ### Upload and request errors
 
