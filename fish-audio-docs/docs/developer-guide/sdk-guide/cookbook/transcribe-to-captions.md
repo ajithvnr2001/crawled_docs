@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/transcribe-to-captions/
 title: Transcribe audio to SRT/VTT captions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:36.451684+00:00
+fetched_at: 2026-10-29T14:32:56.355413+00:00
 ---
 
 # Transcribe audio to SRT/VTT captions - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:36.451684+00:00
 > Source: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/transcribe-to-captions/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Recipe
@@ -37,9 +39,9 @@ Create a Fish Audio account
 
 Sign up for a free Fish Audio account to get started with our API.
 
-  1. Go to [fish.audio/auth/signup](https://fish.audio/auth/signup)
+  1. [Sign up on fish.audio](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=sign-up)
   2. Fill in your details to create an account, complete steps to verify your account.
-  3. Log in to your account and navigate to the [API section](https://fish.audio/app/api-keys)
+  3. Log in to your account and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=developer-dashboard)
 
 
 
@@ -47,10 +49,9 @@ Get your API key
 
 Once you have an account, you’ll need an API key to authenticate your requests.
 
-  1. Log in to your [Fish Audio Dashboard](https://fish.audio/app/api-keys/)
-  2. Navigate to the API Keys section
-  3. Click “Create New Key” and give it a descriptive name, set a expiration if desired
-  4. Copy your key and store it securely
+  1. Log in and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=get-api-key)
+  2. Click “Get your API key”: the key is created in one click and shown only once
+  3. Copy your key and store it securely
 
 
 
@@ -62,7 +63,7 @@ Keep your API key secret! Never commit it to version control or share it publicl
 
 Recipe
 
-This recipe uses `transcribe-1-pro`, which handles recordings up to 60 minutes long. Both tabs select it with the `model` request header; without that header, the request is served and billed as `transcribe-1`. Call [`asr.transcribe()`](https://docs.fish.audio/api-reference/sdk/python/resources#transcribe) with `include_timestamps=True` (in JavaScript, `ignore_timestamps: false`) to get timed segments ([`ASRSegment`](https://docs.fish.audio/api-reference/sdk/python/types#asrsegment-objects)). Segments are word-level (one character, or a few, in Chinese and Japanese) and carry no punctuation, so group consecutive segments into caption-sized cues before you format them. Segment `start` / `end` are in **seconds** ; SRT wants `HH:MM:SS,mmm` (comma), WebVTT wants `HH:MM:SS.mmm` (dot). The recipe starts a new cue after a pause longer than 0.6 seconds, or when the cue would grow past 42 characters or 6 seconds. It joins words with a space, except between Chinese or Japanese characters, which are written without spaces. A segment can have `start` equal to `end`, so a cue with no duration gets a short one that ends no later than the next cue starts. Every cue therefore ends after it starts, as SRT and WebVTT players expect.
+This recipe uses `transcribe-1-pro`, which handles recordings up to 60 minutes long. Both tabs select it with the `model` request header; without that header, the request is served and billed as `transcribe-1`. Call [`asr.transcribe()`](https://docs.fish.audio/api-reference/sdk/python/resources#transcribe) with `include_timestamps=True` (in JavaScript, `ignore_timestamps: false`) to get timed segments ([`ASRSegment`](https://docs.fish.audio/api-reference/sdk/python/types#asrsegment-objects)). Segments are word-level (one character, or a few, in Chinese and Japanese) and carry no punctuation, so group consecutive segments into caption-sized cues before you format them. Segment `start` / `end` are in **seconds** ; SRT wants `HH:MM:SS,mmm` (comma), WebVTT wants `HH:MM:SS.mmm` (dot). The recipe starts a new cue after a pause longer than 0.6 seconds, or when the cue would grow past 42 characters or 6 seconds. It joins words with a space, except between Chinese or Japanese characters, which are written without spaces. A segment can have `start` equal to `end`, so a cue with no duration gets a short one that ends no later than the next cue starts. Every cue therefore ends after it starts, as SRT and WebVTT players expect. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 Python
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/introduction/
 title: Introduction - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:22.730033+00:00
+fetched_at: 2026-10-29T14:32:54.193825+00:00
 ---
 
 # Introduction - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:22.730033+00:00
 > Source: https://docs.fish.audio/api-reference/introduction/
 
 ## On this page
+
+Back to top
 
   * Welcome
   * Quick Start
@@ -40,7 +42,7 @@ Copy pageCopy page
 
 Welcome
 
-You can generate a new API key at <https://fish.audio/app/api-keys/>.
+You can generate a new API key on [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=api-reference&utm_content=get-api-key).
 
 ## 
 

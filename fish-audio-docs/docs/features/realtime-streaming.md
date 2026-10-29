@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/realtime-streaming/
 title: Realtime Streaming - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:52:00.900231+00:00
+fetched_at: 2026-10-29T14:32:57.836880+00:00
 ---
 
 # Realtime Streaming - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-20T12:52:00.900231+00:00
 > Source: https://docs.fish.audio/features/realtime-streaming/
 
 ## On this page
+
+Back to top
 
   * When to use it
   * Stream text you already have
@@ -79,7 +81,7 @@ Anywhere a few hundred milliseconds of latency is noticeable.
 
 Stream text you already have
 
-When you have the full string, stream the audio chunks as they generate and write or play them immediately.
+When you have the full string, stream the audio chunks as they generate and write or play them immediately. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 Python
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/models-pricing/deprecations/
 title: Model Deprecations - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:33.078751+00:00
+fetched_at: 2026-10-29T14:32:56.404806+00:00
 ---
 
 # Model Deprecations - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:33.078751+00:00
 > Source: https://docs.fish.audio/developer-guide/models-pricing/deprecations/
 
 ## On this page
+
+Back to top
 
   * Available Models
   * Deprecated Models
@@ -36,6 +38,7 @@ Available Models
 Currently available models:
 
   * **Fish Audio S2** (Recommended: `s2.1-pro`) - Latest generation with best performance
+  * **Transcribe 1 Pro** (`transcribe-1-pro`) - Speech to text
 
 
 
@@ -46,12 +49,13 @@ Currently available models:
 Deprecated Models
 
   * **s1** \- S1 is deprecated and will be retired on December 31, 2026. After that date, requests that specify `s1` are served by `s2.1-pro`. See [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1).
+  * **transcribe-1** \- transcribe-1 is deprecated and will be retired on December 31, 2026. After that date, the requests it serves, including those with no `model` header and those through the compatible endpoints, are served by `transcribe-1-pro`. See [Migrate from transcribe-1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-transcribe-1).
   * **speech-1.6** \- Fish Speech v1.6 has been deprecated on February, 28th, 2026
   * **speech-1.5** \- Fish Speech v1.5 has been deprecated on February, 28th, 2026
 
 
 
-We recommend using **`s2.1-pro`** for all new projects. If you use `s1`, follow [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1) before December 31, 2026.
+We recommend using **`s2.1-pro`** for all new projects. If you use `s1`, follow [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1) before December 31, 2026. If your speech-to-text requests are served by `transcribe-1`, follow [Migrate from transcribe-1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-transcribe-1) before the same date.
 
 ## 
 

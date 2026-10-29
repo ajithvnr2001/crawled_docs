@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/errors/
 title: Errors - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:22.636522+00:00
+fetched_at: 2026-10-29T14:32:57.270237+00:00
 ---
 
 # Errors - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:22.636522+00:00
 > Source: https://docs.fish.audio/api-reference/errors/
 
 ## On this page
+
+Back to top
 
   * Status codes
   * Retries
@@ -45,7 +47,7 @@ Status| Meaning| What to do
 ---|---|---  
 `400`| Bad request: invalid parameters, or a `reference_id` / voice that doesn’t exist| Fix the request; read the `message`.  
 `401`| Invalid or missing API key| Send `Authorization: Bearer <key>`; check it on [API Keys](https://fish.audio/app/api-keys).  
-`402`| Insufficient credits| Top up on [API Billing](https://fish.audio/app/developers/billing/).  
+`402`| No API credit for the model you called| On a $0 balance, use the model `s2.1-pro-free`. For paid models, add API credit on [API Billing](https://fish.audio/app/developers/billing/).  
 `403`| Not permitted for this key/resource| Check the key’s scope and the resource owner.  
 `404`| Model or voice not found| Verify the `model_id` / `reference_id`.  
 `429`| Too many requests, for example when your account is at its [concurrency limit](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits#concurrent-request-limits)| Back off and retry (see below).  
@@ -57,7 +59,7 @@ Status| Meaning| What to do
 
 Retries
 
-Retry `429` and `5xx` with exponential backoff. Don’t retry other `4xx` codes; they won’t succeed without a change to the request.
+Retry `429` and `5xx` with exponential backoff. Don’t retry other `4xx` codes; they won’t succeed without a change to the request. Install the Python SDK first: `pip install fish-audio-sdk`.
     
     
     import time

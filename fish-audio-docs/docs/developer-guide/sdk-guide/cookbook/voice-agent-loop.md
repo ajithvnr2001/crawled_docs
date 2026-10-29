@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/voice-agent-loop/
 title: Build a voice agent loop: speech in, reply, speech out - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:52:00.954778+00:00
+fetched_at: 2026-10-29T14:32:55.877251+00:00
 ---
 
 # Build a voice agent loop: speech in, reply, speech out - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-20T12:52:00.954778+00:00
 > Source: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/voice-agent-loop/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Recipe
@@ -38,9 +40,9 @@ Create a Fish Audio account
 
 Sign up for a free Fish Audio account to get started with our API.
 
-  1. Go to [fish.audio/auth/signup](https://fish.audio/auth/signup)
+  1. [Sign up on fish.audio](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=sign-up)
   2. Fill in your details to create an account, complete steps to verify your account.
-  3. Log in to your account and navigate to the [API section](https://fish.audio/app/api-keys)
+  3. Log in to your account and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=developer-dashboard)
 
 
 
@@ -48,10 +50,9 @@ Get your API key
 
 Once you have an account, you’ll need an API key to authenticate your requests.
 
-  1. Log in to your [Fish Audio Dashboard](https://fish.audio/app/api-keys/)
-  2. Navigate to the API Keys section
-  3. Click “Create New Key” and give it a descriptive name, set a expiration if desired
-  4. Copy your key and store it securely
+  1. Log in and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=get-api-key)
+  2. Click “Get your API key”: the key is created in one click and shown only once
+  3. Copy your key and store it securely
 
 
 
@@ -63,7 +64,7 @@ Keep your API key secret! Never commit it to version control or share it publicl
 
 Recipe
 
-A voice agent is three stages chained together: [`asr.transcribe()`](https://docs.fish.audio/api-reference/sdk/python/resources#transcribe) turns the caller’s audio into text, your own LLM turns that text into a reply, and [`tts.stream()`](https://docs.fish.audio/api-reference/sdk/python/resources#stream) turns the reply back into speech. The transcript and the reply are just strings, so the only Fish Audio-specific parts are the first and last calls. Streaming the reply lets you start writing (or forwarding) audio before the whole sentence is synthesized. The recipe transcribes with `transcribe-1-pro`. Every tab selects it with the `model` request header; without that header, the request is served and billed as `transcribe-1`.
+A voice agent is three stages chained together: [`asr.transcribe()`](https://docs.fish.audio/api-reference/sdk/python/resources#transcribe) turns the caller’s audio into text, your own LLM turns that text into a reply, and [`tts.stream()`](https://docs.fish.audio/api-reference/sdk/python/resources#stream) turns the reply back into speech. The transcript and the reply are just strings, so the only Fish Audio-specific parts are the first and last calls. Streaming the reply lets you start writing (or forwarding) audio before the whole sentence is synthesized. The recipe transcribes with `transcribe-1-pro`. Every tab selects it with the `model` request header; without that header, the request is served and billed as `transcribe-1`. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 Synchronous
 

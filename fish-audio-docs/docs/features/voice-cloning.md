@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/voice-cloning/
 title: Voice Cloning - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:40.128385+00:00
+fetched_at: 2026-10-29T14:32:57.988859+00:00
 ---
 
 # Voice Cloning - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:40.128385+00:00
 > Source: https://docs.fish.audio/features/voice-cloning/
 
 ## On this page
+
+Back to top
 
   * When to use it
   * Quick start
@@ -81,7 +83,7 @@ Keep a speaker’s identity across languages.
 
 Quick start
 
-Send one or more audio samples, get back a voice model. Choose your implementation:
+Send one or more audio samples, get back a voice model. Choose your implementation: Install the Python SDK first: `pip install fish-audio-sdk`.
 
 Python
 

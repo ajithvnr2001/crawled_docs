@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/utils/
 title: Utils - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:26:25.185397+00:00
+fetched_at: 2026-10-29T14:32:54.770332+00:00
 ---
 
 # Utils - Fish Audio
@@ -36,7 +36,7 @@ Copy pageCopy page
 
 fishaudio.utils.play
 
-Audio playback utility.
+Audio playback utility. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 #### 
 

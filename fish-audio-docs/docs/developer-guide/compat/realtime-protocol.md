@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/compat/realtime-protocol/
 title: Realtime protocol reference - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:28.743824+00:00
+fetched_at: 2026-10-29T14:32:56.457635+00:00
 ---
 
 # Realtime protocol reference - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:28.743824+00:00
 > Source: https://docs.fish.audio/developer-guide/compat/realtime-protocol/
 
 ## On this page
+
+Back to top
 
   * Events
   * Audio formats
@@ -76,6 +78,8 @@ Turn detection is yours to drive: send `input_audio_buffer.commit` to end an utt
 Transcription
 
 Transcription works over the same socket: `input_audio_buffer.append` base64 audio, then `input_audio_buffer.commit`. The transcript arrives as `conversation.item.input_audio_transcription.completed`, and a failed transcription arrives as the matching `conversation.item.input_audio_transcription.failed` (the buffered audio is kept, so you can retry). The socket returns the transcript text only; for word timestamps use `POST /v1/audio/transcriptions`. Both official ways of opening a **dedicated** transcription session work: send `transcription_session.update`, or connect with `?intent=transcription` in the URL. Either way the session object comes back as `realtime.transcription_session` in `transcription_session.created` / `transcription_session.updated`. With `?intent=transcription` and no `model` in the URL, the session defaults to `fish-audio/transcribe-1` rather than a TTS model.
+
+`transcribe-1` will be retired on December 31, 2026. After that date, transcription sessions are served by `transcribe-1-pro` at the same price, and you don’t need to change the URL. See [Migrate from transcribe-1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-transcribe-1).
 
 ## 
 

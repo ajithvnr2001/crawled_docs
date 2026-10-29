@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/getting-started/changelog/
 title: Changelog - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:52:01.189840+00:00
+fetched_at: 2026-10-29T14:32:56.755264+00:00
 ---
 
 # Changelog - Fish Audio
@@ -22,6 +22,22 @@ Copy pageCopy page
 Complete release history and version updates for all Fish Audio products
 
 Copy pageCopy page
+
+​
+
+transcribe-1 retirement
+
+Fish Audio
+
+October 29, 2026
+
+## 
+
+​
+
+transcribe-1 retirement
+
+`transcribe-1` is deprecated and will be retired on December 31, 2026, together with S1. After that date, the requests it serves are served by `transcribe-1-pro` and billed as `transcribe-1-pro`, at the same price. This includes requests with no `model` header, or one that does not match exactly, and requests through the OpenAI-, Groq-, OpenRouter-, and ElevenLabs-compatible endpoints.To migrate, send the `model: transcribe-1-pro` header on `POST /v1/asr`. For plain transcripts without speaker markers or event cues, also send `diarize=false` and `tag_audio_events=false`.[Migrate from transcribe-1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-transcribe-1) | [Model deprecations](https://docs.fish.audio/developer-guide/models-pricing/deprecations)
 
 ​
 

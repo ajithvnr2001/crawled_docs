@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/resources/
 title: Resources - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:26:24.919632+00:00
+fetched_at: 2026-10-29T14:32:55.135055+00:00
 ---
 
 # Resources - Fish Audio
@@ -67,7 +67,7 @@ Copy pageCopy page
 
 fishaudio.resources.voices
 
-Voice management namespace client.
+Voice management namespace client. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 ## 
 

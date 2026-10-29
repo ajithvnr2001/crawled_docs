@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/compat/migrate-from-groq/
 title: Migrate from Groq - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:27.984410+00:00
+fetched_at: 2026-10-29T14:32:57.354008+00:00
 ---
 
 # Migrate from Groq - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:27.984410+00:00
 > Source: https://docs.fish.audio/developer-guide/compat/migrate-from-groq/
 
 ## On this page
+
+Back to top
 
   * Text to speech
   * Transcription
@@ -42,7 +44,7 @@ Node
     
     client = Groq(
         base_url="https://api.fish.audio/compat",
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
     )
     
     
@@ -50,7 +52,7 @@ Node
     import Groq from "groq-sdk";
     
     const client = new Groq({
-      apiKey: process.env.FISH_AUDIO_API_KEY,
+      apiKey: process.env.FISH_API_KEY,
       baseURL: "https://api.fish.audio/compat",
     });
     
@@ -103,7 +105,7 @@ curl
     
     
     curl https://api.fish.audio/compat/openai/v1/audio/speech \
-      -H "Authorization: Bearer $FISH_AUDIO_API_KEY" \
+      -H "Authorization: Bearer $FISH_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{"model": "fish-audio/s2.1-pro",
            "input": "Hello from Fish Audio!",
@@ -164,7 +166,7 @@ curl
     
     
     curl https://api.fish.audio/compat/openai/v1/audio/transcriptions \
-      -H "Authorization: Bearer $FISH_AUDIO_API_KEY" \
+      -H "Authorization: Bearer $FISH_API_KEY" \
       -F model=fish-audio/transcribe-1 \
       -F file=@hello.mp3
     

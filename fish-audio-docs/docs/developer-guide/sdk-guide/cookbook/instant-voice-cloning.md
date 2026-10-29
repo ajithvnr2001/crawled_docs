@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/instant-voice-cloning/
 title: Instant voice cloning - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:35.136932+00:00
+fetched_at: 2026-10-29T14:32:54.949038+00:00
 ---
 
 # Instant voice cloning - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:35.136932+00:00
 > Source: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/instant-voice-cloning/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Recipe
@@ -38,9 +40,9 @@ Create a Fish Audio account
 
 Sign up for a free Fish Audio account to get started with our API.
 
-  1. Go to [fish.audio/auth/signup](https://fish.audio/auth/signup)
+  1. [Sign up on fish.audio](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=sign-up)
   2. Fill in your details to create an account, complete steps to verify your account.
-  3. Log in to your account and navigate to the [API section](https://fish.audio/app/api-keys)
+  3. Log in to your account and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=developer-dashboard)
 
 
 
@@ -48,10 +50,9 @@ Get your API key
 
 Once you have an account, you’ll need an API key to authenticate your requests.
 
-  1. Log in to your [Fish Audio Dashboard](https://fish.audio/app/api-keys/)
-  2. Navigate to the API Keys section
-  3. Click “Create New Key” and give it a descriptive name, set a expiration if desired
-  4. Copy your key and store it securely
+  1. Log in and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=get-api-key)
+  2. Click “Get your API key”: the key is created in one click and shown only once
+  3. Copy your key and store it securely
 
 
 
@@ -63,7 +64,7 @@ Keep your API key secret! Never commit it to version control or share it publicl
 
 Recipe
 
-Pass a [`ReferenceAudio`](https://docs.fish.audio/api-reference/sdk/python/types#referenceaudio-objects) (raw audio bytes + an exact transcript) on the `convert` call. Nothing is saved server-side; the clone applies to that request only.
+Pass a [`ReferenceAudio`](https://docs.fish.audio/api-reference/sdk/python/types#referenceaudio-objects) (raw audio bytes + an exact transcript) on the `convert` call. Nothing is saved server-side; the clone applies to that request only. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 Synchronous
 
@@ -85,6 +86,7 @@ JavaScript
                 audio=f.read(),
                 text="Exact transcript of what is said in reference.wav.",
             )],
+            model="s2.1-pro-free",
         )
     
     save(audio, "cloned.mp3")
@@ -105,6 +107,7 @@ JavaScript
                         audio=f.read(),
                         text="Exact transcript of what is said in reference.wav.",
                     )],
+                    model="s2.1-pro-free",
                 )
         save(audio, "cloned.mp3")
     
@@ -133,7 +136,7 @@ JavaScript
         ],
         format: "mp3",
       },
-      "s2-pro",
+      "s2.1-pro-free",
     );
     
     const chunks = [];
@@ -176,4 +179,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/developer-guide/sdk-guide/cookbook/instant-voice-cloning.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/developer-guide/sdk-guide/cookbook/instant-voice-cloning)
 
-[Batch-transcribe files with a language hint](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/batch-transcribe-with-language-hint)[Clone a voice and wait until it is ready](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/clone-and-wait-until-ready)
+[Transcribe a live audio stream in realtime](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-transcription)[Clone a voice and wait until it is ready](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/clone-and-wait-until-ready)

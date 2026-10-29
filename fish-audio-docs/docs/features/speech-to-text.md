@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/speech-to-text/
 title: Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:40:52.862624+00:00
+fetched_at: 2026-10-29T14:32:56.687421+00:00
 ---
 
 # Speech to Text - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:40:52.862624+00:00
 > Source: https://docs.fish.audio/features/speech-to-text/
 
 ## On this page
+
+Back to top
 
   * Choose an ASR model
   * When to use it
@@ -67,7 +69,7 @@ Choose an ASR model
 Model| Use it for  
 ---|---  
 `transcribe-1-pro` (recommended)| Short clips, multi-speaker conversations, and long recordings (up to 60 minutes). Speaker markers and speaker turns, with emotion and vocal-event cues preserved.  
-`transcribe-1`| General transcription of short recordings. Also used when the `model` header is missing or does not match.  
+`transcribe-1`| Deprecated, retired on December 31, 2026 (see [Migrate from transcribe-1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-transcribe-1)). General transcription of short recordings. Also used when the `model` header is missing or does not match.  
   
 Select the model with the **`model` HTTP header**, and send `model: transcribe-1-pro` with every request; `model` is not a form or body field. Write the value exactly, in lowercase. If the header is missing, or its value is not an exact match (for example `Transcribe-1-Pro` or `transcribe-1pro`), the request is served and billed as `transcribe-1`, and no error is returned. If you expected `transcribe-1-pro` but the transcript has no speaker markers and you did not send `diarize=false`, check the header. See [ASR pricing](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits#automatic-speech-recognition-asr-models) for usage costs. `transcribe-1-pro` accepts these fields:
 
@@ -110,7 +112,7 @@ Make audio and video content readable.
 
 Quick start
 
-Create an [API key](https://docs.fish.audio/developer-guide/getting-started/api-key) and set `FISH_API_KEY` in your environment. For the Python examples, [install the Fish Audio SDK](https://docs.fish.audio/developer-guide/sdk-guide/quickstart). Every example on this page selects `transcribe-1-pro`. The examples below also request timestamps.
+Create an [API key](https://docs.fish.audio/developer-guide/getting-started/api-key) and set `FISH_API_KEY` in your environment. For the Python examples, [install the Fish Audio SDK](https://docs.fish.audio/developer-guide/sdk-guide/quickstart). Every example on this page selects `transcribe-1-pro`. The examples below also request timestamps. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 Python
 

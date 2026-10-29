@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/python/errors/
 title: Errors & Retries - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:37.030145+00:00
+fetched_at: 2026-10-29T14:32:56.136098+00:00
 ---
 
 # Errors & Retries - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:37.030145+00:00
 > Source: https://docs.fish.audio/developer-guide/sdk-guide/python/errors/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Exception hierarchy
@@ -40,9 +42,9 @@ Create a Fish Audio account
 
 Sign up for a free Fish Audio account to get started with our API.
 
-  1. Go to [fish.audio/auth/signup](https://fish.audio/auth/signup)
+  1. [Sign up on fish.audio](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=sign-up)
   2. Fill in your details to create an account, complete steps to verify your account.
-  3. Log in to your account and navigate to the [API section](https://fish.audio/app/api-keys)
+  3. Log in to your account and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=developer-dashboard)
 
 
 
@@ -50,10 +52,9 @@ Get your API key
 
 Once you have an account, you’ll need an API key to authenticate your requests.
 
-  1. Log in to your [Fish Audio Dashboard](https://fish.audio/app/api-keys/)
-  2. Navigate to the API Keys section
-  3. Click “Create New Key” and give it a descriptive name, set a expiration if desired
-  4. Copy your key and store it securely
+  1. Log in and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=get-api-key)
+  2. Click “Get your API key”: the key is created in one click and shown only once
+  3. Copy your key and store it securely
 
 
 
@@ -86,6 +87,8 @@ Invalid request parameters come back as an `APIError` with `status == 422`. Catc
 
 Handling errors
 
+Install the Python SDK first: `pip install fish-audio-sdk`.
+
 Synchronous
 
 Asynchronous
@@ -103,7 +106,7 @@ Asynchronous
     client = FishAudio()
     
     try:
-        audio = client.tts.convert(text="Hello!", reference_id="maybe-missing")
+        audio = client.tts.convert(text="Hello!", reference_id="maybe-missing", model="s2.1-pro-free")
     except AuthenticationError:
         print("Invalid API key")
     except RateLimitError:
@@ -124,7 +127,7 @@ Asynchronous
     async def main():
         async with AsyncFishAudio() as client:
             try:
-                audio = await client.tts.convert(text="Hello!")
+                audio = await client.tts.convert(text="Hello!", model="s2.1-pro-free")
             except RateLimitError:
                 print("Rate limited: back off and retry")
             except APIError as e:
@@ -153,7 +156,7 @@ The Python client does **not** retry automatically. Add your own backoff where i
     def convert_with_retry(text: str, max_retries: int = 3) -> bytes:
         for attempt in range(max_retries):
             try:
-                return client.tts.convert(text=text)
+                return client.tts.convert(text=text, model="s2.1-pro-free")
             except (RateLimitError, ServerError):
                 if attempt == max_retries - 1:
                     raise
@@ -184,6 +187,7 @@ Override headers or timeout for a single request with `request_options`:
     
     audio = client.tts.convert(
         text="Hello!",
+        model="s2.1-pro-free",
         request_options=RequestOptions(timeout=15.0, additional_headers={"X-Trace": "abc"}),
     )
     

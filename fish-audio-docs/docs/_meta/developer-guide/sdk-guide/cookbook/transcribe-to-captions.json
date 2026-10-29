@@ -3,8 +3,5 @@
   "file": "developer-guide/sdk-guide/cookbook/transcribe-to-captions.md",
   "title": "Transcribe audio to SRT/VTT captions - Fish Audio",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:47:36.451931+00:00",
-  "html_len": 517964,
-  "md_len": 11927,
-  "depth": 0
+  "fetched_at": "2026-10-29T14:32:56.355841+00:00"
 }

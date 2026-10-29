@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/client/
 title: Client - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T13:26:24.548439+00:00
+fetched_at: 2026-10-29T14:32:54.345227+00:00
 ---
 
 # Client - Fish Audio
@@ -45,7 +45,7 @@ Copy pageCopy page
 
 fishaudio.client
 
-Main Fish Audio client classes.
+Main Fish Audio client classes. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 ## 
 

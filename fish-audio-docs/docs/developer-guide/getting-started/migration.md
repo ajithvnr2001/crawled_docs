@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/getting-started/migration/
 title: Migrate to Fish Audio - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:31.590382+00:00
+fetched_at: 2026-10-29T14:32:57.657631+00:00
 ---
 
 # Migrate to Fish Audio - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:31.590382+00:00
 > Source: https://docs.fish.audio/developer-guide/getting-started/migration/
 
 ## On this page
+
+Back to top
 
   * From a framework
   * Models
@@ -53,7 +55,7 @@ Set your API key
 Store your [Fish Audio API key](https://docs.fish.audio/developer-guide/getting-started/api-key) as an environment variable:
     
     
-    export FISH_AUDIO_API_KEY="your_api_key"
+    export FISH_API_KEY="your_api_key"
     
 
 2
@@ -72,7 +74,7 @@ curl
     
     client = OpenAI(
         base_url="https://api.fish.audio/compat/v1",
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
     )
     
     with client.audio.speech.with_streaming_response.create(
@@ -90,7 +92,7 @@ curl
     
     const client = new OpenAI({
       baseURL: "https://api.fish.audio/compat/v1",
-      apiKey: process.env.FISH_AUDIO_API_KEY,
+      apiKey: process.env.FISH_API_KEY,
     });
     
     const response = await client.audio.speech.create({
@@ -104,7 +106,7 @@ curl
     
     
     curl https://api.fish.audio/compat/v1/audio/speech \
-      -H "Authorization: Bearer $FISH_AUDIO_API_KEY" \
+      -H "Authorization: Bearer $FISH_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{"model": "fish-audio/s2.1-pro",
            "input": "Hello from Fish Audio!",
@@ -121,7 +123,7 @@ Set your API key
 Store your [Fish Audio API key](https://docs.fish.audio/developer-guide/getting-started/api-key) as an environment variable:
     
     
-    export FISH_AUDIO_API_KEY="your_api_key"
+    export FISH_API_KEY="your_api_key"
     
 
 2
@@ -141,7 +143,7 @@ curl
     import fs from "node:fs";
     
     const client = new OpenRouter({
-      apiKey: process.env.FISH_AUDIO_API_KEY,
+      apiKey: process.env.FISH_API_KEY,
       serverURL: "https://api.fish.audio/compat/api/v1",
     });
     
@@ -163,7 +165,7 @@ curl
     
     client = OpenAI(
         base_url="https://api.fish.audio/compat/api/v1",
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
     )
     
     with client.audio.speech.with_streaming_response.create(
@@ -177,7 +179,7 @@ curl
     
     
     curl https://api.fish.audio/compat/api/v1/audio/speech \
-      -H "Authorization: Bearer $FISH_AUDIO_API_KEY" \
+      -H "Authorization: Bearer $FISH_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{"model": "fish-audio/s2.1-pro",
            "input": "Hello from Fish Audio!",
@@ -194,7 +196,7 @@ Set your API key
 Store your [Fish Audio API key](https://docs.fish.audio/developer-guide/getting-started/api-key) as an environment variable:
     
     
-    export FISH_AUDIO_API_KEY="your_api_key"
+    export FISH_API_KEY="your_api_key"
     
 
 2
@@ -215,7 +217,7 @@ curl
     
     client = ElevenLabs(
         base_url="https://api.fish.audio/compat/elevenlabs",
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
     )
     
     audio = b"".join(client.text_to_speech.convert(
@@ -233,7 +235,7 @@ curl
     
     const client = new ElevenLabsClient({
       baseUrl: "https://api.fish.audio/compat/elevenlabs",
-      apiKey: process.env.FISH_AUDIO_API_KEY,
+      apiKey: process.env.FISH_API_KEY,
     });
     
     // "default" = default voice; see Voices below to pick one
@@ -249,7 +251,7 @@ curl
     
     
     curl "https://api.fish.audio/compat/elevenlabs/v1/text-to-speech/default?output_format=mp3_44100_128" \
-      -H "xi-api-key: $FISH_AUDIO_API_KEY" \
+      -H "xi-api-key: $FISH_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{"text": "Hello from Fish Audio!",
            "model_id": "fish-audio/s2.1-pro"}' \
@@ -265,7 +267,7 @@ Set your API key
 Store your [Fish Audio API key](https://docs.fish.audio/developer-guide/getting-started/api-key) as an environment variable:
     
     
-    export FISH_AUDIO_API_KEY="your_api_key"
+    export FISH_API_KEY="your_api_key"
     
 
 2
@@ -286,7 +288,7 @@ curl
     
     client = Groq(
         base_url="https://api.fish.audio/compat",
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
     )
     
     resp = client.audio.speech.create(
@@ -303,7 +305,7 @@ curl
     import fs from "node:fs";
     
     const client = new Groq({
-      apiKey: process.env.FISH_AUDIO_API_KEY,
+      apiKey: process.env.FISH_API_KEY,
       baseURL: "https://api.fish.audio/compat",
     });
     
@@ -318,7 +320,7 @@ curl
     
     
     curl https://api.fish.audio/compat/openai/v1/audio/speech \
-      -H "Authorization: Bearer $FISH_AUDIO_API_KEY" \
+      -H "Authorization: Bearer $FISH_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{"model": "fish-audio/s2.1-pro",
            "input": "Hello from Fish Audio!",
@@ -347,7 +349,7 @@ Vercel AI SDK
     
     llm = ChatOpenAI(
         base_url="https://api.fish.audio/compat/v1",
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
         model="fish-audio/s2.1-pro",
         model_kwargs={"modalities": ["text", "audio"],
                       "audio": {"voice": "", "format": "mp3"}},
@@ -365,7 +367,7 @@ Vercel AI SDK
     
     const openai = createOpenAI({
       baseURL: "https://api.fish.audio/compat/v1",
-      apiKey: process.env.FISH_AUDIO_API_KEY,
+      apiKey: process.env.FISH_API_KEY,
     });
     
     const { audio } = await generateSpeech({

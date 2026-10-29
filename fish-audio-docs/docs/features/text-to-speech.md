@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/text-to-speech/
 title: Text to Speech - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T12:52:01.081187+00:00
+fetched_at: 2026-10-29T14:32:57.460992+00:00
 ---
 
 # Text to Speech - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-20T12:52:01.081187+00:00
 > Source: https://docs.fish.audio/features/text-to-speech/
 
 ## On this page
+
+Back to top
 
   * When to use it
   * Quick start
@@ -82,7 +84,7 @@ Speak in a [cloned voice](https://docs.fish.audio/features/voice-cloning) you ow
 
 Quick start
 
-Send text, get back audio. Choose your implementation:
+Send text, get back audio. Choose your implementation: Install the Python SDK first: `pip install fish-audio-sdk`.
 
 Python
 

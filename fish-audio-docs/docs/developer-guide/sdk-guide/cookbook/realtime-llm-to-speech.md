@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-llm-to-speech/
 title: Realtime: LLM tokens \u2192 speech - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:35.378715+00:00
+fetched_at: 2026-10-29T14:32:56.061474+00:00
 ---
 
 # Realtime: LLM tokens → speech - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:35.378715+00:00
 > Source: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-llm-to-speech/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Recipe
@@ -38,9 +40,9 @@ Create a Fish Audio account
 
 Sign up for a free Fish Audio account to get started with our API.
 
-  1. Go to [fish.audio/auth/signup](https://fish.audio/auth/signup)
+  1. [Sign up on fish.audio](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=sign-up)
   2. Fill in your details to create an account, complete steps to verify your account.
-  3. Log in to your account and navigate to the [API section](https://fish.audio/app/api-keys)
+  3. Log in to your account and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=developer-dashboard)
 
 
 
@@ -48,10 +50,9 @@ Get your API key
 
 Once you have an account, you’ll need an API key to authenticate your requests.
 
-  1. Log in to your [Fish Audio Dashboard](https://fish.audio/app/api-keys/)
-  2. Navigate to the API Keys section
-  3. Click “Create New Key” and give it a descriptive name, set a expiration if desired
-  4. Copy your key and store it securely
+  1. Log in and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=get-api-key)
+  2. Click “Get your API key”: the key is created in one click and shown only once
+  3. Copy your key and store it securely
 
 
 
@@ -63,7 +64,7 @@ Keep your API key secret! Never commit it to version control or share it publicl
 
 Recipe
 
-[`stream_websocket()`](https://docs.fish.audio/api-reference/sdk/python/resources#stream_websocket) takes an iterable of text chunks and yields audio chunks in real time. Feed it your LLM’s token stream and play or forward the audio as it’s produced.
+[`stream_websocket()`](https://docs.fish.audio/api-reference/sdk/python/resources#stream_websocket) takes an iterable of text chunks and yields audio chunks in real time. Feed it your LLM’s token stream and play or forward the audio as it’s produced. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 Synchronous
 
@@ -80,7 +81,7 @@ Asynchronous
         for token in ["The ", "first ", "move ", "sets ", "everything ", "in ", "motion."]:
             yield token
     
-    audio_stream = client.tts.stream_websocket(llm_tokens(), reference_id="<voice-id>")
+    audio_stream = client.tts.stream_websocket(llm_tokens(), reference_id="<voice-id>", model="s2.1-pro-free")
     play(audio_stream)  # or: for chunk in audio_stream: send_to_client(chunk)
     
     
@@ -94,7 +95,7 @@ Asynchronous
     
     async def main():
         async with AsyncFishAudio() as client:
-            audio_stream = client.tts.stream_websocket(llm_tokens())
+            audio_stream = client.tts.stream_websocket(llm_tokens(), model="s2.1-pro-free")
             with open("out.mp3", "wb") as f:
                 async for chunk in audio_stream:
                     f.write(chunk)

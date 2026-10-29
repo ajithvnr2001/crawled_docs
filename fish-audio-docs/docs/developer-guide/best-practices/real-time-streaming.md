@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/best-practices/real-time-streaming/
 title: Real-time Voice Streaming - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:26.880035+00:00
+fetched_at: 2026-10-29T14:32:56.874549+00:00
 ---
 
 # Real-time Voice Streaming - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:26.880035+00:00
 > Source: https://docs.fish.audio/developer-guide/best-practices/real-time-streaming/
 
 ## On this page
+
+Back to top
 
   * Overview
   * When to Use Streaming
@@ -108,7 +110,7 @@ Try real-time streaming instantly:
 
 Using the SDK
 
-Stream text as it’s being written:
+Stream text as it’s being written: Install the Python SDK first: `pip install fish-audio-sdk`.
 
   * Python
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/manage-voices/
 title: Manage Voices - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:38.900760+00:00
+fetched_at: 2026-10-29T14:32:57.905900+00:00
 ---
 
 # Manage Voices - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:38.900760+00:00
 > Source: https://docs.fish.audio/features/manage-voices/
 
 ## On this page
+
+Back to top
 
   * When to use it
   * List your voices
@@ -73,7 +75,7 @@ Delete models you no longer use.
 
 List your voices
 
-Page through your library. The response carries the `total` count and the `items` for the current page.
+Page through your library. The response carries the `total` count and the `items` for the current page. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 Python
 

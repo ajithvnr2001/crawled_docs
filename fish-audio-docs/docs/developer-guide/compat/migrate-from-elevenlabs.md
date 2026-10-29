@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/compat/migrate-from-elevenlabs/
 title: Migrate from ElevenLabs - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:27.686786+00:00
+fetched_at: 2026-10-29T14:32:56.966685+00:00
 ---
 
 # Migrate from ElevenLabs - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:27.686786+00:00
 > Source: https://docs.fish.audio/developer-guide/compat/migrate-from-elevenlabs/
 
 ## On this page
+
+Back to top
 
   * Text to speech
     * Output formats
@@ -46,7 +48,7 @@ Node
     client = ElevenLabs(
         base_url="https://api.fish.audio/compat/elevenlabs",
         # sent as the standard xi-api-key header
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
     )
     
     
@@ -55,7 +57,7 @@ Node
     
     const client = new ElevenLabsClient({
       baseUrl: "https://api.fish.audio/compat/elevenlabs",
-      apiKey: process.env.FISH_AUDIO_API_KEY, // sent as the standard xi-api-key header
+      apiKey: process.env.FISH_API_KEY, // sent as the standard xi-api-key header
     });
     
 
@@ -110,7 +112,7 @@ curl
     
     
     curl "https://api.fish.audio/compat/elevenlabs/v1/text-to-speech/default?output_format=mp3_44100_128" \
-      -H "xi-api-key: $FISH_AUDIO_API_KEY" \
+      -H "xi-api-key: $FISH_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{"text": "Hello from Fish Audio!",
            "model_id": "eleven_multilingual_v2"}' \
@@ -213,7 +215,7 @@ curl
     
     
     curl https://api.fish.audio/compat/elevenlabs/v1/speech-to-text \
-      -H "xi-api-key: $FISH_AUDIO_API_KEY" \
+      -H "xi-api-key: $FISH_API_KEY" \
       -F model_id=scribe_v1 \
       -F file=@meeting.wav
     
@@ -292,7 +294,7 @@ curl
     
     
     curl https://api.fish.audio/compat/elevenlabs/v1/voices \
-      -H "xi-api-key: $FISH_AUDIO_API_KEY"
+      -H "xi-api-key: $FISH_API_KEY"
     
 
 Errors on this protocol use the ElevenLabs envelope: `{"detail": {"status": "...", "message": "..."}}`. The statuses you can see are `invalid_request`, `unauthorized`, `voice_not_found`, `model_not_found`, `not_found`, `payload_too_large`, `rate_limit_error`, `upstream_error`, and `provider_error`. `provider_error` is the one that tells you where the failure happened: the request reached the Fish Audio API and its message is passed through verbatim. An _invalid_ key surfaces this way too, as a 401 `provider_error` carrying “No permission”, while `unauthorized` is reserved for requests that sent no key at all. Every other status is raised by the compatibility layer itself.

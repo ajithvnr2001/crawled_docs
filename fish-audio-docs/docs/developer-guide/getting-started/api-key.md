@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/getting-started/api-key/
 title: Get Your API Key - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:30.564448+00:00
+fetched_at: 2026-10-29T14:32:55.188174+00:00
 ---
 
 # Get Your API Key - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:30.564448+00:00
 > Source: https://docs.fish.audio/developer-guide/getting-started/api-key/
 
 ## On this page
+
+Back to top
 
   * 1\. Create an account and key
   * 2\. Store it as an environment variable
@@ -39,19 +41,19 @@ Everything you build with Fish Audio (the API, the Python library, JavaScript) a
 
 Sign up
 
-Go to [fish.audio/auth/signup](https://fish.audio/auth/signup), create an account, and verify your email.
+[Sign up on fish.audio](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=api-key-page&utm_content=sign-up), create an account, and verify your email.
 
 2
 
-Open the API Keys page
+Open Get Started
 
-Sign in and open [fish.audio/app/api-keys](https://fish.audio/app/api-keys).
+Sign in and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=api-key-page&utm_content=get-api-key).
 
 3
 
 Create a key
 
-Click **Create New Key** , give it a descriptive name (and an expiration if you want), then **copy the key and store it securely**.
+Click **Get your API key**. The key is created in one click and shown only once, so **copy it and store it securely**.
 
 Never commit your API key to version control or share it publicly.
 
@@ -75,6 +77,8 @@ This keeps the key out of your code and lets you use different keys for developm
 
 3\. Make your first request
 
+Install the Python SDK first: `pip install fish-audio-sdk`.
+
 Python
 
 API (curl)
@@ -84,7 +88,7 @@ API (curl)
     from fishaudio.utils import save
     
     client = FishAudio()  # reads FISH_API_KEY
-    audio = client.tts.convert(text="Hello from Fish Audio!")
+    audio = client.tts.convert(text="Hello from Fish Audio!", model="s2.1-pro-free")  # free model
     save(audio, "hello.mp3")
     
     
@@ -92,7 +96,7 @@ API (curl)
     curl --request POST https://api.fish.audio/v1/tts \
       --header "Authorization: Bearer $FISH_API_KEY" \
       --header "Content-Type: application/json" \
-      --header "model: s2-pro" \
+      --header "model: s2.1-pro-free" \
       --data '{ "text": "Hello from Fish Audio!", "format": "mp3" }' \
       --output hello.mp3
     

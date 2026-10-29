@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/telephony-8khz-audio/
 title: Telephony-grade audio (8 kHz) for IVR and phone - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:36.051823+00:00
+fetched_at: 2026-10-29T14:32:56.523402+00:00
 ---
 
 # Telephony-grade audio (8 kHz) for IVR and phone - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:36.051823+00:00
 > Source: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/telephony-8khz-audio/
 
 ## On this page
+
+Back to top
 
   * Prerequisites
   * Recipe
@@ -37,9 +39,9 @@ Create a Fish Audio account
 
 Sign up for a free Fish Audio account to get started with our API.
 
-  1. Go to [fish.audio/auth/signup](https://fish.audio/auth/signup)
+  1. [Sign up on fish.audio](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=sign-up)
   2. Fill in your details to create an account, complete steps to verify your account.
-  3. Log in to your account and navigate to the [API section](https://fish.audio/app/api-keys)
+  3. Log in to your account and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=developer-dashboard)
 
 
 
@@ -47,10 +49,9 @@ Get your API key
 
 Once you have an account, you’ll need an API key to authenticate your requests.
 
-  1. Log in to your [Fish Audio Dashboard](https://fish.audio/app/api-keys/)
-  2. Navigate to the API Keys section
-  3. Click “Create New Key” and give it a descriptive name, set a expiration if desired
-  4. Copy your key and store it securely
+  1. Log in and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=get-api-key)
+  2. Click “Get your API key”: the key is created in one click and shown only once
+  3. Copy your key and store it securely
 
 
 
@@ -62,7 +63,7 @@ Keep your API key secret! Never commit it to version control or share it publicl
 
 Recipe
 
-Phone networks carry narrowband audio at 8 kHz. Generating at a higher rate just forces the carrier to downsample on the way through, wasting bandwidth and often softening the result. Synthesize at 8 kHz directly and the bytes are ready to hand to your IVR or SIP stack. Set the sample rate on [`TTSConfig`](https://docs.fish.audio/api-reference/sdk/python/types#ttsconfig-objects) (it is not a top-level argument) and write the WAV to disk.
+Phone networks carry narrowband audio at 8 kHz. Generating at a higher rate just forces the carrier to downsample on the way through, wasting bandwidth and often softening the result. Synthesize at 8 kHz directly and the bytes are ready to hand to your IVR or SIP stack. Set the sample rate on [`TTSConfig`](https://docs.fish.audio/api-reference/sdk/python/types#ttsconfig-objects) (it is not a top-level argument) and write the WAV to disk. Install the Python SDK first: `pip install fish-audio-sdk`.
 
 Synchronous
 
@@ -80,6 +81,7 @@ JavaScript
     audio = client.tts.convert(
         text="Thank you for calling. Press one to speak with an agent.",
         config=TTSConfig(format="wav", sample_rate=8000),
+        model="s2.1-pro-free",
     )
     
     save(audio, "out.wav")
@@ -96,6 +98,7 @@ JavaScript
             audio = await client.tts.convert(
                 text="Thank you for calling. Press one to speak with an agent.",
                 config=TTSConfig(format="wav", sample_rate=8000),
+                model="s2.1-pro-free",
             )
         save(audio, "out.wav")
     
@@ -114,7 +117,7 @@ JavaScript
         format: "wav",
         sample_rate: 8000,
       },
-      "s2-pro"
+      "s2.1-pro-free"
     );
     
     const chunks = [];
@@ -129,6 +132,7 @@ The output is a mono 8 kHz WAV, the standard for G.711 PCM telephony. For a head
     audio = client.tts.convert(
         text="Thank you for calling. Press one to speak with an agent.",
         config=TTSConfig(format="pcm", sample_rate=8000),
+        model="s2.1-pro-free",
     )
     
 
@@ -138,7 +142,7 @@ API (curl)
     curl --request POST https://api.fish.audio/v1/tts \
       --header "Authorization: Bearer $FISH_API_KEY" \
       --header "Content-Type: application/json" \
-      --header "model: s2-pro" \
+      --header "model: s2.1-pro-free" \
       --data '{ "text": "Thank you for calling. Press one to speak with an agent.", "format": "wav", "sample_rate": 8000 }' \
       --output out.wav
     

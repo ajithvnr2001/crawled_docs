@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/compat/migrate-from-openrouter/
 title: Migrate from OpenRouter - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:28.360968+00:00
+fetched_at: 2026-10-29T14:32:57.555320+00:00
 ---
 
 # Migrate from OpenRouter - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:28.360968+00:00
 > Source: https://docs.fish.audio/developer-guide/compat/migrate-from-openrouter/
 
 ## On this page
+
+Back to top
 
   * Text to speech
     * temperature, top_p, repetition_penalty
@@ -36,7 +38,7 @@ Configure the client once. `serverURL` takes the `/api/v1` prefix:
     import { OpenRouter } from "@openrouter/sdk";
     
     const client = new OpenRouter({
-      apiKey: process.env.FISH_AUDIO_API_KEY,
+      apiKey: process.env.FISH_API_KEY,
       serverURL: "https://api.fish.audio/compat/api/v1",
     });
     
@@ -49,7 +51,7 @@ From Python, OpenRouter’s own SDK works the same way: `pip install openrouter`
     from openrouter import OpenRouter
     
     client = OpenRouter(
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
         server_url="https://api.fish.audio/compat/api/v1",
     )
     
@@ -109,7 +111,7 @@ curl
     
     client = OpenAI(
         base_url="https://api.fish.audio/compat/api/v1",
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
     )
     
     with client.audio.speech.with_streaming_response.create(
@@ -123,7 +125,7 @@ curl
     
     
     curl https://api.fish.audio/compat/api/v1/audio/speech \
-      -H "Authorization: Bearer $FISH_AUDIO_API_KEY" \
+      -H "Authorization: Bearer $FISH_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{"model": "fish-audio/s2.1-pro",
            "input": "Hello from Fish Audio!",
@@ -185,7 +187,7 @@ curl
     
     client = OpenAI(
         base_url="https://api.fish.audio/compat/api/v1",
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
     )
     
     tr = client.audio.transcriptions.create(
@@ -197,7 +199,7 @@ curl
     
     
     curl https://api.fish.audio/compat/api/v1/audio/transcriptions \
-      -H "Authorization: Bearer $FISH_AUDIO_API_KEY" \
+      -H "Authorization: Bearer $FISH_API_KEY" \
       -F model=fish-audio/transcribe-1 \
       -F file=@hello.mp3
     
@@ -229,7 +231,7 @@ curl
     
     client = OpenAI(
         base_url="https://api.fish.audio/compat/api/v1",
-        api_key=os.environ["FISH_AUDIO_API_KEY"],
+        api_key=os.environ["FISH_API_KEY"],
     )
     
     ids = [m.id for m in client.models.list()]

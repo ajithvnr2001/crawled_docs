@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/javascript/api-reference/
 title: JavaScript SDK Reference - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:23.152812+00:00
+fetched_at: 2026-10-29T14:32:57.128636+00:00
 ---
 
 # JavaScript SDK Reference - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:23.152812+00:00
 > Source: https://docs.fish.audio/api-reference/sdk/javascript/api-reference/
 
 ## On this page
+
+Back to top
 
   * Client
   * Text to Speech
@@ -71,7 +73,7 @@ Client
 Import and initialize the client:
     
     
-    import { FishAudioClient } from "fish-audio";
+    import { FishAudioClient, type Backends } from "fish-audio";
     const fishAudio = new FishAudioClient({ apiKey: process.env.FISH_API_KEY });
     
 
@@ -90,7 +92,7 @@ convert()
 Generate speech from text.
     
     
-    const audio = await fishAudio.textToSpeech.convert({ text: "Hello" });
+    const audio = await fishAudio.textToSpeech.convert({ text: "Hello" }, "s2.1-pro-free" as Backends);
     
 
 Parameters: `request` (TTSRequest), `model?` (Backends)   
@@ -106,7 +108,7 @@ Realtime streaming TTS over WebSocket.
     
     
     async function* textStream() { yield "Hello, "; yield "world!"; }
-    const conn = await fishAudio.textToSpeech.convertRealtime({ text: "" }, textStream());
+    const conn = await fishAudio.textToSpeech.convertRealtime({ text: "" }, textStream(), "s2.1-pro-free" as Backends);
     
 
 Parameters: `request` (TTSRequest with `text: ""`), `textStream` (`AsyncIterable<string>`), `backend?` (Backends)   

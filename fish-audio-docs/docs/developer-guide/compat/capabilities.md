@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/compat/capabilities/
 title: Compatibility - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:27.345539+00:00
+fetched_at: 2026-10-29T14:32:57.211353+00:00
 ---
 
 # Compatibility - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:27.345539+00:00
 > Source: https://docs.fish.audio/developer-guide/compat/capabilities/
 
 ## On this page
+
+Back to top
 
   * How parameters are handled
   * What each protocol supports
@@ -175,7 +177,7 @@ curl
     
     
     curl https://api.fish.audio/compat/v1/audio/speech \
-      -H "Authorization: Bearer $FISH_AUDIO_API_KEY" \
+      -H "Authorization: Bearer $FISH_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{"model": "fish-audio/s2.1-pro",
            "input": "Hello from Fish Audio!",
@@ -226,7 +228,7 @@ curl
     
     
     curl https://api.fish.audio/compat/v1/audio/speech \
-      -H "Authorization: Bearer $FISH_AUDIO_API_KEY" \
+      -H "Authorization: Bearer $FISH_API_KEY" \
       -H "Content-Type: application/json" \
       -H "X-Fish-Latency: normal" \
       -H "X-Fish-Mp3-Bitrate: 64" \

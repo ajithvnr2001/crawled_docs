@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/getting-started/quickstart/
 title: Quick Start - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:31.353246+00:00
+fetched_at: 2026-10-29T14:32:54.502792+00:00
 ---
 
 # Quick Start - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:31.353246+00:00
 > Source: https://docs.fish.audio/developer-guide/getting-started/quickstart/
 
 ## On this page
+
+Back to top
 
   * Overview
   * Prerequisites
@@ -50,9 +52,9 @@ Create a Fish Audio account
 
 Sign up for a free Fish Audio account to get started with our API.
 
-  1. Go to [fish.audio/auth/signup](https://fish.audio/auth/signup)
+  1. [Sign up on fish.audio](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=sign-up)
   2. Fill in your details to create an account, complete steps to verify your account.
-  3. Log in to your account and navigate to the [API section](https://fish.audio/app/api-keys)
+  3. Log in to your account and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=developer-dashboard)
 
 
 
@@ -60,10 +62,9 @@ Get your API key
 
 Once you have an account, you’ll need an API key to authenticate your requests.
 
-  1. Log in to your [Fish Audio Dashboard](https://fish.audio/app/api-keys/)
-  2. Navigate to the API Keys section
-  3. Click “Create New Key” and give it a descriptive name, set a expiration if desired
-  4. Copy your key and store it securely
+  1. Log in and open [Get Started](https://fish.audio/app/developers/get-started/?utm_source=docs&utm_medium=prerequisites&utm_content=get-api-key)
+  2. Click “Get your API key”: the key is created in one click and shown only once
+  3. Copy your key and store it securely
 
 
 
@@ -75,7 +76,7 @@ Keep your API key secret! Never commit it to version control or share it publicl
 
 Your First TTS Request
 
-Choose your preferred method to generate speech:
+The examples on this page use the free [`s2.1-pro-free`](https://docs.fish.audio/developer-guide/models-pricing/models-overview) model, so they work on a new account before you add any API credit. Choose your preferred method to generate speech:
 
   * cURL
 
@@ -157,8 +158,11 @@ Create a Python script:
     # Initialize with your API key
     client = FishAudio()  # reads FISH_API_KEY
     
-    # Generate speech
-    audio = client.tts.convert(text="Hello! Welcome to Fish Audio.")
+    # Generate speech with the free model
+    audio = client.tts.convert(
+        text="Hello! Welcome to Fish Audio.",
+        model="s2.1-pro-free",
+    )
     save(audio, "welcome.mp3")
     
     print("✓ Audio saved to welcome.mp3")
@@ -214,9 +218,11 @@ Create a JavaScript script:
     
     const fishAudio = new FishAudioClient({ apiKey: process.env.FISH_API_KEY });
     
-    const audio = await fishAudio.textToSpeech.convert({
-      text: "Hello, world!",
-    });
+    // The second argument is the model: s2.1-pro-free is free to use
+    const audio = await fishAudio.textToSpeech.convert(
+      { text: "Hello, world!" },
+      "s2.1-pro-free",
+    );
     
     const buffer = Buffer.from(await new Response(audio).arrayBuffer());
     await writeFile("welcome.mp3", buffer);
@@ -263,7 +269,7 @@ If your first request fails
 Status| Likely cause| Fix  
 ---|---|---  
 `401`| Invalid or missing API key| Check `FISH_API_KEY` and your key on [API Keys](https://fish.audio/app/api-keys).  
-`402`| Out of credits| Top up on [Billing](https://fish.audio/app/billing).  
+`402`| No API credit for the model you called| On a $0 balance, use the model `s2.1-pro-free`. For paid models, add API credit on [API Billing](https://fish.audio/app/developers/billing/).  
 `400`| Bad `reference_id` / parameters| Verify the voice id; read the error `message`.  
 `429`| Rate limit| Wait and retry with backoff.  
   
@@ -311,7 +317,7 @@ Then generate speech with your chosen voice:
     curl -X POST https://api.fish.audio/v1/tts \
       -H "Authorization: Bearer $FISH_API_KEY" \
       -H "Content-Type: application/json" \
-      -H "model: s2-pro" \
+      -H "model: s2.1-pro-free" \
       -d '{
         "text": "This is a custom voice from Fish Audio! You can explore hundreds of different voices on the platform, or even create your own.",
         "reference_id": "'"$REFERENCE_ID"'",
@@ -330,7 +336,8 @@ Then generate speech with your chosen voice:
     # Generate speech with custom voice
     audio = client.tts.convert(
         text="This is a custom voice from Fish Audio! You can explore hundreds of different voices on the platform, or even create your own.",
-        reference_id=os.environ.get("REFERENCE_ID")
+        reference_id=os.environ.get("REFERENCE_ID"),
+        model="s2.1-pro-free",
     )
     save(audio, "custom_voice.mp3")
     
@@ -341,10 +348,13 @@ Then generate speech with your chosen voice:
     
     const fishAudio = new FishAudioClient({ apiKey: process.env.FISH_API_KEY });
     
-    const audio = await fishAudio.textToSpeech.convert({
-      text: "This is a custom voice from Fish Audio! You can explore hundreds of different voices on the platform, or even create your own.",
-      reference_id: process.env.REFERENCE_ID,
-    });
+    const audio = await fishAudio.textToSpeech.convert(
+      {
+        text: "This is a custom voice from Fish Audio! You can explore hundreds of different voices on the platform, or even create your own.",
+        reference_id: process.env.REFERENCE_ID,
+      },
+      "s2.1-pro-free",
+    );
     
     const buffer = Buffer.from(await new Response(audio).arrayBuffer());
     await writeFile("custom_voice.mp3", buffer);
