@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/fsi/cost-optimization/
 title: Financial services perspective: Cost optimization \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:05:59.427900+00:00
+fetched_at: 2026-10-29T09:46:49.136944+00:00
 ---
 
 # Financial services perspective: Cost optimization  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Financial services perspective: Cost optimization Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-07-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This document in the [Google Cloud Well-Architected Framework: Financial services (FS) perspective](https://docs.cloud.google.com/architecture/framework/perspectives/fsi) provides an overview of principles and recommendations to optimize the cost of your FS workloads in Google Cloud. The recommendations in this document align with the [cost optimization pillar](https://docs.cloud.google.com/architecture/framework/cost-optimization) of the Well-Architected Framework.
 
@@ -38,11 +38,11 @@ For effective cost optimization, spend-related data must be highly visible, and 
 
 The cost optimization recommendations in this document are mapped to the following core principles:
 
-  * Identify waste by using Google Cloud tools
-  * Identify value by analyzing and enriching spend data
-  * Allocate spend to drive accountability
-  * Drive accountability and motivate engineers to take action
-  * Focus on value and TCO rather than cost
+  * [Identify waste by using Google Cloud tools](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/cost-optimization#identify-waste)
+  * [Identify value by analyzing and enriching spend data](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/cost-optimization#identify-value)
+  * [Allocate spend to drive accountability](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/cost-optimization#allocate-spend)
+  * [Drive accountability and motivate engineers to take action](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/cost-optimization#drive-accountability)
+  * [Focus on value and TCO rather than cost](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/cost-optimization#focus-value-tco)
 
 
 
@@ -71,7 +71,7 @@ The following diagram shows how you can apply the [data-information-knowledge-wi
 The preceding diagram shows how you can use the DIKW approach to refine raw cloud spending data into actionable insights and decisions that drive business value.
 
   * **Data** : In this layer, you collect raw, unprocessed streams of usage and cost data for your cloud resources. Your central FinOps team uses tools like Cloud Billing invoices, billing exports, and Cloud Monitoring to get granular, detailed data. For example, a data point could be that a VM named `app1-test-vmA` ran for 730 hours in the `us-central1` region and cost USD 70.
-  * **Information** : In this layer, your central FinOps team uses tools like Cloud Billing reports and the FinOps Hub to structure the raw data to help answer questions like "What categories of resources are people spending money on?" For example, you might find out that a total of USD 1,050 was spent on VMs of the machine type n4-standard-2 across two regions in the US.
+  * **Information** : In this layer, your central FinOps team uses tools like Cloud Billing reports and the FinOps hub to structure the raw data to help answer questions like "What categories of resources are people spending money on?" For example, you might find out that a total of USD 1,050 was spent on VMs of the machine type n4-standard-2 across two regions in the US.
   * **Knowledge** : In this layer, your central FinOps team enriches information with appropriate business context about _who_ spent money and for _what purpose_. You use mechanisms like tagging, labeling, resource hierarchy, billing accounts, and custom Looker dashboards. For example, you might determine that the `app1` testing team in the US spent USD 650 during the second week of July as part of a stress testing exercise.
   * **Wisdom** : In this layer, your product and application teams use the contextualized knowledge to assess the business value of cloud spending and to make informed, strategic decisions. Your teams might answer questions like the following: 
     * Is the USD 5,000 that was spent on a data analytics pipeline generating business value?
@@ -87,7 +87,7 @@ Start with detailed Cloud Billing data that's [exported to BigQuery](https://doc
 
 ### Visualize data through available tooling
 
-Augment the built-in Google Cloud dashboards with custom reporting by using tools like [Data Studio](https://cloud.google.com/looker/docs/studio) on top of BigQuery exports. Finance teams can build custom dashboards that contextualize cloud spend against financial metrics, regulatory reporting requirements, and business unit profitability. They can then provide a clear financial narrative for analysis and decision making by executive stakeholders.
+Augment the built-in Google Cloud dashboards with custom reporting by using tools like [Data Studio](https://docs.cloud.google.com/data-studio/welcome) on top of BigQuery exports. Finance teams can build custom dashboards that contextualize cloud spend against financial metrics, regulatory reporting requirements, and business unit profitability. They can then provide a clear financial narrative for analysis and decision making by executive stakeholders.
 
 ## Allocate spend to drive accountability
 
@@ -105,12 +105,12 @@ After you define an allocation strategy by using tags, you need to decide the le
 
 Consider the following approaches to achieve the appropriate level of cost-allocation granularity for your organization:
 
-  * Use the [project hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#projects) in Google Cloud as a natural starting point for cost allocation. Projects represent points of policy enforcement in Google Cloud. By default, IAM permissions, security policies, and cost are attributed to projects and folders. When you review cost data that's exported from Cloud Billing, you can view the folder hierarchy and the projects that are associated with the cost data. If your Google Cloud resource hierarchy reflects your organization's accountability structure for spend, then this is the simplest way to implement cost allocation.
+  * Use the [project hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#projects) in Google Cloud as a natural starting point for cost allocation. Projects represent points of policy enforcement in Google Cloud. By default, Identity and Access Management (IAM) permissions, security policies, and cost are attributed to projects and folders. When you review cost data that's exported from Cloud Billing, you can view the folder hierarchy and the projects that are associated with the cost data. If your Google Cloud resource hierarchy reflects your organization's accountability structure for spend, then this is the simplest way to implement cost allocation.
   * Use [tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview) and [labels](https://docs.cloud.google.com/compute/docs/labeling-resources) for additional granularity. They provide flexible ways to categorize resources in billing exports. Tags and labels facilitate detailed cost breakdowns by application and environment.
 
 
 
-Often, you might need to use the project hierarchy combined with tagging and labeling for effective cost allocation. Regardless of the cost-allocation approach that you choose, follow the recommendations that were described earlier for developing a robust metadata strategy: validitation, automation, and simplicity.
+Often, you might need to use the project hierarchy combined with tagging and labeling for effective cost allocation. Regardless of the cost-allocation approach that you choose, follow the recommendations that were described earlier for developing a robust metadata strategy: validity, automation, and simplicity.
 
 ## Drive accountability and motivate engineers to take action
 
@@ -159,9 +159,9 @@ Consider the following recommendations to focus on value and TCO.
 Leverage cost-optimization tools and features that are provided by Google Cloud products, such as the following:
 
   * Compute Engine: [Autoscaling](https://docs.cloud.google.com/compute/docs/autoscaler), [custom machine types](https://docs.cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type), and [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot)
-  * GKE: [Cluster autoscaler](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler) and [node auto-provisioning](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
+  * Google Kubernetes Engine: [Cluster autoscaler](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler) and [node auto-provisioning](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
   * Cloud Storage: [Object Lifecycle Management](https://docs.cloud.google.com/storage/docs/lifecycle) and [Autoclass](https://docs.cloud.google.com/storage/docs/autoclass)
-  * BigQuery: [Capacity-based pricing](https://cloud.google.com/bigquery/pricing#capacity_compute_analysis_pricing) and [cost-optimization techniques](https://docs.cloud.google.com/bigquery/docs/best-practices-costs)
+  * BigQuery: [Capacity-based pricing](https://cloud.google.com/bigquery/pricing#capacity-compute-pricing) and [cost-optimization techniques](https://docs.cloud.google.com/bigquery/docs/best-practices-costs)
   * Google Cloud VMware Engine: committed use discounts (CUDs), optimized storage, and other [cost optimization strategies](https://docs.cloud.google.com/vmware-engine/docs/best-practices-costs)
 
 
@@ -183,7 +183,7 @@ You can achieve significant savings by using CUDs on top of enterprise discounts
 In addition to CUDs, use the following approaches to reduce billing rates:
 
   * Use [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot) for fault-tolerant and flexible workloads. Spot VMs are more than 80% cheaper than regular VMs.
-  * BigQuery offers multiple pricing models, which include [on-demand pricing](https://cloud.google.com/bigquery/pricing#on_demand_pricing) and [edition-based pricing](https://docs.cloud.google.com/bigquery/docs/editions-intro) that's based on commitments and autoscaling requirements. If you use a significant volume of BigQuery resources, choose an appropriate edition to reduce the cost per slot for analytics workloads.
+  * BigQuery offers multiple pricing models, which include [on-demand pricing](https://cloud.google.com/bigquery/pricing#on-demand-compute-pricing) and [edition-based pricing](https://docs.cloud.google.com/bigquery/docs/editions-intro) that's based on commitments and autoscaling requirements. If you use a significant volume of BigQuery resources, choose an appropriate edition to reduce the cost per slot for analytics workloads.
   * Carefully evaluate the available Google Cloud regions for the services that you need to use. Choose regions that align with your cost objectives and factors like latency and compliance requirements. To understand the trade-offs between cost, sustainability, and latency, use the [Google Cloud Region Picker](https://cloud.withgoogle.com/region-picker/).
 
 
@@ -196,6 +196,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-07-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-07-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

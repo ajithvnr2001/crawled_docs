@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/quickstart/integrate-kubernetes/
 title: Connect from Google Kubernetes Engine (GKE) to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:32.974010+00:00
+fetched_at: 2026-10-29T09:51:31.710386+00:00
 ---
 
 # Connect from Google Kubernetes Engine (GKE) to AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -168,7 +168,7 @@ A Cloud Shell session opens inside a frame lower on the console. Use this shell 
             
             gcloud config set project PROJECT_ID
 
-Replace `PROJECT_ID` with your [project ID](https://support.google.com/googleapi/answer/7014113).
+Replace `PROJECT_ID` with your project ID.
 
 
 
@@ -187,7 +187,7 @@ At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.go
          
          gcloud config set project PROJECT_ID
 
-Replace `PROJECT_ID` with your [project ID](https://support.google.com/googleapi/answer/7014113).
+Replace `PROJECT_ID` with your project ID.
 
   4. Enable the Cloud APIs necessary to create and connect to AlloyDB for PostgreSQL.
          

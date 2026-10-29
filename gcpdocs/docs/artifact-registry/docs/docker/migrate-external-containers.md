@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/docker/migrate-external-containers/
 title: Migrate container images from a third-party registry \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:43:40.405721+00:00
+fetched_at: 2026-10-29T09:56:51.365095+00:00
 ---
 
 # Migrate container images from a third-party registry  |  Artifact Registry  |  Google Cloud Documentation
@@ -21,9 +21,7 @@ Send feedback
 
 #  Migrate container images from a third-party registry Stay organized with collections  Save and categorize content based on your preferences. 
 
-If you pull some container images directly from third-party registries to deploy to Google Cloud environments such as Google Kubernetes Engine or Cloud Run, then rate limits on image pulls or third-party outages can disrupt your builds and deployments. This page describes how to identify and copy those images to Artifact Registry for consolidated, consistent container image management. 
-
-Artifact Registry doesn't monitor third-party registries for updates to images you copy to Artifact Registry. If you want to incorporate a newer version of an image into your pipeline, then you must push it to Artifact Registry.
+Migrating container images from third-party registries to Artifact Registry lets you consolidate image management and avoid build or deployment disruptions from external rate limits and outages. You can identify frequently pulled images and copy them to Artifact Registry for deployments to Google Cloud environments such as Google Kubernetes Engine or Cloud Run. 
 
 ## Migration overview
 
@@ -39,6 +37,8 @@ Migration of your container images includes the following steps:
   6. Re-deploy your workloads.
 
 
+
+Artifact Registry doesn't monitor upstream registries for updates to copied images. If you want to incorporate a newer version of an image into your pipeline, you must push it to Artifact Registry.
 
 ## Before you begin
 
@@ -448,6 +448,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

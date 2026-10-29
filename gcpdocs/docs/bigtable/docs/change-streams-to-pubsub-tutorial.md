@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/change-streams-to-pubsub-tutorial/
 title: Stream changes to Pub/Sub using optional Cloud Run function trigger \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:27.165973+00:00
+fetched_at: 2026-10-29T10:19:07.852280+00:00
 ---
 
 # Stream changes to Pub/Sub using optional Cloud Run function trigger  |  Bigtable  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-2/access-control/
 title: Access control with IAM \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:22:55.212217+00:00
+fetched_at: 2026-10-29T09:46:58.470280+00:00
 ---
 
 # Access control with IAM  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -1111,6 +1111,7 @@ Role | Permissions
   * `cloudsql.instances.performDiskShrink`
   * `cloudsql.instances.preCheckMajorVersionUpgrade`
   * `cloudsql.instances.promoteReplica`
+  * `cloudsql.instances.reconcileNetworking`
   * `cloudsql.instances.reencrypt`
   * `cloudsql.instances.resetReplicaSize`
   * `cloudsql.instances.resetSslConfig`
@@ -1212,6 +1213,15 @@ Role | Permissions
   * `compute.crossSiteNetworks.get`
   * `compute.crossSiteNetworks.list`
   * `compute.crossSiteNetworks.update`
+
+`compute.dhcpOptionsConfigs.*`
+
+  * `compute.dhcpOptionsConfigs.create`
+  * `compute.dhcpOptionsConfigs.delete`
+  * `compute.dhcpOptionsConfigs.get`
+  * `compute.dhcpOptionsConfigs.list`
+  * `compute.dhcpOptionsConfigs.update`
+  * `compute.dhcpOptionsConfigs.use`
 
 `compute.diskSettings.get` `compute.diskTypes.*`
 
@@ -1577,6 +1587,11 @@ Role | Permissions
 
   * `compute.machineTypes.get`
   * `compute.machineTypes.list`
+
+`compute.managedRulesets.*`
+
+  * `compute.managedRulesets.get`
+  * `compute.managedRulesets.list`
 
 `compute.multiMig.*`
 
@@ -3473,6 +3488,7 @@ Role | Permissions
   * `cloudsql.instances.performDiskShrink`
   * `cloudsql.instances.preCheckMajorVersionUpgrade`
   * `cloudsql.instances.promoteReplica`
+  * `cloudsql.instances.reconcileNetworking`
   * `cloudsql.instances.reencrypt`
   * `cloudsql.instances.resetReplicaSize`
   * `cloudsql.instances.resetSslConfig`
@@ -3574,6 +3590,15 @@ Role | Permissions
   * `compute.crossSiteNetworks.get`
   * `compute.crossSiteNetworks.list`
   * `compute.crossSiteNetworks.update`
+
+`compute.dhcpOptionsConfigs.*`
+
+  * `compute.dhcpOptionsConfigs.create`
+  * `compute.dhcpOptionsConfigs.delete`
+  * `compute.dhcpOptionsConfigs.get`
+  * `compute.dhcpOptionsConfigs.list`
+  * `compute.dhcpOptionsConfigs.update`
+  * `compute.dhcpOptionsConfigs.use`
 
 `compute.diskSettings.get` `compute.diskTypes.*`
 
@@ -3939,6 +3964,11 @@ Role | Permissions
 
   * `compute.machineTypes.get`
   * `compute.machineTypes.list`
+
+`compute.managedRulesets.*`
+
+  * `compute.managedRulesets.get`
+  * `compute.managedRulesets.list`
 
 `compute.multiMig.*`
 
@@ -5965,6 +5995,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

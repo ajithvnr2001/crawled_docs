@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas/
 title: Generative AI on Agent Platform quotas and system limits \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:15.054004+00:00
+fetched_at: 2026-10-29T09:51:37.268162+00:00
 ---
 
 # Generative AI on Agent Platform quotas and system limits  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ This document lists the quotas and system limits that apply to Generative AI mod
 
 
 
-Google Cloud uses quotas to help ensure fairness and reduce spikes in resource use and availability. A quota restricts how much of a Google Cloud resource your Google Cloud project can use. Quotas apply to a range of resource types, including hardware, software, and network components. For example, quotas can restrict the number of API calls to a service, the number of load balancers used concurrently by your project, or the number of projects that you can create. Quotas protect the community of Google Cloud users by preventing the overloading of services. Quotas also help you to manage your own Google Cloud resources.
+Google Cloud uses quotas to help maintain fairness and reduce spikes in resource use and availability. A quota restricts how much of a Google Cloud resource your Google Cloud project can use. Quotas apply to a range of resource types, including hardware, software, and network components. For example, quotas can restrict the number of API calls to a service, the number of load balancers used concurrently by your project, or the number of projects that you can create. Quotas protect the community of Google Cloud users by preventing the overloading of services. Quotas also help you to manage your own Google Cloud resources.
 
 The Cloud Quotas system does the following:
 
@@ -158,9 +158,9 @@ If the number of tasks submitted exceeds the allocated quota, the tasks are plac
 
 
 
-## Semantic Governance Policy quotas
+## Semantic governance policy quotas
 
-The following quotas apply to [Semantic Governance Policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) for a given project in each region: 
+The following quotas apply to [Semantic governance policy](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview) for a given project in each region: 
 
 Description | Quota | Metric  
 ---|---|---  

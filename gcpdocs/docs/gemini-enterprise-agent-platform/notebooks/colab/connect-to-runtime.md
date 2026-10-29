@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/connect-to-runtime/
 title: Connect to a runtime in Colab Enterprise \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:47.867661+00:00
+fetched_at: 2026-10-29T11:06:14.590562+00:00
 ---
 
 # Connect to a runtime in Colab Enterprise  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

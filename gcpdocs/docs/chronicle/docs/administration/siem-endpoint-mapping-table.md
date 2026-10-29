@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/siem-endpoint-mapping-table/
 title: SIEM API endpoint mapping \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:03:27.741835+00:00
+fetched_at: 2026-10-29T10:25:37.426559+00:00
 ---
 
 # SIEM API endpoint mapping  |  Google Security Operations  |  Google Cloud Documentation
@@ -49,10 +49,10 @@ CuratedRule | `ListCuratedRules` | v2 | [ListCuratedRules](https://docs.cloud.go
 LegacyAlert | `UpdateAlert` | v1 | [LegacyUpdateAlert](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacy/legacyUpdateAlert) | `chronicle.googleapis.com/legacies.legacyUpdateAlert` | [LegacyUpdateAlert](https://docs.cloud.google.com/chronicle/docs/reference/parity/dai/legacy-update-alert)  
 LegacyAlert | `CreateSoarAlert` | v1 | [LegacyCreateSoarAlert](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacy/legacyCreateSoarAlert) | `chronicle.googleapis.com/legacies.legacyCreateSoarAlert` | [LegacyCreateSoarAlert](https://docs.cloud.google.com/chronicle/docs/reference/parity/dai/legacy-create-soar-alert)  
 Case | `CreateOrUpdateCase` | v1 | [LegacyCreateOrUpdateCase](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.legacy/legacyCreateOrUpdateCase) | `chronicle.googleapis.com/legacies.legacyCreateOrUpdateCase` | [LegacyCreateOrUpdateCase](https://docs.cloud.google.com/chronicle/docs/reference/parity/dai/legacy-create-or-update-case)  
-Data Export | `CancelDataExport` | v1 | [CancelDataExport](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.dataExports/cancel) | `chronicle.googleapis.com/dataExports.cancel` | —  
-Data Export | `CreateDataExport` | v1 | [CreateDataExport](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.dataExports/create) | `chronicle.googleapis.com/dataExports.create` | —  
-Data Export | `GetDataExport` | v1 | [GetDataExport](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.dataExports/get) | `chronicle.googleapis.com/dataExports.get` | —  
-Data Export | `ListAvailableLogTypes` | v1 | [FetchLogTypesAvailableForExport](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.dataExports/fetchavailablelogtypes) | `chronicle.googleapis.com/dataExports.fetchAvailableLogTypes` | —  
+Data Export | `CancelDataExport` | v1 | [CancelDataExport](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.dataExports/cancel) | `chronicle.googleapis.com/dataExports.cancel` | [CancelDataExport](https://docs.cloud.google.com/chronicle/docs/reference/parity/dataexport/cancel-data-export)  
+Data Export | `CreateDataExport` | v1 | [CreateDataExport](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.dataExports/create) | `chronicle.googleapis.com/dataExports.create` | [CreateDataExport](https://docs.cloud.google.com/chronicle/docs/reference/parity/dataexport/create-data-export)  
+Data Export | `GetDataExport` | v1 | [GetDataExport](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1/projects.locations.instances.dataExports/get) | `chronicle.googleapis.com/dataExports.get` | [GetDataExport](https://docs.cloud.google.com/chronicle/docs/reference/parity/dataexport/get-data-export)  
+Data Export | `ListAvailableLogTypes` | v1 | Not supported | — | —  
 DataTap | `CreateDataTap` | v1 | [CreateDataTap](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.dataTaps/create) | `chronicle.googleapis.com/dataTaps.create` | [CreateDataTap](https://docs.cloud.google.com/chronicle/docs/reference/parity/datatap/create-data-tap)  
 DataTap | `DeleteDataTap` | v1 | [DeleteDataTap](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.dataTaps/delete) | `chronicle.googleapis.com/dataTaps.delete` | [DeleteDataTap](https://docs.cloud.google.com/chronicle/docs/reference/parity/datatap/delete-data-tap)  
 DataTap | `GetDataTap` | v1 | [GetDataTap](https://docs.cloud.google.com/chronicle/docs/reference/rest/v1alpha/projects.locations.instances.dataTaps/get) | `chronicle.googleapis.com/dataTaps.get` | [GetDataTap](https://docs.cloud.google.com/chronicle/docs/reference/parity/datatap/get-data-tap)  
@@ -189,6 +189,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

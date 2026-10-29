@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-hw-write-rows-hbase/
 title: Insert rows using mutate (HBase) \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:33.239329+00:00
+fetched_at: 2026-10-29T10:19:08.041588+00:00
 ---
 
 # Insert rows using mutate (HBase)  |  Bigtable  |  Google Cloud Documentation

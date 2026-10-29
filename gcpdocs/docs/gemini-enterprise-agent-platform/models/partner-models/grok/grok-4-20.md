@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/grok-4-20/
 title: Grok 4.20 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:06.272337+00:00
+fetched_at: 2026-10-29T11:13:02.010226+00:00
 ---
 
 # Grok 4.20  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

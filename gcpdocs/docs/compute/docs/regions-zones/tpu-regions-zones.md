@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/regions-zones/tpu-regions-zones/
 title: TPU locations \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:33.248550+00:00
+fetched_at: 2026-10-29T09:45:18.873856+00:00
 ---
 
 # TPU locations  |  Compute Engine  |  Google Cloud Documentation
@@ -38,7 +38,7 @@ Google Cloud offers TPU resources in multiple locations worldwide. These locatio
 
 ### AI zones
 
-**Important:** When AI zone visibility is turned off, your Google Cloud project's access to AI zones is restricted. To view and access AI zones, [turn on AI zone visibility](https://docs.cloud.google.com/compute/docs/regions-zones/manage-ai-zones#turn_on_ai_zones).
+**Important:** When AI zone visibility is turned off, your Google Cloud project's access to AI zones is restricted. To view and access AI zones, [turn on AI zone visibility](https://docs.cloud.google.com/compute/docs/regions-zones/manage-ai-zones#turn_on_ai_zones). Additionally, to use an AI zone, you must have pre-reserved capacity allocated. Contact your Google Cloud account team to secure capacity in an AI zone. 
 
 In addition to standard zones, TPUs are available in AI zones. These Google Cloud locations are specifically designed to house resources for large-scale AI and machine learning workloads. AI zones offer access to TPUs, and might also offer other non-accelerator machine types to support the primary AI and machine learning workloads that run on the accelerators. To learn more about these specialized zones, see [About AI zones](https://docs.cloud.google.com/compute/docs/regions-zones/ai-zones). To view accelerator availability by zone type, use the **Select a zone type** filter.
 
@@ -88,6 +88,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

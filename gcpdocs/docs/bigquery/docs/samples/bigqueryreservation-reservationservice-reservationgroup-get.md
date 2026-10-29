@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-reservationgroup-get/
 title: Get a reservation group \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:03:07.679951+00:00
+fetched_at: 2026-10-29T10:08:55.165693+00:00
 ---
 
 # Get a reservation group  |  BigQuery  |  Google Cloud Documentation
@@ -22,6 +22,55 @@ fetched_at: 2026-10-27T23:03:07.679951+00:00
 Retrieves a specific reservation group resource from the BigQuery Reservation API by its name.
 
 ## Code sample
+
+### Java
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.reservation.v1.[GetReservationGroupRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.GetReservationGroupRequest.html);
+    import com.google.cloud.bigquery.reservation.v1.[ReservationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroup.html);
+    import com.google.cloud.bigquery.reservation.v1.[ReservationGroupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroupName.html);
+    import com.google.cloud.bigquery.reservation.v1.[ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html);
+    import java.io.IOException;
+    
+    public class GetReservationGroup {
+    
+      /**
+       * Retrieves information about a specified BigQuery reservation group. A reservation group is a
+       * container for reservations.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the reservation group (for example, "us-central1").
+       * @param reservationGroupId The ID of the reservation group to retrieve (for example,
+       *     "example-reservation-group").
+       */
+      public static void getReservationGroup(
+          String projectId, String location, String reservationGroupId) {
+        [ReservationGroupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroupName.html) name =
+            [ReservationGroupName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroupName.html).of(projectId, location, reservationGroupId);
+    
+        [GetReservationGroupRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.GetReservationGroupRequest.html) request =
+            [GetReservationGroupRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.GetReservationGroupRequest.html).newBuilder().setName(name.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroupName.html#com_google_cloud_bigquery_reservation_v1_ReservationGroupName_toString__)()).build();
+    
+        try ([ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html) client = [ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html).create()) {
+          [ReservationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroup.html) reservationGroup = client.getReservationGroup(request);
+          System.out.printf("Retrieved reservation group: %s%n", reservationGroup.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroup.html#com_google_cloud_bigquery_reservation_v1_ReservationGroup_getName__)());
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf(
+              "error: reservation group '%s' not found in location '%s' for project '%s': %s%n",
+              reservationGroupId, location, projectId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to get reservation group '%s' in location '%s' for project '%s': %s%n",
+              reservationGroupId, location, projectId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        }
+      }
+    
 
 ### Node.js
 

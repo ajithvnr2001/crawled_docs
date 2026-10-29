@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes/
 title: Prepare for upcoming authorization changes \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:50:58.789844+00:00
+fetched_at: 2026-10-29T11:12:26.239160+00:00
 ---
 
 # Prepare for upcoming authorization changes  |  Application Integration  |  Google Cloud Documentation

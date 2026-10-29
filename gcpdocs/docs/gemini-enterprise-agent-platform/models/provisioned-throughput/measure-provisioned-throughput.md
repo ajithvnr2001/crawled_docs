@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/measure-provisioned-throughput/
 title: Calculate Provisioned Throughput requirements \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:29.222412+00:00
+fetched_at: 2026-10-29T09:45:39.157598+00:00
 ---
 
 # Calculate Provisioned Throughput requirements  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

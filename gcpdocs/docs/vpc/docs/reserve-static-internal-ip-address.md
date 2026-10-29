@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/reserve-static-internal-ip-address/
 title: Reserve a static internal IP address \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T22:26:36.440558+00:00
+fetched_at: 2026-10-29T09:47:10.622653+00:00
 ---
 
 # Reserve a static internal IP address  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -182,20 +182,28 @@ Replace the following:
     * `REGION`: the region for this request.
     * `SUBNETWORK`: the subnet for this internal IP address.
     * `IPV4_ADDRESS`: the IP address to reserve, which must be within the subnet's primary IP range. If unspecified, an IP address is automatically allocated from the subnet.
-  * To reserve an internal IPv6 address, use the [`compute addresses create` command](https://docs.cloud.google.com/sdk/gcloud/reference/alpha/compute/addresses/create). Specify `IPV6` as the value for `--ip-version`:
-        
-        gcloud compute addresses create ADDRESS_NAMES \
-            --region REGION --subnet SUBNETWORK \
-            --ip-version IPV6  \
-            --addresses IPV6_ADDRESS
-        
+  * To reserve an internal IPv6 address, use the [`compute addresses create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/addresses/create).
+
+    * To automatically allocate an internal IPv6 address from a subnet, specify `IPV6` for the `--ip-version` flag:
+          
+          gcloud compute addresses create ADDRESS_NAMES \
+              --region REGION --subnet SUBNETWORK \
+              --ip-version IPV6
+          
+
+    * To reserve a specific internal IPv6 address from a subnet, specify the `--addresses` flag. Don't include the `--ip-version` flag:
+          
+          gcloud compute addresses create ADDRESS_NAMES \
+              --region REGION --subnet SUBNETWORK \
+              --addresses IPV6_ADDRESS
+          
 
 Replace the following:
 
     * `ADDRESS_NAMES`: the names of one or more addresses that you want to reserve. In case of multiple addresses, specify all the addresses as a list, separated by spaces—for example, `example-address-1 example-address-2 example-address-3`
     * `REGION`: the region for this request.
     * `SUBNETWORK`: the subnet for this internal IPv6 address.
-    * `IPV6_ADDRESS`: the IP address to reserve, which must be a `/96` IPv6 address from the subnet's `/64` internal IPv6 address range. If unspecified, an IP address is automatically allocated from the subnet.
+    * `IPV6_ADDRESS`: the IP address to reserve, which must be a `/96` IPv6 address from the subnet's `/64` internal IPv6 address range.
 
 
 
@@ -338,7 +346,9 @@ For more information, see [Assign internal IP address ranges to HA VPN gateways]
 
 ## Determine if an internal IPv4 or IPv6 address is ephemeral or static
 
-Static and ephemeral internal IP addresses behave and appear the same in most contexts. However, with static internal IP addresses, you can use the same IP address for the same resource even if you delete and re-create the resource. In general, an ephemeral IP address is released if you stop or delete the resource.
+Static and ephemeral internal IP addresses behave and appear the same in most contexts. However, with static internal IP addresses, you can use the same IP address for the same resource even if you delete and re-create the resource. 
+
+In general, an ephemeral IP address is released if you stop or delete the resource.
 
 To determine if an address is static or ephemeral, do the following:
 
@@ -634,6 +644,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-03 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-03 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

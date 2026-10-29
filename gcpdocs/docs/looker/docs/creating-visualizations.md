@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/creating-visualizations/
 title: Creating visualizations and graphs \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:13:59.880310+00:00
+fetched_at: 2026-10-29T09:49:11.965597+00:00
 ---
 
 # Creating visualizations and graphs  |  Looker  |  Google Cloud Documentation
@@ -21,73 +21,79 @@ Send feedback
 
 #  Creating visualizations and graphs Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** This page is part of the [Retrieve and chart data](https://docs.cloud.google.com/looker/docs/retrieve-and-chart-data) learning series.
+**Note:** If you're using classic Explores in Looker, see the [Classic Explore](https://docs.cloud.google.com/looker/docs/creating-visualizations-classic-explores) documentation.
 
-This page explains how to create graphics and charts, based on the results of a query, to best showcase your data. Looker keeps your query details and visualization configuration data together. When you share a query, recipients get your visualization as well as the data.
+Looker lets you create charts and graphs from your query results to visualize and present your data. Because Looker keeps your query details and visualization configuration together, sharing a query gives recipients both your visualization and the underlying data.
 
-When you're creating a visualization, it helps to understand what a _data series_ is. A data series is a set of related data points that are plotted on a chart. For example, the number of orders that are placed each day for a set of dates is a series. In a column chart, each series is represented by columns of the same color; in a line chart, each series is represented by a single line; and so on. You can see a list of the series for your chart in the **Series** tab of the **Edit** menu. The name of each data series also appears as the chart legend, if you choose to show a legend.
+A _data series_ is a set of related data points plotted on a chart, such as daily order counts over a date range. Your chart type determines how each series appears, such as same-color columns in a column chart or a single line in a line chart. You can view and customize each series in the **Style** tab of the [**Configure** panel](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores#navigating-the-explore-interface), and display series names in the chart legend.
+
+This document is part of the [Retrieve and chart data](https://docs.cloud.google.com/looker/docs/retrieve-and-chart-data) learning series.
 
 ## Quick guide
 
-You can add an eye-catching visualization to any query result set on an Explore.
+You can add an eye-catching visualization to any query result set on an Explore. Visualizations are displayed in the [**Visualization** pane](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience#navigating-the-new-explore-experience).
 
-![](https://docs.cloud.google.com/static/looker/docs/images/explore-viz-quick-guide-2408.png)
+To change the visualization type in the new Explore experience, follow these steps:
 
-  1. Create and run your query.
-  2. Open the **Visualization** tab.
-  3. Select the type of visualization that best displays your data. For more options, select `…` to the right of the displayed visualization options.
-
-![](https://docs.cloud.google.com/static/looker/docs/images/viz-options-2408.png)
-
-The visualization type that you select determines how Looker represents each data series in your chart.
-
-  4. Select **Edit** to configure the visualization option settings, such as naming and arranging chart axes, choosing the position and type of each data series, or modifying the chart color palette.
+  1. Click the add_chart **Change chart** button to open the **All chart types** menu.
+  2. Choose a chart type from the menu. Alternatively, you can click **Auto visualize** to let Looker choose the best chart option for displaying the results.
 
 
 
+The new chart type will display in the **Visualization** pane.
 
-You can further customize your visualization by specifying which dimensions and measures to include in the visualization. If your data is missing key values, you can tell Looker to fill in those values on the appropriate part of your visualization.
+**Note:** When a query is running, the visualization pane displays the three phases of the query in the [Explore query tracker](https://docs.cloud.google.com/looker/docs/query-tracker#explore_query_tracker).
+
+## Navigating visualization settings in the Style tab
+
+Once you have chosen a visualization type, you can use the [**Style** tab in the **Configure** panel](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#navigating-the-configure-panel) to edit or configure the chart settings.
+
+In the **Style** tab, the configuration options are organized into expandable sections.
+
+To view the options in each section, click the section name. To collapse the section, click the section name again.
 
 ## Customizing visualizations with chart settings
 
-You can customize a visualization to make your data more readable and to add visual styling. Select **Edit** in the **Visualization** bar to see the edit menu, and then change the settings to get a result that suits you.
+You can customize a visualization to make your data more readable and to add visual styling. Select the **Style** tab in the **Configure** panel to see the edit options, and then change the settings to get a result that suits you.
 
-Depending on the visualization type, the settings in the edit menu will change. To see the visualization options that are available for a particular visualization type, select that type on the [Visualization types](https://docs.cloud.google.com/looker/docs/visualization-types) documentation page.
+Depending on the visualization type and query, the settings in the **Style** tab will change. To see the visualization options that are available for a particular visualization type, select that type on the [Visualization types](https://docs.cloud.google.com/looker/docs/visualization-types) documentation page.
 
 ## Including multiple visualization types on a single chart
 
-Charts can include multiple types of visualizations. For example, you can create a chart that uses both lines and columns:
+Charts can include multiple types of visualizations. For example, you can create a chart that uses both lines and columns.
 
-![](https://docs.cloud.google.com/static/looker/docs/images/explore-vis-mixed-vis-types-2408.png)
+![](https://docs.cloud.google.com/static/looker/docs/images/explore-vis-mixed-vis-types-2620.png)
 
 To create a chart that includes more than one visualization type, after you have created an initial visualization, follow these steps:
 
-  1. Select the **Edit** button to show the customization options.
-  2. Select the **Series** tab.
-  3. In the **Customizations** section, an entry appears for each series in the chart. Select the arrow next to the series to display its customization options.
-  4. In the **Type** box, select the type of visualization to use for that series.
+  1. Open the **Style** tab in the **Configure** panel to show the customization options.
+  2. Expand the **Series** menu.
+  3. In the **Customizations** section, an entry appears for each series in the chart. Click the series name to expand its customization options.
+  4. In the **Type** menu, select the type of visualization to use for that series.
 
 
 
 Charts with multiple series types always layer line series and scatter series in front of area, column, and bar series.
 
-To alter the layering order of column, bar, and area series, change the series' positions in the data table and select the **Run** button. The leftmost series layers on top and the rightmost series layers on bottom.
+To alter the layering order of column, bar, and area series, change the series' positions in the data table and click the **Run to update** button. The leftmost series layers on top and the rightmost series layers on bottom.
 
 ## Creating stacked charts with multiple visualization types
 
-You can include stacked series in a chart with multiple visualization types. All series of the same type as the chart type that you selected in the **Visualization** tab will stack together; series of other types will not stack. For example, in a column chart, column series will stack, but line series will not stack.
+You can include stacked series in a chart with multiple visualization types. For example, you can create a chart that uses lines with stacked columns. All series that have the same chart type set in the **Customizations** section of the **Series** menu as the chart type that is selected for the main Explore will stack together. Series that have different chart types set in the **Customizations** section of the **Series** menu won't stack.
 
-![](https://docs.cloud.google.com/static/looker/docs/images/stacked-mixed-series-2408.png)
+For example, if you select a column chart as the Explore's chart type, all series that have a column chart set in the **Customizations** section of the **Series** menu will stack, but series that have a line chart set won't stack.
 
-To create a chart like this, follow these steps:
+![](https://docs.cloud.google.com/static/looker/docs/images/stacked-mixed-series-2620.png)
+
+To create a stacked chart with multiple visualization types, follow these steps:
 
   1. Create and run a query with multiple series. This can be done with multiple measures or with a [pivot](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#pivoting_dimensions).
-  2. From the **Visualization** tab, select a [Cartesian chart type](https://docs.cloud.google.com/looker/docs/visualization-types#cartesian_charts) (with the exception of boxplot or waterfall).
-  3. Open the **Edit** menu.
-  4. In the **Plot** tab, under **Series Positioning** , select **Stacked**. This option stacks all series as that Cartesian chart type.
-  5. In the **Series** tab, under **Customizations** , expand the series for which you want to change the chart type.
-  6. For each series that you want to change, select one of the available options in the **Type** field. You can select different chart types for each series.
-  7. By default, all series are added to the left axis. If you want to use different y-axes for the stacked series and the other series, open the **Y** tab, and drag the series that you want to change from the **Right Axes** sections to the **Left Axes** section. Alternatively, you can use multiple y-axes or x-axes.
+  2. If a [Cartesian chart type](https://docs.cloud.google.com/looker/docs/visualization-types#cartesian_charts) is not already selected for the Explore, select a Cartesian chart type in the **Change chart** menu (with the exception of boxplot or waterfall).
+  3. Open the **Style** tab in the **Configure** panel.
+  4. In the **Plot** menu, select the **Stacked** option in the **Series Positioning** section. This option stacks all series as the selected Cartesian chart type.
+  5. In the **Series** menu, under **Customizations** , expand the series for which you want to change the chart type.
+  6. For each series that you want to change, select an available chart type in the **Type** field. You can select different chart types for each series.
+  7. By default, all series are added to the left axis. If you want to use different y-axes for the stacked series and the other series, expand the **Y** menu, and drag the series that you want to change from the **Right Axes** sections to the **Left Axes** section. Alternatively, you can use multiple y-axes or x-axes.
 
 
 
@@ -95,19 +101,19 @@ To create a chart like this, follow these steps:
 
 Looker adds all dimensions and measures that are returned by a query to any visualization. Sometimes, you might not want to display every dimension or measure in the chart. There are several methods to hide fields:
 
-  1. Temporarily disable a field while viewing a visualization. This is done through the visualization's legend.
-  2. Completely hide a field from the visualization. This is done through the column gear menu in the data table.
-  3. Allow a field to remain available to the visualization but disable it by default in the visualization. This is done by editing the visualization.
+  1. Temporarily disable a field while viewing a visualization by using the visualization legend.
+  2. Completely hide a field from the visualization by using the data column more_vert [**More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-data-column-more-menu).
+  3. Allow a field to remain available to the visualization but disable it by default in the visualization by editing the visualization
 
 
 
 ### Temporarily disabling a field from a visualization
 
-To temporarily hide one or more series from a visualization, when you're viewing the visualization, select the series that you want to hide in the visualization's legend. The name of the series that you select will be grayed out in the legend, and the visualization will be updated to exclude the data from the visualization.
+When you're viewing a visualization, you can temporarily disable a series by clicking the series name in the visualization legend. The name of the series that you click will be grayed out in the legend, and the visualization will be updated to exclude that series's data from the visualization.
 
-To un-hide the series, again select the name of the series in the legend.
+To unhide the series, click the name of the series in the legend again.
 
-Hiding the series in this manner is not permanent when you're viewing the visualization in a saved Look or a dashboard.
+Using this method to hide the series is not permanent when viewing the visualization in a saved Look or a dashboard.
 
 ### Completely hiding a field from a visualization
 
@@ -115,58 +121,52 @@ Hiding the series in this manner is not permanent when you're viewing the visual
 
 To completely hide one or more fields from the visualization, follow these steps:
 
-  1. In the data table, select the gear icon at the top right corner of the column for the series that you want to hide.
-  2. Select **Hide this field from visualization**.
+  1. In the **Data** pane, select the more_vert [**More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-data-column-more-menu) in the column for the series that you want to hide.
+  2. Select **Hide field from visualization**.
 
-
-
-![](https://docs.cloud.google.com/static/looker/docs/images/visualizing-hide-fields-2320.png)
-
-**Important:** Looker doesn't re-run queries to exclude fields or values that are hidden using **Hide from Visualization**. As a result, table calculations that are based on hidden fields may display unexpected results. To hide table calculations from a visualization, see the instructions on the [Using table calculations](https://docs.cloud.google.com/looker/docs/table-calculations#using_table_calculations_in_visualizations) documentation page.
+**Important:** Looker doesn't re-run queries to exclude fields or values that are hidden using **Hide field from Visualization**. As a result, table calculations that are based on hidden fields may display unexpected results. To hide table calculations from a visualization, see the instructions on the [Using table calculations](https://docs.cloud.google.com/looker/docs/table-calculations#using_table_calculations_in_visualizations) documentation page.
 
 ### Disabling a series by default in a visualization
 
 To disable a series by default, follow these steps:
 
   1. If the visualization is a saved Look or in a dashboard tile, enter Edit mode for the dashboard tile or Look.
-  2. In the visualization's legend, click on the name or names of the series that you want to disable. When disabled, the series color turns gray in the legend and the data disappears from the chart.
+  2. In the visualization legend, click the name or names of the series that you want to disable. When disabled, the series color turns gray in the legend and the data disappears from the chart.
   3. Save your edits to make the disabled state the default.
 
 
 
-Viewers can select the series' name in the legend to temporarily re-enable it.
+Viewers can select the series name in the legend to temporarily re-enable it.
 
 ### Hiding data in a pivoted visualization
 
-When you're visualizing [pivoted Explore results](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#pivoting_dimensions), a single field is split into multiple series. For example, in the visualization that is shown in the Creating stacked charts with multiple visualization types section of this documentation page, the **Orders Count** field is split into three series: **Accessories - Orders Count** , **Dresses - Orders Count** , and **Fashion Hoodies & Sweatshirts - Orders Count**.
+When you're visualizing [pivoted Explore results](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#pivoting_dimensions), a single field is split into multiple series.
 
 Each series that is created from a pivoted field can be hidden individually using two of the same techniques that you can use on non-pivoted series, as follows:
 
-  * temporarily hiding the field
-  * disabling the series by default
+  * Temporarily hiding the field
+  * Disabling the series by default
 
 
 
-Additionally, to hide an individual series completely, you can use a gear menu option that is specific to pivoted results, **Hide this column from visualization** , which is described in the next section.
+Additionally, to hide an individual series completely, you can use a data column more_vert [**More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-data-column-more-menu) option that is specific to pivoted results, **Hide this column from visualization** , which is described in the next section.
 
-#### Using the gear menu in the data table to completely hide a series
+#### Using the data column **More** menu to completely hide a series
 
-You can use the gear menu in the data table of an Explore to hide specific columns (series) of data from a pivoted visualization.
+You can use the data column more_vert [**More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-data-column-more-menu) in the data table of an Explore to hide specific columns (series) of data from a pivoted visualization.
 
 To hide a specific column of data from a visualization, follow these steps:
 
-![](https://docs.cloud.google.com/static/looker/docs/images/pivot-hide-column-from-vis-2302.png)
-
-  1. Select the column's gear icon at the top of the column in the data table.
-  2. Choose **Hide this column from visualization** from the drop-down menu.
+  1. Select the column's more_vert **More** menu.
+  2. Choose **Hide this column from visualization**.
 
 
 
-For any column for which you have chosen this option, that data won't be displayed in the visualization, and that series won't be displayed in the legend for the visualization. However, the other series that arecreated from the parent field will still be displayed. For example, in the data that is shown here, selecting **Hide this column from visualization** for the **10 to 19 - Users Count** series, will not affect the other columns, and the other **Users Count** series will still be displayed.
+Data won't be displayed for any specific column that is hidden, including in the legend. However, the other pivoted columns that share the same underlying measure will still be displayed in the visualization.
 
-#### Using the gear menu in the data table to completely hide a field
+#### Using the data column **More** menu to completely hide a field
 
-The column gear menu in pivoted results also contains the **Hide this field from visualization** option, which is described in the Completely hiding a field from the visualization section. When you're applying this option to pivoted results, data is hidden from all columns that are created from that field, not just the individual column that you used to make the selection. In other words, every series made from the parent field is hidden. In the preceding example, all **Users Count** series would be hidden.
+The data column more_vert [**More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-data-column-more-menu) also contains the **Hide field from visualization** option for pivoted results, as described in the Completely hiding a field from the visualization section.
 
 ## Filling in missing dates and values
 
@@ -188,7 +188,7 @@ Accidents **Event Date** | Accidents **Count**
   
 If you don't use dimension fill, Looker connects the data points it has, resulting in a potentially misleading graph that doesn't show the dates for which there is no data. In this example, the graph appears to include values for the dates 2011-10-08 and 2011-10-09 even though these dates have no corresponding values in the data table.
 
-![Dates with missing values appear in the x-axis for a line chart, and the line that connects each data point runs uninterrupted, giving an impression that those dates have data values.](https://docs.cloud.google.com/static/looker/docs/images/dimension-fill-off-graph-2408.png)
+![Dates with missing values appear in the x-axis for a line chart, and the line that connects each data point runs uninterrupted, giving an impression that those dates have data values.](https://docs.cloud.google.com/static/looker/docs/images/dimension-fill-off-graph-2620.png)
 
 Turning on dimension fill adds the missing dates: 
 
@@ -210,15 +210,13 @@ Date | Value
   
 In the visualization, dates with null values are plotted as zero. This makes the graph more informative.
 
-![In the line chart, dates that do not have data are plotted as zero.](https://docs.cloud.google.com/static/looker/docs/images/dimension-fill-on-2408.png)
+![In the line chart, dates that don't have data are plotted as zero.](https://docs.cloud.google.com/static/looker/docs/images/dimension-fill-on-2620.png)
 
-To use dimension fill, select the appropriate dimension's gear menu in the Data section of an Explore. Choose the **Fill in Missing Dates** or **Fill in Missing Values** option.
+To use dimension fill, select a dimension's data column more_vert [**More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-the-data-column-more-menu) in the Explore **Data** pane. Choose the **Fill in Missing Dates** or **Fill in Missing Values** option.
 
-![](https://docs.cloud.google.com/static/looker/docs/images/dimension-fill-menu-2320.png)
+Dimension fill is available for dimensions with yes/no values, tiered values, and most date types. It can also be applied to any dimension based on a list of values, using the [`case`](https://docs.cloud.google.com/looker/docs/reference/param-field-case) or [`tier`](https://docs.cloud.google.com/looker/docs/reference/param-dimension-filter-parameter-types#tier) parameters.
 
-Dimension fill is available for dimensions with yes/no values, tiered values, and most date types. It can also be applied to any dimension based on a list of values, via the [`case`](https://docs.cloud.google.com/looker/docs/reference/param-field-case) or [`tier`](https://docs.cloud.google.com/looker/docs/reference/param-dimension-filter-parameter-types#tier) parameters.
-
-Dimension fill turns on automatically for queries that run with a single dimension and/or a single [pivot](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#pivoting_dimensions), as long as you haven't applied filters to any measures. Dimension fill can also be applied to multiple dimensions at once in a query — including pivoted dimensions — however, Looker may automatically disable dimension fill to optimize query performance if it detects that too many fields will be generated with filled values.
+Dimension fill turns on automatically for queries that run with a single dimension and/or a single [pivot](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#pivoting_data), as long as you haven't applied filters to any measures. Dimension fill can also be applied to multiple dimensions at once in a query — including pivoted dimensions — however, Looker may automatically disable dimension fill to optimize query performance if it detects that too many fields will be generated with filled values.
 
 You cannot use dimension fill in certain cases, such as the following:
 
@@ -226,27 +224,44 @@ You cannot use dimension fill in certain cases, such as the following:
 
   * When dimensions have a filter applied to them and also have a fixed number of values, such as yes/no, days of the week, days of the month, etc. Filtering against these field types eliminates the values that Looker needs to predictably and accurately fill in any missing values.
 
-  * When you are [drilling](https://docs.cloud.google.com/looker/docs/creating-visualizations#drilling_into_visualizations) into a [pivoted](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#pivoting_dimensions) dimension.
+  * When you are [drilling](https://docs.cloud.google.com/looker/docs/viewing-looks#drilling_into_a_looks_visualization) into a [pivoted](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#pivoting-data) dimension.
 
   * When Looker detects that too many rows or columns will be generated with filled values and automatically disables dimension fill to optimize query performance.
 
 
 
 
-## The visualization tooltip
+## Using the Visualization Assistant
 
-**Tip:** Starting in Looker 26.4, the **Custom Tooltip** setting lets you configure tooltips within the Explore visualization editor by using a combination of UI settings and an HTML editor that supports Liquid templating. [Learn more about custom tooltips](https://docs.cloud.google.com/looker/docs/custom-tooltips).
+The [Visualization Assistant](https://docs.cloud.google.com/looker/docs/custom-looker-visualization-gemini) lets you customize a Looker visualization by using Gemini in Looker. The Visualization Assistant includes an updated conversational panel that supports multi-turn chats, displaying compact visualization renderings at each turn, letting you iterate on your visualization customizations.
+
+To customize a visualization with the **Visualization Assistant** , follow these steps:
+
+  1. When viewing a visualization in an Explore, click the **Style** tab.
+
+  2. Click pen_spark **Visualization Assistant** to open the prompt window.
+
+![A Looker visualization with the Visualization Assistant prompt menu open.](https://docs.cloud.google.com/static/looker/docs/images/vis-asst-new-explore-2610.png)
+
+  3. In the Visualization Assistant prompt field, describe any changes that you want to make to the visualization.
+
+
+
+
+For more information about using the Visualization Assistant, see the [Create visualizations with Gemini assistance](https://docs.cloud.google.com/looker/docs/custom-looker-visualization-gemini) documentation page.
+
+## The visualization tooltip
 
 When you hover over a datapoint in a visualization, the tooltip displays the value of the selected dimensions and measures by default.
 
 ![When a user hovers their cursor over California, a tooltip is displayed with the State value California and the Total Gross Margin value $988,018.58.](https://docs.cloud.google.com/static/looker/docs/images/tooltip-default-2214.png)
 
-You can use Liquid variables in an `html` parameter to customize the information that is displayed in the tooltip. Visit the [Getting the most out of visualizations in Looker: Tooltip customization](https://docs.cloud.google.com/looker/docs/best-practices/cookbook-visualizations-tooltip-customization) cookbook for a step-by step guide and examples.
+You can use the **Custom Tooltip** setting in the **Style** tab to configure tooltips within the Explore visualization editor by using a combination of UI settings and an HTML editor that supports Liquid templating. [Learn more about custom tooltips](https://docs.cloud.google.com/looker/docs/custom-tooltips).
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

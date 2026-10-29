@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ruby/rails/using-cloudsql-postgres/
 title: Use Cloud SQL for PostgreSQL with Rails 7 on App Engine \u00a0|\u00a0 Ruby \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:50.012106+00:00
+fetched_at: 2026-10-29T10:25:37.557158+00:00
 ---
 
 # Use Cloud SQL for PostgreSQL with Rails 7 on App Engine  |  Ruby  |  Google Cloud Documentation
@@ -206,10 +206,10 @@ The command generates a model, controller, and views for the `Cat` resource.
          
          Rails.application.routes.draw do
            resources :cats
-           get 'cats/index'
+           get "cats/index"
          
            # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-           root 'cats#index'
+           root "cats#index"
          end
 
   4. Save the file and close it.
@@ -235,8 +235,8 @@ To begin using Cloud SQL with your Rails app in production:
 
 The Rails `Gemfile` contains the following additional `gem` entries:
          
-         gem "appengine", "~> 0.6"
-         gem "pg", "~> 1.2"
+         gem "appengine", "~> 0.7"
+         gem "pg", "~> 1.5"
 
 **Note:** The `appengine` gem provides a Rake task to run database migrations in production.
   2. To configure the Rails app to connect with Cloud SQL, open the `config/database.yml` file. The following boilerplate database settings for SQLite are displayed:
@@ -308,10 +308,12 @@ To configure the sample app for deployment to App Engine, create a new file name
     entrypoint: bundle exec rackup --port $PORT
     env: flex
     runtime: ruby
+    runtime_config:
+      operating_system: "ubuntu22"
 
 ### Configure the Rails secret key in the `app.yaml` file
 
-When a Rails app is deployed to the `production` environment, set the environment variable `SECRET_KEY_BASE` with a secret key to protect user session data. This environment variable is read from the `config/secrets.yml` file in your Rails app.
+When a Rails app is deployed to the `production` environment, set the `SECRET_KEY_BASE` environment variable with a secret key to protect user session data. Rails reads this environment variable in the `production` environment.
 
   1. Generate a new secret key.
          
@@ -325,6 +327,8 @@ When a Rails app is deployed to the `production` environment, set the environmen
          entrypoint: bundle exec rackup --port $PORT
          env: flex
          runtime: ruby
+         runtime_config:
+           operating_system: "ubuntu22"
          
          env_variables:
            SECRET_KEY_BASE: [SECRET_KEY]
@@ -347,6 +351,8 @@ The `app.yaml` should look similar to the following:
          entrypoint: bundle exec rackup --port $PORT
          env: flex
          runtime: ruby
+         runtime_config:
+           operating_system: "ubuntu22"
          
          env_variables:
            SECRET_KEY_BASE: [SECRET_KEY]
@@ -539,6 +545,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

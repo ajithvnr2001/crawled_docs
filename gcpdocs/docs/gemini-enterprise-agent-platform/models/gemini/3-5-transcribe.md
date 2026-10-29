@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-transcribe/
 title: Gemini 3.5 Transcribe \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:50.260389+00:00
+fetched_at: 2026-10-29T09:45:37.040829+00:00
 ---
 
 # Gemini 3.5 Transcribe  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -410,6 +410,15 @@ Versions |
     * Release date: October 2026
 
   
+Security controls | **Online prediction** | 
+
+  * Data residency 
+  * CMEK 
+  * VPC-SC 
+  * AXT 
+
+  
+See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.  
   
 Send feedback 
 

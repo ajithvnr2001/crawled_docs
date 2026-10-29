@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/introduction-prompt-design/
 title: Introduction to prompting \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:31.145288+00:00
+fetched_at: 2026-10-29T11:07:03.996404+00:00
 ---
 
 # Introduction to prompting  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

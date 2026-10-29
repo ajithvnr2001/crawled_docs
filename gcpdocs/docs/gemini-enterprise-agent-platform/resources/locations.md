@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations/
 title: Deployments and endpoints \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:26.332921+00:00
+fetched_at: 2026-10-29T09:45:15.119962+00:00
 ---
 
 # Deployments and endpoints  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -263,9 +263,9 @@ Gemini models
 `(['gemini-3.5-transcribe', 'gemini-3.5-transcribe-live'])` |   
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview    
 `(['gemini-3.5-live-translate-preview'])` |   
-[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview    
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts)   
 `(gemini-3.8-flash-tts)` |   
-[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview    
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts)   
 `(gemini-3.8-flash-lite-tts)` |   
 [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview    
 `(gemini-robotics-er-2-preview)` |   
@@ -356,9 +356,9 @@ Gemini models
 `(['gemini-3.5-transcribe', 'gemini-3.5-transcribe-live'])` |  |   
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview    
 `(['gemini-3.5-live-translate-preview'])` |  |   
-[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview    
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts)   
 `(gemini-3.8-flash-tts)` |  |   
-[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview    
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts)   
 `(gemini-3.8-flash-lite-tts)` |  |   
 [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview    
 `(gemini-robotics-er-2-preview)` |  |   
@@ -454,9 +454,9 @@ Gemini models
 `(['gemini-3.5-transcribe', 'gemini-3.5-transcribe-live'])` |  |  |  |  |  |  |   
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview    
 `(['gemini-3.5-live-translate-preview'])` |  |  |  |  |  |  |   
-[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview    
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts)   
 `(gemini-3.8-flash-tts)` |  |  |  |  |  |  |   
-[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview    
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts)   
 `(gemini-3.8-flash-lite-tts)` |  |  |  |  |  |  |   
 [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview    
 `(gemini-robotics-er-2-preview)` |  |  |  |  |  |  |   
@@ -547,9 +547,9 @@ Gemini models
 `(['gemini-3.5-transcribe', 'gemini-3.5-transcribe-live'])` |  |   
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview    
 `(['gemini-3.5-live-translate-preview'])` |  |   
-[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview    
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts)   
 `(gemini-3.8-flash-tts)` |  |   
-[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview    
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts)   
 `(gemini-3.8-flash-lite-tts)` |  |   
 [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview    
 `(gemini-robotics-er-2-preview)` |  |   
@@ -648,9 +648,9 @@ Gemini models
 `(['gemini-3.5-transcribe', 'gemini-3.5-transcribe-live'])` |  |  |  |  |  |  |  |  |  |   
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview    
 `(['gemini-3.5-live-translate-preview'])` |  |  |  |  |  |  |  |  |  |   
-[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview    
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts)   
 `(gemini-3.8-flash-tts)` |  |  |  |  |  |  |  |  |  |   
-[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview    
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts)   
 `(gemini-3.8-flash-lite-tts)` |  |  |  |  |  |  |  |  |  |   
 [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview    
 `(gemini-robotics-er-2-preview)` |  |  |  |  |  |  |  |  |  |   
@@ -746,9 +746,9 @@ Gemini models
 `(['gemini-3.5-transcribe', 'gemini-3.5-transcribe-live'])` |  |  |  |  |  |  |   
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview    
 `(['gemini-3.5-live-translate-preview'])` |  |  |  |  |  |  |   
-[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview    
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts)   
 `(gemini-3.8-flash-tts)` |  |  |  |  |  |  |   
-[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview    
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts)   
 `(gemini-3.8-flash-lite-tts)` |  |  |  |  |  |  |   
 [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview    
 `(gemini-robotics-er-2-preview)` |  |  |  |  |  |  |   
@@ -840,9 +840,9 @@ Gemini models
 `(['gemini-3.5-transcribe', 'gemini-3.5-transcribe-live'])` |  |  |   
 [Gemini 3.5 Live Translate](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-5-live-translate) preview    
 `(['gemini-3.5-live-translate-preview'])` |  |  |   
-[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) preview    
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts)   
 `(gemini-3.8-flash-tts)` |  |  |   
-[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) preview    
+[Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts)   
 `(gemini-3.8-flash-lite-tts)` |  |  |   
 [Gemini Robotics ER 2](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/robotics-er-2) preview    
 `(gemini-robotics-er-2-preview)` |  |  |   

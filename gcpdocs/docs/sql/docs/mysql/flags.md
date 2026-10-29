@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/flags/
 title: Configure database flags \u00a0|\u00a0 Cloud SQL for MySQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:36.711127+00:00
+fetched_at: 2026-10-29T08:30:06.810339+00:00
 ---
 
 # Configure database flags  |  Cloud SQL for MySQL  |  Google Cloud Documentation
@@ -1597,7 +1597,8 @@ default:
 [max_points_in_geometry](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_points_in_geometry) | `integer`  
 `3` ... ` 1048576` | No  
 [max_prepared_stmt_count](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_prepared_stmt_count) | `integer`  
-`0` ... ` 1048576` | No  
+\- MySQL 5.6 and 5.7: `0` ... `1048576`  
+\- MySQL 8.0 and later: `0` ... `4194304` | No  
 [max_seeks_for_key](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_seeks_for_key) | `integer`  
 `1` ... ` 9223372036854775807` | No  
 [max_sort_length](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_sort_length) | `integer`  
@@ -2374,12 +2375,21 @@ You can't enable this flag on instances with a shared core (less than 3 GB of RA
 For MySQL 8.0 and later instances with 12 GB to 15 GB RAM, the default value of the `performance_schema` is `on`; however, the default performance schema instruments are disabled. For more information about default performance schema instruments, see [ The setup_instruments Table (MySQL 8.0)](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-setup-instruments-table.html) or [ The setup_instruments Table (MySQL 8.4)](https://dev.mysql.com/doc/refman/8.4/en/performance-schema-setup-instruments-table.html). If you want to enable and use performance schema instruments in a 12 GB to 15 GB RAM instance, then you must **explicitly** set the `performance_schema` flag to `on` instead of deferring to the default value. For MySQL 8.0 and later instances with ≥15 GB RAM, the default value of the `performance_schema` is `on` the default performance schema instruments are enabled.
 
 event_scheduler
-     MySQL Events, also known as scheduled events, are tasks that you can schedule. Scheduled events are a group of one or more SQL statements that are set to execute at one or more specified intervals. The default value for MySQL 5.7 is `OFF` and the default value for MySQL 8.0 is `ON`. To learn more about the `event_scheduler` flag, see [ event_scheduler](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler). If the `event_scheduler` flag is set to `ON` for a read replica, it can cause errors based on the type of statements defined in the events: 
+    
 
-  * If your scheduled event is a `write` event on a read replica, it causes an error as read replicas are read-only. See [Read Replicas](https://docs.cloud.google.com/sql/docs/mysql/replication#read-replicas) for more information. 
-  * If your scheduled event contains a stop operation, such as `kill`, `event_scheduler` applies it to the replica. This stops the replication and delete the replica. 
+MySQL Events, also known as scheduled events, are tasks that you can schedule. Scheduled events are a group of one or more SQL statements that are set to execute at one or more specified intervals. The default value for MySQL 5.7 is `OFF`, and the default value for MySQL 8.0 and later is `ON`. Cloud SQL doesn't allow enabling this flag on read replicas, where it defaults to `OFF`. To learn more about the `event_scheduler` flag, see [ event_scheduler](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_event_scheduler).
 
-To avoid such errors, set the `event_scheduler` flag to `OFF` when creating replicas. For more information on how to enable or disable `event_scheduler`, see [Configure database flags](https://docs.cloud.google.com/sql/docs/mysql/flags#config). 
+If the `event_scheduler` flag is set to `ON` for a read replica, it can cause errors based on the type of statements defined in the events:
+
+  * If your scheduled event is a `write` event on a read replica, then it causes an error because read replicas are read-only. For more information, see [Read replicas](https://docs.cloud.google.com/sql/docs/mysql/replication#read-replicas). 
+  * If your scheduled event contains a stop operation, such as `kill`, then `event_scheduler` applies it to the replica. This stops replication and deletes the replica. 
+
+
+
+To avoid such errors, Cloud SQL ensures that the `event_scheduler` flag is set to `OFF` on read replicas. If a read replica is promoted to a primary instance, this restriction is removed.
+
+For more information on how to configure `event_scheduler`, see [Configure database flags](https://docs.cloud.google.com/sql/docs/mysql/flags#config).
+
 replica_skip_errors,slave_skip_errors
      Setting the `replica_skip_errors` or the `slave_skip_errors` flag can cause replication issues. In general, if an error occurs while executing a statement, the replication is stopped. Using this flag will cause the error to be skipped and replication to continue, leading to inconsistency between the primary instance and replica. This can also make it harder to troubleshoot replication issues. Cloud SQL recommends only using this flag if necessary. If you are experiencing replication errors, see the [Troubleshooting Cloud SQL: Replication](https://docs.cloud.google.com/sql/docs/troubleshooting#replication) page for more information on how to resolve this issue. 
 character_set_client  
@@ -2564,6 +2574,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

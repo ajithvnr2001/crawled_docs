@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/use-bigtable-spark-connector/
 title: Use the Bigtable Spark connector \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:26.397844+00:00
+fetched_at: 2026-10-29T10:18:53.784502+00:00
 ---
 
 # Use the Bigtable Spark connector  |  Google Cloud Documentation

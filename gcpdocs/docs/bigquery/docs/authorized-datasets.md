@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/authorized-datasets/
 title: Authorized datasets \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:54:00.114383+00:00
+fetched_at: 2026-10-29T09:56:38.241408+00:00
 ---
 
 # Authorized datasets  |  BigQuery  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Authorized datasets
 
-This document describes how to use _authorized datasets_ in BigQuery. An authorized dataset lets you authorize all of the views in a specified dataset to access the data in a second dataset. With an authorized dataset, you don't need to configure individual [authorized views](https://docs.cloud.google.com/bigquery/docs/authorized-views).
+In BigQuery, an _authorized dataset_ lets you authorize all views in a specified dataset to have access to the data in a second dataset. With an authorized dataset, you don't need to configure individual [authorized views](https://docs.cloud.google.com/bigquery/docs/authorized-views).
 
 ## Overview
 
@@ -346,6 +346,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/iam-permissions/
 title: Gemini Enterprise Agent Platform IAM permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:49.364051+00:00
+fetched_at: 2026-10-29T11:12:53.093379+00:00
 ---
 
 # Gemini Enterprise Agent Platform IAM permissions  |  Google Cloud Documentation

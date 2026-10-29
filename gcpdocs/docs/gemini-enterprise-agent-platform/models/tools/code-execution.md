@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/code-execution/
 title: Code execution \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:28.923468+00:00
+fetched_at: 2026-10-29T09:45:47.061428+00:00
 ---
 
 # Code execution  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

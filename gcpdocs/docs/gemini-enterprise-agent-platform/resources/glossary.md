@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/glossary/
 title: Generative AI glossary \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:09.880198+00:00
+fetched_at: 2026-10-29T11:12:53.237353+00:00
 ---
 
 # Generative AI glossary  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

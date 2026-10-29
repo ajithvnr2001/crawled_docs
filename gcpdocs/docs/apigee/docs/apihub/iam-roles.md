@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/apihub/iam-roles/
 title: Predefined IAM roles \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:22:34.881309+00:00
+fetched_at: 2026-10-29T09:51:18.623941+00:00
 ---
 
 # Predefined IAM roles  |  Apigee  |  Google Cloud Documentation
@@ -96,6 +96,11 @@ Role | Permissions
   * `apihub.externalApis.get`
   * `apihub.externalApis.list`
   * `apihub.externalApis.update`
+  * `apihub.generatedSpecApis.associate`
+  * `apihub.generatedSpecApis.get`
+  * `apihub.generatedSpecApis.list`
+  * `apihub.generatedSpecApis.retrieveBoostedSpecView`
+  * `apihub.generatedSpecApis.retrieveGeneratedSpecView`
   * `apihub.hostProjectRegistrations.create`
   * `apihub.hostProjectRegistrations.delete`
   * `apihub.hostProjectRegistrations.get`
@@ -231,6 +236,14 @@ Role | Permissions
   * `apihub.externalApis.list`
   * `apihub.externalApis.update`
 
+`apihub.generatedSpecApis.*`
+
+  * `apihub.generatedSpecApis.associate`
+  * `apihub.generatedSpecApis.get`
+  * `apihub.generatedSpecApis.list`
+  * `apihub.generatedSpecApis.retrieveBoostedSpecView`
+  * `apihub.generatedSpecApis.retrieveGeneratedSpecView`
+
 `apihub.hostProjectRegistrations.get` `apihub.hostProjectRegistrations.list` `apihub.llmEnablements.*`
 
   * `apihub.llmEnablements.deregister`
@@ -271,7 +284,7 @@ Role | Permissions
   * `apihub.discoveredApiOperations.get`
   * `apihub.discoveredApiOperations.list`
 
-`apihub.externalApis.get` `apihub.externalApis.list` `apihub.hostProjectRegistrations.get` `apihub.hostProjectRegistrations.list` `apihub.llmEnablements.get` `apihub.llmEnablements.list` `apihub.locations.searchResources` `apihub.operations.get` `apihub.operations.list` `apihub.plugininstances.get` `apihub.plugininstances.list` `apihub.plugins.get` `apihub.plugins.list` `apihub.runTimeProjectAttachments.get` `apihub.runTimeProjectAttachments.list` `apihub.specs.get` `apihub.specs.list` `apihub.specs.listAll` `apihub.styleGuides.get` `apihub.versions.get` `apihub.versions.list` `apihub.versions.listAll` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+`apihub.externalApis.get` `apihub.externalApis.list` `apihub.generatedSpecApis.get` `apihub.generatedSpecApis.list` `apihub.generatedSpecApis.retrieveBoostedSpecView` `apihub.generatedSpecApis.retrieveGeneratedSpecView` `apihub.hostProjectRegistrations.get` `apihub.hostProjectRegistrations.list` `apihub.llmEnablements.get` `apihub.llmEnablements.list` `apihub.locations.searchResources` `apihub.operations.get` `apihub.operations.list` `apihub.plugininstances.get` `apihub.plugininstances.list` `apihub.plugins.get` `apihub.plugins.list` `apihub.runTimeProjectAttachments.get` `apihub.runTimeProjectAttachments.list` `apihub.specs.get` `apihub.specs.list` `apihub.specs.listAll` `apihub.styleGuides.get` `apihub.versions.get` `apihub.versions.list` `apihub.versions.listAll` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 #### Cloud API hub Addons Admin 
 
@@ -413,6 +426,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

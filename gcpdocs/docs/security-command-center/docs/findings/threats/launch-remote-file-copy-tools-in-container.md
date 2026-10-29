@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/findings/threats/launch-remote-file-copy-tools-in-container/
 title: Exfiltration: Launch Remote File Copy Tools in Container \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:33.207022+00:00
+fetched_at: 2026-10-29T10:18:36.533245+00:00
 ---
 
 # Exfiltration: Launch Remote File Copy Tools in Container  |  Security Command Center  |  Google Cloud Documentation

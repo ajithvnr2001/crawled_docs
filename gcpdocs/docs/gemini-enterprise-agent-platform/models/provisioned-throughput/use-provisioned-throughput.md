@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/use-provisioned-throughput/
 title: Use Provisioned Throughput \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:29.060175+00:00
+fetched_at: 2026-10-29T11:12:14.839728+00:00
 ---
 
 # Use Provisioned Throughput  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

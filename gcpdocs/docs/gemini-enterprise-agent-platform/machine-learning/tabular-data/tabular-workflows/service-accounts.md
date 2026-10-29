@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/service-accounts/
 title: Service accounts for Tabular Workflows \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:58.770699+00:00
+fetched_at: 2026-10-29T11:08:54.155718+00:00
 ---
 
 # Service accounts for Tabular Workflows  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

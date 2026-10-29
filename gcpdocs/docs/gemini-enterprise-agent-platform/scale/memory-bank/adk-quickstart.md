@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/adk-quickstart/
 title: Memory Bank quickstart with ADK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:27.054840+00:00
+fetched_at: 2026-10-29T09:57:51.985370+00:00
 ---
 
 # Memory Bank quickstart with ADK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

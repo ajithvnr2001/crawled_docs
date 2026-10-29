@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-authorized-views/
 title: Create an authorized view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:22:59.164224+00:00
+fetched_at: 2026-10-29T09:56:37.274129+00:00
 ---
 
 # Create an authorized view  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback
 
 #  Create an authorized view Stay organized with collections  Save and categorize content based on your preferences. 
 
-In this tutorial, you create an authorized view in BigQuery that is used by your data analysts. [Authorized views](https://docs.cloud.google.com/bigquery/docs/authorized-views) let you share query results with particular users and groups without giving them access to the underlying source data. The view is given access to the source data instead of a user or group. You can also use the view's SQL query to exclude columns and fields from the query results.
+In this tutorial, you create [an authorized view in BigQuery](https://docs.cloud.google.com/bigquery/docs/authorized-views), which your data analysts can use to analyze query results without needing access to the underlying source data.
 
-An alternative approach to using an authorized view would be to set up column-level access controls on the source data and then give your users access to a view that queries the access-controlled data. For more information on column-level access controls, see [Introduction to column-level access control](https://docs.cloud.google.com/bigquery/docs/column-level-security-intro).
-
-If you have multiple authorized views that access the same source dataset, you can [authorize the dataset](https://docs.cloud.google.com/bigquery/docs/authorized-datasets) that contains the views instead of authorizing an individual view.
+You do this by creating the authorized view from a SQL query that restricts the columns that your data analysts can see in the query results.
 
 ## Objectives
 
@@ -827,6 +825,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/destination-bigquery/
 title: BigQuery destination \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:19:56.326305+00:00
+fetched_at: 2026-10-29T11:06:06.083717+00:00
 ---
 
 # BigQuery destination  |  Datastream  |  Google Cloud Documentation

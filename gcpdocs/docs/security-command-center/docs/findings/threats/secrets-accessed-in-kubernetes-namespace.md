@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/findings/threats/secrets-accessed-in-kubernetes-namespace/
 title: Credential Access: Secrets Accessed in Kubernetes Namespace \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:35.010839+00:00
+fetched_at: 2026-10-29T10:18:36.125620+00:00
 ---
 
 # Credential Access: Secrets Accessed in Kubernetes Namespace  |  Security Command Center  |  Google Cloud Documentation

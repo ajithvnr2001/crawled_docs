@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/use/
 title: Tune Gemini models by using preference tuning \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:38.443124+00:00
+fetched_at: 2026-10-29T09:56:26.639652+00:00
 ---
 
 # Tune Gemini models by using preference tuning  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -92,7 +92,7 @@ Before using any of the request data, make the following replacements:
   * LEARNING_RATE_MULTIPLIER: Optional: A multiplier to apply to the recommended learning rate. Leave it unset to use the [recommended value.](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/tuning#supervisedtuningspec)
   * EXPORT_LAST_CHECKPOINT_ONLYOptional: Set to `true` to use only the latest checkpoint.
   * TUNED_MODEL_DISPLAYNAMEOptional: A display name for the tuned model. If not set, a random name is generated.
-  * KMS_KEY_NAMEOptional: The Cloud KMS resource identifier of the customer-managed encryption key used to protect a resource. The key has the format: `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`. The key needs to be in the same region as where the compute resource is created. For more information, see [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek).
+  * KMS_KEY_NAMEOptional: The Cloud Key Management Service resource identifier of the customer-managed encryption key used to protect a resource. The key has the format: `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`. The key needs to be in the same region as where the compute resource is created. For more information, see [Customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/cmek).
   * SERVICE_ACCOUNTOptional: The service account that the tuningJob workload runs as. If not specified, the Agent Platform Secure Fine-Tuning Service Agent in the project is used. See [Tuning Service Agent](https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-account). If you plan to use a customer-managed Service Account, you must grant the `roles/aiplatform.tuningServiceAgent` role to the service account. Also grant the [Tuning Service Agent](https://cloud.google.com/iam/docs/service-agents#vertex-ai-secure-fine-tuning-service-account) `roles/iam.serviceAccountTokenCreator` role to the customer-managed Service Account.
 
 

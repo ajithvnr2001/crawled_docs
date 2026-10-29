@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/ml-metadata/configure/
 title: Configure your project's metadata store \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:19.653903+00:00
+fetched_at: 2026-10-29T09:56:23.522970+00:00
 ---
 
 # Configure your project's metadata store  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ Before using any of the request data, make the following replacements:
 
      * LOCATION_ID: Your region.
      * PROJECT_ID: Your [project ID](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects#identifiers). .
-     * KEY_RING: The name of the Cloud Key Management Service key ring that your encryption key is on. 
+     * KEY_RING: The name of the Cloud KMS key ring that your encryption key is on. 
      * KEY_NAME: The name of the encryption key that you want to use for this metadata store.
 
 HTTP method and URL: 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-references/
 title: Generate videos from references \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:24.426813+00:00
+fetched_at: 2026-10-29T09:45:48.978304+00:00
 ---
 
 # Generate videos from references  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

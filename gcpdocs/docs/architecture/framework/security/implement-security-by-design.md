@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/security/implement-security-by-design/
 title: Implement security by design \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:40:31.480643+00:00
+fetched_at: 2026-10-29T09:46:44.024009+00:00
 ---
 
 # Implement security by design  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,16 +19,16 @@ Send feedback
 
 #  Implement security by design Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-02-05 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the security pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to incorporate robust security features, controls, and practices into the design of your cloud applications, services, and platforms. From ideation to operations, security is more effective when it's embedded as an integral part of every stage of your design process.
 
 ## Principle overview
 
-As explained in [An Overview of Google's Commitment to Secure by Design](https://static.googleusercontent.com/media/publicpolicy.google/en//resources/google_commitment_secure_by_design_overview.pdf), _secure by default_ and _secure by design_ are often used interchangeably, but they represent distinct approaches to building secure systems. Both approaches aim to minimize vulnerabilities and enhance security, but they differ in scope and implementation:
+As explained in [An Overview of Google's Commitment to Secure by Design](https://www.gstatic.com/marketing-cms/11/e0/118ff81e494eac8a5eff45ffc3ab/google-commitment-secure-by-design-overview.pdf), _secure by default_ and _secure by design_ are often used interchangeably, but they represent distinct approaches to building secure systems. Both approaches aim to minimize vulnerabilities and enhance security, but they differ in scope and implementation:
 
-  * **Secure by default** : focuses on ensuring that a system's default settings are set to a secure mode, minimizing the need for users or administrators to take actions to secure the system. This approach aims to provide a baseline level of security for all users.
-  * **Secure by design** : emphasizes proactively incorporating security considerations throughout a system's development lifecycle. This approach is about anticipating potential threats and vulnerabilities early and making design choices that mitigate risks. This approach involves using secure coding practices, conducting security reviews, and embedding security throughout the design process. The secure-by-design approach is an overarching philosophy that guides the development process and helps to ensure that security isn't an afterthought but is an integral part of a system's design.
+  * **Secure by default** : Focuses on ensuring that a system's default settings are set to a secure mode, which minimizes the need for users or administrators to take actions to secure the system. This approach aims to provide a baseline level of security for all users.
+  * **Secure by design** : Emphasizes proactively incorporating security considerations throughout a system's development lifecycle. This approach is about anticipating potential threats and vulnerabilities early and making design choices that mitigate risks. This approach involves using secure coding practices, conducting security reviews, and embedding security throughout the design process. The secure-by-design approach is an overarching philosophy that guides the development process and helps to ensure that security isn't an afterthought but is an integral part of a system's design.
 
 
 
@@ -36,10 +36,10 @@ As explained in [An Overview of Google's Commitment to Secure by Design](https:/
 
 To implement the secure by design principle for your cloud workloads, consider the recommendations in the following sections:
 
-  * Choose system components that help to secure your workloads
-  * Build a layered security approach
-  * Use hardened and attested infrastructure and services
-  * Encrypt data at rest and in transit
+  * [Choose system components that help to secure your workloads](https://docs.cloud.google.com/architecture/framework/security/implement-security-by-design#choose-system-components)
+  * [Build a layered security approach](https://docs.cloud.google.com/architecture/framework/security/implement-security-by-design#build_a_layered_security_approach)
+  * [Use hardened and attested infrastructure and services](https://docs.cloud.google.com/architecture/framework/security/implement-security-by-design#use_hardened_and_attested_infrastructure_and_services)
+  * [Encrypt data at rest and in transit](https://docs.cloud.google.com/architecture/framework/security/implement-security-by-design#encrypt_data_at_rest_and_in_transit)
 
 
 
@@ -80,7 +80,7 @@ When you design the security layers, perform a risk assessment to determine the 
 
 When you perform the risk assessment, remember that you have a shared responsibility arrangement with your cloud provider. Therefore, your risks in a cloud environment differ from your risks in an on-premises environment. For example, in an on-premises environment, you need to mitigate vulnerabilities to your hardware stack. In contrast, in a cloud environment, the cloud provider bears these risks. Also, remember that the boundaries of shared responsibilities differ between IaaS, PaaS, and SaaS services for each cloud provider.
 
-After you identify potential risks, you must design and create a mitigation plan that uses technical, administrative, and operational controls, as well as contractual protections and third-party attestations. In addition, a threat modeling method, such as the [OWASP application threat modeling method](https://owasp.org/www-project-threat-modeling/), helps you to identify potential gaps and suggest actions to address the gaps.
+After you identify potential risks, you must design and create a mitigation plan that uses technical, administrative, and operational controls, as well as contractual protections and third-party attestations. In addition, a threat modeling method, such as the [OWASP application threat modeling method](https://community.owasp.org/Threat_Modeling), helps you to identify potential gaps and suggest actions to address the gaps.
 
 ### Use hardened and attested infrastructure and services
 
@@ -90,7 +90,7 @@ A mature security program mitigates new vulnerabilities as described in security
 
 If you use custom images for your Compute Engine VMs, you need to patch the images yourself. Alternatively, you can use Google-provided [curated OS images](https://docs.cloud.google.com/compute/docs/images), which are patched regularly. To run containers on Compute Engine VMs, use Google-curated [Container-optimized OS images](https://docs.cloud.google.com/container-optimized-os/docs). Google regularly patches and updates these images.
 
-If you use GKE, we recommend that you enable [node auto-upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades) so that Google updates your cluster nodes with the latest patches. Google manages GKE control planes, which are automatically updated and patched. To further reduce the attack surface of your containers, you can use [distroless images](https://github.com/GoogleContainerTools/distroless). Distroless images are ideal for security-sensitive applications, microservices, and situations where minimizing the image size and attack surface is paramount.
+If you use Google Kubernetes Engine (GKE), we recommend that you enable [node auto-upgrades](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades) so that Google updates your cluster nodes with the latest patches. Google manages GKE control planes, which are automatically updated and patched. To further reduce the attack surface of your containers, you can use [distroless images](https://github.com/GoogleContainerTools/distroless). Distroless images are ideal for security-sensitive applications, microservices, and situations where minimizing the image size and attack surface is paramount.
 
 For sensitive workloads, use [Shielded VM](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm), which prevents malicious code from being loaded during the VM boot cycle. Shielded VM instances provide boot security, monitor integrity, and use the [Virtual Trusted Platform Module (vTPM)](https://docs.cloud.google.com/compute/shielded-vm/docs/shielded-vm#vtpm).
 
@@ -98,7 +98,7 @@ To help secure SSH access, [OS Login](https://docs.cloud.google.com/compute/docs
 
 In GKE, application instances run within Docker containers. To enable a defined risk profile and to restrict employees from making changes to containers, ensure that your containers are stateless and immutable. The immutability principle means that your employees don't modify the container or access it interactively. If the container must be changed, you build a new image and redeploy that image. Enable SSH access to the underlying containers only in specific debugging scenarios.
 
-To help globally secure configurations across your environment, you can use [organization policies](https://docs.cloud.google.com/resource-manager/docs/organization-policy/overview) to set constraints or guardrails on resources that affect the behavior of your cloud assets. For example, you can define the following organization policies and apply them either globally across a Google Cloud organization or selectively at the level of a folder or project:
+To help globally secure configurations across your environment, you can use [organization policies](https://docs.cloud.google.com/organization-policy/overview) to set constraints or guardrails on resources that affect the behavior of your cloud assets. For example, you can define the following organization policies and apply them either globally across a Google Cloud organization or selectively at the level of a folder or project:
 
   * Disable external IP address allocation to VMs.
   * Restrict resource creation to specific geographical locations.
@@ -119,7 +119,7 @@ Data encryption is a foundational control to protect sensitive information, and 
 
 By default, Google Cloud [encrypts customer data that's stored at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption), with no action required from you. In addition to default encryption, Google Cloud provides options for envelope encryption and encryption key management. You must identify the solutions that best fit your requirements for key generation, storage, and rotation, whether you're choosing the keys for your storage, for compute, or for big data workloads. For example, [Customer-managed encryption keys (CMEKs)](https://docs.cloud.google.com/kms/docs/cmek) can be created in [Cloud Key Management Service (Cloud KMS)](https://docs.cloud.google.com/kms/docs/kms-autokey). The CMEKs can be either software-based or [HSM-protected](https://docs.cloud.google.com/kms/docs/hsm) to meet your regulatory or compliance requirements, such as the need to rotate encryption keys regularly. Cloud KMS Autokey lets you automate the provisioning and assignment of CMEKs. In addition, you can bring your own keys that are sourced from a third-party key management system by using [Cloud External Key Manager (Cloud EKM)](https://docs.cloud.google.com/kms/docs/ekm).
 
-We strongly recommend that data be encrypted in-transit. [Google encrypts and authenticates data in transit](https://docs.cloud.google.com/docs/security/encryption-in-transit) at one or more network layers when data moves outside physical boundaries that aren't controlled by Google or on behalf of Google. All VM-to-VM traffic within a VPC network and between peered VPC networks is encrypted. You can use [MACsec](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/macsec-overview) for encryption of traffic over Cloud Interconnect connections. IPsec provides encryption for traffic over [Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview) connections. You can protect application-to-application traffic in the cloud by using security features like [TLS and mTLS configurations in Apigee](https://docs.cloud.google.com/apigee/docs/hybrid/v1.14/ingress-tls) and [Cloud Service Mesh](https://cloud.google.com/products/service-mesh) for containerized applications.
+We strongly recommend that data be encrypted in-transit. [Google encrypts and authenticates data in transit](https://docs.cloud.google.com/docs/security/encryption-in-transit) at one or more network layers when data moves outside physical boundaries that aren't controlled by Google or on behalf of Google. All VM-to-VM traffic within a VPC network and between peered VPC networks is encrypted. You can use [MACsec](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/macsec-overview) for encryption of traffic over Cloud Interconnect connections. IPsec provides encryption for traffic over [Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview) connections. You can protect application-to-application traffic in the cloud by using security features like [TLS and mTLS configurations in Apigee](https://docs.cloud.google.com/apigee/docs/hybrid/latest/ingress-tls) and [Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/overview) for containerized applications.
 
 By default, Google Cloud encrypts data at rest and data in transit across the network. However, data isn't encrypted by default while it's in use in memory. If your organization handles confidential data, you need to mitigate any threats that undermine the confidentiality and integrity of either the application or the data in system memory. To mitigate these threats, you can use Confidential Computing, which provides a trusted execution environment for your compute workloads. For more information, see [Confidential VM overview](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/confidential-vm-overview).
 
@@ -131,6 +131,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-02-05 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-02-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

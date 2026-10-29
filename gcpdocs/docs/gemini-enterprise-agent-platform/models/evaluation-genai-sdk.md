@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-genai-sdk/
 title: Tutorial: Perform evaluation using the GenAI Client in Agent Platform SDK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:28.284397+00:00
+fetched_at: 2026-10-29T11:12:58.983772+00:00
 ---
 
 # Tutorial: Perform evaluation using the GenAI Client in Agent Platform SDK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

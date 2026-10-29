@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/xdit/
 title: Serve Diffusion Transformer models using xDiT container on Cloud GPUs \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:31.897243+00:00
+fetched_at: 2026-10-29T11:06:46.663526+00:00
 ---
 
 # Serve Diffusion Transformer models using xDiT container on Cloud GPUs  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/custom-roles-permissions-support/
 title: Support levels for permissions in custom roles \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:54:36.935863+00:00
+fetched_at: 2026-10-29T09:47:24.348025+00:00
 ---
 
 # Support levels for permissions in custom roles  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -1166,6 +1166,11 @@ Permission name | Custom roles support level
 `apihub.externalApis.get` | `SUPPORTED`  
 `apihub.externalApis.list` | `SUPPORTED`  
 `apihub.externalApis.update` | `SUPPORTED`  
+`apihub.generatedSpecApis.associate` | `SUPPORTED`  
+`apihub.generatedSpecApis.get` | `SUPPORTED`  
+`apihub.generatedSpecApis.list` | `SUPPORTED`  
+`apihub.generatedSpecApis.retrieveBoostedSpecView` | `SUPPORTED`  
+`apihub.generatedSpecApis.retrieveGeneratedSpecView` | `SUPPORTED`  
 `apihub.hostProjectRegistrations.create` | `SUPPORTED`  
 `apihub.hostProjectRegistrations.delete` | `SUPPORTED`  
 `apihub.hostProjectRegistrations.get` | `SUPPORTED`  
@@ -4307,6 +4312,7 @@ Permission name | Custom roles support level
 `cloudsql.instances.performDiskShrink` | `SUPPORTED`  
 `cloudsql.instances.preCheckMajorVersionUpgrade` | `SUPPORTED`  
 `cloudsql.instances.promoteReplica` | `SUPPORTED`  
+`cloudsql.instances.reconcileNetworking` | `SUPPORTED`  
 `cloudsql.instances.reencrypt` | `SUPPORTED`  
 `cloudsql.instances.resetReplicaSize` | `SUPPORTED`  
 `cloudsql.instances.resetSslConfig` | `SUPPORTED`  
@@ -4704,6 +4710,12 @@ Permission name | Custom roles support level
 `compute.crossSiteNetworks.get` | `SUPPORTED`  
 `compute.crossSiteNetworks.list` | `SUPPORTED`  
 `compute.crossSiteNetworks.update` | `SUPPORTED`  
+`compute.dhcpOptionsConfigs.create` | `SUPPORTED`  
+`compute.dhcpOptionsConfigs.delete` | `SUPPORTED`  
+`compute.dhcpOptionsConfigs.get` | `SUPPORTED`  
+`compute.dhcpOptionsConfigs.list` | `SUPPORTED`  
+`compute.dhcpOptionsConfigs.update` | `SUPPORTED`  
+`compute.dhcpOptionsConfigs.use` | `SUPPORTED`  
 `compute.diskSettings.get` | `SUPPORTED`  
 `compute.diskSettings.update` | `SUPPORTED`  
 `compute.diskTypes.get` | `SUPPORTED`  
@@ -5545,19 +5557,19 @@ Permission name | Custom roles support level
 `compute.sslCertificates.list` | `SUPPORTED`  
 `compute.sslCertificates.listEffectiveTags` | `SUPPORTED`  
 `compute.sslCertificates.listTagBindings` | `SUPPORTED`  
-`compute.sslPolicies.create` | `TESTING`  
+`compute.sslPolicies.create` | `SUPPORTED`  
 `compute.sslPolicies.createTagBinding` | `SUPPORTED`  
-`compute.sslPolicies.delete` | `TESTING`  
+`compute.sslPolicies.delete` | `SUPPORTED`  
 `compute.sslPolicies.deleteTagBinding` | `SUPPORTED`  
-`compute.sslPolicies.get` | `TESTING`  
+`compute.sslPolicies.get` | `SUPPORTED`  
 `compute.sslPolicies.getIamPolicy` | `SUPPORTED`  
-`compute.sslPolicies.list` | `TESTING`  
-`compute.sslPolicies.listAvailableFeatures` | `TESTING`  
+`compute.sslPolicies.list` | `SUPPORTED`  
+`compute.sslPolicies.listAvailableFeatures` | `SUPPORTED`  
 `compute.sslPolicies.listEffectiveTags` | `SUPPORTED`  
 `compute.sslPolicies.listTagBindings` | `SUPPORTED`  
 `compute.sslPolicies.setIamPolicy` | `SUPPORTED`  
-`compute.sslPolicies.update` | `TESTING`  
-`compute.sslPolicies.use` | `TESTING`  
+`compute.sslPolicies.update` | `SUPPORTED`  
+`compute.sslPolicies.use` | `SUPPORTED`  
 `compute.storagePools.create` | `SUPPORTED`  
 `compute.storagePools.createTagBinding` | `SUPPORTED`  
 `compute.storagePools.delete` | `SUPPORTED`  
@@ -6789,17 +6801,25 @@ Permission name | Custom roles support level
 `dataconnectors.operations.list` | `SUPPORTED`  
 `dataflow.jobs.cancel` | `SUPPORTED`  
 `dataflow.jobs.create` | `SUPPORTED`  
+`dataflow.jobs.createTagBinding` | `SUPPORTED`  
+`dataflow.jobs.deleteTagBinding` | `SUPPORTED`  
 `dataflow.jobs.get` | `SUPPORTED`  
 `dataflow.jobs.list` | `SUPPORTED`  
+`dataflow.jobs.listEffectiveTags` | `SUPPORTED`  
+`dataflow.jobs.listTagBindings` | `SUPPORTED`  
 `dataflow.jobs.snapshot` | `SUPPORTED`  
 `dataflow.jobs.updateContents` | `SUPPORTED`  
 `dataflow.messages.list` | `SUPPORTED`  
 `dataflow.metrics.get` | `SUPPORTED`  
 `dataflow.shuffle.read` | `SUPPORTED`  
 `dataflow.shuffle.write` | `SUPPORTED`  
+`dataflow.snapshots.createTagBinding` | `SUPPORTED`  
 `dataflow.snapshots.delete` | `SUPPORTED`  
+`dataflow.snapshots.deleteTagBinding` | `SUPPORTED`  
 `dataflow.snapshots.get` | `SUPPORTED`  
 `dataflow.snapshots.list` | `SUPPORTED`  
+`dataflow.snapshots.listEffectiveTags` | `SUPPORTED`  
+`dataflow.snapshots.listTagBindings` | `SUPPORTED`  
 `dataflow.streamingWorkItems.ImportState` | `SUPPORTED`  
 `dataflow.streamingWorkItems.commitWork` | `SUPPORTED`  
 `dataflow.streamingWorkItems.getData` | `SUPPORTED`  
@@ -8403,9 +8423,6 @@ Permission name | Custom roles support level
 `dns.responsePolicyRules.get` | `SUPPORTED`  
 `dns.responsePolicyRules.list` | `SUPPORTED`  
 `dns.responsePolicyRules.update` | `SUPPORTED`  
-`documentai.dataLabelingJobs.cancel` | `SUPPORTED`  
-`documentai.dataLabelingJobs.create` | `SUPPORTED`  
-`documentai.dataLabelingJobs.list` | `SUPPORTED`  
 `documentai.datasetSchemas.get` | `SUPPORTED`  
 `documentai.datasetSchemas.update` | `SUPPORTED`  
 `documentai.datasets.createDocuments` | `SUPPORTED`  
@@ -9046,6 +9063,13 @@ Permission name | Custom roles support level
 `firebasedataconnect.services.get` | `SUPPORTED`  
 `firebasedataconnect.services.introspectGraphql` | `SUPPORTED`  
 `firebasedataconnect.services.list` | `SUPPORTED`  
+`firebasedataconnect.services.postgrestCallFunction` | `SUPPORTED`  
+`firebasedataconnect.services.postgrestDelete` | `SUPPORTED`  
+`firebasedataconnect.services.postgrestInsert` | `SUPPORTED`  
+`firebasedataconnect.services.postgrestQueryFunction` | `SUPPORTED`  
+`firebasedataconnect.services.postgrestSelect` | `SUPPORTED`  
+`firebasedataconnect.services.postgrestUpdate` | `SUPPORTED`  
+`firebasedataconnect.services.postgrestUpsert` | `SUPPORTED`  
 `firebasedataconnect.services.update` | `SUPPORTED`  
 `firebasedynamiclinks.destinations.list` | `SUPPORTED`  
 `firebasedynamiclinks.destinations.update` | `SUPPORTED`  
@@ -14296,6 +14320,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

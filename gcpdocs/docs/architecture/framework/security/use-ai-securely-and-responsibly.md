@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/security/use-ai-securely-and-responsibly/
 title: Use AI securely and responsibly \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:47:53.355504+00:00
+fetched_at: 2026-10-29T09:46:44.144587+00:00
 ---
 
 # Use AI securely and responsibly  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,13 +19,13 @@ Send feedback
 
 #  Use AI securely and responsibly Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-02-05 UTC
+Last reviewed 2026-10-28 UTC
 
-This principle in the security pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you secure your AI systems. These recommendations are aligned with Google's [Secure AI Framework (SAIF)](https://safety.google/cybersecurity-advancements/saif/), which provides a practical approach to address the security and risk concerns of AI systems. SAIF is a conceptual framework that aims to provide industry-wide standards for building and deploying AI responsibly.
+This principle in the security pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you secure your AI systems. These recommendations are aligned with Google's [Secure AI Framework (SAIF)](https://saif.google/), which provides a practical approach to address the security and risk concerns of AI systems. SAIF is a conceptual framework that aims to provide industry-wide standards for building and deploying AI responsibly.
 
 ## Principle overview
 
-To help ensure that your AI systems meet your security, privacy, and compliance requirements, you must adopt a holistic strategy that starts with the initial design and extends to deployment and operations. You can implement this holistic strategy by applying the [six core elements of SAIF](https://developers.google.com/machine-learning/resources/saif).
+To help ensure that your AI systems meet your security, privacy, and compliance requirements, you must adopt a holistic strategy that starts with the initial design and extends to deployment and operations.
 
 Google uses AI to enhance security measures, such as identifying threats, automating security tasks, and improving detection capabilities, while keeping humans in the loop for critical decisions.
 
@@ -33,8 +33,8 @@ Google emphasizes a collaborative approach to advancing AI security. This approa
 
 The recommendations to implement this principle are grouped within the following sections:
 
-  * Recommendations to use AI securely
-  * Recommendations for AI governance
+  * [Recommendations to use AI securely](https://docs.cloud.google.com/architecture/framework/security/use-ai-securely-and-responsibly#recommendations_to_use_ai_securely)
+  * [Recommendations for AI governance](https://docs.cloud.google.com/architecture/framework/security/use-ai-securely-and-responsibly#recommendations_for_ai_governance)
 
 
 
@@ -145,11 +145,11 @@ As reflected in our recommendations, Google's approach for AI governance is guid
 
 These metrics are related to fairness across different categories like race, gender, and class. However, interpreting statistical deviations isn't a straightforward exercise, because differences across categories might not be a result of bias or a signal of harm.
 
-### Use Vertex Explainable AI
+### Use explainable AI
 
-To understand how the AI models make decisions, use Vertex Explainable AI. This feature helps you to identify potential biases that might be hidden in the model's logic.
+To understand how your AI models make decisions, use explainability techniques such as feature attributions. Explainability helps you to identify potential biases that might be hidden in the model's logic.
 
-This explainability feature is integrated with [BigQuery ML](https://docs.cloud.google.com/bigquery/docs/xai-overview) and [Vertex Explainable AI](https://docs.cloud.google.com/vertex-ai/docs/explainable-ai/overview), which provide feature-based explanations. You can either perform explainability in BigQuery ML or [register your model](https://docs.cloud.google.com/bigquery/docs/managing-models-vertex#register_models) in Agent Platform and perform explainability in Agent Platform.
+For example, you can generate feature-based explanations in [BigQuery ML](https://docs.cloud.google.com/bigquery/docs/xai-overview) and [tabular explanations in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-explanations).
 
 ### Track data lineage
 
@@ -177,6 +177,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-02-05 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-02-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-create/
 title: Create a context cache \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:15.860121+00:00
+fetched_at: 2026-10-29T11:13:29.676011+00:00
 ---
 
 # Create a context cache  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

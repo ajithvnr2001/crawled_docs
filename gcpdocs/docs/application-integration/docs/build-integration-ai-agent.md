@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/build-integration-ai-agent/
 title: Build an integration with an AI agent \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:40:31.672464+00:00
+fetched_at: 2026-10-29T11:13:36.195494+00:00
 ---
 
 # Build an integration with an AI agent  |  Application Integration  |  Google Cloud Documentation

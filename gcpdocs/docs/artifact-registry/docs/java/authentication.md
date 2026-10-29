@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/java/authentication/
 title: Configure authentication to Artifact Registry for Maven and Gradle \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:45:26.621639+00:00
+fetched_at: 2026-10-29T09:45:10.783359+00:00
 ---
 
 # Configure authentication to Artifact Registry for Maven and Gradle  |  Google Cloud Documentation
@@ -728,17 +728,19 @@ The following example shows configuration of a remote repository.
     
     repositories {
       maven {
-        url "artifactregistry://LOCATION-maven.pkg.dev /PROJECT_ID/REMOTE-REPOSITORY-NAME"
+        url "https://LOCATION-maven.pkg.dev/PROJECT_ID/REMOTE-REPOSITORY-NAME"
         credentials {
-        username = "_json_key_base64"
-        password = "$artifactRegistryMavenSecret"
+          username = "_json_key_base64"
+          password = "$artifactRegistryMavenSecret"
+        }
+        authentication {
+          basic(BasicAuthentication)
+        }
       }
-      authentication {
-        basic(BasicAuthentication)
-      }
-      dependencies {
-        compile "com.google.guava:guava:31.1-jre"
-      }
+    }
+    dependencies {
+      compile "com.google.guava:guava:31.1-jre"
+    }
     
 
      * The `repositories` section defines the Artifact Registry repository.
@@ -763,6 +765,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

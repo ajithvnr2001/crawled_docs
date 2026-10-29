@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/create-manage-logical-views/
 title: Create and manage logical views \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:21.956637+00:00
+fetched_at: 2026-10-29T10:18:45.378020+00:00
 ---
 
 # Create and manage logical views  |  Bigtable  |  Google Cloud Documentation

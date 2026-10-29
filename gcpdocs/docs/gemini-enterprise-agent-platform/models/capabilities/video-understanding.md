@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/video-understanding/
 title: Video understanding \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:04.227161+00:00
+fetched_at: 2026-10-29T09:45:30.526752+00:00
 ---
 
 # Video understanding  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

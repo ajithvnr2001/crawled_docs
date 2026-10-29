@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-metadata/
 title: Manage features through metadata \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:40:53.801271+00:00
+fetched_at: 2026-10-29T11:06:07.098444+00:00
 ---
 
 # Manage features through metadata  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

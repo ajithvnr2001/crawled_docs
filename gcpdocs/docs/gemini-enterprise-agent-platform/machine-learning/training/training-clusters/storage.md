@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/training-clusters/storage/
 title: Storage \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:56.001016+00:00
+fetched_at: 2026-10-29T11:06:59.905735+00:00
 ---
 
 # Storage  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

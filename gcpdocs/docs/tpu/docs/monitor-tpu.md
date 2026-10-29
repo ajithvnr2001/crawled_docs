@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tpu/docs/monitor-tpu/
 title: Monitor TPU VMs \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:59:53.340359+00:00
+fetched_at: 2026-10-29T08:30:18.155737+00:00
 ---
 
 # Monitor TPU VMs  |  Google Cloud Documentation
@@ -323,22 +323,22 @@ Purchased TPU Chips Count
 `tpu/network/nic_packets_dropped_count_rx` BETA ** _(project)_**   
 NIC Packets Dropped Count Rx   
 `CUMULATIVE`, `INT64`, `1`   
-**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _The total number of incoming packets dropped by the host NIC. This includes packets that the NIC intentionally drops, such as packets with no matching route._   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _The total number of incoming or outgoing packets discarded by the host NIC, for RX._   
 `nic_id`: Nic Id.   
 `tpu/network/nic_packets_dropped_count_tx` BETA ** _(project)_**   
 NIC Packets Dropped Count Tx   
 `CUMULATIVE`, `INT64`, `1`   
-**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _The total number of outgoing packets dropped by the host NIC. This includes packets that the NIC intentionally drops, such as packets with no matching route, so a small nonzero rate is normal even when no workload is running._   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _The total number of incoming or outgoing packets discarded by the host NIC, for TX._   
 `nic_id`: Nic Id.   
 `tpu/network/nic_packets_received_count` BETA ** _(project)_**   
 NIC Packets Received Count   
 `CUMULATIVE`, `INT64`, `1`   
-**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _The total count of packets received by the host NIC. This includes all host traffic, not only workload traffic, so the count keeps increasing even when no workload is running._   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _The total count of packets received by the NIC._   
 `nic_id`: Nic Id.   
 `tpu/network/nic_packets_sent_count` BETA ** _(project)_**   
 NIC Packets Sent Count   
 `CUMULATIVE`, `INT64`, `1`   
-**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _The total count of packets sent by the host NIC. This includes all host traffic, not only workload traffic, so the count keeps increasing even when no workload is running._   
+**[gce_instance](https://docs.cloud.google.com/monitoring/api/resources#tag_gce_instance)** |  _The total count of packets sent by the NIC._   
 `nic_id`: Nic Id.   
   
 ### Alpha
@@ -467,6 +467,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

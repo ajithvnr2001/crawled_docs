@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/deprecations/deprecations/
 title: Feature deprecations \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:19.202493+00:00
+fetched_at: 2026-10-29T10:18:53.523954+00:00
 ---
 
 # Feature deprecations  |  Bigtable  |  Google Cloud Documentation

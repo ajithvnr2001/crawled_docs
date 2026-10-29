@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/delete-a-stream/
 title: Delete a stream \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:19:56.258989+00:00
+fetched_at: 2026-10-29T11:06:05.084328+00:00
 ---
 
 # Delete a stream  |  Datastream  |  Google Cloud Documentation

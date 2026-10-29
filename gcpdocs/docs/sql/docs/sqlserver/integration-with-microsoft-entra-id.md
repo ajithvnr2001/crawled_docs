@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/integration-with-microsoft-entra-id/
 title: Integration with Microsoft Entra ID \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:13.369658+00:00
+fetched_at: 2026-10-29T09:45:15.580752+00:00
 ---
 
 # Integration with Microsoft Entra ID  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -132,9 +132,9 @@ When you create a bastion host VM in your project, IP forwarding must be enabled
 **Caution:** If service disruptions occur, this configuration doesn't persist. If the VM is restarted, then you need to re-apply the configuration. To automatically apply the configuration after a restart, we recommend scheduling a cron job.**Note:** To help reduce the risk of an outage, we recommend you deploy two bastion host VMs in separate zones. We also recommend you manage incoming traffic to the bastion host VMs with a [load balancer](https://docs.cloud.google.com/compute/docs/load-balancing-and-autoscaling).
   2. Configure the necessary network routes to direct Microsoft Entra ID authentication traffic from your Cloud SQL instance through the bastion host VM host to reach the internet.
 
-Add the corresponding routes for each Microsoft Entra ID endpoint. You can find the current IP ranges in the `AzureActiveDirectory.ServiceEndpoint` section in the [Azure IP Ranges and Service Tags](https://www.microsoft.com/en-us/download/details.aspx?id=56519) resource file.
+Add the corresponding routes for each Microsoft Entra ID endpoint. You can find the current IP ranges in the `AzureActiveDirectory` section in the [Azure IP Ranges and Service Tags](https://www.microsoft.com/en-us/download/details.aspx?id=56519) resource file. For example, the Microsoft Entra ID sign-in endpoints, such as `login.microsoftonline.com`, use IP addresses in the `20.190.128.0/18` and `40.126.0.0/18` ranges.
 
-**Caution:** Microsoft Entra ID endpoint IPs vary by region and may be changed by Microsoft at any time. You must review and update these routes regularly, or create broader routes, such as `/16` CIDR blocks, to accommodate potential changes.
+**Note:** Don't use the `AzureActiveDirectory.ServiceEndpoint` section. This section contains only a subset of the IP ranges that Microsoft Entra ID uses, so authentication traffic to IP addresses outside of this subset can't reach Microsoft Entra ID.**Caution:** Microsoft Entra ID endpoint IPs vary by region and may be changed by Microsoft at any time. You must review and update these routes regularly, or create broader routes, such as `/16` CIDR blocks, to accommodate potential changes.
 
 ###  gcloud 
 
@@ -1484,6 +1484,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

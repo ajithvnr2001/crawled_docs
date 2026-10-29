@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/restore-cloud-storage/
 title: Back up and restore files by using Cloud Storage \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:13.018429+00:00
+fetched_at: 2026-10-29T11:12:33.226842+00:00
 ---
 
 # Back up and restore files by using Cloud Storage  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

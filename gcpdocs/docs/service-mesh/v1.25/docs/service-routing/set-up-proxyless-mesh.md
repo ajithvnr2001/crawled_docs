@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.25/docs/service-routing/set-up-proxyless-mesh/
 title: Set up proxyless gRPC services \u00a0|\u00a0 Cloud Service Mesh v1.25 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:30:02.777790+00:00
+fetched_at: 2026-10-29T10:18:31.694166+00:00
 ---
 
 # Set up proxyless gRPC services  |  Cloud Service Mesh v1.25  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/metrics/
 title: Metrics \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:48.560691+00:00
+fetched_at: 2026-10-29T10:18:53.464454+00:00
 ---
 
 # Metrics  |  Bigtable  |  Google Cloud Documentation

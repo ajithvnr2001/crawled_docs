@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/fedramp-dod-compliance-scope/
 title: FedRAMP and DoD compliance scope for Google Cloud and Google Workspace \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:11.961368+00:00
+fetched_at: 2026-10-29T09:45:13.645448+00:00
 ---
 
 # FedRAMP and DoD compliance scope for Google Cloud and Google Workspace  |  Security  |  Google Cloud Documentation
@@ -335,7 +335,7 @@ Studio look |  |  |  |
   
 ## Authorized Google Cloud regions
 
-_Last updated: January 2026_
+_Last updated: October 2026_
 
 Google Cloud regions hold FedRAMP and Department of Defense (DoD) provisional authorizations (PAs). The suitability of these regions depends on the following security impact levels (IL):
 
@@ -350,96 +350,83 @@ Google Cloud regions hold FedRAMP and Department of Defense (DoD) provisional au
 Geographic area | Location | Cloud region | FedRAMP Moderate | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
 ---|---|---|---|---|---|---|---  
 North America | Arcola, VA, USA | `us-east4` |  |  |  |  |   
-| Ashburn (1), VA, USA | `us-east4` |  |  |  |  |   
-| Ashburn (2), VA, USA | `us-east4` |  |  |  |  |   
-| Ashburn (3), VA, USA | `us-east4` |  |  |  |  |   
-| Atlanta (1), GA, USA | Not applicable (N/A) |  |  |  |  |   
-| Atlanta (2), GA, USA | N/A |  |  |  |  |   
-| Clarksville, TN, USA | `us-east6` |  |  |  |  |   
+| Ashburn, VA, USA | `us-east4` |  |  |  |  |   
+| Atlanta, GA, USA | `us-east2` |  |  |  |  |   
+| Austin, TX, USA | `us-south1` |  |  |  |  |   
+| Chandler, AZ, USA | `us-west8` |  |  |  |  |   
+| Clarksville, TN, USA | `us-east7` |  |  |  |  |   
 | Columbus, OH, USA | `us-east5` |  |  |  |  |   
-| Council Bluffs (1), IA, USA | `us-central1` |  |  |  |  |   
-| Council Bluffs (2), IA, USA | `us-central1` |  |  |  |  |   
+| Council Bluffs, IA, USA | `us-central1` |  |  |  |  |   
+| Fort Wayne, IN, USA | `us-east5` |  |  |  |  |   
+| Gainesville, VA, USA | `us-east4` |  |  |  |  |   
+| Guanajuato, Mexico | `northamerica-south1` |  |  |  |  |   
 | Henderson, NV, USA | `us-west4` |  |  |  |  |   
-| Las Vegas, NV, USA | `us-west4` |  |  |  |  |   
 Geographic area | Location | Cloud region | FedRAMP Moderate | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
+| Hockley, TX, USA | `us-south1` |  |  |  |  |   
+| Las Vegas, NV, USA | `us-west4` |  |  |  |  |   
 | Lancaster, OH, USA | `us-east5` |  |  |  |  |   
-| Leesburg, VA, USA | N/A |  |  |  |  |   
-| Lenoir, NC, USA | N/A |  |  |  |  |   
-| Los Angeles (1), CA, USA | `us-west2` |  |  |  |  |   
-| Los Angeles (2), CA, USA | `us-west2` |  |  |  |  |   
-| Los Angeles (3), CA, USA | `us-west2` |  |  |  |  |   
+| Leesburg, VA, USA | `us-east4` |  |  |  |  |   
+| Lenoir, NC, USA | `us-east10` |  |  |  |  |   
+| Lincoln, NE, USA | `us-central1` |  |  |  |  |   
+| Los Angeles, CA, USA | `us-west2` |  |  |  |  |   
+| Markham, Ontario, Canada | `northamerica-northeast2` |  |  |  |  |   
 | Midlothian (Dallas), TX, USA | `us-south1` |  |  |  |  |   
 | Moncks Corner, SC, USA | `us-east1` |  |  |  |  |   
 | Montreal, Québec, Canada | `northamerica-northeast1` |  |  |  |  |   
 | New Albany, OH, USA | `us-east5` |  |  |  |  |   
+Geographic area | Location | Cloud region | FedRAMP Moderate | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
+| Omaha, NE, USA | `us-central1` |  |  |  |  |   
 | Papillion, NE, USA | `us-central1` |  |  |  |  |   
 | Phoenix, AZ, USA | `us-west8` |  |  |  |  |   
-Geographic area | Location | Cloud region | FedRAMP Moderate | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
 | Pryor Creek, OK, USA | `us-central2` |  |  |  |  |   
-| Reno, NV, USA | N/A |  |  |  |  |   
-| Salt Lake City (1), UT, USA | `us-west3` |  |  |  |  |   
-| Salt Lake City (2), UT, USA | `us-west3` |  |  |  |  |   
-| Salt Lake City (3), UT, USA | `us-west3` |  |  |  |  |   
-| The Dalles (1), OR, USA | `us-west1` |  |  |  |  |   
-| The Dalles (2), OR, USA | `us-west1` |  |  |  |  |   
+| Reno, NV, USA | `us-west5` |  |  |  |  |   
+| Saint-Laurent, Québec, Canada | `northamerica-northeast1` |  |  |  |  |   
+| Salt Lake City, UT, USA | `us-west3` |  |  |  |  |   
+| The Dalles, OR, USA | `us-west1` |  |  |  |  |   
 | Toronto, Ontario, Canada | `northamerica-northeast2` |  |  |  |  |   
-| Widows Creek, AL, USA | N/A |  |  |  |  |   
+| Widows Creek, AL, USA | `us-east7` |  |  |  |  |   
 South America | Osasco, São Paulo, Brazil | `southamerica-east1` |  |  |  |  |   
+| Santana de Parnaíba, São Paulo, Brazil | `southamerica-east1` |  |  |  |  |   
+Geographic area | Location | Cloud region | FedRAMP Moderate | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
 | Vinhedo, São Paulo, Brazil | `southamerica-east1` |  |  |  |  |   
 | Quilicura, Santiago, Chile | `southamerica-west1` |  |  |  |  |   
-Geographic area | Location | Cloud region | FedRAMP Moderate | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
-Europe | Eemshaven, Netherlands | `europe-west4` |  |  |  |  |   
-| Frankfurt (1), Hesse, Germany | `europe-west3` |  |  |  |  |   
-| Frankfurt (2), Hesse, Germany | `europe-west3` |  |  |  |  |   
-| Frankfurt (3), Hesse, Germany | `europe-west3` |  |  |  |  |   
-| Frankfurt (4), Hesse, Germany | `europe-west3` |  |  |  |  |   
-| Frankfurt (5), Hesse, Germany | `europe-west3` |  |  |  |  |   
-| Frankfurt (6), Hesse, Germany | `europe-west3` |  |  |  |  |   
-| Frankfurt (7), Hesse, Germany | `europe-west3` |  |  |  |  |   
-| Fredericia, Denmark | N/A |  |  |  |  |   
+| San Bernardo, Santiago, Chile | `southamerica-west1` |  |  |  |  |   
+Europe | Berlin, Germany | `europe-west10` |  |  |  |  |   
+| Dalarna, Sweden | `europe-north2` |  |  |  |  |   
+| Eemshaven, Netherlands | `europe-west4` |  |  |  |  |   
+| Frankfurt, Hesse, Germany | `europe-west3` |  |  |  |  |   
+| Fredericia, Denmark | Not applicable (N/A) |  |  |  |  |   
 | Ghlin, Hainaut, Belgium | `europe-west1` |  |  |  |  |   
 | Hamina, Finland | `europe-north1` |  |  |  |  |   
-| London (1), United Kingdom | `europe-west2` |  |  |  |  |   
+| London, United Kingdom | `europe-west2` |  |  |  |  |   
+| Madrid, Spain | `europe-southwest1` |  |  |  |  |   
 Geographic area | Location | Cloud region | FedRAMP Moderate | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
-| London (2), United Kingdom | `europe-west2` |  |  |  |  |   
-| London (3), United Kingdom | `europe-west2` |  |  |  |  |   
-| London (4), United Kingdom | `europe-west2` |  |  |  |  |   
-| London (5), United Kingdom | `europe-west2` |  |  |  |  |   
-| London (6), United Kingdom | `europe-west2` |  |  |  |  |   
-| Madrid (1), Spain | `europe-southwest1` |  |  |  |  |   
-| Madrid (2), Spain | `europe-southwest1` |  |  |  |  |   
 | Middenmeer, Netherlands | `europe-west11` |  |  |  |  |   
-| Milan (1), Italy | `europe-west8` |  |  |  |  |   
-| Milan (2), Italy | `europe-west8` |  |  |  |  |   
-| Paris (1), France | `europe-west9` |  |  |  |  |   
-| Paris (2), France | `europe-west9` |  |  |  |  |   
-Geographic area | Location | Cloud region | FedRAMP Moderate | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
-| Paris (3), France | `europe-west9` |  |  |  |  |   
-| Warsaw (1), Poland | `europe-central2` |  |  |  |  |   
-| Warsaw (2), Poland | `europe-central2` |  |  |  |  |   
+| Milan, Italy | `europe-west8` |  |  |  |  |   
+| Oslo, Norway | `europe-north3` |  |  |  |  |   
+| Paris, France | `europe-west9` |  |  |  |  |   
+| Turin, Italy | `europe-west12` |  |  |  |  |   
+| Warsaw, Poland | `europe-central2` |  |  |  |  |   
 | Zurich, Switzerland | `europe-west6` |  |  |  |  |   
-Middle East | Doha (1), Qatar | `me-central1` |  |  |  |  |   
-| Tel Aviv (1), Israel | `me-west1` |  |  |  |  |   
-| Tel Aviv (2), Israel | `me-west1` |  |  |  |  |   
-Asia Pacific | Changhua, Taiwan | `asia-east1` |  |  |  |  |   
-| Delhi (1), India | `asia-south2` |  |  |  |  |   
-| Jakarta (1), Indonesia | `asia-southeast2` |  |  |  |  |   
-| Jakarta (2), Indonesia | `asia-southeast2` |  |  |  |  |   
-| Kōtō-ku (1), Tokyo, Japan | `asia-northeast1` |  |  |  |  |   
+Middle East and Africa | Dammam, Saudi Arabia | `me-central2` |  |  |  |  |   
+| Doha, Qatar | `me-central1` |  |  |  |  |   
+| Johannesburg, South Africa | `africa-south1` |  |  |  |  |   
+| Tel Aviv, Israel | `me-west1` |  |  |  |  |   
+Asia Pacific | Bangkok, Thailand | `asia-southeast3` |  |  |  |  |   
 Geographic area | Location | Cloud region | FedRAMP Moderate | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
-| Kōtō-ku (2), Tokyo, Japan | `asia-northeast1` |  |  |  |  |   
-| Kōtō-ku (3), Tokyo, Japan | `asia-northeast1` |  |  |  |  |   
+| Changhua, Taiwan | `asia-east1` |  |  |  |  |   
+| Delhi, India | `asia-south2` |  |  |  |  |   
+| Inzai City, Chiba, Japan | `asia-northeast1` |  |  |  |  |   
+| Jakarta, Indonesia | `asia-southeast2` |  |  |  |  |   
+| Kōtō-ku, Tokyo, Japan | `asia-northeast1` |  |  |  |  |   
 | Lok Yang Way, Singapore | `asia-southeast1` |  |  |  |  |   
+| Loyang, Singapore | `asia-southeast1` |  |  |  |  |   
 | Melbourne, Victoria, Australia | `australia-southeast2` |  |  |  |  |   
-| Mumbai (1), India | `asia-south1` |  |  |  |  |   
-| Mumbai (2), India | `asia-south1` |  |  |  |  |   
-| Mumbai (3), India | `asia-south1` |  |  |  |  |   
+| Mumbai, India | `asia-south1` |  |  |  |  |   
 | Osaka, Japan | `asia-northeast2` |  |  |  |  |   
 | Seoul, South Korea | `asia-northeast3` |  |  |  |  |   
-| Sydney (1), NSW, Australia | `australia-southeast1` |  |  |  |  |   
-| Sydney (2), NSW, Australia | `australia-southeast1` |  |  |  |  |   
-| Sydney (3), NSW, Australia | `australia-southeast1` |  |  |  |  |   
-| Sydney (4), NSW, Australia | `australia-southeast1` |  |  |  |  |   
+| Sydney, NSW, Australia | `australia-southeast1` |  |  |  |  |   
+Geographic area | Location | Cloud region | FedRAMP Moderate | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5  
 | Wenya, Singapore | `asia-southeast1` |  |  |  |  |   
   
 ## What's next

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:36.631688+00:00
+fetched_at: 2026-10-29T09:56:42.877821+00:00
 ---
 
 # Security bulletins  |  Cloud Customer Care  |  Google Cloud Documentation
@@ -26,6 +26,24 @@ The following security bulletins are related to Google Cloud products.
 
 [ Use this XML feed to subscribe to security bulletins for this page. ![Subscribe](https://docs.cloud.google.com/static/docs/images/feed-icon.png)](https://cloud.google.com/feeds/google-cloud-security-bulletins.xml)
 
+## GCP-2026-074
+
+**Published:** 2026-10-28
+
+### Description
+
+Description | Severity | Notes  
+---|---|---  
+A Deserialization of Untrusted Data vulnerability was discovered in the `SubWorkflow` task in Application Integration versions prior to September 11, 2026.
+
+#### What should I do?
+
+No customer action is required. This vulnerability was patched on September 11, 2026.
+
+#### What vulnerabilities are being addressed?
+
+An authenticated user could use a maliciously crafted serialized object to execute arbitrary code. | Critical |  [CVE-2026-93327](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-93327)  
+  
 ## GCP-2026-073
 
 **Published:** 2026-10-26
@@ -167,6 +185,8 @@ Security vulnerabilities were discovered in Istio and Envoy Proxy ([ISTIO-SECURI
 
 **Published:** 2026-10-14
 
+**Updated:** 2026-10-24
+
 ### Description
 
 Description | Severity | Notes  
@@ -175,11 +195,11 @@ An Incorrect Authorization vulnerability in the `AuthConfig` validation and inte
 
 #### What should I do?
 
-No customer action is required. This vulnerability was patched on August 27, 2026.
+No customer action to resolve this vulnerability is required. This vulnerability was patched on August 27, 2026. To improve security against authorization vulnerabilities, starting October 15, 2026, Application Integration requires the `iam.serviceAccounts.actAs` permission on the run-as service account for any new integrations. Existing integrations and their new versions are unaffected.For more information, see [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
 
 #### What vulnerabilities are being addressed?
 
-An authenticated user could escalate privileges and impersonate a service account in the Google Cloud project. | Critical |  [CVE-2026-85298](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-85298)  
+An authenticated user could escalate privileges and impersonate a service account in the Google Cloud project. | High |  [CVE-2026-85298](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-85298)  
   
 ## GCP-2026-067
 

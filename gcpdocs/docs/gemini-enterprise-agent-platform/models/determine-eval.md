@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/determine-eval/
 title: Define your evaluation metrics \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:01.712234+00:00
+fetched_at: 2026-10-29T11:06:29.937872+00:00
 ---
 
 # Define your evaluation metrics  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

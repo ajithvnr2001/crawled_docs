@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/fsi/
 title: Well-Architected Framework: Financial services (FS) perspective \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:39:52.327311+00:00
+fetched_at: 2026-10-29T09:46:49.981800+00:00
 ---
 
 # Well-Architected Framework: Financial services (FS) perspective  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Well-Architected Framework: Financial services (FS) perspective Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-07-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This document in the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) describes principles and recommendations to help you to design, build, and manage financial services (FS) applications in Google Cloud that meet your operational, security, reliability, cost, and performance goals.
 
@@ -43,7 +43,6 @@ The following pages describe principles and recommendations that are specific to
 
 Authors: 
 
-  * [Gino Pelliccia](https://www.linkedin.com/in/gino-pelliccia-13637025) | Principal Architect
   * [Alex Stepney](https://www.linkedin.com/in/alexstepney/) | Lead Principal Architect 
   * [Phil Bryan](https://www.linkedin.com/in/philbry) | EMEA FSI Lead Principal Architect
   * [Stathis Onasoglou](https://www.linkedin.com/in/stathisonasoglou) | EMEA FSI Principal Architect
@@ -56,6 +55,7 @@ Other contributors:
   * [Daniel Lees](https://www.linkedin.com/in/daniellees) | Cloud Security Architect
   * [Danielle Fisla](https://www.linkedin.com/in/danielle-fisla-7132192) | US FS Portfolio Lead, PSO
   * [Filipe Gracio, PhD](https://www.linkedin.com/in/filipegracio) | Customer Engineer, AI/ML Specialist
+  * [Gino Pelliccia](https://www.linkedin.com/in/gino-pelliccia-13637025) | Principal Architect
   * [Henry Cheng](https://www.linkedin.com/in/tohenryc) | Principal Architect
   * [John Bacon](https://www.linkedin.com/in/johnbac/) | Partner Solutions Architect
   * [Jose Andrade](https://www.linkedin.com/in/jmandrade) | Customer Engineer, SRE Specialist
@@ -77,6 +77,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-07-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-07-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

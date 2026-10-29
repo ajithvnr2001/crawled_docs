@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/connect-to-the-knowledge-mcp-server/
 title: Connect to the Knowledge MCP server \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:29.825326+00:00
+fetched_at: 2026-10-29T11:12:36.357827+00:00
 ---
 
 # Connect to the Knowledge MCP server  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

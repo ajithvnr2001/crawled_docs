@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/hipaa/
 title: HIPAA compliance on Google Cloud and Google Workspace \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:15:59.730432+00:00
+fetched_at: 2026-10-29T09:51:28.967089+00:00
 ---
 
 # HIPAA compliance on Google Cloud and Google Workspace  |  Security  |  Google Cloud Documentation
@@ -217,7 +217,7 @@ The following Google SecOps services[20] are supported by the BAA:
 
 ## Google Workspace supported services
 
-_Last updated: 2025-08-31_
+_Last updated: 2026-10-28_
 
 The following Google Workspace services are included in the Google Cloud BAA:
 
@@ -239,6 +239,7 @@ The following Google Workspace services are included in the Google Cloud BAA:
   * Google Tasks
   * Google Vault (if applicable)
   * Google Voice (managed users only)
+  * Google Workspace Studio
 
 
 
@@ -435,6 +436,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

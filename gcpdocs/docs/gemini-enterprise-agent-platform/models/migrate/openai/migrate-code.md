@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/migrate-code/
 title: Migrate from OpenAI SDK to Google Gen AI SDK \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:46.632160+00:00
+fetched_at: 2026-10-29T11:07:10.590121+00:00
 ---
 
 # Migrate from OpenAI SDK to Google Gen AI SDK  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

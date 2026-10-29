@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/endpoint-access-control/
 title: Control access to Agent Platform endpoints \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:09.647158+00:00
+fetched_at: 2026-10-29T11:09:08.342207+00:00
 ---
 
 # Control access to Agent Platform endpoints  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

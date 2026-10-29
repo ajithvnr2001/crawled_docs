@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/operational-excellence/automate-and-manage-change/
 title: Automate and manage change \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:42.791343+00:00
+fetched_at: 2026-10-29T09:51:18.822784+00:00
 ---
 
 # Automate and manage change  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Automate and manage change Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-10-31 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the operational excellence pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you automate and manage change for your cloud workloads. It involves implementing infrastructure as code (IaC), establishing standard operating procedures, implementing a structured change management process, and using automation and orchestration.
 
@@ -68,7 +68,7 @@ Continuous integration and continuous delivery (CI/CD) pipelines streamline the 
 
 CI/CD pipelines ensure that code changes are continuously integrated into a central repository, typically a version control system like Git. Continuous integration facilitates early detection and resolution of issues, and it reduces the likelihood of bugs or compatibility problems.
 
-To create and manage CI/CD pipelines for cloud applications, you can use tools like [Cloud Build ](https://docs.cloud.google.com/build)and [Cloud Deploy](https://docs.cloud.google.com/deploy).
+To create and manage CI/CD pipelines for cloud applications, you can use tools like [Cloud Build](https://docs.cloud.google.com/build/docs/overview) and [Cloud Deploy](https://docs.cloud.google.com/deploy/docs).
 
   * **Cloud Build** is a fully managed build service that lets developers define and execute build steps in a declarative manner. It integrates seamlessly with popular source-code management platforms and it can be triggered by events like code pushes and pull requests.
   * **Cloud Deploy** is a serverless deployment service that automates the process of deploying applications to various environments, such as testing, staging, and production. It provides features like blue-green deployments, traffic splitting, and rollback capabilities, making it easier to manage and monitor application deployments.
@@ -118,6 +118,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-10-31 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-10-31 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

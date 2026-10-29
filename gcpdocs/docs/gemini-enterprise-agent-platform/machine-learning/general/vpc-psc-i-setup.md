@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-psc-i-setup/
 title: Set up a Private Service Connect interface for Gemini Enterprise Agent Platform resources \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:47.012644+00:00
+fetched_at: 2026-10-29T11:13:07.153087+00:00
 ---
 
 # Set up a Private Service Connect interface for Gemini Enterprise Agent Platform resources  |  Google Cloud Documentation

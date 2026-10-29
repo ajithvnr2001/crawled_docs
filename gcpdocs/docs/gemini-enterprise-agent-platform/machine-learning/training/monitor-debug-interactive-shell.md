@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/monitor-debug-interactive-shell/
 title: Monitor and debug training with an interactive shell \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:35.535212+00:00
+fetched_at: 2026-10-29T11:12:32.105496+00:00
 ---
 
 # Monitor and debug training with an interactive shell  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

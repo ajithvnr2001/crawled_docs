@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/docs/release-notes/
 title: Assured Workloads release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:40:14.288592+00:00
+fetched_at: 2026-10-29T08:28:04.418224+00:00
 ---
 
 # Assured Workloads release notes  |  Google Cloud Documentation
@@ -29,6 +29,65 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/assuredworkloads-release-notes.xml) directly. 
 
+## October 12, 2026
+
+v1
+
+Feature
+
+The [Data Boundary for ITAR](https://docs.cloud.google.com/assured-workloads/docs/control-packages/itar) supports the following products:
+
+  * Looker (Google Cloud core)
+
+
+
+## October 02, 2026
+
+v1
+
+Feature
+
+The [Data Boundary for Impact Level 5 (IL5)](https://docs.cloud.google.com/assured-workloads/docs/control-packages/il5) supports the following products:
+
+  * Google Security Operations SIEM
+
+
+
+v1
+
+Feature
+
+The [Data Boundary for Impact Level 4 (IL4)](https://docs.cloud.google.com/assured-workloads/docs/control-packages/il4) supports the following products:
+
+  * Google Security Operations SIEM
+
+
+
+## September 30, 2026
+
+v1
+
+Feature
+
+You can now acknowledge multiple compliance violations at once in the Google Cloud console to add violation exceptions in bulk, up to 100 organization policy violations and up to 400 resource violations in a single operation.
+
+For more information, see how to add violation exceptions when [monitoring a folder](https://docs.cloud.google.com/assured-workloads/docs/monitor-folder#exception) or [monitoring frameworks](https://docs.cloud.google.com/assured-workloads/docs/monitor-frameworks#exception).
+
+## September 25, 2026
+
+v1
+
+Feature
+
+The [Switzerland Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/switzerland-data-boundary) supports the following products:
+
+  * Datastore
+  * Document AI
+  * Google Cloud Observability
+  * Vertex AI Workbench
+
+
+
 ## September 08, 2026
 
 v1
@@ -40,6 +99,366 @@ The [EU Data Boundary with Access Justifications](https://docs.cloud.google.com/
   * AlloyDB for PostgreSQL
   * Apigee
   * Eventarc
+
+
+
+## September 03, 2026
+
+v1
+
+Feature
+
+The [Data Boundary for FedRAMP High](https://docs.cloud.google.com/assured-workloads/docs/control-packages#fedramp-high) supports the following products:
+
+  * Backup and DR Service
+  * Cloud Next Generation Firewall Enterprise
+  * Flow Analyzer
+  * Privileged Access Manager
+
+
+
+v1
+
+Feature
+
+The [Data Boundary for FedRAMP Moderate](https://docs.cloud.google.com/assured-workloads/docs/control-packages#fedramp-moderate) supports the following products:
+
+  * Backup and DR Service
+  * Cloud Next Generation Firewall Enterprise
+  * Flow Analyzer
+  * Privileged Access Manager
+
+
+
+v1
+
+Feature
+
+The [Data Boundary for Impact Level 2 (IL2)](https://docs.cloud.google.com/assured-workloads/docs/control-packages/il2) supports the following products:
+
+  * Backup and DR Service
+  * Cloud Next Generation Firewall Enterprise
+  * Flow Analyzer
+  * Privileged Access Manager
+
+
+
+## August 31, 2026
+
+v1
+
+Feature
+
+The [EU Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary) and [EU Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary-support) support the following products:
+
+  * AI Protection
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+  * Vertex AI Tuning
+
+
+
+v1
+
+Feature
+
+The [South Africa Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/south-africa-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [Taiwan Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/taiwan-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [Israel Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/israel-data-boundary) and [Israel Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/israel-data-boundary-support) support the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [UK Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/uk-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [Qatar Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/qatar-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [Indonesia Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/indonesia-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [Australia Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/australia-data-boundary) and [Australia Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/australia-data-boundary-support) support the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [Chile Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/chile-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [Switzerland Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/switzerland-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [Brazil Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/brazil-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [South Korea Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/south-korea-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [Singapore Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/singapore-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+  * Vertex AI Tuning
+
+
+
+v1
+
+Feature
+
+The [Japan Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/japan-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [Canada Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/canada-data-boundary) and [Canada Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/canada-data-boundary-support) support the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [India Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/india-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Model Armor
+  * Spanner
+
+
+
+v1
+
+Feature
+
+The [US Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary) and [US Data Boundary and Support](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary-support) support the following products:
+
+  * AI Protection
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
+  * Vertex AI Tuning
+
+
+
+v1
+
+Feature
+
+The [Hong Kong Data Boundary](https://docs.cloud.google.com/assured-workloads/docs/control-packages/hong-kong-data-boundary) supports the following products:
+
+  * Audit Manager
+  * Backup and DR Service
+  * Cloud Trace
+  * Flow Analyzer
+  * Gemini Enterprise Agent Platform Workbench
+  * Integration Connectors
+  * Migrate to Containers
+  * Spanner
 
 
 

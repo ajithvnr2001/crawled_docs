@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/
 title: Train a model using Gemini Enterprise Agent Platform and the Python SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:42.129940+00:00
+fetched_at: 2026-10-29T11:07:18.965127+00:00
 ---
 
 # Train a model using Gemini Enterprise Agent Platform and the Python SDK  |  Google Cloud Documentation

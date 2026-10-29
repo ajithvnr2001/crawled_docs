@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/configure-gemini-capabilities/
 title: Configure Gemini capabilities \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:13.019853+00:00
+fetched_at: 2026-10-29T11:13:20.425067+00:00
 ---
 
 # Configure Gemini capabilities  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

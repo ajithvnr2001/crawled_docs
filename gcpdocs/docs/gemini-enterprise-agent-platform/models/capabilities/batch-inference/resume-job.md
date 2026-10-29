@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/batch-inference/resume-job/
 title: Resume an incomplete batch inference job \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:41.445399+00:00
+fetched_at: 2026-10-29T11:12:23.619708+00:00
 ---
 
 # Resume an incomplete batch inference job  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

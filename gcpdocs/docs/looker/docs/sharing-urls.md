@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/sharing-urls/
 title: Sharing data from URLs \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:25.232551+00:00
+fetched_at: 2026-10-29T09:51:19.644615+00:00
 ---
 
 # Sharing data from URLs  |  Looker  |  Google Cloud Documentation
@@ -21,13 +21,11 @@ Send feedback
 
 #  Sharing data from URLs Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** If you're using Looker's [new Explore experience](https://docs.cloud.google.com/looker/docs/new-explore-experience-overview), see the [Viewing and interacting with Explores in the new Explore experience](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience#save-or-share-menu) documentation page.
-
-From within Looker, you can copy any one of a series of URLs with which other Looker users or users outside your Looker instance can open a query or Look. To send data from Looker to other destinations outside Looker , you can [publish a Look with a public URL](https://docs.cloud.google.com/looker/docs/publishing-looks-with-public-urls) and then send and share the URL through one of the methods that's described on this page.
+Looker lets you copy and share URLs so that others can view your queries, Looks, and dashboards. You can share query and dashboard links with other Looker users or [publish a Look with a public URL](https://docs.cloud.google.com/looker/docs/publishing-looks-with-public-urls) to send data outside your instance.
 
 ## Sharing a query's URL
 
-After you've run a query, you can share the query's URL with another Looker user. They will arrive at the same query and visualization, if any.
+After you've run a query, you can share the query's URL with another Looker user. They will arrive at the same query and visualization. The URL will point the user to the same query and visualization.
 
 When sharing URLs, keep the following things in mind:
 
@@ -38,21 +36,30 @@ When sharing URLs, keep the following things in mind:
 
 ### Browser URL
 
-The easiest way to share a URL is to copy it from your browser's URL.
-
-![](https://docs.cloud.google.com/static/looker/docs/images/browse-copy-url-64.png)
+To share a URL from a dashboard, a Look, or an Explore, copy the URL from your browser's address bar.
 
 ### Short URL
 
-Sometimes it's preferable to share a shorter URL when you want to direct a colleague to your Explore query. To do so, select the gear drop-down near the upper right of the page, select **Share** , and then copy the **Short URL** :
+Sometimes it's preferable to share a shorter URL when you want to share an Explore query. To share an Explore query as a shorter URL, follow these steps:
 
-![](https://docs.cloud.google.com/static/looker/docs/images/browse-sharing-url-422.png)
+  1. Click the **Save or share** button.
+
+If you're using a classic Explore, click the settings **Explore Actions** menu.
+
+  2. Select the attachment **Share URLs** option to open the **Share URLs** menu.
+
+If you're using a classic Explore, click **Share** to open the **Share URLs** menu.
+
+  3. Copy the URL that appears in the **Short URL** field.
+
+
+
 
 The **Short URL** contains the Explore slug. A slug is a randomly chosen short string that takes the place of the content ID value in a URL. For example, in this short URL, `https://docserver.cloud.looker.com/x/79WcoBSRqh8YVglvYe6mHL`, the string `79WcoBSRqh8YVglvYe6mHL` is the slug.
 
 ### Expanded URL
 
-The **Share URLs** window also provides the **Expanded URL** option. An expanded URL shows all the details for the query, including fields and filters. This information can be useful for developers who want to modify a parameterized URL. This is often useful in a custom LookML field or an external tool.
+The **Share URLs** menu also provides the **Expanded URL** option. An expanded URL shows all of the details for the query, including fields and filters. This information can be useful for developers who want to modify a parameterized URL. This is often useful in a custom LookML field or an external tool.
 
 ## Sharing a dashboard URL
 
@@ -70,6 +77,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

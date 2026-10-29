@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/deploy-gemini-gov/
 title: Deployment guidance for Gemini for Government \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:19.358261+00:00
+fetched_at: 2026-10-29T09:45:11.982484+00:00
 ---
 
 # Deployment guidance for Gemini for Government  |  Security  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ This section describes support for Google and third-party models.
 
 ### Google model support
 
-Only [Google models that support US multi-regional endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#ml-processing-google-models), including most Gemini models that are Generally Available, offer data residency (DRZ) commitments and can support FedRAMP High and DoD IL4 and IL5 requirements without requiring you to configure additional settings.
+Only [Google models that support US multi-regional endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency#ml-processing-google-models), including Gemini models that are generally available, offer data residency (DRZ) commitments and can support FedRAMP High, DoD IL4, DOD IL5, ITAR, and CJIS requirements without requiring you to configure additional settings.
 
 If you require DRZ commitments, it is your responsibility to restrict access to Google models that only support global endpoints. See [Restrict endpoint usage](https://docs.cloud.google.com/docs/security/compliance/restrict-endpoint-usage) for more information on how to restrict access to these models.
 

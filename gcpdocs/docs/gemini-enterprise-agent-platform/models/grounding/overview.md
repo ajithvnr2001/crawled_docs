@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/overview/
 title: Grounding overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:35.012132+00:00
+fetched_at: 2026-10-29T11:07:20.789020+00:00
 ---
 
 # Grounding overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/
 title: Managed Agents API on Agent Platform overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:05.498267+00:00
+fetched_at: 2026-10-29T09:56:19.003688+00:00
 ---
 
 # Managed Agents API on Agent Platform overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

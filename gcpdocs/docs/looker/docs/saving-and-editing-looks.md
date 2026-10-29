@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/saving-and-editing-looks/
 title: Saving and editing Looks \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:48.092308+00:00
+fetched_at: 2026-10-29T09:47:11.125753+00:00
 ---
 
 # Saving and editing Looks  |  Looker  |  Google Cloud Documentation
@@ -21,37 +21,28 @@ Send feedback
 
 #  Saving and editing Looks Stay organized with collections  Save and categorize content based on your preferences. 
 
-While exploring, you can save your work by saving a Look. This saves the Explore query, including the settings for filters, visualizations, fields, and sort order.
-
-Both Looks and dashboards can be organized in [folders](https://docs.cloud.google.com/looker/docs/organizing-spaces) (for example, you can have folders named Marketing, Q4 Sales Review, and so on) and later edited as needed.
-
-This page explains how to save, edit, and make other changes to Looks and Look settings that affect what other users can see. For more information about the components on the Look page and interacting with a Look's data, visit the [Viewing Looks in Looker](https://docs.cloud.google.com/looker/docs/viewing-looks) documentation page.
+Looks let you save Explore queries, including your selected fields, filters, sort order, and visualization settings. You can then organize Looks and dashboards in [folders](https://docs.cloud.google.com/looker/docs/organizing-spaces), modify the underlying query, and adjust settings that control what other users see. For more information about Look page components and interacting with a Look's data, see [Viewing Looks in Looker](https://docs.cloud.google.com/looker/docs/viewing-looks).
 
 ## Saving Looks from an Explore
 
-**Note:** If you're using Looker's [new Explore experience](https://docs.cloud.google.com/looker/docs/new-explore-experience-overview), see the [Viewing and interacting with Explores in the new Explore experience](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience#save-or-share-menu) documentation page.
+To save a Look from an Explore, follow these steps:
 
-To save a Look from an Explore:
+  1. In an Explore, click the **Save or share** button. If you are using a classic Explore, click the settings **Explore actions** menu.
+  2. Choose **Save as a Look** to open the **Save Look** menu.
 
-![](https://docs.cloud.google.com/static/looker/docs/images/save-look-from-explore-2314.png)
+If you are using a classic Explore, select **Save** and then click **As a Look** to open the **Save Look** menu.
 
-  1. In the upper right of the Explore, select the **Explore actions** gear menu.
-  2. Choose **Save**.
-  3. Select **As a Look** to open the **Save Look** menu.
+  3. In the **Title** field, enter a new title.
 
-![](https://docs.cloud.google.com/static/looker/docs/images/save-look-from-explore-2-2312.png)
+  4. In the **Description** field, you can enter a description of the Look.
 
-  4. In the **Title** field, enter a new title.
+  5. In the **Folder** drop-down menu, select a folder where you want to save the Look. You won't be able to select folders to which you don't have access.
 
-  5. In the **Description** field, you can enter a description of the Look.
+  6. You can locate subfolders where you want to save the Look by expanding top-level folders.
 
-  6. In the **Folder** drop-down menu, select a folder where you want to save the Look. You won't be able to select folders to which you don't have access.
+  7. You can filter on subfolder titles in the filter field.
 
-  7. You can locate subfolders where you want to save the Look by expanding top-level folders.
-
-  8. You can filter on subfolder titles in the filter field.
-
-  9. Save the Look.
+  8. Save the Look.
 
      * To save your Look and return to the Explore page, select **Save**.
      * To save and view your Look, select **Save & View Look**.
@@ -73,36 +64,25 @@ Continue reading for details about how to copy or move Looks to other locations 
 
 There are two ways to copy a Look:
 
-  * From the gear menu on a Look's page
+  * From the settings **Explore actions** menu on a Look's page
   * From a folder
 
 
 
-#### Copying Looks from the Look page gear menu
+#### Copying Looks from the Explore actions menu
 
-To copy a Look from the Look page:
+To copy a Look from the Look's page, follow these steps:
 
-![](https://docs.cloud.google.com/static/looker/docs/images/copy-look-from-look-page-2320.png)
-
-  1. In the upper right of the Look page, select the [**Explore actions** gear menu](https://docs.cloud.google.com/looker/docs/viewing-looks#the_look_explore_actions_gear_menu).
+  1. On the Look's page, click the settings [**Explore actions** menu](https://docs.cloud.google.com/looker/docs/viewing-looks#the_look_explore_actions_gear_menu).
   2. Choose **Save**.
   3. Select **Save As...** to open the **Save Look** menu.
-
-![](https://docs.cloud.google.com/static/looker/docs/images/save-look-from-explore-2-2312.png)
-
   4. In the **Title** field, enter a new title.
-
   5. In the **Description** field, you can change or enter a description of the Look.
-
   6. In the **Folder** drop-down menu, select a folder where you want to save the Look. You won't be able to select folders to which you don't have access.
-
   7. You can locate subfolders where you want to save the Look by expanding top-level folders.
-
   8. You can filter on subfolder titles in the filter field.
-
-  9. Save the Look.
-
-     * To save your Look and remain on the original Look page, select **Save**.
+  9. Save the Look. 
+     * To save your Look and remain on the original Look's page, select **Save**.
      * To save and view the copied Look, select **Save & View Look**.
      * Alternatively, select the **X** at the top right of the **Save Look** menu to close the menu and return to the original Look without saving the copy.
 
@@ -135,9 +115,9 @@ You can edit a saved Look, including its fields, filters, visualizations, and so
      * For more information regarding making changes to an Explore query, see the [Creating and editing Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) documentation page.
   3. After you make the changes, select the **Run** button to update the data and preview the changes.
 
-  4. Select **Save** to save the changes and navigate back to the Look page.
+  4. Select **Save** to save the changes and navigate back to the Look's page.
 
-     * Alternatively, select the **Cancel** option next to the **Save** button in the **Edit Look** menu header to navigate back to the Look page without saving the changes.
+     * Alternatively, select the **Cancel** option next to the **Save** button in the **Edit Look** menu header to navigate back to the Look's page without saving the changes.
 
 
 
@@ -152,16 +132,11 @@ There are two ways to rename an existing Look, including:
 
 #### Renaming a Look from a Look's page
 
-![A Look called Order count by month displays a table chart with a count of Orders grouped by Orders Created Month.](https://docs.cloud.google.com/static/looker/docs/images/explore-edit-looks-2500.png)
+To rename a Look from a Look's page, follow these steps:
 
-  1. Select **Edit** on the saved Look's page to open the **Edit Look** menu.
-
-![The Look title Order count by month is changed to Monthly order count on the Edit Look menu.](https://docs.cloud.google.com/static/looker/docs/images/look-rename-from-look-2402.png)
-
-  2. Input the new name in the title field underneath the header on the **Edit Look** menu. In this example, the Look title "Order count by month" was changed to "Monthly order count".
-
+  1. Click **Edit** on the saved Look's page to open the **Edit Look** menu.
+  2. Input the new name in the title field underneath the header on the **Edit Look** menu.
   3. Select **Save** to save the changes.
-
 
 
 
@@ -169,18 +144,13 @@ There are two ways to rename an existing Look, including:
 
 Whether viewing Looks in a folder with [list view](https://docs.cloud.google.com/looker/docs/finding-content#list_view) or [grid view](https://docs.cloud.google.com/looker/docs/finding-content#grid_view), you can rename an existing Look from a folder in the following way:
 
-![](https://docs.cloud.google.com/static/looker/docs/images/look-rename-from-folder-2420.png)
-
   1. Select the Look's three-dot menu icon.
   2. Select **Rename** to open the **Rename Look** dialog.
-
-![](https://docs.cloud.google.com/static/looker/docs/images/look-rename-from-folder-2-2206.png)
-
   3. Change the Look title in the **Name** field.
-
   4. Select **OK**.
 
-     * Alternatively, select **Cancel** to close the **Rename Look** dialog without saving the changes.
+Alternatively, select **Cancel** to close the **Rename Look** dialog without saving the changes.
+
 
 
 
@@ -190,30 +160,21 @@ You can prevent a Look from automatically loading its data when a user opens it 
 
 If you choose to prevent the Look from running automatically, users will see an empty visualization that displays the text **Press "Run" to load this data** when they initially view the Look.
 
-![](https://docs.cloud.google.com/static/looker/docs/images/edit-looks-runonload-result-2204.png)
-
 There are two ways to adjust the **Run on Load** option:
 
-  * From the Look page **Explore actions** gear menu
+  * From the Look's settings **Explore actions** menu
   * From a folder
 
 
 
-#### Disabling automatic Run on Load from the Look page Explore actions gear menu
+#### Disabling automatic Run on Load from the Look's Explore actions gear menu
 
-To disable automatic **Run on Load** from the Look page [**Explore actions** gear menu](https://docs.cloud.google.com/looker/docs/viewing-looks#the_look_explore_actions_gear_menu), perform the following steps:
+To disable automatic **Run on Load** from the Look's settings [**Explore actions** menu](https://docs.cloud.google.com/looker/docs/viewing-looks#the_look_explore_actions_gear_menu), perform the following steps:
 
-![](https://docs.cloud.google.com/static/looker/docs/images/disable-look-run-on-load-gear-menu-2314.png)
-
-  1. Select the **Explore actions** gear menu.
+  1. Click the settings **Explore actions** menu.
   2. Select **Edit Settings** to open the **Look Settings** menu.
-
-![](https://docs.cloud.google.com/static/looker/docs/images/disable-look-run-on-load-gear-menu-2-2216.png)
-
   3. Select the **Run on Load** switch to disable automatic **Run on Load**.
-
   4. Select **Save**.
-
 
 
 
@@ -223,17 +184,10 @@ You can also follow the preceding instructions to enable automatic **Run on Load
 
 Whether viewing Looks in a folder with [list view](https://docs.cloud.google.com/looker/docs/finding-content#list_view) or [grid view](https://docs.cloud.google.com/looker/docs/finding-content#grid_view), you can disable a Look's automatic **Run on Load** setting from a folder in the following way:
 
-![](https://docs.cloud.google.com/static/looker/docs/images/disable-look-run-on-load-folder-menu-2312.png)
-
   1. Select the Look's three-dot menu icon.
   2. Select **Edit Settings** to open the **Look Settings** menu.
-
-![](https://docs.cloud.google.com/static/looker/docs/images/disable-look-run-on-load-gear-menu-2-2216.png)
-
   3. Select the **Run on Load** switch to disable automatic **Run on Load**.
-
   4. Select **Save**.
-
 
 
 
@@ -245,18 +199,11 @@ A Look's description appears under the Look's name in [folders](https://docs.clo
 
 If your admin has set your homepage to the [pre-built Looker homepage](https://docs.cloud.google.com/looker/docs/finding-content#pre-built_homepage), the description is also displayed when you hold the pointer over the Look's thumbnail on your homepage.
 
-You can add or edit a Look's description directly from the Look page:
+You can add or edit a Look's description directly from the Look's page in the following way:
 
-![](https://docs.cloud.google.com/static/looker/docs/images/edit-look-description-2420.png)
-
-  1. [Open the Look page](https://docs.cloud.google.com/looker/docs/finding-content) and select the **Edit** link in the **Description** section of the [**Details** panel](https://docs.cloud.google.com/looker/docs/viewing-looks#the_details_panel) to expand the **Description** field.
-
-![](https://docs.cloud.google.com/static/looker/docs/images/edit-look-description-2-2220.png)
-
+  1. [Open the Look's page](https://docs.cloud.google.com/looker/docs/finding-content) and select the **Edit** link in the **Description** section of the [**Details** panel](https://docs.cloud.google.com/looker/docs/viewing-looks#the_details_panel) to expand the **Description** field.
   2. Add or edit the text for the description in the **Description** field.
-
   3. Select **Save** to save the updated description, or select **Cancel** to close the **Description** field without saving.
-
 
 
 
@@ -265,13 +212,13 @@ You can add or edit a Look's description directly from the Look page:
 You can delete a Look or Looks in one of two ways:
 
   * Individually or in bulk from folders, as described on the [Organizing and managing access to content](https://docs.cloud.google.com/looker/docs/organizing-spaces#deleting_looks_and_dashboards) documentation page
-  * Individually from the Look page [**Explore actions** gear menu](https://docs.cloud.google.com/looker/docs/viewing-looks#the_look_explore_actions_gear_menu)
+  * Individually from the Look's settings [**Explore actions** menu](https://docs.cloud.google.com/looker/docs/viewing-looks#the_look_explore_actions_gear_menu)
 
 
 
-To delete a Look using the Look page **Explore actions** gear menu, perform the following steps:
+To delete a Look using the Look's settings **Explore actions** menu, follow these steps:
 
-  1. Select the **Explore actions** gear icon to open the menu options.
+  1. Click the settings **Explore actions** icon to open the menu options.
   2. Select **Move to trash**.
   3. Select **OK** in the confirmation dialog to delete the Look.
 
@@ -285,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

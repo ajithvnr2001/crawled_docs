@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/multi-party-compute/reference/rest/
 title: Multi-party Compute API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:20:42.089241+00:00
+fetched_at: 2026-10-29T09:46:22.573360+00:00
 ---
 
 # Multi-party Compute API  |  Google Cloud Documentation
@@ -21,6 +21,7 @@ fetched_at: 2026-10-27T21:20:42.089241+00:00
 
 Multi-party Compute (MPC) API manages distributed cryptographic keys and signing operations.
 
+  * REST Resource: v1beta.projects.locations.instances
   * REST Resource: v1beta.projects.locations.instances.keyLists
   * REST Resource: v1beta.projects.locations.instances.keyRings
   * REST Resource: v1beta.projects.locations.instances.keyRings.keys
@@ -67,6 +68,21 @@ The instance management API manages the lifecycle of the instances themselves (s
 
 
 
+## REST Resource: [v1beta.projects.locations.instances](https://docs.cloud.google.com/multi-party-compute/reference/rest/v1beta/projects.locations.instances)
+
+Methods  
+---  
+`[create](https://docs.cloud.google.com/multi-party-compute/reference/rest/v1beta/projects.locations.instances/create)` |  `POST /v1beta/{parent=projects/*/locations/*}/instances`   
+Creates a new Instance in a given project and location.  
+`[delete](https://docs.cloud.google.com/multi-party-compute/reference/rest/v1beta/projects.locations.instances/delete)` |  `DELETE /v1beta/{name=projects/*/locations/*/instances/*}`   
+Deletes a single Instance.  
+`[get](https://docs.cloud.google.com/multi-party-compute/reference/rest/v1beta/projects.locations.instances/get)` |  `GET /v1beta/{name=projects/*/locations/*/instances/*}`   
+Gets details of a single Instance.  
+`[list](https://docs.cloud.google.com/multi-party-compute/reference/rest/v1beta/projects.locations.instances/list)` |  `GET /v1beta/{parent=projects/*/locations/*}/instances`   
+Lists Instances in a given project and location.  
+`[patch](https://docs.cloud.google.com/multi-party-compute/reference/rest/v1beta/projects.locations.instances/patch)` |  `PATCH /v1beta/{instance.name=projects/*/locations/*/instances/*}`   
+Updates the parameters of a single Instance.  
+  
 ## REST Resource: [v1beta.projects.locations.instances.keyLists](https://docs.cloud.google.com/multi-party-compute/reference/rest/v1beta/projects.locations.instances.keyLists)
 
 Methods  
@@ -256,6 +272,6 @@ Custom Method: Revokes (deletes) a policy.
   
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

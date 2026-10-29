@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live/
 title: Gemini 3.8 Live \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:26.236214+00:00
+fetched_at: 2026-10-29T09:45:14.222666+00:00
 ---
 
 # Gemini 3.8 Live  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -32,6 +32,7 @@ Input and output  videocam  Video
 Input and output   
 Token limits | Maximum input tokens | 128K  
 Maximum output tokens | 64K  
+Maximum concurrent sessions |  [Concurrent session quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live#concurrent-session-quotas) apply to Gemini Live API sessions and Live Avatar sessions.   
 Capabilities | 
 
   * [Thinking](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)   
@@ -162,6 +163,21 @@ Security controls | **Online prediction** |
 See [Security controls](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls) for more information.  
   
 † Listed retirement dates refer to retirement of support in Gemini Enterprise Agent Platform. Models may remain accessible through the Gemini API after these dates have passed. The Gemini API is not a Google Cloud offering and is subject to its own terms of service. For details, see the [Gemini API documentation](https://ai.google.dev/). 
+
+## Concurrent session quotas
+
+When you use Gemini 3.8 Live (`gemini-3.8-live`), concurrent session quotas apply to both Gemini Live API sessions and Live Avatar sessions. Concurrent session quotas are checked when a session starts, so these limits apply whether you use [Standard pay-as-you-go (Standard PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) or [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput).
+
+To view the specific concurrent session limits for your project, do the following:
+
+  1. In the Google Cloud console, go to the **Quotas and System Limits** page.
+
+[Go to Quotas and System Limits](https://console.cloud.google.com/iam-admin/quotas)
+
+  2. In the **Filter** field, enter `gemini-3.8-live` and press `Enter` to view the concurrent session limits for your project.
+
+
+
 
 Send feedback 
 

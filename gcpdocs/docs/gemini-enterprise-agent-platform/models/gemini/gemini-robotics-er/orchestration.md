@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/gemini-robotics-er/orchestration/
 title: Task orchestration \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:59.867736+00:00
+fetched_at: 2026-10-29T11:06:09.452649+00:00
 ---
 
 # Task orchestration  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

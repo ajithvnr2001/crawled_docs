@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/datasets/export-metadata-annotations/
 title: Export metadata and annotations from a dataset \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:25.185253+00:00
+fetched_at: 2026-10-29T11:06:44.956341+00:00
 ---
 
 # Export metadata and annotations from a dataset  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

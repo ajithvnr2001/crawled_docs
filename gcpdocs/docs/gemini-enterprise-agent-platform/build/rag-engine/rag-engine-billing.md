@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-engine-billing/
 title: RAG Engine on Gemini Enterprise Agent Platform billing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:44.924165+00:00
+fetched_at: 2026-10-29T11:13:05.769424+00:00
 ---
 
 # RAG Engine on Gemini Enterprise Agent Platform billing  |  Google Cloud Documentation

@@ -1,49 +1,13 @@
 ---
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/
 title: Collect AWS Control Tower logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
-method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
-fetched_at: 2026-10-27T16:47:08.037113+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T10:09:09.481218+00:00
 ---
 
 # Collect AWS Control Tower logs  |  Google Security Operations  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/
-
-[ Skip to main content ](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#main-content)
-[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
-`/`
-[ Console ](https://console.cloud.google.com/)
-  * [English](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/)
-  * [Deutsch](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=de)
-  * [Español](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=es)
-  * [Español – América Latina](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=es-419)
-  * [Français](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=fr)
-  * [Indonesia](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=id)
-  * [Italiano](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=it)
-  * [Português](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=pt)
-  * [Português – Brasil](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=pt-br)
-  * [עברית](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=he)
-  * [中文 – 简体](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=zh-cn)
-  * [中文 – 繁體](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=zh-tw)
-  * [日本語](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=ja)
-  * [한국어](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/?hl=ko)
-
-Sign in
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/secops-color.svg) ](https://docs.cloud.google.com/chronicle/docs)
-  * [ Google Security Operations ](https://docs.cloud.google.com/chronicle/docs)
-
-
-[Start free](https://console.cloud.google.com/freetrial)
-  * On this page
-  * [Before you begin](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#before-you-begin)
-  * [Configure Amazon S3 bucket](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#configure_amazon_s3_bucket)
-  * [Configure CloudTrail in AWS Control Tower](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#configure_cloudtrail_in_aws_control_tower)
-  * [How to configure CloudTrail](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#how_to_configure_cloudtrail)
-  * [Set up feeds](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#set_up_feeds)
-  * [How to set up the AWS Control Tower feed](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#how_to_set_up_the_aws_control_tower_feed)
-  * [UDM Mapping Table](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#udm_mapping_table)
-  * [Change Log](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#change_log)
-
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -52,31 +16,30 @@ Sign in
   * [ Guides ](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview)
 
 
-Was this helpful?
-Send feedback 
-  * On this page
-  * [Before you begin](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#before-you-begin)
-  * [Configure Amazon S3 bucket](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#configure_amazon_s3_bucket)
-  * [Configure CloudTrail in AWS Control Tower](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#configure_cloudtrail_in_aws_control_tower)
-  * [How to configure CloudTrail](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#how_to_configure_cloudtrail)
-  * [Set up feeds](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#set_up_feeds)
-  * [How to set up the AWS Control Tower feed](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#how_to_set_up_the_aws_control_tower_feed)
-  * [UDM Mapping Table](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#udm_mapping_table)
-  * [Change Log](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aws-control-tower/#change_log)
 
+Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Collect AWS Control Tower logs Stay organized with collections  Save and categorize content based on your preferences.
+# Collect AWS Control Tower logs
+
 **Parser Version:** 1.0
+
 Supported in:
+
 Google SecOps  [ SIEM ](https://docs.cloud.google.com/chronicle/docs/secops/google-secops-siem-toc)
+
 This document explains how to ingest AWS Control Tower logs to Google Security Operations. AWS Control Tower enables governance, compliance, and security monitoring across multiple AWS accounts. This integration let you to analyze logs from AWS Control Tower for better visibility and security posture.
+
 ## Before you begin
+
 Ensure you have the following prerequisites:
+
   * Google SecOps instance
   * Privileged access to AWS
 
 
+
 ## Configure Amazon S3 bucket
+
   1. Create an **Amazon S3 bucket** following this user guide: [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)
   2. Save the bucket **Name** and **Region** for later use.
   3. Create a user following this user guide: [Creating an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console).
@@ -98,12 +61,17 @@ Ensure you have the following prerequisites:
   19. Click **Add permissions**.
 
 
+
 ## Configure CloudTrail in AWS Control Tower
+
   1. Sign in to the [AWS Management Console](https://aws.amazon.com/console/).
   2. Go to **AWS Control Tower**.
   3. In the search bar, type **CloudTrail** and select it from the **services list**.
   4. Click **Create Trail** to create a new trail. 
+
+**Note:** If you already have a trail, you can modify it to capture Control Tower activities.
   5. Specify Trail Settings:
+
      * **Trail name** : Provide a meaningful name for the trail (for example, **ControlTowerTrail**).
      * **Apply trail to all regions** : Ensure that you select **Yes** for **Apply trail to all regions**.
      * **Management events** : Ensure that **Read/Write** events are set to **All**..
@@ -112,7 +80,10 @@ Ensure you have the following prerequisites:
   6. In the **Event** selector, choose to log **Management events** and **Data events**.
 
 
+
+
 ## How to configure CloudTrail
+
   1. Go to the AWS IAM Console.
   2. Click **Roles**.
   3. Search for the role that **CloudTrail** uses `AWSServiceRoleForCloudTrail` (the role is automatically created when you set up CloudTrail).
@@ -127,99 +98,121 @@ Ensure you have the following prerequisites:
   12. Review your settings and click **Create** (or **Save changes** if you're editing an existing trail).
 
 
+
 ## Set up feeds
+
 There are two different entry points to set up feeds in the Google SecOps platform: 
+
   * **SIEM Settings > Feeds > Add New Feed**
   * **Content Hub > Content Packs > Get Started**
 
 
+
 ## How to set up the AWS Control Tower feed
+
   1. Click the **Amazon Cloud Platform** pack.
   2. Locate the **AWS Control Tower** log type.
   3. Specify the values in the following fields.
+
      * **Source Type** : Amazon SQS V2
      * **Queue Name** : The SQS queue name to read from
      * **S3 URI** : The bucket URI. 
        * `s3://your-log-bucket-name/`
          * Replace `your-log-bucket-name` with the actual name of your S3 bucket.
      * **Source deletion options** : Select the deletion option according to your ingestion preferences.
+
+**Note:** If you select the `Delete transferred files` or `Delete transferred files and empty directories` option, make sure that you granted appropriate permissions to the service account.
      * **Maximum File Age** : Include files modified in the last number of days. Default is 180 days.
+
      * **SQS Queue Access Key ID** : An account access key that is a 20-character alphanumeric string.
+
      * **SQS Queue Secret Access Key** : An account access key that is a 40-character alphanumeric string.
+
 **Advanced options**
+
      * **Feed Name** : A prepopulated value that identifies the feed.
      * **Asset Namespace** : Namespace associated with the feed.
      * **Ingestion Labels** : Labels applied to all events from this feed.
   4. Click **Create feed**.
 
 
+**Note:** The Content Hub is not available on the SIEM standalone platform. To upgrade, contact your Google SecOps representative.
+
 For more information about configuring multiple feeds for different log types within this product family, see [Configure feeds by product](https://docs.cloud.google.com/chronicle/docs/ingestion/ingestion-entities/configure-multiple-feeds).
-## UDM Mapping Table  
-| Log field  | UDM mapping  | Logic  |  
-| --- | --- | --- |  
-| awsAccountId  | target.user.group_identifiers  | The AWS account ID associated with the event.  |  
-| digestPublicKeyFingerprint  | target.file.sha1  | The fingerprint of the public key used to sign the digest.  |  
-| digestPublicKeyFingerprint  | target.resource.attribute.labels.value  | The fingerprint of the public key used to sign the digest.  |  
-| digestS3Bucket  | target.resource.name  | The name of the S3 bucket where the digest is stored.  |  
-| digestS3Object  | target.file.full_path  | The path to the digest object in the S3 bucket.  |  
-| digestSignatureAlgorithm  | network.tls.cipher  | The algorithm used to sign the digest.  |  
-| digestSignatureAlgorithm  | target.resource.attribute.labels.value  | The algorithm used to sign the digest.  |  
-| digestStartTime  | metadata.event_timestamp  | The start time of the digest period. Used as event time if eventTime is not available.  |  
-| eventCategory  | security_result.category_details  | The category of the event.  |  
-| eventID  | metadata.product_log_id  | The unique ID of the event.  |  
-| eventName  | metadata.product_event_type  | The name of the event.  |  
-| eventName  | security_result.summary  | The name of the event, used to generate the security result summary.  |  
-| eventSource  | target.application  | The source of the event.  |  
-| eventTime  | metadata.event_timestamp  | The time the event occurred.  |  
-| eventType  | additional.fields.value.string_value  | The type of the event.  |  
-| logFiles.hashValue  | about.file.sha256  | The SHA-256 hash of the log file.  |  
-| logFiles.s3Bucket  | about.resource.name  | The name of the S3 bucket where the log file is stored.  |  
-| logFiles.s3Object  | about.file.full_path  | The path to the log file object in the S3 bucket.  |  
-| previousDigestHashValue  | target.file.sha256  | The SHA-256 hash of the previous digest.  |  
-| recipientAccountId  | target.resource.attribute.labels.value  | The AWS account ID of the recipient of the event.  |  
-| Records.awsRegion  | principal.location.name  | The AWS region where the event occurred.  |  
-| Records.errorCode  | security_result.rule_id  | The error code, if any, associated with the request.  |  
-| Records.errorMessage  | security_result.description  | The error message, if any, associated with the request.  |  
-| Records.eventCategory  | security_result.category_details  | The category of the event.  |  
-| Records.eventID  | metadata.product_log_id  | The unique ID of the event.  |  
-| Records.eventName  | metadata.product_event_type  | The name of the event.  |  
-| Records.eventName  | security_result.summary  | The name of the event, used to generate the security result summary.  |  
-| Records.eventSource  | target.application  | The source of the event.  |  
-| Records.eventTime  | metadata.event_timestamp  | The time the event occurred.  |  
-| Records.eventType  | additional.fields.value.string_value  | The type of the event.  |  
-| Records.requestID  | target.resource.attribute.labels.value  | The ID of the request.  |  
-| Records.requestParameters.groupName  | target.group.group_display_name  | The name of the group, if any, associated with the request.  |  
-| Records.requestParameters.userName  | src.user.userid  | The name of the user, if any, associated with the request.  |  
-| Records.requestParameters.userName  | src.user.user_display_name  | The name of the user, if any, associated with the request.  |  
-| Records.responseElements.ConsoleLogin  | security_action  | The result of the console login attempt.  |  
-| Records.responseElements.ConsoleLogin  | security_result.summary  | The result of the console login attempt, used to generate the security result summary.  |  
-| Records.sourceIPAddress  | principal.hostname  | The IP address of the principal. Used as hostname if not a valid IP.  |  
-| Records.sourceIPAddress  | principal.ip  | The IP address of the principal.  |  
-| Records.tlsDetails.cipherSuite  | network.tls.cipher  | The cipher suite used for the TLS connection.  |  
-| Records.tlsDetails.tlsVersion  | network.tls.version  | The TLS version used for the connection.  |  
-| Records.userAgent  | network.http.user_agent  | The user agent of the request.  |  
-| Records.userIdentity.accessKeyId  | additional.fields.value.string_value  | The access key ID used for the request.  |  
-| Records.userIdentity.accountId  | principal.user.group_identifiers  | The AWS account ID of the user.  |  
-| Records.userIdentity.arn  | principal.user.attribute.labels.value  | The ARN of the user.  |  
-| Records.userIdentity.arn  | target.user.userid  | The ARN of the user. Used as userid if userName is not available.  |  
-| Records.userIdentity.principalId  | principal.user.product_object_id  | The principal ID of the user.  |  
-| Records.userIdentity.sessionContext.attributes.mfaAuthenticated  | principal.user.attribute.labels.value  | Whether MFA was used for the request.  |  
-| Records.userIdentity.sessionContext.sessionIssuer.userName  | principal.user.userid  | The username of the user who issued the session.  |  
-| Records.userIdentity.type  | principal.resource.type  | The type of identity used for the request.  |  
-| Records.userIdentity.userName  | target.user.userid  | The username of the user.  |  
-| -  | extensions.auth.mechanism  | Set to "REMOTE".  |  
-| -  | metadata.event_type  | Set to "STATUS_UPDATE", "USER_RESOURCE_ACCESS", "USER_LOGIN", or "GENERIC_EVENT" based on the eventName.  |  
-| -  | metadata.log_type  | Set to "AWS_CONTROL_TOWER".  |  
-| -  | metadata.product_name  | Set to "AWS Control Tower".  |  
-| -  | metadata.vendor_name  | Set to "AWS".  |  
-| -  | principal.asset.attribute.cloud.environment  | Set to "AMAZON_WEB_SERVICES".  |  
-| -  | security_result.action  | Set to "ALLOW" or "BLOCK" based on the errorCode.  |  
-| -  | security_result.severity  | Set to "INFORMATIONAL".  |  
+
+## UDM Mapping Table
+
+Log field | UDM mapping | Logic  
+---|---|---  
+awsAccountId | target.user.group_identifiers | The AWS account ID associated with the event.  
+digestPublicKeyFingerprint | target.file.sha1 | The fingerprint of the public key used to sign the digest.  
+digestPublicKeyFingerprint | target.resource.attribute.labels.value | The fingerprint of the public key used to sign the digest.  
+digestS3Bucket | target.resource.name | The name of the S3 bucket where the digest is stored.  
+digestS3Object | target.file.full_path | The path to the digest object in the S3 bucket.  
+digestSignatureAlgorithm | network.tls.cipher | The algorithm used to sign the digest.  
+digestSignatureAlgorithm | target.resource.attribute.labels.value | The algorithm used to sign the digest.  
+digestStartTime | metadata.event_timestamp | The start time of the digest period. Used as event time if eventTime is not available.  
+eventCategory | security_result.category_details | The category of the event.  
+eventID | metadata.product_log_id | The unique ID of the event.  
+eventName | metadata.product_event_type | The name of the event.  
+eventName | security_result.summary | The name of the event, used to generate the security result summary.  
+eventSource | target.application | The source of the event.  
+eventTime | metadata.event_timestamp | The time the event occurred.  
+eventType | additional.fields.value.string_value | The type of the event.  
+logFiles.hashValue | about.file.sha256 | The SHA-256 hash of the log file.  
+logFiles.s3Bucket | about.resource.name | The name of the S3 bucket where the log file is stored.  
+logFiles.s3Object | about.file.full_path | The path to the log file object in the S3 bucket.  
+previousDigestHashValue | target.file.sha256 | The SHA-256 hash of the previous digest.  
+recipientAccountId | target.resource.attribute.labels.value | The AWS account ID of the recipient of the event.  
+Records.awsRegion | principal.location.name | The AWS region where the event occurred.  
+Records.errorCode | security_result.rule_id | The error code, if any, associated with the request.  
+Records.errorMessage | security_result.description | The error message, if any, associated with the request.  
+Records.eventCategory | security_result.category_details | The category of the event.  
+Records.eventID | metadata.product_log_id | The unique ID of the event.  
+Records.eventName | metadata.product_event_type | The name of the event.  
+Records.eventName | security_result.summary | The name of the event, used to generate the security result summary.  
+Records.eventSource | target.application | The source of the event.  
+Records.eventTime | metadata.event_timestamp | The time the event occurred.  
+Records.eventType | additional.fields.value.string_value | The type of the event.  
+Records.requestID | target.resource.attribute.labels.value | The ID of the request.  
+Records.requestParameters.groupName | target.group.group_display_name | The name of the group, if any, associated with the request.  
+Records.requestParameters.userName | src.user.userid | The name of the user, if any, associated with the request.  
+Records.requestParameters.userName | src.user.user_display_name | The name of the user, if any, associated with the request.  
+Records.responseElements.ConsoleLogin | security_action | The result of the console login attempt.  
+Records.responseElements.ConsoleLogin | security_result.summary | The result of the console login attempt, used to generate the security result summary.  
+Records.sourceIPAddress | principal.hostname | The IP address of the principal. Used as hostname if not a valid IP.  
+Records.sourceIPAddress | principal.ip | The IP address of the principal.  
+Records.tlsDetails.cipherSuite | network.tls.cipher | The cipher suite used for the TLS connection.  
+Records.tlsDetails.tlsVersion | network.tls.version | The TLS version used for the connection.  
+Records.userAgent | network.http.user_agent | The user agent of the request.  
+Records.userIdentity.accessKeyId | additional.fields.value.string_value | The access key ID used for the request.  
+Records.userIdentity.accountId | principal.user.group_identifiers | The AWS account ID of the user.  
+Records.userIdentity.arn | principal.user.attribute.labels.value | The ARN of the user.  
+Records.userIdentity.arn | target.user.userid | The ARN of the user. Used as userid if userName is not available.  
+Records.userIdentity.principalId | principal.user.product_object_id | The principal ID of the user.  
+Records.userIdentity.sessionContext.attributes.mfaAuthenticated | principal.user.attribute.labels.value | Whether MFA was used for the request.  
+Records.userIdentity.sessionContext.sessionIssuer.userName | principal.user.userid | The username of the user who issued the session.  
+Records.userIdentity.type | principal.resource.type | The type of identity used for the request.  
+Records.userIdentity.userName | target.user.userid | The username of the user.  
+- | extensions.auth.mechanism | Set to "REMOTE".  
+- | metadata.event_type | Set to "STATUS_UPDATE", "USER_RESOURCE_ACCESS", "USER_LOGIN", or "GENERIC_EVENT" based on the eventName.  
+- | metadata.log_type | Set to "AWS_CONTROL_TOWER".  
+- | metadata.product_name | Set to "AWS Control Tower".  
+- | metadata.vendor_name | Set to "AWS".  
+- | principal.asset.attribute.cloud.environment | Set to "AMAZON_WEB_SERVICES".  
+- | security_result.action | Set to "ALLOW" or "BLOCK" based on the errorCode.  
+- | security_result.severity | Set to "INFORMATIONAL".  
+  
 ## Change Log
+
 [View the Change Log for this parser](https://docs.cloud.google.com/chronicle/docs/ingestion/parser-list/aws-control-tower-changelog)
+
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
-Was this helpful?
+
 Send feedback 
+
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-Last updated 2026-10-26 UTC.
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+
+Last updated 2026-10-28 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

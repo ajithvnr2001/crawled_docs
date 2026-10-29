@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/retrieve-and-chart-data/
 title: Retrieve and chart data \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:18.757195+00:00
+fetched_at: 2026-10-29T09:47:10.209385+00:00
 ---
 
 # Retrieve and chart data  |  Looker  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Retrieve and chart data Stay organized with collections  Save and categorize content based on your preferences. 
 
-After learning how to browse through others' Looks and dashboards, many users want to take the next step and learn how to query data themselves. This lets them harness their organization's data for their own needs. This page outlines the documentation on retrieving and charting data. 
+In Looker, you can query your organization's data, build custom calculations, and create visualizations to uncover insights. Whether you work in the Looker user interface or connect through external business intelligence (BI) tools, the guides on this page help you retrieve, customize, and chart your data.
 
 ## Retrieving data using the Looker UI
 
@@ -29,7 +29,7 @@ The following pages help you start building queries with the Looker UI:
 
   * [Creating and editing Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) — Learn to build queries, display results, and discover insights in Looker.
   * [Viewing and interacting with Explores](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores) — Learn how to view and discover insights in Explore queries.
-  * [Filtering and limiting data](https://docs.cloud.google.com/looker/docs/filtering-and-limiting) — Limit your results to the data you're interested in.
+  * [Filtering and limiting data](https://docs.cloud.google.com/looker/docs/filtering-and-limiting) — Limit your results to the data that you're interested in.
   * [Merging results from different Explores](https://docs.cloud.google.com/looker/docs/merged-results) — Combine data from multiple queries.
   * [Looker filter expressions](https://docs.cloud.google.com/looker/docs/filter-expressions) — Understand the Looker filter expression patterns.
   * [Looker functions and operators](https://docs.cloud.google.com/looker/docs/functions-and-operators) — Review the functions and operators used in Looker expressions.
@@ -46,7 +46,7 @@ The following pages help you use connectors to retrieve data from Looker:
   * [Open SQL Interface](https://docs.cloud.google.com/looker/docs/sql-interface) — Access data from Looker models from any third-party application that supports Java Database Connectivity (JDBC).
   * [Looker–Tableau BI Connector](https://docs.cloud.google.com/looker/docs/tableau-connector) — Access data from Looker Explores within Tableau.
   * [Looker–Power BI Connector](https://docs.cloud.google.com/looker/docs/powerbi-connector) — Access data from Looker Explores within Microsoft Power BI or Power BI service.
-  * [Looker–ThoughtSpot BI Connector](https://docs.cloud.google.com/looker/docs/thoughtspot-connector) — Access data from Looker Explores within ThoughSpot.
+  * [Looker–ThoughtSpot BI Connector](https://docs.cloud.google.com/looker/docs/thoughtspot-connector) — Access data from Looker Explores within ThoughtSpot.
 
 
 
@@ -74,10 +74,22 @@ The following pages help you start visualizing your data:
 
 
 
+## Retrieving data using classic Explores
+
+The following pages help you start building queries if you're using the classic Looker Explore UI:
+
+  * [Creating and editing classic Explores](https://docs.cloud.google.com/looker/docs/creating-and-editing-classic-explores) — Learn to build queries, display results, and discover insights in Looker.
+  * [Viewing and interacting with classic Explores](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-classic-explores) — Learn how to view and discover insights in classic Explore queries.
+  * [Filtering and limiting data in classic Explores](https://docs.cloud.google.com/looker/docs/filtering-and-limiting-classic-explores) — Limit your results to the data that you're interested in.
+  * [Merging results from different classic Explores](https://docs.cloud.google.com/looker/docs/merged-results-classic-explore) — Combine data from multiple queries.
+  * [Creating visualizations and graphs with classic Explores](https://docs.cloud.google.com/looker/docs/creating-visualizations-classic-explores) — Create visualizations and graphs based on the results of your queries.
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

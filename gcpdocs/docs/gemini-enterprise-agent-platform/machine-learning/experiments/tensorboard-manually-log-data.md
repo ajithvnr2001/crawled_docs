@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/experiments/tensorboard-manually-log-data/
 title: Manually log metrics with Vertex AI Experiments \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:13.255782+00:00
+fetched_at: 2026-10-29T11:06:26.522702+00:00
 ---
 
 # Manually log metrics with Vertex AI Experiments  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

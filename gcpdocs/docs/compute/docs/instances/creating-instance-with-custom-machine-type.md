@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type/
 title: Create a VM with a custom machine type \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:41.505163+00:00
+fetched_at: 2026-10-29T09:59:21.143499+00:00
 ---
 
 # Create a VM with a custom machine type  |  Compute Engine  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Create a VM with a custom machine type Stay organized with collections  Save and categorize content based on your preferences. 
 
-Compute Engine offers predefined machine types that you can use when you create a VM instance. A predefined machine type has a preset number of vCPUs and amount of memory, and is charged at a set price. If predefined VMs don't meet your needs, you can create a VM instance with custom virtualized hardware settings. Specifically, you can create a VM instance with a custom number of vCPUs and amount of memory, effectively using a custom machine type. Custom machine types are available for the following:
+Compute Engine offers predefined machine types that you can use when you create a VM instance. A predefined machine type has a preset number of vCPUs and amount of memory and has a set price. If predefined VMs don't meet your needs, you can create a VM instance with custom virtualized hardware settings. Specifically, you can create a VM instance with a custom number of vCPUs and amount of memory, effectively using a custom machine type. Custom machine types are available for the following:
 
   * [General-purpose machine family](https://docs.cloud.google.com/compute/docs/general-purpose-machines) for the N and E machine series only. You can create a custom VM on the N4, N4D, N4A, N2, N2D, E2, or N1 machine series.
   * [Accelerator-optimized machine family](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines) for the G2 machine series only.
@@ -31,8 +31,8 @@ Compute Engine offers predefined machine types that you can use when you create 
 Custom VMs are ideal in the following scenarios:
 
   * Workloads that aren't a good fit for the predefined VM types.
-  * Workloads that require more processing power or more memory but don't need all upgrades that are provided by the next level machine type.
-  * Workloads that have per-CPU software license costs. Customize the number of vCPUs to avoid license costs for unused processing power or to match available software license counts.
+  * Workloads that require more processing power or more memory but don't need all the upgrades that the next-level machine type provides.
+  * Workloads that have per-CPU software license costs, where you can customize the number of vCPUs to avoid license costs for unused processing power or to match available software license counts.
 
 
 
@@ -130,24 +130,6 @@ If an authentication error is returned, and you are using an external identity p
 
 For more information, see [ Set up authentication for a local development environment](https://docs.cloud.google.com/compute/docs/authentication#local-development). 
 
-### PHP
-
-To use the PHP samples on this page in a local development environment, install and initialize the gcloud CLI, and then set up Application Default Credentials with your user credentials. 
-
-    1. [Install](https://docs.cloud.google.com/sdk/docs/install) the Google Cloud CLI. 
-
-    2. If you're using an external identity provider (IdP), you must first [ sign in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud). 
-
-    3. If you're using a local shell, then create local authentication credentials for your user account: 
-           
-           gcloud auth application-default login
-
-You don't need to do this if you're using Cloud Shell.
-
-If an authentication error is returned, and you are using an external identity provider (IdP), confirm that you have [ signed in to the gcloud CLI with your federated identity](https://docs.cloud.google.com/iam/docs/workforce-log-in-gcloud). 
-
-For more information, see [ Set up authentication for a local development environment](https://docs.cloud.google.com/compute/docs/authentication#local-development). 
-
 ### Python
 
 To use the Python samples on this page in a local development environment, install and initialize the gcloud CLI, and then set up Application Default Credentials with your user credentials. 
@@ -212,55 +194,71 @@ The following permissions are required to create a VM with a custom machine type
 
 You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
-### Limitations
+## Limitations
 
   * If your VM has Local SSD disks, you can't change the vCPU and memory configuration.
   * Extended memory is available on N4, N4A, N4D, N2, N2D, and N1 custom machine types. For the limits on extended memory, see Add extended memory to a machine type.
 
 Predefined machine types, as well as G2 and E2 custom machine types, don't support extended memory.
 
-  * Extended memory does not qualify for [Resource-based committed use discounts (CUDs)](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#resource_based).
+  * Extended memory doesn't qualify for [resource-based committed use discounts](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#resource_based).
 
-  * Each machine type has specific ranges and values for vCPUs and memory.
+  * Each machine type has specific ranges and values for vCPUs and memory, as shown in the following table:
 
 
-VM Series | Min vCPU | Max vCPU | Allowed vCPU | RAM min per vCPU | RAM max per vCPU | Step size RAM | Extended Memory  
+Machine series | Min vCPUs | Max vCPUs | Allowed vCPUs | Min memory per vCPU (GB) | Max memory per vCPU (GB) | Step size (MB) | Extended memory  
 ---|---|---|---|---|---|---|---  
-N4 | 2 | 80 | any multiple of 2 | 2 | 8 | 256 MiB | Yes  
-N4D | 2 | 96 | 2, 4, 8, 16, 32, 48, 64, 80, 96 | 0.5 | 8 | 256 MiB | Yes  
-N4A | 1 | 64 | any | 2 | 8 | 256 MiB | Yes  
-N2 | 2 | 80 | multiples of 2 (up to 32) or 4 (32 to 80) | 0.5 | 8 | 256 MiB | Yes  
-N2D | 2 | 96 | 2, 4, 8, 16, 32, 48, 64, 80, 96 | 0.5 | 8 | 256 MiB | Yes  
-N1 | 1 | 96 | 1 or any multiple of 2 | 0.9 | 6.5 | 256 MiB | Yes  
-E2 | 2 | 32 | any multiple of 2 | 0.5 | 8 | 256 MiB | No  
-E2 shared-core | 0.25 | 1 | 0.25, 0.5, 1 | 1 to 4 | 8 | 256 MiB | No  
-  
+N4 | 2 | 80 | Any multiple of 2 | 2 | 8 | 256 | Yes  
+N4D | 2 | 96 | 2, 4, 8, 16, 32, 48, 64, 80, 96 | 0.5 | 8 | 256 | Yes  
+N4A | 1 | 64 | Any | 2 | 8 | 256 | Yes  
+N2 | 2 | 80 | Multiples of 2 (up to 32) or 4 (32 to 80) | 0.5 | 8 | 256 | Yes  
+N2D | 2 | 96 | 2, 4, 8, 16, 32, 48, 64, 80, 96 | 0.5 | 8 | 256 | Yes  
+N1 | 1 | 96 | 1 or any multiple of 2 | 0.9 (1 for 1 or 2 vCPUs) | 6.5 | 256 | Yes  
+E2 | 2 | 32 | Any multiple of 2 | 0.5 | 8 | 256 | No  
+E2 shared-core | 0.25 | 1 | 0.25, 0.5, 1 | 1 total | 8 (2 total for micro, 4 total for small, 8 total for medium) | 256 | No  
+**Note:** G2 (NVIDIA L4) lets you customize vCPUs (4, 8, 12, 16, or 32) when Number of GPUs is 1, whereas for 2, 4, or 8 L4 GPUs the vCPU count is fixed (24, 48, or 96) and only memory is customizable. For the vCPU and custom memory ranges for G2 VMs, see [G2 machine types](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-standard-vms).
+
+## Express memory in GB or MB
+
+For historical reasons, Google Cloud tools and documentation refer to machine type memory as decimal megabytes (MB) and gigabytes (GB). However, these units represent binary [gibibytes (GiB)](https://wikipedia.org/wiki/Gibibyte) and mebibytes (MiB), where 1 GB is 230 bytes, or 1,024 MB.
+
+When you configure memory for a custom machine type, the unit requirements and conversions depend on the tool that you use:
+
+  * In the Google Cloud console, you specify memory in GB. For example, if your system needs 1,024 MB of memory, select 1 GB in the Google Cloud console.
+  * In the Compute Engine API, you must provide memory in MB as an integer multiple of 256 MB (or 1,024 MB for G2 VMs). For example, if you try to provision 5 GB of memory by specifying 5,000 MB in an API request, the API returns an error because 5,000 isn't a multiple of 256 (5 GB is 5,120 MB).
+  * In the Google Cloud CLI, you can provide the total memory for a VM in GB or MB: 
+    * The `--custom-memory` flag defaults to GB if you omit the unit. To specify memory in MB, you must include the `MB` unit suffix. For example, if you want 2,048 MB (2 GB) of memory and specify the `--custom-memory=2048` flag without a unit, the gcloud CLI requests 2,048 GB of memory instead of 2,048 MB.
+    * Unitless values passed to `--custom-memory` must be integers. To express 0.25 GB (256 MB) increments such as 5.75 GB, either convert the value to an integer in MB (`--custom-memory=5888MB`) or include the `GB` unit suffix (`--custom-memory=5.75GB`).
+    * With the `--machine-type` flag, you must specify memory in MB as an integer without a unit suffix—for example, `--machine-type=n2-custom-2-5120`.
+
+
+
 ## Custom machine type pricing
 
-Google Cloud charges for custom VMs based on the number of vCPUs and memory hours that the VM uses. This is different from how predefined machine types are charged. The on-demand prices for custom machine types include a 5% premium over the on-demand prices for predefined machine types.
+Compute Engine charges for custom VMs based on the number of vCPUs and memory hours that the VM uses. This pricing model differs from how Compute Engine charges for predefined machine types. The on-demand prices for custom machine types include a 5% premium over the on-demand prices for predefined machine types.
 
-  * When using a custom machine type, any memory up to and including the default amount per vCPU is charged at the machine family custom machine type pricing. E2 custom machine and E2 shared-core custom machine types share the same pricing scheme.
+  * When you use a custom machine type, any memory up to and including the default amount per vCPU is charged at the machine family custom machine type pricing. E2 custom machine and E2 shared-core custom machine types share the same pricing scheme.
 
   * If you use your [commitments](https://docs.cloud.google.com/compute/docs/instances/signing-up-committed-use-discounts) to run custom machine types, then Compute Engine charges a 5% premium over the commitment prices. Compute Engine charges this premium for the portion and duration of your commitment that you run these custom machine type VMs.
 
 
 
 
-To view pricing information by machine series, see [VM instance pricing](https://cloud.google.com/compute/vm-instance-pricing).
+To view pricing information by machine series, see [VM instance pricing](https://docs.cloud.google.com/compute/vm-instance-pricing).
 
-Custom VMs are subject to the same 1-minute minimum charge as any other instance, but sustained use discounts for custom machine types are calculated differently. For more information, see [sustained use discounts](https://docs.cloud.google.com/compute/docs/sustained-use-discounts#sud_custom) for custom VMs.
+Custom VMs are subject to the same 1-minute minimum charge as any other instance, but sustained use discounts for custom machine types are calculated differently. For more information, see [sustained use discounts](https://docs.cloud.google.com/compute/docs/sustained-use-discounts) for custom VMs.
 
 ### Extended memory pricing
 
 Compute Engine charges extra for memory above the range maximum for the number of vCPUs configured as extended memory, based on the machine family extended custom memory pricing. The price for extended memory is higher than the price for memory below the range maximum.
 
-**Note:** When using resource-based committed use discounts, it is often more cost-effective to use a VM shape with excess vCPU, potentially disabled using visible cores, than using extended memory.
+**Note:** When you use resource-based committed use discounts, it's often more cost-effective to use a VM shape with excess vCPUs (potentially disabled by using visible cores) than to use extended memory.
 
-Extended memory prices differ depending on the region. Instances running with extended memory are subject to the same 1-minute minimum charge as any other instance. Extended memory does not qualify for resource-based committed use discounts, but it does qualify for [compute flexible committed use discounts](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#spend_based) and [sustained use discounts](https://docs.cloud.google.com/compute/docs/sustained-use-discounts#sud_custom).
+Extended memory prices differ depending on the region. Instances running with extended memory are subject to the same 1-minute minimum charge as any other instance. Extended memory doesn't qualify for resource-based committed use discounts, but it does qualify for [compute flexible committed use discounts](https://docs.cloud.google.com/compute/docs/instances/committed-use-discounts-overview#spend_based) and [sustained use discounts](https://docs.cloud.google.com/compute/docs/sustained-use-discounts).
 
 ## Add extended memory to a machine type
 
-Each custom machine type machine series has a default RAM maximum per vCPU. For some workloads, this might not be enough memory per vCPU. For a premium, you can get more memory per vCPU beyond the default maximum up to the machine series limit. This is referred to as extended memory.
+Each custom machine type machine series has a default RAM maximum per vCPU. For some workloads, this default maximum might not be enough memory per vCPU. For a premium, you can get more memory per vCPU beyond the default maximum up to the machine series limit, which is called _extended memory_. The following table lists the vCPU and extended memory limits for each supported machine series:
 
 Machine series | vCPU limit | Memory limit  
 ---|---|---  
@@ -273,19 +271,13 @@ N1 | 96 | 624 GB
   
 For higher RAM-to-vCPU ratios, see also the [memory-optimized machine types](https://docs.cloud.google.com/compute/docs/memory-optimized-machines).
 
-### Determine if you need extended memory
+### Determine whether you need extended memory
 
-Certain workloads need more than the default amount of memory per vCPU to deliver optimum results. Workloads that are based on in-memory high-performance analytics databases, including relational and NoSQL databases such as MS SQL Server, MongoDB, and Memcached/Redis, are in this category. The vCPU-based licensing of operating systems and software stacks also makes selecting an optimal VM memory configuration more challenging with predefined machine types. By using extended memory, you can add as much memory as your VMs need for the best price-performance ratio.
-
-## Express memory in GB or MB
-
-For Google Cloud tools and documentation, machine type memory is calculated in gigabytes (GB), where 1 GB is 230 bytes. This unit of measurement is also known as a [gibibyte (GiB)](https://wikipedia.org/wiki/Gibibyte). When converting memory from GB to MB, 1 GB = 1024 MB.
-
-In the API, you must always provide memory in megabytes. If you use the Google Cloud CLI, you can provide the total memory for a VM in gigabytes or megabytes. However, the gcloud CLI expects the memory value to be an integer, so you cannot provide a float value. For example, to express 5.75 GB, convert 5.75 GB into MB instead. In this case, 5.75 GB is 5888 MB.
+Certain workloads need more than the default amount of memory per vCPU to deliver optimum results. Workloads that are based on in-memory high-performance analytics databases, including relational and NoSQL databases such as Microsoft SQL Server, MongoDB, and Memcached or Redis, are in this category. The vCPU-based licensing of operating systems and software stacks also makes selecting an optimal VM memory configuration more challenging with predefined machine types. By using extended memory, you can add as much memory as your VMs need for the best price-performance ratio.
 
 ## Create a VM with a custom machine type
 
-Before you create a custom VM instance, make sure you read the [custom specifications](https://docs.cloud.google.com/compute/docs/general-purpose-machines#custom_machine_types) for creating this machine type. 
+Before you create a custom VM instance, read the [custom specifications](https://docs.cloud.google.com/compute/docs/general-purpose-machines#custom_machine_types) for creating this machine type. 
 
 ###  Console 
 
@@ -296,12 +288,15 @@ Before you create a custom VM instance, make sure you read the [custom specifica
   2. In the **Machine configuration** pane, do the following:
 
      1. Select the **Region** and **Zone** where you want to host the instance.
-     2. Select **General-purpose** or **GPUs**. 
-        1. In the **Series** list, select a machine series. 
-           * For **General-purpose** , choose N4, N4A, N4D, N2, N2D, E2, or N1.
-           * For **GPUs** , choose G2.
-        2. In the **Machine type** section, select **Custom**.
-        3. To specify the number of vCPUs and the amount of memory for the instance, drag the sliders or enter the values in the text boxes. The console displays an estimated cost for the instance as you change the number of vCPUs and memory.
+     2. Select the machine configuration for your instance: 
+        * To create a general-purpose custom VM, select **General purpose** , and then in the **Series** section, select **N4** , **N4A** , **N4D** , **N2** , **N2D** , **E2** , or **N1**.
+        * To create a custom VM with attached GPUs, select **GPUs** , and then do the following: 
+          1. In the **GPU type** list, select a GPU for the machine series that you want to use: 
+             * For G2 VMs, select **NVIDIA L4**.
+             * For N1 VMs, select **NVIDIA T4** , **NVIDIA V100** , or **NVIDIA Tesla P4**.
+          2. In the **Number of GPUs** list, select the number of GPUs.
+     3. In the **Machine type** section, select **Custom**.
+     4. To specify the number of vCPUs and the amount of memory for the instance, drag the **Cores** and **Memory** sliders or enter the values in the fields. The console displays an estimated cost for the instance as you change the number of vCPUs and amount of memory.
   3. Optional: Specify other configuration options. For more information, see [Configuration options during instance creation](https://docs.cloud.google.com/compute/docs/instances/instance-creation-overview#new-instance-configuration-options).
 
   4. To create and start the instance, click **Create**.
@@ -309,89 +304,101 @@ Before you create a custom VM instance, make sure you read the [custom specifica
 
 
 
-### gcloud
+###  gcloud 
 
-Create a custom machine type using the [`gcloud compute instances create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/create) command with the `--machine-type` option.
+Create a custom machine type by using the [`gcloud compute instances create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/create) with the `--machine-type` flag:
     
     
-      gcloud compute instances create INSTANCE_NAME \
-        --machine-type=MACHINE_TYPE-custom-NUMBER_OF_VCPUS-AMOUNT_OF_MEMORY_MB
+    gcloud compute instances create INSTANCE_NAME \
+        --zone=ZONE \
+        --machine-type=MACHINE_SERIES-custom-NUMBER_OF_VCPUS-AMOUNT_OF_MEMORY_MB
     
 
 Replace the following:
 
-  * INSTANCE_NAME: instance name
-  * MACHINE_TYPE: machine type, like N2
-  * NUMBER_OF_VCPUS: number of vCPUs
-  * AMOUNT_OF_MEMORY_MB: amount of memory in MB or GB
+  * `INSTANCE_NAME`: the name of the instance.
+  * `ZONE`: the zone where you want to create the instance.
+  * `MACHINE_SERIES`: the lowercase machine series, such as `n4`, `n4d`, `n4a`, `n2`, `n2d`, `e2`, or `g2`. For N1, omit `MACHINE_SERIES-` and start with `custom-`.
+  * `NUMBER_OF_VCPUS`: the number of vCPUs.
+  * `AMOUNT_OF_MEMORY_MB`: the total amount of memory in MB. This value must be an integer multiple of 256 MB (or 1,024 MB for G2 VMs).
+
+
 
 To create a G2 VM with 4 vCPUs and 19 GB of memory in zone `us-central1-a`, run the following command:
-        
-        gcloud compute instances create example-instance \
-           --zone=us-central1-a --machine-type=g2-custom-4-19456
-        
-
-For G2 VMs, memory must be a multiple of 1024 MB and within the [supported memory range](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-vms). For more information about creating G2 VMs, see [Create a VM that has attached GPUs](https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-accelerator-optimized#create-vm).
-
-
-
-
-Here's an example using an N2 machine type with 48 vCPUs and 310 GB of memory in zone `us-central1-a`:
     
     
     gcloud compute instances create example-instance \
-      --zone=us-central1-a --machine-type=n2-custom-48-317440
+        --zone=us-central1-a \
+        --machine-type=g2-custom-4-19456 \
+        --maintenance-policy=TERMINATE
     
 
-For supported machine series, such as N2, you can configure extended memory, which lets you specify a higher amount of memory than the maximum ratio of memory to vCPUs. To configure extended memory, increase the value of `AMOUNT_OF_MEMORY_MB` and append `-ext` to the machine type name, for example `--machine-type=n2-custom-48-720000-ext`.
+For G2 VMs, memory must be a multiple of 1,024 MB and within the [supported memory range](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-standard-vms). For more information about creating G2 VMs, see [Create a G2 or G4 instance](https://docs.cloud.google.com/compute/docs/gpus/create-gpu-vm-g-series#create-vm).
 
-Alternatively, you can specify a custom machine type by using the custom options: `--custom-cpu`, `--custom-memory`, `--custom-vm-type`, and `--custom-extensions`.
+The following example creates an N2 custom machine type with 48 vCPUs and 310 GB (317,440 MB) of memory in zone `us-central1-a`:
     
     
-      gcloud compute instances create INSTANCE_NAME \
-            --custom-cpu=NUMBER_OF_VCPUS \
-            --custom-memory=NUMBER_OF_MB \
-            --custom-vm-type=MACHINE_TYPE \
-            --custom-extensions
+    gcloud compute instances create example-instance \
+        --zone=us-central1-a \
+        --machine-type=n2-custom-48-317440
     
 
-Replace the following:
+For supported machine series, such as N4 or N2, you can configure extended memory, which lets you specify a higher amount of memory than the maximum default ratio of memory to vCPUs. To configure extended memory, increase the value of `AMOUNT_OF_MEMORY_MB` and append `-ext` to the machine type name—for example, `--machine-type=n2-custom-48-720896-ext`.
 
-  * INSTANCE_NAME: name of instance
-  * NUMBER_OF_VCPUS: number of vCPUs
-  * NUMBER_OF_MB: amount of memory in MB or GB
-  * MACHINE_TYPE: machine type, like N2
-
-
-
-The following example is an N2 custom machine type with 48 vCPUs and 310 GB of memory using the Google Cloud CLI options.
+Alternatively, you can specify a custom machine type by using the `--custom-cpu`, `--custom-memory`, and `--custom-vm-type` flags (and include the `--custom-extensions` flag if you're configuring extended memory):
     
     
-      gcloud compute instances create example-instance \
-        --custom-cpu=48 --custom-memory=317440 --custom-extensions --custom-vm-type=n2
-    
-
-When using the `--custom-memory` option, specify the **total amount** of memory in GB or in MB. The property value must be an integer, so if you want to specify increments of 0.25 GB for memory, use the value 250 MB instead.
-
-For E2 shared-core custom machine types, use the same [`gcloud compute instances create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/create) and include the shared-core machine size: `micro`, `small`, or `medium`. The vCPU and memory are limited.
-    
-    
-      gcloud compute instances create INSTANCE_NAME \
-        --machine-type=MACHINE_TYPE-AMOUNT_OF_MEMORY_MB
+    gcloud compute instances create INSTANCE_NAME \
+        --zone=ZONE \
+        --custom-cpu=NUMBER_OF_VCPUS \
+        --custom-memory=AMOUNT_OF_MEMORY \
+        --custom-vm-type=MACHINE_SERIES
     
 
 Replace the following:
 
-  * INSTANCE_NAME: name of instance
-  * MACHINE_TYPE: E2 small
-  * AMOUNT_OF_MEMORY_MB: amount of memory in MB or GB
+  * `INSTANCE_NAME`: the name of the instance.
+  * `ZONE`: the zone where you want to create the instance.
+  * `NUMBER_OF_VCPUS`: the number of vCPUs.
+  * `AMOUNT_OF_MEMORY`: the total amount of memory with a unit suffix (`MB` or `GB`), or in GB if you omit the unit.
+  * `MACHINE_SERIES`: the lowercase machine series, such as `n4`, `n4d`, `n4a`, `n2`, `n2d`, `e2`, or `n1`.
 
 
 
-The following example is an E2 shared-core small custom machine type with 0.5 vCPU and 2.25 GB of memory.
+The following example creates an N2 custom machine type with 48 vCPUs and 310 GB of memory by using the `--custom-cpu`, `--custom-memory`, and `--custom-vm-type` flags:
     
     
-      gcloud compute instances create example-instance \
+    gcloud compute instances create example-instance \
+        --zone=us-central1-a \
+        --custom-cpu=48 \
+        --custom-memory=317440MB \
+        --custom-vm-type=n2
+    
+
+When you use the `--custom-memory` flag, specify the total amount of memory in GB or in MB. Unitless values must be integers. To specify increments of 0.25 GB (256 MB) for memory, either convert the total memory to an integer in MB (`--custom-memory=5888MB`) or include the `GB` unit suffix (`--custom-memory=5.75GB`).
+
+For E2 shared-core custom machine types, use the [`gcloud compute instances create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/create) and include the shared-core machine size (`micro`, `small`, or `medium`):
+    
+    
+    gcloud compute instances create INSTANCE_NAME \
+        --zone=ZONE \
+        --machine-type=e2-custom-SHARED_CORE_SIZE-AMOUNT_OF_MEMORY_MB
+    
+
+Replace the following:
+
+  * `INSTANCE_NAME`: the name of the instance.
+  * `ZONE`: the zone where you want to create the instance.
+  * `SHARED_CORE_SIZE`: the E2 shared-core size (`micro`, `small`, or `medium`).
+  * `AMOUNT_OF_MEMORY_MB`: the total amount of memory in MB. This value must be an integer multiple of 256 MB within the allowed range for the shared-core size.
+
+
+
+The following example creates an E2 shared-core `small` custom machine type with 0.5 vCPU and 2.25 GB (2,304 MB) of memory:
+    
+    
+    gcloud compute instances create example-instance \
+        --zone=us-central1-a \
         --machine-type=e2-custom-small-2304
     
 
@@ -1659,41 +1666,47 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
 
 ###  REST 
 
-Using the [`instances.insert` method](https://docs.cloud.google.com/compute/docs/reference/latest/instances/insert), construct an instance creation request and specify the custom [`machineType` values](https://docs.cloud.google.com/compute/docs/reference/latest/instances#machineType). Provide the memory **in MB**.
+To create an instance with a custom machine type, call the [`instances.insert` method](https://docs.cloud.google.com/compute/docs/reference/latest/instances/insert) and specify the custom [`machineType` values](https://docs.cloud.google.com/compute/docs/reference/latest/instances#machineType) with memory in MB:
 
-  * For N1 machine series, start with custom.
-  * For E2 shared-core, the NUMBER_OF_CPUS is `micro`, `small`, or `medium`.
-  * To enable extended memory, include `-ext` at the end of the machine type.
+  * For the N1 machine series, omit the series prefix and start with `custom-`.
+  * For E2 shared-core machine types, replace the vCPU count with `micro`, `small`, or `medium`.
+  * To enable extended memory, append `-ext` to the machine type string.
 
 
 
-POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/zones/ZONE/instances
-
-Example request body
+The following example creates an N2 custom machine type with 16 vCPUs and 105 GB (107,520 MB) of memory:
     
     
-          {
-        "name": "exampleinstance",
-        "machineType": "zones/us-central1-a/machineTypes/n2-custom-16-107520",
-        "disks": [
-          {
-            "boot": true,
-            "diskSizeGb": 10,
-            "initializeParams": {
-              "sourceImage": "projects/debian-cloud/global/images/family/debian-13"
-            }
+    POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/zones/ZONE/instances
+    
+    {
+      "name": "example-instance",
+      "machineType": "zones/ZONE/machineTypes/n2-custom-16-107520",
+      "disks": [
+        {
+          "boot": true,
+          "initializeParams": {
+            "diskSizeGb": "10",
+            "sourceImage": "projects/debian-cloud/global/images/family/debian-13"
           }
-        ],
-        "networkInterfaces": [
-          {
-            "network": "global/networks/default"
-          }
-        ]
-      }
-    ```
+        }
+      ],
+      "networkInterfaces": [
+        {
+          "network": "global/networks/default"
+        }
+      ]
+    }
     
 
-You can similarly create [spot instances](https://docs.cloud.google.com/compute/docs/instances/preemptible) and [groups of instances](https://docs.cloud.google.com/compute/docs/instance-groups) with custom machine types.
+Replace the following:
+
+  * `PROJECT_ID`: the ID of the project where you want to create the instance.
+  * `ZONE`: the zone where you want to create the instance.
+
+
+
+You can similarly create [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot) and [managed instance groups (MIGs)](https://docs.cloud.google.com/compute/docs/instance-groups) with custom machine types.
 
 ### Add extended memory during instance creation
 
@@ -1707,11 +1720,15 @@ To create a VM instance with extended memory, do the following:
 
   2. In the **Machine configuration** pane, do the following:
 
-     1. In the **Zone** list, select the zone where you want to host this VM. The **Series** list is filtered to include only the machine type families available in the selected zone.
-     2. Select **General-purpose**. 
-        1. In the **Series** list, select **N4** , **N4D** , **N4A** , **N2** , **N2D** , or **N1** to create a custom machine type.
-        2. To specify the number of vCPUs, drag the **Cores** slider or enter the value in the field.
-        3. To add extended memory, select **Extend memory**. To specify the amount of memory for the machine type, drag the **Memory** slider or enter the value in the field. The console displays an estimated cost for the VM as you edit the amount of vCPUs and memory.
+     1. Select the **Region** and **Zone** where you want to host the VM.
+     2. Select the machine configuration for your instance: 
+        * To create a general-purpose custom VM, select **General purpose** , and then in the **Series** section, select **N4** , **N4D** , **N4A** , **N2** , **N2D** , or **N1**.
+        * To create an N1 custom VM with attached GPUs, select **GPUs** , and then do the following: 
+          1. In the **GPU type** list, select **NVIDIA T4** , **NVIDIA V100** , or **NVIDIA Tesla P4**.
+          2. In the **Number of GPUs** list, select the number of GPUs.
+     3. In the **Machine type** section, select **Custom**.
+     4. To specify the number of vCPUs, drag the **Cores** slider or enter the value in the field.
+     5. To add extended memory, select **Extend Memory**. To specify the amount of memory for the machine type, drag the **Memory** slider or enter the value in the field. The console displays an estimated cost for the VM as you edit the number of vCPUs and amount of memory.
   3. Optional: Specify other configuration options. For more information, see [Configuration options during instance creation](https://docs.cloud.google.com/compute/docs/instances/instance-creation-overview#new-instance-configuration-options).
 
   4. To create and start the VM, click **Create**.
@@ -1721,27 +1738,30 @@ To create a VM instance with extended memory, do the following:
 
 ###  gcloud 
 
-Create a custom machine using the [`gcloud compute instances create`](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/create) command with the `--machine-type` option.
+Create a custom machine type with extended memory by using the [`gcloud compute instances create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/create) with the `--machine-type` flag and the `-ext` suffix:
     
     
-      gcloud compute instances create INSTANCE_NAME \
-        --machine-type=MACHINE_TYPE-custom-NUMBER_OF_VCPUS-AMOUNT_OF_MEMORY_MB
+    gcloud compute instances create INSTANCE_NAME \
+        --zone=ZONE \
+        --machine-type=MACHINE_SERIES-custom-NUMBER_OF_VCPUS-AMOUNT_OF_MEMORY_MB-ext
     
 
 Replace the following:
 
-  * INSTANCE_NAME: name of instance
-  * MACHINE_TYPE: machine type, like N2
-  * NUMBER_OF_VCPUS: number of vCPUs
-  * AMOUNT_OF_MEMORY_MB: amount of memory in MB or GB
+  * `INSTANCE_NAME`: the name of the instance.
+  * `ZONE`: the zone where you want to create the instance.
+  * `MACHINE_SERIES`: the lowercase machine series that supports extended memory, such as `n4`, `n4d`, `n4a`, `n2`, or `n2d`. For N1, omit `MACHINE_SERIES-` and start with `custom-`.
+  * `NUMBER_OF_VCPUS`: the number of vCPUs.
+  * `AMOUNT_OF_MEMORY_MB`: the total amount of memory in MB. This value must be an integer multiple of 256 MB.
 
 
 
-Here's an example using an N2 machine type with 48 vCPUs and 310 GB of memory in zone `us-central1-a`:
+The following example creates an N2 custom machine type with 2 vCPUs and 20 GB (20,480 MB) of extended memory in zone `us-central1-a`:
     
     
-      gcloud compute instances create example-instance \
-        --zone=us-central1-a --machine-type=n2-custom-48-317440
+    gcloud compute instances create example-instance \
+        --zone=us-central1-a \
+        --machine-type=n2-custom-2-20480-ext
     
 
 ###  Go 
@@ -2304,26 +2324,22 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
 
 ###  REST 
 
-Using the [`instances.insert` method](https://docs.cloud.google.com/compute/docs/reference/latest/instances/insert), construct your instance creation request as you would to create an instance with custom memory. Include `-ext`, which indicates extended memory, when specifying the `machineType` values:
-
-  * For all custom machine types append `-ext` to extend the memory up to the limit as described by that particular machine family.
-
-
+To create an instance with extended memory, call the [`instances.insert` method](https://docs.cloud.google.com/compute/docs/reference/latest/instances/insert) and append `-ext` to the `machineType` field to extend the memory up to the limit for that machine series:
     
     
-            zones/ZONE/machineTypes/MACHINE_TYPE-NUMBER_OF_CPUS-AMOUNT_OF_MEMORY_MB-ext
+    zones/ZONE/machineTypes/MACHINE_SERIES-custom-NUMBER_OF_VCPUS-AMOUNT_OF_MEMORY_MB-ext
     
 
 Replace the following:
 
-  * ZONE: Machine location
-  * MACHINE_TYPE: Machine type, like N2 or E2 small
-  * NUMBER_OF_CPUS: number of vCPUs
-  * AMOUNT_OF_MEMORY_MB: amount of memory in MB
+  * `ZONE`: the zone where you want to create the instance.
+  * `MACHINE_SERIES`: the lowercase machine series, such as `n4`, `n4d`, `n4a`, `n2`, or `n2d`. For N1, omit `MACHINE_SERIES-` and start with `custom-`.
+  * `NUMBER_OF_VCPUS`: the number of vCPUs.
+  * `AMOUNT_OF_MEMORY_MB`: the total amount of memory in MB. This value must be an integer multiple of 256 MB.
 
 
 
-For example, the following specifies an N2 machine type with 2 vCPUs and 20 GB of memory. Note that you must convert the memory to MB:
+For example, the following specifies an N2 machine type with 2 vCPUs and 20 GB (20,480 MB) of extended memory:
     
     
     zones/ZONE/machineTypes/n2-custom-2-20480-ext
@@ -2331,7 +2347,7 @@ For example, the following specifies an N2 machine type with 2 vCPUs and 20 GB o
 
 ### Add extended memory to an existing VM instance
 
-To add more memory to an existing instance that uses a custom machine type, you must first [stop the instance](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance). After the instance stops, complete the following steps to add more memory to the VM. 
+To add more memory to an existing instance that uses a custom machine type, you must first [stop the instance](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance). After the instance stops, complete the following steps to add more memory to the VM: 
 
 ###  Console 
 
@@ -2339,28 +2355,62 @@ To add more memory to an existing instance that uses a custom machine type, you 
 
 [Go to VM instances](https://console.cloud.google.com/compute/instances)
 
-  2. Choose the stopped VM you want to modify from the VM list.
+  2. Click the name of the stopped VM that you want to modify.
 
-  3. Click **Edit** at the top of the page.
+  3. At the top of the page, click **Edit**.
 
-  4. In **Machine configuration** , select **General-purpose**.
+  4. In the **Machine configuration** section, verify that **Custom** is selected under **Machine type**.
 
-  5. In the **Machine type** section, select **Custom**.
+  5. To add extended memory, select **Extend Memory** , and then specify the amount of **Memory** that you need.
 
-  6. Select the number of vCPUs you want.
+  6. Click **Save**.
 
-  7. To add extended memory, select **Extend memory** and then specify the amount of memory you want.
-
-  8. Save your changes.
+  7. To restart the VM, at the top of the page, click **Start / Resume**.
 
 
 
 
 ###  gcloud 
 
-Use the [`gcloud compute instances stop` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/stop) to stop the VM. Then use the [`gcloud compute instances set-machine-type` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/set-machine-type) with the `--custom-memory` and `--custom-extensions` options to edit the machine's resources.
+  1. Stop the VM by running the [`gcloud compute instances stop` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/stop):
+         
+         gcloud compute instances stop INSTANCE_NAME \
+             --zone=ZONE
+         
 
-Save the changes and restart the VM.
+  2. Update the custom machine type with extended memory by running the [`gcloud compute instances set-machine-type` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/set-machine-type) with the `--custom-cpu`, `--custom-memory`, `--custom-vm-type`, and `--custom-extensions` flags:
+         
+         gcloud compute instances set-machine-type INSTANCE_NAME \
+             --zone=ZONE \
+             --custom-cpu=NUMBER_OF_VCPUS \
+             --custom-memory=AMOUNT_OF_MEMORY \
+             --custom-vm-type=MACHINE_SERIES \
+             --custom-extensions
+         
+
+Alternatively, you can pass the full custom machine type string with the `-ext` suffix to the `--machine-type` flag:
+         
+         gcloud compute instances set-machine-type INSTANCE_NAME \
+             --zone=ZONE \
+             --machine-type=MACHINE_SERIES-custom-NUMBER_OF_VCPUS-AMOUNT_OF_MEMORY_MB-ext
+         
+
+Replace the following:
+
+     * `INSTANCE_NAME`: the name of the VM.
+     * `ZONE`: the zone where the VM is located.
+     * `NUMBER_OF_VCPUS`: the number of vCPUs.
+     * `AMOUNT_OF_MEMORY`: the total amount of memory with a unit suffix (`MB` or `GB`), or in GB if you omit the unit.
+     * `AMOUNT_OF_MEMORY_MB`: the total amount of memory in MB. This value must be an integer multiple of 256 MB.
+     * `MACHINE_SERIES`: the lowercase machine series that supports extended memory, such as `n4`, `n4d`, `n4a`, `n2`, `n2d`, or `n1`. For N1 with the `--machine-type` flag, omit `MACHINE_SERIES-` and start with `custom-`.
+  3. Restart the VM by running the [`gcloud compute instances start` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/start):
+         
+         gcloud compute instances start INSTANCE_NAME \
+             --zone=ZONE
+         
+
+
+
 
 ###  Go 
 
@@ -2812,28 +2862,33 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
 
 ###  REST 
 
-Use the [`instances.stop` method](https://docs.cloud.google.com/compute/docs/reference/latest/instances/stop) then use the [`instances.setMachineType` method](https://docs.cloud.google.com/compute/docs/reference/latest/instances/setMachineType) to edit the machine type resources.
-
-After you stop the instance, edit the `machineType` field with your changes.
-
-{
-
-"name": "INSTANCE_NAME", "machineType": "zones/ZONE/machineTypes/MACHINE_TYPE",
-
-... }
+  1. Stop the VM by calling the [`instances.stop` method](https://docs.cloud.google.com/compute/docs/reference/latest/instances/stop).
+  2. Update the machine type resources by calling the [`instances.setMachineType` method](https://docs.cloud.google.com/compute/docs/reference/latest/instances/setMachineType) and specifying the `-ext` suffix in the `machineType` field:
+         
+         POST https://compute.googleapis.com/compute/v1/projects/PROJECT_ID/zones/ZONE/instances/INSTANCE_NAME/setMachineType
+         
+         {
+           "machineType": "zones/ZONE/machineTypes/MACHINE_SERIES-custom-NUMBER_OF_VCPUS-AMOUNT_OF_MEMORY_MB-ext"
+         }
+         
 
 Replace the following:
-    
-    
-    + INSTANCE_NAME: The name of the VM
-    + ZONE: The zone where your VMs reside
-    + MACHINE_TYPE: The machine type, like N2
-    
+
+     * `PROJECT_ID`: the ID of the project that contains the VM.
+     * `ZONE`: the zone where the VM is located.
+     * `INSTANCE_NAME`: the name of the VM.
+     * `MACHINE_SERIES`: the lowercase machine series, such as `n4`, `n4d`, `n4a`, `n2`, or `n2d`. For N1, omit `MACHINE_SERIES-` and start with `custom-`.
+     * `NUMBER_OF_VCPUS`: the number of vCPUs.
+     * `AMOUNT_OF_MEMORY_MB`: the total amount of memory in MB. This value must be an integer multiple of 256 MB.
+  3. Restart the VM by calling the [`instances.start` method](https://docs.cloud.google.com/compute/docs/reference/latest/instances/start).
+
+
+
 
 ## What's next
 
   * Learn more about [machine families](https://docs.cloud.google.com/compute/docs/machine-resource).
-  * After creating a VM, step through a [tutorial](https://docs.cloud.google.com/compute/docs#training-and-tutorials) to start using a VM instance.
+  * After creating a VM, complete a [tutorial](https://docs.cloud.google.com/compute/docs#training-and-tutorials) to start using a VM instance.
   * Learn how to [connect to your VM instance](https://docs.cloud.google.com/compute/docs/instances/connecting-to-instance).
 
 
@@ -2842,6 +2897,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

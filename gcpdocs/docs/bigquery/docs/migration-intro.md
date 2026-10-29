@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration-intro/
 title: Introduction to BigQuery migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:43.306280+00:00
+fetched_at: 2026-10-29T10:11:11.229623+00:00
 ---
 
 # Introduction to BigQuery migration  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Introduction to BigQuery migration
 
-The BigQuery Migration Service is a comprehensive solution for migrating your data warehouse to BigQuery. It includes features that help you with each phase of migration, including assessment and planning, SQL translation for [a variety of SQL dialects](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#supported_sql_dialects), and data transfer. 
+The BigQuery Migration Service is a comprehensive solution that lets you migrate your data warehouse to BigQuery. It provides tools for each phase of migration—including assessment and planning, SQL translation for [a variety of SQL dialects](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#supported_sql_dialects), and data transfer to help you transition your workloads with minimal manual effort. 
 
-You can find the BigQuery Migration Service in the BigQuery console when you navigate to **Migration** > **Services**.
+To access BigQuery Migration Service, in the Google Cloud console, go to the **BigQuery** page, and then select **Migration > Services**.
+
+## Migration capabilities and tools
 
 With the BigQuery Migration Service, you can do the following:
 
@@ -82,6 +84,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

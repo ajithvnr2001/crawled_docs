@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-reservationgroup-create/
 title: Create a reservation group \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:01:39.903711+00:00
+fetched_at: 2026-10-29T10:08:37.764937+00:00
 ---
 
 # Create a reservation group  |  BigQuery  |  Google Cloud Documentation
@@ -22,6 +22,59 @@ fetched_at: 2026-10-27T23:01:39.903711+00:00
 Create a reservation group in a specific project and location. A reservation group is a container for BigQuery reservations.
 
 ## Code sample
+
+### Java
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[AlreadyExistsException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.AlreadyExistsException.html);
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.cloud.bigquery.reservation.v1.[CreateReservationGroupRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.CreateReservationGroupRequest.html);
+    import com.google.cloud.bigquery.reservation.v1.[LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.LocationName.html);
+    import com.google.cloud.bigquery.reservation.v1.[ReservationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroup.html);
+    import com.google.cloud.bigquery.reservation.v1.[ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html);
+    import java.io.IOException;
+    
+    public class CreateReservationGroup {
+    
+      /**
+       * Creates a new BigQuery reservation group in a given project and location. A reservation group
+       * is a container for reservations.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the reservation group (for example, "us-central1").
+       * @param reservationGroupId The ID of the reservation group to create (for example,
+       *     "example-reservation-group").
+       */
+      public static void createReservationGroup(
+          String projectId, String location, String reservationGroupId) {
+        [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.LocationName.html) parent = [LocationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.LocationName.html).of(projectId, location);
+        [ReservationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroup.html) reservationGroup = [ReservationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroup.html).newBuilder().build();
+    
+        [CreateReservationGroupRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.CreateReservationGroupRequest.html) request =
+            [CreateReservationGroupRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.CreateReservationGroupRequest.html).newBuilder()
+                .setParent(parent.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.LocationName.html#com_google_cloud_bigquery_reservation_v1_LocationName_toString__)())
+                .[setReservationGroupId](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.CreateReservationGroupRequest.Builder.html#com_google_cloud_bigquery_reservation_v1_CreateReservationGroupRequest_Builder_setReservationGroupId_java_lang_String_)(reservationGroupId)
+                .setReservationGroup(reservationGroup)
+                .build();
+    
+        try ([ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html) client = [ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html).create()) {
+          [ReservationGroup](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroup.html) response = client.createReservationGroup(request);
+          System.out.printf("Created reservation group: %s%n", response.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationGroup.html#com_google_cloud_bigquery_reservation_v1_ReservationGroup_getName__)());
+        } catch ([AlreadyExistsException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.AlreadyExistsException.html) err) {
+          System.err.printf(
+              "error: reservation group '%s' already exists in location '%s' for project '%s': %s%n",
+              reservationGroupId, location, projectId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to create reservation group '%s' in location '%s' for project '%s': %s%n",
+              reservationGroupId, location, projectId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        }
+      }
+    
 
 ### Node.js
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles/
 title: Knowledge Catalog IAM roles \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:53.897065+00:00
+fetched_at: 2026-10-29T09:47:29.290533+00:00
 ---
 
 # Knowledge Catalog IAM roles  |  Google Cloud Documentation
@@ -216,7 +216,7 @@ Role | Permissions
   * `dataplex.entities.list`
   * `dataplex.entities.update`
 
-`dataplex.entries.link` `dataplex.entryGroups.createTagBinding` `dataplex.entryGroups.deleteTagBinding` `dataplex.entryGroups.export` `dataplex.entryGroups.import` `dataplex.entryGroups.listEffectiveTags` `dataplex.entryGroups.listTagBindings` `dataplex.entryGroups.requestChanges` `dataplex.entryGroups.useContextEntryLink` `dataplex.entryGroups.useDefinitionEntryLink` `dataplex.entryGroups.useRelatedEntryLink` `dataplex.entryGroups.useSchemaJoinEntryLink` `dataplex.entryGroups.useSynonymEntryLink` `dataplex.entryLinks.*`
+`dataplex.entries.link` `dataplex.entryGroups.createContextSet` `dataplex.entryGroups.createTagBinding` `dataplex.entryGroups.deleteTagBinding` `dataplex.entryGroups.export` `dataplex.entryGroups.import` `dataplex.entryGroups.listEffectiveTags` `dataplex.entryGroups.listTagBindings` `dataplex.entryGroups.requestChanges` `dataplex.entryGroups.useContextEntryLink` `dataplex.entryGroups.useDefinitionEntryLink` `dataplex.entryGroups.useRelatedEntryLink` `dataplex.entryGroups.useSchemaJoinEntryLink` `dataplex.entryGroups.useSynonymEntryLink` `dataplex.entryLinks.*`
 
   * `dataplex.entryLinks.create`
   * `dataplex.entryLinks.delete`
@@ -379,7 +379,7 @@ Role | Permissions
   * `dataplex.dataAssets.list`
   * `dataplex.dataAssets.update`
 
-`dataplex.dataAttributeBindings.create` `dataplex.dataAttributeBindings.delete` `dataplex.dataAttributeBindings.get` `dataplex.dataAttributeBindings.getIamPolicy` `dataplex.dataAttributeBindings.list` `dataplex.dataAttributeBindings.update` `dataplex.dataAttributes.bind` `dataplex.dataAttributes.create` `dataplex.dataAttributes.delete` `dataplex.dataAttributes.get` `dataplex.dataAttributes.getIamPolicy` `dataplex.dataAttributes.list` `dataplex.dataAttributes.update` `dataplex.dataProducts.approve` `dataplex.dataProducts.create` `dataplex.dataProducts.delete` `dataplex.dataProducts.get` `dataplex.dataProducts.getIamPolicy` `dataplex.dataProducts.list` `dataplex.dataProducts.update` `dataplex.dataTaxonomies.configureDataAccess` `dataplex.dataTaxonomies.configureResourceAccess` `dataplex.dataTaxonomies.create` `dataplex.dataTaxonomies.delete` `dataplex.dataTaxonomies.get` `dataplex.dataTaxonomies.getIamPolicy` `dataplex.dataTaxonomies.list` `dataplex.dataTaxonomies.update` `dataplex.datascans.cancel` `dataplex.datascans.create` `dataplex.datascans.delete` `dataplex.datascans.get` `dataplex.datascans.getIamPolicy` `dataplex.datascans.list` `dataplex.datascans.run` `dataplex.datascans.update` `dataplex.environments.create` `dataplex.environments.delete` `dataplex.environments.get` `dataplex.environments.getIamPolicy` `dataplex.environments.list` `dataplex.environments.update` `dataplex.lakeActions.list` `dataplex.lakes.create` `dataplex.lakes.delete` `dataplex.lakes.get` `dataplex.lakes.getIamPolicy` `dataplex.lakes.list` `dataplex.lakes.update` `dataplex.operations.*`
+`dataplex.dataAttributeBindings.create` `dataplex.dataAttributeBindings.delete` `dataplex.dataAttributeBindings.get` `dataplex.dataAttributeBindings.getIamPolicy` `dataplex.dataAttributeBindings.list` `dataplex.dataAttributeBindings.update` `dataplex.dataAttributes.bind` `dataplex.dataAttributes.create` `dataplex.dataAttributes.delete` `dataplex.dataAttributes.get` `dataplex.dataAttributes.getIamPolicy` `dataplex.dataAttributes.list` `dataplex.dataAttributes.update` `dataplex.dataProducts.approve` `dataplex.dataProducts.create` `dataplex.dataProducts.delete` `dataplex.dataProducts.get` `dataplex.dataProducts.getIamPolicy` `dataplex.dataProducts.list` `dataplex.dataProducts.update` `dataplex.dataTaxonomies.configureDataAccess` `dataplex.dataTaxonomies.configureResourceAccess` `dataplex.dataTaxonomies.create` `dataplex.dataTaxonomies.delete` `dataplex.dataTaxonomies.get` `dataplex.dataTaxonomies.getIamPolicy` `dataplex.dataTaxonomies.list` `dataplex.dataTaxonomies.update` `dataplex.datascans.cancel` `dataplex.datascans.create` `dataplex.datascans.delete` `dataplex.datascans.get` `dataplex.datascans.getIamPolicy` `dataplex.datascans.list` `dataplex.datascans.run` `dataplex.datascans.update` `dataplex.entryGroups.createContextSet` `dataplex.environments.create` `dataplex.environments.delete` `dataplex.environments.get` `dataplex.environments.getIamPolicy` `dataplex.environments.list` `dataplex.environments.update` `dataplex.lakeActions.list` `dataplex.lakes.create` `dataplex.lakes.delete` `dataplex.lakes.get` `dataplex.lakes.getIamPolicy` `dataplex.lakes.list` `dataplex.lakes.update` `dataplex.operations.*`
 
   * `dataplex.operations.cancel`
   * `dataplex.operations.delete`
@@ -622,6 +622,26 @@ Role | Permissions
 #### Dataplex Change Request Owner Beta
 
 (`roles/dataplex.changeRequestOwner`) Grants Change Request creator necessary permissions on a created ChangeRequest instance.  |  `dataplex.changeRequests.delete` `dataplex.changeRequests.get` `dataplex.changeRequests.update`  
+  
+#### Dataplex Content Admin 
+
+(`roles/dataplex.contentAdmin`) Grants full lifecycle ownership, IAM sharing (getIamPolicy/setIamPolicy), context entry management, curation specification updates, and deletion rights on a specific Context Set.  |  `dataplex.entries.create` `dataplex.entries.createContext` `dataplex.entries.delete` `dataplex.entries.deleteContext` `dataplex.entries.get` `dataplex.entries.getContext` `dataplex.entries.link` `dataplex.entries.list` `dataplex.entries.listContext` `dataplex.entries.update` `dataplex.entries.updateContext` `dataplex.entryGroups.deleteContextSet` `dataplex.entryGroups.getContextSet` `dataplex.entryGroups.getIamPolicy` `dataplex.entryGroups.requestContextChanges` `dataplex.entryGroups.setIamPolicy` `dataplex.entryGroups.updateContextSet` `dataplex.entryGroups.useCertificationAspect` `dataplex.entryGroups.useContactsAspect` `dataplex.entryGroups.useContextAspect` `dataplex.entryGroups.useContextEntry` `dataplex.entryGroups.useContextEntryLink` `dataplex.entryGroups.useDataProfileAspect` `dataplex.entryGroups.useDataQualityScorecardAspect` `dataplex.entryGroups.useDataRulesAspect` `dataplex.entryGroups.useDefinitionEntryLink` `dataplex.entryGroups.useDescriptionsAspect` `dataplex.entryGroups.useDocumentAspect` `dataplex.entryGroups.useDocumentEntry` `dataplex.entryGroups.useGenericAspect` `dataplex.entryGroups.useGenericEntry` `dataplex.entryGroups.useGraphProfileAspect` `dataplex.entryGroups.useOverviewAspect` `dataplex.entryGroups.useQueriesAspect` `dataplex.entryGroups.useQueryTemplateAspect` `dataplex.entryGroups.useQueryTemplateEntry` `dataplex.entryGroups.useReferenceEntryLink` `dataplex.entryGroups.useRelatedEntryLink` `dataplex.entryGroups.useSQLAccessAspect` `dataplex.entryGroups.useSchemaAspect` `dataplex.entryGroups.useSchemaJoinAspect` `dataplex.entryGroups.useSchemaJoinEntryLink` `dataplex.entryGroups.useSecondaryIndexesAspect` `dataplex.entryGroups.useStorageAspect` `dataplex.entryGroups.useSynonymEntryLink` `dataplex.entryGroups.useUsageAspect` `dataplex.entryLinks.create` `dataplex.entryLinks.delete` `dataplex.entryLinks.get` `dataplex.entryLinks.update` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+  
+#### Dataplex Content Creator 
+
+(`roles/dataplex.contentCreator`) Authorizes users to create new Context Sets within a project.  |  `dataplex.entryGroups.createContextSet` `dataplex.entryGroups.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+  
+#### Dataplex Content Editor 
+
+(`roles/dataplex.contentEditor`) Authorizes context engineers, curators, and agents to modify context entries, author guidelines, and update curation specifications without administrative IAM sharing or container deletion capabilities.  |  `dataplex.entries.create` `dataplex.entries.createContext` `dataplex.entries.delete` `dataplex.entries.deleteContext` `dataplex.entries.get` `dataplex.entries.getContext` `dataplex.entries.link` `dataplex.entries.list` `dataplex.entries.listContext` `dataplex.entries.update` `dataplex.entries.updateContext` `dataplex.entryGroups.getContextSet` `dataplex.entryGroups.getIamPolicy` `dataplex.entryGroups.requestContextChanges` `dataplex.entryGroups.updateContextSet` `dataplex.entryGroups.useCertificationAspect` `dataplex.entryGroups.useContactsAspect` `dataplex.entryGroups.useContextAspect` `dataplex.entryGroups.useContextEntry` `dataplex.entryGroups.useContextEntryLink` `dataplex.entryGroups.useDataProfileAspect` `dataplex.entryGroups.useDataQualityScorecardAspect` `dataplex.entryGroups.useDataRulesAspect` `dataplex.entryGroups.useDefinitionEntryLink` `dataplex.entryGroups.useDescriptionsAspect` `dataplex.entryGroups.useDocumentAspect` `dataplex.entryGroups.useDocumentEntry` `dataplex.entryGroups.useGenericAspect` `dataplex.entryGroups.useGenericEntry` `dataplex.entryGroups.useGraphProfileAspect` `dataplex.entryGroups.useOverviewAspect` `dataplex.entryGroups.useQueriesAspect` `dataplex.entryGroups.useQueryTemplateAspect` `dataplex.entryGroups.useQueryTemplateEntry` `dataplex.entryGroups.useReferenceEntryLink` `dataplex.entryGroups.useRelatedEntryLink` `dataplex.entryGroups.useSQLAccessAspect` `dataplex.entryGroups.useSchemaAspect` `dataplex.entryGroups.useSchemaJoinAspect` `dataplex.entryGroups.useSchemaJoinEntryLink` `dataplex.entryGroups.useSecondaryIndexesAspect` `dataplex.entryGroups.useStorageAspect` `dataplex.entryGroups.useSynonymEntryLink` `dataplex.entryGroups.useUsageAspect` `dataplex.entryLinks.create` `dataplex.entryLinks.delete` `dataplex.entryLinks.get` `dataplex.entryLinks.update` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+  
+#### Dataplex Content User 
+
+(`roles/dataplex.contentUser`) Authorizes consumers, business analysts, and 1P/3P AI agents to read context entries and documentation within specific Context Sets, and to submit feedback or modification proposals.  |  `dataplex.entries.getContext` `dataplex.entries.listContext` `dataplex.entryGroups.getContextSet` `dataplex.entryGroups.requestContextChanges` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+  
+#### Dataplex Content Viewer 
+
+(`roles/dataplex.contentViewer`) Enables discovery of content containers (Context Sets) within a project or catalog without granting access to the underlying sensitive context entries.  |  `dataplex.entryGroups.getContextSet` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 #### Dataplex Data Domain Admin Beta
 
@@ -1711,6 +1731,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

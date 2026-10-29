@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/audit-logging/
 title: Agent Retrieval audit logging \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:42.200923+00:00
+fetched_at: 2026-10-29T11:12:51.647195+00:00
 ---
 
 # Agent Retrieval audit logging  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

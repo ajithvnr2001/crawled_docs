@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/concepts/access-control/
 title: Access control with IAM \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:59:03.260696+00:00
+fetched_at: 2026-10-29T09:49:11.108841+00:00
 ---
 
 # Access control with IAM  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -56,17 +56,25 @@ Role | Permissions
 
   * `dataflow.jobs.cancel`
   * `dataflow.jobs.create`
+  * `dataflow.jobs.createTagBinding`
+  * `dataflow.jobs.deleteTagBinding`
   * `dataflow.jobs.get`
   * `dataflow.jobs.list`
+  * `dataflow.jobs.listEffectiveTags`
+  * `dataflow.jobs.listTagBindings`
   * `dataflow.jobs.snapshot`
   * `dataflow.jobs.updateContents`
   * `dataflow.messages.list`
   * `dataflow.metrics.get`
   * `dataflow.shuffle.read`
   * `dataflow.shuffle.write`
+  * `dataflow.snapshots.createTagBinding`
   * `dataflow.snapshots.delete`
+  * `dataflow.snapshots.deleteTagBinding`
   * `dataflow.snapshots.get`
   * `dataflow.snapshots.list`
+  * `dataflow.snapshots.listEffectiveTags`
+  * `dataflow.snapshots.listTagBindings`
   * `dataflow.streamingWorkItems.ImportState`
   * `dataflow.streamingWorkItems.commitWork`
   * `dataflow.streamingWorkItems.getData`
@@ -90,7 +98,7 @@ Role | Permissions
 
   * Project 
 
-|  `dataflow.jobs.get` `dataflow.jobs.list` `dataflow.messages.list` `dataflow.metrics.get` `dataflow.snapshots.get` `dataflow.snapshots.list` `recommender.dataflowDiagnosticsInsights.get` `recommender.dataflowDiagnosticsInsights.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
+|  `dataflow.jobs.get` `dataflow.jobs.list` `dataflow.jobs.listEffectiveTags` `dataflow.jobs.listTagBindings` `dataflow.messages.list` `dataflow.metrics.get` `dataflow.snapshots.get` `dataflow.snapshots.list` `dataflow.snapshots.listEffectiveTags` `dataflow.snapshots.listTagBindings` `recommender.dataflowDiagnosticsInsights.get` `recommender.dataflowDiagnosticsInsights.list` `resourcemanager.projects.get` `resourcemanager.projects.list`  
   
 #### Dataflow Developer 
 
@@ -118,16 +126,24 @@ Role | Permissions
 
   * `dataflow.jobs.cancel`
   * `dataflow.jobs.create`
+  * `dataflow.jobs.createTagBinding`
+  * `dataflow.jobs.deleteTagBinding`
   * `dataflow.jobs.get`
   * `dataflow.jobs.list`
+  * `dataflow.jobs.listEffectiveTags`
+  * `dataflow.jobs.listTagBindings`
   * `dataflow.jobs.snapshot`
   * `dataflow.jobs.updateContents`
 
 `dataflow.messages.list` `dataflow.metrics.get` `dataflow.snapshots.*`
 
+  * `dataflow.snapshots.createTagBinding`
   * `dataflow.snapshots.delete`
+  * `dataflow.snapshots.deleteTagBinding`
   * `dataflow.snapshots.get`
   * `dataflow.snapshots.list`
+  * `dataflow.snapshots.listEffectiveTags`
+  * `dataflow.snapshots.listTagBindings`
 
 `recommender.dataflowDiagnosticsInsights.*`
 
@@ -410,6 +426,15 @@ Role | Permissions
   * `compute.crossSiteNetworks.get`
   * `compute.crossSiteNetworks.list`
   * `compute.crossSiteNetworks.update`
+
+`compute.dhcpOptionsConfigs.*`
+
+  * `compute.dhcpOptionsConfigs.create`
+  * `compute.dhcpOptionsConfigs.delete`
+  * `compute.dhcpOptionsConfigs.get`
+  * `compute.dhcpOptionsConfigs.list`
+  * `compute.dhcpOptionsConfigs.update`
+  * `compute.dhcpOptionsConfigs.use`
 
 `compute.diskSettings.*`
 
@@ -790,6 +815,11 @@ Role | Permissions
 
   * `compute.machineTypes.get`
   * `compute.machineTypes.list`
+
+`compute.managedRulesets.*`
+
+  * `compute.managedRulesets.get`
+  * `compute.managedRulesets.list`
 
 `compute.multiMig.*`
 
@@ -1365,22 +1395,7 @@ Role | Permissions
   * `compute.zones.get`
   * `compute.zones.list`
 
-`dataflow.jobs.*`
-
-  * `dataflow.jobs.cancel`
-  * `dataflow.jobs.create`
-  * `dataflow.jobs.get`
-  * `dataflow.jobs.list`
-  * `dataflow.jobs.snapshot`
-  * `dataflow.jobs.updateContents`
-
-`dataflow.messages.list` `dataflow.metrics.get` `dataflow.snapshots.*`
-
-  * `dataflow.snapshots.delete`
-  * `dataflow.snapshots.get`
-  * `dataflow.snapshots.list`
-
-`dataform.*`
+`dataflow.jobs.cancel` `dataflow.jobs.create` `dataflow.jobs.get` `dataflow.jobs.list` `dataflow.jobs.snapshot` `dataflow.jobs.updateContents` `dataflow.messages.list` `dataflow.metrics.get` `dataflow.snapshots.delete` `dataflow.snapshots.get` `dataflow.snapshots.list` `dataform.*`
 
   * `dataform.commentThreads.create`
   * `dataform.commentThreads.delete`
@@ -2319,6 +2334,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

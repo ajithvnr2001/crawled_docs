@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/operational-excellence/manage-and-optimize-cloud-resources/
 title: Manage and optimize cloud resources \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:24.588464+00:00
+fetched_at: 2026-10-29T09:51:16.467206+00:00
 ---
 
 # Manage and optimize cloud resources  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Manage and optimize cloud resources Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-10-31 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the operational excellence pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you manage and optimize the resources that are used by your cloud workloads. It involves right-sizing resources based on actual usage and demand, using autoscaling for dynamic resource allocation, implementing cost optimization strategies, and regularly reviewing resource utilization and costs. Many of the topics that are discussed in this principle are covered in detail in the [Cost optimization](https://docs.cloud.google.com/architecture/framework/cost-optimization) pillar.
 
@@ -45,9 +45,9 @@ To manage and optimize resources, consider the recommendations in the following 
 
 Continuously monitoring resource utilization and adjusting resource allocation to match actual demand are essential for efficient cloud resource management. Over-provisioning resources can lead to unnecessary costs, and under-provisioning can cause performance bottlenecks that affect application performance and user experience. To achieve an optimal balance, you must adopt a proactive approach to right-sizing cloud resources. This recommendation is relevant to the governance [focus area of operational readiness](https://docs.cloud.google.com/architecture/framework/operational-excellence/operational-readiness-and-performance-using-cloudops#focus-areas-of-operational-readiness).
 
-[Cloud Monitoring](https://cloud.google.com/monitoring) and [Recommender](https://cloud.google.com/recommender) can help you to identify opportunities for right-sizing. Cloud Monitoring provides real-time visibility into resource utilization metrics. This visibility lets you track resource usage patterns and identify potential inefficiencies. Recommender analyzes resource utilization data to make intelligent recommendations for optimizing resource allocation. By using these tools, you can gain insights into resource usage and make informed decisions about right-sizing the resources.
+[Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) and [Recommender](https://docs.cloud.google.com/recommender/docs/whatis-activeassist) can help you to identify opportunities for right-sizing. Monitoring provides real-time visibility into resource utilization metrics. This visibility lets you track resource usage patterns and identify potential inefficiencies. Recommender analyzes resource utilization data to make intelligent recommendations for optimizing resource allocation. By using these tools, you can gain insights into resource usage and make informed decisions about right-sizing the resources.
 
-In addition to Cloud Monitoring and Recommender, consider using custom metrics to trigger automated right-sizing actions. Custom metrics let you track specific resource utilization metrics that are relevant to your applications and workloads. You can also configure alerts to notify administrators when predefined thresholds are met. The administrators can then take necessary actions to adjust resource allocation. This proactive approach ensures that resources are scaled in a timely manner, which helps to optimize cloud costs and prevent performance issues.
+In addition to Monitoring and Recommender, consider using custom metrics to trigger automated right-sizing actions. Custom metrics let you track specific resource utilization metrics that are relevant to your applications and workloads. You can also configure alerts to notify administrators when predefined thresholds are met. The administrators can then take necessary actions to adjust resource allocation. This proactive approach ensures that resources are scaled in a timely manner, which helps to optimize cloud costs and prevent performance issues.
 
 ### Use autoscaling
 
@@ -65,7 +65,7 @@ To meet the diverse needs of different applications and workloads, Google Cloud 
 
 These tools work together to optimize resource utilization, ensure application performance, and simplify cluster management.
 
-  * [Cloud Run](https://cloud.google.com/run) is a serverless platform that lets you run code without having to manage infrastructure. Cloud Run offers built-in autoscaling, which automatically adjusts the number of instances based on the incoming traffic. When the volume of traffic increases, Cloud Run scales up the number of instances to handle the load. When traffic decreases, Cloud Run scales down the number of instances to reduce costs.
+  * [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) is a serverless platform that lets you run code without having to manage infrastructure. Cloud Run offers built-in autoscaling, which automatically adjusts the number of instances based on the incoming traffic. When the volume of traffic increases, Cloud Run scales up the number of instances to handle the load. When traffic decreases, Cloud Run scales down the number of instances to reduce costs.
 
 
 
@@ -116,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-10-31 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-10-31 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

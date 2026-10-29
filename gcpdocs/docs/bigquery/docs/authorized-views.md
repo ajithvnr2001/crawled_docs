@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/authorized-views/
 title: Authorized views \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:47.270022+00:00
+fetched_at: 2026-10-29T09:56:36.592288+00:00
 ---
 
 # Authorized views  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Authorized views
 
-This document describes how to create authorized views and authorized materialized views in BigQuery. As a data administrator, you can create an _authorized view_ to share a subset of data in a dataset to specific users and groups (principals). Principals can view the data you share and run queries on it, but they can't access the source dataset directly.
+In BigQuery, authorized views and authorized materialized views let you share a subset of data from a dataset with specific users and groups (principals). Principals can view the shared data and run queries on it, but they can't access the source dataset directly.
 
-### View types
+## View types
 
 A logical view is the default view type for BigQuery, and a materialized view is a precomputed view that periodically caches the results of a query for increased performance and efficiency.
 
@@ -31,7 +31,7 @@ An authorized view for a logical view is called an authorized view, but an autho
 
 If a logical view relies on [a large or computationally expensive query](https://docs.cloud.google.com/bigquery/docs/materialized-views-intro#use_cases), then you can create a materialized view instead. To understand the use cases of a logical and materialized view, see [Overview of logical and materialized views](https://docs.cloud.google.com/bigquery/docs/logical-materialized-view-overview).
 
-### High-level steps for creating authorized views
+## High-level steps for creating authorized views
 
 To create and share a view, review these high-level steps, which are the same for authorized logical views and authorized materialized views.
 
@@ -490,6 +490,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

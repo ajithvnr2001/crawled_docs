@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/colab/docs/access-control/
 title: Access control with IAM \u00a0|\u00a0 Colab Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:22:32.553178+00:00
+fetched_at: 2026-10-29T09:51:10.884009+00:00
 ---
 
 # Access control with IAM  |  Colab Enterprise  |  Google Cloud Documentation
@@ -3322,7 +3322,7 @@ Role | Permissions
   * `aiplatform.tuningJobs.validateReinforcementTuningReward`
   * `aiplatform.tuningJobs.vertexTune`
 
-`artifactregistry.repositories.downloadArtifacts` `artifactregistry.repositories.get` `artifactregistry.repositories.list` `artifactregistry.tags.get` `artifactregistry.versions.get` `bigquery.datasets.create` `bigquery.datasets.get` `bigquery.jobs.create` `bigquery.jobs.get` `bigquery.readsessions.create` `bigquery.readsessions.getData` `bigquery.tables.create` `bigquery.tables.export` `bigquery.tables.get` `bigquery.tables.getData` `bigquery.tables.update` `bigquery.tables.updateData` `cloudtrace.traces.list` `iam.serviceAccounts.get` `iam.serviceAccounts.getAccessToken` `iam.serviceAccounts.getOpenIdToken` `iam.serviceAccounts.implicitDelegation` `iam.serviceAccounts.list` `iam.serviceAccounts.signBlob` `iam.serviceAccounts.signJwt` `logging.logEntries.create` `logging.logEntries.route` `logging.views.access` `logging.views.get` `monitoring.metricDescriptors.create` `monitoring.metricDescriptors.get` `monitoring.metricDescriptors.list` `monitoring.monitoredResourceDescriptors.*`
+`artifactregistry.repositories.downloadArtifacts` `artifactregistry.repositories.get` `artifactregistry.repositories.list` `artifactregistry.tags.get` `artifactregistry.versions.get` `bigquery.datasets.create` `bigquery.datasets.get` `bigquery.jobs.create` `bigquery.jobs.get` `bigquery.readsessions.create` `bigquery.readsessions.getData` `bigquery.tables.create` `bigquery.tables.export` `bigquery.tables.get` `bigquery.tables.getData` `bigquery.tables.update` `bigquery.tables.updateData` `cloudtrace.traces.list` `iam.serviceAccounts.get` `iam.serviceAccounts.list` `logging.logEntries.create` `logging.logEntries.route` `logging.views.access` `logging.views.get` `monitoring.metricDescriptors.create` `monitoring.metricDescriptors.get` `monitoring.metricDescriptors.list` `monitoring.monitoredResourceDescriptors.*`
 
   * `monitoring.monitoredResourceDescriptors.get`
   * `monitoring.monitoredResourceDescriptors.list`
@@ -3472,7 +3472,7 @@ Role | Permissions
   
 #### Vertex AI Service Agent 
 
-(`roles/aiplatform.serviceAgent`) Gives Vertex AI the permissions it needs to function.  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `agentregistry.agents.get` `agentregistry.agents.list` `agentregistry.endpoints.*`
+(`roles/aiplatform.serviceAgent`) Gives Vertex AI the permissions it needs to function.  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `agentregistry.agents.get` `agentregistry.agents.list` `agentregistry.bindings.fetchAvailable` `agentregistry.bindings.get` `agentregistry.bindings.list` `agentregistry.endpoints.*`
 
   * `agentregistry.endpoints.get`
   * `agentregistry.endpoints.list`
@@ -3484,7 +3484,7 @@ Role | Permissions
   * `agentregistry.operations.get`
   * `agentregistry.operations.list`
 
-`agentregistry.skills.create` `agentregistry.skills.delete` `aiplatform.agentAnomalyDetectionScopes.*`
+`agentregistry.skills.create` `agentregistry.skills.delete` `agentregistry.skills.get` `agentregistry.skills.list` `aiplatform.agentAnomalyDetectionScopes.*`
 
   * `aiplatform.agentAnomalyDetectionScopes.create`
   * `aiplatform.agentAnomalyDetectionScopes.delete`
@@ -4065,22 +4065,7 @@ Role | Permissions
   * `aiplatform.tuningJobs.validateReinforcementTuningReward`
   * `aiplatform.tuningJobs.vertexTune`
 
-`artifactregistry.repositories.create` `artifactregistry.repositories.downloadArtifacts` `artifactregistry.repositories.get` `artifactregistry.repositories.list` `artifactregistry.repositories.uploadArtifacts` `artifactregistry.tags.get` `artifactregistry.versions.get` `automl.datasets.export` `automl.datasets.get` `automl.datasets.list` `automl.modelEvaluations.list` `automl.models.get` `automl.models.list` `automl.operations.get` `automl.tableSpecs.get` `bigquery.datasets.create` `bigquery.datasets.get` `bigquery.jobs.create` `bigquery.jobs.get` `bigquery.models.create` `bigquery.models.export` `bigquery.models.getData` `bigquery.objectRefs.read` `bigquery.readsessions.create` `bigquery.readsessions.getData` `bigquery.tables.create` `bigquery.tables.export` `bigquery.tables.get` `bigquery.tables.getData` `bigquery.tables.list` `bigquery.tables.update` `bigquery.tables.updateData` `bigtable.tables.get` `bigtable.tables.list` `bigtable.tables.readRows` `binaryauthorization.policy.evaluatePolicy` `cloudtrace.traces.get` `cloudtrace.traces.list` `compute.addresses.get` `compute.addresses.list` `compute.addresses.use` `compute.addresses.useInternal` `compute.disks.create` `compute.disks.createSnapshot` `compute.disks.createTagBinding` `compute.disks.delete` `compute.disks.get` `compute.disks.setLabels` `compute.disks.use` `compute.disks.useReadOnly` `compute.globalOperations.get` `compute.instanceGroupManagers.update` `compute.instances.attachDisk` `compute.instances.create` `compute.instances.createTagBinding` `compute.instances.delete` `compute.instances.detachDisk` `compute.instances.get` `compute.instances.getGuestAttributes` `compute.instances.list` `compute.instances.setLabels` `compute.instances.setMetadata` `compute.instances.setServiceAccount` `compute.instances.setTags` `compute.instances.start` `compute.instances.stop` `compute.instances.update` `compute.instances.useReadOnly` `compute.machineTypes.get` `compute.networks.get` `compute.networks.use` `compute.networks.useExternalIp` `compute.snapshots.create` `compute.snapshots.delete` `compute.snapshots.useReadOnly` `compute.subnetworks.get` `compute.subnetworks.list` `compute.subnetworks.use` `compute.subnetworks.useExternalIp` `compute.zoneOperations.get` `dataflow.jobs.*`
-
-  * `dataflow.jobs.cancel`
-  * `dataflow.jobs.create`
-  * `dataflow.jobs.get`
-  * `dataflow.jobs.list`
-  * `dataflow.jobs.snapshot`
-  * `dataflow.jobs.updateContents`
-
-`dataflow.messages.list` `dataflow.metrics.get` `dataflow.snapshots.*`
-
-  * `dataflow.snapshots.delete`
-  * `dataflow.snapshots.get`
-  * `dataflow.snapshots.list`
-
-`datalabeling.annotateddatasets.get` `datalabeling.datasets.export` `datalabeling.datasets.get` `datalabeling.datasets.list` `datalabeling.operations.get` `hypercomputecluster.clusters.*`
+`artifactregistry.repositories.create` `artifactregistry.repositories.downloadArtifacts` `artifactregistry.repositories.get` `artifactregistry.repositories.list` `artifactregistry.repositories.uploadArtifacts` `artifactregistry.tags.get` `artifactregistry.versions.get` `automl.datasets.export` `automl.datasets.get` `automl.datasets.list` `automl.modelEvaluations.list` `automl.models.get` `automl.models.list` `automl.operations.get` `automl.tableSpecs.get` `bigquery.datasets.create` `bigquery.datasets.get` `bigquery.jobs.create` `bigquery.jobs.get` `bigquery.models.create` `bigquery.models.export` `bigquery.models.getData` `bigquery.objectRefs.read` `bigquery.readsessions.create` `bigquery.readsessions.getData` `bigquery.tables.create` `bigquery.tables.export` `bigquery.tables.get` `bigquery.tables.getData` `bigquery.tables.list` `bigquery.tables.update` `bigquery.tables.updateData` `bigtable.tables.get` `bigtable.tables.list` `bigtable.tables.readRows` `binaryauthorization.policy.evaluatePolicy` `cloudtrace.traces.get` `cloudtrace.traces.list` `compute.addresses.get` `compute.addresses.list` `compute.addresses.use` `compute.addresses.useInternal` `compute.disks.create` `compute.disks.createSnapshot` `compute.disks.createTagBinding` `compute.disks.delete` `compute.disks.get` `compute.disks.setLabels` `compute.disks.use` `compute.disks.useReadOnly` `compute.globalOperations.get` `compute.instanceGroupManagers.update` `compute.instances.attachDisk` `compute.instances.create` `compute.instances.createTagBinding` `compute.instances.delete` `compute.instances.detachDisk` `compute.instances.get` `compute.instances.getGuestAttributes` `compute.instances.list` `compute.instances.setLabels` `compute.instances.setMetadata` `compute.instances.setServiceAccount` `compute.instances.setTags` `compute.instances.start` `compute.instances.stop` `compute.instances.update` `compute.instances.useReadOnly` `compute.machineTypes.get` `compute.networks.get` `compute.networks.use` `compute.networks.useExternalIp` `compute.snapshots.create` `compute.snapshots.delete` `compute.snapshots.useReadOnly` `compute.subnetworks.get` `compute.subnetworks.list` `compute.subnetworks.use` `compute.subnetworks.useExternalIp` `compute.zoneOperations.get` `dataflow.jobs.cancel` `dataflow.jobs.create` `dataflow.jobs.get` `dataflow.jobs.list` `dataflow.jobs.snapshot` `dataflow.jobs.updateContents` `dataflow.messages.list` `dataflow.metrics.get` `dataflow.snapshots.delete` `dataflow.snapshots.get` `dataflow.snapshots.list` `datalabeling.annotateddatasets.get` `datalabeling.datasets.export` `datalabeling.datasets.get` `datalabeling.datasets.list` `datalabeling.operations.get` `hypercomputecluster.clusters.*`
 
   * `hypercomputecluster.clusters.create`
   * `hypercomputecluster.clusters.delete`
@@ -4275,6 +4260,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

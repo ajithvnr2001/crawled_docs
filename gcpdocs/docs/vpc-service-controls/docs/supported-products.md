@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc-service-controls/docs/supported-products/
 title: Supported products and limitations \u00a0|\u00a0 VPC Service Controls \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:09.661544+00:00
+fetched_at: 2026-10-29T10:08:56.601338+00:00
 ---
 
 # Supported products and limitations  |  VPC Service Controls  |  Google Cloud Documentation
@@ -905,13 +905,23 @@ To function correctly, Knowledge Catalog interacts with BigQuery and Cloud Stora
 **Protect with perimeters?** |  **Yes.** You can configure your perimeters to protect this service.   
 **Service name** |  `eventarc.googleapis.com,  
 eventarcpublishing.googleapis.com`  
-**Details** |  Eventarc Advanced APIs can be protected with VPC Service Controls, and features can be used normally inside service perimeters. An Eventarc Advanced bus outside of a service perimeter can't receive events from Google Cloud projects inside the perimeter. An Eventarc Advanced bus inside of a perimeter can't route events to a consumer outside of the perimeter.
+**Details** |  Eventarc Advanced APIs can be protected with VPC Service Controls, and features can be used normally inside service perimeters. You can verify VPC Service Controls support for the `Enrollment`, `GoogleApiSource`, `MessageBus`, and `Pipeline` resources by viewing platform logs on ingress. For more information about Eventarc Advanced, refer to the [product documentation](https://docs.cloud.google.com/eventarc/advanced/docs).   
+**Limitations** |  In projects protected by a service perimeter, the following limitations apply: 
 
-  * To publish to an Eventarc Advanced bus, the source of an event must be inside the same service perimeter as the bus. 
-  * To consume a message, an event consumer must be inside the same service perimeter as the bus. 
+  * To publish to an Eventarc Advanced bus, the source of an event must be inside the same service perimeter as the bus. For example, a bus outside of a service perimeter can't receive events from Google Cloud projects inside the perimeter.
+  * To consume an event message, an event consumer must be inside the same service perimeter as the Eventarc Advanced bus. For example, a bus inside of a perimeter can't route events to a consumer outside of the perimeter.
+  * When you create or update an Eventarc Advanced pipeline, destination validation is strictly enforced. Enforcement isn't retroactive. Any pipeline that was created before you set up the service perimeter keeps running. You can't create or update a pipeline with an unsupported destination. 
+    * **Supported destinations** : 
+      * Cloud Run (`*.run.app`) and Cloud Run functions (`*.cloudfunctions.net`)
+      * First-party Google APIs (`*.googleapis.com`) that VPC Service Controls supports—including regional endpoints such as `*.rep.googleapis.com`, `LOCATION.SERVICE.googleapis.com`, and `REGION-SERVICE.googleapis.com`, and mTLS endpoints (`*.mtls.googleapis.com`) 
+      * Eventarc Advanced buses, Pub/Sub topics, and Workflows workflows
+      * Any HTTP destination—if configured with a [network attachment](https://docs.cloud.google.com/vpc/docs/about-network-attachments)
+    * **Unsupported destinations** : 
+      * External HTTP endpoints, including Cloud Run and Cloud Run functions custom domains—blocked with an HTTP `403` status code
+      * Cloud Run URLs on the `*.cloud.run` and `*.ai.studio` domains—blocked with an HTTP `403` status code because only `*.run.app` URLs are supported
+      * First-party Google APIs that VPC Service Controls doesn't support (for example, services at Alpha)—blocked with an HTTP `403` status code
 
-You can verify VPC Service Controls support for the `Enrollment`, `GoogleApiSource`, `MessageBus`, and `Pipeline` resources by viewing platform logs on ingress. For more information about Eventarc Advanced, refer to the [product documentation](https://docs.cloud.google.com/eventarc/advanced/docs).   
-**Limitations** |  The Eventarc Advanced integration with VPC Service Controls has no known limitations.   
+For more information, see [Set up a service perimeter using VPC Service Controls](https://docs.cloud.google.com/eventarc/advanced/docs/using-vpc-service-controls).  
   
 ###  [Eventarc Standard](https://docs.cloud.google.com/eventarc/standard/docs)
 
@@ -920,16 +930,16 @@ You can verify VPC Service Controls support for the `Enrollment`, `GoogleApiSour
 **Protect with perimeters?** |  **Yes.** You can configure your perimeters to protect this service.   
 **Service name** |  `eventarc.googleapis.com,  
 eventarcpublishing.googleapis.com`  
-**Details** |  Eventarc Standard handles event delivery using Pub/Sub topics and push subscriptions. To access the Pub/Sub API and manage event triggers, the Eventarc API must be protected within the same VPC Service Controls service perimeter as the Pub/Sub API.  For more information about Eventarc Standard, refer to the [product documentation](https://docs.cloud.google.com/eventarc/standard/docs).   
+**Details** |  Eventarc Standard handles event delivery using Pub/Sub topics and push subscriptions. To use the Pub/Sub API and manage event triggers, the Eventarc API must be protected within the same VPC Service Controls service perimeter as the Pub/Sub API.  For more information about Eventarc Standard, refer to the [product documentation](https://docs.cloud.google.com/eventarc/standard/docs).   
 **Limitations** |  In projects protected by a service perimeter, the following limitations apply: 
 
   * Eventarc Standard is bound by the same limitations as Pub/Sub: 
-    * When routing events to Cloud Run targets, new Pub/Sub push subscriptions can't be created unless the push endpoints are set to Cloud Run services with default `run.app` URLs (custom domains don't work).
-    * When routing events to Workflows targets for which the Pub/Sub push endpoint is set to a Workflows execution, you can only create new Pub/Sub push subscriptions through Eventarc Standard.
-In this document, see the [Pub/Sub limitations](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products#table_pubsub). 
-  * VPC Service Controls blocks the creation of Eventarc Standard triggers for [internal HTTP endpoints](https://docs.cloud.google.com/eventarc/docs/vpc-endpoints/route-vpc-internal-endpoint-events). VPC Service Controls protection does not apply when routing events to such destinations. 
+    * When routing events to Cloud Run destinations, you can create new Pub/Sub push subscriptions only when the push endpoints are set to Cloud Run services with default `run.app` URLs. Custom domains don't work.
+    * When routing events to Workflows destinations for which the Pub/Sub push endpoint is set to a Workflows execution, you can create new Pub/Sub push subscriptions only through Eventarc Standard. The service account used for push authentication for the Workflows endpoint must be included in the service perimeter.
+For more information, see [ Pub/Sub limitations](https://docs.cloud.google.com/vpc-service-controls/docs/supported-products#table_pubsub). 
+  * Because VPC Service Controls blocks Eventarc Standard triggers from being created for [ internal HTTP endpoints](https://docs.cloud.google.com/eventarc/standard/docs/vpc-endpoints/route-vpc-internal-endpoint-events), you can't route events to those endpoints within a VPC Service Controls service perimeter. 
 
-  
+For more information, see [Set up a service perimeter using VPC Service Controls](https://docs.cloud.google.com/eventarc/docs/using-vpc-service-controls).  
   
 ###  [Distributed Cloud Edge Network API](https://docs.cloud.google.com/distributed-cloud/connected/latest/docs)
 
@@ -3188,7 +3198,7 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
   *[VPC]: Virtual Private Cloud

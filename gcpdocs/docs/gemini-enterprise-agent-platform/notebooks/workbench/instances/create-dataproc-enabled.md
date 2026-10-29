@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/create-dataproc-enabled/
 title: Create a Managed Service for Apache Spark Spark-enabled Agent Platform Workbench instance \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:36.854789+00:00
+fetched_at: 2026-10-29T11:07:42.583005+00:00
 ---
 
 # Create a Managed Service for Apache Spark Spark-enabled Agent Platform Workbench instance  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

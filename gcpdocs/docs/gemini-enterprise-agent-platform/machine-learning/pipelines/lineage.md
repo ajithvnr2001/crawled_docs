@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/lineage/
 title: Track the lineage of pipeline artifacts \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:38.107800+00:00
+fetched_at: 2026-10-29T11:06:45.615609+00:00
 ---
 
 # Track the lineage of pipeline artifacts  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

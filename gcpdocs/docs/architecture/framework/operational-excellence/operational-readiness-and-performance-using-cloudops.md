@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/operational-excellence/operational-readiness-and-performance-using-cloudops/
 title: Ensure operational readiness and performance using CloudOps \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:15.896795+00:00
+fetched_at: 2026-10-29T09:51:16.150487+00:00
 ---
 
 # Ensure operational readiness and performance using CloudOps  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Ensure operational readiness and performance using CloudOps Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-10-02 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the operational excellence pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) helps you to ensure operational readiness and performance of your cloud workloads. It emphasizes establishing clear expectations and commitments for service performance, implementing robust monitoring and alerting, conducting performance testing, and proactively planning for capacity needs.
 
@@ -63,11 +63,11 @@ Governance |
   
 ## Recommendations
 
-To ensure operational readiness and performance by using CloudOps, consider the recommendations in the following sections. Each recommendation in this document is relevant to one or more of the focus areas of operational readiness.
+To ensure operational readiness and performance by using CloudOps, consider the recommendations in the following sections. Each recommendation in this document is relevant to one or more of the [focus areas of operational readiness](https://docs.cloud.google.com/architecture/framework/operational-excellence/operational-readiness-and-performance-using-cloudops#focus-areas-of-operational-readiness).
 
 ### Define SLOs and SLAs
 
-A core responsibility of the cloud operations team is to define service level objectives (SLOs) and service level agreements (SLAs) for all of the critical workloads. This recommendation is relevant to the _governance_ focus area of operational readiness.
+A core responsibility of the cloud operations team is to define service level objectives (SLOs) and service level agreements (SLAs) for all of the critical workloads. This recommendation is relevant to the _governance_ [focus area of operational readiness](https://docs.cloud.google.com/architecture/framework/operational-excellence/operational-readiness-and-performance-using-cloudops#focus-areas-of-operational-readiness).
 
   * **Define SLOs** :
 
@@ -87,7 +87,7 @@ SLAs outline the commitments to customers regarding service availability, perfor
 
   * **Track SLOs** :
 
-Use [Cloud Monitoring](https://docs.cloud.google.com/monitoring) and service level indicators (SLIs) to track SLOs. Cloud Monitoring provides comprehensive monitoring and observability capabilities that enable your organization to collect and analyze metrics that are related to the availability, performance, and latency of cloud-based applications and services. SLIs are specific metrics that you can use to measure and track SLOs over time. By utilizing these tools, you can effectively monitor and manage cloud services, and ensure that they meet the SLOs and SLAs.
+Use [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview) and service level indicators (SLIs) to track SLOs. Monitoring provides comprehensive monitoring and observability capabilities that enable your organization to collect and analyze metrics that are related to the availability, performance, and latency of cloud-based applications and services. SLIs are specific metrics that you can use to measure and track SLOs over time. By utilizing these tools, you can effectively monitor and manage cloud services, and ensure that they meet the SLOs and SLAs.
 
 
 
@@ -96,9 +96,9 @@ Clearly defining, communicating, and tracking SLOs and SLAs for all of your crit
 
 ### Implement comprehensive observability
 
-To get real-time visibility into the health and performance of your cloud environment, we recommend that you use a combination of [Google Cloud Observability tools](https://cloud.google.com/products/observability) and third-party solutions. This recommendation is relevant to the _processes_ and _tooling_ focus areas of operational readiness.
+To get real-time visibility into the health and performance of your cloud environment, we recommend that you use a combination of [Google Cloud Observability tools](https://docs.cloud.google.com/stackdriver/docs) and third-party solutions. This recommendation is relevant to the _processes_ and _tooling_ [focus areas of operational readiness](https://docs.cloud.google.com/architecture/framework/operational-excellence/operational-readiness-and-performance-using-cloudops#focus-areas-of-operational-readiness).
 
-Implementing a combination of observability solutions provides you with a comprehensive observability strategy that covers various aspects of your cloud infrastructure and applications. Google Cloud Observability is a unified platform for collecting, analyzing, and visualizing metrics, logs, and traces from various Google Cloud services, applications, and external sources. By using Cloud Monitoring, you can gain insights into resource utilization, performance characteristics, and overall health of your resources.
+Implementing a combination of observability solutions provides you with a comprehensive observability strategy that covers various aspects of your cloud infrastructure and applications. Google Cloud Observability is a unified platform for collecting, analyzing, and visualizing metrics, logs, and traces from various Google Cloud services, applications, and external sources. By using Monitoring, you can gain insights into resource utilization, performance characteristics, and overall health of your resources.
 
 To ensure comprehensive monitoring, monitor important metrics that align with system health indicators such as CPU utilization, memory usage, network traffic, disk I/O, and application response times. You must also consider business-specific metrics. By tracking these metrics, you can identify potential bottlenecks, performance issues, and resource constraints. Additionally, you can set up alerts to notify relevant teams proactively about potential issues or anomalies.
 
@@ -108,7 +108,7 @@ To enhance your monitoring capabilities further, you can integrate third-party s
 
 Performing regular performance testing helps you to ensure that your cloud-based applications and infrastructure can handle peak loads and maintain optimal performance. Load testing simulates realistic traffic patterns. Stress testing pushes the system to its limits to identify potential bottlenecks and performance limitations. This recommendation is relevant to the _processes_ and _tooling_ [focus areas of operational readiness](https://docs.cloud.google.com/architecture/framework/operational-excellence/operational-readiness-and-performance-using-cloudops#focus-areas-of-operational-readiness).
 
-  * **Test performance** : Use [Cloud Load Balancing](https://docs.cloud.google.com/load-balancing) and [load testing services](https://docs.cloud.google.com/load-balancing/docs/backend-service-load-testing) to simulate real-world traffic patterns and stress-test your applications. These tools provide valuable insights into how your system behaves under various load conditions, and can help you to identify areas that require optimization.
+  * **Test performance** : Use [load testing services](https://docs.cloud.google.com/load-balancing/docs/backend-service-load-testing) to simulate real-world traffic patterns and stress-test your applications. These tools provide valuable insights into how your system behaves under various load conditions, and can help you to identify areas that require optimization.
 
   * **Optimize performance** : Based on the results of performance testing, you can make decisions to optimize your cloud infrastructure and applications for optimal performance and scalability. This optimization might involve adjusting resource allocation, tuning configurations, or implementing caching mechanisms.
 
@@ -131,7 +131,7 @@ To keep your cloud systems running and scaling in response to changes in demand,
   * **Design for flexibility and efficiency** : When you plan capacity for your cloud deployments, decouple application components from specific machine types. When you pin a workload to a single machine type, you can't take advantage of newer cloud hardware or changes in regional capacity.
 
     * For workloads that need specialized hardware, such as high-memory instances or GPUs, ensure that you can obtain resources when required. Use [future reservations](https://docs.cloud.google.com/compute/docs/instances/future-reservations-overview) to get an assurance of capacity for critical machine types up to a year ahead.
-    * For batch-processing or model-training workloads that can tolerate variable start times, schedule capacity dynamically by using [Flex-start VMs](https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms). These VMs use Dynamic Workload Scheduling (DWS) to queue requests and reduce compute costs.
+    * For batch-processing or model-training workloads that can tolerate variable start times, schedule capacity dynamically by using [Flex-start VMs](https://docs.cloud.google.com/compute/docs/instances/about-flex-start-vms). These VMs use Dynamic Workload Scheduler to queue requests and reduce compute costs.
     * Avoid reserving older machine families or resources for transient development environments.
     * Plan for resources in secondary regions so that you can fail over efficiently for disaster recovery (DR).
   * **Implement automatic scaling** : To dynamically adapt your cloud resources to real-time workload fluctuations, implement autoscaling policies. Autoscaling algorithms evaluate metrics such as CPU utilization, memory pressure, and queue depth. Based on the evaluation, resources are scaled out during peak traffic periods and scaled in during low-utilization windows, which helps to optimize the cost of your cloud resources.
@@ -171,6 +171,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-02 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/configuring-garbage-collection/
 title: Configure garbage collection \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:24.312668+00:00
+fetched_at: 2026-10-29T10:19:33.352218+00:00
 ---
 
 # Configure garbage collection  |  Bigtable  |  Google Cloud Documentation

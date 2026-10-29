@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput/purchase-provisioned-throughput/
 title: Purchase Provisioned Throughput \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:40.987523+00:00
+fetched_at: 2026-10-29T11:07:11.798195+00:00
 ---
 
 # Purchase Provisioned Throughput  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

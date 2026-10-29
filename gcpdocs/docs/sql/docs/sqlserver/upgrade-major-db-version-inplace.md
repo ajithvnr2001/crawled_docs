@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/upgrade-major-db-version-inplace/
 title: Upgrade the database major version in-place \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:57.847317+00:00
+fetched_at: 2026-10-29T09:45:04.182574+00:00
 ---
 
 # Upgrade the database major version in-place  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -57,6 +57,7 @@ Replace INSTANCE_NAME with the name of the instance.
         * `majorVersion`: the major version that you can target for the in-place upgrade.
         * `name`: the database version string that includes the major version.
         * `displayName`: the display name for the database version. 
+**Note:** If `upgradableDatabaseVersions` doesn't appear in the output, your instance might already be running the latest supported major database version, or the instance isn't running. External replicas can't be upgraded in-place.
 
 ### REST v1
 
@@ -108,6 +109,8 @@ You should receive a JSON response similar to the following:
     
     
 
+**Note:** If `upgradableDatabaseVersions` doesn't appear in the response, your instance might already be running the latest supported major database version, or the instance isn't running. External replicas can't be upgraded in-place.
+
 ### REST v1beta4 
 
 To check which target database versions are available for major version in-place upgrade of an instance, use the [`instances.get`](https://docs.cloud.google.com/sql/docs/sqlserver/admin-api/rest/v1beta4/instances/get) method of the Cloud SQL Admin API.
@@ -158,6 +161,8 @@ You should receive a JSON response similar to the following:
     
     
 
+**Note:** If `upgradableDatabaseVersions` doesn't appear in the response, your instance might already be running the latest supported major database version, or the instance isn't running. External replicas can't be upgraded in-place.
+
 For the complete list of the database versions that Cloud SQL supports, see [Database versions and version policies](https://docs.cloud.google.com/sql/docs/sqlserver/db-versions).
 
   3. Consider the features offered in each database major version and address incompatibilities.
@@ -177,7 +182,7 @@ In addition to validating that the upgrade completes successfully, run tests to 
 **Note:** Ensure that you have enough disk space before running a major version upgrade. If you haven't enabled [automatic storage increases](https://docs.cloud.google.com/sql/docs/sqlserver/instance-settings#automatic-storage-increase-2ndgen), then take note of the disk storage used by the upgraded dry run instance. This helps you determine whether you need to increase the storage capacity for the production instance before upgrading.
   5. Decide on a time to upgrade.
 
-Upgrading requires the instance to become unavailable for a period of time. Plan to upgrade during a time period when database activity is low.
+Upgrading requires the instance to become unavailable for a period of time. Plan to upgrade during a time period when database activity is low. We recommend that you don't perform a major version upgrade during periods of high traffic or when long-running transactions are active on your database.
 
 
 
@@ -601,6 +606,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.23/docs/troubleshooting/troubleshoot-canonical-service/
 title: Resolving Canonical Service issues in Cloud Service Mesh \u00a0|\u00a0 Cloud Service Mesh v1.23 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:46:59.080773+00:00
+fetched_at: 2026-10-29T10:18:27.272707+00:00
 ---
 
 # Resolving Canonical Service issues in Cloud Service Mesh  |  Cloud Service Mesh v1.23  |  Google Cloud Documentation

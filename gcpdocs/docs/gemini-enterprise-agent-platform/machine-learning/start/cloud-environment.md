@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/start/cloud-environment/
 title: Set up a project and a development environment \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:38.370470+00:00
+fetched_at: 2026-10-29T11:12:17.830145+00:00
 ---
 
 # Set up a project and a development environment  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

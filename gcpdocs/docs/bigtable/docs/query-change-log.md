@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/query-change-log/
 title: Query a Bigtable change log in BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:47.059172+00:00
+fetched_at: 2026-10-29T10:19:11.249459+00:00
 ---
 
 # Query a Bigtable change log in BigQuery  |  Google Cloud Documentation

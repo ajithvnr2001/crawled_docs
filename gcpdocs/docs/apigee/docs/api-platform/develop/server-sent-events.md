@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/develop/server-sent-events/
 title: Streaming server-sent events \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:41:51.596057+00:00
+fetched_at: 2026-10-29T09:51:21.680215+00:00
 ---
 
 # Streaming server-sent events  |  Apigee  |  Google Cloud Documentation
@@ -214,7 +214,7 @@ The following examples show how to implement common use cases for SSE proxies:
   * Modify an SSE response
   * Filter an SSE response
   * Send an SSE event to an external system
-  * Use an Apigee Model Armor policy in an EventFlows
+  * Use an Apigee Model Armor policy in an EventFlow
   * Error handling in the EventFlow
   * Propagate fault messages in an EventFlow
   * Use DataCapture to collect token counts in analytics
@@ -532,68 +532,42 @@ In this example, we attach the Apigee [PublishMessage policy](https://docs.cloud
 
 **Note:** In Apigee hybrid, Model Armor policies are supported in [v1.15.1](https://docs.cloud.google.com/apigee/docs/hybrid/release-notes#October_12_2025) and newer.
 
-You can use the [SanitizeModelResponse policy](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy) to sanitize incoming server-sent events in an `EventFlow`. This policy protects your AI applications by sanitizing responses from large language models (LLMs). For information about Model Armor, see [Model Armor overview](https://docs.cloud.google.com/security-command-center/docs/model-armor-overview). For information about the Apigee Model Armor policies, see [Get started with Apigee Model Armor policies](https://docs.cloud.google.com/apigee/docs/api-platform/tutorials/using-model-armor-policies).
+You can use the [SanitizeModelResponse policy](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy) to sanitize server-sent events in an `EventFlow`. Set `<ContinuousScan>` to `true` to check the whole stream, as in the following steps, or leave it `false` (the default) to check each event separately. With `true`, the policy holds each event until Model Armor confirms that its text is clean, and then releases it whole, unchanged, and in order to later steps and to the client.
+
+For more information about how the policy handles matches, errors, and quotas, see [Sanitize streaming Server-Sent Events (SSE) responses](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#streaming-sse). For more information about Model Armor, see [Model Armor overview](https://docs.cloud.google.com/security-command-center/docs/model-armor-overview).
+
+To configure the policy, complete the following steps:
 
   1. Create a new proxy with the SSE proxy template. See Create an API proxy with server-sent events (SSE).
   2. Open the proxy in the Apigee proxy editor and click the **Develop** tab.
-  3. Create a new [SanitizeModelResponse policy](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy) with the following definition: 
+  3. Create a [SanitizeModelResponse policy](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy) with `<ContinuousScan>true</ContinuousScan>` and `<LLMResponseSource>` configured to extract the text delta from `response.event.current.data`. The following example is for Gemini SSE streams: 
          
          <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-           <SanitizeModelResponse async="false" continueOnError="false" enabled="true" name="SMR-modelresponse">
-             <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-             <DisplayName>SMR-modelresponse</DisplayName>
-             <ModelArmor>
-               <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
-             </ModelArmor>
-             <LLMResponseSource>{response_partial}</LLMResponseSource>
-             <!-- Use the below settings if you want to call a Model Armor policy on every event -->
-             <LLMResponseSource>{response.event.current.content}</LLMResponseSource>
-           </SanitizeModelResponse>
+         <SanitizeModelResponse async="false" continueOnError="false"
+             enabled="true" name="SMR-modelresponse">
+           <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+           <DisplayName>SMR-modelresponse</DisplayName>
+           <ModelArmor>
+             <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
+           </ModelArmor>
+           <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts[-1].text',response.event.current.data,true)}</LLMResponseSource>
+           <ContinuousScan>true</ContinuousScan>
+         </SanitizeModelResponse>
 
-  4. (Optional) Add a JavaScript policy to group events before sending them to the Apigee Model Armor policy. 
-         
-         <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-         <Javascript continueOnError="false" enabled="true" timeLimit="200" name="JS-combine-resp">
-           <DisplayName>JS-combine-events</DisplayName>
-           <Properties/>
-           <Source>
-             var eventText = JSON.parse(context.getVariable("response.event.current.content").substring(5)).candidates[0].content.parts[0].text;
-             var finishReason = JSON.parse(context.getVariable("response.event.current.content").substring(5)).candidates[0].finishReason;
-             var idx = context.getVariable("response.event.current.count");
-             if(idx%5==0 || finishReason=="STOP") {
-               context.setVariable("response_partial", context.getVariable("tmp_buffer_pre"));
-               context.setVariable("buff_ready", true);
-               context.setVariable("tmp_buffer_pre", "");
-             } else {
-               context.setVariable("buff_ready", false);
-               context.setVariable("response_partial", "");
-               var previousBufferVal = context.getVariable("tmp_buffer_pre");
-               if(previousBufferVal) {
-                 context.setVariable("tmp_buffer_pre", previousBufferVal+eventText);
-               } else {
-                 context.setVariable("tmp_buffer_pre", eventText);
-               }
-             }
-           </Source>
-         </Javascript>
+For OpenAI-compatible SSE streams, set `<LLMResponseSource>` to `{jsonPath('$.choices[-1].delta.content',response.event.current.data,true)}`. For Anthropic Claude SSE streams, set `<LLMResponseSource>` to `{jsonPath('$.delta.text',response.event.current.data,true)}`.
 
-  5. Add the JavaScript and ModelArmor policies to a step in the `EventFlow` of the proxy: 
+  4. Attach the `SanitizeModelResponse` policy to the `<Response>` element of the `EventFlow` in your proxy. If you also use `LLMTokenQuota` or `DataCapture` in the `EventFlow`, place `SanitizeModelResponse` first so that those policies receive only checked events: 
          
          <EventFlow name="EventFlow" content-type="text/event-stream">
            <Request/>
            <Response>
              <Step>
-               <Name>JS-combine-resp</Name>
-             </Step>
-             <Step>
-               <!-- Remove below Condition if you want to call model armor policy on every event -->
-               <Condition> buff_ready = true </Condition>
                <Name>SMR-modelresponse</Name>
              </Step>
            </Response>
          </EventFlow>
 
-  6. Deploy and test the API proxy.
+  5. Deploy and test the API proxy.
 
 
 
@@ -975,6 +949,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

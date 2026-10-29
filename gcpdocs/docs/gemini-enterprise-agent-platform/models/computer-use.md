@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/computer-use/
 title: Computer use \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:30.568350+00:00
+fetched_at: 2026-10-29T09:45:32.077851+00:00
 ---
 
 # Computer use  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

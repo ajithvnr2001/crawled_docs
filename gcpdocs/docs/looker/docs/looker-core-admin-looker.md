@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-admin-looker/
 title: Looker (Google Cloud core) admin settings \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:57.366311+00:00
+fetched_at: 2026-10-29T09:45:49.754423+00:00
 ---
 
 # Looker (Google Cloud core) admin settings  |  Google Cloud Documentation
@@ -36,7 +36,7 @@ You can refer to the list of [Administrative tutorials](https://docs.cloud.googl
 > The following **General** Admin panel features have moved or changed for Looker (Google Cloud core):
 > 
 >     * The [**Preview Features**](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features) page is available in Looker (Google Cloud core). However, the preview features that are categorized as [Labs features](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#labs-features) are not available and are not visible inside Looker (Google Cloud core) instances.
->     * The [**Legacy features**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule) Admin panel page is not available for Looker (Google Cloud core) instances. Legacy features default to off in Looker (Google Cloud core).
+>     * The [**Legacy features**](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule) Admin panel page is available for Looker (Google Cloud core) instances. Legacy features that are listed on the Looker (Google Cloud core) **Legacy features** page might differ from the legacy features that are listed on the Looker (original) **Legacy features** page.
 >     * The [**Support Access**](https://docs.cloud.google.com/looker/docs/admin-panel-general-support-access) Admin panel page is available in Looker (Google Cloud core). However, support access is only available for public IP instances. See the [Getting support for Looker (Google Cloud core)](https://docs.cloud.google.com/looker/docs/looker-core-support) documentation page for information about accessing support.
 >     * The [**Technical Contacts**](https://docs.cloud.google.com/looker/docs/admin-panel-general-settings#technical_contacts) setting is now managed [within the Google Cloud console](https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts).
 >     * The [**Email Domain Allowlist**](https://docs.cloud.google.com/looker/docs/admin-panel-general-settings#email_domain_allowlist_for_scheduled_content) setting has moved into the Google Cloud console. See the [Edit the Looker (Google Cloud core) instance configuration](https://docs.cloud.google.com/looker/docs/looker-core-view-console#edit_instance_settings) documentation for instructions on setting the email domain allowlist.
@@ -109,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

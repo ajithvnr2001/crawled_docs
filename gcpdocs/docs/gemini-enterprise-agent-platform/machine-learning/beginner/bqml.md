@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/beginner/bqml/
 title: Gemini Enterprise Agent Platform for BigQuery users \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:13.939244+00:00
+fetched_at: 2026-10-29T11:06:59.185419+00:00
 ---
 
 # Gemini Enterprise Agent Platform for BigQuery users  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/compare-prompts/
 title: Compare prompts \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:30.254946+00:00
+fetched_at: 2026-10-29T09:56:18.682369+00:00
 ---
 
 # Compare prompts  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -61,7 +61,7 @@ To create a prompt, follow these steps:
   6. If Customer-managed encryption keys (CMEK) apply, do the following:
 
      1. Select the **Customer-managed encryption key (CMEK)** checkbox.
-     2. Select a key from the **Select a Cloud KMS key** field.
+     2. Select a key from the **Select a Cloud Key Management Service key** field.
   7. Click **Save** , which saves your prompt in the list of prompts to use on the **Compare saved prompt** page.
 
   8. Click **Submit prompts** to compare the prompts and their responses.

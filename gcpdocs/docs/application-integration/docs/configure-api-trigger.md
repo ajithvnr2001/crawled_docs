@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/configure-api-trigger/
 title: API trigger \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:20:17.566951+00:00
+fetched_at: 2026-10-29T10:59:03.618934+00:00
 ---
 
 # API trigger  |  Application Integration  |  Google Cloud Documentation
@@ -97,7 +97,7 @@ After you have published an integration that has an **API trigger** configured, 
         -H "authorization: Bearer $(gcloud auth print-access-token)" \
         -H "Content-Type: application/json" \
         -H "X-Server-Timeout: TIMEOUT_SECONDS" \
-        -d '{"trigger_id":"api_trigger/TRIGGER_NAME"}' \
+        -d '{"triggerId":"api_trigger/TRIGGER_NAME"}' \
         "https://LOCATION-integrations.googleapis.com/v1/projects/PROJECT_ID/locations/LOCATION/integrations/-:execute"
     
 
@@ -106,7 +106,7 @@ Replace the following:
   * `TIMEOUT_SECONDS`: The timeout in seconds for the API call. By default, the timeout is 120 seconds. For a list of pre-defined set of request parameters, see [System parameters](https://docs.cloud.google.com/apis/docs/system-parameters).
   * `TRIGGER_NAME`: The name of the **API trigger** in your integration.
   * `PROJECT_ID`: The ID of your Google Cloud project.
-  * `LOCATION`: The location of your Google Cloud project.
+  * `LOCATION`: The region of the integration, for example `us-east1`.
 
 
 
@@ -116,11 +116,11 @@ The following example invokes an integration in `us-east1` region containing the
     
     
     curl -X POST \
-        -H "authorization: Bearer $(gcloud auth print-access-token)"
+        -H "authorization: Bearer $(gcloud auth print-access-token)" \
         -H "Content-Type: application/json" \
-        -H "X-Server-Timeout: 300"
-        -d '{"trigger_id":"api_trigger/test_API_1"}' \
-        "https://us-east1-integrations.googleapis.com/v1/projects/demo-project/locations/us-central1/integrations/-:execute"
+        -H "X-Server-Timeout: 300" \
+        -d '{"triggerId":"api_trigger/test_API_1"}' \
+        "https://us-east1-integrations.googleapis.com/v1/projects/demo-project/locations/us-east1/integrations/-:execute"
     
 
 ## Considerations
@@ -144,6 +144,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

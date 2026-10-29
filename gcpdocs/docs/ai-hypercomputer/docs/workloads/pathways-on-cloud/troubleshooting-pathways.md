@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/troubleshooting-pathways/
 title: Troubleshoot Pathways on cloud \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:27:31.802635+00:00
+fetched_at: 2026-10-29T09:46:27.504604+00:00
 ---
 
 # Troubleshoot Pathways on cloud  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -213,6 +213,10 @@ When your first JAX command that sends an IFRT command to the Pathways cluster t
     RuntimeError: Unable to initialize backend 'proxy': UNAVAILABLE: Unable to establish connection to ifrt_proxy server, please check provided address example-workload-proxy-0-0.example-workload.default.svc.example-cluster-domain.:38676'; detailed error: DNS resolution failed (set JAX_PLATFORMS='' to automatically choose an available backend)
     
 
+**ALTS handshake failed or socket closed when connecting to the IFRT proxy server**
+
+If you see `Alts handshake failed (TSI_INTERNAL_ERROR)` or `UNAVAILABLE: Unable to establish connection to ifrt_proxy server ... Socket closed` when running a custom manifest without the `hostNetwork: true` field on a GKE Workload Identity node pool, set the `IFRT_PROXY_USE_INSECURE_GRPC_CREDENTIALS: "true"` environment variable on both the `pathways-proxy` container and the JAX client container (both sides must match). Adding this environment variable disables ALTS and uses insecure gRPC instead.
+
 **There is an existing connection to the Pathways cluster**
 
 A Pathways cluster can only maintain a session with one client at a time. If two separate notebooks attempt to connect to the same Pathways cluster, one will be able to connect and the other will show the following errors.
@@ -372,6 +376,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

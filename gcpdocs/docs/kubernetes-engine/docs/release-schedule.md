@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/release-schedule/
 title: GKE release schedule \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:21:33.693522+00:00
+fetched_at: 2026-10-29T10:27:20.154350+00:00
 ---
 
 # GKE release schedule  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation

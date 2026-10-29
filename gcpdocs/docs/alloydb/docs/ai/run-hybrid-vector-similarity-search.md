@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/run-hybrid-vector-similarity-search/
 title: Run a hybrid vector similarity search \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:52:22.583029+00:00
+fetched_at: 2026-10-29T10:18:12.674662+00:00
 ---
 
 # Run a hybrid vector similarity search  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ Hybrid search in AlloyDB for PostgreSQL improves search relevance by combining k
 
 You can create [full-text search indexes](https://docs.cloud.google.com/alloydb/docs/ai/full-text-search-overview), such as GIN, RUM, or BM25 indexes, alongside [vector indexes such as ScaNN](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index) or [HNSW](https://docs.cloud.google.com/alloydb/docs/ai/create-hnsw-index), and then combine and rerank results from both search types by using Reciprocal Rank Fusion (RRF).
 
-For high-efficiency or high-relevance text search, you can [Create and manage RUM indexes](https://docs.cloud.google.com/alloydb/docs/ai/create-rum-index) or [Create and manage BM25 indexes](https://docs.cloud.google.com/alloydb/docs/ai/create-bm25-index).
+For high-efficiency or high-relevance text search, you can [Create and query RUM indexes](https://docs.cloud.google.com/alloydb/docs/ai/create-rum-index) or [Create and manage BM25 indexes](https://docs.cloud.google.com/alloydb/docs/ai/create-bm25-index).
 
 You can also combine AlloyDB vector search results with token search results from the following supported external search engines:
 
@@ -155,7 +155,7 @@ Before you use the `hybrid_search` function, prepare your data and create the ne
 
   3. Create indexes to accelerate search performance. For vector search, create a `scann` index. For full-text search, create a `GIN` index.
 
-**Note:** You can also create a RUM index for a more performant full text search experience. For more information about creating RUM indexes, see [Create a RUM index](https://docs.cloud.google.com/alloydb/docs/ai/create-rum-index).
+**Note:** You can also create a RUM index for a more performant full text search experience. For more information about creating RUM indexes, see [Create and query a RUM index](https://docs.cloud.google.com/alloydb/docs/ai/create-rum-index).
          
          CREATE EXTENSION IF NOT EXISTS alloydb_scann;
          CREATE INDEX documents_text_embedding_idx
@@ -470,6 +470,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

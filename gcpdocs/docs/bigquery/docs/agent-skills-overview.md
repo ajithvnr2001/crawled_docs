@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/agent-skills-overview/
 title: BigQuery agent skills \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:15.297015+00:00
+fetched_at: 2026-10-29T09:45:48.010718+00:00
 ---
 
 # BigQuery agent skills  |  Google Cloud Documentation
@@ -72,12 +72,25 @@ The BigQuery AI & ML agent skill includes reference files that provide technical
 
 
 
+## Ground your agent in official documentation
+
+The [Developer Knowledge MCP server](https://developers.google.com/knowledge/mcp) is a remote server that searches current Google developer documentation, including the BigQuery documentation on `docs.cloud.google.com`, so your agent can verify SQL syntax, function signatures, and bq command-line tool flags against the published documentation rather than relying only on its training data. It provides the `search_documents`, `get_documents`, and `answer_query` tools and complements the BigQuery skills: the `bigquery-basics` skill instructs your agent to search the official documentation when it needs product information that isn't in its reference files, and the Developer Knowledge MCP server gives your agent that capability.
+
+To add it to your agent, follow [Configure your IDE or coding agent](https://developers.google.com/knowledge/mcp#configure-ide) and select your client. To teach your agent when to search the documentation and which Developer Knowledge tool to use, also install the companion [`retrieving-developer-knowledge` agent skill](https://developers.google.com/knowledge/mcp#agent-skill) alongside the BigQuery skills.
+
+With both installed, your agent can combine a documentation lookup with a BigQuery task. For example:
+
+  * "Look up the current syntax for `AI.FORECAST` in the BigQuery documentation, then write a query that forecasts the next 30 days of `COLUMN_NAME` in `PROJECT_ID`.`DATASET_ID`.`TABLE_ID`."
+
+
+
 ## What's next
 
   * To view the BigQuery basics `SKILL.md` file, see [`SKILL.md` (basics)](https://github.com/google/skills/blob/main/skills/cloud/bigquery-basics/SKILL.md).
   * To view the BigQuery AI & ML `SKILL.md` file, see [`SKILL.md` (AI & ML)](https://github.com/google/skills/blob/main/skills/cloud/bigquery-ai-ml/SKILL.md).
   * To learn more about agent skills, see [Agent Skills Overview](https://agentskills.io/home).
   * To view `SKILL.md` files for other Google Cloud products, see [`google/skills`](https://github.com/google/skills#agent-skills).
+  * To learn how your agent can search official Google developer documentation, refer to the [Developer Knowledge API overview](https://developers.google.com/knowledge).
 
 
 
@@ -85,6 +98,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

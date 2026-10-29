@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/preference-tuning/
 title: About preference tuning for Gemini models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:13.578710+00:00
+fetched_at: 2026-10-29T09:45:25.831105+00:00
 ---
 
 # About preference tuning for Gemini models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

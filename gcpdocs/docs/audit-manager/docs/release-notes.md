@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/audit-manager/docs/release-notes/
 title: Audit Manager release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:40:12.987877+00:00
+fetched_at: 2026-10-29T08:28:02.479639+00:00
 ---
 
 # Audit Manager release notes  |  Google Cloud Documentation
@@ -24,6 +24,12 @@ Send feedback
 This page documents production updates to Audit Manager. Check this page for announcements about new or updated features, bug fixes, known issues, and deprecated functionality. 
 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
+
+## October 22, 2026
+
+Feature
+
+Support for organization-level audits, [audit scheduling](https://docs.cloud.google.com/audit-manager/docs/run-audit), and a [new UI experience with updated reports](https://docs.cloud.google.com/audit-manager/docs/view-audit) are generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
 
 ## September 25, 2026
 

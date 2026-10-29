@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-assignment-create/
 title: Create a reservation assignment \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:01:14.395667+00:00
+fetched_at: 2026-10-29T10:08:39.670019+00:00
 ---
 
 # Create a reservation assignment  |  BigQuery  |  Google Cloud Documentation
@@ -22,6 +22,64 @@ fetched_at: 2026-10-27T23:01:14.395667+00:00
 Create an assignment to map a project, folder, or organization to a BigQuery reservation.
 
 ## Code sample
+
+### Java
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[AlreadyExistsException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.AlreadyExistsException.html);
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.cloud.bigquery.reservation.v1.[Assignment](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.Assignment.html);
+    import com.google.cloud.bigquery.reservation.v1.[CreateAssignmentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.CreateAssignmentRequest.html);
+    import com.google.cloud.bigquery.reservation.v1.[ReservationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationName.html);
+    import com.google.cloud.bigquery.reservation.v1.[ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html);
+    import java.io.IOException;
+    
+    public class CreateAssignment {
+    
+      /**
+       * Creates a new assignment for a BigQuery reservation so a project can run jobs of a specified
+       * type using slots from that reservation.
+       *
+       * @param projectId The Google Cloud project ID of the reservation owner (for example,
+       *     "example-project-id").
+       * @param location The geographic location of the reservation (for example, "us-central1").
+       * @param reservationId The ID of the reservation to create the assignment in (for example,
+       *     "example-reservation").
+       */
+      public static void createAssignment(String projectId, String location, String reservationId) {
+        [ReservationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationName.html) parent = [ReservationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationName.html).of(projectId, location, reservationId);
+        String assignee = String.format("projects/%s", projectId);
+    
+        [Assignment](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.Assignment.html) assignment =
+            [Assignment](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.Assignment.html).newBuilder()
+                .[setAssignee](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.Assignment.Builder.html#com_google_cloud_bigquery_reservation_v1_Assignment_Builder_setAssignee_java_lang_String_)(assignee)
+                .[setJobType](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.Assignment.Builder.html#com_google_cloud_bigquery_reservation_v1_Assignment_Builder_setJobType_com_google_cloud_bigquery_reservation_v1_Assignment_JobType_)([Assignment](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.Assignment.html).JobType.QUERY)
+                .build();
+    
+        [CreateAssignmentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.CreateAssignmentRequest.html) request =
+            [CreateAssignmentRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.CreateAssignmentRequest.html).newBuilder()
+                .setParent(parent.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationName.html#com_google_cloud_bigquery_reservation_v1_ReservationName_toString__)())
+                .setAssignment(assignment)
+                .build();
+    
+        try ([ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html) client = [ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html).create()) {
+          [Assignment](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.Assignment.html) createdAssignment = client.createAssignment(request);
+          System.out.printf("Created assignment: %s%n", createdAssignment.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.Assignment.html#com_google_cloud_bigquery_reservation_v1_Assignment_getName__)());
+        } catch ([AlreadyExistsException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.AlreadyExistsException.html) err) {
+          System.err.printf(
+              "error: assignment for project '%s' and job type QUERY already exists in reservation '%s': %s%n",
+              projectId, reservationId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to create assignment in reservation '%s' for project '%s': %s%n",
+              reservationId, projectId, err.[getMessage](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ErrorDetails.html#com_google_api_gax_rpc_ErrorDetails__T_getMessage_java_lang_Class_T__)());
+        }
+      }
+    
 
 ### Node.js
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/embedded-javascript-events/
 title: Embedded JavaScript events \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:30.606596+00:00
+fetched_at: 2026-10-29T09:51:17.664180+00:00
 ---
 
 # Embedded JavaScript events  |  Looker  |  Google Cloud Documentation
@@ -159,6 +159,10 @@ Event Type | Event Cause
 `explore:run:start` | An Explore has begun to load query data and the query has begun to run.  
 `explore:run:complete` | An Explore has finished running the query.  
 `explore:state:changed` | An Explore page URL has changed as a result of the user's actions.  
+`merge:ready` | A merge query has finished loading initial query data.  
+`merge:run:start` | A merge query has begun to run.  
+`merge:run:complete` | A merge query has finished running the query.  
+`merge:run:fail` | A merge query has failed to run and returned an error.  
 `page:changed` | A user has navigated to a new page within the iframe.  
 `page:properties:changed` | The height of a dashboard iframe has changed.  
 `session:tokens` | The Looker client requires tokens to continue.  
@@ -1242,6 +1246,84 @@ Attribute | Format | Description
 `explore.url` | String | The relative Explore URL (just the path)  
 `explore.absoluteUrl` | String | The full Explore URL  
   
+#### `merge:ready`
+
+This event is created when a merge query finishes loading initial query data.
+    
+    
+    {
+      type: "merge:ready",
+      mergeQuery: {
+        id: "123",
+        client_id: "abc"
+      }
+    }
+    
+
+Attribute | Format | Description  
+---|---|---  
+`mergeQuery.id` | String | The ID of the merge query.  
+`mergeQuery.client_id` | String | The client ID of the merge query.  
+  
+#### `merge:run:start`
+
+This event is created when a merge query begins to run.
+    
+    
+    {
+      type: "merge:run:start",
+      mergeQuery: {
+        id: "123",
+        client_id: "abc"
+      }
+    }
+    
+
+Attribute | Format | Description  
+---|---|---  
+`mergeQuery.id` | String | The ID of the merge query.  
+`mergeQuery.client_id` | String | The client ID of the merge query.  
+  
+#### `merge:run:complete`
+
+This event is created when a merge query has finished running the query.
+    
+    
+    {
+      type: "merge:run:complete",
+      mergeQuery: {
+        id: "123",
+        client_id: "abc"
+      }
+    }
+    
+
+Attribute | Format | Description  
+---|---|---  
+`mergeQuery.id` | String | The ID of the merge query.  
+`mergeQuery.client_id` | String | The client ID of the merge query.  
+  
+#### `merge:run:fail`
+
+This event is created when a merge query fails to run and returns an error.
+    
+    
+    {
+      type: "merge:run:fail",
+      mergeQuery: {
+        id: "123",
+        client_id: "abc"
+      },
+      error: "Execution timeout"
+    }
+    
+
+Attribute | Format | Description  
+---|---|---  
+`mergeQuery.id` | String | The ID of the merge query.  
+`mergeQuery.client_id` | String | The client ID of the merge query.  
+`error` | String | The error message returned when the merge query fails to run.  
+  
 #### `page:changed`
 
 This event is created when a user navigates to a new page within the iframe.
@@ -1398,6 +1480,7 @@ Action | Action Description
 `look:filters:update` | Updates an existing Look filter in the iframe.  
 `explore:run` | Runs the Explore in the iframe.  
 `explore:filters:update` | Updates or removes an existing Explore filter in the iframe.  
+`merge:run` | Runs the merge query in the iframe.  
 `session:tokens:request` | Sends tokens in response to a `session:tokens:request` event.  
 `env:host:scroll` | Sends information about the current scroll position of the host iframe to the embedded Looker application.  
   
@@ -1677,6 +1760,20 @@ Attribute | Format | Description
 `filters` | Object | The new filters that you want to apply to the Explore. If `filters` includes a filter that doesn't exist in the Explore but that does reference a valid field, that filter will be added to the Explore. This object has the format `{"view_name.field_name_1": "value 1", "view_name.field_name_1": "value 2", ...}`.  
 `deleteFilters` | Array | The existing filters you want remove from the Explore. The array has the format: `["view_name.field_name_1", "view_name.field_name_2", ...]`  
   
+#### `merge:run`
+
+Use this action to run the merge query in the iframe.
+    
+    
+    {
+      type: "merge:run"
+    }
+    
+
+Attribute | Format | Description  
+---|---|---  
+`type` | String | Using the type `merge:run` indicates that you want to run the merge query.  
+  
 #### `session:tokens:request`
 
 Use this action to send tokens in response to a `session:tokens:request` request.
@@ -1717,6 +1814,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

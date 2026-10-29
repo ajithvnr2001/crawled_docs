@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigqueryreservation-reservationservice-bireservation-update/
 title: Update a BI reservation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:03:11.222894+00:00
+fetched_at: 2026-10-29T10:08:33.335031+00:00
 ---
 
 # Update a BI reservation  |  BigQuery  |  Google Cloud Documentation
@@ -22,6 +22,62 @@ fetched_at: 2026-10-27T23:03:11.222894+00:00
 Update the size of an existing BI reservation. The BigQuery BI Engine uses BI reservations to run fast, in-memory analysis.
 
 ## Code sample
+
+### Java
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.reservation.v1.[BiReservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservation.html);
+    import com.google.cloud.bigquery.reservation.v1.[BiReservationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservationName.html);
+    import com.google.cloud.bigquery.reservation.v1.[ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html);
+    import com.google.cloud.bigquery.reservation.v1.[UpdateBiReservationRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.UpdateBiReservationRequest.html);
+    import com.google.protobuf.[FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html);
+    import java.io.IOException;
+    
+    public class UpdateBiReservation {
+    
+      /**
+       * Updates the singleton BigQuery BI Engine reservation size in a given project and location. A
+       * singleton BI reservation always exists with a default size of 0 bytes.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param location The geographic location of the BI reservation (for example, "us-central1").
+       */
+      public static void updateBiReservation(String projectId, String location) {
+        [BiReservationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservationName.html) name = [BiReservationName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservationName.html).of(projectId, location);
+    
+        // The size of a BI reservation is measured in bytes. 2 GB is used here.
+        [BiReservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservation.html) biReservation =
+            [BiReservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservation.html).newBuilder().setName(name.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservationName.html#com_google_cloud_bigquery_reservation_v1_BiReservationName_toString__)()).[setSize](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservation.Builder.html#com_google_cloud_bigquery_reservation_v1_BiReservation_Builder_setSize_long_)(2_000_000_000L).build();
+    
+        [FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html) updateMask = [FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html).newBuilder().[addPaths](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)("size").build();
+    
+        [UpdateBiReservationRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.UpdateBiReservationRequest.html) request =
+            [UpdateBiReservationRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.UpdateBiReservationRequest.html).newBuilder()
+                .[setBiReservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.UpdateBiReservationRequest.Builder.html#com_google_cloud_bigquery_reservation_v1_UpdateBiReservationRequest_Builder_setBiReservation_com_google_cloud_bigquery_reservation_v1_BiReservation_)(biReservation)
+                .setUpdateMask(updateMask)
+                .build();
+    
+        try ([ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html) client = [ReservationServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.ReservationServiceClient.html).create()) {
+          [BiReservation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservation.html) response = client.updateBiReservation(request);
+          System.out.printf("Updated BI reservation: %s%n", response.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservation.html#com_google_cloud_bigquery_reservation_v1_BiReservation_getName__)());
+          System.out.printf("New size is %d bytes.%n", response.[getSize](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigqueryreservation/latest/com.google.cloud.bigquery.reservation.v1.BiReservation.html#com_google_cloud_bigquery_reservation_v1_BiReservation_getSize__)());
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf(
+              "error: BI reservation not found in location '%s' for project '%s': %s%n",
+              location, projectId, err.getMessage());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to update BI reservation in location '%s' for project '%s': %s%n",
+              location, projectId, err.getMessage());
+        }
+      }
+    
 
 ### Node.js
 

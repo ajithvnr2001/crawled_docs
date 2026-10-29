@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/use-an-adk-agent/
 title: Use an ADK agent \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:57.352920+00:00
+fetched_at: 2026-10-29T11:13:33.200533+00:00
 ---
 
 # Use an ADK agent  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

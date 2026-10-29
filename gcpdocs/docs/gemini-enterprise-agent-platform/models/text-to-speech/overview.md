@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview/
 title: Generate speech with Gemini TTS \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:26.908060+00:00
+fetched_at: 2026-10-29T09:51:27.951131+00:00
 ---
 
 # Generate speech with Gemini TTS  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -20,10 +20,6 @@ fetched_at: 2026-10-28T05:43:26.908060+00:00
 Send feedback 
 
 #  Generate speech with Gemini TTS Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [ Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms). For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [ Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum), subject to the obligations and restrictions described in the agreement under which you access Google Cloud. 
 
 To learn more, run the "Gemini 3.8 Flash TTS" notebook in one of the following environments: 
 
@@ -44,7 +40,7 @@ If you use an earlier Gemini TTS model, such as `gemini-3.1-flash-tts-preview`, 
 
 ## Supported models
 
-Model | Single speaker | Multi-speaker | Streaming | [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) | [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication)  
+Model | Single speaker | Multi-speaker | Streaming | [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) (Preview) | [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) (Preview)  
 ---|---|---|---|---|---  
 [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) (`gemini-3.8-flash-tts`) |  |  |  |  |   
 [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) (`gemini-3.8-flash-lite-tts`) |  |  |  |  |   
@@ -67,15 +63,81 @@ Both Gemini 3.8 TTS models share the same request schema and prompting format, s
 
   1. [Set up a project and enable the Gemini Enterprise API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start).
   2. [Configure Application Default Credentials](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth) for your development environment.
-  3. To use the Python samples, install version 2.25.0 or later of the [Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries):
+  3. To use the Python samples, install version 2.33.0 or later of the [Google Gen AI SDK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/libraries):
          
-         pip install --upgrade "google-genai>=2.25.0"
+         pip install --upgrade "google-genai>=2.33.0"
          
 
 
 
 
-The Gemini 3.8 TTS models are available in the `global` location. Send requests to the `aiplatform.googleapis.com` endpoint.
+### Available locations and regional endpoints
+
+The Gemini 3.8 TTS models are available in the `global` location and in the `us` and `eu` multi-region locations:
+
+Location | Location parameter | Endpoint  
+---|---|---  
+Global | `global` | `https://aiplatform.googleapis.com`  
+United States (multi-region) | `us` | `https://aiplatform.us.rep.googleapis.com`  
+European Union (multi-region) | `eu` | `https://aiplatform.eu.rep.googleapis.com`  
+**Note:** User-owned custom voices (voices created with voice design or voice replication) are only available in the `global` location.
+
+To direct requests to a regional endpoint, set `location="us"` (or `location="eu"`) when initializing the client in the SDK, or send requests to the corresponding multi-region hostname (`https://aiplatform.us.rep.googleapis.com` or `https://aiplatform.eu.rep.googleapis.com`) with the matching location path in the REST URL:
+
+### Python
+    
+    
+    from google import genai
+    
+    # Set location to 'us' or 'eu' for multi-region routing (or 'global' for global)
+    client = genai.Client(
+        enterprise=True,
+        project="PROJECT_ID",
+        location="us",
+    )
+    
+    response = client.models.generate_content(
+        model="gemini-3.8-flash-tts",
+        contents=[{
+            "role": "user",
+            "parts": [{
+                "text": "Have a wonderful day!",
+                "speech_metadata": {"style": "cheerful and friendly"},
+            }],
+        }],
+        config={
+            "response_modalities": ["AUDIO"],
+            "speech_config": {"voice_config": {"voice": "Kore"}},
+        },
+    )
+    
+    with open("out.wav", "wb") as f:
+        f.write(response.candidates[0].content.parts[0].inline_data.data)
+    
+
+### REST
+    
+    
+    curl -X POST \
+      -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+      -H "Content-Type: application/json" \
+      https://aiplatform.us.rep.googleapis.com/v1/projects/PROJECT_ID/locations/us/publishers/google/models/gemini-3.8-flash-tts:generateContent \
+      -d '{
+        "contents": [{
+          "role": "user",
+          "parts": [{
+            "text": "Have a wonderful day!",
+            "speechMetadata": {"style": "cheerful and friendly"}
+          }]
+        }],
+        "generationConfig": {
+          "responseModalities": ["AUDIO"],
+          "speechConfig": {
+            "voiceConfig": {"voice": "Kore"}
+          }
+        }
+      }' | jq -r '.candidates[0].content.parts[0].inlineData.data' | base64 --decode > out.wav
+    
 
 ## Single-speaker TTS
 
@@ -392,8 +454,8 @@ The Gemini 3.8 TTS models support four ways to select or create voices:
 
   1. **Prebuilt voices** : 30 curated voices.
   2. **Extended Voice Library** : More than 2,000 curated preset voices across languages, regional accents, and character personas.
-  3. **[Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design)** : Create a custom voice from a natural-language description with the Voices API `create` method (`client.voices.create()` in the Google Gen AI SDK, or `POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/voices`). Set `type` to `VOICE_TYPE_PROMPTED` and `store` to `true`. The response returns a stored `voice_...` ID and a sample of the voice.
-  4. **[Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication)** : Replicate a speaker's voice from reference and consent audio with the same `create` method. Set `type` to `VOICE_TYPE_REPLICATED`. With `store: true`, the response returns a stored `voice_...` ID. With `store: false`, it returns a stateless `voicekey_...` key.
+  3. **[Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design)** (Preview): Create a custom voice from a natural-language description with the Voices API `create` method (`client.voices.create()` in the Google Gen AI SDK, or `POST https://aiplatform.googleapis.com/v1beta1/projects/PROJECT_ID/locations/global/voices`). Set `type` to `VOICE_TYPE_PROMPTED` and `store` to `true`. The response returns a stored `voice_...` ID and a sample of the voice.
+  4. **[Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication)** (Preview): Replicate a speaker's voice from reference and consent audio with the same `create` method. Set `type` to `VOICE_TYPE_REPLICATED`. With `store: true`, the response returns a stored `voice_...` ID. With `store: false`, it returns a stateless `voicekey_...` key.
 
 
 
@@ -725,7 +787,8 @@ Uyghur |  |
 
   * The TTS models accept text-only input and return audio-only output.
   * Multi-speaker requests require exactly two speakers. To combine designed (`voice_...`) or replicated (`voice_...` or `voicekey_...`) voices in multi-character dialogue, or to use more than two speakers, synthesize each speaker's turn individually and concatenate the audio. Request `AUDIO_L16` output for each turn, or strip the WAV header from each clip before you concatenate the clips.
-  * The models are available only in the `global` location.
+  * The models are available in the `global`, `us`, and `eu` locations.
+  * User-owned custom voices (voices created with voice design or voice replication) are only available in the `global` location.
   * System instructions aren't supported.
   * You can't set the output sample rate. MP3 and Ogg Opus output aren't supported.
 
@@ -734,8 +797,8 @@ Uyghur |  |
 ## What's next
 
   * Learn how to direct style, pacing, and vocal sounds in the [prompting guide](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/prompting-guide).
-  * Create custom voices from a text description with [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design).
-  * Replicate a speaker's voice with [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication).
+  * Create custom voices from a text description with [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) (Preview).
+  * Replicate a speaker's voice with [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) (Preview).
   * Review model specifications on the [Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) and [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) model pages.
 
 

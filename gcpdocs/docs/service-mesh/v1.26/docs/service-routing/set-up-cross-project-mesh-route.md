@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.26/docs/service-routing/set-up-cross-project-mesh-route/
 title: Set up cross-project references \u00a0|\u00a0 Cloud Service Mesh v1.26 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:46:58.073779+00:00
+fetched_at: 2026-10-29T10:18:26.303793+00:00
 ---
 
 # Set up cross-project references  |  Cloud Service Mesh v1.26  |  Google Cloud Documentation

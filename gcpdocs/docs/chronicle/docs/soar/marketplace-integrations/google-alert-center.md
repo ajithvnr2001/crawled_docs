@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/google-alert-center/
 title: Integrate Google Alert Center with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:01:07.691414+00:00
+fetched_at: 2026-10-29T10:00:36.431793+00:00
 ---
 
 # Integrate Google Alert Center with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation
@@ -52,6 +52,8 @@ Before you configure the Google Alert Center integration in Google SecOps, compl
 
   4. Delegate domain-wide authority.
 
+  5. Grant Alert Center access to the impersonated user.
+
 
 
 
@@ -82,7 +84,7 @@ A service account serves as the secure identity for the integration to access yo
 
   4. Click **Create and continue**. 
 
-  5. Skip the optional role assignment steps and click **Done**.
+  5. Skip the optional IAM role assignment steps and click **Done**. Alert Center permissions are granted to the impersonated Google Workspace user in your domain's Google Admin console, not to the service account in Google Cloud IAM.
 
   6. Locate the service account in the list and copy its **Client ID** (Unique ID) and **Email address**.
 
@@ -126,6 +128,21 @@ Granting domain-wide authority lets the service account access your users' alert
 
 
 
+### Grant Alert Center access to the impersonated user
+
+The Google Workspace user that you specify in the `Impersonation Email Address` parameter must have Alert Center administrator privileges in your domain's Google Admin console.
+
+To grant Alert Center access in the Google Admin console, assign one of the following roles to the impersonated user:
+
+  * **Prebuilt administrator role** : Assign the **Super Admin** or **Services Admin** role, which includes full access to the Alert Center by default.
+
+  * **Custom administrator role** : Create a custom administrator role in **Account > Admin roles** with the **Alert Center > Full access** privilege (required to run the Delete Alert action) or the **Alert Center > View access** privilege (sufficient for read-only alert ingestion), and assign that role to the impersonated user.
+
+
+
+
+For more information about configuring Alert Center administrator privileges and custom roles, see [Grant access to the alert center](https://knowledge.workspace.google.com/admin/security/grant-access-to-the-alert-center).
+
 ## Integration parameters
 
 The **Google Alert Center** integration requires the following parameters:
@@ -133,7 +150,7 @@ The **Google Alert Center** integration requires the following parameters:
 Parameter | Description  
 ---|---  
 `Service Account JSON Secret` |  Required. The full content of the service account key JSON file you downloaded.  
-`Impersonation Email Address` |  Required. The email address of a user with administrator privileges in your Google Workspace domain. The integration uses domain-wide delegation to impersonate this user and retrieve alerts.  
+`Impersonation Email Address` |  Required. The email address of a Google Workspace user with Alert Center administrator privileges (such as the **Super Admin** or **Services Admin** role, or a [custom administrator role](https://knowledge.workspace.google.com/admin/security/grant-access-to-the-alert-center) with Alert Center privileges) in your Google Workspace domain. The integration uses domain-wide delegation to impersonate this user and retrieve or manage alerts.  
 `Verify SSL` |  Optional. If selected, the integration validates the SSL certificate when connecting to the Google Alert Center server. Enabled by default.  
   
 For instructions about how to configure an integration in Google SecOps, see [Configure integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/configure-integrations).
@@ -142,7 +159,7 @@ You can make changes at a later stage, if needed. After you configure an integra
 
 ## Actions
 
-For more information about actions, see [ Respond to pending actions from Your Workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/respond-to-pending-actions-from-workdesk) and [Perform a manual action](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/perform-a-manual-action). 
+For more information about actions, see [ Respond to pending actions from your workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/respond-to-pending-actions-from-workdesk) and [Run a manual action in your case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case#run-manual-action). 
 
 ### Delete Alert
 
@@ -264,7 +281,7 @@ Parameter | Description
 `Environment Regex Pattern` | _Optional_ A regular expression pattern to run on the value found in the `Environment Field Name` field. This parameter lets you manipulate the environment field using the regular expression logic. Use the default value `.*` to retrieve the required raw `Environment Field Name` value. If the regular expression pattern is null or empty, or the environment value is null, the final environment result is the default environment.  
 `PythonProcessTimeout` | _Required_ The timeout limit in seconds for the Python process that runs the current script.The default value is `180`.  
 `Service Account JSON Secret` | _Required_ The full JSON content of the service account file that you used for authentication to the alert center.  
-`Impersonation Email Address` | _Required_ The email address to impersonate a user with access to the alert center. To configure this parameter, enter the administrator email address. The data from the alert center is available only to administrators.  
+`Impersonation Email Address` | _Required_ The email address of a Google Workspace user with Alert Center administrator privileges (such as the **Super Admin** or **Services Admin** role, or a [custom administrator role](https://knowledge.workspace.google.com/admin/security/grant-access-to-the-alert-center) with Alert Center privileges).  
 `Verify SSL` | _Optional_ If selected, the integration verifies that the SSL certificate for connecting to the alert center is valid. Selected by default.  
 `Max Hours Backwards` | _Optional_ A number of hours before the first connector iteration to retrieve responses from. This parameter applies either to the initial connector iteration after you enable the connector for the first time or the fallback value for an expired connector timestamp. The default value is 1 hour.  
 `Max Alerts To Fetch` | _Optional_ The maximum number of alerts to retrieve for every connector iteration.The maximum number is 100.  
@@ -345,6 +362,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

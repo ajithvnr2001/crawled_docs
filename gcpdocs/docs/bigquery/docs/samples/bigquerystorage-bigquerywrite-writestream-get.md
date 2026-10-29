@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerystorage-bigquerywrite-writestream-get/
 title: Get write stream details \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:48.412869+00:00
+fetched_at: 2026-10-29T10:08:36.169062+00:00
 ---
 
 # Get write stream details  |  BigQuery  |  Google Cloud Documentation
@@ -22,6 +22,54 @@ fetched_at: 2026-10-27T23:10:48.412869+00:00
 Retrieves information about an existing BigQuery write stream. Use this to check the state and schema of a stream before appending data.
 
 ## Code sample
+
+### Java
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.storage.v1.[BigQueryWriteClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.BigQueryWriteClient.html);
+    import com.google.cloud.bigquery.storage.v1.[GetWriteStreamRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest.html);
+    import com.google.cloud.bigquery.storage.v1.[WriteStream](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.WriteStream.html);
+    import com.google.cloud.bigquery.storage.v1.[WriteStreamName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.WriteStreamName.html);
+    import java.io.IOException;
+    
+    public class GetWriteStream {
+    
+      /**
+       * Retrieves information about a BigQuery Storage write stream.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param datasetId The BigQuery dataset ID containing the table (for example,
+       *     "example_dataset").
+       * @param tableId The BigQuery table ID (for example, "example_table").
+       */
+      public static void getWriteStream(String projectId, String datasetId, String tableId) {
+        // Every BigQuery table has a built-in "_default" write stream.
+        String streamId = "_default";
+        [WriteStreamName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.WriteStreamName.html) name = [WriteStreamName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.WriteStreamName.html).of(projectId, datasetId, tableId, streamId);
+    
+        [GetWriteStreamRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest.html) request =
+            [GetWriteStreamRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest.html).newBuilder().setName(name.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.WriteStreamName.html#com_google_cloud_bigquery_storage_v1_WriteStreamName_toString__)()).build();
+    
+        try ([BigQueryWriteClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.BigQueryWriteClient.html) client = [BigQueryWriteClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.BigQueryWriteClient.html).create()) {
+          [WriteStream](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.WriteStream.html) stream = client.getWriteStream(request);
+          System.out.printf("Got write stream: %s%n", [stream](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ServerStream.html#com_google_api_gax_rpc_ServerStream_stream__).[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.WriteStream.html#com_google_cloud_bigquery_storage_v1_WriteStream_getName__)());
+          System.out.printf("Stream type: %s%n", [stream](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ServerStream.html#com_google_api_gax_rpc_ServerStream_stream__).[getType](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.WriteStream.html#com_google_cloud_bigquery_storage_v1_WriteStream_getType__)());
+          System.out.printf("Stream location: %s%n", [stream](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ServerStream.html#com_google_api_gax_rpc_ServerStream_stream__).[getLocation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.WriteStream.html#com_google_cloud_bigquery_storage_v1_WriteStream_getLocation__)());
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf(
+              "error: write stream '%s' not found: %s%n", name, err.getMessage());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to get write stream '%s': %s%n", name, err.getMessage());
+        }
+      }
+    
 
 ### Node.js
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/exporting-model-artifacts/
 title: Export model artifacts for inference and explanation \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:43.862547+00:00
+fetched_at: 2026-10-29T11:12:13.946188+00:00
 ---
 
 # Export model artifacts for inference and explanation  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/compliance/restrict-endpoint-usage/
 title: Restrict endpoint usage \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:20.396921+00:00
+fetched_at: 2026-10-29T09:46:51.095209+00:00
 ---
 
 # Restrict endpoint usage  |  Security  |  Google Cloud Documentation
@@ -946,6 +946,12 @@ Dataproc on GDC  |  Global API endpoints:
 Datastream  |  Global API endpoints: 
 
   * `datastream.googleapis.com`
+
+  
+|  None   
+Developer Connect  |  Global API endpoints: 
+
+  * `developerconnect.googleapis.com`
 
   
 |  None   

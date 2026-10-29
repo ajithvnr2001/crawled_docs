@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/batch-sql-translator/
 title: Migrate code with the batch SQL translator \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:40.525185+00:00
+fetched_at: 2026-10-29T10:11:14.615750+00:00
 ---
 
 # Migrate code with the batch SQL translator  |  BigQuery  |  Google Cloud Documentation
@@ -21,13 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Migrate code with the batch SQL translator
 
-This document describes how to use the batch SQL translator in BigQuery to translate scripts written in other SQL dialects into GoogleSQL queries. You can submit and review the results of a translation job from the Google Cloud console or from the command line.
+The batch SQL translator in BigQuery lets you translate scripts written in other SQL dialects into GoogleSQL queries in bulk. You can submit and review the results of a batch translation job from the Google Cloud console or from the command line to accelerate large-scale workload migrations.
 
-**Note:** To build a custom software integration, an automated CI/CD pipeline, or another programmatic workflow, we recommend that you [call the BigQuery Migration API](https://docs.cloud.google.com/bigquery/docs/api-sql-translator) directly.
-
-For a list of SQL dialects supported by this SQL translator, see [Supported SQL dialects](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#supported_sql_dialects).
-
-For a list of supported processing locations, see [Locations](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#locations).
+To build a custom software integration, an automated CI/CD pipeline, or another programmatic workflow, [call the BigQuery Migration API](https://docs.cloud.google.com/bigquery/docs/api-sql-translator) directly. For information about supported dialects and processing locations, see [Supported SQL dialects](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#supported_sql_dialects) and [Locations](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#locations).
 
 ## Before you begin
 
@@ -820,6 +816,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

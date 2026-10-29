@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/agent-skills-overview/
 title: Application Integration agent skills \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:40:32.006603+00:00
+fetched_at: 2026-10-29T11:13:36.651160+00:00
 ---
 
 # Application Integration agent skills  |  Google Cloud Documentation

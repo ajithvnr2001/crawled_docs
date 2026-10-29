@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-manager/docs/deploy-google-managed-cas/
 title: Deploy a global Google-managed certificate with Certificate Authority Service \u00a0|\u00a0 Certificate Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:35.041742+00:00
+fetched_at: 2026-10-29T11:06:03.882450+00:00
 ---
 
 # Deploy a global Google-managed certificate with Certificate Authority Service  |  Certificate Manager  |  Google Cloud Documentation

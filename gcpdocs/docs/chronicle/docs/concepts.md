@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/concepts/
 title: Concepts \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:32:20.110783+00:00
+fetched_at: 2026-10-29T10:08:00.578706+00:00
 ---
 
 # Concepts  |  Google Security Operations  |  Google Cloud Documentation

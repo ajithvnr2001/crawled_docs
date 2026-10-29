@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/troubleshooting/troubleshooting-reservation-creation/
 title: Troubleshooting reservation creation \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:02:58.648689+00:00
+fetched_at: 2026-10-29T09:57:20.928771+00:00
 ---
 
 # Troubleshooting reservation creation  |  Compute Engine  |  Google Cloud Documentation
@@ -162,18 +162,18 @@ The following error occurs when you try to create an on-demand reservation, but 
     Failed to reserve additional capacity for 'MACHINE_FAMILY' because reservation capacity limit exceeded in 'ZONE'. Select a different machine family or zone.
     
 
-**Resolution** : If you try to create an automatically consumed reservation and consume existing, running VMs, then Compute Engine rejects the request when the zone lacks reservation capacity. This rejection prevents Compute Engine from charging you twice for the running VMs and an unused reservation. To resolve this error, try one or more of the following options:
+**Resolution** : To resolve this error, try one or more of the following options:
 
   * **Use a different zone**. Create a reservation in a zone that has available capacity for your requested machine family.
 
   * **Use a different machine family**. Create a reservation that specifies a machine type from a different machine family.
 
-  * **Reduce the VM count**. Request fewer VMs in the reservation.
+  * **Request fewer VMs**. Create the reservation with a smaller number of VMs. 
 
   * **Retry later**. Submit the creation request again at a later time.
 
 
-**Note:** If you have running VMs in the zone, then this error doesn't affect them. The VMs continue to run.
+**Note:** This error can occur even if you already have matching VMs that run in the zone. The error doesn't affect your existing VMs, which continue to run.
 
 ## Shared reservation creation errors
 
@@ -655,6 +655,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

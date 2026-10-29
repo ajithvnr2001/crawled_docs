@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples-nodejs-hello/
 title: Node.js hello world \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:38.998137+00:00
+fetched_at: 2026-10-29T10:19:15.021805+00:00
 ---
 
 # Node.js hello world  |  Bigtable  |  Google Cloud Documentation

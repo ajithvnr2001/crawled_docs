@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/docs/standard/python3/building-app/storing-and-retrieving-data/
 title: Store and retrieve data \u00a0|\u00a0 App Engine standard environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:27:21.933615+00:00
+fetched_at: 2026-10-29T10:18:17.624096+00:00
 ---
 
 # Store and retrieve data  |  App Engine standard environment  |  Google Cloud Documentation

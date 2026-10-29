@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/antigravity-cli/
 title: Use the Antigravity CLI with a Gemini Enterprise Agent Platform Workbench instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:40:31.431054+00:00
+fetched_at: 2026-10-29T11:06:06.884002+00:00
 ---
 
 # Use the Antigravity CLI with a Gemini Enterprise Agent Platform Workbench instance  |  Google Cloud Documentation

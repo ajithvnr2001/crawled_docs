@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features/
 title: Admin settings - Preview Features \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:28.954978+00:00
+fetched_at: 2026-10-29T09:46:19.077367+00:00
 ---
 
 # Admin settings - Preview Features  |  Looker  |  Google Cloud Documentation
@@ -78,6 +78,8 @@ For more information, see the [Filters on visualization tiles](https://docs.clou
 
 ### Google Maps Enhancements
 
+This preview feature is enabled by default.
+
 Enables new Google Maps visualization features, including the following:
 
   * [Intensity](https://docs.cloud.google.com/looker/docs/google-map-options#intensity) and [threshold](https://docs.cloud.google.com/looker/docs/google-map-options#threshold) options for [Density Heatmap charts](https://docs.cloud.google.com/looker/docs/google-map-options#density_heatmap).
@@ -126,22 +128,6 @@ For more information, see the [Using the modern user interface](https://docs.clo
 This preview feature is disabled by default on Looker (Google Cloud core) and enabled by default on Looker (Original).
 
 When enabled, the **New/Edit Roles Enhancement** preview feature provides a modernized, step-by-step interface for creating and editing roles on the [**Roles**](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#creating-editing-roles-enhancement) page in the **Users** section of the **Admin** panel.
-
-### New Looker Explore and Merge Query Experience
-
-This preview feature is enabled by default.
-
-When enabled, the **New Looker Explore and Merge Query Experience** feature lets individual users have the option to try the redesigned Looker Explore and Merge Query interfaces. The streamlined interfaces let Looker users find connections and gain insights from their data more quickly. For an AI-assisted experience, enable additional options on the [**Gemini in Looker**](https://docs.cloud.google.com/looker/docs/admin-panel-platform-gil) page in the **Platform** section of the **Admin** panel.
-
-[Learn more about the new Explore and Merge Query experience](https://docs.cloud.google.com/looker/docs/new-explore-experience-overview).
-
-### Table Row Grouping
-
-This preview feature is enabled by default.
-
-When this feature is enabled, you can display table chart data hierarchically in groups and customize the appearance with new [**Grouping** menu options](https://docs.cloud.google.com/looker/docs/table-options#grouping-menu-options).
-
-**Note:** **Table Row Grouping** is not supported for [table (legacy) charts](https://docs.cloud.google.com/looker/docs/legacy-table-options).
 
 ## Labs features (Looker (original) only)
 
@@ -207,6 +193,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

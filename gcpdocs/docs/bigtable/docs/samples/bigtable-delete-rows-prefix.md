@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-delete-rows-prefix/
 title: Delete rows with a prefix \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:07.478424+00:00
+fetched_at: 2026-10-29T10:19:24.244140+00:00
 ---
 
 # Delete rows with a prefix  |  Bigtable  |  Google Cloud Documentation

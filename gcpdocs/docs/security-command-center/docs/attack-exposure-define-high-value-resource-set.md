@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/attack-exposure-define-high-value-resource-set/
 title: Define and manage your high-value resource set \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:32.254626+00:00
+fetched_at: 2026-10-29T10:18:20.126180+00:00
 ---
 
 # Define and manage your high-value resource set  |  Security Command Center  |  Google Cloud Documentation
@@ -23,11 +23,9 @@ Send feedback
 
 Premium and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) (requires [organization-level activation](https://docs.cloud.google.com/security-command-center/docs/activate-scc-overview#overview_of_organization-level_activation)) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-This page shows you how to create, edit, delete, and view resource value configurations.
+Resource value configurations let you establish your high-value resource set in Security Command Center. This resource set determines which assets are evaluated as _high-value resources_ in attack path simulations.
 
-Use resource value configurations to create your high-value resource set. Your high-value resource set determines which of your resource instances (referred to as _resources_) the attack path simulations consider _high-value resources_.
-
-You can define resource value configurations for the resources on Google Cloud. Also, in the Enterprise (Deprecated) service tier, you can define configurations for resources on the other cloud service providers that Security Command Center is connected to.
+You can create, edit, view, and delete configurations for resources on Google Cloud, as well as for other connected cloud service providers in the Enterprise (Deprecated) service tier.
 
 When attack path simulations run, they identify attack paths and calculate attack exposure scores for resources that are designated as high-value resources and for `Vulnerability` class, `Misconfiguration` class, and `Toxic combination` class findings.
 
@@ -303,6 +301,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

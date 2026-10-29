@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/resources/throughput-quota/
 title: Throughput quota \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:03.804028+00:00
+fetched_at: 2026-10-29T11:13:12.445148+00:00
 ---
 
 # Throughput quota  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

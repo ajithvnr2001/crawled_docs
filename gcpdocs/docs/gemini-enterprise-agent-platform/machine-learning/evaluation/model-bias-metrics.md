@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/evaluation/model-bias-metrics/
 title: Model bias metrics for Agent Platform \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:24.367318+00:00
+fetched_at: 2026-10-29T11:06:43.397999+00:00
 ---
 
 # Model bias metrics for Agent Platform  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

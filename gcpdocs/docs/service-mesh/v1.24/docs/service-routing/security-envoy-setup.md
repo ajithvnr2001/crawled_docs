@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.24/docs/service-routing/security-envoy-setup/
 title: Set up service security with Envoy \u00a0|\u00a0 Cloud Service Mesh v1.24 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:46:47.118625+00:00
+fetched_at: 2026-10-29T10:18:25.591959+00:00
 ---
 
 # Set up service security with Envoy  |  Cloud Service Mesh v1.24  |  Google Cloud Documentation

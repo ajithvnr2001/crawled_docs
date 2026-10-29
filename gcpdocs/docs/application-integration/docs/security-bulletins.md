@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:10.480789+00:00
+fetched_at: 2026-10-29T09:56:46.376210+00:00
 ---
 
 # Security bulletins  |  Application Integration  |  Google Cloud Documentation
@@ -23,25 +23,29 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 The following describes all security bulletins related to Application Integration.
 
-## GCP-2026-068
+## GCP-2026-074
 
-**Published:** 2026-10-15
+**Published:** 2026-10-28
+
+### Description
 
 Description | Severity | Notes  
 ---|---|---  
-Starting October 15, 2026, Application Integration requires `iam.serviceAccounts.actAs` on the run-as service account.
+A Deserialization of Untrusted Data vulnerability was discovered in the `SubWorkflow` task in Application Integration versions prior to September 11, 2026.
 
 #### What should I do?
 
-After October 15, 2026, the test feature and any new integrations require the correct permissions. Existing integrations and their new versions are unaffected. For more information, see [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
+No customer action is required. This vulnerability was patched on September 11, 2026.
 
 #### What vulnerabilities are being addressed?
 
-An Incorrect Authorization vulnerability in the `AuthConfig` validation and integration execution runtime could allow an authenticated user to escalate privileges and impersonate a service account. | High |  [CVE-2026-85298](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-85298)  
+An authenticated user could use a maliciously crafted serialized object to execute arbitrary code. | Critical |  [CVE-2026-93327](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-93327)  
   
-## GCP-2026-067
+## GCP-2026-068
 
 **Published:** 2026-10-14
+
+**Updated:** 2026-10-24
 
 ### Description
 
@@ -51,7 +55,7 @@ An Incorrect Authorization vulnerability in the `AuthConfig` validation and inte
 
 #### What should I do?
 
-No customer action is required. This vulnerability was patched on August 27, 2026.
+No customer action is required to resolve this vulnerability. This vulnerability was patched on August 27, 2026. To improve security against authorization vulnerabilities, starting October 15, 2026, Application Integration requires the `iam.serviceAccounts.actAs` permission on the run-as service account for any new integrations. Existing integrations and their new versions are unaffected.For more information, see [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
 
 #### What vulnerabilities are being addressed?
 
@@ -125,6 +129,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

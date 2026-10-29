@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/findings/threats/iam-anomalous-grant/
 title: Persistence: IAM Anomalous Grant \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:36.440838+00:00
+fetched_at: 2026-10-29T10:18:35.860253+00:00
 ---
 
 # Persistence: IAM Anomalous Grant  |  Security Command Center  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-pubsub/
 title: Configure a Pub/Sub topic and subscription \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:20:13.446840+00:00
+fetched_at: 2026-10-29T09:56:38.416899+00:00
 ---
 
 # Configure a Pub/Sub topic and subscription  |  Application Design Center  |  Google Cloud Documentation
@@ -20,9 +20,7 @@ Send feedback
 
 #  Configure a Pub/Sub topic and subscription Stay organized with collections  Save and categorize content based on your preferences. 
 
-Pub/Sub is an asynchronous and scalable messaging service that decouples services producing messages from services processing those messages. For more information, see [What is Pub/Sub?](https://docs.cloud.google.com/pubsub/docs/overview)
-
-This document describes the connections and parameters you can configure when using App Design Center to create a Pub/Sub topic and subscription. The configuration parameters are based on the [terraform-google-pubsub](https://github.com/terraform-google-modules/terraform-google-pubsub) Terraform module.
+In App Design Center, you can configure a [Pub/Sub](https://docs.cloud.google.com/pubsub/docs/overview) topic and subscription to provide asynchronous, scalable messaging that decouples services producing messages from services processing them. You can customize the component connections and configuration parameters for your topic and subscription based on the [terraform-google-pubsub](https://github.com/terraform-google-modules/terraform-google-pubsub) Terraform module.
 
 ## Component connections
 
@@ -160,6 +158,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

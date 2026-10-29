@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/change-streams-tutorial/
 title: Process a Bigtable change stream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:25.787872+00:00
+fetched_at: 2026-10-29T10:19:31.785905+00:00
 ---
 
 # Process a Bigtable change stream  |  Google Cloud Documentation

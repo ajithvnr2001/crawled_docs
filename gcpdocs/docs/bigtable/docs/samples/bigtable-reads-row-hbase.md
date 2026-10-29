@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-reads-row-hbase/
 title: Read a row (HBase) \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:00.231200+00:00
+fetched_at: 2026-10-29T10:18:50.149407+00:00
 ---
 
 # Read a row (HBase)  |  Bigtable  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dotnet/docs/reference/
 title: .NET Cloud Client Libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:56:55.354701+00:00
+fetched_at: 2026-10-29T09:46:23.225052+00:00
 ---
 
 # .NET Cloud Client Libraries  |  Google Cloud Documentation
@@ -384,6 +384,7 @@ Merchant API for Shopping |  [ Google.Shopping.Merchant.Accounts.V1 ](https://go
 [ Google.Shopping.Merchant.Quota.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Quota.V1Beta/latest)   
 [ Google.Shopping.Merchant.Reports.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reports.V1/latest)   
 [ Google.Shopping.Merchant.Reports.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reports.V1Beta/latest)   
+[ Google.Shopping.Merchant.Reviews.V1 ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reviews.V1/latest)   
 [ Google.Shopping.Merchant.Reviews.V1Beta ](https://googleapis.dev/dotnet/Google.Shopping.Merchant.Reviews.V1Beta/latest)   
   
 Migrate to Virtual Machines |  [ Google.Cloud.VMMigration.V1 ](https://cloud.google.com/dotnet/docs/reference/Google.Cloud.VMMigration.V1/latest)   
@@ -468,8 +469,6 @@ Speech-to-Text |  [ Google.Cloud.Speech.V1 ](https://cloud.google.com/dotnet/doc
 Storage Insights |  [ Google.Cloud.StorageInsights.V1 ](https://cloud.google.com/dotnet/docs/reference/Google.Cloud.StorageInsights.V1/latest)   
   
 Storage Transfer Service |  [ Google.Cloud.StorageTransfer.V1 ](https://cloud.google.com/dotnet/docs/reference/Google.Cloud.StorageTransfer.V1/latest)   
-  
-Tables by Area 120 |  [ Google.Area120.Tables.V1Alpha1 ](https://googleapis.dev/dotnet/Google.Area120.Tables.V1Alpha1/latest)   
   
 Text-to-Speech |  [ Google.Cloud.TextToSpeech.V1 ](https://cloud.google.com/dotnet/docs/reference/Google.Cloud.TextToSpeech.V1/latest)   
 [ Google.Cloud.TextToSpeech.V1Beta1 ](https://cloud.google.com/dotnet/docs/reference/Google.Cloud.TextToSpeech.V1Beta1/latest)   

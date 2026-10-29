@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/beginners-guide/
 title: Generative AI beginner's guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:40.334738+00:00
+fetched_at: 2026-10-29T11:12:57.763236+00:00
 ---
 
 # Generative AI beginner's guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

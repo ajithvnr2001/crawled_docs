@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/hbase-bigtable/
 title: Bigtable and the HBase API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:50.284919+00:00
+fetched_at: 2026-10-29T10:18:45.875047+00:00
 ---
 
 # Bigtable and the HBase API  |  Google Cloud Documentation

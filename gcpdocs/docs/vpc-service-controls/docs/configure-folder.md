@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc-service-controls/docs/configure-folder/
 title: Configure folders in service perimeters \u00a0|\u00a0 VPC Service Controls \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:37.358780+00:00
+fetched_at: 2026-10-29T11:13:37.871383+00:00
 ---
 
 # Configure folders in service perimeters  |  VPC Service Controls  |  Google Cloud Documentation

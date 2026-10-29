@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/data-objects/using-etags-for-concurrency-control/
 title: Use ETags for Data Object Concurrency Control \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:28.736693+00:00
+fetched_at: 2026-10-29T11:06:10.551107+00:00
 ---
 
 # Use ETags for Data Object Concurrency Control  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

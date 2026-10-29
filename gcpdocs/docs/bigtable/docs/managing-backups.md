@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/managing-backups/
 title: Manage backups \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:15.514398+00:00
+fetched_at: 2026-10-29T10:18:43.559300+00:00
 ---
 
 # Manage backups  |  Bigtable  |  Google Cloud Documentation

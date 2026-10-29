@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/security/authorization-policy-overview/
 title: Authorization policy overview \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:30:02.395239+00:00
+fetched_at: 2026-10-29T10:18:31.510632+00:00
 ---
 
 # Authorization policy overview  |  Cloud Service Mesh  |  Google Cloud Documentation

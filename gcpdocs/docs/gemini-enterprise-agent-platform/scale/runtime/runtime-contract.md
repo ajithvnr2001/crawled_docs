@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/runtime-contract/
 title: Gemini Enterprise Agent Platform runtime contract \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:43.180804+00:00
+fetched_at: 2026-10-29T11:06:08.616880+00:00
 ---
 
 # Gemini Enterprise Agent Platform runtime contract  |  Google Cloud Documentation

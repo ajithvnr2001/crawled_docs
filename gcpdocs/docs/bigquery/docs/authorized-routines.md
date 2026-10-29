@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/authorized-routines/
 title: Authorized routines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:26.021115+00:00
+fetched_at: 2026-10-29T09:56:37.513701+00:00
 ---
 
 # Authorized routines  |  BigQuery  |  Google Cloud Documentation
@@ -21,15 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Authorized routines
 
-Authorized routines let you share query results with specific users or groups without giving them access to the underlying tables that generated the results. For example, an authorized routine can compute an aggregation over data or look up a table value and use that value in a computation.
+Authorized routines let you share query results with specific users or groups without granting direct access to the underlying tables. For example, a routine can compute aggregations or look up a table value and use that value in a computation.
 
-By default, if a user invokes a routine, the user must have access to read the data in the table. As an alternative, you can _authorize_ the routine to access the dataset that contains the referenced table. An authorized routine can query the tables in the dataset, even if the user who calls the routine can't query those tables directly.
-
-The following types of routines can be authorized:
-
-  * [Table functions](https://docs.cloud.google.com/bigquery/docs/table-functions)
-  * [User-defined functions (UDFs)](https://docs.cloud.google.com/bigquery/docs/user-defined-functions)
-  * [Stored procedures](https://docs.cloud.google.com/bigquery/docs/procedures)
+By default, to run a routine, users must have read access to the referenced data. Alternatively, you can _authorize_ the routine to access the containing dataset directly, which lets users run the routine without table-level permissions. You can authorize [table functions](https://docs.cloud.google.com/bigquery/docs/table-functions), [user-defined functions (UDFs)](https://docs.cloud.google.com/bigquery/docs/user-defined-functions), and [stored procedures](https://docs.cloud.google.com/bigquery/docs/procedures).
 
 **Caution:** Stored procedures authorized as routines have DDL and DML access. These procedures can create, modify, and delete database objects. Principals with access to authorized stored procedures can bypass Identity and Access Management (IAM) permissions and perform actions that are normally denied to them. Only grant authorized stored procedure access to principals that you trust to run the procedure in its entirety.
 
@@ -225,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

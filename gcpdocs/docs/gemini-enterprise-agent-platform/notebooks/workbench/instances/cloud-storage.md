@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/cloud-storage/
 title: Access Cloud Storage buckets and files in JupyterLab in a Agent Platform Workbench instance. \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:01.075560+00:00
+fetched_at: 2026-10-29T11:13:27.201459+00:00
 ---
 
 # Access Cloud Storage buckets and files in JupyterLab in a Agent Platform Workbench instance.  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

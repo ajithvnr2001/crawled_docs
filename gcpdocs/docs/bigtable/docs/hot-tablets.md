@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/hot-tablets/
 title: Hot tablets \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:16.941151+00:00
+fetched_at: 2026-10-29T10:19:30.184623+00:00
 ---
 
 # Hot tablets  |  Bigtable  |  Google Cloud Documentation

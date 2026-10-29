@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/assess-risk/
 title: Assess risk using Risk overview dashboards \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:15.763040+00:00
+fetched_at: 2026-10-29T10:18:20.396313+00:00
 ---
 
 # Assess risk using Risk overview dashboards  |  Security Command Center  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 Standard-legacy, Standard, Premium, and Enterprise (Deprecated) [service tiers](https://docs.cloud.google.com/security-command-center/docs/service-tiers) The Security Command Center Enterprise service tier will shut down on May 21, 2027. If your organization uses the Enterprise service tier, then the organization will automatically move to the Premium service tier on or after May 21, 2027. Contact your account representative or a [Google Cloud sales specialist](https://cloud.google.com/contact) if you have questions. 
 
-The **Risk** section in the Google Cloud console helps you to manage the highest profile risks in your cloud environment.
-
-The **Overview** page serves as your first contact security dashboard, highlighting the highest priority risks in your cloud environments. You can view multiple domains in **Overview** by selecting one of the following views:
+The **Overview** dashboard in the Google Cloud console **Risk** section helps you identify and triage high-priority security risks across your environment. You can evaluate your overall posture or focus on domains such as vulnerabilities, identity, data, AI security, external exposure, and threats. To review risks, select one of the following views in **Overview** :
 
   * All risk
   * Vulnerabilities
@@ -251,6 +249,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

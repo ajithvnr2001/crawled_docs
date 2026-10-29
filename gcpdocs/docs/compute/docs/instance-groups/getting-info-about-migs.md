@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs/
 title: View information about MIGs and managed instances \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:16.559883+00:00
+fetched_at: 2026-10-29T10:18:19.997532+00:00
 ---
 
 # View information about MIGs and managed instances  |  Compute Engine  |  Google Cloud Documentation
@@ -591,6 +591,8 @@ The following is a sample output:
 
 If instances are in a `PENDING` state with a `ZONE_RESOURCE_POOL_EXHAUSTED_WITH_DETAILS` error, then it indicates that they are waiting for resources to be allocated.
 
+By default, gcloud CLI displays color-coded values in interactive terminal windows that support ANSI color output. For details on the color scheme and how to turn off colorization, see Understand status colors in gcloud CLI.
+
 ###  REST 
 
 For a zonal MIG, construct a `GET` request to the [`instanceGroupManagers.listManagedInstances` method](https://docs.cloud.google.com/compute/docs/reference/rest/v1/instanceGroupManagers/listManagedInstances) and include the name of the MIG:
@@ -698,6 +700,8 @@ The command returns a list of instances in the group, including their status, cu
 
 The `HEALTH_STATE` column appears empty unless you have [set up health checking](https://docs.cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs).
 
+In interactive terminals that support ANSI color output, gcloud CLI color-codes values in the `STATUS`, `HEALTH_STATE`, and `ACTION` columns by default. For details on the color scheme and how to turn off colorization, see [Understand status colors in gcloud CLI](https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs#color_coded_statuses).
+
 **A specific managed instance**
 
 To check the status and current action for a specific instance in the group, use the [`describe-instance` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instance-groups/managed/describe-instance).
@@ -793,6 +797,81 @@ To check if the group as a whole is stable or is undergoing changes, see Checkin
 ### Check health states
 
 If you have configured autohealing for your MIG, you can review the health state of each VM. See [Checking health status](https://docs.cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs#health_states).
+
+### Understand status colors in gcloud CLI
+
+When you list instances, gcloud CLI helps you identify issues at a glance by color-coding the `STATUS`, `HEALTH_STATE`, and `ACTION` columns by default.
+
+The colors correspond to the following states:
+
+  * **Green:** An operational and healthy state.
+  * **Red:** A failed, unhealthy, or stopped state that requires attention.
+  * **Yellow:** A state in which the instance is transitioning to become non- serving or inactive.
+  * **Blue:** A state in which the instance is transitioning to become operational or healthy.
+  * **Default terminal text color:** An expected inactive state, or a state with no ongoing actions.
+
+
+
+#### Turn off color-coded statuses
+
+gcloud CLI automatically turns off colorization if you do any of the following:
+
+  * Redirect the output to a file (`>`).
+  * Pipe the output to another command (`|`).
+  * Format the output as structured data (`--format=json`, `--format=yaml`, `--format=csv`).
+  * Use the `--no-color` flag.
+
+
+
+To manually turn off colorization for all terminal sessions, use one of the following options:
+
+  * Set the `NO_COLOR` environment variable to any value:
+        
+        export NO_COLOR=value
+        
+
+  * Set the `CLOUDSDK_CORE_DISABLE_COLOR` environment variable to `true`:
+        
+        export CLOUDSDK_CORE_DISABLE_COLOR=true
+        
+
+  * Use the `gcloud config set` command to set `core/disable_colors` to `true`:
+        
+        gcloud config set core/disable_colors true
+        
+
+
+
+
+#### Turn color-coded statuses back on
+
+After you've turned off colorization for all terminal sessions, you can turn it back on by changing the relevant environment variables and settings as follows:
+
+  * If you've previously set the `NO_COLOR` environment variable to any value, unset the variable.
+        
+        unset NO_COLOR
+        
+
+  * If you've previously set the `CLOUDSDK_CORE_DISABLE_COLOR` environment variable to `true`, set it to `false`.
+        
+        export CLOUDSDK_CORE_DISABLE_COLOR=false
+        
+
+  * If you've previously set `core/disable_colors` to `true`, set it to `false`:
+        
+        gcloud config set core/disable_colors false
+        
+
+
+
+
+To check your current values for these environment variables, use the `echo` command:
+    
+    
+    echo $NO_COLOR
+    echo $CLOUDSDK_CORE_DISABLE_COLOR
+    gcloud config list core/disable_color
+    
 
 ### List instance errors
 
@@ -965,6 +1044,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

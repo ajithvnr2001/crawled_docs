@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/grok/responses/
 title: Call Responses API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:43.437165+00:00
+fetched_at: 2026-10-29T11:12:25.762110+00:00
 ---
 
 # Call Responses API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

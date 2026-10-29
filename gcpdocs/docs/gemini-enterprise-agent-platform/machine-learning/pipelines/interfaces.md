@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/interfaces/
 title: Interfaces for Gemini Enterprise Agent Platform Pipelines \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:04.609167+00:00
+fetched_at: 2026-10-29T11:06:51.522192+00:00
 ---
 
 # Interfaces for Gemini Enterprise Agent Platform Pipelines  |  Google Cloud Documentation

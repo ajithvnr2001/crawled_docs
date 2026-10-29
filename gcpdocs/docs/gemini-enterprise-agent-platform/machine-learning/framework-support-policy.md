@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/framework-support-policy/
 title: Gemini Enterprise Agent Platform framework support policy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:10.667550+00:00
+fetched_at: 2026-10-29T09:16:15.694641+00:00
 ---
 
 # Gemini Enterprise Agent Platform framework support policy  |  Google Cloud Documentation
@@ -67,11 +67,16 @@ Support periods for each framework version follows this schedule:
 To receive troubleshooting support from Gemini Enterprise Agent Platform, you might be asked to upgrade to a framework version that is within the supported time period.
 
     * For online predictions using prebuilt containers, in the event of security vulnerabilities, Gemini Enterprise Agent Platform might delete existing endpoints using out-of-support framework versions.
-  * **End-of-availability date:** After this date, you can no longer use images for this framework version. Services might block the creation of new resources using these images, and the images are no longer available for download.
+  * **End-of-availability (EOA) date:** After this date, you can no longer use images for this framework version. Services might block the creation of new resources using these images, and the images are no longer available for download.
 
-    * For online predictions using prebuilt containers, you can no longer create new endpoints using this version after this date, and Gemini Enterprise Agent Platform might delete existing endpoints that use this version.
+    * **Custom training jobs (`CustomJob`, `TrainingPipeline`):**
 
-    * End-of-availability dates don't exist for pipeline frameworks that are open source pypi.org Python libraries, such as the Kubeflow Pipelines SDK and TensorFlow Extended SDK.
+      * **Job submission & execution:** While existing jobs referencing an image past its EOA date might continue to execute, they are unsupported and are not guaranteed to remain compatible with future platform updates.
+      * **Maintenance & vulnerabilities:** No patches, bug fixes, or runtime security updates (including updates to the base operating system or Python environment) are applied to training images after their EOA date.
+      * **Successor releases:** An EOA date does not guarantee that a newer prebuilt training image will be published for that framework. If an image reaches EOA without an active or planned successor version (such as scikit-learn and XGBoost prebuilt training images), you must migrate your workloads to a [custom container](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-custom-container) using [`container_spec`](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-python-pre-built-container#migrate-to-custom-container).
+    * **Online prediction endpoints:** You can no longer create new endpoints using this version after this date, and Agent Platform might delete existing endpoints that use this version.
+
+End-of-availability dates don't exist for pipeline frameworks that are open source PyPI packages, such as the Kubeflow Pipelines SDK and TensorFlow Extended SDK.
 
 
 
@@ -104,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

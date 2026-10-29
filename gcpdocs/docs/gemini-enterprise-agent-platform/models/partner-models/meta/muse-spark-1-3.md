@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/meta/muse-spark-1-3/
 title: Muse Spark 1.3 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:31.984528+00:00
+fetched_at: 2026-10-29T11:11:56.499591+00:00
 ---
 
 # Muse Spark 1.3  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

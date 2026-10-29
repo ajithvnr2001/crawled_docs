@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/resource-hierarchy/
 title: Introduction to the resource hierarchy \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:09:12.623289+00:00
+fetched_at: 2026-10-29T11:05:35.542682+00:00
 ---
 
 # Introduction to the resource hierarchy  |  BigQuery  |  Google Cloud Documentation

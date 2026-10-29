@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/sonnet-4-5/
 title: Anthropic's Claude Sonnet 4.5 on Google Cloud \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:44.608375+00:00
+fetched_at: 2026-10-29T11:12:30.486843+00:00
 ---
 
 # Anthropic's Claude Sonnet 4.5 on Google Cloud  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

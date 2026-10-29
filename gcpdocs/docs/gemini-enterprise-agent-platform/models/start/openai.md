@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/openai/
 title: OpenAI compatibility \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:28.483135+00:00
+fetched_at: 2026-10-29T11:07:25.481933+00:00
 ---
 
 # OpenAI compatibility  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

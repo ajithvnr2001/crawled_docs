@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/implementing-datastream-dataflow-analytics/
 title: Implement Datastream and Dataflow for analytics \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:19:54.769782+00:00
+fetched_at: 2026-10-29T11:06:05.356588+00:00
 ---
 
 # Implement Datastream and Dataflow for analytics  |  Google Cloud Documentation

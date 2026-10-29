@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/migration-assessment/
 title: Migration assessment \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:41.452955+00:00
+fetched_at: 2026-10-29T10:11:13.353327+00:00
 ---
 
 # Migration assessment  |  BigQuery  |  Google Cloud Documentation
@@ -21,26 +21,25 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Migration assessment
 
-The BigQuery migration assessment lets you plan and review the migration of your existing data warehouse into BigQuery. You can run the BigQuery migration assessment to generate a report to assess the cost to store your data in BigQuery, to see how BigQuery can optimize your existing workload for cost savings, and to prepare a migration plan that outlines the time and effort required to complete your data warehouse migration to BigQuery.
-
-This document describes how to use the BigQuery migration assessment and the different ways you can review the assessment results. This document is intended for users who are familiar with the [Google Cloud console](https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui) and the [batch SQL translator](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator).
+The BigQuery migration assessment lets you plan and evaluate the migration of your existing data warehouse to BigQuery. You can run an assessment to estimate storage costs, identify workload optimizations, and generate a migration plan that outlines the time and effort required for your migration.
 
 ## Before you begin
 
 To prepare and run a BigQuery migration assessment, follow these steps:
 
-  1. [Create a Cloud Storage bucket](https://docs.cloud.google.com/storage/docs/creating-buckets).
+  1. Ensure that you are familiar with the [Google Cloud console](https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui) and the [batch SQL translator](https://docs.cloud.google.com/bigquery/docs/batch-sql-translator).
+  2. [Create a Cloud Storage bucket](https://docs.cloud.google.com/storage/docs/creating-buckets).
 
 **Note:** [Use the `--pap` flag](https://docs.cloud.google.com/sdk/gcloud/reference/storage/buckets/create#FLAGS) to prevent your Cloud Storage bucket data from being publicly accessible.
-  2. Extract metadata and query logs from your data warehouse.
+  3. Extract metadata and query logs from your data warehouse.
 
-  3. Upload your metadata and query logs to your Cloud Storage bucket.
+  4. Upload your metadata and query logs to your Cloud Storage bucket.
 
-  4. Run the migration assessment.
+  5. Run the migration assessment.
 
-  5. Review the Data Studio report.
+  6. Review the Data Studio report.
 
-  6. Optional: Query the assessment results to find detailed or specific assessment information.
+  7. Optional: Query the assessment results to find detailed or specific assessment information.
 
 
 
@@ -2018,6 +2017,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

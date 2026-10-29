@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/quickstart/integrate-cloud-run/
 title: Quickstart: Connect from Cloud Run \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:32.474895+00:00
+fetched_at: 2026-10-29T09:51:32.905513+00:00
 ---
 
 # Quickstart: Connect from Cloud Run  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -197,9 +197,12 @@ The example format of the IP address is `172.19.209.2`.
 
 **Note:** If you're using a free trial cluster, the **Clusters** page might not display the private IP address. You can run the following command in **Cloud Shell** to find your primary instance's private IP address: 
          
-         gcloud alloydb instances describe INSTANCE_ID \
-         --cluster=CLUSTER_ID \
-         --region=LOCATION \
+         gcloud alloydb instances describe INSTANCE_ID   
+         
+         --cluster=CLUSTER_ID   
+         
+         --region=LOCATION   
+         
          --format="value(ipAddress)"
 
 

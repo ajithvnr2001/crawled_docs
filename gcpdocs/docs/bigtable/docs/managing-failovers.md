@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/managing-failovers/
 title: Manage failovers \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:48.403131+00:00
+fetched_at: 2026-10-29T10:18:45.650839+00:00
 ---
 
 # Manage failovers  |  Bigtable  |  Google Cloud Documentation

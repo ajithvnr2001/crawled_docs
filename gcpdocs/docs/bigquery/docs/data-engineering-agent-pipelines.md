@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/data-engineering-agent-pipelines/
 title: Use the Data Engineering Agent to build and modify data pipelines \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:30:04.339037+00:00
+fetched_at: 2026-10-29T10:18:15.690557+00:00
 ---
 
 # Use the Data Engineering Agent to build and modify data pipelines  |  BigQuery  |  Google Cloud Documentation
@@ -21,15 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Use the Data Engineering Agent to build and modify data pipelines
 
-This document shows you how to use the [Data Engineering Agent](https://docs.cloud.google.com/gemini/data-agents/data-engineering-agent/agent-overview) in BigQuery and Dataform to create and modify data pipelines.
+The [Data Engineering Agent](https://docs.cloud.google.com/gemini/data-agents/data-engineering-agent/agent-overview) in BigQuery and Dataform lets you build, modify, and manage data pipelines to load and process data in BigQuery. You can use natural language prompts to generate data pipelines from various data sources or adapt existing data pipelines to suit your data engineering needs.
 
-The Data Engineering Agent lets you build, modify, and manage data pipelines to load and process data in BigQuery. With the Data Engineering Agent, you can use natural language prompts to generate data pipelines from various data sources or adapt existing data pipelines to suit your data engineering needs.
-
-The agent generates and organizes data pipeline code directly within Dataform repositories. The agent operates in the Dataform workspace, so Dataform pipelines are automatically available to the agent.
-
-For more examples of prompts you can use with the Data Engineering Agent, see Sample prompts.
-
-You can also use the [Data Engineering Agent API](https://docs.cloud.google.com/gemini/data-agents/data-engineering-agent/api-overview), which uses the A2A protocol, to interact with the agent.
+The agent generates and organizes data pipeline code directly within Dataform repositories and operates in the Dataform workspace, so Dataform pipelines are automatically available to the agent. You can also interact with the agent using the [Data Engineering Agent API](https://docs.cloud.google.com/gemini/data-agents/data-engineering-agent/api-overview), which uses the A2A protocol. For examples of prompts that you can use, see Sample prompts.
 
 ## Limitations
 
@@ -376,6 +370,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

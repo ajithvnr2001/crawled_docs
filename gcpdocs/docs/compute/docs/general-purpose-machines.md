@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/general-purpose-machines/
 title: General-purpose machine family for Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:08:39.148211+00:00
+fetched_at: 2026-10-29T09:46:53.217578+00:00
 ---
 
 # General-purpose machine family for Compute Engine  |  Google Cloud Documentation
@@ -1661,14 +1661,14 @@ C3D storage limits are described in the following table:
 ---|---|---  
 Machine types | Per VM | Hyperdisk  
 per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Extreme  
-`c3d-standard-4` | 128 | 24 | 16 | 24 | 24 | 0  
-`c3d-standard-8` | 128 | 32 | 16 | 32 | 32 | 0  
-`c3d-standard-16` | 128 | 48 | 16 | 48 | 48 | 0  
-`c3d-standard-30` | 128 | 64 | 16 | 64 | 64 | 0  
-`c3d-standard-60` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-standard-90` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-standard-180` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-standard-360` | 128 | 64 | 32 | 64 | 64 | 8  
+`c3d-standard-4` | 128 | 24 | 16 | 24 | 16 | 0  
+`c3d-standard-8` | 128 | 32 | 16 | 32 | 16 | 0  
+`c3d-standard-16` | 128 | 48 | 16 | 48 | 16 | 0  
+`c3d-standard-30` | 128 | 64 | 16 | 64 | 16 | 0  
+`c3d-standard-60` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-standard-90` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-standard-180` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-standard-360` | 128 | 64 | 32 | 64 | 32 | 8  
   
 ### C3D highcpu
 
@@ -1676,14 +1676,14 @@ per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Ex
 ---|---|---  
 Machine types | Per VM | Hyperdisk  
 per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Extreme  
-`c3d-highcpu-4` | 128 | 24 | 16 | 24 | 24 | 0  
-`c3d-highcpu-8` | 128 | 32 | 16 | 32 | 32 | 0  
-`c3d-highcpu-16` | 128 | 48 | 16 | 48 | 48 | 0  
-`c3d-highcpu-30` | 128 | 64 | 16 | 64 | 64 | 0  
-`c3d-highcpu-60` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-highcpu-90` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-highcpu-180` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-highcpu-360` | 128 | 64 | 32 | 64 | 64 | 8  
+`c3d-highcpu-4` | 128 | 24 | 16 | 24 | 16 | 0  
+`c3d-highcpu-8` | 128 | 32 | 16 | 32 | 16 | 0  
+`c3d-highcpu-16` | 128 | 48 | 16 | 48 | 16 | 0  
+`c3d-highcpu-30` | 128 | 64 | 16 | 64 | 16 | 0  
+`c3d-highcpu-60` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-highcpu-90` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-highcpu-180` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-highcpu-360` | 128 | 64 | 32 | 64 | 32 | 8  
   
 ### C3D highmem
 
@@ -1691,14 +1691,14 @@ per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Ex
 ---|---|---  
 Machine types | Per VM | Hyperdisk  
 per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Extreme  
-`c3d-highmem-4` | 128 | 24 | 16 | 24 | 24 | 0  
-`c3d-highmem-8` | 128 | 32 | 16 | 32 | 32 | 0  
-`c3d-highmem-16` | 128 | 48 | 16 | 48 | 48 | 0  
-`c3d-highmem-30` | 128 | 64 | 16 | 64 | 64 | 0  
-`c3d-highmem-60` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-highmem-90` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-highmem-180` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-highmem-360` | 128 | 64 | 32 | 64 | 64 | 8  
+`c3d-highmem-4` | 128 | 24 | 16 | 24 | 16 | 0  
+`c3d-highmem-8` | 128 | 32 | 16 | 32 | 16 | 0  
+`c3d-highmem-16` | 128 | 48 | 16 | 48 | 16 | 0  
+`c3d-highmem-30` | 128 | 64 | 16 | 64 | 16 | 0  
+`c3d-highmem-60` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-highmem-90` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-highmem-180` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-highmem-360` | 128 | 64 | 32 | 64 | 32 | 8  
   
 ### C3D standard
 
@@ -1706,13 +1706,13 @@ per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Ex
 ---|---|---  
 Machine types | Per VM | Hyperdisk  
 per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Extreme  
-`c3d-standard-8-lssd` | 128 | 24 | 16 | 24 | 24 | 0  
-`c3d-standard-16-lssd` | 128 | 48 | 16 | 48 | 48 | 0  
-`c3d-standard-30-lssd` | 128 | 64 | 16 | 64 | 64 | 0  
-`c3d-standard-60-lssd` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-standard-90-lssd` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-standard-180-lssd` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-standard-360-lssd` | 128 | 64 | 32 | 64 | 64 | 8  
+`c3d-standard-8-lssd` | 128 | 24 | 16 | 24 | 16 | 0  
+`c3d-standard-16-lssd` | 128 | 48 | 16 | 48 | 16 | 0  
+`c3d-standard-30-lssd` | 128 | 64 | 16 | 64 | 16 | 0  
+`c3d-standard-60-lssd` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-standard-90-lssd` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-standard-180-lssd` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-standard-360-lssd` | 128 | 64 | 32 | 64 | 32 | 8  
   
 ### C3D highmem
 
@@ -1720,13 +1720,13 @@ per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Ex
 ---|---|---  
 Machine types | Per VM | Hyperdisk  
 per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Extreme  
-`c3d-highmem-8-lssd` | 128 | 24 | 16 | 24 | 24 | 0  
-`c3d-highmem-16-lssd` | 128 | 48 | 16 | 48 | 48 | 0  
-`c3d-highmem-30-lssd` | 128 | 64 | 16 | 64 | 64 | 0  
-`c3d-highmem-60-lssd` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-highmem-90-lssd` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-highmem-180-lssd` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3d-highmem-360-lssd` | 128 | 64 | 32 | 64 | 64 | 8  
+`c3d-highmem-8-lssd` | 128 | 24 | 16 | 24 | 16 | 0  
+`c3d-highmem-16-lssd` | 128 | 48 | 16 | 48 | 16 | 0  
+`c3d-highmem-30-lssd` | 128 | 64 | 16 | 64 | 16 | 0  
+`c3d-highmem-60-lssd` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-highmem-90-lssd` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-highmem-180-lssd` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3d-highmem-360-lssd` | 128 | 64 | 32 | 64 | 32 | 8  
   
 ### Network support for C3D VMs
 
@@ -1939,12 +1939,12 @@ C3 storage limits are described in the following table:
 ---|---|---  
 Machine types | Per instance | Hyperdisk  
 per instance | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Extreme  
-`c3-standard-4` | 128 | 24 | 16 | 24 | 24 | 0  
-`c3-standard-8` | 128 | 32 | 16 | 32 | 32 | 0  
-`c3-standard-22` | 128 | 48 | 32 | 48 | 48 | 0  
-`c3-standard-44` | 128 | 64 | 32 | 64 | 64 | 0  
-`c3-standard-88` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3-standard-176` | 128 | 64 | 32 | 64 | 64 | 8  
+`c3-standard-4` | 128 | 24 | 16 | 24 | 16 | 0  
+`c3-standard-8` | 128 | 32 | 16 | 32 | 16 | 0  
+`c3-standard-22` | 128 | 48 | 32 | 48 | 32 | 0  
+`c3-standard-44` | 128 | 64 | 32 | 64 | 32 | 0  
+`c3-standard-88` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3-standard-176` | 128 | 64 | 32 | 64 | 32 | 8  
 `c3-standard-192-metal` | 128 | 128 | 16 | Not supported | Not supported | 16  
   
 ### C3 highcpu
@@ -1953,12 +1953,12 @@ per instance | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperd
 ---|---|---  
 Machine types | Per instance | Hyperdisk  
 per instance | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Extreme  
-`c3-highcpu-4` | 128 | 24 | 16 | 24 | 24 | 0  
-`c3-highcpu-8` | 128 | 32 | 16 | 32 | 32 | 0  
-`c3-highcpu-22` | 128 | 48 | 32 | 48 | 48 | 0  
-`c3-highcpu-44` | 128 | 64 | 32 | 64 | 64 | 0  
-`c3-highcpu-88` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3-highcpu-176` | 128 | 64 | 32 | 64 | 64 | 8  
+`c3-highcpu-4` | 128 | 24 | 16 | 24 | 16 | 0  
+`c3-highcpu-8` | 128 | 32 | 16 | 32 | 16 | 0  
+`c3-highcpu-22` | 128 | 48 | 32 | 48 | 32 | 0  
+`c3-highcpu-44` | 128 | 64 | 32 | 64 | 32 | 0  
+`c3-highcpu-88` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3-highcpu-176` | 128 | 64 | 32 | 64 | 32 | 8  
 `c3-highcpu-192-metal` | 128 | 128 | 16 | Not supported | Not supported | 16  
   
 ### C3 highmem
@@ -1967,12 +1967,12 @@ per instance | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperd
 ---|---|---  
 Machine types | Per instance | Hyperdisk  
 per instance | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Extreme  
-`c3-highmem-4` | 128 | 24 | 16 | 24 | 24 | 0  
-`c3-highmem-8` | 128 | 32 | 16 | 32 | 32 | 0  
-`c3-highmem-22` | 128 | 48 | 32 | 48 | 48 | 0  
-`c3-highmem-44` | 128 | 64 | 32 | 64 | 64 | 0  
-`c3-highmem-88` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3-highmem-176` | 128 | 64 | 32 | 64 | 64 | 8  
+`c3-highmem-4` | 128 | 24 | 16 | 24 | 16 | 0  
+`c3-highmem-8` | 128 | 32 | 16 | 32 | 16 | 0  
+`c3-highmem-22` | 128 | 48 | 32 | 48 | 32 | 0  
+`c3-highmem-44` | 128 | 64 | 32 | 64 | 32 | 0  
+`c3-highmem-88` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3-highmem-176` | 128 | 64 | 32 | 64 | 32 | 8  
 `c3-highmem-192-metal` | 128 | 128 | 16 | Not supported | Not supported | 16  
   
 ### C3 standard
@@ -1981,12 +1981,12 @@ per instance | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperd
 ---|---|---  
 Machine types | Per VM1 | Hyperdisk  
 per VM | Hyperdisk Balanced | Hyperdisk Throughput | Hyperdisk ML | Hyperdisk Extreme  
-`c3-standard-4-lssd` | 128 | 24 | 16 | 24 | 24 | 0  
-`c3-standard-8-lssd` | 128 | 32 | 16 | 32 | 32 | 0  
-`c3-standard-22-lssd` | 128 | 48 | 32 | 48 | 48 | 0  
-`c3-standard-44-lssd` | 128 | 64 | 32 | 64 | 64 | 0  
-`c3-standard-88-lssd` | 128 | 64 | 32 | 64 | 64 | 8  
-`c3-standard-176-lssd` | 128 | 64 | 32 | 64 | 64 | 8  
+`c3-standard-4-lssd` | 128 | 24 | 16 | 24 | 16 | 0  
+`c3-standard-8-lssd` | 128 | 32 | 16 | 32 | 16 | 0  
+`c3-standard-22-lssd` | 128 | 48 | 32 | 48 | 32 | 0  
+`c3-standard-44-lssd` | 128 | 64 | 32 | 64 | 32 | 0  
+`c3-standard-88-lssd` | 128 | 64 | 32 | 64 | 32 | 8  
+`c3-standard-176-lssd` | 128 | 64 | 32 | 64 | 32 | 8  
   
 ### Network support for C3 VMs
 
@@ -3022,6 +3022,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

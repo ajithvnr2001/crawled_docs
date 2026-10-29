@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/findings/threats/iam-anomalous-behavior-service-account-gets-own-iam-policy/
 title: Service account self-investigation \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:33.906082+00:00
+fetched_at: 2026-10-29T10:18:36.778191+00:00
 ---
 
 # Service account self-investigation  |  Security Command Center  |  Google Cloud Documentation

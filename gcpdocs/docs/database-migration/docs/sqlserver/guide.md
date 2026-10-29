@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/guide/
 title: Migrate your SQL Server databases to Cloud SQL for SQL Server \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:39.216011+00:00
+fetched_at: 2026-10-29T10:18:00.997291+00:00
 ---
 
 # Migrate your SQL Server databases to Cloud SQL for SQL Server  |  Database Migration Service for SQL Server  |  Google Cloud Documentation
@@ -21,7 +21,9 @@ Send feedback
 
 #  Migrate your SQL Server databases to Cloud SQL for SQL Server Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to migrate your self-managed or Amazon RDS SQL Server databases to Cloud SQL for SQL Server instance with Database Migration Service. For instructions on how to migrate from a Cloud SQL for SQL Server instance, see [ Migration guide for Cloud SQL for SQL Server sources](https://docs.cloud.google.com/database-migration/docs/sqlserver/csql-sql-server-src-guide).
+This page describes how to migrate your self-managed or Amazon RDS SQL Server databases to a Cloud SQL for SQL Server instance by using backup and transaction log files uploaded to Cloud Storage. For instructions on how to migrate from a Cloud SQL for SQL Server source, see [ Migration guide for Cloud SQL for SQL Server sources](https://docs.cloud.google.com/database-migration/docs/sqlserver/csql-sql-server-src-guide).
+
+**Note:** For instructions on how to migrate directly over a private network connection without exporting backup files, see [ Migrate from self-managed SQL Server using Distributed Availability Groups](https://docs.cloud.google.com/database-migration/docs/sqlserver/dag-migration-guide). 
 
 The migration process involves the following tasks:
 
@@ -191,6 +193,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth/
 title: Manage IAM authentication \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:32:12.328067+00:00
+fetched_at: 2026-10-29T09:51:33.265391+00:00
 ---
 
 # Manage IAM authentication  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -21,20 +21,16 @@ Send feedback
 
 #  Manage IAM authentication Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview — IAM group authentication**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
-To authenticate database users and groups with Google Cloud credentials instead of database passwords, you can enable and configure Identity and Access Management (IAM) authentication on your AlloyDB for PostgreSQL instance.
-
-**Note:** IAM group authentication is available in [Preview](https://cloud.google.com/products#product-launch-stages) for new AlloyDB clusters. To enable this feature on an existing cluster, contact your Google Cloud account team.
+You can configure Identity and Access Management (IAM) database authentication on new or existing AlloyDB for PostgreSQL clusters to manage database sign-ins and permissions using individual IAM accounts or IAM groups.
 
 IAM authentication complements database authentication through [standard PostgreSQL users](https://docs.cloud.google.com/alloydb/docs/database-users/manage-roles), which every AlloyDB cluster supports.
 
 You can authenticate using individual accounts or groups:
 
-  * **Individual accounts** : You add each IAM user or service account to the cluster. You can use IAM or PostgreSQL user roles to authenticate with that cluster.
-  * **Groups** : You add an IAM group to the cluster. All members (users and service accounts) of that group inherit the permissions to authenticate. This lets you manage access by managing group membership without adding each member to the cluster individually.
+  * Individual accounts: you add each IAM user or service account to the cluster and manage permissions per account.
+
+  * Groups: you add an IAM group to the cluster so that all members (users and service accounts) inherit permissions to authenticate to primary instances, read pool instances, and AlloyDB Studio without adding each member individually.
+
 
 
 
@@ -51,11 +47,11 @@ To use IAM authentication, complete the following general steps:
 
 ## Enable and disable IAM authentication
 
-To enable IAM authentication on an instance, set the database flags.
+To enable IAM authentication on an instance in a new or existing cluster, set the required database flags:
 
-  * For individual authentication, set the [`alloydb.iam_authentication`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#alloydb.iam_authentication) flag to `on`.
+  * For individual authentication, set the [`alloydb.iam_authentication`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#alloydb.iam_authentication) database flag to `on`.
 
-  * For group authentication, set both the [`alloydb.iam_authentication`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#alloydb.iam_authentication) and [`alloydb.iam_group_authentication`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#alloydb.iam_group_authentication) flags to `on`.
+  * For group authentication, set both the [`alloydb.iam_authentication`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#alloydb.iam_authentication) and [`alloydb.iam_group_authentication`](https://docs.cloud.google.com/alloydb/docs/reference/alloydb-flags#alloydb.iam_group_authentication) database flags to `on`.
 
 
 
@@ -83,14 +79,12 @@ To give an IAM account access to other clusters in your project, repeat the last
 
 You can give IAM users or service accounts the ability to authenticate with AlloyDB instances by granting them the following IAM roles:
 
-  * AlloyDB Database User (`roles/alloydb.databaseUser`): lets the user connect to your AlloyDB instance.
-
-  * Service Usage Consumer (`roles/serviceusage.serviceUsageConsumer`): provides the user access to an API that checks permissions.
-
+  * `alloydb.databaseUser`: Lets the user connect to your AlloyDB instance.
+  * `serviceusage.serviceUsageConsumer`: Provides the user access to an API that checks permissions.
 
 
 
-To do this, follow the instructions on [Grant access to other users](https://docs.cloud.google.com/alloydb/docs/user-grant-access#procedure). In the step where you select a role to grant to the IAM principal, choose **AlloyDB Database User** (`roles/alloydb.databaseUser`).
+To do this, follow the instructions on [Grant access to other users](https://docs.cloud.google.com/alloydb/docs/user-grant-access#procedure). In the step where you select a role to grant to the IAM principal, choose `alloydb.databaseUser`.
 
 ### Add an IAM user or service account to a cluster
 
@@ -121,7 +115,7 @@ For an IAM service account, provide the address of the service account _without_
      2. To add the role, press `Enter` or `Tab`.
      3. Select **x** for any role that you want to remove for that user.
 
-For more information about predefined PostgreSQL roles, see [Predefined roles](https://docs.cloud.google.com/alloydb/docs/database-users/overview#predefined-roles).
+For more information, see [Predefined roles](https://docs.cloud.google.com/alloydb/docs/database-users/overview#predefined-roles)
 
   8. Click **Add**.
 
@@ -136,21 +130,20 @@ To create a PostgreSQL database user based on an IAM user or service account, us
     gcloud alloydb users create USERNAME \
     --cluster=CLUSTER \
     --region=REGION \
-    --type=IAM_BASED \
-    --db-roles=alloydbiamuser
+    --type=IAM_BASED
 
-Replace the following:
+Replace the following variables:
 
-  * `USERNAME`: the identifier for the IAM user that you want to add as a new database user.
+  * `USERNAME`: identifier for the IAM user that you want to add as a new database user.
 
 For an IAM user account, provide the full email address of the user account. For example, `dana@example.com`.
 
 For an IAM service account, provide the address of the service account _without_ the `.gserviceaccount.com` suffix. For example, to specify the service account `my-service@my-project.iam.gserviceaccount.com`, you use the value `my-service@my-project.iam`.
 
 **Note:** The shortened service account identifier, which is the email address without the `.gserviceaccount.com` suffix, must not exceed 63 characters. PostgreSQL truncates identifiers longer than 63 characters in the database catalog, which causes IAM authentication to fail. If the shortened address exceeds 63 characters, see the [service account impersonation workaround](https://docs.cloud.google.com/alloydb/docs/troubleshoot/troubleshoot-iam-auth). 
-  * `CLUSTER`: the ID of the cluster to create this database user account within.
+  * `CLUSTER`: ID of the cluster to create this database user account within.
 
-  * `REGION`: the ID of the region where the cluster resides—for example, `us-central1`.
+  * `REGION`: ID of the region where the cluster resides—for example, `us-central1`.
 
 
 
@@ -165,11 +158,11 @@ If users need additional access, grant more privileges using the [`GRANT` Postgr
     GRANT SELECT ON TABLE_NAME TO "USERNAME";
     
 
-Replace the following:
+Replace the following variables:
 
-  * `USERNAME`: the email address for the user. You must include double quotes around the address.
+  * `USERNAME`: email address for the user. You must include double quotes around the address.
 
-  * `TABLE_NAME`: the name of the table that you want to give the user access to.
+  * `TABLE_NAME`: Name of the table that you want to give the user access to.
 
 
 
@@ -206,35 +199,40 @@ Use [the `gcloud alloydb users delete` command](https://docs.cloud.google.com/sd
 
 Replace the following:
 
-  * `USERNAME`: the identifier of the IAM user that you want to remove from the cluster.
+  * `USERNAME`: identifier of the IAM user that you want to remove from the cluster.
 
 For an IAM user account, provide the full email address of the user account. For example, `dana@example.com`.
 
 For an IAM service account, provide the address of the service account _without_ the `.gserviceaccount.com` suffix. For example, to specify the service account `my-service@my-project.iam.gserviceaccount.com`, you use the value `my-service@my-project.iam`.
 
 **Note:** The shortened service account identifier, which is the email address without the `.gserviceaccount.com` suffix, must not exceed 63 characters. PostgreSQL truncates identifiers longer than 63 characters in the database catalog, which causes IAM authentication to fail. If the shortened address exceeds 63 characters, see the [service account impersonation workaround](https://docs.cloud.google.com/alloydb/docs/troubleshoot/troubleshoot-iam-auth). 
-  * `CLUSTER`: the ID of the cluster to remove this user from.
+  * `CLUSTER`: ID of the cluster to remove this user from.
 
-  * `REGION`: the ID of the region where the cluster resides. For example, `us-central1`.
+  * `REGION`: ID of the region where the cluster resides. For example, `us-central1`.
 
 
 
 
 ## Grant access to an IAM group
 
-To use group authentication ([Preview](https://cloud.google.com/products#product-launch-stages)), you add an IAM group to the AlloyDB cluster.
+To use group authentication, you add an IAM group to the AlloyDB cluster.
 
 ### Add an IAM group to a cluster
 
-  1. Assign the `roles/alloydb.databaseUser` and `roles/serviceusage.serviceUsageConsumer` roles to the group account. For more information, see Update an IAM account with the appropriate role.
+Before you add an IAM group to a cluster, note the following requirements:
 
-A maximum of 200 IAM groups can exist on a cluster at any time. Inactive groups count towards this limit.
+  * A maximum of 200 IAM groups can exist on a cluster at any time. Inactive groups count toward this limit.
 
-IAM group names can be only 63 characters long.
+  * IAM group names can't exceed 63 characters. If you have an IAM group with a name that exceeds 63 characters, then you can nest it under a parent group with a valid name. You must add the parent group to the cluster before you can use the nested group.
 
-If you have an IAM group with a name that exceeds the length limitation, then you can nest it under a parent group with a valid name. You must add the parent group to the cluster before you can use the nested group.
 
-  2. To create a database user for the group, use the `gcloud alloydb users create` command with the `--type=IAM_GROUP` flag.
+
+
+To add an IAM group to a cluster, follow these steps:
+
+  1. Assign the `roles/alloydb.databaseUser` and `roles/serviceusage.serviceUsageConsumer` roles to the group account. For more information about granting these roles, see Update an IAM account with the appropriate role.
+
+  2. To create a database user for the group, run the [`gcloud alloydb users create`](https://docs.cloud.google.com/sdk/gcloud/reference/alloydb/users/create) command with the `--type=IAM_GROUP` flag:
          
          gcloud alloydb users create GROUP_EMAIL \
          --cluster=CLUSTER \
@@ -245,17 +243,19 @@ Replace the following:
 
      * `GROUP_EMAIL`: the full email address of the IAM group—for example, `my-group@example.com`.
 
-     * `CLUSTER`: the ID of the cluster to add this group to.
+     * `CLUSTER`: the ID of the cluster to add the group to.
 
      * `REGION`: the ID of the region where the cluster resides—for example, `us-central1`.
 
-**Note:** If you delete an IAM group from IAM and then recreate that group, the group might not be usable right away. IAM group deletion and recreation take time to propagate.
+**Note:** If you delete a group in Cloud Identity and immediately re-create that group, the group might not be usable right away. Group deletion and re-creation take time to propagate.
 
 
 
 ### Add members of a group automatically
 
-When you add an IAM group to a cluster, all members (users and service accounts) of that group inherit the permissions to authenticate. You don't need to add the members individually. After a member signs in for the first time, AlloyDB creates an account for them automatically.
+When you add an IAM group to a cluster, all users and service accounts in that group inherit permissions to authenticate. You don't need to add the members individually. Group members can sign in directly to primary instances, read pool instances, and AlloyDB Studio in the Google Cloud console, including first-time sign-ins to read pool instances without connecting to the primary instance first. When a member signs in for the first time, AlloyDB creates a database account for that principal automatically.
+
+When you restore or migrate an AlloyDB cluster from a Cloud SQL for PostgreSQL backup, AlloyDB maps and preserves individual and IAM group user configurations. For more information about migrating from a Cloud SQL for PostgreSQL backup, see [Migrate from Cloud SQL for PostgreSQL to AlloyDB](https://docs.cloud.google.com/alloydb/docs/migrate-cloud-sql-to-alloydb).
 
 ### Grant database privileges to an IAM group
 
@@ -269,9 +269,9 @@ Run the `GRANT` statement from the `psql` command line:
 
 Replace the following:
 
-  * `GROUP_NAME`: the email address of the group. You must use quotes because the string contains special characters.
+  * `TABLE_NAME`: the name of the table that you want to grant the group access to.
 
-  * `TABLE_NAME`: the name of the table.
+  * `GROUP_NAME`: the email address of the group. Include double quotes around the address because it contains special characters.
 
 
 
@@ -292,7 +292,7 @@ To delete an IAM group from an AlloyDB cluster, revoke the group permissions in 
 
   2. Delete the group user from the AlloyDB cluster:
 
-Use the Google Cloud CLI to delete the user representing the IAM group from the AlloyDB cluster. The username is typically the email address of the IAM group.
+Use the Google Cloud CLI to delete the user representing the IAM group from the AlloyDB cluster. The username is typically the email address of the IAM group:
          
          gcloud alloydb users delete GROUP_EMAIL_ADDRESS \
          --cluster=CLUSTER_ID \
@@ -314,13 +314,13 @@ You need appropriate administrator privileges (like Groups Admin) in your Cloud 
 
 Changes to IAM permissions and group memberships can take time to propagate, potentially 15 minutes or more.
 
-     1. Obtain [appropriate administrator privileges](https://knowledge.workspace.google.com/admin/users/view-role-assignments-and-privileges) like Groups Admin in your Cloud Identity account. Group owners can only delete the groups that they own. For more information, see [Prebuilt administrator roles](https://knowledge.workspace.google.com/admin/users/prebuilt-administrator-roles).
+     1. Make sure that you have [appropriate administrator privileges](https://knowledge.workspace.google.com/admin/users/view-role-assignments-and-privileges) like Groups Admin in your Cloud Identity account. Group owners can only delete the groups that they own. For more information, see [Prebuilt administrator roles](https://knowledge.workspace.google.com/admin/users/prebuilt-administrator-roles).
 
      2. Run the following Cloud Identity gcloud CLI command:
             
             gcloud identity groups delete GROUP_EMAIL_ADDRESS
 
-     3. When you revoke the AlloyDB Database User role (`roles/alloydb.databaseUser`) for an IAM group in Cloud Identity, you must also delete the group from the AlloyDB cluster so that access is completely removed.
+     3. When you revoke the sign-in permission `alloydb.databaseUser` for an IAM group in Cloud Identity, you must also delete the group from the AlloyDB cluster to make sure that access is completely removed.
 
 
 
@@ -330,15 +330,10 @@ Changes to IAM permissions and group memberships can take time to propagate, pot
 Existing individual IAM users don't use group authentication. You can migrate them by following these steps:
 
   1. Add the users to an IAM group.
-
-  2. Assign the required IAM roles (`roles/alloydb.databaseUser` and `roles/serviceusage.serviceUsageConsumer`) to the group.
-
-  3. Add the group to your cluster.
-
+  2. Add the group to your cluster.
+  3. Assign the group the required roles.
   4. Assign database privileges to the group.
-
-  5. Delete the existing individual user from your cluster. Transfer object ownership before deleting the user, if needed.
-
+  5. Delete the existing individual user from your cluster. Make sure that you transfer ownership if intended.
 
 
 
@@ -352,19 +347,21 @@ Use the following information to troubleshoot group authentication issues.
 
 If an account isn't inheriting privileges from a group, follow these steps:
 
-  1. List the users:
+  1. List the users on the cluster:
          
-         gcloud alloydb users list --cluster=CLUSTER --region=REGION
+         gcloud alloydb users list \
+             --cluster=CLUSTER \
+             --region=REGION
 
 Replace the following:
 
-     * `CLUSTER`: the ID of the cluster.
+     * `CLUSTER`: the ID of your AlloyDB cluster.
 
-     * `REGION`: the region where the cluster resides—for example, `us-central1`.
+     * `REGION`: the ID of the region where your AlloyDB cluster resides—for example, `us-central1`.
 
-  2. If the type is `ALLOYDB_IAM_USER` or `ALLOYDB_IAM_SERVICE_ACCOUNT`, remove the account. It doesn't inherit group privileges.
+  2. If the account has the type `ALLOYDB_IAM_USER`, remove the account from the cluster. Accounts with the type `ALLOYDB_IAM_USER` don't inherit group privileges.
 
-  3. To recreate the account with the correct group type, sign in again to the instance with the user or service account. Signing in again to the instance recreates the account with the correct account type of `ALLOYDB_IAM_GROUP_USER` or `ALLOYDB_IAM_GROUP_SERVICE_ACCOUNT`.
+  3. To re-create the account with the group user type, sign in again to the instance with the user or service account. Signing in again to the instance re-creates the account with the account type `ALLOYDB_IAM_GROUP_USER` or `ALLOYDB_IAM_GROUP_SERVICE_ACCOUNT`.
 
 
 
@@ -380,6 +377,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/manage-access-jupyterlab/
 title: Manage access to a Agent Platform Workbench instance's JupyterLab interface \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:13.080217+00:00
+fetched_at: 2026-10-29T11:13:19.600000+00:00
 ---
 
 # Manage access to a Agent Platform Workbench instance's JupyterLab interface  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

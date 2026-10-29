@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.26/docs/operate-and-maintain/external-lb-gateway/
 title: Expose an ingress gateway using an external load balancer \u00a0|\u00a0 Cloud Service Mesh v1.26 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:29:59.611301+00:00
+fetched_at: 2026-10-29T10:18:29.785735+00:00
 ---
 
 # Expose an ingress gateway using an external load balancer  |  Cloud Service Mesh v1.26  |  Google Cloud Documentation

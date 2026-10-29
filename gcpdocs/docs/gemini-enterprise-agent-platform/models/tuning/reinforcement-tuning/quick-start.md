@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tuning/reinforcement-tuning/quick-start/
 title: Quick start: Reinforcement learning fine-tuning using the API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:24.869013+00:00
+fetched_at: 2026-10-29T11:07:43.204108+00:00
 ---
 
 # Quick start: Reinforcement learning fine-tuning using the API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

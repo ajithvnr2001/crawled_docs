@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/find-k-nearest-neighbors/
 title: Perform similarity vector search in Bigtable by finding the K-nearest neighbors \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:19.531474+00:00
+fetched_at: 2026-10-29T10:19:26.790001+00:00
 ---
 
 # Perform similarity vector search in Bigtable by finding the K-nearest neighbors  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/migration/
 title: Migration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:43:42.939054+00:00
+fetched_at: 2026-10-29T10:18:41.822680+00:00
 ---
 
 # Migration  |  Google Cloud Documentation
@@ -20,6 +20,8 @@ fetched_at: 2026-10-27T22:43:42.939054+00:00
 # Migration
 
 Documentation, guides, and resources on tools and services to help you migrate to Google Cloud.
+
+[Read documentation](https://docs.cloud.google.com/docs/migration/overview/migrate-modernize-overview)
 
 [Get started for free](https://console.cloud.google.com/freetrial)
 
@@ -69,7 +71,7 @@ Plan, design, and implement your migration to a Google Cloud VMware Engine platf
 
 ###  [ Migrate containers to Google Cloud: Migrate from Kubernetes to GKE ](https://docs.cloud.google.com/architecture/migrating-containers-kubernetes-gke)
 
-Use Migrate to Containers to modernize traditional applications away from virtual machine (VM) instances and into native containers that run on Google Kubernetes Engine (GKE) or Cloud Run platform.[open_in_new](https://docs.cloud.google.com/architecture/migrating-containers-kubernetes-gke)
+Use Migrate to Containers to modernize traditional applications away from virtual machine (VM) instances and into containers that run on Google Kubernetes Engine (GKE) or Cloud Run platform.[open_in_new](https://docs.cloud.google.com/architecture/migrating-containers-kubernetes-gke)
 
 [ account_tree  ](https://docs.cloud.google.com/architecture/migrate-across-regions)
 
@@ -143,7 +145,7 @@ Discover, assess, and plan your migration to Google Cloud.
 
 Discover, assess, and plan your migration to Google Cloud with a unified platform for your end-to-end cloud migration journey. 
 
-### Virtual Machine migration
+### Virtual machine migration
 
 Migrate your virtual machines (VMs) to Google Cloud, or convert VM-based workloads into containers. 
 
@@ -197,7 +199,7 @@ Explore related Google Cloud products, guides, and resources for your migration 
 
 account_tree 
 
-####  [ Compare AWS and Azure services to Google Cloud ](https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison)
+####  [ Compare AWS and Azure services to Google Cloud. ](https://docs.cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison)
 
 Compare AWS and Azure services to Google Cloud. 
 
@@ -257,6 +259,6 @@ A high-capacity storage device that you can use to securely ship your data to a 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

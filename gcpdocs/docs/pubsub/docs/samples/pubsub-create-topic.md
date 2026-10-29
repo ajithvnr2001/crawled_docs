@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-create-topic/
 title: Create topic \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:26:41.692530+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T10:18:09.981053+00:00
 ---
 
 # Create topic  |  Pub/Sub  |  Google Cloud Documentation
@@ -44,7 +30,7 @@ For detailed documentation that includes this code sample, see the following:
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/cloud-ftp/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/device-streaming/docs/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/fault-injection-testing/quickstart-client-libraries)
-  * [Quickstart: Using client libraries](https://docs.cloud.google.com/food-ai/quickstart-client-libraries)
+  * [Quickstart: Using client libraries](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/location-finder/docs/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/oracle/compute/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/secure-access-connect/docs/quickstart-client-libraries)
@@ -386,7 +372,7 @@ To authenticate to Pub/Sub, set up Application Default Credentials. For more inf
     
     # topic_id = "your-topic-id"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
     topic_admin = pubsub.[topic_admin](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)
     
     topic = topic_admin.create_topic name: pubsub.topic_path(topic_id)

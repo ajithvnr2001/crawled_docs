@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.24/docs/tutorials/authz/
 title: Cloud Service Mesh by example: Authorization \u00a0|\u00a0 Cloud Service Mesh v1.24 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:46:46.784162+00:00
+fetched_at: 2026-10-29T10:18:25.203435+00:00
 ---
 
 # Cloud Service Mesh by example: Authorization  |  Cloud Service Mesh v1.24  |  Google Cloud Documentation

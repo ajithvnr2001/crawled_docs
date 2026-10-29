@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-first-and-last-frames/
 title: Generate videos using first and last video frames \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:48.421228+00:00
+fetched_at: 2026-10-29T09:45:37.952574+00:00
 ---
 
 # Generate videos using first and last video frames  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

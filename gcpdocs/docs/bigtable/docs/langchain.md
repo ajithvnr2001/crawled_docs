@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/langchain/
 title: Build LLM-powered applications using LangChain \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:49.487735+00:00
+fetched_at: 2026-10-29T10:19:00.030403+00:00
 ---
 
 # Build LLM-powered applications using LangChain  |  Bigtable  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/gke-private-clusters/
 title: Configure restricted access for GKE private clusters \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:21:40.549976+00:00
+fetched_at: 2026-10-29T09:56:44.845409+00:00
 ---
 
 # Configure restricted access for GKE private clusters  |  Artifact Registry  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback
 
 #  Configure restricted access for GKE private clusters Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to configure DNS entries to route requests to the `pkg.dev` and `gcr.io` domains using a restricted virtual IP (VIP) when you use [Google Kubernetes Engine private clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/private-clusters) in a VPC Service Controls service perimeter. 
+Configuring DNS routing to a restricted virtual IP (VIP) lets [Google Kubernetes Engine private clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/private-clusters) access Artifact Registry repositories inside a VPC Service Controls service perimeter.
 
-Registry domains normally resolve to a public IP address on the internet. In GKE private clusters, nodes are isolated from the internet by default. This means that requests to registry domains will fail when you have not configured DNS routing to the restricted VIP.
+Because private cluster nodes are isolated from the internet and registry domains resolve to public IP addresses by default, you must route requests for the `pkg.dev` and `gcr.io` domains through the restricted VIP. 
+
+## Overview
 
 Your private clusters should always access Artifact Registry or Container Registry with the restricted VIP to prevent data exfiltration from a supported service to an unsupported one. 
 
@@ -182,6 +184,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

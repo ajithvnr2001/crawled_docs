@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpcsc-public-endpoint/
 title: Allow public endpoint access to protected resources from outside a VPC Service Controls perimeter \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:38.720525+00:00
+fetched_at: 2026-10-29T11:06:33.810682+00:00
 ---
 
 # Allow public endpoint access to protected resources from outside a VPC Service Controls perimeter  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

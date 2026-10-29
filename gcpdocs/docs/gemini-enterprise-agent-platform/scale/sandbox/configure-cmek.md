@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/configure-cmek/
 title: Configure Customer-managed encryption keys (CMEK) for sandboxes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:32.253763+00:00
+fetched_at: 2026-10-29T11:12:26.372759+00:00
 ---
 
 # Configure Customer-managed encryption keys (CMEK) for sandboxes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

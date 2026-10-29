@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/vpcsc-for-secops/
 title: Configure VPC Service Controls \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:49:25.638920+00:00
+fetched_at: 2026-10-29T10:07:02.161074+00:00
 ---
 
 # Configure VPC Service Controls  |  Google Security Operations  |  Google Cloud Documentation

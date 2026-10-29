@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy/
 title: SanitizeModelResponse policy \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:54:16.145358+00:00
+fetched_at: 2026-10-29T09:51:20.682356+00:00
 ---
 
 # SanitizeModelResponse policy  |  Apigee  |  Google Cloud Documentation
@@ -84,6 +84,7 @@ Defines a SanitizeModelResponse policy.
 [`<UserPromptSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#userpromptsource)  
 [`<LLMResponseSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#llmresponsesource)  
 [`<FunctionCallSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#functioncallsource)  
+`<ContinuousScan>`  
   
   
 The [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#name) element uses the following syntax:
@@ -91,32 +92,33 @@ The [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-pl
 ### Syntax
     
     
-    <SanitizeModelResponse async="false" continueOnError="false" enabled="true&>quo<t; name="sanitize-respons<e"
-      IgnoreUnresolved>Var<iables>t>rue/IgnoreUnresolvedVari<ables
-      Disp>lay<Namesaniti>ze-re<sponse-sampl>e/DisplayName
-      ModelArmor
-        TemplateNameprojects/{project}/loc<ations/{locat>ion<}/templates>/{t<emplate-name}/Te>mplateName
-      /ModelArmor
-      UserPromptSource{jsonPath('$<.contents[-1].par>ts[<-1].text',req>uest.content)}/UserPromptSource
-      LLMResponseSource{jsonPath(<'$.candidates[>-1]<.content.parts'>;,response.content)}/LLMResponseSource
-      FunctionCallSource{jsonPath('$.candida<tes[-1].content.par>t<s[-1].functionCall.arg>s',response.content)}/FunctionCallSource
-    /SanitizeModelResponse
+    <SanitizeModelResponse async="false" continueOnError="false" enabled="true" name="sanitize-response">
+      <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+      <DisplayName>sanitize-response-sample</DisplayName>
+      <ModelArmor>
+        <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
+      </ModelArmor>
+      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content)}</UserPromptSource>
+      <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts',response.content)}</LLMResponseSource>
+      <FunctionCallSource>{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content)}</FunctionCallSource>
+      <ContinuousScan>false</ContinuousScan>
+    </SanitizeModelResponse>
 
 ### Default Policy
 
 The following example shows the default settings when you add a SanitizeModelResponse policy to your request flow in the Apigee UI:
     
     
-    <SanitizeModelResponse async="false" continueOnError="false" enabled="true&>quo<t; name="sanitize-respons<e"
-      IgnoreUnresolved>Var<iables>t>rue/IgnoreUnresolvedVari<ables
-      Disp>lay<Namesaniti>ze-re<sponse-sampl>e/DisplayName
-      ModelArmor
-        TemplateNameprojects/{project}/loc<ations/{locat>ion<}/templates>/{t<emplate-name}/Te>mplateName
-      /ModelArmor
-      UserPromptSource{jsonPath('$<.contents[-1].par>ts[<-1].text',req>uest.content)}/UserPromptSource
-      LLMResponseSource{jsonPath(<'$.candidates[>-1]<.content.parts'>;,response.content)}/LLMResponseSource
-      FunctionCallSource{jsonPath('$.candida<tes[-1].content.par>t<s[-1].functionCall.arg>s',response.content)}/FunctionCallSource
-    /SanitizeModelResponse
+    <SanitizeModelResponse async="false" continueOnError="false" enabled="true" name="sanitize-response">
+      <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+      <DisplayName>sanitize-response-sample</DisplayName>
+      <ModelArmor>
+        <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
+      </ModelArmor>
+      <UserPromptSource>{jsonPath('$.contents[-1].parts[-1].text',request.content)}</UserPromptSource>
+      <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts',response.content)}</LLMResponseSource>
+      <FunctionCallSource>{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content)}</FunctionCallSource>
+    </SanitizeModelResponse>
 
 When you insert a new SanitizeModelResponse policy using the Apigee UI, the template contains stubs for all possible operations. See below for information on required elements.
 
@@ -152,7 +154,75 @@ Child Element | Required? | Description
     {jsonpath('$.input.prompt.text',request.content,false)}  
   
 [`<FunctionCallSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#functioncallsource) | Optional | The location of the function call arguments to extract from model responses. The policy uses this element as a fallback when [`<LLMResponseSource>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#llmresponsesource) returns empty on function-calling turns. Default: `{jsonPath('$.candidates[-1].content.parts[-1].functionCall.args',response.content)}`  
+`<ContinuousScan>` | Optional | Specifies whether to check the entire streaming (SSE) response, delivering each event to the client only after Model Armor checks it. Applies only when the policy runs in an SSE `EventFlow`. Default: `false`  
   
+## Sanitize streaming Server-Sent Events (SSE) responses
+
+In an SSE `EventFlow`, use `<ContinuousScan>` to choose one of two options: check each event separately (`false`, the default), or check the whole stream using Model Armor [streaming sanitization](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#sanitize-streaming) (`true`). With `true`, the complete response usually finishes sooner, because the policy checks the stream over one connection while the model is still generating, instead of making a separate request for each event. However, time to first token can be longer. To add the policy to an `EventFlow`, see [Use an Apigee Model Armor policy in an EventFlow](https://docs.cloud.google.com/apigee/docs/api-platform/develop/server-sent-events#model-armor-policy).
+
+The following table compares the two options:
+
+Behavior | `false` (default): each event separately | `true`: whole stream  
+---|---|---  
+How text is checked | Each event on its own, without the text of earlier events. | The whole stream, with the text of earlier events as context.  
+When the client receives an event | After that event's own check. | After Model Armor has checked it.  
+Model Armor requests | One per event. | One per response.  
+Token limit | Per request. | No limit on the total tokens in a response.  
+**Note:** With `<ContinuousScan>true</ContinuousScan>`, Apigee delivers each SSE event whole, unchanged, and in order, only after Model Armor checks it, so events can arrive slightly later than in the original stream.
+
+The `<ContinuousScan>` element exists only on the SanitizeModelResponse policy, not on the [SanitizeUserPrompt policy](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-user-prompt-policy).
+
+### Configure continuous scan
+
+Set `<ContinuousScan>true</ContinuousScan>` and point `<LLMResponseSource>` at the text in the current event, `response.event.current.data`:
+    
+    
+    <SanitizeModelResponse async="false" continueOnError="false"
+        enabled="true" name="SMR-ContinuousScan">
+      <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+      <DisplayName>SMR-ContinuousScan</DisplayName>
+      <ModelArmor>
+        <TemplateName>projects/{project}/locations/{location}/templates/{template-name}</TemplateName>
+      </ModelArmor>
+      <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts[-1].text',response.event.current.data,true)}</LLMResponseSource>
+      <ContinuousScan>true</ContinuousScan>
+    </SanitizeModelResponse>
+
+Use the `<LLMResponseSource>` expression that matches your model's streaming format:
+
+Streaming format | `<LLMResponseSource>`  
+---|---  
+Gemini (`streamGenerateContent?alt=sse`) | `{jsonPath('$.candidates[-1].content.parts[-1].text',response.event.current.data,true)}`  
+OpenAI-compatible chat completions | `{jsonPath('$.choices[-1].delta.content',response.event.current.data,true)}`  
+Anthropic Claude | `{jsonPath('$.delta.text',response.event.current.data,true)}`  
+  
+### Matches and errors
+
+With `<ContinuousScan>` set to `true`, errors are either transient or terminal:
+
+Type | Examples | How it's handled  
+---|---|---  
+Transient | A dropped connection to Model Armor, or Model Armor temporarily unavailable. | Retried. Apigee reconnects and checks the not-yet-delivered text again, so no event is skipped or delivered unchecked. This happens up to two times per response, regardless of `continueOnError`. If it keeps failing, the error becomes terminal.  
+Terminal | A filter match, an authentication or permission error, an exceeded Model Armor quota, or no response from Model Armor within the 60-second timeout. | Not retried. The check ends, and `continueOnError` determines what the client receives, as described in the next table.  
+  
+With `<ContinuousScan>` set to `true`, the policy doesn't deliver the Sensitive Data Protection (SDP) de-identified (redacted) text from Model Armor. Apigee releases events unchanged and handles a de-identification match like any other match.
+
+On a terminal error, the `continueOnError` attribute determines what the client receives:
+
+`continueOnError` | What the client receives  
+---|---  
+`false` (default) | The client receives the events that passed the check and then an SSE event with the fault, such as `steps.sanitize.model.response.FilterMatched`, `steps.sanitize.modelarmor.ModelArmorAPIFailed`, or `steps.sanitize.modelarmor.AuthenticationFailure`. The stream then ends. The client receives no unchecked or matching text.  
+`true` | The client receives the complete response, including the matching text and anything after it. Terminal errors don't raise a fault, and the rest of the response passes through unchecked. The policy sets `SanitizeModelResponse.POLICY_NAME.failed` to `true` so that a later step in the `EventFlow` can act on it.  
+  
+With `<ContinuousScan>` set to `false`, each event is a separate request, and there are no reconnect retries. With `continueOnError="true"`, a match affects only that event, and the policy still checks later events.
+
+### Quotas and limits
+
+  * With `<ContinuousScan>true</ContinuousScan>`, a whole streamed response counts as one request against your project's [Model Armor quota](https://docs.cloud.google.com/model-armor/quotas#quotas), plus one for each reconnect. With `false`, every SSE event is a separate request.
+  * With `<ContinuousScan>true</ContinuousScan>`, there is [no limit on the total tokens](https://docs.cloud.google.com/model-armor/quotas#unlimited-tokens-real-time-streaming) in a response. Otherwise, each request is subject to the Model Armor [token limits](https://docs.cloud.google.com/model-armor/quotas#token-limits).
+
+
+
 ## Child element reference
 
 This section describes the child elements of [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#name).
@@ -292,6 +362,24 @@ This field supports message template syntax, including JSON Path functions.
 **Parent Element** |  [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#name)  
 **Child Elements** |  None   
   
+### <ContinuousScan>
+
+Set to `true` to check the entire streaming (SSE) response as one stream, using Model Armor [streaming sanitization](https://docs.cloud.google.com/model-armor/sanitize-prompts-responses#sanitize-streaming). The policy checks each event together with the text of all earlier events, and the client receives each event whole and unchanged, only after Model Armor checks it. The policy doesn't deliver the Sensitive Data Protection (SDP) de-identified (redacted) text from Model Armor.
+
+When `false` or omitted, the policy checks each event separately. The element applies only when the policy runs in an SSE `EventFlow`, and has no effect elsewhere. For more information, see Sanitize streaming Server-Sent Events (SSE) responses.
+
+**Default Value** | False  
+---|---  
+**Required?** | Optional  
+**Type** | Boolean  
+**Parent Element** |  [`<SanitizeModelResponse>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#name)  
+**Child Elements** |  None   
+  
+The `<ContinuousScan>` element uses the following syntax:
+    
+    
+    <ContinuousScan>true</ContinuousScan>
+
 ## Flow variables
 
 Flow variables can be used to configure dynamic runtime behavior for policies and flows, based on HTTP headers or message content, or the context available in the Flow. For more information about flow variables, see [Flow variables reference](https://docs.cloud.google.com/apigee/docs/api-platform/reference/variables-reference).
@@ -303,7 +391,7 @@ Variable name | Description
 `SanitizeModelResponse.POLICY_NAME.templateUsed` | Specifies which model armor template is used. For example: `projects/myproject/locations/us-west1/templates/mytemplate`  
 `SanitizeModelResponse.POLICY_NAME.userPrompt` | Specifies the prompt content used for the call to Model Armor to sanitize the content.  
 `SanitizeModelResponse.POLICY_NAME.modelResponse` | Specifies the LLM response content used for the call to Model Armor to sanitize the content.  
-`SanitizeModelResponse.POLICY_NAME.responseFromModelArmor` | Specifies the json response from Model Armor. Model Armor.  
+`SanitizeModelResponse.POLICY_NAME.responseFromModelArmor` | Specifies the JSON response from Model Armor. When `<ContinuousScan>` is set to `true`, contains the most recent response.  
 `SanitizeModelResponse.POLICY_NAME.filterMatchState` | Specifies whether the filter was matched. Valid values include `MATCH_FOUND` and `NO_MATCH_FOUND`.  
 `SanitizeModelResponse.POLICY_NAME.invocationResult` | A field indicating the outcome of the invocation, irrespective of match status. It can have the following: 
 
@@ -333,8 +421,10 @@ Variable name | Description
 `SanitizeModelResponse.POLICY_NAME.promptInjectionDetected` | Boolean value indicating whether the prompt injection filter matched.  
 `SanitizeModelResponse.POLICY_NAME.promptInjectionConfidence` | Confidence level of prompt injection detection.  
 `SanitizeModelResponse.POLICY_NAME.raiMatchesFound` | Boolean value indicating whether the RAI filter matched.  
-`SanitizeModelResponse.POLICY_NAME.requestSentToModelArmor` | Boolean value indicating whether a request was sent to Model Armor.  
+`SanitizeModelResponse.POLICY_NAME.requestSentToModelArmor` | Specifies the JSON request sent to Model Armor. When `<ContinuousScan>` is set to `true`, contains the most recent request.  
 `SanitizeModelResponse.POLICY_NAME.sanitizeOperation` | Specifies the operation performed by the policy. Valid values include `SANITIZE_USER_PROMPT` and `SANITIZE_MODEL_RESPONSE`.  
+`SanitizeModelResponse.POLICY_NAME.streamReplacements` | Specifies the number of times the policy reconnected to Model Armor during the response when `<ContinuousScan>` is set to `true`. Set only if the policy reconnected.  
+`SanitizeModelResponse.POLICY_NAME.lastStreamReplacementCause` | Specifies the error that caused the most recent reconnect when `<ContinuousScan>` is set to `true`. Set only if the policy reconnected.  
   
 ## Error reference
 
@@ -390,13 +480,13 @@ Variables | Where | Example
 ### Example fault rule
     
     
-    <FaultRule name="SanitizeModelResponse Fa>ults&<quot>;
-        Ste<p
-      >      NameSMR-CustomSetVariableErr<orRes>ponse/Nam<e
-           > Condition(fault.name = "SetV<ariableFai>led&q<uot;)>/Cond<ition
-       > /Step
-        Condition(sanitizemodelres<ponse.fail>e<d = true)/>Condition
-    /FaultRule
+    <FaultRule name="SanitizeModelResponse Faults">
+        <Step>
+            <Name>SMR-CustomSetVariableErrorResponse</Name>
+            <Condition>(fault.name = "SetVariableFailed")</Condition>
+        </Step>
+        <Condition>(sanitizemodelresponse.failed = true)</Condition>
+    </FaultRule>
 
 ### Model Armor template error code and error messages
 
@@ -425,6 +515,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

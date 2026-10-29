@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/custom-looker-visualization-gemini/
 title: Create visualizations with Gemini assistance \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:37.863402+00:00
+fetched_at: 2026-10-29T09:47:11.493413+00:00
 ---
 
 # Create visualizations with Gemini assistance  |  Looker  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 This documentation page describes how to use Gemini assistance to generate JSON formatting options from text-based prompts and then apply that formatting to customize a Looker visualization. Customizing visualizations with the **Visualization Assistant** is a Gemini in Looker feature that is available in Looker (original) and Looker (Google Cloud core) instances.
 
-The **Visualization Assistant** is available for visualizations that use the HighCharts API, which includes most [Cartesian charts](https://docs.cloud.google.com/looker/docs/visualization-types#cartesian_charts), such as the [column chart](https://docs.cloud.google.com/looker/docs/column-options), [bar chart](https://docs.cloud.google.com/looker/docs/bar-options), and [line chart](https://docs.cloud.google.com/looker/docs/line-options), among others.
+The **Visualization Assistant** is available for visualizations that use the Highcharts API, which includes most [Cartesian charts](https://docs.cloud.google.com/looker/docs/visualization-types#cartesian_charts), such as the [column chart](https://docs.cloud.google.com/looker/docs/column-options), [bar chart](https://docs.cloud.google.com/looker/docs/bar-options), and [line chart](https://docs.cloud.google.com/looker/docs/line-options), among others.
 
 Gemini in Looker is a product in the [Gemini for Google Cloud](https://docs.cloud.google.com/gemini/docs/overview) portfolio that provides generative AI-powered assistance to help you analyze and gain valuable insights from your data.
 
@@ -49,29 +49,37 @@ As an early-stage technology, Gemini for Google Cloud products can generate outp
 To customize a visualization with the **Visualization Assistant** , follow these steps:
 
   1. View a supported visualization in an Explore, or edit a visualization in a Look or dashboard.
-  2. Open the **Edit** menu in the visualization.
+  2. Select the **Style** tab in the [**Configure panel**](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#navigating-the-configure-panel).
   3. Click pen_spark **Visualization Assistant** to open the prompt menu.
 
 
 
-![](https://docs.cloud.google.com/static/looker/docs/images/advanced-vis-assistant-2410.png)
+If you're using the classic Explore, to customize a visualization with the **Visualization Assistant** , follow these steps:
+
+  1. View a supported visualization in an Explore, or edit a visualization in a Look or dashboard.
+  2. Open the **Visualization** panel.
+  3. Click pen_spark **Visualization Assistant** to open the prompt menu.
+
+
+
+![](https://docs.cloud.google.com/static/looker/docs/images/vis-assistant-2620.png)
 
 Within the pen_spark **Visualization Assistant** prompt menu, you can do the following:
 
   * Type out a plain text prompt of changes for the visualization in the **Ask anything** field. To send send_spark your prompt, press return (Mac) or Enter (PC).
   * Apply generated **Suggestions** to the visualization.
   * Open the **Edit Chart Config** to manually write and edit JSON formatting options.
-  * **Clear Chart Overrides** to clear all custom changes applied to the visualization. You will be prompted to **Confirm** removing all changes before proceeding. If you cleared the changes by accident it is possible to retrieve them by navigating back in your browser history.
+  * **Clear Chart Overrides** to clear all custom changes that were applied to the visualization. You will be prompted to **Confirm** removing all changes before proceeding. If you cleared the changes by accident, you can retrieve them by navigating back in your browser history.
 
 
 
-Once the prompt has run a preview window will open with the options to:
+Once the prompt has run, a preview will appear in the chat window with the following options:
 
-![](https://docs.cloud.google.com/static/looker/docs/images/apply-advanced-vis-config.png)
+![](https://docs.cloud.google.com/static/looker/docs/images/vis-asst-preview-2620.png)
 
-  * Manually write and edit the generated JSON formatting options: Click **Edit Chart Config** to open the chart configuration editor. Click **Visualization Assistant** to return to the prompt menu.
-  * Start a new prompt: Click **Start Over** to begin a new prompt from the pen_spark **Visualization Assistant** menu. All unapplied changes will be lost.
   * Apply the previewed changes to the visualization: Click **Apply**. If changes are made in the **Chart Config** menu, this option will change to **Revalidate and Apply**.
+  * Manually write and edit the generated JSON formatting options: Click **Edit chart config** to open the chart configuration editor. Click **Visualization Assistant** to return to the prompt menu.
+  * Click **Clear chart overrides** to undo any applied changes.
   * Provide feedback about the helpfulness of the prompt response: Select thumb_up to indicate that the prompt response was helpful, or select thumb_down to indicate that the response was not what was expected.
 
 
@@ -86,25 +94,25 @@ Writing successful prompts can take practice. Try some of the following suggesti
 
 ### Break prompts into multiple parts
 
-Prompts are more successful when they focus on one change at a time. For example, if you want to change both the font family and the type of visualization, it's better to make these separate prompts. Once you approve of the generated changes apply them and then begin writing the next prompt.
+Prompts are more successful when they focus on one change at a time. For example, if you want to change both the font family and the type of visualization, it's better to make these separate prompts. Once you approve of the generated changes, apply them and then begin writing the next prompt.
 
-**Prompt** : Change the last series into a line
+**Prompt** : Change the first series into a line
 
-![The Visualization Assistant menu shows a preview of a prompt that changes one of the three series in a visualization from a column to a line.](https://docs.cloud.google.com/static/looker/docs/images/vis-assistant-line.png)
+![The Visualization Assistant menu shows a preview of a prompt that changes one of the three series in a visualization from a column to a line.](https://docs.cloud.google.com/static/looker/docs/images/vis-assistant-line-2620.png)
 
 **Prompt** : Change the font to Arial and make it bold
 
-![The Visualization Assistant menu shows a preview of a prompt that changes the font of the graph to the Arial font family, and makes text bold.](https://docs.cloud.google.com/static/looker/docs/images/vis-assistant-arial-font.png)
+![The Visualization Assistant menu shows a preview of a prompt that changes the font of the graph to the Arial font family, and makes text bold.](https://docs.cloud.google.com/static/looker/docs/images/vis-assistant-arial-font-2620.png)
 
 ### Try writing a prompt multiple ways
 
 If you're not seeing the results that you expect from your prompt, try rewording the prompt. When you apply conditional formatting, try making your prompt as unambiguous as possible. Setting specific value ranges and providing hex codes can create a more successful output. See the following examples:
 
-**Good prompt** : Make the first series #F4B400 if it is over 350000
+**Good prompt** : Make the first series #F4B400 if it is over 1800
 
 **Poor prompt** : Highlight the top values in yellow
 
-![The Visualization Assistant menu shows a preview of a prompt that changes the color of the first series of values over 350,000.](https://docs.cloud.google.com/static/looker/docs/images/vis-assistant-hex.png)
+![The Visualization Assistant menu shows a preview of a prompt that changes the color of the first series of values over 1800.](https://docs.cloud.google.com/static/looker/docs/images/vis-assistant-hex-2620.png)
 
 If you have multiple series in a visualization, try referring to the series by name rather than by its position in the chart.
 
@@ -112,11 +120,11 @@ If you have multiple series in a visualization, try referring to the series by n
 
 **Better prompt** : Make the users series a column
 
-![The Visualization Assistant menu shows a preview of a prompt that changes the second of three series, called users, to a column chart](https://docs.cloud.google.com/static/looker/docs/images/vis-assistant-series-name.png)
+![The Visualization Assistant menu shows a preview of a prompt that changes the second of three series, called users, to a column chart](https://docs.cloud.google.com/static/looker/docs/images/vis-assistant-series-name-2620.png)
 
 ### Use prompts as a starting point
 
-Particularly complex customizations may require making edits directly to the JSON. Try using the **Visualization Assistant** prompts to create templates and patterns for complex customizations, and then use the **Edit Chart Config** to manually write and edit JSON formatting options. Visit the [Customizing visualizations using the Chart Config Editor](https://docs.cloud.google.com/looker/docs/chart-config-editor) documentation for more on using HighCharts JSON.
+Particularly complex customizations may require making edits directly to the JSON. Try using the **Visualization Assistant** prompts to create templates and patterns for complex customizations, and then use the **Edit Chart Config** to manually write and edit JSON formatting options. Visit the [Customizing visualizations using the Chart Config Editor](https://docs.cloud.google.com/looker/docs/chart-config-editor) documentation for more on using Highcharts JSON.
 
 ### Sample prompts
 
@@ -146,6 +154,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

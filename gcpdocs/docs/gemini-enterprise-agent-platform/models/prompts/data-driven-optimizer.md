@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/prompts/data-driven-optimizer/
 title: Data-driven prompt optimizer \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:54.792339+00:00
+fetched_at: 2026-10-29T09:45:12.453914+00:00
 ---
 
 # Data-driven prompt optimizer  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -142,7 +142,6 @@ To ensure that the [Compute Engine default service account](https://docs.cloud.g
   * If using custom metrics: 
     * [Cloud Run Developer ](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.developer) (`roles/run.developer`)
     * [Cloud Run Invoker ](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.invoker) (`roles/run.invoker`)
-    * [Agent Platform Service Agent ](https://docs.cloud.google.com/iam/docs/roles-permissions/aiplatform#aiplatform.serviceAgent) (`roles/aiplatform.serviceAgent`)
 
 
 

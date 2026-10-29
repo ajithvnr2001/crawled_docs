@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/instrumentation/otel-zerocode-java-gke/
 title: Use OpenTelemetry zero-code instrumentation for Java workloads on GKE \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:23.672438+00:00
+fetched_at: 2026-10-29T09:56:21.286790+00:00
 ---
 
 # Use OpenTelemetry zero-code instrumentation for Java workloads on GKE  |  Google Cloud Observability  |  Google Cloud Documentation
@@ -455,29 +455,9 @@ The Java application deployed in your GKE cluster is now auto-instrumented.
 
 ## Generate telemetry from the deployed application
 
-To generate telemetry from the auto-instrumented application, you need to send requests to the application to simulate user activity. You can generate a steady stream of traffic by running a traffic simulator. This section describes how to download the simulator, build it by using Cloud Build, store the image in Artifact Registry, and deploy the simulator:
+To generate telemetry from the auto-instrumented application, you need to send requests to the application to simulate user activity. You can generate a steady stream of traffic by deploying a traffic simulator in your cluster:
 
-  1. Download the traffic simulator application by running the following commands:
-         
-         mkdir traffic-simulator && pushd traffic-simulator && \
-         curl -O https://raw.githubusercontent.com/GoogleCloudPlatform/opentelemetry-operator-sample/refs/heads/main/recipes/self-managed-otlp-ingest/traffic/hey.Dockerfile  && \
-         curl -O https://raw.githubusercontent.com/GoogleCloudPlatform/opentelemetry-operator-sample/refs/heads/main/recipes/self-managed-otlp-ingest/traffic/cloudbuild-hey.yaml && \
-         popd
-         
-
-The previous commands do the following:
-
-     1. Create a separate directory for building a traffic-simulator application.
-     2. Download the Dockerfile for the application.
-     3. Download the Cloud Build configuration to build the application image.
-  2. Create the application image with Cloud Build and push it to Artifact Registry by running the following commands:
-         
-         pushd traffic-simulator && \
-         gcloud builds submit --config <(envsubst < cloudbuild-hey.yaml) . && \
-         popd
-         
-
-  3. Create a deployment configuration file for the simulator by copying the following content into a file in the `traffic-simulator` directory named `quickstart-traffic.yaml`:
+  1. Create a deployment configuration file for the simulator by copying the following content into a file named `quickstart-traffic.yaml`:
          
          apiVersion: apps/v1
          kind: Deployment
@@ -497,22 +477,23 @@ The previous commands do the following:
              spec:
                containers:
                  - name: traffic-simulator
-                   image: us-east4-docker.pkg.dev/PROJECT_ID/opentelemetry-autoinstrument-registry/hey:latest
-                   args:
-                   - -c=2
-                   - -q=1
-                   - -z=1h
-                   - http://quickstart-app:8080/multi
+                   image: golang:1.24
+                   command:
+                     - go
+                     - run
+                     - github.com/rakyll/hey@latest
+                     - -c=2
+                     - -q=1
+                     - -z=1h
+                     - http://quickstart-app:8080/multi
          
 
-  4. Deploy the traffic simulator by running the following commands:
+  2. Deploy the traffic simulator by running the following command:
          
-         pushd traffic-simulator && \
-         kubectl apply -f quickstart-traffic.yaml -n APPLICATION_NAMESPACE && \
-         popd
+         kubectl apply -f quickstart-traffic.yaml -n APPLICATION_NAMESPACE
          
 
-  5. After you create the deployment, it might take a while for the pods to be created and start running. To check the status of the pods, run the following command:
+  3. After you create the deployment, it might take a while for the pods to be created and start running. To check the status of the pods, run the following command:
          
          kubectl get po -n APPLICATION_NAMESPACE -w
          
@@ -625,6 +606,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/gemini-expression-asst/
 title: Write Looker expressions with Gemini assistance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:13:34.418607+00:00
+fetched_at: 2026-10-29T09:47:10.062254+00:00
 ---
 
 # Write Looker expressions with Gemini assistance  |  Google Cloud Documentation
@@ -91,19 +91,11 @@ Gemini updates the suggested expression:
 
 Click **Apply** , and the new table calculation is created:
 
-![The new table calculation is added to the Explore.](https://docs.cloud.google.com/static/looker/docs/images/explore-with-generated-table-calc-2604.png)
+![The new table calculation is added to the Explore.](https://docs.cloud.google.com/static/looker/docs/images/explore-with-generated-table-calc-2620.png)
 
 ## Provide feedback
 
 You can provide feedback for the generated expression in the **Help me write an expression** panel. If the generated expression looks correct, click the thumb_up thumbs-up icon. If the generated expression looks incorrect or isn't what you expected, click the thumb_down thumbs-down icon.
-
-**Note:** Gemini in Looker is in preview with limited support. We encourage you to share your feedback to help us improve. To report bugs or issues, reach out to [Looker Support](https://docs.cloud.google.com/looker/docs/best-practices/looker-support-details) and be sure to include the following details: 
-
-  * A clear description of the problem and the expected behavior
-  * Steps to reproduce the issue
-  * Any additional relevant details
-
-
 
 ## Related resources
 
@@ -116,6 +108,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

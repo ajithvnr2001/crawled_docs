@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/data-manipulation-language/
 title: Transform data with data manipulation language (DML) \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:22.497966+00:00
+fetched_at: 2026-10-29T10:18:17.277346+00:00
 ---
 
 # Transform data with data manipulation language (DML)  |  BigQuery  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Transform data with data manipulation language (DML)
 
-The BigQuery data manipulation language (DML) lets you update, insert, and delete data from your BigQuery tables.
+The BigQuery data manipulation language (DML) lets you update, insert, and delete data in your BigQuery tables so that you can modify existing records and maintain current datasets. You can run DML statements in the same way that you run `SELECT` statements.
 
-You can execute DML statements just as you would a `SELECT` statement, with the following conditions:
+## Execution requirements
+
+When you run DML statements, the following conditions apply:
 
   * You must use GoogleSQL. To enable GoogleSQL, see [Switching SQL dialects](https://docs.cloud.google.com/bigquery/sql-reference/enabling-standard-sql).
   * You cannot specify a destination table for the query.
@@ -359,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

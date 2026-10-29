@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/iam-roles/
 title: IAM roles for Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:47:47.421597+00:00
+fetched_at: 2026-10-29T09:47:12.116647+00:00
 ---
 
 # IAM roles for Cloud Storage  |  Google Cloud Documentation
@@ -524,6 +524,17 @@ Role | Permissions
   * Bucket
 
 |  `resourcemanager.projects.get` `resourcemanager.projects.list` `storage.buckets.get` `storage.buckets.getObjectInsights`  
+  
+### Service agent roles
+
+Service agent roles should only be granted to [service agents](https://docs.cloud.google.com/iam/docs/service-agents). 
+
+Role | Permissions  
+---|---  
+  
+#### GCS Malware Scanner Service Agent 
+
+(`roles/storage.malwareScannerServiceAgent`) Gives Google Cloud Storage Malware Scanner Service Agent access to read object contents and write scan verdicts to object contexts.  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `storage.objects.createContext` `storage.objects.get` `storage.objects.updateContext`  
 **Note:** Consider the following for permissions: 
 
   * The `orgpolicy.policy.get` permission allows principals to know the [organization policy constraints](https://docs.cloud.google.com/storage/docs/org-policy-constraints) that a project is subject to. This permission is only effective if the role is [granted at the project level](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access#grant-single-role) or above.
@@ -705,6 +716,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-gke-standard-cluster/
 title: Configure a GKE Standard cluster \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:08:47.195352+00:00
+fetched_at: 2026-10-29T09:56:38.741261+00:00
 ---
 
 # Configure a GKE Standard cluster  |  Application Design Center  |  Google Cloud Documentation
@@ -20,7 +20,7 @@ Send feedback
 
 #  Configure a GKE Standard cluster Stay organized with collections  Save and categorize content based on your preferences. 
 
-A GKE Standard cluster provides a managed environment for deploying, managing, and scaling your containerized applications using Google infrastructure. This document describes the connections and parameters you can configure when using App Design Center to create a GKE Standard cluster. The configuration parameters are based on the [GKE Standard Cluster Terraform module](https://github.com/terraform-google-modules/terraform-google-kubernetes-engine/tree/main/modules/gke-standard-cluster).
+In App Design Center, you can configure a GKE Standard cluster to provide a managed environment with underlying node configuration control for deploying, managing, and scaling containerized applications on Google infrastructure. You can customize the cluster's component connections and configuration parameters based on the [GKE Standard Cluster Terraform module](https://github.com/terraform-google-modules/terraform-google-kubernetes-engine/tree/main/modules/gke-standard-cluster).
 
 ## Component connections
 
@@ -265,6 +265,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

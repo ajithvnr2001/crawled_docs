@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/output-html-md/
 title: Output HTML and Markdown \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:03.886716+00:00
+fetched_at: 2026-10-29T11:07:36.166967+00:00
 ---
 
 # Output HTML and Markdown  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

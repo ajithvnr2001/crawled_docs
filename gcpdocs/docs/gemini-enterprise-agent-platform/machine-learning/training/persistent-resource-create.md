@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/persistent-resource-create/
 title: Create a persistent resource \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:06.165385+00:00
+fetched_at: 2026-10-29T11:06:58.173053+00:00
 ---
 
 # Create a persistent resource  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

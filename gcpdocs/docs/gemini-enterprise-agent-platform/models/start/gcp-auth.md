@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/gcp-auth/
 title: Configure application default credentials \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:52.271765+00:00
+fetched_at: 2026-10-29T11:07:00.751376+00:00
 ---
 
 # Configure application default credentials  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

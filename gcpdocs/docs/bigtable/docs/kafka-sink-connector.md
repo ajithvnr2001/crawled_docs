@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/kafka-sink-connector/
 title: Kafka Connect Bigtable sink connector \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:16.031982+00:00
+fetched_at: 2026-10-29T10:19:23.215924+00:00
 ---
 
 # Kafka Connect Bigtable sink connector  |  Google Cloud Documentation

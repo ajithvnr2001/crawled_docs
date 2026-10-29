@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-reads-filter-hbase/
 title: Read with a filter (HBase) \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:03.433641+00:00
+fetched_at: 2026-10-29T10:19:20.769036+00:00
 ---
 
 # Read with a filter (HBase)  |  Bigtable  |  Google Cloud Documentation

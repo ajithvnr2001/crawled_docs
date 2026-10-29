@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.29/docs/observability/accessing-traces/
 title: Cloud Trace and Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:25.063039+00:00
+fetched_at: 2026-10-29T10:18:22.520052+00:00
 ---
 
 # Cloud Trace and Cloud Service Mesh  |  Google Cloud Documentation
@@ -42,9 +42,7 @@ This section shows you how to enable Cloud Trace.
 
 ### Managed (TD)
 
-**Note:** In the rapid and regular channels, Cloud Service Mesh with a managed Traffic Director control plane supports multiple telemetry API configurations. Telemetry APIs are supported at the root namespace (default: `istio-system`, or as mentioned in the meshconfig), namespace level, and selector specific. Priority is highest for selector and lowest for root level. In other channels, only a single cluster-wide telemetry API configuration is supported, specifically, a single Istio telemetry API CR in the root namespace.
-
-If you already have an existing Istio telemetry API CR, include them within your new Istio telemetry API CR to preserve your previous customization settings in your existing Istio telemetry CR.
+**Note:** Cloud Service Mesh with a managed Traffic Director control plane supports multiple telemetry API configurations. Telemetry APIs are supported at the root namespace (default: `istio-system`, or as mentioned in the meshconfig), namespace level, and selector specific. Priority is highest for selector and lowest for root level.
 
 This section shows you how to enable Cloud Trace on Cloud Service Mesh with a managed Traffic Director control plane.
 
@@ -64,8 +62,6 @@ This section shows you how to enable Cloud Trace on Cloud Service Mesh with a ma
          
 
 By default, the sampling rate is 1%. You can override the default by specifying `randomSamplingPercentage` and setting it to a value between `0.0` and `100.0`.
-
-**Note:** For `TRAFFIC_DIRECTOR` implementations, overriding the `randomSamplingPercentage` is supported only in the **Rapid** and **Regular** release channels.
 
 The following example sets a sampling rate of 100% (which you would typically only do for demo or troubleshooting purposes):
          
@@ -353,6 +349,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

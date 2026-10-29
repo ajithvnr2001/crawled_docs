@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/optimize-storage/
 title: Optimize data and storage for sustainability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:40:27.398120+00:00
+fetched_at: 2026-10-29T09:47:08.738141+00:00
 ---
 
 # Optimize data and storage for sustainability  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Optimize data and storage for sustainability Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-01-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the sustainability pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework/sustainability) provides recommendations to help you optimize the energy efficiency and carbon footprint for your storage resources in Google Cloud.
 
@@ -27,7 +27,7 @@ This principle in the sustainability pillar of the [Google Cloud Well-Architecte
 
 Stored data isn't a passive resource. Energy is consumed and carbon emissions occur throughout the lifecycle of data. Every gigabyte of stored data requires physical infrastructure that's continuously powered, cooled, and managed. To achieve sustainable cloud architecture, treat data as a valuable but environmentally costly asset and prioritize proactive data governance.
 
-Your decisions about data retention, quality, and location can help you achieve substantial reductions in cloud costs and energy consumption. Minimize the data that you store, optimize where and how data you store data, and implement automated deletion and archival strategies. When you reduce data clutter, you improve system performance and fundamentally reduce the long-term environmental footprint of your data.
+Your decisions about data retention, quality, and location can help you achieve substantial reductions in cloud costs and energy consumption. Minimize the data that you store, optimize where and how you store data, and implement automated deletion and archival strategies. When you reduce data clutter, you improve system performance and fundamentally reduce the long-term environmental footprint of your data.
 
 ## Recommendations
 
@@ -43,7 +43,7 @@ Establish policies to prevent the needless replication of datasets across multip
 
 #### Remove shadow data and dark data
 
-_Dark data_ is data for which the utility or owner is unknown. _Shadow data_ means unauthorized copies of data. Scan your storage systems and find dark data and shadow data by using a data discovery and cataloging solution like [Knowledge Catalog](https://docs.cloud.google.com/dataplex/docs/introduction). Regularly audit these findings and implement a process for archival or deletion of dark and shadow data as appropriate.
+_Dark data_ is data for which the utility or owner is unknown. _Shadow data_ means unauthorized copies of data. Scan your storage systems and find dark data and shadow data by using a data discovery and cataloging solution like [Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/introduction). Regularly audit these findings and implement a process for archival or deletion of dark and shadow data as appropriate.
 
 #### Minimize the data volume for AI workloads
 
@@ -51,7 +51,7 @@ Store only the features and processed data that are required for model training 
 
 #### Integrate data quality checks
 
-Implement automatic data validation and data cleaning pipelines by using services like [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc/docs/concepts/overview), [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview), or Knowledge Catalog at the point of data ingestion. Low-quality data causes wasted storage space. It also leads to unnecessary energy consumption when the data is used later for analytics or AI training.
+Implement automatic data validation and data cleaning pipelines by using services like [Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/concepts/clusters-overview), [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview), or Knowledge Catalog at the point of data ingestion. Low-quality data causes wasted storage space. It also leads to unnecessary energy consumption when the data is used later for analytics or AI training.
 
 #### Review the value density of data
 
@@ -97,7 +97,7 @@ The physical location and movement of your data affect the consumption of networ
 
 #### Select low-carbon storage regions
 
-Depending on your compliance requirements, store data in Google Cloud regions that use a higher percentage of carbon-free energy (CFE) or that have lower grid carbon intensity. Restrict the creation of storage buckets in high-carbon regions by using the [resource locations](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) Organization Policy constraint. For information about CFE and carbon-intensity data for Google Cloud regions, see [Carbon-free energy for Google Cloud regions](https://cloud.google.com/sustainability/region-carbon).
+Depending on your compliance requirements, store data in Google Cloud regions that use a higher percentage of carbon-free energy (CFE) or that have lower grid carbon intensity. Restrict the creation of storage buckets in high-carbon regions by using the [resource locations](https://docs.cloud.google.com/organization-policy/restrict-locations) Organization Policy constraint. For information about CFE and carbon-intensity data for Google Cloud regions, see [Carbon-free energy for Google Cloud regions](https://cloud.google.com/sustainability/region-carbon).
 
 #### Minimize replication
 
@@ -119,6 +119,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-01-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-01-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/vertex-ai-name-changes/
 title: Gemini Enterprise Agent Platform name changes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:06.565306+00:00
+fetched_at: 2026-10-29T11:13:12.189272+00:00
 ---
 
 # Gemini Enterprise Agent Platform name changes  |  Google Cloud Documentation

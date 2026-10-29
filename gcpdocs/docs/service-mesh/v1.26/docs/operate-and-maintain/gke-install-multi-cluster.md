@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.26/docs/operate-and-maintain/gke-install-multi-cluster/
 title: Set up a multi-cluster mesh on GKE \u00a0|\u00a0 Cloud Service Mesh v1.26 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:31:54.218723+00:00
+fetched_at: 2026-10-29T10:18:33.836663+00:00
 ---
 
 # Set up a multi-cluster mesh on GKE  |  Cloud Service Mesh v1.26  |  Google Cloud Documentation

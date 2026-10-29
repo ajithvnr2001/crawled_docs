@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/release-notes/
 title: Google SecOps Response Integrations release notes \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:31:17.696977+00:00
+fetched_at: 2026-10-29T10:16:07.375090+00:00
 ---
 
 # Google SecOps Response Integrations release notes  |  Google Security Operations  |  Google Cloud Documentation
@@ -26,6 +26,21 @@ This page documents production updates to Google SecOps Response Integrations. Y
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/chronicle-soar-marketplace-release-notes.xml) directly. 
+
+## October 24, 2026
+
+Change
+
+**GitSync** : Version 54.0
+
+  * (REGRESSIVE) **Integration** : Reverted the Chronicle API refactoring introduced in version 53.0. The integration code is restored to version 52.0.
+
+**Important:** All deployments must run on **version 54.0** or **version 52.0**. If you are currently on **version 53.0** , roll back to **version 52.0** or update to **version 54.0** , and point the **Branch** parameter back to your pre-v53 repository branch. 
+
+For instructions, see [Version 53.0 rollback and version 52.0 / 54.0 compatibility](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync#version-54-rollback-guidance).
+
+
+
 
 ## October 21, 2026
 
@@ -185,13 +200,13 @@ Change
 
 Change
 
-**Gitsync** : Version 53.0
+**GitSync** : Version 53.0
 
   * (REGRESSIVE) **Integration** : Updated to support the latest Chronicle API.
 
-**Important:** Existing users **must** migrate their repository branch and re-export their content after updating. 
+**Important:** **Rolled back in version 54.0.** Due to known synchronization issues in version 53.0, do not use version 53.0. Roll back to **version 52.0** or update to **version 54.0** , which restores the stable version 52.0 baseline. 
 
-For instructions, see [Chronicle API-enabled environment migration](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync#chronicle-api-enabled-environment-migration).
+For instructions, see [Version 53.0 rollback and version 52.0 / 54.0 compatibility](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync#version-54-rollback-guidance).
 
 
 
@@ -12376,6 +12391,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/service-routing/limitations/
 title: Cloud Service Mesh limitations with Envoy \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:29:58.805718+00:00
+fetched_at: 2026-10-29T10:18:29.180405+00:00
 ---
 
 # Cloud Service Mesh limitations with Envoy  |  Google Cloud Documentation

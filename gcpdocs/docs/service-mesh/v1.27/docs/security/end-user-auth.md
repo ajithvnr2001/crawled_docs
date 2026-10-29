@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/security/end-user-auth/
 title: Configuring Cloud Service Mesh user authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:30:02.076970+00:00
+fetched_at: 2026-10-29T10:18:30.595548+00:00
 ---
 
 # Configuring Cloud Service Mesh user authentication  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-list-column-families/
 title: List column families \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:32.848752+00:00
+fetched_at: 2026-10-29T10:19:09.325457+00:00
 ---
 
 # List column families  |  Bigtable  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/aggregation/
 title: Filtering and aggregation: manipulating time series \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:03:54.557461+00:00
+fetched_at: 2026-10-29T10:18:15.477787+00:00
 ---
 
 # Filtering and aggregation: manipulating time series  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -133,7 +133,7 @@ When choosing an alignment period, make it longer than the sampling period, but 
 
 After the data is broken into alignment periods, you select a function, the aligner, to be applied to the data points in that period. The aligner produces a single value placed at the end of each alignment period.
 
-Alignment options include summing the values, finding the max, min, or mean of the values, finding a chosen percentile value, counting the values, and others. The Cloud Monitoring API supports a large set of alignment functions, many more than the set illustrated here; see [`Aligner`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies#Aligner) for the full list. For a description of rate and delta aligners, which transform time series data, see [Kinds, types, and conversions](https://docs.cloud.google.com/monitoring/api/v3/aggregation#ts-conversion).
+Alignment options include summing the values, finding the max, min, or mean of the values, finding a chosen percentile value, counting the values, and others. The Cloud Monitoring API supports a large set of alignment functions, many more than the set illustrated here; see [`Aligner`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies#Aligner) for the full list. For a description of rate and delta aligners, which transform time series data, see [Metric kinds, types, and conversions](https://docs.cloud.google.com/monitoring/api/v3/aggregation#ts-conversion).
 
 For example, taking the bucketed data from the raw time series (illustrated in [Figure 1](https://docs.cloud.google.com/monitoring/api/v3/aggregation#id-three-raw-series)), choose an aligner and apply it to the data in each bucket. The following table shows the raw values and the results of three different aligners, _max_ , _mean_ , and _min_ :
 
@@ -242,7 +242,7 @@ The following illustration shows the result of aggregating the three grouped ser
 
 ![Graph showing result of mean reducer on group-reduced time series.](https://docs.cloud.google.com/static/monitoring/images/ts-group-by-mean-reducer.png)**Figure 7: Grouped time series, after _mean_ secondary aggregation**
 
-## Kinds, types, and conversions
+## Metric kinds, types, and conversions
 
 Recall that the data points in a time series are characterized by a metric kind and a value type; see [Value types and metric kinds](https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types) for a review. The appropriate aligners and reducers for one set of data might not be appropriate for another. For example, an aligner or reducer that counts the number of false values is appropriate for boolean data but not for numeric data. Likewise, an aligner or reducer that computes a mean is applicable to numeric data but not to boolean data.
 
@@ -298,7 +298,7 @@ For example, the `REDUCE_COUNT` reducer can be applied to numeric, boolean, stri
 
 
 
-The reference tables for [`Aligner`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies#Aligner) and [`Reducer`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies#Reducer) indicate what kind of data each is appropriate for and any conversion that results. For example, the following shows the entry for `ALIGN_DELTA`:
+The reference tables for [`Aligner`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies#Aligner) and [`Reducer`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.alertPolicies#Reducer) list the metric kinds that are appropriate for any conversion that results. For example, the following shows the entry for `ALIGN_DELTA`:
 
 ![Reference entry for delta aligner](https://docs.cloud.google.com/static/monitoring/images/align-delta-entry.png)
 
@@ -306,6 +306,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.12.0/docs/optimize-database-performance-compare-snapshots/
 title: Compare performance snapshots \u00a0|\u00a0 AlloyDB Omni for containers: 15.12.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:56:21.031982+00:00
+fetched_at: 2026-10-29T09:45:56.061591+00:00
 ---
 
 # Compare performance snapshots  |  AlloyDB Omni for containers: 15.12.0  |  Google Cloud Documentation
@@ -79,7 +79,7 @@ To use the `perfsnap` APIs, connect to any database where users want to install 
 
 Create a snapshot at the beginning and end of the workload you're interested in. The time interval between the two snapshots allows enough time for the workload to progress so that the system can accumulate metrics that reflect the workload. After you obtain metrics from the resulting performance snapshot report, you can take another set of snapshots and repeat the process.
 
-  1. [Connect a `psql` client to an AlloyDB instance](https://docs.cloud.google.com/alloydb/docs/connect-psql).
+  1. [Connect a `psql` client to an AlloyDB instance](https://docs.cloud.google.com/alloydb/omni/containers/15.12.0/docs/run-connect).
   2. Run `SELECT perfsnap.snap()`. The output looks similar to the following:
          
          postgres=# select perfsnap.snap();
@@ -94,7 +94,7 @@ Create a snapshot at the beginning and end of the workload you're interested in.
 
 ## View a list of snapshots
 
-  1. [Connect a `psql` client to an AlloyDB instance](https://docs.cloud.google.com/alloydb/docs/connect-psql).
+  1. [Connect a `psql` client to an AlloyDB instance](https://docs.cloud.google.com/alloydb/omni/containers/15.12.0/docs/run-connect).
   2. Run `SELECT * FROM perfsnap.g$snapshots`. The output looks similar to the following:
          
          postgres=# select * from perfsnap.g$snapshots;
@@ -121,7 +121,7 @@ The generated performance snapshot report looks similar to the following abridge
 #### Example performance snapshot report
     
     
-    $ psql -d postgres -U alloydbsuperuser
+    $ psql -d postgres -U postgres
     postgres=> select perfsnap.report(22, 23);
     
     report
@@ -286,7 +286,7 @@ The generated performance snapshot report looks similar to the following abridge
     
       
 
-For information about report fields and performance optimization recommendations, see Database performance optimization recommendations. For more information about wait events in performance snapshot reports, see [Database performance snapshot report reference](https://docs.cloud.google.com/alloydb/docs/reference/database-performance-snapshot-report-reference).
+For information about report fields and performance optimization recommendations, see Database performance optimization recommendations. For more information about wait events in performance snapshot reports, see [Database performance snapshot report reference](https://docs.cloud.google.com/alloydb/omni/containers/15.12.0/docs/reference/database-performance-snapshot-report-reference).
 
 ## Delete a snapshot
 
@@ -372,6 +372,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime/create-a-langgraph-agent/
 title: Create a LangGraph agent \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:16.302549+00:00
+fetched_at: 2026-10-29T09:56:25.986993+00:00
 ---
 
 # Create a LangGraph agent  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

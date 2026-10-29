@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/datasets/
 title: Multimodal datasets \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:03.688625+00:00
+fetched_at: 2026-10-29T11:07:03.797059+00:00
 ---
 
 # Multimodal datasets  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

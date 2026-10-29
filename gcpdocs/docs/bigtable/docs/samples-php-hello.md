@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples-php-hello/
 title: PHP hello world \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:08.274853+00:00
+fetched_at: 2026-10-29T10:19:29.379386+00:00
 ---
 
 # PHP hello world  |  Bigtable  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/release-notes/
 title: Database Migration Service release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:26:06.079005+00:00
+fetched_at: 2026-10-29T10:18:00.731475+00:00
 ---
 
 # Database Migration Service release notes  |  Google Cloud Documentation
@@ -26,6 +26,16 @@ This page documents production updates to Database Migration Service. Check this
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/dms-release-notes.xml) directly. 
+
+## October 28, 2026
+
+Feature
+
+Database Migration Service for homogeneous SQL Server migrations now supports Distributed Availability Group (DAG) migrations in general availability ([GA](https://cloud.google.com/products#product-launch-stages)).
+
+With DAG migrations, you can use gcloud CLI and Database Migration Service API to migrate databases from self-managed SQL Server Enterprise Edition instances directly to Cloud SQL for SQL Server over a private network connection. DAG migrations don't require exporting backup or transaction log files to Cloud Storage, and support post-promotion reverse replication for zero-data-loss failback.
+
+For more information, see [ About Distributed Availability Group (DAG) migrations](https://docs.cloud.google.com/database-migration/docs/sqlserver/dag-migration-overview) and [ Migrate from self-managed SQL Server using Distributed Availability Groups](https://docs.cloud.google.com/database-migration/docs/sqlserver/dag-migration-guide).
 
 ## October 26, 2026
 

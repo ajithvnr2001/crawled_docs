@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview/
 title: RAG Engine on Gemini Enterprise Agent Platform overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:44.059194+00:00
+fetched_at: 2026-10-29T11:12:24.343102+00:00
 ---
 
 # RAG Engine on Gemini Enterprise Agent Platform overview  |  Google Cloud Documentation

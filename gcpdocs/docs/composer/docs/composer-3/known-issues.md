@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-3/known-issues/
 title: Known issues \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:39:34.089977+00:00
+fetched_at: 2026-10-29T10:59:02.374327+00:00
 ---
 
 # Known issues  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -70,6 +70,32 @@ In case of their accidental removal (for example, because a retention policy was
 
     2. Override an Airflow configuration option. You can use a non-existent Airflow configuration option.
 
+
+
+
+## Error 500 when accessing the Airflow UI after overriding [webserver]analytics_tool
+
+In environments with Airflow 2, if you [override](https://docs.cloud.google.com/composer/docs/composer-3/override-airflow-configurations) the `[webserver]analytics_tool` Airflow configuration option to route anonymous Airflow UI usage data to an analytics service (such as Google Analytics, Segment, MetaRouter, or Matomo), accessing the Airflow UI after the environment update succeeds might return a `(500) Internal Server Error` response, with one of the following errors in the Airflow web server logs:
+    
+    
+    airflow.exceptions.AirflowConfigException: section/key [webserver/analytics_id] not found in config
+    
+    
+    
+    airflow.exceptions.AirflowConfigException: section/key [webserver/analytics_url] not found in config
+    
+
+When `[webserver]analytics_tool` is set in Airflow 2, the Airflow web server requires companion analytics options in the `[webserver]` section to also be defined when rendering the Airflow UI.
+
+In Airflow 3, `[webserver]analytics_tool`, `[webserver]analytics_id`, and `[webserver]analytics_url` configuration options are removed.
+
+**Solutions:**
+
+  * Remove the [override](https://docs.cloud.google.com/composer/docs/composer-3/override-airflow-configurations) for the `[webserver]analytics_tool` Airflow configuration option, or
+  * Specify all required Airflow configuration options together: 
+    * `[webserver]analytics_tool`
+    * `[webserver]analytics_id`
+    * `[webserver]analytics_url` (required in Airflow 2.9 and later, even if your analytics tool doesn't use a custom URL)
 
 
 
@@ -342,6 +368,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

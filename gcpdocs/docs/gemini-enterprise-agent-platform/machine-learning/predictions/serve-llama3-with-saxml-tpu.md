@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/serve-llama3-with-saxml-tpu/
 title: Serve Llama 3 open models using multi-host Cloud TPUs on Gemini Enterprise Agent Platform with Saxml \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:40.369600+00:00
+fetched_at: 2026-10-29T11:12:51.361055+00:00
 ---
 
 # Serve Llama 3 open models using multi-host Cloud TPUs on Gemini Enterprise Agent Platform with Saxml  |  Google Cloud Documentation

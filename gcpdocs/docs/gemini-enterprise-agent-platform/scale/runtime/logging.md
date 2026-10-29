@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/logging/
 title: Set up logging \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:33.268562+00:00
+fetched_at: 2026-10-29T11:07:20.460917+00:00
 ---
 
 # Set up logging  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

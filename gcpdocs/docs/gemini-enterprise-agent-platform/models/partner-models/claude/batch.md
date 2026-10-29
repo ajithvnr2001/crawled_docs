@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/batch/
 title: Batch predictions with Anthropic Claude models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:32.123914+00:00
+fetched_at: 2026-10-29T11:06:51.369065+00:00
 ---
 
 # Batch predictions with Anthropic Claude models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

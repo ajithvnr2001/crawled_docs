@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/destination-blmt/
 title: Configure Apache Iceberg tables in BigQuery \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:19:55.585042+00:00
+fetched_at: 2026-10-29T11:06:06.180479+00:00
 ---
 
 # Configure Apache Iceberg tables in BigQuery  |  Datastream  |  Google Cloud Documentation

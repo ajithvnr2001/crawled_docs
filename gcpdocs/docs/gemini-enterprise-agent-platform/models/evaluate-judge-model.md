@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluate-judge-model/
 title: Evaluate a judge model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:50.529980+00:00
+fetched_at: 2026-10-29T11:07:23.986425+00:00
 ---
 
 # Evaluate a judge model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

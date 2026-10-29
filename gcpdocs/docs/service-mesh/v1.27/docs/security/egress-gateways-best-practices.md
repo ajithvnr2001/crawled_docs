@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/security/egress-gateways-best-practices/
 title: Best Practices for using Cloud Service Mesh egress gateways on GKE clusters \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:30:01.397606+00:00
+fetched_at: 2026-10-29T10:18:30.974897+00:00
 ---
 
 # Best Practices for using Cloud Service Mesh egress gateways on GKE clusters  |  Google Cloud Documentation

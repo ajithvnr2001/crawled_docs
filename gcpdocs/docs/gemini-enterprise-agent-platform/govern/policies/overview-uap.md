@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/overview-uap/
 title: Unified Access Policies overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:00.842495+00:00
+fetched_at: 2026-10-29T09:56:20.676108+00:00
 ---
 
 # Unified Access Policies overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ By using the **Policies** page, you can do the following:
 
   * [Use Identity and Access Management (IAM) policies to govern agentic communication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap).
 
-  * [Use Semantic Governance policies to govern traffic between agents and MCP servers and other tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview).
+  * [Use Semantic governance policies to govern traffic between agents and MCP servers and other tools](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview).
 
 
 

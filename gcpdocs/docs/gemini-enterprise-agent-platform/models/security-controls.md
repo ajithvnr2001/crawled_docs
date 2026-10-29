@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/security-controls/
 title: Security controls for Generative AI \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:14.395915+00:00
+fetched_at: 2026-10-29T09:45:13.861122+00:00
 ---
 
 # Security controls for Generative AI  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -108,6 +108,8 @@ Context caching |  |  |  |
 RAG Engine |  |  |  |   
 Grounding with Google Search and Grounding with Google Maps |  |  |  |   
 **Gemini 2.5 Flash with Gemini Live API native audio**  
+Online prediction |  |  |  |   
+**Gemini 3.5 Transcribe**  
 Online prediction |  |  |  |   
 **Gemini Embedding 2**  
 Online prediction |  |  |  |   

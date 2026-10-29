@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-bq-prediction/create-dataset/
 title: Create a Gemini Enterprise Agent Platform tabular dataset \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:54.627480+00:00
+fetched_at: 2026-10-29T11:06:32.351178+00:00
 ---
 
 # Create a Gemini Enterprise Agent Platform tabular dataset  |  Google Cloud Documentation

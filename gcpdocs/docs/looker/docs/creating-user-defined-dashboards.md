@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards/
 title: Creating user-defined dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:00.408370+00:00
+fetched_at: 2026-10-29T09:51:21.016843+00:00
 ---
 
 # Creating user-defined dashboards  |  Looker  |  Google Cloud Documentation
@@ -41,12 +41,12 @@ A **Create** button in the [left navigation panel](https://docs.cloud.google.com
   1. Click the **Create** button.
   2. Select the **Dashboard** menu item. This opens a **Create dashboard** window.
   3. Enter a name for your new dashboard in the **Name** field.
-  4. Navigate to and select the folder that you want to save the dashboard in. Alternatively, you can select the **Create New Folder** icon create_new_folder to create a new folder for the dashboard.
+  4. Navigate to and select the folder that you want to save the dashboard in. Alternatively, you can select the create_new_folder **Create New Folder** icon to create a new folder for the dashboard.
   5. Click **Create dashboard**.
 
 
 
-Next, your new blank dashboard appears. From here, you can add tiles or text by entering edit mode. To enter edit mode, click **Edit dashboard** from the **Dashboard actions** menu more_vert, or click the **Edit Dashboard** button in the center of the dashboard pane.
+Next, your new blank dashboard appears. From here, you can add tiles or text by entering edit mode. To enter edit mode, click **Edit dashboard** from the more_vert **Dashboard actions** menu, or click the **Edit Dashboard** button in the dashboard pane.
 
 ## Creating a dashboard from a folder
 
@@ -65,29 +65,26 @@ This opens the **Create Dashboard** window.
 
 
 
-Next, your new blank dashboard appears. From here, you can add tiles or text by entering edit mode. To enter edit mode, click **Edit dashboard** from the **Dashboard actions** three-dot icon menu more_vert, or click the **Edit Dashboard** button in the center of the dashboard pane.
+Next, your new blank dashboard appears. From here, you can add tiles or text by entering edit mode. To enter edit mode, click **Edit dashboard** from the more_vert **Dashboard actions** menu, or click the **Edit Dashboard** button in the dashboard pane.
 
 ## Creating a dashboard from a Look or an Explore
-
-**Note:** If you're using Looker's [new Explore experience](https://docs.cloud.google.com/looker/docs/new-explore-experience-overview), see the [Viewing and interacting with Explores in the new Explore experience](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience#save-or-share-menu) documentation page.
 
 To create a dashboard from a [Look](https://docs.cloud.google.com/looker/docs/saving-and-editing-looks) or an [Explore](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores), follow these steps:
 
   1. Navigate to a Look or an Explore.
-  2. Click **Save** from the **Explore Actions** gear icon menu settings.
-  3. Click **As new dashboard** from the submenu.
+  2. If you're creating a dashboard from an Explore, click **Save to new dashboard** from the **Save or Share** menu to open the **Save as a new Dashboard** dialog.
 
-This opens a **Save as a new Dashboard** window.
+If you're creating a dashboard from a Look or a classic Explore, click **Save** from the settings **Explore Actions** menu, and then select **As new dashboard** to open the **Save as a new Dashboard** dialog.
 
-  4. In the **Title** field, enter a name for your new dashboard.
+  3. In the **Title** field, enter a name for your new dashboard.
 
 The name that you enter applies to both the tile and the dashboard. You can modify title names at any time. To change the tile name for a query tile, see the [Editing a query tile title](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#editing_a_query_tile_title) subsection on the **Editing user-defined dashboards** documentation page. To change the dashboard name, enter [edit mode on the dashboard](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#entering_edit_mode_in_dashboards).
 
-  5. On the **Settings** tab, click the folder where you want to save your dashboard. You must have the [**Manage Access, Edit**](https://docs.cloud.google.com/looker/docs/organizing-spaces#folder_access_levels) access level for the folder.
+  4. On the **Settings** tab, click the folder where you want to save your dashboard. You must have the [**Manage Access, Edit**](https://docs.cloud.google.com/looker/docs/organizing-spaces#folder_access_levels) access level for the folder.
 
-  6. On the **Filters** tab, click whether to use the Look's or Explore's filters as the dashboard filters. Custom filters can't become dashboard filters, but they do remain as tile filters.
+  5. On the **Filters** tab, click whether to use the Look's or Explore's filters as the dashboard filters. Custom filters can't become dashboard filters, but they do remain as tile filters.
 
-  7. Click **Save**.
+  6. Click **Save**.
 
 
 **Note:** Any sorting that is applied in the **Visualization** pane (and not in the **Data** pane) of an Explore is a temporary client-side operation and won't persist when an Explore is [saved as a Look](https://docs.cloud.google.com/looker/docs/saving-and-editing-looks#saving_looks_from_an_explore) or [as a dashboard tile](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#creating_a_dashboard_from_a_look_or_an_explore).
@@ -183,22 +180,20 @@ For any new tiles that are added to a dashboard, if they were created from the s
 
 ### Adding query tiles from an Explore
 
-**Note:** If you're using Looker's [new Explore experience](https://docs.cloud.google.com/looker/docs/new-explore-experience-overview), see the [Viewing and interacting with Explores in the new Explore experience](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience#save-or-share-menu) documentation page.
+You can save a query tile to a dashboard directly from an [Explore](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores). Once you're in an Explore and have a query that you want to add to the dashboard, follow these steps:
 
-You can save a query tile to a dashboard directly from an [Explore](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores#the_explore_page). Once you are in an Explore and have a query that you want to add to the dashboard, follow these steps:
+  1. Click **Save to existing dashboard** from the [**Save or Share** menu](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores#save-or-share-menu) to open the **Add to a Dashboard in this folder** dialog.
 
-  1. Select **Save** from the [**Explore Actions** gear icon menu](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-with-explores#the_explore_actions_gear_menu) settings.
+If you're using a classic Explore, click **Save** from the settings **Explore Actions** menu, and then select **To an existing dashboard** to open the **Add to a Dashboard in this folder** dialog.
 
-This action opens an **Add to Dashboard** window:
-
-
-**Note:** If the [**New Explore & Look Saving** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#new_explore_look_saving) is enabled, a new experience lets users quickly navigate folders more quickly, and users can choose to sort existing content by Name, Created Date, or Last Update.
-
-  1. In the **Title** field, give your tile a title.
   2. From the list of folders, select the folder where the dashboard is located.
+
   3. From the list of dashboards, select the dashboard name, or type a dashboard name in the **Filter by title...** search bar to narrow the results.
+
   4. Optionally, if the selected dashboard [has tabs](https://docs.cloud.google.com/looker/docs/tabbed-dashboards), choose a tab for the tile from the **Tab** menu.
+
   5. Click **Save to Dashboard**.
+
 
 
 
@@ -217,10 +212,10 @@ You can add both query tiles and Look-linked tiles to dashboards from a [Look](h
 To add query tiles from a Look, follow these steps:
 
   1. Navigate to a Look.
-  2. From the [**Explore Actions** gear icon menu](https://docs.cloud.google.com/looker/docs/viewing-looks#the_look_explore_actions_gear_menu) settings, select **Save** . This action opens a submenu.
+  2. From the [settings **Explore Actions** gear icon menu](https://docs.cloud.google.com/looker/docs/viewing-looks#the_look_explore_actions_gear_menu) , select **Save** . This action opens a submenu.
   3. Select **To an existing dashboard** from the submenu.
 
-This action opens an **Add to Dashboard** window.
+This action opens an **Add to a Dashboard in this folder** window.
 
   4. When you add a query tile from a Look, the tile is given the same title as the name of the Look in the **Title** field (which can be [edited](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#editing_a_query_tile_title) later).
 
@@ -380,7 +375,7 @@ See the [`action`](https://docs.cloud.google.com/looker/docs/reference/param-fie
 
 The queries that underlie dashboard tiles may include filters, but you can also add filters to a dashboard itself, which can affect all tiles or just select tiles. Dashboard filters let users narrow a dashboard's results to only the data they are interested in.
 
-To add dashboard filters, you must have at least one query tile or Look-linked tile on the dashboard. Then, you can add filters by entering edit mode and selecting the **Filters** button filter_list from the top toolbar.
+To add dashboard filters, you must have at least one query tile or Look-linked tile on the dashboard. Then, you can add filters by entering edit mode and selecting filter_list **Filters** from the top toolbar.
 
 **Important:** If you edit a [dashboard with tabs](https://docs.cloud.google.com/looker/docs/tabbed-dashboards), every filter will appear on every tab in edit mode. Once you exit edit mode, a filter will only appear on a tab if it is applied to at least one tile on that tab.
 
@@ -402,7 +397,7 @@ See the [Editing user-defined dashboards](https://docs.cloud.google.com/looker/d
 
 ## Adding a description to a dashboard
 
-To add a description to a dashboard, make sure that the dashboard is in edit mode, and then select **Show dashboard details** from the [**Dashboard actions** three-dot icon menu](https://docs.cloud.google.com/looker/docs/viewing-dashboards#three-dot_dashboard_menu) more_vert.
+To add a description to a dashboard, make sure that the dashboard is in edit mode, and then select **Show dashboard details** from the more_vert [**Dashboard actions** menu](https://docs.cloud.google.com/looker/docs/viewing-dashboards#three-dot_dashboard_menu).
 
 The **Description** field will then become editable.
 
@@ -412,19 +407,19 @@ Once you've added a description, click **Save** to save the change.
 
 A theme is a set of predefined visual elements, such as background color, text color, and font family, that you can apply to your dashboard.
 
-If your Looker admin has enabled the [**Internal Dashboard Theming** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#internal_dashboard_theming), you will see the **Style** option in the blue toolbar when you are in edit mode.
+If your Looker admin has enabled the [**Internal Dashboard Theming** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#internal_dashboard_theming), you will see the **Style** option in the blue toolbar when you're in edit mode.
 
 To apply a [theme](https://docs.cloud.google.com/looker/docs/themes-for-internal-dashboards) to a dashboard, make sure that the dashboard is in edit mode and click **Style** to open the **Style** panel. Select a theme from the **Theme** field, and the theme will be applied to your dashboard. If you select **None** , and your instance has a [default theme](https://docs.cloud.google.com/looker/docs/themes-for-internal-dashboards), the default theme will be applied.
 
 **Note:** If your [dashboard has tabs](https://docs.cloud.google.com/looker/docs/tabbed-dashboards), the theme will apply to all tabs. Setting themes for individual tabs is not supported.
 
-If you are a Looker admin or have the `manage_internal_themes` permission, you will see the **Manage Themes** button, which opens the **Admin > Themes** page, where you can [create and edit dashboard themes](https://docs.cloud.google.com/looker/docs/themes-for-internal-dashboards).
+If you're a Looker admin or have the `manage_internal_themes` permission, you will see the **Manage Themes** button, which opens the **Admin > Themes** page, where you can [create and edit dashboard themes](https://docs.cloud.google.com/looker/docs/themes-for-internal-dashboards).
 
 Once you've selected a theme, click **Save** to save the change.
 
 ## Improving dashboard performance using aggregate awareness
 
-LookML developers may be able to improve dashboard performance by using [aggregate awareness](https://docs.cloud.google.com/looker/docs/aggregate_awareness). With aggregate awareness, developers can create [aggregate tables](https://docs.cloud.google.com/looker/docs/aggregate_awareness) under LookML `explore` parameters, which can optimize queries for one or more tiles in a dashboard. The first step is to [get the aggregate table LookML](https://docs.cloud.google.com/looker/docs/viewing-dashboards#getting_aggregate_table_lookml_from_a_dashboard_\(beta\)), which appears under the **Get LookML** option in the **Dashboard actions** three-dot icon menu more_vert. For more information, see the [`aggregate_table`](https://docs.cloud.google.com/looker/docs/reference/param-explore-aggregate-table#getting_aggregate_table_lookml_from_a_dashboard) parameter documentation page.
+LookML developers may be able to improve dashboard performance by using [aggregate awareness](https://docs.cloud.google.com/looker/docs/aggregate_awareness). With aggregate awareness, developers can create [aggregate tables](https://docs.cloud.google.com/looker/docs/aggregate_awareness) under LookML `explore` parameters, which can optimize queries for one or more tiles in a dashboard. The first step is to [get the aggregate table LookML](https://docs.cloud.google.com/looker/docs/viewing-dashboards#getting_aggregate_table_lookml_from_a_dashboard_\(beta\)), which appears under the **Get LookML** option in the more_vert **Dashboard actions** menu. For more information, see the [`aggregate_table`](https://docs.cloud.google.com/looker/docs/reference/param-explore-aggregate-table#getting_aggregate_table_lookml_from_a_dashboard) parameter documentation page.
 
 Find other information and recommendations about building performant dashboards in the [Considerations when building performant Looker dashboards](https://docs.cloud.google.com/looker/docs/best-practices/considerations-when-building-performant-dashboards) Best Practices page.
 
@@ -432,6 +427,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

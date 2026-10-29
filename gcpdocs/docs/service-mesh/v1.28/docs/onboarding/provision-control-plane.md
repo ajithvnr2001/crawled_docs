@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.28/docs/onboarding/provision-control-plane/
 title: Provision a managed Cloud Service Mesh control plane on GKE \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:55.826747+00:00
+fetched_at: 2026-10-29T10:18:39.305494+00:00
 ---
 
 # Provision a managed Cloud Service Mesh control plane on GKE  |  Google Cloud Documentation

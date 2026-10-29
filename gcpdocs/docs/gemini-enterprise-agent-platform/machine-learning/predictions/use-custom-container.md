@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-custom-container/
 title: Use a custom container for inference \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:14.140034+00:00
+fetched_at: 2026-10-29T11:06:09.101230+00:00
 ---
 
 # Use a custom container for inference  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

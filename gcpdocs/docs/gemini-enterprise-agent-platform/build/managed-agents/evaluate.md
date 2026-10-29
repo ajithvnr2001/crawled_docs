@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents/evaluate/
 title: Evaluate agents built with Managed Agents API on Agent Platform \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:44.785059+00:00
+fetched_at: 2026-10-29T09:56:18.870514+00:00
 ---
 
 # Evaluate agents built with Managed Agents API on Agent Platform  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

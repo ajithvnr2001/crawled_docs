@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/cloud-bigtable-for-cassandra-users/
 title: Bigtable for Cassandra users \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:25.016323+00:00
+fetched_at: 2026-10-29T10:19:27.658100+00:00
 ---
 
 # Bigtable for Cassandra users  |  Google Cloud Documentation

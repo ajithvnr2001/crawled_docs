@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/retrieval-and-ranking/
 title: Reranking for RAG Engine on Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:03.988781+00:00
+fetched_at: 2026-10-29T11:07:19.319243+00:00
 ---
 
 # Reranking for RAG Engine on Gemini Enterprise Agent Platform  |  Google Cloud Documentation

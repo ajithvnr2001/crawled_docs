@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/tutorials/using-model-armor-policies/
 title: Get started with Apigee Model Armor policies \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:20:18.137306+00:00
+fetched_at: 2026-10-29T09:51:24.018152+00:00
 ---
 
 # Get started with Apigee Model Armor policies  |  Google Cloud Documentation
@@ -507,6 +507,10 @@ For example:
       <LLMResponseSource>{jsonPath('$.candidates[-1].content.parts[-1].text',response.content,true)}</LLMResponseSource>
     </SanitizeModelResponse>
 
+### Sanitize streaming Server-Sent Events (SSE) responses
+
+In an SSE `EventFlow`, set [`<ContinuousScan>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#continuousscan) to `true` in the SanitizeModelResponse policy to check the whole stream, or leave it `false` (the default) to check each event separately. For a configuration example, see [Use an Apigee Model Armor policy in an EventFlow](https://docs.cloud.google.com/apigee/docs/api-platform/develop/server-sent-events#model-armor-policy). For more information about how the policy handles matches, errors, and quotas, see [Sanitize streaming Server-Sent Events (SSE) responses](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#streaming-sse).
+
 ### Model Armor response processing
 
 You can add additional processing logic after the Model Armor policy processes the LLM response. To extract a variable from the Model Armor response, you can add the **ExtractVariables** policy to the API proxy response flow. 
@@ -566,10 +570,13 @@ Once the new policy is added and the API proxy is deployed, requests to the prox
 
 ## Increase quotas for dependent services
 
-There are no Apigee quotarestrictions on the number of requests that can be sent to Model Armor through Apigee. However, we recommend that you perform capacity planning for your expected traffic and secure the Model Armor quota required to avoid limit errors.
+There are no Apigee quota restrictions on the number of requests that can be sent to Model Armor through Apigee. However, the Model Armor API enforces a default quota of 1,200 queries per minute (QPM), which is 20 queries per second (QPS), per Google Cloud project across all API methods. For more information, see [Model Armor quotas and system limits](https://docs.cloud.google.com/model-armor/quotas#quotas).
+
+When [`<ContinuousScan>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#continuousscan) is set to `true` on the SanitizeModelResponse policy in an SSE `EventFlow`, a whole streamed response counts as one Model Armor request, plus one for each reconnect. Otherwise, every SSE event is a separate request. Perform capacity planning for your expected traffic and secure the Model Armor quota required to avoid limit errors.
 
 If you experience performance bottlenecks resulting from higher queries per second (QPS), you may need to increase the following quotas for dependent services in your Google Cloud project:
 
+     * Model Armor API queries per minute per project (see [Model Armor quotas](https://docs.cloud.google.com/model-armor/quotas#quotas))
      * Online prediction requests per minute per region
      * Regional online prediction requests per base model per minute per region
      * Matching Engine stream update requests per minute per region
@@ -584,7 +591,8 @@ Some considerations include the following:
 
      * Model Armor is not supported in all regions. To confirm that Model Armor is available in your region, see [ Locations for the Model Armor API](https://docs.cloud.google.com/security-command-center/docs/regional-endpoints#locations-model-armor). 
      * High volume throughput when using the Model Armor policies may require increasing quotas for dependent services. For more information, see Increase quotas for dependent services.
-     * The accuracy of Model Armor may be reduced by limits on the maximum number of tokens processed by Model Armor in each prompt and response. Model Armor token limits vary depending upon the filters used. For more information, including the token limits for each filter, see [ Tokens](https://docs.cloud.google.com/security-command-center/docs/model-armor-overview#tokens). 
+     * Limits on the number of tokens that Model Armor processes in each prompt and response can reduce its accuracy. The limits vary by filter. For more information, see [Token system limits](https://docs.cloud.google.com/model-armor/quotas#token-limits). When you check a streaming response with [`<ContinuousScan>`](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/sanitize-llm-response-policy#continuousscan) set to `true`, there is no limit on the total tokens in the response. 
+     * With `<ContinuousScan>` set to `true`, the SanitizeModelResponse policy doesn't deliver Sensitive Data Protection (SDP) de-identified (redacted) text. 
 
 Limitations using Model Armor policies with Apigee hybrid:
 
@@ -606,6 +614,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

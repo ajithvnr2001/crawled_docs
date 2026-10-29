@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/iam-conditions/
 title: Control access to Sessions with IAM Conditions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:07.314079+00:00
+fetched_at: 2026-10-29T11:13:00.798597+00:00
 ---
 
 # Control access to Sessions with IAM Conditions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

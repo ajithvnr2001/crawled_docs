@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/deploy-model-garden/
 title: Deploy open models from Model Garden \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:21.025623+00:00
+fetched_at: 2026-10-29T11:13:00.633340+00:00
 ---
 
 # Deploy open models from Model Garden  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

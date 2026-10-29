@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/regions-zones/viewing-regions-zones/
 title: View available regions and zones \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:25.355924+00:00
+fetched_at: 2026-10-29T09:45:17.525156+00:00
 ---
 
 # View available regions and zones  |  Compute Engine  |  Google Cloud Documentation
@@ -105,7 +105,7 @@ To view a list of zones that support accelerators (GPUs and TPUs), use one of th
 
 #### Search for AI zones
 
-**Important:** When AI zone visibility is turned off, your Google Cloud project's visibility of AI zones is restricted. To view AI zones, [turn on AI zone visibility](https://docs.cloud.google.com/compute/docs/regions-zones/manage-ai-zones#turn_on_ai_zones).
+**Important:** When AI zone visibility is turned off, your Google Cloud project's visibility of AI zones is restricted. To view AI zones, [turn on AI zone visibility](https://docs.cloud.google.com/compute/docs/regions-zones/manage-ai-zones#turn_on_ai_zones). Additionally, to use an AI zone, you must have pre-reserved capacity allocated. Contact your Google Cloud account team to secure capacity in an AI zone.
 
 If you want to run AI and ML workloads, then consider using AI zones. You can identify an AI zone by the string `ai` in its name. For example, `us-central1-ai1a` is an AI zone in the `us-central1` region, with `us-central1-a` as its parent zone. To learn more, see [AI zones](https://docs.cloud.google.com/compute/docs/regions-zones/ai-zones).
 
@@ -396,6 +396,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

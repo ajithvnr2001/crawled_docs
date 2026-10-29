@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/streamlit/setup-environment/
 title: Step 1: Set up your project and source repository \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:04.643850+00:00
+fetched_at: 2026-10-29T11:12:45.199354+00:00
 ---
 
 # Step 1: Set up your project and source repository  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

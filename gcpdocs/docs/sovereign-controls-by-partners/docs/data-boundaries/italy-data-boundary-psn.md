@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sovereign-controls-by-partners/docs/data-boundaries/italy-data-boundary-psn/
 title: Italy Data Boundary by PSN \u00a0|\u00a0 Sovereign Controls by Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:05.711315+00:00
+fetched_at: 2026-10-29T10:18:38.800005+00:00
 ---
 
 # Italy Data Boundary by PSN  |  Sovereign Controls by Partners  |  Google Cloud Documentation

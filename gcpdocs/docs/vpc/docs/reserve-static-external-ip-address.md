@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/reserve-static-external-ip-address/
 title: Reserve a static external IP address \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:48:04.259221+00:00
+fetched_at: 2026-10-29T09:47:14.157127+00:00
 ---
 
 # Reserve a static external IP address  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -194,7 +194,7 @@ Use the following instructions to reserve a static external IPv4 or IPv6 address
 
 **Note:** Global IP addresses can be used only with global load balancers.
 
-  * To reserve a global external IP address:
+  * To reserve a global external IP address, use the `--global` flag:
         
         gcloud compute addresses create ADDRESS_NAME \
           --global \
@@ -205,7 +205,7 @@ Replace the following:
 
     * `ADDRESS_NAME`: the name that you want to associate with this address.
     * `IP_VERSION`: the IP version, either `IPv4` or `IPv6`.
-  * To reserve a regional external IPv4 address:
+  * To reserve a regional external IPv4 address, specify a region with the `--region` flag:
         
         gcloud compute addresses create ADDRESS_NAME \
            --region=REGION
@@ -215,15 +215,25 @@ Replace the following:
 
     * `ADDRESS_NAME`: the name that you want to associate with this address.
     * `REGION`: a region for the IP address.
-  * To reserve a regional external IPv6 address:
-        
-        gcloud compute addresses create ADDRESS_NAME \
-           --region=REGION \
-           --subnet=SUBNET_NAME \
-           --ip-version=IPV6 \
-           --endpoint-type=ENDPOINT_TYPE  \
-           --addresses=IPV6_ADDRESS
-        
+  * To reserve a regional external IPv6 address, do one of the following:
+
+    * To automatically allocate a regional external IPv6 address from a subnet, specify `IPV6` for the `--ip-version` flag:
+    
+    gcloud compute addresses create ADDRESS_NAME \
+        --region=REGION \
+        --subnet=SUBNET_NAME \
+        --ip-version=IPV6 \
+        --endpoint-type=ENDPOINT_TYPE
+    
+
+    * To reserve a specific regional external IPv6 address from a subnet, specify the `--addresses` flag. Don't include the `--ip-version` flag:
+    
+    gcloud compute addresses create ADDRESS_NAME \
+        --region=REGION \
+        --subnet=SUBNET_NAME \
+        --endpoint-type=ENDPOINT_TYPE \
+        --addresses=IPV6_ADDRESS
+    
 
 Replace the following:
 
@@ -231,7 +241,7 @@ Replace the following:
     * `REGION`: a region for the IP address.
     * `SUBNET_NAME`: the subnet to assign the static regional IPv6 address from. The subnet must have an [assigned external IPv6 address range](https://docs.cloud.google.com/vpc/docs/subnets#subnet-types).
     * `ENDPOINT_TYPE`: for regional external IPv6 addresses, specify the endpoint type, either `VM` or `NETLB`.
-    * `IPV6_ADDRESS`: the IPv6 address to reserve, which must be a `/96` IPv6 address range from the subnet. If unspecified, an IPv6 address is automatically allocated.
+    * `IPV6_ADDRESS`: the IPv6 address to reserve, which must be a `/96` IPv6 address range from the subnet.
 
 For Google-provided external IPv6 subnet ranges, IP addresses for VMs must be from the first half (`/65`) of the subnet's `/64` external IPv6 address range and IP addresses for load balancing must be from the second half (`/65`). For more information, see [External IPv6 specifications](https://docs.cloud.google.com/vpc/docs/subnets#external-ipv6).
 
@@ -1595,6 +1605,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

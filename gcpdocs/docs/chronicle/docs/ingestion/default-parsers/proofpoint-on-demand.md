@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/proofpoint-on-demand/
 title: Collect Proofpoint On-Demand logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:21:33.534615+00:00
+fetched_at: 2026-10-29T10:07:03.649924+00:00
 ---
 
 # Collect Proofpoint On-Demand logs  |  Google Security Operations  |  Google Cloud Documentation

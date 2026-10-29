@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/supported-features-in-cluster/
 title: In-cluster control plane supported features \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:46:53.135069+00:00
+fetched_at: 2026-10-29T10:18:26.158998+00:00
 ---
 
 # In-cluster control plane supported features  |  Cloud Service Mesh  |  Google Cloud Documentation

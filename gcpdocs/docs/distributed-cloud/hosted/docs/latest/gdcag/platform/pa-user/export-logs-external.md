@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/export-logs-external/
 title: Export logs to a SIEM system \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:58:28.047101+00:00
+fetched_at: 2026-10-29T10:19:36.891391+00:00
 ---
 
 # Export logs to a SIEM system  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation

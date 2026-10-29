@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/current/docs/improve-observability-custom-monitoring-metrics/
 title: Improve observability using custom monitoring metrics \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: Current (18.4.0) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:26:15.436063+00:00
+fetched_at: 2026-10-29T09:46:29.998440+00:00
 ---
 
 # Improve observability using custom monitoring metrics  |  AlloyDB Omni using the container orchestrator: Current (18.4.0)  |  Google Cloud Documentation
@@ -130,6 +130,42 @@ The following example manifest configures the monitoring agent to connect to the
                 usage: counter
     
 
+## Apply the configuration
+
+To apply the custom metrics configuration to your Kubernetes cluster, run the following command:
+    
+    
+    kubectl apply -f OBSERVABILITY_CONFIG_FILE
+
+Replace `OBSERVABILITY_CONFIG_FILE` with the path to your `ObservabilityConfig` manifest file.
+
+### Read, update, and delete the configuration
+
+You can also read, update, or delete the `ObservabilityConfig` custom resource using `kubectl`:
+
+  * **Read:**
+        
+        kubectl get observabilityconfig OBSERVABILITY_CONFIG_NAME -n NAMESPACE -o yaml
+
+Replace the following:
+
+    * `OBSERVABILITY_CONFIG_NAME`: the name of your `ObservabilityConfig` resource.
+    * `NAMESPACE`: the Kubernetes namespace where your `ObservabilityConfig` resource is deployed.
+  * **Update:**
+
+Repeat the step in Apply the configuration with your updated observability configuration manifest.
+
+  * **Delete:**
+        
+        kubectl delete observabilityconfig OBSERVABILITY_CONFIG_NAME -n NAMESPACE
+
+Replace the following:
+
+    * `OBSERVABILITY_CONFIG_NAME`: the name of your `ObservabilityConfig` resource.
+    * `NAMESPACE`: the Kubernetes namespace where your `ObservabilityConfig` resource is deployed.
+
+
+
 ## Metrics reference
 
 This section references the metrics that the custom metrics feature generates.
@@ -174,6 +210,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

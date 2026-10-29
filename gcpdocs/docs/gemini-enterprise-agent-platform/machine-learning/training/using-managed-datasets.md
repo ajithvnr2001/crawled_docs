@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/using-managed-datasets/
 title: Use managed datasets \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:55.259172+00:00
+fetched_at: 2026-10-29T11:07:36.348715+00:00
 ---
 
 # Use managed datasets  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-registry/introduction/
 title: Introduction to Model Registry \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:19.508082+00:00
+fetched_at: 2026-10-29T11:07:06.263075+00:00
 ---
 
 # Introduction to Model Registry  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

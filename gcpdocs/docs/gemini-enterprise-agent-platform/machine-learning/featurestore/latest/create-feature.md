@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-feature/
 title: Create a feature \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:57.677063+00:00
+fetched_at: 2026-10-29T11:07:10.388005+00:00
 ---
 
 # Create a feature  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

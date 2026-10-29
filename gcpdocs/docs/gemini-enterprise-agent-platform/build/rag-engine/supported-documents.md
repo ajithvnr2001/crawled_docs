@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/supported-documents/
 title: Document types for RAG Engine \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:17.212005+00:00
+fetched_at: 2026-10-29T11:12:13.639287+00:00
 ---
 
 # Document types for RAG Engine  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

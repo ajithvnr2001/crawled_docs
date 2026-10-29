@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/set-maintenance-window/
 title: View and set maintenance windows \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:56:02.709102+00:00
+fetched_at: 2026-10-29T09:51:29.252961+00:00
 ---
 
 # View and set maintenance windows  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -502,12 +502,15 @@ If you want to reschedule maintenance for up to 28 days, then check the version 
 
 Before using any of the request data, make the following replacements: 
 
-  * PROJECT_ID: The project ID
-  * INSTANCE_ID: The instance ID
-  * RESCHEDULE_TYPE: Use one of **IMMEDIATE** , **NEXT_AVAILABLE_WINDOW** , or **SPECIFIC_TIME**. 
+  * PROJECT_ID: The project ID.
+  * INSTANCE_ID: The instance ID.
+  * RESCHEDULE_TYPE: The reschedule type. Use one of **IMMEDIATE** , **NEXT_AVAILABLE_WINDOW** , or **SPECIFIC_TIME**. 
 
-If you choose **NEXT_AVAILABLE_WINDOW** , then maintenance is rescheduled to the next available maintenance window. 
+If you choose **NEXT_AVAILABLE_WINDOW** , then maintenance is rescheduled to the next available maintenance window.
 
+If you choose **SPECIFIC_TIME** , then you must also include `schedule_time` in the request body.
+
+  * SCHEDULE_TIME: If you specify **SPECIFIC_TIME** for RESCHEDULE_TYPE, then specify the date and time to reschedule maintenance in [RFC 3339](https://tools.ietf.org/html/rfc3339) format. For example, `2026-11-07T04:00:00Z`. If you specify **IMMEDIATE** or **NEXT_AVAILABLE_WINDOW** , then omit `schedule_time` from the request body.
 
 
 
@@ -521,7 +524,8 @@ Request JSON body:
     
     {
       "reschedule": {
-        "reschedule_type": "RESCHEDULE_TYPE"
+        "reschedule_type": "RESCHEDULE_TYPE",
+        "schedule_time": "SCHEDULE_TIME"
       }
     }
     
@@ -570,7 +574,7 @@ You should receive a JSON response similar to the following:
       "insertTime": "2020-01-16T02:32:12.281Z",
       "startTime": "08:00",
       "endTime": "08:01",
-      "operationType": RESCHEDULE_MAINTENANCE,
+      "operationType": "RESCHEDULE_MAINTENANCE",
       "name": "OPERATION_ID",
       "targetId": "INSTANCE_ID",
       "selfLink": "https://sqladmin.googleapis.com/v1/projects/PROJECT_ID/operations/OPERATION_ID",
@@ -582,12 +586,15 @@ You should receive a JSON response similar to the following:
 
 Before using any of the request data, make the following replacements: 
 
-  * PROJECT_ID: The project ID
-  * INSTANCE_ID: The instance ID
-  * RESCHEDULE_TYPE: Use one of **IMMEDIATE** , **NEXT_AVAILABLE_WINDOW** , or **SPECIFIC_TIME**. 
+  * PROJECT_ID: The project ID.
+  * INSTANCE_ID: The instance ID.
+  * RESCHEDULE_TYPE: The reschedule type. Use one of **IMMEDIATE** , **NEXT_AVAILABLE_WINDOW** , or **SPECIFIC_TIME**. 
 
-If you choose **NEXT_AVAILABLE_WINDOW** , then maintenance is rescheduled to the next available maintenance window. 
+If you choose **NEXT_AVAILABLE_WINDOW** , then maintenance is rescheduled to the next available maintenance window.
 
+If you choose **SPECIFIC_TIME** , then you must also include `schedule_time` in the request body.
+
+  * SCHEDULE_TIME: If you specify **SPECIFIC_TIME** for RESCHEDULE_TYPE, then specify the date and time to reschedule maintenance in [RFC 3339](https://tools.ietf.org/html/rfc3339) format. For example, `2026-11-07T04:00:00Z`. If you specify **IMMEDIATE** or **NEXT_AVAILABLE_WINDOW** , then omit `schedule_time` from the request body.
 
 
 
@@ -601,7 +608,8 @@ Request JSON body:
     
     {
       "reschedule": {
-        "reschedule_type": "RESCHEDULE_TYPE"
+        "reschedule_type": "RESCHEDULE_TYPE",
+        "schedule_time": "SCHEDULE_TIME"
       }
     }
     
@@ -650,7 +658,7 @@ You should receive a JSON response similar to the following:
       "insertTime": "2020-01-16T02:32:12.281Z",
       "startTime": "08:00",
       "endTime": "08:01",
-      "operationType": RESCHEDULE_MAINTENANCE,
+      "operationType": "RESCHEDULE_MAINTENANCE",
       "name": "OPERATION_ID",
       "targetId": "INSTANCE_ID",
       "selfLink": "https://sqladmin.googleapis.com/sql/v1beta4/projects/PROJECT_ID/operations/OPERATION_ID",
@@ -658,9 +666,7 @@ You should receive a JSON response similar to the following:
     }
     
 
-To see how the [underlying REST API request](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/instances/patch) is constructed for this task, see the [APIs Explorer on the instances:post page](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/instances/patch).
-
-**Note** : If you reschedule maintenance for an instance at the same time as an existing deny maintenance period, then the deny maintenance period takes precedence and the maintenance event is skipped.
+To see how the [underlying REST API request](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/projects.instances/rescheduleMaintenance) is constructed for this task, see the [APIs Explorer on the instances:rescheduleMaintenance page](https://docs.cloud.google.com/sql/docs/postgres/admin-api/rest/v1beta4/projects.instances/rescheduleMaintenance). **Note** : If you reschedule maintenance for an instance at the same time as an existing deny maintenance period, then the deny maintenance period takes precedence and the maintenance event is skipped.
 
 ## Configure a deny maintenance period
 
@@ -1091,6 +1097,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

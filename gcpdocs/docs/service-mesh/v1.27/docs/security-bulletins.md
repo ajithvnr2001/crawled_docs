@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/security-bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:46:53.982477+00:00
+fetched_at: 2026-10-29T10:18:26.853090+00:00
 ---
 
 # Security bulletins  |  Cloud Service Mesh  |  Google Cloud Documentation

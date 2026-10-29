@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/base64/
 title: Encode image data using Base64 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:48.756438+00:00
+fetched_at: 2026-10-29T11:07:13.386916+00:00
 ---
 
 # Encode image data using Base64  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

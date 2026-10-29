@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking/prompting-guide/
 title: Thinking prompting guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:26.365386+00:00
+fetched_at: 2026-10-29T11:07:29.717780+00:00
 ---
 
 # Thinking prompting guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/static-outbound-ip/
 title: Static outbound IP address \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:24:22.654549+00:00
+fetched_at: 2026-10-29T11:06:06.317745+00:00
 ---
 
 # Static outbound IP address  |  Cloud Run  |  Google Cloud Documentation

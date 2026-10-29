@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/custom-service-account/
 title: Use a custom service account \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:11.133591+00:00
+fetched_at: 2026-10-29T11:12:15.198012+00:00
 ---
 
 # Use a custom service account  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

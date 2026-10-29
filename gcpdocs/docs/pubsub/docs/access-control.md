@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/access-control/
 title: Access control with Identity and Access Management \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:38:34.630661+00:00
+fetched_at: 2026-10-29T09:51:23.158504+00:00
 ---
 
 # Access control with Identity and Access Management  |  Pub/Sub  |  Google Cloud Documentation
@@ -583,7 +583,7 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     
     # subscription_id = "your-subscription-id"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
     
     policy = pubsub.[iam](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html).get_iam_policy \
       resource: pubsub.subscription_path(subscription_id)
@@ -786,7 +786,7 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     
     # topic_id = "your-topic-id"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
     
     policy = pubsub.[iam](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html).get_iam_policy resource: pubsub.topic_path(topic_id)
     
@@ -1094,7 +1094,7 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     # service_account_email =
     # "serviceAccount:account_name@project_name.iam.gserviceaccount.com"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
     
     bindings = Google::Iam::[V1](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub-V1.html)::Binding.[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html) \
       role: role,
@@ -1392,7 +1392,7 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     # service_account_email =
     # "serviceAccount:account_name@project_name.iam.gserviceaccount.com"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
     
     bindings = Google::Iam::[V1](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub-V1.html)::Binding.[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html) \
       role: role,
@@ -1658,7 +1658,7 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     
     # subscription_id = "your-subscription-id"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
     subscription_admin = pubsub.[subscription_admin](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)
     permissions = ["pubsub.subscriptions.consume", "pubsub.subscriptions.update"]
     
@@ -1924,7 +1924,7 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
     
     # topic_id = "your-topic-id"
     
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
     topic_admin = pubsub.[topic_admin](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)
     permissions = ["pubsub.topics.attachSubscription", "pubsub.topics.publish",
                    "pubsub.topics.update"]
@@ -1944,30 +1944,45 @@ Before trying this sample, follow the Ruby setup instructions in [Quickstart: Us
 
 Pub/Sub IAM is useful for fine-tuning access in cross-project communication.
 
-Suppose a service account in Cloud Project A wants to publish messages to a topic in Cloud Project B. First, enable the Pub/Sub API in Project A.
+### Publish to a topic in a different project
 
-Second, grant the service account **Edit** permission in Cloud Project B. However, this approach is often too coarse. You can use the IAM API to achieve a more fine-grained level of access.
+Suppose that you want a service account in project A to publish messages to a topic in project B. To enable this scenario, do the following:
 
-![Cross-project communication](https://docs.cloud.google.com/static/pubsub/images/cross_project.svg)
+  1. Enable the Pub/Sub API in project A.
 
-For example, this snippet uses the `setIamPolicy()` method in project-b and a prepared `topic_policy.json` file to grant the service account `foobar@`project-a`.iam.gserviceaccount.com` of project-a the publisher role on the topic `projects/`project-b`/topics/`topic-b:
-    
-    
-    gcloud pubsub topics set-iam-policy \
-        projects/project-b/topics/topic-b \
-        topic_policy.json
-    
+  2. Grant the service account the `pubsub.topics.publish` permission either on project B or on the topic. The **Pub/Sub Publisher** (`roles/pubsub.publisher`) role includes this permission.
 
-Output: 
-    
-    
-    Updated IAM policy for topic topic-b.
-    bindings:
-    - members:
-      - serviceAccount:foobar@project-a.iam.gserviceaccount.com
-      role: roles/pubsub.publisher
-    etag: BwWGrQYX6R4=
-    
+
+
+
+### Create a subscription in a different project
+
+Suppose that you want a service account in project A to create a subscription in project A for a topic in project B. To enable this scenario, do the following:
+
+  1. Enable the Pub/Sub API in both projects.
+
+  2. Grant the service account the following permissions:
+
+     * `pubsub.subscriptions.create` on project A.
+     * `pubsub.topics.attachSubscription` on the topic in project B.
+
+The **Pub/Sub Editor** (`roles/pubsub.editor`) role includes these permissions.
+
+  3. Create a subscription in project A that is attached to the topic in project B.
+
+
+
+
+### Receive messages from a topic in a different project
+
+Suppose that you want a service account in project A to receive messages from a subscription in project B. To enable this scenario, do the following:
+
+  1. Enable the Pub/Sub API in project A.
+
+  2. Grant the service account the **Pub/Sub Subscriber** (`roles/pubsub.subscriber`) role on either project B or on the subscription.
+
+
+
 
 ## Partial availability behavior
 
@@ -1983,6 +1998,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

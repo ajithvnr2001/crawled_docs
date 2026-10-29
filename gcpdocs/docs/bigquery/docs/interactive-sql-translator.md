@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator/
 title: Translate queries with the interactive SQL translator \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:00:51.332104+00:00
+fetched_at: 2026-10-29T10:11:14.793052+00:00
 ---
 
 # Translate queries with the interactive SQL translator  |  BigQuery  |  Google Cloud Documentation
@@ -21,15 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Translate queries with the interactive SQL translator
 
-This document describes how to translate a query from a different SQL dialect into a GoogleSQL query by using the BigQuery interactive SQL translator. The interactive SQL translator can help reduce time and effort when you migrate workloads to BigQuery. This document is intended for users who are familiar with the [Google Cloud console](https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui) or the Google Cloud CLI.
+The BigQuery interactive SQL translator lets you translate queries from other SQL dialects into GoogleSQL queries in the [Google Cloud console](https://docs.cloud.google.com/bigquery/docs/bigquery-web-ui) or the Google Cloud CLI. Using the interactive SQL translator helps reduce the time and effort required to migrate workloads to BigQuery, and you can customize translations by using the translation rule feature.
 
-**Note:** To build a custom software integration, an automated CI/CD pipeline, or another programmatic workflow, see the [BigQuery Migration API guide](https://docs.cloud.google.com/bigquery/docs/api-sql-translator).
-
-You can use the translation rule feature to customize the way the interactive SQL translator translates SQL.
-
-For a list of SQL dialects supported by this SQL translator, see [Supported SQL dialects](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#supported_sql_dialects).
-
-For a list of supported processing locations, see [Locations](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#locations).
+To build a custom software integration, an automated CI/CD pipeline, or another programmatic workflow, see the [BigQuery Migration API guide](https://docs.cloud.google.com/bigquery/docs/api-sql-translator). For information about supported dialects and processing locations, see [Supported SQL dialects](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#supported_sql_dialects) and [Locations](https://docs.cloud.google.com/bigquery/docs/enable-sql-translations#locations).
 
 ## Before you begin
 
@@ -403,6 +397,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

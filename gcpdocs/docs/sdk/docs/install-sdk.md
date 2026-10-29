@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sdk/docs/install-sdk/
 title: Quickstart: Install the Google Cloud CLI \u00a0|\u00a0 Google Cloud SDK \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:27:46.489421+00:00
+fetched_at: 2026-10-29T09:56:46.120137+00:00
 ---
 
 # Quickstart: Install the Google Cloud CLI  |  Google Cloud SDK  |  Google Cloud Documentation
@@ -65,7 +65,7 @@ To follow step-by-step guidance for this task directly in the Google Cloud conso
 
 Linux
 
-  1. Confirm that you have a supported version of Python. The Google Cloud CLI requires Python 3.10 to 3.15. The x86_64 Linux package includes a bundled Python interpreter that will be preferred by default. For information on how to choose and configure your Python interpreter, see the [`gcloud topic startup` documentation](https://docs.cloud.google.com/sdk/gcloud/reference/topic/startup). 
+  1. Confirm that you have a supported version of Python. The Google Cloud CLI requires Python 3.10 to 3.15. The x86_64 and Arm Linux packages include a bundled Python interpreter that will be preferred by default. For information on how to choose and configure your Python interpreter, see the [`gcloud topic startup` documentation](https://docs.cloud.google.com/sdk/gcloud/reference/topic/startup). 
   2. Download one of the following: **Note:** To determine your Linux platform, run `uname -a` at the command line.Platform | Package name | Size | SHA256 Checksum  
 ---|---|---|---  
 Linux 64-bit (x86_64) | [google-cloud-cli-linux-x86_64.tar.gz](https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz) | 94.4 MB | 8b8c1be16284f7072359de05d31fe5ce52b6052fb295404a62a54b7d03ec4326  
@@ -533,6 +533,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

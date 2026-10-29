@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/model-classes/
 title: Model classes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:49.430566+00:00
+fetched_at: 2026-10-29T11:07:38.968279+00:00
 ---
 
 # Model classes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/delete-a-private-connectivity-configuration/
 title: Delete a private connectivity configuration \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:19:56.505783+00:00
+fetched_at: 2026-10-29T11:06:04.801434+00:00
 ---
 
 # Delete a private connectivity configuration  |  Datastream  |  Google Cloud Documentation

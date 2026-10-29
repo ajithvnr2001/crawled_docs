@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/authorization-changes-set-run-as/
 title: Set a run-as service account \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:50:59.597760+00:00
+fetched_at: 2026-10-29T11:12:25.575841+00:00
 ---
 
 # Set a run-as service account  |  Application Integration  |  Google Cloud Documentation

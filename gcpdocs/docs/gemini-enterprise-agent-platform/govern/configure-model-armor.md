@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor/
 title: Configure Model Armor on a gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:38.618268+00:00
+fetched_at: 2026-10-29T11:13:12.731042+00:00
 ---
 
 # Configure Model Armor on a gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

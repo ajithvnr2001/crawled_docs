@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/troubleshooting/troubleshoot-observability/
 title: Resolving observability and telemetry issues in Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:55:56.524443+00:00
+fetched_at: 2026-10-29T10:18:22.074209+00:00
 ---
 
 # Resolving observability and telemetry issues in Cloud Service Mesh  |  Google Cloud Documentation
@@ -35,19 +35,6 @@ In Cloud Service Mesh telemetry, the Envoy proxies call the Google Cloud Observa
 **Important:** Full telemetry might be delayed 1-2 minutes while clusters start.
 
 The telemetry dashboards gather data from both Confluence and Google Cloud Observability to display the various service-focused dashboards.
-
-## Verify that there is at most one Istio telemetry API configuration
-
-This section only applies to managed Traffic Director control plane.
-
-**Note:** In the rapid and regular channels, Cloud Service Mesh with a managed Traffic Director control plane supports multiple telemetry API configurations. Telemetry APIs are supported at the root namespace (default: `istio-system`, or as mentioned in the meshconfig), namespace level, and selector specific. Priority is highest for selector and lowest for root level. In other channels, only a single cluster-wide telemetry API configuration is supported, specifically, a single Istio telemetry API CR in the root namespace.
-
-If you already have an existing Istio telemetry API CR, to preserve your previous customization settings in your existing Istio telemetry CR, you must include them within your new Istio telemetry API CR.
-
-To list the telemetry API configurations, run the following command. Verify that there is at most one Istio telemetry API configuration.
-    
-    
-    kubectl -n istio-system get telemetry
 
 ## Services dashboard is missing a service
 
@@ -189,6 +176,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

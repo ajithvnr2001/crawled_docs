@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/legacy-feature-schedule/
 title: Admin settings - Legacy features \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:46.997533+00:00
+fetched_at: 2026-10-29T09:45:47.309777+00:00
 ---
 
 # Admin settings - Legacy features  |  Looker  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Admin settings - Legacy features Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** [Looker (Google Cloud core)](https://docs.cloud.google.com/looker/docs/looker-core-overview) instances don't include this page.**Note:** If you have a permission that provides access to only select pages in the Admin panel, such as [`manage_schedules`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#manage_schedules), [`manage_themes`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#manage_themes), or [`see_admin`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#see_admin), but you don't have the [Admin role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_roles), the page or pages that are described here may not be visible to you in the Admin panel.
+**Note:** If you have a permission that provides access to only select pages in the Admin panel, such as [`manage_schedules`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#manage_schedules), [`manage_themes`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#manage_themes), or [`see_admin`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#see_admin), but you don't have the [Admin role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_roles), the page or pages that are described here may not be visible to you in the Admin panel.
 
 Looker will occasionally make updates to product design and functionality that render an existing feature's functionality obsolete. In some cases, the feature may be designated as a _legacy_ feature — a feature that remains backward compatible for existing workflows. A legacy feature provides the option for existing users to continue to use the feature's functionality. When a legacy feature is enabled, the Looker instance cannot support the old and new functionality simultaneously.
 
@@ -71,16 +71,16 @@ Leave the legacy feature enabled while you implement any necessary transition gu
 **Use Legacy LookML Runtime**  
 ---  
 **Description** | **Introduced** | **Disabled** | **Disallowed** | **Removed** | **Status** | **Resources**  
-When this legacy feature is enabled, all LookML projects will use the legacy LookML runtime by default rather than the new LookML runtime. To enable new LookML runtime for a LookML project while this legacy feature is on, add a [`new_lookml_runtime: yes`](https://docs.cloud.google.com/looker/docs/reference/param-manifest-new-lookml-runtime) LookML statement to the LookML project's manifest file. | 22.6 | 22.14 | 24.2 | TBD | **Active** |   
+When this legacy feature is enabled, all LookML projects use the legacy LookML runtime by default rather than the new LookML runtime. To enable new LookML runtime for a LookML project while this legacy feature is on, add a [`new_lookml_runtime: yes`](https://docs.cloud.google.com/looker/docs/reference/param-manifest-new-lookml-runtime) LookML statement to the LookML project's manifest file.This legacy feature is available only for Looker (original) instances. | 22.6 | 22.14 | 24.2 | TBD | **Active** |   
 **Use Legacy Explore and Merge Query Experience**  
 **Description** | **Introduced** | **Disabled** | **Disallowed** | **Removed** | **Status** | **Resources**  
-When enabled, Explores and Merge Queries open in the legacy experience for all users. Disable this to open them in the new Looker Explore and Merge Query experience by default. Individual users can still switch back to the legacy experience. | 26.20 | 27.2 | 27.6 | 27.6 | **Active** |   
+When this legacy feature is enabled, Explores and merged queries open in the classic experience for all users instance-wide, and users can't switch to the new experience. When disabled (the default setting), Explores and merged queries open in the new experience, and individual users can switch to the classic experience from the **More options** menu.For instances that disabled the **New Looker Explore and Merge Query Experience** preview feature prior to Looker version 26.18, this legacy feature is enabled by default.This legacy feature is available for Looker (original) and Looker (Google Cloud core) instances. | 26.20 | 27.2 | 27.6 | 27.6 | **Active** |   
 **Use Legacy Explore and Merge Query Experience for Embed**  
 **Description** | **Introduced** | **Disabled** | **Disallowed** | **Removed** | **Status** | **Resources**  
-When enabled, embedded Explores and Merge Queries open in the legacy experience. Disable this to open them in the new Looker Explore and Merge Query experience for all embedded users, regardless of individual user preferences. The new experience must also be enabled for the instance. | 26.20 | 27.2 | 27.6 | 27.6 | **Active** |   
+When this legacy expererience is enabled (which is the default), embedded Explores and merged queries open in the classic experience for all embedded users. To use the new experience in embedded contexts, you must disable both this toggle and the **Use Legacy Explore and Merge Query Experience** toggle. Embedded users can't switch experiences individually; the admin setting determines their experience.This legacy feature is available for Looker (original) and Looker (Google Cloud core) instances. | 26.20 | 27.2 | 27.6 | 27.6 | **Active** |   
 **Use Legacy Single Value Visualization**  
 **Description** | **Introduced** | **Disabled** | **Disallowed** | **Removed** | **Status** | **Resources**  
-When enabled, the legacy Single Value visualization is rendered instead of the new KPI visualization. | 26.20 | 27.2 | 27.6 | 27.6 | **Active** |   
+When this legacy feature is enabled, the legacy Single Value visualization is rendered instead of the new KPI visualization.This legacy feature is available for Looker (original) and Looker (Google Cloud core) instances. | 26.20 | 27.2 | 27.6 | 27.6 | **Active** |   
   
 ### Previously removed legacy features
 
@@ -155,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

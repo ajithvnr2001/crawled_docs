@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/security/use-ai-for-security/
 title: Use AI for security \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:47:40.785077+00:00
+fetched_at: 2026-10-29T09:46:43.257064+00:00
 ---
 
 # Use AI for security  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Use AI for security Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-02-05 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the security pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to use AI to help you improve the security of your cloud workloads.
 
@@ -54,13 +54,13 @@ AI and automation can help you achieve better security outcomes when you're deal
 
 ## Recommendations
 
-The following sections describe the recommendations for using AI for security. The sections also indicate how the recommendations align with Google's Secure AI Framework (SAIF) [core elements](https://developers.google.com/machine-learning/resources/saif) and how they're relevant to the levels of security autonomy.
+The following sections describe the recommendations for using AI for security. The sections also indicate how the recommendations align with Google's [Secure AI Framework (SAIF)](https://saif.google) and how they're relevant to the [levels of security autonomy](https://docs.cloud.google.com/architecture/framework/security/use-ai-for-security#levels_of_security_autonomy).
 
-  * Enhance threat detection and response with AI
-  * Simplify security for experts and non-experts
-  * Automate time-consuming security tasks with AI
-  * Incorporate AI into risk management and governance processes
-  * Implement secure development practices for AI systems
+  * [Enhance threat detection and response with AI](https://docs.cloud.google.com/architecture/framework/security/use-ai-for-security#enhance_threat_detection_and_response_with_ai)
+  * [Simplify security for experts and non-experts](https://docs.cloud.google.com/architecture/framework/security/use-ai-for-security#simplify_security_for_experts_and_non-experts)
+  * [Automate time-consuming security tasks with AI](https://docs.cloud.google.com/architecture/framework/security/use-ai-for-security#automate_time-consuming_security_tasks_with_ai)
+  * [Incorporate AI into risk management and governance processes](https://docs.cloud.google.com/architecture/framework/security/use-ai-for-security#incorporate_ai_into_risk_management_and_governance_processes)
+  * [Implement secure development practices for AI systems](https://docs.cloud.google.com/architecture/framework/security/use-ai-for-security#implement_secure_development_practices_for_ai_systems)
 
 **Note:** For more information about Google Cloud's overall vision for using Gemini across our products to accelerate AI for security, see the whitepaper [Google Cloud's Product Vision for AI-Powered Security](https://services.google.com/fh/files/misc/google-cloud-product-vision-ai-powered-security.pdf).
 
@@ -133,7 +133,7 @@ Depending on your implementation, this recommendation can be relevant to the fol
 
 
 
-Gemini in [Google SecOps](https://cloud.google.com/security/products/security-operations) can help to automate high-toil tasks by assisting analysts, retrieving relevant context, and making recommendations for next steps.
+Gemini in [Google Security Operations](https://cloud.google.com/security/products/security-operations) can help to automate high-toil tasks by assisting analysts, retrieving relevant context, and making recommendations for next steps.
 
 ### Incorporate AI into risk management and governance processes
 
@@ -166,6 +166,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-02-05 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-02-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

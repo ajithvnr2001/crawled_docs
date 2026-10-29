@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/
 title: Agent Platform Sessions overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:32.467802+00:00
+fetched_at: 2026-10-29T11:07:07.166189+00:00
 ---
 
 # Agent Platform Sessions overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

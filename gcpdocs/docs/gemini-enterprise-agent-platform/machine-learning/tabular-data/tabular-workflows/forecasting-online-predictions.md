@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/tabular-workflows/forecasting-online-predictions/
 title: Get online inferences for a forecast model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:08.674706+00:00
+fetched_at: 2026-10-29T11:06:12.090203+00:00
 ---
 
 # Get online inferences for a forecast model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

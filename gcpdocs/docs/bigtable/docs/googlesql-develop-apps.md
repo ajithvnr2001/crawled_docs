@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/googlesql-develop-apps/
 title: Develop applications with GoogleSQL for Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:18.350017+00:00
+fetched_at: 2026-10-29T10:19:14.535802+00:00
 ---
 
 # Develop applications with GoogleSQL for Bigtable  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/use-parameterized-views/
 title: Use parameterized views in agentic applications \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:57.726378+00:00
+fetched_at: 2026-10-29T10:19:11.569033+00:00
 ---
 
 # Use parameterized views in agentic applications  |  Bigtable  |  Google Cloud Documentation

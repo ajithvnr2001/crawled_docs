@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/vpc-service-controls/
 title: VPC Service Controls with Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:56.265566+00:00
+fetched_at: 2026-10-29T11:12:21.627995+00:00
 ---
 
 # VPC Service Controls with Gemini Enterprise Agent Platform  |  Google Cloud Documentation

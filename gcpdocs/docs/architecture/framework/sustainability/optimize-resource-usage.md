@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/optimize-resource-usage/
 title: Optimize resource usage for sustainability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:27:07.620442+00:00
+fetched_at: 2026-10-29T09:47:08.510185+00:00
 ---
 
 # Optimize resource usage for sustainability  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Optimize resource usage for sustainability Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-01-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the sustainability pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework/sustainability) provides recommendations to help you optimize resource usage by your workloads in Google Cloud.
 
@@ -73,7 +73,7 @@ Schedule your batch jobs to run in low-carbon regions and during periods when th
 
 #### Consolidate and parallelize jobs
 
-To reduce the overhead for starting up and shutting down individual jobs, group similar jobs into a single large batch. Run these high-volume workloads on services like [Batch](https://docs.cloud.google.com/batch/docs/get-started). The service automatically provisions and manages the necessary infrastructure, which helps to ensures optimal resource utilization.
+To reduce the overhead for starting up and shutting down individual jobs, group similar jobs into a single large batch. Run these high-volume workloads on services like [Batch](https://docs.cloud.google.com/batch/docs/get-started). The service automatically provisions and manages the necessary infrastructure, which helps to ensure optimal resource utilization.
 
 #### Use managed services
 
@@ -85,11 +85,11 @@ The machine types that you can use for your Compute Engine VMs are grouped into 
 
 Machine family | Recommended for workload types | Sustainability guidance  
 ---|---|---  
-**General-purpose instances (E2, N2, N4, Tau T2A/T2D)** : These instances provide a balanced ratio of CPU to memory. | Web servers, microservices, small to medium databases, and development environments. | The E2 series is highly cost-efficient and energy-efficient due to its dynamic allocation of resources. The Tau T2A series uses Arm-based processors, which are often more energy-efficient per unit of performance for large-scale workloads.  
-**Compute-optimized instances (C2, C3)** : These instances provide a high vCPU-to-memory ratio and high performance per core. | High performance computing (HPC), batch processing, gaming servers, and CPU-based data analytics. | A C-series instance lets you complete CPU-intensive tasks faster, which reduces the total compute time and energy consumption of the job.   
-**Memory-optimized instances (M3, M2)** : These instances are designed for workloads that require a large amount of memory. | Large in-memory databases and data warehouses, such as SAP HANA or in-memory analytics. | Memory-optimized instances enable the consolidation of memory-heavy workloads on fewer physical nodes. This consolidation reduces the total energy that's required when compared to using multiple smaller instances. High-performance memory reduces data-access latency, which can reduce the total time that the CPU spends in an active state.  
-**Storage-optimized instances (Z3):** These instances provide high-throughput, low-latency local SSD storage. | Data warehousing, log analytics, and SQL, NoSQL, and vector databases.  | Storage-optimized instances process massive datasets locally, which helps to eliminate the energy that's used for cross-location network data egress. When you use local storage for high-IOPS tasks, you avoid over-provisioning multiple standard instances.  
-**Accelerator-optimized instances (A3, A2, G2)** : These instances are built for GPU and TPU-accelerated workloads, such as AI, ML, and HPC. | ML model training and inference, and scientific simulations. | [TPUs](https://docs.cloud.google.com/tpu) are engineered for optimal energy efficiency. They deliver higher computations per watt. A GPU-accelerated instance like the A3 series with NVIDIA H100 GPUs can be significantly more energy-efficient for training large models than a CPU-only alternative. Although a GPU-accelerated instance has higher nominal power usage, the task is completed much faster.  
+**[General-purpose instances](https://docs.cloud.google.com/compute/docs/general-purpose-machines)** : These instances provide a balanced ratio of CPU to memory. | Web servers, microservices, small to medium databases, and development environments. | The E2 series is highly cost-efficient and energy-efficient due to its dynamic allocation of resources. The C4A, N4A, and Tau T2A series use Arm-based processors, which are often more energy-efficient per unit of performance for large-scale workloads.  
+**[Compute-optimized instances](https://docs.cloud.google.com/compute/docs/compute-optimized-machines)** : These instances provide a high vCPU-to-memory ratio and high performance per core. | High performance computing (HPC), batch processing, gaming servers, and CPU-based data analytics. | A compute-optimized instance lets you complete CPU-intensive tasks faster, which reduces the total compute time and energy consumption of the job.   
+**[Memory-optimized instances](https://docs.cloud.google.com/compute/docs/memory-optimized-machines)** : These instances are designed for workloads that require a large amount of memory. | Large in-memory databases and data warehouses, such as SAP HANA or in-memory analytics. | Memory-optimized instances enable the consolidation of memory-heavy workloads on fewer physical nodes. This consolidation reduces the total energy that's required when compared to using multiple smaller instances. High-performance memory reduces data-access latency, which can reduce the total time that the CPU spends in an active state.  
+**[Storage-optimized instances](https://docs.cloud.google.com/compute/docs/storage-optimized-machines)** : These instances provide high-throughput, low-latency local SSD storage. | Data warehousing, log analytics, and SQL, NoSQL, and vector databases.  | Storage-optimized instances process massive datasets locally, which helps to eliminate the energy that's used for cross-location network data egress. When you use local storage for high-IOPS tasks, you avoid over-provisioning multiple standard instances.  
+**[Accelerator-optimized instances](https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines)** : These instances are built for GPU and TPU-accelerated workloads, such as AI, ML, and HPC. | ML model training and inference, and scientific simulations. | [TPUs](https://docs.cloud.google.com/tpu/docs/intro-to-tpu) are engineered for optimal energy efficiency. They deliver higher computations per watt. A GPU-accelerated instance like the A3 series with NVIDIA H100 GPUs can be significantly more energy-efficient for training large models than a CPU-only alternative. Although a GPU-accelerated instance has higher nominal power usage, the task is completed much faster.  
   
 ### Upgrade to the latest machine types
 
@@ -132,7 +132,7 @@ GKE is a container orchestration platform, which ensures that applications use o
 
 ### Configure carbon-aware scheduling
 
-At Google, we continually shift our workloads to [locations](https://blog.google/outreach-initiatives/sustainability/carbon-aware-computing-location/) and [times](https://blog.google/inside-google/infrastructure/data-centers-work-harder-sun-shines-wind-blows/) that provide the cleanest electricity. We also repurpose, or [harvest](https://cloud.google.com/blog/topics/sustainability/hardware-harvesting-at-google-reducing-waste-and-emissions), older equipment for alternative use cases. You can use this carbon-aware scheduling strategy to ensure that your containerized workloads use clean energy.
+At Google, we continually shift our workloads to [locations](https://blog.google/company-news/outreach-and-initiatives/sustainability/carbon-aware-computing-location/) and [times](https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/data-centers-work-harder-sun-shines-wind-blows/) that provide the cleanest electricity. We also repurpose, or [harvest](https://cloud.google.com/blog/topics/sustainability/hardware-harvesting-at-google-reducing-waste-and-emissions), older equipment for alternative use cases. You can use this carbon-aware scheduling strategy to ensure that your containerized workloads use clean energy.
 
 To implement carbon-aware scheduling, you need information about the energy mix that powers data centers in a region in real time. You can get this information in a machine-readable format from the [Carbon free energy for Google Cloud regions](https://github.com/GoogleCloudPlatform/region-carbon-info) repository in GitHub or from a [BigQuery public dataset](https://console.cloud.google.com/marketplace/product/bigquery-public-datasets/regional-cfe). The hourly grid mix and carbon intensity data that's used to calculate the Google annual carbon dataset is sourced from [Electricity Maps](https://app.electricitymaps.com/).
 
@@ -174,6 +174,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-01-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-01-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

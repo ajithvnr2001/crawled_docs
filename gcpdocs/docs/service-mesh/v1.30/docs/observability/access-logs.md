@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.30/docs/observability/access-logs/
 title: Request proxy logs \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:01.919944+00:00
+fetched_at: 2026-10-29T10:18:21.325005+00:00
 ---
 
 # Request proxy logs  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -29,9 +29,7 @@ Cloud Service Mesh supports two different types of access logs in Cloud Logging:
 
 ### Managed Traffic Director
 
-**Note:** In the rapid channel, Cloud Service Mesh with a managed Traffic Director control plane supports multiple telemetry API configurations. Telemetry APIs are supported at the root namespace (default: `istio-system`, or as mentioned in the meshconfig), namespace level, and selector specific. Priority is highest for selector and lowest for root level. In other channels, only a single cluster-wide telemetry API configuration is supported, specifically, a single Istio telemetry API CR in the root namespace.
-
-If you already have an existing Istio telemetry API CR, to preserve your previous customization settings in your existing Istio telemetry CR, you must include them within your new Istio telemetry API CR.
+**Note:** Cloud Service Mesh with a managed Traffic Director control plane supports multiple telemetry API configurations. Telemetry APIs are supported at the root namespace (default: `istio-system`, or as mentioned in the meshconfig), namespace level, and selector specific. Priority is highest for selector and lowest for root level.
 
 ### Envoy access logs
 
@@ -119,7 +117,7 @@ By default, traffic logs are enabled and Envoy access logs are disabled. If you 
 
 ### Selector-specific access logs
 
-In the rapid channel, to enable access logging for only a specific workload, you first need to disable it at the mesh-wide level by applying a Telemetry Configuration in the root namespace (since traffic logging is enabled by default). Then, you apply a separate configuration with a selector to enable it just for that workload.
+To enable access logging for only a specific workload, you first need to disable it at the mesh-wide level by applying a Telemetry Configuration in the root namespace (since traffic logging is enabled by default). Then, you apply a separate configuration with a selector to enable it just for that workload.
     
     
     # 1. Disable mesh-wide access logging
@@ -746,6 +744,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

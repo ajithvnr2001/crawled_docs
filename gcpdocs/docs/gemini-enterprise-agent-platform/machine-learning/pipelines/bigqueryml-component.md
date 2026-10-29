@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/bigqueryml-component/
 title: BigQuery ML components \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:31.460262+00:00
+fetched_at: 2026-10-29T11:13:37.591164+00:00
 ---
 
 # BigQuery ML components  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

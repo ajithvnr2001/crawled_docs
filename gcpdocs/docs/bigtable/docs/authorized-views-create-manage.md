@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/authorized-views-create-manage/
 title: Create and manage authorized views \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:28.669087+00:00
+fetched_at: 2026-10-29T10:18:57.851997+00:00
 ---
 
 # Create and manage authorized views  |  Bigtable  |  Google Cloud Documentation

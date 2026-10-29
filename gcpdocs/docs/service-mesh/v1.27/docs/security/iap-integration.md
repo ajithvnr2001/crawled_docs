@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/security/iap-integration/
 title: Integrating IAP with Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:29:59.066456+00:00
+fetched_at: 2026-10-29T10:18:28.480420+00:00
 ---
 
 # Integrating IAP with Cloud Service Mesh  |  Google Cloud Documentation

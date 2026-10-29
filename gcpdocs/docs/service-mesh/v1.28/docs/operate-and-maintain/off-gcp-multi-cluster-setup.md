@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.28/docs/operate-and-maintain/off-gcp-multi-cluster-setup/
 title: Set up a multi-cluster mesh outside Google Cloud \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:56.511734+00:00
+fetched_at: 2026-10-29T10:18:38.119128+00:00
 ---
 
 # Set up a multi-cluster mesh outside Google Cloud  |  Cloud Service Mesh  |  Google Cloud Documentation

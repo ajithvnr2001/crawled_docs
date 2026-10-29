@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/update-rebuild-index/
 title: Update and rebuild an active index \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:40.666884+00:00
+fetched_at: 2026-10-29T09:56:17.215369+00:00
 ---
 
 # Update and rebuild an active index  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count/
 title: Use the Count Tokens API \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:05.769487+00:00
+fetched_at: 2026-10-29T09:45:40.328728+00:00
 ---
 
 # Use the Count Tokens API  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

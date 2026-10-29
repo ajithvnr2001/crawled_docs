@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/delete-featureview/
 title: Delete a feature view \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:36.944162+00:00
+fetched_at: 2026-10-29T11:13:13.490226+00:00
 ---
 
 # Delete a feature view  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

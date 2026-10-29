@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/destination-gcs/
 title: Configure a Cloud Storage destination \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:19:56.055442+00:00
+fetched_at: 2026-10-29T11:06:05.005391+00:00
 ---
 
 # Configure a Cloud Storage destination  |  Datastream  |  Google Cloud Documentation

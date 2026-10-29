@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tutorials/tabular-automl/deploy-predict/
 title: Hello tabular data: Deploy a model and request a prediction \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:32.610741+00:00
+fetched_at: 2026-10-29T11:13:01.502404+00:00
 ---
 
 # Hello tabular data: Deploy a model and request a prediction  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

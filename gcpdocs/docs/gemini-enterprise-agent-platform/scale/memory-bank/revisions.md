@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/revisions/
 title: Memory revisions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:25.645686+00:00
+fetched_at: 2026-10-29T11:06:38.471693+00:00
 ---
 
 # Memory revisions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

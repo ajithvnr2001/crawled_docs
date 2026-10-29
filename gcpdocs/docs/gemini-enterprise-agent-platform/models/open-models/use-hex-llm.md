@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-hex-llm/
 title: Serve open models using Hex-LLM premium container on Cloud TPU \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:57.055066+00:00
+fetched_at: 2026-10-29T11:06:19.844221+00:00
 ---
 
 # Serve open models using Hex-LLM premium container on Cloud TPU  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

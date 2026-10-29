@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/
 title: Well-Architected Framework: Sustainability pillar \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:21:32.420995+00:00
+fetched_at: 2026-10-29T09:47:08.381113+00:00
 ---
 
 # Well-Architected Framework: Sustainability pillar  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,9 +19,9 @@ Send feedback
 
 #  Well-Architected Framework: Sustainability pillar Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-10-13 UTC
+Last reviewed 2026-10-28 UTC
 
-To view the content in the sustainability pillar on a single page or to to get a PDF output of the content, see [View on one page](https://docs.cloud.google.com/architecture/framework/sustainability/printable). 
+To view the content in the sustainability pillar on a single page or to get a PDF output of the content, see [View on one page](https://docs.cloud.google.com/architecture/framework/sustainability/printable). 
 
 The sustainability pillar in the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to design, build, and manage workloads in Google Cloud that are energy-efficient and carbon-aware.
 
@@ -57,7 +57,7 @@ Migrating on-premises workloads to the cloud can help to reduce your organizatio
 
 [Shared responsibilities and shared fate on Google Cloud](https://docs.cloud.google.com/architecture/framework/security/shared-responsibility-shared-fate) describes how security for cloud workloads is a shared responsibility between Google and you, the customer. This shared responsibility model also applies to sustainability.
 
-Google is responsible for the sustainability _of_ Google Cloud, which means the energy efficiency and water stewardship of our data centers, infrastructure, and core services. We invest continuously in renewable energy, climate-conscious cooling, and hardware optimization. For more information about Google's sustainability strategy and progress, see [Google Sustainability 2025 Environmental Report](https://sustainability.google/google-2025-environmental-report/).
+Google is responsible for the sustainability _of_ Google Cloud, which means the energy efficiency and water stewardship of our data centers, infrastructure, and core services. We invest continuously in renewable energy, climate-conscious cooling, and hardware optimization. For more information about Google's sustainability strategy and progress, see [Google Sustainability 2026 Environmental Report](https://sustainability.google/google-2026-environmental-report/).
 
 You, the customer, are responsible for sustainability _in_ the cloud, which means optimizing your workloads to be energy efficient. For example, you can right-size resources, use serverless services that scale to zero, and manage data lifecycles effectively.
 
@@ -80,13 +80,13 @@ Google offers the following products and features to help you derive insights fr
   * [Google Earth AI](https://ai.google/earth-ai/): Uses planetary-scale geospatial data to analyze environmental changes and monitor supply chain impacts.
   * [WeatherNext](https://deepmind.google/science/weathernext/): Provides advanced weather forecasting and climate risk analytics to help you build resilience against climate volatility.
   * [Geospatial insights with Google Earth](https://mapsplatform.google.com/solutions/visualize-data/): Uses geospatial data to add rich contextual data to locations, which enables smarter site selection, resource planning, and operations.
-  * [Google Maps routes optimization](https://mapsplatform.google.com/maps-products/#routes-section): Optimizes logistics and delivery routes to increase efficiency and reduce fuel consumption and transportation emissions.
+  * [Google Maps routes optimization](https://mapsplatform.google.com/maps-products/#routes): Optimizes logistics and delivery routes to increase efficiency and reduce fuel consumption and transportation emissions.
 
 
 
 ## Collaborations with partners and customers
 
-Google Cloud and [TELUS](https://www.telus.com) have partnered to advance cloud sustainability by migrating workloads to Google's carbon-neutral infrastructure and leveraging data analytics to optimize operations. This collaboration provides social and environmental benefits through initiatives like smart-city technology, which uses real-time data to reduce traffic congestion and carbon emissions across municipalities in Canada. For more information about this collaboration, see [Google Cloud and TELUS collaborate for sustainability](https://cloud.google.com/blog/topics/sustainability/google-cloud-and-telus-collaborate-for-sustainability).
+Google Cloud and [TELUS](https://www.telus.com/en) have partnered to advance cloud sustainability by migrating workloads to Google's carbon-neutral infrastructure and leveraging data analytics to optimize operations. This collaboration provides social and environmental benefits through initiatives like smart-city technology, which uses real-time data to reduce traffic congestion and carbon emissions across municipalities in Canada. For more information about this collaboration, see [Google Cloud and TELUS collaborate for sustainability](https://cloud.google.com/blog/topics/sustainability/google-cloud-and-telus-collaborate-for-sustainability).
 
 ## Evaluate workloads using an agent skill
 
@@ -146,6 +146,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

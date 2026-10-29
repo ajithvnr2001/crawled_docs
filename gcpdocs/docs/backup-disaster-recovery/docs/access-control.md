@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/backup-disaster-recovery/docs/access-control/
 title: Control access to the appliance management console with IAM \u00a0|\u00a0 Backup and DR \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:22:31.068033+00:00
+fetched_at: 2026-10-29T09:49:11.410033+00:00
 ---
 
 # Control access to the appliance management console with IAM  |  Backup and DR  |  Google Cloud Documentation
@@ -504,7 +504,7 @@ Role | Permissions
   * `backupdr.backupVaults.listTagBindings`
   * `backupdr.backupVaults.update`
 
-`backupdr.bvbackups.delete` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.restore` `backupdr.bvbackups.update` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.bvdataSources.update` `backupdr.compute.restoreFromBackupVault` `backupdr.locations.*`
+`backupdr.bvbackups.delete` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.restore` `backupdr.bvbackups.update` `backupdr.bvbackups.useReadOnlyForCloudSqlInstance` `backupdr.bvdataSources.get` `backupdr.bvdataSources.list` `backupdr.bvdataSources.update` `backupdr.bvdataSources.useReadOnlyForCloudSqlInstance` `backupdr.compute.restoreFromBackupVault` `backupdr.locations.*`
 
   * `backupdr.locations.get`
   * `backupdr.locations.list`
@@ -677,7 +677,7 @@ Role | Permissions
   
 #### Backup and DR Service Agent 
 
-(`roles/backupdr.serviceAgent`) Grants the Backup and DR Service access to protect Compute Engine instances.  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `alloydb.operations.get` `backupdr.backupPlanAssociations.createForComputeDisk` `backupdr.backupPlanAssociations.createForComputeInstance` `backupdr.backupPlanAssociations.deleteForComputeDisk` `backupdr.backupPlanAssociations.deleteForComputeInstance` `backupdr.backupPlanAssociations.updateForComputeDisk` `backupdr.backupPlanAssociations.updateForComputeInstance` `backupdr.operations.get` `cloudsql.instances.createBackupDrBackup` `cloudsql.instances.get` `compute.addresses.list` `compute.addresses.use` `compute.addresses.useInternal` `compute.diskTypes.*`
+(`roles/backupdr.serviceAgent`) Grants the Backup and DR Service access to protect Compute Engine instances.  **Warning:** Do not grant service agent roles to any principals except [service agents](https://docs.cloud.google.com/iam/docs/service-agents).  |  `alloydb.operations.get` `backupdr.backupPlanAssociations.createForComputeDisk` `backupdr.backupPlanAssociations.createForComputeInstance` `backupdr.backupPlanAssociations.deleteForComputeDisk` `backupdr.backupPlanAssociations.deleteForComputeInstance` `backupdr.backupPlanAssociations.updateForComputeDisk` `backupdr.backupPlanAssociations.updateForComputeInstance` `backupdr.bvbackups.get` `backupdr.bvbackups.list` `backupdr.bvbackups.useReadOnlyForCloudSqlInstance` `backupdr.bvdataSources.get` `backupdr.operations.get` `cloudsql.instances.createBackupDrBackup` `cloudsql.instances.get` `compute.addresses.list` `compute.addresses.use` `compute.addresses.useInternal` `compute.diskTypes.*`
 
   * `compute.diskTypes.get`
   * `compute.diskTypes.list`
@@ -753,6 +753,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/jwt-auth/
 title: JSON Web Token authentication \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:15.367566+00:00
+fetched_at: 2026-10-29T09:51:35.211633+00:00
 ---
 
 # JSON Web Token authentication  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

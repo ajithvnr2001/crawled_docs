@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/disks/hyperdisk-perf-limits/
 title: Performance limits for machine series that support Hyperdisk \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:27.499690+00:00
+fetched_at: 2026-10-29T09:46:54.230600+00:00
 ---
 
 # Performance limits for machine series that support Hyperdisk  |  Compute Engine  |  Google Cloud Documentation
@@ -1406,11 +1406,11 @@ The following examples demonstrate how the limits work.
 
 #### Examples
 
-Suppose you have a `c3-*-96` instance. The following limits apply.
+Suppose you have a `c3-*-88` instance. The following limits apply:
 
-  * Maximum number of Hyperdisk volumes across all types: 128\. However, for each Hyperdisk type, the limits are as follows: 
+  * Maximum number of Hyperdisk volumes across all types: 64\. However, for each Hyperdisk type, the limits are as follows: 
     * Hyperdisk Throughput: 64
-    * Hyperdisk ML: 64
+    * Hyperdisk ML: 32
     * Hyperdisk Extreme: 8
     * Hyperdisk Balanced or Hyperdisk Balanced High Availability: 32
   * Maximum number of Persistent Disk and Hyperdisk volumes that you can attach to the instance: 128
@@ -1418,13 +1418,13 @@ Suppose you have a `c3-*-96` instance. The following limits apply.
 
 
 
-The following examples illustrate these limits.
+The following examples illustrate these limits:
 
-  * **Maximum number of a single type of Hyperdisk per instance** : If you attach 8 Hyperdisk Extreme volumes to the instance, then you can attach up to 123 more Hyperdisk volumes to the instance. However, you can attach only 3 more Hyperdisk Extreme volumes to the instance because the maximum number of Hyperdisk Extreme volumes 8.
+  * **Maximum number of a single type of Hyperdisk per instance** : If you attach 5 Hyperdisk Extreme volumes to the instance, then you can attach up to 59 more Hyperdisk volumes to the instance. However, you can attach only 3 more Hyperdisk Extreme volumes to the instance because the maximum number of Hyperdisk Extreme volumes is 8.
 
-  * **Maximum number of Hyperdisk volumes per instance** : 128. If you attach 8 Hyperdisk Extreme volumes to the instance, you can attach up to 120 more Hyperdisk volumes to the instance.
+  * **Maximum number of Hyperdisk volumes per instance** : 64. If you attach 8 Hyperdisk Extreme volumes to the instance, you can attach up to 56 more Hyperdisk volumes to the instance.
 
-  * **Maximum number of disks or volumes per instance, across all types** : 128. If you attach a combined total of 128 Hyperdisk volumes to the instance, then you can't attach any more Hyperdisk or Persistent Disk volumes. However, if you attach only 64 Hyperdisk volumes to the instance, then you can still attach up to 64 Persistent Disk or Hyperdisk volumes to the instance.
+  * **Maximum number of disks or volumes per instance, across all types** : 128. If you attach a combined total of 64 Hyperdisk volumes to the instance, then you can't attach any more Hyperdisk volumes, though you can still attach up to 64 Persistent Disk volumes to the instance.
 
 
 
@@ -1527,6 +1527,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

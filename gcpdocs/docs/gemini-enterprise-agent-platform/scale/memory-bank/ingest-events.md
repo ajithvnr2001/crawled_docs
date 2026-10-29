@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank/ingest-events/
 title: Ingest events \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:20.272752+00:00
+fetched_at: 2026-10-29T11:11:21.126319+00:00
 ---
 
 # Ingest events  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

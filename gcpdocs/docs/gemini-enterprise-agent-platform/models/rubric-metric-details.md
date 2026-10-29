@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/rubric-metric-details/
 title: Details for managed rubric-based metrics \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:30.038059+00:00
+fetched_at: 2026-10-29T11:06:29.561532+00:00
 ---
 
 # Details for managed rubric-based metrics  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

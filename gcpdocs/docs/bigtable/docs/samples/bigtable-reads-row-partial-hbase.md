@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-reads-row-partial-hbase/
 title: Read a partial row (HBase) \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:31.575114+00:00
+fetched_at: 2026-10-29T10:18:44.747199+00:00
 ---
 
 # Read a partial row (HBase)  |  Bigtable  |  Google Cloud Documentation

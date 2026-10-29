@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/use-database-insights-mcp/
 title: Monitor Bigtable using the Database Insights MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:57.930273+00:00
+fetched_at: 2026-10-29T10:19:34.041250+00:00
 ---
 
 # Monitor Bigtable using the Database Insights MCP server  |  Google Cloud Documentation

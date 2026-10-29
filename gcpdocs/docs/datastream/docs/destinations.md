@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/destinations/
 title: Destinations \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:19:55.510068+00:00
+fetched_at: 2026-10-29T11:06:04.287151+00:00
 ---
 
 # Destinations  |  Datastream  |  Google Cloud Documentation

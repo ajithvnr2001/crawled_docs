@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/database-migration/docs/sqlserver/known-limitations/
 title: Known limitations \u00a0|\u00a0 Database Migration Service for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:22:40.238562+00:00
+fetched_at: 2026-10-29T10:17:52.796193+00:00
 ---
 
 # Known limitations  |  Database Migration Service for SQL Server  |  Google Cloud Documentation
@@ -25,7 +25,7 @@ This page describes the known limitations for migrating from SQL Server to Cloud
 
 ## General limitations
 
-  * Database Migration Service can migrate up to a maximum of 20 databases per migration job.
+  * For backup-based migrations, Database Migration Service can migrate up to a maximum of 20 databases per migration job. For Distributed Availability Group (DAG) migrations, Database Migration Service can migrate up to 100 databases per migration job.
 
   * You can run only one migration job for a single destination Cloud SQL for SQL Server instance.
 
@@ -68,10 +68,14 @@ Before you choose to migrate your SQL Server databases to Cloud SQL for SQL Serv
 
 
 
+## Limitations for Distributed Availability Group (DAG) migrations
+
+If you migrate from a self-managed SQL Server instance by using a Distributed Availability Group (DAG), additional requirements and limitations apply (including Enterprise Edition requirements, database ownership rules, and Cloud SQL for SQL Server feature restrictions during migration and failback). For a complete list, see [Known limitations for DAG migrations](https://docs.cloud.google.com/database-migration/docs/sqlserver/dag-migration-overview#limitations).
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

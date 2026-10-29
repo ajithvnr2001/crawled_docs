@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts/
 title: Gemini 3.8 Flash TTS \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:26.789723+00:00
+fetched_at: 2026-10-29T09:45:15.773509+00:00
 ---
 
 # Gemini 3.8 Flash TTS  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -20,10 +20,6 @@ fetched_at: 2026-10-28T05:44:26.789723+00:00
 Send feedback 
 
 #  Gemini 3.8 Flash TTS Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This product or feature is a Generative AI Preview offering, subject to the "Pre-GA Offerings Terms" of the [ Google Cloud Service Specific Terms](https://cloud.google.com/terms/service-terms). For this Generative AI Preview offering, Customers may elect to use it for production or commercial purposes, or disclose Generated Output to third-parties, and may process personal data as outlined in the [ Cloud Data Processing Addendum](https://cloud.google.com/terms/data-processing-addendum), subject to the obligations and restrictions described in the agreement under which you access Google Cloud. 
 
 Gemini 3.8 Flash TTS (`gemini-3.8-flash-tts`) is Google's flagship text-to-speech model, available through Gemini Enterprise. It's built for studio-grade voice fidelity, expressive acting, authentic regional accents, and stable long-form, multi-turn audio.
 
@@ -67,9 +63,9 @@ Supported
 Supported
   * [Streaming](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview#streaming)   
 Supported
-  * [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design)   
+  * [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) previewPreview feature  
 Supported
-  * [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication)   
+  * [Voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) previewPreview feature  
 Supported
 
   
@@ -96,12 +92,29 @@ Supported
 Supported regions |  **[Model availability](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations) ** | 
 
   * Global: `global`
+  * Multi-region: `us`, `eu`
+
+  
+**[ML processing](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency) ** | 
+
+  * Multi-region: `us`, `eu`
+
+  
+**[Standard PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) ** | 
+
+  * Global: `global`
+  * Multi-region: `us`, `eu`
+
+  
+**Voices API (Preview)** | 
+
+  * Global: `global`
 
   
 Versions | 
 
   * `gemini-3.8-flash-tts`
-    * Launch stage: Preview
+    * Launch stage: GA
     * Release date: September 28, 2026
 
   

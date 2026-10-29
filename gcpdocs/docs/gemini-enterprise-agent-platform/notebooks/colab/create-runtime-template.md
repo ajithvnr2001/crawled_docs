@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/colab/create-runtime-template/
 title: Create a runtime template in Colab Enterprise \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:13.355316+00:00
+fetched_at: 2026-10-29T11:13:02.926509+00:00
 ---
 
 # Create a runtime template in Colab Enterprise  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

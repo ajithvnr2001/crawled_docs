@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/security/implement-preemptive-cyber-defense/
 title: Implement preemptive cyber defense \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:47:51.645283+00:00
+fetched_at: 2026-10-29T09:46:44.874408+00:00
 ---
 
 # Implement preemptive cyber defense  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Implement preemptive cyber defense Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-02-05 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the security pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to build robust cyber-defense programs as part of your overall security strategy.
 
@@ -33,11 +33,11 @@ When you defend your system against cyber attacks, you have a significant, under
 
 To implement preemptive cyber defense for your cloud workloads, consider the recommendations in the following sections:
 
-  * Integrate the functions of cyber defense
-  * Use the Intelligence function in all aspects of cyber defense
-  * Understand and capitalize on your defender's advantage
-  * Validate and improve your defenses continuously
-  * Manage and coordinate cyber-defense efforts
+  * [Integrate the functions of cyber defense](https://docs.cloud.google.com/architecture/framework/security/implement-preemptive-cyber-defense#integrate_the_functions_of_cyber_defense)
+  * [Use the Intelligence function in all aspects of cyber defense](https://docs.cloud.google.com/architecture/framework/security/implement-preemptive-cyber-defense#use_intelligence_in_all_aspects_of_cyber_defense)
+  * [Understand and capitalize on your defender's advantage](https://docs.cloud.google.com/architecture/framework/security/implement-preemptive-cyber-defense#understand_and_capitalize_on_your_defenders_advantage)
+  * [Validate and improve your defenses continuously](https://docs.cloud.google.com/architecture/framework/security/implement-preemptive-cyber-defense#validate_and_improve_your_defenses_continuously)
+  * [Manage and coordinate cyber-defense efforts](https://docs.cloud.google.com/architecture/framework/security/implement-preemptive-cyber-defense#manage_and_coordinate_cyber-defense_efforts)
 
 
 
@@ -69,7 +69,7 @@ The following Google Cloud products and features help you take advantage of thre
 
   * [Chrome Enterprise Premium](https://docs.cloud.google.com/chrome-enterprise-premium/docs/overview) offers threat and data protection, which helps to protect users from exfiltration risks and prevents malware from getting onto enterprise-managed devices. Chrome Enterprise Premium also provides visibility into unsafe or potentially unsafe activity that can happen within the browser.
 
-  * Network monitoring, through tools like [Network Intelligence Center](https://docs.cloud.google.com/network-intelligence-center), provides visibility into network performance. Network monitoring can also help you detect unusual traffic patterns or detect data transfer amounts that might indicate an attack or data exfiltration attempt.
+  * Network monitoring, through tools like [Network Intelligence Center](https://docs.cloud.google.com/network-intelligence-center/docs/overview), provides visibility into network performance. Network monitoring can also help you detect unusual traffic patterns or detect data transfer amounts that might indicate an attack or data exfiltration attempt.
 
 
 
@@ -99,9 +99,9 @@ This recommendation is relevant to all of the [focus areas](https://docs.cloud.g
 
 This recommendation emphasizes the importance of targeted testing and continuous validation of controls to understand strengths and weaknesses across the entire attack surface. This includes validating the effectiveness of controls, operations, and staff through methods like the following:
 
-  * [Penetration tests](https://cloud.google.com/security/resources/datasheets/penetration-testing#penetration-testing)
-  * [Red-blue team](https://services.google.com/fh/files/blogs/google_ai_red_team_digital_final.pdf) and [purple team](https://cloud.google.com/security/resources/datasheets/consulting-services-continuous-purple-team-assessment) exercises
-  * [Tabletop exercises](https://cloud.google.com/security/resources/datasheets/consulting-services-tabletop-exercise)
+  * [Penetration tests](https://cloud.google.com/security/consulting/mandiant-penetration-testing)
+  * [Red-blue team](https://services.google.com/fh/files/blogs/google_ai_red_team_digital_final.pdf) and [purple team](https://services.google.com/fh/files/misc/ds-purple-team-assessment-en.pdf) exercises
+  * [Tabletop exercises](https://services.google.com/fh/files/misc/ds-tabletop-exercises-en.pdf)
 
 
 
@@ -122,7 +122,7 @@ You must also actively search for threats and use the results to improve detecti
 
 This recommendation is relevant to all of the [focus areas](https://docs.cloud.google.com/architecture/framework/security#focus_areas_of_cloud_security).
 
-As described earlier in Integrate the functions of cyber defense, the Mission Control function interconnects the other functions of the cyber-defense program. This function enables coordination and unified management across the program. It also helps you coordinate with other teams that don't work on cybersecurity. The Mission Control function promotes empowerment and accountability, facilitates agility and expertise, and drives responsibility and transparency.
+As described earlier in [Integrate the functions of cyber defense](https://docs.cloud.google.com/architecture/framework/security/implement-preemptive-cyber-defense#integrate_the_functions_of_cyber_defense), the Mission Control function interconnects the other functions of the cyber-defense program. This function enables coordination and unified management across the program. It also helps you coordinate with other teams that don't work on cybersecurity. The Mission Control function promotes empowerment and accountability, facilitates agility and expertise, and drives responsibility and transparency.
 
 The following products and features can help you implement the Mission Control function:
 
@@ -155,6 +155,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-02-05 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-02-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/continuous-materialized-views/
 title: Continuous materialized views \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:22.115070+00:00
+fetched_at: 2026-10-29T10:18:42.607702+00:00
 ---
 
 # Continuous materialized views  |  Bigtable  |  Google Cloud Documentation

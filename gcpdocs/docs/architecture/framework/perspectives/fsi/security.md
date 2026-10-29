@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/fsi/security/
 title: Financial services perspective: Security, privacy, and compliance \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:43.878846+00:00
+fetched_at: 2026-10-29T09:46:49.720406+00:00
 ---
 
 # Financial services perspective: Security, privacy, and compliance  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Financial services perspective: Security, privacy, and compliance Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-07-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This document in the [Google Cloud Well-Architected Framework: Financial services (FS) perspective](https://docs.cloud.google.com/architecture/framework/perspectives/fsi) provides an overview of the principles and recommendations to address the security, privacy, and compliance requirements of financial services (FS) workloads in Google Cloud. The recommendations help you build resilient and compliant infrastructure, safeguard sensitive data, maintain customer trust, navigate the complex landscape of regulatory requirements, and effectively manage cyber threats. The recommendations in this document align with the [security pillar](https://docs.cloud.google.com/architecture/framework/security) of the Well-Architected Framework.
 
@@ -29,13 +29,13 @@ To help ensure comprehensive security and compliance, you need to understand the
 
 The security recommendations in this document are mapped to the following core principles:
 
-  * Implement security by design
-  * Implement zero trust
-  * Implement shift-left security
-  * Implement preemptive cyber defense
-  * Use AI securely and responsibly, and use AI for security
-  * Meet regulatory, compliance, and privacy needs
-  * Prioritize security initiatives
+  * [Implement security by design](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/security#security-by-design)
+  * [Implement zero trust](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/security#zero-trust)
+  * [Implement shift-left security](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/security#shift-left)
+  * [Implement preemptive cyber defense](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/security#preemptive-cyber-defense)
+  * [Use AI securely and responsibly, and use AI for security](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/security#ai)
+  * [Meet regulatory, compliance, and privacy needs](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/security#regulatory-compliance)
+  * [Prioritize security initiatives](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/security#prioritize-security)
 
 
 
@@ -45,7 +45,7 @@ Financial regulations like the [Payment Card Industry Data Security Standard (PC
 
 To apply the security-by-design principle for your FS workloads in Google Cloud, consider the following recommendations:
 
-  * Ensure that only necessary permissions are granted by applying the principle of least privilege through granular role-based access control (RBAC) in [Identity and Access Management (IAM)](https://cloud.google.com/security/products/iam). The use of RBAC is a key requirement in many financial regulations.
+  * Ensure that only necessary permissions are granted by applying the principle of least privilege through granular role-based access control (RBAC) in [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview). The use of RBAC is a key requirement in many financial regulations.
   * Enforce security perimeters around your sensitive services and data within Google Cloud by using [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview). The security perimeters help to segment and protect sensitive data and resources, and help to prevent data exfiltration and unauthorized access, as required by regulations.
   * Define security configurations as code by using infrastructure as code (IaC) tools like [Terraform](https://docs.cloud.google.com/docs/terraform/terraform-overview). This approach embeds security controls from the initial deployment phase, which helps to ensure consistency and auditability.
   * Scan your application code by integrating [Static Application Security Testing (SAST)](https://en.wikipedia.org/wiki/Static_application_security_testing) into the CI/CD pipeline with [Cloud Build](https://docs.cloud.google.com/build/docs/overview). Establish automated security gates to prevent the deployment of non-compliant code.
@@ -60,8 +60,8 @@ Modern financial regulations increasingly emphasize the need for stringent acces
 
 To implement zero trust, consider the following recommendations:
 
-  * Enable context-aware access based on user identity, device security, location, and other factors by combining [IAM](https://cloud.google.com/security/products/iam) controls with [Chrome Enterprise Premium](https://cloud.google.com/chrome-enterprise-premium/docs/overview). This approach ensures continuous verification before access to financial data and systems is granted.
-  * Provide secure and scalable identity and access management by configuring [Identity Platform](https://cloud.google.com/security/products/identity-platform) (or your external identity provider if you use [Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation)). Set up multi-factor authentication (MFA) and other controls that are crucial to implement zero trust and help ensure regulatory compliance.
+  * Enable context-aware access based on user identity, device security, location, and other factors by combining [IAM](https://docs.cloud.google.com/iam/docs/overview) controls with [Chrome Enterprise Premium](https://docs.cloud.google.com/chrome-enterprise-premium/docs/overview). This approach ensures continuous verification before access to financial data and systems is granted.
+  * Provide secure and scalable identity and access management by configuring [Identity Platform](https://docs.cloud.google.com/identity-platform/docs) (or your external identity provider if you use [Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation)). Set up multi-factor authentication (MFA) and other controls that are crucial to implement zero trust and help ensure regulatory compliance.
   * Implement MFA for all user accounts, especially for accounts with access to sensitive data or systems.
   * Support audits and investigations related to regulatory compliance by establishing comprehensive logging and monitoring of user access and network activity.
   * Enable private and secure communication between services within Google Cloud and on-premises environments without exposing the traffic to the public internet by using [Private Service Connect](https://docs.cloud.google.com/vpc/docs/private-service-connect).
@@ -81,7 +81,7 @@ To implement shift-left security, consider the following recommendations:
 
   * Automatically scan web applications for common vulnerabilities by integrating [Web Security Scanner](https://docs.cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview), which is a part of [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview), into your development pipelines.
 
-  * Implement security checks for the source code, build process, and code provenance by using the [Supply-chain Levels for Software Artifacts (SLSA)](https://slsa.dev/) framework. Enforce the provenance of the workloads that run in your environments by using solutions such as [Binary Authorization](https://docs.cloud.google.com/binary-authorization/docs/overview). Ensure that your workloads use only verified open-source software libraries by using [Assured Open Source](https://docs.cloud.google.com/assured-open-source-software/docs/overview).
+  * Implement security checks for the source code, build process, and code provenance by using the [Supply-chain Levels for Software Artifacts (SLSA)](https://slsa.dev/) framework. Enforce the provenance of the workloads that run in your environments by using solutions such as [Binary Authorization](https://docs.cloud.google.com/binary-authorization/docs/overview). Ensure that your workloads use only verified open-source software libraries by using [Assured Open Source Software](https://docs.cloud.google.com/assured-open-source-software/docs/overview).
 
   * Track the number of vulnerabilities that are identified and remediated in your development lifecycle, the percentage of code deployments that pass security scans, and the reduction in security incidents caused by software vulnerabilities. Google Cloud provides tools to help with this tracking for different kinds of workloads. For example, for containerized workloads, use the [container scanning feature of Artifact Registry](https://docs.cloud.google.com/artifact-analysis/docs/container-scanning-overview).
 
@@ -98,7 +98,7 @@ Consider the following recommendations:
   * Protect web applications and APIs from web exploits and DDoS attacks at the network edge by using [Google Cloud Armor](https://docs.cloud.google.com/armor/docs/cloud-armor-overview).
   * Aggregate and prioritize security findings and recommendations by using [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview), which enables security teams to proactively address potential risks.
   * Validate preemptive defenses and incident response plans by conducting regular security simulations and penetration testing.
-  * Measure the time to detect and respond to security incidents, the effectiveness of DDoS mitigation efforts, and the number of prevented cyberattacks. You can get the required metrics and data from [Google Security Operations SOAR and SIEM dashboards](https://docs.cloud.google.com/chronicle/docs/secops/understand-the-secops-platform#siem-dashboards-and-soar-dashboards).
+  * Measure the time to detect and respond to security incidents, the effectiveness of DDoS mitigation efforts, and the number of prevented cyberattacks. You can get the required metrics and data from [Google Security Operations SOAR dashboards](https://docs.cloud.google.com/chronicle/docs/reports/native-dashboards2).
 
 
 
@@ -109,7 +109,7 @@ AI and ML are increasingly used for financial services use cases such as fraud d
   * Develop and deploy ML models in a secure and governed environment by using [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform). Features like model explainability and fairness metrics can help to address responsible-AI concerns.
   * Leverage the security analytics and operations capabilities of [Google Security Operations](https://cloud.google.com/security/products/security-operations), which uses AI and ML to analyze large volumes of security data, detect anomalies, and automate threat response. These capabilities help to enhance your overall security posture and aid in compliance monitoring.
   * Establish clear governance policies for AI and ML development and deployment, including security and ethics-related considerations.
-  * Align with the elements of the [Secure AI Framework (SAIF)](https://developers.google.com/machine-learning/resources/saif), which provides a practical approach to address the security and risk concerns of AI systems.
+  * Align with the elements of the [Secure AI Framework (SAIF)](https://saif.google), which provides a practical approach to address the security and risk concerns of AI systems.
   * Track the accuracy and effectiveness of AI-powered fraud detection systems, the reduction in false positives in security alerts, and the efficiency gains from AI-driven security automation.
 
 
@@ -145,6 +145,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-07-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-07-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

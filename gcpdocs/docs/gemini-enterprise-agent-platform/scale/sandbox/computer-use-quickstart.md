@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sandbox/computer-use-quickstart/
 title: Computer Use quickstart \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:07.740939+00:00
+fetched_at: 2026-10-29T11:12:31.305097+00:00
 ---
 
 # Computer Use quickstart  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

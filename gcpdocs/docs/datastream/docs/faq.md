@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/datastream/docs/faq/
 title: FAQ \u00a0|\u00a0 Datastream \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:19:54.942225+00:00
+fetched_at: 2026-10-29T09:56:12.003178+00:00
 ---
 
 # FAQ  |  Datastream  |  Google Cloud Documentation
@@ -221,7 +221,7 @@ Question | Answer
 ---|---  
 How does Datastream get data out of PostgreSQL? | Datastream uses PostgreSQL's [logical decoding](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html) feature to extract the change events from PostgreSQL  
 Does Datastream support replication from AlloyDB for PostgreSQL or AlloyDB Omni sources? | Yes. Datastream supports both of these sources. For information about configuring your source AlloyDB for PostgreSQL database, see [Configure an AlloyDB for PostgreSQL database](https://docs.cloud.google.com/datastream/docs/configure-alloydb-psql). For information about configuring your source AlloyDB Omni database, see [Configure a self-managed PostgreSQL database](https://docs.cloud.google.com/datastream/docs/configure-self-managed-psql).  
-Does Datastream support replication from a PostgreSQL read replica instance? | No, Datastream doesn't support replication from read replica instances for PostgreSQL.  
+Does Datastream support replication from a PostgreSQL read replica instance? | Yes, Datastream supports replication from PostgreSQL read replica instances for PostgreSQL version 16 and later. For more information about configuring read replicas, see [Replication from read replicas](https://docs.cloud.google.com/datastream/docs/sources-postgresql#postgresql-read-replicas).  
 Does Datastream support [Row-Level Security (RLS)](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)? | Datastream doesn't support replication of tables with RLS enabled. However, you can bypass this limitation by using the `BYPASSRLS` clause: 
     
     
@@ -420,6 +420,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

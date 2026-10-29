@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/search-resources/
 title: Search for Vertex AI Feature Store resources \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:49.508096+00:00
+fetched_at: 2026-10-29T11:12:52.415447+00:00
 ---
 
 # Search for Vertex AI Feature Store resources  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

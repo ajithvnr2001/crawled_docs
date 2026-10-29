@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/open-source/ray/bigquery-integration/
 title: Use Ray on Agent Platform with BigQuery \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:07.118687+00:00
+fetched_at: 2026-10-29T11:09:35.114812+00:00
 ---
 
 # Use Ray on Agent Platform with BigQuery  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

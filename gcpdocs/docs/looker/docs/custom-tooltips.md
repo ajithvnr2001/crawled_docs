@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/custom-tooltips/
 title: Custom tooltips \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:56.681054+00:00
+fetched_at: 2026-10-29T09:47:11.671845+00:00
 ---
 
 # Custom tooltips  |  Looker  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Custom tooltips Stay organized with collections  Save and categorize content based on your preferences. 
 
-You can customize the tooltips that appear when users hover over elements in Looker visualizations. Customized tooltips let you provide more context, display additional metrics, and tailor the information that's presented to your users. With the **Custom Tooltip** visualization setting, you can configure tooltips within the [Explore visualization editor](https://docs.cloud.google.com/looker/docs/creating-visualizations#quick_guide) by using a combination of UI settings and an HTML editor that supports Liquid templating.
+You can customize the tooltips that appear when users hover over elements in Looker visualizations. Customized tooltips let you provide more context, display additional metrics, and tailor the information that's presented to your users. With the **Custom Tooltip** visualization setting, you can configure tooltips within the Explore [**Style** tab](https://docs.cloud.google.com/looker/docs/creating-visualizations#navigating-the-style-tab) (or the visualization [**Edit** menu](https://docs.cloud.google.com/looker/docs/creating-visualizations-classic-explores#quick_guide) for classic Explores) by using a combination of UI settings and an HTML editor that supports Liquid templating.
 
 This page provides guidance for enabling and using the **Custom Tooltips** visualization setting on your Looker (original) instance. This page includes the following sections:
 
@@ -44,7 +44,7 @@ To access the **Custom Tooltips** visualization setting, you must meet the follo
 
 ## Limitations
 
-The **Custom Tooltips** preview feature has the following limitations:
+The **Custom Tooltips** feature has the following limitations:
 
   * Custom tooltips are supported for most visualization types except the following: 
     * [Donut multiples charts](https://docs.cloud.google.com/looker/docs/donut-multiples-options)
@@ -68,13 +68,13 @@ The **Custom Tooltips** preview feature has the following limitations:
 If you have the appropriate permissions, you can customize the tooltip for a series in your Explore visualization. To customize the tooltip, follow these steps:
 
   1. Open or create an [Explore query](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) and select a supported visualization type.
-  2. Click **Edit** in the Explore **Visualization** tab to open the [visualization editor](https://docs.cloud.google.com/looker/docs/creating-visualizations#quick_guide).
-  3. Click the **Series** tab. 
+  2. Click the **Style** tab in the **Configure** panel to edit the visualization. For classic Explores, click **Edit** in the Explore **Visualization** tab to open the [visualization editor](https://docs.cloud.google.com/looker/docs/creating-visualizations-classic-explores#quick_guide).
+  3. Open the **Series** menu. 
      * For [Google Maps charts](https://docs.cloud.google.com/looker/docs/google-map-options#custom-tooltip) and [boxplot charts](https://docs.cloud.google.com/looker/docs/boxplot-options#custom-tooltip), click the **Plot** tab, and proceed to step 5.
-     * For [waterfall charts](https://docs.cloud.google.com/looker/docs/looker/docs/waterfall-options#custom-tooltip), click the **Series** tab, and proceed to step 5.
-     * For [single value](https://docs.cloud.google.com/looker/docs/single-value-options#custom-tooltip) charts and [single record charts](https://docs.cloud.google.com/looker/docs/single-record-options#custom-tooltip), click the **Style** tab, and proceed to step 5.
-     * For [funnel charts](https://docs.cloud.google.com/looker/docs/funnel-options#custom-tooltip), click the **Labels** tab, and proceed to step 5.
-     * For [timeline charts](https://docs.cloud.google.com/looker/docs/timeline-options#custom-tooltip), click the **Options** tab, and proceed to step 5.
+     * For [waterfall charts](https://docs.cloud.google.com/looker/docs/waterfall-options#custom-tooltip), click the **Series** menu, and proceed to step 5.
+     * For [single value](https://docs.cloud.google.com/looker/docs/single-value-options#custom-tooltip) charts and [single record charts](https://docs.cloud.google.com/looker/docs/single-record-options#custom-tooltip), click the **Style** menu, and proceed to step 5.
+     * For [funnel charts](https://docs.cloud.google.com/looker/docs/funnel-options#custom-tooltip), click the **Labels** menu, and proceed to step 5.
+     * For [timeline charts](https://docs.cloud.google.com/looker/docs/timeline-options#custom-tooltip), click the **Options** menu, and proceed to step 5.
   4. Under the **Customizations** section, find the series that you would like to add the tooltip to. If there are multiple series, expand the one that you want to add a tooltip to.
   5. Click the **Custom Tooltip** switch to enable the custom tooltip functionality for that specific series or chart.
   6. In the **Custom Tooltip** section, you can adjust the basic appearance of the tooltip using the provided options: 
@@ -127,7 +127,7 @@ The following HTML is input in the **Edit Tooltip Content** editor for the **Ord
     </div>
     
 
-![A tooltip for the Orders Count single value chart displays the Order Items Count value of $54,340, and the Orders Count value of 39,189.](https://docs.cloud.google.com/static/looker/docs/images/looker-custom-tooltip-example-1.png)
+![A tooltip for the Orders Count single value chart displays the Order Items Count value of $54,340, and the Orders Count value of 39,189.](https://docs.cloud.google.com/static/looker/docs/images/looker-custom-tooltip-example-1-2620.png)
 
 Users are able to see the values for both fields, **Orders Count** and **Order Items Count** , and have more context for the data that is displayed in the chart.
 
@@ -187,36 +187,36 @@ The following HTML is entered in the **Edit Tooltip Content** editor for the **O
       </div>
     
 
-![A tooltip for the Orders Count value in a table chart displays the values for Users State, Orders Status, Orders Count, and Order Items Count in a two-column table.](https://docs.cloud.google.com/static/looker/docs/images/looker-custom-tooltip-example-2.png)
+![A tooltip for the Orders Count value in a table chart displays the values for Users State, Orders Status, Orders Count, and Order Items Count in a two-column table.](https://docs.cloud.google.com/static/looker/docs/images/looker-custom-tooltip-example-2-2620.png)
 
 Users can see all of the Explore query data, without the additional fields displayed in the table chart.
 
 ### Custom tooltip with common Liquid functions
 
-Custom tooltips support common Liquid functions such as piping and using downcast statements. In this example, a column chart displays **Orders Count** grouped by **Orders Status**. The developer wants to format the tooltip so that users can quickly identify the difference between the **Orders Count** for a "CANCELLED" **Orders Status** and a "COMPLETED" **Orders Status**.
+Custom tooltips support common Liquid functions such as piping and using downcast statements. In this example, a column chart displays **Orders Count** grouped by **Orders Status**. The developer wants to format the tooltip so that users can quickly identify the difference between the **Orders Count** for a "cancelled" **Orders Status** and a "complete" **Orders Status**.
 
-The following HTML and Liquid is entered in the **Edit Tooltip Content** editor for the **Orders Count** series, and sets the tooltip value to appear red for order counts with a "CANCELLED" status and green for orders with a "COMPLETED" status. The code uses a variable assignment and piping to ensure the accuracy of the string, and to apply the specified conditional formatting:
+The following HTML and Liquid is entered in the **Edit Tooltip Content** editor for the **Orders Count** series, and sets the tooltip value to appear red for order counts with a "cancelled" status and green for orders with a "complete" status. The code uses a variable assignment and piping to ensure the accuracy of the string, and to apply the specified conditional formatting:
 
 **Note:** To ensure accuracy of conditional statements, apply data transformations during variable assignment.
     
     
     {% assign my_variable = orders.status | downcase | strip %}
-    {% if my_variable == "completed" %}
+    {% if my_variable == "complete" %}
       <span style="color:green">{{orders.count}}</span>
     {% else %}
       <span style="color:red">{{orders.count}}</span>
     {% endif %}
     
 
-The **Orders Count** value for the "COMPLETED" **Orders Status** column displays green text in the tooltip.
+The **Orders Count** value for the "complete" **Orders Status** column displays green text in the tooltip.
 
-![A tooltip displays the Orders Count value green in the COMPLETED Orders Status column.](https://docs.cloud.google.com/static/looker/docs/images/looker-custom-tooltip-example-3a.png)
+![A tooltip displays the Orders Count value green in the complete Orders Status column.](https://docs.cloud.google.com/static/looker/docs/images/looker-custom-tooltip-example-3a-2620.png)
 
-The **Orders Count** value for the "CANCELLED" **Orders Status** column displays red text in the tooltip.
+The **Orders Count** value for the "cancelled" **Orders Status** column displays red text in the tooltip.
 
-![A tooltip displays the Orders Count value green in the COMPLETED Orders Status column.](https://docs.cloud.google.com/static/looker/docs/images/looker-custom-tooltip-example-3b.png)
+![A tooltip displays the Orders Count value green in the complete Orders Status column.](https://docs.cloud.google.com/static/looker/docs/images/looker-custom-tooltip-example-3b-2620.png)
 
-Users are quickly able to distinguish between cancelled and completed orders displayed in the column chart.
+Users are quickly able to distinguish between cancelled and complete orders displayed in the column chart.
 
 ## Related resources
 
@@ -230,6 +230,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

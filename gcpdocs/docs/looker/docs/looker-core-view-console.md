@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/looker-core-view-console/
 title: View and edit the details of a Looker (Google Cloud core) instance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:35.971668+00:00
+fetched_at: 2026-10-29T09:51:27.598575+00:00
 ---
 
 # View and edit the details of a Looker (Google Cloud core) instance  |  Google Cloud Documentation
@@ -109,6 +109,7 @@ The **Details** tab shows additional instance metadata:
 
   * **Ingress Public IP** : This field provides information about instances with a public secure connection. It shows the ingress public IP address, which was automatically assigned when the instance was created.
 
+**Note:** The ingress public IP address that's assigned for instances with public secure connections is mapped to a Google-managed frontend load balancer. Because this IP address remains constant, it won't change during backend failovers, instance updates, or replacements. You can safely add this IP to your allowlist in your client-side firewalls without expecting future modifications.
   * **Ingress Private IP** : This field provides information about instances with private connections that use private services access. It shows the ingress private IP address for the instance. If the instance was created with a public secure connection or with Private Service Connect, **No value** is shown.
 
   * **Associated Network** : This field provides information about instances with private connections that use private services access. It shows the network that was selected to make a private connection. If the instance was created with public secure connections, **No value** is shown.
@@ -308,6 +309,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

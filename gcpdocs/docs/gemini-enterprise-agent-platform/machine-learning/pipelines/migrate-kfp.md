@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/migrate-kfp/
 title: Migrate from Kubeflow Pipelines to Gemini Enterprise Agent Platform Pipelines \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:42.879842+00:00
+fetched_at: 2026-10-29T11:07:42.495854+00:00
 ---
 
 # Migrate from Kubeflow Pipelines to Gemini Enterprise Agent Platform Pipelines  |  Google Cloud Documentation

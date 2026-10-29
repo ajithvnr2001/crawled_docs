@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/enrich-entries-metadata/
 title: Manage aspects and enrich metadata \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:32.558910+00:00
+fetched_at: 2026-10-29T09:56:15.446960+00:00
 ---
 
 # Manage aspects and enrich metadata  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -647,7 +647,7 @@ Note the following:
   * You can edit the required aspects only for custom entries. You can't delete the required aspects.
   * You can edit and delete the optional aspects for both custom entries and system entries.
 
-**Note:** When you use a [`CREATE OR REPLACE TABLE` statement](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement) to replace a BigQuery table, the metadata (including aspects) that was associated with the original table isn't applied to the new table. If you want the metadata to persist, you can [create a BigQuery view](https://docs.cloud.google.com/bigquery/docs/views) for the table and add the metadata to the view.
+**Note:** When you replace or reload a BigQuery table using a [`CREATE OR REPLACE TABLE` statement](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#create_table_statement), a [`TRUNCATE TABLE` statement](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax#truncate_table_statement), or a `WRITE_TRUNCATE` job, Knowledge Catalog preserves the entry's user-attached aspects. Column-level aspects are also preserved for columns that remain in the schema. However, if you drop and recreate a table using a [`DROP TABLE` statement](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-definition-language#drop_table_statement) and a `CREATE TABLE` statement, Knowledge Catalog creates a new entry without the original table's user-attached aspects. To keep aspects when reloading a table, use `CREATE OR REPLACE TABLE`, `TRUNCATE TABLE`, or `WRITE_TRUNCATE`. Alternatively, you can [create a BigQuery view](https://docs.cloud.google.com/bigquery/docs/views) and attach aspects to the view.
 
 ### Console
 
@@ -3756,6 +3756,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

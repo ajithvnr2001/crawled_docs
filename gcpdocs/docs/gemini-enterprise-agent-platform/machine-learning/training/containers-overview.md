@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/containers-overview/
 title: Custom containers overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:22.374337+00:00
+fetched_at: 2026-10-29T11:13:21.257103+00:00
 ---
 
 # Custom containers overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

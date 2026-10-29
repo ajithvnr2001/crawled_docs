@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.30/docs/onboarding/api-support/
 title: API Support in Managed Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:45.121138+00:00
+fetched_at: 2026-10-29T10:18:23.448496+00:00
 ---
 
 # API Support in Managed Cloud Service Mesh  |  Google Cloud Documentation
@@ -900,7 +900,7 @@ The following table lists the supported root and general configuration fields.
 
 Field | Highest Channel Support | Supported Data Types (Values) | Limitations  
 ---|---|---|---  
-`selector.matchLabels` | Rapid | Key-value map | In Regular and Stable channels, only mesh-wide telemetry in root namespace is supported.  
+`selector.matchLabels` | Stable | Key-value map |   
   
 ### Access Logging (accessLogging)
 
@@ -927,7 +927,7 @@ Field | Highest Channel Support | Supported Data Types (Values) | Limitations
 `disableSpanReporting` | Stable | Boolean | Disables span reporting to Cloud Trace.  
 `match.mode` | **Unsupported** | String (`CLIENT_AND_SERVER`, `CLIENT`, `SERVER`) |   
 `providers.name` | Stable | String | Only Stackdriver.  
-`randomSamplingPercentage` | Rapid | Double | Defaults to 0.0. Supported value range: 0.0 to 100.0.  
+`randomSamplingPercentage` | Stable | Double | Defaults to 1.0. Supported value range: 0.0 to 100.0.  
 `useRequestIdForTraceSampling` | **Unsupported** | Boolean |   
   
 ### Metrics (metrics)
@@ -1580,6 +1580,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

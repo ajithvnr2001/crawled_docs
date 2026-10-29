@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/forecasting-prophet/
 title: Forecasting with Prophet \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:23.957498+00:00
+fetched_at: 2026-10-29T11:13:03.136818+00:00
 ---
 
 # Forecasting with Prophet  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

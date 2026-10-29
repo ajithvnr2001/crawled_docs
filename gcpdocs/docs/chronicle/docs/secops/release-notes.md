@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/release-notes/
 title: Google Security Operations release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:31:21.856467+00:00
+fetched_at: 2026-10-29T09:56:30.255973+00:00
 ---
 
 # Google Security Operations release notes  |  Google Cloud Documentation
@@ -26,6 +26,21 @@ This page documents production updates to Google Security Operations. You can pe
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/chronicle-security-operations-release-notes.xml) directly. 
+
+## October 28, 2026
+
+Announcement
+
+**Final shutdown of legacy managed BigQuery export datasets (chronicle-tla) for non-Enterprise+ customers**
+
+Following the [March 26, 2025 deprecation announcement](https://docs.cloud.google.com/chronicle/docs/release-notes#March_26_2025), Google SecOps is completing the final shutdown of legacy Google-managed BigQuery datasets and API keys associated with the `chronicle-tla` Google Cloud project:
+
+  * **What is changing:** Data exports to legacy Google-managed BigQuery datasets under the `chronicle-tla` project are being permanently turned off, and the associated managed datasets and API keys are being decommissioned.
+  * **Who is impacted:** This shutdown applies only to non-Enterprise+ customers still provisioned on legacy `chronicle-tla` Google-managed BigQuery datasets (including tenants whose temporary transition exceptions expired in September 2025). Enterprise+ customers and customers using Bring Your Own BigQuery (BYOBQ) exports to customer-managed Google Cloud projects are not impacted.
+  * **When:** Decommissioning begins on October 28, 2026.
+  * **Action required:** To retain BigQuery access to Google SecOps data, configure [export to a customer-managed BigQuery project (BYOBQ)](https://docs.cloud.google.com/chronicle/docs/reports/export-to-customer-managed-project) or contact your account team to upgrade to Enterprise+.
+
+
 
 ## October 25, 2026
 
@@ -10299,6 +10314,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

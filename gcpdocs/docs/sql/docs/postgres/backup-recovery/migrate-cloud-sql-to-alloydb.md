@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/backup-recovery/migrate-cloud-sql-to-alloydb/
 title: Migrate from Cloud SQL for PostgreSQL to AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:56:27.236695+00:00
+fetched_at: 2026-10-29T09:51:35.336898+00:00
 ---
 
 # Migrate from Cloud SQL for PostgreSQL to AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -29,11 +29,10 @@ This page assumes familiarity with Cloud SQL. If you're new to AlloyDB, see the 
 
 To learn how to migrate your data from Cloud SQL to AlloyDB using [continuous data replication](https://docs.cloud.google.com/database-migration/docs/overview#continuous-migration), see [Database Migration Service for PostgreSQL to AlloyDB](https://docs.cloud.google.com/database-migration/docs/postgresql-to-alloydb/migration-src-and-dest). 
 
-The following aren't supported:
+The following configurations aren't supported:
 
   * Cross-project and cross-region restores
-  * Instances with Customer Managed Encryption Keys (CMEK)
-  * Instances with Identity and Access Management (IAM) group authentication
+  * Instances with customer-managed encryption keys (CMEK)
 
 
 
@@ -119,9 +118,9 @@ Only compatible database versions are displayed. Replicas don't have backups and
 
 After the operation completes, a primary instance is automatically created. You see a new AlloyDB cluster with the data that is copied from the Cloud SQL for PostgreSQL backup that you selected.
 
-When you copy a Cloud SQL for PostgreSQL backup into an AlloyDB cluster, database flags are migrated if the database flags are in Cloud SQL for PostgreSQL and in AlloyDB. Resource level permissions aren't automatically migrated. After the copy is complete, you must manually set up permissions and those database flags that weren't migrated due to a mismatch.
+When you copy a Cloud SQL for PostgreSQL backup into an AlloyDB cluster, AlloyDB maps and preserves individual and IAM group user configurations. AlloyDB also migrates database flags that are supported in both Cloud SQL for PostgreSQL and AlloyDB. Resource-level permissions aren't automatically migrated. After the copy is complete, you must manually set up permissions and any database flags that weren't migrated due to a mismatch.
 
-You can check which database flags in Cloud SQL for PostgreSQL are supported in AlloyDB in the **Create your provisioned cluster** page.
+You can check which database flags in Cloud SQL for PostgreSQL are supported in AlloyDB on the **Create your provisioned cluster** page.
 
 ### gcloud
 
@@ -380,6 +379,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

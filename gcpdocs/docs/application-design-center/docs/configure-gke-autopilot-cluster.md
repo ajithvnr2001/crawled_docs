@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-gke-autopilot-cluster/
 title: Configure a GKE Autopilot cluster \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:21:56.068945+00:00
+fetched_at: 2026-10-29T09:56:38.320973+00:00
 ---
 
 # Configure a GKE Autopilot cluster  |  Application Design Center  |  Google Cloud Documentation
@@ -20,9 +20,7 @@ Send feedback
 
 #  Configure a GKE Autopilot cluster Stay organized with collections  Save and categorize content based on your preferences. 
 
-A [GKE Autopilot cluster](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) lets Google manage your infrastructure configuration, including your nodes, scaling, security, and other preconfigured settings. Autopilot is optimized to run most production workloads and provisions compute resources based on your Kubernetes manifests.
-
-This document describes the connections and parameters you can configure when using App Design Center to create a GKE Autopilot cluster. The configuration parameters are based on the [GKE Autopilot cluster Terraform module](https://github.com/terraform-google-modules/terraform-google-kubernetes-engine/tree/main/modules/gke-autopilot-cluster).
+In App Design Center, you can configure a [GKE Autopilot cluster](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) to run production Kubernetes workloads on infrastructure where Google manages your nodes, scaling, security, and compute provisioning based on your manifests. You can customize the cluster's connections and configuration parameters based on the [GKE Autopilot cluster Terraform module](https://github.com/terraform-google-modules/terraform-google-kubernetes-engine/tree/main/modules/gke-autopilot-cluster).
 
 ## Required configuration parameters
 
@@ -112,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

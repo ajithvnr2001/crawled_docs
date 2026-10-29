@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/service-dependencies/
 title: Manage BigQuery API dependencies \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:00:34.568124+00:00
+fetched_at: 2026-10-29T09:45:12.205500+00:00
 ---
 
 # Manage BigQuery API dependencies  |  Google Cloud Documentation
@@ -29,9 +29,9 @@ Incorrectly disabling a dependency can affect BigQuery functionality. Understand
 
 The following services are enabled by default for every new Google Cloud project:
 
-**Service** | **Which features rely on it** | **Effects of disabling this service**  
----|---|---  
-`analyticshub.googleapis.com` | 
+**Service** | **API name** | **Which features rely on it** | **Effects of disabling this service**  
+---|---|---|---  
+BigQuery sharing | `analyticshub.googleapis.com` | 
 
   * [Publish data exchanges](https://docs.cloud.google.com/bigquery/docs/analytics-hub-introduction)
   * [Publish listings](https://docs.cloud.google.com/bigquery/docs/analytics-hub-manage-listings) and [manage subscriptions](https://docs.cloud.google.com/bigquery/docs/analytics-hub-manage-subscriptions)
@@ -46,7 +46,7 @@ The following services are enabled by default for every new Google Cloud project
   * You can't create new subscriptions
 
   
-`bigqueryconnection.googleapis.com` | 
+BigQuery Connection API | `bigqueryconnection.googleapis.com` | 
 
   * [Federated queries](https://docs.cloud.google.com/bigquery/docs/federated-queries-intro) to data stored outside of BigQuery
   * External tables and datasets
@@ -60,7 +60,7 @@ The following services are enabled by default for every new Google Cloud project
   * You can't query BigLake tables and object tables.
 
   
-`bigquerymigration.googleapis.com` | 
+BigQuery Migration Service | `bigquerymigration.googleapis.com` | 
 
   * [Data migration assessment](https://docs.cloud.google.com/bigquery/docs/migration-assessment)
   * [SQL query translation](https://docs.cloud.google.com/bigquery/docs/interactive-sql-translator)
@@ -71,7 +71,7 @@ The following services are enabled by default for every new Google Cloud project
   * Existing tasks or assessments aren't available.
 
 **Note:** Usually you can disable this service after completing data migration.  
-`bigquerydatapolicy.googleapis.com` | 
+BigQuery Data Policy | `bigquerydatapolicy.googleapis.com` | 
 
   * [Data masking](https://docs.cloud.google.com/bigquery/docs/column-data-masking-intro)
 
@@ -81,7 +81,7 @@ The following services are enabled by default for every new Google Cloud project
   * Data masking policies aren't deleted, but queries to tables with data masking applied fail.
 
   
-`bigquerydatatransfer.googleapis.com` | 
+BigQuery Data Transfer Service | `bigquerydatatransfer.googleapis.com` | 
 
   * [Scheduled data transfers](https://docs.cloud.google.com/bigquery/docs/dts-introduction)
 
@@ -91,7 +91,7 @@ The following services are enabled by default for every new Google Cloud project
   * Existing data transfers stop.
 
   
-`bigqueryreservation.googleapis.com` | 
+BigQuery Reservation API | `bigqueryreservation.googleapis.com` | 
 
   * [Capacity-based workload management](https://docs.cloud.google.com/bigquery/docs/reservations-get-started)
 
@@ -103,7 +103,7 @@ The following services are enabled by default for every new Google Cloud project
   * Slot autoscaling stops.
 
   
-`bigquerystorage.googleapis.com` | 
+BigQuery Storage API | `bigquerystorage.googleapis.com` | 
 
   * [Streaming data ingestion](https://docs.cloud.google.com/bigquery/docs/write-api-streaming)
   * [Batch data loading](https://docs.cloud.google.com/bigquery/docs/write-api-batch)
@@ -114,7 +114,7 @@ The following services are enabled by default for every new Google Cloud project
   * You can't use the [Storage Read API](https://docs.cloud.google.com/bigquery/docs/reference/storage) or the [Storage Write API (gRPC)](https://docs.cloud.google.com/bigquery/docs/write-api) to access your BigQuery data.
 
   
-`dataform.googleapis.com` | 
+Dataform | `dataform.googleapis.com` | 
 
   * Dataform provides code repositories that are leveraged by the following features:
     * [BigQuery pipelines](https://docs.cloud.google.com/dataform/docs/quickstart-create-workflow)
@@ -131,7 +131,7 @@ The following services are enabled by default for every new Google Cloud project
   * Any existing pipelines, saved queries, Colab notebooks, data canvases, data preparations, or Dataform projects become inaccessible.
 
   
-`dataplex.googleapis.com` | 
+Knowledge Catalog | `dataplex.googleapis.com` | 
 
   * Knowledge Catalog provides data cataloging and governance capabilities that are used by the following: 
     * Resource Explorer in BigQuery Studio
@@ -157,12 +157,12 @@ The following services are enabled by default for every new Google Cloud project
 
 Disabling the BigQuery API also disables the following services which are dependent upon BigQuery API:
 
-  * binaryauthorization.googleapis.com
-  * container.googleapis.com
-  * cloudapis.googleapis.com
-  * dataprep.googleapis.com
-  * servicebroker.googleapis.com
-  * telecomdatafabric.googleapis.com
+  * Binary Authorization (`binaryauthorization.googleapis.com`)
+  * Google Kubernetes Engine (`container.googleapis.com`)
+  * Google Cloud APIs (`cloudapis.googleapis.com`)
+  * Dataprep by Trifacta (`dataprep.googleapis.com`)
+  * Open Service Broker for Google Cloud (`servicebroker.googleapis.com`)
+  * Telecom Data Fabric (`telecomdatafabric.googleapis.com`)
 
 
 
@@ -172,9 +172,9 @@ The BigQuery Unified API (`bigqueryunified.googleapis.com`) includes a curated c
 
 For instructions on enabling `bigqueryunified.googleapis.com`, see [Enabling and disabling services](https://docs.cloud.google.com/service-usage/docs/enable-disable).
 
-**Service** | **Which features rely on it** | **Effects of disabling this service**  
----|---|---  
-`aiplatform.googleapis.com` | 
+**Service** | **API name** | **Which features rely on it** | **Effects of disabling this service**  
+---|---|---|---  
+Vertex AI | `aiplatform.googleapis.com` | 
 
   * [Colab notebooks](https://docs.cloud.google.com/bigquery/docs/programmatic-analysis)
   * [BigQuery ML remote models](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create-remote-model)
@@ -186,7 +186,7 @@ For instructions on enabling `bigqueryunified.googleapis.com`, see [Enabling and
   * Your existing notebooks remain accessible for editing.
 
   
-`bigqueryunified.googleapis.com` | 
+BigQuery Unified API | `bigqueryunified.googleapis.com` | 
 
   * Provides a single-click activation of the BigQuery dependent services listed in this document, excluding the **cloudaicompanion** , **composer** and **datalineage** APIs.
   * Ensures new BigQuery dependencies are enabled in your project.
@@ -196,7 +196,7 @@ For instructions on enabling `bigqueryunified.googleapis.com`, see [Enabling and
   * Future dependencies aren't automatically enabled in your project.
 
   
-`compute.googleapis.com` | 
+Compute Engine | `compute.googleapis.com` | 
 
   * Google Compute Engine provides a runtime environment for all features provided by Managed Service for Apache Spark and Gemini Enterprise Agent Platform.
 
@@ -207,7 +207,7 @@ For instructions on enabling `bigqueryunified.googleapis.com`, see [Enabling and
   * Dataproc API gets disabled.
 
   
-`dataproc.googleapis.com` | 
+Managed Service for Apache Spark | `dataproc.googleapis.com` | 
 
   * [Query data with open source engines such as Apache Spark.](https://docs.cloud.google.com/bigquery/docs/bqms-use-dataproc)
   * [Use Spark SQL or PySpark with Managed Service for Apache Spark.](https://docs.cloud.google.com/bigquery/docs/bqms-use-dataproc-serverless)
@@ -220,7 +220,7 @@ For instructions on enabling `bigqueryunified.googleapis.com`, see [Enabling and
   * You can't run Spark in BigQuery workloads.
 
   
-`datastream.googleapis.com` | 
+Datastream | `datastream.googleapis.com` | 
 
   * [Provides change data capture and replication to BigQuery.](https://docs.cloud.google.com/datastream/docs/overview)
 
@@ -234,9 +234,9 @@ For instructions on enabling `bigqueryunified.googleapis.com`, see [Enabling and
 
 You must manually enable the following services for the corresponding capabilities to become available:
 
-**Service** | **Which features rely on it** | **Effects of disabling this service**  
----|---|---  
-`cloudaicompanion.googleapis.com` | 
+**Service** | **API name** | **Which features rely on it** | **Effects of disabling this service**  
+---|---|---|---  
+Gemini for Google Cloud API | `cloudaicompanion.googleapis.com` | 
 
   * Gemini in BigQuery features
 
@@ -245,7 +245,7 @@ You must manually enable the following services for the corresponding capabiliti
   * Code completion, generation, and explanation features stop working. Learn more about [turning off Gemini in BigQuery](https://docs.cloud.google.com/bigquery/docs/gemini-set-up#turn-off).
 
   
-`composer.googleapis.com` | 
+Managed Service for Apache Airflow | `composer.googleapis.com` | 
 
   * [Schedule workloads](https://docs.cloud.google.com/bigquery/docs/orchestrate-workloads)
 
@@ -255,7 +255,7 @@ You must manually enable the following services for the corresponding capabiliti
   * Existing Managed Airflow environments become inoperative, stop working, and return an error state.
 
   
-`datalineage.googleapis.com` | 
+Data Lineage API | `datalineage.googleapis.com` | 
 
   * [Data lineage](https://docs.cloud.google.com/knowledge-catalog/docs/use-lineage#view-lineage) capture and viewing
 
@@ -330,6 +330,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

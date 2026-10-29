@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/set-up-model-monitoring/
 title: Set up model monitoring \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:45.656489+00:00
+fetched_at: 2026-10-29T11:12:14.188216+00:00
 ---
 
 # Set up model monitoring  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

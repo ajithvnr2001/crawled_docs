@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-garden/self-deployed-models/
 title: Overview of self-deployed models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:09.420561+00:00
+fetched_at: 2026-10-29T11:13:37.051497+00:00
 ---
 
 # Overview of self-deployed models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

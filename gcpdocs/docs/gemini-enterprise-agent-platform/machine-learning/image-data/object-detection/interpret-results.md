@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/interpret-results/
 title: Interpret prediction results from image object detection models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:20.259852+00:00
+fetched_at: 2026-10-29T11:06:21.790733+00:00
 ---
 
 # Interpret prediction results from image object detection models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

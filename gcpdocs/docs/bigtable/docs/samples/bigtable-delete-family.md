@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-delete-family/
 title: Delete a family \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:35.621299+00:00
+fetched_at: 2026-10-29T10:19:15.371541+00:00
 ---
 
 # Delete a family  |  Bigtable  |  Google Cloud Documentation

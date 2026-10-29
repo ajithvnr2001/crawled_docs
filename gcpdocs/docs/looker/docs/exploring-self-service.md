@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/exploring-self-service/
 title: Creating self-service Explores \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:47.272320+00:00
+fetched_at: 2026-10-29T09:51:23.350433+00:00
 ---
 
 # Creating self-service Explores  |  Looker  |  Google Cloud Documentation
@@ -56,8 +56,8 @@ To use self-service Explores, you must have the following:
 
   * A Looker instance that meets the following requirements: 
     * Running the minimum Looker version: 
-      * To upload data on a BigQuery connection, your instance must be running Looker 25.20 or later. 
-      * To upload data on a Snowflake connection, your instance must be running Looker 26.8 or later. 
+      * To upload data on a BigQuery connection, your instance must be running Looker 25.20 or later.
+      * To upload data on a Snowflake connection, your instance must be running Looker 26.8 or later.
     * [Configured by a Looker admin to enable self-service Explores](https://docs.cloud.google.com/looker/docs/admin-panel-self-service-explore).
   * A Looker user account with the [`upload_data`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#upload_data) permission, which allows a user to upload data files to your instance.
 
@@ -97,7 +97,7 @@ To create a self-service Explore from a data file on your computer, follow these
   3. In the **Create data source** dialog, select the **Upload from local** tab.
   4. If your Looker admin has enabled **Advanced connection governance** , select the connection to use for your data upload from the **Connection** drop-down menu. You will only see the connections that you have permission to use for data uploads. After selecting the connection, click **Continue**.
   5. Click the **Choose data** button to navigate to and select your data file. (Alternatively, you can drag a file into the **Create data source** dialog.)
-  6. If you selected an Excel file that has more than one worksheet, specify which worksheet to upload from the **Sheet in selected Excel file** drop-down menu. 
+  6. If you selected an Excel file that has more than one worksheet, specify which worksheet to upload from the **Sheet in selected Excel file** drop-down menu.
   7. Click **Upload**.
 
 
@@ -185,7 +185,7 @@ To create a self-service Explore from a Google Sheets file using the Google Shee
      * Clear the **Notify people** checkbox.
      * Click **Share**.
 **Tip:** If you want to update the data for this self-service Explore in the future, keep the sharing access to the Looker service account for the Google Sheets document. Otherwise, you will need to re-share the Google Sheets document when you update the data.
-  13. Return to the **Create data source** dialog. 
+  13. Return to the **Create data source** dialog.
 
   14. Click **Continue**.
 
@@ -225,14 +225,14 @@ You can open any self-service Explore that you own or that the owner has [shared
 
 **Note:** If your Looker admin has enabled **Advanced connection governance** , continued access to a self-service Explore is dependent on your continued access to the underlying database connection. If your access to the connection is revoked, you will no longer be able to query, edit, or share any self-service Explores that use that connection. 
 
-  * If you are the owner of the self-service Explore and you are on its **Edit Self-service Explore** page, you can click the **Explore Data** button to open the Explore.
+  * If you're the owner of the self-service Explore and you are on its **Edit Self-service Explore** page, you can click the **Explore Data** button to open the Explore.
   * Otherwise, you can select the Explore from the **Self-service Explores** section of the Looker **Explore** menu.
 
 
 
-In addition, if you are a Looker admin, you can open any self-service Explore on the instance by using the links in the [**Data uploads**](https://docs.cloud.google.com/looker/docs/admin-panel-self-service-explore#viewing) table on the **Self-service Explores** admin page. For Looker admins, the **Self-service Explores** section of the Looker **Explore** menu doesn't list every self-service Explore on the instance, only those that you own or that the owner has specifically shared with you.
+In addition, if you're a Looker admin, you can open any self-service Explore on the instance by using the links in the [**Data uploads**](https://docs.cloud.google.com/looker/docs/admin-panel-self-service-explore#viewing) table on the **Self-service Explores** admin page. For Looker admins, the **Self-service Explores** section of the Looker **Explore** menu doesn't list every self-service Explore on the instance, only those that you own or that the owner has specifically shared with you.
 
-You can use a self-service Explore much in the same way as any other Looker Explore, including performing the following tasks: 
+You can use a self-service Explore much in the same way as any other Looker Explore, including performing the following tasks:
 
   * [Query your data](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores) in the Explore.
   * [Filter and limit](https://docs.cloud.google.com/looker/docs/filtering-and-limiting) your results to just the data you're interested in.
@@ -250,14 +250,16 @@ In addition, you can prompt Looker to update the data if the information in your
 
 ## Editing a self-service Explore
 
-After you upload a data file, you can edit the Explore's data fields and manage user access from the **Edit Self-service Explore** page. 
+After you upload a data file, you can edit the Explore's data fields and manage user access from the **Edit Self-service Explore** page.
 
 There are two ways to access the **Edit Self-service Explore** page:
 
   * When you first upload a data file, Looker will automatically display the **Edit Self-service Explore** page for your data upload.
-  * Otherwise, from the Looker **Explore** menu, select the Explore from the **Self-service Explores** section. In the Explore page, click the **Edit data fields** link from the bottom of the field picker panel in the Explore:
+  * Otherwise, from the Looker **Explore** menu, select the Explore from the **Self-service Explores** section. In the Explore page, click the **Edit data fields** link from the bottom of the **Configure** panel in the Explore to display the **Edit Self-service Explore** page:
 
-![The Edit data fields link on the Explore page.](https://docs.cloud.google.com/static/looker/docs/images/explore-self-service-edit-2520.png)
+![The Edit data fields link on the Explore page.](https://docs.cloud.google.com/static/looker/docs/images/explore-self-service-edit-2620.png)
+
+Or, if you're using the classic Explore, select **Edit data fields** from the **Explore actions** gear menu.
 
 
 
@@ -277,9 +279,14 @@ From the **Edit Self-service Explore** page, you can do the following:
 
 To rename a self-service Explore, follow these steps:
 
-  1. In the Explore page, click the **Edit data fields** link from the bottom of the field picker panel in the Explore.
+  1. In the Explore page, click the **Edit data fields** link from the bottom of the **Configure** panel in the Explore.
+
+If you're using the classic Explore, select **Edit data fields** from the **Explore actions** gear menu.
+
   2. In the **Edit Self-service Explore** page, click the name of the data upload and then enter a new name.
+
   3. Press the **Enter** key to save the name.
+
 
 
 
@@ -287,9 +294,9 @@ The self-service Explore's new name will now be used as the title in the Explore
 
 ### Modify data fields
 
-On the **Edit Self-service Explore** page, the **Data Fields** tab lists the fields that Looker generated from your data file. 
+On the **Edit Self-service Explore** page, the **Data Fields** tab lists the fields that Looker generated from your data file.
 
-You can't delete a generated field; you can only hide it, either by selecting **Hide** from the field's gear menu in the **Data Fields** table, or by clicking the field's **Edit** edit icon and selecting the **Hide this field from Explores and visualizations** checkbox.
+You can't delete a generated field; you can only hide it, either by selecting **Hide** from the field's gear menu in the **Data Fields** table, or by clicking the field's edit **Edit** icon and selecting the **Hide this field from Explores and visualizations** checkbox.
 
 The following sections describe how to edit dimensions and measures:
 
@@ -302,7 +309,7 @@ The following sections describe how to edit dimensions and measures:
 
 To edit an existing dimension, follow these steps:
 
-  1. From the **Edit Self-service Explore** page, in the **Data Fields** tab, click the **Edit** edit icon in the dimension's row of the **Data Fields** table to open the **Edit dimension** dialog.
+  1. From the **Edit Self-service Explore** page, in the **Data Fields** tab, click the edit **Edit** icon in the dimension's row of the **Data Fields** table to open the **Edit dimension** dialog.
   2. In the **Edit dimension** dialog, update any of the following fields (the **Data type** field is read-only): 
      * **Format** : Select a formatting option from the drop-down menu.
      * **Name** : Edit the name that's used to identify the dimension in LookML and expressions.
@@ -317,7 +324,7 @@ To edit an existing dimension, follow these steps:
 
 To edit an existing measure, follow these steps:
 
-  1. From the **Edit Self-service Explore** page, in the **Data Fields** tab, click the **Edit** edit icon in the measure's row of the **Data Fields** table to open the **Edit measure** dialog.
+  1. From the **Edit Self-service Explore** page, in the **Data Fields** tab, click the edit **Edit** icon in the measure's row of the **Data Fields** table to open the **Edit measure** dialog.
   2. In the **Edit measure** dialog, update any of the following fields:
 
 **Note:** For count measures, you can edit only **Label** , **Format** , **Description** , and **Hide this field from Explores and visualizations**.
@@ -377,12 +384,12 @@ On the **Edit Self-service Explore** page, your created fields appear under the 
 
 ### Updating the data for a self-service Explore
 
-When you create a self-service Explore, Looker uploads the data from your file at the time of the upload. Subsequently, if the data in your file changes after you created the self-service Explore, you can update the data by following the steps in this section. 
+When you create a self-service Explore, Looker uploads the data from your file at the time of the upload. Subsequently, if the data in your file changes after you created the self-service Explore, you can update the data by following the steps in this section.
 
 Note the following for updating the data for a self-service Explore:
 
   * You can update data only for self-service Explores that you created.
-  * If any of the fields have been changed since the self-service Explore was created, Looker will automatically resolve all backwards-compatible changes. 
+  * If any of the fields have been changed since the self-service Explore was created, Looker will automatically resolve all backwards-compatible changes.
   * If a field from the originally uploaded file is changed in a significant way, such as if the column is renamed or if the data type is changed, Looker will present a **Review changes** dialog that lists the differences. The **Review changes** dialog will list the old name or data type as "Removed," and the new name or data type as "Added." In the dialog you can apply the changes or cancel the data upload. If you confirm the changes, Looker will permanently delete the removed fields from your self-service Explore.
 
 
@@ -410,14 +417,14 @@ If your updated file had no significant changes, or if you confirmed the changes
 You can share your self-service Explore with other Looker users and user groups by following these steps:
 
   1. From the **Edit Self-service Explore** page, click the **User Access** tab and then click the **Share access** button. (You can also click the three-dot menu at the top of the **Edit Self-service Explore** page and select **Share access**.)
-  2. In the **Share access** dialog, click the **User or group** field and either select from the drop-down menu or begin typing a username or a group name to filter the menu. 
+  2. In the **Share access** dialog, click the **User or group** field and either select from the drop-down menu or begin typing a username or a group name to filter the menu.
   3. In the **Access permission** field, leave the value as **View**.
   4. Optionally, click the **Add** button to provide access to another user or group.
   5. Click **Share**.
 
 
 
-On the **Edit Self-service Explore** page, the **User Access** tab will show the new user or group to which you provided access. 
+On the **Edit Self-service Explore** page, the **User Access** tab will show the new user or group to which you provided access.
 
 **Note:** If your Looker admin has enabled **Advanced connection governance** , you can only share a self-service Explore with users or groups that have the [`access_data`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#access_data) permission on a model that uses the underlying database connection for that Explore. 
 
@@ -425,9 +432,9 @@ If you want to remove a user or group's access to your self-service Explore, you
 
 ### Certifying a self-service Explore
 
-Self-service Explores are not based on a LookML model, and therefore their data is considered "ungoverned." When you upload data, the self-service Explore's name is displayed with a yellow "uncertified" badge ![](https://docs.cloud.google.com/static/looker/docs/images/uncertified-content-badge-2520.png) in the **Explore** menu and on the Explore page. This badge indicates that data is both uncertified and ungoverned. 
+Self-service Explores are not based on a LookML model, and therefore their data is considered "ungoverned." When you upload data, the self-service Explore's name is displayed with a yellow ![](https://docs.cloud.google.com/static/looker/docs/images/uncertified-content-badge-2520.png) "uncertified" badge in the **Explore** menu and on the Explore page. This badge indicates that data is both uncertified and ungoverned.
 
-If you have the [`certify_content`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#certify_content) permission, you can add a certification to the Explore so that other users know the data is reliable. 
+If you have the [`certify_content`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#certify_content) permission, you can add a certification to the Explore so that other users know that the data is reliable.
 
 To add a certification to the self-service Explore, perform the following steps:
 
@@ -438,7 +445,7 @@ To add a certification to the self-service Explore, perform the following steps:
 
 
 
-When you certify a self-service Explore, Looker displays a certification badge ![](https://docs.cloud.google.com/static/looker/docs/images/certified-content-badge-2520.png) next to the Explore's name in the **Explore** menu and on the Explore page.
+When you certify a self-service Explore, Looker displays a ![](https://docs.cloud.google.com/static/looker/docs/images/certified-content-badge-2520.png) certification badge next to the Explore's name in the **Explore** menu and on the Explore page.
 
 See the [Content certification](https://docs.cloud.google.com/looker/docs/content-certification) documentation page for more information.
 
@@ -447,9 +454,12 @@ See the [Content certification](https://docs.cloud.google.com/looker/docs/conten
 You can delete your own data upload and its associated self-service Explore by performing the following steps:
 
   1. From the Looker main **Explore** menu, select the Explore from the **Self-service Explores** section.
-  2. Click the **Edit data fields** link from the bottom of the field picker panel in the Explore.
 
-![The Edit data fields link on the Explore page.](https://docs.cloud.google.com/static/looker/docs/images/explore-self-service-edit-2520.png)
+  2. Click the **Edit data fields** link from the bottom of the **Configure** panel in the Explore:
+
+![The Edit data fields link on the Explore page.](https://docs.cloud.google.com/static/looker/docs/images/explore-self-service-edit-2620.png)
+
+Or, if you're using the classic Explore, select **Edit data fields** from the **Explore actions** gear menu.
 
   3. On the **Edit Self-service Explore** page, click the three-dot menu.
 
@@ -489,6 +499,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/configure-container-settings/
 title: Configure container settings for Gemini Enterprise Agent Platform serverless training \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:44.576738+00:00
+fetched_at: 2026-10-29T11:12:34.385182+00:00
 ---
 
 # Configure container settings for Gemini Enterprise Agent Platform serverless training  |  Google Cloud Documentation

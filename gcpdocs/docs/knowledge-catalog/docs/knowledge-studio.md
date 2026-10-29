@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/knowledge-studio/
 title: Knowledge Studio overview \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:47:15.372056+00:00
+fetched_at: 2026-10-29T09:51:29.060372+00:00
 ---
 
 # Knowledge Studio overview  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -37,6 +37,8 @@ Knowledge Studio (Preview) transforms metadata into an active context engine tha
 Knowledge Studio automates metadata curation by unifying fragmented knowledge from schemas, wikis, and past SQL queries. You can explore data using natural language, navigate a visual context graph that connects data assets to business semantics, and run automated workflows that draft catalog updates for human review. You can then dynamically serve these curated context blocks to agents using the Model Context Protocol (MCP) or Knowledge Catalog APIs.
 
 This document is for data architects, governance leads, and AI engineers who want to understand how Knowledge Studio works.
+
+For an overview of how Knowledge Studio and self-learning enrichment ground enterprise AI agents, see the following video:
 
 ## From passive catalog to active context engine
 
@@ -246,12 +248,6 @@ Use the visual canvas in Knowledge Studio to chat with your data and trace seman
 
 Concept 
 
-###  [ About data context ](https://docs.cloud.google.com/knowledge-catalog/docs/about-context)
-
-Understand how active context transforms passive metadata to ground AI agents and prevent hallucinations. 
-
-Concept 
-
 ###  [ Context sets overview ](https://docs.cloud.google.com/knowledge-catalog/docs/context-sets)
 
 Learn about Knowledge Studio's packaged context containers used to safely ground your downstream AI agents. 
@@ -274,10 +270,16 @@ Ai integration
 
 Connect AI agents and developer tools to Knowledge Catalog using Model Context Protocol. 
 
+Blog 
+
+###  [ Self-learning context enrichment for AI agents ](https://cloud.google.com/blog/products/data-analytics/knowledge-catalog-self-learning-context-enrichment-for-ai-agents)
+
+Learn how Knowledge Studio uses self-learning context enrichment and interactive context graphs to ground enterprise AI agents. 
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-reservations-batch/
 title: Use reservations with batch inference \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:11.260280+00:00
+fetched_at: 2026-10-29T11:06:37.884246+00:00
 ---
 
 # Use reservations with batch inference  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

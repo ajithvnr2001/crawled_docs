@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/google/deep-research/
 title: Gemini Deep Research Agent \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:45.174904+00:00
+fetched_at: 2026-10-29T09:56:17.790755+00:00
 ---
 
 # Gemini Deep Research Agent  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -52,7 +52,7 @@ Capabilities |
 
   * Supported
     * [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search)
-    * [Grounding with Enterprise Web Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise)
+    * [Web Grounding for Enterprise](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise)
     * [Grounding with Agent Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search)
     * [Grounding on remote MCP servers](https://ai.google.dev/gemini-api/docs/interactions/deep-research#mcp-servers) previewPreview feature
     * [Thought summaries](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/thinking)

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/lyria/lyria-3/
 title: Lyria 3 \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:10.488364+00:00
+fetched_at: 2026-10-29T11:12:49.521693+00:00
 ---
 
 # Lyria 3  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/pubsub/docs/samples/pubsub-quickstart-create-topic/
 title: Create topic quickstart \u00a0|\u00a0 Pub/Sub \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:26:34.027720+00:00
+fetched_at: 2026-10-29T10:18:12.054900+00:00
 ---
 
 # Create topic quickstart  |  Pub/Sub  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ For detailed documentation that includes this code sample, see the following:
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/cloud-ftp/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/device-streaming/docs/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/fault-injection-testing/quickstart-client-libraries)
-  * [Quickstart: Using client libraries](https://docs.cloud.google.com/food-ai/quickstart-client-libraries)
+  * [Quickstart: Using client libraries](https://docs.cloud.google.com/gemini-enterprise-cx/commerce-agents/food/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/location-finder/docs/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/oracle/compute/quickstart-client-libraries)
   * [Quickstart: Using client libraries](https://docs.cloud.google.com/secure-access-connect/docs/quickstart-client-libraries)
@@ -182,7 +182,7 @@ To authenticate to Pub/Sub, set up Application Default Credentials. For more inf
     require "google/cloud/pubsub"
     
     # Instantiates a client
-    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub-v1/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
+    pubsub = Google::Cloud::[PubSub](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub.html)
     topic_admin = pubsub.[topic_admin](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-pubsub/latest/Google-Cloud-PubSub-Project.html)
     
     # The name for the new topic

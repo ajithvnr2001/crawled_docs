@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-manager/docs/deploy-google-managed-lb-auth/
 title: Deploy a global Google-managed certificate with load balancer authorization \u00a0|\u00a0 Certificate Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:33.786360+00:00
+fetched_at: 2026-10-29T11:06:04.132989+00:00
 ---
 
 # Deploy a global Google-managed certificate with load balancer authorization  |  Certificate Manager  |  Google Cloud Documentation

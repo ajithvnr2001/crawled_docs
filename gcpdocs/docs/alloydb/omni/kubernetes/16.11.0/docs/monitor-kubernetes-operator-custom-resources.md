@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/monitor-kubernetes-operator-custom-resources/
 title: Monitor AlloyDB Omni Kubernetes operator custom resources \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 16.11.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:45:38.030316+00:00
+fetched_at: 2026-10-29T09:46:35.507880+00:00
 ---
 
 # Monitor AlloyDB Omni Kubernetes operator custom resources  |  AlloyDB Omni using the container orchestrator: 16.11.0  |  Google Cloud Documentation
@@ -89,13 +89,13 @@ To install Kubernetes operator with custom resource metrics enabled, follow thes
   2. Define the following environment variables by running the following commands:
          
          export GCS_BUCKET=alloydb-omni-operator
-         export HELM_PATH=$(gcloud storage cat gs://$GCS_BUCKET/latest)
+         export HELM_PATH=$(curl https://storage.googleapis.com/$GCS_BUCKET/latest)
          export OPERATOR_VERSION="${HELM_PATH%%/*}"
          
 
   3. Download the AlloyDB Omni Kubernetes operator:
          
-         gcloud storage cp gs://$GCS_BUCKET/$HELM_PATH ./ --recursive
+         curl https://storage.googleapis.com/$GCS_BUCKET/$HELM_PATH --output alloydbomni-operator-${OPERATOR_VERSION}.tgz
          
 
   4. If you pre-pull the public KSM image at `registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.14.0` to your private registry, skip this step and proceed to the next step. Otherwise, install the AlloyDB Omni Kubernetes operator with custom resource metrics, and then proceed to the final step in this procedure.
@@ -161,7 +161,7 @@ The output is your installed AlloyDB Omni Kubernetes operator version, for examp
 
   3. Download the specified version operator:
          
-         gcloud storage cp gs://$GCS_BUCKET/$HELM_PATH ./ --recursive
+         curl https://storage.googleapis.com/$GCS_BUCKET/$HELM_PATH --output alloydbomni-operator-${OPERATOR_VERSION}.tgz
          
 
   4. Upgrade the AlloyDB Omni Kubernetes operator by running the following commands, and then go to the final step in this procedure. If you pre-pull the public KSM image at `registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.14.0` to your private registry, then skip this step and proceed directly to the next step.
@@ -229,7 +229,7 @@ A successful upgrade returns the following output:
 
 ## View metrics using the Prometheus API
 
-To view your metrics, see [View metrics using the Prometheus API](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/manage#kubernetes).
+To view your metrics, see [View metrics using the Prometheus API](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.11.0/docs/manage#view-api).
 
 ## What's next
 
@@ -241,6 +241,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

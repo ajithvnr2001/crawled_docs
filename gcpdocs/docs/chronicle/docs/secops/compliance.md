@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/secops/compliance/
 title: Supported compliance standards \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:49:33.071761+00:00
+fetched_at: 2026-10-29T09:57:57.871506+00:00
 ---
 
 # Supported compliance standards  |  Google Security Operations  |  Google Cloud Documentation

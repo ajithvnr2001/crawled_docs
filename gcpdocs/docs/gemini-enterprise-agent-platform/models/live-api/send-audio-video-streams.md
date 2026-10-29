@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/send-audio-video-streams/
 title: Send audio and video streams \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:10.296514+00:00
+fetched_at: 2026-10-29T11:13:05.325067+00:00
 ---
 
 # Send audio and video streams  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

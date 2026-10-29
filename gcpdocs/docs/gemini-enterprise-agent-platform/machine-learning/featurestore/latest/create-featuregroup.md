@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore/latest/create-featuregroup/
 title: Create a feature group \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:23.450427+00:00
+fetched_at: 2026-10-29T11:06:20.983947+00:00
 ---
 
 # Create a feature group  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

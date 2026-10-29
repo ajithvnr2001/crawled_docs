@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/
 title: Skill Registry overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:28.176874+00:00
+fetched_at: 2026-10-29T09:56:25.171384+00:00
 ---
 
 # Skill Registry overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

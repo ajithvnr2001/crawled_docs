@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/iam/
 title: Agent Platform Workbench instances access control \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:47.351018+00:00
+fetched_at: 2026-10-29T09:49:09.899352+00:00
 ---
 
 # Agent Platform Workbench instances access control  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -90,7 +90,7 @@ Role | Permissions
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
 
-`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.diskSettings.get` `compute.diskTypes.*`
+`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.dhcpOptionsConfigs.get` `compute.dhcpOptionsConfigs.list` `compute.diskSettings.get` `compute.diskTypes.*`
 
   * `compute.diskTypes.get`
   * `compute.diskTypes.list`
@@ -245,7 +245,7 @@ Role | Permissions
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
 
-`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.diskSettings.get` `compute.diskTypes.*`
+`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.dhcpOptionsConfigs.get` `compute.dhcpOptionsConfigs.list` `compute.diskSettings.get` `compute.diskTypes.*`
 
   * `compute.diskTypes.get`
   * `compute.diskTypes.list`
@@ -352,7 +352,7 @@ Role | Permissions
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
 
-`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.diskSettings.get` `compute.diskTypes.*`
+`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.dhcpOptionsConfigs.get` `compute.dhcpOptionsConfigs.list` `compute.diskSettings.get` `compute.diskTypes.*`
 
   * `compute.diskTypes.get`
   * `compute.diskTypes.list`
@@ -518,6 +518,12 @@ Role | Permissions
   * `compute.crossSiteNetworks.get`
   * `compute.crossSiteNetworks.list`
   * `compute.crossSiteNetworks.update`
+  * `compute.dhcpOptionsConfigs.create`
+  * `compute.dhcpOptionsConfigs.delete`
+  * `compute.dhcpOptionsConfigs.get`
+  * `compute.dhcpOptionsConfigs.list`
+  * `compute.dhcpOptionsConfigs.update`
+  * `compute.dhcpOptionsConfigs.use`
   * `compute.diskSettings.get`
   * `compute.diskSettings.update`
   * `compute.diskTypes.get`
@@ -1626,7 +1632,7 @@ Role | Permissions
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
 
-`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.diskSettings.get` `compute.diskTypes.*`
+`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.dhcpOptionsConfigs.get` `compute.dhcpOptionsConfigs.list` `compute.diskSettings.get` `compute.diskTypes.*`
 
   * `compute.diskTypes.get`
   * `compute.diskTypes.list`
@@ -1737,7 +1743,7 @@ Role | Permissions
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
 
-`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.diskSettings.get` `compute.diskTypes.*`
+`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.dhcpOptionsConfigs.get` `compute.dhcpOptionsConfigs.list` `compute.diskSettings.get` `compute.diskTypes.*`
 
   * `compute.diskTypes.get`
   * `compute.diskTypes.list`
@@ -1863,7 +1869,7 @@ Role | Permissions
   * `compute.autoscalers.list`
   * `compute.autoscalers.update`
 
-`compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.diskSettings.get` `compute.diskTypes.*`
+`compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.dhcpOptionsConfigs.get` `compute.dhcpOptionsConfigs.list` `compute.diskSettings.get` `compute.diskTypes.*`
 
   * `compute.diskTypes.get`
   * `compute.diskTypes.list`

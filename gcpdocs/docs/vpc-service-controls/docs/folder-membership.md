@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc-service-controls/docs/folder-membership/
 title: Folder support in service perimeters \u00a0|\u00a0 VPC Service Controls \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:37.277949+00:00
+fetched_at: 2026-10-29T11:13:37.686951+00:00
 ---
 
 # Folder support in service perimeters  |  VPC Service Controls  |  Google Cloud Documentation

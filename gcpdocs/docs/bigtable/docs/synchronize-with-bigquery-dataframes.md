@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/synchronize-with-bigquery-dataframes/
 title: Synchronize online and offline datasets with BigQuery DataFrames \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:27.118954+00:00
+fetched_at: 2026-10-29T10:19:11.030785+00:00
 ---
 
 # Synchronize online and offline datasets with BigQuery DataFrames  |  Bigtable  |  Google Cloud Documentation

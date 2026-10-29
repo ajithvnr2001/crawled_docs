@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/prompt-caching/
 title: Prompt caching \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:07.815225+00:00
+fetched_at: 2026-10-29T11:13:11.521974+00:00
 ---
 
 # Prompt caching  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/start/api-keys/
 title: Get a Google Cloud API key \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:04.271063+00:00
+fetched_at: 2026-10-29T11:12:46.969798+00:00
 ---
 
 # Get a Google Cloud API key  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

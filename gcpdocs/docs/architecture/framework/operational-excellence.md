@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/operational-excellence/
 title: Well-Architected Framework: Operational excellence pillar \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:26.449974+00:00
+fetched_at: 2026-10-29T09:51:19.049903+00:00
 ---
 
 # Well-Architected Framework: Operational excellence pillar  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,9 +19,9 @@ Send feedback
 
 #  Well-Architected Framework: Operational excellence pillar Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-10-13 UTC
+Last reviewed 2026-10-28 UTC
 
-To view the content in the operational excellence pillar on a single page or to to get a PDF output of the content, see [View on one page](https://docs.cloud.google.com/architecture/framework/operational-excellence/printable). 
+To view the content in the operational excellence pillar on a single page or to get a PDF output of the content, see [View on one page](https://docs.cloud.google.com/architecture/framework/operational-excellence/printable). 
 
 The operational excellence pillar in the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to operate workloads efficiently on Google Cloud. Operational excellence in the cloud involves designing, implementing, and managing cloud solutions that provide value, performance, security, and reliability. The recommendations in this pillar help you to continuously improve and adapt workloads to meet the dynamic and ever-evolving needs in the cloud.
 
@@ -104,6 +104,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-13 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-13 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

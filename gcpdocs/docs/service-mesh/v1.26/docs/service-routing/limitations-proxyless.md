@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.26/docs/service-routing/limitations-proxyless/
 title: Proxyless gRPC limitations \u00a0|\u00a0 Cloud Service Mesh v1.26 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:29:56.889896+00:00
+fetched_at: 2026-10-29T10:18:30.126476+00:00
 ---
 
 # Proxyless gRPC limitations  |  Cloud Service Mesh v1.26  |  Google Cloud Documentation

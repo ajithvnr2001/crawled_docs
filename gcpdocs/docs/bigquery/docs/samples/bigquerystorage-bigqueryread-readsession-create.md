@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerystorage-bigqueryread-readsession-create/
 title: Create a BigQuery read session \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:49.382951+00:00
+fetched_at: 2026-10-29T10:08:34.212491+00:00
 ---
 
 # Create a BigQuery read session  |  Google Cloud Documentation
@@ -22,6 +22,79 @@ fetched_at: 2026-10-27T23:10:49.382951+00:00
 Create a new read session to specify the BigQuery table to read from, the columns to project, and an optional row filter.
 
 ## Code sample
+
+### Java
+
+Before trying this sample, follow the Java setup instructions in the [BigQuery quickstart using client libraries](https://docs.cloud.google.com/bigquery/docs/quickstarts/quickstart-client-libraries). For more information, see the [BigQuery Java API reference documentation](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/overview). 
+
+To authenticate to BigQuery, set up Application Default Credentials. For more information, see [Set up authentication for client libraries](https://docs.cloud.google.com/bigquery/docs/authentication#client-libs). 
+    
+    
+    import com.google.api.gax.rpc.[ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html);
+    import com.google.api.gax.rpc.[NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html);
+    import com.google.cloud.bigquery.storage.v1.[BigQueryReadClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.BigQueryReadClient.html);
+    import com.google.cloud.bigquery.storage.v1.[CreateReadSessionRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest.html);
+    import com.google.cloud.bigquery.storage.v1.[DataFormat](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.DataFormat.html);
+    import com.google.cloud.bigquery.storage.v1.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ProjectName.html);
+    import com.google.cloud.bigquery.storage.v1.[ReadSession](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.html);
+    import com.google.cloud.bigquery.storage.v1.[ReadSession](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.html).[TableReadOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.TableReadOptions.html);
+    import com.google.cloud.bigquery.storage.v1.[TableName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.TableName.html);
+    import java.io.IOException;
+    
+    public class CreateReadSession {
+    
+      /**
+       * Creates a BigQuery Storage read session for a specified table, projecting selected columns and
+       * applying an optional row filter.
+       *
+       * @param projectId The Google Cloud project ID (for example, "example-project-id").
+       * @param datasetId The BigQuery dataset ID containing the table (for example,
+       *     "example_dataset").
+       * @param tableId The BigQuery table ID to read from (for example, "example_table").
+       */
+      public static void createReadSession(String projectId, String datasetId, String tableId) {
+        [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ProjectName.html) parent = [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ProjectName.html).of(projectId);
+        [TableName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.TableName.html) table = [TableName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.TableName.html).of(projectId, datasetId, tableId);
+    
+        // If no fields are specified, all fields will be returned.
+        [TableReadOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.TableReadOptions.html) readOptions =
+            [TableReadOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.TableReadOptions.html).newBuilder()
+                .[addSelectedFields](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.TableReadOptions.Builder.html#com_google_cloud_bigquery_storage_v1_ReadSession_TableReadOptions_Builder_addSelectedFields_java_lang_String_)("field_01")
+                .[addSelectedFields](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.TableReadOptions.Builder.html#com_google_cloud_bigquery_storage_v1_ReadSession_TableReadOptions_Builder_addSelectedFields_java_lang_String_)("field_02")
+                .[setRowRestriction](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.TableReadOptions.Builder.html#com_google_cloud_bigquery_storage_v1_ReadSession_TableReadOptions_Builder_setRowRestriction_java_lang_String_)("field_03 > 100")
+                .build();
+    
+        [ReadSession](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.html) readSession =
+            [ReadSession](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.html).newBuilder()
+                .setTable(table.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.TableName.html#com_google_cloud_bigquery_storage_v1_TableName_toString__)())
+                .[setDataFormat](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.Builder.html#com_google_cloud_bigquery_storage_v1_ReadSession_Builder_setDataFormat_com_google_cloud_bigquery_storage_v1_DataFormat_)([DataFormat](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.DataFormat.html).ARROW)
+                .[setReadOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.Builder.html#com_google_cloud_bigquery_storage_v1_ReadSession_Builder_setReadOptions_com_google_cloud_bigquery_storage_v1_ReadSession_TableReadOptions_)(readOptions)
+                .build();
+    
+        [CreateReadSessionRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest.html) request =
+            [CreateReadSessionRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest.html).newBuilder()
+                .setParent(parent.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ProjectName.html#com_google_cloud_bigquery_storage_v1_ProjectName_toString__)())
+                .[setReadSession](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest.Builder.html#com_google_cloud_bigquery_storage_v1_CreateReadSessionRequest_Builder_setReadSession_com_google_cloud_bigquery_storage_v1_ReadSession_)(readSession)
+                .[setMaxStreamCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.CreateReadSessionRequest.Builder.html#com_google_cloud_bigquery_storage_v1_CreateReadSessionRequest_Builder_setMaxStreamCount_int_)(1)
+                .build();
+    
+        try ([BigQueryReadClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.BigQueryReadClient.html) client = [BigQueryReadClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.BigQueryReadClient.html).create()) {
+          [ReadSession](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.html) session = client.createReadSession(request);
+          System.out.printf("Successfully created read session: %s%n", session.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.html#com_google_cloud_bigquery_storage_v1_ReadSession_getName__)());
+          if (session.[getStreamsCount](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.html#com_google_cloud_bigquery_storage_v1_ReadSession_getStreamsCount__)() > 0) {
+            System.out.printf("Stream found: %s%n", session.[getStreams](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquerystorage/latest/com.google.cloud.bigquery.storage.v1.ReadSession.html#com_google_cloud_bigquery_storage_v1_ReadSession_getStreams_int_)(0).getName());
+          } else {
+            System.out.println("No streams found in the session.");
+          }
+        } catch ([NotFoundException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.NotFoundException.html) err) {
+          System.err.printf(
+              "error: table '%s' not found: %s%n", table, err.getMessage());
+        } catch ([ApiException](https://docs.cloud.google.com/java/docs/reference/gax/latest/com.google.api.gax.rpc.ApiException.html) | IOException err) {
+          System.err.printf(
+              "error: failed to create read session for table '%s': %s%n", table, err.getMessage());
+        }
+      }
+    
 
 ### Node.js
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/skill-registry/create-manage/
 title: Create and manage skills \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:02.578227+00:00
+fetched_at: 2026-10-29T09:56:16.886266+00:00
 ---
 
 # Create and manage skills  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/audit-log-estimate-costs/
 title: Manage Data Access audit log costs \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:54.115903+00:00
+fetched_at: 2026-10-29T10:19:14.242838+00:00
 ---
 
 # Manage Data Access audit log costs  |  Bigtable  |  Google Cloud Documentation

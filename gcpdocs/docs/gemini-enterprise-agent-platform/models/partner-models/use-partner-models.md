@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models/
 title: Gemini Enterprise Agent Platform partner models for MaaS \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:30.692367+00:00
+fetched_at: 2026-10-29T11:07:03.004580+00:00
 ---
 
 # Gemini Enterprise Agent Platform partner models for MaaS  |  Google Cloud Documentation

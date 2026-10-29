@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/configure-cloud-storage/
 title: Configure a Cloud Storage bucket \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:06:13.310569+00:00
+fetched_at: 2026-10-29T09:56:44.952888+00:00
 ---
 
 # Configure a Cloud Storage bucket  |  Application Design Center  |  Google Cloud Documentation
@@ -20,9 +20,7 @@ Send feedback
 
 #  Configure a Cloud Storage bucket Stay organized with collections  Save and categorize content based on your preferences. 
 
-Cloud Storage lets you store and retrieve any amount of data world-wide at any time. You can use Cloud Storage for a range of scenarios including serving website content, storing data for archival and disaster recovery, or distributing large data objects to users via direct download. For more information, see [Product overview of Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction).
-
-This document describes the connections and parameters you can configure when using App Design Center to create a Cloud Storage bucket. The configuration parameters are based on the [terraform-google-cloud-storage](https://github.com/terraform-google-modules/terraform-google-cloud-storage/tree/main/modules/simple_bucket) Terraform module.
+In App Design Center, you can configure a [Cloud Storage](https://docs.cloud.google.com/storage/docs/introduction) bucket to store and retrieve unstructured object data for workloads such as serving website content, archival and disaster recovery, or distributing large objects. You can customize the bucket's component connections and configuration parameters based on the [terraform-google-cloud-storage](https://github.com/terraform-google-modules/terraform-google-cloud-storage/tree/main/modules/simple_bucket) Terraform module.
 
 ## Component connections
 
@@ -119,6 +117,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

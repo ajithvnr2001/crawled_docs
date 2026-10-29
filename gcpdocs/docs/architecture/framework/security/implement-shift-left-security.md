@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/security/implement-shift-left-security/
 title: Implement shift-left security \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:07:31.270411+00:00
+fetched_at: 2026-10-29T09:46:43.695207+00:00
 ---
 
 # Implement shift-left security  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Implement shift-left security Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-02-05 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the security pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) helps you identify practical controls that you can implement early in the software development lifecycle to improve your security posture. It provides recommendations that help you implement preventive security guardrails and post-deployment security controls.
 
@@ -27,7 +27,7 @@ This principle in the security pillar of the [Google Cloud Well-Architected Fram
 
 _Shift-left security_ means adopting security practices early in the software development lifecycle. This principle has the following goals:
 
-  * Avoid security defects before system changes are made. Implement preventive security guardrails and adopt practices such as infrastructure as code (IaC), policy as code, and security checks in the CI/CD pipeline. You can also use other platform-specific capabilities like [Organization Policy Service](https://docs.cloud.google.com/resource-manager/docs/organization-policy/overview) and [hardened GKE clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster) in Google Cloud.
+  * Avoid security defects before system changes are made. Implement preventive security guardrails and adopt practices such as infrastructure as code (IaC), policy as code, and security checks in the CI/CD pipeline. You can also use other platform-specific capabilities like [Organization Policy Service](https://docs.cloud.google.com/organization-policy/overview) and [hardened GKE clusters](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster) in Google Cloud.
   * Detect and fix security bugs early, fast, and reliably after any system changes are committed. Adopt practices like code reviews, post-deployment vulnerability scanning, and security testing.
 
 
@@ -38,12 +38,12 @@ The [Implement security by design](https://docs.cloud.google.com/architecture/fr
 
 To implement the shift-left security principle for your cloud workloads, consider the recommendations in the following sections:
 
-  * Adopt preventive security controls
-  * Automate provisioning and management of cloud resources
-  * Automate secure application releases
-  * Ensure that application deployments follow approved processes
-  * Scan for known vulnerabilities before application deployment
-  * Monitor your application code for known vulnerabilities
+  * [Adopt preventive security controls](https://docs.cloud.google.com/architecture/framework/security/implement-shift-left-security#adopt_preventive_security_controls)
+  * [Automate provisioning and management of cloud resources](https://docs.cloud.google.com/architecture/framework/security/implement-shift-left-security#automate_provisioning_and_management_of_cloud_resources)
+  * [Automate secure application releases](https://docs.cloud.google.com/architecture/framework/security/implement-shift-left-security#automate_secure_application_releases)
+  * [Ensure that application deployments follow approved processes](https://docs.cloud.google.com/architecture/framework/security/implement-shift-left-security#ensure_that_application_deployments_follow_approved_processes)
+  * [Scan for known vulnerabilities before application deployment](https://docs.cloud.google.com/architecture/framework/security/implement-shift-left-security#scan_for_known_vulnerabilities_before_application_deployment)
+  * [Monitor your application code for known vulnerabilities](https://docs.cloud.google.com/architecture/framework/security/implement-shift-left-security#monitor_your_application_code_for_known_vulnerabilities)
 
 
 
@@ -62,7 +62,7 @@ Preventive security controls are more effective when they're implemented by usin
 
 The following products and Google Cloud capabilities can help you implement preventive controls in your environment:
 
-  * [Organization Policy Service constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/overview): configure predefined and custom constraints with centralized control.
+  * [Organization Policy constraints](https://docs.cloud.google.com/organization-policy/overview): configure predefined and custom constraints with centralized control.
   * [VPC Service Controls](https://cloud.google.com/security/vpc-service-controls): create perimeters around your Google Cloud services.
   * Identity and Access Management (IAM), [Privileged Access Manager](https://docs.cloud.google.com/iam/docs/pam-overview), and [principal access boundary policies](https://docs.cloud.google.com/iam/docs/principal-access-boundary-policies): restrict access to resources.
   * [Policy Controller](https://docs.cloud.google.com/kubernetes-engine/policy-controller/docs/overview) and [Open Policy Agent (OPA)](https://www.openpolicyagent.org/): enforce IaC constraints in your CI/CD pipeline and avoid cloud misconfigurations.
@@ -71,11 +71,11 @@ The following products and Google Cloud capabilities can help you implement prev
 
 IAM lets you authorize _who_ can act on specific resources based on permissions. For more information, see [Access control for organization resources with IAM](https://docs.cloud.google.com/resource-manager/docs/access-control-org).
 
-Organization Policy Service lets you set restrictions on resources to specify how they can be configured. For example, you can use an organization policy to do the following:
+Organization Policy lets you set restrictions on resources to specify how they can be configured. For example, you can use an organization policy to do the following:
 
-  * [Limit resource sharing](https://docs.cloud.google.com/resource-manager/docs/organization-policy/restricting-domains) based on domain.
-  * [Limit the use of service accounts](https://docs.cloud.google.com/resource-manager/docs/organization-policy/restricting-service-accounts).
-  * [Restrict the physical location](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) of newly created resources.
+  * [Limit resource sharing](https://docs.cloud.google.com/organization-policy/restrict-domains) based on domain.
+  * [Limit the use of service accounts](https://docs.cloud.google.com/organization-policy/restrict-service-accounts).
+  * [Restrict the physical location](https://docs.cloud.google.com/organization-policy/restrict-locations) of newly created resources.
 
 
 
@@ -102,7 +102,7 @@ Automating the provisioning and management of cloud resources and workloads is m
 
 When combined with CI/CD pipelines and automation, IaC also gives you the ability to adopt practices such as _policy as code_ with tools like OPA. You can audit infrastructure changes over time and run automatic checks on the infrastructure code before changes are deployed.
 
-To automate the infrastructure deployment, you can use tools like [Config Controller](https://docs.cloud.google.com/kubernetes-engine/enterprise/config-controller/docs/overview), Terraform, Jenkins, and [Cloud Build](https://docs.cloud.google.com/build). To help you build a secure application environment using IaC and automation, Google Cloud provides the [enterprise foundations blueprint](https://docs.cloud.google.com/architecture/blueprints/security-foundations). This blueprint is Google's opinionated design that follows all of our recommended practices and configurations. The blueprint provides step-by-step instructions to configure and deploy your Google Cloud topology by using Terraform and Cloud Build.
+To automate the infrastructure deployment, you can use tools like [Config Controller](https://docs.cloud.google.com/kubernetes-engine/config-controller/docs/overview), Terraform, Jenkins, and [Cloud Build](https://docs.cloud.google.com/build/docs/overview). To help you build a secure application environment using IaC and automation, Google Cloud provides the [enterprise foundations blueprint](https://docs.cloud.google.com/architecture/blueprints/security-foundations). This blueprint is Google's opinionated design that follows all of our recommended practices and configurations. The blueprint provides step-by-step instructions to configure and deploy your Google Cloud topology by using Terraform and Cloud Build.
 
 You can modify the scripts of the enterprise foundations blueprint to configure an environment that follows Google recommendations and meets your own security requirements. You can further build on the blueprint with additional blueprints or design your own automation. The Google Cloud Architecture Center provides other blueprints that can be implemented on top of the enterprise foundations blueprint. The following are a few examples of these blueprints:
 
@@ -121,7 +121,7 @@ Without automated tools, it can be difficult to deploy, update, and patch comple
 
 Automating application releases by using CI/CD pipelines helps to improve your ability to detect and fix security bugs early, fast, and reliably. For example, you can scan for security vulnerabilities automatically when artifacts are created, narrow the scope of security reviews, and roll back to a known and safe version. You can also define policies for different environments (such as development, test, or production environments) so that only verified artifacts are deployed.
 
-To help you automate application releases and embed security checks in your CI/CD pipeline, Google Cloud provides multiple tools including [Cloud Build](https://docs.cloud.google.com/build), [Cloud Deploy](https://docs.cloud.google.com/deploy/docs), [Web Security Scanner](https://docs.cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview), and [Binary Authorization](https://docs.cloud.google.com/binary-authorization/docs).
+To help you automate application releases and embed security checks in your CI/CD pipeline, Google Cloud provides multiple tools including [Cloud Build](https://docs.cloud.google.com/build/docs/overview), [Cloud Deploy](https://docs.cloud.google.com/deploy/docs), [Web Security Scanner](https://docs.cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview), and [Binary Authorization](https://docs.cloud.google.com/binary-authorization/docs).
 
 To establish a process that verifies multiple security requirements in your SDLC, use the [Supply-chain Levels for Software Artifacts (SLSA)](https://slsa.dev) framework, which has been defined by Google. SLSA requires security checks for source code, build process, and code provenance. Many of these requirements can be included in an automated CI/CD pipeline. To understand how Google applies these practices internally, see [Google Cloud's approach to change](https://docs.cloud.google.com/docs/cloud-approach-to-change).
 
@@ -147,7 +147,7 @@ This recommendation is relevant to the following [focus area](https://docs.cloud
 
 We recommend that you use automated tools that can continuously perform vulnerability scans on application artifacts before they're deployed to production.
 
-For containerized applications, use [Artifact Analysis](https://docs.cloud.google.com/artifact-analysis/docs) to automatically run vulnerability scans for container images. Artifact Analysis scans new images when they're uploaded to [Artifact Registry](https://docs.cloud.google.com/artifact-registry). The scan extracts information about the system packages in the container. After the initial scan, Artifact Analysis continuously monitors the metadata of scanned images in Artifact Registry for new vulnerabilities. When Artifact Analysis receives new and updated vulnerability information from [vulnerability sources](https://docs.cloud.google.com/artifact-analysis/docs/vulnerability-scanning#sources), it does the following:
+For containerized applications, use [Artifact Analysis](https://docs.cloud.google.com/artifact-analysis/docs) to automatically run vulnerability scans for container images. Artifact Analysis scans new images when they're uploaded to [Artifact Registry](https://docs.cloud.google.com/artifact-registry/docs/overview). The scan extracts information about the system packages in the container. After the initial scan, Artifact Analysis continuously monitors the metadata of scanned images in Artifact Registry for new vulnerabilities. When Artifact Analysis receives new and updated vulnerability information from [vulnerability sources](https://docs.cloud.google.com/artifact-analysis/docs/container-scanning-overview#sources), it does the following:
 
   * Updates the metadata of the scanned images to keep them up to date.
   * Creates new vulnerability occurrences for new notes.
@@ -159,9 +159,9 @@ For containerized applications, use [Artifact Analysis](https://docs.cloud.googl
 
 This recommendation is relevant to the following [focus area](https://docs.cloud.google.com/architecture/framework/security#focus_areas_of_cloud_security): Application security.
 
-Use automated tools to constantly monitor your application code for known vulnerabilities such as the [OWASP Top 10](https://owasp.org/www-project-top-ten/). For more information about Google Cloud products and features that support OWASP Top 10 mitigation techniques, see [Mitigate OWASP Top 10:2025 on Google Cloud](https://docs.cloud.google.com/docs/security/owasp-top-ten-mitigation).
+Use automated tools to constantly monitor your application code for known vulnerabilities such as the [OWASP Top 10](https://owasp.org/projects/top-ten). For more information about Google Cloud products and features that support OWASP Top 10 mitigation techniques, see [Mitigate OWASP Top 10:2025 on Google Cloud](https://docs.cloud.google.com/docs/security/owasp-top-ten-mitigation).
 
-Use [Web Security Scanner](https://docs.cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview) to help identify security vulnerabilities in your App Engine, Compute Engine, and GKE web applications. The scanner crawls your application, follows all of the links within the scope of your starting URLs, and attempts to exercise as many user inputs and event handlers as possible. It can automatically scan for and detect common vulnerabilities, including [cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting), [code injection](https://en.wikipedia.org/wiki/Code_injection), [mixed content](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content), and outdated or insecure libraries. Web Security Scanner provides early identification of these types of vulnerabilities without distracting you with false positives.
+Use [Web Security Scanner](https://docs.cloud.google.com/security-command-center/docs/concepts-web-security-scanner-overview) to help identify security vulnerabilities in your App Engine, Compute Engine, and GKE web applications. The scanner crawls your application, follows all of the links within the scope of your starting URLs, and attempts to exercise as many user inputs and event handlers as possible. It can automatically scan for and detect common vulnerabilities, including [cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting), [code injection](https://en.wikipedia.org/wiki/Code_injection), [mixed content](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Mixed_content), and outdated or insecure libraries. Web Security Scanner provides early identification of these types of vulnerabilities without distracting you with false positives.
 
 In addition, if you use GKE to manage fleets of Kubernetes clusters, the security posture dashboard shows opinionated, actionable recommendations to help improve your fleet's security posture.
 
@@ -173,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-02-05 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-02-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

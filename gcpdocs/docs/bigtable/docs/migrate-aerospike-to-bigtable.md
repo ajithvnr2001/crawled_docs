@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/migrate-aerospike-to-bigtable/
 title: Migrate from Aerospike to Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:15.608115+00:00
+fetched_at: 2026-10-29T10:19:29.511400+00:00
 ---
 
 # Migrate from Aerospike to Bigtable  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/troubleshooting/known-issues/
 title: GKE known issues \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:19.853133+00:00
+fetched_at: 2026-10-29T09:46:51.551429+00:00
 ---
 
 # GKE known issues  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -430,12 +430,18 @@ Operation |  |  |
 
 ### Google Cloud Hyperdisk size and attachment limits
 
-Typically, a pod that cannot be successfully scheduled due to a node's volume attachment limits triggers the auto-provisioning of a new node. When running workloads that use a Hyperdisk product are scheduled to a node that runs a C3 VM, node auto-provisioning does not occur and the pod is scheduled onto the already full node. The workload is scheduled onto the node despite the lack of an available disk attachment. The workload also fails to start, due to an error like the following:
+Typically, a Pod that cannot be scheduled because of a node's volume attachment limits triggers the auto-provisioning of a new node. When workloads that use a Hyperdisk volume are scheduled to a node that runs a C3 or C3D VM, node auto-provisioning does not occur and the Pod is scheduled onto the already full node. The workload is scheduled onto the node despite the lack of an available disk attachment. The workload also fails to start because of an error like the following:
     
     
      AttachVolume.Attach failed for volume "[VOLUME NAME]" : rpc error: code = InvalidArgument desc = Failed to Attach: failed when waiting for zonal op: rpc error: code = InvalidArgument desc = operation operation-[OPERATION NUMBERS] failed (UNSUPPORTED_OPERATION): Maximum hyperdisk-balanced disks count should be less than or equal to [16], Requested : [17]
 
-The problem is present for all Hyperdisk products on C3 machines. Hyperdisk attachment limits vary by VM vCPU number and Hyperdisk product. For more information, see [Hyperdisk performance limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisk-perf-limits#limits-instance). **Workaround:** Google Cloud Hyperdisk products trigger auto-provisioning on other VM shapes. We recommend a shape that supports only Google Cloud Hyperdisk.  
+The problem is present for all Hyperdisk products on C3 and C3D machines because the Compute Engine Persistent Disk CSI driver reports the 127 Persistent Disk attachment limit to the Kubernetes scheduler rather than the lower per-type Hyperdisk attachment limit. Hyperdisk attachment limits vary by VM vCPU count and Hyperdisk product. For more information, see [Hyperdisk performance limits](https://docs.cloud.google.com/compute/docs/disks/hyperdisk-perf-limits#limits-instance). **Workaround:** Use one of the following workarounds:
+
+  * Use a machine series that supports only Hyperdisk, such as C4 or C4D.
+  * For standard node pools, override the node's advertised attachment limit by applying the `node-restriction.kubernetes.io/gke-volume-attach-limit-override` node label. For instructions, see [Override persistent volume attach limits](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/persistent-volume-attach-limits#override-pv-attach-limit).
+  * For node auto-provisioning, configure C3D nodes with at least 60 vCPUs (or C3 nodes with at least 22 vCPUs) to raise the per-VM limit for Hyperdisk Balanced and Hyperdisk ML from 16 to 32 volumes, or use Pod anti-affinity or topology spread constraints to cap the number of Hyperdisk-mounting Pods per node.
+
+  
 Operation | 1.32.3-gke.1927000, 1.32.3-gke.1785000, 1.32.3-gke.1717000, 1.32.3-gke.1440000, 1.32.3-gke.1170000, 1.32.3-gke.1250000, 1.32.3-gke.1671000, 1.32.3-gke.1596000, 1.32.3-gke.1298000 |  | 
 
 ### gke-metadata-server is OOMKilled on TPU/GPU nodes
@@ -786,6 +792,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

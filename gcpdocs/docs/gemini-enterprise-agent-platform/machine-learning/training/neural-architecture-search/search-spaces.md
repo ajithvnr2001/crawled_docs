@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/search-spaces/
 title: Prebuilt search spaces \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:07.319152+00:00
+fetched_at: 2026-10-29T11:07:28.463287+00:00
 ---
 
 # Prebuilt search spaces  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

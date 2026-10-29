@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash-lite/
 title: Gemini 2.5 Flash-Lite \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:27.984184+00:00
+fetched_at: 2026-10-29T09:45:31.337002+00:00
 ---
 
 # Gemini 2.5 Flash-Lite  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/troubleshoot/troubleshoot-bigquery-fdw/
 title: Troubleshoot the BigQuery foreign data wrapper extension \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:30.692023+00:00
+fetched_at: 2026-10-29T09:51:29.527760+00:00
 ---
 
 # Troubleshoot the BigQuery foreign data wrapper extension  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation

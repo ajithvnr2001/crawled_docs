@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/model-monitoring/schemas/
 title: Provide schemas to Gemini Enterprise Agent Platform Model Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:06.602677+00:00
+fetched_at: 2026-10-29T11:10:27.045017+00:00
 ---
 
 # Provide schemas to Gemini Enterprise Agent Platform Model Monitoring  |  Google Cloud Documentation

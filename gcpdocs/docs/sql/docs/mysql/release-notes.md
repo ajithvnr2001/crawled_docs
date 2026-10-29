@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/mysql/release-notes/
 title: Cloud SQL for MySQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:49:54.784375+00:00
+fetched_at: 2026-10-29T09:51:29.899870+00:00
 ---
 
 # Cloud SQL for MySQL release notes  |  Google Cloud Documentation
@@ -27,6 +27,18 @@ This page documents production updates to Cloud SQL for MySQL. You can check thi
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cloud-sql-mysql-release-notes.xml) directly. 
+
+## October 28, 2026
+
+Feature
+
+[Managed replica indexes](https://docs.cloud.google.com/sql/docs/mysql/replication/read-replica-indexes#managed-replica-indexes) for Cloud SQL for MySQL are generally available ([GA](https://cloud.google.com/products#product-launch-stages)). This feature lets you automatically retain and restore secondary indexes on read replica instances when Cloud SQL re-creates a replica.
+
+Previously, re-creating a read replica deleted custom secondary indexes because primary backups don't have replica-only index definitions. With managed replica indexes, Cloud SQL tracks secondary index metadata on the primary instance, replicates this metadata to read replicas, and automatically rebuilds secondary indexes after replica re-creation.
+
+Managed replica indexes are supported on instances that are running Cloud SQL for MySQL 8.0 or later, Cloud SQL Enterprise edition or Cloud SQL Enterprise Plus edition, and maintenance version `R20260726.00_05` or later.
+
+For more information, see [Read replica indexes overview](https://docs.cloud.google.com/sql/docs/mysql/replication/read-replica-indexes) and [Create and manage read replica indexes](https://docs.cloud.google.com/sql/docs/mysql/replication/create-manage-read-replica-indexes).
 
 ## October 23, 2026
 

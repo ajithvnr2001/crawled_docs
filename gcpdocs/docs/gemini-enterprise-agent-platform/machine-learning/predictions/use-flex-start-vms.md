@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-flex-start-vms/
 title: Use Flex-start VMs with inference \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:13.635868+00:00
+fetched_at: 2026-10-29T09:56:26.415077+00:00
 ---
 
 # Use Flex-start VMs with inference  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

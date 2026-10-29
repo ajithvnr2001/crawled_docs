@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/migrate-vertex-ai-legacy-bigtable/
 title: Migrate from Vertex AI Feature Store (Legacy) to Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:14.944681+00:00
+fetched_at: 2026-10-29T10:19:30.894766+00:00
 ---
 
 # Migrate from Vertex AI Feature Store (Legacy) to Bigtable  |  Google Cloud Documentation

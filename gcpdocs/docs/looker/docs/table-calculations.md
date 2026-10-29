@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/table-calculations/
 title: Using table calculations \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:55:48.053152+00:00
+fetched_at: 2026-10-29T09:51:19.479700+00:00
 ---
 
 # Using table calculations  |  Looker  |  Google Cloud Documentation
@@ -21,15 +21,24 @@ Send feedback
 
 #  Using table calculations Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** This page is part of the [Retrieve and chart data](https://docs.cloud.google.com/looker/docs/retrieve-and-chart-data) learning series.**Note:** If you're using Looker's [new Explore experience](https://docs.cloud.google.com/looker/docs/new-explore-experience-overview), see the [Creating and editing Explores in the new Explore experience](https://docs.cloud.google.com/looker/docs/creating-and-editing-new-explore-experience#adding_table_calculations_in_the_new_explore_experience) documentation page.
+**Note:** This page is part of the [Retrieve and chart data](https://docs.cloud.google.com/looker/docs/retrieve-and-chart-data) learning series.
 
-Table calculations let you create ad hoc metrics. They are similar to formulas that are found in spreadsheet tools such as Google Sheets. Table calculations appear as green columns in the data table, rather than as blue columns (dimensions) or orange columns (measures).
+When you explore data in Looker, you might need to calculate metrics that aren't defined in your data model—such as calculating running totals, comparing values across rows or columns, or finding percent changes over time. Instead of waiting for a LookML developer to update the model, you can create table calculations directly in your Explore to analyze your query results on the fly.
 
-The last column in the following table uses a table calculation to combine three fields in the data using the [`concat`](https://docs.cloud.google.com/looker/docs/functions-and-operators#functions_for_any_looker_expression_2) function.
+Table calculations let you create ad hoc metrics that operate on the dimensions, measures, and other table calculations in your query after data is retrieved from your database. They are similar to formulas found in spreadsheet tools such as Google Sheets. In the data table, table calculations appear as green columns, distinguishing them from blue dimensions and orange measures.
 
-![A data table includes a table calculation that concatenates the values of the columns Accidents Aircraft Category, Accidents Country, and Accidents Count in a single column.](https://docs.cloud.google.com/static/looker/docs/images/table-calcs-overview-720.png)
+For example, the last column in the following table uses the **% change of previous** shortcut calculation to calculate the percent change of **Flights Flight Count** from the previous row:
 
-Table calculations can perform mathematical, logical (true/false), lexical (text-based), and date-based calculations on the dimensions, measures, and other table calculations in your query. The formulas that you use to execute these calculations are called [Looker expressions (Lexp)](https://docs.cloud.google.com/looker/docs/creating-looker-expressions).
+![A data table includes a table calculation that displays the percent change of Flights Flight Count from the previous row.](https://docs.cloud.google.com/static/looker/docs/images/table-calc-2618.png)
+
+To create and use table calculations, you must have the [`create_table_calculations`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#create_table_calculations) permission.
+
+Depending on your analytical goals, you can create table calculations in two ways:
+
+  * **Shortcut calculations**: Apply common calculations—such as percent of previous row, running total, percent of column total, or moving average—directly to numeric fields without writing formulas.
+  * **Custom expressions**: Build mathematical, logical (true/false), text-based, or date-based calculations by using [Looker expressions (Lexp)](https://docs.cloud.google.com/looker/docs/creating-looker-expressions) across any fields in your query results.
+
+
 
 ## Table calculations are different from LookML-defined fields and custom fields
 
@@ -37,7 +46,7 @@ There are a few differences between table calculations and LookML-defined fields
 
   * Table calculations give anyone who has the [appropriate permissions](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#create_table_calculations) the ability to create calculations that are _based on_ LookML-defined fields, rather than the ability to _create_ LookML-defined fields, which require that the user have [development permissions](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#develop) and understand LookML.
   * Table calculations operate on the results from your query after it has run, as opposed to LookML-defined or custom fields, which are part of the query that is run against the database. In other words, first you select a set of dimensions and measures and run your query as normal, and _then_ you can base table calculations on the data in the query results.
-  * **Although table calculations are simpler and quicker to create than LookML-defined fields, they are not as easily controlled as LookML-defined fields.** Since any user can create a table calculation, they might not be the "official" calculations. Keep this trade-off in mind as you decide between LookML-defined fields and table calculations, since Looker leverages LookML to maintain a single source of truth.
+  * **Although table calculations are quicker to create than LookML-defined fields, they are not as easily controlled as LookML-defined fields.** Since any user can create a table calculation, they might not be the "official" calculations. Keep this trade-off in mind as you decide between LookML-defined fields and table calculations, since Looker leverages LookML to maintain a single source of truth.
 
 
 
@@ -54,24 +63,63 @@ Table calculation fields appear next to dimensions and measures in the table. If
 
 To allow users or groups to create table calculations, your Looker admin must give those users or groups access to the feature by granting them the [`create_table_calculations`](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#create_table_calculations) permission.
 
-Looker's Explore page has a built-in Looker expression editor to help you create table calculations, custom fields, and custom filters. If you are a Looker developer who is creating a [data test](https://docs.cloud.google.com/looker/docs/reference/param-model-test) to verify the logic of your model, you can also use the Looker expression editor to build a Looker expression, then copy the expression into your data test's `expression` parameter.
+Looker's Explore page has a built-in Looker expression editor to help you create table calculations, custom fields, and custom filters. If you're a Looker developer who is creating a [data test](https://docs.cloud.google.com/looker/docs/reference/param-model-test) to verify the logic of your model, you can also use the Looker expression editor to build a Looker expression and then copy the expression into your data test's `expression` parameter.
 
-**Caution:** Before you create a table calculation, make sure that all the fields you want to use in the table calculation have been selected from the field picker and that you have run the query. 
+The methods for creating a table calculation differ depending on whether you're using the default Explore interface or classic Explore interface.
 
-You can access the Looker expression editor from the Explore page in these ways:
+**Caution:** Before you create a table calculation, make sure that all the fields you want to use in the table calculation have been added to the query and that you have run the query. 
 
-  * Using the **Add** button in the **Custom Fields** section of the field picker
-  * Using the **Data** bar
+### Creating table calculations in the default Explore interface
+
+To create a table calculation in the default Explore interface, follow these steps:
+
+  1. In the **Configure** panel, select **\+ Add** , and then select **Table Calculation** to open the **Create table calculation** dialog.
+
+**Tip:** Creating a table calculation with the **\+ Add** button lets you create a table calculation by using a [Looker expression](https://docs.cloud.google.com/looker/docs/creating-looker-expressions). Looker expressions let you include other dimensions, and, when available, use [Gemini assistance in creating a Looker expression](https://docs.cloud.google.com/looker/docs/gemini-expression-asst#using).
+  2. In the **Create table calculation** dialog, select a calculation type from the **Calculation** drop-down. The options for a **Custom expression** are displayed by default.
+
+  3. Add the calculation definition, including selecting a shortcut calculation's **Source column**. Only numeric fields that appear in the Explore's data table are eligible for calculation types other than **Custom expression**.
+
+     * If **Custom expression** is selected from the **Calculation** drop-down, enter a [Looker expression](https://docs.cloud.google.com/looker/docs/creating-looker-expressions) in the large field to create your calculation. You can create table calculations only from fields that appear in the Explore's data table. Looker expressions can evaluate to a number, date, string (text), or Boolean (true/false).
+     * The [Creating Looker expressions](https://docs.cloud.google.com/looker/docs/creating-looker-expressions) documentation page explains how to create Looker expressions and how the editor can assist you.
+  4. Optionally, select a format other than the default from the **Format** drop-down.
+
+  5. Optionally, enter a new calculation name other than the default in the **Name** field. The calculation name appears in the **Configure** panel and in the data table.
+
+  6. Select **\+ Add Description** to add an optional description of up to 255 characters that can give other users more context or information about the table calculation.
+
+  7. Select **Save**.
 
 
 
-### Using the Add button in the Custom Fields section of the field picker to create table calculations
+
+You can also create shortcut calculations directly from the **Data** pane by following these steps:
+
+  1. In the **Data** pane, select the data column more_vert **More** menu on a numeric field.
+  2. select function **Calculations** , and choose a shortcut calculation.
+
+
+
+The new calculation will automatically appear as a green column in the data table and in the **Custom Fields** view in the **Configure** panel.
+
+As with other fields, you can select the calculation's name to add or remove it from a query. You can also hold your cursor over the field to reveal [more options](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-field-actions) that are available for that calculation.
+
+### Creating table calculations in classic Explores
+
+In classic Explores, you can access the Looker expression editor from the Explore page in these ways:
+
+  * Using the **\+ Add** button in the **Custom Fields** section of the field picker
+  * Using the **Data** pane
+
+
+
+#### Using the **\+ Add** button in the **Custom Fields** section of the field picker to create table calculations
 
 If you have the [permissions to create table calculations](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#create_table_calculations), you can use the **Custom Fields** section of the [field picker](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#field_picker) to open the **Create table calculation** dialog.
 
 To create a table calculation using the **Custom Fields** section, follow these steps:
 
-  1. Select **Add** in the **Custom Fields** section of the field picker.
+  1. Select **\+ Add** in the **Custom Fields** section of the field picker.
   2. Select **Table Calculation** to open the **Create table calculation** dialog.
 
 **Caution:** The **Table Calculation** option won't be enabled until fields have been selected from the field picker and an Explore query has been run. 
@@ -80,37 +128,37 @@ To create a table calculation using the **Custom Fields** section, follow these 
 
 Then, for each table calculation, follow these steps:
 
-  1. Select a calculation type from the **Calculation** drop-down. The options for a **Custom expression** display by default.
-  2. Add the calculation definition, including selecting a shortcut calculation's **Source column**, as desired. Only numeric fields that appear in the Explore's data table are eligible for calculation types other than **Custom expression**. 
-     * If **Custom expression** is selected from the **Calculation** drop-down, enter a [Looker expression](https://docs.cloud.google.com/looker/docs/creating-looker-expressions) in the large text box to create your calculation. You can only create table calculations from fields that appear in the Explore's data table. Looker expressions can be quite simple; or they can use as many fields, functions, and operators as your business logic requires. The expression you create can evaluate to a number, date, string (text), or Boolean (true/false).
+  1. Select a calculation type from the **Calculation** drop-down. The options for a **Custom expression** are displayed by default.
+  2. Add the calculation definition, including selecting a shortcut calculation's **Source column**. Only numeric fields that appear in the Explore's data table are eligible for calculation types other than **Custom expression**. 
+     * If **Custom expression** is selected from the **Calculation** drop-down, enter a [Looker expression](https://docs.cloud.google.com/looker/docs/creating-looker-expressions) in the large text field to create your calculation. You can only create table calculations from fields that appear in the Explore's data table. Looker expressions can be basic; or they can use as many fields, functions, and operators as your business logic requires. The expression you create can evaluate to a number, date, string (text), or Boolean (true/false).
      * The [Creating Looker expressions](https://docs.cloud.google.com/looker/docs/creating-looker-expressions) documentation page explains how to create Looker expressions and how the editor can assist you.
-  3. Select a format other than the default from the **Format** drop-down, if desired.
-  4. Enter a new calculation name other than the default in the **Name** field, as desired. The calculation name appears in the field picker and in the data table.
+  3. Optionally, select a format other than the default from the **Format** drop-down.
+  4. Optionally, enter a new calculation name other than the default in the **Name** field. The calculation name appears in the field picker and in the data table.
   5. Select **\+ Add Description** to add an optional description of up to 255 characters that can give other users more context or information about the table calculation.
   6. Select **Save**.
 
 
 
-The new calculation will automatically appear in the data table and in the **Custom Fields** section of the field picker. As with other fields, you can select the calculation's name to add or remove it from a query. You can also hover over the field to reveal [more options](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#field-specific_information_and_actions) that are available for that calculation.
+The new calculation will automatically appear in the data table and in the **Custom Fields** section of the field picker. As with other fields, you can select the calculation's name to add or remove it from a query. You can also hold your cursor over the field to reveal [more options](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using_the_field-specific_information_and_actions_icons) that are available for that calculation.
 
-### Using the Data bar to create table calculations
+#### Using the Data pane to create table calculations
 
-In addition to using the **Custom Fields** section of the field picker, you can open the **Create table calculation** dialog by selecting the **Add calculation** button from the **Data** section bar.
+In addition to using the **Custom Fields** section of the field picker, you can open the **Create table calculation** dialog by clicking the **Add calculation** button from the **Data** pane.
 
 Then, for each table calculation, follow these steps:
 
-  1. Select a calculation type from the **Calculation** drop-down. The options for a **Custom expression** display by default.
-  2. Add the calculation definition, including selecting a shortcut calculation's **Source column**, as desired. Only numeric fields that appear in the Explore's data table are eligible for calculation types other than **Custom expression**. 
-     * If **Custom expression** is selected from the **Calculation** drop-down, enter a [Looker expression](https://docs.cloud.google.com/looker/docs/creating-looker-expressions) in the large text box to create your calculation. You can only create table calculations from fields that appear in the Explore's data table. Looker expressions can be quite simple; or they can use as many fields, functions, and operators as your business logic requires. The expression you create can evaluate to a number, date, string (text), or Boolean (true/false).
+  1. Select a calculation type from the **Calculation** drop-down. The options for a **Custom expression** are displayed by default.
+  2. Add the calculation definition, including selecting a shortcut calculation's **Source column**. Only numeric fields that appear in the Explore's data table are eligible for calculation types other than **Custom expression**. 
+     * If **Custom expression** is selected from the **Calculation** drop-down, enter a [Looker expression](https://docs.cloud.google.com/looker/docs/creating-looker-expressions) in the large field to create your calculation. You can only create table calculations from fields that appear in the Explore's data table. Looker expressions can be quite basic; or they can use as many fields, functions, and operators as your business logic requires. The expression you create can evaluate to a number, date, string (text), or Boolean (true/false).
      * The [Creating Looker expressions](https://docs.cloud.google.com/looker/docs/creating-looker-expressions) documentation page explains how to create Looker expressions and how the editor can assist you.
-  3. Select a format other than the default from the **Format** drop-down, if desired.
-  4. Enter a new calculation name other than the default in the **Name** field, as desired. The calculation name appears in the field picker and in the data table.
+  3. Optionally, select a format other than the default from the **Format** drop-down.
+  4. Optionally, enter a new calculation name other than the default in the **Name** field. The calculation name appears in the field picker and in the data table.
   5. Select **\+ Add Description** to add an optional description of up to 255 characters that can give other users more context or information about the table calculation.
   6. Select **Save**.
 
 
 
-The new calculation will automatically appear in the data table and in the **Custom Fields** section of the field picker. As with other fields, you can select the calculation's name to add or remove it from a query. You can also hover over the field to reveal [more options](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#field-specific_information_and_actions) that are available for that calculation.
+The new calculation will automatically appear in the data table and in the **Custom Fields** section of the field picker. As with other fields, you can select the calculation's name to add or remove it from a query. You can also hold your cursor over the field to reveal [more options](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using_the_field-specific_information_and_actions_icons) that are available for that calculation.
 
 ## Shortcuts for common calculations
 
@@ -118,7 +166,7 @@ If you have the permissions to create and edit table calculations, you can perfo
 
 You can perform shortcut calculations in one of the following ways:
 
-  * Using a field's data table gear menu
+  * Using a field in the **Data** pane
   * Using the **Create table calculation** dialog or the **Edit table calculation** dialog
 
 
@@ -179,13 +227,20 @@ Calculation | Description | Input | Lexp | Format | Name
 
 Running row total  |  For pivoted fields, the cumulative sum of the current column and all previous columns in this row.  |  `field_1` |  `sum(pivot_offset_list(field_1,-1*pivot_column()+1,pivot_column()))` |  **Default formatting** |  Running row total   
   
-### Using a field's data table gear menu to use shortcuts for common calculations
+### Using the data table to use shortcuts for common calculations
 
-If you have the permissions to create and edit table calculations, you can create a shortcut calculation from a field's data table gear menu with the following steps:
+If you have the permissions to create and edit table calculations, you can create a shortcut calculation from a field's column in the data table in the following ways:
 
-  1. Select the gear menu next to the field's name in the data table.
-  2. Select **Calculations** to display the available calculation types.
-  3. Select a calculation type.
+  * **In the default Explore interface** :
+
+    * In the **Data** pane, select the data column more_vert **More** menu on a numeric field.
+    * Select function **Calculations**.
+    * Choose a calculation type.
+  * **In classic Explores** :
+
+    * Select the gear menu next to the field's name in the data table.
+    * Select **Calculations**.
+    * Choose a calculation type.
 
 
 
@@ -193,52 +248,60 @@ Pivot calculation types won't appear unless Explore results are pivoted.
 
 The new calculation will automatically appear as a green column in the data table.
 
-The new calculation will also appear in the **Custom Fields** section of the field picker.
+The new calculation will also appear in the **Custom Fields** view in the **Configure** panel (or the **Custom Fields** section of the field picker in classic Explores).
 
-As with other fields, you can select the calculation's name to add or remove it from a query. You can also hover over the field to reveal [more options](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#field-specific_information_and_actions) that are available for that calculation, including editing the calculation.
+As with other fields, you can select the calculation's name to add or remove it from a query. You can also hold your cursor over the field to reveal more options that are available for that calculation, including editing the calculation.
 
 ### Using the Create or Edit table calculation dialog to use shortcuts for common calculations
 
 This method lets you select a format or name other than the default, or add a description as you create the calculation.
 
   1. Open the **Create table calculation** dialog if you are creating a table calculation, or open the **Edit table calculation** dialog if you are editing a table calculation.
-
-![The Edit table calculation dialog displays a % of previous row calculation based on an Inventory Items Count field.](https://docs.cloud.google.com/static/looker/docs/images/editing-table-calc-custom-fields-2304.png)
-
-  2. Select a calculation type from the **Calculation** drop-down. This example uses **% of previous row** to compare the count of inventory items with the previous month's count of inventory items.
-
-     * Pivot calculation types won't appear unless Explore results are pivoted.
-  3. Select the field on which you want to perform the calculation in the **Source column** drop-down. Only numeric fields that appear in the Explore's data table will be available to choose from. In this example, the user chooses to perform a **% of previous row** calculation on the **Inventory Items Count** measure.
-
+  2. Select a calculation type from the **Calculation** drop-down. 
+     * Pivot calculation types won't appear unless Explore results are pivoted. 
+  3. Select the field on which you want to perform the calculation in the **Source column** drop-down. Only numeric fields that appear in the Explore's data table will be available to choose from.
   4. Optionally, use the **Format** drop-down to choose a predefined format or create a custom format for the results. If you create a custom format, use spreadsheet-style formatting as described on the [Adding custom formatting to numeric fields](https://docs.cloud.google.com/looker/docs/custom-formatting) documentation page. If no selection is made, Looker uses a default format.
-
-  5. Rename your table calculation from the default name in the **Name** field, if desired. The calculation name appears in the field picker and in the data table.
-
+  5. Optionally, rename your table calculation from the default name in the **Name** field. The calculation name appears in the field picker and in the data table.
   6. Select **\+ Add Description** to add an optional description of up to 255 characters that can give other users more context or information about the table calculation.
-
   7. If you are finished creating the table calculation, select **Save** to add the calculation to the Explore.
-
 
 
 
 The new calculation will automatically appear as a green column in the data table.
 
-The new calculation will also appear in the **Custom Fields** section of the field picker.
+The new calculation will also appear in the **Custom Fields** section of the **Configure** panel (or the **Custom Fields** section of the field picker in classic Explores).
 
-As with other fields, you can select the calculation's name to add or remove it from a query. You can also hover over the field to reveal [more options](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#field-specific_information_and_actions) that are available for that calculation, including editing the calculation.
+As with other fields, you can select the calculation's name to add or remove it from a query. You can also hold your cursor over the field to reveal [more options](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#using-field-actions) that are available for that calculation, including editing the calculation.
 
 ## Duplicating table calculations
 
 If you have the permissions to create table calculations, you can also duplicate existing table calculations that you or other users have created. Duplicating and then editing table calculations can be helpful if you'd like to create multiple table calculations with only small differences (for example, 30-day, 60-day, or 90-day sums).
 
-You can duplicate table calculations in these ways:
+The methods for duplicating a table calculation differ depending on whether you're using the default Explore interface or classic Explore interface.
 
-  * Using a calculation's [three-dot **More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#three-dot_more_menu) in the **Custom Fields** section of the field picker
+### Duplicating table calculations in the default Explore interface
+
+You can duplicate table calculations in the default Explore interface in either of the following ways:
+
+  * In the **Configure** panel, expand the **Custom Fields** view, select the calculation's more_vert **More** menu, and select **Duplicate**.
+  * In the **Data** pane, select the calculation's data column more_vert **More** menu, and select content_copy **Duplicate**.
+
+
+
+The duplicated table calculation appears in the **Custom Fields** view in the **Configure** panel and in the data table, using the name of the original table calculation plus the word "Copy" appended to the end.
+
+Next, you can edit the duplicated table calculation.
+
+### Duplicating table calculations in classic Explores
+
+In classic Explores, you can duplicate table calculations in these ways:
+
+  * Using a calculation's [three-dot **More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-classic-explores#three-dot_more_menu) in the **Custom Fields** section of the field picker
   * Using a calculation's data table gear menu
 
 
 
-To duplicate a table calculation, follow these steps:
+To duplicate a table calculation in classic Explores, follow these steps:
 
   1. In the field picker, expand the **Custom Fields** section of the field picker.
   2. Select the three-dot **More** menu for the table calculation that you want to duplicate.
@@ -256,41 +319,123 @@ Next, you can edit the duplicated table calculation.
 
 If you have the permissions to create table calculations, you also can edit existing table calculations that you or other users have created.
 
-There are a few ways to edit table calculations:
+The methods for editing a table calculation differ depending on whether you are using the default Explore interface or classic Explore interface.
 
-  * Using a calculation's [three-dot **More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#three-dot_more_menu) in the **Custom Fields** section of the field picker
+### Editing table calculations in the default Explore interface
+
+You can edit table calculations in the default Explore interface in either of the following ways:
+
+  * In the **Configure** panel, expand the **Custom Fields** view, select the calculation's more_vert **More** menu, and select **Edit**.
+  * In the **Data** pane, select the calculation's data column more_vert **More** menu, and select edit **Edit** or **Edit Calculation**.
+
+
+
+Either option opens the **Edit table calculation** dialog. To edit the table calculation, follow these steps:
+
+  1. Select a new calculation type from the **Calculation** drop-down.
+  2. Change the calculation definition, including a shortcut calculation's **Source column**. Only numeric fields that appear in the Explore's data table are eligible for calculation types other than **Custom expression**. 
+     * If **Custom expression** is selected from the **Calculation** drop-down, either add a Looker expression to, or edit an existing Looker expression in, the large text field. You can only create table calculations from fields that appear in the Explore's data table. When available, you can use [Gemini assistance in creating a Looker expression](https://docs.cloud.google.com/looker/docs/gemini-expression-asst#using).
+  3. Select a new format from the **Format** drop-down.
+  4. Optionally, enter a new calculation name in the **Name** field. The calculation name appears in the **Configure** panel and in the data table. If you have changed anything on a table calculation, consider modifying the name to match.
+  5. Add or update an optional field description of up to 255 characters with details about the table calculation, including its intended use. 
+     * If there is an existing description, the **Description** box will automatically appear. If there is no existing description, select **\+ Add Description** to add an optional description.
+  6. Select **Save**.
+
+
+
+### Editing table calculations in classic Explores
+
+In classic Explores, you can edit table calculations in these ways:
+
+  * Using a calculation's [three-dot **More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-classic-explores#three-dot_more_menu) in the **Custom Fields** section of the field picker
   * Using a calculation's data table gear menu
 
 
 
-To edit a table calculation, follow these steps:
+To edit a table calculation in classic Explores, follow these steps:
 
   1. Expand the **Custom Fields** section of the field picker, or select **Edit calculation** from the calculation's data table gear menu to open the **Edit table calculation** dialog.
   2. Select the three-dot **More** menu next to the table calculation that you want to edit.
   3. Select **Edit** to open the **Edit table calculation** dialog.
-  4. Select a new calculation type from the **Calculation** drop-down, if desired.
-  5. Change the calculation definition, including a shortcut calculation's **Source column**, as desired. Only numeric fields that appear in the Explore's data table are eligible for calculation types other than **Custom expression**. 
-     * If **Custom expression** is selected from the **Calculation** drop-down, either add a Looker expression to, or edit an existing Looker expression in, the large text box. You can only create table calculations from fields that appear in the Explore's data table.
-  6. Select a new format from the **Format** drop-down, if desired.
-  7. Enter a new calculation name in the **Name** field, as desired. The calculation name appears in the field picker and in the data table. If you have changed anything on a table calculation, consider modifying the name to match.
+  4. Select a new calculation type from the **Calculation** drop-down.
+  5. Change the calculation definition, including a shortcut calculation's **Source column**. Only numeric fields that appear in the Explore's data table are eligible for calculation types other than **Custom expression**. 
+     * If **Custom expression** is selected from the **Calculation** drop-down, either add a Looker expression to, or edit an existing Looker expression in, the large text field. You can only create table calculations from fields that appear in the Explore's data table.
+  6. Select a new format from the **Format** drop-down.
+  7. Optionally, enter a new calculation name in the **Name** field. The calculation name appears in the field picker and in the data table. If you have changed anything on a table calculation, consider modifying the name to match.
   8. Add or update an optional field description of up to 255 characters with details about the table calculation, including its intended use. 
      * If there is an existing description, the **Description** box will automatically appear. If there is no existing description, select **\+ Add Description** to add an optional description.
   9. Select **Save**.
 
 
 
-## Deleting table calculations
+## Removing and deleting table calculations
 
-If you have the permissions to create table calculations, you also can delete table calculations that you or other users have created. When you delete a table calculation, it disappears from the Explore but not from any Looks or dashboard tiles that use that calculation. Also, anyone who is using a URL for an Explore that had the custom field will still see the calculation.
+If you have the permissions to create table calculations, you can remove table calculations from a query or delete them from the Explore.
 
-There are a few ways to delete table calculations:
+When you delete a table calculation, it disappears from the Explore but not from any Looks or dashboard tiles that use that calculation. Also, anyone who is using a URL for an Explore that had the table calculation will still see the calculation.
 
-  * Using a calculation's [three-dot **More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#three-dot_more_menu) in the **Custom Fields** section of the field picker
+You can choose between **Remove** and **Delete** :
+
+  * **Remove** : Removes the table calculation from the Explore query and data table, but keeps the calculation definition in the **Custom Fields** view in the **Configure** panel so that you can add it back to the query later.
+  * **Delete** : Permanently deletes the table calculation from both the Explore query and the **Custom Fields** view in the **Configure** panel.
+
+
+
+The methods for removing and deleting table calculations differ depending on whether you are using the default Explore interface or classic Explore interface.
+
+### Removing table calculations in the default Explore interface
+
+To remove a table calculation from the query while keeping it in the **Configure** panel, use either of the following methods:
+
+  * In the **Data** pane, select the calculation's data column more_vert **More** menu, and select delete_outline **Remove**.
+  * In the **Configure** panel, expand the **Custom Fields** view, and click the table calculation's name to deselect it.
+
+
+
+The table calculation will no longer appear in the data table or query results, but remains available under the **Custom Fields** view in the **Configure** panel.
+
+### Deleting table calculations in the default Explore interface
+
+To permanently delete a table calculation from an Explore query and the **Configure** panel, use either of the following methods:
+
+  * In the **Configure** panel, expand the **Custom Fields** view, select the calculation's more_vert **More** menu, and select delete_forever **Delete**.
+  * In the **Data** pane, select the calculation's data column more_vert **More** menu, and select delete_forever **Delete**.
+
+
+
+You can also use the [keyboard shortcuts](https://docs.cloud.google.com/looker/docs/keyboard-shortcuts#shortcuts_for_exploring) Command-K (Mac) or Ctrl+K (Windows) to delete table calculations and clear fields from an Explore query.
+
+You can reinstate a table calculation that you've deleted by selecting the back arrow on your browser.
+
+### Removing table calculations in classic Explores
+
+In classic Explores, you can remove table calculations in these ways:
+
+  * Using a calculation's [three-dot **More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-classic-explores#three-dot_more_menu) in the **Custom Fields** section of the field picker
   * Using a calculation's data table gear menu
 
 
 
-To delete a table calculation, follow these steps:
+To remove a table calculation in classic Explores, follow these steps:
+
+  1. Expand the **Custom Fields** section of the field picker.
+  2. Select the three-dot **More** menu next to the table calculation that you want to remove.
+  3. Select **Remove**.
+
+
+
+Alternatively, select **Remove** from the table calculation's data table gear menu.
+
+### Deleting table calculations in classic Explores
+
+In classic Explores, you can delete table calculations in these ways:
+
+  * Using a calculation's [three-dot **More** menu](https://docs.cloud.google.com/looker/docs/creating-and-editing-classic-explores#three-dot_more_menu) in the **Custom Fields** section of the field picker
+  * Using a calculation's data table gear menu
+
+
+
+To delete a table calculation in classic Explores, follow these steps:
 
   1. Expand the **Custom Fields** section of the field picker.
   2. Select the three-dot **More** menu next to the table calculation that you want to delete.
@@ -302,7 +447,7 @@ Alternatively, select **Delete** from the table calculation's data table gear me
 
 You can also use the [keyboard shortcuts](https://docs.cloud.google.com/looker/docs/keyboard-shortcuts#shortcuts_for_exploring) Command-K (Mac) or Ctrl+K (Windows) to delete table calculations and clear fields from an Explore query.
 
-You can reinstate a custom field that you've deleted by selecting the back arrow on your browser.
+You can reinstate a table calculation that you've deleted by selecting the back arrow on your browser.
 
 ## Sorting table calculations
 
@@ -347,7 +492,7 @@ In addition, you can use table calculations to decide _which rows_ of your data 
 
 Note that the underlying data table includes the dimension **Orders Created Week** and the measure **Order Items Total Profit** , along with a table calculation called **Percent of Previous Week Profit** , which compares the profit of each week against the previous week:
 
-![](https://docs.cloud.google.com/static/looker/docs/images/explore-table-calc-vis-2308.png)
+![An Explore displays a column chart of weekly profits and a data table that includes the dimension Orders Created Week, the measure Order Items Total Profit, and a table calculation called Percent of Previous Week Profit.](https://docs.cloud.google.com/static/looker/docs/images/explore-table-calc-vis-2618.png)
 
 You can now prevent certain rows of data from showing up in the column chart. To do so, you'll create a table calculation that evaluates to true or false, then hide the false values (which will appear as "No" entries in your data table). You don't want the formula to result in the _word_ "true" or "false"; rather, it should be a _condition_ that is either true or false.
 
@@ -359,15 +504,15 @@ To achieve this result, you could create a table calculation, **Exceeds Previous
 
 The resulting table will include a new table calculation that evaluates each row against the **Exceeds Previous Week Profit** calculation and that displays a **Yes** or a **No** , depending upon whether the percent of previous is greater than 1.
 
-![](https://docs.cloud.google.com/static/looker/docs/images/explore-table-calc-yesno-2308.png)
+![A data table includes a table calculation called Exceeds Previous Week Profit that displays Yes or No for each row.](https://docs.cloud.google.com/static/looker/docs/images/explore-table-calc-yesno-2618.png)
 
 To hide all the rows where a particular week's revenue did not exceed the revenue of the previous week, select the true or false calculation's data table gear menu and select **Hide "No"s from Visualization**.
 
 The resulting visualization will now display only the weeks that exceeded the previous week's revenue.
 
-![](https://docs.cloud.google.com/static/looker/docs/images/explore-table-calc-hide-nos-vis-2308.png)
+![](https://docs.cloud.google.com/static/looker/docs/images/explore-table-calc-hide-nos-vis-2618.png)
 
-**Caution:** Looker does not re-run queries to exclude fields or values that are hidden using [**Hide from Visualization**](https://docs.cloud.google.com/looker/docs/creating-visualizations#hiding_fields_from_visualizations) or **Hide "No"s from Visualization** for table calculations. As a result, calculations that are based on fields that have hidden Explore values may display unexpected results. 
+**Caution:** Looker doesn't re-run queries to exclude fields or values that are hidden using [**Hide from Visualization**](https://docs.cloud.google.com/looker/docs/creating-visualizations#hiding_fields_from_visualizations) or **Hide "No"s from Visualization** for table calculations. As a result, calculations that are based on fields that have hidden Explore values may display unexpected results. 
 
 One common use case for this feature is hiding the first or last row from a visualization, since many types of analyses create rows that contain null values at the beginning or end of a table:
 
@@ -396,10 +541,23 @@ Then, hide the row by selecting **Hide "No"s from Visualization** from the table
 
 
 
+## Related resources
+
+Now that you have learned how to create and edit table calculations, you may want to do the following:
+
+  * [Filter and limit](https://docs.cloud.google.com/looker/docs/filtering-and-limiting) your results to just the data you're interested in.
+  * [Create custom fields](https://docs.cloud.google.com/looker/docs/custom-fields) to create ad hoc Explore metrics.
+  * [Create visualizations](https://docs.cloud.google.com/looker/docs/creating-visualizations).
+  * [Save Explore queries as Looks](https://docs.cloud.google.com/looker/docs/saving-and-editing-looks).
+  * [Add Explore queries to dashboards](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#creating_a_dashboard_from_a_look_or_an_explore).
+  * [Share data](https://docs.cloud.google.com/looker/docs/sharing-data) with other users.
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

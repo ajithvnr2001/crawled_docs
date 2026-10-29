@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/hbase-differences/
 title: Differences between HBase and Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:57:16.853259+00:00
+fetched_at: 2026-10-29T10:19:14.649432+00:00
 ---
 
 # Differences between HBase and Bigtable  |  Google Cloud Documentation

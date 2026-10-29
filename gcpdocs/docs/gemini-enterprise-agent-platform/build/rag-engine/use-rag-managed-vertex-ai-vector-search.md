@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-rag-managed-vertex-ai-vector-search/
 title: Use Vector Search 2.0 with RAG \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:17.372265+00:00
+fetched_at: 2026-10-29T11:06:42.604714+00:00
 ---
 
 # Use Vector Search 2.0 with RAG  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

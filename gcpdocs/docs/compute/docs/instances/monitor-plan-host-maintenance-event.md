@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instances/monitor-plan-host-maintenance-event/
 title: Monitor and plan for a host maintenance event \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:05.002023+00:00
+fetched_at: 2026-10-29T09:45:12.852359+00:00
 ---
 
 # Monitor and plan for a host maintenance event  |  Compute Engine  |  Google Cloud Documentation
@@ -141,17 +141,11 @@ You can view notifications for an instance's upcoming maintenance event only if 
   * **Memory-optimized machine families** :
 
     * [X5](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x5_machine_types)
-
     * [X4](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#x4_machine_types)
-
     * [M4](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m4_machine_types) and [M4N](https://docs.cloud.google.com/compute/docs/network-optimized-machines#m4n_series)
-
     * [M3](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m3_machine_types)
-
     * [M2](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types)
-
     * [M1](https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types)
-
   * **Storage-optimized machine families** :
 
     * [Z4D](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4d_series)
@@ -159,10 +153,8 @@ You can view notifications for an instance's upcoming maintenance event only if 
     * [Z3](https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3_series)
   * **Compute-optimized machine families** :
 
-    * [H4D](https://docs.cloud.google.com/compute/docs/compute-optimized-machines)
-
-    * [H3](https://docs.cloud.google.com/compute/docs/compute-optimized-machines)
-
+    * [H4D](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#h4d_series)
+    * [H3](https://docs.cloud.google.com/compute/docs/compute-optimized-machines#h3_series)
 
 
 
@@ -220,7 +212,7 @@ The following status definitions explain the responses to queries about host mai
     * `PENDING`: the maintenance operation is scheduled, but has not yet started.
   * **type** : the type of maintenance to be performed. 
     * `NONE`: No maintenance is scheduled for this instance.
-    * `SCHEDULED`: For disruptive maintenance, Compute Engine provides a minimum of 7 days notice for most instances; X4 instances get approximately 60 days advanced notice.
+    * `SCHEDULED`: For disruptive maintenance, Compute Engine provides a minimum of 7 days notice for most instances; for specific advanced notice periods, refer to the documentation for your machine series.
     * `UNSCHEDULED`: Because the maintenance represents critical or urgent updates, Compute Engine tries to provide as much advanced notice as possible, but it is usually much less than for scheduled maintenance events.
   * **windowEndTime** : the end of the time window in which maintenance occurs.
   * **windowStartTime** : the start of the time window in which maintenance occurs.
@@ -447,7 +439,7 @@ Replace `MACHINE_TYPE` with the machine type for which you want to filter the ho
 
   6. In the query results pane, click **Edit time**.
 
-     1. On the left-hand side of the edit window, in the **Relative time** field, enter `1d` to view the log entries for the past week.
+     1. On the left-hand side of the edit window, in the **Relative time** field, enter `7d` to view the log entries for the past week.
      2. Click **Apply**.
   7. In the header of the **Query results** pane, click _add_alert_ **Create alert**. If your viewing window is narrow, the **Create alert** option might appear on the **Actions** menu instead.
 
@@ -507,6 +499,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

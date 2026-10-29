@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/energy-efficient-software/
 title: Develop energy-efficient software \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:44.290205+00:00
+fetched_at: 2026-10-29T09:47:09.858112+00:00
 ---
 
 # Develop energy-efficient software  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Develop energy-efficient software Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-01-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the sustainability pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework/sustainability) provides recommendations to write software that minimizes energy consumption and server load.
 
@@ -33,10 +33,10 @@ To build energy-efficient software, you need to integrate sustainability conside
 
 The recommendations in this section are grouped into the following focus areas:
 
-  * Minimize computational work: Favor lean, focused code that eliminates redundant logic and avoids unnecessary computations or feature bloat.
-  * Use efficient algorithms and data structures: Choose time-efficient and memory-efficient algorithms that reduce CPU load and minimize memory usage.
-  * Optimize compute and data operations: Develop with the goal of efficiently using all of the available resources, including CPU, memory, disk I/O, and network. For example, when you replace busy loops with event-driven logic, you avoid unnecessary polling.
-  * Implement frontend optimization: To reduce the power that's consumed by end-user devices, use strategies like minimization, compression, and [lazy-loading](https://en.wikipedia.org/wiki/Lazy_loading) for images and assets.
+  * [Minimize computational work](https://docs.cloud.google.com/architecture/framework/sustainability/energy-efficient-software#minimal-computations): Favor lean, focused code that eliminates redundant logic and avoids unnecessary computations or feature bloat.
+  * [Use efficient algorithms and data structures](https://docs.cloud.google.com/architecture/framework/sustainability/energy-efficient-software#efficient-algorithms): Choose time-efficient and memory-efficient algorithms that reduce CPU load and minimize memory usage.
+  * [Optimize compute and data operations](https://docs.cloud.google.com/architecture/framework/sustainability/energy-efficient-software#optimized-operations): Develop with the goal of efficiently using all of the available resources, including CPU, memory, disk I/O, and network. For example, when you replace busy loops with event-driven logic, you avoid unnecessary polling.
+  * [Implement frontend optimization](https://docs.cloud.google.com/architecture/framework/sustainability/energy-efficient-software#optimized-frontend): To reduce the power that's consumed by end-user devices, use strategies like minimization, compression, and [lazy-loading](https://en.wikipedia.org/wiki/Lazy_loading) for images and assets.
 
 
 
@@ -159,6 +159,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-01-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-01-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines/
 title: Data Pipelines roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:20:19.610818+00:00
+fetched_at: 2026-10-29T09:50:07.518055+00:00
 ---
 
 # Data Pipelines roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -84,26 +84,21 @@ Role | Permissions
   * `cloudscheduler.locations.get`
   * `cloudscheduler.locations.list`
 
-`compute.machineTypes.get` `compute.projects.get` `compute.regions.list` `compute.zones.list` `dataflow.*`
+`compute.machineTypes.get` `compute.projects.get` `compute.regions.list` `compute.zones.list` `dataflow.jobs.cancel` `dataflow.jobs.create` `dataflow.jobs.get` `dataflow.jobs.list` `dataflow.jobs.listEffectiveTags` `dataflow.jobs.listTagBindings` `dataflow.jobs.snapshot` `dataflow.jobs.updateContents` `dataflow.messages.list` `dataflow.metrics.get` `dataflow.shuffle.*`
 
-  * `dataflow.jobs.cancel`
-  * `dataflow.jobs.create`
-  * `dataflow.jobs.get`
-  * `dataflow.jobs.list`
-  * `dataflow.jobs.snapshot`
-  * `dataflow.jobs.updateContents`
-  * `dataflow.messages.list`
-  * `dataflow.metrics.get`
   * `dataflow.shuffle.read`
   * `dataflow.shuffle.write`
-  * `dataflow.snapshots.delete`
-  * `dataflow.snapshots.get`
-  * `dataflow.snapshots.list`
+
+`dataflow.snapshots.delete` `dataflow.snapshots.get` `dataflow.snapshots.list` `dataflow.snapshots.listEffectiveTags` `dataflow.snapshots.listTagBindings` `dataflow.streamingWorkItems.*`
+
   * `dataflow.streamingWorkItems.ImportState`
   * `dataflow.streamingWorkItems.commitWork`
   * `dataflow.streamingWorkItems.getData`
   * `dataflow.streamingWorkItems.getWork`
   * `dataflow.streamingWorkItems.getWorkerMetadata`
+
+`dataflow.workItems.*`
+
   * `dataflow.workItems.lease`
   * `dataflow.workItems.sendMessage`
   * `dataflow.workItems.update`
@@ -272,40 +267,40 @@ Permission | Included in roles
   
 #### `datapipelines.jobs.list`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)  [Data pipelines Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.viewer) (`roles/datapipelines.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)  [Data pipelines Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.viewer) (`roles/datapipelines.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
 #### `datapipelines.pipelines.create`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)   
   
 #### `datapipelines.pipelines.delete`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)   
   
 #### `datapipelines.pipelines.get`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)  [Data pipelines Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.viewer) (`roles/datapipelines.viewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)  [Data pipelines Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.viewer) (`roles/datapipelines.viewer`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
 #### `datapipelines.pipelines.list`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)  [Data pipelines Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.viewer) (`roles/datapipelines.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Reader](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/reader`)  [Viewer (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/viewer`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)  [Data pipelines Viewer](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.viewer) (`roles/datapipelines.viewer`)  [Security Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityAdmin) (`roles/iam.securityAdmin`)  [Security Reviewer](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.securityReviewer) (`roles/iam.securityReviewer`)  [Security Auditor](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.securityAuditor) (`roles/iam.securityAuditor`)  [Support User](https://docs.cloud.google.com/iam/docs/roles-permissions/jobfunctions#iam.supportUser) (`roles/iam.supportUser`)   
   
 #### `datapipelines.pipelines.run`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)  [Data pipelines Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.invoker) (`roles/datapipelines.invoker`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)  [Data pipelines Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.invoker) (`roles/datapipelines.invoker`)   
   
 #### `datapipelines.pipelines.stop`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)   
   
 #### `datapipelines.pipelines.update`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Data pipelines Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/datapipelines#datapipelines.admin) (`roles/datapipelines.admin`)   
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

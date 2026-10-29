@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/data-residency/
 title: Data residency \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:20.401980+00:00
+fetched_at: 2026-10-29T11:06:53.741042+00:00
 ---
 
 # Data residency  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

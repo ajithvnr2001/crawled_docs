@@ -1,54 +1,13 @@
 ---
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/
 title: Collect Tanium Reveal logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
-method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
-fetched_at: 2026-10-27T16:47:57.962750+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T10:10:25.101246+00:00
 ---
 
 # Collect Tanium Reveal logs  |  Google Security Operations  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/
-
-[ Skip to main content ](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#main-content)
-[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
-`/`
-[ Console ](https://console.cloud.google.com/)
-  * [English](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/)
-  * [Deutsch](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=de)
-  * [Español](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=es)
-  * [Español – América Latina](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=es-419)
-  * [Français](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=fr)
-  * [Indonesia](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=id)
-  * [Italiano](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=it)
-  * [Português](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=pt)
-  * [Português – Brasil](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=pt-br)
-  * [עברית](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=he)
-  * [中文 – 简体](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=zh-cn)
-  * [中文 – 繁體](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=zh-tw)
-  * [日本語](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=ja)
-  * [한국어](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/?hl=ko)
-
-
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/secops-color.svg) ](https://docs.cloud.google.com/chronicle/docs)
-  * [ Google Security Operations ](https://docs.cloud.google.com/chronicle/docs)
-
-
-[Start free](https://console.cloud.google.com/freetrial)
-  * On this page
-  * [Before you begin](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#before_you_begin)
-  * [Configure Tanium Reveal service account](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure_tanium_reveal_service_account)
-  * [Collect Tanium Reveal prerequisites](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#collect_tanium_reveal_prerequisites)
-  * [Configure AWS S3 bucket and IAM for Google SecOps](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure-s3-and-iam)
-  * [Configure Tanium Connect AWS S3 destination](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure_tanium_connect_aws_s3_destination)
-    * [Configure the connection source](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure_the_connection_source)
-    * [Configure AWS S3 destination](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure_aws_s3_destination)
-    * [Configure filters](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure_filters)
-    * [Format data for AWS S3](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#format_data_for_aws_s3)
-    * [Schedule the connection](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#schedule_the_connection)
-    * [Save and verify connection](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#save_and_verify_connection)
-  * [Configure a feed in Google SecOps to ingest Tanium Reveal logs](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#create-feed-google-secops)
-  * [UDM mapping table](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#udm_mapping_table)
-
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -57,29 +16,21 @@ fetched_at: 2026-10-27T16:47:57.962750+00:00
   * [ Guides ](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview)
 
 
-Send feedback 
-  * On this page
-  * [Before you begin](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#before_you_begin)
-  * [Configure Tanium Reveal service account](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure_tanium_reveal_service_account)
-  * [Collect Tanium Reveal prerequisites](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#collect_tanium_reveal_prerequisites)
-  * [Configure AWS S3 bucket and IAM for Google SecOps](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure-s3-and-iam)
-  * [Configure Tanium Connect AWS S3 destination](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure_tanium_connect_aws_s3_destination)
-    * [Configure the connection source](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure_the_connection_source)
-    * [Configure AWS S3 destination](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure_aws_s3_destination)
-    * [Configure filters](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#configure_filters)
-    * [Format data for AWS S3](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#format_data_for_aws_s3)
-    * [Schedule the connection](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#schedule_the_connection)
-    * [Save and verify connection](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#save_and_verify_connection)
-  * [Configure a feed in Google SecOps to ingest Tanium Reveal logs](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#create-feed-google-secops)
-  * [UDM mapping table](https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/tanium-reveal/#udm_mapping_table)
 
+Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Collect Tanium Reveal logs Stay organized with collections  Save and categorize content based on your preferences.
+# Collect Tanium Reveal logs
+
 Supported in:
+
 Google SecOps  [ SIEM ](https://docs.cloud.google.com/chronicle/docs/secops/google-secops-siem-toc)
+
 This document explains how to ingest Tanium Reveal logs to Google Security Operations using Tanium Connect's native AWS S3 export functionality. Tanium Reveal produces sensitive data discovery alerts, compliance findings, and data classification results in JSON format, which can be directly exported to S3 using Tanium Connect without requiring custom Lambda functions. The parser processes the JSON logs, transforming them into the UDM format. It parses the JSON message, extracts fields like Computer ID, Computer Name, and Rule Name, maps them to UDM fields, and handles specific Reveal events like "Endpoints with Confirmed Sensitive Data" to populate security result details.
+
 ## Before you begin
+
 Make sure you have the following prerequisites:
+
   * A Google SecOps instance
   * **Tanium Core Platform** 7.0 or later
   * **Tanium Reveal** module installed and configured
@@ -89,7 +40,9 @@ Make sure you have the following prerequisites:
   * Privileged access to **AWS** (S3, IAM)
 
 
+
 ## Configure Tanium Reveal service account
+
   1. Sign in to the **Tanium Console**.
   2. Go to **Modules > Reveal**.
   3. Click **Settings** at the top right.
@@ -100,7 +53,9 @@ Make sure you have the following prerequisites:
   5. Click **Save** to apply the service account configuration.
 
 
+
 ## Collect Tanium Reveal prerequisites
+
   1. Sign in to the **Tanium Console** as an administrator.
   2. Go to **Administration > Permissions > Users**.
   3. Create or identify a service account user with the following roles: 
@@ -109,8 +64,10 @@ Make sure you have the following prerequisites:
      * Access to monitored computer groups (recommended: **All Computers** group).
      * **Read Saved Question** permission for Reveal content sets.
 
+**Note:** The service account credentials are used internally by Tanium Connect to authenticate and retrieve Reveal sensitive data findings. These credentials are configured during the Tanium Connect source setup within the Tanium Console interface.
 
 ## Configure AWS S3 bucket and IAM for Google SecOps
+
   1. Create **Amazon S3 bucket** following this user guide: [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)
   2. Save bucket **Name** and **Region** for future reference (for example, `tanium-reveal-logs`).
   3. Create a user following this user guide: [Creating an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html#id_users_create_console).
@@ -132,7 +89,9 @@ Make sure you have the following prerequisites:
   19. Click **Add permissions**.
 
 
+
 ## Configure Tanium Connect AWS S3 destination
+
   1. Sign in to the **Tanium Console**.
   2. Go to **Modules > Connect**.
   3. Click **Create Connection**.
@@ -143,7 +102,9 @@ Make sure you have the following prerequisites:
   5. Click **Next**.
 
 
+
 ### Configure the connection source
+
   1. In the **Source** section, provide the following configuration details: 
      * **Source Type** : Select **Saved Question**.
      * **Saved Question** : Select one of the following Reveal-related saved questions: 
@@ -156,7 +117,9 @@ Make sure you have the following prerequisites:
   2. Click **Next**.
 
 
+
 ### Configure AWS S3 destination
+
   1. In the **Destination** section, provide the following configuration details: 
      * **Destination Type** : Select **AWS S3**.
      * **Destination Name** : Enter a unique name (for example, `Google SecOps Reveal S3 Destination`).
@@ -168,14 +131,18 @@ Make sure you have the following prerequisites:
   2. Click **Next**.
 
 
+
 ### Configure filters
+
   1. In the **Filters** section, configure data filtering options: 
      * **Send new items only** : Select this option to send only new sensitive data findings since the last export.
      * **Column filters** : Add filters based on specific finding attributes if needed (for example, filter by rule severity, data type, or compliance framework).
   2. Click **Next**.
 
 
+
 ### Format data for AWS S3
+
   1. In the **Format** section, configure the data format: 
      * **Format** : Select **JSON**.
      * **Options** : 
@@ -187,7 +154,9 @@ Make sure you have the following prerequisites:
   2. Click **Next**.
 
 
+
 ### Schedule the connection
+
   1. In the **Schedule** section, configure the export schedule: 
      * **Enable schedule** : Select to enable automatic scheduled exports.
      * **Schedule type** : Select **Recurring**.
@@ -196,7 +165,9 @@ Make sure you have the following prerequisites:
   2. Click **Next**.
 
 
+
 ### Save and verify connection
+
   1. Review the connection configuration in the summary screen.
   2. Click **Save** to create the connection.
   3. Click **Test Connection** to verify the configuration.
@@ -204,9 +175,11 @@ Make sure you have the following prerequisites:
   5. Monitor the connection status in the **Connect Overview** page.
 
 
+
 ## Configure a feed in Google SecOps to ingest Tanium Reveal logs
+
   1. Go to **SIEM Settings > Feeds**.
-  2. Click **+ Add New Feed**.
+  2. Click **\+ Add New Feed**.
   3. In the **Feed name** field, enter a name for the feed (for example, `Tanium Reveal logs`).
   4. Select **Amazon S3 V2** as the **Source type**.
   5. Select **Tanium Reveal** as the **Log type**.
@@ -223,21 +196,28 @@ Make sure you have the following prerequisites:
   9. Review your new feed configuration in the **Finalize** screen, and then click **Submit**.
 
 
-## UDM mapping table  
-| Log field  | UDM mapping  | Logic  |  
-| --- | --- | --- |  
-| `Time`  | `metadata.event_timestamp`  | Parsed as `RFC3339`  |  
-| `Computer-Name`  | `principal.hostname`  | Directly mapped  |  
-| `sec_result`  | `security_result`  | Merged  |  
-| `sec_result1`  | `security_result`  | Merged  |  
-| `Computer-ID`  | `target.resource.id`  | Directly mapped  |  
-| N/A  | `metadata.event_type`  | Constant: `SCAN_HOST`  |  
-| N/A  | `metadata.product_name`  | Constant: `Reveal`  |  
-| N/A  | `metadata.vendor_name`  | Constant: `Tanium`  |  
-| N/A  | `target.asset.type`  | Constant: `SERVER`  |  
-| N/A  | `target.resource.resource_type`  | Constant: `DEVICE`  |  
+
+## UDM mapping table
+
+Log field | UDM mapping | Logic  
+---|---|---  
+`Time` | `metadata.event_timestamp` | Parsed as `RFC3339`  
+`Computer-Name` | `principal.hostname` | Directly mapped  
+`sec_result` | `security_result` | Merged  
+`sec_result1` | `security_result` | Merged  
+`Computer-ID` | `target.resource.id` | Directly mapped  
+N/A | `metadata.event_type` | Constant: `SCAN_HOST`  
+N/A | `metadata.product_name` | Constant: `Reveal`  
+N/A | `metadata.vendor_name` | Constant: `Tanium`  
+N/A | `target.asset.type` | Constant: `SERVER`  
+N/A | `target.resource.resource_type` | Constant: `DEVICE`  
+  
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
+
 Send feedback 
+
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-Last updated 2026-10-26 UTC.
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+
+Last updated 2026-10-28 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

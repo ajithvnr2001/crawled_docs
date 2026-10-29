@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview/
 title: Agent Retrieval (formerly Vector Search 2.0) \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:52.621593+00:00
+fetched_at: 2026-10-29T11:12:53.866254+00:00
 ---
 
 # Agent Retrieval (formerly Vector Search 2.0)  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

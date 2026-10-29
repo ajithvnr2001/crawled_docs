@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/fsi/performance-optimization/
 title: Financial services perspective: Performance optimization \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:26.663920+00:00
+fetched_at: 2026-10-29T09:46:57.092736+00:00
 ---
 
 # Financial services perspective: Performance optimization  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Financial services perspective: Performance optimization Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-07-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This document in the [Google Cloud Well-Architected Framework: Financial services (FS) perspective](https://docs.cloud.google.com/architecture/framework/perspectives/fsi) provides an overview of principles and recommendations to optimize the performance of your FS workloads in Google Cloud. The recommendations in this document align with the [performance optimization pillar](https://docs.cloud.google.com/architecture/framework/performance-optimization) of the Well-Architected Framework.
 
@@ -37,10 +37,10 @@ For example, adapting hardware and IT resources to specific skill requirements i
 
 The performance optimization recommendations in this document are mapped to the following core principles:
 
-  * Align technology performance metrics with key business indicators
-  * Prioritize security without sacrificing performance for unproven risks
-  * Rethink your architecture to adapt to new opportunities and requirements
-  * Future-proof your technology to meet present and future business needs
+  * [Align technology performance metrics with key business indicators](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/performance-optimization#align-metrics)
+  * [Prioritize security without sacrificing performance for unproven risks](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/performance-optimization#prioritize-security-and-performance)
+  * [Rethink your architecture to adapt to new opportunities and requirements](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/performance-optimization#adapt)
+  * [Future-proof your technology to meet present and future business needs](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/performance-optimization#future-proof)
 
 
 
@@ -59,7 +59,7 @@ When you align your performance metrics with business indicators, consider the f
 
 ## Prioritize security without sacrificing performance for unproven risks
 
-Security and regulatory compliance in FS organizations must be unequivocally of a high standard. Maintaining a high standard is essential to avoid losing clients and to prevent irreparable damage to an organization's brand. Often, the highest value is derived through technology innovations such as [generative AI](https://cloud.google.com/ai/generative-ai) and unique, managed services like [Spanner](https://docs.cloud.google.com/spanner). Don't automatically discard such technology options due to a blanket misconception about prohibitive operational risk or inadequate regulatory compliance posture.
+Security and regulatory compliance in FS organizations must be unequivocally of a high standard. Maintaining a high standard is essential to avoid losing clients and to prevent irreparable damage to an organization's brand. Often, the highest value is derived through technology innovations such as [generative AI](https://cloud.google.com/ai/generative-ai) and unique, managed services like [Spanner](https://cloud.google.com/spanner). Don't automatically discard such technology options due to a blanket misconception about prohibitive operational risk or inadequate regulatory compliance posture.
 
 Google Cloud has worked closely with G-SIFIs to make sure that an AI-based approach for [Anti-Money Laundering (AML)](https://docs.cloud.google.com/financial-services/anti-money-laundering/docs/concepts/overview) can be used across the jurisdictions where the institutions serve customers. For example, [HSBC](https://services.google.com/fh/files/misc/hsbc_celent_model_risk_manager_of_the_year_2023.pdf) significantly enhanced the performance of its financial crime (Fincrime) unit with the following results:
 
@@ -119,7 +119,7 @@ For example, you can use services like [BigQuery sharing](https://docs.cloud.goo
 
 Increasingly, the competitive advantage for banks isn't the core banking system but their customer experience layer. However, legacy banking systems often use monolithic applications that were developed in languages like Cobol and are integrated across the entire banking value chain. This integration made it difficult to separate the layers of the value chain, so it was nearly impossible to upgrade and modernize such systems.
 
-One solution to address this challenge is to use an isolation layer such as an [API management system](https://cloud.google.com/apigee) or a staging layer like Spanner that duplicates the book of record and facilitates the modernization of services with advanced analytics and AI. For example, [Deutsche Bank](https://cloud.google.com/blog/products/databases/deutsche-bank-scales-online-banking-platform-with-spanner?e=48754805) used Spanner to isolate their legacy core banking estate and start their innovation journey.
+One solution to address this challenge is to use an isolation layer such as an [API management system](https://docs.cloud.google.com/apigee/docs/api-platform/get-started/what-apigee) or a staging layer like Spanner that duplicates the book of record and facilitates the modernization of services with advanced analytics and AI. For example, [Deutsche Bank](https://cloud.google.com/blog/products/databases/deutsche-bank-scales-online-banking-platform-with-spanner?e=48754805) used Spanner to isolate their legacy core banking estate and start their innovation journey.
 
 [ Previous arrow_back  Cost optimization  ](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/cost-optimization)
 
@@ -127,6 +127,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-07-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-07-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/python-sdk/sdk-migration/
 title: Agent Platform SDK for Python: version 2.0.1 migration guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:12.488217+00:00
+fetched_at: 2026-10-29T11:06:19.629144+00:00
 ---
 
 # Agent Platform SDK for Python: version 2.0.1 migration guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

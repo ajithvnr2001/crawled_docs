@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-permissions/dataprep/
 title: Dataprep by Trifacta roles and permissions \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:20:20.262454+00:00
+fetched_at: 2026-10-29T09:50:09.093863+00:00
 ---
 
 # Dataprep by Trifacta roles and permissions  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -107,7 +107,7 @@ Role | Permissions
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
 
-`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.diskSettings.get` `compute.diskTypes.*`
+`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.dhcpOptionsConfigs.get` `compute.dhcpOptionsConfigs.list` `compute.diskSettings.get` `compute.diskTypes.*`
 
   * `compute.diskTypes.get`
   * `compute.diskTypes.list`
@@ -183,22 +183,7 @@ Role | Permissions
   * `compute.zones.get`
   * `compute.zones.list`
 
-`dataflow.jobs.*`
-
-  * `dataflow.jobs.cancel`
-  * `dataflow.jobs.create`
-  * `dataflow.jobs.get`
-  * `dataflow.jobs.list`
-  * `dataflow.jobs.snapshot`
-  * `dataflow.jobs.updateContents`
-
-`dataflow.messages.list` `dataflow.metrics.get` `dataflow.snapshots.*`
-
-  * `dataflow.snapshots.delete`
-  * `dataflow.snapshots.get`
-  * `dataflow.snapshots.list`
-
-`dataform.folders.create` `dataform.locations.*`
+`dataflow.jobs.cancel` `dataflow.jobs.create` `dataflow.jobs.get` `dataflow.jobs.list` `dataflow.jobs.listEffectiveTags` `dataflow.jobs.listTagBindings` `dataflow.jobs.snapshot` `dataflow.jobs.updateContents` `dataflow.messages.list` `dataflow.metrics.get` `dataflow.snapshots.delete` `dataflow.snapshots.get` `dataflow.snapshots.list` `dataflow.snapshots.listEffectiveTags` `dataflow.snapshots.listTagBindings` `dataform.folders.create` `dataform.locations.*`
 
   * `dataform.locations.get`
   * `dataform.locations.list`
@@ -256,12 +241,12 @@ Permission | Included in roles
   
 #### `dataprep.projects.use`
 
-|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Dataprep Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/dataprep#dataprep.admin) (`roles/dataprep.admin`)  [Dataprep User](https://docs.cloud.google.com/iam/docs/roles-permissions/dataprep#dataprep.projects.user) (`roles/dataprep.projects.user`)   
+|  [Admin](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/admin`)  [Owner (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/owner`)  [Writer](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/writer`)  [Editor (Legacy)](https://docs.cloud.google.com/iam/docs/roles-overview#basic) (`roles/editor`)  [Dataprep Admin](https://docs.cloud.google.com/iam/docs/roles-permissions/dataprep#dataprep.admin) (`roles/dataprep.admin`)  [Dataprep User](https://docs.cloud.google.com/iam/docs/roles-permissions/dataprep#dataprep.projects.user) (`roles/dataprep.projects.user`)   
   
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

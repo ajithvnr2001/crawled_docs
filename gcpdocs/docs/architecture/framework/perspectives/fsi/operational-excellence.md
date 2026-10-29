@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/fsi/operational-excellence/
 title: Financial services perspective: Operational excellence \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:55.134831+00:00
+fetched_at: 2026-10-29T09:46:49.485176+00:00
 ---
 
 # Financial services perspective: Operational excellence  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Financial services perspective: Operational excellence Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-07-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This document in the [Google Cloud Well-Architected Framework: Financial services (FS) perspective](https://docs.cloud.google.com/architecture/framework/perspectives/fsi) provides an overview of the principles and recommendations to build, deploy, and operate robust FS workloads in Google Cloud. These recommendations help you set up foundational elements like observability, automation, and scalability. The recommendations in this document align with the [operational excellence pillar](https://docs.cloud.google.com/architecture/framework/operational-excellence) of the Well-Architected Framework.
 
@@ -50,9 +50,9 @@ Robust operational processes, monitoring, and incident management are essential 
 
 The operational excellence recommendations in this document are mapped to the following core principles:
 
-  * Define SLAs and corresponding SLOs and SLIs
-  * Define and test incident management processes
-  * Continuously improve and innovate
+  * [Define SLAs and corresponding SLOs and SLIs](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/operational-excellence#define-sla-slo-sli)
+  * [Define and test incident management processes](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/operational-excellence#incident-management)
+  * [Continuously improve and innovate](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/operational-excellence#improve-innovate)
 
 
 
@@ -83,16 +83,16 @@ Platform availability | The percentage of time when the core payment processing 
   
 Use SLI data to monitor whether systems are within the defined SLOs and to ensure that the SLAs are met. By using a set of well-defined SLIs, engineers and developers can monitor FS applications at the following levels:
 
-  * Directly within the service that the applications are deployed on, such as GKE or Cloud Run.
+  * Directly within the service that the applications are deployed on, such as Google Kubernetes Engine or Cloud Run.
   * By using logs that are provided by infrastructure components, such as the load balancer.
 
 
 
 [OpenTelemetry](https://cloud.google.com/learn/what-is-opentelemetry) provides an open source standard and a set of technologies to capture all types of telemetry including metrics, traces, and logs. [Google Cloud Managed Service for Prometheus](https://docs.cloud.google.com/stackdriver/docs/managed-prometheus) provides a fully-managed, highly scalable backend for metrics and operation of Prometheus at scale.
 
-For more information about SLI, SLO, and error budgets, see the [SRE handbook](https://sre.google/sre-book/service-level-objectives).
+For more information about SLI, SLO, and error budgets, see the [SRE handbook](https://sre.google/sre-book/service-level-objectives/).
 
-To develop effective alerting and monitoring dashboards and mechanisms, use [Google Cloud Observability](https://docs.cloud.google.com/stackdriver/docs) tools together with [Google Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview). For information about security-specific monitoring and detection capabilities, see the [security pillar](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/security).
+To develop effective alerting and monitoring dashboards and mechanisms, use [Google Cloud Observability](https://docs.cloud.google.com/stackdriver/docs) tools together with [Cloud Monitoring](https://docs.cloud.google.com/monitoring/docs/monitoring-overview). For information about security-specific monitoring and detection capabilities, see the [security pillar](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/security).
 
 ## Define and test incident management processes
 
@@ -184,6 +184,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-07-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-07-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

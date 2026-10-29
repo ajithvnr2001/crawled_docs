@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/downloading/
 title: Downloading content \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:32:11.942956+00:00
+fetched_at: 2026-10-29T09:51:16.360848+00:00
 ---
 
 # Downloading content  |  Looker  |  Google Cloud Documentation
@@ -29,13 +29,11 @@ The process and options for downloading content and formatting downloaded conten
 
 ## Downloading data from a Look or an Explore
 
-**Note:** If you're using Looker's [new Explore experience](https://docs.cloud.google.com/looker/docs/new-explore-experience-overview), see the [Viewing and interacting with Explores in the new Explore experience](https://docs.cloud.google.com/looker/docs/viewing-and-interacting-new-explore-experience#save-or-share-menu) documentation page.
+On an Explore page, click the **Save or share** menu and select download **Download**.
 
-To download data from a Look or an Explore page, select the gear menu in the upper right and select **Download**.
+To download data from a Look or a classic Explore, click the settings **Explore actions** menu in the upper-right corner of the page, and then select **Download**.
 
 Looker displays the **Download** window, where you can name and format your download.
-
-![](https://docs.cloud.google.com/static/looker/docs/images/download-look-explore-modal-2300.png)
 
 The following sections will walk you through each field in the **Download** window:
 
@@ -49,7 +47,7 @@ The following sections will walk you through each field in the **Download** wind
 
 ### Format
 
-> Downloads to formats that use the renderer (PNG and PDF) will use results from [Production Mode](https://docs.cloud.google.com/looker/docs/dev-mode-prod-mode). If your download is in another format, the download will show results from whichever mode — development or production — you are in.
+**Note:** Downloads to formats that use the renderer (PNG and PDF) will use results from [Production Mode](https://docs.cloud.google.com/looker/docs/dev-mode-prod-mode). If your download is in another format, the download will show results from whichever mode — development or production — you are in.
 
 Data can be downloaded from Looks and Explores in the following file formats:
 
@@ -180,9 +178,7 @@ The **All results** option is typically disabled for queries that do any of the 
   * Retrieve data from a database dialect that cannot stream results
   * Include pivoted columns that Looker calculates because the data comes from a database dialect that cannot calculate the pivots
 
-
-
-> Even when the **All results** option is available, you should still use caution when downloading all results. Some queries are very large, containing thousands or millions of rows, which can overwhelm most spreadsheet programs — or even your Looker instance.
+**Caution:** Even when the **All results** option is available, you should still use caution when downloading all results. Some queries are very large, containing thousands or millions of rows, which can overwhelm most spreadsheet programs — or even your Looker instance.
 
 If the **All results** option is unavailable, you can use the **Custom** option to specify the maximum number of rows that are allowed with your permissions.
 
@@ -362,7 +358,7 @@ When you're downloading merged results as a CSV file, custom column reordering t
 
 ## Downloading data from a dashboard
 
-To download the entire dashboard, select **Download** from the dashboard's three-dot menu more_vert.
+To download the entire dashboard, select **Download** from the dashboard's more_vert **Dashboard actions** menu.
 
 Selecting **Download** opens a dialog that lets you select PDF or CSV as your download format.
 
@@ -459,13 +455,9 @@ Looker generates zipped files using UTF-8 encoding. If the characters in your CS
 
 **Note:** You cannot download the data from dashboard tiles that are based on [merged results](https://docs.cloud.google.com/looker/docs/merged-results) queries, but the data from merged results tiles is included if you download a dashboard as a PDF or as a collection of CSV files.
 
-To download the data from a dashboard tile, select the three-dot icon on the tile and select **Download data** :
+To download the data from a dashboard tile, select the more_vert **Tile actions** menu, and then select **Download data**.
 
-![](https://docs.cloud.google.com/static/looker/docs/images/dashboards-beta-tile-download-718.png)
-
-The **Download data** dialog displays several options that are are similar to those for a Look or an Explore. Expand the **Advanced data options** menu to see all available options for your download:
-
-![](https://docs.cloud.google.com/static/looker/docs/images/dashboards-beta-tile-download-modal-2316.png)
+The **Download data** dialog displays several options that are similar to those for a Look or an Explore. Expand the **Advanced data options** menu to see all available options for your download. Download options include the following:
 
   * **Format**
   * **Results**
@@ -585,6 +577,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

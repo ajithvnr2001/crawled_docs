@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search/quickstart/
 title: Vector Search quickstart \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:27.758570+00:00
+fetched_at: 2026-10-29T11:06:16.115695+00:00
 ---
 
 # Vector Search quickstart  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/use-reservations/
 title: Use reservations with online inference \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:26.723194+00:00
+fetched_at: 2026-10-29T09:56:18.047088+00:00
 ---
 
 # Use reservations with online inference  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

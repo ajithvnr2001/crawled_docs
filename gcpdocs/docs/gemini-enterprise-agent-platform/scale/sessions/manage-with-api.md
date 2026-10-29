@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions/manage-with-api/
 title: Manage sessions using Google Cloud console or API calls \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:07.481581+00:00
+fetched_at: 2026-10-29T11:12:42.270043+00:00
 ---
 
 # Manage sessions using Google Cloud console or API calls  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

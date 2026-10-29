@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/start-manage-session/
 title: Start and manage live sessions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:22.802327+00:00
+fetched_at: 2026-10-29T09:45:16.024481+00:00
 ---
 
 # Start and manage live sessions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -45,7 +45,12 @@ The lifetime of a connection is limited to around 10 minutes due to WebSocket co
 
 ## Maximum concurrent sessions
 
-You can have up to 1,000 concurrent sessions per project on a pay-as-you-go ([PayGo](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/quotas#overview)) plan. This limit does not apply to customers using [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput).
+Concurrent session quotas are checked when a session starts and apply whether you use [Standard pay-as-you-go (Standard PayGo)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/standard-paygo) or [Provisioned Throughput](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/provisioned-throughput):
+
+  * For `gemini-3.8-live`, concurrent session quotas apply to both Gemini Live API sessions and Live Avatar sessions. To view the specific limits for your project, go to the [**Quotas and System Limits**](https://console.cloud.google.com/iam-admin/quotas) page in the Google Cloud console and filter for `gemini-3.8-live`. For more information, see [Gemini 3.8 Live concurrent session quotas](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-live#concurrent-session-quotas).
+  * For `gemini-live-2.5-flash-native-audio`, you can have up to 1,000 concurrent sessions per project by default.
+
+
 
 ## Start a session
 

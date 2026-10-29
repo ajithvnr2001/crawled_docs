@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sovereign-controls-by-partners/docs/locations/
 title: Sovereign Controls by Partners locations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:09.759824+00:00
+fetched_at: 2026-10-29T10:18:38.416960+00:00
 ---
 
 # Sovereign Controls by Partners locations  |  Google Cloud Documentation

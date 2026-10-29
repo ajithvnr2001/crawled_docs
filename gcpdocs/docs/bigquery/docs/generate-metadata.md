@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/generate-metadata/
 title: Generate metadata for translation and assessment \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:24.614057+00:00
+fetched_at: 2026-10-29T10:11:08.667469+00:00
 ---
 
 # Generate metadata for translation and assessment  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Generate metadata for translation and assessment
 
-This document describes how to create metadata and query log files by using the `dwh-migration-dumper` command-line extraction tool. The metadata files describe the SQL objects in your source system.
+The `dwh-migration-dumper` command-line extraction tool lets you extract metadata and query log files from your existing data warehouse so that you can assess and migrate your workloads to BigQuery. The metadata files describe the SQL objects in your source system.
 
-BigQuery Migration Service uses this information to improve the translation of your SQL scripts from your source system dialect to GoogleSQL.
-
-The BigQuery migration assessment uses metadata files and query log files to analyze your existing data warehouse and help assess the effort of moving your data warehouse to BigQuery.
+BigQuery Migration Service uses this metadata to improve the accuracy of translating your SQL scripts into GoogleSQL. In addition, the BigQuery migration assessment analyzes the metadata and query log files to help you evaluate your existing data warehouse and estimate the effort of migrating to BigQuery.
 
 ## Overview
 
@@ -962,6 +960,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

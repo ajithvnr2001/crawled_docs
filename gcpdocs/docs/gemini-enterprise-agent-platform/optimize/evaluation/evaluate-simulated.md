@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-simulated/
 title: Simulate agent behavior \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:12.148371+00:00
+fetched_at: 2026-10-29T11:13:01.331369+00:00
 ---
 
 # Simulate agent behavior  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

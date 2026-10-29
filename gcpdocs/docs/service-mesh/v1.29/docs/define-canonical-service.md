@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.29/docs/define-canonical-service/
 title: Defining a Canonical Service \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:29:58.502661+00:00
+fetched_at: 2026-10-29T10:18:32.274194+00:00
 ---
 
 # Defining a Canonical Service  |  Cloud Service Mesh  |  Google Cloud Documentation

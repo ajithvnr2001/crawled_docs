@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/conditions/
 title: Control access with IAM Conditions \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:21:47.797717+00:00
+fetched_at: 2026-10-29T09:56:46.315144+00:00
 ---
 
 # Control access with IAM Conditions  |  BigQuery  |  Google Cloud Documentation
@@ -21,11 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Control access with IAM Conditions
 
-This document describes how to use [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview) to control access to BigQuery resources.
+[IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview) let you give access to BigQuery resources only when specific requirements are met, such as for a limited duration or during scheduled hours. You can apply conditional access at the organization, folder, project, and dataset levels, with allow policies automatically inherited by child resources. For more details, see [resource hierarchies](https://docs.cloud.google.com/iam/docs/overview#resource-hierarchy).
 
-IAM Conditions let you grant access to BigQuery resources only if specified conditions are met. For example, you can grant access to a resource for a limited duration or periodically for certain hours of the day. You can add IAM Conditions at the organization, folder, project, and dataset levels of resources. Allow policies with conditions are inherited by child resources. For more information about resource levels, see [resource hierarchies](https://docs.cloud.google.com/iam/docs/overview#resource-hierarchy).
-
-IAM Conditions are useful for granting Identity and Access Management (IAM) permissions to many related resources simultaneously, including resources that don't exist yet. To grant permissions to unrelated groups of BigQuery resources, consider using [IAM tags](https://docs.cloud.google.com/bigquery/docs/tags).
+These rules help you manage permissions across multiple related resources simultaneously, including future assets. To manage access for unrelated collections of BigQuery resources, consider using [Identity and Access Management (IAM) tags](https://docs.cloud.google.com/bigquery/docs/tags).
 
 ## Before you begin
 
@@ -441,6 +439,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

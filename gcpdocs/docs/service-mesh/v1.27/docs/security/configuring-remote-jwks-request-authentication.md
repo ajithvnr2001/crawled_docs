@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/v1.27/docs/security/configuring-remote-jwks-request-authentication/
 title: Configure JWT authentication with remote JWKS \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:46:37.783166+00:00
+fetched_at: 2026-10-29T10:18:28.823192+00:00
 ---
 
 # Configure JWT authentication with remote JWKS  |  Cloud Service Mesh  |  Google Cloud Documentation

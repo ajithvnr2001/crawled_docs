@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/workloads/pathways-on-cloud/porting-jax-workloads/
 title: Port JAX workloads to Pathways \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:25:00.735760+00:00
+fetched_at: 2026-10-29T09:46:31.403656+00:00
 ---
 
 # Port JAX workloads to Pathways  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -64,15 +64,22 @@ For best performance, place all Pathways components and the user job in the same
 
 ## Colocated Python
 
-[Colocated Python](https://github.com/jax-ml/jax/blob/main/jax/experimental/colocated_python/api.py) is an open-source JAX API that lets you run user-specified Python code directly on the TPU or GPU hosts, which is more straightforward in multi-controller JAX. This enables more compute-intensive tasks, such as data loading and checkpointing, to avoid data transfer between the client and TPU machines. To configure your Pathways cluster to run colocated python JAX API, follow the instructions in the [colocated Python README](https://github.com/AI-Hypercomputer/pathways-utils/blob/main/pathwaysutils/sidecar/README.md). These instructions explain how to start a colocated Python sidecar alongside your Pathways workers.
+[Colocated Python](https://github.com/jax-ml/jax/blob/main/jax/experimental/colocated_python/api.py) is an open-source JAX API that lets you run user-specified Python code directly on the TPU or GPU hosts, which is more straightforward in multi-controller JAX. By using this approach, you can avoid data transfer between the client and TPU machines for compute-intensive tasks, such as data loading and checkpointing. To configure your Pathways cluster to run the colocated Python JAX API, build and push a sidecar container image by using the [sample sidecar Dockerfile](https://github.com/AI-Hypercomputer/pathways-utils/blob/main/pathwaysutils/experimental/shared_pathways_service/dockerfiles/sample_sidecar.dockerfile).
 
 ## Data loading
 
 During training we repeatedly load batches from a dataset to feed it into the model. Having an efficient, async data loader which shards the batch across hosts is important to avoid starving accelerators of work. When running training with Pathways, the data loader runs on a CPU VM (unlike a TPU VM which is used on multi-controller setups) and dispatches data to TPU VMs. This incurs a higher latency in reading data but that is mitigated partially by reading ahead X number of batches on the CPU host and dispatching the read data asynchronously to the TPUs. This solution is sufficient when running at small to medium scale.
 
+When you run a multiprocess data loader (such as [Grain](https://github.com/google/grain)) in the head workload container on GKE, the container shares the head node with the `pathways-proxy` and `pathways-rm` sidecars. Because of this shared architecture, you must configure the following:
+
+  * **Set an explicit worker count:** Inside a container, `os.cpu_count()` reports the host VM's total vCPUs rather than the container's CPU limit. Pass an explicit worker count (no more than the container's CPU limit) instead of deriving it from `os.cpu_count()`.
+  * **Mount a memory-backed`/dev/shm` volume:** Multiprocess data loaders use POSIX shared memory (`/dev/shm`) for inter-process communication. Ensure a memory-backed `emptyDir` (`medium: Memory`) volume is mounted at `/dev/shm` so that the prefetched batches do not exceed the default container shared-memory limit.
+
+
+
 For optimal performance at scale, we strongly recommend co-locating your input data pipeline by using colocated Python to run your data pipeline directly on the accelerators. This eliminates the CPU bottleneck and leverages the TPU's fast interconnects for data transfer.
 
-You can find a reference implementation of migrating a TFDS based input pipeline in the `RemoteIterator` implementation in [multihost_dataloading.py](https://github.com/AI-Hypercomputer/maxtext/blob/main/MaxText/multihost_dataloading.py). This implementation works on both multi-controller JAX and Pathways in a distributed manner using the colocated Python JAX API.
+You can find a reference implementation of migrating a TFDS based input pipeline in the `RemoteIterator` implementation in [multihost_dataloading.py](https://github.com/AI-Hypercomputer/maxtext/blob/main/src/maxtext/input_pipeline/multihost_dataloading.py). This implementation works on both multi-controller JAX and Pathways in a distributed manner using the colocated Python JAX API.
 
 ## Jax Versioning
 
@@ -211,6 +218,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

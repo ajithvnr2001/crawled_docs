@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/monitoring/api/v3/kinds-and-types/
 title: Value types and metric kinds \u00a0|\u00a0 Cloud Monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:04:34.950824+00:00
+fetched_at: 2026-10-29T10:18:15.203276+00:00
 ---
 
 # Value types and metric kinds  |  Cloud Monitoring  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ Latency metrics typically capture data as distributions. For more information ab
 
 ### Metric kind
 
-Each time series includes the metric kind (type [`MetricKind`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricKind)) for its data points. The _kind_ of metric data tells you how to interpret the values relative to each other. Cloud Monitoring metrics are one of three kinds:
+Each time series includes the metric kind (type [`MetricKind`](https://docs.cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricKind)) for its data points. This field tells you how to interpret the values of data points relative to each other:
 
   * A _gauge_ metric, in which the value measures a specific instant in time. For example, metrics measuring CPU utilization are gauge metrics; each point records the CPU utilization at the time of measurement. Another example of a gauge metric is the current temperature.
 
@@ -73,7 +73,7 @@ DISTRIBUTION | yes2 | yes1, 3 | yes
 1 This combination isn't permitted in custom metrics, `custom.googleapis.com`.  
 2 This combination isn't permitted for log-based metrics. For more information, see [Configure distribution-type log-based metrics](https://docs.cloud.google.com/logging/docs/logs-based-metrics/distribution-metrics#api).  
 3 This is the only combination permitted for log-based metrics, `logging.googleapis.com/user`, with value type `DISTRIBUTION`; for more information, see the [`metricDescriptor` field](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/projects.metrics#LogMetric.FIELDS.metric_descriptor) in the Logging API `LogMetric` reference.  
-4 Cumulative metrics can't be used directly for charting or alerting in Monitoring, but they can be aggregated into non-cumulative metrics that can be used in these ways. See [Kinds, types, and conversions](https://docs.cloud.google.com/monitoring/api/v3/aggregation#ts-conversion) for more information.
+4 Cumulative metrics can't be used directly for charting or alerting in Monitoring, but they can be aggregated into non-cumulative metrics that can be used in these ways. See [Metric kinds, types, and conversions](https://docs.cloud.google.com/monitoring/api/v3/aggregation#ts-conversion) for more information.
 
 Additionally, if you are creating your own metrics, you must use only valid combinations of value types and metric kinds.
 
@@ -92,6 +92,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

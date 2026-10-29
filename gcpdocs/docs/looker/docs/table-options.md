@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/table-options/
 title: Table chart options \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:55:45.957829+00:00
+fetched_at: 2026-10-29T10:18:24.399492+00:00
 ---
 
 # Table chart options  |  Looker  |  Google Cloud Documentation
@@ -315,17 +315,9 @@ When pagination is enabled for a table visualization on a dashboard, you must en
 
 ## Grouping menu options
 
-**Note:** The **Grouping** menu is part of the [**Table Row Grouping** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#table-row-grouping), and is subject to the "Pre-GA Offerings Terms" in the [General Service Terms](https://cloud.google.com/terms/service-terms#1) section of the Service Specific Terms. Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages). 
+By default, table charts display the data for each field in individual columns. With the options in the **Grouping** menu, you can group rows of data from multiple dimensions into one column. Grouping dimensions hierarchically into one column can make tables more organized and help users understand how data is related. You can expand and collapse data to focus on specific data points, and hide the granular details that you don't want to see.
 
-We encourage you to share your feedback to help us improve. To report bugs or issues, send an email to [`looker-viz-preview-external@google.com`](mailto:looker-viz-preview-external@google.com) with the following details: 
-
-  * A clear description of the problem and the expected behavior
-  * Steps to reproduce the issue
-  * Any additional relevant details
-
-
-
-By default, table charts display the data for each field in individual columns. When the **Table Row Grouping** preview feature is enabled, you can group rows of data from multiple dimensions into one column. Grouping dimensions hierarchically into one column can make tables more organized and help users understand how data is related. You can expand and collapse data to focus on specific data points, and hide the granular details that you don't want to see.
+**Note:** **Table Row Grouping** is not supported for [table (legacy) charts](https://docs.cloud.google.com/looker/docs/legacy-table-options).
 
 For example, you can group granular date fields, such as **Orders Created Year** , **Orders Created Quarter** , and **Orders Created Month** in a single column, along with other information such as **Orders Status** and **Orders Average Order Profit** , to provide multiple ways for users to drill into the data in the table chart. Users can see the summary of the data in the top-level rows, and expand rows for more granular insights about orders placed within specific months in a quarter.
 
@@ -604,6 +596,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

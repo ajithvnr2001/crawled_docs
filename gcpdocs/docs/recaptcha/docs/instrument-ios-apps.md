@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/instrument-ios-apps/
 title: Integrate Google Cloud Fraud Defense with iOS apps \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:31:07.326447+00:00
+fetched_at: 2026-10-29T09:51:27.058134+00:00
 ---
 
 # Integrate Google Cloud Fraud Defense with iOS apps  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ To prepare your development environment, do the following:
             target 'AppTarget' do
             
               # Podfiles must include use_frameworks! or
-              # use_frameworks! :linkage => :static
+              # use_fram>eworks! :linkage = :static
               use_frameworks!
             
               pod "RecaptchaEnterprise", "18.10.0-beta01"
@@ -140,7 +140,7 @@ To integrate Fraud Defense with your iOS app, follow these steps in Xcode:
                 super.viewDidLoad()
                 Task {
                   do {
-                    self.recaptchaClient = try await Recaptcha.fetchClient(withSiteKey: "KEY_ID")
+                    self.recaptchaClient = try await Recaptcha.fetchClient(withSiteKey: &quot;KEY_ID")
                   } catch let error as RecaptchaError {
                      print("RecaptchaClient creation error: \(String(describing: error.errorMessage)).")
                   }
@@ -158,7 +158,7 @@ If your application's minimum OS version is less than 13, use a trailing closure
             
               override func viewDidLoad() {
                 super.viewDidLoad()
-                Recaptcha.fetchClient(withSiteKey: "KEY_ID") { client, error in
+                Recaptcha.fetchClient(withSiteKey: &quot;KEY_ID") { client, error in
                   guard let client = client else {
                       print("RecaptchaClient creation error: \(error).")
                     return
@@ -181,7 +181,7 @@ If your application's minimum OS version is less than 13, use a trailing closure
               init() {
                  Task {
                   do {
-                    self.recaptchaClient = try await Recaptcha.fetchClient(withSiteKey: "KEY_ID")
+                    self.recaptchaClient = try await Recaptcha.fetchClient(withSiteKey: &quot;KEY_ID")
                   } catch let error as RecaptchaError {
                      print("RecaptchaClient creation error: \(String(describing: error.errorMessage)).")
                   }
@@ -199,7 +199,7 @@ If your application's minimum OS version is less than 13, use a trailing closure
             
               override func viewDidLoad() {
                 super.viewDidLoad()
-                Recaptcha.fetchClient(withSiteKey: "KEY_ID") { client, error in
+                Recaptcha.fetchClient(withSiteKey: &quot;KEY_ID") { client, error in
                   guard let client = client else {
                       print("RecaptchaClient creation error: \(error).")
                     return
@@ -250,13 +250,13 @@ If your application's minimum OS version is less than 13, use a trailing closure
      4. Update `ViewController.m`.
             
             @implementation ViewController
-            [Recaptcha fetchClientWithSiteKey:@"KEY_ID"
+            [Recaptcha fetchClientWithSiteKey:@&quot;KEY_ID"
                   completion:^void(RecaptchaClient* recaptchaClient, NSError* error) {
                     if (!recaptchaClient) {
                       NSLog(@"%@", (RecaptchaError *)error.errorMessage);
                       return;
-                    }
-                    self->_recaptchaClient = recaptchaClient;
+               >     }
+                    self-_recaptchaClient = recaptchaClient;
                   }
             ];
             @end
@@ -425,7 +425,7 @@ The following example shows how to migrate from `getClient` to `fetchClient`.
     func initializeWithGetClient() {
       Task {
         do {
-          self.recaptchaClient = try await Recaptcha.getClient(withSiteKey: "KEY_ID")
+          self.recaptchaClient = try await Recaptcha.getClient(withSiteKey: &quot;KEY_ID")
         } catch let error as RecaptchaError {
             print("RecaptchaClient creation error: \(String(describing: error.errorMessage)).")
         }
@@ -449,7 +449,7 @@ If your application's minimum OS version is less than 13, use a trailing closure
     
     // Migrate from getClient
     override func initializeWithGetClient() {
-      Recaptcha.getClient(withSiteKey: "KEY_ID") { client, error in
+      Recaptcha.getClient(withSiteKey: &quot;KEY_ID") { client, error in
         guard let client = client else {
             print("RecaptchaClient creation error: \(error).")
           return
@@ -477,7 +477,7 @@ If your application's minimum OS version is less than 13, use a trailing closure
     func initializeWithGetClient() {
         Task {
         do {
-          self.recaptchaClient = try await Recaptcha.getClient(withSiteKey: "KEY_ID")
+          self.recaptchaClient = try await Recaptcha.getClient(withSiteKey: &quot;KEY_ID")
         } catch let error as RecaptchaError {
             print("RecaptchaClient creation error: \(String(describing: error.errorMessage)).")
         }
@@ -502,7 +502,7 @@ If your application's minimum OS version is less than 13, use a trailing closure
     // Migrate from getClient
     func initializeWithGetClient() {
       super.viewDidLoad()
-      Recaptcha.getClient(withSiteKey: "KEY_ID") { client, error in
+      Recaptcha.getClient(withSiteKey: &quot;KEY_ID") { client, error in
         guard let client = client else {
             print("RecaptchaClient creation error: \(error).")
           return
@@ -529,13 +529,13 @@ If your application's minimum OS version is less than 13, use a trailing closure
     
     // Migrate from getClient
     @implementation ViewController
-    [Recaptcha getClientWithSiteKey:@"KEY_ID"
+    [Recaptcha getClientWithSiteKey:@&quot;KEY_ID"
           completion:^void(RecaptchaClient* recaptchaClient, NSError* error) {
             if (!recaptchaClient) {
               NSLog(@"%@", (RecaptchaError *)error.errorMessage);
               return;
-            }
-            self->_recaptchaClient = recaptchaClient;
+       >     }
+            self-_recaptchaClient = recaptchaClient;
           }
     ];
     @end
@@ -546,9 +546,9 @@ If your application's minimum OS version is less than 13, use a trailing closure
           completion:^void(RecaptchaClient* recaptchaClient, NSError* error) {
             if (!recaptchaClient) {
               NSLog(@"%@", (RecaptchaError *)error.errorMessage);
-              return;
+     >         return;
             }
-            self->_recaptchaClient = recaptchaClient;
+            self-_recaptchaClient = recaptchaClient;
           }
     ];
     @end
@@ -604,7 +604,7 @@ If your application's minimum OS version is less than 13, use a trailing closure
                NSLog (@"%@", (RecaptchaError *)error.errorMessage);
                return;
              }
-             NSLog (@"%@", token);
+             NSLog (@"%@&quot;, token);
            }];
          
 
@@ -633,6 +633,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/ai-content-detection/
 title: Detect AI-generated images \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:17.198673+00:00
+fetched_at: 2026-10-29T11:12:40.315302+00:00
 ---
 
 # Detect AI-generated images  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

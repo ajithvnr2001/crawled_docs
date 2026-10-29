@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/understanding-training-service/
 title: Understand the serverless training service \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:19.098376+00:00
+fetched_at: 2026-10-29T11:13:01.227454+00:00
 ---
 
 # Understand the serverless training service  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

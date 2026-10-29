@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/ai-ml-energy-efficiency/
 title: Optimize AI and ML workloads for energy efficiency \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:40:29.391997+00:00
+fetched_at: 2026-10-29T09:47:08.627205+00:00
 ---
 
 # Optimize AI and ML workloads for energy efficiency  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Optimize AI and ML workloads for energy efficiency Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-01-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the sustainability pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework/sustainability) provides recommendations for optimizing AI and ML workloads to reduce their energy usage and carbon footprint.
 
@@ -35,7 +35,7 @@ To optimize AI and ML workloads for energy efficiency, consider the recommendati
 
 ### Architect for energy efficiency by using TPUs
 
-AI and ML workloads can be compute-intensive. The energy consumption by AI and ML workloads is a key consideration for sustainability. [TPUs](https://docs.cloud.google.com/tpu) let you significantly improve the energy efficiency and sustainability of your AI and ML workloads.
+AI and ML workloads can be compute-intensive. The energy consumption by AI and ML workloads is a key consideration for sustainability. [TPUs](https://docs.cloud.google.com/tpu/docs/intro-to-tpu) let you significantly improve the energy efficiency and sustainability of your AI and ML workloads.
 
 TPUs are custom-designed accelerators that are purpose-built for AI and ML workloads. The specialized architecture of TPUs make them highly effective for large-scale matrix multiplication, which is the foundation of deep learning. TPUs can perform complex tasks at scale with greater efficiency than general-purpose processors like CPUs or GPUs.
 
@@ -52,7 +52,7 @@ TPUs provide the following direct benefits for sustainability:
 
 Google recommends a set of best practices to reduce energy usage and carbon emissions significantly for AI and ML workloads. We call these best practices [_4Ms_](https://cloud.google.com/transform/betting-on-efficient-ai-the-4-ms):
 
-  * **Model** : Select efficient ML model architectures. For example, [sparse models](https://ai.googleblog.com/2021/03/constructing-transformers-for-longer.html) improve ML quality and reduce computation by 3-10 times when compared to dense models.
+  * **Model** : For specialized use cases, choose purpose-build models that use fewer computational resources than general-purpose large models.
   * **Machine** : Choose processors and systems that are optimized for ML training. These processors improve performance and energy efficiency by 2-5 times when compared to general-purpose processors.
   * **Mechanization** : Deploy your compute-intensive workloads in the cloud. Your workloads use less energy and cause lower emissions by 1.4 to 2 times when compared to on-premises deployments. Cloud data centers use newer, custom-designed warehouses that are built for energy efficiency and have a high [power usage effectiveness (PUE)](https://en.wikipedia.org/wiki/Power_usage_effectiveness) ratio. On-premises data centers are often older and smaller, therefore investments in energy-efficient cooling and power distribution systems might not be economical.
   * **Map** : Select Google Cloud locations that use the cleanest energy. This approach helps to reduce the gross carbon footprint of your workloads by 5-10 times. For more information, see [Carbon-free energy for Google Cloud regions](https://cloud.google.com/sustainability/region-carbon).
@@ -95,7 +95,7 @@ The following are examples of techniques that you can use for model compression:
 
 #### Use specialized hardware
 
-As mentioned in Follow the 4Ms best practices for resource selection, choose processors and systems that are optimized for ML training. These processors improve performance and energy efficiency by 2-5 times when compared to general-purpose processors.
+As mentioned in [Follow the 4Ms best practices for resource selection](https://docs.cloud.google.com/architecture/framework/sustainability/ai-ml-energy-efficiency#resource-selection-best-practices), choose processors and systems that are optimized for ML training. These processors improve performance and energy efficiency by 2-5 times when compared to general-purpose processors.
 
 #### Use parameter-efficient fine-tuning
 
@@ -143,7 +143,7 @@ Architect your ML pipeline jobs to run in regions with the cleanest energy mix. 
 
 #### Optimize data pipelines
 
-ML operations and fine-tuning require a clean, high-quality dataset. Before you start ML jobs, use managed data processing services to prepare the data efficiently. For example, use [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview) for streaming and batch processing and use [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc/docs/concepts/overview) for managed Spark and Hadoop pipelines. An optimized data pipeline helps to ensure that your fine-tuning workload doesn't wait for data, so you can maximize resource utilization and help reduce wasted energy.
+ML operations and fine-tuning require a clean, high-quality dataset. Before you start ML jobs, use managed data processing services to prepare the data efficiently. For example, use [Dataflow](https://docs.cloud.google.com/dataflow/docs/overview) for streaming and batch processing and use [Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/concepts/clusters-overview) for managed Spark and Hadoop pipelines. An optimized data pipeline helps to ensure that your fine-tuning workload doesn't wait for data, so you can maximize resource utilization and help reduce wasted energy.
 
 #### Embrace MLOps
 
@@ -156,7 +156,7 @@ Instead of managing your own infrastructure, use managed cloud services like [Ge
 ## What's next
 
   * [How much energy does Google's AI use? We did the math](https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference/)
-  * [Ironwood: The first Google TPU for the age of inference](https://blog.google/products/google-cloud/ironwood-tpu-age-of-inference/)
+  * [Ironwood: The first Google TPU for the age of inference](https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/ironwood-tpu-age-of-inference/)
   * [Google Sustainability 2025 Environmental Report](https://sustainability.google/google-2025-environmental-report/)
   * [More Efficient In-Context Learning with GLaM](https://research.google/blog/more-efficient-in-context-learning-with-glam/)
   * [Context caching overview](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview)
@@ -171,6 +171,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-01-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-01-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

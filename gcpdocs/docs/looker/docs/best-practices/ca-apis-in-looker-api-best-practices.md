@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/best-practices/ca-apis-in-looker-api-best-practices/
 title: Best practices for using the ConversationalAnalytics API endpoints in Looker's API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:13:47.877968+00:00
+fetched_at: 2026-10-29T09:16:18.887390+00:00
 ---
 
 # Best practices for using the ConversationalAnalytics API endpoints in Looker's API  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ A typical workflow for a multi-turn conversation involves using agents, conversa
 
   1. **Create an agent** : If you don't have one, create an agent by using [`POST /agents`](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest/methods/ConversationalAnalytics/create_agent). The agent is configured to use specific Looker models and Explores.
   2. **Create a conversation** : Start a new conversation that's associated with an agent by using [`POST /conversations`](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest/methods/ConversationalAnalytics/create_conversation). This will return a conversation ID.
-  3. **Send a message** : For each turn in the conversation, call [`POST /conversational_analytics/chat`](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest/methods/ConversationalAnalytics/conversational_analytics_chat) with the `conversation_id` and the user's message. This endpoint returns one or more system messages from the agent.
+  3. **Send a message** : For each turn in the conversation, call [`POST /conversational_analytics/chat`](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest/methods/ConversationalAnalytics/conversational_analytics_chat) with the `conversation_id`, the user's message (`user_message`), and optionally `thinking_mode` (`"FAST"` or `"THINKING"`, defaulting to `"FAST"`). This endpoint returns one or more system messages from the agent.
   4. **Persist messages** : The `/conversational_analytics/chat` endpoint **does not** persist the user message or the returned system messages. To maintain conversation history for subsequent turns, you must persist both the user message and the system message(s) by calling `POST /conversations/:conversation_id/messages` after calling the chat API.
 
 
@@ -39,6 +39,7 @@ A typical workflow for a multi-turn conversation involves using agents, conversa
 Follow these recommendations for best results:
 
   * **Persist all messages** : After each call to `/conversational_analytics/chat`, make sure to call `POST /conversations/:conversation_id/messages` to save both the user's message from that turn and all system messages that are returned by the chat API. This is essential for multi-turn conversations.
+  * **Select the appropriate thinking mode** : You can pass the optional `thinking_mode` parameter (`"FAST"` or `"THINKING"`) in the [`ConversationalAnalyticsChatRequest`](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest/types/ConversationalAnalyticsChatRequest) body when calling `POST /conversational_analytics/chat` to choose between lower-latency responses (`"FAST"`) and deeper multi-step reasoning (`"THINKING"`). When `thinking_mode` is omitted, it defaults to `"FAST"`.
   * **Handle Streaming** : When possible, use the streaming capability of the chat API to provide feedback to the user while the agent is processing. The messages received during streaming can be used to indicate that the agent is "thinking".
 
 
@@ -56,6 +57,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

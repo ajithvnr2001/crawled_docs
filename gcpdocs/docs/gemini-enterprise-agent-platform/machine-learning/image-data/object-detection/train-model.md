@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/train-model/
 title: Train an image object detection model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:20.104909+00:00
+fetched_at: 2026-10-29T09:51:36.755313+00:00
 ---
 
 # Train an image object detection model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/memorystore/docs/cluster/manage-basic-auth/
 title: Secure access to your clusters by using basic token-based authentication \u00a0|\u00a0 Memorystore for Redis Cluster \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:58:06.241291+00:00
+fetched_at: 2026-10-29T10:09:56.273719+00:00
 ---
 
 # Secure access to your clusters by using basic token-based authentication  |  Memorystore for Redis Cluster  |  Google Cloud Documentation
@@ -21,10 +21,6 @@ fetched_at: 2026-10-27T21:58:06.241291+00:00
 Send feedback 
 
 #  Secure access to your clusters by using basic token-based authentication Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 In addition to [Identity and Access Management (IAM) authentication](https://docs.cloud.google.com/memorystore/docs/cluster/about-iam-auth), you can use basic token-based authentication to secure access to your clusters in Memorystore for Redis Cluster. As a lightweight solution, basic token-based authentication lets clients verify their identities within your applications by using their tokens.
 
@@ -111,15 +107,9 @@ To use the Google Cloud console, gcloud CLI, and APIs, do the following:
 
 
 
-### Assign roles
+### Grant roles
 
-To configure basic token-based authentication for your clusters, you must have one of these [IAM roles](https://docs.cloud.google.com/memorystore/docs/cluster/access-control) in your Google Cloud project:
-
-  * `roles/redis.admin` (the Redis Admin role)
-  * `roles/owner` (the Owner role)
-  * `roles/editor` (the Editor role)
-
-
+To configure basic token-based authentication or view authentication tokens for your clusters, you need the Redis Admin (`roles/redis.admin`) IAM role in your Google Cloud project. For more information about granting this role, see [Access control with IAM](https://docs.cloud.google.com/memorystore/docs/cluster/access-control).
 
 ## Manage basic token-based authentication for clusters
 
@@ -614,10 +604,15 @@ To connect from a Compute Engine VM or a [supported environment](https://docs.cl
 
 Make the following replacements:
 
-  * USERNAME: the username of the user that's attempting to connect to the cluster
-  * TOKEN: the user's authentication token
-  * IP_ADDRESS: the IP address of the cluster
-  * PORT: the port number that's reserved for the cluster
+  * USERNAME: the username of the user that's attempting to connect to the cluster.
+  * TOKEN: the user's authentication token.
+
+If you provide an incorrect or invalid token, then you can't connect to the cluster. Memorystore for Redis Cluster creates an entry for this action in the Data Access audit log. You can view the log to detect security threats or troubleshoot connection issues that are caused by an expired or improperly formatted token. For more information about viewing the Data Access audit log, see [View logs](https://docs.cloud.google.com/memorystore/docs/cluster/audit-logs#viewing_logs).
+
+  * IP_ADDRESS: the IP address of the cluster.
+
+  * PORT: the port number that's reserved for the cluster.
+
 
 
 
@@ -638,10 +633,15 @@ To connect from a Compute Engine VM or a [supported environment](https://docs.cl
 
 Make the following replacements:
 
-  * USERNAME: the username of the user that's attempting to connect to the cluster
-  * TOKEN: the user's authentication token
-  * IP_ADDRESS: the IP address of the cluster
-  * PORT: the port number that's reserved for the cluster
+  * USERNAME: the username of the user that's attempting to connect to the cluster.
+  * TOKEN: the user's authentication token.
+
+If you provide an incorrect or invalid token, then you can't connect to the cluster. Memorystore for Redis Cluster creates an entry for this action in the Data Access audit log. You can view the log to detect security threats or troubleshoot connection issues that are caused by an expired or improperly formatted token. For more information about viewing the Data Access audit log, see [View logs](https://docs.cloud.google.com/memorystore/docs/cluster/audit-logs#viewing_logs).
+
+  * IP_ADDRESS: the IP address of the cluster.
+
+  * PORT: the port number that's reserved for the cluster.
+
 
 
 
@@ -669,6 +669,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/predictions/rolling-deployment/
 title: Use a rolling deployment to replace a deployed model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:39.220270+00:00
+fetched_at: 2026-10-29T11:12:20.253381+00:00
 ---
 
 # Use a rolling deployment to replace a deployed model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

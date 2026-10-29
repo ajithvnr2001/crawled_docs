@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/neural-architecture-search/proxy-task-design/
 title: Proxy task design \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:22.079132+00:00
+fetched_at: 2026-10-29T11:13:38.327895+00:00
 ---
 
 # Proxy task design  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

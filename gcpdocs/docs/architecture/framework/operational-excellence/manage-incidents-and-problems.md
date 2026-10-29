@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/operational-excellence/manage-incidents-and-problems/
 title: Manage incidents and problems \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:04:35.740555+00:00
+fetched_at: 2026-10-29T09:47:11.866519+00:00
 ---
 
 # Manage incidents and problems  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Manage incidents and problems Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-10-31 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the operational excellence pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you manage incidents and problems related to your cloud workloads. It involves implementing comprehensive monitoring and observability, establishing clear incident response procedures, conducting thorough root cause analysis, and implementing preventive measures. Many of the topics that are discussed in this principle are covered in detail in the [Reliability](https://docs.cloud.google.com/architecture/framework/reliability) pillar.
 
@@ -98,7 +98,7 @@ Regularly review and update the knowledge base to ensure that it remains relevan
 
 ### Automate incident response
 
-Automation helps to streamline your incident response and remediation processes. It lets you address security breaches and system failures promptly and efficiently. By using Google Cloud products like [Cloud Run functions](https://docs.cloud.google.com/functions) or [Cloud Run](https://docs.cloud.google.com/run), you can automate various tasks that are typically manual and time-consuming. This recommendation is relevant to these [focus areas of operational readiness](https://docs.cloud.google.com/architecture/framework/operational-excellence/operational-readiness-and-performance-using-cloudops#focus-areas-of-operational-readiness): processes and tooling.
+Automation helps to streamline your incident response and remediation processes. It lets you address security breaches and system failures promptly and efficiently. By using Google Cloud products like [Cloud Run functions](https://cloud.google.com/functions) or [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run), you can automate various tasks that are typically manual and time-consuming. This recommendation is relevant to these [focus areas of operational readiness](https://docs.cloud.google.com/architecture/framework/operational-excellence/operational-readiness-and-performance-using-cloudops#focus-areas-of-operational-readiness): processes and tooling.
 
 Automated incident response provides the following benefits:
 
@@ -116,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-10-31 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-10-31 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

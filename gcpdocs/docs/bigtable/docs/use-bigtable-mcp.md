@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/use-bigtable-mcp/
 title: Use the Bigtable remote MCP server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:57.830204+00:00
+fetched_at: 2026-10-29T10:19:02.848155+00:00
 ---
 
 # Use the Bigtable remote MCP server  |  Google Cloud Documentation

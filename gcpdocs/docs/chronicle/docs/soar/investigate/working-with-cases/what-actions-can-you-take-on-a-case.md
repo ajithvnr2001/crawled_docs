@@ -1,58 +1,13 @@
 ---
 url: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/
 title: Manage cases \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
-method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
-fetched_at: 2026-10-27T18:09:10.885052+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T09:59:26.399967+00:00
 ---
 
 # Manage cases  |  Google Security Operations  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/
-
-[ Skip to main content ](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#main-content)
-[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
-`/`
-[ Console ](https://console.cloud.google.com/)
-  * [English](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/)
-  * [Deutsch](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=de)
-  * [Español](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=es)
-  * [Español – América Latina](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=es-419)
-  * [Français](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=fr)
-  * [Indonesia](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=id)
-  * [Italiano](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=it)
-  * [Português](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=pt)
-  * [Português – Brasil](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=pt-br)
-  * [עברית](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=he)
-  * [中文 – 简体](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=zh-cn)
-  * [中文 – 繁體](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=zh-tw)
-  * [日本語](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=ja)
-  * [한국어](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/?hl=ko)
-
-
-[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Fchronicle%2Fdocs%2Fsoar%2Finvestigate%2Fworking-with-cases%2Fwhat-actions-can-you-take-on-a-case%2F&prompt=select_account)
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/secops-color.svg) ](https://docs.cloud.google.com/chronicle/docs)
-  * [ Google Security Operations ](https://docs.cloud.google.com/chronicle/docs)
-
-
-[Start free](https://console.cloud.google.com/freetrial)
-  * On this page
-  * [Mark a case as important](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#mark-case-important)
-  * [Mark a case as an Incident](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#mark-case-incident)
-  * [Change the case stage](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#change-case-stage)
-    * [Change the case priority](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#change-case-priority)
-    * [Download a case report](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#download-case-report)
-  * [Manage alerts within a case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#manage-alert-within-case)
-  * [Run a manual action in a case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#run-manual-action)
-  * [Simulate cases in Google SecOps](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#simulate-cases)
-    * [Create a new case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#create-new-case)
-    * [Import a case to a JSON file](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#import-case-to-json)
-  * [Perform batch actions on multiple cases](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#perform-batch-actions)
-  * [Quick actions](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#quick-actions)
-  * [Use case: Configure Quick Action for malicious file investigation](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#use-case)
-    * [Add the Quick Actions widget](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#add-the-quick-actions-widget)
-    * [Configure the widget](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#configure-the-widget)
-    * [Add a Scan Hash button](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#add-a-scan-hash-button)
-
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -61,54 +16,52 @@ fetched_at: 2026-10-27T18:09:10.885052+00:00
   * [ Guides ](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview)
 
 
-Was this helpful?
-Send feedback 
-  * On this page
-  * [Mark a case as important](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#mark-case-important)
-  * [Mark a case as an Incident](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#mark-case-incident)
-  * [Change the case stage](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#change-case-stage)
-    * [Change the case priority](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#change-case-priority)
-    * [Download a case report](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#download-case-report)
-  * [Manage alerts within a case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#manage-alert-within-case)
-  * [Run a manual action in a case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#run-manual-action)
-  * [Simulate cases in Google SecOps](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#simulate-cases)
-    * [Create a new case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#create-new-case)
-    * [Import a case to a JSON file](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#import-case-to-json)
-  * [Perform batch actions on multiple cases](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#perform-batch-actions)
-  * [Quick actions](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#quick-actions)
-  * [Use case: Configure Quick Action for malicious file investigation](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#use-case)
-    * [Add the Quick Actions widget](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#add-the-quick-actions-widget)
-    * [Configure the widget](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#configure-the-widget)
-    * [Add a Scan Hash button](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case/#add-a-scan-hash-button)
 
+Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Manage cases Stay organized with collections  Save and categorize content based on your preferences.
+# Manage cases
+
 Supported in:
+
 Google SecOps  [ SOAR ](https://docs.cloud.google.com/chronicle/docs/secops/google-secops-soar-toc)
+
 This document outlines the various actions you can perform on a case, including updating its status or priority, managing associated alerts, generating reports, and taking individual or bulk actions to streamline case handling.
+
 ## Mark a case as important
+
 When you want to highlight a case, you can mark it as important. You can also remove the **Important** tag from the same menu.
+
 To mark a case as important, follow these steps:
+
   * Click  format_list_bulleted  **Case Actions** , select a case to tag, and select **Mark as important** ; a yellow  arrow_drop_up  appears with the case.
 
 
+
 ## Mark a case as an Incident
+
 If a case you're assigned is urgent and requires immediate action, mark it as an **Incident**. This automatically:
+
   * Sets the case priority to **Critical**
   * Changes the case stage to **Incident**
   * Assigns the case to the SOC Manager
   * Sends a notification to all analysts
 
 
+
 To mark a case as an incident, follow these steps:
+
   1. On the **Cases** page, go to the relevant case.
   2. Click  format_list_bulleted  **Case Actions** and select **Incident**. 
   3. In the **Confirmation** dialog, click **Yes**. The page refreshes and the new incident appears in the case list with the incident icon and a red critical sidebar. The case is automatically assigned to a user with the SOC Manager role. 
 
 
+
 ## Change the case stage
+
 If you're assigned a case, you can update its stage, based on your team's workflow. 
+
 To change a case stage, follow these steps:
+
   1. Select a case from the queue. 
   2. Click  format_list_bulleted  **Case Actions** and select **Stage**. 
   3. Select one of the following stages: 
@@ -121,8 +74,11 @@ To change a case stage, follow these steps:
   4. Click **Save**.
 
 
+
 ### Change the case priority
+
 To change the case priority, follow these steps:
+
   1. Select a case from the queue. 
   2. Click  format_list_bulleted  **Case Actions** and select **Priority**. 
   3. Choose one of the following levels, each has a corresponding case color indicator: 
@@ -135,8 +91,11 @@ To change the case priority, follow these steps:
   5. Optional: Click the color swatch to change the case bar color. 
 
 
+
 ### Download a case report
+
 You can download a case report in DOC, XLSX, or CSV format. Reports include the following details: 
+
   * Case details 
   * Alerts, entities, and insights 
   * User and system activities 
@@ -144,19 +103,24 @@ You can download a case report in DOC, XLSX, or CSV format. Reports include the 
   * All entries included in the case wall 
 
 
+
 To download a report, follow these steps:
+
   1. Select a case from the queue. 
   2. Click  format_list_bulleted  **Case Actions** and select **Report**. 
   3. In the **Select Report Type** dialog, select the file type and then click **Select**.
   4. Open the downloaded file to view the report. 
 
 
+
 ## Manage alerts within a case
+
 To manage specific alerts within a case, do the following:
+
   1. On the **Alert Options** menu (found on the **Alerts** tab in the legacy experience, or within the alert details drawer/canvas in the enhanced experience), click  more_vert **Alert Options**.
   2. Select one of the available options:
      * **Explore Alert** : For more information about the **Alerts Results** page, click [Investigate an alert](https://docs.cloud.google.com/chronicle/docs/investigation/investigate-alert). 
-     * **Ingest alert as test case** : Click **Ingest alert as test case** to add a new test case to the system. The system marks it as a **Test Case** for identification. Ingested alerts are excluded from dashboards and reports and are not grouped with other alerts.
+     * **Ingest alert as test case******: Click**Ingest alert as test case** to add a new test case to the system. The system marks it as a **Test Case** for identification. Ingested alerts are excluded from dashboards and reports and are not grouped with other alerts.
      * **Change Priority:** We recommend changing the alert priority rather than the case's. Changing the alert priority doesn't affect the case's priority. For more information, see [Change alert priority instead of case priority.](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/changing-alert-priority-instead-of-case-priority)
      * **Move Alert** : If you're assigned a case with multiple alerts, you can either **Move the Alert to new case** or **Move Alert to existing case**. If you select **Move Alert to existing case** , choose the destination case from the menu and click **Move**. 
      * **Manage Alert Detection Rule** : Available only for Google Security Operations users.
@@ -168,27 +132,39 @@ To manage specific alerts within a case, do the following:
        * **Add Entity:** Manually add an existing or new entity to an alert.
 
 
+
 ## Run a manual action in a case
+
 Manual actions and playbook actions become available after you install the corresponding integration from the Content Hub.
+
 To run a manual action in a case, follow these steps:
-  1. In the selected case, click ![manualactionicon](https://docs.cloud.google.com/static/chronicle/images/soar/manualactionicon.png) **Manual Action**.
+
+  1. In the selected case, click ![manualactionicon](https://docs.cloud.google.com/static/chronicle/images/soar/manualactionicon.png)**Manual Action**.
   2. In the **Manual Action** dialog, select the required action. For example, select **VirusTotalV3 > Enrich URL**. Enter the required information. 
   3. Select the alerts and entities the action should apply to.
   4. Click **Execute** to display the action details on the case wall.
 
 
+
 ## Simulate cases in Google SecOps
+
 You can simulate a case populated with system-generated default alerts. Simulated cases are useful in staging environments or for demonstrations.
+
 You can also create custom cases or import existing cases in JSON format using files with the `.CASE` suffix. 
+
 To simulate a case, follow these steps:
+
   1. In the **Case queue** header, click add **Add a Case** , then select **Simulate Cases**.  
 
   2. In the **Simulate Cases** dialog, select a case from the list. 
   3. Click **Create**. 
 
 
+
 ### Create a new case
+
 To create a new, simulated case, follow these steps:
+
   1. In the **Simulate Cases** dialog, click add **Add or import case** , then click **Add New Case**. 
   2. In the **Add New Case** dialog, enter the **Source/SIEM Name** , **Rule Name** (Rule Generator), **Alert Product** , **Alert Name** , **Event Name**
   3. Optionally, you can also provide: 
@@ -199,15 +175,22 @@ To create a new, simulated case, follow these steps:
   6. Select the target environment and click **Simulate**. The new case appears in the queue. 
 
 
+
 ### Import a case to a JSON file
+
 To import a case to a JSON file, follow these steps:
+
   1. In the **Simulate Cases** dialog, click add **Add or import case** , then click **Import Case**. 
   2. Select the required case and click **Open**. The case is imported in JSON format. 
 
 
+
 ## Perform batch actions on multiple cases
+
 You can perform batch actions on multiple cases from the case queue or the **Search** page.
+
 Available batch actions include the following: 
+
   * **Export to CSV** : Downloads a list of selected cases and their metadata in CSV format for offline review or reporting.
   * [**Close case**](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/how-to-close-cases): You can close cases using various interface options, including the case details page, the case queue (side-by-side and list views), and the Search page. You can close a case once it's resolved.
   * **Reopen case** : Reopens previously closed cases to resume investigation or follow-up actions.
@@ -218,7 +201,9 @@ Available batch actions include the following:
   * **Change stage** : Updates the stage of selected cases to reflect their progress or status.
 
 
+
 To perform a batch action, follow these steps:
+
   1. Go to **Investigation** and click **SOAR Search** (or navigate to the case queue on the **Cases** page).
   2. Select the timeframe for the relevant cases.
   3. Select the cases using the required filter.
@@ -227,41 +212,55 @@ To perform a batch action, follow these steps:
   6. Select an action from the **Search Results** menu.
 
 
+
 ## Quick actions
+
 The **Quick Actions** widget lets you define reusable actions that you can execute directly from cases and alerts. You can add this widget to the case view, alert view, and custom alert views in playbooks across both the legacy and enhanced experiences.
+
 Defining parameters for Quick Actions is optional. If provided, you can review and modify them before execution. If left blank, parameters must be filled in at runtime.
+
 If an integration is removed after a Quick Action is configured, the corresponding **Quick Action** button is hidden, and the widget is flagged in the configuration view to indicate a missing integration.
+
 For setup instructions, see the following:
+
   * [Define default case view](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/define-default-view-for-cases-admin)
   * [Define default alert view](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-alerts/define-default-alert-view-admin)
   * [Define customized alert views from Playbook Designer](https://docs.cloud.google.com/chronicle/docs/soar/respond/working-with-playbooks/define-customized-alert-views-from-playbook-designer)
 
 
+
 ## Use case: Configure Quick Action for malicious file investigation
+
 This use case shows how to create a Quick Action that helps investigate potentially malicious files within a case.
+
 ### Add the Quick Actions widget
+
   1. Go to **SOAR Settings > Case Data > Views**.
   2. Select **Default Case View**.
   3. Select the **General** tab.
   4. Drag the **Quick Actions** widget into the **Default Case View**.
 
 
+
 ### Configure the widget
+
   1. Click settings **Configuration**.
   2. In the **Quick Actions** side drawer, enter `File Investigation` for the widget title.
   3. For the widget description, enter `Quickly scan file hashes.`
   4. Optional: choose a widget width.
   5. Click **Advanced Settings**.
-  6. In the **Conditions** section, define the criteria for displaying the widget. To show the widget only when a case is tagged with `malicious-file`, use the condition **`Case.Tags`contains`malicious-file`**. 
+  6. In the **Conditions** section, define the criteria for displaying the widget. To show the widget only when a case is tagged with `malicious-file`, use the condition **`Case.Tags` contains `malicious-file`**. **Note:** The Quick Actions widget is displayed by default. However, if conditions are defined in the **Conditions** section, the widget will only appear when those conditions are met. This lets you control the visibility of the widget and ensure it's only displayed for relevant cases or alerts. 
+
 
 
 ### Add a Scan Hash button
+
   1. In **Text** , you can provide instructions or context directly within the widget. For this use case, add the following text: `Use the 'Scan Hash' button to check suspicious files.`
-  2. In **Buttons** , click **+ Add New Button** to create a new Quick Action. You can add up to six buttons, each corresponding to a different Quick Action.
+  2. In **Buttons** , click **\+ Add New Button** to create a new Quick Action. You can add up to six buttons, each corresponding to a different Quick Action.
   3. In the **Add Button** dialog that appears, configure the Quick Action (**Scan Hash**): 
      * **Name** : Scan Hash
      * **Button Color** : Choose a color.
-     * **Action** : Select **Scan Hash** from the VirusTotal section in the **Action** list. 
+     * **Action** : Select **Scan Hash** from the VirusTotal section in the **Action** list. **Note:** Only installed and configured integrations will be available in the list. 
      * Optional: choose the relevant **Instance** for VirusTotal.
      * Optional: in **Parameters** , define the **Hash** parameter:  
 **Hash:** `[Case.FileHash]`
@@ -269,9 +268,13 @@ This use case shows how to create a Quick Action that helps investigate potentia
   5. In the **Quick Actions** side drawer, click **Save**.
 
 
+
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
-Was this helpful?
+
 Send feedback 
+
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-Last updated 2026-10-26 UTC.
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+
+Last updated 2026-10-28 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

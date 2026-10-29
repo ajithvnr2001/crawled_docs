@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/migrate/openai/auth-and-credentials/
 title: Authenticate \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:09.239707+00:00
+fetched_at: 2026-10-29T11:12:42.584656+00:00
 ---
 
 # Authenticate  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

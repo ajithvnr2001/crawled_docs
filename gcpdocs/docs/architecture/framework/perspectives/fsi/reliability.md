@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/perspectives/fsi/reliability/
 title: Financial services perspective: Reliability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:07:57.947145+00:00
+fetched_at: 2026-10-29T09:46:49.850568+00:00
 ---
 
 # Financial services perspective: Reliability  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Financial services perspective: Reliability Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-07-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This document in the [Google Cloud Well-Architected Framework: Financial services (FS) perspective](https://docs.cloud.google.com/architecture/framework/perspectives/fsi) provides an overview of the principles and recommendations to design, deploy, and operate reliable FS workloads in Google Cloud. The document explores how to integrate advanced reliability practices and observability into your architectural blueprints. The recommendations in this document align with the [reliability pillar](https://docs.cloud.google.com/architecture/framework/reliability) of the Well-Architected Framework.
 
@@ -42,12 +42,12 @@ The regulatory requirements across most jurisdictions have the following common 
 
 The reliability recommendations in this document are mapped to the following core principles:
 
-  * Prioritize multi-zone and multi-region deployments
-  * Eliminate single points of failure (SPOFs)
-  * Understand and manage aggregate availability
-  * Implement a robust DR strategy
-  * Leverage managed services
-  * Automate the infrastructure provisioning and recovery processes
+  * [Prioritize multi-zone and multi-region deployments](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/reliability#multi-zone-multi-region)
+  * [Eliminate single points of failure (SPOFs)](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/reliability#eliminate-spofs)
+  * [Understand and manage aggregate availability](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/reliability#manage-availability)
+  * [Implement a robust DR strategy](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/reliability#dr-strategy)
+  * [Leverage managed services](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/reliability#managed-services)
+  * [Automate the infrastructure provisioning and recovery processes](https://docs.cloud.google.com/architecture/framework/perspectives/fsi/reliability#automate)
 
 
 
@@ -60,9 +60,9 @@ Consider the following recommendations to build resilience against zone and regi
   * Prefer resources that have a wider locational scope. Where possible, use regional resources instead of zonal resources, and use multi-regional or global resources instead of regional resources. This approach helps to avoid the need to restore operations by using backups.
   * In each region, leverage three zones rather than two. To handle failovers, overprovision capacity by a third more than the estimate.
   * Minimize manual recovery steps by implementing active-active deployments like the following examples: 
-    * Distributed databases like Spanner provide built-in redundancy and synchronisation across regions.
+    * Distributed databases like Spanner provide built-in redundancy and synchronization across regions.
     * The [HA feature](https://docs.cloud.google.com/sql/docs/postgres/configure-ha) of Cloud SQL provides a topology that's near active-active, with read replicas across zones. It provides a recovery point objective (RPO) between regions that's close to 0.
-  * Distribute user traffic across regions by using Cloud DNS, and deploy a [regional load balancer](https://docs.cloud.google.com/architecture/infra-reliability-guide/design#multi-region-deployment-with-regional-load-balancing) in each region. A global load balancer is another option that you can consider depending on your requirements and criticality. For more information, see [Benefits and risks of global load balancing for multi-region deployments](https://docs.cloud.google.com/architecture/infra-reliability-guide/design#benefits-and-risks-of-global-load-balancing-for-multi-region-deployments).
+  * Distribute user traffic across regions by using Cloud DNS, and deploy a [regional load balancer](https://docs.cloud.google.com/architecture/infra-reliability-guide/design#multi-region-deployment-with-regional-load-balancing) in each region. A global load balancer is another option that you can consider depending on your requirements and criticality. For more information, see [Benefits and risks of global load balancing for multi-region deployments](https://docs.cloud.google.com/architecture/infra-reliability-guide/design#benefits-risks-global-load-balancing).
   * To store data, use multi-region services like [Spanner](https://docs.cloud.google.com/spanner/docs) and [Cloud Storage](https://docs.cloud.google.com/storage/docs/locations).
 
 
@@ -146,11 +146,11 @@ For more information, see [Architecting disaster recovery for cloud infrastructu
 Whenever possible, use managed services to take advantage of the built-in features for backups, HA, and scalability. Consider the following recommendations for using managed services:
 
   * Use managed services in Google Cloud. They provide HA that's backed by SLAs. They also offer built-in backup mechanisms and resilience features.
-  * For data management, consider services like [Cloud SQL](https://docs.cloud.google.com/sql/docs/availability), [Cloud Storage](https://docs.cloud.google.com/storage/docs/locations), and [Spanner](https://docs.cloud.google.com/spanner/docs),
+  * For data management, consider services like [Cloud SQL](https://docs.cloud.google.com/sql/docs/availability), [Cloud Storage](https://docs.cloud.google.com/storage/docs/locations), and [Spanner](https://docs.cloud.google.com/spanner/docs).
   * For compute and application hosting, consider [Compute Engine managed instance groups (MIGs)](https://docs.cloud.google.com/compute/docs/instance-groups) and [Google Kubernetes Engine (GKE) clusters](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture). Regional MIGs and GKE regional clusters are resilient to zone outages.
   * To improve resilience against region outages, use managed multi-regional services.
   * Identify the need for _exit plans_ for services that have unique characteristics and define the required plans. Financial regulators like the FCA, PRA, and EBA require firms to have strategies and contingency plans for data retrieval and operational continuity if the relationship with a cloud provider ends. Firms must assess the exit feasibility before entering into cloud contracts and they must maintain the ability to change providers without operational disruption.
-  * Verify that the services that you choose support exporting data to an open format like CSV, Parquet, and Avro. Verify whether the services are based on open technologies, like GKE support for the [Open Container Initiative (OCI) format](https://docs.cloud.google.com/artifact-registry/docs/supported-formats#oci) or [Managed Service for Apache Airflow built on Apache Airflow](https://docs.cloud.google.com/composer/docs/composer-3/composer-overview).
+  * Verify that the services that you choose support exporting data to an open format like CSV, Parquet, and Avro. Verify whether the services are based on open technologies, like GKE support for the [Open Container Initiative (OCI) format](https://docs.cloud.google.com/artifact-registry/docs/supported-formats#oci) or [Managed Service for Apache Airflow](https://docs.cloud.google.com/composer/docs/latest/composer-overview).
 
 
 
@@ -173,6 +173,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-07-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-07-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

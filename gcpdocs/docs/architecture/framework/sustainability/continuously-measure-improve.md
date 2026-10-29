@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/sustainability/continuously-measure-improve/
 title: Continuously measure and improve sustainability \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:41.491049+00:00
+fetched_at: 2026-10-29T09:47:09.464031+00:00
 ---
 
 # Continuously measure and improve sustainability  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Continuously measure and improve sustainability Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2026-01-28 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the sustainability pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework/sustainability) provides recommendations to help you measure and continuously improve the sustainability of your workloads in Google Cloud.
 
@@ -39,10 +39,10 @@ For more information about how the Carbon Footprint report is prepared, includin
 
 To use carbon measurement for continuous improvement, consider the recommendations in the following sections. The recommendations are structured as phases of maturity for implementing sustainable-by-design cloud operations:
 
-  * Phase 1: Establish a baseline
-  * Phase 2: Identify hotspots
-  * Phase 3: Implement targeted optimization
-  * Phase 4: Institutionalize sustainability practices and reporting
+  * [Phase 1: Establish a baseline](https://docs.cloud.google.com/architecture/framework/sustainability/continuously-measure-improve#establish-baseline)
+  * [Phase 2: Identify hotspots](https://docs.cloud.google.com/architecture/framework/sustainability/continuously-measure-improve#identify-hotspots)
+  * [Phase 3: Implement targeted optimization](https://docs.cloud.google.com/architecture/framework/sustainability/continuously-measure-improve#optimize)
+  * [Phase 4: Institutionalize sustainability practices and reporting](https://docs.cloud.google.com/architecture/framework/sustainability/continuously-measure-improve#institutionalize)
 
 
 
@@ -73,7 +73,7 @@ This is the execution phase for implementing sustainable-by-design cloud operati
 
   * **Decommission unattended projects** : As part of your IT service management (ITSM) workflows, regularly check the [unattended project recommender](https://docs.cloud.google.com/recommender/docs/unattended-project-recommender) that's integrated with the Carbon Footprint data. To achieve immediate, verified reductions in carbon emissions and cost, automate the review and eventual removal of unused projects through tracked engineering tickets.
   * **Right-size resources** : Match the provisioned resource capacity to actual utilization by using Active Assist right-sizing [recommenders](https://docs.cloud.google.com/recommender/docs/recommenders) like [machine type recommendations for Compute Engine VMs](https://docs.cloud.google.com/compute/docs/instances/apply-machine-type-recommendations-for-instances). For compute-intensive tasks and AI workloads, use the most efficient machine types and AI models.
-  * **Adopt carbon-aware scheduling** : For batch workloads that aren't time-critical, integrate regional CFE data into the scheduling logic. Where feasible, limit the creation of new resources to low-carbon regions by using the [resource locations](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) constraint in Organization Policy Service.
+  * **Adopt carbon-aware scheduling** : For batch workloads that aren't time-critical, integrate regional CFE data into the scheduling logic. Where feasible, limit the creation of new resources to low-carbon regions by using the [resource locations](https://docs.cloud.google.com/organization-policy/restrict-locations) constraint in Organization Policy Service.
   * **Reduce data sprawl** : Implement data governance policies to ensure that infrequently accessed data is transitioned to an appropriate cold storage class (Nearline, Coldline, or Archive) or is permanently deleted. This strategy helps to reduce the energy cost of your storage resources.
   * **Refine application code** : Fix code-level inefficiencies that cause excessive resource usage or unnecessary computation.
 
@@ -109,6 +109,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-01-28 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-01-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

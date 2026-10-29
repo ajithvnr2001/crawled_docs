@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/psc-i-egress/
 title: Use Private Service Connect interface for Vertex AI Training \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:43.217415+00:00
+fetched_at: 2026-10-29T11:12:08.908471+00:00
 ---
 
 # Use Private Service Connect interface for Vertex AI Training  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

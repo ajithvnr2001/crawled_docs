@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/release-notes/
 title: AlloyDB for PostgreSQL release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:38:17.671375+00:00
+fetched_at: 2026-10-29T09:51:34.371357+00:00
 ---
 
 # AlloyDB for PostgreSQL release notes  |  Google Cloud Documentation
@@ -28,6 +28,58 @@ This page documents production updates to AlloyDB for PostgreSQL. Check this pag
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/alloydb-release-notes.xml) directly. 
+
+## October 28, 2026
+
+Announcement
+
+The following AlloyDB AI and vector search features and improvements are generally available ([GA](https://cloud.google.com/products#product-launch-stages)):
+
+  * The `alloydb_scann` extension supports four-level tree (4LT) ScaNN vector indexes on PostgreSQL 17 and later, providing support for tables with up to 10 billion vector rows. For more information, see [Four-level ScaNN tree indexes](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index#create-scann-index-manual).
+
+  * 4LT ScaNN vector indexes support automatic index maintenance. For more information, see [Create a ScaNN index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index) and [Maintain vector indexes automatically](https://docs.cloud.google.com/alloydb/docs/ai/maintain-vector-indexes#maintain-index-automatically).
+
+  * You can enable streaming functionality for ScaNN vector indexes by setting the `scann.satisfy_limit` parameter to `relaxed_order`. When enabled, the vector scan continues searching through additional leaf partitions until it finds enough results to satisfy the `LIMIT` clause of your query, improving recall on filtered searches. Additionally, you can enable this feature for parallel process scans by setting the `scann.enable_parallel_satisfy_limit` database flag to `on`. For more information, see [ScaNN index reference](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#scann-satisfy-limit) and [Best practices for tuning ScaNN indexes](https://docs.cloud.google.com/alloydb/docs/ai/best-practices-tuning-scann#improve-recall-for-filtered-searches).
+
+  * Vector assist simplifies the deployment and management of your AlloyDB vector workloads by helping you set up production-ready vector search capabilities, including embedding generation, query optimization, and index creation for vector types such as Hierarchical Navigable Small World (HNSW). For more information, see [Vector assist overview](https://docs.cloud.google.com/alloydb/docs/ai/vector-assist-overview).
+
+  * For AlloyDB for PostgreSQL instances running PostgreSQL 17 and later, the maximum supported value for `num_leaves` when building ScaNN vector indexes is increased from 30,000,000 to 104,857,600. For more information, see [Create a ScaNN index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index) and [ScaNN index reference](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference).
+
+  * You can use the [`external_search_fdw`](https://docs.cloud.google.com/alloydb/docs/reference/extensions#external_search_fdw) extension to connect to external search clusters and query their data directly from your database using the following search sources:
+
+    * [Elasticsearch](https://docs.cloud.google.com/alloydb/docs/elastic-search)
+
+    * [Solr](https://docs.cloud.google.com/alloydb/docs/solr-search)
+
+    * [OpenSearch](https://docs.cloud.google.com/alloydb/docs/opensearch)
+
+  * AlloyDB supports the `rum` extension for high-performance full-text search operations on PostgreSQL 17 and earlier. The `rum` extension extends standard GIN indexes by storing positional information directly in the index, letting you perform faster phrase searches and relevance ranking without accessing the table data. For more information, see [Create and manage a RUM index](https://docs.cloud.google.com/alloydb/docs/ai/create-rum-index).
+
+
+
+
+Fixed
+
+AlloyDB provides more accurate memory usage estimation and prevents out-of-memory (OOM) errors when you build a ScaNN [four-level tree index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index#create-scann-index-manual). This feature is in [Preview](https://cloud.google.com/products#product-launch-stages). This update improves the stability of index builds by enforcing memory limits and improving memory estimation under constrained conditions.
+
+Feature
+
+Identity and Access Management (IAM) group authentication is generally available ([GA](https://cloud.google.com/products#product-launch-stages)) for new and existing AlloyDB clusters running PostgreSQL 15 and later. With IAM group authentication, you can manage database roles and privileges at the group level across primary instances and read pool instances, including first-time sign-ins directly to read pool instances. You can also preserve individual and IAM group user configurations when you migrate from a Cloud SQL for PostgreSQL backup.
+
+For more information, see [IAM database authentication overview](https://docs.cloud.google.com/alloydb/docs/database-users/iam-authentication) and [Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth).
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating AlloyDB managed components. The fix to the certificate store is shipped in a new maintenance version that AlloyDB applies during [scheduled maintenance](https://docs.cloud.google.com/alloydb/docs/maintenance#timing), so you don't need to manually update AlloyDB managed instances. You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/alloydb/docs/self-service-maintenance).
+
+Depending on how you connect to AlloyDB, take the following actions:
+
+  * If you use the AlloyDB Auth Proxy, then upgrade it to [v1.17.2 or later](https://docs.cloud.google.com/alloydb/docs/auth-proxy/connect#install). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use the [AlloyDB Language Connectors](https://docs.cloud.google.com/alloydb/docs/connect-language-connectors), then update the language runtime and operating system CA certificates (for example, Go 1.26.10 or 1.27.3 or later).
+
+
+
 
 ## October 27, 2026
 
@@ -2212,6 +2264,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

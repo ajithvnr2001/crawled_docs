@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/access/iam/
 title: Compute Engine IAM roles and permissions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:36.683061+00:00
+fetched_at: 2026-10-29T09:51:09.673946+00:00
 ---
 
 # Compute Engine IAM roles and permissions  |  Google Cloud Documentation
@@ -214,6 +214,12 @@ Role | Permissions
   * `compute.crossSiteNetworks.get`
   * `compute.crossSiteNetworks.list`
   * `compute.crossSiteNetworks.update`
+  * `compute.dhcpOptionsConfigs.create`
+  * `compute.dhcpOptionsConfigs.delete`
+  * `compute.dhcpOptionsConfigs.get`
+  * `compute.dhcpOptionsConfigs.list`
+  * `compute.dhcpOptionsConfigs.update`
+  * `compute.dhcpOptionsConfigs.use`
   * `compute.diskSettings.get`
   * `compute.diskSettings.update`
   * `compute.diskTypes.get`
@@ -1273,6 +1279,15 @@ Role | Permissions
   * `compute.crossSiteNetworks.get`
   * `compute.crossSiteNetworks.list`
   * `compute.crossSiteNetworks.update`
+
+`compute.dhcpOptionsConfigs.*`
+
+  * `compute.dhcpOptionsConfigs.create`
+  * `compute.dhcpOptionsConfigs.delete`
+  * `compute.dhcpOptionsConfigs.get`
+  * `compute.dhcpOptionsConfigs.list`
+  * `compute.dhcpOptionsConfigs.update`
+  * `compute.dhcpOptionsConfigs.use`
 
 `compute.diskSettings.*`
 
@@ -2398,7 +2413,12 @@ Role | Permissions
   * `compute.instanceGroups.update`
   * `compute.instanceGroups.use`
 
-`compute.instances.get` `compute.instances.list` `compute.instances.listEffectiveTags` `compute.instances.listTagBindings` `compute.instances.use` `compute.instances.useReadOnly` `compute.networkEndpointGroups.*`
+`compute.instances.get` `compute.instances.list` `compute.instances.listEffectiveTags` `compute.instances.listTagBindings` `compute.instances.use` `compute.instances.useReadOnly` `compute.managedRulesets.*`
+
+  * `compute.managedRulesets.get`
+  * `compute.managedRulesets.list`
+
+`compute.networkEndpointGroups.*`
 
   * `compute.networkEndpointGroups.attachNetworkEndpoints`
   * `compute.networkEndpointGroups.create`
@@ -2801,6 +2821,15 @@ Role | Permissions
   * `compute.crossSiteNetworks.list`
   * `compute.crossSiteNetworks.update`
 
+`compute.dhcpOptionsConfigs.*`
+
+  * `compute.dhcpOptionsConfigs.create`
+  * `compute.dhcpOptionsConfigs.delete`
+  * `compute.dhcpOptionsConfigs.get`
+  * `compute.dhcpOptionsConfigs.list`
+  * `compute.dhcpOptionsConfigs.update`
+  * `compute.dhcpOptionsConfigs.use`
+
 `compute.disks.listEffectiveTags` `compute.disks.listTagBindings` `compute.externalVpnGateways.*`
 
   * `compute.externalVpnGateways.create`
@@ -2973,6 +3002,11 @@ Role | Permissions
 
   * `compute.machineTypes.get`
   * `compute.machineTypes.list`
+
+`compute.managedRulesets.*`
+
+  * `compute.managedRulesets.get`
+  * `compute.managedRulesets.list`
 
 `compute.networkAttachments.*`
 
@@ -4046,7 +4080,12 @@ Role | Permissions
   * `compute.globalFrontendSettings.get`
   * `compute.globalFrontendSettings.update`
 
-`compute.globalOperations.get` `compute.globalOperations.list` `compute.instanceSettings.get` `compute.instances.getEffectiveFirewalls` `compute.instances.list` `compute.instances.setShieldedInstanceIntegrityPolicy` `compute.instances.setShieldedVmIntegrityPolicy` `compute.instances.updateSecurity` `compute.instances.updateShieldedInstanceConfig` `compute.instances.updateShieldedVmConfig` `compute.networks.get` `compute.networks.getEffectiveFirewalls` `compute.networks.getRegionEffectiveFirewalls` `compute.networks.list` `compute.networks.listEffectiveTags` `compute.networks.listTagBindings` `compute.networks.updatePolicy` `compute.packetMirrorings.*`
+`compute.globalOperations.get` `compute.globalOperations.list` `compute.instanceSettings.get` `compute.instances.getEffectiveFirewalls` `compute.instances.list` `compute.instances.setShieldedInstanceIntegrityPolicy` `compute.instances.setShieldedVmIntegrityPolicy` `compute.instances.updateSecurity` `compute.instances.updateShieldedInstanceConfig` `compute.instances.updateShieldedVmConfig` `compute.managedRulesets.*`
+
+  * `compute.managedRulesets.get`
+  * `compute.managedRulesets.list`
+
+`compute.networks.get` `compute.networks.getEffectiveFirewalls` `compute.networks.getRegionEffectiveFirewalls` `compute.networks.list` `compute.networks.listEffectiveTags` `compute.networks.listTagBindings` `compute.networks.updatePolicy` `compute.packetMirrorings.*`
 
   * `compute.packetMirrorings.create`
   * `compute.packetMirrorings.createTagBinding`
@@ -4389,7 +4428,7 @@ Role | Permissions
   * `compute.acceleratorTypes.get`
   * `compute.acceleratorTypes.list`
 
-`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.diskSettings.get` `compute.diskTypes.*`
+`compute.addresses.get` `compute.addresses.list` `compute.addresses.listEffectiveTags` `compute.addresses.listTagBindings` `compute.advice.capacity` `compute.advice.capacityHistory` `compute.autoscalers.get` `compute.autoscalers.list` `compute.backendBuckets.get` `compute.backendBuckets.getIamPolicy` `compute.backendBuckets.list` `compute.backendBuckets.listEffectiveTags` `compute.backendBuckets.listTagBindings` `compute.backendServices.get` `compute.backendServices.getIamPolicy` `compute.backendServices.list` `compute.backendServices.listEffectiveTags` `compute.backendServices.listTagBindings` `compute.commitments.get` `compute.commitments.list` `compute.commitments.listEffectiveTags` `compute.commitments.listTagBindings` `compute.crossSiteNetworks.get` `compute.crossSiteNetworks.list` `compute.dhcpOptionsConfigs.get` `compute.dhcpOptionsConfigs.list` `compute.diskSettings.get` `compute.diskTypes.*`
 
   * `compute.diskTypes.get`
   * `compute.diskTypes.list`
@@ -4647,7 +4686,12 @@ Role | Permissions
   * `compute.firewallPolicies.update`
   * `compute.firewallPolicies.use`
 
-`compute.globalOperations.get` `compute.globalOperations.getIamPolicy` `compute.globalOperations.list` `compute.globalOperations.setIamPolicy` `compute.projects.get` `compute.securityPolicies.addAssociation` `compute.securityPolicies.copyRules` `compute.securityPolicies.create` `compute.securityPolicies.createTagBinding` `compute.securityPolicies.delete` `compute.securityPolicies.deleteTagBinding` `compute.securityPolicies.get` `compute.securityPolicies.list` `compute.securityPolicies.listEffectiveTags` `compute.securityPolicies.listTagBindings` `compute.securityPolicies.move` `compute.securityPolicies.removeAssociation` `compute.securityPolicies.update` `compute.securityPolicies.use` `resourcemanager.projects.get` `resourcemanager.projects.list` `serviceusage.catalogs.listMembers` `serviceusage.consumerpolicy.analyze` `serviceusage.consumerpolicy.get` `serviceusage.effectivepolicy.get` `serviceusage.groups.*`
+`compute.globalOperations.get` `compute.globalOperations.getIamPolicy` `compute.globalOperations.list` `compute.globalOperations.setIamPolicy` `compute.managedRulesets.*`
+
+  * `compute.managedRulesets.get`
+  * `compute.managedRulesets.list`
+
+`compute.projects.get` `compute.securityPolicies.addAssociation` `compute.securityPolicies.copyRules` `compute.securityPolicies.create` `compute.securityPolicies.createTagBinding` `compute.securityPolicies.delete` `compute.securityPolicies.deleteTagBinding` `compute.securityPolicies.get` `compute.securityPolicies.list` `compute.securityPolicies.listEffectiveTags` `compute.securityPolicies.listTagBindings` `compute.securityPolicies.move` `compute.securityPolicies.removeAssociation` `compute.securityPolicies.update` `compute.securityPolicies.use` `resourcemanager.projects.get` `resourcemanager.projects.list` `serviceusage.catalogs.listMembers` `serviceusage.consumerpolicy.analyze` `serviceusage.consumerpolicy.get` `serviceusage.effectivepolicy.get` `serviceusage.groups.*`
 
   * `serviceusage.groups.list`
   * `serviceusage.groups.listExpandedMembers`
@@ -4657,7 +4701,12 @@ Role | Permissions
   
 #### Compute Organization Security Policy User 
 
-(`roles/compute.orgSecurityPolicyUser`) View or use Compute Engine Security Policies to associate with the organization or folders.  |  `compute.firewallPolicies.get` `compute.firewallPolicies.list` `compute.firewallPolicies.listEffectiveTags` `compute.firewallPolicies.listTagBindings` `compute.firewallPolicies.use` `compute.globalOperations.get` `compute.globalOperations.getIamPolicy` `compute.globalOperations.list` `compute.globalOperations.setIamPolicy` `compute.projects.get` `compute.securityPolicies.addAssociation` `compute.securityPolicies.get` `compute.securityPolicies.list` `compute.securityPolicies.listEffectiveTags` `compute.securityPolicies.listTagBindings` `compute.securityPolicies.removeAssociation` `compute.securityPolicies.use` `resourcemanager.projects.get` `resourcemanager.projects.list` `serviceusage.catalogs.listMembers` `serviceusage.consumerpolicy.analyze` `serviceusage.consumerpolicy.get` `serviceusage.effectivepolicy.get` `serviceusage.groups.*`
+(`roles/compute.orgSecurityPolicyUser`) View or use Compute Engine Security Policies to associate with the organization or folders.  |  `compute.firewallPolicies.get` `compute.firewallPolicies.list` `compute.firewallPolicies.listEffectiveTags` `compute.firewallPolicies.listTagBindings` `compute.firewallPolicies.use` `compute.globalOperations.get` `compute.globalOperations.getIamPolicy` `compute.globalOperations.list` `compute.globalOperations.setIamPolicy` `compute.managedRulesets.*`
+
+  * `compute.managedRulesets.get`
+  * `compute.managedRulesets.list`
+
+`compute.projects.get` `compute.securityPolicies.addAssociation` `compute.securityPolicies.get` `compute.securityPolicies.list` `compute.securityPolicies.listEffectiveTags` `compute.securityPolicies.listTagBindings` `compute.securityPolicies.removeAssociation` `compute.securityPolicies.use` `resourcemanager.projects.get` `resourcemanager.projects.list` `serviceusage.catalogs.listMembers` `serviceusage.consumerpolicy.analyze` `serviceusage.consumerpolicy.get` `serviceusage.effectivepolicy.get` `serviceusage.groups.*`
 
   * `serviceusage.groups.list`
   * `serviceusage.groups.listExpandedMembers`
@@ -4965,6 +5014,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

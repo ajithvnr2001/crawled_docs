@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/change-data-capture/
 title: Stream table updates with change data capture ingestion \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:00:23.263981+00:00
+fetched_at: 2026-10-29T09:46:50.413206+00:00
 ---
 
 # Stream table updates with change data capture ingestion  |  BigQuery  |  Google Cloud Documentation
@@ -50,7 +50,7 @@ To use BigQuery CDC ingestion, your workflow must meet the following conditions:
 
 ## Specify changes to existing records
 
-In BigQuery CDC ingestion, the pseudocolumn `_CHANGE_TYPE` indicates the type of change to be processed for each row. To use CDC, set `_CHANGE_TYPE` when you stream row modifications using the Storage Write API (gRPC). The pseudocolumn `_CHANGE_TYPE` only accepts the values `UPSERT` and `DELETE`. A table is considered _active with CDC_ while the Storage Write API (gRPC) is streaming row modifications to the table in this manner.
+In BigQuery CDC ingestion, the pseudocolumn `_CHANGE_TYPE` indicates the type of change to be processed for each row. To use CDC, set `_CHANGE_TYPE` when you stream row modifications using the Storage Write API (gRPC). The pseudocolumn `_CHANGE_TYPE` only accepts the values `UPSERT` and `DELETE`. A table is considered _active with CDC_ while the Storage Write API (gRPC) is streaming row modifications to the table in this manner or while pending row modifications are being applied.
 
 ### Example with `UPSERT` and `DELETE` values
 
@@ -353,7 +353,7 @@ Replace `REGION` with the [region name](https://docs.cloud.google.com/bigquery/d
   * Primary keys cannot exceed 16 columns.
   * Tables with active CDC cannot have more than 2,000 top-level columns defined by the table's schema.
   * Tables with active CDC don't support the following: 
-    * Mutating [data manipulation language (DML)](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax) statements such as `DELETE`, `UPDATE`, and `MERGE`
+    * Mutating [data manipulation language (DML)](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/dml-syntax) statements such as `DELETE`, `UPDATE`, and `MERGE`. Mutating DML statements are blocked while a table is actively receiving CDC streams or while unmerged changes remain on the table. When there are no active upsert streams and all pending changes are merged into the baseline table, mutating DML statements are supported. If you modify a destination table with DML, ensure that changes do not cause data drift with your source database if CDC streaming resumes.
     * Querying [wildcard tables](https://docs.cloud.google.com/bigquery/docs/querying-wildcard-tables)
     * [Search indexes](https://docs.cloud.google.com/bigquery/docs/search-index)
   * Tables with active CDC that perform runtime merge jobs because the table's `max_staleness` value is too low cannot support the following: 
@@ -413,6 +413,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/klaviyo-transfer/
 title: Load Klaviyo data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:49.238594+00:00
+fetched_at: 2026-10-29T10:18:41.555520+00:00
 ---
 
 # Load Klaviyo data into BigQuery  |  Google Cloud Documentation
@@ -151,6 +151,8 @@ Replace the following:
     * `assets`: the path to the Klaviyo objects to be transferred to BigQuery.
     * `connector.authentication.privateApiKey`: the private API key for the Klaviyo account.
     * `connector.startDate`: (Optional) a start date for new records to be included in the data transfer, in the format `YYYY-MM-DD`. Only records created on or after this date are included in the data transfer. The default value is 3 months before the transfer run date.
+    * `ingestionType`: (Optional) specifies the data loading method. The allowed values are `full` (replaces all data in the destination table) or `incremental` (loads only new or modified data since the last transfer).
+    * `writeMode`: (Optional) when `ingestionType` is set to `incremental`, specifies how data is written to the destination table. The allowed values are `WRITE_MODE_APPEND` (appends new records) or `WRITE_MODE_UPSERT` (updates existing records and inserts new records).
 
 
 
@@ -189,6 +191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

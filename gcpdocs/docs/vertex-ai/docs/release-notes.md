@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vertex-ai/docs/release-notes/
 title: Vertex AI release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:48.096792+00:00
+fetched_at: 2026-10-29T10:25:38.737986+00:00
 ---
 
 # Vertex AI release notes  |  Google Cloud Documentation

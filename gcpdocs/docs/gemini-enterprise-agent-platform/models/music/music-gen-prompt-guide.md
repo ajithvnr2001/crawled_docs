@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/music/music-gen-prompt-guide/
 title: Lyria music generation prompt guide \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:46.081253+00:00
+fetched_at: 2026-10-29T11:06:40.756937+00:00
 ---
 
 # Lyria music generation prompt guide  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

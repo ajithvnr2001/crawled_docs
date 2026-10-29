@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/instance-groups/rolling-out-updates-to-managed-instance-groups/
 title: Automatically apply VM configuration updates in a MIG \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:00:06.494995+00:00
+fetched_at: 2026-10-29T10:18:20.824066+00:00
 ---
 
 # Automatically apply VM configuration updates in a MIG  |  Compute Engine  |  Google Cloud Documentation
@@ -624,6 +624,8 @@ The command returns a list of instances in the group, including their status, cu
 
 The `HEALTH_STATE` column appears empty unless you have [set up health checking](https://docs.cloud.google.com/compute/docs/instance-groups/autohealing-instances-in-migs).
 
+In interactive terminals that support ANSI color output, gcloud CLI color-codes values in the `STATUS`, `HEALTH_STATE`, and `ACTION` columns by default. For details on the color scheme and how to turn off colorization, see [Understand status colors in gcloud CLI](https://docs.cloud.google.com/compute/docs/instance-groups/getting-info-about-migs#color_coded_statuses).
+
 **A specific managed instance**
 
 To check the status and current action for a specific instance in the group, use the [`describe-instance` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instance-groups/managed/describe-instance).
@@ -1063,6 +1065,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

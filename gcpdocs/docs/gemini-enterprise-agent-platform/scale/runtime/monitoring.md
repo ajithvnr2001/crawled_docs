@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/monitoring/
 title: Set up monitoring \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:33.626538+00:00
+fetched_at: 2026-10-29T11:11:55.550229+00:00
 ---
 
 # Set up monitoring  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

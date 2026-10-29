@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/security/implement-zero-trust/
 title: Implement zero trust \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:39.468682+00:00
+fetched_at: 2026-10-29T09:46:43.085444+00:00
 ---
 
 # Implement zero trust  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Implement zero trust Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2025-02-05 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the security pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) helps you ensure comprehensive security across your cloud workloads. The principle of zero trust emphasizes the following practices:
 
@@ -40,9 +40,9 @@ Implementing the zero-trust model helps your organization enhance its security p
 
 To implement the zero-trust model for your cloud workloads, consider the recommendations in the following sections:
 
-  * Secure your network
-  * Verify every access attempt explicitly
-  * Monitor and maintain your network
+  * [Secure your network](https://docs.cloud.google.com/architecture/framework/security/implement-zero-trust#secure_your_network)
+  * [Verify every access attempt explicitly](https://docs.cloud.google.com/architecture/framework/security/implement-zero-trust#verify_every_access_attempt_explicitly)
+  * [Monitor and maintain your network](https://docs.cloud.google.com/architecture/framework/security/implement-zero-trust#monitor_and_maintain_your_network)
 
 
 
@@ -91,7 +91,7 @@ To implement this recommendation, use the following methods, tools, and technolo
     * If you don't have an existing IdP, consider using [Cloud Identity Premium](https://docs.cloud.google.com/identity/docs/editions) or [Google Workspace](https://workspace.google.com/).
   * **Limited service account permissions** : Use [service accounts](https://docs.cloud.google.com/iam/docs/service-account-overview) carefully, and adhere to the principle of least privilege. 
     * Grant only the necessary permissions required for each service account to perform its designated tasks.
-    * Use [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identities) for applications that run on Google Kubernetes Engine (GKE) or run outside Google Cloud to access resources securely.
+    * Use [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identities) for applications that run on GKE or run outside Google Cloud to access resources securely.
   * **Robust processes** : Update your identity processes to align with cloud security best practices. 
     * To help ensure compliance with regulatory requirements, implement identity governance to track access, risks, and policy violations.
     * Review and update your existing processes for granting and auditing access-control roles and permissions.
@@ -102,7 +102,7 @@ To implement this recommendation, use the following methods, tools, and technolo
     * Avoid overprovisioning user access.
     * Consider implementing just-in-time privileged access for sensitive operations.
   * **Logging** : Enable audit logging for administrator and data access activities. 
-    * For analysis and threat detection, scan the logs by using [Security Command Center Enterprise](https://docs.cloud.google.com/security-command-center/docs/service-tiers#enterprise-tier) or [Google Security Operations](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview).
+    * For analysis and threat detection, scan the logs by using [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/service-tiers) or [Google Security Operations](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview).
     * Configure appropriate log retention policies to balance security needs with storage costs.
 
 
@@ -128,9 +128,9 @@ When you plan and implement security measures, assume that an attacker is alread
 
   * **Vulnerability scanning and remediation** : Regularly scan your network and applications for vulnerabilities.
 
-    * Use [Web Security Scanner](https://docs.cloud.google.com/security-command-center/docs/concepts-vulnerabilities-findings), which can automatically identify vulnerabilities in your Compute Engine instances, containers, and GKE clusters.
+    * Use [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/concepts-vulnerabilities-findings), which can automatically identify vulnerabilities in your Compute Engine instances, containers, and GKE clusters.
     * Prioritize remediation based on the severity of vulnerabilities and their potential impact on your systems.
-  * **Intrusion detection** : Monitor network traffic for malicious activity and automatically block or get alerts for suspicious events by using [Cloud IDS](https://docs.cloud.google.com/intrusion-detection-system/docs/overview) and [Cloud NGFW intrusion prevention service](https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention).
+  * **Intrusion detection** : Monitor network traffic for malicious activity and automatically block or get alerts for suspicious events by using [Cloud Intrusion Detection System (Cloud IDS)](https://docs.cloud.google.com/intrusion-detection-system/docs/overview) and [Cloud Next Generation Firewall (Cloud NGFW) intrusion prevention service](https://docs.cloud.google.com/firewall/docs/about-intrusion-prevention).
 
   * **Security analysis** : Consider implementing [Google SecOps](https://docs.cloud.google.com/chronicle/docs/secops/secops-overview) to correlate security events from various sources, provide real-time analysis of security alerts, and facilitate incident response.
 
@@ -147,6 +147,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2025-02-05 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2025-02-05 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-manager/docs/migrate/
 title: Migrate third-party certificates to Certificate Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:57:34.357872+00:00
+fetched_at: 2026-10-29T11:06:03.732730+00:00
 ---
 
 # Migrate third-party certificates to Certificate Manager  |  Google Cloud Documentation

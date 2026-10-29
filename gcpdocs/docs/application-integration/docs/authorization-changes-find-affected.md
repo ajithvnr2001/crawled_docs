@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/authorization-changes-find-affected/
 title: Find integrations that need a run-as service account \u00a0|\u00a0 Application Integration \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:50:59.441843+00:00
+fetched_at: 2026-10-29T11:12:26.445003+00:00
 ---
 
 # Find integrations that need a run-as service account  |  Application Integration  |  Google Cloud Documentation

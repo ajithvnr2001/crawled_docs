@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/ground-responses-using-rag/
 title: Ground responses using RAG \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:00.342606+00:00
+fetched_at: 2026-10-29T11:06:08.494872+00:00
 ---
 
 # Ground responses using RAG  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

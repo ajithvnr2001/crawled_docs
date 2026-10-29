@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/cloud-storage-file-system/
 title: Use Cloud Storage as a mounted file system \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:35.199373+00:00
+fetched_at: 2026-10-29T11:12:08.457473+00:00
 ---
 
 # Use Cloud Storage as a mounted file system  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

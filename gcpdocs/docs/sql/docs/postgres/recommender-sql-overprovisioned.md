@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/recommender-sql-overprovisioned/
 title: Reduce overprovisioned Cloud SQL instances \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:56.612372+00:00
+fetched_at: 2026-10-29T10:18:38.319609+00:00
 ---
 
 # Reduce overprovisioned Cloud SQL instances  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation

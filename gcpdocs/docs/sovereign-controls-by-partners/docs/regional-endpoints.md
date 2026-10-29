@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sovereign-controls-by-partners/docs/regional-endpoints/
 title: Accessing regional API endpoints \u00a0|\u00a0 Sovereign Controls by Partners \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:09.711628+00:00
+fetched_at: 2026-10-29T10:18:39.759396+00:00
 ---
 
 # Accessing regional API endpoints  |  Sovereign Controls by Partners  |  Google Cloud Documentation
