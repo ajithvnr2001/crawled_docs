@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026/
 title: Deep Research Max preview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:48.052935+00:00
+fetched_at: 2026-10-29T10:42:26.910443+00:00
 ---
 
 # Deep Research Max preview
@@ -27,4 +27,5 @@ token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **I
   * Preview: `deep-research-max-preview-04-2026`
 
   
-calendar_monthLatest update | April 2026
+calendar_monthLatest update | April 2026  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-agents)

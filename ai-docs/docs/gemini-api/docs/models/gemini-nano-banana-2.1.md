@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1
 title: Gemini Nano Banana 2.1
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:44.077881+00:00
+fetched_at: 2026-10-29T10:42:29.033994+00:00
 ---
 
 # Gemini Nano Banana 2.1
@@ -42,4 +42,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
   * Stable: `gemini-nano-banana-2.1`
 
   
-calendar_monthLatest update | October 2026
+calendar_monthLatest update | October 2026  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-nano-banana-2.1)

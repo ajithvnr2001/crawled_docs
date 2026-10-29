@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2/
 title: Gemini Embedding 2 model
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:44.050670+00:00
+fetched_at: 2026-10-29T10:42:30.011738+00:00
 ---
 
 # Gemini Embedding 2 model
@@ -27,4 +27,5 @@ token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **I
   * Stable: `gemini-embedding-2`
 
   
-calendar_monthLatest update | April 2026
+calendar_monthLatest update | April 2026  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding-2)

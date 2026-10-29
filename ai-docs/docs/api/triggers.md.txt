@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/triggers.md.txt
 title: triggers
 method: httpx-raw-text
-fetched_at: 2026-10-28T10:18:46.519790+00:00
+fetched_at: 2026-10-29T10:42:34.090411+00:00
 ---
 
 # triggers
@@ -38,9 +38,6 @@ The agent to interact with.
 
 #### Possible values
 
-- `deep-research-pro-preview-12-2025`
-
-  Gemini Deep Research Agent
 - `deep-research-preview-04-2026`
 
   Gemini Deep Research Agent
@@ -122,6 +119,11 @@ values:
 
   The interaction is completed, but contains incomplete results (e.g.
   hitting max_tokens).
+- `requires_continuation`
+
+  The interaction requires at least one more request for it to be
+  completed. The next request should set the continuation_token to the one
+  returned by this request.
 created string (optional) Required. Output only. The time at which the response was created in ISO 8601 format
 (YYYY-MM-DDThh:mm:ssZ).
 updated string (optional) Required. Output only. The time at which the response was last updated in ISO 8601 format
@@ -626,6 +628,9 @@ Label keys and values can be no longer than 63 characters
 (Unicode codepoints) and can only contain lowercase letters, numeric
 characters, underscores, and dashes. International characters are allowed.
 Label values are optional. Label keys must start with a letter.
+continuation_token string (optional) Opaque token to resume a long decode. Output: set when status is
+REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest
+token back unchanged in CreateInteraction to continue decoding.
 display_name string (optional) Optional. The display name of the trigger.
 environment_id string (optional) Optional. The environment ID for the trigger execution.
 max_consecutive_failures integer (optional) Optional. The maximum number of consecutive failures allowed before
@@ -648,9 +653,6 @@ The agent to interact with.
 
 #### Possible values
 
-- `deep-research-pro-preview-12-2025`
-
-  Gemini Deep Research Agent
 - `deep-research-preview-04-2026`
 
   Gemini Deep Research Agent
@@ -732,6 +734,11 @@ values:
 
   The interaction is completed, but contains incomplete results (e.g.
   hitting max_tokens).
+- `requires_continuation`
+
+  The interaction requires at least one more request for it to be
+  completed. The next request should set the continuation_token to the one
+  returned by this request.
 created string (optional) Required. Output only. The time at which the response was created in ISO 8601 format
 (YYYY-MM-DDThh:mm:ssZ).
 updated string (optional) Required. Output only. The time at which the response was last updated in ISO 8601 format
@@ -1236,6 +1243,9 @@ Label keys and values can be no longer than 63 characters
 (Unicode codepoints) and can only contain lowercase letters, numeric
 characters, underscores, and dashes. International characters are allowed.
 Label values are optional. Label keys must start with a letter.
+continuation_token string (optional) Opaque token to resume a long decode. Output: set when status is
+REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest
+token back unchanged in CreateInteraction to continue decoding.
 id string (required) Required. Output only. Identifier. The ID of the trigger.
 display_name string (optional) Optional. The display name of the trigger.
 environment_id string (optional) Optional. The environment ID for the trigger execution.
@@ -1364,7 +1374,7 @@ Provide this to retrieve the subsequent page.
       "schedule": "string",
       "time_zone": "string",
       "interaction": {
-        "agent": "deep-research-pro-preview-12-2025",
+        "agent": "deep-research-preview-04-2026",
         "input": {
           "type": "...",
           "data": "...",
@@ -1423,6 +1433,7 @@ Provide this to retrieve the subsequent page.
           }
         ],
         "labels": {},
+        "continuation_token": "string",
         "stream": true,
         "store": true,
         "background": true
@@ -1473,9 +1484,6 @@ The agent to interact with.
 
 #### Possible values
 
-- `deep-research-pro-preview-12-2025`
-
-  Gemini Deep Research Agent
 - `deep-research-preview-04-2026`
 
   Gemini Deep Research Agent
@@ -1557,6 +1565,11 @@ values:
 
   The interaction is completed, but contains incomplete results (e.g.
   hitting max_tokens).
+- `requires_continuation`
+
+  The interaction requires at least one more request for it to be
+  completed. The next request should set the continuation_token to the one
+  returned by this request.
 created string (optional) Required. Output only. The time at which the response was created in ISO 8601 format
 (YYYY-MM-DDThh:mm:ssZ).
 updated string (optional) Required. Output only. The time at which the response was last updated in ISO 8601 format
@@ -2061,6 +2074,9 @@ Label keys and values can be no longer than 63 characters
 (Unicode codepoints) and can only contain lowercase letters, numeric
 characters, underscores, and dashes. International characters are allowed.
 Label values are optional. Label keys must start with a letter.
+continuation_token string (optional) Opaque token to resume a long decode. Output: set when status is
+REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest
+token back unchanged in CreateInteraction to continue decoding.
 id string (required) Required. Output only. Identifier. The ID of the trigger.
 display_name string (optional) Optional. The display name of the trigger.
 environment_id string (optional) Optional. The environment ID for the trigger execution.
@@ -2102,7 +2118,7 @@ values:
   "schedule": "string",
   "time_zone": "string",
   "interaction": {
-    "agent": "deep-research-pro-preview-12-2025",
+    "agent": "deep-research-preview-04-2026",
     "input": {
       "type": {},
       "data": "string",
@@ -2173,6 +2189,7 @@ values:
       }
     ],
     "labels": {},
+    "continuation_token": "string",
     "stream": true,
     "store": true,
     "background": true
@@ -2324,9 +2341,6 @@ The agent to interact with.
 
 #### Possible values
 
-- `deep-research-pro-preview-12-2025`
-
-  Gemini Deep Research Agent
 - `deep-research-preview-04-2026`
 
   Gemini Deep Research Agent
@@ -2408,6 +2422,11 @@ values:
 
   The interaction is completed, but contains incomplete results (e.g.
   hitting max_tokens).
+- `requires_continuation`
+
+  The interaction requires at least one more request for it to be
+  completed. The next request should set the continuation_token to the one
+  returned by this request.
 created string (optional) Required. Output only. The time at which the response was created in ISO 8601 format
 (YYYY-MM-DDThh:mm:ssZ).
 updated string (optional) Required. Output only. The time at which the response was last updated in ISO 8601 format
@@ -2912,6 +2931,9 @@ Label keys and values can be no longer than 63 characters
 (Unicode codepoints) and can only contain lowercase letters, numeric
 characters, underscores, and dashes. International characters are allowed.
 Label values are optional. Label keys must start with a letter.
+continuation_token string (optional) Opaque token to resume a long decode. Output: set when status is
+REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest
+token back unchanged in CreateInteraction to continue decoding.
 id string (required) Required. Output only. Identifier. The ID of the trigger.
 display_name string (optional) Optional. The display name of the trigger.
 environment_id string (optional) Optional. The environment ID for the trigger execution.
@@ -2953,7 +2975,7 @@ values:
   "schedule": "string",
   "time_zone": "string",
   "interaction": {
-    "agent": "deep-research-pro-preview-12-2025",
+    "agent": "deep-research-preview-04-2026",
     "input": {
       "type": {},
       "data": "string",
@@ -3024,6 +3046,7 @@ values:
       }
     ],
     "labels": {},
+    "continuation_token": "string",
     "stream": true,
     "store": true,
     "background": true
@@ -3084,9 +3107,6 @@ The agent to interact with.
 
 #### Possible values
 
-- `deep-research-pro-preview-12-2025`
-
-  Gemini Deep Research Agent
 - `deep-research-preview-04-2026`
 
   Gemini Deep Research Agent
@@ -3168,6 +3188,11 @@ values:
 
   The interaction is completed, but contains incomplete results (e.g.
   hitting max_tokens).
+- `requires_continuation`
+
+  The interaction requires at least one more request for it to be
+  completed. The next request should set the continuation_token to the one
+  returned by this request.
 created string (optional) Required. Output only. The time at which the response was created in ISO 8601 format
 (YYYY-MM-DDThh:mm:ssZ).
 updated string (optional) Required. Output only. The time at which the response was last updated in ISO 8601 format
@@ -3672,6 +3697,9 @@ Label keys and values can be no longer than 63 characters
 (Unicode codepoints) and can only contain lowercase letters, numeric
 characters, underscores, and dashes. International characters are allowed.
 Label values are optional. Label keys must start with a letter.
+continuation_token string (optional) Opaque token to resume a long decode. Output: set when status is
+REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest
+token back unchanged in CreateInteraction to continue decoding.
 id string (required) Required. Output only. Identifier. The ID of the trigger.
 display_name string (optional) Optional. The display name of the trigger.
 environment_id string (optional) Optional. The environment ID for the trigger execution.

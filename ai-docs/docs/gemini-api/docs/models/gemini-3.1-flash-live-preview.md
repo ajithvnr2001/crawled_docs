@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview
 title: Gemini 3.1 Flash live preview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:38.934360+00:00
+fetched_at: 2026-10-29T10:42:27.352161+00:00
 ---
 
 # Gemini 3.1 Flash live preview
@@ -33,6 +33,7 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
   
 calendar_monthLatest update | March 2026  
 id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-3-1-flash-audio/)  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-live)  
   
 ## Migrating from Gemini 2.5 Flash Live
 

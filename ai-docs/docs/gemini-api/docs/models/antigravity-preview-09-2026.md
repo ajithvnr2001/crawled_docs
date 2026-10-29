@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-09-2026/
 title: Antigravity preview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:44.934176+00:00
+fetched_at: 2026-10-29T10:42:28.560280+00:00
 ---
 
 # Antigravity preview
@@ -29,4 +29,5 @@ token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **I
   * Preview: `antigravity-preview-09-2026`
 
   
-calendar_monthLatest update | September 2026
+calendar_monthLatest update | September 2026  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#pricing-for-agents)

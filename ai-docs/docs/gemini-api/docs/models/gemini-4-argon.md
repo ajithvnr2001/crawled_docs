@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-4-argon/
 title: Gemini 4 Argon
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:42.601798+00:00
+fetched_at: 2026-10-29T10:42:30.904108+00:00
 ---
 
 # Gemini 4 Argon
@@ -32,4 +32,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
 
   
 calendar_monthLatest update | October 2026  
-id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-4-argon/)
+id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-4-argon/)  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-4-argon)

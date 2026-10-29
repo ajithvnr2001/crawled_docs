@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts
 title: Gemini 3.8 Flash-Lite TTS
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:43.044903+00:00
+fetched_at: 2026-10-29T10:42:27.205856+00:00
 ---
 
 # Gemini 3.8 Flash-Lite TTS
@@ -67,6 +67,7 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
 
   
 calendar_monthLatest update | September 2026  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-flash-lite-tts)  
   
 ## Supported languages
 

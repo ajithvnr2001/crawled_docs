@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/interactions-api/
 title: Gemini Interactions API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:18:57.108518+00:00
+fetched_at: 2026-10-29T10:42:39.016958+00:00
 ---
 
 # Gemini Interactions API
@@ -182,10 +182,6 @@ The name of the `Agent` used for generating the interaction.
 The agent to interact with.
 
 #### Possible values
-
-  * `deep-research-pro-preview-12-2025`
-
-Gemini Deep Research Agent
 
   * `deep-research-preview-04-2026`
 
@@ -825,6 +821,10 @@ labels object (optional)
 
 The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter.
 
+continuation_token string (optional)
+
+Opaque token to resume a long decode. Output: set when status is REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
+
 stream boolean (optional)
 
 Input only. Whether the interaction will be streamed.
@@ -1006,7 +1006,7 @@ Returns an Interaction resource.
     
     
     {
-      "agent": "deep-research-pro-preview-12-2025",
+      "agent": "deep-research-preview-04-2026",
       "created": "2025-11-26T12:22:47Z",
       "id": "v1_ChdPU0F4YWFtNkFwS2kxZThQZ05lbXdROBIXT1NBeGFhbTZBcEtpMWU4UGdOZW13UTg",
       "object": "interaction",
@@ -1295,6 +1295,10 @@ The interaction was cancelled.
 
 The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
 
+  * `requires_continuation`
+
+The interaction requires at least one more request for it to be completed. The next request should set the continuation_token to the one returned by this request.
+
 
 
 
@@ -1476,6 +1480,10 @@ Statistics on the interaction request's token usage.
 total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
+
+initial_input_tokens integer (optional)
+
+Number of input tokens used in the first turn of this interaction.
 
 input_tokens_by_modality array (ModalityTokens) (optional)
 
@@ -1977,6 +1985,10 @@ message string (optional)
 
 A human-readable error message.
 
+continuation_token string (optional)
+
+Opaque token to resume a long decode. Output: set when status is REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
+
 agent AgentOption (optional)
 
 The name of the `Agent` used for generating the interaction.
@@ -1984,10 +1996,6 @@ The name of the `Agent` used for generating the interaction.
 The agent to interact with.
 
 #### Possible values
-
-  * `deep-research-pro-preview-12-2025`
-
-Gemini Deep Research Agent
 
   * `deep-research-preview-04-2026`
 
@@ -3090,6 +3098,10 @@ total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
 
+initial_input_tokens integer (optional)
+
+Number of input tokens used in the first turn of this interaction.
+
 input_tokens_by_modality array (ModalityTokens) (optional)
 
 A breakdown of input token usage by modality.
@@ -3328,13 +3340,13 @@ steps array (Step) (optional)
 
 Output only. The steps that make up the interaction, if included in this event.
 
-agent string (optional)
-
-The agent to interact with.
-
 continuation_token string (optional)
 
 Opaque token to resume a long decode. Output: set when status is INCOMPLETE and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
+
+agent string (optional)
+
+The agent to interact with.
 
 object string (optional)
 
@@ -3423,6 +3435,10 @@ total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
 
+initial_input_tokens integer (optional)
+
+Number of input tokens used in the first turn of this interaction.
+
 input_tokens_by_modality array (ModalityTokens) (optional)
 
 A breakdown of input token usage by modality.
@@ -3661,13 +3677,13 @@ steps array (Step) (optional)
 
 Output only. The steps that make up the interaction, if included in this event.
 
-agent string (optional)
-
-The agent to interact with.
-
 continuation_token string (optional)
 
 Opaque token to resume a long decode. Output: set when status is INCOMPLETE and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
+
+agent string (optional)
+
+The agent to interact with.
 
 object string (optional)
 
@@ -3719,6 +3735,10 @@ The interaction was cancelled.
 
 The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
 
+  * `requires_continuation`
+
+The interaction requires at least one more request for it to be completed. The next request should set the continuation_token to the one returned by this request.
+
 
 
 
@@ -3743,6 +3763,10 @@ Statistics on the interaction request's token usage.
 total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
+
+initial_input_tokens integer (optional)
+
+Number of input tokens used in the first turn of this interaction.
 
 input_tokens_by_modality array (ModalityTokens) (optional)
 
@@ -4957,6 +4981,10 @@ total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
 
+initial_input_tokens integer (optional)
+
+Number of input tokens used in the first turn of this interaction.
+
 input_tokens_by_modality array (ModalityTokens) (optional)
 
 A breakdown of input token usage by modality.
@@ -5214,6 +5242,10 @@ total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
 
+initial_input_tokens integer (optional)
+
+Number of input tokens used in the first turn of this interaction.
+
 input_tokens_by_modality array (ModalityTokens) (optional)
 
 A breakdown of input token usage by modality.
@@ -5438,6 +5470,10 @@ Statistics on the interaction request's token usage.
 total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
+
+initial_input_tokens integer (optional)
+
+Number of input tokens used in the first turn of this interaction.
 
 input_tokens_by_modality array (ModalityTokens) (optional)
 

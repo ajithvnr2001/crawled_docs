@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/speech-generation/
 title: Text-to-speech generation (TTS)
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:45:07.704157+00:00
+fetched_at: 2026-10-29T10:42:33.422571+00:00
 ---
 
 # Text-to-speech generation (TTS)
@@ -268,7 +268,6 @@ For multi-speaker dialogue, configure two speakers in `speech_config.speakers` a
         },
         "generation_config": {
           "speech_config": {
-            "mode": "conversational",
             "speakers": [
               { "speaker": "Joe", "voice": "Puck" },
               { "speaker": "Jane", "voice": "Kore" }

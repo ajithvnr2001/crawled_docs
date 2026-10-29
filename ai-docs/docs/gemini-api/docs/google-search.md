@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/google-search/
 title: Grounding with Google Search
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:00.680355+00:00
+fetched_at: 2026-10-29T10:42:32.899853+00:00
 ---
 
 # Grounding with Google Search

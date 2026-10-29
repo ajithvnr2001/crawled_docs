@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite
 title: Gemini 3.5 Flash-Lite
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:41.313917+00:00
+fetched_at: 2026-10-29T10:42:27.906956+00:00
 ---
 
 # Gemini 3.5 Flash-Lite
@@ -32,4 +32,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
 
   
 calendar_monthLatest update | July 2026  
-id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/)
+id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/)  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-flash-lite)

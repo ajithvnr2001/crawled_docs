@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/interactions-v1.md.txt
 title: interactions v1
 method: httpx-raw-text
-fetched_at: 2026-10-28T10:18:58.121866+00:00
+fetched_at: 2026-10-29T10:42:34.930220+00:00
 ---
 
 # interactions v1
@@ -45,7 +45,6 @@ Creates a new interaction.
 
 - **agent** (`AgentOption`)  The name of the `Agent` used for generating the interaction. <br><strong>Required if `model` is not provided.</strong>
   Possible values:
-  - `deep-research-pro-preview-12-2025`: Gemini Deep Research Agent
   - `deep-research-preview-04-2026`: Gemini Deep Research Agent
   - `deep-research-max-preview-04-2026`: Gemini Deep Research Max Agent
   - `antigravity-preview-05-2026`: Use the Antigravity managed agent to perform multi-step tasks that require reasoning, file operations, and tool use.
@@ -147,6 +146,8 @@ groups based on certain attributes.
     - `severity`: The harm block method uses both probability and severity scores.
     - `probability`: The harm block method uses the probability score.
 
+
+- **continuation_token** (`string`)  Opaque token to resume a long decode. Output: set when status is REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
 
 - **stream** (`boolean`)  Input only. Whether the interaction will be streamed.
 
@@ -914,7 +915,7 @@ curl -X POST https://generativelanguage.googleapis.com/v1/interactions \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "agent": "deep-research-pro-preview-12-2025",
+    "agent": "deep-research-preview-04-2026",
     "input": "Find a cure to cancer",
     "background": true
   }'
@@ -926,7 +927,7 @@ from google import genai
 
 client = genai.Client()
 interaction = client.interactions.create(
-    agent="deep-research-pro-preview-12-2025",
+    agent="deep-research-preview-04-2026",
     input="find a cure to cancer",
     background=True,
 )
@@ -939,7 +940,7 @@ import {GoogleGenAI} from '@google/genai';
 
 const ai = new GoogleGenAI({});
 const interaction = await ai.interactions.create({
-  agent: 'deep-research-pro-preview-12-2025',
+  agent: 'deep-research-preview-04-2026',
   input: 'find a cure to cancer',
   background: true,
 });
@@ -960,7 +961,7 @@ import com.google.genai.gaos.models.interactions.InteractionsInput;
 Client client = new Client();
 CreateAgentInteraction params =
     CreateAgentInteraction.builder()
-        .agent(AgentOption.of("deep-research-pro-preview-12-2025"))
+        .agent(AgentOption.of("deep-research-preview-04-2026"))
         .input(InteractionsInput.of("find a cure to cancer"))
         .background(true)
         .build();
@@ -992,7 +993,7 @@ func main() {
     }
 
     body := operations.NewCreateInteractionRequestBody(gaos_interactions.CreateAgentInteraction{
-        Agent:      gaos_interactions.AgentOption("deep-research-pro-preview-12-2025"),
+        Agent:      gaos_interactions.AgentOption("deep-research-preview-04-2026"),
         Input:      genai.Ptr(gaos_interactions.NewInteractionsInput("find a cure to cancer")),
         Background: genai.Ptr(true),
     })
@@ -2102,6 +2103,9 @@ The Interaction resource.
   - `cancelled`: The interaction was cancelled.
   - `incomplete`: The interaction is completed, but contains incomplete results (e.g.
 hitting max_tokens).
+  - `requires_continuation`: The interaction requires at least one more request for it to be
+completed. The next request should set the continuation_token to the one
+returned by this request.
 
 - **created** (`string`) *(Required)*  Required. Output only. The time at which the response was created in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ).
 
@@ -2179,6 +2183,8 @@ frame.
 
 - **usage** (`Usage`)  Output only. Statistics on the interaction request's token usage.
   - **total_input_tokens** (`integer`)  Number of tokens in the prompt (context).
+
+  - **initial_input_tokens** (`integer`)  Number of input tokens used in the first turn of this interaction.
 
   - **input_tokens_by_modality** (`array (ModalityTokens)`)  A breakdown of input token usage by modality.
     - **modality** (`ResponseModality`)  The modality associated with the token count.
@@ -2291,6 +2297,8 @@ groups based on certain attributes.
   - **message** (`string`)  A human-readable error message.
 
 
+- **continuation_token** (`string`)  Opaque token to resume a long decode. Output: set when status is REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
+
 - **stream** (`boolean`)  Input only. Whether the interaction will be streamed.
 
 - **store** (`boolean`)  Input only. Whether to store the response and request for later retrieval.
@@ -2299,7 +2307,6 @@ groups based on certain attributes.
 
 - **agent** (`AgentOption`)  The name of the `Agent` used for generating the interaction.
   Possible values:
-  - `deep-research-pro-preview-12-2025`: Gemini Deep Research Agent
   - `deep-research-preview-04-2026`: Gemini Deep Research Agent
   - `deep-research-max-preview-04-2026`: Gemini Deep Research Max Agent
   - `antigravity-preview-05-2026`: Use the Antigravity managed agent to perform multi-step tasks that require reasoning, file operations, and tool use.
@@ -3679,6 +3686,9 @@ func main() {
       - `cancelled`: The interaction was cancelled.
       - `incomplete`: The interaction is completed, but contains incomplete results (e.g.
 hitting max_tokens).
+      - `requires_continuation`: The interaction requires at least one more request for it to be
+completed. The next request should set the continuation_token to the one
+returned by this request.
 
     - **model** (`string`)  The model that will complete your prompt.
 
@@ -3688,6 +3698,8 @@ hitting max_tokens).
 
     - **usage** (`Usage`)  Output only. Statistics on the interaction request's token usage.
       - **total_input_tokens** (`integer`)  Number of tokens in the prompt (context).
+
+      - **initial_input_tokens** (`integer`)  Number of input tokens used in the first turn of this interaction.
 
       - **input_tokens_by_modality** (`array (ModalityTokens)`)  A breakdown of input token usage by modality.
         - **modality** (`ResponseModality`)  The modality associated with the token count.
@@ -3827,6 +3839,9 @@ for Enterprise.
       - `cancelled`: The interaction was cancelled.
       - `incomplete`: The interaction is completed, but contains incomplete results (e.g.
 hitting max_tokens).
+      - `requires_continuation`: The interaction requires at least one more request for it to be
+completed. The next request should set the continuation_token to the one
+returned by this request.
 
     - **model** (`string`)  The model that will complete your prompt.
 
@@ -3836,6 +3851,8 @@ hitting max_tokens).
 
     - **usage** (`Usage`)  Output only. Statistics on the interaction request's token usage.
       - **total_input_tokens** (`integer`)  Number of tokens in the prompt (context).
+
+      - **initial_input_tokens** (`integer`)  Number of input tokens used in the first turn of this interaction.
 
       - **input_tokens_by_modality** (`array (ModalityTokens)`)  A breakdown of input token usage by modality.
         - **modality** (`ResponseModality`)  The modality associated with the token count.
@@ -3972,6 +3989,9 @@ for Enterprise.
     - `cancelled`: The interaction was cancelled.
     - `incomplete`: The interaction is completed, but contains incomplete results (e.g.
 hitting max_tokens).
+    - `requires_continuation`: The interaction requires at least one more request for it to be
+completed. The next request should set the continuation_token to the one
+returned by this request.
 
   - **event_type** (`object`) *(Required)*
     Value: `interaction.status_update`
@@ -3979,6 +3999,8 @@ hitting max_tokens).
 
   - **usage** (`Usage`)  Model usage statistics up to this checkpoint.
     - **total_input_tokens** (`integer`)  Number of tokens in the prompt (context).
+
+    - **initial_input_tokens** (`integer`)  Number of input tokens used in the first turn of this interaction.
 
     - **input_tokens_by_modality** (`array (ModalityTokens)`)  A breakdown of input token usage by modality.
       - **modality** (`ResponseModality`)  The modality associated with the token count.
@@ -4396,6 +4418,8 @@ for Enterprise.
     - **total_usage** (`Usage`)  Statistics on the interaction request's token usage.
       - **total_input_tokens** (`integer`)  Number of tokens in the prompt (context).
 
+      - **initial_input_tokens** (`integer`)  Number of input tokens used in the first turn of this interaction.
+
       - **input_tokens_by_modality** (`array (ModalityTokens)`)  A breakdown of input token usage by modality.
         - **modality** (`ResponseModality`)  The modality associated with the token count.
           Possible values:
@@ -4516,6 +4540,8 @@ for Enterprise.
   - **usage** (`Usage`)  Cumulative model usage stats from the start of the session.
     - **total_input_tokens** (`integer`)  Number of tokens in the prompt (context).
 
+    - **initial_input_tokens** (`integer`)  Number of input tokens used in the first turn of this interaction.
+
     - **input_tokens_by_modality** (`array (ModalityTokens)`)  A breakdown of input token usage by modality.
       - **modality** (`ResponseModality`)  The modality associated with the token count.
         Possible values:
@@ -4587,6 +4613,8 @@ for Enterprise.
 
   - **step_usage** (`Usage`)  Model usage stats for this specific step.
     - **total_input_tokens** (`integer`)  Number of tokens in the prompt (context).
+
+    - **initial_input_tokens** (`integer`)  Number of input tokens used in the first turn of this interaction.
 
     - **input_tokens_by_modality** (`array (ModalityTokens)`)  A breakdown of input token usage by modality.
       - **modality** (`ResponseModality`)  The modality associated with the token count.

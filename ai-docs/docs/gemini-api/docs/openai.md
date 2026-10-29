@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/openai/
 title: OpenAI compatibility
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:43.915694+00:00
+fetched_at: 2026-10-29T10:42:35.399600+00:00
 ---
 
 # OpenAI compatibility
@@ -856,7 +856,7 @@ Gemini models can output JSON objects in any [structure you define](https://ai.g
 
 ## Embeddings
 
-Text embeddings measure the relatedness of text strings and can be generated using the [Gemini API](https://ai.google.dev/gemini-api/docs/embeddings). You can use `gemini-embedding-2-preview` for multimodal embeddings or `gemini-embedding-001` for text-only embeddings.
+Text embeddings measure the relatedness of text strings and can be generated using the [Gemini API](https://ai.google.dev/gemini-api/docs/embeddings). You can use `gemini-embedding-2` for multimodal embeddings or `gemini-embedding-001` for text-only embeddings.
 
 ### Python
     
@@ -870,7 +870,7 @@ Text embeddings measure the relatedness of text strings and can be generated usi
     
     response = client.embeddings.create(
         input="Your text string goes here",
-        model="gemini-embedding-2-preview"
+        model="gemini-embedding-2"
     )
     
     print(response.data[0].embedding)
@@ -888,7 +888,7 @@ Text embeddings measure the relatedness of text strings and can be generated usi
     
     async function main() {
       const embedding = await openai.embeddings.create({
-        model: "gemini-embedding-2-preview",
+        model: "gemini-embedding-2",
         input: "Your text string goes here",
       });
     
@@ -906,7 +906,7 @@ Text embeddings measure the relatedness of text strings and can be generated usi
     -H "Authorization: Bearer GEMINI_API_KEY" \
     -d '{
         "input": "Your text string goes here",
-        "model": "gemini-embedding-2-preview"
+        "model": "gemini-embedding-2"
       }'
     
 

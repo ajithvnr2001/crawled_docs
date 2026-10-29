@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-overview/
 title: Gemini Robotics ER
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:53.843868+00:00
+fetched_at: 2026-10-29T10:42:31.972300+00:00
 ---
 
 # Gemini Robotics ER
@@ -201,6 +201,7 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
   
 calendar_monthLatest update | July 2026  
 id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-robotics-er-2/)  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2)  
   
 ### Gemini Robotics ER 2 Streaming Preview
 
@@ -218,6 +219,7 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
   
 calendar_monthLatest update | July 2026  
 id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-robotics-er-2/)  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-robotics-er-2-streaming)  
   
 ### Gemini Robotics ER 1.6 Preview
 

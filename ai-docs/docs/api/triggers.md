@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/triggers/
 title: Gemini Triggers API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:18:47.864381+00:00
+fetched_at: 2026-10-29T10:42:34.016169+00:00
 ---
 
 # Gemini Triggers API
@@ -52,10 +52,6 @@ The agent to interact with.
 
 #### Possible values
 
-  * `deep-research-pro-preview-12-2025`
-
-Gemini Deep Research Agent
-
   * `deep-research-preview-04-2026`
 
 Gemini Deep Research Agent
@@ -190,6 +186,10 @@ The interaction was cancelled.
   * `incomplete`
 
 The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
+
+  * `requires_continuation`
+
+The interaction requires at least one more request for it to be completed. The next request should set the continuation_token to the one returned by this request.
 
 
 
@@ -1030,6 +1030,10 @@ The harm block method uses the probability score.
 labels object (optional)
 
 The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter.
+
+continuation_token string (optional)
+
+Opaque token to resume a long decode. Output: set when status is REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
 
 display_name string (optional)
 
@@ -1075,10 +1079,6 @@ The agent to interact with.
 
 #### Possible values
 
-  * `deep-research-pro-preview-12-2025`
-
-Gemini Deep Research Agent
-
   * `deep-research-preview-04-2026`
 
 Gemini Deep Research Agent
@@ -1213,6 +1213,10 @@ The interaction was cancelled.
   * `incomplete`
 
 The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
+
+  * `requires_continuation`
+
+The interaction requires at least one more request for it to be completed. The next request should set the continuation_token to the one returned by this request.
 
 
 
@@ -2053,6 +2057,10 @@ The harm block method uses the probability score.
 labels object (optional)
 
 The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter.
+
+continuation_token string (optional)
+
+Opaque token to resume a long decode. Output: set when status is REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
 
 id string (required)
 
@@ -2276,7 +2284,7 @@ A page token, received from a previous `ListTriggers` call. Provide this to retr
           "schedule": "string",
           "time_zone": "string",
           "interaction": {
-            "agent": "deep-research-pro-preview-12-2025",
+            "agent": "deep-research-preview-04-2026",
             "input": {
               "type": "...",
               "data": "...",
@@ -2335,6 +2343,7 @@ A page token, received from a previous `ListTriggers` call. Provide this to retr
               }
             ],
             "labels": {},
+            "continuation_token": "string",
             "stream": true,
             "store": true,
             "background": true
@@ -2402,10 +2411,6 @@ The name of the `Agent` used for generating the interaction.
 The agent to interact with.
 
 #### Possible values
-
-  * `deep-research-pro-preview-12-2025`
-
-Gemini Deep Research Agent
 
   * `deep-research-preview-04-2026`
 
@@ -2541,6 +2546,10 @@ The interaction was cancelled.
   * `incomplete`
 
 The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
+
+  * `requires_continuation`
+
+The interaction requires at least one more request for it to be completed. The next request should set the continuation_token to the one returned by this request.
 
 
 
@@ -3382,6 +3391,10 @@ labels object (optional)
 
 The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter.
 
+continuation_token string (optional)
+
+Opaque token to resume a long decode. Output: set when status is REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
+
 id string (required)
 
 Required. Output only. Identifier. The ID of the trigger.
@@ -3464,7 +3477,7 @@ The trigger has entered an error state due to consecutive failures.
       "schedule": "string",
       "time_zone": "string",
       "interaction": {
-        "agent": "deep-research-pro-preview-12-2025",
+        "agent": "deep-research-preview-04-2026",
         "input": {
           "type": {},
           "data": "string",
@@ -3535,6 +3548,7 @@ The trigger has entered an error state due to consecutive failures.
           }
         ],
         "labels": {},
+        "continuation_token": "string",
         "stream": true,
         "store": true,
         "background": true
@@ -3774,10 +3788,6 @@ The agent to interact with.
 
 #### Possible values
 
-  * `deep-research-pro-preview-12-2025`
-
-Gemini Deep Research Agent
-
   * `deep-research-preview-04-2026`
 
 Gemini Deep Research Agent
@@ -3912,6 +3922,10 @@ The interaction was cancelled.
   * `incomplete`
 
 The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
+
+  * `requires_continuation`
+
+The interaction requires at least one more request for it to be completed. The next request should set the continuation_token to the one returned by this request.
 
 
 
@@ -4752,6 +4766,10 @@ The harm block method uses the probability score.
 labels object (optional)
 
 The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter.
+
+continuation_token string (optional)
+
+Opaque token to resume a long decode. Output: set when status is REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
 
 id string (required)
 
@@ -4835,7 +4853,7 @@ The trigger has entered an error state due to consecutive failures.
       "schedule": "string",
       "time_zone": "string",
       "interaction": {
-        "agent": "deep-research-pro-preview-12-2025",
+        "agent": "deep-research-preview-04-2026",
         "input": {
           "type": {},
           "data": "string",
@@ -4906,6 +4924,7 @@ The trigger has entered an error state due to consecutive failures.
           }
         ],
         "labels": {},
+        "continuation_token": "string",
         "stream": true,
         "store": true,
         "background": true
@@ -4980,10 +4999,6 @@ The name of the `Agent` used for generating the interaction.
 The agent to interact with.
 
 #### Possible values
-
-  * `deep-research-pro-preview-12-2025`
-
-Gemini Deep Research Agent
 
   * `deep-research-preview-04-2026`
 
@@ -5119,6 +5134,10 @@ The interaction was cancelled.
   * `incomplete`
 
 The interaction is completed, but contains incomplete results (e.g. hitting max_tokens).
+
+  * `requires_continuation`
+
+The interaction requires at least one more request for it to be completed. The next request should set the continuation_token to the one returned by this request.
 
 
 
@@ -5959,6 +5978,10 @@ The harm block method uses the probability score.
 labels object (optional)
 
 The labels with user-defined metadata for the request. Label keys and values can be no longer than 63 characters (Unicode codepoints) and can only contain lowercase letters, numeric characters, underscores, and dashes. International characters are allowed. Label values are optional. Label keys must start with a letter.
+
+continuation_token string (optional)
+
+Opaque token to resume a long decode. Output: set when status is REQUIRES_CONTINUATION and decoding can be resumed. Input: pass the latest token back unchanged in CreateInteraction to continue decoding.
 
 id string (required)
 

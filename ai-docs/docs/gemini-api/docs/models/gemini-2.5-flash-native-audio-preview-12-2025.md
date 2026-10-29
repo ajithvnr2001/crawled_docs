@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025
 title: Gemini 2.5 Flash live preview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:36.864944+00:00
+fetched_at: 2026-10-29T10:42:31.579830+00:00
 ---
 
 # Gemini 2.5 Flash live preview
@@ -32,4 +32,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
 
   
 calendar_monthLatest update | September 2025  
-cognition_2Knowledge cutoff | January 2025
+cognition_2Knowledge cutoff | January 2025  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-native-audio)

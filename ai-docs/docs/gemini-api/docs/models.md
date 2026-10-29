@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/
 title: Models
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:54.124251+00:00
+fetched_at: 2026-10-29T10:42:35.731744+00:00
 ---
 
 # Models
@@ -337,7 +337,7 @@ Model | Description | Endpoint
 [Gemini Embedding 2](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2) | Our first multimodal embedding model, mapping text, images, video, audio, and PDFs into a unified embedding space for advanced semantic search and RAG systems. | 
     
     
-    gemini-embedding-2-preview  
+    gemini-embedding-2  
   
 [Gemini Embedding](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001) | High-dimensional vector representations for advanced semantic search, text classification, and RAG systems. | 
     
@@ -407,7 +407,7 @@ For example: `gemini-flash-latest`.
 
 ### Experimental
 
-Points to an experimental model which will typically be not be suitable for production use and come with more restrictive rate limits. We release experimental models to gather feedback and get our latest updates into the hands of developers quickly.
+Points to an experimental model which will typically not be suitable for production use and come with more restrictive rate limits. We release experimental models to gather feedback and get our latest updates into the hands of developers quickly.
 
 Experimental models are not stable and availability of model endpoints is subject to change.
 

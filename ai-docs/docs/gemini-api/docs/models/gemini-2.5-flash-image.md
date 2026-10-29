@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image
 title: Gemini 2.5 Flash image (Nano Banana)
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:35.397245+00:00
+fetched_at: 2026-10-29T10:42:27.577256+00:00
 ---
 
 # Gemini 2.5 Flash image (Nano Banana)
@@ -33,4 +33,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
 
   
 calendar_monthLatest update | October 2025  
-cognition_2Knowledge cutoff | June 2025
+cognition_2Knowledge cutoff | June 2025  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-image)

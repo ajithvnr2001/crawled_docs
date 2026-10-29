@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/lyria-3.5
 title: Lyria 3.5
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:43.625475+00:00
+fetched_at: 2026-10-29T10:42:30.512502+00:00
 ---
 
 # Lyria 3.5
@@ -31,4 +31,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
   * Stable: `lyria-3.5`
 
   
-calendar_monthLatest update | September 2026
+calendar_monthLatest update | September 2026  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#lyria-3-5)

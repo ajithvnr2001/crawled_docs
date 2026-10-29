@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview
 title: Gemini 3.1 Flash TTS (text-to-speech) preview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:41.187447+00:00
+fetched_at: 2026-10-29T10:42:26.841567+00:00
 ---
 
 # Gemini 3.1 Flash TTS (text-to-speech) preview
@@ -34,4 +34,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
 
   
 calendar_monthLatest update | April 2026  
-id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-3-1-flash-audio/)
+id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-3-1-flash-audio/)  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-flash-tts-preview)

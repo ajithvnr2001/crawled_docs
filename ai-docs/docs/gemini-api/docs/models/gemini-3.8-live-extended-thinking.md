@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking
 title: Gemini 3.8 Live Extended Thinking
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:42.015164+00:00
+fetched_at: 2026-10-29T10:42:28.996100+00:00
 ---
 
 # Gemini 3.8 Live Extended Thinking
@@ -33,6 +33,7 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
   
 calendar_monthLatest update | September 2026  
 id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-3-8-audio/)  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.8-live)  
   
 ## Upgrading to Gemini 3.8 Live Extended Thinking
 

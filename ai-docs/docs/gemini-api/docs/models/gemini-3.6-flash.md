@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash
 title: Gemini 3.6 Flash
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:40.885403+00:00
+fetched_at: 2026-10-29T10:42:27.968606+00:00
 ---
 
 # Gemini 3.6 Flash
@@ -32,4 +32,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
 
   
 calendar_monthLatest update | July 2026  
-id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-3-6-flash/)
+id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-3-6-flash/)  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.6-flash)

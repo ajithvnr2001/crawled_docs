@@ -2,7 +2,7 @@
 url: https://ai.google.dev/api/voices/
 title: Gemini Voices API
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:18:46.449100+00:00
+fetched_at: 2026-10-29T10:42:37.435773+00:00
 ---
 
 # Gemini Voices API
@@ -157,6 +157,10 @@ Statistics on the interaction request's token usage.
 total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
+
+initial_input_tokens integer (optional)
+
+Number of input tokens used in the first turn of this interaction.
 
 input_tokens_by_modality array (ModalityTokens) (optional)
 
@@ -599,6 +603,10 @@ total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
 
+initial_input_tokens integer (optional)
+
+Number of input tokens used in the first turn of this interaction.
+
 input_tokens_by_modality array (ModalityTokens) (optional)
 
 A breakdown of input token usage by modality.
@@ -978,6 +986,10 @@ Statistics on the interaction request's token usage.
 total_input_tokens integer (optional)
 
 Number of tokens in the prompt (context).
+
+initial_input_tokens integer (optional)
+
+Number of input tokens used in the first turn of this interaction.
 
 input_tokens_by_modality array (ModalityTokens) (optional)
 

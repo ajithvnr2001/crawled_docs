@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts
 title: Gemini 2.5 Pro text-to-speech
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:35.618343+00:00
+fetched_at: 2026-10-29T10:42:29.549249+00:00
 ---
 
 # Gemini 2.5 Pro text-to-speech
@@ -31,4 +31,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
   * `gemini-2.5-pro-preview-tts`
 
   
-calendar_monthLatest update | December 2025
+calendar_monthLatest update | December 2025  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro-preview-tts)

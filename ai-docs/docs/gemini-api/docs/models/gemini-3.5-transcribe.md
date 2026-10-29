@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe
 title: Gemini 3.5 Transcribe
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:40.347003+00:00
+fetched_at: 2026-10-29T10:42:26.959481+00:00
 ---
 
 # Gemini 3.5 Transcribe
@@ -35,6 +35,8 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
 
   
 calendar_monthLatest update | August 2026  
+paidPricing | [Gemini 3.5 Transcribe](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-transcribe)  
+[Gemini 3.5 Transcribe Live](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.5-transcribe-live)  
   
 ## Feature support and limitations
 

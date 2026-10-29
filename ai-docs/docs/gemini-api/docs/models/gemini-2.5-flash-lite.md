@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite
 title: Gemini 2.5 Flash-Lite
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:36.676699+00:00
+fetched_at: 2026-10-29T10:42:29.120730+00:00
 ---
 
 # Gemini 2.5 Flash-Lite
@@ -29,4 +29,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
 
   
 calendar_monthLatest update | July 2025  
-cognition_2Knowledge cutoff | January 2025
+cognition_2Knowledge cutoff | January 2025  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-lite)

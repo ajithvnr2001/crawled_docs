@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/embeddings/
 title: Embeddings
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:56.037776+00:00
+fetched_at: 2026-10-29T10:42:31.165265+00:00
 ---
 
 # Embeddings
@@ -1332,6 +1332,7 @@ token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **I
 
   
 calendar_monthLatest update | April 2026  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding-2)  
   
 ### Gemini Embedding
 
@@ -1346,6 +1347,7 @@ token_autoToken limits[[*]](https://ai.google.dev/gemini-api/docs/tokens) |  **I
 
   
 calendar_monthLatest update | June 2025  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding)  
   
 For deprecated Embeddings models, visit the [Deprecations](https://ai.google.dev/gemini-api/docs/deprecations) page
 

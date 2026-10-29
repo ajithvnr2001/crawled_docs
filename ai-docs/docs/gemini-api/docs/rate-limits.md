@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/rate-limits/
 title: Rate limits
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:52.717135+00:00
+fetched_at: 2026-10-29T10:42:32.562184+00:00
 ---
 
 # Rate limits
@@ -27,7 +27,7 @@ Your usage is evaluated against each limit, and exceeding any of them will trigg
 
 Rate limits are applied per project, not per API key. Requests per day (**RPD**) quotas reset at midnight Pacific time.
 
-Limits vary depending on the specific model being used, and some limits only apply to specific models. For example, Images per minute, or IPM, is only calculated for models capable of generating images (Nano Banana), but is conceptually similar to TPM. Other models might have a token per day limit (TPD).
+Limits vary depending on the specific model being used, and some limits only apply to specific models. For example, Images per minute, or IPM, is only calculated for models capable of generating images (Nano Banana), but is conceptually similar to TPM. Other models might have a token per day limit (TPD). Built-in tools also have specific rate limits. For example, Grounding with Google Search on Gemini 3 and newer models is subject to a default limit of 1,500 requests per day (RPD) per project on the Gemini Developer API (see [Grounding with Google Search](https://ai.google.dev/gemini-api/docs/google-search#pricing)).
 
 Rate limits are more restricted for experimental and preview models.
 

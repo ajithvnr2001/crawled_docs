@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview
 title: Gemini 3.1 Pro preview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:40.534764+00:00
+fetched_at: 2026-10-29T10:42:27.541955+00:00
 ---
 
 # Gemini 3.1 Pro preview
@@ -34,6 +34,7 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
   
 calendar_monthLatest update | February 2026  
 id_cardModel card | [Model card](https://deepmind.google/models/model-cards/gemini-3-1-pro/)  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview)  
   
 #### gemini-3.1-pro-preview-customtools
 

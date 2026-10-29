@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro
 title: Gemini 2.5 Pro
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:37.752037+00:00
+fetched_at: 2026-10-29T10:42:29.953008+00:00
 ---
 
 # Gemini 2.5 Pro
@@ -28,4 +28,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
 
   
 calendar_monthLatest update | June 2025  
-cognition_2Knowledge cutoff | January 2025
+cognition_2Knowledge cutoff | January 2025  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-pro)

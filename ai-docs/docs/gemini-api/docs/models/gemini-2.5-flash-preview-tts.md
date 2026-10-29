@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts
 title: Gemini 2.5 Flash text-to-speech
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T11:44:36.795641+00:00
+fetched_at: 2026-10-29T10:42:28.249117+00:00
 ---
 
 # Gemini 2.5 Flash text-to-speech
@@ -31,4 +31,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
   * `gemini-2.5-flash-preview-tts`
 
   
-calendar_monthLatest update | December 2025
+calendar_monthLatest update | December 2025  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-2.5-flash-preview-tts)

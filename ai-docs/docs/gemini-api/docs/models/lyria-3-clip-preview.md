@@ -2,7 +2,7 @@
 url: https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview/
 title: Lyria 3 Clip preview
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T09:34:45.316939+00:00
+fetched_at: 2026-10-29T10:42:31.826170+00:00
 ---
 
 # Lyria 3 Clip preview
@@ -32,4 +32,5 @@ speedConsumption options |  **[Batch API](https://ai.google.dev/gemini-api/docs/
   * Preview: `lyria-3-pro-preview`
 
   
-calendar_monthLatest update | March 2026
+calendar_monthLatest update | March 2026  
+paidPricing | [Pricing](https://ai.google.dev/gemini-api/docs/pricing#lyria-3)
