@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub/
 title: Create Dubbing Job | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T06:34:37.487756+00:00
+fetched_at: 2026-10-29T06:33:47.362054+00:00
 ---
 
 # Create Dubbing Job | Sarvam API Docs
@@ -138,7 +138,7 @@ Show 12 enum values
 
 export_optionslist of enumsOptional
 
-Which formats to auto-produce per target language. When provided, only the listed formats are auto-exported. When omitted, the dubbed video, the isolated audio track, and an MP3 of that track are produced — but never SRT, which must be requested explicitly. Audio-only sources cannot produce a video, so `video` resolves to `audio` for them.
+Which formats to auto-produce per target language. When provided, only the listed formats are auto-exported. Accepted values: `video` (dubbed MP4), `audio` (dubbed voice over the background, `.wav`), `audio_vocals` (dubbed voice alone, `.wav`), `srt` and `vtt` (subtitles of the dubbed text). When omitted, only the dubbed video (MP4) is produced; request audio and subtitles explicitly. Audio-only sources cannot produce a video, so `video` resolves to `audio` for them.
 
 Allowed values:videoaudiosrt
 
@@ -210,7 +210,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/responses/create)[Start JobNext](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/responses/create)[Start JobNext](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * API Reference
 
@@ -355,6 +355,7 @@ YesNo
   * [Update status](https://docs.sarvam.ai/api-reference/campaigns/update-status)
   * [Webhook payload](https://docs.sarvam.ai/api-reference/campaigns/webhook-payload)
   * [Upload cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/api-reference/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/get)

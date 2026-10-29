@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/livekit-production-best-practices/
 title: LiveKit in Production | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T06:34:38.924211+00:00
+fetched_at: 2026-10-29T06:33:49.397945+00:00
 ---
 
 # LiveKit in Production | Sarvam API Docs
@@ -52,18 +52,20 @@ A tuning and operations guide for teams shipping cascading voice agents (Sarvam 
 
 Everything here is derived from the current `livekit-plugins-sarvam` plugin source and the `livekit-agents` runtime. New to LiveKit and Sarvam? Start with [Build Your First Voice Agent using LiveKit](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit) first; come back here before you ship.
 
+**Requirements.** This guide targets `livekit-agents` and `livekit-plugins-sarvam` 1.8.6 or later, the first release with `bulbul:v4-flash`, which needs Python 3.10 or later. Install with `pip install "livekit-agents[sarvam]>=1.8.6,<2"`. LiveKit Agents 2.0, in beta, renames `AgentSession` to `LiveSession`; the old name still works there but is deprecated, so stay below 2 until you migrate.
+
 The LiveKit defaults are tuned for English, LiveKit Cloud hosted, Silero VAD driven pipelines. A Sarvam pipeline is none of those three. At minimum, change `vad`, `turn_detection`, `stream_type`, and the endpointing delays. Shipping on defaults is the single most common cause of “the agent feels slow” or “it cuts me off.”
 
 ### Which STT class to use
 
 Class| Model| Recommendation| Use for  
 ---|---|---|---  
-`sarvam.STTStreaming`| `saaras:v3-realtime`| **Use this**|  All new voice agents  
-`sarvam.STT`| `saaras:v3`| Legacy| Batch `recognize()`, existing deployments  
+`sarvam.STTRealtime`| `saaras:v3-realtime`| **Use this**|  All new voice agents  
+`sarvam.STT`| `saaras:v4` (default) or `saaras:v3`| Legacy| Batch `recognize()`, existing deployments  
   
-`saaras:v3-realtime` gives you true partial transcripts (barge-in no longer waits for a final), a simpler VAD (three millisecond-valued parameters instead of ten frame counters), live reconfiguration without a reconnect, and a structured event and close-code protocol. This guide documents `STTStreaming` throughout; the legacy class is covered only in [Section 11](https://docs.sarvam.ai/api/integration/livekit-production-best-practices#11-the-legacy-class-and-migration).
+`saaras:v3-realtime` gives you true partial transcripts (barge-in no longer waits for a final), a simpler VAD (four millisecond-valued parameters instead of ten frame counters), live reconfiguration without a reconnect, and a structured event and close-code protocol. This guide documents `STTRealtime` throughout; the legacy class is covered only in [Section 11](https://docs.sarvam.ai/api/integration/livekit-production-best-practices#11-the-legacy-class-and-migration).
 
-`sarvam.STT`’s default model is not `saaras:v3`. If you use the legacy class, pass `model="saaras:v3"` explicitly.
+`sarvam.STTStreaming` is a deprecated alias for `sarvam.STTRealtime`: existing code keeps working, but use the new name. The legacy `sarvam.STT` defaults to `saaras:v4`, the latest model; pass `model="saaras:v3"` only if you need the previous one.
 
 * * *
 
@@ -99,11 +101,11 @@ Class| Model| Recommendation| Use for
     
         # STT: Sarvam's own server-side VAD drives turn-taking
     
-        stt=sarvam.STTStreaming(
+        stt=sarvam.STTRealtime(
     
             language="hi-IN",
     
-            stream_type="fast",         # was "balanced": 500 ms chunks instead of 1000 ms
+            stream_type="fast",         # was "balanced": partials every 500 ms instead of 1000 ms
     
             mode="transcribe",
     
@@ -135,7 +137,7 @@ Class| Model| Recommendation| Use for
     
         ),
     
-        # Critical: no LiveKit VAD. Sarvam STT already has one.
+        # No LiveKit VAD: Sarvam STT runs its own server-side (Section 3 covers the trade-off)
     
         vad=None,
     
@@ -173,7 +175,7 @@ Class| Model| Recommendation| Use for
     
         # other defaults worth revisiting
     
-        aec_warmup_duration=None,        # None for telephony/SIP, keep 3.0 for WebRTC + mic
+        aec_warmup_duration=None,        # None for inbound SIP (outbound SIP already defaults to None); keep 3.0 for WebRTC + mic
     
         user_away_timeout=None,          # or a value that matches your product
     
@@ -191,7 +193,7 @@ The user-perceived latency is the sum of the whole chain, not any one model:
 
 Three things worth knowing:
 
-  * **The first hop is a hard floor most people never look at.** The plugin buffers audio into fixed-size chunks before sending: 1000 ms on the default `stream_type="balanced"`, 500 ms on `"fast"`. Sarvam’s VAD can’t detect end-of-speech until the chunk containing that silence arrives, so `balanced` adds up to a full second in front of every turn. Set `stream_type="fast"`.
+  * **`stream_type` sets how soon partial transcripts arrive.** Sarvam’s server feeds the streaming model audio in 500 ms windows on `"fast"` and 1000 ms windows on the default `"balanced"`, so a partial can’t arrive sooner than one window. Partials drive barge-in (Section 7) and live captions. End-of-speech isn’t delayed: the server’s VAD runs on the raw audio, not on the windows. Set `stream_type="fast"`.
   * **`vad_min_silence_ms` and `min_delay` stack. They don’t overlap.** 500 ms of Sarvam silence plus a 0.5 s `min_delay` is a full second of dead air. Tune both together.
   * **TTS time-to-first-byte is dominated by connection state, not model speed.** A cold Sarvam TTS websocket costs a full TLS handshake on the critical path. Call `prewarm()` (Section 8).
 
@@ -203,35 +205,36 @@ Measure this instrumented, don’t guess: Section 9.
 
 ## 3\. Skip LiveKit’s Silero VAD
 
-Pass `vad=None` and let Sarvam’s server-side VAD drive turn-taking.
+We recommend passing `vad=None` and letting Sarvam’s server-side VAD drive turn-taking. It’s a trade-off, not a requirement: LiveKit’s own pattern for `turn_detection="stt"` keeps its bundled VAD for interruption detection, and a VAD is what enables the features in the table below.
 
-`STTStreaming` runs with `endpointing="vad"` by default, so the server emits `vad.speech_start` and `vad.speech_end` on every session, and the plugin maps those onto the framework’s start/end-of-speech events. That VAD already runs server-side on the exact audio the recognizer sees, is tunable through three explicit parameters trained on Indic speech (Section 5), and adds no local inference cost. Running Silero alongside it means two VADs disagreeing about turn boundaries: double-triggered interruptions, warnings in your logs, and endpointing metrics anchored on the wrong timestamp.
+`STTRealtime` runs with `endpointing="vad"` by default, so the server emits `vad.speech_start` and `vad.speech_end` on every session, and the plugin maps those onto the framework’s start/end-of-speech events. That VAD already runs server-side on the exact audio the recognizer sees, is tunable through four explicit parameters trained on Indic speech (Section 5), and adds no local inference cost. Running Silero alongside it means two VADs disagreeing about turn boundaries: double-triggered interruptions, warnings in your logs, and endpointing metrics anchored on the wrong timestamp.
 
-If you omit `vad`, `AgentSession` silently installs a LiveKit Inference-hosted Silero VAD, which needs LiveKit Cloud credentials and adds a network hop. Pass `vad=None` explicitly to opt out.
+If you omit `vad`, `AgentSession` silently installs LiveKit’s bundled Silero VAD (`livekit-agents` 1.6.1 and later). It runs locally on your worker, so it costs CPU, and it runs alongside Sarvam’s server-side VAD. Pass `vad=None` explicitly to opt out.
 
-Passing `vad=None` does disable four framework features gated on a VAD instance. Be deliberate about the trade:
+Passing `vad=None` does disable five framework features gated on a VAD instance. Be deliberate about the trade:
 
 Feature| Why it breaks with `vad=None`| Do this instead  
 ---|---|---  
-Semantic end-of-turn model (`inference.TurnDetector`)| Needs a VAD `INFERENCE_DONE` event; never fires without one| Set `turn_detection="stt"`, tune `vad_min_silence_ms` and `min_delay`  
-`endpointing.max_delay`| Only applies when the EOT model returns a low probability; no VAD means no prediction| Treat `min_delay` as your only endpointing knob  
+End-of-turn model (`inference.TurnDetector`)| Needs a VAD `INFERENCE_DONE` event; never fires without one| Set `turn_detection="stt"`, tune `vad_min_silence_ms` and `min_delay`  
+`endpointing.max_delay`| In `"fixed"` mode, only applies when the EOT model returns a low probability; no VAD means no prediction| Treat `min_delay` as your only endpointing knob  
 `interruption.min_duration`| Evaluated against VAD speech duration, which never fires| Use `interruption.min_words` instead (Section 7)  
-Adaptive interruption detection| Needs a VAD and an STT with aligned transcripts; `STTStreaming` doesn’t have the latter| Set `interruption.mode="vad"` explicitly  
+Adaptive interruption detection| Needs a VAD and an STT with aligned transcripts, which `STTRealtime` doesn’t provide; in `"auto"` mode it’s also only chosen on LiveKit Cloud or in dev mode| Set `interruption.mode="vad"` explicitly  
+`transcription_timeout` (`user_transcription_timeout` event)| Needs a VAD to know the user spoke when no transcript arrives| Alert on Sarvam STT `error` events and on turns with an empty final transcript  
   
 The trade is a good one on `saaras:v3-realtime` specifically: because it emits real partial transcripts and signals end-of-speech before the final transcript, barge-in fires on partials (Section 7) and preemptive generation actually engages (Section 6), neither of which worked without a VAD on the legacy plugin.
 
-The semantic turn detector is a weak fit for Sarvam regardless: outside LiveKit Cloud it resolves to a local model whose per-language thresholds cover 14 languages (Hindi included), falling back to an English-calibrated threshold for everything else. Sarvam’s own VAD plus a tuned `min_delay` is the more predictable choice for Indic languages.
+LiveKit’s turn detector is a weak fit for most Indic languages regardless. The default `inference.TurnDetector` is an audio end-of-turn model in two versions: `v1`, served on LiveKit Inference, and `v1-mini`, which runs locally on CPU anywhere. It’s calibrated for 14 languages, including Hindi but not Tamil, Telugu, Bengali or other Indic languages; any other language uses its default calibration. Sarvam’s own VAD plus a tuned `min_delay` is the more predictable choice for Indic languages.
 
-If you do keep a VAD (for example, on LiveKit Cloud, to get the EOT model for Hindi), its `min_silence_duration` must be at least 0.25 s, or `AgentSession` raises a `ValueError`.
+Keep a VAD instead when you need `transcription_timeout`, or LiveKit’s turn detector for Hindi (`v1-mini` doesn’t need LiveKit Cloud). If you do keep one, its `min_silence_duration` must be at least 0.25 s, or `AgentSession` raises a `ValueError`.
 
 * * *
 
 ## 4\. STT configuration
     
     
-    sarvam.STTStreaming(
+    sarvam.STTRealtime(
     
-        language="hi-IN",            # default: "en-IN"
+        language="hi-IN",            # default: "en-IN"; "auto" detects it
     
         stream_type="fast",          # default: "balanced"
     
@@ -239,7 +242,7 @@ If you do keep a VAD (for example, on LiveKit Cloud, to get the EOT model for Hi
     
         endpointing="vad",           # default: "vad"
     
-        encoding="linear16",         # only value accepted
+        encoding="linear16",         # or "linear32", "mulaw", "alaw"
     
         sample_rate=16000,           # default: 16000 (8000 or 16000 only)
     
@@ -257,11 +260,13 @@ If you do keep a VAD (for example, on LiveKit Cloud, to get the EOT model for Hi
     
         vad_min_silence_ms=None,
     
+        vad_prefix_padding_ms=None,  # connection-only
+    
     )
 
 Endpoint: `wss://api.sarvam.ai/speech-to-text-realtime/ws`. Model is fixed at `saaras:v3-realtime`; any invalid parameter raises `ValueError` at construction.
 
-**`stream_type`** is the single biggest latency knob. `fast` buffers audio in 500 ms chunks before sending; `balanced` (the default) and `simulated` use 1000 ms. Set `"fast"` for any interactive agent; the default is the single most impactful bad setting for voice.
+**`stream_type`** sets how often Sarvam produces partial transcripts. The server feeds the streaming model 500 ms audio windows on `fast` and 1000 ms windows on `balanced` (the default); `simulated` produces no partials, only finals. The plugin itself always sends 50 ms frames, and the server’s VAD runs on the raw audio, so `stream_type` doesn’t delay end-of-speech detection. Set `"fast"` for any interactive agent, because partials are what drive barge-in.
 
 **`endpointing`** : `vad` (default) has the server emit speech-start and speech-end events, and pairs with `turn_detection="stt"`. `manual` has the plugin send events itself on the first audio frame and on flush; pair with the framework’s `turn_detection="manual"` for push-to-talk or IVR flows. In `manual` mode the VAD tuning parameters aren’t sent at all.
 
@@ -277,10 +282,12 @@ Mode| Output| Use when
   
 `codemix` is worth A/B-testing against `transcribe` for consumer-facing Indian deployments.
 
-**`prompt`** carries domain vocabulary: product names, city names, SKUs, agent names. It’s the cheapest accuracy win available and frequently left empty. Unlike the legacy class, the realtime plugin sends it as a URL query parameter on the websocket handshake, so keep it short (a compact term list) or a long prompt risks a rejected handshake; use a TTS pronunciation dictionary (`dict_id`) for output-side fixes instead.
+**`language="auto"`** has Sarvam detect the language, and it reports the detected language on every partial and final. Use it when callers switch languages unpredictably. When your app already knows the caller switched, set the language with `update_options(language=...)` instead (below).
+
+**`prompt`** carries domain vocabulary: product names, city names, SKUs, agent names. It’s the cheapest accuracy win available and frequently left empty. The realtime plugin sends it as a URL query parameter on the websocket handshake (the legacy class doesn’t send `prompt` at all for `saaras:v3` or `saaras:v4`), so keep it short (a compact term list) or a long prompt risks a rejected handshake; use a TTS pronunciation dictionary (`dict_id`) for output-side fixes instead.
     
     
-    stt = sarvam.STTStreaming(
+    stt = sarvam.STTRealtime(
     
         language="hi-IN",
     
@@ -290,21 +297,21 @@ Mode| Output| Use when
     
     )
 
-**Live reconfiguration.** `STTStreaming.update_options(...)` sends a config update over the live websocket, no reconnect, no dropped audio, and the plugin defers any endpointing switch until the current utterance completes. Updatable in place: `language`, `stream_type`, `mode`, `prompt`, `endpointing`, and all three VAD parameters. `sample_rate` and `return_timestamps` are connection-only: changing them on a live stream is logged and ignored, so set them at construction.
+**Live reconfiguration.** `STTRealtime.update_options(...)` sends a config update over the live websocket, no reconnect, no dropped audio, and the plugin defers any endpointing switch until the current utterance completes. Updatable in place: `language`, `stream_type`, `mode`, `prompt` and `endpointing`, which apply from the next utterance, and the three VAD tuning parameters, which apply immediately. `sample_rate`, `return_timestamps` and `vad_prefix_padding_ms` are connection-only: changing them on a live stream is logged and ignored, so set them at construction.
     
     
     # e.g. the caller switched to Tamil: no reconnect, no dropped audio
     
     session.stt.update_options(language="ta-IN")
 
-**`sample_rate` and `encoding`**: 8000 or 16000 only, and `linear16` only. Use 16000 for WebRTC; 8000 matches PSTN, but upsampling to 16 kHz is usually cheaper than degrading the recognizer’s input.
+**`sample_rate` and `encoding`**: `sample_rate` is 8000 or 16000 only; `encoding` is `linear16` (default), `linear32`, `mulaw` or `alaw`. Use 16000 for WebRTC; 8000 matches PSTN, but upsampling to 16 kHz is usually cheaper than degrading the recognizer’s input.
 
 **Event mapping:**
 
 Sarvam event| Framework event| Notes  
 ---|---|---  
 `session.begin`| (none)| `request_id` and `session_id` captured  
-`vad.speech_start`| `START_OF_SPEECH`| Carries `utterance_idx`  
+`vad.speech_start`| `START_OF_SPEECH`| Starts the user’s speech segment  
 `transcript.partial`| `INTERIM_TRANSCRIPT`| Real partials: drives fast barge-in and live UI  
 `vad.speech_end`| `END_OF_SPEECH`| Emitted immediately, before the final  
 `transcript.final`| `FINAL_TRANSCRIPT`| Committed after end-of-speech  
@@ -312,23 +319,24 @@ Sarvam event| Framework event| Notes
 `config.updated`| (none)| Acknowledges a live config update  
 `error`| warning or `APIStatusError`| Depends on `is_fatal`, see Section 12  
   
-`END_OF_SPEECH` precedes `FINAL_TRANSCRIPT`, the opposite of the legacy plugin, and it’s why preemptive generation works here (Section 6): the framework marks the turn committed at end-of-speech, then the arriving final triggers speculative LLM work and starts the endpointing hold. If the final never arrives, the plugin emits `END_OF_SPEECH` anyway after a 2.0 s fallback.
+`END_OF_SPEECH` precedes `FINAL_TRANSCRIPT`, the opposite of the legacy plugin, and it’s why preemptive generation works here (Section 6): the framework marks the turn committed at end-of-speech, then the arriving final triggers speculative LLM work and starts the endpointing hold.
 
 * * *
 
 ## 5\. Tuning Sarvam’s VAD
 
-Three parameters, sent only when `endpointing="vad"`. All default to `None` (Sarvam’s server-side default applies); set them explicitly whenever you need reproducible behavior across environments.
+Four parameters, sent only when `endpointing="vad"`. All default to `None`, which means Sarvam’s server-side default (below) applies; set them explicitly whenever you need reproducible behavior across environments.
 
-Parameter| Wire name| Controls  
----|---|---  
-`vad_sot_threshold`| `threshold`| Speech-onset probability required to start an utterance (0.0 to 1.0)  
-`vad_min_speech_ms`| `min_speech_duration_ms`| Minimum speech length before `vad.speech_start` fires  
-`vad_min_silence_ms`| `silence_duration_ms`| Silence required to fire `vad.speech_end`; your primary end-of-turn knob  
+Parameter| Wire name| Server default| Controls  
+---|---|---|---  
+`vad_sot_threshold`| `threshold`| 0.3| Speech-onset probability required to start an utterance (0.0 to 1.0)  
+`vad_min_speech_ms`| `min_speech_duration_ms`| 250| Minimum speech length before `vad.speech_start` fires  
+`vad_min_silence_ms`| `silence_duration_ms`| 500| Silence required to fire `vad.speech_end`; your primary end-of-turn knob  
+`vad_prefix_padding_ms`| `prefix_padding_ms`| 300| Audio kept from before speech onset, so the first syllable isn’t clipped; connection-only, so set it at construction  
   
 Lowering `vad_min_silence_ms` ends turns faster (snappier, more mid-sentence cutoffs); raising it holds through natural pauses (no cutoffs, more dead air). It stacks with `endpointing.min_delay` (Section 6): budget them together, since tuning one down while leaving the other conservative won’t move the needle.
 
-Raise `vad_sot_threshold` first on noisy telephony, before touching anything else; it’s the cleanest defense against a VAD that keeps triggering on ambient audio. Raise `vad_min_speech_ms` to ignore clicks, coughs, keyboard noise, and DTMF beeps; lower it to catch very short words.
+On noisy telephony, turn on noise cancellation first (below). Then raise `vad_sot_threshold`, the cleanest VAD-side defense against a VAD that keeps triggering on ambient audio. Raise `vad_min_speech_ms` to ignore clicks, coughs, keyboard noise, and DTMF beeps; lower it to catch very short words.
 
 Recommended starting points by channel:
 
@@ -340,6 +348,31 @@ Open-ended conversation (protect mid-sentence pauses)| 800| 120| 0.6
 Short transactional (OTP, yes/no, menu)| 200| 60| 0.5  
   
 Tune the VAD before you tune `min_delay`. They compensate for each other, so changing both at once means you can’t attribute a regression.
+
+**Noise cancellation.** Removing background voices and noise before audio reaches Sarvam cuts false turns and false interruptions more than any VAD threshold can. LiveKit’s Krisp plugin does this on the agent side: `krisp.voice_isolation()` for app and WebRTC callers, `krisp.voice_isolation_telephony()` for SIP callers. Install `livekit-plugins-krisp` and pass the filter through `room_options` when you start the session; Section 14 shows both. It authenticates through LiveKit Cloud by default. On self-hosted LiveKit you need your own Krisp license, passed as `auth_provider=krisp.auth.krisp_license(...)`.
+    
+    
+    from livekit.agents import room_io
+    
+    from livekit.plugins import krisp
+    
+    await session.start(
+    
+        agent=agent,
+    
+        room=ctx.room,
+    
+        room_options=room_io.RoomOptions(
+    
+            audio_input=room_io.AudioInputOptions(
+    
+                noise_cancellation=krisp.voice_isolation_telephony(),  # krisp.voice_isolation() for app callers
+    
+            ),
+    
+        ),
+    
+    )
 
 * * *
 
@@ -368,7 +401,7 @@ Tune the VAD before you tune `min_delay`. They compensate for each other, so cha
     
     )
 
-**`turn_detection`** : set it to `"stt"`. Omitting it defaults to a semantic EOT model that needs a VAD and is English-calibrated outside 14 languages; `"vad"` needs a LiveKit VAD; `"stt"` trusts Sarvam’s own `vad.speech_end` and is the right choice here.
+**`turn_detection`** : set it to `"stt"`. Omitting it defaults to LiveKit’s audio end-of-turn model, which needs a VAD and is calibrated for only 14 languages; `"vad"` needs a LiveKit VAD; `"stt"` trusts Sarvam’s own `vad.speech_end` and is the right choice here.
 
 **Endpointing defaults, and why to change them:**
 
@@ -381,7 +414,7 @@ Key| Default| Recommended for Sarvam
   
 `min_delay` is a hard sleep after the turn is detected and before it’s committed: `sleep(min_delay - time_since_last_speech)`. It’s a grace period, not pure waste; a new `vad.speech_start` during the hold cancels the pending commit. Because Sarvam’s VAD already confirmed silence server-side, the default 0.5 s is redundant margin stacked on margin. Dropping it to 0.25 s typically removes about 250 ms of dead air per turn with no increase in cutoffs, provided `vad_min_silence_ms` isn’t itself set aggressively low.
 
-`max_delay` only applies when a semantic EOT model returns a low probability. With `turn_detection="stt"` or `vad=None`, no prediction is ever made, so the hold is always exactly `min_delay`. Keep `max_delay` as a documented ceiling, but don’t tune it expecting an effect.
+In `"fixed"` mode, `max_delay` only applies when the end-of-turn model returns a low probability. With `turn_detection="stt"` or `vad=None`, no prediction is made, so the hold is exactly `min_delay`. In `"dynamic"` mode, `max_delay` also caps the learned delay (below).
 
 **Preemptive generation** should stay enabled. Because `saaras:v3-realtime` emits end-of-speech before the final transcript, the framework has already marked the turn committed by the time the final arrives, which is the condition it needs to start speculative LLM work: a genuine improvement over the legacy plugin, where the reverse event order kept speculation inert in `"stt"` mode.
 
@@ -394,19 +427,30 @@ Key| Default| Guidance
   
 Interim transcripts don’t trigger speculation; the framework only speculates on finals. Interims buy you barge-in and live UI, not an earlier LLM start.
 
-`mode: "dynamic"` learns `min_delay` per session from the user’s own pausing rhythm, clamped so your configured value is a floor. Worth trying for long consultative calls with a stable speaker; skip for short transactional calls, which never accumulate enough samples to learn anything. With `turn_detection="stt"` and `vad=None` there are fewer observations available, so expect it to stay near the floor; `"fixed"` is the honest default.
+`mode: "dynamic"` learns `min_delay` per session from the user’s own pausing rhythm, clamped between your `min_delay` (the floor) and `max_delay` (the ceiling). Worth trying for long consultative calls with a stable speaker; skip for short transactional calls, which never accumulate enough samples to learn anything. With `turn_detection="stt"` and `vad=None` there are fewer observations available, so expect it to stay near the floor; `"fixed"` is the honest default.
 
 **Other defaults worth revisiting:**
 
 Parameter| Default| Guidance  
 ---|---|---  
-`aec_warmup_duration`| 3.0 s| Interruptions are ignored for the first 3 s of every agent turn. Right for WebRTC with a speaker and mic; set `None` for telephony/SIP, where the carrier handles echo  
+`aec_warmup_duration`| 3.0 s (`None` for outbound SIP)| Interruptions are ignored for the first 3 s of the agent’s first turn in a session, and the STT receives silence meanwhile, so user speech in that window isn’t transcribed. Right for WebRTC with a speaker and mic; set `None` for inbound telephony/SIP, where the carrier handles echo  
 `user_away_timeout`| 15.0 s| Flips `user_state` to `"away"` after mutual silence; set `None` if you don’t act on it  
 `min_consecutive_speech_delay`| 0.0 s| Raise to about 0.2 s if back-to-back agent utterances sound rushed  
 `session_close_transcript_timeout`| 2.0 s| Grace period for the last transcript at session close; raise if you lose final turns in your logs  
 `max_tool_steps`| 3| Each step is a full LLM round trip; keep low for voice  
-`user_turn_limit`| disabled| Set `max_words` or `max_duration` to catch a runaway monologue or stuck agent  
+`user_turn_limit`| disabled| Set `max_words` or `max_duration` to catch a runaway monologue or stuck agent; handle the `user_turn_exceeded` event to act on it  
+`stt_context_options`| none| Static `keyterms` and LLM-based keyterm detection, for STTs that accept a term list. Sarvam’s realtime plugin doesn’t take one yet, so keep domain terms in `prompt` (Section 4)  
+`transcription_timeout`| disabled| Emits `user_transcription_timeout` when the user spoke but no transcript arrived. Needs a VAD, so it does nothing with `vad=None` (Section 3)  
   
+To change endpointing mid-call, call `session.update_options(endpointing_opts=...)`. For example, use a longer hold while a caller reads out a card number, then set it back:
+    
+    
+    session.update_options(endpointing_opts={"min_delay": 0.8})   # caller is reading digits
+    
+    # ...
+    
+    session.update_options(endpointing_opts={"min_delay": 0.25})  # back to normal
+
 * * *
 
 ## 7\. Barge-in and interruptions
@@ -422,14 +466,14 @@ Key| Default| With `vad=None`
 `discard_audio_if_uninterruptible`| `True`| Works  
 `backchannel_boundary`| `(1.0, 1.0)`| Inert (adaptive mode only)  
   
-Interruption is triggered from three places in the runtime; only two are reachable with `vad=None`: an interim-transcript hook, since Sarvam’s `transcript.partial` lands there, and a final-transcript hook as backstop. VAD-driven interruption never fires. So barge-in latency equals the time for Sarvam to return the first partial of the interrupting speech, a single 500 ms chunk plus model and network time on `stream_type="fast"`, not a completed utterance or local VAD energy detection. It’s also more robust than local-VAD barge-in: a cough, a door slam, or TV audio can’t interrupt the agent, because none of those produce a transcript.
+Interruption is triggered from three places in the runtime; only two are reachable with `vad=None`: an interim-transcript hook, since Sarvam’s `transcript.partial` lands there, and a final-transcript hook as backstop. VAD-driven interruption never fires. So barge-in latency equals the time for Sarvam to return the first partial of the interrupting speech, one 500 ms audio window plus model and network time on `stream_type="fast"` (1000 ms on `"balanced"`), not a completed utterance or local VAD energy detection. It’s also more robust than local-VAD barge-in: a cough, a door slam, or TV audio can’t interrupt the agent, because none of those produce a transcript.
 
 Since `min_duration` is inert, `min_words` is your noise filter:
     
     
     "interruption": {"enabled": True, "mode": "vad", "min_words": 1}
 
-`0` (default) lets any transcript interrupt; occasionally over-eager on ASR artifacts. `1` is a good default, filtering empty or whitespace-only artifacts. `2` suits noisy channels, but while the agent is speaking, a user turn shorter than `min_words` is dropped entirely rather than merely failing to interrupt, so single-word acknowledgements get discarded mid-agent-speech. Don’t exceed 2, and don’t go above 1 at all if single-word confirmations matter in your flow. Word counting is whitespace-delimited, so Devanagari, Tamil, Telugu, Bengali, and similar scripts are counted correctly with no adjustment needed.
+`0` (default) lets any transcript interrupt; occasionally over-eager on ASR artifacts. `1` is a good default, filtering empty or whitespace-only artifacts. `2` suits noisy channels, but while the agent is speaking, a user turn shorter than `min_words` doesn’t end the turn: it’s held and joined to the user’s next utterance, so a single-word acknowledgement mid-agent-speech is merged into whatever the user says next. Don’t exceed 2, and don’t go above 1 at all if single-word confirmations matter in your flow. Word counting is whitespace-delimited, so Devanagari, Tamil, Telugu, Bengali, and similar scripts are counted correctly with no adjustment needed.
 
 **False-interruption recovery.** When something interrupts the agent and no real user turn materializes, the agent’s speech is paused, not cancelled; after `false_interruption_timeout` seconds of silence it resumes and fires an `agent_false_interruption` event. Lower the timeout to 1.2 to 1.5 s (the 2.0 s default is a long, awkward silence on a call). Instrument the event; a high false-interruption rate means the VAD is too eager, and the fix is at the VAD (raise `vad_sot_threshold` or `vad_min_speech_ms`), not here.
     
@@ -446,6 +490,8 @@ For confirmations, legal disclaimers, or OTP readback, disable interruptions per
     handle = session.say("Your OTP is 4 7 2 9.", allow_interruptions=False)
     
     await handle
+
+While uninterruptible speech plays, the STT receives silence (`discard_audio_if_uninterruptible` defaults to `True`), so anything the caller says during the readback isn’t transcribed. Keep these turns short.
 
 * * *
 
@@ -537,16 +583,17 @@ Leave `send_completion_event=True`; setting it `False` means the receive loop ne
 
 ## 9\. Measuring latency
 
-Track end-to-end latency first, then decompose. `ChatMessage.metrics` is the primary surface; every committed turn carries these fields:
+Track end-to-end latency first, then decompose. `ChatMessage.metrics` is the primary surface. User and assistant messages carry different fields:
 
-Field| Meaning  
----|---  
-`e2e_latency`| User stopped speaking to agent started responding; the number your SLO lives on  
-`transcription_delay`| End of user speech to transcript available  
-`end_of_turn_delay`| End of speech to the decision to end the turn (your `endpointing.min_delay`)  
-`llm_node_ttft`| LLM time to first token  
-`tts_node_ttfb`| First text token to first audio chunk  
-`on_user_turn_completed_delay`| Your callback’s duration; blocking I/O here adds directly to `e2e_latency`  
+Field| On| Meaning  
+---|---|---  
+`e2e_latency`| assistant| User stopped speaking to agent started responding; the number your SLO lives on  
+`llm_node_ttft`| assistant| LLM time to first token  
+`tts_node_ttfb`| assistant| First text token to first audio chunk  
+`playback_latency`| assistant| First audio frame forwarded to playback starting; near zero unless something such as an avatar worker sits in the audio path  
+`transcription_delay`| user| End of user speech to transcript available  
+`end_of_turn_delay`| user| End of user speech to the decision to end the turn; includes the transcription time as well as the `endpointing.min_delay` hold  
+`on_user_turn_completed_delay`| user| Your callback’s duration; blocking I/O here adds directly to `e2e_latency`  
       
     
     @session.on("conversation_item_added")
@@ -555,19 +602,31 @@ Field| Meaning
     
         m = getattr(ev.item, "metrics", None)
     
-        if m:
+        role = getattr(ev.item, "role", None)
+    
+        if not m:
+    
+            return
+    
+        if role == "assistant":
     
             logger.info("turn_latency", extra={"e2e_latency": m.get("e2e_latency"),
     
                                                 "llm_ttft": m.get("llm_node_ttft"),
     
                                                 "tts_ttfb": m.get("tts_node_ttfb")})
+    
+        elif role == "user":
+    
+            logger.info("user_turn", extra={"transcription_delay": m.get("transcription_delay"),
+    
+                                             "end_of_turn_delay": m.get("end_of_turn_delay")})
 
 Report the p50 and p95, not just the average. (p50 is the median: half your turns are faster than this. p95 is the value 95% of turns beat, so it captures the slow tail that an average hides.) A p50 of 800 ms with a p95 of 4 s feels broken to users even though the average looks fine.
 
-`metrics_collected` remains the per-request latency and request-ID feed (usage and cost tracking has moved to `session_usage_updated`). `TTSMetrics.cancelled=True` counts barge-ins that killed a synthesis in flight, a good proxy for interruption health. For realtime STT, billed audio duration comes from the server’s `session.end` when available, falling back to a local estimate if the session dies first; reconcile against Sarvam’s dashboard rather than assuming either source is complete.
+For per-request metrics, listen on the plugin instances, not the session: `stt.on("metrics_collected", ...)` and `tts.on("metrics_collected", ...)` deliver `STTMetrics` and `TTSMetrics`, including request IDs and `connection_reused`. The session-level `metrics_collected` event has been deprecated since `livekit-agents` 1.5.0 and logs a warning; usage and cost tracking is on `session_usage_updated`. `TTSMetrics.cancelled=True` counts barge-ins that killed a synthesis in flight, a good proxy for interruption health. For realtime STT, billed audio duration comes from the server’s `session.end` when available, falling back to a local estimate if the session dies first; reconcile against Sarvam’s dashboard rather than assuming either source is complete.
 
-The SDK also emits OpenTelemetry spans (`user_turn`, `eou_detection`, `stt_node`, `llm_node`, `tts_node`, `tts_request_run`). Wire up an OTel exporter in production; it’s the only view that shows where a slow turn was actually slow, and it’s where Sarvam’s TTS request IDs land (Section 10).
+The SDK also emits OpenTelemetry spans, among them `user_turn`, `eou_wait` and `eou_detection` (the end-of-turn wait and its predictions), `llm_node`, `llm_request_run`, `tts_node` and `tts_request_run`. Speech-to-text has no span of its own; its timing is on `user_turn` as `lk.transcription_delay`. Since `livekit-agents` 1.8.0, spans follow the OpenTelemetry GenAI semantic conventions (`gen_ai.*` attributes), so dashboards built on the older span format need updating. Wire up an OTel exporter in production; it’s the only view that shows where a slow turn was actually slow, and it’s where Sarvam’s TTS request IDs land (Section 10).
 
 **Suggested SLOs for a cascading Sarvam pipeline:**
 
@@ -575,7 +634,7 @@ Metric| Good| Acceptable| Investigate
 ---|---|---|---  
 `e2e_latency` p50| under 900 ms| under 1.4 s| over 2 s  
 `e2e_latency` p95| under 1.8 s| under 2.5 s| over 3.5 s  
-`transcription_delay` p95| under 400 ms| under 700 ms| over 1 s: check `stream_type`  
+`transcription_delay` p95| under 400 ms| under 700 ms| over 1 s: check network latency to Sarvam  
 `tts_node_ttfb` p95| under 350 ms| under 600 ms| over 800 ms: check `prewarm`/`connection_reused`  
 False-interruption rate| under 2%| under 5%| over 8%: raise `vad_sot_threshold`  
   
@@ -592,7 +651,7 @@ Surface| Realtime STT| Sarvam TTS (streaming)| Sarvam TTS (batch)
 OTel span `lk.provider_request_ids`| yes, on `user_turn`| yes, on `tts_request_run`| not applicable  
 `ChatMessage.metrics["provider_request_ids"]`| empty| empty| empty  
   
-`STTMetrics.request_id` is the real Sarvam ID; log it and you’re done for STT. On the streaming TTS path, `TTSMetrics.request_id` is a locally generated ID assigned before Sarvam replies, so Sarvam’s actual ID only reaches the OTel span attribute `lk.provider_request_ids`; enable tracing if you need it there. `ChatMessage.metrics["provider_request_ids"]` is populated only for realtime (speech-to-speech) models, so it stays empty in any cascading STT-LLM-TTS pipeline.
+`STTMetrics.request_id` is the real Sarvam ID; log it and you’re done for STT. On the streaming TTS path, `TTSMetrics.request_id` is a locally generated ID assigned before Sarvam replies, so Sarvam’s actual ID only reaches the OTel span attribute `lk.provider_request_ids`; enable tracing if you need it there. `ChatMessage.metrics["provider_request_ids"]` is populated only for realtime (speech-to-speech) models, so it stays empty in any cascading STT-LLM-TTS pipeline. LLM calls also carry the provider’s response ID in `lk.provider_request_ids`, on their `llm_request_run` span.
 
 Events emitted before Sarvam’s first message with an ID (a `START_OF_SPEECH` at session start, for instance) can carry an empty `request_id`. Treat `""` as “not yet known,” not as an error.
 
@@ -602,29 +661,28 @@ A minimal production log line should carry `session_id`, `turn_id`, `speech_id`,
 
 ## 11\. The legacy class and migration
 
-`sarvam.STT` with `model="saaras:v3"` is the only path that supports batch `recognize()` (`STTStreaming` raises `NotImplementedError` for it). If you’re maintaining an existing deployment on it, the differences that matter:
+The legacy `sarvam.STT` (`saaras:v4` by default, or `saaras:v3`) is the only path that supports batch `recognize()` (`STTRealtime` raises `NotImplementedError` for it). If you’re maintaining an existing deployment on it, the differences that matter:
 
-| `STTStreaming` (realtime)| `STT` (legacy)  
+| `STTRealtime` (realtime)| `STT` (legacy)  
 ---|---|---  
 Interim transcripts| Real `INTERIM_TRANSCRIPT`| Never emitted  
 Event order| End-of-speech, then final| Final, then end-of-speech  
 Preemptive generation| Engages| Effectively inert in `"stt"` mode  
-VAD tuning| 3 parameters| 10 frame-counter parameters  
-Live reconfiguration| `config.update`, no reconnect| Forces a reconnect  
-Retries| Framework default (3)| Forced to 0  
-Chunking| `stream_type` (500/1000 ms)| Fixed 50 ms  
-End-of-speech fallback| 2.0 s| 1.0 s  
-`confidence` fallback| `0.0`| `1.0`  
+VAD tuning| 4 parameters| 10 frame-counter parameters  
+Live reconfiguration| `config.update`, no reconnect| Not supported: `sarvam.STT` has no `update_options`, and `stream.update_options()` closes the stream  
+Retries| Forced to 0; a dropped socket is never reconnected| Forced to 0  
+Audio sent| 50 ms frames; the server batches 500 or 1000 ms windows by `stream_type`| 50 ms frames  
+End-of-speech fallback| None (server-driven)| 1.0 s  
 Batch `recognize()`| Not supported| Supported  
 Odia code| `or-IN`| `od-IN`  
   
-New builds should use `STTStreaming`. Migrating is mostly a constructor swap plus replacing the VAD parameters per Section 5, but re-tune `min_delay` afterward, since the event ordering and chunking both change your latency profile.
+New builds should use `STTRealtime`. Migrating is mostly a constructor swap plus replacing the VAD parameters per Section 5, but re-tune `min_delay` afterward, since the event ordering and chunking both change your latency profile.
 
 * * *
 
 ## 12\. Reliability and failure modes
 
-**Retries.** `STTStreaming` uses the framework default: 3 retries, 2.0 s interval, 10.0 s timeout. That timeout is too long for voice; a caller will have hung up. Tighten it:
+**Retries.** Neither Sarvam STT class retries. The plugin forces `max_retry=0` because Sarvam bills per connection, and a realtime stream never reconnects after a socket failure. The connection timeout still applies, and the framework default of 10.0 s is too long for voice; a caller will have hung up. Tighten the timeouts:
     
     
     from livekit.agents import APIConnectOptions
@@ -633,7 +691,7 @@ New builds should use `STTStreaming`. Migrating is mostly a constructor swap plu
     
     conn_options = SessionConnectOptions(
     
-        stt_conn_options=APIConnectOptions(max_retry=2, timeout=5.0),
+        stt_conn_options=APIConnectOptions(timeout=5.0),  # Sarvam STT ignores max_retry
     
         tts_conn_options=APIConnectOptions(max_retry=1, timeout=5.0),
     
@@ -643,11 +701,11 @@ New builds should use `STTStreaming`. Migrating is mostly a constructor swap plu
     
     )
 
-For calls you can’t afford to drop, wrap STT and TTS in a `FallbackAdapter`; a failed TTS is a silent agent, which is worse than a wrong one.
+For calls you can’t afford to drop, wrap TTS in a `FallbackAdapter`; a failed TTS is a silent agent, which is worse than a wrong one. Sarvam STT never reconnects on its own, but `AgentSession` recreates the STT stream 0.5 s after an unrecoverable error. That opens a new connection, which Sarvam bills separately. Each failure counts toward `max_unrecoverable_errors` and any transcript resets the count, so the session closes only after more than that many failures in a row (3 by default). Use `stt.FallbackAdapter` when you want to switch to another STT provider rather than reconnect to Sarvam. Listen to the session’s `error` event to log and alert on failures.
 
 **STT websocket close codes** are the most useful operational signal available. This table covers the realtime STT socket; the TTS socket is covered below it:
 
-Code| Meaning| Retryable| Action  
+Code| Meaning| Transient| Action  
 ---|---|---|---  
 1000 / 1001| Normal close| n/a| Expected  
 1003| Auth, quota, or rate-limit error| No| Check the API key and concurrency limits; alert on this  
@@ -655,7 +713,9 @@ Code| Meaning| Retryable| Action
 1013| Backend temporarily unavailable| Yes| Transient; alert only on sustained rates  
 4000| Session rejected (bad parameters)| No| A config error; should have failed at construction  
   
-Non-fatal `error` events (`is_fatal: false`) log a warning and let the session continue; watch their rate as an early degradation signal, since it’s otherwise invisible. Fatal errors raise `APIStatusError`. `ValueError` on any parameter fires at construction time, so instantiate `sarvam.STTStreaming` and `sarvam.TTS` in `setup_fnc`, not the entrypoint, so config errors fail the worker at startup rather than the caller’s session.
+“Transient” means the failure may clear on its own. The plugin tags 1013 as retryable, but it never retries (`max_retry=0`); recovery comes from `AgentSession` recreating the stream, as described above.
+
+Non-fatal `error` events (`is_fatal: false`) log a warning and let the session continue; watch their rate as an early degradation signal, since it’s otherwise invisible. Fatal errors raise `APIStatusError`. `ValueError` on any parameter fires at construction time, so instantiate `sarvam.STTRealtime` and `sarvam.TTS` in `setup_fnc`, not the entrypoint, so config errors fail the worker at startup rather than the caller’s session.
 
 Sarvam closes idle TTS websockets after 60 s. The plugin defends on two layers, a transport-level ping every 20 s and an application-level ping every 30 s, so stale pooled connections are detected and replaced transparently. Size your key’s rate limits against peak concurrent calls times two (one STT socket plus one TTS socket per call), not average volume, and alert on close code 1003.
 
@@ -668,12 +728,15 @@ Sarvam closes idle TTS websockets after 60 s. The plugin defends on two layers, 
 Change one thing at a time and measure between steps.
 
   1. **Instrument first.** Wire up Section 9 and Section 10 before touching any parameter, and collect a baseline over at least 30 real calls.
-  2. **Get the architecture right.** `stream_type="fast"`, `vad=None`, `turn_detection="stt"`, `model="bulbul:v4-flash"`. Confirm there’s no `TurnDetector requires a VAD model` warning at startup; if you see it, `vad=None` didn’t take effect.
-  3. **Tune Sarvam’s VAD.** Raise `vad_min_silence_ms` if users get cut off mid-sentence; lower it if there’s dead air after they finish. Raise `vad_sot_threshold`, then `vad_min_speech_ms`, if noise or crosstalk is triggering turns.
+  2. **Get the architecture right.** `stream_type="fast"`, `vad=None`, `turn_detection="stt"`, `model="bulbul:v4-flash"`. Confirm there’s no `TurnDetector requires a VAD model` warning at startup; if you see it, `vad=None` took effect but `turn_detection="stt"` didn’t, so check that it sits inside `turn_handling`.
+  3. **Clean the input, then tune Sarvam’s VAD.** On noisy channels, turn on Krisp noise cancellation first (Section 5). Then raise `vad_min_silence_ms` if users get cut off mid-sentence; lower it if there’s dead air after they finish. Raise `vad_sot_threshold`, then `vad_min_speech_ms`, if noise or crosstalk is triggering turns.
   4. **Trim`endpointing.min_delay`.** Step down from 0.5 in 0.1 s increments (0.4, 0.3, 0.25, 0.2), stopping one step before cutoffs reappear. Most Sarvam pipelines land at 0.2 to 0.3 s.
-  5. **Fix barge-in.** Raise `interruption.min_words` (0, then 1, then 2) until noise-triggered interruptions stop, watching that real single-word replies survive. Lower `false_interruption_timeout` to 1.2 to 1.5 s. For telephony, set `aec_warmup_duration=None`.
+  5. **Fix barge-in.** Raise `interruption.min_words` (0, then 1, then 2) until noise-triggered interruptions stop, watching that real single-word replies survive. Lower `false_interruption_timeout` to 1.2 to 1.5 s. For inbound telephony, set `aec_warmup_duration=None` (outbound SIP already defaults to it).
   6. **Cut TTS time-to-first-byte.** `min_buffer_size=30`, `output_audio_codec="linear16"` (or `mulaw` for 8 kHz), and `prewarm()`.
-  7. **Cut LLM time-to-first-token.** Shrink the system prompt, scope the tool list to the current conversation phase, cap conversation history, and keep `max_tool_steps` low.
+  7. **Cut LLM time-to-first-token.** Shrink the system prompt, scope the tool list to the current conversation phase, cap conversation history, and keep `max_tool_steps` low. Then check reasoning and the model: 
+     * **Reasoning.** `sarvam-105b` has thinking mode on by default, so it generates reasoning tokens before the first word of the reply. Sarvam’s `/v1` chat API turns thinking off with `reasoning_effort=None`. The LiveKit plugin, though, sends `sarvam-105b` to `/v2`, whose spec doesn’t document `reasoning_effort` for `sarvam-105b`. So `sarvam.LLM(model="sarvam-105b", reasoning_effort=None)` may not turn thinking off; compare `llm_node_ttft` before and after rather than assuming it did.
+     * **The conversational model.** `sarvam-105b-conversations` is a variant post-trained for voice agents and real-time dialogue, at the same price as `sarvam-105b` but with a 32K context window instead of 128K. Long sessions need history capped to fit. The plugin calls it on `/v1` and doesn’t send `reasoning_effort` for it.
+     * **Model names.** For voice, use `sarvam-105b-conversations`, `sarvam-105b` or `gemma4`. From plugin 1.7.1, `sarvam-30b`, `sarvam-30b-16k`, `sarvam-105b-32k` and `sarvam-m` raise `ValueError`, so update older configs that use them.
   8. **Polish the voice.** `pace` 0.9 to 0.95 for support flows, a calmer persona style (or a lower `temperature` on `bulbul:v3`) for regulated content, and a `dict_id` dictionary for brand and place names.
   9. **Re-baseline.** Re-measure over 30-plus calls and set alerts on p95 `e2e_latency`, false-interruption rate, close code 1003, and non-fatal STT error rate.
 
@@ -692,11 +755,11 @@ Change one thing at a time and measure between steps.
     
         Agent, AgentServer, AgentSession, JobContext, JobProcess,
     
-        TurnHandlingOptions, cli, metrics,
+        TurnHandlingOptions, cli, metrics, room_io,
     
     )
     
-    from livekit.plugins import sarvam
+    from livekit.plugins import krisp, sarvam
     
     logger = logging.getLogger("sarvam-agent")
     
@@ -704,7 +767,7 @@ Change one thing at a time and measure between steps.
     
         # Construct here so config errors fail the worker, not the caller's session.
     
-        proc.userdata["stt"] = sarvam.STTStreaming(
+        proc.userdata["stt"] = sarvam.STTRealtime(
     
             language="hi-IN",
     
@@ -747,6 +810,14 @@ Change one thing at a time and measure between steps.
         )
     
         proc.userdata["tts"].prewarm()
+    
+        # Per-request metrics (with Sarvam request IDs) come from the plugins. They're shared by every
+    
+        # session in this process, so attach the listeners once, here, rather than per session.
+    
+        proc.userdata["stt"].on("metrics_collected", metrics.log_metrics)
+    
+        proc.userdata["tts"].on("metrics_collected", metrics.log_metrics)
     
     server = AgentServer(setup_fnc=setup)
     
@@ -798,12 +869,6 @@ Change one thing at a time and measure between steps.
     
         )
     
-        @session.on("metrics_collected")
-    
-        def _on_metrics(ev):
-    
-            metrics.log_metrics(ev.metrics)
-    
         @session.on("agent_false_interruption")
     
         def _on_false(ev):
@@ -818,6 +883,12 @@ Change one thing at a time and measure between steps.
     
             room=ctx.room,
     
+            room_options=room_io.RoomOptions(
+    
+                audio_input=room_io.AudioInputOptions(noise_cancellation=krisp.voice_isolation()),
+    
+            ),
+    
         )
     
     if __name__ == "__main__":
@@ -825,9 +896,11 @@ Change one thing at a time and measure between steps.
         cli.run_app(server)
 
 ### Telephony or SIP: noisy, echo handled by the carrier
+
+This uses the same imports, `logger` and `server` as the WebRTC config. In production, build `stt` and `tts` in `setup()` as shown there. The `agent_name` turns on explicit dispatch, so calls reach this agent only through a dispatch rule that names it.
     
     
-    stt = sarvam.STTStreaming(
+    stt = sarvam.STTRealtime(
     
         language="hi-IN",
     
@@ -867,43 +940,75 @@ Change one thing at a time and measure between steps.
     
     )
     
-    session = AgentSession(
+    @server.rtc_session(agent_name="sarvam-telephony")  # your SIP dispatch rule routes calls to this name
     
-        stt=stt, llm=sarvam.LLM(model="sarvam-105b"), tts=tts,
+    async def telephony_entrypoint(ctx: JobContext) -> None:
     
-        vad=None,
+        session = AgentSession(
     
-        turn_handling={
+            stt=stt, llm=sarvam.LLM(model="sarvam-105b"), tts=tts,
     
-            "turn_detection": "stt",
+            vad=None,
     
-            "endpointing": {"mode": "fixed", "min_delay": 0.3, "max_delay": 2.5},
+            turn_handling={
     
-            "interruption": {
+                "turn_detection": "stt",
     
-                "enabled": True,
+                "endpointing": {"mode": "fixed", "min_delay": 0.3, "max_delay": 2.5},
     
-                "mode": "vad",
+                "interruption": {
     
-                "min_words": 2,        # noisy line: stricter filter
+                    "enabled": True,
     
-                "false_interruption_timeout": 1.5,
+                    "mode": "vad",
     
-                "resume_false_interruption": True,
+                    "min_words": 2,        # noisy line: stricter filter
+    
+                    "false_interruption_timeout": 1.5,
+    
+                    "resume_false_interruption": True,
+    
+                },
+    
+                "preemptive_generation": {"enabled": True},
+    
+                "user_turn_limit": {"max_duration": 45.0},   # catch a stuck call
     
             },
     
-            "preemptive_generation": {"enabled": True},
+            aec_warmup_duration=None,      # important for inbound telephony; outbound SIP defaults to None
     
-            "user_turn_limit": {"max_duration": 45.0},   # catch a stuck call
+            user_away_timeout=20.0,
     
-        },
+        )
     
-        aec_warmup_duration=None,      # important for telephony
+        @session.on("user_turn_exceeded")
     
-        user_away_timeout=20.0,
+        def _on_turn_exceeded(ev):
     
-    )
+            logger.warning("user_turn_exceeded", extra={"duration": ev.duration,
+    
+                                                        "words": ev.accumulated_word_count})
+    
+        await session.start(
+    
+            agent=Agent(instructions="You are a concise Hindi-speaking phone agent. "
+    
+                                     "Reply in one or two short sentences. Use proper punctuation."),
+    
+            room=ctx.room,
+    
+            room_options=room_io.RoomOptions(
+    
+                audio_input=room_io.AudioInputOptions(
+    
+                    noise_cancellation=krisp.voice_isolation_telephony(),
+    
+                ),
+    
+            ),
+    
+        )
 
 For compliance and audit flows, use `mode="verbatim"`, `return_timestamps=True`, a higher `vad_min_silence_ms` (around 900), a lower `temperature` (around 0.3) if you use `bulbul:v3`, and disable `preemptive_generation` to avoid speculative spend; disable interruptions per-turn for disclosures. For push-to-talk or IVR, set `endpointing="manual"` on the STT and `turn_detection="manual"` on the session, then call `session.commit_user_turn()` yourself on a DTMF key or button release.
 
@@ -913,16 +1018,16 @@ For compliance and audit flows, use `mode="verbatim"`, `return_timestamps=True`,
 
 Setting| Plugin default| Sarvam recommendation| Why  
 ---|---|---|---  
-STT class| n/a| `sarvam.STTStreaming`| `saaras:v3` is legacy; realtime adds interims, live reconfig, a simpler VAD  
-`stt.stream_type`| `"balanced"` (1000 ms)| `"fast"` (500 ms)| Hard floor under every downstream latency number  
-`vad`| hosted Silero VAD| `None`| Sarvam STT has its own server-side VAD  
-`turn_handling["turn_detection"]`| semantic EOT model| `"stt"`| Trust Sarvam’s `vad.speech_end`  
+STT class| n/a| `sarvam.STTRealtime`| `sarvam.STT` is legacy; realtime adds interims, live reconfig, a simpler VAD  
+`stt.stream_type`| `"balanced"` (1000 ms windows)| `"fast"` (500 ms windows)| Partials, and so barge-in, arrive sooner  
+`vad`| bundled local Silero VAD| `None`| Sarvam STT has its own server-side VAD  
+`turn_handling["turn_detection"]`| audio end-of-turn model| `"stt"`| Trust Sarvam’s `vad.speech_end`  
 `stt.vad_min_silence_ms`| server default| set explicitly (200 to 900 by channel)| Your primary end-of-turn knob  
 `endpointing.min_delay`| 0.3 to 0.5 s| 0.2 to 0.3 s| Sarvam’s VAD already confirmed silence  
 `interruption.min_words`| 0| 1 (2 on noisy lines)| `min_duration` is inert without a VAD  
 `interruption.false_interruption_timeout`| 2.0 s| 1.2 to 1.5 s| 2 s of silence is a long time on a call  
-`interruption.mode`| auto| `"vad"`| Adaptive is unavailable with Sarvam STT  
-`aec_warmup_duration`| 3.0 s| `None` for telephony| Otherwise 3 s of uninterruptible speech  
+`interruption.mode`| auto| `"vad"`| Adaptive needs a VAD and aligned transcripts, which this setup doesn’t have  
+`aec_warmup_duration`| 3.0 s (`None` for outbound SIP)| `None` for inbound telephony| Otherwise the first 3 s of the agent’s first turn can’t be interrupted or transcribed  
 `tts.min_buffer_size`| 50| 30| Directly lowers TTS TTFB  
 `tts.output_audio_codec`| `mp3`| `linear16` (`mulaw` at 8 kHz)| Skips a decode hop  
 `tts.prewarm()`| not called| call it| Removes TLS setup from the first utterance  
@@ -932,7 +1037,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/integration/langchain)[Pipecat Production GuideNext](https://docs.sarvam.ai/api/integration/pipecat-production-guide)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/integration/langchain)[Pipecat Production GuideNext](https://docs.sarvam.ai/api/integration/pipecat-production-guide)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 

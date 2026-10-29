@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/creative/resources/faq/
 title: Frequently Asked Questions | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:34.367423+00:00
+fetched_at: 2026-10-29T06:33:49.858929+00:00
 ---
 
 # Frequently Asked Questions | Sarvam API Docs
@@ -39,9 +39,9 @@ Short answers to the most common questions about Content Studio. Questions alrea
 
 ###### Is there a file size limit for Dubbing?
 
-Yes - uploads are capped at **2 GB per file**. Separately, dubs are also metered by **video duration** : new accounts get **60 minutes of free dubbing time** , shown as a live countdown badge in the header, and some videos are marked **“fully free”** and don’t draw against your allowance or credits at all.
+Yes - upload limits depend on your plan: **2 GB and 1 hour** on Starter, **3 GB and 1 hour** on Pro, and **4 GB and 4 hours** on Enterprise. Separately, dubs are also metered by **video duration** : new accounts get **60 minutes of free dubbing time** , shown as a live countdown badge in the header, and some videos are marked **“fully free”** and don’t draw against your allowance or credits at all.
 
-Very large files may still hit browser upload timeouts even under 2 GB. For those, or for anything programmatic, use the Dubbing API instead of the dashboard.
+Very large files may still hit browser upload timeouts even within your plan’s limit. For those, or for anything programmatic, use the Dubbing API instead of the dashboard.
 
 ###### What's the difference between Clone speaker voice and Use Sarvam voices?
 
@@ -60,7 +60,7 @@ Style changes register and word choice, not just vocabulary - a serious lecture 
 
 ###### How does Sarvam handle multi-speaker tracking?
 
-Diarization isolates overlapping audio waveforms. For clean results, manually specify the exact speaker count during project setup - if you’re unsure, round your estimate upward rather than down. Undercounting merges two real speakers into one voice, which is much harder to fix afterward than simply merging an unused extra slot.
+Diarization isolates overlapping audio waveforms. For clean results, manually specify the exact speaker count during project setup - if you’re unsure, round your estimate upward rather than down. Undercounting merges two real speakers into one voice, which is much harder to fix afterward than simply merging an unused extra slot. On the Enterprise plan you can instead choose **Auto (detect speakers)** and let Content Studio work out the count.
 
 ###### Can I fix one line without re-rendering the whole file?
 
@@ -121,11 +121,11 @@ In order:
 
 ###### What's the difference between Sarvam voices and cloned voices?
 
-Sarvam voices are curated, ready-to-use personas. Cloned voices are ones you’ve created yourself via Instant Voice Cloning, and require your explicit consent that you hold rights to the voice being cloned.
+Sarvam voices are curated, ready-to-use personas. Cloned voices are ones you or a teammate in your workspace created via Instant Voice Cloning, and require explicit consent from the person who clones that they hold rights to the voice being cloned.
 
 ###### What's the difference between My voices and Explore voices?
 
-**My voices** is your personal set - favorited and cloned voices. **Explore voices** is the full browsable catalog. Both live under the same filters (use case, gender) and search box in the Voice Library. See [Browsing and Selecting Voices](https://docs.sarvam.ai/creative-voice-library-browse).
+**My voices** shows the cloned voices in your workspace, including ones your teammates created. **Explore voices** is the full browsable catalog. Both live under the same filters (use case, gender) and search box in the Voice Library. See [Browsing and Selecting Voices](https://docs.sarvam.ai/creative-voice-library-browse).
 
 ###### Do I need to upload a file to clone a voice?
 
@@ -156,11 +156,11 @@ A cleaner recording almost always beats tweaking anything after the fact:
 
 ###### How do I use a Studio-cloned voice in the API?
 
-Open **Voice Library → My voices** (or Instant Voice Cloning home), copy **Voice ID** (`svc-…`) from the clone card, and pass it as `voice_id` on `POST /voices/clone`. Your API key must be bound to the same organization. See [Using a Cloned Voice](https://docs.sarvam.ai/creative-cloning-use#use-the-same-voice-in-the-api) and the [Instant Voice Cloning API overview](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview).
+Open **Voice Library → My voices** (or Instant Voice Cloning home), copy **Voice ID** (`svc-…`) from the clone card, and pass it as `voice_id` on `POST /voices/clone`. Your API key must belong to the same organization, and `GET /voices` lists the voices of the workspace the key uses. See [Using a Cloned Voice](https://docs.sarvam.ai/creative-cloning-use#use-the-same-voice-in-the-api) and the [Instant Voice Cloning API overview](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview).
 
 ###### Will an API-created voice show up in Studio?
 
-Yes. Voices created with `POST /voices/create` appear under **My voices** for the same account/org, and you can use them in Text to Speech and Dubbing like any Studio clone. The reverse works too: Studio clones are listed by `GET /voices` and usable via `voice_id`. See [Using a Cloned Voice](https://docs.sarvam.ai/creative-cloning-use#use-the-same-voice-in-the-api).
+Yes. Voices created with `POST /voices/create` appear under **My voices** for everyone in the same workspace, and the person who created one can use it in Text to Speech. The reverse works too: Studio clones are listed by `GET /voices` and usable via `voice_id`. See [Using a Cloned Voice](https://docs.sarvam.ai/creative-cloning-use#use-the-same-voice-in-the-api).
 
 ## Speech to Text
 
@@ -221,7 +221,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/creative-stt-best-practices)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/creative-stt-best-practices)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/faq/
 title: FAQs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:42.383621+00:00
+fetched_at: 2026-10-29T06:33:52.355622+00:00
 ---
 
 # FAQs | Sarvam API Docs
@@ -69,7 +69,7 @@ Video as MP4, MOV, MKV, WebM, AVI, FLV, or WMV, and audio as WAV, MP3, or M4A. T
 
 ###### How large or long can my media be?
 
-It depends on your plan: 2 GB and 1 hour on Starter, 3 GB and 1 hour on Pro, and 4 GB and 4 hours on Business. Starter is the default, so assume those limits unless your account is on a higher plan; on Enterprise, check with your account team. Media over the limit is rejected when processing starts, not at upload time. See [What you can upload](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview#what-you-can-upload).
+It depends on your plan: 2 GB and 1 hour on Starter, 3 GB and 1 hour on Pro, and 4 GB and 4 hours on Business, the tier that Content Studio labels Enterprise Plan. Starter is the default, so assume those limits unless your account is on a higher plan; for custom contracts, check with your account team. Media over the limit is rejected when processing starts, not at upload time. See [What you can upload](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview#what-you-can-upload).
 
 ## Languages
 
@@ -113,11 +113,11 @@ No. Every setting is fixed at creation, and there is no update endpoint. To comp
 
 ###### What formats can I get back?
 
-`export_options` accepts any combination of `video`, `audio`, and `srt`, produced for **each** target language. Omit it and you get video, audio, and MP3, but never SRT, which you have to request explicitly. Pass it and only the formats you list are produced. Note that `audio` is uncompressed `.wav`; entries may also report an `export_type` of `mp3`, which is the same track re-encoded. See [Choose Export Formats](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-export-formats).
+`export_options` accepts any combination of `video`, `audio`, `audio_vocals`, `srt`, and `vtt`, produced for **each** target language. Omit it and you get the dubbed video only, so list audio and subtitles explicitly or request them later. Pass it and only the formats you list are produced. `audio` is the dubbed voice with the background and `audio_vocals` is the dubbed voice alone, both uncompressed `.wav`. MP3 is no longer produced; entries can report an `export_type` of `mp3` only on exports made before 2026-09-25. See [Choose Export Formats](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-export-formats).
 
 ###### I only asked for SRT. Can I get the video later?
 
-Yes, and without re-dubbing or re-uploading. The translated audio already exists, so `POST /jobs/{job_id}/export-all?target_lang=...` produces the full video + audio + MP3 set for that language, and `POST /jobs/{job_id}/export` adds one specific format. Both reuse valid existing exports. See [Choose Export Formats](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-export-formats#getting-a-format-you-didnt-request).
+Yes, and without re-dubbing or re-uploading. The translated audio already exists, so `POST /jobs/{job_id}/export-all` for a target language produces the full video + audio set for that language, and `POST /jobs/{job_id}/export` adds one specific format. Both reuse valid existing exports. See [Choose Export Formats](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-export-formats#getting-a-format-you-didnt-request).
 
 ###### How long do download URLs stay valid?
 
@@ -190,7 +190,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-export-formats)[Instant Voice Cloning APINext](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-export-formats)[Instant Voice Cloning APINext](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -338,7 +338,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -382,6 +387,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

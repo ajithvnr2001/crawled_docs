@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview/
 title: Dubbing API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:34.234942+00:00
+fetched_at: 2026-10-29T06:33:51.831909+00:00
 ---
 
 # Dubbing API | Sarvam API Docs
@@ -47,7 +47,7 @@ Your browser does not support embedded video.
 
 A single job dubs into **every** target language you list, and produces **every** format in `export_options` for each of them. You never need one job per language. In the REST body the language fields are `src_lang` / `target_langs`; in the Python SDK they are `source_language_code` / `target_language_codes`.
 
-[12 Indian languagesDub into any combination of the 12 supported target languages in one pass.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/specify-language-codes)[Speaker voice cloningPreserve each original speaker’s voice identity in every target language.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-a-voice)[Video, audio & SRTProduce the dubbed video, an isolated audio track, and a subtitle file.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-export-formats)
+[12 Indian languagesDub into any combination of the 12 supported target languages in one pass.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/specify-language-codes)[Speaker voice cloningPreserve each original speaker’s voice identity in every target language.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-a-voice)[Video, audio & subtitlesProduce the dubbed video, dubbed audio (with or without background), and SRT or VTT subtitles.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-export-formats)
 
 ## How it works
 
@@ -139,7 +139,7 @@ Starter| 2 GB| 1 hour
 Pro| 3 GB| 1 hour  
 Business| 4 GB| 4 hours  
   
-Starter is the default, so those are the limits that apply unless your account is on a higher plan. On an Enterprise plan, check your limits with your account team. See [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits) for the rate limits that apply alongside these.
+Starter is the default, so those are the limits that apply unless your account is on a higher plan. The Business row is the tier that Content Studio labels Enterprise Plan. If your contract is custom, check your limits with your account team. See [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits) for the rate limits that apply alongside these.
 
 ### Pricing
 
@@ -171,7 +171,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/guides/translate-a-pdf)[Job LifecycleNext](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/job-lifecycle)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/guides/translate-a-pdf)[Job LifecycleNext](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/job-lifecycle)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -319,7 +319,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -363,6 +368,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

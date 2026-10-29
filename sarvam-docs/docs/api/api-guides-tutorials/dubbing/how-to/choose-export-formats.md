@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-export-formats/
 title: How to choose export formats | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:16.532336+00:00
+fetched_at: 2026-10-29T06:33:34.471338+00:00
 ---
 
 # How to choose export formats | Sarvam API Docs
@@ -13,9 +13,8 @@ Skip to navigation
 
 On this page
 
-  * The three formats
+  * The five formats
   * Reading the exports back
-  * audio versus mp3
   * The watermark on video exports
   * Getting a format you didn’t request
   * Stale exports
@@ -37,22 +36,26 @@ This page is for Model APIs.
 
 Parameter| Type| Default| Accepted values  
 ---|---|---|---  
-`export_options`| string[]| unset| `video`, `audio`, `srt`, any combination  
+`export_options`| string[]| unset| `video`, `audio`, `audio_vocals`, `srt`, `vtt`, any combination  
   
-When you pass the parameter, **only** the formats you list are auto-exported. When you omit it, you get the full default set described below.
+When you pass the parameter, **only** the formats you list are auto-exported. When you omit it, only the dubbed video (MP4) is exported for each target language.
 
-**Omitting it produces video, audio, and MP3, but never SRT.** Subtitles are only auto-exported if you ask for them, so add `srt` explicitly. If you want a narrower set than the default, list exactly what you need: `["video"]` produces the video alone.
+**Omitting it produces the dubbed video only.** Since 2026-10-12, a job without `export_options` no longer produces audio. Audio and subtitles are never auto-exported unless you list them, for example `["video", "audio", "srt"]`, or request them later. Audio-only sources still get `audio`, because `video` resolves to `audio` for them. If your integration relied on the earlier default, pass `export_options` explicitly.
 
-## The three formats
+## The five formats
 
 The “Use it for” column is suggested guidance from us, not API-defined behaviour. The “You get” column is what the API actually produces.
 
 Value| You get| Use it for  
 ---|---|---  
 `video`| The dubbed video, re-mixed onto the original timeline| Publishing straight to YouTube, an LMS, or a social platform  
-`audio`| The isolated dubbed audio track, uncompressed `.wav`| Podcast feeds, radio, re-editing in your own NLE, IVR prompts  
-`srt`| A subtitle file timed to the dub| Accessibility, SEO, on-platform captions, QA review of the translation  
+`audio`| The full dubbed audio, with the dubbed voice over the background, uncompressed `.wav`| Podcast feeds, radio, IVR prompts  
+`audio_vocals`| The dubbed voice on its own, uncompressed `.wav`| Re-editing in your own video or audio editor, mixing with your own music  
+`srt`| Subtitles for the dubbed language, as an `.srt` file| Accessibility, SEO, on-platform captions, QA review of the translation  
+`vtt`| The same subtitles as a `.vtt` file| Web video players that expect WebVTT  
   
+New dubs keep the original background music and effects at higher quality for sources up to 30 minutes, and longer sources keep standard background quality. The volume is evened out on every export, including exports of older jobs. Dubs made earlier keep their old background.
+
 Ask for `srt` even when you only plan to ship video. It’s the cheapest way to review translation quality, since you can read the whole dub in seconds instead of watching it.
 
 **Audio-only sources cannot produce a video.** If you upload a `.wav` or `.mp3` and request `video`, that request resolves to `audio`, there is no source picture to re-mix onto.
@@ -86,17 +89,6 @@ Set `limit` deliberately. It defaults to `5`, and a job with 3 languages × 3 fo
 
 Keep the `id` from each entry: it is the `export_id` used to download or cancel that specific export.
 
-## `audio` versus `mp3`
-
-`export_options` accepts `audio`, but export entries can report an `export_type` of `mp3` as well:
-
-  * **`audio`** : uncompressed `.wav`, which is what you request.
-  * **`mp3`** : the same track re-encoded, which appears in the default set and from `export-all`.
-
-
-
-You cannot ask for `mp3` through `export_options`; it is not an accepted value, because a lossy re-encode is rarely what an API caller wants. Do still handle the value when switching on `export_type`, since it turns up whenever the default set runs.
-
 ## The watermark on video exports
 
 Video exports carry a Sarvam watermark by default. Pass `disable_watermark: true` at job creation for clean output. It applies to video only, `audio` and `srt` are never watermarked, and it is fixed at creation, so a job created with the watermark keeps it.
@@ -126,8 +118,8 @@ Every setting is fixed at job creation and there is no update endpoint, but expo
 
 To do this| Call  
 ---|---  
-Add one specific format for one language| `POST /jobs/{job_id}/export?target_lang=hi-IN` with `{"export_type": "video"}`  
-Get the full video + audio + MP3 set for one language| `POST /jobs/{job_id}/export-all?target_lang=hi-IN`  
+Add one specific format for one language| `POST /jobs/{job_id}/export` for one target language, with `{"export_type": "video"}`. `export_type` also accepts `audio`, `audio_vocals`, `srt`, and `vtt`.  
+Get the full video + audio set for one language| `POST /jobs/{job_id}/export-all` for one target language  
 Fetch a fresh signed URL for one export| `GET /exports/{export_id}/download`  
 Stop an export that is still running| `POST /exports/{export_id}/cancel`  
   
@@ -160,7 +152,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-a-voice)[FAQsNext](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/faq)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/how-to/choose-a-voice)[FAQsNext](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/faq)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -312,7 +304,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -356,6 +353,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

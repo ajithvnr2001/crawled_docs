@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/faq/
 title: FAQs | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T06:33:40.062066+00:00
+fetched_at: 2026-10-29T06:33:51.714840+00:00
 ---
 
 # FAQs | Sarvam API Docs
@@ -58,7 +58,7 @@ Use `POST /voices/create` to create, `GET /voices` to list, `GET /voices/{voice_
 
 ###### Can I use a voice created in Content Studio with the API (and the reverse)?
 
-Yes. Studio and the API share the same org-scoped voice library. A clone created in Content Studio is listed by `GET /voices` and usable as `voice_id` on `POST /voices/clone`; a voice created with `POST /voices/create` appears under Studio **My voices** and can be selected in Text to Speech and Dubbing. Your API key must be bound to that organization. See [Using a Cloned Voice](https://docs.sarvam.ai/creative-cloning-use#use-the-same-voice-in-the-api).
+Yes. Studio and the API share the same voice library. A clone created in Content Studio is listed by `GET /voices` and usable as `voice_id` on `POST /voices/clone`; a voice created with `POST /voices/create` appears under Studio **My voices** for everyone in the workspace, and the person who created it can select it in Text to Speech. Your API key must belong to the same organization, and `GET /voices` lists the voices of the workspace the key uses. See [Using a Cloned Voice](https://docs.sarvam.ai/creative-cloning-use#use-the-same-voice-in-the-api).
 
 Can I upload a reference clip to `POST /voices/clone`?
 
@@ -118,7 +118,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)[Build a LiveKit voice agent with SarvamNext](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)[Build a LiveKit voice agent with SarvamNext](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -266,7 +266,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)
@@ -310,6 +315,7 @@ YesNo
   * [Live Video Transcription](https://docs.sarvam.ai/api/cookbook/guides/live-video-transcription)
   * [Podcast Generator](https://docs.sarvam.ai/api/cookbook/guides/podcast-generator)
   * [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)
+  * [Support Voice Notes](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)
   * [Collection Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/responses/create-stream/
 title: Create Response | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T06:34:30.449315+00:00
+fetched_at: 2026-10-29T06:33:40.421430+00:00
 ---
 
 # Create Response | Sarvam API Docs
@@ -237,7 +237,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/legacy/document-intelligence/get-download-links)[Voice Agents API: manage AI voice agents programmaticallyManage deployments, campaigns, outbound calls, and analytics for your voice agents over REST.Next](https://docs.sarvam.ai/api-reference/conversations)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/legacy/document-intelligence/get-download-links)[Voice Agents API: manage AI voice agents programmaticallyManage deployments, campaigns, outbound calls, and analytics for your voice agents over REST.Next](https://docs.sarvam.ai/api-reference/conversations)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * API Reference
 
@@ -379,6 +379,7 @@ YesNo
   * [Update status](https://docs.sarvam.ai/api-reference/campaigns/update-status)
   * [Webhook payload](https://docs.sarvam.ai/api-reference/campaigns/webhook-payload)
   * [Upload cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/api-reference/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/get)

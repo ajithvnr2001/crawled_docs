@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/creative-dubbing/
 title: Dubbing | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:59.179136+00:00
+fetched_at: 2026-10-29T06:33:50.009394+00:00
 ---
 
 # Dubbing | Sarvam API Docs
@@ -44,7 +44,7 @@ Content Studio Dubbing localizes video or audio content into Indian languages wh
 
 New accounts get **60 minutes of free dubbing time**. Your remaining balance is shown as a live countdown badge in the header (e.g. “54min 44sec left”), and as a “60 min free” gift badge in the setup modal for new accounts. Some videos are marked **“fully free”** and don’t draw against your allowance or credits at all. Once the free allowance runs out, dubbing costs **80 credits per minute of dubbed output** , shown live in the setup modal alongside your remaining balance.
 
-Uploads are capped at **2 GB per file**. Dashboard uploads are also subject to browser timeout limits - if you’re processing large batches or very large files programmatically, use the Dubbing API instead of the dashboard.
+Upload limits depend on your plan: **2 GB and 1 hour** on Starter, **3 GB and 1 hour** on Pro, and **4 GB and 4 hours** on Enterprise. Dashboard uploads are also subject to browser timeout limits - if you’re processing large batches or very large files programmatically, use the Dubbing API instead of the dashboard.
 
 ## In This Section
 
@@ -54,7 +54,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/creative/studio-overview)[Creating a DubNext](https://docs.sarvam.ai/creative-dubbing-create)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/creative/studio-overview)[Creating a DubNext](https://docs.sarvam.ai/creative-dubbing-create)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 

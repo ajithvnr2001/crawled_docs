@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes/
 title: Support Voice Notes | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:10.796402+00:00
+fetched_at: 2026-10-29T06:33:51.615845+00:00
 ---
 
 # Support Voice Notes | Sarvam API Docs
@@ -344,7 +344,7 @@ Send a text or a voice note to the Sandbox number. You should get a text reply a
 ## **6\. Tips & Best Practices**
 
   * **Reference clip:** 10-15 seconds, one speaker, no music. The clone copies pace and emotion, not only timbre. See [Prepare Reference Audio](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/prepare-reference-audio).
-  * **Create once:** Reuse `VOICE_ID`. Re-uploading the clip on every process start repeats transcription and can hit the free-plan voice cap.
+  * **Create once:** Reuse `VOICE_ID`. Re-uploading the clip on every process start repeats transcription and can hit the Starter plan’s limit of 50 saved voices.
   * **Reply length:** Keep the system prompt explicit. WhatsApp bodies are capped at 1600 characters, and short replies clone more cleanly.
   * **One-shot vs stream:** WhatsApp needs a finished file to attach, so this guide uses `convert`. For a live voice agent, use [HTTP streaming](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/http-streaming) or [WebSocket](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/websocket-streaming).
   * **Sandbox opt-in:** Recipients must send the Sandbox join code first. See [WhatsApp Bot](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot#3-configure-twilio-for-whatsapp).
@@ -391,7 +391,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)[Hindi collections voice agent with LiveKitNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/cookbook/guides/whats-app-bot)[Hindi collections voice agent with LiveKitNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -540,7 +540,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)

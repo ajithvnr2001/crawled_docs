@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/creative-voice-library-browse/
 title: Browsing and Selecting Voices | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:00.534024+00:00
+fetched_at: 2026-10-29T06:33:49.958007+00:00
 ---
 
 # Browsing and Selecting Voices | Sarvam API Docs
@@ -30,11 +30,11 @@ Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/creative-voic
 
 This page is for Content Studio.
 
-Browse Sarvam’s voice catalog and your own clones, preview any voice, and set it as your active persona. For an overview of the Voice Library and who it’s for, see the [Voice Library overview](https://docs.sarvam.ai/creative-voice-library).
+Browse Sarvam’s voice catalog and your workspace’s cloned voices, preview any voice, and set it as your active persona. For an overview of the Voice Library and who it’s for, see the [Voice Library overview](https://docs.sarvam.ai/creative-voice-library).
 
 ## Discovering Voices with Featured Voices
 
-![Voice library screen. Header: Voice library title, Feedback button, and a black plus Clone voice button. Below it, a Featured voices section with category tabs \(Audiobooks, Podcasts, Education, Marketing\) above a row of stamp-style cards. Each card shows cover art, a title, and a Language, Narrator caption. Podcast-category cards pair two narrators per card.](https://docs.sarvam.ai/_fern-img/762a7e0625f5477984e22adb4f0e78d245e6597904c53665b45a22ad9e4cdb57.webp)
+![Voice library screen. Header: Voice library title, Feedback button, and a black plus Clone voice button. Below it, a Featured voices section with category tabs \(Audiobooks, Podcasts, Education, Marketing\) above a row of stamp-style cards. Each card shows cover art, a title, and a Language, Narrator caption. Podcast-category cards pair two narrators per card.](https://docs.sarvam.ai/_fern-files/_img/762a7e0625f5477984e22adb4f0e78d245e6597904c53665b45a22ad9e4cdb57.webp)
 
 Featured voices, browsable by content category - a quick way to hear what a great narration for your use case could sound like.
 
@@ -46,7 +46,7 @@ Featured voices, browsable by content category - a quick way to hear what a grea
 
 ## Browsing All Voices
 
-![All voices section below Featured voices. Two tabs, My voices and Explore voices. Below the tabs, a search box and two filter dropdowns, both defaulted to All. The first filter lists use-case categories: Conversational, Audiobooks, Entertainment, Sales, News. The second filter lists gender: All, Male, Female. Below the filters, a table with columns Voices, Use case, and Gender. Each row shows a colored square play-button avatar, the voice's name, a short personality tag, a use-case chip, and a gender label. Hovering a row reveals a heart favorite icon and a Use voice button.](https://docs.sarvam.ai/_fern-img/31720ae1e8cbf7054493d4f7d5db8b8313491f1d2ff0f26cc80533c8fbede285.webp)
+![All voices section below Featured voices. Two tabs, My voices and Explore voices. Below the tabs, a search box and two filter dropdowns, both defaulted to All. The first filter lists use-case categories: Conversational, Audiobooks, Entertainment, Sales, News. The second filter lists gender: All, Male, Female. Below the filters, a table with columns Voices, Use case, and Gender. Each row shows a colored square play-button avatar, the voice's name, a short personality tag, a use-case chip, and a gender label. Hovering a row reveals a heart favorite icon and a Use voice button.](https://docs.sarvam.ai/_fern-files/_img/31720ae1e8cbf7054493d4f7d5db8b8313491f1d2ff0f26cc80533c8fbede285.webp)
 
 The full voice catalog, filterable by use case and gender, with personality tags to help you scan for tone at a glance.
 
@@ -54,7 +54,7 @@ The full voice catalog, filterable by use case and gender, with personality tags
 
 ### Choose My Voices or Explore Voices
 
-Switch between the **My voices** and **Explore voices** tabs depending on whether you want your existing/favorited voices or the full catalog.
+Switch between the **My voices** and **Explore voices** tabs depending on whether you want your workspace’s cloned voices or the full catalog.
 
 [2](https://docs.sarvam.ai/creative-voice-library-browse#filter-by-use-case-or-gender)
 
@@ -103,7 +103,7 @@ Use the personality tag as a quick filter for tone, and the use-case tag as a st
 ## Sarvam Voices vs. Cloned Voices
 
   * **Sarvam voices** \- curated native-artist personas, ready to use immediately, no setup required.
-  * **Cloned voices** \- voices you’ve created via Instant Voice Cloning. These appear once processing finishes, and can be managed from the **My voices** tab.
+  * **Cloned voices** \- voices you or your teammates created via Instant Voice Cloning. These appear once processing finishes, and can be managed from the **My voices** tab.
 
 
 
@@ -113,7 +113,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/creative-voice-library)[Managing Your Voice LibraryNext](https://docs.sarvam.ai/creative-voice-library-manage)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/creative-voice-library)[Managing Your Voice LibraryNext](https://docs.sarvam.ai/creative-voice-library-manage)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 

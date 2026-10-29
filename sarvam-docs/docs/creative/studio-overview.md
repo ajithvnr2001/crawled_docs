@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/creative/studio-overview/
 title: Welcome to Content Studio | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:01.465514+00:00
+fetched_at: 2026-10-29T06:33:49.453405+00:00
 ---
 
 # Welcome to Content Studio | Sarvam API Docs
@@ -33,7 +33,7 @@ This page is for Content Studio.
 
 Generate, clone, and localize audio and video - no code required.
 
-![Content Studio dashboard home screen, showing a Video Dubbing highlight and a Start creating grid with Video Dubbing, Instant Voice Cloning, Speech to Text, and Text to Speech cards.](https://docs.sarvam.ai/_fern-img/e8dc32ee719f5be3f06becb66f05e4b2189b10007207da7cd659797895730053.webp)
+![Content Studio dashboard home screen, showing a Video Dubbing highlight and a Start creating grid with Video Dubbing, Instant Voice Cloning, Speech to Text, and Text to Speech cards.](https://docs.sarvam.ai/_fern-files/_img/e8dc32ee719f5be3f06becb66f05e4b2189b10007207da7cd659797895730053.webp)
 
 Content Studio is Sarvam AI’s self-serve content production platform, built with deep native support for Indian languages. It lets creators, educators, marketers, and developers generate, clone, and localize audio and video content directly from the dashboard, without writing code or maintaining a development team. If you’re validating a capability before you wire it into your own product via API, the dashboard is also where that starts.
 
@@ -41,7 +41,7 @@ Content Studio is Sarvam AI’s self-serve content production platform, built wi
 
 A web-based studio to instantly generate, clone, and localize audio and video content.
 
-[DubbingLocalize videos into Indian languages with speaker voice preservation.](https://docs.sarvam.ai/creative-dubbing)[Text to SpeechSynthesize natural, human-like voices from a library of premium personas.](https://docs.sarvam.ai/creative-text-to-speech)[Voice LibraryBrowse Sarvam’s curated voices and your own cloned personas in one place.](https://docs.sarvam.ai/creative-voice-library)[Instant Voice CloningMap a speaker’s unique vocal traits into a reusable persona in a few steps.](https://docs.sarvam.ai/creative-voice-cloning)[Speech to TextTranscribe audio across regional Indian dialects, with speaker diarization.](https://docs.sarvam.ai/creative-speech-to-text)
+[DubbingLocalize videos into Indian languages with speaker voice preservation.](https://docs.sarvam.ai/creative-dubbing)[Text to SpeechSynthesize natural, human-like voices from a library of premium personas.](https://docs.sarvam.ai/creative-text-to-speech)[Voice LibraryBrowse Sarvam’s curated voices and the cloned personas in your workspace in one place.](https://docs.sarvam.ai/creative-voice-library)[Instant Voice CloningMap a speaker’s unique vocal traits into a reusable persona in a few steps.](https://docs.sarvam.ai/creative-voice-cloning)[Speech to TextTranscribe audio across regional Indian dialects, with speaker diarization.](https://docs.sarvam.ai/creative-speech-to-text)
 
 ## Who It’s For
 
@@ -60,7 +60,7 @@ Was this page helpful?
 
 YesNo
 
-[DubbingNext](https://docs.sarvam.ai/creative-dubbing)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[DubbingNext](https://docs.sarvam.ai/creative-dubbing)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 

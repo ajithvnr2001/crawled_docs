@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/use-cases/agri-rural/
 title: Agri & Rural Voice Agents | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:26.194100+00:00
+fetched_at: 2026-10-29T06:33:53.536189+00:00
 ---
 
 # Agri & Rural Voice Agents | Sarvam API Docs
@@ -230,7 +230,13 @@ There’s no published cookbook example for this vertical yet. Here’s a comple
     
         logger.info(f"Farmer connected to room: {ctx.room.name}")
     
-        session = AgentSession()
+        session = AgentSession(
+    
+            vad=None,  # Sarvam STT runs its own VAD; leaving vad out installs LiveKit's Silero VAD
+    
+            turn_handling={"turn_detection": "stt"},
+    
+        )
     
         await session.start(agent=KrishiMitraAgent(), room=ctx.room)
     
@@ -243,7 +249,7 @@ There’s no published cookbook example for this vertical yet. Here’s a comple
 Install the same dependencies as the other LiveKit examples:
     
     
-    pip install "livekit-agents[sarvam,silero]" python-dotenv
+    pip install "livekit-agents[sarvam]>=1.8.6,<2" python-dotenv
 
 **See also:** [Government Services](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/use-cases/government-services) for the scheme-awareness portion of this audience.
 
@@ -251,7 +257,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/use-cases/government-services)[Streaming Speech-to-Text APINext](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/streaming-api)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/use-cases/government-services)[Streaming Speech-to-Text APINext](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/streaming-api)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -411,7 +417,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)

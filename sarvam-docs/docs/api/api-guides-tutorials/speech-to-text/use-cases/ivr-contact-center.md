@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/use-cases/ivr-contact-center/
 title: IVR & Contact Center Voice Agents | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:25.678287+00:00
+fetched_at: 2026-10-29T06:33:53.133354+00:00
 ---
 
 # IVR & Contact Center Voice Agents | Sarvam API Docs
@@ -87,13 +87,13 @@ STT| `saaras:v3`, `mode="transcribe"`, `language="unknown"`| Auto-detect handles
 LLM| `sarvam-105b`, `reasoning_effort=None`, short `max_tokens` (e.g. 200–400)| Contact-center turns are short Q&A/confirmation exchanges. You don’t need deep reasoning, and you don’t want its latency  
 TTS| `bulbul:v4-flash` (or `bulbul:v3`), WebSocket or HTTP streaming, `pace=1.1–1.2`| Matches [v4 tuning guidance](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/best-practices#tuning-guidance) for notifications and IVR; v3 may also use `temperature=0.4` ([v3 presets](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/bulbul-v3-best-practices#use-case-presets-v3))  
 TTS format| `mulaw` at 8kHz for PSTN legs, `linear16` at 16kHz for WebRTC/app legs| Matches the telephony codec so there’s no resampling step in the media path  
-Turn detection| `turn_detection="stt"`, `min_endpointing_delay=0.07` (LiveKit)| See [Build a Voice Agent with LiveKit](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit#4-configure-min-endpointing-delay)  
+Turn detection| `vad=None`, `turn_handling={"turn_detection": "stt", "endpointing": {"min_delay": 0.07}}` (LiveKit)| See [Build a Voice Agent with LiveKit](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit#4-configure-min-endpointing-delay)  
   
 ## Latency targets
 
 What| Target| How to get there  
 ---|---|---  
-STT processing| ~70ms| Set `min_endpointing_delay=0.07` (matches the Sarvam LiveKit plugin’s documented processing latency) so the agent doesn’t wait longer than necessary before handing off to the LLM  
+STT processing| ~70ms| Set the endpointing `min_delay` to 0.07 (matches the Sarvam LiveKit plugin’s documented processing latency) so the agent doesn’t wait longer than necessary before handing off to the LLM  
 LLM time-to-first-token| As low as the conversation allows| Default to `reasoning_effort=None` for the lowest latency. Reserve higher `reasoning_effort` for calls that need multi-step reasoning (e.g. explaining a complex billing dispute), not routine confirmations  
 TTS time-to-first-audio| Near-instant| Use **HTTP streaming** or **WebSocket** on the live call leg ([choosing the right endpoint](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/best-practices#choosing-the-right-endpoint)). Single-response REST waits for full synthesis and is fine only for pre-generated static prompts (“Thank you for calling…”) that don’t change per call  
   
@@ -158,7 +158,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/how-to/keyterms)[BFSI Voice BotsNext](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/use-cases/bfsi-voice-bots)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/how-to/keyterms)[BFSI Voice BotsNext](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/use-cases/bfsi-voice-bots)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -318,7 +318,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)

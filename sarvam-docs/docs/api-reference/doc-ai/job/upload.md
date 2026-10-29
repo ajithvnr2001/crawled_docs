@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/doc-ai/job/upload/
 title: Create Upload URL | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T06:34:34.952354+00:00
+fetched_at: 2026-10-29T06:33:44.107099+00:00
 ---
 
 # Create Upload URL | Sarvam API Docs
@@ -135,7 +135,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-export-status)[Parse DocumentNext](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/translate-document/doc-translation-export-status)[Parse DocumentNext](https://docs.sarvam.ai/api-reference/doc-ai/job/parse)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * API Reference
 
@@ -285,6 +285,7 @@ YesNo
   * [Update status](https://docs.sarvam.ai/api-reference/campaigns/update-status)
   * [Webhook payload](https://docs.sarvam.ai/api-reference/campaigns/webhook-payload)
   * [Upload cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/api-reference/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/get)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/delete-voice/
 title: Delete Voice | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T06:34:25.750143+00:00
+fetched_at: 2026-10-29T06:33:34.928968+00:00
 ---
 
 # Delete Voice | Sarvam API Docs
@@ -50,7 +50,7 @@ Try it
 
 204No Content
 
-**Beta.** Deletes a cloned voice: its audio assets are removed and the voice is no longer listed or usable for synthesis. On the free plan (capped at 5 voices), deleting a voice frees a slot. Paid plans are not capped.
+**Beta.** Deletes a cloned voice: its audio assets are removed and the voice is no longer listed or usable for synthesis. On the Starter (pay as you go) plan (capped at 50 voices across your organization), deleting a voice frees a slot. Pro and Enterprise plans have higher limits.
 
 **Base URL:** `https://api.sarvam.ai`. **Auth:** send your key in the `api-subscription-key` header. Returns `204 No Content` on success.
 
@@ -88,7 +88,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/voice-cloning/get-voice)[CreateNext](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/create)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/voice-cloning/get-voice)[CreateNext](https://docs.sarvam.ai/api-reference/pronunciation-dictionary/create)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * API Reference
 
@@ -236,6 +236,7 @@ YesNo
   * [Update status](https://docs.sarvam.ai/api-reference/campaigns/update-status)
   * [Webhook payload](https://docs.sarvam.ai/api-reference/campaigns/webhook-payload)
   * [Upload cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/api-reference/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/get)

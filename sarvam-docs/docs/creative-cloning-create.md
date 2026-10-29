@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/creative-cloning-create/
 title: Creating a Clone | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:57.757420+00:00
+fetched_at: 2026-10-29T06:33:50.447008+00:00
 ---
 
 # Creating a Clone | Sarvam API Docs
@@ -38,13 +38,13 @@ You must have the rights to clone any voice you record. The final step requires 
 
 ## The Three-Step Flow
 
-![Voice cloning landing screen. Header: Voice cloning title, Feedback and History buttons. Center content reads Clone any voice in 3 steps with subtitle Powered by Sarvam's voice synthesis in 12 Indian languages. Below, three numbered steps with icons: 01 Record audio \(microphone icon\), 10 seconds of clear speech in the language you want to clone; 02 Processing \(clock icon\), Sarvam builds a voice model from your recording; 03 Use anywhere \(waveform icon\), Deploy your clone to use in Text to Speech. A black plus Clone a voice button sits below.](https://docs.sarvam.ai/_fern-img/fdc9ef161916b3c110c3090e56fce3ae05b866341e7c50b87bbab54a0d1d8aac.webp)
+![Voice cloning landing screen. Header: Voice cloning title, Feedback and History buttons. Center content reads Clone any voice in 3 steps with subtitle Powered by Sarvam's voice synthesis in 12 Indian languages. Below, three numbered steps with icons: 01 Record audio \(microphone icon\), 10 seconds of clear speech in the language you want to clone; 02 Processing \(clock icon\), Sarvam builds a voice model from your recording; 03 Use anywhere \(waveform icon\), Deploy your clone to use in Text to Speech. A black plus Clone a voice button sits below.](https://docs.sarvam.ai/_fern-files/_img/fdc9ef161916b3c110c3090e56fce3ae05b866341e7c50b87bbab54a0d1d8aac.webp)
 
 The three-step promise: record, process, use anywhere - set up front so you know exactly what to expect.
 
 ## Record Your Voice
 
-![Clone voice modal, Step 1 of 3, titled Record your voice. A Language dropdown sits at the top. Below it, a Read this aloud box shows a short passage to read, its estimated read time, and a Shuffle button to swap in a different passage. A black Start recording button sits below the box, with the helper text Speak clearly, quiet room, no music beneath it.](https://docs.sarvam.ai/_fern-img/2a4222a14a1e8cdfc271785324282a08a58c4db4c719b119e247f5043f0e9415.webp)
+![Clone voice modal, Step 1 of 3, titled Record your voice. A Language dropdown sits at the top. Below it, a Read this aloud box shows a short passage to read, its estimated read time, and a Shuffle button to swap in a different passage. A black Start recording button sits below the box, with the helper text Speak clearly, quiet room, no music beneath it.](https://docs.sarvam.ai/_fern-files/_img/2a4222a14a1e8cdfc271785324282a08a58c4db4c719b119e247f5043f0e9415.webp)
 
 Step 1: pick a language, read the provided passage aloud, and record - no upload required.
 
@@ -86,7 +86,7 @@ Click **Start recording** and read the passage in a quiet room, speaking clearly
 
 ## Personalize the Voice
 
-![Clone voice modal, Step 2 of 3, titled Personalise. A Voice name text field sits above a Style dropdown defaulted to General, which expands to show General, Conversational, Professional, Warm, and Energetic, each with its own icon. A Not happy? Re-record link sits below, with Back and Next buttons at the bottom right.](https://docs.sarvam.ai/_fern-img/d0c2803ce5e581cc0314affb1a532e4c12472ae9c329b966a73b11b2f9479889.webp)
+![Clone voice modal, Step 2 of 3, titled Personalise. A Voice name text field sits above a Style dropdown defaulted to General, which expands to show General, Conversational, Professional, Warm, and Energetic, each with its own icon. A Not happy? Re-record link sits below, with Back and Next buttons at the bottom right.](https://docs.sarvam.ai/_fern-files/_img/d0c2803ce5e581cc0314affb1a532e4c12472ae9c329b966a73b11b2f9479889.webp)
 
 Step 2: name the voice and pick a style - with a one-click way back to Step 1 if the take needs another pass.
 
@@ -124,7 +124,7 @@ Click **Next** to move to the final preview and save step.
 
 ## Preview and Save
 
-![Clone voice modal, Step 3 of 3, titled Preview and save. A playback card shows the voice name and an auto-assigned personality tag, a play button, a waveform with elapsed and total time, and a Re-record link in the top right. Below it, Hear your voice on sample lines lists three playable example lines in different tones, a casual line, a news-anchor-style line, and a storytelling line. Below that, a checked consent checkbox reads I acknowledge and consent to the recording, processing, cloning, and use of my voice for the purpose of generating new content on this platform. Back and Save to library buttons sit at the bottom right.](https://docs.sarvam.ai/_fern-img/5631e8a44b2527a0492a7ba679a17f43d51d4ab743aeba1b3c774808b59d86e7.webp)
+![Clone voice modal, Step 3 of 3, titled Preview and save. A playback card shows the voice name and an auto-assigned personality tag, a play button, a waveform with elapsed and total time, and a Re-record link in the top right. Below it, Hear your voice on sample lines lists three playable example lines in different tones, a casual line, a news-anchor-style line, and a storytelling line. Below that, a checked consent checkbox reads I acknowledge and consent to the recording, processing, cloning, and use of my voice for the purpose of generating new content on this platform. Back and Save to library buttons sit at the bottom right.](https://docs.sarvam.ai/_fern-files/_img/5631e8a44b2527a0492a7ba679a17f43d51d4ab743aeba1b3c774808b59d86e7.webp)
 
 Step 3: hear your clone on three different sample lines before you commit, and give explicit consent to save it.
 
@@ -164,13 +164,15 @@ Confirm the consent checkbox: _“I acknowledge and consent to the recording, pr
 
 Click **Save to library**. Sarvam then builds a voice model from your recording - the “Processing” step from the three-step overview.
 
+If your organization is at its saved-voice limit, saving shows an error. The Starter plan keeps up to 50 cloned voices across your organization, and Pro and Enterprise plans have higher limits. Delete a voice you no longer need under **My voices** , then save again.
+
 Once processing finishes, the clone’s **Voice ID** is on its card under **My voices** — copy it when you need the voice in the API. Head to [Using a Cloned Voice](https://docs.sarvam.ai/creative-cloning-use#use-the-same-voice-in-the-api) to select it in Studio or use it over the API.
 
 Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/creative-voice-cloning)[Using a Cloned VoiceNext](https://docs.sarvam.ai/creative-cloning-use)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/creative-voice-cloning)[Using a Cloned VoiceNext](https://docs.sarvam.ai/creative-cloning-use)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 

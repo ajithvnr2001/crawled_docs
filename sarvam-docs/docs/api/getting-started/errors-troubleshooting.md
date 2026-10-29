@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/errors-troubleshooting/
 title: Errors & Troubleshooting | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T06:34:23.344831+00:00
+fetched_at: 2026-10-29T06:33:51.077546+00:00
 ---
 
 # Errors & Troubleshooting | Sarvam API Docs
@@ -82,7 +82,7 @@ Status| When it happens| What to do
 ---|---|---  
 400| Invalid body or parameters| Fix request; do not retry blindly  
 402| Credit balance exhausted| Add credits in [Billing & payments](https://docs.sarvam.ai/api/platform/billing); retrying will not help  
-403| Invalid API key (or forbidden)| Check `error.code` and key header  
+403| Invalid API key (or forbidden), or `TIER_LIMIT_REACHED` when you reach your saved-voice limit (50 on Starter)| Check `error.code` and key header; for `TIER_LIMIT_REACHED`, delete a saved voice to free a slot  
 422| Validation failed (e.g. wrong field name)| Compare with OpenAPI / guides  
 429| Rate limit, model capacity, or seat budget| Back off for rate and capacity; top up for `seat_budget_exhausted_error`  
 500 / 502 / 503| Transient server or model issues| Retry with exponential backoff  
@@ -276,7 +276,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/getting-started/commercial-licensing)[Talk to usNext](https://docs.sarvam.ai/api/getting-started/help)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/getting-started/commercial-licensing)[Talk to usNext](https://docs.sarvam.ai/api/getting-started/help)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 

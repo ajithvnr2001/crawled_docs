@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/voice-cloning/create-voice/
 title: Create Voice | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T06:34:25.649900+00:00
+fetched_at: 2026-10-29T06:33:35.079594+00:00
 ---
 
 # Create Voice | Sarvam API Docs
@@ -89,7 +89,7 @@ Accepts `multipart/form-data` \- send the audio as the `file` upload and everyth
 
 **Base URL:** `https://api.sarvam.ai`. **Auth:** send your key in the `api-subscription-key` header.
 
-**Limits:** max file size 50 MB. Voice count is capped by your subscription tier (e.g. 3 voices on the starter tier) - the API returns 403 `TIER_LIMIT_REACHED` when the cap is hit.
+**Limits:** max file size 50 MB. Voice count is capped by your subscription tier (e.g. 50 voices on the starter tier, counted across your organization) - the API returns 403 `TIER_LIMIT_REACHED` when the cap is hit.
 
 **Billing:** charged against the voice cloning API. See the [pricing page](https://docs.sarvam.ai/api/getting-started/pricing).
 
@@ -179,7 +179,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/text-to-speech/stream)[Generate SpeechNext](https://docs.sarvam.ai/api-reference/voice-cloning/clone)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/text-to-speech/stream)[Generate SpeechNext](https://docs.sarvam.ai/api-reference/voice-cloning/clone)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * API Reference
 
@@ -327,6 +327,7 @@ YesNo
   * [Update status](https://docs.sarvam.ai/api-reference/campaigns/update-status)
   * [Webhook payload](https://docs.sarvam.ai/api-reference/campaigns/webhook-payload)
   * [Upload cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/api-reference/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/api-reference/campaigns/cohorts/get)

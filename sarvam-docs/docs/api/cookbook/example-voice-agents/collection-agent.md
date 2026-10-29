@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/cookbook/example-voice-agents/collection-agent/
 title: Hindi collections voice agent with LiveKit | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:25.506690+00:00
+fetched_at: 2026-10-29T06:33:52.943078+00:00
 ---
 
 # Hindi collections voice agent with LiveKit | Sarvam API Docs
@@ -83,7 +83,7 @@ A collection agent that can:
 
 ### 1\. Prerequisites
 
-  * Python 3.9 or higher
+  * Python 3.10 or higher (required by `livekit-agents` 1.8.6 and later)
   * API keys from: 
     * [LiveKit Cloud](https://cloud.livekit.io/) (free account)
     * [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) (get API key from dashboard)
@@ -97,7 +97,7 @@ A collection agent that can:
 ###### Windows
     
     
-    pip install "livekit-agents[sarvam,silero]" python-dotenv
+    pip install "livekit-agents[sarvam]>=1.8.6,<2" python-dotenv
 
 ### 3\. Create Environment File
 
@@ -273,7 +273,13 @@ Create `collection_agent.py`:
     
         # Create and start the agent session
     
-        session = AgentSession()
+        session = AgentSession(
+    
+            vad=None,  # Sarvam STT runs its own VAD; leaving vad out installs LiveKit's Silero VAD
+    
+            turn_handling={"turn_detection": "stt"},
+    
+        )
     
         await session.start(
     
@@ -429,7 +435,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)[Hindi government scheme voice agent with LiveKitNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/cookbook/guides/support-voice-notes)[Hindi government scheme voice agent with LiveKitNext](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -576,7 +582,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)

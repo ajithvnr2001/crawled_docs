@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview/
 title: Instant Voice Cloning API | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:23.364484+00:00
+fetched_at: 2026-10-29T06:33:51.246722+00:00
 ---
 
 # Instant Voice Cloning API | Sarvam API Docs
@@ -128,16 +128,16 @@ The one-shot response contains `audio` / `audio_b64` and `request_id`. See the [
 
 ## Manage saved voices
 
-Voices are shared with Content Studio for the same organization.
+Voices are shared with Content Studio for the same workspace.
 
 Endpoint| What it does  
 ---|---  
 `POST /voices/create`| Create a cloned voice from a reference clip in one shot. The response returns the new `voice_id` and the auto-generated transcript (`reference_text`) together - the voice is ready to use with `POST /voices/clone` immediately, and appears under Studio **My voices**.  
-`GET /voices`| List the cloned voices in your workspace (filter by name, gender, accent; paginated). Each item’s `id` is the same value you pass as `voice_id` on `POST /voices/clone`.  
+`GET /voices`| List the cloned voices in your workspace (filter by name, gender, accent; paginated). Each item’s `id` is the same value you pass as `voice_id` on `POST /voices/clone`. It lists voices created by anyone in the workspace; the creator, when known, appears as `created_by_email`.  
 `GET /voices/{voice_id}`| Full details for one voice, including its transcript and time-limited signed URLs for the reference and preview audio. The path param is the same `svc-{uuid}` as list `id` / create `voice_id`.  
 `DELETE /voices/delete/{voice_id}`| Delete a voice. Its audio assets are removed and the voice stops being listed or usable in the API and in Studio.  
   
-The free plan keeps up to 5 cloned voices. Paid plans are not capped. On the free plan, deleting a voice frees a slot.
+The Starter plan (pay as you go) keeps up to 50 cloned voices across your organization, in Content Studio and the API. Pro and Enterprise plans have higher limits. On any plan, deleting a voice frees a slot. In Content Studio, only the person who created a voice, an organization owner or admin, or a workspace admin can delete it.
 
 ## Limits and pricing
 
@@ -163,7 +163,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/faq)[How to prepare reference audioNext](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/prepare-reference-audio)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/faq)[How to prepare reference audioNext](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/prepare-reference-audio)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -311,7 +311,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/
 title: AI for all from India | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T06:34:39.002915+00:00
+fetched_at: 2026-10-29T06:33:33.622064+00:00
 ---
 
 # AI for all from India | Sarvam API Docs
@@ -89,9 +89,9 @@ End-to-end projects you can run today, with the full source in each guide.
 
 [Full changelog →](https://docs.sarvam.ai/changelog)
 
-[October 2026Optional language on Instant Voice CloningOmit `language_code` on clone, stream, and WebSocket to detect the language from the text. Pass the code when pronunciation has to be exact.Read the changelog →](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)
+[July 2026Auto Speaker Count for EnterpriseOn the Enterprise plan, choose Auto (detect speakers) under Number of speakers and Content Studio detects the number of speakers for you.Read the changelog →](https://docs.sarvam.ai/creative-dubbing-create)
 
-[October 2026Forwarded Call Recordings, Call Traces, and Provider Details in the Analytics APIDownload the recording of a transferred call’s forwarded leg, get a step-by-step event trace of any call, and match calls to your telephony provider’s records with the new provider details.](https://docs.sarvam.ai/voice-agents/api/analytics/overview)[October 2026Bulbul V3 End of Life for Voice AgentsBulbul V3 reaches end of life on Voice Agents on November 10, 2026. Switch your agents to Bulbul V4 before then.](https://docs.sarvam.ai/voice-agents/build/voice-language)[October 2026Volume Adjustment for Voice AgentsA new Volume slider in the agent’s voice settings sets how loud the agent sounds, from 0.7 to 2.0.](https://docs.sarvam.ai/voice-agents/build/voice-language#volume)
+[October 2026Optional language on Instant Voice CloningOmit `language_code` on clone, stream, and WebSocket to detect the language from the text. Pass the code when pronunciation has to be exact.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)[October 2026Forwarded Call Recordings, Call Traces, and Provider Details in the Analytics APIDownload the recording of a transferred call’s forwarded leg, get a step-by-step event trace of any call, and match calls to your telephony provider’s records with the new provider details.](https://docs.sarvam.ai/voice-agents/api/analytics/overview)[October 2026Bulbul V3 End of Life for Voice AgentsBulbul V3 reaches end of life on Voice Agents on November 10, 2026. Switch your agents to Bulbul V4 before then.](https://docs.sarvam.ai/voice-agents/build/voice-language)
 
 ## Resources
 
@@ -131,7 +131,7 @@ Community
 
 
 
-[Built with](https://buildwithfern.com/)
+[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo)
 
   * [Model APIs](https://docs.sarvam.ai/api)
   * [Voice Agents](https://docs.sarvam.ai/voice-agents)

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit/
 title: Build a LiveKit voice agent with Sarvam | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T06:38:25.361430+00:00
+fetched_at: 2026-10-29T06:33:49.780267+00:00
 ---
 
 # Build a LiveKit voice agent with Sarvam | Sarvam API Docs
@@ -33,8 +33,8 @@ On this page
   * Speaker Voices (Bulbul v4 Flash)
   * Pro Tips
   * Best Practices
-  * 1\. Do Not Pass VAD to AgentSession
-  * 2\. Enable Flush Signal in STT
+  * 1\. Pass vad=None to AgentSession
+  * 2\. Leave Out flush_signal
   * 3\. Set Turn Detection to STT
   * 4\. Configure Min Endpointing Delay
   * Complete Optimized Example
@@ -81,7 +81,7 @@ A voice agent that can:
 ## Quick Overview
 
   1. Get API keys (LiveKit, Sarvam)
-  2. Install packages: `pip install livekit-agents[sarvam,silero] python-dotenv`
+  2. Install packages: `pip install "livekit-agents[sarvam]>=1.8.6,<2" python-dotenv`
   3. Create `.env` file with your API keys
   4. Write ~40 lines of Python code
   5. Run: `python agent.py dev`
@@ -95,7 +95,7 @@ A voice agent that can:
 
 ### 1\. Prerequisites
 
-  * Python 3.9 or higher
+  * Python 3.10 or higher (required by `livekit-agents` 1.8.6 and later)
   * API keys from: 
     * [LiveKit Cloud](https://cloud.livekit.io/) (free account)
     * [Sarvam AI](https://indus.sarvam.ai/key-management?ref=docs) (get API key from dashboard)
@@ -109,7 +109,7 @@ A voice agent that can:
 ###### Windows
     
     
-    pip install "livekit-agents[sarvam,silero]" python-dotenv
+    pip install "livekit-agents[sarvam]>=1.8.6,<2" python-dotenv
 
 ### 3\. Create Environment File
 
@@ -223,7 +223,13 @@ Create `agent.py`:
     
         # Create and start the agent session
     
-        session = AgentSession()
+        session = AgentSession(
+    
+            vad=None,  # Sarvam STT runs its own VAD; leaving vad out installs LiveKit's Silero VAD
+    
+            turn_handling={"turn_detection": "stt"},
+    
+        )
     
         await session.start(
     
@@ -359,22 +365,24 @@ To use the short-name v3 voices instead, set `model="bulbul:v3"`.
 
 When using Sarvam AI plugins with LiveKit, follow these recommendations for optimal performance:
 
-### 1\. Do Not Pass VAD to AgentSession
+### 1\. Pass `vad=None` to AgentSession
 
-The `vad` parameter should **not** be passed to `AgentSession` as Voice Activity Detection is handled internally by the Sarvam plugin.
+Sarvam STT runs voice activity detection on the server, so LiveKit doesn’t need its own. Pass `vad=None` explicitly: on `livekit-agents` 1.6.1 and later, leaving `vad` out installs LiveKit’s bundled Silero VAD, and two VADs can disagree about where a turn ends.
     
     
-    # ❌ Avoid this
+    # ❌ Avoid both of these
     
     session = AgentSession(vad=silero.VAD.load())
     
+    session = AgentSession()  # installs LiveKit's bundled Silero VAD
+    
     # ✅ Do this instead
     
-    session = AgentSession()
+    session = AgentSession(vad=None)
 
-### 2\. Enable Flush Signal in STT
+### 2\. Leave Out `flush_signal`
 
-Add `flush_signal=True` to the STT configuration. This enables the plugin to emit start and end of speech events, which is essential for proper turn-taking.
+You don’t need `flush_signal=True`. Sarvam’s server ends each turn with its own VAD. `flush_signal=True` only sends a flush message when your code flushes the stream itself, and `AgentSession` never flushes Sarvam STT, so inside an agent the setting has no effect. (Before `livekit-plugins-sarvam` 1.8.9, the plugin also sent a flush at every end of speech; it no longer does.)
     
     
     stt=sarvam.STT(
@@ -385,27 +393,37 @@ Add `flush_signal=True` to the STT configuration. This enables the plugin to emi
     
         mode="transcribe",
     
-        flush_signal=True  # Enables speech start/end events
-    
     )
 
 ### 3\. Set Turn Detection to STT
 
-Add `turn_detection="stt"` to the `AgentSession` configuration. This ensures turn detection is handled by the Sarvam plugin, which emits start and end of speech signals.
-    
-    
-    session = AgentSession(turn_detection="stt")
-
-### 4\. Configure Min Endpointing Delay
-
-Set `min_endpointing_delay=0.07` in your `AgentSession`. The Sarvam STT plugin has a processing latency of approximately 70ms. This setting ensures the agent transitions to the next pipeline step (LLM) as soon as STT finishes processing, minimizing response delay.
+Set `turn_detection` to `"stt"` inside `turn_handling`. This ensures turn detection is handled by the Sarvam plugin, which emits start and end of speech signals. The flat `turn_detection=` keyword still works but is deprecated.
     
     
     session = AgentSession(
     
-        turn_detection="stt",
+        vad=None,
     
-        min_endpointing_delay=0.07
+        turn_handling={"turn_detection": "stt"},
+    
+    )
+
+### 4\. Configure Min Endpointing Delay
+
+Set the endpointing `min_delay` to `0.07` in `turn_handling` (it replaces the deprecated `min_endpointing_delay` keyword). The Sarvam STT plugin has a processing latency of approximately 70ms. This setting ensures the agent transitions to the next pipeline step (LLM) as soon as STT finishes processing, minimizing response delay.
+    
+    
+    session = AgentSession(
+    
+        vad=None,
+    
+        turn_handling={
+    
+            "turn_detection": "stt",
+    
+            "endpointing": {"min_delay": 0.07},
+    
+        },
     
     )
 
@@ -414,7 +432,7 @@ Set `min_endpointing_delay=0.07` in your `AgentSession`. The Sarvam STT plugin h
 Here’s a complete example incorporating all best practices:
     
     
-    # STT with flush_signal enabled
+    # STT: the plugin handles speech events and flushing itself
     
     stt=sarvam.STT(
     
@@ -424,17 +442,21 @@ Here’s a complete example incorporating all best practices:
     
         mode="transcribe",
     
-        flush_signal=True
-    
     )
     
-    # AgentSession with optimized settings (no VAD parameter)
+    # AgentSession with optimized settings (Sarvam STT handles VAD)
     
     session = AgentSession(
     
-        turn_detection="stt",
+        vad=None,
     
-        min_endpointing_delay=0.07
+        turn_handling={
+    
+            "turn_detection": "stt",
+    
+            "endpointing": {"min_delay": 0.07},
+    
+        },
     
     )
 
@@ -483,7 +505,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/faq)[Build a Pipecat voice agent with SarvamNext](https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/faq)[Build a Pipecat voice agent with SarvamNext](https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -636,7 +658,12 @@ YesNo
   * [Transliteration](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/transliteration)
   * [Language Detection](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/language-detection)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)
-  * [Get your config_id](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/get-your-config-id)
+  * [Parse](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse)
+  * [Extract](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/extract)
+  * [Split](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/split)
+  * [Classify](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/classify)
+  * [Jobs & Errors](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/job-lifecycle)
+  * [Languages, Formats & Limits](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)
   * [Set Style Guidelines](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/style-guidelines)
   * [Pick a Genre](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/how-to/genre-and-model-tier)

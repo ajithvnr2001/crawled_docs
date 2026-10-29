@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/voice-agents/deploy/campaigns/cohorts/
 title: Campaign cohorts: upload and stream contacts to call | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:55.692917+00:00
+fetched_at: 2026-10-29T06:33:53.230147+00:00
 ---
 
 # Campaign cohorts: upload and stream contacts to call | Sarvam API Docs
@@ -16,6 +16,7 @@ On this page
   * When to use multiple cohorts
   * Add a cohort
   * Stream cohort via API
+  * Exclude cohort
   * Where to go next
 
 
@@ -83,15 +84,19 @@ Use [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/st
 
 For CSV-based uploads, continue using the dashboard flow above or [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload).
 
+## Exclude cohort
+
+Use [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort) to exclude certain users already present in a specific campaign. Users are matched by either user identifier or phone number. An exclude cohort does not filter out users who are added to the campaign in the future.
+
 ## Where to go next
 
-[Campaign detailsSee each cohort’s valid and invalid records.](https://docs.sarvam.ai/voice-agents/deploy/campaigns/campaign-details)[Variables & personalizationMap CSV columns to the variables your agent uses on each call.](https://docs.sarvam.ai/voice-agents/build/variables-personalization)[Stream cohortAdd contacts via JSON - ideal for CRM integration and automation.](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
+[Campaign detailsSee each cohort’s valid and invalid records.](https://docs.sarvam.ai/voice-agents/deploy/campaigns/campaign-details)[Variables & personalizationMap CSV columns to the variables your agent uses on each call.](https://docs.sarvam.ai/voice-agents/build/variables-personalization)[Stream cohortAdd contacts via JSON - ideal for CRM integration and automation.](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)[Exclude cohortExclude users already on a campaign.](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
 
 Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/deploy/campaigns/campaign-details)[Campaign dialing rate and concurrency for AI callsNext](https://docs.sarvam.ai/voice-agents/deploy/campaigns/dialing-rate)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/deploy/campaigns/campaign-details)[Campaign dialing rate and concurrency for AI callsNext](https://docs.sarvam.ai/voice-agents/deploy/campaigns/dialing-rate)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -274,6 +279,7 @@ YesNo
   * [List webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/list)
   * [Retry webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)
   * [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)

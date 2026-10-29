@@ -1067,3 +1067,11 @@
 {"url": "https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/languages-formats-limits/", "file": "api/api-guides-tutorials/document-intelligence/languages-formats-limits.md", "title": "Languages, Formats & Limits | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api-reference/doc-ai/job/parse/", "file": "api-reference/doc-ai/job/parse.md", "title": "Parse Document | Sarvam API Docs", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/how-to/parse/", "file": "api/api-guides-tutorials/document-intelligence/how-to/parse.md", "title": "How to parse a document | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/10/5/", "file": "changelog/2026/10/5.md", "title": "October 5, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/10/28/", "file": "changelog/2026/10/28.md", "title": "October 28, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/8/21/", "file": "changelog/2026/8/21.md", "title": "August 21, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/7/23/", "file": "changelog/2026/7/23.md", "title": "July 23, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/10/15/", "file": "changelog/2026/10/15.md", "title": "October 15, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/7/29/", "file": "changelog/2026/7/29.md", "title": "July 29, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/changelog/2026/9/25/", "file": "changelog/2026/9/25.md", "title": "September 25, 2026 | Sarvam API Docs", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort/", "file": "voice-agents/api/campaigns/cohorts/exclude-cohort.md", "title": "Exclude cohort | Sarvam API Docs", "method": "scrapling+scrapegraph"}

@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/creative-dubbing-create/
 title: Creating a Dub | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:14:58.482273+00:00
+fetched_at: 2026-10-29T06:33:48.283557+00:00
 ---
 
 # Creating a Dub | Sarvam API Docs
@@ -33,7 +33,7 @@ Create a new dub in two steps - upload your source file, then add your dubbing d
 
 ## Step 1: Upload Your Source File
 
-![Dubbing landing screen. Header reads Dubbing, with a green pill showing remaining free time \(e.g. 54min 44sec left\), a Feedback button, and a black plus New dub button. Below, a GET STARTED label leads into the headline Dub any video into 12 Indian languages, with the subtitle Upload a video, pick target languages, and keep your speaker's voice. Below that, four gradient category cards, each with an icon, a title, three bullet points, and its own call-to-action button: Dub educational content \(lotus icon\) with button Dub a lecture; Dub drama and fiction \(globe icon\) with button Dub a scene; Dub spiritual content \(shield icon\) with button Dub a discourse; Dub Reels and Shorts \(play icon\) with button Dub a reel.](https://docs.sarvam.ai/_fern-img/c47b0501485a5cfb8fdd4fff92087ca9e0945640149f7c1d46523f9e581927a0.webp)
+![Dubbing landing screen. Header reads Dubbing, with a green pill showing remaining free time \(e.g. 54min 44sec left\), a Feedback button, and a black plus New dub button. Below, a GET STARTED label leads into the headline Dub any video into 12 Indian languages, with the subtitle Upload a video, pick target languages, and keep your speaker's voice. Below that, four gradient category cards, each with an icon, a title, three bullet points, and its own call-to-action button: Dub educational content \(lotus icon\) with button Dub a lecture; Dub drama and fiction \(globe icon\) with button Dub a scene; Dub spiritual content \(shield icon\) with button Dub a discourse; Dub Reels and Shorts \(play icon\) with button Dub a reel.](https://docs.sarvam.ai/_fern-files/_img/c47b0501485a5cfb8fdd4fff92087ca9e0945640149f7c1d46523f9e581927a0.webp)
 
 The Dubbing landing page, with a category card and matching call-to-action for each common use case.
 
@@ -43,7 +43,7 @@ The Dubbing landing page, with a category card and matching call-to-action for e
 
 Click **\+ New dub** in the top-right corner, or click one of the category card buttons on the landing page (**Dub a lecture** , **Dub a scene** , **Dub a discourse** , **Dub a reel**) to open the “Create a dub” modal.
 
-![Create a dub modal, Step 1 of 2, titled Add your video, shown over a blurred background list of past dub projects. A bordered dropzone reads Drag and Drop or click to upload, with the caption Video \(MP4, MOV\) or Audio \(MP3, WAV\) and an Upload button on the right. Below the dropzone, a text link reads or record a video. The modal footer has Cancel and Next buttons.](https://docs.sarvam.ai/_fern-img/c27e5151d9af62d5f09fec4b81429cdf17baff5b267e4745c48608c2d094a4bc.webp)
+![Create a dub modal, Step 1 of 2, titled Add your video, shown over a blurred background list of past dub projects. A bordered dropzone reads Drag and Drop or click to upload, with the caption Video \(MP4, MOV\) or Audio \(MP3, WAV\) and an Upload button on the right. Below the dropzone, a text link reads or record a video. The modal footer has Cancel and Next buttons.](https://docs.sarvam.ai/_fern-files/_img/c27e5151d9af62d5f09fec4b81429cdf17baff5b267e4745c48608c2d094a4bc.webp)
 
 Create a dub, Step 1 of 2: a drag-and-drop dropzone for your video or audio file, with a direct-record option alongside it.
 
@@ -57,7 +57,7 @@ Create a dub, Step 1 of 2: a drag-and-drop dropzone for your video or audio file
 
 Upload a video or audio file, or attach an accessible social URL.
 
-  * Uploads are capped at **2 GB per file**.
+  * Upload limits depend on your plan: **2 GB and 1 hour** on Starter, **3 GB and 1 hour** on Pro, and **4 GB and 4 hours** on Enterprise. The upload box shows the limit that applies to you.
   * A URL link skips the local download-then-upload round trip for content you’ve already published (e.g. a YouTube or social link).
   * The modal displays your uploaded file’s name, size, and duration once attached (e.g. “165.2 MB · 5:16”) before you move to the next step.
 
@@ -65,7 +65,7 @@ Upload a video or audio file, or attach an accessible social URL.
 
 ## Step 2: Add Dubbing Details
 
-![Create a dub modal, Step 2 of 2, titled Add dubbing details, with an attached file Demo Video.mp4 at 132.6 MB and 13:30 duration. An editable Project name text field is pre-filled from the source filename. Below that, a two-column row holds Source language \(a dropdown with a colored icon, set to Hindi\) and Number of speakers \(a dropdown, set to 1 speaker\). Below that, Target languages is shown as removable tag chips \(e.g. Gujarati, Malayalam, each with an x to remove\) with a dropdown to add more. A Voice dropdown is set to Clone speaker voice. A Translation style dropdown is set to Auto. At the bottom, a credit summary reads 1,024 divided by 1,00,090.25 credits, with the note 1 minute of dubbed output equals 80 credits. The modal footer has Back and Create dub buttons.](https://docs.sarvam.ai/_fern-img/58546084035ed99e7529fb352a5774e09527a03863596ca783ee2df40b3882b6.webp)
+![Create a dub modal, Step 2 of 2, titled Add dubbing details, with an attached file Demo Video.mp4 at 132.6 MB and 13:30 duration. An editable Project name text field is pre-filled from the source filename. Below that, a two-column row holds Source language \(a dropdown with a colored icon, set to Hindi\) and Number of speakers \(a dropdown, set to 1 speaker\). Below that, Target languages is shown as removable tag chips \(e.g. Gujarati, Malayalam, each with an x to remove\) with a dropdown to add more. A Voice dropdown is set to Clone speaker voice. A Translation style dropdown is set to Auto. At the bottom, a credit summary reads 1,024 divided by 1,00,090.25 credits, with the note 1 minute of dubbed output equals 80 credits. The modal footer has Back and Create dub buttons.](https://docs.sarvam.ai/_fern-files/_img/58546084035ed99e7529fb352a5774e09527a03863596ca783ee2df40b3882b6.webp)
 
 The full dubbing setup form - project name, source language, speaker count, target languages, voice strategy, and translation style, all in one step.
 
@@ -92,6 +92,7 @@ Search or scroll the **Source language** dropdown and select the language actual
 
 Choose a count from the **Number of speakers** dropdown (1, 4, 5, 6, 7, 8, and more on scroll).
 
+  * On the Enterprise plan, you can also choose **Auto (detect speakers)** and Content Studio works out how many people speak. To get access, [contact us](https://www.sarvam.ai/contact-us).
   * Round upward for multi-speaker conversations - undercounting is worse than overcounting.
   * Merging two distinct speakers into one slot blends their voices in the output, which is much harder to fix in the editor than simply merging an unused extra slot.
 
@@ -119,7 +120,19 @@ Choose how the dubbed voice should be generated from the **Voice** dropdown:
 
 
 
-[6](https://docs.sarvam.ai/creative-dubbing-create#set-the-translation-register)
+[6](https://docs.sarvam.ai/creative-dubbing-create#choose-a-translation-model)
+
+### Choose a Translation Model
+
+Open **Advanced options** , then pick from the **Translation Model** dropdown:
+
+  * **Sarvam Plus** \- highest translation quality.
+  * **Sarvam Lite** \- faster, lighter translation.
+  * **Sarvam Auto** \- balances quality and efficiency. Default.
+
+
+
+[7](https://docs.sarvam.ai/creative-dubbing-create#set-the-translation-register)
 
 ### Set the Translation Register
 
@@ -134,7 +147,7 @@ Choose a style from the dropdown, or leave it on **Auto** :
 
 
 
-[7](https://docs.sarvam.ai/creative-dubbing-create#submit-for-processing)
+[8](https://docs.sarvam.ai/creative-dubbing-create#submit-for-processing)
 
 ### Submit for Processing
 
@@ -147,7 +160,7 @@ Click **Create dub** to dispatch the file to the localization pipeline.
 
 ## Track Progress
 
-![Processing video dialog showing a 50 percent circular progress indicator, a linear progress bar, and a Status History timeline listing pipeline stages: Translating \(Running, started 23 seconds ago\), Transcribing \(Done, with start and end times and duration\), and Processing video \(Done, with start and end times and duration\). A Go to Projects button sits at the bottom.](https://docs.sarvam.ai/_fern-img/c2fa5f1c8360d262c10bcd3c7e96db96275174deaa23ae7ea3b646d34c558819.webp)
+![Processing video dialog showing a 50 percent circular progress indicator, a linear progress bar, and a Status History timeline listing pipeline stages: Translating \(Running, started 23 seconds ago\), Transcribing \(Done, with start and end times and duration\), and Processing video \(Done, with start and end times and duration\). A Go to Projects button sits at the bottom.](https://docs.sarvam.ai/_fern-files/_img/c2fa5f1c8360d262c10bcd3c7e96db96275174deaa23ae7ea3b646d34c558819.webp)
 
 A live progress card shows each pipeline stage - processing, transcribing, translating - with timestamps and durations as it moves through them.
 
@@ -164,7 +177,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/creative-dubbing)[Editing a DubNext](https://docs.sarvam.ai/creative-dubbing-edit)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/creative-dubbing)[Editing a DubNext](https://docs.sarvam.ai/creative-dubbing-edit)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 

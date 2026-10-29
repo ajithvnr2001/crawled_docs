@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/creative-cloning-use/
 title: Using a Cloned Voice | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T08:15:00.244850+00:00
+fetched_at: 2026-10-29T06:33:50.125102+00:00
 ---
 
 # Using a Cloned Voice | Sarvam API Docs
@@ -37,6 +37,8 @@ Once processing completes, your cloned voice appears under the **My voices** tab
 
 
 
+Everyone in your workspace sees your cloned voice under **My voices** and on the **Instant Voice Cloning** page. The Text to Speech **Cloned voices** tab lists only voices you created yourself.
+
 Voice cloning works from a single ~10-second recording - one take is enough to generate a usable persona, though a cleaner, clearer reading generally produces more accurate results.
 
 ## Where to Select It
@@ -53,11 +55,11 @@ Open the **Cloned voices** tab and select your voice.
 
 Choose **Clone speaker voice** as the speaker strategy, then select the cloned voice from the list.
 
-See [Managing Your Voice Library](https://docs.sarvam.ai/creative-voice-library-manage) for renaming or removing clones you no longer need.
+See [Managing Your Voice Library](https://docs.sarvam.ai/creative-voice-library-manage) for removing clones you no longer need. Only the person who created a clone, an organization owner or admin, or a workspace admin can remove it.
 
 ## Use the same voice in the API
 
-Studio and the Instant Voice Cloning API share one org-scoped voice library. A clone you create in either place is available in both. Prefer the [Python and TypeScript SDKs](https://docs.sarvam.ai/api/getting-started/sdks) (`voice_cloning.convert` / `voiceCloning.convert`) for application code.
+Studio and the Instant Voice Cloning API share one voice library per workspace. Everyone in the workspace sees the same cloned voices, and a clone created in either place is available in both. Prefer the [Python and TypeScript SDKs](https://docs.sarvam.ai/api/getting-started/sdks) (`voice_cloning.convert` / `voiceCloning.convert`) for application code.
 
 To call the API with a Studio-created voice:
 
@@ -67,7 +69,7 @@ To call the API with a Studio-created voice:
 
 
 
-Voices you create with `POST /voices/create` also appear under **My voices** for the same account/org — you can select them in Text to Speech and Dubbing without recreating them in Studio.
+Voices you create with `POST /voices/create` also appear under **My voices** for everyone in the same workspace — the person who created one can select it in Text to Speech without recreating it in Studio.
 
 See the [Instant Voice Cloning API overview](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview) and [Manage saved voices](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview#manage-saved-voices).
 
@@ -75,7 +77,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/creative-cloning-create)[Cloning Best PracticesNext](https://docs.sarvam.ai/creative-cloning-best-practices)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/creative-cloning-create)[Cloning Best PracticesNext](https://docs.sarvam.ai/creative-cloning-best-practices)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
