@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/geospatial-visualize-colab/
 title: Visualize geospatial analytics data using a Colab notebook \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:57:36.872184+00:00
+fetched_at: 2026-10-29T05:43:02.948521+00:00
 ---
 
 # Visualize geospatial analytics data using a Colab notebook  |  BigQuery  |  Google Cloud Documentation

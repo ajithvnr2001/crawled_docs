@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/regions-zones/
 title: Regions and zones \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:02:34.457335+00:00
+fetched_at: 2026-10-29T06:14:30.527064+00:00
 ---
 
 # Regions and zones  |  Compute Engine  |  Google Cloud Documentation
@@ -150,144 +150,2695 @@ For information about hardware and feature support for all machine series, see [
 
 For zonal availability of bare metal machine types, see [Regional availability of bare metal instances](https://docs.cloud.google.com/compute/docs/instances/bare-metal-instances#regions-zones).
 
-APACNorth AmericaSouth AmericaEuropeMiddle EastAfricaA4X Max (NVIDIA GB300 Ultra Superchips)A4X (NVIDIA GB200 Superchips) {# Trailing hair space added to exclude A4X Max # } A4 (NVIDIA B200)A3 (NVIDIA H200/H100)A2 (NVIDIA A100)C4C4AC4DC4NC3C3DC2C2DE2G4 (NVIDIA RTX PRO 6000)G2 (NVIDIA L4)H4DH3M4NM4M3M2M1N4AN4DN4N2N2DN1T2DT2AX5X4Z4DZ4MZ3NVIDIA GraceGranite RapidsGoogle AxionEmerald RapidsSapphire RapidsIce LakeCascade LakeSkylakeAMD EPYC TurinAMD EPYC GenoaAMD EPYC MilanAmpere AltraBroadwellHaswellSandy BridgeIvy BridgeGPUsAMD SEV AMD SEV-SNPIntel TDXNVIDIA Confidential Computing
+The following table lists the available regions and zones for Compute Engine, along with the geographic location, supported machine series, processors, Confidential VM and GPU options, and low-carbon status for each zone:
+
+APACNorth AmericaSouth AmericaEuropeMiddle EastAfricaA4X Max (NVIDIA GB300 Ultra Superchips)A4X (NVIDIA GB200 Superchips) {# Trailing hair space added to exclude A4X Max # } A4 (NVIDIA B200)A3 (NVIDIA H200/H100)A2 (NVIDIA A100)C4C4AC4DC4NC3C3DC2C2DE2G4 (NVIDIA RTX PRO 6000)G2 (NVIDIA L4)H4DH3M4NM4M3M2M1N4AN4DN4N2N2DN1T2DT2AX5X4Z4DZ4MZ3Intel Ivy BridgeIntel Sandy BridgeIntel HaswellIntel BroadwellIntel SkylakeIntel Cascade LakeIntel Ice LakeIntel Sapphire RapidsIntel Emerald RapidsIntel Granite RapidsAMD EPYC MilanAMD EPYC GenoaAMD EPYC TurinAmpere Altra ArmGoogle AxionNVIDIA GraceGPUsAMD SEV AMD SEV-SNPIntel TDXNVIDIA Confidential Computing
 
 Clear all
 
-Zones | Location | Machine types | CPUs | Options | CO2 emissions  
+Available Compute Engine regions and zones Zones | Location | Machine types | CPUs | Options | CO2 emissions  
 ---|---|---|---|---|---  
-`africa-south1-a` | Johannesburg, South Africa | E2, N4 , N2 , N2D, C4 , C4A, C4D, T2D, M3, C2D | Intel Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`africa-south1-b` | Johannesburg, South Africa | E2, N4 , N2 , N2D, C4 , T2D, C2D | Intel Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`africa-south1-c` | Johannesburg, South Africa | E2, N4 , N2 , N2D, C4 , C4D, T2D, M3, C2D | Intel Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-east1-a` | Changhua County, Taiwan, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, C3 , C3D, T2D, Z3-metal, M1, C2 , C2D, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-east1-b` | Changhua County, Taiwan, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, C3 , C3D, T2D, M3, M1, C2 , C2D, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-east1-c` | Changhua County, Taiwan, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, C3 , C3D, T2D, Z3-metal, M3, M1, C2 , C2D, A3, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-east2-a` | Hong Kong, APAC | E2, N4 , N2 , N2D, N1, C4 , C3 , T2D, C2  | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-east2-b` | Hong Kong, APAC | E2, N2 , N2D, N1, T2D, C4 , C2  | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-east2-c` | Hong Kong, APAC | E2, N4 , N2 , N2D, N1, T2D, C4 , C2 , C2D | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-northeast1-a` | Tokyo, Japan, APAC | E2, C4A, N4 , N2 , N2D, N1, T2D, Z3, M4N, M4, M3, M2, M1, C2 , A2, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, AMD EPYC Milan, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-northeast1-b` | Tokyo, Japan, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, C4D, C3 , T2D, Z3, M3, M2, M1, C2 , C2D, A4 , A3, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`asia-northeast1-c` | Tokyo, Japan, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, C4D, C3 , T2D, Z3, M3, M1, C2 , A2, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-northeast2-a` | Osaka, Japan, APAC | E2, N4 , N2 , N2D, N1, C4 , C3 , T2D, M3, M1, C2 , C2D | Intel Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-northeast2-b` | Osaka, Japan, APAC | E2, N2 , N2D, N1, T2D, M3, M2, M1, C2  | Intel Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-northeast2-c` | Osaka, Japan, APAC | E2, N4 , N2 , N2D, N1, C4 , C3 , T2D, M3, M2, M1, C2 , C2D | Intel Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-northeast3-a` | Seoul, South Korea, APAC | E2, N4 , N2 , N2D, N1, C4 , C3 , M3, M2, M1, C2 , C2D, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-northeast3-b` | Seoul, South Korea, APAC | E2, N4 , N2 , N2D, N1, C4 , C3 , M3, M2, M1, C2 , C2D, A2, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-northeast3-c` | Seoul, South Korea, APAC | E2, N4 , N2 , N2D, N1, C4 , M3, C2 , C2D, A3 | Intel Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-south1-a` | Mumbai, India, APAC | E2, N4 , N4D, N2 , N2D, C4 , C4A, C3 , C3D, T2D, N1, M2, M1, C2 , C2D, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-south1-b` | Mumbai, India, APAC | E2, N4 , N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, X4, M4N, M4 , M3, M2, M1, C2 , C2D, G2, A3 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`asia-south1-c` | Mumbai, India, APAC | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, H4D, X4, M4N, M4 , M3, M1, C2 , C2D, A3, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-south2-a` | Delhi, India, APAC | E2, N4 , N2 , N2D, N1, C4 , C3, T2D, X4, M4N, M4 , M3, M2, M1, C2 , C2D, G4 | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-south2-b` | Delhi, India, APAC | E2, N4 , N2 , N2D, N1, C4 , C3 ,T2D, M4N, M4 , M3, M2, M1, C2 , C2D | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-south2-c` | Delhi, India, APAC | E2, N4 , N2 , N2D, N1, C4 , C3 , T2D, C2 , A3, G4 | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-southeast1-a` | Jurong West, Singapore, APAC | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, C2 , C2D, T2D, Z3, H4D, M4N, M4 , M3, M2, M1, A2, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`asia-southeast1-b` | Jurong West, Singapore, APAC | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, C2 , C2D, T2D, T2A, Z3, M4N, M4 , M3, M2, M1, A4 , A3, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Ampere Altra Arm, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`asia-southeast1-c` | Jurong West, Singapore, APAC | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, T2A, Z3, M1, C2 , C2D, A2, A3, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Ampere Altra Arm, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`asia-southeast2-a` | Jakarta, Indonesia, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, C3 , T2D, M1 | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-southeast2-b` | Jakarta, Indonesia, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, T2D, G4 | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion AMD EPYC Turin | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-southeast2-c` | Jakarta, Indonesia, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, T2D, M1, G4 | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`asia-southeast3-a` | Bangkok, Thailand, APAC | N4 , C4 , C3D, M4N, M4 , M3 | Intel Emerald Rapids, Granite Rapids, AMD EPYC Milan |  |   
-`asia-southeast3-b` | Bangkok, Thailand, APAC | N4 , C4 , C3D, M4N, M4 , M3 | Intel Emerald Rapids, Granite Rapids, AMD EPYC Milan |  |   
-`asia-southeast3-c` | Bangkok, Thailand, APAC | N4 , C4 , C3D, M4N, M4 , M3 | Intel Emerald Rapids, Granite Rapids, AMD EPYC Milan |  |   
-`australia-southeast1-a` | Sydney, Australia, APAC | E2, N4 , N2 , N2D, N1, C3 , T2D, C2 , M3, M2, M1 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`australia-southeast1-b` | Sydney, Australia, APAC | E2, N4 , N2 , N2D, N1, C4, C3 , C3D, T2D, Z3, C2 , M2, M1 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`australia-southeast1-c` | Sydney, Australia, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, C2 , M4N, M4 , M3, M1, A3, Z3 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion  | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`australia-southeast2-a` | Melbourne, Australia, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, C3 , C3D, T2D, Z3-metal, C2D | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, AMD EPYC Milan, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`australia-southeast2-b` | Melbourne, Australia, APAC | E2, N4 , N2 , N2D, N1, C4 , C4A, T2D, C3 , Z3-metal, M3, M1, A3 | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion | GPUs |   
-`australia-southeast2-c` | Melbourne, Australia, APAC | E2, N4 , N2 , N2D, C4 , C4A, T2D, N1, M3, M1 | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`europe-north1-a` | Hamina, Finland, Europe | E2, N4 , N2 , N2D, N1, C4 , C4A, C3D, T2D, C2 , M3, G4 | Intel Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-north1-b` | Hamina, Finland, Europe | E2, N4 , N2 , N2D, N1, C4A, C4 , C3 , T2D, C2 , G4 | Intel Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-north1-c` | Hamina, Finland, Europe | E2, N4 , N2 , N2D, N1, T2D, C4 , C4A, C2 , M3, A4 , G4 | Intel Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-north2-a` | Stockholm, Sweden, Europe | E2, N4 , C4 , C4A, C3 , C3D, Z3 | Intel Ivy Bridge, Broadwell, Haswell, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-north2-b` | Stockholm, Sweden, Europe | E2, N4 , C4 , C4A, C3 , C3D, Z3, C2D | Intel Ivy Bridge, Broadwell, Haswell, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-north2-c` | Stockholm, Sweden, Europe | E2, N4 , C4  | Intel Ivy Bridge, Broadwell, Haswell, Cascade Lake, Ice Lake, Emerald Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-central2-a` | Warsaw, Poland, Europe | E2, N4 , N2 , N2D, N1, C4 , C4A, T2D, M4N, M4 , M3, M1, C2D | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-central2-b` | Warsaw, Poland, Europe | E2, N2 , N2D, N1, T2D, M1, C2D | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-central2-c` | Warsaw, Poland, Europe | E2, N4 , N2 , N2D, N1, C4 , T2D | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-southwest1-a` | Madrid, Spain, Europe | E2, N4 , N2 , N2D, C4 , C4A, T2D, M4N, M4 , M3, M2, M1 | Intel Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, AMD EPYC Milan, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-southwest1-b` | Madrid, Spain, Europe | E2, N4 , N2 , N2D, C4 , C4A, T2D, C2D | Intel Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-southwest1-c` | Madrid, Spain, Europe | E2, N4 , N2 , N2D, C4 , C4A, T2D, M4N, M4 , M3, M2, M1 | Intel Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west1-b` | St. Ghislain, Belgium, Europe | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, X4, M4N, M4 , M3, M2, M1, C2 , C2D, A4 , A3, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west1-c` | St. Ghislain, Belgium, Europe | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, X4, M4N, M4 , M2, C2 , C2D, A3, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west1-d` | St. Ghislain, Belgium, Europe | E2, N4 , N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, M4N, M4 , M3, M2, M1, C2 , C2D | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west2-a` | London, England, Europe | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C4N, C3 , C3D, C2 , C2D, T2D, Z3, M3, M2, M1, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west2-b` | London, England, Europe | E2, N4 , N4A, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, C2 , C2D, T2D, Z3, M3, M2, M1, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west2-c` | London, England, Europe | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C2 , C2D, T2D, Z3, M4N, M4 , M3, M1, G4 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west3-a` | Frankfurt, Germany, Europe | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, X4, M4N, M4 , M3, M2, M1, C2 , C2D, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp) |   
-`europe-west3-b` | Frankfurt, Germany, Europe | E2, N4 , N4A, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, X4, M4N, M4 , M3, M2, M1, C2 , C2D, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp) |   
-`europe-west3-c` | Frankfurt, Germany, Europe | E2, N4 , N4A, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, M3, M1, C2 , C2D, A3 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp) |   
-`europe-west4-a` | Eemshaven, Netherlands, Europe | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, T2A, Z3, X4, M4N, M4 , M3, M2, M1, C2 , C2D, A3, A2, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Ampere Altra Arm, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west4-b` | Eemshaven, Netherlands, Europe | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, T2A, Z3, X4, M4N, M4 , M3, M2, M1, H4D, H3, C2 , C2D, A4X , A4 , A3, A2, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Ampere Altra Arm, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west4-c` | Eemshaven, Netherlands, Europe | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, T2A, Z3, X4, M2, M1, H4D, H3, C2 , C2D, A3, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Ampere Altra Arm, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx), [ NVIDIA Confidential Computing](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=nvidia-confidential-computing) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west6-a` | Zurich, Switzerland, Europe | E2, N4 , N2 , N2D, N1, C2 , T2D | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, AMD EPYC Milan |  |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west6-b` | Zurich, Switzerland, Europe | E2, N4 , N2 , N2D, N1, C4 , C4A, T2D, M3, M1, C2 , G2, Z3 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west6-c` | Zurich, Switzerland, Europe | E2, N4 , N2 , N2D, N1, C4 , T2D, M3, M1, C2 , G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west8-a` | Milan, Italy, Europe | E2, N4 , N2 , N2D, T2D, X4, M3, M2, M1 | Intel Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west8-b` | Milan, Italy, Europe | E2, N4 , N2 , N2D, C4 , T2D, Z3-metal, M2, G4 | Intel Broadwell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west8-c` | Milan, Italy, Europe | E2, N4 , N2 , N2D, C4 , C2D, T2D, Z3-metal, X4, M3, M2, M1, G4 | Intel Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west9-a` | Paris, France, Europe | E2, N4 , N2 , N2D, C4 , C3 , T2D, M3 | Intel Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west9-b` | Paris, France, Europe | E2, N4 , N2 , N2D, C4 , C4D, C3 , T2D, M3, M1 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west9-c` | Paris, France, Europe | E2, N4 , N2 , N2D, C4 , C3 , T2D, M1, A3 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west10-a` | Berlin, Germany, Europe | E2, N4 , N2 , N2D, C4D, C3 , T2D, Z3 | Intel Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, AMD EPYC Milan, AMD EPYC Turin |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`europe-west10-b` | Berlin, Germany, Europe | E2, N2 , N2D, C4D, Z3, G4 | Intel Cascade Lake, Ice Lake, Sapphire Rapids, AMD EPYC Milan, AMD EPYC Turin |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`europe-west10-c` | Berlin, Germany, Europe | E2, N4 , N2 , N2D, C4 , C4D, T2D, Z3 | Intel Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, AMD EPYC Milan, AMD EPYC Turin |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`europe-west12-a` | Turin, Italy, Europe | E2, N2 , N2D, T2D, M4N, M4 , M3 | Intel Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west12-b` | Turin, Italy, Europe | E2, N2 , N2D, T2D, M3, C2D | Intel Broadwell, Skylake, Cascade Lake, Ice Lake, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`europe-west12-c` | Turin, Italy, Europe | E2, N4 , N2 , N2D, C4 , T2D | Intel Broadwell, Skylake, Cascade Lake, Emerald Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`me-central1-a` | Doha, Qatar, Middle East | E2, N2 , N2D, C4 , C3 , T2D, Z3-metal | Intel Broadwell, Haswell, Ivy Bridge, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, AMD EPYC Milan |  |   
-`me-central1-b` | Doha, Qatar, Middle East | E2, N4 , N2 , N2D, C4 , T2D, M3 | Intel Broadwell, Haswell, Ivy Bridge, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`me-central1-c` | Doha, Qatar, Middle East | E2, N4 , N2 , N2D, C4 , C4A, C3 , T2D, Z3-metal, M3 | Intel Broadwell, Haswell, Ivy Bridge, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`me-central2-a` | Dammam, Saudi Arabia, Middle East | E2, N4 , N2 , N2D, C4 , C4A, C3 , C3D, T2D, C2 , M3, M2, G4, G2 | Intel Broadwell, Haswell, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, EPYC Milan, AMD EPYC Genoa, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`me-central2-b` | Dammam, Saudi Arabia, Middle East | E2, N2 , N2D, C3 , T2D, M3, M2, C2  | Intel Broadwell, Haswell, Ivy Bridge, Cascade Lake, Ice Lake, Sapphire Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`me-central2-c` | Dammam, Saudi Arabia, Middle East | E2, N4 , N2 , N2D, C4 , C3 , C3D, T2D, M4N, M4 , M3, M2, C2 , G2 | Intel Broadwell, Haswell, Ivy Bridge, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`me-west1-a` | Tel Aviv, Israel, Middle East | E2, N4 , N2 , N2D, C4 , C3 , T2D, M3, M1, C2 , A2 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`me-west1-b` | Tel Aviv, Israel, Middle East | E2, N4 , N2 , N2D, N1GPU required, C4 , C4A, C3 , C3D, T2D, C2  | Intel Broadwell, Haswell, Ivy Bridge, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`me-west1-c` | Tel Aviv, Israel, Middle East | E2, N2 , N2D, N1GPU required, C3 , T2D, M3, M1, C2 , C2D, A2 | Intel Broadwell, Haswell, Ivy Bridge, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`northamerica-northeast1-a` | Montréal, Québec, North America | E2, N4 , N2 , N2D, N1, C4 , C4A, C3 , T2D, M4N, M4 , C2 , C2D | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`northamerica-northeast1-b` | Montréal, Québec, North America | E2, N4 , C4 , C4A, C4D, C3 , N2 , N2D, N1, T2D, M4N, M4 , M3, M2, M1, H3, C2 , G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`northamerica-northeast1-c` | Montréal, Québec, North America | E2, N2 , N2D, N1, T2D, M3, M2, M1, C2 , G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`northamerica-northeast2-a` | Toronto, Ontario, North America | E2, N2 , N2D, N1, C4 , T2D, M3, M2, M1, G2 | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`northamerica-northeast2-b` | Toronto, Ontario, North America | E2, N4 , N2 , N2D, N1, C4 , C4A, C4D, C2D, T2D, Z3-metal, M3, M2, M1, G2 | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`northamerica-northeast2-c` | Toronto, Ontario, North America | E2, N4 , N2 , N2D, N1, C4 , C2D, T2D, Z3-metal, M4N, M4 , M3, M2, A3  | Intel Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`northamerica-south1-a` | Queretaro, Mexico, North America | E2, N4 , C4 , C4A, C3D, Z3 | Intel Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`northamerica-south1-b` | Queretaro, Mexico, North America | E2, N4 , C4 , C4A, C3D, Z3 | Intel Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`northamerica-south1-c` | Queretaro, Mexico, North America | E2, N4 , C4 , C4A, C3D, Z3 | Intel Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`southamerica-east1-a` | Osasco, São Paulo, Brazil, South America | E2, N4 , N2 , N2D, N1, C4 , C3 , T2D, Z3-metal, C2 , C2D, G4 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`southamerica-east1-b` | Osasco, São Paulo, Brazil, South America | E2, N4 , N2 , N2D, N1, C4 , C3 , T2D, M3, M2, M1, C2 , C2D, G4 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`southamerica-east1-c` | Osasco, São Paulo, Brazil, South America | E2, N4 , N2 , N2D, N1, C4 , C4A, C3 , T2D, M4N, M4 , M3, M2, M1, C2 , C2D | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`southamerica-west1-a` | Santiago, Chile, South America | E2, N4 , N2 , N2D, C4 , C4A, C2 , T2D, Z3 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion |  |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`southamerica-west1-b` | Santiago, Chile, South America | E2, N4 , N2 , N2D, C4 , C4A, C2 , T2D, M4N, M4 , M3, M2, M1 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`southamerica-west1-c` | Santiago, Chile, South America | E2, N4 , N2 , N2D, C4 , T2D, M4N, M4 , M3, M2, M1, C2  | Intel Broadwell, Haswell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids, AMD EPYC Milan |  |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-central1-a` | Council Bluffs, Iowa, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C4N, C3 , C3D, T2D, T2A, Z4D, Z4M, Z3, X5, X4, M4N, M4 , M3, M2, M1, H4D, H3, C2 , C2D, A4X , A3, A2, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Ampere Altra Arm, Google Axion, NVIDIA Grace | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx), [ NVIDIA Confidential Computing](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=nvidia-confidential-computing) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-central1-b` | Council Bluffs, Iowa, North America | E2, N4 , N4D, N4A, N2 , N2D, N1, C4 , C4A, C4D, C4N, C3 , C3D, T2D, T2A, Z4M, Z4D, Z3, X4, M4N, M4 , M3, M2, M1, C2 , C2D, A4X Max, A4X , A4 , A3, A2, G4, G2, H4D | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Ampere Altra Arm, Google Axion, NVIDIA Grace | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-central1-c` | Council Bluffs, Iowa, North America | E2, N4 , N4D, N4A, N2 , N2D, N1, C4 , C4A, C4D, C4N, C3 , C3D, T2D, Z4M, Z4D, Z3, X5, X4, M4N, M4 , M3, M2, M1, C2 , C2D, A3, A2, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-central1-f` | Council Bluffs, Iowa, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, T2A, Z4D, Z3, M1, C2 , C2D, A2, G4 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Ampere Altra Arm, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-east1-b` | Moncks Corner, South Carolina, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, M4N, M4 , M3, M1, H4D, C2 , C2D, A4 , A2, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`us-east1-c` | Moncks Corner, South Carolina, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C4N, C3 , C3D, T2D, Z3, M1, C2 , C2D, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`us-east1-d` | Moncks Corner, South Carolina, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, M4N, M4 , M3, M1, C2 , C2D, A4X , A4 , G4 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`us-east4-a` | Ashburn, Virginia, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z4M, Z3, X5, X4, M4N, M4 , M3, M2, M1, C2 , C2D, A4X Max, A3, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`us-east4-b` | Ashburn, Virginia, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z4D, Z3, X4, M4N, M4 , M3, M2, M1, C2 , C2D, A4X Max, A4X , A4 , A3, G4 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion, NVIDIA Grace | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`us-east4-c` | Ashburn, Virginia, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z4D, Z3, X5, X4, M4N, M4 , M3, M1, C2 , C2D, A3, A2, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`us-east5-a` | Columbus, Ohio, North America | E2, N4 , N4D, N2 , N2D, C4 , C4A, C4D, C3 , C3D, T2D, Z4D, Z3, M4N, M4 , C2 , A3, A2, G4 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ NVIDIA Confidential Computing](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=nvidia-confidential-computing) |   
-`us-east5-b` | Columbus, Ohio, North America | E2, N4 , N4D , N2 , N2D, C4 , C4A, C4D, C4N, C3 , C3D, T2D, Z4D, Z3, M4N, M4 , C2 , A4X Max, G4 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`us-east5-c` | Columbus, Ohio, North America | E2, N4 , N4D , N2 , N2D, C4 , C4A, C4D, C4N, C3 , C3D, T2D, M4N, M4 , Z4D, Z3, C2 , A4X Max, G4 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, NVIDIA Grace, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |   
-`us-south1-a` | Dallas, Texas, North America | E2, N4 , N2 , N2D, C4 , C4A, C3 , T2D, Z3, G4 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-south1-b` | Dallas, Texas, North America | E2, N4 , N2 , N2D, C4 , C4A, C3 , T2D, A4 , A3, Z3, G4 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-south1-c` | Dallas, Texas, North America | E2, N2 , N2D, C3 , T2D, Z3 | Intel Broadwell, Haswell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, AMD EPYC Milan |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-west1-a` | The Dalles, Oregon, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, Z3, M4N, M4 , M3, M1, C2 , C2D, A3, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-west1-b` | The Dalles, Oregon, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4D, C4N, C3 , C3D, T2D, Z3, C2 , C2D, M4N, M4 , M3, M1, A3, A2, G4, G2 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev), [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-west1-c` | The Dalles, Oregon, North America | E2, N4 , N4A, N4D, N2 , N2D, N1, C4 , C4A, C4D, C3D, T2D, C3 , C2 , C2D, M4N, M4 , M3, A3, G4 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |  ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
-`us-west2-a` | Los Angeles, California, North America | E2, N4 , N2 , N2D, N1, C4 , C4A, C3 , C3D, T2D, C2 , C2D, Z3 | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, AMD EPYC Milan, AMD EPYC Genoa, Google Axion |  [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`us-west2-b` | Los Angeles, California, North America | E2, N4 , N2 , N2D, N1, C4 , C4A, C3 , C3D, T2D, M1, C2  | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`us-west2-c` | Los Angeles, California, North America | E2, N4 , N2 , N2D, N1, T2D, C4 , C4A, C3 , C3D, M1, C2 , C2D, A4  | Intel Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`us-west3-a` | Salt Lake City, Utah, North America | E2, N4 , N4D , N2 , N2D, N1, C4 , C4D, C3 , T2D, C2 , M3, G4 | Intel Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`us-west3-b` | Salt Lake City, Utah, North America | E2, N4 , N2 , N2D, N1, C4 , C3 , T2D, C2 , A4 , A2 | Intel Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`us-west3-c` | Salt Lake City, Utah, North America | E2, N4 , N2 , N2D, N1, C4 , C3 , T2D, C2 , C2D, A4  | Intel Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`us-west4-a` | Las Vegas, Nevada, North America | E2, N4 , N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, C2 , C2D, X4, M4N, M4 , M3, M2, M1, A3, G4, G2, H4D | Intel Ivy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Genoa, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`us-west4-b` | Las Vegas, Nevada, North America | E2, N4 , N4D, N2 , N2D, N1, C4 , C4A, C4D, C3 , C3D, T2D, C2 , C2D, X4, M4N, M4 , M3, M2, M1, A2, G4 | Intel Ivy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
-`us-west4-c` | Las Vegas, Nevada, North America | E2, N4 , N4D, N2 , N2D, N1, C4A, C4 , C4D, C3 , T2D, C2 , C2D, G4, G2 | Intel Ivy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids, AMD EPYC Milan, AMD EPYC Turin, Google Axion | GPUs, [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev) |   
+`africa-south1-a` | Johannesburg, South Africa | 
+
+  * C2D, C4 , C4A, C4D
+  * E2
+  * M3
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`africa-south1-b` | Johannesburg, South Africa | 
+
+  * C2D, C4 
+  * E2
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`africa-south1-c` | Johannesburg, South Africa | 
+
+  * C2D, C4 , C4D
+  * E2
+  * M3
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-east1-a` | Changhua County, Taiwan, APAC | 
+
+  * C2 , C2D, C3 , C3D, C4 , C4A
+  * E2
+  * G2, G4
+  * M1
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3-metal
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-east1-b` | Changhua County, Taiwan, APAC | 
+
+  * C2 , C2D, C3 , C3D, C4 , C4A
+  * E2
+  * G2
+  * M1, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-east1-c` | Changhua County, Taiwan, APAC | 
+
+  * A3
+  * C2 , C2D, C3 , C3D, C4 , C4A
+  * E2
+  * G2
+  * M1, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3-metal
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-east2-a` | Hong Kong, APAC | 
+
+  * C2 , C3 , C4 
+  * E2
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-east2-b` | Hong Kong, APAC | 
+
+  * C2 , C4 
+  * E2
+  * N1, N2 , N2D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-east2-c` | Hong Kong, APAC | 
+
+  * C2 , C2D, C4 
+  * E2
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-northeast1-a` | Tokyo, Japan, APAC | 
+
+  * A2
+  * C2 , C4A
+  * E2
+  * G2
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-northeast1-b` | Tokyo, Japan, APAC | 
+
+  * A3, A4 
+  * C2 , C2D, C3 , C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * M1, M2, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`asia-northeast1-c` | Tokyo, Japan, APAC | 
+
+  * A2
+  * C2 , C3 , C4 , C4A, C4D
+  * E2
+  * G2
+  * M1, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-northeast2-a` | Osaka, Japan, APAC | 
+
+  * C2 , C2D, C3 , C4 
+  * E2
+  * M1, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-northeast2-b` | Osaka, Japan, APAC | 
+
+  * C2 
+  * E2
+  * M1, M2, M3
+  * N1, N2 , N2D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-northeast2-c` | Osaka, Japan, APAC | 
+
+  * C2 , C2D, C3 , C4 
+  * E2
+  * M1, M2, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-northeast3-a` | Seoul, South Korea, APAC | 
+
+  * C2 , C2D, C3 , C4 
+  * E2
+  * G2
+  * M1, M2, M3
+  * N1, N2 , N2D, N4 
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-northeast3-b` | Seoul, South Korea, APAC | 
+
+  * A2
+  * C2 , C2D, C3 , C4 
+  * E2
+  * G2
+  * M1, M2, M3
+  * N1, N2 , N2D, N4 
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-northeast3-c` | Seoul, South Korea, APAC | 
+
+  * A3
+  * C2 , C2D, C4 
+  * E2
+  * M3
+  * N1, N2 , N2D, N4 
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-south1-a` | Mumbai, India, APAC | 
+
+  * C2 , C2D, C3 , C3D, C4 , C4A
+  * E2
+  * G2
+  * M1, M2
+  * N1, N2 , N2D, N4 , N4D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-south1-b` | Mumbai, India, APAC | 
+
+  * A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4D
+  * T2D
+  * X4
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`asia-south1-c` | Mumbai, India, APAC | 
+
+  * A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * H4D
+  * M1, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * X4
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-south2-a` | Delhi, India, APAC | 
+
+  * C2 , C2D, C3 , C4 
+  * E2
+  * G4
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 
+  * T2D
+  * X4
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-south2-b` | Delhi, India, APAC | 
+
+  * C2 , C2D, C3 , C4 
+  * E2
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-south2-c` | Delhi, India, APAC | 
+
+  * A3
+  * C2 , C3 , C4 
+  * E2
+  * G4
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-southeast1-a` | Jurong West, Singapore, APAC | 
+
+  * A2
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * H4D
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`asia-southeast1-b` | Jurong West, Singapore, APAC | 
+
+  * A3, A4 
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2A, T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Ampere: Altra Arm
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`asia-southeast1-c` | Jurong West, Singapore, APAC | 
+
+  * A2, A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2
+  * M1
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2A, T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Ampere: Altra Arm
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`asia-southeast2-a` | Jakarta, Indonesia, APAC | 
+
+  * C3 , C4 , C4A
+  * E2
+  * M1
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-southeast2-b` | Jakarta, Indonesia, APAC | 
+
+  * C4 , C4A
+  * E2
+  * G4
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-southeast2-c` | Jakarta, Indonesia, APAC | 
+
+  * C4 , C4A
+  * E2
+  * G4
+  * M1
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`asia-southeast3-a` | Bangkok, Thailand, APAC | 
+
+  * C3D, C4 
+  * M3, M4 , M4N
+  * N4 
+
+| 
+
+  * Intel: Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| None| None  
+`asia-southeast3-b` | Bangkok, Thailand, APAC | 
+
+  * C3D, C4 
+  * M3, M4 , M4N
+  * N4 
+
+| 
+
+  * Intel: Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| None| None  
+`asia-southeast3-c` | Bangkok, Thailand, APAC | 
+
+  * C3D, C4 
+  * M3, M4 , M4N
+  * N4 
+
+| 
+
+  * Intel: Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| None| None  
+`australia-southeast1-a` | Sydney, Australia, APAC | 
+
+  * C2 , C3 
+  * E2
+  * M1, M2, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`australia-southeast1-b` | Sydney, Australia, APAC | 
+
+  * C2 , C3 , C3D, C4 
+  * E2
+  * M1, M2
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`australia-southeast1-c` | Sydney, Australia, APAC | 
+
+  * A3
+  * C2 , C3 , C3D, C4 , C4A, C4D
+  * E2
+  * M1, M3, M4 , M4N
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`australia-southeast2-a` | Melbourne, Australia, APAC | 
+
+  * C2D, C3 , C3D, C4 , C4A
+  * E2
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3-metal
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`australia-southeast2-b` | Melbourne, Australia, APAC | 
+
+  * A3
+  * C3 , C4 , C4A
+  * E2
+  * M1, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3-metal
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * GPUs
+
+| None  
+`australia-southeast2-c` | Melbourne, Australia, APAC | 
+
+  * C4 , C4A
+  * E2
+  * M1, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`europe-central2-a` | Warsaw, Poland, Europe | 
+
+  * C2D, C4 , C4A
+  * E2
+  * M1, M3, M4 , M4N
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-central2-b` | Warsaw, Poland, Europe | 
+
+  * C2D
+  * E2
+  * M1
+  * N1, N2 , N2D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-central2-c` | Warsaw, Poland, Europe | 
+
+  * C4 
+  * E2
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-north1-a` | Hamina, Finland, Europe | 
+
+  * C2 , C3D, C4 , C4A
+  * E2
+  * G4
+  * M3
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-north1-b` | Hamina, Finland, Europe | 
+
+  * C2 , C3 , C4 , C4A
+  * E2
+  * G4
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-north1-c` | Hamina, Finland, Europe | 
+
+  * A4 
+  * C2 , C4 , C4A
+  * E2
+  * G4
+  * M3
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-north2-a` | Stockholm, Sweden, Europe | 
+
+  * C3 , C3D, C4 , C4A
+  * E2
+  * N4 
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-north2-b` | Stockholm, Sweden, Europe | 
+
+  * C2D, C3 , C3D, C4 , C4A
+  * E2
+  * N4 
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-north2-c` | Stockholm, Sweden, Europe | 
+
+  * C4 
+  * E2
+  * N4 
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-southwest1-a` | Madrid, Spain, Europe | 
+
+  * C4 , C4A
+  * E2
+  * M1, M2, M3, M4 , M4N
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-southwest1-b` | Madrid, Spain, Europe | 
+
+  * C2D, C4 , C4A
+  * E2
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-southwest1-c` | Madrid, Spain, Europe | 
+
+  * C4 , C4A
+  * E2
+  * M1, M2, M3, M4 , M4N
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west1-b` | St. Ghislain, Belgium, Europe | 
+
+  * A3, A4 
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * X4
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west1-c` | St. Ghislain, Belgium, Europe | 
+
+  * A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * M2, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * X4
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west1-d` | St. Ghislain, Belgium, Europe | 
+
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4D
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west10-a` | Berlin, Germany, Europe | 
+
+  * C3 , C4D
+  * E2
+  * N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids
+  * AMD EPYC: Milan, Turin
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`europe-west10-b` | Berlin, Germany, Europe | 
+
+  * C4D
+  * E2
+  * G4
+  * N2 , N2D
+  * Z3
+
+| 
+
+  * Intel: Cascade Lake, Ice Lake, Sapphire Rapids
+  * AMD EPYC: Milan, Turin
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`europe-west10-c` | Berlin, Germany, Europe | 
+
+  * C4 , C4D
+  * E2
+  * N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids
+  * AMD EPYC: Milan, Turin
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`europe-west12-a` | Turin, Italy, Europe | 
+
+  * E2
+  * M3, M4 , M4N
+  * N2 , N2D
+  * T2D
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west12-b` | Turin, Italy, Europe | 
+
+  * C2D
+  * E2
+  * M3
+  * N2 , N2D
+  * T2D
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Ice Lake
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west12-c` | Turin, Italy, Europe | 
+
+  * C4 
+  * E2
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west2-a` | London, England, Europe | 
+
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D, C4N
+  * E2
+  * G2
+  * M1, M2, M3
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west2-b` | London, England, Europe | 
+
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * M1, M2, M3
+  * N1, N2 , N2D, N4 , N4A
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west2-c` | London, England, Europe | 
+
+  * C2 , C2D, C3 , C4 , C4A, C4D
+  * E2
+  * G4
+  * M1, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west3-a` | Frankfurt, Germany, Europe | 
+
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * X4
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+
+| None  
+`europe-west3-b` | Frankfurt, Germany, Europe | 
+
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A
+  * T2D
+  * X4
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+
+| None  
+`europe-west3-c` | Frankfurt, Germany, Europe | 
+
+  * A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * M1, M3
+  * N1, N2 , N2D, N4 , N4A
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+
+| None  
+`europe-west4-a` | Eemshaven, Netherlands, Europe | 
+
+  * A2, A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2A, T2D
+  * X4
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Ampere: Altra Arm
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west4-b` | Eemshaven, Netherlands, Europe | 
+
+  * A2, A3, A4 , A4X 
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * H3, H4D
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2A, T2D
+  * X4
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Ampere: Altra Arm
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west4-c` | Eemshaven, Netherlands, Europe | 
+
+  * A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * H3, H4D
+  * M1, M2
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2A, T2D
+  * X4
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Ampere: Altra Arm
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+  * [ NVIDIA Confidential Computing](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=nvidia-confidential-computing)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west6-a` | Zurich, Switzerland, Europe | 
+
+  * C2 
+  * E2
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids
+  * AMD EPYC: Milan
+
+| None| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west6-b` | Zurich, Switzerland, Europe | 
+
+  * C2 , C4 , C4A
+  * E2
+  * G2
+  * M1, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west6-c` | Zurich, Switzerland, Europe | 
+
+  * C2 , C4 
+  * E2
+  * G2
+  * M1, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west8-a` | Milan, Italy, Europe | 
+
+  * E2
+  * M1, M2, M3
+  * N2 , N2D, N4 
+  * T2D
+  * X4
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west8-b` | Milan, Italy, Europe | 
+
+  * C4 
+  * E2
+  * G4
+  * M2
+  * N2 , N2D, N4 
+  * T2D
+  * Z3-metal
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west8-c` | Milan, Italy, Europe | 
+
+  * C2D, C4 
+  * E2
+  * G4
+  * M1, M2, M3
+  * N2 , N2D, N4 
+  * T2D
+  * X4
+  * Z3-metal
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west9-a` | Paris, France, Europe | 
+
+  * C3 , C4 
+  * E2
+  * M3
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west9-b` | Paris, France, Europe | 
+
+  * C3 , C4 , C4D
+  * E2
+  * M1, M3
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`europe-west9-c` | Paris, France, Europe | 
+
+  * A3
+  * C3 , C4 
+  * E2
+  * M1
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`me-central1-a` | Doha, Qatar, Middle East | 
+
+  * C3 , C4 
+  * E2
+  * N2 , N2D
+  * T2D
+  * Z3-metal
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids
+  * AMD EPYC: Milan
+
+| None| None  
+`me-central1-b` | Doha, Qatar, Middle East | 
+
+  * C4 
+  * E2
+  * M3
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`me-central1-c` | Doha, Qatar, Middle East | 
+
+  * C3 , C4 , C4A
+  * E2
+  * M3
+  * N2 , N2D, N4 
+  * T2D
+  * Z3-metal
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`me-central2-a` | Dammam, Saudi Arabia, Middle East | 
+
+  * C2 , C3 , C3D, C4 , C4A
+  * E2
+  * G2, G4
+  * M2, M3
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Haswell, Broadwell, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`me-central2-b` | Dammam, Saudi Arabia, Middle East | 
+
+  * C2 , C3 
+  * E2
+  * M2, M3
+  * N2 , N2D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Sapphire Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`me-central2-c` | Dammam, Saudi Arabia, Middle East | 
+
+  * C2 , C3 , C3D, C4 
+  * E2
+  * G2
+  * M2, M3, M4 , M4N
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`me-west1-a` | Tel Aviv, Israel, Middle East | 
+
+  * A2
+  * C2 , C3 , C4 
+  * E2
+  * M1, M3
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`me-west1-b` | Tel Aviv, Israel, Middle East | 
+
+  * C2 , C3 , C3D, C4 , C4A
+  * E2
+  * N1 (GPU required), N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`me-west1-c` | Tel Aviv, Israel, Middle East | 
+
+  * A2
+  * C2 , C2D, C3 
+  * E2
+  * M1, M3
+  * N1 (GPU required), N2 , N2D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`northamerica-northeast1-a` | Montréal, Québec, North America | 
+
+  * C2 , C2D, C3 , C4 , C4A
+  * E2
+  * M4 , M4N
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`northamerica-northeast1-b` | Montréal, Québec, North America | 
+
+  * C2 , C3 , C4 , C4A, C4D
+  * E2
+  * G2
+  * H3
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`northamerica-northeast1-c` | Montréal, Québec, North America | 
+
+  * C2 
+  * E2
+  * G2
+  * M1, M2, M3
+  * N1, N2 , N2D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`northamerica-northeast2-a` | Toronto, Ontario, North America | 
+
+  * C4 
+  * E2
+  * G2
+  * M1, M2, M3
+  * N1, N2 , N2D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`northamerica-northeast2-b` | Toronto, Ontario, North America | 
+
+  * C2D, C4 , C4A, C4D
+  * E2
+  * G2
+  * M1, M2, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3-metal
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`northamerica-northeast2-c` | Toronto, Ontario, North America | 
+
+  * A3
+  * C2D, C4 
+  * E2
+  * M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3-metal
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`northamerica-south1-a` | Queretaro, Mexico, North America | 
+
+  * C3D, C4 , C4A
+  * E2
+  * N4 
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`northamerica-south1-b` | Queretaro, Mexico, North America | 
+
+  * C3D, C4 , C4A
+  * E2
+  * N4 
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`northamerica-south1-c` | Queretaro, Mexico, North America | 
+
+  * C3D, C4 , C4A
+  * E2
+  * N4 
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Haswell, Broadwell, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`southamerica-east1-a` | Osasco, São Paulo, Brazil, South America | 
+
+  * C2 , C2D, C3 , C4 
+  * E2
+  * G4
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3-metal
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`southamerica-east1-b` | Osasco, São Paulo, Brazil, South America | 
+
+  * C2 , C2D, C3 , C4 
+  * E2
+  * G4
+  * M1, M2, M3
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`southamerica-east1-c` | Osasco, São Paulo, Brazil, South America | 
+
+  * C2 , C2D, C3 , C4 , C4A
+  * E2
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`southamerica-west1-a` | Santiago, Chile, South America | 
+
+  * C2 , C4 , C4A
+  * E2
+  * N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| None| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`southamerica-west1-b` | Santiago, Chile, South America | 
+
+  * C2 , C4 , C4A
+  * E2
+  * M1, M2, M3, M4 , M4N
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`southamerica-west1-c` | Santiago, Chile, South America | 
+
+  * C2 , C4 
+  * E2
+  * M1, M2, M3, M4 , M4N
+  * N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| None| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-central1-a` | Council Bluffs, Iowa, North America | 
+
+  * A2, A3, A4X 
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D, C4N
+  * E2
+  * G2
+  * H3, H4D
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2A, T2D
+  * X4, X5
+  * Z3, Z4D, Z4M
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Ampere: Altra Arm
+  * Google: Axion
+  * NVIDIA: Grace
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+  * [ NVIDIA Confidential Computing](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=nvidia-confidential-computing)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-central1-b` | Council Bluffs, Iowa, North America | 
+
+  * A2, A3, A4 , A4X Max, A4X 
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D, C4N
+  * E2
+  * G2, G4
+  * H4D
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2A, T2D
+  * X4
+  * Z3, Z4D, Z4M
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Ampere: Altra Arm
+  * Google: Axion
+  * NVIDIA: Grace
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-central1-c` | Council Bluffs, Iowa, North America | 
+
+  * A2, A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D, C4N
+  * E2
+  * G2
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * X4, X5
+  * Z3, Z4D, Z4M
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ AMD SEV-SNP](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev-snp)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-central1-f` | Council Bluffs, Iowa, North America | 
+
+  * A2
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G4
+  * M1
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2A, T2D
+  * Z3, Z4D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Ampere: Altra Arm
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-east1-b` | Moncks Corner, South Carolina, North America | 
+
+  * A2, A4 
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * H4D
+  * M1, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`us-east1-c` | Moncks Corner, South Carolina, North America | 
+
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D, C4N
+  * E2
+  * G2
+  * M1
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`us-east1-d` | Moncks Corner, South Carolina, North America | 
+
+  * A4 , A4X 
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G4
+  * M1, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`us-east4-a` | Ashburn, Virginia, North America | 
+
+  * A3, A4X Max
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * X4, X5
+  * Z3, Z4M
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`us-east4-b` | Ashburn, Virginia, North America | 
+
+  * A3, A4 , A4X Max, A4X 
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G4
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * X4
+  * Z3, Z4D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+  * NVIDIA: Grace
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`us-east4-c` | Ashburn, Virginia, North America | 
+
+  * A2, A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * M1, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * X4, X5
+  * Z3, Z4D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`us-east5-a` | Columbus, Ohio, North America | 
+
+  * A2, A3
+  * C2 , C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G4
+  * M4 , M4N
+  * N2 , N2D, N4 , N4D
+  * T2D
+  * Z3, Z4D
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ NVIDIA Confidential Computing](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=nvidia-confidential-computing)
+
+| None  
+`us-east5-b` | Columbus, Ohio, North America | 
+
+  * A4X Max
+  * C2 , C3 , C3D, C4 , C4A, C4D, C4N
+  * E2
+  * G4
+  * M4 , M4N
+  * N2 , N2D, N4 , N4D
+  * T2D
+  * Z3, Z4D
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`us-east5-c` | Columbus, Ohio, North America | 
+
+  * A4X Max
+  * C2 , C3 , C3D, C4 , C4A, C4D, C4N
+  * E2
+  * G4
+  * M4 , M4N
+  * N2 , N2D, N4 , N4D
+  * T2D
+  * Z3, Z4D
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+  * NVIDIA: Grace
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| None  
+`us-south1-a` | Dallas, Texas, North America | 
+
+  * C3 , C4 , C4A
+  * E2
+  * G4
+  * N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-south1-b` | Dallas, Texas, North America | 
+
+  * A3, A4 
+  * C3 , C4 , C4A
+  * E2
+  * G4
+  * N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-south1-c` | Dallas, Texas, North America | 
+
+  * C3 
+  * E2
+  * N2 , N2D
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-west1-a` | The Dalles, Oregon, North America | 
+
+  * A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * M1, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-west1-b` | The Dalles, Oregon, North America | 
+
+  * A2, A3
+  * C2 , C2D, C3 , C3D, C4 , C4D, C4N
+  * E2
+  * G2, G4
+  * M1, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+  * [ Intel TDX](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=intel-tdx)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-west1-c` | The Dalles, Oregon, North America | 
+
+  * A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G4
+  * M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4A, N4D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| ![leaf icon](https://cloud.google.com/sustainability/region-carbon/gleaf.svg)[Low CO2](https://cloud.google.com/sustainability/region-carbon#region-picker)  
+`us-west2-a` | Los Angeles, California, North America | 
+
+  * C2 , C2D, C3 , C3D, C4 , C4A
+  * E2
+  * N1, N2 , N2D, N4 
+  * T2D
+  * Z3
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids
+  * AMD EPYC: Milan, Genoa
+  * Google: Axion
+
+| 
+
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`us-west2-b` | Los Angeles, California, North America | 
+
+  * C2 , C3 , C3D, C4 , C4A
+  * E2
+  * M1
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`us-west2-c` | Los Angeles, California, North America | 
+
+  * A4 
+  * C2 , C2D, C3 , C3D, C4 , C4A
+  * E2
+  * M1
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Haswell, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`us-west3-a` | Salt Lake City, Utah, North America | 
+
+  * C2 , C3 , C4 , C4D
+  * E2
+  * G4
+  * M3
+  * N1, N2 , N2D, N4 , N4D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`us-west3-b` | Salt Lake City, Utah, North America | 
+
+  * A2, A4 
+  * C2 , C3 , C4 
+  * E2
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`us-west3-c` | Salt Lake City, Utah, North America | 
+
+  * A4 
+  * C2 , C2D, C3 , C4 
+  * E2
+  * N1, N2 , N2D, N4 
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Sandy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`us-west4-a` | Las Vegas, Nevada, North America | 
+
+  * A3
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * H4D
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4D
+  * T2D
+  * X4
+
+| 
+
+  * Intel: Ivy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Genoa, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`us-west4-b` | Las Vegas, Nevada, North America | 
+
+  * A2
+  * C2 , C2D, C3 , C3D, C4 , C4A, C4D
+  * E2
+  * G4
+  * M1, M2, M3, M4 , M4N
+  * N1, N2 , N2D, N4 , N4D
+  * T2D
+  * X4
+
+| 
+
+  * Intel: Ivy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
+`us-west4-c` | Las Vegas, Nevada, North America | 
+
+  * C2 , C2D, C3 , C4 , C4A, C4D
+  * E2
+  * G2, G4
+  * N1, N2 , N2D, N4 , N4D
+  * T2D
+
+| 
+
+  * Intel: Ivy Bridge, Broadwell, Skylake, Cascade Lake, Ice Lake, Sapphire Rapids, Emerald Rapids, Granite Rapids
+  * AMD EPYC: Milan, Turin
+  * Google: Axion
+
+| 
+
+  * GPUs
+  * [ AMD SEV ](https://docs.cloud.google.com/confidential-computing/confidential-vm/docs/supported-configurations?tab=amd-sev)
+
+| None  
   
-* **GPU required** : To use an N1 machine type in any of the supported `me-west1` zones, you must attach at least one NVIDIA T4 GPU to the VM.
+### Notes
+
+  * **For`me-west1-b` and `me-west1-c` (`N1` machine series):** To use an `N1` machine type in any of the supported `me-west1` zones, you must attach at least one NVIDIA T4 GPU to the VM.
+
+
 
 ## What's next
 
@@ -308,6 +2859,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

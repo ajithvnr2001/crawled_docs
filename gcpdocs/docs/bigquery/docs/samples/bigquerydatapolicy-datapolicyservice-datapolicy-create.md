@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatapolicy-datapolicyservice-datapolicy-create/
 title: Create a data masking policy \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:11:11.624063+00:00
+fetched_at: 2026-10-29T05:45:59.128731+00:00
 ---
 
 # Create a data masking policy  |  BigQuery  |  Google Cloud Documentation

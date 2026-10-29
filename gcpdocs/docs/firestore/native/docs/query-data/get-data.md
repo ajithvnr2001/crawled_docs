@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/get-data/
 title: Getting data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:26:05.778225+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T07:57:45.290981+00:00
 ---
 
 # Getting data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -263,7 +249,7 @@ Android
     }
     
     
-    [main.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/firestore_quickstart/main.go#L40-L48)
+    [main.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/firestore_quickstart/main.go#L40-L48)
 
 ##### PHP
 
@@ -316,7 +302,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     puts "Created Cloud Firestore client with given project ID."
     
-    [quickstart.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/quickstart.rb#L19-L26)
+    [quickstart.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/quickstart.rb#L19-L26)
 
 ## Example data
 
@@ -891,7 +877,7 @@ Android
     }
     
     
-    [retrieve_data_get_dataset.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/retrieve_data_get_dataset.go#L18-L44)
+    [retrieve_data_get_dataset.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_get_dataset.go#L18-L44)
 
 ##### PHP
 
@@ -1081,7 +1067,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       }
     )
     
-    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/get_data.rb#L23-L68)
+    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/get_data.rb#L23-L68)
 
 ## Get a document
 
@@ -1316,7 +1302,7 @@ Android
     }
     
     
-    [retrieve_data_get_as_map.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/retrieve_data_get_as_map.go#L18-L35)
+    [retrieve_data_get_as_map.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_get_as_map.go#L18-L35)
 
 ##### PHP
 
@@ -1385,7 +1371,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       puts "Document #{snapshot.document_id} does not exist!"
     end
     
-    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/get_data.rb#L80-L86)
+    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/get_data.rb#L80-L86)
 
 **Note:** If there is no document at the location referenced by `docRef`, the resulting `document` will be empty and calling `exists` on it will return `false`.
 
@@ -1931,7 +1917,7 @@ Node.js uses JavaScript objects.
     }
     
     
-    [retrieve_data_get_as_custom_type.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/retrieve_data_get_as_custom_type.go#L18-L36)
+    [retrieve_data_get_as_custom_type.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_get_as_custom_type.go#L18-L36)
 
 ##### PHP
 
@@ -2237,7 +2223,7 @@ Android
     }
     
     
-    [retrieve_data_query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/retrieve_data_query.go#L18-L42)
+    [retrieve_data_query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_query.go#L18-L42)
 
 ##### PHP
 
@@ -2306,7 +2292,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       puts "#{city.document_id} data: #{city.data}."
     end
     
-    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/get_data.rb#L96-L102)
+    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/get_data.rb#L96-L102)
 
 By default, Firestore retrieves all documents that satisfy the query in ascending order by document ID, but you can [order and limit the data returned](https://docs.cloud.google.com/firestore/native/docs/query-data/order-limit-data).
 
@@ -2520,7 +2506,7 @@ Android
     }
     
     
-    [retrieve_data_get_all_documents.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/retrieve_data_get_all_documents.go#L18-L43)
+    [retrieve_data_get_all_documents.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_get_all_documents.go#L18-L43)
 
 ##### PHP
 
@@ -2588,7 +2574,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       puts "#{city.document_id} data: #{city.data}."
     end
     
-    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/get_data.rb#L112-L115)
+    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/get_data.rb#L112-L115)
 
 ### Get all documents in a subcollection
 
@@ -2864,7 +2850,7 @@ Not available in the C++ client library.
     }
     
     
-    [retrieve_data_get_sub_collections.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/retrieve_data_get_sub_collections.go#L18-L41)
+    [retrieve_data_get_sub_collections.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_get_sub_collections.go#L18-L41)
 
 ##### PHP
 
@@ -2906,7 +2892,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       puts col.collection_id
     end
     
-    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/get_data.rb#L140-L143)
+    [get_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/get_data.rb#L140-L143)
 
 Learn more about different [types of queries](https://docs.cloud.google.com/firestore/native/docs/query-data/queries).
 
@@ -2916,6 +2902,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

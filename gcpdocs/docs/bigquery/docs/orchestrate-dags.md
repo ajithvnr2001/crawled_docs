@@ -1,50 +1,13 @@
 ---
 url: https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/
 title: Schedule Airflow DAGs \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
-method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
-fetched_at: 2026-10-27T18:06:18.824600+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T05:43:39.446593+00:00
 ---
 
 # Schedule Airflow DAGs  |  BigQuery  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/
-
-[ Skip to main content ](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#main-content)
-[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
-`/`
-[ Console ](https://console.cloud.google.com/)
-  * [English](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/)
-  * [Deutsch](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=de)
-  * [Español](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=es)
-  * [Español – América Latina](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=es-419)
-  * [Français](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=fr)
-  * [Indonesia](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=id)
-  * [Italiano](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=it)
-  * [Português](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=pt)
-  * [Português – Brasil](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=pt-br)
-  * [עברית](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=he)
-  * [中文 – 简体](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=zh-cn)
-  * [中文 – 繁體](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=zh-tw)
-  * [日本語](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=ja)
-  * [한국어](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/?hl=ko)
-
-
-[ ![](https://docs.cloud.google.com/_static/clouddocs/images/icons/products/bigquery-color.svg) ](https://docs.cloud.google.com/bigquery/docs)
-  * [ BigQuery ](https://docs.cloud.google.com/bigquery/docs)
-
-
-[Start free](https://console.cloud.google.com/freetrial)
-  * On this page
-  * [About managing Airflow DAGs in BigQuery](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#about-dags)
-  * [Before you begin](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#before)
-    * [Required permissions](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#permissions)
-  * [Manually trigger an Airflow DAG](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#trigger-dag-manually)
-  * [View Airflow DAG run logs and details](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#view-dag-details)
-  * [View all Airflow DAGs](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#view-all-dags)
-  * [Pause an Airflow DAG](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#pause-dag)
-  * [Troubleshooting](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#troubleshooting)
-  * [What's next](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#next)
-
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -53,104 +16,164 @@ fetched_at: 2026-10-27T18:06:18.824600+00:00
   * [ Guides ](https://docs.cloud.google.com/bigquery/docs/introduction)
 
 
-Send feedback 
-  * On this page
-  * [About managing Airflow DAGs in BigQuery](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#about-dags)
-  * [Before you begin](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#before)
-    * [Required permissions](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#permissions)
-  * [Manually trigger an Airflow DAG](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#trigger-dag-manually)
-  * [View Airflow DAG run logs and details](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#view-dag-details)
-  * [View all Airflow DAGs](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#view-all-dags)
-  * [Pause an Airflow DAG](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#pause-dag)
-  * [Troubleshooting](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#troubleshooting)
-  * [What's next](https://docs.cloud.google.com/bigquery/docs/orchestrate-dags/#next)
 
+Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Schedule Airflow DAGs Stay organized with collections  Save and categorize content based on your preferences.
+# Schedule Airflow DAGs
+
 This document describes how to orchestrate your data pipelines efficiently by scheduling [directed acyclic graphs (DAGs) from Managed Airflow 3](https://docs.cloud.google.com/composer/docs/composer-3/composer-overview#about-airflow) on the BigQuery **Scheduling** page in the Google Cloud console. This capability helps you automate and monitor the data flows that power your BigQuery analytics. You can manually trigger DAGs and centralize their management, including viewing run history and logs.
+
 ## About managing Airflow DAGs in BigQuery
+
 The **Scheduling** page in BigQuery provides tools to schedule Airflow DAGs that run in your Managed Airflow 3 environments.
+
 Airflow DAGs that you schedule in BigQuery are executed in one or more Managed Airflow environments in your project. The **Scheduling** page in BigQuery combines information for all Airflow DAGs in your project.
+
 During a DAG run, Airflow schedules and executes individual tasks that make up a DAG in a sequence defined by the DAG. On the **Scheduling** page in BigQuery, you can view statuses of past DAG runs, explore detailed logs of all DAG runs and all tasks from these DAG runs, and view details about DAGs.
+
+**Note:** You can't manage Managed Airflow environments in BigQuery. To manage environments, for example, to create an environment, install dependencies for your DAG files, upload, delete, or change individual DAGs, you use Managed Airflow.
+
 To learn more about Airflow's core concepts such as Airflow DAGs, DAG runs, tasks, or operators, see the [Core Concepts](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/index.html) page in the Airflow documentation.
+
 To learn more about Managed Airflow environments, see the [Managed Airflow 3 overview](https://docs.cloud.google.com/composer/docs/composer-3/composer-overview) page in the Managed Airflow documentation.
+
 ## Before you begin
+
   1. Enable the Cloud Composer API, if it is not already enabled. 
+
 **Roles required to enable APIs**
+
 To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
 [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=composer.googleapis.com)
+
   2. Make sure that your Google Cloud project has at least one Managed Airflow 3 environment, with at least one already uploaded DAG file: 
      * To get started with Airflow DAGs, follow the instructions in the [Run an Apache Airflow DAG in Managed Airflow 3](https://docs.cloud.google.com/composer/docs/composer-3/run-apache-airflow-dag) guide. As a part of this guide, you create a Managed Airflow 3 environment with the default configuration, upload a DAG to it, and check that Airflow runs it. 
      * For detailed instructions to upload an Airflow DAG to a Managed Airflow 3 environment, see [Add and update DAGs](https://docs.cloud.google.com/composer/docs/composer-3/manage-dags). 
      * For detailed instructions to create a Managed Airflow 3 environment, see [Create Managed Airflow environments](https://docs.cloud.google.com/composer/docs/composer-3/create-environments). 
 
 
+
 ### Required permissions
+
 To get the permissions that you need to schedule Airflow DAGs, ask your administrator to grant you the following IAM roles on the project: 
+
   * To view Airflow DAGs and their details: [Environment and Storage Object Viewer ](https://docs.cloud.google.com/iam/docs/roles-permissions/composer#composer.environmentAndStorageObjectViewer) (`roles/composer.environmentAndStorageObjectViewer`) 
   * To trigger and pause Airflow DAGs: [Environment and Storage Object User ](https://docs.cloud.google.com/iam/docs/roles-permissions/composer#composer.environmentAndStorageObjectUser) (`roles/composer.environmentAndStorageObjectUser`) 
 
 
+
 For more information about granting roles, see [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
 These predefined roles contain the permissions required to schedule Airflow DAGs. To see the exact permissions that are required, expand the **Required permissions** section: 
-Required permissions
+
+#### Required permissions
+
 The following permissions are required to schedule Airflow DAGs:
+
   * To view Airflow DAGs and their details: `composers.dags.list, composer.environments.list`
   * To trigger and pause Airflow DAGs: `composers.dags.list, composer.environments.list, composer.dags.execute`
 
 
+
 You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
 For more information about Managed Airflow 3 IAM, see [Access control with IAM](https://docs.cloud.google.com/composer/docs/composer-3/access-control) in Managed Airflow documentation.
+
 ## Manually trigger an Airflow DAG
+
 When you manually trigger an Airflow DAG, Airflow runs the DAG once, independently from the schedule specified for the DAG.
+
 To manually trigger a selected Airflow DAG, follow these steps:
+
   1. In the Google Cloud console, go to the **Scheduling** page.
+
 [Go to the **Scheduling** page](https://console.cloud.google.com/bigquery/orchestration)
+
   2. Do either of the following:
+
      * Click the name of the selected DAG, and then on the **DAG details** page, click **Trigger DAG**.
+
      * In the row that contains the selected DAG, click more_vert **View actions** in the **Actions** column, and then click **Trigger DAG**.
 
 
+
+
 ## View Airflow DAG run logs and details
+
 To view details of a selected Airflow DAG, follow these steps:
+
   1. In the Google Cloud console, go to the **Scheduling** page.
+
 [Go to the **Scheduling** page](https://console.cloud.google.com/bigquery/orchestration)
+
   2. Click the name of the selected DAG.
+
   3. On the **DAG details** page, select the **Details** tab.
+
   4. To view past DAG runs, select the **Runs** tab.
-    1. Optional: The **Runs** tab displays DAG runs from the last 10 days by default. To filter DAG runs by a different time range, in the **10 days** drop-down menu, select a time range, and then click **OK**.
-    2. Optional: To display additional columns with DAG run details in the list of all DAG runs, click view_column **Column display options** , and then select columns and click **OK**.
-    3. To view details and logs for a selected DAG run, select a DAG run.
+
+     1. Optional: The **Runs** tab displays DAG runs from the last 10 days by default. To filter DAG runs by a different time range, in the **10 days** drop-down menu, select a time range, and then click **OK**.
+
+     2. Optional: To display additional columns with DAG run details in the list of all DAG runs, click view_column **Column display options** , and then select columns and click **OK**.
+
+     3. To view details and logs for a selected DAG run, select a DAG run.
+
   5. To view a visualization of the DAG with task dependencies, select the **Diagram** tab.
-    1. To view task details, select a task on the diagram.
+
+     1. To view task details, select a task on the diagram.
   6. To view the source code of the DAG, select the **Code** tab.
+
   7. Optional: To refresh the displayed data, click **Refresh**.
 
 
+
+
 ## View all Airflow DAGs
+
 To view Airflow DAGs from all Managed Airflow 3 environments in your Google Cloud project, follow these steps:
+
   1. In the Google Cloud console, go to the **Scheduling** page.
+
 [Go to the **Scheduling** page](https://console.cloud.google.com/bigquery/orchestration)
+
   2. Optional: To display additional columns with DAG details, click view_column **Column display options** , and then select columns and click **OK**.
 
 
+
+
 ## Pause an Airflow DAG
+
 To pause a selected Airflow DAG, follow these steps:
+
   1. In the Google Cloud console, go to the **Scheduling** page.
+
 [Go to the **Scheduling** page](https://console.cloud.google.com/bigquery/orchestration)
+
   2. Do either of the following:
+
      * Click the name of the selected DAG, and then on the **DAG details** page, click **Pause DAG**.
+
      * In the row that contains the selected DAG, click more_vert **View actions** in the **Actions** column, and then click **Pause DAG**.
 
 
+
+
 ## Troubleshooting
+
 For instructions to troubleshoot Airflow DAGs, see [Troubleshooting Airflow DAGs](https://docs.cloud.google.com/composer/docs/composer-3/troubleshooting-dags) in Managed Airflow documentation.
+
 ## What's next
+
   * Learn more about [writing Airflow DAGs](https://docs.cloud.google.com/composer/docs/composer-3/write-dags).
   * Learn more about [Airflow in Managed Airflow 3](https://docs.cloud.google.com/composer/docs/composer-3/composer-overview#about-airflow).
 
 
+
 Send feedback 
+
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-Last updated 2026-10-26 UTC.
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+
+Last updated 2026-10-27 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 

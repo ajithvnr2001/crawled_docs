@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview/
 title: AI Protection overview \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:18.926660+00:00
+fetched_at: 2026-10-29T05:41:18.614794+00:00
 ---
 
 # AI Protection overview  |  Security Command Center  |  Google Cloud Documentation
@@ -127,6 +127,10 @@ Finding categories that apply to AI assets include the following:
   * **Persistence** : Sensitive AI Permission Added to Custom Role
   * **Persistence** : Sensitive Role Granted by AI Agent
   * **Persistence** : Sensitive Role Granted to External AI Agent
+  * **Persistence** : External Access Granted to Gemini Discovery Engine API Apps
+  * **Impact** : Gemini Discovery Engine API Document Import by External User
+  * **Impact** : Gemini Discovery Engine API Document Import from External Resource
+  * **Impact** : Gemini Discovery Engine API Document Import VPC Perimeter Violation
   * **Defense Evasion** : Project Level Token Creator Role Granted to AI Agent
   * **Defense Evasion** : Folder Level Token Creator Role Granted to AI Agent
   * **Defense Evasion** : Organization Level Token Creator Role Granted to AI Agent
@@ -267,6 +271,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

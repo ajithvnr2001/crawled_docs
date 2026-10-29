@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-firewall-list/
 title: List firewall rules in a project \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:19:07.262145+00:00
+fetched_at: 2026-10-29T05:42:38.353413+00:00
 ---
 
 # List firewall rules in a project  |  Compute Engine  |  Google Cloud Documentation
@@ -38,7 +38,7 @@ Before trying this sample, follow the C# setup instructions in the [Compute Engi
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    using Google.Cloud.Compute.V1;
+    using [Google.Cloud.Compute.V1](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.html);
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -51,10 +51,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         {
             // Initialize client that will be used to send requests. This client only needs to be created
             // once, and can be reused for multiple requests.
-            FirewallsClient client = await FirewallsClient.CreateAsync();
+            [FirewallsClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.FirewallsClient.html) client = await [FirewallsClient](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.FirewallsClient.html).[CreateAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.FirewallsClient.html#Google_Cloud_Compute_V1_FirewallsClient_CreateAsync_System_Threading_CancellationToken_)();
     
             // Make the request to list all firewall rules.
-            await foreach (var firewallRule in client.ListAsync(projectId))
+            await foreach (var firewallRule in client.[ListAsync](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Compute.V1/latest/Google.Cloud.Compute.V1.FirewallsClient.html#Google_Cloud_Compute_V1_FirewallsClient_ListAsync_Google_Cloud_Compute_V1_ListFirewallsRequest_Google_Api_Gax_Grpc_CallSettings_)(projectId))
             {
                 // The result is a Firewall sequence that you can iterate over.
                 Console.WriteLine($"Firewal Rule: {firewallRule.Name}");
@@ -85,7 +85,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// projectID := "your_project_id"
     
     	ctx := context.Background()
-    	firewallsClient, err := compute.NewFirewallsRESTClient(ctx)
+    	firewallsClient, err := compute.[NewFirewallsRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_FirewallsClient_NewFirewallsRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewInstancesRESTClient: %w", err)
     	}
@@ -98,7 +98,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	it := firewallsClient.List(ctx, req)
     	for {
     		firewallRule, err := it.Next()
-    		if err == iterator.Done {
+    		if err == iterator.[Done](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Done) {
     			break
     		}
     		if err != nil {
@@ -118,9 +118,9 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.Firewall;
-    import com.google.cloud.compute.v1.FirewallsClient;
-    import com.google.cloud.compute.v1.FirewallsClient.ListPagedResponse;
+    import com.google.cloud.compute.v1.[Firewall](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Firewall.html);
+    import com.google.cloud.compute.v1.[FirewallsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.FirewallsClient.html);
+    import com.google.cloud.compute.v1.[FirewallsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.FirewallsClient.html).ListPagedResponse;
     import java.io.IOException;
     
     public class ListFirewallRules {
@@ -140,9 +140,9 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
            once, and can be reused for multiple requests. After completing all of your requests, call
            the `firewallsClient.close()` method on the client to safely
            clean up any remaining background resources. */
-        try (FirewallsClient firewallsClient = FirewallsClient.create()) {
+        try ([FirewallsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.FirewallsClient.html) firewallsClient = [FirewallsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.FirewallsClient.html).create()) {
           ListPagedResponse firewallResponse = firewallsClient.list(project);
-          for (Firewall firewall : firewallResponse.iterateAll()) {
+          for ([Firewall](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Firewall.html) firewall : firewallResponse.iterateAll()) {
             System.out.println(firewall.getName());
           }
           return firewallResponse;
@@ -162,10 +162,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
      */
     // const projectId = 'YOUR_PROJECT_ID';
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     async function listFirewallRules() {
-      const firewallsClient = new compute.FirewallsClient();
+      const firewallsClient = new compute.[FirewallsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       const [firewallRules] = await firewallsClient.list({
         project: projectId,

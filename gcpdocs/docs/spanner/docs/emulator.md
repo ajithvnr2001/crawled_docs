@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/emulator/
 title: Emulate Spanner locally \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:31:56.573102+00:00
+fetched_at: 2026-10-29T06:14:04.890230+00:00
 ---
 
 # Emulate Spanner locally  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback
 
 #  Emulate Spanner locally Stay organized with collections  Save and categorize content based on your preferences. 
 
-The [gcloud CLI](https://docs.cloud.google.com/sdk) provides a local, in-memory emulator to develop and test your applications. Because the emulator stores data only in memory, it loses all state, including data, schema, and configs, on restart. The emulator offers the same APIs as the Spanner production service and serves local development and testing, not production deployments.
+The [Google Cloud CLI](https://docs.cloud.google.com/sdk) provides a local, in-memory emulator to develop and test your applications. Because the emulator stores data only in memory, it loses all state, including data, schema, and configs, on restart. The emulator offers the same APIs as the Spanner production service and serves local development and testing, not production deployments.
 
-The emulator supports both the GoogleSQL and PostgreSQL dialects. It supports all languages of the client libraries. You can also use the emulator with the [Google Cloud CLI](https://docs.cloud.google.com/sdk/gcloud) and [REST APIs](https://docs.cloud.google.com/spanner/docs/reference/rest).
+The emulator supports both the GoogleSQL and PostgreSQL dialects. It supports all languages of the client libraries. You can also use the emulator with the [gcloud CLI](https://docs.cloud.google.com/sdk/gcloud) and [REST APIs](https://docs.cloud.google.com/spanner/docs/reference/rest).
 
 The emulator is also available as an open source project in [GitHub](https://github.com/GoogleCloudPlatform/cloud-spanner-emulator).
 
@@ -67,7 +67,7 @@ Choose the way that is appropriate for your application development and test wor
 
 ### Run the emulator using gcloud CLI
 
-To run the emulator using the Google Cloud CLI:
+To run the emulator using the gcloud CLI:
 
   1. Install the `cloud-spanner-emulator` component:
          
@@ -234,6 +234,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

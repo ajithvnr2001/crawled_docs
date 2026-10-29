@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/access-transparency/docs/supported-services/
 title: Supported services \u00a0|\u00a0 Access Transparency \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:23.834304+00:00
+fetched_at: 2026-10-29T07:58:59.301956+00:00
 ---
 
 # Supported services  |  Access Transparency  |  Google Cloud Documentation
@@ -40,6 +40,7 @@ Supported service | Launch stage | Notes
 [Access Transparency](https://docs.cloud.google.com/assured-workloads/access-transparency/docs) |  GA  |  None   
 [Agent Assist](https://docs.cloud.google.com/agent-assist/docs) |  GA  |  None   
 [Agent Identity](https://docs.cloud.google.com/iam/docs/agent-identity-overview) |  GA  |  None   
+[Agent Registry](https://docs.cloud.google.com/agent-registry/overview) |  GA  |  None   
 [Agent Platform Feature Store](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/featurestore) |  GA  |  None   
 [Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/agent-builder/agent-engine/overview) |  GA  |  None   
 [Agent Search](https://docs.cloud.google.com/generative-ai-app-builder/docs) |  GA  |  Access to your data in Gemini Enterprise Agent Platform by Google personnel isn't always logged. See [Limitations of Access Transparency in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-transparency#limitations) for more information.   
@@ -75,6 +76,7 @@ Gemini in BigQuery is not supported in Assured Workloads. Access Transparency su
 [Certificate Manager](https://docs.cloud.google.com/certificate-manager/docs/overview) |  GA  |  None   
 [Chrome Enterprise Premium](https://docs.cloud.google.com/chrome-enterprise-premium/docs/overview) |  GA  |  Access Transparency supports [Chrome Enterprise Premium secure gateway](https://docs.cloud.google.com/chrome-enterprise-premium/docs/security-gateway-private-web-apps#create-gateway).   
 [Cloud Asset Inventory](https://docs.cloud.google.com/asset-inventory/docs/asset-inventory-overview) |  GA  |  None   
+[Audit Manager](https://docs.cloud.google.com/audit-manager/docs/overview) |  GA  |  None   
 [Cloud Billing](https://docs.cloud.google.com/billing/docs) |  Preview  |  None   
 [Cloud Build](https://docs.cloud.google.com/build) |  GA  |  None   
 [Managed Service for Apache Airflow](https://docs.cloud.google.com/composer) |  GA  |  None   
@@ -90,6 +92,7 @@ Gemini in BigQuery is not supported in Assured Workloads. Access Transparency su
 [Cloud Key Management Service (Cloud KMS)](https://docs.cloud.google.com/kms/docs) |  GA  |  None   
 [Cloud Logging](https://docs.cloud.google.com/logging) |  GA  |  None   
 [Cloud NAT](https://docs.cloud.google.com/nat) |  GA  |  None   
+[Cloud Next Generation Firewall](https://docs.cloud.google.com/firewall/docs) |  GA  |  None   
 [Cloud OS Login API](https://docs.cloud.google.com/compute/docs/oslogin) |  GA  |  None   
 [Cloud Router](https://docs.cloud.google.com/network-connectivity/docs/router) |  GA  |  None   
 [Cloud Run](https://docs.cloud.google.com/run/docs) |  GA  |  None   
@@ -109,6 +112,7 @@ Gemini in BigQuery is not supported in Assured Workloads. Access Transparency su
 [Customer Experience Agent Studio](https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps) |  GA  |  None   
 [Customer Experience Insights](https://docs.cloud.google.com/contact-center/insights/docs) |  GA  |  None   
 [Database Center](https://docs.cloud.google.com/database-center) |  GA  |  None   
+[Database Insights API](https://docs.cloud.google.com/database-center/docs/reference/databaseinsights/rest) |  GA  |  None   
 [Database Migration Service](https://docs.cloud.google.com/database-migration/docs) |  GA  |  None   
 [Dataflow](https://docs.cloud.google.com/dataflow/docs) |  GA  |  None   
 [Dataform](https://docs.cloud.google.com/dataform) |  GA  |  None   
@@ -116,9 +120,10 @@ Gemini in BigQuery is not supported in Assured Workloads. Access Transparency su
 [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc/docs) |  GA  |  None   
 [Datastream](https://docs.cloud.google.com/datastream/docs) |  GA  |  None   
 [Developer Connect](https://docs.cloud.google.com/developer-connect/docs) |  GA  |  None   
+[Database Migration Service](https://docs.cloud.google.com/database-migration/docs) |  GA  |  None   
 [Dialogflow CX](https://docs.cloud.google.com/dialogflow/cx/docs) |  GA  |  None   
 [Google Distributed Cloud](https://docs.cloud.google.com/distributed-cloud/edge/latest/docs) |  GA  |  None   
-[DNS Armor](https://docs.cloud.google.com/assured-workloads/access-transparency/docs/dns/docs/threat-detection) |  GA  |  None   
+[DNS Armor](https://docs.cloud.google.com/dns/docs/threat-detection) |  GA  |  None   
 [Document AI](https://docs.cloud.google.com/document-ai/docs) |  GA  |  None   
 [Eventarc](https://docs.cloud.google.com/eventarc/docs) |  GA  |  None   
 [External passthrough Network Load Balancer](https://docs.cloud.google.com/load-balancing/docs/passthrough-network-load-balancer) |  GA  |  None   
@@ -129,6 +134,7 @@ Gemini in BigQuery is not supported in Assured Workloads. Access Transparency su
 [Firestore](https://firebase.google.com/docs/firestore) |  GA  |  None   
 [Flow Analyzer](https://docs.cloud.google.com/network-intelligence-center/docs/flow-analyzer/overview) |  GA  |  None   
 [Gemini Data Analytics](https://docs.cloud.google.com/gemini/data-agents) |  GA  |  None   
+[Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs) |  GA  |  None   
 [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-transparency) |  GA  |  Access to your data in Gemini Enterprise Agent Platform by Google personnel isn't always logged. See [Limitations of Access Transparency in Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/general/access-transparency#limitations) for more information.   
 [Gemini Enterprise Agent Platform Workbench instances](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/instances/introduction) |  GA  |  None   
 [Gemini Enterprise Agent Platform Workbench managed notebooks](https://docs.cloud.google.com/gemini-enterprise-agent-platform/notebooks/workbench/managed/introduction) |  GA  |  None   
@@ -180,6 +186,7 @@ Gemini in BigQuery is not supported in Assured Workloads. Access Transparency su
 [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) |  GA  |  Access Transparency supports the Security Command Center Premium tier.   
 [Sensitive Data Protection](https://docs.cloud.google.com/dlp/docs) |  GA  |  None   
 [Serverless VPC Access](https://docs.cloud.google.com/vpc/docs/serverless-vpc-access) |  GA  |  None   
+[Service connectivity automation](https://docs.cloud.google.com/vpc/docs/about-service-connectivity-automation) |  GA  |  None   
 [Service Management](https://docs.cloud.google.com/service-infrastructure/docs/service-management/reference/rest) |  GA  |  None   
 [Service Usage](https://docs.cloud.google.com/service-usage/docs/reference/rest) |  Preview  |  None   
 [Spanner](https://docs.cloud.google.com/spanner) |  GA  |  None   
@@ -213,6 +220,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

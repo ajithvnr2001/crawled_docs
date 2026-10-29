@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/biglake-iceberg-tables-in-bigquery/
 title: Apache Iceberg managed tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:32.839720+00:00
+fetched_at: 2026-10-29T05:45:53.734957+00:00
 ---
 
 # Apache Iceberg managed tables  |  BigQuery  |  Google Cloud Documentation

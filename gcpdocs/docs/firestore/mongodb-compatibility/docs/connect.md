@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/connect/
 title: Authenticate and connect to a database \u00a0|\u00a0 Firestore with MongoDB compatibility \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:25:13.663570+00:00
+fetched_at: 2026-10-29T07:58:48.705813+00:00
 ---
 
 # Authenticate and connect to a database  |  Firestore with MongoDB compatibility  |  Google Cloud Documentation
@@ -167,7 +167,7 @@ Provision user credentials and an IAM policy:
     
     
     import com.google.cloud.firestore.v1.[FirestoreAdminClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.cloud.firestore.v1.FirestoreAdminClient.html);
-    import com.google.cloud.resourcemanager.v3.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-resourcemanager/latest/com.google.cloud.resourcemanager.v3.ProjectName.html);
+    import com.google.cloud.resourcemanager.v3.[ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.firestore.admin.v1.ProjectName.html);
     import com.google.cloud.resourcemanager.v3.[ProjectsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-resourcemanager/latest/com.google.cloud.resourcemanager.v3.ProjectsClient.html);
     import com.google.firestore.admin.v1.[CreateUserCredsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.firestore.admin.v1.CreateUserCredsRequest.html);
     import com.google.firestore.admin.v1.[GetUserCredsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.firestore.admin.v1.GetUserCredsRequest.html);
@@ -220,13 +220,13 @@ Provision user credentials and an IAM policy:
       private static void updateIamPolicyForUserCreds(
           String projectId, String databaseId, String userName, [UserCreds](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.firestore.admin.v1.UserCreds.html) userCreds) throws Exception {
         try ([ProjectsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-resourcemanager/latest/com.google.cloud.resourcemanager.v3.ProjectsClient.html) projectsClient = [ProjectsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-resourcemanager/latest/com.google.cloud.resourcemanager.v3.ProjectsClient.html).create()) {
-          [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-resourcemanager/latest/com.google.cloud.resourcemanager.v3.ProjectName.html) projectName = [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-resourcemanager/latest/com.google.cloud.resourcemanager.v3.ProjectName.html).of(projectId);
+          [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.firestore.admin.v1.ProjectName.html) projectName = [ProjectName](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.firestore.admin.v1.ProjectName.html).of(projectId);
     
           // Get the current IAM policy.
           [Policy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.Policy.html) currentPolicy =
               projectsClient.getIamPolicy(
                   [GetIamPolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.GetIamPolicyRequest.html).newBuilder()
-                      .setResource(projectName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-resourcemanager/latest/com.google.cloud.resourcemanager.v3.ProjectName.html#com_google_cloud_resourcemanager_v3_ProjectName_toString__)())
+                      .setResource(projectName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.firestore.admin.v1.ProjectName.html#com_google_firestore_admin_v1_ProjectName_toString__)())
                       .setOptions([GetPolicyOptions](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.GetPolicyOptions.html).newBuilder().[setRequestedPolicyVersion](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.GetPolicyOptions.Builder.html#com_google_iam_v1_GetPolicyOptions_Builder_setRequestedPolicyVersion_int_)(3).build())
                       .build());
     
@@ -248,7 +248,7 @@ Provision user credentials and an IAM policy:
           // Update the policy
           [SetIamPolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.SetIamPolicyRequest.html) request =
               [SetIamPolicyRequest](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.SetIamPolicyRequest.html).newBuilder()
-                  .setResource(projectName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-resourcemanager/latest/com.google.cloud.resourcemanager.v3.ProjectName.html#com_google_cloud_resourcemanager_v3_ProjectName_toString__)())
+                  .setResource(projectName.[toString](https://docs.cloud.google.com/java/docs/reference/google-cloud-firestore/latest/com.google.firestore.admin.v1.ProjectName.html#com_google_firestore_admin_v1_ProjectName_toString__)())
                   .[setPolicy](https://docs.cloud.google.com/java/docs/reference/proto-google-iam-v1/latest/com.google.iam.v1.SetIamPolicyRequest.Builder.html#com_google_iam_v1_SetIamPolicyRequest_Builder_setPolicy_com_google_iam_v1_Policy_)(policyBuilder.build())
                   .setUpdateMask([FieldMask](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.html).newBuilder().[addPaths](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)("bindings").[addPaths](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.FieldMask.Builder.html#com_google_protobuf_FieldMask_Builder_addPaths_java_lang_String_)("etag").build())
                   .build();

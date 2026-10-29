@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-reads-row-ranges/
 title: Read row ranges \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:59.654149+00:00
+fetched_at: 2026-10-29T05:47:18.468629+00:00
 ---
 
 # Read row ranges  |  Bigtable  |  Google Cloud Documentation
@@ -239,7 +239,7 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
     # instance_id = "my-instance"
     # table_id    = "my-table"
-    bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
+    bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable-admin-v2/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
     table = bigtable.table instance_id, table_id
     
     ranges = []

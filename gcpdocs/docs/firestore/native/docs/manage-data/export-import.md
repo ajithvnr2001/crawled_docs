@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/export-import/
 title: Exporting and importing data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:28:57.866128+00:00
+fetched_at: 2026-10-29T05:59:46.198172+00:00
 ---
 
 # Exporting and importing data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ This page describes how to export and import Firestore documents using the manag
 
 Before you can use the managed export and import service, you must complete the following tasks:
 
-  1. [Enable billing for your Google Cloud project.](https://cloud.google.com/billing/docs/how-to/modify-project) Only Google Cloud projects with billing enabled can use the export and import functionality. **Note:** Firebase projects must be on the [Blaze plan](https://firebase.google.com/pricing/?authuser=0) to use the managed export and import service. Enabling billing for the Google Cloud automatically upgrades your Firebase project to the Blaze plan. 
+  1. [Enable billing for your Google Cloud project.](https://cloud.google.com/billing/docs/how-to/modify-project) Only Google Cloud projects with billing enabled can use the export and import functionality. **Note:** Firebase projects must be on the [Blaze plan](https://firebase.google.com/pricing/) to use the managed export and import service. Enabling billing for the Google Cloud automatically upgrades your Firebase project to the Blaze plan. 
   2. [Create a Cloud Storage bucket for your project](https://cloud.google.com/storage/docs/creating-buckets) in a location near [your Firestore database location](https://docs.cloud.google.com/firestore/native/docs/locations#project_location_setting). You cannot use a Requester Pays bucket or a [Rapid bucket](https://docs.cloud.google.com/storage/docs/rapid/rapid-bucket) for export and import operations. 
   3. Make sure your account has the necessary permissions for Firestore and Cloud Storage. **If you are the project owner, your account has the required permissions.** Otherwise, the following roles grant the necessary permissions for export and import operations and for access to Cloud Storage:
 
@@ -643,6 +643,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

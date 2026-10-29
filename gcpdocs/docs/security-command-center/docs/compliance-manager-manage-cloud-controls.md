@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/compliance-manager-manage-cloud-controls/
 title: Manage cloud controls \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:40.243520+00:00
+fetched_at: 2026-10-29T06:14:26.454201+00:00
 ---
 
 # Manage cloud controls  |  Security Command Center  |  Google Cloud Documentation
@@ -699,180 +699,181 @@ The following table shows how Compliance Manager cloud controls map to Security 
 
 Finding category in Security Health Analytics | Cloud control name in Compliance Manager  
 ---|---  
-`ACCESS_TRANSPARENCY_DISABLED` | Enable Access Transparency  
-`ADMIN_SERVICE_ACCOUNT` | Block Administrator Roles from Service Accounts  
-`ALLOWED_INGRESS_ORG_POLICY` | Configure the Allowed Ingress Settings for Cloud Run Organization Policy Constraint  
-`ALLOWED_VPC_EGRESS_ORG_POLICY` | Configure the Allowed VPC Egress Settings for Cloud Run Organization Policy Constraint  
-`ALLOYDB_AUTO_BACKUP_DISABLED` | Enable AlloyDB Automated Backups on Cluster  
-`ALLOYDB_BACKUPS_DISABLED` | Enable AlloyDB Backups on Cluster  
-`ALLOYDB_CMEK_DISABLED` | Enable CMEK for AlloyDB Clusters  
-`ALLOYDB_LOG_ERROR_VERBOSITY` | Set Log Error Verbosity Flag for AlloyDB Instances  
-`ALLOYDB_LOG_MIN_ERROR_STATEMENT_SEVERITY` | Set Log Min Error Statement Flag for AlloyDB Instances  
-`ALLOYDB_LOG_MIN_MESSAGES` | Set Log Min Messages Flag for AlloyDB Instances  
-`ALLOYDB_PUBLIC_IP` | Block Public IP Addresses for AlloyDB Cluster Instances  
-`ALPHA_CLUSTER_ENABLED` | Disable Alpha Features on GKE Clusters  
-`API_KEY_APPS_UNRESTRICTED` | Restrict API Keys for Required APIs Only  
-`API_KEY_EXISTS` | Not available  
-`API_KEY_NOT_ROTATED` | Require Rotation of API Key  
-`AUDIT_CONFIG_NOT_MONITORED` | Configure Log Metrics and Alerts for Audit Logging Changes  
-`AUDIT_LOGGING_DISABLED` | Implement Event Logging for Google Cloud Services  
-`AUTO_BACKUP_DISABLED` | Enable Automatic Backups for Cloud SQL Databases  
-`AUTO_REPAIR_DISABLED` | Enable Auto Repair for GKE Clusters  
-`AUTO_UPGRADE_DISABLED` | Enable Auto Upgrade on GKE Clusters  
-`BIGQUERY_TABLE_CMEK_DISABLED` | Enable CMEK for BigQuery Tables  
-`BINARY_AUTHORIZATION_DISABLED` | Require Binary Authorization on a Cluster  
-`BUCKET_CMEK_DISABLED` | Enable CMEK for Cloud Storage Buckets  
-`BUCKET_IAM_NOT_MONITORED` | Configure Log Metrics and Alerts for Cloud Storage IAM Policy Changes  
-`BUCKET_LOGGING_DISABLED` | Require Cloud Storage Bucket Logging  
-`BUCKET_POLICY_ONLY_DISABLED` | Enable Uniform Bucket-Level Access on Cloud Storage Buckets  
-`CLOUD_ASSET_API_DISABLED` | Enable Cloud Asset Inventory Service  
-`CLUSTER_LOGGING_DISABLED` | Enable Cloud Logging on GKE Clusters  
-`CLUSTER_MONITORING_DISABLED` | Enable Cloud Monitoring on GKE Clusters  
-`CLUSTER_PRIVATE_GOOGLE_ACCESS_DISABLED` | Enable Private Google Access on an instance  
-`CLUSTER_SECRETS_ENCRYPTION_DISABLED` | Enable Encryption on GKE Clusters  
-`CLUSTER_SHIELDED_NODES_DISABLED` | Enable Shielded GKE Nodes on a Cluster  
-`COMPUTE_PROJECT_WIDE_SSH_KEYS_ALLOWED` | Block Project-Wide SSH Keys on Compute Engine Instances  
-`COMPUTE_SECURE_BOOT_DISABLED` | Enable Secure Boot on Compute Engine Instances  
-`COMPUTE_SERIAL_PORTS_ENABLED` | Block Serial Ports for Compute Engine Instances  
-`CONFIDENTIAL_COMPUTING_DISABLED` | Enable Confidential Computing for Compute Engine Instances  
-`COS_NOT_USED` | Require Container-Optimized OS for a GKE Cluster  
-`CUSTOM_ORG_POLICY_VIOLATION` | Not available  
-`CUSTOM_ROLE_NOT_MONITORED` | Configure Log Metrics and Alerts for Custom Role Changes  
-`DATAPROC_CMEK_DISABLED` | Require CMEK on Dataproc Clusters  
-`DATAPROC_IMAGE_OUTDATED` | Use Latest Image Versions on Dataproc Clusters  
-`DATASET_CMEK_DISABLED` | Enable CMEK for BigQuery Datasets  
-`DEFAULT_NETWORK` | Use Networks with Custom Firewall Rules  
-`DEFAULT_SERVICE_ACCOUNT_USED` | Use Custom Service Accounts for Compute Engine Instances  
-`DISABLE_VPC_EXTERNAL_IP_V6_ORG_POLICY` | Configure the Disable VPC External IPv6 Usage Organization Policy  
-`DISABLE_VPC_INTERNAL_IP_V6_ORG_POLICY` | Configure the Disable VPC External IPv6 Usage Organization Policy  
-`DISABLED_SERIAL_PORT_ACCESS_ORG_POLICY` | Configure the Disable VM Serial Port Logging to Stackdriver Organization Policy  
-`DISK_CMEK_DISABLED` | Enable CMEK on Compute Engine Persistent Disks  
-`DISK_CSEK_DISABLED` | Enable CSEK On Compute Engine Persistent Disks  
-`DNS_LOGGING_DISABLED` | Enable Cloud DNS Logs Monitoring  
-`DNSSEC_DISABLED` | Enable DNSSEC for Cloud DNS  
-`EGRESS_DENY_RULE_NOT_SET` | Enforce Deny All Egress Firewall Rule  
-`ESSENTIAL_CONTACTS_NOT_CONFIGURED` | Define Essential Contacts  
-`FIREWALL_NOT_MONITORED` | Configure Log Metrics and Alerts for VPC Network Firewall Changes  
-`FIREWALL_RULE_LOGGING_DISABLED` | Enable Firewall Rule Logging  
-`FLOW_LOGS_DISABLED` | Enable Flow Logs for VPC Subnet  
-`FULL_API_ACCESS` | Restrict API Access to Google Cloud APIs for Compute Engine Instances  
-`HTTP_LOAD_BALANCER` | Enforce HTTPS Traffic Only  
-`INCORRECT_BQ4G_SERVICE_PERIMETER` | Define Service Perimeters in VPC Service Controls  
-`INSTANCE_OS_LOGIN_DISABLED` | Enable OS Login  
-`INTEGRITY_MONITORING_DISABLED` | Enable Integrity Monitoring on GKE Clusters  
-`INTRANODE_VISIBILITY_DISABLED` | Enable Intranode Visibility for GKE Clusters  
-`IP_ALIAS_DISABLED` | Enable IP Alias Range for GKE Clusters  
-`IP_FORWARDING_ENABLED` | Prevent IP Forwarding on Compute Engine Instances  
-`KMS_KEY_NOT_ROTATED` | Define Rotation Period for Cloud KMS Keys  
+`ACCESS_TRANSPARENCY_DISABLED` | [Enable Access Transparency](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-access-transparency)  
+`ADMIN_SERVICE_ACCOUNT` | [Block Administrator Roles from Service Accounts](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-admin-roles-from-service-accounts)  
+`ALLOWED_INGRESS_ORG_POLICY` | [Configure the Allowed Ingress Settings for Cloud Run Organization Policy Constraint](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-cloud-run-ingress-settings-org-policy)  
+`ALLOWED_VPC_EGRESS_ORG_POLICY` | [Configure the Allowed VPC Egress Settings for Cloud Run Organization Policy Constraint](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-cloud-run-egress-settings-org-policy)  
+`ALLOYDB_AUTO_BACKUP_DISABLED` | [Enable AlloyDB Automated Backups on Cluster](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-alloydb-automated-backups)  
+`ALLOYDB_BACKUPS_DISABLED` | [Enable AlloyDB Backups on Cluster](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-continuous-automated-backups)  
+`ALLOYDB_CMEK_DISABLED` | [Enable CMEK for AlloyDB Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-cmek-for-alloydb-cluster)  
+`ALLOYDB_LOG_ERROR_VERBOSITY` | [Set Log Error Verbosity Flag for AlloyDB Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-alloydb-log-error-verbosity-flag)  
+`ALLOYDB_LOG_MIN_ERROR_STATEMENT_SEVERITY` | [Set Log Min Error Statement Flag for AlloyDB Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-alloydb-log-min-error-statement-flag)  
+`ALLOYDB_LOG_MIN_MESSAGES` | [Set Log Min Messages Flag for AlloyDB Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-alloydb-log-min-messages-flag)  
+`ALLOYDB_PUBLIC_IP` | [Block Public IP Addresses for AlloyDB Cluster Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-alloydb-public-ip-addresses)  
+`ALLOYDB_SSL_NOT_ENFORCED` | [Enable SSL Encryption On AlloyDB Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-alloydb-ssl-encryption)  
+`ALPHA_CLUSTER_ENABLED` | [Disable Alpha Features on GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#disable-alpha-features)  
+`API_KEY_APIS_UNRESTRICTED` | [Restrict API Keys for Required APIs Only](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-api-keys-for-required-apis-only)  
+`API_KEY_APPS_UNRESTRICTED` | [Set Application Restriction on API Keys](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-applications-api-keys)  
+`API_KEY_EXISTS` | [Require API Key Exists](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#api-key-exists)  
+`API_KEY_NOT_ROTATED` | [Require Rotation of API Key](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-api-key-rotation)  
+`AUDIT_CONFIG_NOT_MONITORED` | [Configure Log Metrics and Alerts for Audit Logging Changes](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-log-metrics-for-audit-logging-changes)  
+`AUDIT_LOGGING_DISABLED` | [Implement Event Logging for Google Cloud Services](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#implement-event-logging)  
+`AUTO_BACKUP_DISABLED` | [Enable Automatic Backups for Cloud SQL Databases](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-automatic-backups-cloud-sql)  
+`AUTO_REPAIR_DISABLED` | [Enable Auto Repair for GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-auto-repair)  
+`AUTO_UPGRADE_DISABLED` | [Enable Auto Upgrade on GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-auto-upgrade)  
+`BIGQUERY_TABLE_CMEK_DISABLED` | [Enable CMEK for BigQuery Tables](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#cmek-key-in-use-for-bigquery-table)  
+`BINARY_AUTHORIZATION_DISABLED` | [Require Binary Authorization on a Cluster](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-binary-authorization)  
+`BUCKET_CMEK_DISABLED` | [Enable CMEK for Cloud Storage Buckets](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-cmek-on-bucket)  
+`BUCKET_IAM_NOT_MONITORED` | [Configure Log Metrics and Alerts for Cloud Storage IAM Policy Changes](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-log-metrics-for-bucket-iam-changes)  
+`BUCKET_LOGGING_DISABLED` | [Require Cloud Storage Bucket Logging](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-bucket-logging)  
+`BUCKET_POLICY_ONLY_DISABLED` | [Enable Uniform Bucket-Level Access on Cloud Storage Buckets](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-uniform-bucket-level-access)  
+`CLOUD_ASSET_API_DISABLED` | [Enable Cloud Asset Inventory Service](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-cloud-asset-api)  
+`CLUSTER_LOGGING_DISABLED` | [Enable Cloud Logging on GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-cluster-cloud-logging)  
+`CLUSTER_MONITORING_DISABLED` | [Enable Cloud Monitoring on GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-cluster-cloud-monitoring)  
+`CLUSTER_PRIVATE_GOOGLE_ACCESS_DISABLED` | [Enable Private Google Access on an instance](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-private-google-access)  
+`CLUSTER_SECRETS_ENCRYPTION_DISABLED` | [Enable Encryption on GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-encryption-gke-cluster)  
+`CLUSTER_SHIELDED_NODES_DISABLED` | [Enable Shielded GKE Nodes on a Cluster](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-shielded-nodes)  
+`COMPUTE_PROJECT_WIDE_SSH_KEYS_ALLOWED` | [Block Project-Wide SSH Keys on Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-project-wide-ssh-keys)  
+`COMPUTE_SECURE_BOOT_DISABLED` | [Enable Secure Boot on Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-secure-boot-on-compute-engine-instances)  
+`COMPUTE_SERIAL_PORTS_ENABLED` | [Block Serial Ports for Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-serial-ports-on-compute-engine-instances)  
+`CONFIDENTIAL_COMPUTING_DISABLED` | [Enable Confidential Computing for Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-confidential-computing)  
+`COS_NOT_USED` | [Require Container-Optimized OS for a GKE Cluster](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-container-optimized-os)  
+`CUSTOM_ORG_POLICY_VIOLATION` | [Enforce Custom Organization Policy](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#custom-org-policy-violation-config)  
+`CUSTOM_ROLE_NOT_MONITORED` | [Configure Log Metrics and Alerts for Custom Role Changes](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-log-metrics-for-custom-role-changes)  
+`DATAPROC_CMEK_DISABLED` | [Require CMEK on Dataproc Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-cmek-on-dataproc-cluster)  
+`DATAPROC_IMAGE_OUTDATED` | [Use Latest Image Versions on Dataproc Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-latest-image-version-on-dataproc-cluster)  
+`DATASET_CMEK_DISABLED` | [Enable CMEK for BigQuery Datasets](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-cmek-on-bigquery-datasets)  
+`DEFAULT_NETWORK` | [Use Networks with Custom Firewall Rules](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#define-network-with-custom-firewall-rules)  
+`DEFAULT_SERVICE_ACCOUNT_USED` | [Use Custom Service Accounts for Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#define-non-default-service-account)  
+`DISABLE_VPC_EXTERNAL_IP_V6_ORG_POLICY` | [Configure the Disable VPC External IPv6 Usage Organization Policy](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-external-ipv6-addresses-org-policy)  
+`DISABLE_VPC_INTERNAL_IP_V6_ORG_POLICY` | [Configure the Disable VPC External IPv6 Usage Organization Policy](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-external-ipv6-addresses-org-policy)  
+`DISABLED_SERIAL_PORT_ACCESS_ORG_POLICY` | [Configure the Disable VM Serial Port Logging to Stackdriver Organization Policy](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-serial-ports-logging-org-policy)  
+`DISK_CMEK_DISABLED` | [Enable CMEK on Compute Engine Persistent Disks](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-cmek-on-disk)  
+`DISK_CSEK_DISABLED` | [Enable CSEK On Compute Engine Persistent Disks](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-csek-on-disk)  
+`DNS_LOGGING_DISABLED` | [Enable Cloud DNS Logs Monitoring](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-cloud-dns-logging)  
+`DNSSEC_DISABLED` | [Enable DNSSEC for Cloud DNS](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-dnssec-for-cloud-dns)  
+`EGRESS_DENY_RULE_NOT_SET` | [Enforce Deny All Egress Firewall Rule](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-deny-all-egress-firewall-policy)  
+`ESSENTIAL_CONTACTS_NOT_CONFIGURED` | [Define Essential Contacts](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#define-essential-contacts)  
+`FIREWALL_NOT_MONITORED` | [Configure Log Metrics and Alerts for VPC Network Firewall Changes](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-log-metrics-for-firewall-changes)  
+`FIREWALL_RULE_LOGGING_DISABLED` | [Enable Firewall Rule Logging](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-firewall-rule-logging)  
+`FLOW_LOGS_DISABLED` | [Enable Subnet Flow Logs](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-subnet-flowlogs)  
+`FULL_API_ACCESS` | [Restrict API Access to Google Cloud APIs for Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-access-to-cloud-apis)  
+`HTTP_LOAD_BALANCER` | [Enforce HTTPS Traffic Only](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-https-traffic-only-policy)  
+`INSTANCE_OS_LOGIN_DISABLED` | [Require OS Login on Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-instance-os-login)  
+`INTEGRITY_MONITORING_DISABLED` | [Enable Integrity Monitoring on GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-integrity-monitoring)  
+`INTRANODE_VISIBILITY_DISABLED` | [Enable Intranode Visibility for GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-intranode-visibility)  
+`IP_ALIAS_DISABLED` | [Enable IP Alias Range for GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-cluster-ip-alias-range)  
+`IP_FORWARDING_ENABLED` | [Prevent IP Forwarding on Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#prevent-ip-forwarding)  
+`KMS_KEY_NOT_ROTATED` | [Define Rotation Period for Cloud KMS Keys](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#define-cloud-kms-key-rotation-period)  
 `KMS_PROJECT_HAS_OWNER` | Not available  
-`KMS_PUBLIC_KEY` | Not available  
-`KMS_ROLE_SEPARATION` | Enforce Separation of Duties  
-`LEGACY_AUTHORIZATION_ENABLED` | Block Legacy Authorization on GKE Clusters  
-`LEGACY_METADATA_ENABLED` | Disable Legacy Metadata Server Endpoints on Compute Engine  
-`LEGACY_NETWORK` | Don't Use Legacy Networks  
-`LOAD_BALANCER_LOGGING_DISABLED` | Enable Load Balancer Logging  
-`LOCKED_RETENTION_POLICY_NOT_SET` | Lock Storage Bucket Retention Policies  
-`LOG_NOT_EXPORTED` | Configure Log Sinks  
-`MASTER_AUTHORIZED_NETWORKS_DISABLED` | Enable Control Plane Authorized Networks on GKE Clusters  
-`MFA_NOT_ENFORCED` | Not available  
-`NETWORK_NOT_MONITORED` | Configure Log Metrics and Alerts for VPC Network Changes  
-`NETWORK_POLICY_DISABLED` | Enable Network Policy on GKE Clusters  
-`NODEPOOL_BOOT_CMEK_DISABLED` | Enable CMEK on GKE Node Pool Boot Disks  
-`NODEPOOL_SECURE_BOOT_DISABLED` | Enable Secure Boot for Shielded GKE Nodes  
-`NON_ORG_IAM_MEMBER` | Not available  
-`OBJECT_VERSIONING_DISABLED` | Enable Object Versioning on Buckets  
-`OPEN_CASSANDRA_PORT` | Block Connections to Cassandra Ports from All IP Addresses  
-`OPEN_CISCOSECURE_WEBSM_PORT` | Block Connections to CiscoSecure/WebSM Ports from All IP Addresses  
-`OPEN_DIRECTORY_SERVICES_PORT` | Block Connections to Directory Services Ports from All IP Addresses  
-`OPEN_DNS_PORT` | Block Connections to DNS Ports from All IP Addresses  
-`OPEN_ELASTICSEARCH_PORT` | Block Connections to Elasticsearch Ports from All IP Addresses  
-`OPEN_FIREWALL` | Not available  
-`OPEN_FTP_PORT` | Block Connections to FTP Ports from All IP Addresses  
-`OPEN_GROUP_IAM_MEMBER` | Not available  
-`OPEN_HTTP_PORT` | Block Connections to HTTP Ports from All IP Addresses  
-`OPEN_LDAP_PORT` | Block Connections to LDAP Ports from All IP Addresses  
-`OPEN_MEMCACHED_PORT` | Block Connections to Memcached Ports from All IP Addresses  
-`OPEN_MONGODB_PORT` | Block Connections to MongoDB Ports from All IP Addresses  
-`OPEN_MYSQL_PORT` | Block Connections to MySQL Ports from All IP Addresses  
-`OPEN_NETBIOS_PORT` | Block Connections to NetBIOS Ports from All IP Addresses  
-`OPEN_ORACLEDB_PORT` | Block Connections to Oracle Database Ports from All IP Addresses  
-`OPEN_POP3_PORT` | Block Connections to POP3 Server Ports from All IP Addresses  
-`OPEN_POSTGRESQL_PORT` | Block Connections to PostgreSQL Server Ports from All IP Addresses  
-`OPEN_RDP_PORT` | Block Access to RDP Port  
-`OPEN_REDIS_PORT` | Block Connections to Redis Server Ports from All IP Addresses  
-`OPEN_SMTP_PORT` | Block Connections to SMTP Server Ports from All IP Addresses  
-`OPEN_SSH_PORT` | Block Access to SSH Port  
-`OPEN_TELNET_PORT` | Block Connections to Telnet Server Ports from All IP Addresses  
-`ORG_POLICY_CONFIDENTIAL_VM_POLICY` | Enable the Confidential VM Organization Policy Constraint  
-`OS_LOGIN_DISABLED` | Enable OS Login for All Instances at Project Level  
-`OVER_PRIVILEGED_ACCOUNT` | Use Least Privilege Service Accounts for GKE Clusters  
-`OVER_PRIVILEGED_SCOPES` | Create GKE Clusters with Limited Service Account Access Scopes  
-`OVER_PRIVILEGED_SERVICE_ACCOUNT_USER` | Block Administrator Roles from Service Accounts  
-`OWNER_NOT_MONITORED` | Not available  
-`POD_SECURITY_POLICY_DISABLED` | Not available  
-`PRIMITIVE_ROLES_USED` | Restrict Legacy IAM Roles  
-`PRIVATE_CLUSTER_DISABLED` | Enable Private Clusters for GKE  
-`PRIVATE_GOOGLE_ACCESS_DISABLED` | Enable Private Google Access for VPC Subnets  
-`PUBLIC_BUCKET_ACL` | Restrict Public Access to Cloud Storage Buckets  
-`PUBLIC_COMPUTE_IMAGE` | Restrict Public Access to Compute Images  
-`PUBLIC_DATASET` | Restrict Public Access to BigQuery Datasets  
-`PUBLIC_IP_ADDRESS` | Restrict Public IP Addresses to Compute Engine Instances  
-`PUBLIC_LOG_BUCKET` | Restrict Public Access to Cloud Storage Buckets  
-`PUBLIC_SQL_INSTANCE` | Restrict Public Access to Cloud SQL Database Instances  
-`PUBSUB_CMEK_DISABLED` | Encrypt Pub/Sub topic with CMEK  
-`QL_LOG_STATEMENT_STATS_ENABLED` | Enable Log Statement Flag for PostgreSQL  
-`REDIS_ROLE_USED_ON_ORG` | Not available  
-`RELEASE_CHANNEL_DISABLED` | Subscribe a GKE Cluster to a Release Channel  
-`REQUIRE_OS_LOGIN_ORG_POLICY` | Enable OS Login  
-`REQUIRE_VPC_CONNECTOR_ORG_POLICY` | Define VPC Connector Egress For Cloud Run Functions  
-`RESTRICT_AUTHORIZED_NETWORKS_ORG_POLICY` | Enable the Restrict Authorized Networks on Cloud SQL Instances Organization Policy Constraint  
-`ROUTE_NOT_MONITORED` | Configure Log Metrics and Alerts for VPC Route Changes  
-`RSASHA1_FOR_SIGNING` | Avoid RSASHA1 for DNSSEC Signing  
+`KMS_PUBLIC_KEY` | [Block Public Access to Cloud KMS Keys](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-cloud-kms-cryptokeys-public-access)  
+`KMS_ROLE_SEPARATION` | [Enforce Separation of Duties](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-separation-of-duties)  
+`LEGACY_AUTHORIZATION_ENABLED` | [Block Legacy Authorization on GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-legacy-authorization)  
+`LEGACY_METADATA_ENABLED` | [Disable Legacy Metadata Server Endpoints on Compute Engine](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#disable-legacy-metadata-endpoints)  
+`LEGACY_NETWORK` | [Don't Use Legacy Networks](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#delete-legacy-network)  
+`LOAD_BALANCER_LOGGING_DISABLED` | [Enable Load Balancer Logging](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-load-balancer-logging)  
+`LOCKED_RETENTION_POLICY_NOT_SET` | [Lock Storage Bucket Retention Policies](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-storage-bucket-locked-retention-policy)  
+`LOG_NOT_EXPORTED` | [Configure Log Sinks](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#configure-log-sinks)  
+`MASTER_AUTHORIZED_NETWORKS_DISABLED` | [Enable Control Plane Authorized Networks on GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-control-plane-authorized-networks)  
+`MFA_NOT_ENFORCED` | [Enforce Two-Step Verification](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-mfa)  
+`NETWORK_NOT_MONITORED` | [Configure Log Metrics and Alerts for VPC Network Changes](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-log-metrics-for-network-changes)  
+`NETWORK_POLICY_DISABLED` | [Enable Network Policy on GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-cluster-network-policy)  
+`NODEPOOL_BOOT_CMEK_DISABLED` | [Enable CMEK on GKE Node Pool Boot Disks](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-cmek-nodepool-boot-disk)  
+`NODEPOOL_SECURE_BOOT_DISABLED` | [Enable Secure Boot for Shielded GKE Nodes](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-nodepool-secure-boot)  
+`NON_ORG_IAM_MEMBER` | [Block IAM Permissions for External Users](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-non-organization-users-iam-permissions)  
+`OBJECT_VERSIONING_DISABLED` | [Enable Object Versioning on Buckets](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-object-versioning-on-buckets)  
+`OPEN_CASSANDRA_PORT` | [Block Generic Access to Cassandra Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-cassandra-ports)  
+`OPEN_CISCOSECURE_WEBSM_PORT` | [Block Generic Access to CiscoSecure/WebSM Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-ciscosecure-websm-ports) Addresses   
+`OPEN_DIRECTORY_SERVICES_PORT` | [Block Generic Access to Directory Services Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-directory-services-ports) Addresses   
+`OPEN_DNS_PORT` | [Block Generic Access to DNS Ports from All IP Addresses](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-dns-ports)  
+`OPEN_ELASTICSEARCH_PORT` | [Block Generic Access to Elasticsearch Ports from All IP Addresses](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-elasticsearch-ports)  
+`OPEN_FIREWALL` | [Block Overly Permissive Firewall Rules](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-firewall-all-ip-addresses)  
+`OPEN_FTP_PORT` | [Block Generic Access to FTP Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-ftp-ports)  
+`OPEN_GROUP_IAM_MEMBER` | [Restrict Open Google Group Accounts](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-open-group-iam-roles)  
+`OPEN_HTTP_PORT` | [Block Generic Access to HTTP Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-http-ports)  
+`OPEN_LDAP_PORT` | [Block Generic Access to LDAP Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-ldap-ports)  
+`OPEN_MEMCACHED_PORT` | [Block Generic Access to Memcached Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-memcached-ports)  
+`OPEN_MONGODB_PORT` | [Block Generic Access to MongoDB Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-mongodb-ports)  
+`OPEN_MYSQL_PORT` | [Block Generic Access to MySQL Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-mysql-ports)  
+`OPEN_NETBIOS_PORT` | [Block Generic Access to NetBIOS Ports from All IP Addresses](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-netbios-ports)  
+`OPEN_ORACLEDB_PORT` | [Block Generic Access to Oracle Database Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-oracle-db-ports)  
+`OPEN_POP3_PORT` | [Block Generic Access to POP3 Server Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-pop3-server-ports)  
+`OPEN_POSTGRESQL_PORT` | [Block Generic Access to PostgreSQL Server Ports from All IP Addresses](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-postgresql-ports)  
+`OPEN_RDP_PORT` | [Block Generic Access to RDP Port](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-access-to-rdp-port)  
+`OPEN_REDIS_PORT` | [Block Generic Access to Redis Server Ports from All IP Addresses](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-redis-server-ports)  
+`OPEN_SMTP_PORT` | [Block Generic Access to SMTP Server Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-smtp-server-ports)  
+`OPEN_SSH_PORT` | [Block Generic Access to SSH Port](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-access-to-ssh-port)  
+`OPEN_TELNET_PORT` | [Block Generic Access to Telnet Server Ports](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-telnet-server-ports)  
+`ORG_POLICY_CONFIDENTIAL_VM_POLICY` | [Enable the Confidential VM Organization Policy Constraint](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-confidential-vm-service)  
+`ORG_POLICY_LOCATION_RESTRICTION` | [Enforce Location Restriction](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#location-restriction-orgpolicy-not-enforced)  
+`OS_LOGIN_DISABLED` | [Enable OS Login for All Instances at Project Level](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-os-login-all-instances-project-level)  
+`OVER_PRIVILEGED_ACCOUNT` | [Use Least Privilege Service Accounts for GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#use-least-privileges-service-accounts-gke)  
+`OVER_PRIVILEGED_SCOPES` | [Create GKE Clusters with Limited Privileges](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#create-kubernetes-clusters-limited-service-account-scopes)  
+`OVER_PRIVILEGED_SERVICE_ACCOUNT_USER` | [Block Administrator Roles from Service Accounts](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-admin-roles-from-service-accounts)  
+`OWNER_NOT_MONITORED` | [Configure Log Metrics and Alerts for Project Owner Role Assignments and Changes](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-log-metric-alerts-for-ownership-changes)  
+`POD_SECURITY_POLICY_DISABLED` | [Enable PodSecurityPolicies for GKE Clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-pod-security-policy-gke-cluster)  
+`PRIMITIVE_ROLES_USED` | [Restrict Legacy IAM Roles](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-legacy-iam-roles)  
+`PRIVATE_CLUSTER_DISABLED` | [Enable Private Clusters for GKE](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-private-clusters-kubernetes)  
+`PRIVATE_GOOGLE_ACCESS_DISABLED` | [Enable Private Google Access for VPC Subnets](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-private-google-access-subnets-vpc)  
+`PUBLIC_BUCKET_ACL` | [Restrict Public Access to Cloud Storage Buckets](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-public-access-cloud-storage-buckets)  
+`PUBLIC_COMPUTE_IMAGE` | [Restrict Public Access to Compute Images](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-public-access-to-compute-images)  
+`PUBLIC_DATASET` | [Restrict Public Access to BigQuery Datasets](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-public-access-bigquery-datasets)  
+`PUBLIC_IP_ADDRESS` | [Restrict Public IP Addresses to Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-compute-instances-public-ip-addresses)  
+`PUBLIC_LOG_BUCKET` | [Restrict Public Access to Cloud Storage Buckets](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-public-access-cloud-storage-buckets)  
+`PUBLIC_SQL_INSTANCE` | [Restrict Public Access to Cloud SQL Database Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-public-access-cloud-sql-instance)  
+`PUBSUB_CMEK_DISABLED` | [Encrypt Pub/Sub topic with CMEK](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#encrypt-pubsub-topic-cmek)  
+`REDIS_ROLE_USED_ON_ORG` | [Assign Redis Role at Project Level](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#assign-redis-role-project-lvl)  
+`RELEASE_CHANNEL_DISABLED` | [Subscribe a GKE Cluster to a Release Channel](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#subscribe-release-channel-gke-cluster)  
+`REQUIRE_OS_LOGIN_ORG_POLICY` | [Enable OS Login](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-os-login)  
+`REQUIRE_VPC_CONNECTOR_ORG_POLICY` | [Define VPC Connector Egress For Cloud Run Functions](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#define-vpc-connector-for-cloud-functions)  
+`RESTRICT_AUTHORIZED_NETWORKS_ORG_POLICY` | [Enable the Restrict Authorized Networks on Cloud SQL Instances Organization Policy Constraint](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-restrict-authorised-networks-org-policy)  
+`ROUTE_NOT_MONITORED` | [Configure Log Metrics and Alerts for VPC Route Changes](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-log-metrics-for-network-route-changes)  
+`RSASHA1_FOR_SIGNING` | [Avoid RSASHA1 for DNSSEC Signing](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#avoid-rsasha1-cloud-dns)  
 `S3_BUCKET_ACCESS_LOGGING_ENABLED_CLOUDTRAIL_S3_BUCKET` | Not available  
 `S3_BUCKETS_CONFIGURED_BLOCK_PUBLIC_ACCESS_BUCKET_AND_ACCOUNT_SETTINGS` | Not available  
-`SERVICE_ACCOUNT_KEY_NOT_ROTATED` | Require Service Account Key Rotation  
-`SERVICE_ACCOUNT_ROLE_SEPARATION` | Enforce Separation of Duties  
-`SHIELDED_VM_DISABLED` | Enable Shielded VM for Compute Engine Instances  
-`SKIP_DEFAULT_NETWORK_CREATION_ORG_POLICY` | Restrict Default Network Creation for Compute Engine Instances  
-`SQL_CMEK_DISABLED` | Enable CMEK for Cloud SQL Databases  
-`SQL_CONTAINED_DATABASE_AUTHENTICATION` | Turn Off Contained Database Authentication Flag for SQL Server  
-`SQL_CROSS_DB_OWNERSHIP_CHAINING` | Turn Off Cross Database Ownership Chaining Flag for SQL Server  
-`SQL_EXTERNAL_SCRIPTS_ENABLED` | Turn Off External Scripts Flag for SQL Server  
-`SQL_INSTANCE_NOT_MONITORED` | Configure Log Metrics and Alerts for Cloud SQL Configuration Changes  
-`SQL_LOCAL_INFILE` | Turn Off Local Infile Flag for MySQL  
-`SQL_LOG_CHECKPOINTS_DISABLED` | Enable Log Checkpoints Flag for PostgreSQL  
-`SQL_LOG_CONNECTIONS_DISABLED` | Enable Log Connections Flag for PostgreSQL  
-`SQL_LOG_DISCONNECTIONS_DISABLED` | Enable Log Disconnections Flag for PostgreSQL  
-`SQL_LOG_DURATION_DISABLED` | Enable Log Duration Flag for PostgreSQL instance  
-`SQL_LOG_ERROR_VERBOSITY` | Enable Log Error Verbosity Flag for PostgreSQL  
-`SQL_LOG_EXECUTOR_STATS_ENABLED` | Turn Off Log Executor Stats Flag for PostgreSQL  
-`SQL_LOG_HOSTNAME_ENABLED` | Turn off Log Hostname Flag for PostgreSQL  
-`SQL_LOG_LOCK_WAITS_DISABLED` | Enable Log Locks Wait Flag for PostgreSQL instance  
-`SQL_LOG_MIN_DURATION_STATEMENT_ENABLED` | Turn Off Log Min Duration Statement Flag for PostgreSQL  
-`SQL_LOG_MIN_ERROR_STATEMENT_SEVERITY` | Enable Log Min Error Statement Flag for PostgreSQL  
-`SQL_LOG_MIN_ERROR_STATEMENT_SEVERITY` | Not available  
-`SQL_LOG_MIN_MESSAGE` | Enable Log Min Messages Flag for PostgreSQL  
-`SQL_LOG_PARSER_STATS_ENABLED` | Turn off Log Parser Stats Flag for PostgreSQL  
-`SQL_LOG_PLANNER_STATS_ENABLED` | Turn off Log Planner Stats Flag for PostgreSQL  
-`SQL_LOG_STATEMENT` | Enable Log Statement Flag for PostgreSQL  
-`SQL_LOG_TEMP_FILES` | Enable Log Temp Files Flag for PostgreSQL instance  
-`SQL_NO_ROOT_PASSWORD` | Not available  
-`SQL_PUBLIC_IP` | Block Public IP Addresses for Cloud SQL Instances  
-`SQL_REMOTE_ACCESS_ENABLED` | Turn Off Remote Access Flag for SQL Server  
-`SQL_SCANNER` | Enable SSL Encryption On AlloyDB Instances  
-`SQL_SKIP_SHOW_DATABASE_DISABLED` | Enable Skip Show Database Flag for MySQL  
-`SQL_TRACE_FLAG_3625` | Enable 3625 Trace Database Flag for SQL Server  
-`SQL_USER_CONNECTIONS_CONFIGURED` | Don't Use User Connections Flag for SQL Server  
-`SQL_USER_OPTIONS_CONFIGURED` | Don't Use User Options Flag for SQL Server  
-`SQL_WEAK_ROOT_PASSWORD` | Not available  
-`SSL_NOT_ENFORCED` | Enforce SSL for all Incoming Database Connections  
-`TOO_MANY_KMS_USERS` | Limit KMS Crypto Keys Users to Three  
-`UNIFORM_BUCKET_LEVEL_ACCESS_ORG_POLICY` | Enable Uniform Bucket-Level Access on Cloud Storage Buckets  
-`USER_MANAGED_SERVICE_ACCOUNT_KEY` | Restrict User Managed Service Account Keys  
-`VPC_FLOW_LOGS_SETTINGS_NOT_RECOMMENDED` | Not available  
-`WEAK_SSL_POLICY` | Restrict Insecure SSL Policies for Compute Engine Instances  
-`WEB_UI_ENABLED` | Don't Use Kubernetes Web UI  
-`WORKLOAD_IDENTITY_DISABLED` | Enable Workload Identity Federation for GKE on clusters  
+`SERVICE_ACCOUNT_KEY_NOT_ROTATED` | [Require Service Account Key Rotation](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-service-account-key-rotation)  
+`SERVICE_ACCOUNT_ROLE_SEPARATION` | [Enforce Separation of Duties](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-separation-of-duties)  
+`SHIELDED_VM_DISABLED` | [Enable Shielded VM for Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-shielded-vm-compute-instances)  
+`SKIP_DEFAULT_NETWORK_CREATION_ORG_POLICY` | [Restrict Default Network Creation for Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-default-network-creation-for-compute-engine)  
+`SQL_CMEK_DISABLED` | [Enable CMEK for Cloud SQL Databases](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#configure-cmek-cloud-sql-database)  
+`SQL_CONTAINED_DATABASE_AUTHENTICATION` | [Turn Off Contained Database Authentication Flag for SQL Server](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#turn-off-contained-db-authentication-flag-sql-server)  
+`SQL_CROSS_DB_OWNERSHIP_CHAINING` | [Turn Off Cross Database Ownership Chaining Flag for SQL Server](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#disable-cross-db-ownership-chaining-sql-server)  
+`SQL_EXTERNAL_SCRIPTS_ENABLED` | [Turn Off External Scripts Flag for SQL Server](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#disable-external-scripts-db-flag-sql-server)  
+`SQL_INSTANCE_NOT_MONITORED` | [Configure Log Metrics and Alerts for Cloud SQL Configuration Changes](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#require-log-metrics-for-sql-config-changes)  
+`SQL_LOCAL_INFILE` | [Turn Off Local Infile Flag for MySQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#disable-local-infile-db-flag-mysql)  
+`SQL_LOG_CHECKPOINTS_DISABLED` | [Enable Log Checkpoints Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-checkpoint-db-flag-postgresql)  
+`SQL_LOG_CONNECTIONS_DISABLED` | [Enable Log Connections Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-connections-db-flag-postgres)  
+`SQL_LOG_DISCONNECTIONS_DISABLED` | [Enable Log Disconnections Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-disconnections-db-flag-postgres)  
+`SQL_LOG_DURATION_DISABLED` | [Enable Log Duration Flag for PostgreSQL instance](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-duration-db-flag-postgresql)  
+`SQL_LOG_ERROR_VERBOSITY` | [Enable Log Error Verbosity Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-error-verbosity-db-flag-postgres)  
+`SQL_LOG_EXECUTOR_STATS_ENABLED` | [Turn Off Log Executor Stats Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#turn-off-log-executor-stats-db-flag-postgresql)  
+`SQL_LOG_HOSTNAME_ENABLED` | [Turn off Log Hostname Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#turn-off-log-hostname-db-flag-postgresql)  
+`SQL_LOG_LOCK_WAITS_DISABLED` | [Enable Log Locks Wait Flag for PostgreSQL instance](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-locks-wait-db-flag-postgresql)  
+`SQL_LOG_MIN_DURATION_STATEMENT_ENABLED` | [Turn Off Log Min Duration Statement Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#disable-log-min-duration-statement-db-flag-postgresql)  
+`SQL_LOG_MIN_ERROR_STATEMENT` | [Enable Log Min Error Statement Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-min-error-statement-db-flag-postgres)  
+`SQL_LOG_MIN_ERROR_STATEMENT_SEVERITY` | [Enable Log Min Error Statement Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-min-error-statement-db-flag-postgres)  
+`SQL_LOG_MIN_MESSAGE` | [Enable Log Min Messages Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-min-messages-db-flag-postgres)  
+`SQL_LOG_PARSER_STATS_ENABLED` | [Turn off Log Parser Stats Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#turn-off-log-parser-stats-db-flag-postgresql)  
+`SQL_LOG_PLANNER_STATS_ENABLED` | [Turn off Log Planner Stats Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#turn-off-log-planner-stats-flag-postgresql)  
+`SQL_LOG_STATEMENT` | [Enable Log Statement Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-statement-db-flag-postgres)  
+`SQL_LOG_STATEMENT_STATS_ENABLED` | [Turn off Log Statement Stats Flag for PostgreSQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#turn-off-log-statement-stats-db-flag-postgresql)  
+`SQL_LOG_TEMP_FILES` | [Enable Log Temp Files Flag for PostgreSQL instance](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-log-temp-files-db-flag-postgresql)  
+`SQL_NO_ROOT_PASSWORD` | [Enforce Password for MySQL Database](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-password-mysql-db)  
+`SQL_PUBLIC_IP` | [Block Public IP Addresses for Cloud SQL Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#block-cloud-sql-public-ip-addresses)  
+`SQL_REMOTE_ACCESS_ENABLED` | [Turn Off Remote Access Flag for SQL Server](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#disable-remote-access-db-flag-sql-server)  
+`SQL_SKIP_SHOW_DATABASE_DISABLED` | [Enable Skip Show Database Flag for MySQL](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-skip-show-db-flag-mysql)  
+`SQL_TRACE_FLAG_3625` | [Enable 3625 Trace Database Flag for SQL Server](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-3625-trace-db-flag-sql-server)  
+`SQL_USER_CONNECTIONS_CONFIGURED` | [Don't Use User Connections Flag for SQL Server](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#dont-use-user-connections-db-flag-sql-server)  
+`SQL_USER_OPTIONS_CONFIGURED` | [Don't Use User Options Flag for SQL Server](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#dont-use-user-options-db-flag-sql-server)  
+`SQL_WEAK_ROOT_PASSWORD` | [Enforce Strong Passwords for Cloud SQL Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#sql-weak-root-password)  
+`SSL_NOT_ENFORCED` | [Enforce SSL for all Incoming Database Connections](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enforce-ssl-incoming-connections-database)  
+`TOO_MANY_KMS_USERS` | [Limit KMS Crypto Keys Users to Three](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#limit-kms-crypto-keys-users)  
+`UNIFORM_BUCKET_LEVEL_ACCESS_ORG_POLICY` | [Set Uniform Bucket Level Access for Cloud Storage Buckets](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#set-uniform-bucket-level-access-cloud-storage-buckets)  
+`USER_MANAGED_SERVICE_ACCOUNT_KEY` | [Restrict User Managed Service Account Keys](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#restrict-user-managed-service-account-keys)  
+`VPC_FLOW_LOGS_SETTINGS_NOT_RECOMMENDED` | [Enable Flow Logs for VPC Subnet](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-vpc-flow-logs)  
+`WEAK_SSL_POLICY` | [Restrict Insecure SSL Policies for Compute Engine Instances](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#disable-insecure-ssl-policies-compute)  
+`WEB_UI_ENABLED` | [Don't Use Kubernetes Web UI](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#disable-gke-web-ui)  
+`WORKLOAD_IDENTITY_DISABLED` | [Enable Workload Identity Federation for GKE on clusters](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-cloud-controls#enable-workload-identity-gke)  
   
 ## What's next
 
@@ -884,6 +885,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis/
 title: Access global Google APIs through endpoints \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:18.208310+00:00
+fetched_at: 2026-10-29T05:59:31.365709+00:00
 ---
 
 # Access global Google APIs through endpoints  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -605,8 +605,6 @@ See Roles for role information.
 
 You can delete an endpoint.
 
-**Caution:** If a VPC spoke has connection propagation for global Google APIs enabled, deleting an endpoint for global Google APIs can disrupt Network Connectivity Center cross-spoke traffic to other global Google API endpoints in that spoke. For a workaround, see the known issue.
-
 #### Permissions required for this task
 
 To perform this task, you must have been granted the following permissions _or_ one of the following IAM roles.
@@ -745,22 +743,6 @@ Clients in networks that are connected to Google Cloud with VLAN attachments for
 
 
 
-## Known issues
-
-### Deleting an endpoint with connection propagation enabled causes packet loss
-
-If a VPC spoke has connection propagation for global Google APIs enabled, deleting an endpoint for global Google APIs can disrupt NCC cross-spoke traffic to other global Google API endpoints in that spoke.
-
-To delete an endpoint for global Google APIs when connection propagation is enabled, do the following:
-
-  1. [Disable connection propagation for global Google APIs](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/how-to/working-with-hubs-spokes#update_a_hub) on the NCC hub.
-  2. Delete the endpoint.
-  3. [Re-enable connection propagation for global Google APIs](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/how-to/working-with-hubs-spokes#update_a_hub) on the NCC hub.
-
-
-
-If you have deleted an endpoint and experience traffic disruption, you can resolve the issue by disabling and then re-enabling connection propagation for global Google APIs on the NCC hub.
-
 ## Troubleshooting
 
 The following sections contain information about resolving issues with Private Service Connect endpoints that are used to access Google APIs.
@@ -833,6 +815,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

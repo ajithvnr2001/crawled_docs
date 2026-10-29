@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/agent-studio-capabilities/
 title: Agent Studio capabilities \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:45.691206+00:00
+fetched_at: 2026-10-29T06:14:20.220848+00:00
 ---
 
 # Agent Studio capabilities  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -120,7 +120,7 @@ Thinking level | How much reasoning the model does before responding. For more i
 Output format | The response MIME type, which lets you request structured output such as JSON. For more information, see [Control generated output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output).  
 Grounding with Google | Ground responses in Google Search results. Click **Customize** to configure the search behavior. For more information, see [Grounding with Google Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search).  
 Grounding with partners | Ground responses in a partner data source, such as [Elasticsearch](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-elasticsearch).  
-Grounding with your data | Ground responses in your own enterprise data using [Agent Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search) or [RAG Engine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview).  
+Grounding with your data | Ground responses in your own enterprise data using [Agent Search](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-vertex-ai-search) or [RAG Engine on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/rag-overview).  
 Function calling | Let the model call functions that you declare. For more information, see [Function calling](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling).  
 Code execution | Let the model generate and run code to answer a prompt.  
 URL context | Let the model fetch and analyze URLs that appear in your prompt.  

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/query-iceberg-tables-with-lakehouse/
 title: Quickstart: Create and query an Iceberg table in Lakehouse using the Google Cloud CLI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:01.695209+00:00
+fetched_at: 2026-10-29T06:14:01.307188+00:00
 ---
 
 # Quickstart: Create and query an Iceberg table in Lakehouse using the Google Cloud CLI  |  Google Cloud Documentation
@@ -23,15 +23,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Create and query an Iceberg table in Lakehouse using the Google Cloud CLI
 
-Borderless Lakehouse lets you share Apache Iceberg tables between open source engines and Google Cloud by managing table metadata, including schemas, snapshots, and storage locations, in the Lakehouse runtime catalog.
+Borderless Lakehouse lets you share Apache Iceberg tables across Google Cloud and open source engines such as Apache Spark, Trino, and Apache Flink. The Lakehouse runtime catalog tracks metadata, including schemas, snapshots, and Cloud Storage locations, through the Apache Iceberg REST catalog endpoint.
 
-In this quickstart, you use the Google Cloud CLI to complete the following steps:
-
-  1. **Create a catalog** : Create a multiple-bucket catalog in the Lakehouse runtime catalog backed by Cloud Storage.
-  2. **Create an Iceberg table with Apache Spark** : Run a PySpark script on Managed Service for Apache Spark to try out an open source workload without setting up your own cluster. Spark connects through the Apache Iceberg REST catalog endpoint, which also works with any Iceberg-compatible engine, such as self-managed Spark, Trino, or Apache Flink.
-  3. **Query the table in BigQuery** : Query that same table in BigQuery using the 4-part **P.C.N.T** (**Project.Catalog.Namespace.Table**) syntax, with no ETL or manual table registration needed.
-
-
+In this quickstart, you use the Google Cloud CLI to configure a multiple-bucket catalog and run a PySpark job on Managed Service for Apache Spark. After the job creates an Iceberg table, you query it directly in BigQuery using the 4-part **P.C.N.T** (**Project.Catalog.Namespace.Table**) syntax without moving or registering data.
 
 ## Before you begin
 
@@ -393,6 +387,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

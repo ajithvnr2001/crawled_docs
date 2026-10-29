@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/solutions/counters/
 title: Support frequent and distributed counters \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:23:49.107993+00:00
+fetched_at: 2026-10-29T07:56:57.623983+00:00
 ---
 
 # Support frequent and distributed counters  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -245,7 +245,7 @@ Not applicable, see the counter increment snippet below.
     }
     
     
-    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/solution_counters.go#L18-L39)
+    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/solution_counters.go#L18-L39)
 
 ###  PHP 
 
@@ -447,7 +447,7 @@ Not applicable, see the counter increment snippet below.
     }
     
     
-    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/solution_counters.go#L43-L59)
+    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/solution_counters.go#L43-L59)
 
 ###  PHP 
     
@@ -503,7 +503,7 @@ Not applicable, see the counter increment snippet below.
     
     puts "Distributed counter shards collection created."
     
-    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/distributed_counters.rb#L18-L33)
+    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/distributed_counters.rb#L18-L33)
 
 To increment the counter, choose a random shard and increment the count:
 
@@ -636,7 +636,7 @@ Android
     }
     
     
-    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/solution_counters.go#L63-L73)
+    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/solution_counters.go#L63-L73)
 
 ###  PHP 
     
@@ -696,7 +696,7 @@ Android
     
     puts "Counter incremented."
     
-    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/distributed_counters.rb#L39-L54)
+    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/distributed_counters.rb#L39-L54)
 
 To get the total count, query for all shards and sum their `count` fields:
 
@@ -878,7 +878,7 @@ Android
     }
     
     
-    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/solution_counters.go#L77-L100)
+    [solution_counters.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/solution_counters.go#L77-L100)
 
 ###  PHP 
     
@@ -926,7 +926,7 @@ Android
     
     puts "Count value is #{count}."
     
-    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/distributed_counters.rb#L60-L74)
+    [distributed_counters.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/distributed_counters.rb#L60-L74)
 
 ## Limitations
 
@@ -941,6 +941,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

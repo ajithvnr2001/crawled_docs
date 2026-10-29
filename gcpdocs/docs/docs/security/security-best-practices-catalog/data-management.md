@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/security-best-practices-catalog/data-management/
 title: Data management controls \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:56.629189+00:00
+fetched_at: 2026-10-29T05:40:44.772713+00:00
 ---
 
 # Data management controls  |  Security  |  Google Cloud Documentation

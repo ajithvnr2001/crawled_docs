@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview/
 title: Semantic governance policies overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:37.590582+00:00
+fetched_at: 2026-10-29T06:14:25.424469+00:00
 ---
 
 # Semantic governance policies overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -33,13 +33,13 @@ Pre-GA features are available "as is" and might have limited support. For more i
 
 ## Overview
 
-**Semantic Governance** functions as a security check layer on agents operating across your enterprise. It evaluates each proposed tool call, allowing only tool calls that don't violate specified policies or deviate from user intent. All other calls are denied.
+**Semantic governance** functions as a security check layer on agents operating across your enterprise. It evaluates each proposed tool call, allowing only tool calls that don't violate specified policies or deviate from user intent. All other calls are denied.
 
 ### How it works
 
 This capability relies on two components:
 
-  * **Semantic Governance Policy** : The natural language rules (constraints) that you write to govern agents' tool calls. You configure these policies to govern an agent or a tool called by an agent.
+  * **Semantic governance policy** : The natural language rules (constraints) that you write to govern agents' tool calls. You configure these policies to govern an agent or a tool called by an agent.
 
   * **Semantic governance policy engine** (or **policy engine**): The underlying, managed infrastructure that you provision and enable within your VPC network. The engine hosts the runtime environment that processes and enforces your Semantic governance policies.
 

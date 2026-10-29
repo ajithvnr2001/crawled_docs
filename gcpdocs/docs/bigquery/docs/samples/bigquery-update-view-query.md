@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-update-view-query/
 title: Update a view query \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:52.648657+00:00
+fetched_at: 2026-10-29T05:41:55.532285+00:00
 ---
 
 # Update a view query  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/design-application-templates/
 title: Design standard application templates \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:07:49.796809+00:00
+fetched_at: 2026-10-29T05:49:45.997349+00:00
 ---
 
 # Design standard application templates  |  Application Design Center  |  Google Cloud Documentation
@@ -428,7 +428,7 @@ For more information, see [gcloud design-center spaces application-templates com
          --project=PROJECT \
          --location=LOCATION \
          --space=SPACE \
-         --source-component-parameters='[{"key": SOURCE_KEY, "value": SOURCE_VALUE}]'
+         --source-component-parameters='[{&quot;key&quot;: SOURCE_KEY, "value": SOURCE_VALUE}]'
          
 
 Replace the following:

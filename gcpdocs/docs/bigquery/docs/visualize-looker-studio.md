@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/visualize-looker-studio/
 title: Analyze data with Data Studio \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:04:12.761389+00:00
+fetched_at: 2026-10-29T05:43:24.877126+00:00
 ---
 
 # Analyze data with Data Studio  |  BigQuery  |  Google Cloud Documentation

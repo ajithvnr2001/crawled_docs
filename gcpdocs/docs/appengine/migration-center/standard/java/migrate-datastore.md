@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/appengine/migration-center/standard/java/migrate-datastore/
 title: Migrate from App Engine Datastore to Firestore in Datastore mode \u00a0|\u00a0 App Engine migration center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:28.611771+00:00
+fetched_at: 2026-10-29T05:46:36.866375+00:00
 ---
 
 # Migrate from App Engine Datastore to Firestore in Datastore mode  |  App Engine migration center  |  Google Cloud Documentation
@@ -112,11 +112,11 @@ Modify your application files by updating the import and initialization lines:
          import com.google.cloud.[Timestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html);
            import com.google.cloud.datastore.[Datastore](https://docs.cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.Datastore.html);
            import com.google.cloud.datastore.[DatastoreOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.DatastoreOptions.html);
-           import com.google.cloud.datastore.[Entity](https://docs.cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.Entity.html);
+           import com.google.cloud.datastore.[Entity](https://docs.cloud.google.com/java/docs/reference/google-cloud-contact-center-insights/latest/com.google.cloud.contactcenterinsights.v1.Entity.html);
            import com.google.cloud.datastore.[Key](https://docs.cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.Key.html);
            import com.google.cloud.datastore.[FullEntity](https://docs.cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.FullEntity.html);
            import com.google.cloud.datastore.[KeyFactory](https://docs.cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.KeyFactory.html);
-           import com.google.cloud.datastore.[Query](https://docs.cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.Query.html);
+           import com.google.cloud.datastore.[Query](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigtable/latest/com.google.cloud.bigtable.data.v2.models.Query.html);
            import com.google.cloud.datastore.[QueryResults](https://docs.cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.QueryResults.html);
            import com.google.cloud.datastore.[StructuredQuery](https://docs.cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.StructuredQuery.html);
          

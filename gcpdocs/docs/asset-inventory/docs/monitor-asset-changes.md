@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/monitor-asset-changes/
 title: Monitor asset changes with Pub/Sub \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:31:57.151003+00:00
+fetched_at: 2026-10-29T05:44:38.245030+00:00
 ---
 
 # Monitor asset changes with Pub/Sub  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -679,7 +679,7 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
     # pubsub_topic = 'YOUR_PUBSUB_TOPIC'
     # asset names, e.g.: //storage.googleapis.com/[YOUR_BUCKET_NAME]
     # asset_names = [ASSET_NAMES, COMMMA_DELIMTTED]
-    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
+    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
     
     formatted_parent = asset_service.[project_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset-V1-AssetService-Paths.html) project: project_id
     

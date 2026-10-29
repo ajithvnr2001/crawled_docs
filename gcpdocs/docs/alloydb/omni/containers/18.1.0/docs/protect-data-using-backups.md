@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/18.1.0/docs/protect-data-using-backups/
 title: Protect your data using backups \u00a0|\u00a0 AlloyDB Omni using containers: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:17:24.719938+00:00
+fetched_at: 2026-10-29T05:46:05.062133+00:00
 ---
 
 # Protect your data using backups  |  AlloyDB Omni using containers: 18.1.0  |  Google Cloud Documentation
@@ -95,7 +95,7 @@ Depending on your deployment option, you can configure AlloyDB Omni to store bac
 
 You can take backups to either local or remote storage options. Local backups tend to be quicker because they rely on only I/O throughput, whereas remote backups usually have a higher latency and lower network bandwidth. However, remote backups provide better protection against host and zonal failures than local backups.
 
-You can also split local backups into local or shared storage. While local storage lacks disaster recovery options when a database host fails, shared storage lets you relocate that storage to another server and use it for recovery. This means that shared storage potentially offers a faster RTO.
+You can also split local backups into local or shared storage. Although local storage lacks disaster recovery options when a database host fails, shared storage lets you relocate that storage to another server and use it for recovery. This means that shared storage potentially offers a faster RTO.
 
 For local, shared, and remote storage deployments, you can schedule the following types of backups or take them manually on demand:
 
@@ -177,6 +177,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

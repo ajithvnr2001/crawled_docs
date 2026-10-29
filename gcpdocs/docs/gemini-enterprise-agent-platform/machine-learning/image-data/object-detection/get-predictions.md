@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/image-data/object-detection/get-predictions/
 title: Get inferences from an image object detection model \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:20.796382+00:00
+fetched_at: 2026-10-29T07:58:14.566816+00:00
 ---
 
 # Get inferences from an image object detection model  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -1142,7 +1142,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     import com.google.cloud.aiplatform.v1.schema.predict.[instance](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.GeneratedMessageLite.Builder.html#com_google_protobuf_GeneratedMessageLite_Builder_instance).[ImageObjectDetectionPredictionInstance](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.instance.ImageObjectDetectionPredictionInstance.html);
     import com.google.cloud.aiplatform.v1.schema.predict.params.[ImageObjectDetectionPredictionParams](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.params.ImageObjectDetectionPredictionParams.html);
     import com.google.cloud.aiplatform.v1.schema.predict.prediction.[ImageObjectDetectionPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html);
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
+    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html);
     import java.io.IOException;
     import java.nio.charset.StandardCharsets;
     import java.nio.file.Files;
@@ -1197,7 +1197,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
           System.out.format("\tDeployed Model Id: %s\n", predictResponse.[getDeployedModelId](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getDeployedModelId__)());
     
           System.out.println("Predictions");
-          for ([Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) prediction : predictResponse.[getPredictionsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getPredictionsList__)()) {
+          for ([Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html) prediction : predictResponse.[getPredictionsList](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.PredictResponse.html#com_google_cloud_aiplatform_v1_PredictResponse_getPredictionsList__)()) {
     
             [ImageObjectDetectionPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html).Builder resultBuilder =
                 [ImageObjectDetectionPredictionResult](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.schema.predict.prediction.ImageObjectDetectionPredictionResult.html).newBuilder();

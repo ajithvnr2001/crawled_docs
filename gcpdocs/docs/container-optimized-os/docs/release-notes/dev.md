@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/container-optimized-os/docs/release-notes/dev/
 title: Container-Optimized OS Release Notes: DEV \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:19:49.225797+00:00
+fetched_at: 2026-10-29T06:14:23.964323+00:00
 ---
 
 # Container-Optimized OS Release Notes: DEV  |  Google Cloud Documentation
@@ -17,6 +17,128 @@ fetched_at: 2026-10-28T00:19:49.225797+00:00
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/cos-dev-release-notes.xml) directly. 
+
+## October 27, 2026
+
+Change
+
+### cos-dev-138-20248-0-0 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.57](https://cos.googlesource.com/third_party/kernel/+/8d63d0a98e25398e4dda752bc9b925ab47532d8d) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/20248.0.0/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated the Linux kernel to v6.18.57.
+
+Change
+
+Upgraded sys-apps/casfs to v0.1.24.
+
+Feature
+
+Added KVM virtualization support for AMD CPUID faulting.
+
+Feature
+
+Added nvidia-container-toolkit to ARM images.
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.11 and toolbox to v20261020.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1152, Upgraded app-editors/vim-core to v9.2.1152.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.125. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.131.1. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Fixed
+
+Upgraded sys-libs/glibc to v2.41-r5.
+
+Security
+
+Fixed CVE-2024-4741 in dev-libs/openssl.
+
+Security
+
+Fixed CVE-2026-33186 in cri-tools.
+
+Security
+
+Fixed CVE-2026-39830 in guest-agent.
+
+Security
+
+Fixed CVE-2026-39831 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-39831, CVE-2026-46595 in docker.
+
+Security
+
+Fixed CVE-2026-39832, CVE-2026-46595 in kubernetes.
+
+Security
+
+Fixed CVE-2026-39833 in nvidia-container-toolkit.
+
+Security
+
+Fixed CVE-2026-42508, CVE-2026-39830, CVE-2026-39834 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-39831 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-39832 in cri-tools.
+
+Security
+
+Fixed CVE-2026-5435 in sys-libs/glibc.
+
+Security
+
+Fixed CVE-2026-82474 in app-admin/sudo.
+
+Security
+
+Fixed CVE-2026-84445, CVE-2026-24051, CVE-2026-84304, CVE-2026-39831, CVE-2026-39829, CVE-2026-39834, CVE-2026-34986, CVE-2026-39835, CVE-2026-39832, CVE-2026-39827, CVE-2026-81870, CVE-2026-46598, CVE-2026-29181, CVE-2026-39830, CVE-2026-46595, CVE-2026-39828, CVE-2026-25680, CVE-2026-39833, CVE-2026-39883, CVE-2026-84303, CVE-2026-46597, CVE-2026-42508 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-99999 in the Linux kernel.
+
+Security
+
+Upgraded dev-lang/go to v1.26.10. This fixes CVE-2026-111943.
+
+Security
+
+Upgraded dev-lang/go to v1.26.5. This fixes CVE-2026-39822.
+
+Security
+
+Upgraded dev-lang/go to v1.26.9. This fixes CVE-2026-94447.
+
+Security
+
+Upgraded dev-lang/python to v3.13.15. This fixes CVE-2026-15308.
+
+Security
+
+Upgraded dev-lang/python to v3.13.16. This fixes CVE-2026-19445.
 
 ## October 12, 2026
 

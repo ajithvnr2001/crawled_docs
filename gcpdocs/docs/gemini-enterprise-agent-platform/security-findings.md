@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/security-findings/
 title: View security and audit findings \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:42.013584+00:00
+fetched_at: 2026-10-29T06:14:26.712975+00:00
 ---
 
 # View security and audit findings  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/fgac-about/
 title: Fine-grained access control overview \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:48.217288+00:00
+fetched_at: 2026-10-29T06:14:06.763554+00:00
 ---
 
 # Fine-grained access control overview  |  Spanner  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Fine-grained access control overview Stay organized with collections  Save and categorize content based on your preferences. 
 
-Spanner fine-grained access control combines the benefits of [Identity and Access Management](https://docs.cloud.google.com/iam/docs) (IAM) with SQL role-based access control. With fine-grained access control, you define database roles, grant privileges to the roles, and create IAM policies to grant permissions on database roles to IAM principals. This page describes how to use fine-grained access control with Spanner for GoogleSQL-dialect databases and PostgreSQL-dialect databases.
+Spanner fine-grained access control combines the benefits of [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs) with SQL role-based access control. With fine-grained access control, you define database roles, grant privileges to the roles, and create IAM policies to grant permissions on database roles to IAM principals. This page describes how to use fine-grained access control with Spanner for GoogleSQL-dialect databases and PostgreSQL-dialect databases.
 
 As an administrator, you must enable fine-grained access control for individual IAM principals. Principals for whom fine-grained access control is enabled ("fine-grained access control users") must assume a database role to access Spanner resources.
 
@@ -179,6 +179,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

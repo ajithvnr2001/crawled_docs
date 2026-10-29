@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/omni-azure-export-results-to-azure-storage/
 title: Export query results to Blob Storage \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:49.015828+00:00
+fetched_at: 2026-10-29T05:44:06.482930+00:00
 ---
 
 # Export query results to Blob Storage  |  BigQuery  |  Google Cloud Documentation

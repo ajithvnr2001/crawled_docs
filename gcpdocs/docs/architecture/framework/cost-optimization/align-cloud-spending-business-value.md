@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/cost-optimization/align-cloud-spending-business-value/
 title: Align cloud spending with business value \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:05:55.444687+00:00
+fetched_at: 2026-10-29T05:41:27.356789+00:00
 ---
 
 # Align cloud spending with business value  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,18 +19,18 @@ Send feedback
 
 #  Align cloud spending with business value Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-09-18 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the cost optimization pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to align your use of Google Cloud resources with your organization's business goals.
 
 ## Principle overview
 
-To effectively manage cloud costs, you need to maximize the business value that the cloud resources provide and minimize the [total cost of ownership (TCO)](https://www.finops.org/assets/terminology/#total-cost-of-ownership). When you evaluate the resource options for your cloud workloads, consider not only the cost of provisioning and using the resources, but also the cost of managing them. For example, virtual machines (VMs) on [Compute Engine](https://cloud.google.com/products/compute) might be a cost-effective option for hosting applications. However, when you consider the overhead to maintain, patch, and scale the VMs, the TCO can increase. On the other hand, serverless services like [Cloud Run](https://docs.cloud.google.com/run/docs) can offer greater business value. The lower operational overhead lets your team focus on core activities and helps to increase agility.
+To effectively manage cloud costs, you need to maximize the business value that the cloud resources provide and minimize the [total cost of ownership (TCO)](https://www.finops.org/assets/terminology/#total-cost-of-ownership). When you evaluate the resource options for your cloud workloads, consider not only the cost of provisioning and using the resources, but also the cost of managing them. For example, virtual machines (VMs) on [Compute Engine](https://cloud.google.com/products/compute) might be a cost-effective option for hosting applications. However, when you consider the overhead to maintain, patch, and scale the VMs, the TCO can increase. On the other hand, serverless services like [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) can offer greater business value. The lower operational overhead lets your team focus on core activities and helps to increase agility.
 
 To ensure that your cloud resources deliver optimal value, evaluate the following factors:
 
   * **Provisioning and usage costs** : The expenses incurred when you purchase, provision, or consume resources.
-  * **Management costs** : The recurring expenses for operating and maintaining resources, including tasks like patching, monitoring and scaling.
+  * **Management costs** : The recurring expenses for operating and maintaining resources, including tasks like patching, monitoring, and scaling.
   * **Indirect costs** : The costs that you might incur to manage issues like downtime, data loss, or security breaches.
   * **Business impact** : The potential benefits from the resources, like increased revenue, improved customer satisfaction, and faster time to market.
 
@@ -50,13 +50,13 @@ To align cloud spending with business objectives, consider the following recomme
 
 ### Prioritize managed services and serverless products
 
-Whenever possible, choose managed services and [serverless products](https://docs.cloud.google.com/serverless) to reduce operational overhead and maintenance costs. This choice lets your teams concentrate on their core business activities. They can accelerate the delivery of new features and functionalities, and help drive innovation and value.
+Whenever possible, choose managed services and [serverless products](https://cloud.google.com/serverless) to reduce operational overhead and maintenance costs. This choice lets your teams concentrate on their core business activities. They can accelerate the delivery of new features and functionalities, and help drive innovation and value.
 
 The following are examples of how you can implement this recommendation:
 
-  * To run PostgreSQL, MySQL, or Microsoft SQL Server server databases, use [Cloud SQL](https://docs.cloud.google.com/sql) instead of deploying those databases on VMs.
+  * To run PostgreSQL, MySQL, or Microsoft SQL Server databases, use [Cloud SQL](https://docs.cloud.google.com/sql/docs/introduction) instead of deploying those databases on VMs.
   * To run and manage Kubernetes clusters, use [Google Kubernetes Engine (GKE) Autopilot](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) instead of deploying containers on VMs.
-  * For your Apache Hadoop or Apache Spark processing needs, use [Managed Service for Apache Spark](https://docs.cloud.google.com/dataproc) and [Managed Service for Apache Spark Serverless](https://docs.cloud.google.com/dataproc-serverless/docs). Per-second billing can help to achieve significantly [lower TCO](https://cloud.google.com/resources/analyzing-economic-benefits-of-dataproc-whitepaper) when compared to on-premises data lakes.
+  * For your Apache Hadoop or Apache Spark processing needs, use [Managed Service for Apache Spark](https://docs.cloud.google.com/managed-spark/docs/overview/key-concepts). Per-second billing can help to achieve significantly [lower TCO](https://cloud.google.com/resources/analyzing-economic-benefits-of-dataproc-whitepaper) when compared to on-premises data lakes.
 
 
 
@@ -71,7 +71,7 @@ Controlling costs and optimizing resource utilization are important goals. Howev
 
 ### Enable self-service optimization
 
-Encourage a culture of experimentation and exploration by providing your teams with self-service cost optimization tools, observability tools, and resource management platforms. Enable them to provision, manage, and optimize their cloud resources autonomously. This approach helps to foster a sense of ownership, accelerate innovation, and ensure that teams can respond quickly to changing needs while being mindful of cost efficiency.
+Encourage a culture of experimentation and exploration by providing your teams with self-service cost optimization tools, observability tools, and resource management platforms. Let them provision, manage, and optimize their cloud resources autonomously. This approach helps to foster a sense of ownership, accelerate innovation, and ensure that teams can respond quickly to changing needs while being mindful of cost efficiency.
 
 ### Adopt and implement FinOps
 
@@ -91,6 +91,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-09-18 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-09-18 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

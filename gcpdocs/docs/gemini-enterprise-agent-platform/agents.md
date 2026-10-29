@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/
 title: Agents overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:05.738763+00:00
+fetched_at: 2026-10-29T06:14:17.595867+00:00
 ---
 
 # Agents overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -43,7 +43,7 @@ Depending on your technical requirements and expertise, you can build agents usi
 Agent Platform provides an integrated suite of tools and services to support the end-to-end agent lifecycle across four key pillars:
 
   * **[Build](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build)** : Create agents using low-code Studio or the code-first ADK. Access over 200 foundation models in Model Garden.
-  * **[Scale](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale)** : Deploy agents to a fully managed runtime with integrated session management and long-term Memory Bank.
+  * **[Scale](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale)** : Deploy agents to a fully managed runtime with integrated session management and long-term Agent Platform Memory Bank.
   * **[Govern](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern)** : Secure agents with unique identity, centralize tool access in the Registry, and enforce policies using Agent Gateway.
   * **[Optimize](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation)** : Improve quality with Gen AI evaluation and gain deep visibility with Cloud Observability and Topology.
 
@@ -57,7 +57,7 @@ The Build pillar provides raw intelligence and connectivity (including Model Gar
   * **[Agent Garden](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/agent-garden):** Provides a library of prebuilt agent samples that accelerate agent development for common AI patterns and use cases.
   * **[CodeMender](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender):** Provides an autonomous AI code security agent that finds, verifies, and fixes vulnerabilities in your codebase.
   * **[Gemini Deep Research Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/use-deep-research):** Provides an autonomous research agent that plans, executes, and synthesizes multi-step research reports.
-  * **[Agent Development Kit (ADK)](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk):** Is used for code-first development of complex agents and orchestration logic.
+  * **[ADK](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk):** Is used for code-first development of complex agents and orchestration logic.
   * **[Model Garden](https://console.cloud.google.com/agent-platform/model-garden):** Is a library of over 200 foundation models from Google, partners, and open source communities for discovery and experimentation.
 
 
@@ -68,13 +68,13 @@ The Scale pillar provides managed runtimes, serverless efficiency, and long-term
 
 #### Agent Runtime
 
-[Agent Runtime](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) is a fully managed runtime environment (Agent Runtime) for hosting, deploying, and scaling agents built with ADK or other tools.
+[Agent Runtime on Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/runtime) is a fully managed runtime environment (Agent Runtime) for hosting, deploying, and scaling agents built with ADK or other tools.
 
 #### Sessions
 
 [Sessions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/sessions) are used to maintain the history of interactions between a user and an agent over the course of a single conversation. A session provides the context for an ongoing interaction and is a source for generating long-term memory.
 
-#### Memory Bank
+#### Agent Platform Memory Bank
 
 [Memory Bank](https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/memory-bank) provides agents with long-term memory by extracting, storing, and retrieving personalized information about a user across multiple sessions, enabling personalization and cross-session continuity.
 
@@ -121,7 +121,7 @@ The [Cloud Observability suite](https://docs.cloud.google.com/gemini-enterprise-
 
 #### Evaluation
 
-The [GenAI Evaluation Service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation) lets you conduct online evaluations of agent quality using Auto SxS.
+The [Gen AI evaluation service](https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation) lets you conduct online evaluations of agent quality using Auto SxS.
 
 ## Common use cases
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/dc-integration/
 title: Manage resources using Knowledge Catalog \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:23.345955+00:00
+fetched_at: 2026-10-29T06:13:43.754366+00:00
 ---
 
 # Manage resources using Knowledge Catalog  |  Spanner  |  Google Cloud Documentation
@@ -101,7 +101,7 @@ To get the permissions that you need to manage Spanner assets in Knowledge Catal
     * [Dataplex Catalog Admin ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogAdmin) (`roles/dataplex.catalogAdmin`)
   * Attach or modify aspects: 
     * [Dataplex Catalog Editor ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.catalogEditor) (`roles/dataplex.catalogEditor`)
-    * [Dataplex Entry and EntryLink Owner ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.entryOwner) (`roles/dataplex.entryOwner`)
+    * [Knowledge Catalog Entry and EntryLink Owner ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.entryOwner) (`roles/dataplex.entryOwner`)
     * [Dataplex Aspect Type User ](https://docs.cloud.google.com/iam/docs/roles-permissions/dataplex#dataplex.aspectTypeUser) (`roles/dataplex.aspectTypeUser`)
 
 
@@ -401,7 +401,7 @@ To import aspects for multiple entries in batch from Cloud Storage, run a [metad
   * Learn more about [metadata management in Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/metadata-overview).
   * Learn how to [search for data assets in Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets).
   * Learn how to [manage aspects and enrich metadata](https://docs.cloud.google.com/knowledge-catalog/docs/enrich-entries-metadata).
-  * Learn more about [Knowledge Catalog IAM roles](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles) and [permissions](https://docs.cloud.google.com/knowledge-catalog/docs/iam-permissions).
+  * Learn more about [Knowledge Catalog Identity and Access Management (IAM) roles](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles) and [permissions](https://docs.cloud.google.com/knowledge-catalog/docs/iam-permissions).
   * Explore [Fine-grained access control in Spanner](https://docs.cloud.google.com/spanner/docs/fgac-about).
 
 
@@ -410,6 +410,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

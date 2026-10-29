@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/confidential-computing/confidential-space/docs/release-notes/
 title: Confidential Space release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:19:50.174092+00:00
+fetched_at: 2026-10-29T05:45:29.581671+00:00
 ---
 
 # Confidential Space release notes  |  Google Cloud Documentation
@@ -26,6 +26,14 @@ This page documents production updates to Confidential Space. Check this page fo
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/confidential-space-release-notes.xml) directly. 
+
+## October 28, 2026
+
+Announcement
+
+A new Confidential Space image (261001) is available. This image removes compromised CA certificates from the OS trust store. See the [security bulletin](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/security-bulletins#gcp-2026-071) for more details.
+
+This image also adds support for running workload containers as a non-root user. Workload authors can require non-root execution with the `tee.launch_policy.nonroot_container` launch policy, and workload operators can enable it with the `tee-nonroot-container` metadata variable. For more information, see [Non-root container execution](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/create-customize-workloads#non-root-container-execution).
 
 ## October 19, 2026
 

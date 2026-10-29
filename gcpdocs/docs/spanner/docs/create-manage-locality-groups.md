@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/create-manage-locality-groups/
 title: Create and manage locality groups \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:48:24.453518+00:00
+fetched_at: 2026-10-29T06:14:01.090049+00:00
 ---
 
 # Create and manage locality groups  |  Spanner  |  Google Cloud Documentation
@@ -90,7 +90,7 @@ For example, you can run the following to create a locality group, `hdd_only`, t
 
 ###  gcloud 
 
-To create a locality group with the gcloud CLI command, use [`gcloud spanner databases ddl update`](https://docs.cloud.google.com/sdk/gcloud/reference/spanner/databases/ddl/update).
+To create a locality group with the Google Cloud CLI command, use [`gcloud spanner databases ddl update`](https://docs.cloud.google.com/sdk/gcloud/reference/spanner/databases/ddl/update).
 
 For example, you can run the following to create a locality group, `separate_storage`, that stores columns in a separate file than the data for the rest of the columns:
 
@@ -825,6 +825,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

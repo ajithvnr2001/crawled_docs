@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/release-notes/
 title: Google Cloud release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:09:16.484779+00:00
+fetched_at: 2026-10-29T05:59:54.334187+00:00
 ---
 
 # Google Cloud release notes  |  Google Cloud Documentation
@@ -23,6 +23,193 @@ The following release notes cover the most recent changes over the last 60 days.
 You can also see and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes) or you can programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table).
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gcp-release-notes.xml) directly. 
+
+## October 28, 2026
+
+**AlloyDB for PostgreSQL**
+
+Announcement
+
+The following AlloyDB AI and vector search features and improvements are generally available ([GA](https://cloud.google.com/products#product-launch-stages)):
+
+  * The `alloydb_scann` extension supports four-level tree (4LT) ScaNN vector indexes on PostgreSQL 17 and later, providing support for tables with up to 10 billion vector rows. For more information, see [Four-level ScaNN tree indexes](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index#create-scann-index-manual).
+
+  * 4LT ScaNN vector indexes support automatic index maintenance. For more information, see [Create a ScaNN index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index) and [Maintain vector indexes automatically](https://docs.cloud.google.com/alloydb/docs/ai/maintain-vector-indexes#maintain-index-automatically).
+
+  * You can enable streaming functionality for ScaNN vector indexes by setting the `scann.satisfy_limit` parameter to `relaxed_order`. When enabled, the vector scan continues searching through additional leaf partitions until it finds enough results to satisfy the `LIMIT` clause of your query, improving recall on filtered searches. Additionally, you can enable this feature for parallel process scans by setting the `scann.enable_parallel_satisfy_limit` database flag to `on`. For more information, see [ScaNN index reference](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference#scann-satisfy-limit) and [Best practices for tuning ScaNN indexes](https://docs.cloud.google.com/alloydb/docs/ai/best-practices-tuning-scann#improve-recall-for-filtered-searches).
+
+  * Vector assist simplifies the deployment and management of your AlloyDB vector workloads by helping you set up production-ready vector search capabilities, including embedding generation, query optimization, and index creation for vector types such as Hierarchical Navigable Small World (HNSW). For more information, see [Vector assist overview](https://docs.cloud.google.com/alloydb/docs/ai/vector-assist-overview).
+
+  * For AlloyDB for PostgreSQL instances running PostgreSQL 17 and later, the maximum supported value for `num_leaves` when building ScaNN vector indexes is increased from 30,000,000 to 104,857,600. For more information, see [Create a ScaNN index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index) and [ScaNN index reference](https://docs.cloud.google.com/alloydb/docs/reference/ai/scann-index-reference).
+
+  * You can use the [`external_search_fdw`](https://docs.cloud.google.com/alloydb/docs/reference/extensions#external_search_fdw) extension to connect to external search clusters and query their data directly from your database using the following search sources:
+
+    * [Elasticsearch](https://docs.cloud.google.com/alloydb/docs/elastic-search)
+
+    * [Solr](https://docs.cloud.google.com/alloydb/docs/solr-search)
+
+    * [OpenSearch](https://docs.cloud.google.com/alloydb/docs/opensearch)
+
+  * AlloyDB supports the `rum` extension for high-performance full-text search operations on PostgreSQL 17 and earlier. The `rum` extension extends standard GIN indexes by storing positional information directly in the index, letting you perform faster phrase searches and relevance ranking without accessing the table data. For more information, see [Create and manage a RUM index](https://docs.cloud.google.com/alloydb/docs/ai/create-rum-index).
+
+
+
+
+Fixed
+
+AlloyDB provides more accurate memory usage estimation and prevents out-of-memory (OOM) errors when you build a ScaNN [four-level tree index](https://docs.cloud.google.com/alloydb/docs/ai/create-scann-index#create-scann-index-manual). This feature is in [Preview](https://cloud.google.com/products#product-launch-stages). This update improves the stability of index builds by enforcing memory limits and improving memory estimation under constrained conditions.
+
+Feature
+
+Identity and Access Management (IAM) group authentication is generally available ([GA](https://cloud.google.com/products#product-launch-stages)) for new and existing AlloyDB clusters running PostgreSQL 15 and later. With IAM group authentication, you can manage database roles and privileges at the group level across primary instances and read pool instances, including first-time sign-ins directly to read pool instances. You can also preserve individual and IAM group user configurations when you migrate from a Cloud SQL for PostgreSQL backup.
+
+For more information, see [IAM database authentication overview](https://docs.cloud.google.com/alloydb/docs/database-users/iam-authentication) and [Manage IAM authentication](https://docs.cloud.google.com/alloydb/docs/database-users/manage-iam-auth).
+
+Security
+
+In response to [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071), Google is updating AlloyDB managed components. The fix to the certificate store is shipped in a new maintenance version that AlloyDB applies during [scheduled maintenance](https://docs.cloud.google.com/alloydb/docs/maintenance#timing), so you don't need to manually update AlloyDB managed instances. You can also apply the fix by [performing self-service maintenance](https://docs.cloud.google.com/alloydb/docs/self-service-maintenance).
+
+Depending on how you connect to AlloyDB, take the following actions:
+
+  * If you use the AlloyDB Auth Proxy, then upgrade it to [v1.17.2 or later](https://docs.cloud.google.com/alloydb/docs/auth-proxy/connect#install). If you run the standalone proxy binary, then also update the host's certificate authority (CA) certificates.
+
+  * If you use the [AlloyDB Language Connectors](https://docs.cloud.google.com/alloydb/docs/connect-language-connectors), then update the language runtime and operating system CA certificates (for example, Go 1.26.10 or 1.27.3 or later).
+
+
+
+
+**Application Integration**
+
+Security
+
+A Deserialization of Untrusted Data vulnerability was discovered in the `SubWorkflow` task in Application Integration versions prior to September 11, 2026. For more information, see the [GCP-2026-074](https://docs.cloud.google.com/application-integration/docs/security-bulletins#gcp-2026-074) security bulletin.
+
+Feature
+
+**Application Integration agent skills**
+
+Application Integration agent skills are available in the public [`google/skills`](https://github.com/google/skills) repository: `application-integration-basics`, `application-integration-authoring`, and `application-integration-troubleshooting`. AI coding agents that use these skills can help you set up Application Integration; build, publish, and run integrations through the REST API; and troubleshoot failed runs. For more information, see [Application Integration agent skills](https://docs.cloud.google.com/application-integration/docs/agent-skills-overview) and [Build an integration with an AI agent](https://docs.cloud.google.com/application-integration/docs/build-integration-ai-agent).
+
+**Bigtable**
+
+Feature
+
+You can configure Bigtable tables with microsecond timestamp granularity to capture and store high-frequency data. By supporting microsecond precision for cell timestamps, Bigtable helps you prevent data loss from write collisions in workloads with high event rates. This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for instances in the Enterprise Plus edition. For more information, see [Data type enforcement in Bigtable](https://docs.cloud.google.com/bigtable/docs/data-types).
+
+**Cloud Database Migration Service**
+
+Feature
+
+Database Migration Service for homogeneous SQL Server migrations now supports Distributed Availability Group (DAG) migrations in general availability ([GA](https://cloud.google.com/products#product-launch-stages)).
+
+With DAG migrations, you can use gcloud CLI and Database Migration Service API to migrate databases from self-managed SQL Server Enterprise Edition instances directly to Cloud SQL for SQL Server over a private network connection. DAG migrations don't require exporting backup or transaction log files to Cloud Storage, and support post-promotion reverse replication for zero-data-loss failback.
+
+For more information, see [ About Distributed Availability Group (DAG) migrations](https://docs.cloud.google.com/database-migration/docs/sqlserver/dag-migration-overview) and [ Migrate from self-managed SQL Server using Distributed Availability Groups](https://docs.cloud.google.com/database-migration/docs/sqlserver/dag-migration-guide).
+
+**Cloud SQL for MySQL**
+
+Feature
+
+[Managed replica indexes](https://docs.cloud.google.com/sql/docs/mysql/replication/read-replica-indexes#managed-replica-indexes) for Cloud SQL for MySQL are generally available ([GA](https://cloud.google.com/products#product-launch-stages)). This feature lets you automatically retain and restore secondary indexes on read replica instances when Cloud SQL re-creates a replica.
+
+Previously, re-creating a read replica deleted custom secondary indexes because primary backups don't have replica-only index definitions. With managed replica indexes, Cloud SQL tracks secondary index metadata on the primary instance, replicates this metadata to read replicas, and automatically rebuilds secondary indexes after replica re-creation.
+
+Managed replica indexes are supported on instances that are running Cloud SQL for MySQL 8.0 or later, Cloud SQL Enterprise edition or Cloud SQL Enterprise Plus edition, and maintenance version `R20260726.00_05` or later.
+
+For more information, see [Read replica indexes overview](https://docs.cloud.google.com/sql/docs/mysql/replication/read-replica-indexes) and [Create and manage read replica indexes](https://docs.cloud.google.com/sql/docs/mysql/replication/create-manage-read-replica-indexes).
+
+**Gemini Enterprise**
+
+Feature
+
+**Gemini Enterprise: Support for Brazil (`br`) region (GA with allowlist)**
+
+You can use the Gemini Enterprise app in the Brazil (`br`) in-country region with at-rest data residency (DRZ) and machine learning processing (MLP) in region.
+
+This location is available in GA with allowlist. To get access to this location for use with Gemini Enterprise, contact your Google account team.
+
+For more information, see [Data residency for Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/locations#in-country_regions).
+
+**Gemini Enterprise Agent Platform**
+
+Change
+
+**Use a single regional Agent Registry instance for Gemini Enterprise apps**
+
+For Gemini Enterprise apps, we recommend associating each Agent Gateway with a single regional Agent Registry instance in the same project and region as the gateway. Use the `us-central1` registry for `global` and `us` apps, and the `europe-west1` registry for `eu` apps.
+
+This note updates the [September 9, 2026](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes#September_09_2026) entry. For more information, see [Register your agents and destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#agent-registry).
+
+Fixed
+
+**CodeMender updates (v0.17.0)**
+
+This release introduces updates to CodeMender:
+
+  * **Support bundle diagnostics** : Introduce `cm support-bundle` to collect environment metadata, configuration policies, health reports, and session logs into a compressed archive for streamlined troubleshooting.
+  * **Plain output mode** : Add the persistent `--plain` flag (configurable via the `CM_PLAIN` environment variable or `output.plain` in `config.yaml`) to suppress decorative emojis, ANSI escape sequences, and Unicode borders for compatibility with screen readers and CI/CD log pipelines.
+  * **Dedicated exit codes for setup failures** : Assign distinct exit codes (such as code 10 for credential issues) to configuration and authentication failures, preventing CI/CD pipelines from confusing environment setup issues with security findings.
+  * **Tailored CI/CD credential guidance** : Provide environment-specific authentication guidance when running inside automated CI/CD systems such as GitHub Actions, GitLab CI, Buildkite, and Jenkins instead of interactive login prompts.
+  * **Single-line JSONL statistics** : Add the `--jsonl` flag to `cm stats` to output single-line JSON records with model and team attribution for seamless integration with Cloud Logging and log aggregation pipelines.
+  * **Granular sandbox and policy flags** : Replace the overloaded `--unrestricted` flag with orthogonal flags (`--sandbox=false`) and configurable command policies to decouple container sandboxing from execution safety controls.
+  * **Sandbox configuration protections** : Mount `.git/hooks`, `.git/config`, and `.codemender` read-only within writable execution sandboxes during `cm fix` and `cm verify` to prevent modifications to repository security policies.
+  * **Bug fixes** : 
+    * Added a security warning when commands are executed with both sandbox isolation disabled and interactive approval skipped.
+    * Enforced `allowedRoots` path boundaries across host discovery and remediation file operations to prevent traversal via dangling symlinks.
+    * Supplied exact finding line ranges to remediation agents during `cm fix` to eliminate manual file scanning overhead.
+    * Updated `cm report import` to properly treat findings without location data as file-level findings rather than defaulting to the first line.
+    * Ensured `cm session cancel` routes requests to the session's original region regardless of local environment overrides.
+    * Fixed finding status tracking in `cm verify` so unexploitable verdicts update the local state database rather than leaving findings open.
+
+
+
+For more information, see the [CodeMender documentation](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender).
+
+**Google SecOps**
+
+Announcement
+
+**Final shutdown of legacy managed BigQuery export datasets (chronicle-tla) for non-Enterprise+ customers**
+
+Following the [March 26, 2025 deprecation announcement](https://docs.cloud.google.com/chronicle/docs/release-notes#March_26_2025), Google SecOps is completing the final shutdown of legacy Google-managed BigQuery datasets and API keys associated with the `chronicle-tla` Google Cloud project:
+
+  * **What is changing:** Data exports to legacy Google-managed BigQuery datasets under the `chronicle-tla` project are being permanently turned off, and the associated managed datasets and API keys are being decommissioned.
+  * **Who is impacted:** This shutdown applies only to non-Enterprise+ customers still provisioned on legacy `chronicle-tla` Google-managed BigQuery datasets (including tenants whose temporary transition exceptions expired in September 2025). Enterprise+ customers and customers using Bring Your Own BigQuery (BYOBQ) exports to customer-managed Google Cloud projects are not impacted.
+  * **When:** Decommissioning begins on October 28, 2026.
+  * **Action required:** To retain BigQuery access to Google SecOps data, configure [export to a customer-managed BigQuery project (BYOBQ)](https://docs.cloud.google.com/chronicle/docs/reports/export-to-customer-managed-project) or contact your account team to upgrade to Enterprise+.
+
+
+
+**Google SecOps SIEM**
+
+Announcement
+
+**Final shutdown of legacy managed BigQuery export datasets (chronicle-tla) for non-Enterprise+ customers**
+
+Following the [March 26, 2025 deprecation announcement](https://docs.cloud.google.com/chronicle/docs/release-notes#March_26_2025), Google SecOps is completing the final shutdown of legacy Google-managed BigQuery datasets and API keys associated with the `chronicle-tla` Google Cloud project:
+
+  * **What is changing:** Data exports to legacy Google-managed BigQuery datasets under the `chronicle-tla` project are being permanently turned off, and the associated managed datasets and API keys are being decommissioned.
+  * **Who is impacted:** This shutdown applies only to non-Enterprise+ customers still provisioned on legacy `chronicle-tla` Google-managed BigQuery datasets (including tenants whose temporary transition exceptions expired in September 2025). Enterprise+ customers and customers using Bring Your Own BigQuery (BYOBQ) exports to customer-managed Google Cloud projects are not impacted.
+  * **When:** Decommissioning begins on October 28, 2026.
+  * **Action required:** To retain BigQuery access to Google SecOps data, configure [export to a customer-managed BigQuery project (BYOBQ)](https://docs.cloud.google.com/chronicle/docs/reports/export-to-customer-managed-project) or contact your account team to upgrade to Enterprise+.
+
+
+
+**Media CDN**
+
+Feature
+
+Media CDN supports EU data residency (Private GA), along with a new Europe flexible origin shielding region.
+
+Media CDN supports EU Data Residency in Private GA. This feature ensures that customer content and end-user data are processed within the EU. This feature is available via support allowlist.
+
+Media CDN supports flexible origin shielding in Frankfurt (`europe-west3`). This feature is **Generally Available**. For more information, see [Flexible shielding](https://docs.cloud.google.com/media-cdn/docs/origins#flex-shielding).
+
+**Memorystore for Redis Cluster**
+
+Feature
+
+The [basic token-based authentication](https://docs.cloud.google.com/memorystore/docs/cluster/manage-basic-auth) feature is [Generally Available](https://docs.cloud.google.com/products#product-launch-stages).
 
 ## October 27, 2026
 
@@ -84,6 +271,12 @@ This feature is [generally available](https://cloud.google.com/products#product-
 Feature
 
 The [`AI.COUNT_TOKENS` function](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-count-tokens), which estimates the token count of a text string, is [generally available](https://cloud.google.com/products#product-launch-stages) (GA).
+
+**Bigtable**
+
+Feature
+
+You can [use Apache Avro schema bundles](https://docs.cloud.google.com/bigtable/docs/create-manage-avro-schemas) to query individual fields within Avro records stored as serialized bytes in Bigtable. You can [query your Avro data](https://docs.cloud.google.com/bigtable/docs/query-avro-data) using GoogleSQL for Bigtable, continuous materialized views, and logical views. This feature is in [Preview](https://cloud.google.com/products#product-launch-stages).
 
 **Cloud DNS**
 
@@ -316,6 +509,265 @@ Breaking
 
 Subscribe to these release notes at <https://groups.google.com/forum/#!forum/google-cloud-sdk-announce>.
 
+**Container Optimized OS**
+
+Change
+
+### cos-dev-138-20248-0-0 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.57](https://cos.googlesource.com/third_party/kernel/+/8d63d0a98e25398e4dda752bc9b925ab47532d8d) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/20248.0.0/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated the Linux kernel to v6.18.57.
+
+Change
+
+Upgraded sys-apps/casfs to v0.1.24.
+
+Feature
+
+Added KVM virtualization support for AMD CPUID faulting.
+
+Feature
+
+Added nvidia-container-toolkit to ARM images.
+
+Fixed
+
+Updated cos-gpu-installer to v2.7.11 and toolbox to v20261020.
+
+Fixed
+
+Upgraded app-editors/vim to v9.2.1152, Upgraded app-editors/vim-core to v9.2.1152.
+
+Fixed
+
+Upgraded app-misc/ca-certificates to v20260816.3.125. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Fixed
+
+Upgraded dev-libs/nss to v3.131.1. This removes the certificates affected by the eMudhra intermediate certificate compromise.
+
+Fixed
+
+Upgraded sys-libs/glibc to v2.41-r5.
+
+Security
+
+Fixed CVE-2024-4741 in dev-libs/openssl.
+
+Security
+
+Fixed CVE-2026-33186 in cri-tools.
+
+Security
+
+Fixed CVE-2026-39830 in guest-agent.
+
+Security
+
+Fixed CVE-2026-39831 in node-problem-detector.
+
+Security
+
+Fixed CVE-2026-39831, CVE-2026-46595 in docker.
+
+Security
+
+Fixed CVE-2026-39832, CVE-2026-46595 in kubernetes.
+
+Security
+
+Fixed CVE-2026-39833 in nvidia-container-toolkit.
+
+Security
+
+Fixed CVE-2026-42508, CVE-2026-39830, CVE-2026-39834 in google-guest-agent.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-39831 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-46595, CVE-2026-39832 in cri-tools.
+
+Security
+
+Fixed CVE-2026-5435 in sys-libs/glibc.
+
+Security
+
+Fixed CVE-2026-82474 in app-admin/sudo.
+
+Security
+
+Fixed CVE-2026-84445, CVE-2026-24051, CVE-2026-84304, CVE-2026-39831, CVE-2026-39829, CVE-2026-39834, CVE-2026-34986, CVE-2026-39835, CVE-2026-39832, CVE-2026-39827, CVE-2026-81870, CVE-2026-46598, CVE-2026-29181, CVE-2026-39830, CVE-2026-46595, CVE-2026-39828, CVE-2026-25680, CVE-2026-39833, CVE-2026-39883, CVE-2026-84303, CVE-2026-46597, CVE-2026-42508 in cos-extensions.
+
+Security
+
+Fixed CVE-2026-99999 in the Linux kernel.
+
+Security
+
+Upgraded dev-lang/go to v1.26.10. This fixes CVE-2026-111943.
+
+Security
+
+Upgraded dev-lang/go to v1.26.5. This fixes CVE-2026-39822.
+
+Security
+
+Upgraded dev-lang/go to v1.26.9. This fixes CVE-2026-94447.
+
+Security
+
+Upgraded dev-lang/python to v3.13.15. This fixes CVE-2026-15308.
+
+Security
+
+Upgraded dev-lang/python to v3.13.16. This fixes CVE-2026-19445.
+
+Change
+
+### cos-125-19216-760-20 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.113](https://cos.googlesource.com/third_party/kernel/+/c0c0e54972faeecef0eb8728e9c1d6291f4f7dee) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19216.760.20/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated app-admin/google-guest-configs to v20261025.00.
+
+Fixed
+
+Fixed a 60 second outage after an idpf function reset on IPU E2100 caused by misreading PFGEN_RSTAT.
+
+Security
+
+Fixed CVE-2026-33186 in google-osconfig-agent.
+
+Security
+
+Fixed CVE-2026-82474 in app-admin/sudo.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1808562 -> 1808517
+  * Changed: fs.fanotify.max_user_marks: 68416 -> 68412
+  * Changed: fs.inotify.max_user_watches: 64192 -> 64189
+  * Changed: kernel.threads-max: 63183 -> 63178
+  * Changed: net.ipv4.tcp_mem: 94020 125361 188040 -> 94017 125357 188034
+  * Changed: net.ipv4.udp_mem: 188040 250722 376080 -> 188034 250715 376068
+  * Changed: user.max_cgroup_namespaces: 31591 -> 31589
+  * Changed: user.max_fanotify_marks: 68416 -> 68412
+  * Changed: user.max_inotify_watches: 64192 -> 64189
+  * Changed: user.max_ipc_namespaces: 31591 -> 31589
+  * Changed: user.max_mnt_namespaces: 31591 -> 31589
+  * Changed: user.max_net_namespaces: 31591 -> 31589
+  * Changed: user.max_pid_namespaces: 31591 -> 31589
+  * Changed: user.max_time_namespaces: 31591 -> 31589
+  * Changed: user.max_user_namespaces: 31591 -> 31589
+  * Changed: user.max_uts_namespaces: 31591 -> 31589
+
+
+
+Change
+
+### cos-129-19506-578-21 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.12.113](https://cos.googlesource.com/third_party/kernel/+/120d67cd4f74b312486d3b1efa79fde8fa440eaa) | v27.5.1 | v2.2.7 | [See List](https://storage.googleapis.com/cos-tools/19506.578.21/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated app-admin/google-guest-configs to v20261025.00.
+
+Fixed
+
+Fixed a 60 second outage after an idpf function reset on IPU E2100 caused by misreading PFGEN_RSTAT.
+
+Security
+
+Fixed CVE-2026-77214 in dev-libs/expat.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1808562 -> 1808517
+  * Changed: fs.fanotify.max_user_marks: 68416 -> 68412
+  * Changed: fs.inotify.max_user_watches: 64192 -> 64189
+  * Changed: kernel.threads-max: 63183 -> 63178
+  * Changed: net.ipv4.tcp_mem: 94020 125361 188040 -> 94017 125357 188034
+  * Changed: net.ipv4.udp_mem: 188040 250722 376080 -> 188034 250715 376068
+  * Changed: user.max_cgroup_namespaces: 31591 -> 31589
+  * Changed: user.max_fanotify_marks: 68416 -> 68412
+  * Changed: user.max_inotify_watches: 64192 -> 64189
+  * Changed: user.max_ipc_namespaces: 31591 -> 31589
+  * Changed: user.max_mnt_namespaces: 31591 -> 31589
+  * Changed: user.max_net_namespaces: 31591 -> 31589
+  * Changed: user.max_pid_namespaces: 31591 -> 31589
+  * Changed: user.max_time_namespaces: 31591 -> 31589
+  * Changed: user.max_user_namespaces: 31591 -> 31589
+  * Changed: user.max_uts_namespaces: 31591 -> 31589
+
+
+
+Change
+
+### cos-121-18867-652-12 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.6.159](https://cos.googlesource.com/third_party/kernel/+/f32de83646bdc7b4c004477f6c4977ebd5b03cd7) | v27.5.1 | v2.0.10 | [See List](https://storage.googleapis.com/cos-tools/18867.652.12/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated app-admin/google-guest-configs to v20261025.00.
+
+Security
+
+Fixed CVE-2026-33186 in google-osconfig-agent.
+
+Change
+
+Runtime sysctl changes: 
+
+  * Changed: fs.epoll.max_user_watches: 1809051 -> 1809007
+  * Changed: kernel.threads-max: 63204 -> 63199
+  * Changed: net.ipv4.tcp_mem: 94044 125395 188088 -> 94041 125391 188082
+  * Changed: net.ipv4.udp_mem: 188091 250790 376182 -> 188085 250783 376170
+  * Changed: user.max_cgroup_namespaces: 31602 -> 31599
+  * Changed: user.max_ipc_namespaces: 31602 -> 31599
+  * Changed: user.max_mnt_namespaces: 31602 -> 31599
+  * Changed: user.max_net_namespaces: 31602 -> 31599
+  * Changed: user.max_pid_namespaces: 31602 -> 31599
+  * Changed: user.max_time_namespaces: 31602 -> 31599
+  * Changed: user.max_user_namespaces: 31602 -> 31599
+  * Changed: user.max_uts_namespaces: 31602 -> 31599
+
+
+
+Change
+
+### cos-beta-133-19999-44-170 
+
+Kernel | Docker | Containerd | [GPU Drivers](https://cloud.google.com/container-optimized-os/docs/how-to/run-gpus)  
+---|---|---|---  
+[COS-6.18.55](https://cos.googlesource.com/third_party/kernel/+/90c4c51012dc5bb5d116a470e49476dd9dd3998c) | v29.4.3 | v2.4.1 | [See List](https://storage.googleapis.com/cos-tools/19999.44.170/lakitu/gpu_driver_versions.textproto)  
+  
+Change
+
+Updated app-admin/google-guest-configs to v20261025.00.
+
 **Gemini Enterprise**
 
 Feature
@@ -377,6 +829,248 @@ Key features include the following:
 
 For more information, see [VMware solution on Google Cloud overview](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/overview) and [Compare VMware Engine models](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/compare-models). All future VMware solution release notes can be found on the [VMware solution on Google Cloud release notes](https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/release-notes) page.
 
+**Google Kubernetes Engine**
+
+Change
+
+#### (2026-R46) Version updates
+
+GKE cluster versions have been updated.
+
+**New versions available for upgrades and new clusters.**
+
+The following versions are now available for new GKE clusters, and for manual control plane upgrades and node upgrades for existing clusters. For more information about versioning and upgrades, see [GKE versioning and support](https://cloud.google.com/kubernetes-engine/versioning) and [About GKE cluster upgrades](https://cloud.google.com/kubernetes-engine/upgrades).
+
+### Rapid channel
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available in the Rapid channel: 
+    * [1.34.12-gke.1539000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1539000)
+    * [1.35.9-gke.1505000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-9-gke-1505000)
+    * [1.36.5-gke.1982000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1982000)
+    * [1.37.1-gke.3020000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-3020000)
+  * [Alpha version](https://cloud.google.com/kubernetes-engine/versioning#alpha-versions) 1.38.0-gke.4162000+preview is now available for GKE alpha clusters in the Rapid channel.
+  * Alpha version 1.38.0-gke.2743000+preview is no longer available in the Rapid channel.
+
+
+
+### Regular channel
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available in the Regular channel: 
+    * [1.34.12-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+    * [1.35.8-gke.1975000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+    * [1.36.4-gke.2377000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+  * Version 1.35.8-gke.1919000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Regular channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+
+
+### Stable channel
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available in the Stable channel: 
+    * [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+    * [1.35.8-gke.1796000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1796000)
+    * [1.36.4-gke.1391002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1391002)
+    * [1.36.4-gke.1495002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495002)
+    * [1.36.4-gke.1495003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
+    * [1.36.4-gke.2046002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046002)
+    * [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.36 to [1.36.4-gke.1391002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1391002)
+
+
+
+### Extended channel
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available in the Extended channel: 
+    * [1.32.13-gke.2662000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2662000)
+    * [1.32.13-gke.2701000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2701000)
+    * [1.32.13-gke.2906000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2906000)
+    * [1.33.13-gke.1915000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1915000)
+    * [1.33.13-gke.1952000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1952000)
+    * [1.33.13-gke.2207000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-2207000)
+    * [1.34.12-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+    * [1.35.8-gke.1975000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+    * [1.36.4-gke.2377000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+  * The following versions are no longer available in the Extended channel: 
+    * 1.31.14-gke.2759000
+    * 1.31.14-gke.2825000
+    * 1.31.14-gke.3042000
+    * 1.32.13-gke.2504000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.32.13-gke.2567000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.32.13-gke.2788000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.33.13-gke.1721000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.33.13-gke.1815000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.33.13-gke.2074000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.35.8-gke.1919000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.31 to [1.32.13-gke.2662000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2662000)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.32 to [1.32.13-gke.2662000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2662000)
+      * 1.33 to [1.33.13-gke.1915000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1915000)
+
+
+
+### No channel (deprecated)
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available: 
+    * [1.34.12-gke.1539000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1539000)
+    * [1.35.9-gke.1505000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-9-gke-1505000)
+    * [1.36.4-gke.1391002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1391002)
+    * [1.36.4-gke.1495003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
+    * [1.36.4-gke.2046002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046002)
+    * [1.36.5-gke.1982000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1982000)
+    * [1.37.1-gke.3020000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-3020000)
+  * The following node versions are now available: 
+    * [1.32.13-gke.2906000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2906000)
+    * [1.33.13-gke.2207000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-2207000)
+    * [1.34.12-gke.1539000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1539000)
+    * [1.35.9-gke.1505000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-9-gke-1505000)
+    * [1.36.5-gke.1982000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1982000)
+    * [1.37.1-gke.3020000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-3020000)
+  * Version 1.35.8-gke.1919000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+
+
+
+Security
+
+#### (2026-R46) Security updates
+
+This release includes new GKE versions that use updated Container-Optimized OS images. These updated images are cumulative, incorporating security fixes from all Container-Optimized OS versions released since the previous GKE release.
+
+To identify the specific vulnerabilities that were resolved in each updated Container-Optimized OS image, see the **Security** release notes for that image. The following table includes links to the release notes for each updated Container-Optimized OS image:
+
+GKE version | Container-Optimized OS version | Details  
+---|---|---  
+1.32.13-gke.2906000 | cos-121-18867-652-7 | [cos-121-18867-652-7 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m121#cos-121-18867-652-7_)  
+1.33.13-gke.2207000 | cos-121-18867-652-7 | [cos-121-18867-652-7 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m121#cos-121-18867-652-7_)  
+1.34.12-gke.1539000 | cos-125-19216-760-8 | [cos-125-19216-760-8 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m125#cos-125-19216-760-8_)  
+1.35.9-gke.1505000 | cos-125-19216-760-8 | [cos-125-19216-760-8 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m125#cos-125-19216-760-8_)  
+1.36.5-gke.1982000 | cos-129-19506-578-9 | [cos-129-19506-578-9 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m129#cos-129-19506-578-9_)  
+1.37.1-gke.3020000 | cos-133-19999-44-159 | [cos-133-19999-44-159 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m133#cos-133-19999-44-159_)  
+1.38.0-gke.4162000+preview | cos-dev-138-20162-0-0 | [cos-dev-138-20162-0-0 release notes](https://docs.cloud.google.com/container-optimized-os/docs/release-notes/m138#cos-dev-138-20162-0-0_)  
+  
+Change
+
+#### (2026-R46) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available in the Stable channel: 
+    * [1.34.12-gke.1011000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1011000)
+    * [1.35.8-gke.1796000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1796000)
+    * [1.36.4-gke.1391002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1391002)
+    * [1.36.4-gke.1495002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495002)
+    * [1.36.4-gke.1495003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
+    * [1.36.4-gke.2046002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046002)
+    * [1.36.4-gke.2046003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046003)
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.36 to [1.36.4-gke.1391002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1391002)
+
+
+
+Change
+
+#### (2026-R46) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available in the Regular channel: 
+    * [1.34.12-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+    * [1.35.8-gke.1975000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+    * [1.36.4-gke.2377000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+  * Version 1.35.8-gke.1919000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Regular channel. This version will be removed in 90 days, or at the end of support, if sooner.
+
+
+
+Change
+
+#### (2026-R46) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available in the Rapid channel: 
+    * [1.34.12-gke.1539000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1539000)
+    * [1.35.9-gke.1505000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-9-gke-1505000)
+    * [1.36.5-gke.1982000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1982000)
+    * [1.37.1-gke.3020000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-3020000)
+  * [Alpha version](https://cloud.google.com/kubernetes-engine/versioning#alpha-versions) 1.38.0-gke.4162000+preview is now available for GKE alpha clusters in the Rapid channel.
+  * Alpha version 1.38.0-gke.2743000+preview is no longer available in the Rapid channel.
+
+
+
+Change
+
+#### (2026-R46) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available: 
+    * [1.34.12-gke.1539000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1539000)
+    * [1.35.9-gke.1505000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-9-gke-1505000)
+    * [1.36.4-gke.1391002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1391002)
+    * [1.36.4-gke.1495003](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-1495003)
+    * [1.36.4-gke.2046002](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2046002)
+    * [1.36.5-gke.1982000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1982000)
+    * [1.37.1-gke.3020000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-3020000)
+  * The following node versions are now available: 
+    * [1.32.13-gke.2906000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2906000)
+    * [1.33.13-gke.2207000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-2207000)
+    * [1.34.12-gke.1539000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1539000)
+    * [1.35.9-gke.1505000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-9-gke-1505000)
+    * [1.36.5-gke.1982000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-5-gke-1982000)
+    * [1.37.1-gke.3020000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.37#1-37-1-gke-3020000)
+  * Version 1.35.8-gke.1919000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support). This version will be removed in 90 days, or at the end of support, if sooner.
+
+
+
+Change
+
+#### (2026-R46) Version updates
+
+**Note** : Your clusters might not have these versions available. Rollouts are already in progress when we publish the release notes, and can take multiple days to complete across all Google Cloud zones.
+
+  * The following versions are now available in the Extended channel: 
+    * [1.32.13-gke.2662000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2662000)
+    * [1.32.13-gke.2701000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2701000)
+    * [1.32.13-gke.2906000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2906000)
+    * [1.33.13-gke.1915000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1915000)
+    * [1.33.13-gke.1952000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1952000)
+    * [1.33.13-gke.2207000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-2207000)
+    * [1.34.12-gke.1209000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.34#1-34-12-gke-1209000)
+    * [1.35.8-gke.1975000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.35#1-35-8-gke-1975000)
+    * [1.36.4-gke.2377000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.36#1-36-4-gke-2377000)
+  * The following versions are no longer available in the Extended channel: 
+    * 1.31.14-gke.2759000
+    * 1.31.14-gke.2825000
+    * 1.31.14-gke.3042000
+    * 1.32.13-gke.2504000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.32.13-gke.2567000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.32.13-gke.2788000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.33.13-gke.1721000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.33.13-gke.1815000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.33.13-gke.2074000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+    * 1.35.8-gke.1919000 is [deprecated](https://docs.cloud.google.com/kubernetes-engine/versioning#patch-version-support) in the Extended channel. This version will be removed in 90 days, or at the end of support, if sooner.
+  * Clusters in this channel running the listed minor version have new general auto-upgrade targets. GKE can upgrade control planes and nodes to the following new versions with this release: 
+    * GKE upgrades clusters to the following new minor versions if there are no factors, such as [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or deprecated APIs, preventing upgrades: 
+      * 1.31 to [1.32.13-gke.2662000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2662000)
+    * GKE upgrades clusters to the following new patch versions if no minor version upgrade is available, or if the cluster has [maintenance exclusions](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#exclusions) or other factors preventing minor version upgrades: 
+      * 1.32 to [1.32.13-gke.2662000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.32#1-32-13-gke-2662000)
+      * 1.33 to [1.33.13-gke.1915000](https://docs.cloud.google.com/kubernetes-engine/docs/changelogs/1.33#1-33-13-gke-1915000)
+
+
+
 **Looker**
 
 Feature
@@ -390,6 +1084,22 @@ Feature
 You can test Model Armor templates in the Google Cloud console by using custom sample prompts to verify which safety and security filters the prompts trigger and how Sensitive Data Protection redacts sensitive data. Testing templates helps you evaluate template behavior and fine-tune filter configurations. This feature is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
 
 For more information, see [Test a Model Armor template](https://docs.cloud.google.com/model-armor/manage-templates#test-ma-template).
+
+**Oracle Database@Google Cloud**
+
+Feature
+
+For Exadata Database Service, Oracle Database@Google Cloud is available in `northamerica-south1` (Querétaro, Mexico) region.
+
+For a list of supported locations, see [Supported regions and zones](https://docs.cloud.google.com/oracle/database/docs/regions-and-zones).
+
+**Spanner**
+
+Feature
+
+Spanner supports the `ON DELETE SET NULL` foreign key action for GoogleSQL and PostgreSQL dialects. Use `ON DELETE SET NULL` when you delete a referenced row to set the referencing columns to `NULL`.
+
+For more information, see [Foreign key actions](https://docs.cloud.google.com/spanner/docs/foreign-keys/overview#how-to-define-foreign-key-action) and [Create and manage foreign key relationships](https://docs.cloud.google.com/spanner/docs/foreign-keys/how-to).
 
 ## October 26, 2026
 
@@ -503,6 +1213,14 @@ Feature
 **Cloud Storage output support for Gemini image generation models**
 
 Direct Cloud Storage output persistence is [generally available (GA)](https://cloud.google.com/products#product-launch-stages) for [Gemini Nano Banana 2.1](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/nano-banana-2-1) (`gemini-nano-banana-2.1`), [Gemini 3.1 Flash Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image) (`gemini-3.1-flash-image`), [Gemini 3.1 Flash-Lite Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image) (`gemini-3.1-flash-lite-image`), and [Gemini 3 Pro Image](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-pro-image) (`gemini-3-pro-image`). You can set `outputConfig.outputUriPrefix` and `generationConfig.responseFormat[].image.delivery` to `"URI"` in `generateContent` and `streamGenerateContent` requests to write generated and edited images directly to a Cloud Storage bucket and receive the object URI in `fileData.fileUri` instead of inline bytes. For more information, see [Save generated images to Cloud Storage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/image-generation#save-generated-images-cloud-storage).
+
+Feature
+
+**Gemini 3.8 Flash TTS and Gemini 3.8 Flash-Lite TTS are Generally Available (GA)**
+
+[Gemini 3.8 Flash TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-tts) and [Gemini 3.8 Flash-Lite TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-8-flash-lite-tts) are available in [General Availability (GA)](https://cloud.google.com/products#product-launch-stages) in the `global` location and the `us` and `eu` multi-regions. The models support structured speaker and style metadata, inline vocal tags, multi-speaker dialogue, and streaming. [Voice design](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-design) and [voice replication](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/voice-replication) capabilities remain available in Preview.
+
+For more information, see [Generate speech with Gemini TTS](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/text-to-speech/overview).
 
 Feature
 
@@ -1545,6 +2263,14 @@ To continue connecting to a source database after its CA certificate is updated,
 
 For more information, see security bulletin [GCP-2026-071](https://docs.cloud.google.com/support/bulletins#gcp-2026-071).
 
+**Service Extensions**
+
+Feature
+
+You can use edge extensions (`CdnEdgeExtension`) to attach plugins directly to Media CDN Edge Cache services (`EdgeCacheService`). These extensions let you inspect and modify HTTP request and response headers in the Media CDN processing path. This feature is available in [Preview](https://cloud.google.com/products#product-launch-stages).
+
+For more information, see [Media CDN extensions overview](https://docs.cloud.google.com/service-extensions/docs/media-cdn-extensions-overview) and [Configure a Media CDN edge extension](https://docs.cloud.google.com/service-extensions/docs/configure-media-cdn-edge-extensions).
+
 ## October 22, 2026
 
 **Apigee X**
@@ -1614,6 +2340,12 @@ Security
 All supported versions of [PHP 8.2](https://docs.cloud.google.com/appengine/docs/standard/lifecycle/support-schedule#php) and later are patched. Take immediate protective action by redeploying your resources with updated dependencies.
 
 See [Responding to core PHP vulnerabilities](https://cloud.google.com/blog/products/identity-security/responding-to-core-php-vulnerabilities-cve-2026-109618-cve-2026-109619) for more information.
+
+**Audit Manager**
+
+Feature
+
+Support for organization-level audits, [audit scheduling](https://docs.cloud.google.com/audit-manager/docs/run-audit), and a [new UI experience with updated reports](https://docs.cloud.google.com/audit-manager/docs/view-audit) are generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
 
 **BigQuery**
 
@@ -3562,6 +4294,18 @@ Announcement
 
 ## October 16, 2026
 
+**Access Approval**
+
+Feature
+
+Service connectivity automation is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
+
+**Access Transparency**
+
+Feature
+
+Service connectivity automation is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
+
 **BigQuery**
 
 Feature
@@ -5133,9 +5877,9 @@ Fixed an issue where gcloud and gsutil failed to load with an AttributeError in 
 
 **Application Integration**
 
-Security
+Announcement
 
-Starting October 15, 2026, Application Integration enforces security fixes for IAM, run-as service accounts, and `iam.serviceAccounts.actAs` checks, requiring the correct permissions for the test feature and any new integrations. For more information, see the [GCP-2026-067](https://docs.cloud.google.com/application-integration/docs/security-bulletins#gcp-2026-067) security bulletin and [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
+Starting October 15, 2026, Application Integration enforces security fixes for IAM, run-as service accounts, and `iam.serviceAccounts.actAs` checks, requiring the correct permissions for the test feature and any new integrations. For more information, see the [GCP-2026-068](https://docs.cloud.google.com/application-integration/docs/security-bulletins#gcp-2026-068) security bulletin and [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
 
 **Assured Workloads**
 
@@ -15812,12 +16556,6 @@ For more information, see [Priority PayGo](https://docs.cloud.google.com/gemini-
 
 Feature
 
-**Agent Gateway supports multiple Agent Registry instances**
-
-Agent Gateway now lets you associate up to two Agent Registry instances (one global registry and one regional or multi-region registry) with a single Agent Gateway instance. For more information, see [Register your agents and destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#agent-registry).
-
-Feature
-
 **Agent Gateway supports VPC Service Controls**
 
 Agent Gateway now enforces VPC Service Controls perimeter rules for agent communications. When you [configure Agent Gateway with VPC connectivity](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity), agent traffic is routed through your private VPC network, ensuring that your organization's VPC-SC perimeter rules are applied to all agent traffic as well.
@@ -15825,6 +16563,14 @@ Agent Gateway now enforces VPC Service Controls perimeter rules for agent commun
 Note that setting up VPC connectivity is required to enable VPC Service Controls perimeter enforcement for Agent Gateway deployments. The connectivity template must be configured in `ALL_TRAFFIC` egress mode.
 
 **Important:** VPC Service Controls is only supported for Agent Gateway deployments created after September 8, 2026 that use the [agent connectivity template](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity) to configure VPC connectivity.
+
+Feature
+
+**Agent Gateway supports multiple Agent Registry instances**
+
+Agent Gateway now lets you associate up to two Agent Registry instances (one global registry and one regional or multi-region registry) with a single Agent Gateway instance. For more information, see [Register your agents and destination resources](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#agent-registry).
+
+**Important:** There has been an update to this feature. For the corrected note, see the entry for [October 28, 2026](https://docs.cloud.google.com/gemini-enterprise-agent-platform/release-notes#October_28_2026).
 
 **Google SecOps Marketplace**
 
@@ -19605,6 +20351,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

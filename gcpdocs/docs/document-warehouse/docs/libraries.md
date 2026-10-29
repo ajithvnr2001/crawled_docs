@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-warehouse/docs/libraries/
 title: Document AI Warehouse client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:50:50.184768+00:00
+fetched_at: 2026-10-29T05:40:49.382566+00:00
 ---
 
 # Document AI Warehouse client libraries  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-contentwarehouse" % "0.95.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-contentwarehouse" % "0.96.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

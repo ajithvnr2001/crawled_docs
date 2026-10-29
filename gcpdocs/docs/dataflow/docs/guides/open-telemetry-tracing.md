@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/open-telemetry-tracing/
 title: Use OpenTelemetry distributed tracing in Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:49:12.230452+00:00
+fetched_at: 2026-10-29T05:40:45.184041+00:00
 ---
 
 # Use OpenTelemetry distributed tracing in Dataflow  |  Google Cloud Documentation
@@ -356,19 +356,19 @@ When a `DoFn` invokes external libraries that also support OpenTelemetry, such a
 To execute manual Spanner queries inside a `DoFn` and link those spans to the active pipeline trace, initialize `SpannerOptions` with the pipeline's OpenTelemetry instance:
     
     
-    import com.google.cloud.spanner.[DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseClient.html);
-    import com.google.cloud.spanner.[DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseId.html);
-    import com.google.cloud.spanner.[ResultSet](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ResultSet.html);
-    import com.google.cloud.spanner.[Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html);
-    import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html);
-    import com.google.cloud.spanner.[Statement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Statement.html);
+    import com.google.cloud.spanner.[DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseClient.html);
+    import com.google.cloud.spanner.[DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseId.html);
+    import com.google.cloud.spanner.[ResultSet](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.ResultSet.html);
+    import com.google.cloud.spanner.[Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html);
+    import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html);
+    import com.google.cloud.spanner.[Statement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Statement.html);
     import org.apache.beam.sdk.[options](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.pgadapter.statements.IntermediateStatement.html#com_google_cloud_spanner_pgadapter_statements_IntermediateStatement_options).PipelineOptions;
     import org.apache.beam.sdk.[options](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.pgadapter.statements.IntermediateStatement.html#com_google_cloud_spanner_pgadapter_statements_IntermediateStatement_options).SdkHarnessOptions;
     import org.apache.beam.sdk.transforms.DoFn;
     
     public class SpannerEnrichmentDoFn extends DoFn<String, String> {
-      private transient [Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html) spanner;
-      private transient [DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseClient.html) dbClient;
+      private transient [Spanner](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html) spanner;
+      private transient [DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseClient.html) dbClient;
       private final String instanceId;
       private final String databaseId;
     
@@ -380,29 +380,29 @@ To execute manual Spanner queries inside a `DoFn` and link those spans to the ac
       @Setup
       public void setup(PipelineOptions pipelineOptions) {
         // Build SpannerOptions leveraging the pipeline's active OpenTelemetry instance
-        [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html) options =
-            [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html).newBuilder()
+        [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html) options =
+            [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html).newBuilder()
                 .setOpenTelemetry(pipelineOptions
                     .as(SdkHarnessOptions.class)
                     .getOpenTelemetry())
-                .[setEnableEndToEndTracing](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.Builder.html#com_google_cloud_spanner_SpannerOptions_Builder_setEnableEndToEndTracing_boolean_)(true)
-                .[setEnableExtendedTracing](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.Builder.html#com_google_cloud_spanner_SpannerOptions_Builder_setEnableExtendedTracing_boolean_)(true)
+                .[setEnableEndToEndTracing](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.Builder.html#com_google_cloud_spanner_SpannerOptions_Builder_setEnableEndToEndTracing_boolean_)(true)
+                .[setEnableExtendedTracing](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.Builder.html#com_google_cloud_spanner_SpannerOptions_Builder_setEnableExtendedTracing_boolean_)(true)
                 .build();
     
         this.spanner = [options](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.pgadapter.statements.IntermediateStatement.html#com_google_cloud_spanner_pgadapter_statements_IntermediateStatement_options).getService();
-        [DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseId.html) db = [DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseId.html).of([options](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.pgadapter.statements.IntermediateStatement.html#com_google_cloud_spanner_pgadapter_statements_IntermediateStatement_options).[getProjectId](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.connection.ConnectionOptions.html#com_google_cloud_spanner_connection_ConnectionOptions_getProjectId__)(), instanceId, databaseId);
-        this.dbClient = spanner.[getDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_getDatabaseClient_com_google_cloud_spanner_DatabaseId_)(db);
+        [DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseId.html) db = [DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseId.html).of([options](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.pgadapter.statements.IntermediateStatement.html#com_google_cloud_spanner_pgadapter_statements_IntermediateStatement_options).[getProjectId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.connection.ConnectionOptions.html#com_google_cloud_spanner_connection_ConnectionOptions_getProjectId__)(), instanceId, databaseId);
+        this.dbClient = spanner.[getDatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_getDatabaseClient_com_google_cloud_spanner_DatabaseId_)(db);
       }
     
       @ProcessElement
       public void processElement(@Element String inputId, OutputReceiver<String> out) {
-        [Statement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Statement.html) statement = [Statement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Statement.html).newBuilder(
+        [Statement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Statement.html) statement = [Statement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Statement.html).newBuilder(
             "SELECT Details FROM AccountTable WHERE AccountId = @id")
-            .bind("id").[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(inputId)
+            .bind("id").[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(inputId)
             .build();
     
         // Spanner queries automatically generate child spans linked to the active trace
-        try ([ResultSet](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ResultSet.html) rs = dbClient.[singleUse](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseClient.html#com_google_cloud_spanner_DatabaseClient_singleUse__)().executeQuery(statement)) {
+        try ([ResultSet](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.ResultSet.html) rs = dbClient.[singleUse](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseClient.html#com_google_cloud_spanner_DatabaseClient_singleUse__)().executeQuery(statement)) {
           while (rs.next()) {
             out.output(rs.getString("Details"));
           }
@@ -412,7 +412,7 @@ To execute manual Spanner queries inside a `DoFn` and link those spans to the ac
       @Teardown
       public void tearDown() {
         if (spanner != null) {
-          spanner.[close](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_close__)();
+          spanner.[close](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Spanner.html#com_google_cloud_spanner_Spanner_close__)();
         }
       }
     }

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/configure-database-flags/
 title: Configure AlloyDB Omni database flags \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:26:20.521042+00:00
+fetched_at: 2026-10-29T05:46:12.766009+00:00
 ---
 
 # Configure AlloyDB Omni database flags  |  AlloyDB Omni for Kubernetes: 15.5.5  |  Google Cloud Documentation
@@ -48,35 +48,55 @@ Select a documentation version: 15.5.5keyboard_arrow_down
   * [ 15.7.0 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.7.0/docs/configure-database-flags)
   * [ 15.5.5 ](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/configure-database-flags)
 
-To configure a database flag for AlloyDB Omni, you add or update [Grand Unified Configuration (GUC)](https://www.postgresql.org/docs/current/config-setting.html) parameters in the `postgresql.conf` file. 
+To configure a database parameter for AlloyDB Omni, you can update [Grand Unified Configuration (GUC) parameters](https://www.postgresql.org/docs/current/config-setting.html) in the database cluster manifest (`DBCluster`) for environments running AlloyDB Omni on [a Kubernetes cluster](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/deploy-kubernetes). 
 
-## Add or update a GUC parameter
+## Update a parameter in AlloyDB Omni on a Kubernetes cluster
 
-There are a few ways to update and add GUC parameters. This document covers the most fundamental way, which is to edit your `postgresql.conf` file. For more information, see [Setting parameters](https://www.postgresql.org/docs/current/config-setting.html) in PostgreSQL documentation.
+You can configure database parameters using the `parameters` field in the `primarySpec` section of your database cluster manifest:
+    
+    
+    spec:
+      primarySpec:
+        parameters:
+          "PARAMETER_NAME": "PARAMETER_VALUE"
+          ...
+    
 
-To add or update a GUC parameter by editing the `postgresql.config` file, do the following:
+Replace the following:
 
-  1. Locate the `postgresql.conf` configuration file for your installation of AlloyDB Omni.
+  * `PARAMETER_NAME`: the name of the parameter—for example, `autovacuum`.
+  * `PARAMETER_VALUE`: the value of the parameter—for example, `off`.
 
-  2. Use a text editor to add or update a database flag in `postgresql.conf`.
+**Note:** Repeat the `PARAMETER_NAME: "PARAMETER_VALUE"` line of code for each name-value pair that you have.
 
-For example, to [enforce password expiration](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/manage-password-policy#enforce-password-expiration), set the following flag in the `postgresql.conf` file:
-         
-         password.enforce_expiration = ON
-         
+Some parameters require you to restart your cluster for the changes to take effect. You can obtain a list of parameters that require a restart from `pg_catalog.pg_settings`. Any parameter with `pg_catalog.pg_settings.context = 'postmaster'` requires a restart.
 
-  3. After your database flags are added or edited, reload the `postgresql.conf` file for the changes to take effect. For example, if you [installed AlloyDB Omni using Docker](https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/quickstart#install-using-docker), run the following to restart your Docker instance and reload `postgresql.conf`:
-         
-         docker restart CONTAINER-NAME
-         
+To update database parameters, run the following command:
+    
+    
+    kubectl patch dbclusters.alloydbomni.dbadmin.goog dbcluster-sample -p '{"spec":{"primarySpec":{"parameters": {"PARAMETER_NAME": "PARAMETER_VALUE"}}}}' --type=merge
 
+**Note:** For parameters that require a restart, updating parameters restarts the database automatically.
 
+Parameter settings are located in the `status` part of the `currentParameters` field.
 
+To view database parameters, run the following command:
+    
+    
+    kubectl get dbclusters.alloydbomni.dbadmin.goog dbcluster-sample -o jsonpath={.status.primary.currentParameters}
+
+The output is similar to the following:
+    
+    
+    {"autovacuum":"off","max_connections":"3000"}
+    
+
+If AlloyDB Omni can't apply your requested updates, then the output lists the current and requested values separately. For example, this difference can occur if you apply a nonexistent parameter or set a string value for an integer parameter. 
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

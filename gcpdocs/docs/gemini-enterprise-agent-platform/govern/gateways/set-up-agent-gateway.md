@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway/
 title: Set up Agent Gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:01.424787+00:00
+fetched_at: 2026-10-29T06:14:17.341168+00:00
 ---
 
 # Set up Agent Gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ Enable the following minimum required APIs in the Google Cloud project where you
   * **Compute Engine API (`compute.googleapis.com`):** Provides core networking infrastructure, subnets, routing, and Private Service Connect (PSC) network attachments.
   * **Network Security API (`networksecurity.googleapis.com`):** Creates and enforces authorization policies (`authzPolicies`) for gateway traffic.
   * **Network Services API (`networkservices.googleapis.com`):** Manages Agent Gateway resources (`agentGateways`), connectivity templates (`agentConnectivityTemplates`), and authorization extensions (`authzExtensions`).
-  * **Identity and Access Management API (`iam.googleapis.com`):** Manages service accounts and IAM Unified Access Policies (UAP) for agent identities.
+  * **Identity and Access Management API (`iam.googleapis.com`):** Manages service accounts and IAM Unified Access Policies (UAPs) for agent identities.
   * **Identity-Aware Proxy API (`iap.googleapis.com`):** Authenticates and verifies agent, endpoint, and server traffic.
   * **Agent Registry API (`agentregistry.googleapis.com`):** Registers and manages agents, MCP servers, and tool endpoints governed by the gateway.
 
@@ -118,7 +118,7 @@ Depending on the features, observability tools, and agent runtimes that you use 
     * **Telemetry API (`telemetry.googleapis.com`):** Collects and streams runtime telemetry and performance metrics across platform components.
     * **Cloud Trace API (`cloudtrace.googleapis.com`):** Provides distributed tracing to inspect multi-hop requests across agents and backends.
   * **Agent runtimes and semantic governance:**
-    * **Vertex AI API (`aiplatform.googleapis.com`):** Required in projects that host Agent Runtime agents or use [Semantic Governance Policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance).
+    * **Vertex AI API (`aiplatform.googleapis.com`):** Required in projects that host Agent Runtime agents or use [Semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance).
     * **Discovery Engine API (`discoveryengine.googleapis.com`):** Required in projects that host Gemini Enterprise apps and agents.
     * **Agent Identity API (`agentidentity.googleapis.com`):** Required only if you manage outbound credentials with [Agent Identity auth manager](https://docs.cloud.google.com/iam/docs/auth-manager-overview) or view Agent Identity auth providers in the Google Cloud console.
 
@@ -190,7 +190,7 @@ Here is a sample deployment:
   * The Gemini Enterprise app is deployed as a `global` deployment.
   * Runtime agents are deployed within a single region (`us-central1`) that [corresponds to the Gemini Enterprise deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#plan-ge-agw).
   * The Agent Gateway is deployed in the same region (`us-central1`).
-  * Both `global` and `us-central1` Agent Registry instances can be associated with the Agent Gateway. Agents and destinations must be registered with the Agent Registry instances associated with the gateway.
+  * The `us-central1` Agent Registry instance is associated with the Agent Gateway. You must register your agents and destinations in this Agent Registry instance.
 
 
 Independent governance for Gemini Enterprise and Runtime agents
@@ -198,10 +198,10 @@ Independent governance for Gemini Enterprise and Runtime agents
 
 In this deployment pattern, each region has a dedicated Agent Gateway to monitor and govern agent traffic, ensuring regional isolation:
 
-  * The Gemini Enterprise app is deployed as a global or multi-region deployment (in `global`, `us`, or `eu`).
+  * The Gemini Enterprise app is deployed in `global`, `us`, or `eu`.
   * Runtime agents are deployed in each region where needed.
   * Agent Gateway instances are deployed in each region where agents and apps are located.
-  * You must register your agents and destinations in the Agent Registry instances associated with each gateway.
+  * You must register your agents and destinations in the regional Agent Registry instance associated with each gateway.
 
 
 
@@ -213,16 +213,14 @@ You can provision an Agent Identity when you deploy an agent in Runtime or assig
 
 ### Register your agents and destination resources
 
-To enable secure communication, you must identify your Agent Registry instance and register the resources that your gateway will govern.
+To enable secure communication, you must identify your Agent Registry instance and register the resources that your gateway governs.
 
-  1. Identify the Agent Registry instances that you will be using. An Agent Gateway can be associated with up to two registries (one global registry and one regional or multi-regional registry):
+  1. Identify the regional Agent Registry instance to use. Each Agent Gateway is associated with a single regional registry (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/REGION`) in the same project and region where the gateway is deployed:
 
-     * **Agent Runtime agents** are regional resources and are typically registered in regional registries matching their deployment region. Note that cross-project agents must be registered in the registry associated with the central governance project where the Agent Gateway is deployed.
-     * **Gemini Enterprise agents** are global or multi-region resources and are registered in global or multi-regional registries (such as `global`, `us`, or `eu`).
+     * **Agent Runtime** : Reference the regional registry in the same project and region where the Agent Gateway is deployed. Register cross-project agents in the regional registry of the central governance project that hosts the gateway.
+     * **Gemini Enterprise** : Reference the regional registry in the same project and region as the Agent Gateway (`us-central1` for `global` and `us` apps, or `europe-west1` for `eu` apps). For details, see [Plan your location and Agent Registry mappings](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#plan-ge-agw).
 
-Ensure that the registry instances you associate with your Agent Gateway are the ones where your agents, endpoints, and servers are registered.
-
-**Note:** Regional and multi-regional entries take precedence over global entries when Agent Gateway resolves a destination URL to a registry entry. This is to help resolve conflicts that can occur when regional, multi-regional, and global registries contain entries with identical interface URLs.
+Ensure that the regional registry instance you associate with your Agent Gateway is the one where your agents, endpoints, and MCP servers are registered.
 
   2. Register your agents with Agent Registry. If you haven't already created the agent, you must complete this step later. For instructions, see [Register agents](https://docs.cloud.google.com/agent-registry/register-agents).
 
@@ -250,7 +248,7 @@ By default, Agent Gateway blocks all traffic unless an IAM access policy explici
 
 Registering destinations in Agent Registry is recommended because it lets you scope policies to specific resources and apply fine-grained tool controls. If destinations are not registered in Agent Registry, you must grant the `iap.resources.egressViaIAP` permission to the agent by configuring a policy for [unregistered endpoints](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/iam-overview-uap#unregistered-resources).
 
-Because registries can be global, multi-regional, or regional, ensure that any registry-wide binding matches the registry instance (or instances) configured for your Agent Gateway.
+Ensure that any registry-wide binding matches the regional Agent Registry instance configured for your Agent Gateway.
 
 For instructions, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
 
@@ -268,19 +266,19 @@ For more information, see the following documents:
   * [Delegate authorization using Service Extensions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization#configure-authz-ma)
 
 
-Semantic Governance Policies
+Semantic governance policies
     
 
 (Optional) You can opt to add natural language-based context-aware controls on your agents to enable protections against toxic combinations of tools.
 
-We recommend that you start by deploying Semantic Governance Policies in dry-run mode so that you can validate your configuration without blocking traffic. For details, see [Configure semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance).
+We recommend that you start by deploying Semantic governance policies in dry-run mode so that you can validate your configuration without blocking traffic. For details, see [Configure semantic governance policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance).
 
 Custom authorization engines
     
 
 (Optional) If you want to delegate authorization to custom authorization engines or third party systems by using Service Extensions, you should ensure that the custom authorization engines are available when deploying the gateway.
 
-Model Armor, Semantic Governance Policies, and any other custom authorization engines can be enabled either during initial Agent Gateway setup or attached post-deployment as an incremental security policy update.
+Model Armor, Semantic governance policies, and any other custom authorization engines can be enabled either during initial Agent Gateway setup or attached post-deployment as an incremental security policy update.
 
 ## Configure Agent Gateway in Agent-to-Anywhere (egress) mode
 
@@ -308,14 +306,14 @@ Use the following steps to create an Agent Gateway resource for [Agent-to-Anywhe
   3. Enter a **Name**.
   4. From the **Region** list, select a region.
   5. For **Deployment mode** , verify that **Google-managed** is selected.
-  6. For **Agent registries** , select at least one registry from the list. If you want to select two registries, one must be a global registry and the other can be either a regional or multi-regional registry.For guidance on which registry to choose for your deployment, see Plan your Agent Gateway deployment.
+  6. For **Agent registries** , select the regional registry that matches your Agent Gateway region. For guidance, see Plan your Agent Gateway deployment.
   7. From the **Governed Access Path** list, select **Agent-to-Anywhere (Agent Egress)**.
   8. In the **Access Authorization** section, choose how traffic is handled by IAP:
 
      * To deploy the gateway in a dry-run mode where the gateway permits all traffic through and only generates [audit logs](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/monitor-agent-gateway), select **Audit-only**. Your IAM policies are not enforced by IAP in dry-run mode. Once you gain confidence, you can disable dry-run mode to enforce IAM policies.
      * To block requests that don't have an explicit `Allow` IAM policy, select **Enforce policies**. This option is recommended for production environments.
      * For **Policy model** , select **Unified Access Policy**.
-**Note:** We strongly recommend using Unified Access Policy for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy on an existing gateway, navigate to the Policies UI and manually redefine your rules under the Unified Access Policy tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
+**Note:** We strongly recommend using Unified Access Policy for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy on an existing gateway, navigate to the Policies UI and manually redefine your rules under the UAP tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
   9. Optional: In the **AI Security** section, configure additional security:
 
      1. To protect AI model interactions with Model Armor, turn on **Enable Model Armor**.
@@ -340,18 +338,13 @@ You define Agent Gateways declaratively using YAML.
          googleManaged:
            governedAccessPath: AGENT_TO_ANYWHERE
          registries:
-           - AGENT_REGISTRY_URI_1
-           - OPTIONAL_AGENT_REGISTRY_URI_2
+           - AGENT_REGISTRY_PATH
          
 
 Replace the following:
 
      * `AGENT_GATEWAY_NAME`: The name of the Agent Gateway resource.
-     * `AGENT_REGISTRY_URI_1` and `OPTIONAL_AGENT_REGISTRY_URI_2`: The paths to the Agent Registry instances to be associated with the gateway. You can configure up to two registries for an Agent Gateway. When configuring two registries, one must be a global registry and the other can be either a regional or multi-regional registry. For guidance on which registry to choose for your deployment, see Plan your Agent Gateway deployment. The registry paths must be formatted as follows:
-
-       * Regional registries: `//agentregistry.googleapis.com/projects/PROJECT_ID/locations/REGION`
-       * Global registries: `//agentregistry.googleapis.com/projects/PROJECT_ID/locations/global`
-       * Multi-region registries: `//agentregistry.googleapis.com/projects/PROJECT_ID/locations/MULTI_REGION`
+     * `AGENT_REGISTRY_PATH`: The path to the regional Agent Registry instance in the same project and region as the gateway, formatted as `//agentregistry.googleapis.com/projects/PROJECT_ID/locations/LOCATION`. For guidance, see Plan your Agent Gateway deployment.
   2. Run the following command to create an Agent Gateway resource based on the YAML specification:
          
          gcloud network-services agent-gateways import AGENT_GATEWAY_NAME \
@@ -361,7 +354,7 @@ Replace the following:
 
 Replace `LOCATION` with the location where you want to create the Agent Gateway resource. For example, `us-central1`.
 
-Note that for Gemini Enterprise, you must deploy Agent Gateway in a region that corresponds to your multi-region setup. For the supported location mappings, see [Route Gemini Enterprise traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#route-traffic).
+Note that for Gemini Enterprise, you must deploy Agent Gateway in a region that corresponds to your app's location. For the required location mappings, see [Route Gemini Enterprise traffic through Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy#plan-ge-agw).
 
   3. Create an authorization policy to enforce centralized access control and governance policies on traffic passing through the Agent Gateway. The following steps show you how to configure an authorization policy that uses IAP.
 
@@ -392,7 +385,7 @@ If you want to deploy the extension in a dry run _audit-only_ mode to test the a
 
 Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies.
 
-**Note:** We strongly recommend using Unified Access Policy (`iapPolicyVersion: "V2"`) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy (`iapPolicyVersion: "V1"`) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the Unified Access Policy tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
+**Note:** We strongly recommend using UAP (`iapPolicyVersion: "V2"`) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy (`iapPolicyVersion: "V1"`) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the UAP tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
      2. Import the YAML configuration file to an authorization extension.
             
             gcloud beta service-extensions authz-extensions import AUTHORIZATION_EXTENSION_NAME \
@@ -438,7 +431,7 @@ Replace the following:
 
 To provision an Agent-to-Anywhere (egress) Agent Gateway and its associated IAP authorization extension and policy declaratively in a central governance project using the `google` provider:
 
-  1. Create the `google_network_services_agent_gateway` resource and associate your regional or global Agent Registry instances:
+  1. Create the `google_network_services_agent_gateway` resource and associate your regional Agent Registry instance:
          
          resource "google_network_services_agent_gateway" "egress_gateway" {
            project   = "PROJECT_ID"

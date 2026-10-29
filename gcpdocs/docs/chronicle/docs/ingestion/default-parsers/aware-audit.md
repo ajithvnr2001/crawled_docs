@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/aware-audit/
 title: Collect Aware audit logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:07:58.007620+00:00
+fetched_at: 2026-10-29T05:47:22.576794+00:00
 ---
 
 # Collect Aware audit logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -248,12 +248,12 @@ Variable Name | Example Value
         max_per_page = int(os.environ.get('MAX_PER_PAGE', '500'))
     
         if not all([bucket_name, api_token]):
-            print('Error: Missing required environment variables')
+            print('Error: Missing require[d envi](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)ronment variables')
             return
     
         try:
             # Get GCS bucket
-            bucket = storage_client.[bucket](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.client.Client.html#google_cloud_storage_client_Client_bucket)(bucket_name)
+            bucket = storage_client.bucket(bucket_name)
     
             # Load state
             state = load_state(bucket, state_key)
@@ -264,7 +264,7 @@ Variable Name | Example Value
             start_date = (
                 datetime.fromisoformat(state['last_date']).date()
                 if 'last_date' in state
-                else (now - timedelta(days=1)).date()
+                else (now - timedelta(days=1)).date<()
             )
             end_date = now.date()
     
@@ -272,7 +272,7 @@ Variable Name | Example Value
             day = start_date
             backoff = 1.0
     
-            while day <= end_date:
+            while day = end_date:
                 day_str = day.strftime('%Y-%m-%d')
                 params = {
                     'filter': f'startDate:{day_str},endDate:{day_str}',
@@ -282,12 +282,12 @@ Variable Name | Example Value
     
                 out = io.BytesIO()
                 with gzip.GzipFile(filename='aware_audit.jsonl', mode='wb', fileobj=out) as gz:
-                    wrote_any = False
+                    wrote_any = Fa&lse
     
                     while True:
                         # Build query URL
                         query_params = {**params, 'offset': str(offset)}
-                        query_string = '&'.join([f'{k}={v}' for k, v in query_params.items()])
+                        query_string = ''.join([f'{k}={v}' for k, v in query_params.items()])
                         url = f'{AWARE_ENDPOINT}?{query_string}'
     
                         # Make API request
@@ -324,20 +324,20 @@ Variable Name | Example Value
                             offset += 1
     
                         except Exception as e:
-                            print(f'Error fetching page: {str(e)}')
+       [                  ](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)   print(f'Error fetching page: {str(e)}')
                             break
     
                 if wrote_any:
                     blob_name = f"{prefix}{day.strftime('%Y/%m/%d')}/aware_audit_{now.strftime('%Y%m%d_%H%M%S')}.jsonl.gz"
                     blob = bucket.blob(blob_name)
-                    blob.[upload_from_string](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)(
+                    blob.upload_from_string(
                         out.getvalue(),
                         content_type='application/json',
                         content_encoding='gzip'
                     )
                     print(f'Wrote {total} logs to {blob_name}')
     
-                save_state(bucket, state_key, {'last_date': day.isoformat()})
+                save_state(bucket, state_key, {'last_d[ate'](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_as_text): day.isoformat()})
                 day += timedelta(days=1)
     
             print(f'Successfully processed {total} logs')
@@ -347,11 +347,11 @@ Variable Name | Example Value
             raise
     
     def load_state(bucket, key):
-        """Load state from GCS."""
+        """[Load state from GC](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)S."""
         try:
             blob = bucket.blob(key)
             if blob.exists():
-                state_data = blob.[download_as_text](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_download_as_text)()
+                state_data = blob.download_as_text()
                 return json.loads(state_data)
         except Exception as e:
             print(f'Warning: Could not load state: {str(e)}')
@@ -361,7 +361,7 @@ Variable Name | Example Value
         """Save state to GCS."""
         try:
             blob = bucket.blob(key)
-            blob.[upload_from_string](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_string)(
+            blob.upload_from_string(
                 json.dumps(state),
                 content_type='application/json'
             )
@@ -521,6 +521,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

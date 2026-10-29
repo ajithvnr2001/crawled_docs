@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/respond-ai-threats/
 title: Respond to AI threat findings \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:30:53.741888+00:00
+fetched_at: 2026-10-29T05:41:21.368437+00:00
 ---
 
 # Respond to AI threat findings  |  Security Command Center  |  Google Cloud Documentation
@@ -85,8 +85,18 @@ This document offers informal guidance on how you can respond to findings of sus
 
 ## Sensitive IAM roles or permissions granted
 
+  * Revoke unauthorized IAM role bindings granted to external principals on Agent Platform or Gemini Enterprise resources.
   * Use Organization Policy Service to [restrict identities with domain-restricted sharing](https://docs.cloud.google.com/organization-policy/restrict-domains).
   * To identify and fix overly permissive roles, use [IAM Recommender](https://docs.cloud.google.com/iam/docs/recommender-overview).
+
+
+
+## Unauthorized Gemini Enterprise document imports
+
+  * Review the `ImportDocuments` request details in Logging to identify the target Gemini Enterprise datastore and the external principal or external source resource (such as an external Cloud Storage bucket or BigQuery dataset).
+  * [Revoke IAM roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access#revoking-console) for the principal that initiated the unauthorized import until your investigation is complete.
+  * Inspect and purge any untrusted documents imported into the affected Gemini Enterprise datastore to prevent knowledge store poisoning or indirect prompt injection.
+  * Use [VPC Service Controls](https://docs.cloud.google.com/vpc-service-controls/docs/overview) to enforce service perimeters around Gemini Enterprise and your data storage services to block unauthorized cross-perimeter data imports.
 
 
 
@@ -106,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

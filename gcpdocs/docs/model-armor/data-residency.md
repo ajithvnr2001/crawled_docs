@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/data-residency/
 title: Data residency and endpoints \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:16.787780+00:00
+fetched_at: 2026-10-29T05:52:29.585937+00:00
 ---
 
 # Data residency and endpoints  |  Model Armor  |  Google Cloud Documentation
@@ -57,6 +57,7 @@ Region/multi-region | Jurisdiction | At rest | In use | In transit | Feature sup
 `europe-west4` | [European Union](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary) | Yes | Yes | Yes | [Full support](https://docs.cloud.google.com/model-armor/feature-availability-by-region#full-support)  
 `europe-west9` | [European Union](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary) | Yes | Yes | Yes | [Full support](https://docs.cloud.google.com/model-armor/feature-availability-by-region#full-support)  
 `northamerica-northeast2` | [Canada](https://docs.cloud.google.com/assured-workloads/docs/control-packages/canada-data-boundary) | Yes | Yes | Yes | [Limited support](https://docs.cloud.google.com/model-armor/feature-availability-by-region#limited-support)  
+`southamerica-east1` | [Brazil](https://docs.cloud.google.com/assured-workloads/docs/control-packages/brazil-data-boundary) | Yes | Yes | Yes | [Limited support](https://docs.cloud.google.com/model-armor/feature-availability-by-region#limited-support)  
 `us` | [United States](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary) | Yes | Yes | Yes | [Full support](https://docs.cloud.google.com/model-armor/feature-availability-by-region#full-support)  
 `us-central1` | [United States](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary) | Yes | Yes | Yes | [Full support](https://docs.cloud.google.com/model-armor/feature-availability-by-region#full-support)  
 `us-east1` | [United States](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary) | Yes | Yes | Yes | [Full support](https://docs.cloud.google.com/model-armor/feature-availability-by-region#full-support)  
@@ -106,6 +107,7 @@ Region | Jurisdiction | At rest | In use | In transit
 `europe-west4` |  [European Union](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary) | Yes | Yes | Yes  
 `europe-west9` |  [European Union](https://docs.cloud.google.com/assured-workloads/docs/control-packages/eu-data-boundary) | Yes | Yes | Yes  
 `northamerica-northeast2` |  [Canada](https://docs.cloud.google.com/assured-workloads/docs/control-packages/canada-data-boundary) | Yes | No | No  
+`southamerica-east1` |  [Brazil](https://docs.cloud.google.com/assured-workloads/docs/control-packages/brazil-data-boundary) | Yes | No | No  
 `us-central1` |  [United States](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary) | Yes | Yes | Yes  
 `us-east1` |  [United States](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary) | Yes | Yes | Yes  
 `us-east4` |  [United States](https://docs.cloud.google.com/assured-workloads/docs/control-packages/us-data-boundary) | Yes | Yes | Yes  
@@ -159,6 +161,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

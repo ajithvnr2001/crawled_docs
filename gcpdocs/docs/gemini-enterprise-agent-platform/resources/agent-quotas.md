@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/agent-quotas/
 title: Quotas and system limits for agents in Agent Platform \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:43.683771+00:00
+fetched_at: 2026-10-29T06:15:01.584959+00:00
 ---
 
 # Quotas and system limits for agents in Agent Platform  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -20,14 +20,16 @@ Send feedback
 
 #  Quotas and system limits for agents in Agent Platform Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document lists the quotas and system limits that apply to Gemini Enterprise Agent Platform.
+Gemini Enterprise Agent Platform uses quotas and system limits to maintain fair resource allocation, prevent service overloads, and help you manage resource use.
+
+Quotas and system limits are similar but differ in the following ways:
 
   * _Quotas_ have default values, but you can typically request adjustments.
   * _System limits_ are fixed values that can't be changed.
 
 
 
-Google Cloud uses quotas to help ensure fairness and reduce spikes in resource use and availability. A quota restricts how much of a Google Cloud resource your Google Cloud project can use. Quotas apply to a range of resource types, including hardware, software, and network components. For example, quotas can restrict the number of API calls to a service, the number of load balancers used concurrently by your project, or the number of projects that you can create. Quotas protect the community of Google Cloud users by preventing the overloading of services. Quotas also help you to manage your own Google Cloud resources.
+Google Cloud uses quotas to help maintain fairness and reduce spikes in resource use and availability. A quota restricts how much of a Google Cloud resource your Google Cloud project can use. Quotas apply to a range of resource types, including hardware, software, and network components. For example, quotas can restrict the number of API calls to a service, the number of load balancers used concurrently by your project, or the number of projects that you can create. Quotas protect the community of Google Cloud users by preventing the overloading of services. Quotas also help you to manage your own Google Cloud resources.
 
 The Cloud Quotas system does the following:
 

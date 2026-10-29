@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-from-map-nested/
 title: Add a Firestore document using a nested map \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:16:54.867122+00:00
+fetched_at: 2026-10-29T07:58:23.049283+00:00
 ---
 
 # Add a Firestore document using a nested map  |  Google Cloud Documentation

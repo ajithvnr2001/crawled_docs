@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/analytics-hub-audit-logging/
 title: Sharing audit logging \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:00:15.584650+00:00
+fetched_at: 2026-10-29T05:42:57.813052+00:00
 ---
 
 # Sharing audit logging  |  BigQuery  |  Google Cloud Documentation

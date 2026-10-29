@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/quotas/reference/libraries/
 title: Cloud Quotas client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:58:31.207582+00:00
+fetched_at: 2026-10-29T05:40:47.123690+00:00
 ---
 
 # Cloud Quotas client libraries  |  Google Cloud Documentation
@@ -77,7 +77,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-cloudquotas" % "0.67.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-cloudquotas" % "0.68.0"
 
 For more information, see [Setting Up a Java Development Environment](https://docs.cloud.google.com/java/docs/setup).
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/continuous-query-joins/
 title: Use stream-to-stream joins in continuous queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:09:53.740806+00:00
+fetched_at: 2026-10-29T05:41:54.437506+00:00
 ---
 
 # Use stream-to-stream joins in continuous queries  |  BigQuery  |  Google Cloud Documentation

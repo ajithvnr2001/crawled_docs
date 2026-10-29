@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/threat-findings-index/
 title: Threat findings index \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:52:20.110209+00:00
+fetched_at: 2026-10-29T05:41:17.177237+00:00
 ---
 
 # Threat findings index  |  Security Command Center  |  Google Cloud Documentation
@@ -336,6 +336,10 @@ Name | Resource category | Detection service
 [`Persistence: Sensitive AI Permission Added to Custom Role`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/sensitive-ai-permission-added-to-custom-role) | AI | [Event Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview)  
 [`Persistence: Sensitive Role Granted by AI Agent`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/sensitive-role-granted-by-ai-agent) | AI | [Event Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview)  
 [`Persistence: Sensitive Role Granted to External AI Agent`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/external-ai-agent-granted-sensitive-role) | AI | [Event Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview)  
+[`Persistence: External Access Granted to Gemini Discovery Engine API Apps`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/external-access-granted-to-gemini-discovery-engine-api-apps) | AI | [Event Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview)  
+[`Impact: Gemini Discovery Engine API Document Import by External User`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gemini-discovery-engine-api-document-import-by-external-user) | AI | [Event Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview)  
+[`Impact: Gemini Discovery Engine API Document Import from External Resource`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gemini-discovery-engine-api-document-import-from-external-resource) | AI | [Event Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview)  
+[`Impact: Gemini Discovery Engine API Document Import VPC Perimeter Violation`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gemini-discovery-engine-api-document-import-vpc-perimeter-violation) | AI | [Event Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-event-threat-detection-overview)  
   
 ## What's next
 
@@ -348,6 +352,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

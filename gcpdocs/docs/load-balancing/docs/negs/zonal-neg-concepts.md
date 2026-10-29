@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/negs/zonal-neg-concepts/
 title: Zonal network endpoint groups overview \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:29.940254+00:00
+fetched_at: 2026-10-29T05:40:45.314345+00:00
 ---
 
 # Zonal network endpoint groups overview  |  Cloud Load Balancing  |  Google Cloud Documentation

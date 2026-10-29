@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-inserting-data-types/
 title: Streaming insert with complex data types \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:52.292781+00:00
+fetched_at: 2026-10-29T05:43:27.932324+00:00
 ---
 
 # Streaming insert with complex data types  |  BigQuery  |  Google Cloud Documentation

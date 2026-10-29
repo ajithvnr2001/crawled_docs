@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/alloydb-federated-queries/
 title: AlloyDB federated queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:21.358835+00:00
+fetched_at: 2026-10-29T05:46:25.174003+00:00
 ---
 
 # AlloyDB federated queries  |  BigQuery  |  Google Cloud Documentation

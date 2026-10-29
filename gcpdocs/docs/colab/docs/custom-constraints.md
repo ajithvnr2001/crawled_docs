@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/colab/docs/custom-constraints/
 title: Create custom organization policy constraints \u00a0|\u00a0 Colab Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:15.365479+00:00
+fetched_at: 2026-10-29T05:43:32.401962+00:00
 ---
 
 # Create custom organization policy constraints  |  Colab Enterprise  |  Google Cloud Documentation
@@ -221,7 +221,7 @@ When you have entered a value into each field, the equivalent YAML configuration
     methodTypes:
       - CREATE  
       - UPDATE 
-    condition: &quot;CONDITION"
+    condition: "CONDITION"
     actionType: ACTION
     displayName: DISPLAY_NAME
     description: DESCRIPTION

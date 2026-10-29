@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-load-table-gcs-parquet-truncate/
 title: Load a Parquet to replace a table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:40:08.139182+00:00
+fetched_at: 2026-10-29T05:43:37.385516+00:00
 ---
 
 # Load a Parquet to replace a table  |  BigQuery  |  Google Cloud Documentation

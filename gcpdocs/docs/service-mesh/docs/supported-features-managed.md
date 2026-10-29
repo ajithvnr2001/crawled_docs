@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/supported-features-managed/
 title: Supported features using Istio APIs (managed control plane) \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:03.088457+00:00
+fetched_at: 2026-10-29T06:14:14.986699+00:00
 ---
 
 # Supported features using Istio APIs (managed control plane)  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -214,9 +214,9 @@ Feature | Managed (TD) | Managed (istiod) deprecated
 Auto-mTLS |  |   
 mTLS PERMISSIVE mode |  |   
 mTLS STRICT mode |  * |  *  
-mTLS DISABLE mode |  |   
+mTLS DISABLE mode |  † |   
   
-**Note:** While the `PeerAuthentication` API does not support `DISABLE` mode for the `TRAFFIC_DIRECTOR` control plane implementation, you can disable mTLS for specific workloads by using the `DestinationRule` API as a workaround. For more information, see [Disabling mTLS for Managed CSM](https://docs.cloud.google.com/service-mesh/docs/security/configuring-mtls#disable-mtls).
+† While the `PeerAuthentication` API doesn't support `DISABLE` mode for the `TRAFFIC_DIRECTOR` control plane implementation, you can disable mTLS for specific services or ports by using the `DestinationRule` API. For more information, see [Disable mTLS](https://docs.cloud.google.com/service-mesh/docs/security/configuring-mtls#disable-mtls) and [API support: PeerAuthentication](https://docs.cloud.google.com/service-mesh/docs/onboarding/api-support#peerauthentication).
 
 #### Request authentication
 
@@ -279,6 +279,7 @@ Feature | Managed (TD) | Managed (istiod) deprecated
 Use of `iptables` using `init` containers with `CAP_NET_ADMIN` |  | †  
 Istio Container Network Interface (CNI) |  |   
 Whitebox sidecar |  |   
+Configuring interception mode |  |   
   
 † We strongly recommend using Container Network Interface (CNI) instead of `init` containers.
 
@@ -504,6 +505,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-job/
 title: Create a job \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:25:11.015244+00:00
+fetched_at: 2026-10-29T05:41:48.207146+00:00
 ---
 
 # Create a job  |  BigQuery  |  Google Cloud Documentation

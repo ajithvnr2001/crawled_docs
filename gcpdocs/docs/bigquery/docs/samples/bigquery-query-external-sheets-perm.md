@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-external-sheets-perm/
 title: Query Sheets with a permanent table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:40:21.951454+00:00
+fetched_at: 2026-10-29T05:43:11.568245+00:00
 ---
 
 # Query Sheets with a permanent table  |  BigQuery  |  Google Cloud Documentation

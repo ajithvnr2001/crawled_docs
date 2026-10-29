@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/confidential-computing/confidential-space/docs/create-your-first-confidential-space-environment/
 title: Create your first Confidential Space environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:53.263753+00:00
+fetched_at: 2026-10-29T06:00:08.805764+00:00
 ---
 
 # Create your first Confidential Space environment  |  Google Cloud Documentation
@@ -531,8 +531,11 @@ To create and set up the resources, complete the following steps in Alex's proje
          COLLAB_1_POOL_NAME,\
          COLLAB_2_POOL_NAME"
          
+         # Restrict the container to run only in non-root mode.
+         LABEL "tee.launch_policy.nonroot_container"="nonrootonly"
+         
 
-This `Dockerfile` uses a multi-stage build to first compile the Go code, and then copies the compiled version of that code to the final workload container. It also [allows specific environment variables](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/reference/launch-policies#allow-env-override) to be used in that workload container. Values for these environment variables are mapped later to the specific resources that the workload needs to operate on.
+This `Dockerfile` uses a multi-stage build to first compile the Go code, and then copies the compiled version of that code to the final workload container. It also [allows specific environment variables](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/reference/launch-policies#allow-env-override) to be used in that workload container, and [restricts the container to run in non-root mode](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/reference/launch-policies#nonroot-container). Values for these environment variables are mapped later to the specific resources that the workload needs to operate on.
 
   5. Click **Open Terminal** to switch back to Cloud Shell, or invoke the terminal built into Cloud Shell Editor from the **View** menu.
 
@@ -705,6 +708,7 @@ Enter the following command in Bola's Cloud Shell to test the workload:
         --metadata="^~^tee-image-reference=us-docker.pkg.dev/\
     ALEX_PROJECT_ID/REPOSITORY_NAME/WORKLOAD_CONTAINER_NAME:latest\
     ~tee-container-log-redirect=true\
+    ~tee-nonroot-container=true\
     ~tee-env-COLLAB_1_NAME=Alex\
     ~tee-env-COLLAB_2_NAME=Bola\
     ~tee-env-COLLAB_1_ENCRYPTED_SALARY=ALEX_ENCRYPTED_SALARY_FILE\
@@ -886,6 +890,7 @@ Enter the following command in Bola's Cloud Shell to deploy the production workl
         --service-account=WORKLOAD_SERVICE_ACCOUNT_NAME@BOLA_PROJECT_ID.iam.gserviceaccount.com \
         --metadata="^~^tee-image-reference=us-docker.pkg.dev/\
     ALEX_PROJECT_ID/REPOSITORY_NAME/WORKLOAD_CONTAINER_NAME:latest\
+    ~tee-nonroot-container=true\
     ~tee-env-COLLAB_1_NAME=Alex\
     ~tee-env-COLLAB_2_NAME=Bola\
     ~tee-env-COLLAB_1_ENCRYPTED_SALARY=ALEX_ENCRYPTED_SALARY_FILE\
@@ -1004,6 +1009,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/blog/posts/closing-the-efficiency-gap-with-model-co-hosting/
 title: Closing the efficiency gap in LLM serving with model co-hosting with Vertex AI \u00a0|\u00a0 Cloud AI Engineering Blog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:31:17.865369+00:00
+fetched_at: 2026-10-29T06:14:18.810502+00:00
 ---
 
 # Closing the efficiency gap in LLM serving with model co-hosting with Vertex AI  |  Cloud AI Engineering Blog  |  Google Cloud Documentation
@@ -152,7 +152,7 @@ A significant advancement in our technical journey was the transition from stati
 
 ### The Dynamic Update API (`update_models`)
 
-To address the inherent limitations of immutable deployments, we implemented a specialized model update API within the Vertex Model Garden vLLM model co-hosting container. This API facilitates _hot re-loading_ , enabling the server to adjust its portfolio of hosted models on-the-fly based on a centralized configuration file stored in a [Cloud Storage bucket](https://docs.cloud.google.com/storage/docs).
+To address the inherent limitations of immutable deployments, we implemented a specialized model update API within the Vertex Gemini Enterprise Agent Platform Model Garden vLLM model co-hosting container. This API facilitates _hot re-loading_ , enabling the server to adjust its portfolio of hosted models on-the-fly based on a centralized configuration file stored in a [Cloud Storage bucket](https://docs.cloud.google.com/storage/docs).
 
 The update process is initiated via a POST request to the `update_models` endpoint, which includes the `model_config_path` pointing to the Cloud Storage YAML file. Upon receiving this request, the server executes a multi-stage orchestration sequence optimized for minimal downtime:
 
@@ -215,6 +215,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

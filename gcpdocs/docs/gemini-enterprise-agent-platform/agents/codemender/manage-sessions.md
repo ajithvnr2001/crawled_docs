@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/manage-sessions/
 title: Manage sessions and export reports \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:55.390637+00:00
+fetched_at: 2026-10-29T06:14:05.932555+00:00
 ---
 
 # Manage sessions and export reports  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -45,6 +45,8 @@ If a session pauses due to a network interruption or step failure, resume it fro
     
     
     cm session resume SESSION_ID
+
+You can pass `--yes` (`-y`), `--sandbox`, `--allow-all-paths`, `--allow-all-commands`, and `--bypass-warning` to `cm session resume` to control confirmation prompts, sandboxing, and policy boundaries for the resumed run.
 
 ### Cancel a running session
 
@@ -149,6 +151,46 @@ CodeMender categorizes findings into the following severity levels:
     * **Why it's categorized as Low:** It features extremely low exploitability or minimal impact. The finding is typically used by attackers for reconnaissance or configuration fingerprinting rather than direct compromise, and it cannot be used to execute arbitrary code or exfiltrate sensitive application data.
 
 
+
+## Collect diagnostic data for support
+
+If you contact support about a problem with CodeMender, run `cm support-bundle` to collect the diagnostic data that support needs into a single `.tar.gz` archive. The command reads local files and checks your credentials, configuration, and connection to CodeMender. It doesn't upload anything: you review the archive and attach it to your support case.
+
+To collect data for specific sessions, pass their IDs or ID prefixes. To find session IDs, run `cm session list`. You can repeat `--session`:
+    
+    
+    cm support-bundle --session SESSION_ID
+
+Without `--session`, the command collects activity from the last 72 hours. To change the window, use `--since`:
+    
+    
+    cm support-bundle --since 24h
+
+The command writes `cm-support-bundle-TIMESTAMP.tar.gz` to the current directory and prints its path. To choose the path, use `--output` (or `-o`).
+
+### What the archive contains
+
+By default, the archive leaves out source code, diffs, and tool inputs and outputs. It contains the following:
+
+  * The CLI version, operating system, and a list of what was collected.
+  * `CM_*` environment variables and project and proxy settings.
+  * The results of the credential, configuration, and connectivity checks.
+  * Your configuration file and command policy.
+  * The status, model, and target of each selected session.
+  * Per-turn timing, token usage, and the names and durations of tool calls.
+
+
+
+Session data can still contain file and directory paths, the arguments of each `cm` command, finding titles, and tool error messages.
+
+If support asks for more detail, add `--include-content`. This also collects findings, generated patches, and the CLI debug logs, which record the arguments of every tool call. These files can contain source code from your repository, so review the archive before you share it.
+    
+    
+    cm support-bundle --session SESSION_ID --include-content
+
+In both modes, the command redacts access tokens, API keys, private keys, authorization headers, and password fields.
+
+To skip the credential, configuration, and connectivity checks, for example when you run the command without network access, use `--skip-health`.
 
 ## Workspace maintenance
 

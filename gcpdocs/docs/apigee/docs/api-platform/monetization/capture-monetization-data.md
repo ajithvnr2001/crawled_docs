@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/monetization/capture-monetization-data/
 title: Capturing monetization data \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:26:32.431675+00:00
+fetched_at: 2026-10-29T05:51:34.894605+00:00
 ---
 
 # Capturing monetization data  |  Apigee  |  Google Cloud Documentation
@@ -76,8 +76,8 @@ The following example assigns the value of the `booking[0].currency` JSON elemen
           <JSONPath>booking[0].currency</JSONPath>
         </JSONPayload>
       </Collect>
-      <DataCollector scope="monetiza>tion&quo<t;currency/Dat>a<Collecto>r
-    /Capture
+      <DataCollector scope="monetization">currency</DataCollector>
+    </Capture>
         
 
 ### perUnitPriceMultiplier
@@ -92,8 +92,8 @@ The following example assigns the value of the `booking[0].factor` JSON element 
           <JSONPath>booking[0].factor</JSONPath>
         </JSONPayload>
       </Collect>
-      <DataCollector scope="monetiza>tion"perUnitPrice<Multiplier/Dat>a<Collecto>r
-    /Capture
+      <DataCollector scope="monetization">perUnitPriceMultiplier</DataCollector>
+    </Capture>
         
 
 ### revShareGrossPrice
@@ -104,12 +104,12 @@ The following example assigns the value of the `minPrice` variable in the respon
     <Capture>
       <Collect>
         <Source>response</Source>
-        <Header name="minP>rice&qu<ot;
-          Pattern ignoreC>ase<="t>rue&q<uot;{$}>/Pa<ttern
-      >  /<Header
-      /Collect
-      DataCollector >scope="moneti<zation"re>v<ShareGro>ssPrice/DataCollector
-    /Capture
+        <Header name="minPrice">
+          <Pattern ignoreCase="true">{$}</Pattern>
+        </Header>
+      </Collect>
+      <DataCollector scope="monetization">revShareGrossPrice</DataCollector>
+    </Capture>
         
 
 ### transactionSuccess
@@ -120,12 +120,12 @@ The following example assigns the value of the `bookingStatus` variable in the r
     <Capture>
       <Collect>
         <Source>response</Source>
-        <Header name="bookingSt>atus&qu<ot;
-          Pattern ignoreC>ase<="t>rue&q<uot;{$}>/Pa<ttern
-      >  /<Header
-      /Collect
-      DataCollector >scope="moneti<zation"tr>a<nsaction>Success/DataCollector
-    /Capture
+        <Header name="bookingStatus">
+          <Pattern ignoreCase="true">{$}</Pattern>
+        </Header>
+      </Collect>
+      <DataCollector scope="monetization">transactionSuccess</DataCollector>
+    </Capture>
 
 Send feedback 
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/how-to-use-event-threat-detection/
 title: Use Event Threat Detection \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:29:24.873648+00:00
+fetched_at: 2026-10-29T05:41:05.956598+00:00
 ---
 
 # Use Event Threat Detection  |  Security Command Center  |  Google Cloud Documentation
@@ -162,6 +162,9 @@ Threat Finding | JSON Example
 `Impact: Deleted Google Cloud Backup and DR host` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-hosts-delete-host#example_json)  
 `Impact: Deleted Google Cloud Backup and DR plan association` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-delete-backup-plan-association#example_json)  
 `Impact: Deleted Google Cloud Backup and DR Vault` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-delete-vault#example_json)  
+`Impact: Gemini Discovery Engine API Document Import by External User` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gemini-discovery-engine-api-document-import-by-external-user#example_json)  
+`Impact: Gemini Discovery Engine API Document Import from External Resource` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gemini-discovery-engine-api-document-import-from-external-resource#example_json)  
+`Impact: Gemini Discovery Engine API Document Import VPC Perimeter Violation` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gemini-discovery-engine-api-document-import-vpc-perimeter-violation#example_json)  
 `Impact: Google Cloud Backup and DR delete policy` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-templates-delete-policy#example_json)  
 `Impact: Google Cloud Backup and DR delete profile` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-profiles-delete-profile#example_json)  
 `Impact: Google Cloud Backup and DR delete storage pool` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-storage-pools-delete#example_json)  
@@ -189,6 +192,7 @@ Threat Finding | JSON Example
 `Malware: bad IP` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/bad-ip-live-google-intel#example_json)  
 `Malware: Cryptomining Bad Domain` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/bad-domain-google-crypto-intel#example_json)  
 `Malware: Cryptomining Bad IP` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/bad-ip-google-crypto-intel#example_json)  
+`Persistence: External Access Granted to Gemini Discovery Engine API Apps` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/external-access-granted-to-gemini-discovery-engine-api-apps#example_json)  
 `Persistence: GCE Admin Added SSH Key` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gce-admin-add-ssh-key#example_json)  
 `Persistence: GCE Admin Added Startup Script` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gce-admin-add-startup-script#example_json)  
 `Persistence: IAM Anomalous Grant` | [View JSON Example](https://docs.cloud.google.com/security-command-center/docs/findings/threats/iam-anomalous-grant#example_json)  
@@ -243,6 +247,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

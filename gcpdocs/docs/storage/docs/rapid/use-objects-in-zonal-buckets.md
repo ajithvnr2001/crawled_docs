@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/rapid/use-objects-in-zonal-buckets/
 title: Read and append to objects in zonal buckets \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:51:02.129317+00:00
+fetched_at: 2026-10-29T07:55:03.725159+00:00
 ---
 
 # Read and append to objects in zonal buckets  |  Cloud Storage  |  Google Cloud Documentation
@@ -268,6 +268,39 @@ The following sample uploads an appendable object:
         )
     
     
+
+### Rust
+
+**Note:** Support for appendable objects in the Rust client library is unstable. To use it, enable the `google_cloud_unstable_storage_bidi` compiler flag by building with `RUSTFLAGS="--cfg google_cloud_unstable_storage_bidi"`, or by adding `rustflags = ["--cfg", "google_cloud_unstable_storage_bidi"]` to the `[build]` section of your `.cargo/config.toml` file.
+
+The following sample uploads an appendable object:
+    
+    
+    // The appendable upload API is unstable. Build with
+    // `RUSTFLAGS="--cfg google_cloud_unstable_storage_bidi"` to enable it.
+    use bytes::Bytes;
+    use google_cloud_storage::client::Storage;
+    
+    pub async fn sample(client: &Storage, bucket: &str, object: &str) -> Result<(), anyhow::Error> {
+        let mut writer = client
+            .open_appendable_object(format!("projects/_/buckets/{bucket}"), object)
+            .send()
+            .await?;
+    
+        writer.append(Bytes::from("Some data\n")).await?;
+    
+        // Flush the buffered data to the service. After a flush, the data is visible to readers.
+        let persisted_size = writer.flush().await?;
+        println!("Flush completed. Persisted size is now {persisted_size}");
+    
+        // The writer is still open. We can write more data.
+        writer.append(Bytes::from("Some more data\n")).await?;
+    
+        // Close the writer without finalizing the object.
+        let persisted_size = writer.close().await?;
+        println!("Created appendable object {object} in bucket {bucket} with {persisted_size} bytes");
+        Ok(())
+    }
 
 ## Read objects
 
@@ -1467,6 +1500,43 @@ The following sample pauses and resumes an appendable object:
     
     
 
+### Rust
+
+**Note:** Support for appendable objects in the Rust client library is unstable. To use it, enable the `google_cloud_unstable_storage_bidi` compiler flag by building with `RUSTFLAGS="--cfg google_cloud_unstable_storage_bidi"`, or by adding `rustflags = ["--cfg", "google_cloud_unstable_storage_bidi"]` to the `[build]` section of your `.cargo/config.toml` file.
+
+The following sample pauses and resumes an appendable object:
+    
+    
+    // The appendable upload API is unstable. Build with
+    // `RUSTFLAGS="--cfg google_cloud_unstable_storage_bidi"` to enable it.
+    use bytes::Bytes;
+    use google_cloud_storage::client::Storage;
+    
+    pub async fn sample(client: &Storage, bucket: &str, object: &str) -> Result<(), anyhow::Error> {
+        let mut writer = client
+            .open_appendable_object(format!("projects/_/buckets/{bucket}"), object)
+            .send()
+            .await?;
+    
+        writer.append(Bytes::from("Part 1")).await?;
+        let generation = writer.generation();
+        // Close the writer. Remaining data is flushed. The object is not finalized, so another writer
+        // can append to it later.
+        writer.close().await?;
+    
+        // Resume the upload by reopening the object at the same generation.
+        let mut resumed_writer = client
+            .reopen_appendable_object(format!("projects/_/buckets/{bucket}"), object, generation)
+            .send()
+            .await?;
+    
+        resumed_writer.append(Bytes::from("Part 2")).await?;
+        let metadata = resumed_writer.finalize().await?;
+    
+        println!("Appended data across multiple sessions to {object} in bucket {bucket}: {metadata:?}");
+        Ok(())
+    }
+
 ## Finalize an object
 
 ### Client libraries
@@ -1655,6 +1725,35 @@ The following sample finalizes an appendable object:
         print(object_resource)
     
     
+
+### Rust
+
+**Note:** Support for appendable objects in the Rust client library is unstable. To use it, enable the `google_cloud_unstable_storage_bidi` compiler flag by building with `RUSTFLAGS="--cfg google_cloud_unstable_storage_bidi"`, or by adding `rustflags = ["--cfg", "google_cloud_unstable_storage_bidi"]` to the `[build]` section of your `.cargo/config.toml` file.
+
+The following sample finalizes an appendable object:
+    
+    
+    // The appendable upload API is unstable. Build with
+    // `RUSTFLAGS="--cfg google_cloud_unstable_storage_bidi"` to enable it.
+    use bytes::Bytes;
+    use google_cloud_storage::client::Storage;
+    
+    pub async fn sample(client: &Storage, bucket: &str, object: &str) -> Result<(), anyhow::Error> {
+        let mut writer = client
+            .open_appendable_object(format!("projects/_/buckets/{bucket}"), object)
+            .send()
+            .await?;
+    
+        writer
+            .append(Bytes::from("some data to finalize\n"))
+            .await?;
+    
+        // Finalize the upload. No more data can be written to this object.
+        let metadata = writer.finalize().await?;
+    
+        println!("Finalized appendable object {object} in bucket {bucket}: {metadata:?}");
+        Ok(())
+    }
 
 ## Read the tail of an object
 
@@ -2065,6 +2164,53 @@ The following sample reads the tail of an appendable object:
                 print("Writer closed.")
     
     
+
+### Rust
+
+**Note:** Support for appendable objects in the Rust client library is unstable. To use it, enable the `google_cloud_unstable_storage_bidi` compiler flag by building with `RUSTFLAGS="--cfg google_cloud_unstable_storage_bidi"`, or by adding `rustflags = ["--cfg", "google_cloud_unstable_storage_bidi"]` to the `[build]` section of your `.cargo/config.toml` file.
+
+The following sample reads the tail of an appendable object:
+    
+    
+    // The appendable upload API is unstable. Build with
+    // `RUSTFLAGS="--cfg google_cloud_unstable_storage_bidi"` to enable it.
+    use bytes::Bytes;
+    use google_cloud_storage::client::Storage;
+    use google_cloud_storage::model_ext::ReadRange;
+    use std::time::Duration;
+    use tokio::time::sleep;
+    
+    pub async fn sample(client: &Storage, bucket: &str, object: &str) -> Result<(), anyhow::Error> {
+        let bucket_name = format!("projects/_/buckets/{bucket}");
+        let mut writer = client
+            .open_appendable_object(&bucket_name, object)
+            .send()
+            .await?;
+    
+        let mut bytes_read: u64 = 0;
+        for i in 0..2 {
+            let content = format!("More data for tail example, iteration {i}\n");
+            writer.append(Bytes::from(content)).await?;
+            // After a flush, the data is visible to readers.
+            writer.flush().await?;
+    
+            // Read everything from the last offset to the current end of the object.
+            let (_metadata, mut reader) = client
+                .open_object(&bucket_name, object)
+                .send_and_read(ReadRange::offset(bytes_read))
+                .await?;
+            while let Some(chunk) = reader.next().await.transpose()? {
+                print!("{}", String::from_utf8_lossy(&chunk));
+                bytes_read += chunk.len() as u64;
+            }
+    
+            sleep(Duration::from_secs(1)).await;
+        }
+    
+        // Close the writer without finalizing the object.
+        writer.close().await?;
+        Ok(())
+    }
 
 ## Optimize write latency
 
@@ -2507,6 +2653,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

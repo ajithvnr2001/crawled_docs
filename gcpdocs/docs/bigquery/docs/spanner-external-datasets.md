@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/spanner-external-datasets/
 title: Create Spanner external datasets \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:31.322791+00:00
+fetched_at: 2026-10-29T05:46:22.570977+00:00
 ---
 
 # Create Spanner external datasets  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/monitor-semantic-governance/
 title: Monitor semantic governance policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:01.151422+00:00
+fetched_at: 2026-10-29T06:14:26.034166+00:00
 ---
 
 # Monitor semantic governance policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -82,7 +82,7 @@ You can view the built-in policy engine metrics in the Google Cloud console usin
 
   4. Click **Select a metric** to open a search bar.
 
-  5. Enter **Semantic Governance Policy Engine** in the search bar and click the resource.
+  5. Enter **Semantic governance policy engine** in the search bar and click the resource.
 
   6. Click the **semantic_governance** metric category, then click a metric, such as **Evaluation Count**.
 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/dml-tasks/
 title: Insert, update, and delete data using data manipulation language (DML) \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:49.374169+00:00
+fetched_at: 2026-10-29T06:14:10.169768+00:00
 ---
 
 # Insert, update, and delete data using data manipulation language (DML)  |  Spanner  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Insert, update, and delete data using data manipulation language (DML) Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to insert, update, and delete Spanner data using Data Manipulation Language (DML) statements. You can run DML statements using the client libraries, the [Google Cloud console](https://docs.cloud.google.com/spanner/docs/modify-data), and the [`gcloud`](https://docs.cloud.google.com/spanner/docs/modify-gcloud) command-line tool. You can run [Partitioned DML](https://docs.cloud.google.com/spanner/docs/dml-partitioned) statements using the client libraries and the [`gcloud`](https://docs.cloud.google.com/spanner/docs/modify-gcloud) command-line tool.
+This page describes how to insert, update, and delete Spanner data using Data Manipulation Language (DML) statements. You can run DML statements using the client libraries, the [Google Cloud console](https://docs.cloud.google.com/spanner/docs/modify-data), and the [Google Cloud CLI](https://docs.cloud.google.com/spanner/docs/modify-gcloud). You can run [Partitioned DML](https://docs.cloud.google.com/spanner/docs/dml-partitioned) statements using the client libraries and the [gcloud CLI](https://docs.cloud.google.com/spanner/docs/modify-gcloud).
 
 For the complete DML syntax reference, see [Data Manipulation Language syntax](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/dml-syntax) for GoogleSQL-dialect databases or [PostgreSQL data manipulation language](https://docs.cloud.google.com/spanner/docs/reference/postgresql/dml-syntax) for PostgreSQL-dialect databases
 
@@ -29,7 +29,7 @@ For the complete DML syntax reference, see [Data Manipulation Language syntax](h
 
 ## Use DML
 
-DML supports `INSERT`, `UPDATE`, and `DELETE` statements in the Google Cloud console, Google Cloud CLI, and client libraries.
+DML supports `INSERT`, `UPDATE`, and `DELETE` statements in the Google Cloud console, gcloud CLI, and client libraries.
 
 ### Locking
 
@@ -119,7 +119,7 @@ Use the following steps to execute a DML statement in the Google Cloud console.
 
 **Note:** When you click **Run query** , the transaction commits automatically.
 
-### Execute statements with the Google Cloud CLI
+### Execute statements with the gcloud CLI
 
 To execute DML statements, use the `gcloud spanner databases execute-sql` command. The following example adds a new row to the `Singers` table.
     
@@ -3470,13 +3470,13 @@ The following example updates a row in the `Singers` table, then executes a `SEL
 
 ### Get the query plan
 
-You can [retrieve a query plan](https://docs.cloud.google.com/spanner/docs/sql-best-practices#how-execute-queries) using the Google Cloud console, the client libraries, and the `gcloud` command-line tool.
+You can [retrieve a query plan](https://docs.cloud.google.com/spanner/docs/sql-best-practices#how-execute-queries) using the Google Cloud console, the client libraries, and the gcloud CLI.
 
 ## Use Partitioned DML
 
 [Partitioned DML](https://docs.cloud.google.com/spanner/docs/dml-partitioned) is designed for bulk updates and deletes, particularly periodic cleanup and backfilling.
 
-### Execute statements with the Google Cloud CLI
+### Execute statements with the gcloud CLI
 
 To execute a Partitioned DML statement, use the `gcloud spanner databases execute-sql` command with the `--enable-partitioned-dml` option. The following example updates rows in the `Albums` table.
     
@@ -4191,6 +4191,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

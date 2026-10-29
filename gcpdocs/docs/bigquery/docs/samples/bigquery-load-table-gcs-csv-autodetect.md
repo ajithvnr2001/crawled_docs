@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-load-table-gcs-csv-autodetect/
 title: Load a CSV file with autodetect schema \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:40:35.723743+00:00
+fetched_at: 2026-10-29T05:43:49.934011+00:00
 ---
 
 # Load a CSV file with autodetect schema  |  BigQuery  |  Google Cloud Documentation

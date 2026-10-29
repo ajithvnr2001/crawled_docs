@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/loading-data-cloud-storage-parquet/
 title: Load Parquet data from Cloud Storage \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:26.828484+00:00
+fetched_at: 2026-10-29T05:42:46.701849+00:00
 ---
 
 # Load Parquet data from Cloud Storage  |  BigQuery  |  Google Cloud Documentation

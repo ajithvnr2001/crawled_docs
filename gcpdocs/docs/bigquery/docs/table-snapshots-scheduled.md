@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/table-snapshots-scheduled/
 title: Create table snapshots with a scheduled query \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:38.522965+00:00
+fetched_at: 2026-10-29T05:46:43.975693+00:00
 ---
 
 # Create table snapshots with a scheduled query  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/authentication/client-libraries/
 title: Authenticate with client libraries \u00a0|\u00a0 Authentication \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:37:11.282440+00:00
+fetched_at: 2026-10-29T05:40:47.315815+00:00
 ---
 
 # Authenticate with client libraries  |  Authentication  |  Google Cloud Documentation
@@ -253,7 +253,7 @@ Before you can run the following samples, you must complete the following steps:
       # *NOTE*: Replace the client created below with the client required for your application.
       # Note that the credentials are not specified when constructing the client.
       # Hence, the client library will look for credentials using ADC.
-      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html) project_id: project_id
+      storage = Google::Cloud::[Storage](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage-control-v2/latest/Google-Cloud-Storage.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage.html) project_id: project_id
       buckets = storage.buckets
       puts "Buckets: "
       buckets.[each](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-storage/latest/Google-Cloud-Storage-Policy-Bindings.html) do |bucket|

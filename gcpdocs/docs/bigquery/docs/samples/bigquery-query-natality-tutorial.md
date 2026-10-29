@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-natality-tutorial/
 title: Write to destination table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:42:54.900822+00:00
+fetched_at: 2026-10-29T05:41:34.431754+00:00
 ---
 
 # Write to destination table  |  BigQuery  |  Google Cloud Documentation

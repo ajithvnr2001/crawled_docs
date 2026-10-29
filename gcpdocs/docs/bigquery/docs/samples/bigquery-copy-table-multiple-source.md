@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-copy-table-multiple-source/
 title: Copy multiple tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:58.151464+00:00
+fetched_at: 2026-10-29T05:42:20.195358+00:00
 ---
 
 # Copy multiple tables  |  BigQuery  |  Google Cloud Documentation

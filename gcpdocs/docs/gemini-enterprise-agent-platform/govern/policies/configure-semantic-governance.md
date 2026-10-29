@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-semantic-governance/
 title: Configure semantic governance policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:00.758131+00:00
+fetched_at: 2026-10-29T06:14:19.356573+00:00
 ---
 
 # Configure semantic governance policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -29,7 +29,7 @@ When you use this feature with AI Agents, the terms applicable to AI Agents in t
 
 Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages).
 
-**Note:** Semantic Governance Policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
+**Note:** Semantic governance policy is a Generative AI Service that uses an LLM to implement natural language policies. LLMs are probabilistic and can make mistakes. Verdicts may not be accurate.
 
 ## Configure Semantic governance policies and the policy engine
 
@@ -141,7 +141,7 @@ After you complete the provisioning, you must connect the policy engine to Agent
           }'
     
 
-### gcloud
+###  gcloud 
     
     
     gcloud beta ai semantic-governance-policy-engine update \
@@ -168,7 +168,7 @@ When you provision the engine with Google-managed binding, Google automatically 
 
 To retrieve the automatically generated DNS hostname:
 
-### gcloud
+###  gcloud 
 
 Run the following command to describe the policy engine configuration:
     
@@ -202,7 +202,7 @@ In the response, locate the `dnsRecord` field under `gatewayConfigs.GATEWAY_NAME
         }'
     
 
-### gcloud
+###  gcloud 
     
     
     gcloud beta ai semantic-governance-policy-engine update \
@@ -381,7 +381,7 @@ After the network is configured, you must create an authorization extension and 
 
   1. **Create the authorization extension** : Create an authorization extension that points to the policy engine's DNS hostname. Use the same `SGP_DNS_HOSTNAME` that you created a DNS record for in Configuring the network (step 4). This is the mechanism by which Agent Gateway sends traffic to the policy engine for evaluation.
 
-### gcloud
+###  gcloud 
 
 Define the extension configuration in a YAML file (`authz-ext.yaml`) and import it:
          
@@ -422,7 +422,7 @@ This command returns a long-running operation. Wait for the operation to complet
 
 **Important:** The `when` condition sends only model-inference requests to the policy engine. The example matches every [supported model provider](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/semantic-governance-overview#supported-providers). You can remove the paths for providers that your agents don't use. Don't broaden the condition: other traffic, such as MCP tool calls, isn't evaluated but still adds latency. The condition uses `contains()` because `request.path` includes the query string, so a path match with `endsWith()` would miss requests that have query parameters. Streaming paths such as `:streamGenerateContent` and `:streamRawPredict` don't match the condition, so they aren't sent to the policy engine.
 
-### gcloud
+###  gcloud 
 
 Define the authorization policy configuration in a YAML file (`authz-policy.yaml`) and import it:
          
@@ -518,7 +518,7 @@ Tip: Before creating your first policy, ensure you've completed the network conf
 
 
 
-### gcloud
+###  gcloud 
 
 You can configure a constraint at **agent scope** (applies to all tools) or **tool scope** using the [`gcloud beta ai semantic-governance-policies create`](https://docs.cloud.google.com/sdk/gcloud/reference/beta/ai/semantic-governance-policies) command.
 
@@ -789,7 +789,7 @@ Alternatively, use the following `curl` command:
         -d '{}'
     
 
-### gcloud
+###  gcloud 
     
     
     gcloud beta ai semantic-governance-policy-engine deprovision \
@@ -897,7 +897,7 @@ To debug an unexpected verdict:
 
 ## Error catalog
 
-The following table lists errors that you might encounter when managing Semantic Governance Policies, along with steps to resolve them:
+The following table lists errors that you might encounter when managing Semantic governance policies, along with steps to resolve them:
 
 Error name | Description | Suggested action  
 ---|---|---  

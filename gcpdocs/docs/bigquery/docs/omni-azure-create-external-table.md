@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/omni-azure-create-external-table/
 title: Create Azure Blob Storage BigLake tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:09:55.872796+00:00
+fetched_at: 2026-10-29T05:44:18.421392+00:00
 ---
 
 # Create Azure Blob Storage BigLake tables  |  BigQuery  |  Google Cloud Documentation

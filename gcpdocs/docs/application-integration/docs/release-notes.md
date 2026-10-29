@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-integration/docs/release-notes/
 title: Application Integration release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:44.024256+00:00
+fetched_at: 2026-10-29T05:51:16.943039+00:00
 ---
 
 # Application Integration release notes  |  Google Cloud Documentation
@@ -27,6 +27,18 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/application-integration-release-notes.xml) directly. 
 
+## October 28, 2026
+
+Security
+
+A Deserialization of Untrusted Data vulnerability was discovered in the `SubWorkflow` task in Application Integration versions prior to September 11, 2026. For more information, see the [GCP-2026-074](https://docs.cloud.google.com/application-integration/docs/security-bulletins#gcp-2026-074) security bulletin.
+
+Feature
+
+**Application Integration agent skills**
+
+Application Integration agent skills are available in the public [`google/skills`](https://github.com/google/skills) repository: `application-integration-basics`, `application-integration-authoring`, and `application-integration-troubleshooting`. AI coding agents that use these skills can help you set up Application Integration; build, publish, and run integrations through the REST API; and troubleshoot failed runs. For more information, see [Application Integration agent skills](https://docs.cloud.google.com/application-integration/docs/agent-skills-overview) and [Build an integration with an AI agent](https://docs.cloud.google.com/application-integration/docs/build-integration-ai-agent).
+
 ## October 14, 2026
 
 Security
@@ -35,9 +47,9 @@ An Incorrect Authorization vulnerability in the `AuthConfig` validation and inte
 
 ## October 12, 2026
 
-Security
+Announcement
 
-Starting October 15, 2026, Application Integration enforces security fixes for IAM, run-as service accounts, and `iam.serviceAccounts.actAs` checks, requiring the correct permissions for the test feature and any new integrations. For more information, see the [GCP-2026-067](https://docs.cloud.google.com/application-integration/docs/security-bulletins#gcp-2026-067) security bulletin and [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
+Starting October 15, 2026, Application Integration enforces security fixes for IAM, run-as service accounts, and `iam.serviceAccounts.actAs` checks, requiring the correct permissions for the test feature and any new integrations. For more information, see the [GCP-2026-068](https://docs.cloud.google.com/application-integration/docs/security-bulletins#gcp-2026-068) security bulletin and [Prepare for upcoming authorization changes](https://docs.cloud.google.com/application-integration/docs/prepare-for-authorization-changes).
 
 ## September 28, 2026
 

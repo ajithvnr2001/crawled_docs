@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/onboarding/api-support/
 title: API Support in Managed Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:13.066684+00:00
+fetched_at: 2026-10-29T06:14:14.816141+00:00
 ---
 
 # API Support in Managed Cloud Service Mesh  |  Google Cloud Documentation
@@ -856,8 +856,8 @@ The following table lists the field-level support.
 
 Field | Highest Channel Support | Supported Data Types (Values) | Limitations  
 ---|---|---|---  
-`mtls.mode` | Stable | String (`UNSET`, `DISABLE`, `PERMISSIVE`, `STRICT`) | `DISABLE` mode is not supported.  
-`portLevelMtls.mode` | Stable | String (`UNSET`, `DISABLE`, `PERMISSIVE`, `STRICT`) | `DISABLE` mode is not supported.  
+`mtls.mode` | Stable | String (`UNSET`, `DISABLE`, `PERMISSIVE`, `STRICT`) | `DISABLE` mode is not supported. To disable mTLS for a service, use a `DestinationRule` with `trafficPolicy.tls.mode: DISABLE` (see [Disable mTLS for specific services or ports](https://docs.cloud.google.com/service-mesh/docs/security/configuring-mtls#disable-mtls)).  
+`portLevelMtls.mode` | Stable | String (`UNSET`, `DISABLE`, `PERMISSIVE`, `STRICT`) | `DISABLE` mode is not supported. To disable mTLS for a specific port, use `trafficPolicy.portLevelSettings.tls.mode: DISABLE` in a `DestinationRule` (see [Disable mTLS](https://docs.cloud.google.com/service-mesh/docs/security/configuring-mtls#disable-mtls)).  
 `selector.matchLabels` | Stable | Key-value map | Policy in root namespace is not allowed to have label selector.  
   
 ## RequestAuthentication (security.istio.io/v1beta1)
@@ -900,7 +900,7 @@ The following table lists the supported root and general configuration fields.
 
 Field | Highest Channel Support | Supported Data Types (Values) | Limitations  
 ---|---|---|---  
-`selector.matchLabels` | Regular | Key-value map | In the Stable channel, only mesh-wide telemetry in root namespace is supported.  
+`selector.matchLabels` | Stable | Key-value map |   
   
 ### Access Logging (accessLogging)
 
@@ -927,7 +927,7 @@ Field | Highest Channel Support | Supported Data Types (Values) | Limitations
 `disableSpanReporting` | Stable | Boolean | Disables span reporting to Cloud Trace.  
 `match.mode` | **Unsupported** | String (`CLIENT_AND_SERVER`, `CLIENT`, `SERVER`) |   
 `providers.name` | Stable | String | Only Stackdriver.  
-`randomSamplingPercentage` | Regular | Double | Defaults to 0.0. Supported value range: 0.0 to 100.0.  
+`randomSamplingPercentage` | Stable | Double | Defaults to 1.0. Supported value range: 0.0 to 100.0.  
 `useRequestIdForTraceSampling` | **Unsupported** | Boolean |   
   
 ### Metrics (metrics)
@@ -1273,7 +1273,7 @@ Field | Highest Channel Support | Supported Data Types (Values) | Limitations
 `envoyMetricsServiceAddress` | **Unsupported** | String |   
 `extraStatTags` | **Unsupported** | **Array of strings** |   
 `holdApplicationUntilProxyStarts` | Stable | Boolean | Delays application pod startup until Envoy proxy is ready.  
-`interceptionMode` | Stable | String (`REDIRECT`, `TPROXY`, `NONE`) | Traffic interception mode for proxy sidecars.  
+`interceptionMode` | **Unsupported** | String (`REDIRECT`, `TPROXY`) | Only `REDIRECT` is supported and is configured by default.  
 `meshId` | **Unsupported** | String |   
 `proxyAdminPort` | **Unsupported** | Integer |   
 `proxyBootstrapTemplatePath` | **Unsupported** | String |   
@@ -1534,7 +1534,7 @@ Annotation | Highest Channel Support | Resource | Description | Limitations
 `kubernetes.io/ingress.class` | Stable | Ingress | Annotation on an Ingress resource denoting the class of controllers responsible for it. |   
 `networking.istio.io/exportTo` | **Unsupported** | Service | Specifies the namespaces to which this service should be exported. A value of `*` indicates it is reachable within the mesh, `.` indicates it is reachable within its namespace. |   
 `prometheus.istio.io/merge-metrics` | **Unsupported** | Pod | Specifies whether application Prometheus metrics are merged with Envoy metrics for this workload. |   
-`proxy.istio.io/config` | Stable | Pod | Overrides for the proxy configuration for this specific proxy. Available options can be found in the [ProxyConfig reference](https://istio.io/docs/reference/config/istio.mesh.v1alpha1/#ProxyConfig). |   
+`proxy.istio.io/config` | Stable | Pod | Overrides for the proxy configuration for this specific proxy. Available options can be found in the [ProxyConfig reference](https://istio.io/docs/reference/config/istio.mesh.v1alpha1/#ProxyConfig). | Supports only the fields that are supported under the `MeshConfig.defaultConfig` field.  
 `proxy.istio.io/overrides` | Stable | Pod | Used internally to indicate user-specified overrides in the proxy container of the pod during injection. |   
 `readiness.status.sidecar.istio.io/applicationPorts` | **Unsupported** | Pod | Specifies the list of ports exposed by the application container. Used by the Envoy sidecar readiness probe to determine that Envoy is configured and ready to receive traffic. |   
 `readiness.status.sidecar.istio.io/failureThreshold` | **Unsupported** | Pod | Specifies the failure threshold for the Envoy sidecar readiness probe. |   
@@ -1548,7 +1548,7 @@ Annotation | Highest Channel Support | Resource | Description | Limitations
 `sidecar.istio.io/enableCoreDump` | Stable | Pod | Specifies whether an Envoy sidecar should enable core dump. |   
 `sidecar.istio.io/extraStatTags` | **Unsupported** | Pod | An additional list of tags to extract from the in-proxy Istio Wasm telemetry. | Deprecated.  
 `sidecar.istio.io/inject` | Stable | Pod | Specifies whether an Envoy sidecar should be automatically injected into the workload. | Deprecated in favor of the `sidecar.istio.io/inject` label.  
-`sidecar.istio.io/interceptionMode` | Stable | Pod | Specifies the mode used to redirect inbound connections to Envoy (`REDIRECT` or `TPROXY`). |   
+`sidecar.istio.io/interceptionMode` | **Unsupported** | Pod | Specifies the mode used to redirect inbound connections to Envoy (`REDIRECT` or `TPROXY`). | Only `REDIRECT` is supported and is configured by default.  
 `sidecar.istio.io/logLevel` | Stable | Pod | Specifies the log level for Envoy. |   
 `sidecar.istio.io/proxyCPU` | Stable | Pod | Specifies the requested CPU setting for the Envoy sidecar. |   
 `sidecar.istio.io/proxyCPULimit` | Stable | Pod | Specifies the CPU limit for the Envoy sidecar. |   
@@ -1580,6 +1580,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

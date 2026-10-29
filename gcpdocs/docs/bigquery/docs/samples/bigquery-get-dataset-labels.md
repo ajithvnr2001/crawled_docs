@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-get-dataset-labels/
 title: Get dataset labels \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:06.548187+00:00
+fetched_at: 2026-10-29T05:42:06.213651+00:00
 ---
 
 # Get dataset labels  |  BigQuery  |  Google Cloud Documentation

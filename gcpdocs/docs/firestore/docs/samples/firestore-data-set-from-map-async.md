@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-data-set-from-map-async/
 title: Add a Firestore document using a map (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:56:41.815707+00:00
+fetched_at: 2026-10-29T07:58:11.214529+00:00
 ---
 
 # Add a Firestore document using a map (async)  |  Google Cloud Documentation

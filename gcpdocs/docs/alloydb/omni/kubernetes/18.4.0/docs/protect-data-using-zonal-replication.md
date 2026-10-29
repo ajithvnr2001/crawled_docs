@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/protect-data-using-zonal-replication/
 title: Protect your data using zonal replication \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.4.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:02:10.159263+00:00
+fetched_at: 2026-10-29T05:46:48.494130+00:00
 ---
 
 # Protect your data using zonal replication  |  AlloyDB Omni using the container orchestrator: 18.4.0  |  Google Cloud Documentation
@@ -75,9 +75,6 @@ The following are important HA concepts:
 
 In Kubernetes environments, to support HA, you can deploy AlloyDB Omni using AlloyDB Omni Kubernetes operators. For more information, see [Manage high availability in Kubernetes](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/kubernetes-ha).
 
-**Note** : [Patroni](https://github.com/patroni/patroni) and [HAProxy](https://github.com/haproxy/haproxy) are non-commercial, third-party party tools, and they are compatible with AlloyDB Omni.  
----  
-  
 We recommend that you have at least two standby databases so that the loss of one database doesn't impact the high availability of the cluster. In that mode, you have at least one HA pair in the event of a failover or during any planned maintenance of a node.
 
 To plan the storage for your AlloyDB Omni deployment, see [Plan storage for AlloyDB Omni on Kubernetes](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/plan-storage-kubernetes). 
@@ -165,7 +162,6 @@ When you choose an availability reference architecture, keep in mind the followi
   * [AlloyDB Omni availability reference architecture overview](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/database-availability-reference-architecture-overview).
   * [AlloyDB Omni Standard Availability](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/protect-data-using-backups).
   * [AlloyDB Omni Premium Availability](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/protect-data-using-zonal-regional-replication).
-  * [High Availability architecture for AlloyDB Omni for PostgreSQL](https://googlecloudplatform.github.io/cloud-solutions/alloydbomni-ha-patroni-etcd/).
   * [Manage high availability in Kubernetes](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.4.0/docs/kubernetes-ha).
 
 
@@ -174,6 +170,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/reservations-workload-management/
 title: Understand reservations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:27.241170+00:00
+fetched_at: 2026-10-29T05:44:01.938441+00:00
 ---
 
 # Understand reservations  |  BigQuery  |  Google Cloud Documentation

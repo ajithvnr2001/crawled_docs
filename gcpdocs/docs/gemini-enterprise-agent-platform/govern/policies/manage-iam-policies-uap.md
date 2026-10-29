@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/manage-iam-policies-uap/
 title: Manage IAM Unified Access Policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:26.612328+00:00
+fetched_at: 2026-10-29T06:14:16.283514+00:00
 ---
 
 # Manage IAM Unified Access Policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -62,7 +62,7 @@ For more information about creating UAPs, see [Create IAM UAPs](https://docs.clo
 
 
 
-### gcloud
+###  gcloud 
 
 To create a UAP using the gcloud CLI, define your policy rules in a JSON file and run the `create` command:
     
@@ -134,7 +134,7 @@ To enforce a UAP, bind it to a target resource scope, such as a project or an Ag
 
 When you save a policy, it is automatically bound to the project.
 
-### gcloud
+###  gcloud 
 
 To bind a UAP to a target resource using the gcloud CLI, run the following command:
     
@@ -198,7 +198,7 @@ You can list all UAPs in your project or list all policy bindings attached to a 
 
 
 
-### gcloud
+###  gcloud 
 
 To list UAPs in your project, run the following command:
     
@@ -224,7 +224,7 @@ To list UAPs using the REST API, make a `GET` request to the `accessPolicies` en
 
 Because policies that are managed through the console are automatically bound to the project, you must use the gcloud CLI or the REST API to view policy bindings.
 
-### gcloud
+###  gcloud 
 
 To list policy bindings in your project, run the following command:
     
@@ -271,7 +271,7 @@ You can retrieve the detailed configuration and rules of a specific UAP or polic
 
 
 
-### gcloud
+###  gcloud 
 
 To describe a specific UAP, run the following command:
     
@@ -297,7 +297,7 @@ To retrieve a specific UAP using the REST API, make a `GET` request:
 
 Because policies that are managed through the console are automatically bound to the project, you must use the gcloud CLI or the REST API to view policy bindings.
 
-### gcloud
+###  gcloud 
 
 To describe a specific policy binding, run the following command:
     
@@ -337,7 +337,7 @@ You can update the rules inside an existing UAP or update the target or policy r
 
 
 
-### gcloud
+###  gcloud 
 
 To update an existing UAP using the gcloud CLI, save your modified rules to a JSON file and run the following command:
     
@@ -383,7 +383,7 @@ To update a UAP using the REST API, make a `PATCH` request to the UAP endpoint:
 
 To update a policy binding, you must use the gcloud CLI or the REST API.
 
-### gcloud
+###  gcloud 
 
 To update a policy binding to reference a different policy or target, run the following command:
     
@@ -418,7 +418,7 @@ To update a policy binding using the REST API, make a `PATCH` request:
 
 To delete a policy binding, you must use the gcloud CLI or the REST API.
 
-### gcloud
+###  gcloud 
 
 To delete a policy binding, run the following command:
     
@@ -454,7 +454,7 @@ To delete a UAP, you must delete all of the rules in the policy.
 
 
 
-### gcloud
+###  gcloud 
 
 To delete a UAP after deleting its bindings, run the following command:
     

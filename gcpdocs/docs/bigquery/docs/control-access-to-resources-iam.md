@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/control-access-to-resources-iam/
 title: Control access to resources with IAM \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:24.279223+00:00
+fetched_at: 2026-10-29T05:42:05.404117+00:00
 ---
 
 # Control access to resources with IAM  |  BigQuery  |  Google Cloud Documentation

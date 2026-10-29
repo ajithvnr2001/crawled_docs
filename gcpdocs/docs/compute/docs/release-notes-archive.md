@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/release-notes-archive/
 title: Archived release notes \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:19:52.005404+00:00
+fetched_at: 2026-10-29T05:46:36.049032+00:00
 ---
 
 # Archived release notes  |  Compute Engine  |  Google Cloud Documentation
@@ -1523,7 +1523,7 @@ Duplicate API quota groups are displayed in the Cloud Console. For more informat
 
 Deprecated
 
-As of February 1, 2022, all CentOS 8 images are deprecated. CentOS 8 reached EOL on December 31, 2021. If you use CentOS 8 images in your project, review [CentOS 8 end of life](https://docs.cloud.google.com/compute/docs/eol/centos8).
+As of February 1, 2022, all CentOS 8 images are deprecated. CentOS 8 reached EOL on December 31, 2021. If you use CentOS 8 images in your project, review [CentOS end of support guidance](https://docs.cloud.google.com/compute/docs/eol/centos-eol-guidance).
 
 ## January 31, 2022
 

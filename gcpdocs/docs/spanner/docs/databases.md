@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/databases/
 title: Databases overview \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:21.436719+00:00
+fetched_at: 2026-10-29T06:14:02.003966+00:00
 ---
 
 # Databases overview  |  Spanner  |  Google Cloud Documentation
@@ -34,7 +34,7 @@ A database inherits properties from its parent instance, such as its configurati
 Properties that are set on the database are:
 
   * The [dialect](https://docs.cloud.google.com/spanner/docs/postgresql-interface#choosing_between_and). Spanner supports GoogleSQL and PostgreSQL. All of the tables in a database must use the same dialect.
-  * An [IAM policy](https://docs.cloud.google.com/spanner/docs/grant-permissions#database-level_permissions). The access rules defined by this policy are applied to the tables and data inside the database.
+  * An [Identity and Access Management (IAM) policy](https://docs.cloud.google.com/spanner/docs/grant-permissions#database-level_permissions). The access rules defined by this policy are applied to the tables and data inside the database.
   * The type of encryption key to use. The default is a Google-owned and Google-managed encryption key; a [customer-managed encryption key](https://docs.cloud.google.com/spanner/docs/cmek) is also supported.
   * [Database deletion protection](https://docs.cloud.google.com/spanner/docs/prevent-database-deletion) to prevent accidental deletion of databases.
   * Database policies such as the default leader region, query optimizer version, query optimizer statistics package version, and version retention period, can be set or modified with DDL statements. See the DDL reference for [GoogleSQL](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/data-definition-language#alter-database) or [PostgreSQL](https://docs.cloud.google.com/spanner/docs/reference/postgresql/data-definition-language#alter-database).
@@ -57,6 +57,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

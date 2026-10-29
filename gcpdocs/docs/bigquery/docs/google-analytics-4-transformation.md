@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/google-analytics-4-transformation/
 title: Google Analytics 4 report transformation \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:00:11.991133+00:00
+fetched_at: 2026-10-29T06:14:52.518379+00:00
 ---
 
 # Google Analytics 4 report transformation  |  BigQuery  |  Google Cloud Documentation
@@ -86,7 +86,7 @@ itemId | The ID of the item.
 itemListPosition | The position of an item in a list. For example, a product you sell in a list. This dimension is populated in tagging by the index parameter in the items array.  
 itemName | The name of the item.  
 itemVariant | The specific variation of a product. For example, XS, S, M, or L for size; or Red, Blue, Green, or Black for color. Populated by the item_variant parameter.  
-itemAddedToCart | The number of units added to cart for a single item. This metric counts the quantity of items in add_to_cart events.  
+itemsAddedToCart | The number of units added to cart for a single item. This metric counts the quantity of items in add_to_cart events.  
 itemRevenue | The total revenue from purchases minus refunded transaction revenue from items only. Item revenue is the product of its price and quantity. Item revenue excludes tax and shipping values; tax & shipping values are specified at the event and not item level.  
 itemsPurchased | The number of units for a single item included in purchase events. This metric counts the quantity of items in purchase events.  
 itemsViewed | The number of units viewed for a single item. This metric counts the quantity of items in view_item events.  
@@ -138,8 +138,8 @@ itemPromotionCreativeName | The name of the item-promotion creative.
 itemPromotionId | The ID of the promotion.  
 itemPromotionName | The name of the promotion for the item.  
 itemListPosition | The position of an item in a list. For example, a product you sell in a list. This dimension is populated in tagging by the index parameter in the items array.  
-itemAddedToCart | The number of units added to cart for a single item. This metric counts the quantity of items in add_to_cart events.  
-itemCheckedOut | The number of units checked out for a single item. This metric counts the quantity of items in begin_checkout events.  
+itemsAddedToCart | The number of units added to cart for a single item. This metric counts the quantity of items in add_to_cart events.  
+itemsCheckedOut | The number of units checked out for a single item. This metric counts the quantity of items in begin_checkout events.  
 itemPromotionClickThroughRate | The number of users who selected a promotion(s) divided by the number of users who viewed the same promotion(s). This metric is returned as a fraction; for example, 0.1382 means 13.82% of users who viewed a promotion also selected the promotion.  
 itemRevenue | The total revenue from purchases minus refunded transaction revenue from items only. Item revenue is the product of its price and quantity. Item revenue excludes tax and shipping values; tax & shipping values are specified at the event and not item level.  
 itemsClickedInPromotion | The number of units clicked in promotion for a single item. This metric counts the quantity of items in select_promotion events.  
@@ -186,7 +186,6 @@ engagedSessions | The number of sessions that lasted longer than 10 seconds, or 
 keyEvents | The number of key events that occurred.  
 sessions | The number of sessions that began on your site or app (event triggered: session_start).  
 sessionKeyEventRate | The percentage of sessions in which any key event was triggered.  
-sessionsPerUser | The average number of sessions per user (Sessions divided by Active Users).  
 totalRevenue | The sum of revenue from purchases, subscriptions, and advertising (Purchase revenue plus Subscription revenue plus Ad revenue) minus refunded transaction revenue.  
 userEngagementDurationPerSession | Average engagement time per session  
   
@@ -203,7 +202,6 @@ firstUserSourceMedium | The combined values of the dimensions firstUserSource an
 firstUserSourcePlatform | The source platform that first acquired the user. Don't depend on this field returning Manual for traffic that uses UTMs; this field will update from returning Manual to returning (not set) for an upcoming feature launch.  
 activeUsers | The number of distinct users who visited your website or application.  
 engagedSessions | The number of sessions that lasted longer than 10 seconds, or had a key event, or had 2 or more screen views.  
-engagementRate | The percentage of engaged sessions (Engaged sessions divided by Sessions). This metric is returned as a fraction; for example, 0.7239 means 72.39% of sessions were engaged sessions.  
 eventCount | The count of events.  
 keyEvents | The number of key events that occurred.  
 newUsers | The number of users who interacted with your site or launched your app for the first time (event triggered: first_open or first_visit).  
@@ -216,6 +214,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

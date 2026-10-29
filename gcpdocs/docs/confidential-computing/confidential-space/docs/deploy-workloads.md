@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/confidential-computing/confidential-space/docs/deploy-workloads/
 title: Deploy workloads \u00a0|\u00a0 Confidential Space \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:07.275442+00:00
+fetched_at: 2026-10-29T05:59:54.640357+00:00
 ---
 
 # Deploy workloads  |  Confidential Space  |  Google Cloud Documentation
@@ -488,6 +488,17 @@ A high log volume in the serial console might impact workload performance.
     
     type=tmpfs,source=tmpfs,destination=/tmp/tmpfs,size=12345;type=tmpfs,source=tmpfs,destination=/run/workload  
   
+`tee-nonroot-container` **Interacts with:**
+
+  * **Workload author** : The [ `nonroot_container`](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/create-customize-workloads#nonroot-container) launch policy. 
+
+| Boolean |  Defaults to `false`. When set to `true`, the container runs in an isolated user namespace as a non-root user on the host VM. This variable must be set to `true` if the workload author sets [ `tee.launch_policy.nonroot_container`](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/create-customize-workloads#nonroot-container) to `nonrootonly`.  **Note** : Supported in Confidential Space image `confidential-space-261001` and later. If used on earlier images, this key has no effect and the container runs as root. 
+
+##### Example
+    
+    
+    tee-nonroot-container=true  
+  
 `tee-restart-policy` **Interacts with:**
 
   * **Data collaborators** : The [ `container.restart_policy`](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/create-grant-access-confidential-resources?tab=container-assertions#restart-policy) assertion. 
@@ -524,6 +535,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

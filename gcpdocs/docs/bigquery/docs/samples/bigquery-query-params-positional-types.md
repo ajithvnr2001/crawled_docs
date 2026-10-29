@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-params-positional-types/
 title: Positional parameters and provided types \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:20.755787+00:00
+fetched_at: 2026-10-29T05:41:45.806026+00:00
 ---
 
 # Positional parameters and provided types  |  BigQuery  |  Google Cloud Documentation

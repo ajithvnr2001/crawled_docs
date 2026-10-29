@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/extension-bindings-overview/
 title: Extensible policies on Agent Gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:15.196319+00:00
+fetched_at: 2026-10-29T06:14:17.072058+00:00
 ---
 
 # Extensible policies on Agent Gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -78,7 +78,7 @@ For custom governance logic, policy extensibility enables a flexible two-sided i
 
   * **Producer:** Internal platform engineering teams (2P) or third-party ISV security vendors (3P) act as producers. The producer builds a gRPC service compatible with Envoy's `ext_proc` protocol, hosts it in a dedicated producer project (such as a Cloud Run service behind an Application Load Balancer), exposes it using a Private Service Connect (PSC) Service Attachment, and publishes a `ProducerExtension` resource.
 
-  * **Consumer:** Application developers and security administrators across consumer projects act as consumers. Once granted access [by using PSC](https://docs.cloud.google.com/vpc/docs/private-service-connect-security#connection-preference) by the producer, consumers create an `ExtensionBinding` in their project referencing the specific `ProducerExtension` resource URI to enforce custom controls (such as Semantic Governance Policies or third-party firewall rules) on their workloads.
+  * **Consumer:** Application developers and security administrators across consumer projects act as consumers. Once granted access [by using PSC](https://docs.cloud.google.com/vpc/docs/private-service-connect-security#connection-preference) by the producer, consumers create an `ExtensionBinding` in their project referencing the specific `ProducerExtension` resource URI to enforce custom controls (such as Semantic governance policies or third-party firewall rules) on their workloads.
 
 
 

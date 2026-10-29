@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-update-dataset-description/
 title: Update a description \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:17.586008+00:00
+fetched_at: 2026-10-29T05:41:54.900666+00:00
 ---
 
 # Update a description  |  BigQuery  |  Google Cloud Documentation

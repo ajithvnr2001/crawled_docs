@@ -1,47 +1,16 @@
 ---
 url: https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/
 title: Use a chat agent \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
-method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
-fetched_at: 2026-10-27T18:14:35.799288+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T07:55:27.428769+00:00
 ---
 
 # Use a chat agent  |  Gemini Enterprise  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/
 
-[ Skip to main content ](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#main-content)
-[ ![Google Cloud Documentation](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup_full_color.svg) ](https://docs.cloud.google.com/)
-`/`
-[ Console ](https://console.cloud.google.com/)
-  * [English](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/)
-  * [Deutsch](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=de)
-  * [Español – América Latina](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=es-419)
-  * [Français](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=fr)
-  * [Indonesia](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=id)
-  * [Italiano](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=it)
-  * [Português – Brasil](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=pt-br)
-  * [עברית](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=he)
-  * [中文 – 简体](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=zh-cn)
-  * [中文 – 繁體](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=zh-tw)
-  * [日本語](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=ja)
-  * [한국어](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/?hl=ko)
-
-
-[ Sign in ](https://docs.cloud.google.com/_d/signin?continue=https%3A%2F%2Fdocs.cloud.google.com%2Fgemini%2Fenterprise%2Fdocs%2Fworkflow-builder%2Fuse-chat-agent%2F&prompt=select_account)
-[ ![](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/gemini-spark-blue-192px.svg) ](https://docs.cloud.google.com/gemini/enterprise/docs)
-  * [ Gemini Enterprise ](https://docs.cloud.google.com/gemini/enterprise/docs)
-
-
-[Start free](https://console.cloud.google.com/freetrial)
-  * On this page
-  * [Start a conversation with a chat agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#start-conversation)
-  * [Agent functions and capabilities](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#capabilities)
-  * [Data options](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#data-options)
-  * [Tips for interacting with chat agents](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#tips)
-  * [What's next](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#whats-next)
-
-
 **Note:** This documentation set is for the Standard, Plus, Pay-as-you-go, and Frontline editions of Gemini Enterprise. For the Business edition documentation, see the [Gemini Enterprise - Business edition Help Center](https://support.google.com/g). 
+
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
   * [ AI and ML ](https://docs.cloud.google.com/docs/ai-ml)
@@ -49,32 +18,39 @@ fetched_at: 2026-10-27T18:14:35.799288+00:00
   * [ App user guide ](https://docs.cloud.google.com/gemini/enterprise/docs/get-started)
 
 
-Was this helpful?
-Send feedback 
-#  Use a chat agent Stay organized with collections  Save and categorize content based on your preferences.
-  * On this page
-  * [Start a conversation with a chat agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#start-conversation)
-  * [Agent functions and capabilities](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#capabilities)
-  * [Data options](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#data-options)
-  * [Tips for interacting with chat agents](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#tips)
-  * [What's next](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#whats-next)
 
+Send feedback 
+
+#  Use a chat agent Stay organized with collections  Save and categorize content based on your preferences. 
 
 A _chat agent_ is a specialized conversational assistant designed to help you accomplish specific business tasks using natural language. Chat agents combine Gemini's conversational intelligence with your organization's connected data, documents, and business tools to deliver relevant, grounded responses.
+
 You can use custom chat agents created and shared across your organization, agents you build yourself, or **Made by Google** prebuilt agents available in your Agent Gallery. After a chat agent is created and published, you can start using and interacting with it.
+
 ## Start a conversation with a chat agent
-[App](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/use-chat-agent/#app) More
+
+### App
+
 To find and start using a chat agent, do the following:
+
   1. Open your Gemini Enterprise web app in a browser.
-  2. In the web app navigation menu, click ![Agents icon](https://docs.cloud.google.com/static/gemini/enterprise/docs/workflow-builder/images/button_magic_icon.png) **Agents**.
+  2. In the web app navigation menu, click ![Agents icon](https://docs.cloud.google.com/static/gemini/enterprise/docs/workflow-builder/images/button_magic_icon.png)**Agents**.
+
 The **Agent Gallery** page appears, displaying all available prebuilt **Made by Google** agents and custom-built agents.
+
   3. Click the chat agent you want to use from the **Your Agents** or **Made by Google** sections.
+
 This opens the conversational interface for the agent.
+
   4. Start interacting with the chat agent using natural language prompts. If the agent includes starter prompt suggestions, click a prompt chip to use that prompt.
 
 
+
+
 ## Agent functions and capabilities
+
 Chat agents can assist with a wide variety of everyday workplace tasks depending on how they are configured. Core capabilities include:
+
   * **Answering questions and knowledge lookup:** Ask questions in plain language to get clear, synthesized answers grounded in your organization's internal documentation, policies, guides, and knowledge bases.
   * **Drafting and content creation:** Generate first drafts for emails, meeting agendas, status reports, project briefs, or executive summaries tailored to your preferred style, tone, format, and audience.
   * **Summarizing documents and threads:** Quickly extract key takeaways, action items, and executive summaries from long documents, reports, or communication threads.
@@ -84,8 +60,11 @@ Chat agents can assist with a wide variety of everyday workplace tasks depending
   * **Image and visual generation:** Create images, illustrations, or visual concepts based on descriptive text prompts (when image generation tools are enabled).
 
 
+
 ## Data options
+
 Chat agents can connect to and retrieve information from data sources across your organization:
+
   * **Google Workspace data:** Ground responses in data from your Google Workspace connectors, including Google Drive files (Docs, Sheets, Slides, PDFs), Gmail messages, Google Calendar events, and Google Sites.
   * **Third-party business applications:** Connect to enterprise tools like Jira, Salesforce, ServiceNow, Slack, Microsoft SharePoint, OneDrive, Microsoft Outlook, Confluence, and Zendesk to access real-time records and tickets.
   * **Uploaded files and knowledge base:** Access reference documents, guides, and manuals uploaded directly to the agent's knowledge base or attached by you in the chat session.
@@ -93,8 +72,11 @@ Chat agents can connect to and retrieve information from data sources across you
   * **Web search:** Supplement internal enterprise knowledge with real-time public web information (when web search is turned on for the agent).
 
 
+
 ## Tips for interacting with chat agents
+
 To get the best results when using a chat agent, follow these tips:
+
   * **Use starter prompt chips:** Many agents offer clickable starter prompt chips on the chat home screen that showcase common tasks and recommended prompt formats.
   * **Be specific about your goal:** Provide clear context in your prompt, including the target audience, format (such as bullet points or a table), and length requirements.
   * **Ask follow-up questions:** You don't need to start over if a response isn't quite right. Ask the agent to adjust tone, add detail, reformat, or shorten the answer in the same chat thread.
@@ -102,7 +84,9 @@ To get the best results when using a chat agent, follow these tips:
   * **Review supporting sources:** When an agent references connected data, click **Sources** at the bottom of the response to review the original documents or records used to formulate the answer.
 
 
+
 ## What's next
+
   * Learn how to [schedule chat agent runs](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/schedule-chat-agent).
   * Learn how to [create a chat agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/create-chat-agent).
   * Learn how to [edit a chat agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/edit-chat-agent).
@@ -110,8 +94,11 @@ To get the best results when using a chat agent, follow these tips:
   * Learn how to [delete a chat agent](https://docs.cloud.google.com/gemini/enterprise/docs/workflow-builder/delete-chat-agent).
 
 
-Was this helpful?
+
 Send feedback 
+
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
-Last updated 2026-10-26 UTC.
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+
+Last updated 2026-10-28 UTC.
+
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

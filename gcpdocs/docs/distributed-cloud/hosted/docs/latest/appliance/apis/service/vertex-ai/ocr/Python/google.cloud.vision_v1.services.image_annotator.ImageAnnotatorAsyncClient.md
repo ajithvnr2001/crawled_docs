@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/appliance/apis/service/vertex-ai/ocr/Python/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorAsyncClient
 title: Class ImageAnnotatorAsyncClient (3.4.4) \u00a0|\u00a0 Google Distributed Cloud Hosted Appliance \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:48:37.122480+00:00
+fetched_at: 2026-10-29T05:40:45.882838+00:00
 ---
 
 # Class ImageAnnotatorAsyncClient (3.4.4)  |  Google Distributed Cloud Hosted Appliance  |  Google Cloud Documentation
@@ -97,14 +97,14 @@ Service that performs image detection and annotation for a batch of files. Now o
     # - It may require specifying regional endpoints when creating the service
     #   client as shown in:
     #   https://googleapis.dev/python/google-api-core/latest/client_options.html
-    from google.cloud import vision_v1
+    from google.cloud import [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest)
     
     async def sample_batch_annotate_files():
         # Create a client
-        client = vision_v1.[ImageAnnotatorAsyncClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorAsyncClient.html)()
+        client = [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[ImageAnnotatorAsyncClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorAsyncClient.html)()
     
         # Initialize request argument(s)
-        request = vision_v1.[BatchAnnotateFilesRequest](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.BatchAnnotateFilesRequest.html)(
+        request = [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[BatchAnnotateFilesRequest](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.BatchAnnotateFilesRequest.html)(
         )
     
         # Make the request
@@ -165,14 +165,14 @@ Run image detection and annotation for a batch of images.
     # - It may require specifying regional endpoints when creating the service
     #   client as shown in:
     #   https://googleapis.dev/python/google-api-core/latest/client_options.html
-    from google.cloud import vision_v1
+    from google.cloud import [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest)
     
     async def sample_batch_annotate_images():
         # Create a client
-        client = vision_v1.[ImageAnnotatorAsyncClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorAsyncClient.html)()
+        client = [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[ImageAnnotatorAsyncClient](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.services.image_annotator.ImageAnnotatorAsyncClient.html)()
     
         # Initialize request argument(s)
-        request = vision_v1.[BatchAnnotateImagesRequest](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.BatchAnnotateImagesRequest.html)(
+        request = [vision_v1](https://docs.cloud.google.com/python/docs/reference/vision/latest).[BatchAnnotateImagesRequest](https://docs.cloud.google.com/python/docs/reference/vision/latest/google.cloud.vision_v1.types.BatchAnnotateImagesRequest.html)(
         )
     
         # Make the request

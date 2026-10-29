@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/crowdstrike-falcon/
 title: Integrate CrowdStrike Falcon with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:36.423860+00:00
+fetched_at: 2026-10-29T05:39:59.198034+00:00
 ---
 
 # Integrate CrowdStrike Falcon with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation
@@ -82,6 +82,8 @@ Refer to the minimal permissions for actions, as listed in the following table:
 
 Action | Required permissions  
 ---|---  
+Add Alert Comment | `Alerts.Read`  
+`Alerts.Write`  
 Add Comment to Detection | `Detections.Read`  
 `Detection.Write`  
 Add Identity Protection Detection Comment | `Alerts.Read`  
@@ -100,10 +102,13 @@ Execute Command | `Hosts.Read`
 `Real time response.Read`  
 `Real time response.Write`  
 `Real time response (admin).Write*` for full privilege commands.   
+Get Alert Details | `Alerts.Read`  
 Get Event Offset | `Event streams.Read`  
 Get Hosts by IOC | Not available: Deprecated  
 Get Host Information | `Hosts.Read`  
 Get Process Name By IOC | Not available: Deprecated  
+Hide Hosts | `Hosts.Read`  
+`Hosts.Write`  
 Lift Contained Endpoint | `Hosts.Read`  
 `Hosts.Write`  
 List Hosts | `Hosts.Read`  
@@ -113,18 +118,26 @@ List Uploaded IOCs | `IOC Management.Read`
 On-Demand Scan | `On-demand scans (ODS).Read`  
 `On-demand scans (ODS).Write`  
 Ping | `Hosts.Read`  
+Run Script | `Hosts.Read`  
+`Real time response.Read`  
+`Real time response.Write`  
+`Real time response (admin).Write`  
+Search Events | `NGSIEM.Read`  
+`NGSIEM.Write`  
 Submit File | `Reports (Falcon Intelligence).Read`  
 `Sandbox (Falcon Intelligence).Read`  
 `Sandbox (Falcon Intelligence).Write`  
 Submit URL | `Reports (Falcon Intelligence).Read`  
 `Sandbox (Falcon Intelligence).Read`  
 `Sandbox (Falcon Intelligence).Write`  
+Update Alert | `Alerts.Read`  
+`Alerts.Write`  
 Update Detection | `Detections.Read`  
 `Detection.Write`  
 `User management.Read`  
 Update Identity Protection Detection | `Alerts.Read`  
 `Alerts.Write`  
-Update Incident | ` Incidents.Write`  
+Update Incident | `Incidents.Write`  
 Update IOC Information | `IOC Management.Read`  
 `IOC Management.Write`  
 Upload IOCs | `IOC Management.Read`  
@@ -136,6 +149,7 @@ Refer to the minimal permissions for connectors, as listed in the following tabl
 
 Connector | Required permissions  
 ---|---  
+CrowdStrike Alerts Connector | `Alerts.Read`  
 CrowdStrike Detections Connector | `Detection.Read`  
 CrowdStrike Falcon Streaming Events Connector | `Event streams.Read`  
 CrowdStrike Identity Protection Detections Connector | `Alerts.Read`  
@@ -163,6 +177,8 @@ The CrowdStrike Falcon integration interacts with the following CrowdStrike Falc
   * `/detections/entities/detections/v2`
   * `/detections/entities/summaries/GET/v1`
   * `/protection/entities/detections/v1`
+  * `/humio/api/v1/repositories/{repository}/queryjobs`
+  * `/humio/api/v1/repositories/{repository}/queryjobs/{job_id}`
 
 
 
@@ -215,19 +231,21 @@ Parameters
 `Verify SSL` | If selected, the integration verifies if the SSL certificate for connecting to the CrowdStrike Falcon server is valid. Not selected by default.  
 `Customer ID` | _Optional_ The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.   
   
-For detailed instructions on how to configure an integration in Google SecOps, see [Configure integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/configure-integrations).
+For instructions about how to configure an integration in Google SecOps, see [Configure integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/configure-integrations).
 
-You can make changes at a later stage if needed. After you configure an integration instance, you can use it in playbooks. For more information about configuring and supporting multiple instances, see [Supporting multiple instances](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/supporting-multiple-instances).
+You can make changes at a later stage, if needed. After you configure an integration instance, you can use it in playbooks. For more information about how to configure and support multiple instances, see [Supporting multiple instances](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/supporting-multiple-instances).
 
 ## Actions
 
-Before proceeding with the integration configuration, configure the minimal permissions required for every integration item. For more detail, refer to the Action permissions section of this document.
+For more information about actions, see [ Respond to pending actions from your workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/respond-to-pending-actions-from-workdesk) and [Run a manual action in your case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case#run-manual-action). 
+
+Before proceeding with the integration configuration, configure the minimal permissions required for every integration item. For more detail, refer to Action permissions.
 
 ### Add Alert Comment
 
 Use the **Add Alert Comment** action to add a comment to an alert in CrowdStrike Falcon.
 
-This action doesn't run on entities.
+This action doesn't run on Google SecOps entities. 
 
 #### Action inputs
 
@@ -313,7 +331,7 @@ Use the **Add Identity Protection Detection Comment** action to add a comment to
 
 This action requires an Identity Protection license.
 
-This action doesn't run on entities.
+This action doesn't run on Google SecOps entities. 
 
 #### Action inputs
 
@@ -362,7 +380,7 @@ Script result name | Value
 
 Use the **Add Incident Comment** action to add a comment to an incident in CrowdStrike.
 
-This action doesn't run on entities.
+This action doesn't run on Google SecOps entities. 
 
 #### Action inputs
 
@@ -955,7 +973,7 @@ Use the **Get Event Offset** action to retrieve the event offset used by the Str
 
 This action starts processing events from 30 days ago.
 
-This action doesn't run on entities.
+This action doesn't run on Google SecOps entities. 
 
 #### Action inputs
 
@@ -2463,9 +2481,9 @@ Script result name | Value
   
 ### Search Events
 
-Use this action to search events in CrowdStrike. Note: Action is running as async, please adjust script timeout value in Google SecOps IDE for action, as needed.
+Use the **Search Events** action to run asynchronous event search queries in CrowdStrike Falcon Next-Gen SIEM (LogScale) repositories.
 
-This action doesn't run on entities.
+This action doesn't run on Google SecOps entities. 
 
 #### Action inputs
 
@@ -2473,7 +2491,7 @@ The **Search Events** action requires the following parameters:
 
 Parameters  
 ---  
-`Repository` | _Required_ Repository that should be searched. Possible values are as follows:
+`Repository` | _Required_ A repository to search. The possible values are as follows:
 
   * `All`
   * `Falcon`
@@ -2481,9 +2499,9 @@ Parameters
   * `IT Automation`
   * `Forensics`
 
-  
-`Query` | _Required_ Query that needs to be executed in CrowdStrike. Note: don't provide "head" as part of the query. Action will provide it automatically based on the value provided in the "Max Results To Return" parameter.  
-`Time Frame` | _Optional_ Timeframe for the results. If "Custom" is selected, you also need to provide "Start Time". Last Hour Possible Values are as follows:
+The default value is `All`.  
+`Query` | _Required_ A query to execute in CrowdStrike. **Note:** Don't provide `head` as part of the query.   
+`Time Frame` | _Optional_ The timeframe for the results. If `Custom` is selected, you must also provide `Start Time`. The possible values are as follows:
 
   * `Last Hour`
   * `Last 6 Hours`
@@ -2492,9 +2510,10 @@ Parameters
   * `Last Month`
   * `Custom`
 
-  
-`Start Time` | _Optional_ Start time for the results. If "Custom" is selected for the "Time Frame" parameter, this parameter is mandatory. Format: ISO 8601.  
-`End Time` | _Optional_ How many results to return for the query. Action will append "head" to the provided query. Default: 50. Maximum: 1000.  
+The default value is `Last Hour`.  
+`Start Time` | _Optional_ The start time for the results in ISO 8601 format. If `Custom` is set in `Time Frame`, this parameter is mandatory.  
+`End Time` | _Optional_ The end time for the results in ISO 8601 format. If no value is provided and `Custom` is set in `Time Frame`, the action uses the current time as the end time.  
+`Max Results To Return` | _Optional_ The maximum number of results to return for the query. The maximum value is `1000`. The default value is `50`.  
   
 #### Action outputs
 
@@ -2539,7 +2558,7 @@ Use the **Submit File** action to submit files to a sandbox in CrowdStrike.
 
 This action requires a Falcon Sandbox license.
 
-This action doesn't run on entities.
+This action doesn't run on Google SecOps entities. 
 
 #### Supported file and archive formats
 
@@ -2664,7 +2683,7 @@ Use the **Submit URL** action to submit URLs to a sandbox in CrowdStrike.
 
 This action requires a Falcon Sandbox license. To check what file formats the sandbox supports, refer to the Supported file and archive formats section of this document.
 
-This action doesn't run on entities.
+This action doesn't run on Google SecOps entities. 
 
 #### Action inputs
 
@@ -2729,7 +2748,7 @@ Script result name | Value
 
 Use the **Update Alert** action to update alerts in CrowdStrike Falcon.
 
-This action doesn't run on entities.
+This action doesn't run on Google SecOps entities. 
 
 #### Action inputs
 
@@ -2915,7 +2934,7 @@ Use the **Update Identity Protection Detection** to update an identity protectio
 
 This action requires an Identity Protection license.
 
-This action doesn't run on entities.
+This action doesn't run on Google SecOps entities. 
 
 #### Action inputs
 
@@ -3039,7 +3058,7 @@ Script result name | Value
 
 Use the **Update Incident** action to update incidents in CrowdStrike.
 
-This action doesn't run on entities.
+This action doesn't run on Google SecOps entities. 
 
 #### Action inputs
 
@@ -3861,7 +3880,7 @@ The example of an event based on alerts is as follows:
 
 ## Jobs
 
-For more information on jobs, see [ Configure a new job](https://cloud.google.com/chronicle/docs/soar/respond/jobs-scheduler/writing-jobs#configure-a-new-job) and [ Advanced scheduling](https://cloud.google.com/chronicle/docs/soar/respond/jobs-scheduler/writing-jobs#advanced-scheduling). 
+For more information on jobs, see [ Configure a new job](https://docs.cloud.google.com/chronicle/docs/soar/respond/jobs-scheduler/writing-jobs#configure-a-new-job) and [ Advanced scheduling](https://cloud.google.com/chronicle/docs/soar/respond/jobs-scheduler/writing-jobs#advanced-scheduling). 
 
 ### Crowdstrike Falcon - Sync Alerts
 
@@ -3929,6 +3948,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

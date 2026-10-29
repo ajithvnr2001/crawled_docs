@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/data-governance/
 title: Introduction to data governance in BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:28:23.649792+00:00
+fetched_at: 2026-10-29T05:45:05.923155+00:00
 ---
 
 # Introduction to data governance in BigQuery  |  Google Cloud Documentation

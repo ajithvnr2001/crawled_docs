@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerystorage-arrow-quickstart/
 title: Download table data in the Arrow data format \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:40.731314+00:00
+fetched_at: 2026-10-29T05:47:19.682069+00:00
 ---
 
 # Download table data in the Arrow data format  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/delete-data/
 title: Delete documents and fields \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:32:00.846823+00:00
+fetched_at: 2026-10-29T07:56:55.702261+00:00
 ---
 
 # Delete documents and fields  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -213,7 +213,7 @@ Use the `Delete()` method:
     }
     
     
-    [save_data_delete_doc.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/save_data_delete_doc.go#L18-L35)
+    [save_data_delete_doc.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_delete_doc.go#L18-L35)
 
 ##### PHP
 
@@ -250,7 +250,7 @@ Use the `delete()` method:
     city_ref = firestore.doc "#{collection_path}/DC"
     city_ref.delete
     
-    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/delete_data.rb#L24-L25)
+    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/delete_data.rb#L24-L25)
 
 **Warning:** Deleting a document does not delete its subcollections!
 
@@ -473,7 +473,7 @@ Use the `firestore.Delete` method:
     }
     
     
-    [save_data_delete_field.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/save_data_delete_field.go#L18-L47)
+    [save_data_delete_field.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_delete_field.go#L18-L47)
 
 ##### PHP
 
@@ -520,7 +520,7 @@ Use the `firestore.field_delete` method:
     city_ref = firestore.doc "#{collection_path}/BJ"
     city_ref.update({ capital: firestore.field_delete })
     
-    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/delete_data.rb#L36-L37)
+    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/delete_data.rb#L36-L37)
 
 ## Delete collections
 
@@ -603,7 +603,7 @@ Deleting collections from the client is not recommended.
       }
     }
     
-    [DeleteCollection.java](https://github.com/GoogleCloudPlatform/java-docs-samples/blob/370270c57ce3e80c436dcc2c526442b7a4b475f7/firestore/samples/src/main/java/com/example/firestore/DeleteCollection.java#L20-L53)
+    [DeleteCollection.java](https://github.com/GoogleCloudPlatform/java-docs-samples/blob/ec747d9de95b212e3e61cc367ccdc3eec8937ae0/firestore/samples/src/main/java/com/example/firestore/DeleteCollection.java#L20-L53)
 
 ##### Python
     
@@ -703,7 +703,7 @@ Deleting collections from the client is not recommended.
     }
     
     
-    [save_data_delete_collection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/save_data_delete_collection.go#L18-L73)
+    [save_data_delete_collection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_delete_collection.go#L18-L73)
 
 ##### PHP
     
@@ -766,7 +766,7 @@ Deleting collections from the client is not recommended.
       document_ref.delete
     end
     
-    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/delete_data.rb#L48-L55)
+    [delete_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/delete_data.rb#L48-L55)
 
 ## Delete data with TTL policies
 
@@ -812,6 +812,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

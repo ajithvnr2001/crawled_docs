@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/free-trial-quickstart/
 title: Create a Spanner free trial instance and sample application \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:47.510029+00:00
+fetched_at: 2026-10-29T06:14:04.503312+00:00
 ---
 
 # Create a Spanner free trial instance and sample application  |  Google Cloud Documentation
@@ -164,7 +164,7 @@ Your instance configuration determines the geographic location where your instan
 
   4. Click **Create free instance**.
 
-After you create your free trial instance, Spanner creates a sample database for you to explore and familiarize yourself with Spanner features. For more information, see [Free trial instances overview](https://docs.cloud.google.com/spanner/docs/free-trial-instance).
+After you create your free trial instance, Spanner creates a sample database for you to explore and familiarize yourself with Spanner features. For more information, see [Spanner free trial instances overview](https://docs.cloud.google.com/spanner/docs/free-trial-instance).
 
 
 
@@ -225,7 +225,7 @@ You can view the tables and data in the sample database. You can also access and
 
 Spanner also offers an open source [sample application](https://github.com/GoogleCloudPlatform/cloud-spanner-samples) to help you get started with the Spanner free trial instance. The sample application consists of a backend gRPC service backed by a Spanner database and a workload generator that drives traffic to the service.
 
-You can access the sample application by using the Google Cloud CLI.
+You can access the sample application by using the gcloud CLI.
 
 ###  gcloud 
 
@@ -373,6 +373,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

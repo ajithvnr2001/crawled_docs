@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/bulk-compress-cloud-storage/
 title: Bulk Compress Cloud Storage Files template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:29:37.985546+00:00
+fetched_at: 2026-10-29T05:40:44.581445+00:00
 ---
 
 # Bulk Compress Cloud Storage Files template  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ Any errors which occur during the compression process will be output to the fail
 ### Required parameters
 
   * **inputFilePattern** : The Cloud Storage location of the files you'd like to process. For example, `gs://your-bucket/your-files/*.txt`.
-  * **outputDirectory** : The path and filename prefix for writing output files. Must end with a slash. DateTime formatting is used to parse directory path for date & time formatters. For example, `gs://your-bucket/your-path`.
+  * **outputDirectory** : The path and filename prefix for writing output files. Must end with a slash. DateTime formatting is used to parse directory path for date & time formatters. For example, `gs://your-bucket/your-path/`.
   * **outputFailureFile** : The error log output file to use for write failures that occur during compression. The contents will be one line for each file which failed compression. Note that this parameter will allow the pipeline to continue processing in the event of a failure. For example, `gs://your-bucket/compressed/failed.csv`.
   * **compression** : The compression algorithm used to compress the matched files. Valid algorithms: BZIP2, DEFLATE, GZIP.
 

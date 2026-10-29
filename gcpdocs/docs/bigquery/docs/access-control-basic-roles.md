@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/access-control-basic-roles/
 title: Basic roles and permissions \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:22.278943+00:00
+fetched_at: 2026-10-29T05:45:31.920447+00:00
 ---
 
 # Basic roles and permissions  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-cloud-resource-connection/
 title: Create and set up a Cloud resource connection \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:52.608342+00:00
+fetched_at: 2026-10-29T05:45:01.961708+00:00
 ---
 
 # Create and set up a Cloud resource connection  |  BigQuery  |  Google Cloud Documentation

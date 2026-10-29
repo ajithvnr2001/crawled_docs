@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-set-user-agent/
 title: Set user agent \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:16.560109+00:00
+fetched_at: 2026-10-29T05:41:34.518897+00:00
 ---
 
 # Set user agent  |  BigQuery  |  Google Cloud Documentation

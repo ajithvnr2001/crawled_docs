@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-dataframes-remote-function/
 title: Deploy and apply a remote function using BigQuery DataFrames \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:38.083544+00:00
+fetched_at: 2026-10-29T05:41:49.605976+00:00
 ---
 
 # Deploy and apply a remote function using BigQuery DataFrames  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/15.5.4/docs/model-endpoint-predictions/
 title: Invoke predictions with model endpoint management \u00a0|\u00a0 AlloyDB Omni for containers: 15.5.4 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:18:36.872595+00:00
+fetched_at: 2026-10-29T05:51:45.873764+00:00
 ---
 
 # Invoke predictions with model endpoint management  |  AlloyDB Omni for containers: 15.5.4  |  Google Cloud Documentation
@@ -50,8 +50,8 @@ Use the `google_ml.predict_row()` SQL function to call a registered generic mode
     
     SELECT
       google_ml.predict_row(
-        model_id => &#39;MODEL_ID',
-        reques>t_body = 'REQUEST_BODY');
+        model_id => 'MODEL_ID',
+        request_body => 'REQUEST_BODY');
     
 
 Replace the following:
@@ -72,18 +72,18 @@ To generate predictions for a registered `gemini-pro` model endpoint, run the fo
             json_array_elements(
             google_ml.predict_row(
                 model_id => 'gemini-pro',
-                reques>t_body = '{
+                request_body => '{
             "contents": [
                 {
                     "role": "user",
                     "parts": [
                         {
                             "text": "For TPCH database schema as mentioned here https://www.tpc.org/TPC_Documents_Current_Versions/pdf/TPC-H_v3.0.1.pdf , generate a SQL query to find all supplier names which are located in the India nation."
-         >               >}
-      >            >  ]
-          >    >  }
+                        }
+                    ]
+                }
             ]
-            }'))- 'candidates' - 0 - 'content' - 'parts' - 0 - 'text';
+            }'))-> 'candidates' -> 0 -> 'content' -> 'parts' -> 0 -> 'text';
     
 
 To generate predictions for a registered `facebook/bart-large-mnli` model endpoint on Hugging Face, run the following statement:
@@ -92,7 +92,7 @@ To generate predictions for a registered `facebook/bart-large-mnli` model endpoi
       SELECT
       google_ml.predict_row(
         model_id => 'facebook/bart-large-mnli',
-        reques>t_body =
+        request_body =>
           '{
            "inputs": "Hi, I recently bought a device from your company but it is not working as advertised and I would like to get reimbursed!",
         "parameters": {"candidate_labels": ["refund", "legal", "faq"]}

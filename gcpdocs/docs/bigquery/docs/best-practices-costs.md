@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/best-practices-costs/
 title: Estimate and control costs \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:28.725765+00:00
+fetched_at: 2026-10-29T05:43:31.861211+00:00
 ---
 
 # Estimate and control costs  |  BigQuery  |  Google Cloud Documentation

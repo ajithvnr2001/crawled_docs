@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/cost-optimization/optimize-resource-usage/
 title: Optimize resource usage \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:20.925347+00:00
+fetched_at: 2026-10-29T05:41:27.483114+00:00
 ---
 
 # Optimize resource usage  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,13 +19,13 @@ Send feedback
 
 #  Optimize resource usage Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-09-25 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the cost optimization pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you plan and provision resources to match the requirements and consumption patterns of your cloud workloads.
 
 ## Principle overview
 
-To optimize the cost of your cloud resources, you need to thoroughly understand your workloads resource requirements and load patterns. This understanding is the basis for a well defined cost model that lets you forecast the total cost of ownership (TCO) and identify cost drivers throughout your cloud adoption journey. By proactively analyzing and forecasting cloud spending, you can make informed choices about resource provisioning, utilization, and cost optimization. This approach lets you control cloud spending, avoid overprovisioning, and ensure that cloud resources are aligned with the dynamic needs of your workloads and environments.
+To optimize the cost of your cloud resources, you need to thoroughly understand your workloads' resource requirements and load patterns. This understanding is the basis for a well-defined cost model that lets you forecast the total cost of ownership (TCO) and identify cost drivers throughout your cloud adoption journey. By proactively analyzing and forecasting cloud spending, you can make informed choices about resource provisioning, utilization, and cost optimization. This approach lets you control cloud spending, avoid overprovisioning, and ensure that cloud resources are aligned with the dynamic needs of your workloads and environments.
 
 ## Recommendations
 
@@ -33,47 +33,53 @@ To effectively optimize cloud resource usage, consider the following recommendat
 
 ### Choose environment-specific resources
 
-Each deployment environment has different requirements for availability, reliability and scalability. For example, developers might prefer an environment that lets them rapidly deploy and run applications for short durations, but might not need high availability. On the other hand, a production environment typically needs high availability. To maximize the utilization of your resources, define environment-specific requirements based on your business needs. The following table lists examples of environment-specific requirements.
+Each deployment environment has different requirements for availability, reliability, and scalability. For example, developers might prefer an environment that lets them rapidly deploy and run applications for short durations, but might not need high availability. On the other hand, a production environment typically needs high availability. To maximize the utilization of your resources, define environment-specific requirements based on your business needs. The following are examples of environment-specific requirements:
 
-**Note:** The requirements that are listed in this table are not exhaustive or prescriptive. They're meant to serve as examples to help you understand how requirements can vary based on the environment type.**Environment** | **Requirements**  
----|---  
-Production  | 
+  * **Production** : High availability, predictable performance, operational stability, and security with robust resources.
+  * **Development and testing** : Cost efficiency, flexible infrastructure with [burstable capacity](https://docs.cloud.google.com/architecture/hybrid-multicloud-patterns-and-practices/cloud-bursting-pattern), and ephemeral infrastructure when data persistence isn't necessary.
+  * **Other environments (like staging and QA)** : Tailored resource allocation based on environment-specific requirements.
 
-  * High availability
-  * Predictable performance
-  * Operational stability
-  * Security with robust resources
+**Note:** These requirements aren't exhaustive or prescriptive. They're meant to serve as examples to help you understand how requirements can vary based on the environment type.
 
-  
-Development and testing  | 
-
-  * Cost efficiency
-  * Flexible infrastructure with [burstable capacity](https://docs.cloud.google.com/architecture/hybrid-multicloud-patterns-and-practices/cloud-bursting-pattern)
-  * Ephemeral infrastructure when data persistence is not necessary
-
-  
-Other environments (like staging and QA)  | 
-
-  * Tailored resource allocation based on environment-specific requirements
-
-  
-  
 ### Choose workload-specific resources
 
-Each of your cloud workloads might have different requirements for availability, scalability, security, and performance. To optimize costs, you need to align resource choices with the specific requirements of each workload. For example, a stateless application might not require the same level of availability or reliability as a stateful backend. The following table lists more examples of workload-specific requirements.
+Each of your cloud workloads might have different requirements for availability, scalability, security, and performance. To optimize costs, you need to align resource choices with the specific requirements of each workload. For example, a stateless application might not require the same level of availability or reliability as a stateful backend. The following subsections provide more examples of workload-specific requirements.
 
-**Note:** The requirements that are listed in this table are not exhaustive or prescriptive. They're meant to serve as examples to help you understand how requirements can vary based on the workload type.**Workload type** | **Workload requirements** | **Resource options**  
----|---|---  
-Mission-critical  | Continuous availability, robust security, and high performance  | Premium resources and managed services like [Spanner](https://docs.cloud.google.com/spanner) for high availability and global consistency of data.   
-Non-critical  | Cost-efficient and autoscaling infrastructure  | Resources with basic features and ephemeral resources like [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot).   
-Event-driven  | Dynamic scaling based on the current demand for capacity and performance  | Serverless services like [Cloud Run](https://docs.cloud.google.com/run) and [Cloud Run functions](https://cloud.google.com/blog/products/serverless/google-cloud-functions-is-now-cloud-run-functions?e=48754805).   
-Experimental workloads  | Low cost and flexible environment for rapid development, iteration, testing, and innovation  | Resources with basic features, ephemeral resources like [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot), and sandbox environments with defined spending limits.   
-  
+**Note:** These requirements aren't exhaustive or prescriptive. They're meant to serve as examples to help you understand how requirements can vary based on the workload type.
+
+#### Mission-critical workloads
+
+  * **Workload requirements** : Continuous availability, robust security, and high performance.
+  * **Resource options** : Premium resources and managed services like [Spanner](https://cloud.google.com/spanner) for high availability and global consistency of data.
+
+
+
+#### Non-critical workloads
+
+  * **Workload requirements** : Cost-efficient and autoscaling infrastructure.
+  * **Resource options** : Resources with basic features and ephemeral resources like [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot).
+
+
+
+#### Event-driven workloads
+
+  * **Workload requirements** : Dynamic scaling based on the current demand for capacity and performance.
+  * **Resource options** : Serverless services like [Cloud Run](https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run) and [Cloud Run functions](https://docs.cloud.google.com/run/docs/functions-with-run).
+
+
+
+#### Experimental workloads
+
+  * **Workload requirements** : Low cost and flexible environment for rapid development, iteration, testing, and innovation.
+  * **Resource options** : Resources with basic features, ephemeral resources like [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot), and sandbox environments with defined spending limits.
+
+
+
 A benefit of the cloud is the opportunity to take advantage of the most appropriate computing power for a given workload. Some workloads are developed to take advantage of processor instruction sets, and others might not be designed in this way. Benchmark and profile your workloads accordingly. Categorize your workloads and make workload-specific resource choices (for example, choose appropriate [machine families](https://docs.cloud.google.com/compute/docs/machine-resource#recommendations_for_machine_types) for Compute Engine VMs). This practice helps to optimize costs, enable innovation, and maintain the level of availability and performance that your workloads need.
 
 The following are examples of how you can implement this recommendation:
 
-  * For mission-critical workloads that serve globally distributed users, consider using [Spanner](https://docs.cloud.google.com/spanner). Spanner removes the need for complex database deployments by ensuring reliability and consistency of data in all [regions](https://docs.cloud.google.com/docs/geography-and-regions#regions_and_zones).
+  * For mission-critical workloads that serve globally distributed users, consider using [Spanner](https://cloud.google.com/spanner). Spanner removes the need for complex database deployments by ensuring reliability and consistency of data in all [regions](https://docs.cloud.google.com/docs/geography-and-regions#regions_and_zones).
   * For workloads with fluctuating load levels, use autoscaling to ensure that you don't incur costs when the load is low and yet maintain sufficient capacity to meet the current load. You can configure autoscaling for many Google Cloud services, including [Compute Engine VMs](https://docs.cloud.google.com/compute/docs/autoscaler), [Google Kubernetes Engine (GKE) clusters](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler), and [Cloud Run](https://docs.cloud.google.com/run/docs/about-instance-autoscaling). When you set up autoscaling, you can configure maximum scaling limits to ensure that costs remain within specified budgets.
 
 
@@ -84,50 +90,32 @@ For your cloud workloads, carefully evaluate the available Google Cloud regions 
 
 ### Use built-in cost optimization options
 
-Google Cloud products provide built-in features to help you optimize resource usage and control costs. The following table lists examples of cost optimization features that you can use in some Google Cloud products:
+Google Cloud products provide built-in features to help you optimize resource usage and control costs. The following are examples of cost optimization features that you can use in some Google Cloud products:
 
-**Product** | **Cost optimization feature**  
----|---  
-Compute Engine  | 
+Compute Engine
+    Automatically add or remove VMs based on the current load by using [autoscaling](https://docs.cloud.google.com/compute/docs/autoscaler).
+    Avoid overprovisioning by creating and using [custom machine types](https://docs.cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type) that match your workload's requirements.
+    For non-critical or fault-tolerant workloads, reduce costs by using [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot).
+    In development environments, reduce costs by [limiting the run time](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime) of VMs or by [suspending](https://docs.cloud.google.com/compute/docs/instances/suspend-resume-instance) or [stopping](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance) VMs when you don't need them.
+GKE
+    Automatically adjust the size of GKE clusters based on the current load by using [cluster autoscaler](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler).
+    Automatically create and manage node pools based on workload requirements and ensure optimal resource utilization by using [node auto-provisioning](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning).
+Cloud Storage
+    Automatically transition data to lower-cost storage classes based on the age of data or based on access patterns by using [Object Lifecycle Management](https://docs.cloud.google.com/storage/docs/lifecycle).
+    Dynamically move data to the most cost-effective storage class based on usage patterns by using [Autoclass](https://docs.cloud.google.com/storage/docs/autoclass).
+BigQuery
+    Reduce query processing costs for steady-state workloads by using [capacity-based pricing](https://cloud.google.com/bigquery/pricing#capacity_compute_analysis_pricing).
+    Optimize query performance and costs by using partitioning and clustering techniques.
+Google Cloud VMware Engine
+    Reduce VMware costs by using [cost-optimization strategies](https://docs.cloud.google.com/vmware-engine/docs/best-practices-costs) like CUDs, optimizing storage consumption, and rightsizing ESXi clusters.
 
-  * Automatically add or remove VMs based on the current load by using [autoscaling](https://docs.cloud.google.com/compute/docs/autoscaler).
-  * Avoid overprovisioning by creating and using [ custom machine types](https://docs.cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type)
-that match your workload's requirements. 
-  * For non-critical or fault-tolerant workloads, reduce costs by using [Spot VMs](https://docs.cloud.google.com/compute/docs/instances/spot).
-  * In development environments, reduce costs by [limiting the run time](https://docs.cloud.google.com/compute/docs/instances/limit-vm-runtime) of VMs or by [suspending](https://docs.cloud.google.com/compute/docs/instances/suspend-resume-instance) or [stopping](https://docs.cloud.google.com/compute/docs/instances/stop-start-instance) VMs when you don't need them.
-
-  
-GKE  | 
-
-  * Automatically adjust the size of GKE clusters based on the current load by using [cluster autoscaler](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/cluster-autoscaler).
-  * Automatically create and manage node pools based on workload requirements and ensure optimal resource utilization by using [ node auto-provisioning](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning).
-
-  
-Cloud Storage  | 
-
-  * Automatically transition data to lower-cost storage classes based on the age of data or based on access patterns by using [ Object Lifecycle Management](https://docs.cloud.google.com/storage/docs/lifecycle).
-  * Dynamically move data to the most cost-effective storage class based on usage patterns by using [Autoclass](https://docs.cloud.google.com/storage/docs/autoclass).
-
-  
-BigQuery  | 
-
-  * Reduce query processing costs for steady-state workloads by using [capacity-based pricing.](https://cloud.google.com/bigquery/pricing#capacity_compute_analysis_pricing)
-  * Optimize query performance and costs by using partitioning and clustering techniques.
-
-  
-Google Cloud VMware Engine  | 
-
-  * Reduce VMware costs by using [cost-optimization strategies](https://docs.cloud.google.com/vmware-engine/docs/best-practices-costs) like CUDs, optimizing storage consumption, and rightsizing ESXi clusters.
-
-  
-  
 ### Optimize resource sharing
 
 To maximize the utilization of cloud resources, you can deploy multiple applications or services on the same infrastructure, while still meeting the security and other requirements of the applications. For example, in development and testing environments, you can use the same cloud infrastructure to test all the components of an application. For the production environment, you can deploy each component on a separate set of resources to limit the extent of impact in case of incidents.
 
 The following are examples of how you can implement this recommendation:
 
-  * Use a single [Cloud SQL](https://docs.cloud.google.com/sql) instance for multiple non-production environments.
+  * Use a single [Cloud SQL](https://docs.cloud.google.com/sql/docs/introduction) instance for multiple non-production environments.
   * Enable multiple development teams to share a GKE cluster by using the [fleet team management](https://docs.cloud.google.com/kubernetes-engine/fleet-management/docs/team-management) feature in GKE with appropriate access controls.
   * Use [GKE Autopilot](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) to take advantage of cost-optimization techniques like bin packing and autoscaling that GKE implements by default.
   * For AI and ML workloads, save GPU costs by using [GPU-sharing strategies](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/timesharing-gpus#what-is-gpu-sharing) like multi-instance GPUs, time-sharing GPUs, and NVIDIA MPS.
@@ -138,11 +126,11 @@ The following are examples of how you can implement this recommendation:
 
 Create and maintain a repository of reference architectures that are tailored to meet the requirements of different deployment environments and workload types. To streamline the design and implementation process for individual projects, the blueprints can be centrally managed by a team like a [Cloud Center of Excellence](https://cloud.google.com/resources/cloud-teams) (CCoE). Project teams can choose suitable blueprints based on clearly defined criteria, to ensure architectural consistency and adoption of best practices. For requirements that are unique to a project, the project team and the central architecture team should collaborate to design new reference architectures. You can share the reference architectures across the organization to foster knowledge sharing and expand the repository of available solutions. This approach ensures consistency, accelerates development, simplifies decision-making, and promotes efficient resource utilization.
 
-Review the [reference architectures](https://docs.cloud.google.com/architecture/all-reference-architectures) provided by Google for various use cases and technologies. These reference architectures incorporate best practices for resource selection, sizing, configuration, and deployment. By using these reference architectures, you can accelerate your development process and achieve cost savings from the start.
+Review the [reference architectures](https://docs.cloud.google.com/architecture) provided by Google for various use cases and technologies. These reference architectures incorporate best practices for resource selection, sizing, configuration, and deployment. By using these reference architectures, you can accelerate your development process and achieve cost savings from the start.
 
 ### Enforce cost discipline by using organization policies
 
-Consider using [organization policies](https://docs.cloud.google.com/resource-manager/docs/organization-policy/overview) to limit the available Google Cloud locations and products that team members can use. These policies help to ensure that teams adhere to cost-effective solutions and provision resources in locations that are aligned with your cost optimization goals.
+Consider using [organization policies](https://docs.cloud.google.com/organization-policy/overview) to limit the available Google Cloud locations and products that team members can use. These policies help to ensure that teams adhere to cost-effective solutions and provision resources in locations that are aligned with your cost optimization goals.
 
 ### Estimate realistic budgets and set financial boundaries
 
@@ -169,6 +157,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-09-25 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-09-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

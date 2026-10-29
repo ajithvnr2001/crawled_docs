@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/set-filter-version/
 title: Set the filter version \u00a0|\u00a0 Model Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:17.850610+00:00
+fetched_at: 2026-10-29T05:52:37.519252+00:00
 ---
 
 # Set the filter version  |  Model Armor  |  Google Cloud Documentation
@@ -79,8 +79,8 @@ Version | Alias | Release date | Retirement date | Supported region
 ---|---|---|---|---  
 `v1` | `Legacy` (`Stable` in `asia-northeast3`; `Legacy` from September 25, 2026 in `australia-southeast2`) | 2025-01-30 | 2026-12-17 | `asia-northeast1` `asia-northeast3` (`Stable`) `asia-south1` `asia-southeast1` `australia-southeast2` (`Legacy` from September 25, 2026) `europe-southwest1` `europe-west9` `northamerica-northeast2` `us` `us-central1` `us-east4` `us-west1`  
 `v2` | `Legacy` | 2025-06-19 | 2026-12-17 |  `eu` `europe-west1` `europe-west2` `europe-west3` `europe-west4` `us-east1`  
-`v3` | `Stable` (`Stable` from September 25, 2026 in `australia-southeast2`) | 2026-05-25 | — | `asia-northeast1` `asia-south1` `asia-southeast1` `australia-southeast2` (`Stable` from September 25, 2026) `eu` `europe-southwest1` `europe-west1` `europe-west2` `europe-west3` `europe-west4` `europe-west9` `northamerica-northeast2` `us` `us-central1` `us-east1` `us-east4` `us-west1`  
-`v4` | `Latest` | 2026-09-18 | — | `asia-northeast1` `asia-south1` `asia-southeast1` `eu` `europe-southwest1` `europe-west1` `europe-west2` `europe-west3` `europe-west4` `europe-west9` `northamerica-northeast2` `us` `us-central1` `us-east1` `us-east4` `us-west1`  
+`v3` | `Stable` (`Stable` from September 25, 2026 in `australia-southeast2`) | 2026-05-25 | — | `asia-northeast1` `asia-south1` `asia-southeast1` `australia-southeast2` (`Stable` from September 25, 2026) `eu` `europe-southwest1` `europe-west1` `europe-west2` `europe-west3` `europe-west4` `europe-west9` `northamerica-northeast2` `southamerica-east1` `us` `us-central1` `us-east1` `us-east4` `us-west1`  
+`v4` | `Latest` | 2026-09-18 | — | `asia-northeast1` `asia-south1` `asia-southeast1` `eu` `europe-southwest1` `europe-west1` `europe-west2` `europe-west3` `europe-west4` `europe-west9` `northamerica-northeast2` `southamerica-east1` `us` `us-central1` `us-east1` `us-east4` `us-west1`  
   
 For information about what's changed in each version, see [Filter version history](https://docs.cloud.google.com/model-armor/version-history#release-history).
 
@@ -420,6 +420,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

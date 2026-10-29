@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/access-transparency/docs/release-notes/
 title: Access Transparency release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:40:13.814246+00:00
+fetched_at: 2026-10-29T07:58:59.708222+00:00
 ---
 
 # Access Transparency release notes  |  Google Cloud Documentation
@@ -29,6 +29,12 @@ This document lists production updates to Access Transparency. We recommend that
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/access-transparency-release-notes.xml) directly. 
+
+## October 16, 2026
+
+Feature
+
+Service connectivity automation is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
 
 ## October 09, 2026
 
@@ -89,6 +95,16 @@ Datastream is generally available [(GA)](https://cloud.google.com/products#produ
 Feature
 
 App Topology (including One Graph) is generally available [(GA)](https://cloud.google.com/products#product-launch-stages).
+
+Feature
+
+Cloud Next Generation Firewall is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
+
+## July 30, 2026
+
+Feature
+
+Database Insights is generally available ([GA](https://cloud.google.com/products#product-launch-stages)).
 
 ## July 22, 2026
 

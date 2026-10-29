@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/mongodb-compatibility/docs/extend-with-cloud-run-functions/
 title: Extend Firestore with MongoDB compatibility with event triggers using Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:13:48.544206+00:00
+fetched_at: 2026-10-29T07:58:50.669451+00:00
 ---
 
 # Extend Firestore with MongoDB compatibility with event triggers using Cloud Run functions  |  Google Cloud Documentation
@@ -1006,7 +1006,7 @@ Use [protobufjs](https://www.npmjs.com/package/protobufjs) to decode the event d
     using Google.Cloud.Functions.Hosting;
     using Google.Events.Protobuf.Cloud.Firestore.V1;
     using Microsoft.AspNetCore.Hosting;
-    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Iap.V1/latest/Microsoft.Extensions.DependencyInjection.html);
+    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.ServiceManagement.V1/latest/Microsoft.Extensions.DependencyInjection.html);
     using Microsoft.Extensions.Logging;
     using System.Collections.Generic;
     using System.Threading;

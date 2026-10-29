@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/confidential-computing/confidential-space/docs/create-customize-workloads/
 title: Create and customize workloads \u00a0|\u00a0 Confidential Space \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:54.796726+00:00
+fetched_at: 2026-10-29T05:59:54.909237+00:00
 ---
 
 # Create and customize workloads  |  Confidential Space  |  Google Cloud Documentation
@@ -121,6 +121,8 @@ When building your Docker image, take the following things into account:
   * Multiple workload runs
 
   * Namespaced cgroups
+
+  * Non-root container execution
 
   * Reproducible container images
 
@@ -256,6 +258,16 @@ Policy | Type | Description
   * `never`: Never allow memory usage monitoring. 
 
 **Caution** : If you allow memory usage monitoring, the workload operator can see workload memory usage metrics in [Cloud Logging](https://docs.cloud.google.com/logging) and [ Metrics Explorer](https://docs.cloud.google.com/monitoring/charts/metrics-explorer). If your workload isn't written in a way that prevents total memory usage from leaking sensitive information, block this feature on production workloads.   
+`tee.launch_policy.nonroot_container` **Interacts with:**
+
+  * **Workload operator** : The [ `tee-nonroot-container`](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/deploy-workloads#tee-nonroot-container) metadata variable.
+
+| Defined string |  Determines whether to restrict the container's execution privileges.  The valid values are the following:
+
+  * `unrestricted` (default): The workload author allows the container to run as root or non-root. The workload operator chooses using [ `tee-nonroot-container`](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/deploy-workloads#tee-nonroot-container). 
+  * `nonrootonly`: The workload author requires the container to run as a non-root user. The workload operator must set [ `tee-nonroot-container`](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/deploy-workloads#tee-nonroot-container) to `true`, or the VM fails to launch the workload. 
+
+**Note** : Supported in Confidential Space image `confidential-space-261001` and later. If used on earlier images, this policy is ignored and the container runs as root.   
   
 ### Multiple workload runs
 
@@ -268,6 +280,19 @@ Restarting addresses the attack vector of modifying a workload image on the disk
 The Confidential Space workload runs without a [cgroup](https://docs.kernel.org/admin-guide/cgroup-v1/cgroups.html) mount by default.
 
 To manage cgroups within the workload container, you can use [`tee-cgroup-ns`](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/deploy-workloads#tee-cgroup-ns). This metadata key instructs the VM instance to create a mount at `/sys/fs/cgroup` in the container file system.
+
+### Non-root container execution
+
+You can optionally run a container as a non-root user to reduce the impact of a container breakout. When non-root container execution is enabled, Confidential Space configures a Linux user namespace and network namespace for the workload. Container UIDs and GIDs `0`-`65535` map to unprivileged IDs starting at `100000` on the Confidential VM. A process that runs as root inside the container, or escapes it, has only unprivileged access to the VM. You don't need to add a `USER` instruction to your `Dockerfile`.
+
+Non-root execution requires Confidential Space image `confidential-space-261001` or later. You can configure it as optional or required:
+
+  * **Workload author** : Use the `tee.launch_policy.nonroot_container` launch policy label in your container image. Setting this policy to `nonrootonly` requires the workload operator to run the container as a non-root user.
+
+  * **Workload operator** : Pass the [`tee-nonroot-container=true`](https://docs.cloud.google.com/confidential-computing/confidential-space/docs/deploy-workloads#tee-nonroot-container) metadata variable when creating the VM. If the workload author sets `nonrootonly`, this metadata variable is required, or the VM fails to launch the workload.
+
+
+
 
 ### Reproducible container images
 
@@ -317,6 +342,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-listen-document/
 title: Create a Firestore watch listener \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:29:00.306373+00:00
+fetched_at: 2026-10-29T07:58:02.021044+00:00
 ---
 
 # Create a Firestore watch listener  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/query-table/
 title: Query a table \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:21.599632+00:00
+fetched_at: 2026-10-29T06:14:02.205217+00:00
 ---
 
 # Query a table  |  Lakehouse  |  Google Cloud Documentation
@@ -23,9 +23,7 @@ Send feedback
 
 #  Query a table Stay organized with collections  Save and categorize content based on your preferences. 
 
-Querying a table reads data from the underlying Cloud Storage files using the metadata managed by the _Lakehouse runtime catalog_.
-
-You can run queries from open source engines like Spark and Trino, or directly from BigQuery using a four-part table name syntax (P.C.N.T syntax).
+The Lakehouse runtime catalog lets you analyze Apache Iceberg tables stored in Cloud Storage without moving or duplicating data. You can run SQL queries from open source engines such as Apache Spark and Trino, or directly from BigQuery using a four-part **P.C.N.T** (**Project.Catalog.Namespace.Table**) table name.
 
 ## Before you begin
 
@@ -186,6 +184,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

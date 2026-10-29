@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/export/
 title: Export databases from Spanner to Avro \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:49.297684+00:00
+fetched_at: 2026-10-29T06:14:06.125749+00:00
 ---
 
 # Export databases from Spanner to Avro  |  Google Cloud Documentation
@@ -69,7 +69,7 @@ To get the permissions that you need to export a database, ask your administrato
 
 **Note:** The Spanner Database Admin role is only required for import jobs.
 
-To use the independent compute resources of Spanner Data Boost during an export, you also need the `spanner.databases.useDataBoost` IAM permission. For more information, see [Data Boost overview](https://docs.cloud.google.com/spanner/docs/databoost/databoost-overview).
+To use the independent compute resources of Spanner Data Boost during an export, you also need the `spanner.databases.useDataBoost` Identity and Access Management (IAM) permission. For more information, see [Data Boost overview](https://docs.cloud.google.com/spanner/docs/databoost/databoost-overview).
 
 ## Export a database
 
@@ -115,7 +115,7 @@ If you already have a bucket, either select the bucket from the initial list or 
 
 This option does not affect the destination Cloud Storage bucket-level encryption. To enable CMEK for your Cloud Storage bucket, refer to [Use CMEK with Cloud Storage](https://docs.cloud.google.com/storage/docs/encryption/using-customer-managed-keys).
 
-  11. Optional: To export using Spanner Data Boost, select the **Use Spanner Data Boost** checkbox. For more information, see [Data Boost overview](https://docs.cloud.google.com/spanner/docs/databoost/databoost-overview).
+  11. Optional: To export using Data Boost, select the **Use Spanner Data Boost** checkbox. For more information, see [Data Boost overview](https://docs.cloud.google.com/spanner/docs/databoost/databoost-overview).
 
   12. Select the checkbox under **Confirm charges** to acknowledge that there are charges in addition to those incurred by your existing Spanner instance.
 
@@ -393,6 +393,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-update-model-description/
 title: Update a model description \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:11:09.417184+00:00
+fetched_at: 2026-10-29T05:42:02.239888+00:00
 ---
 
 # Update a model description  |  BigQuery  |  Google Cloud Documentation

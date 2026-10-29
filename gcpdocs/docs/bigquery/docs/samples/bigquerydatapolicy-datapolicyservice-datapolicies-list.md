@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatapolicy-datapolicyservice-datapolicies-list/
 title: List data policies \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:50.573531+00:00
+fetched_at: 2026-10-29T05:44:53.918228+00:00
 ---
 
 # List data policies  |  BigQuery  |  Google Cloud Documentation

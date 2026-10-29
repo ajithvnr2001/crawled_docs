@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-device-platform/device-run/find-logs/
 title: Find your Developer Device Platform test results \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:02.182501+00:00
+fetched_at: 2026-10-29T08:17:30.585160+00:00
 ---
 
 # Find your Developer Device Platform test results  |  Google Cloud Documentation
@@ -354,7 +354,7 @@ In addition to structured test results, each `execution-*` directory contains pl
 
   * **Android instrumentation runs** include `instrument.log` for raw instrumentation runner output and `logcat.txt` for the device-wide Android system log. When enabled with `--bugreport`, `--dumpsys`, or `--video`, the execution directory also includes `bugreport.zip`, `dumpsys.txt`, and screen video recordings.
   * **Android executable runs** include `output.log`, which captures the standard output (`stdout`) and standard error (`stderr`) written by your executable, and [`logcat.txt`](https://developer.android.com/tools/logcat) (collected by default for every Android job), which captures the device-wide Android system log, along with any optional `--bugreport`, `--dumpsys`, or `--video` artifacts.
-  * **iOS XCTest runs** include `system.log` (collected by default for every iOS XCTest job), which captures the raw iOS device syslog, and any `.ips` diagnostic crash reports if a process crashed during the test execution.
+  * **iOS XCTest runs** include `system.log` (collected by default for every iOS XCTest job), which captures the raw iOS device syslog, and any `.ips` diagnostic crash reports if a process crashed during the test execution. When enabled with `--video`, each recorded UI test case video is stored at `testcases/TEST_CLASS/TEST_METHOD/video.mp4`.
   * **Pulled device files** specified with `--paths-to-pull` are stored under the `artifacts/` subfolder of the execution directory. 
     * For Android runs, pulled files preserve their device path under `artifacts/` (for example, `artifacts/sdcard/output.txt` or `artifacts/data/local/tmp/results.json`).
     * For iOS XCTest runs, files pulled from an app data container using `--paths-to-pull=BUNDLE_ID:DEVICE_PATH` are organized by bundle ID under `artifacts/`: 
@@ -380,6 +380,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

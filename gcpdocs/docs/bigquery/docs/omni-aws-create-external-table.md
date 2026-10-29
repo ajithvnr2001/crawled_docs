@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/omni-aws-create-external-table/
 title: Create Amazon S3 BigLake tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:09:56.189945+00:00
+fetched_at: 2026-10-29T05:45:18.836226+00:00
 ---
 
 # Create Amazon S3 BigLake tables  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/transfer-troubleshooting/
 title: Troubleshoot transfer configurations \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:38.333723+00:00
+fetched_at: 2026-10-29T05:43:12.888374+00:00
 ---
 
 # Troubleshoot transfer configurations  |  BigQuery  |  Google Cloud Documentation

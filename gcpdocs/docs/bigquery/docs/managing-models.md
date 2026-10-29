@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/managing-models/
 title: Manage models \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:29.365540+00:00
+fetched_at: 2026-10-29T05:42:47.512562+00:00
 ---
 
 # Manage models  |  BigQuery  |  Google Cloud Documentation

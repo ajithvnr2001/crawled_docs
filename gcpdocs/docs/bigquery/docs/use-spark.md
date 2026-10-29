@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/use-spark/
 title: Run PySpark code in BigQuery Studio notebooks \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:29.582138+00:00
+fetched_at: 2026-10-29T05:42:57.598915+00:00
 ---
 
 # Run PySpark code in BigQuery Studio notebooks  |  Google Cloud Documentation

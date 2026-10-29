@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/deepseek-vllm-inference/
 title: Use vLLM on GKE to run inference with DeepSeek-V3.1-Base \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:54:48.777048+00:00
+fetched_at: 2026-10-29T05:40:50.064303+00:00
 ---
 
 # Use vLLM on GKE to run inference with DeepSeek-V3.1-Base  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -377,7 +377,7 @@ After you've downloaded the model to your Cloud Storage bucket, deploy a vLLM co
              spec:
                containers:
                - name: vllm-inference
-                 image: us-docker.pkg.dev/vertex-ai/vertex-vision-model-garden-dockers/pytorch-vllm-serve:20250819_0916_RC01
+                 image: us-docker.pkg.dev/vertex-ai/vertex-vision-model-garden-dockers/pytorch-vllm-serve:20260713_0916_RC01
                  resources:
                    requests:
                      cpu: "10"
@@ -397,6 +397,10 @@ After you've downloaded the model to your Cloud Storage bucket, deploy a vLLM co
                  - --port=8000
                  - --max-model-len=8192
                  - --max-num-seqs=4
+                 - --enforce-eager
+                 - --enable-chunked-prefill
+                 - --gpu-memory-utilization=0.90
+                 - --trust-remote-code
                  volumeMounts:
                  - mountPath: /dev/shm
                    name: dshm
@@ -463,9 +467,15 @@ After you've downloaded the model to your Cloud Storage bucket, deploy a vLLM co
 
   3. To see the completion status, run the following command:
          
-         kubectl wait \
+         if ! kubectl wait \
            --for=condition=Available \
-           --timeout=7200s deployment/deepseek3-1-deploy
+           --timeout=7200s deployment/deepseek3-1-deploy; then
+           echo "Deployment timed out. Dumping diagnostic logs:"
+           kubectl describe deployment/deepseek3-1-deploy || true
+           kubectl get pods -o wide || true
+           kubectl logs -l app=deepseek || true
+           exit 1
+         fi
 
 The `--timeout` flag allows the command to monitor the deployment for the specified period of time.
 

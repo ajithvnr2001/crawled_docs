@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/omni-azure-create-connection/
 title: Connect to Blob Storage \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:30:14.758329+00:00
+fetched_at: 2026-10-29T05:43:34.165466+00:00
 ---
 
 # Connect to Blob Storage  |  BigQuery  |  Google Cloud Documentation

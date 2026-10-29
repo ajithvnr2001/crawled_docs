@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/model-armor/release-notes/
 title: Model Armor release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:18:01.177613+00:00
+fetched_at: 2026-10-29T05:52:34.233493+00:00
 ---
 
 # Model Armor release notes  |  Google Cloud Documentation
@@ -26,6 +26,22 @@ This page contains release notes for features and updates to Model Armor. You ca
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/modelarmor-release-notes.xml) directly. 
+
+## October 29, 2026
+
+Feature
+
+Model Armor is available in Brazil (`southamerica-east1`). This region provides data residency compliance for at-rest, in-use, and in-transit data with [limited feature support](https://docs.cloud.google.com/model-armor/feature-availability-by-region#limited-support).
+
+The `southamerica-east1` region supports the following filters:
+
+  * Prompt injection and jailbreak detection
+  * Responsible AI
+  * Sensitive Data Protection
+
+
+
+For more information, see [Locations](https://docs.cloud.google.com/model-armor/locations), [Data residency and endpoints](https://docs.cloud.google.com/model-armor/data-residency), and [Supported features by region](https://docs.cloud.google.com/model-armor/feature-availability-by-region#supported-by-region).
 
 ## October 27, 2026
 

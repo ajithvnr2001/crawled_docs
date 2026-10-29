@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/omni-aws-export-results-to-s3/
 title: Export query results to Amazon S3 \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:48.876715+00:00
+fetched_at: 2026-10-29T05:43:44.170263+00:00
 ---
 
 # Export query results to Amazon S3  |  BigQuery  |  Google Cloud Documentation

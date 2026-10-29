@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/
 title: Agent topology graphs \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:00.516324+00:00
+fetched_at: 2026-10-29T06:14:26.653131+00:00
 ---
 
 # Agent topology graphs  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

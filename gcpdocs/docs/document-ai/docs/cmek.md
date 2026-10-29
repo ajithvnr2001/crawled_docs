@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/cmek/
 title: Customer-managed encryption keys (CMEK) \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:58:53.860459+00:00
+fetched_at: 2026-10-29T05:40:47.482325+00:00
 ---
 
 # Customer-managed encryption keys (CMEK)  |  Document AI  |  Google Cloud Documentation
@@ -385,7 +385,7 @@ To authenticate to Document AI, set up Application Default Credentials. For more
     require "google/cloud/kms"
     
     # Create the client.
-    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
+    client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html).[key_management_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)
     
     # Build the resource name.
     resource_name = client.crypto_key_path project:    project_id,
@@ -397,7 +397,7 @@ To authenticate to Document AI, set up Application Default Credentials. For more
     # resource_name = client.key_ring_path project: project_id, location: location_id, key_ring: key_ring_id
     
     # Create the IAM client.
-    iam_client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms.html)::[V1](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms-V1.html)::IAMPolicy::Client.new
+    iam_client = Google::Cloud::[Kms](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms/latest/Google-Cloud-Kms.html)::[V1](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-kms-v1/latest/Google-Cloud-Kms-V1.html)::IAMPolicy::Client.new
     
     # Get the current IAM policy.
     policy = iam_client.get_iam_policy resource: resource_name

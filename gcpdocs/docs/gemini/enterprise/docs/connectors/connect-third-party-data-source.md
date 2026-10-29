@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source/
 title: Connect a third-party data source \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:53:54.898121+00:00
+fetched_at: 2026-10-29T05:59:28.597449+00:00
 ---
 
 # Connect a third-party data source  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -157,8 +157,9 @@ Data source | Value for `allowedDataSources`
 [Pylon](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/pylon) | `pylon`  
 [Ramp](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/ramp-mcp) | `ramp_mcp`  
 [Relativity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/relativity) | `relativity`  
+[S&P Global - Adaptive Retrieval](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/s_p_global_adaptive_retrieval) | `s_p_global_adaptive_retrieval`  
 [S&P Global - Deterministic Retrieval](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/s_p_global) | `s_p_global`  
-[Salesforce](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/connect-salesforce) | `salesforce`  
+[Salesforce](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce) | `salesforce`  
 [Sanity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/sanity) | `sanity`  
 [ServiceM8](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/servicem8) | `servicem8`  
 [Shopify](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/shopify) | `shopify`  
@@ -197,7 +198,6 @@ To connect data sources that are in private preview, contact your Google account
 
   * [Connect Confluence Data Center On-premises with data ingestion](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/confluence-dc)
   * [Connect Jira Data Center On-premises with data ingestion](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/jira-dc)
-  * [Connect Salesforce with data ingestion](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/connect-salesforce)
 
 
 
@@ -472,7 +472,11 @@ List on-call entries | List the on-call entries during a given time range.
 List log entries | Get the full timeline of an incident.  
 SalesforceLaunch date | Action | Description  
 ---|---|---  
-6/23/26 | Create case | Creates a case in Salesforce.  
+10/26/26 | Create Sobject Record | Creates a record of any object type in Salesforce.  
+Update Sobject Record | Updates the fields of an existing record.  
+Update Related Record | Updates the record reached from a record through a to-one relationship.  
+Delete Sobject Record | Deletes a record. Deleted records go to the Salesforce Recycle Bin.  
+Delete Related Record | Deletes the record reached from a record through a to-one relationship.  
 ServiceM8Launch date | Action | Description  
 ---|---|---  
 7/31/26 | Add job note | Adds a note to a job specified by its UUID.  
@@ -596,6 +600,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

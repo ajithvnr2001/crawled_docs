@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/omni-introduction/
 title: Introduction to BigQuery Omni \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:49.692596+00:00
+fetched_at: 2026-10-29T05:44:49.370593+00:00
 ---
 
 # Introduction to BigQuery Omni  |  Google Cloud Documentation

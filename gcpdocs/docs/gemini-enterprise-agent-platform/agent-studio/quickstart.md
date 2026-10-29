@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart/
 title: Quickstart: Send text prompts to Gemini using Agent Studio \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:17.848944+00:00
+fetched_at: 2026-10-29T06:14:22.356593+00:00
 ---
 
 # Quickstart: Send text prompts to Gemini using Agent Studio  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/comparison_functions/
 title: Comparison Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:31:15.621278+00:00
+fetched_at: 2026-10-29T07:56:29.336464+00:00
 ---
 
 # Comparison Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -145,7 +145,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_comparison.go#L28-L33)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_comparison.go#L28-L33)
 
 ### GREATER_THAN
 
@@ -263,7 +263,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_comparison.go#L47-L52)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_comparison.go#L47-L52)
 
 ### GREATER_THAN_OR_EQUAL
 
@@ -385,7 +385,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_comparison.go#L66-L71)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_comparison.go#L66-L71)
 
 ### LESS_THAN
 
@@ -503,7 +503,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_comparison.go#L85-L90)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_comparison.go#L85-L90)
 
 ### LESS_THAN_OR_EQUAL
 
@@ -621,7 +621,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_comparison.go#L104-L109)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_comparison.go#L104-L109)
 
 ### NOT_EQUAL
 
@@ -736,7 +736,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_comparison.go#L123-L128)
+    [pipeline_snippets_comparison.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_comparison.go#L123-L128)
 
 ### CMP
 
@@ -779,6 +779,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

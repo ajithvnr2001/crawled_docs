@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/query-cloud-storage-using-biglake/
 title: Query Cloud Storage BigLake tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:49.873591+00:00
+fetched_at: 2026-10-29T05:44:18.579373+00:00
 ---
 
 # Query Cloud Storage BigLake tables  |  BigQuery  |  Google Cloud Documentation

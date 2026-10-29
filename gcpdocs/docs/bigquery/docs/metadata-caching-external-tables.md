@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/metadata-caching-external-tables/
 title: Use metadata caching for external data sources \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:09:56.938719+00:00
+fetched_at: 2026-10-29T05:42:30.615982+00:00
 ---
 
 # Use metadata caching for external data sources  |  BigQuery  |  Google Cloud Documentation

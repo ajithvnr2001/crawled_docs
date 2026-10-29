@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/verify-jwt-policy/
 title: VerifyJWT policy \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:58:05.566968+00:00
+fetched_at: 2026-10-29T05:51:38.391829+00:00
 ---
 
 # VerifyJWT policy  |  Apigee  |  Google Cloud Documentation
@@ -61,21 +61,21 @@ This example policy verifies a JWT that was signed with the HS256 encryption alg
 The policy configuration includes the information Apigee needs to decode and evaluate the JWT, such as where to find the JWT (in a flow variable specified in the Source element), the required signing algorithm, where to find the secret key (stored in an Apigee flow variable, which could have been retrieved from the Apigee KVM, for example), and a set of required claims and their values.
     
     
-    <VerifyJWT name="JWT-Verify-H>S256&<quot;
-        D>isplayNameJWT Ve<rify HS256/D>ispla<yName
-       > Algo<rithmHS256>/Algo<rithm
-    >    Sourcerequest.for<mparam.>jwt/S<ource
-        IgnoreUnresolve>dVari<ablesfalse/IgnoreUnresolve>dVari<ables
-        SecretKey encodin>g="b<ase64"
-            Value ref=>"<;private.s>ecret<key&quo>t;/
-        /SecretKey
-        Subj<ectmonty>-pyth<ons-fl>ying-circus/Subject
-        Issuerurn<://apig>ee-ed<ge-JWT-p>olic<y-test/Is>suer
-    <    Audiencefans>/Audience<
-        AdditionalCl>aims
-            Claim name="show"And< now f>or so<mething completel>y< different>./Claim
-        /AdditionalClaims
-    /VerifyJWT
+    <VerifyJWT name="JWT-Verify-HS256">
+        <DisplayName>JWT Verify HS256</DisplayName>
+        <Algorithm>HS256</Algorithm>
+        <Source>request.formparam.jwt</Source>
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <SecretKey encoding="base64">
+            <Value ref="private.secretkey"/>
+        </SecretKey>
+        <Subject>monty-pythons-flying-circus</Subject>
+        <Issuer>urn://apigee-edge-JWT-policy-test</Issuer>
+        <Audience>fans</Audience>
+        <AdditionalClaims>
+            <Claim name="show">And now for something completely different.</Claim>
+        </AdditionalClaims>
+    </VerifyJWT>
 
 The policy writes its output to context variables so that subsequent policies or conditions in the API proxy can examine those values. See Flow variables for a list of the variables set by this policy. 
 
@@ -88,20 +88,20 @@ This example policy verifies a JWT that was signed with the RS256 algorithm. To 
 See the Element reference for details on the requirements and options for each element in this sample policy.
     
     
-    <VerifyJWT name="JWT-Verify-R>S256&<quot;
-       > Algo<rithmRS256>/Algo<rithm
-    >    Sourcerequest.for<mparam.>jwt/S<ource
-        IgnoreUnresolve>dVari<ablesfalse/IgnoreUnresolve>dVari<ables
-       > PublicKe<y
-            Value ref="pub>lic.p<ublickey&q>uot;/<
-        /P>ublicKey
-        Subjectapigee-sea<ttle-hat>rack-<montag>e/Subject
-        Issuerurn://apigee-<edge-JW>T-pol<icy-test>/Issuer
-        Audienceurn://c60511c0-12a2-47<3c-80fd-4>2528e<b65a6a/Audience
-    >    Addit<ionalClaims
-         >   Claim name="show"And now for s<omethi>ng co<mpletely differen>t<./Claim
-      >  /AdditionalClaims
-    /VerifyJWT
+    <VerifyJWT name="JWT-Verify-RS256">
+        <Algorithm>RS256</Algorithm>
+        <Source>request.formparam.jwt</Source>
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <PublicKey>
+            <Value ref="public.publickey"/>
+        </PublicKey>
+        <Subject>apigee-seattle-hatrack-montage</Subject>
+        <Issuer>urn://apigee-edge-JWT-policy-test</Issuer>
+        <Audience>urn://c60511c0-12a2-473c-80fd-42528eb65a6a</Audience>
+        <AdditionalClaims>
+            <Claim name="show">And now for something completely different.</Claim>
+        </AdditionalClaims>
+    </VerifyJWT>
 
 For the above configuration, a JWT with this header …
     
@@ -155,30 +155,30 @@ Which element you use depends on the chosen algorithm, as shown in the following
 HS* | 
     
     
-    <SecretKey encoding="base16|hex|base64|base6>4ur<l"
-      Value ref="priv>a<te.secretk>ey"/
-    /SecretKey  
+    <SecretKey encoding="base16|hex|base64|base64url">
+      <Value ref="private.secretkey"/>
+    </SecretKey>  
   
 RS*, ES*, PS* | 
     
     
     <PublicKey>
-      <Value ref="rsa_public_key_or_va>l<ue"/
-    >/PublicKey
+      <Value ref="rsa_public_key_or_value"/>
+    </PublicKey>
 
 or:
     
     
     <PublicKey>
-      <Certificate ref="signed_cert_val_>r<ef"/
-    >/PublicKey
+      <Certificate ref="signed_cert_val_ref"/>
+    </PublicKey>
 
 or:
     
     
     <PublicKey>
-      <JWKS ref="jwks_val_or_>r<ef"/
-    >/PublicKey  
+      <JWKS ref="jwks_val_or_ref"/>
+    </PublicKey>  
   
 *For more on the key requirements, see [About signature encryption algorithms](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/jwt-policies-overview#about-signature-encryption-algorithms).  
   
@@ -196,23 +196,23 @@ The following sample shows how to verify an encrypted JWT (with `<Type>` set to 
 
     
     
-    <VerifyJWT name="vj>wt-<1"
-      >Algor<ith>ms
-        KeyRS<A-OA>EP-25<6/Key
-     >   Cont<entA128G>CM/<Content
-      />Alg<orit>hms
-      Typ<eEncr>ypted/Type <!-- op<tional --&>gt;
-     < PrivateKey
-        Value ref="pri>vat<e.rsa_priva>tek<ey">;/
-      /PrivateKey
-      <Subjects>ubj<ect@ex>ample.com/Su<bject
-     > Is<suerurn://apigee/>Issue<r
-      AdditionalHeader>s
-        <Claim >nam<e="moniker&qu>ot;<Harvey/Claim
-    >  /<AdditionalHead>ers<
-      Tim>eAllowanc<e30s/Ti>m<eAllowance>
-      Sourceinput_var/Source
-    /VerifyJWT
+    <VerifyJWT name="vjwt-1">
+      <Algorithms>
+        <Key>RSA-OAEP-256</Key>
+        <Content>A128GCM</Content>
+      </Algorithms>
+      <Type>Encrypted</Type> 
+      <PrivateKey>
+        <Value ref="private.rsa_privatekey"/>
+      </PrivateKey>
+      <Subject>subject@example.com</Subject>
+      <Issuer>urn://apigee</Issuer>
+      <AdditionalHeaders>
+        <Claim name="moniker">Harvey</Claim>
+      </AdditionalHeaders>
+      <TimeAllowance>30s</TimeAllowance>
+      <Source>input_var</Source>
+    </VerifyJWT>
 
 The sample above uses the `<Algorithms>` element, so it verifies an encrypted JWT. The `<PrivateKey>` element specifies the key that will be used to decrypt the JWT. There are other key elements as well. Which one you use depends on the algorithm specified by the value of `<Algorithms>`, as described in the next section.
 
@@ -235,8 +235,8 @@ RSA-OAEP-256 |
     
     
     <PrivateKey>
-      <Value ref="private.rsa_private>k<ey"/
-    />PrivateKey
+      <Value ref="private.rsa_privatekey"/>
+    </PrivateKey>
 
 **Note:** The variable you specify must resolve to an RSA private key in PEM-encoded form.  
   
@@ -249,8 +249,8 @@ RSA-OAEP-256 |
     
     
     <PrivateKey>
-      <Value ref="private.ec_private>k<ey"/
-    />PrivateKey
+      <Value ref="private.ec_privatekey"/>
+    </PrivateKey>
 
 **Note:** The variable you specify must resolve to an elliptic curve private key in PEM-encoded form.  
   
@@ -264,9 +264,9 @@ RSA-OAEP-256 |
 | 
     
     
-    <SecretKey encoding="base16|hex|base64|base6>4ur<l"
-      Value ref="private.flow-varia>b<le-name-he>re"/
-    /SecretKey  
+    <SecretKey encoding="base16|hex|base64|base64url">
+      <Value ref="private.flow-variable-name-here"/>
+    </SecretKey>  
   
   * PBES2-HS256+A128KW
   * PBES2-HS384+A192KW
@@ -276,17 +276,17 @@ RSA-OAEP-256 |
     
     
     <PasswordKey>
-      <Value ref="private.password->key<"/
-      >Sal<tLength
-      PBKDF2>I<terations
-    /P>asswordKey  
+      <Value ref="private.password-key"/>
+      <SaltLength>
+      <PBKDF2Iterations>
+    </PasswordKey>  
   
 dir | 
     
     
     <DirectKey>
-      <Value encoding="base16|hex|base64|base64url" ref="privat<e.directke>y"/>
-    /DirectKey  
+      <Value encoding="base16|hex|base64|base64url" ref="private.directkey"/>
+    </DirectKey>  
   
 For more on the key requirements, see [About signature encryption algorithms](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/jwt-policies-overview#about-signature-encryption-algorithms).
 
@@ -299,7 +299,7 @@ The policy reference describes the elements and attributes of the Verify JWT pol
 ### Attributes that apply to the top-level element
     
     
-    <VerifyJWT name="JWT" continueOnError="false" enabled=>"true" async="false"
+    <VerifyJWT name="JWT" continueOnError="false" enabled="true" async="false">
 
 The following attributes are common to all policy parent elements.
 
@@ -442,7 +442,7 @@ Regardless of the key encryption algorithm, the following algorithms - all symme
     
     or:
     
-    <Audience ref='variable-name-he>re'/
+    <Audience ref='variable-name-here'/>
 
 The policy verifies that the audience claim in the JWT matches the value specified in the configuration. If there is no match, the policy throws an error. This claim identifies the recipients that the JWT is intended for. This is one of the registered claims mentioned in [RFC7519](https://tools.ietf.org/html/rfc7519).
 
@@ -456,14 +456,14 @@ The policy verifies that the audience claim in the JWT matches the value specifi
     
     
     <AdditionalClaims>
-        <Claim name='cla>im1'explicit-value-of-cl<aim-he>re/Cl<aim
-        Claim name='claim2' ref='>varia<ble-name-here'/
-        Claim name='claim3' ref='>;<variable-name-her>e' <type='boolean'/
-    /AdditionalCl>aims
+        <Claim name='claim1'>explicit-value-of-claim-here</Claim>
+        <Claim name='claim2' ref='variable-name-here'/>
+        <Claim name='claim3' ref='variable-name-here' type='boolean'/>
+    </AdditionalClaims>
     
     or:
     
-    AdditionalClaims ref='claim_payload'/
+    <AdditionalClaims ref='claim_payload'/>
 
 Validates that the JWT payload contains the specified additional claim(s) and that the asserted claim values match. 
 
@@ -492,7 +492,7 @@ When you include the `<Claim>` element, the claim names are set statically when 
 For example:
     
     
-    <AdditionalClaims ref='json_clai>ms'/
+    <AdditionalClaims ref='json_claims'/>
 
 Where the variable `json_claims` contains a JSON object in the form:
     
@@ -510,11 +510,11 @@ Where the variable `json_claims` contains a JSON object in the form:
     
     
     <AdditionalHeaders>
-        <Claim name='cla>im1'explicit-value-of-cl<aim-he>re/Cl<aim
-        Claim name='claim2' ref='>varia<ble-name-here'/
-        Claim name='claim3' ref='>;vari<able-name-here' type='boolean'/
-        Claim name='cla>i<m4' ref='v>ariable-name' type='string' array='true'/
-    /AdditionalHeaders
+        <Claim name='claim1'>explicit-value-of-claim-here</Claim>
+        <Claim name='claim2' ref='variable-name-here'/>
+        <Claim name='claim3' ref='variable-name-here' type='boolean'/>
+        <Claim name='claim4' ref='variable-name' type='string' array='true'/>
+    </AdditionalHeaders>
 
 Validates that the JWT header contains the specified additional claim name/value pair(s) and that the asserted claim values match.
 
@@ -547,9 +547,9 @@ The `<Claim>` element takes these attributes:
     
     <Id>explicit-jti-value-here</Id>
      -or-
-    <Id ref='variable-name-he>re'</
-     >-or-
-    Id/
+    <Id ref='variable-name-here'/>
+     -or-
+    <Id/>
 
 Verifies that the JWT has the specific **jti** claim. When the text value and ref attribute are both empty, the policy will generate a jti containing a random UUID. The JWT ID (jti) claim is a unique identifier for the JWT. For more information on jti, refer to [RFC7519](https://tools.ietf.org/html/rfc7519).
 
@@ -603,20 +603,20 @@ Set to false if you want the policy to throw an error when any referenced variab
 ## <Issuer>
     
     
-    <VerifyJWT name='VJWT>-29'
-    <  ...
-      !-- verify that the iss claim matches a hard-coded >val<ue --
-    >  Issuerissuer-str<ing-her>e/Issuer
-    
-     < or:
-    
-      !-- verify that the iss claim matches the value contained in a var>iab<le --
-      Issuer ref='variable-contain>ing-issuer&<#39;/
+    <VerifyJWT name='VJWT-29'>
+      ...
+      <!-- verify that the iss claim matches a hard-coded value -->
+      <Issuer>issuer-string-here</Issuer>
     
       or:
     
-      !-- verify via a variable; fallback to a hard-coded value if the vari>abl<e is empty --
-      Issuer ref='variabl>e-containing-issuer<'fa>llback-value-here/Issuer
+      <!-- verify that the iss claim matches the value contained in a variable -->
+      <Issuer ref='variable-containing-issuer'/>
+    
+      or:
+    
+      <!-- verify via a variable; fallback to a hard-coded value if the variable is empty -->
+      <Issuer ref='variable-containing-issuer'>fallback-value-here</Issuer>
 
 The policy verifies that the issuer in the JWT (the `iss` claim) matches the string specified in the configuration element. The `iss` claim is one of the registered claims mentioned in [IETF RFC 7519](https://tools.ietf.org/html/rfc7519).
 
@@ -633,7 +633,7 @@ The policy verifies that the issuer in the JWT (the `iss` claim) matches the str
     
     or:
     
-    <KnownHeaders ref='variable_containing_heade>rs'/
+    <KnownHeaders ref='variable_containing_headers'/>
 
 The [GenerateJWT policy](https://docs.cloud.google.com/apigee/docs/api-platform/reference/policies/generate-jwt-policy) uses the `<CriticalHeaders>` element to populate the **crit** header in a JWT. For example:
     
@@ -657,25 +657,25 @@ You can optionally configure the VerifyJWT policy to ignore the **crit** header 
 ## <MaxLifespan>
     
     
-      <VerifyJWT name='VJWT>-62'
-    <  ...
-      !-- hard-coded lifespan of 5 mi>nut<es --
-      Max>Li<fespan5m/Max>Lifespan
-    
-     < or:
-    
-      !-- refer to a var>iab<le --
-      MaxLifespan ref='var>iable-here&<#39;/
+      <VerifyJWT name='VJWT-62'>
+      ...
+      <!-- hard-coded lifespan of 5 minutes -->
+      <MaxLifespan>5m</MaxLifespan>
     
       or:
     
-      !-- attribute telling the policy to use iat ra>the<r than nbf --
-      MaxLifespan use>Is<sueTime='>;true'1<h/MaxLifespan
+      <!-- refer to a variable -->
+      <MaxLifespan ref='variable-here'/>
     
       or:
     
-      !-- useIssueTime and ref, and hard->cod<ed fallback value. --
-      MaxLifespan useIssueTime=&#>39<;true' r>ef='variable-here'1h/MaxLifespan
+      <!-- attribute telling the policy to use iat rather than nbf -->
+      <MaxLifespan useIssueTime='true'>1h</MaxLifespan>
+    
+      or:
+    
+      <!-- useIssueTime and ref, and hard-coded fallback value. -->
+      <MaxLifespan useIssueTime='true' ref='variable-here'>1h</MaxLifespan>
       ...
       
 
@@ -705,8 +705,8 @@ Use this element to specify the private key that can be used to verify a JWT enc
     
     
     <PrivateKey>
-      <Password ref="private.privatekey-passw>o<rd"/
-    />PrivateKey
+      <Password ref="private.privatekey-password"/>
+    </PrivateKey>
 
 A child of the `<PrivateKey>` element. Specifies the password the policy should use to decrypt the private key, if necessary, when verifying an encrypted JWT. Use the `ref` attribute to pass the password in a flow variable.
 
@@ -720,8 +720,8 @@ A child of the `<PrivateKey>` element. Specifies the password the policy should 
     
     
     <PrivateKey>
-      <Value ref="private.variable-name-h>e<re"/
-    />PrivateKey
+      <Value ref="private.variable-name-here"/>
+    </PrivateKey>
 
 Child of the `<PrivateKey>` element. Specifies a PEM-encoded private key that the policy will use to verify an encrypted JWT. Use the `ref` attribute to pass the key in a flow variable.
 
@@ -739,18 +739,18 @@ Specifies the source for the public key used to verify a JWT signed with an asym
     
     
     <PublicKey>
-      <Certificate ref="signed_public.c>e<rt"/
-    >/PublicK<ey
+      <Certificate ref="signed_public.cert"/>
+    </PublicKey>
     
     -or-
-    >
-    Pu<blicKey
-      C>ertificate
+    
+    <PublicKey>
+      <Certificate>
     -----BEGIN CERTIFICATE-----
     certificate data
-    -----END CERTIFICA<TE-----
-      /C>e<rtificate<>/span>
-    /PublicKey
+    -----END CERTIFICATE-----
+      </Certificate>
+    </PublicKey>
 
 A child of the `<PublicKey>` element. Specifies the signed certificate used as the source of the public key. Use the `ref` attribute to pass the signed certificate in a flow variable, or specify the PEM-encoded certificate directly. Make sure to align the certificate data on the left as shown in the reference example.
 
@@ -784,31 +784,31 @@ If you fetch the value from a public URL, Apigee caches the JWKS for a period of
         <PublicKey>
             <JWKS>{
               "keys": [
-                {"kty":"RSA","e":"AQAB","kid":"b3918c88","n":"jxdm..."<;},
-         >   <    {">;kty":"RSA","e":"AQAB","kid":"24f094d4","n":"kWRdbgMQ..."}
+                {"kty":"RSA","e":"AQAB","kid":"b3918c88","n":"jxdm..."},
+                {"kty":"RSA","e":"AQAB","kid":"24f094d4","n":"kWRdbgMQ..."}
               ]
             }
-            /JWKS
-          /PublicKey
+            </JWKS>
+          </PublicKey>
 
   * Indirectly, with the `ref` attribute, specifying a flow variable:
         
         <PublicKey>
-            <JWKS ref="variable-containing-jwks-cont>ent<"/
-          >/PublicKey
+            <JWKS ref="variable-containing-jwks-content"/>
+          </PublicKey>
 
 The referenced variable should contain a string that represents a JWKS.
   * Indirectly via a static uri, with the `uri` attribute:
         
         <PublicKey>
-            <JWKS uri="uri-that-returns-a-j>wks<"/
-          >/PublicKey
+            <JWKS uri="uri-that-returns-a-jwks"/>
+          </PublicKey>
 
   * Indirectly via a dynamically-determined uri, with the `uriRef` attribute:
         
         <PublicKey>
-            <JWKS uriRef="variable-containing-a-uri-that-returns-a-j>wks<"/
-          >/PublicKey
+            <JWKS uriRef="variable-containing-a-uri-that-returns-a-jwks"/>
+          </PublicKey>
 
 
   
@@ -817,21 +817,21 @@ The referenced variable should contain a string that represents a JWKS.
     
     
     <PublicKey>
-      <Value ref="public.publickeyorc>e<rt"/
-    >/PublicK<ey
+      <Value ref="public.publickeyorcert"/>
+    </PublicKey>
     
     -or-
-    >
-    Pu<blicK>ey
-      Value
+    
+    <PublicKey>
+      <Value>
     -----BEGIN PUBLIC KEY-----
     MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw2kPrRzcufvUNHvTH/WW
     ...YOUR PUBLIC KEY MATERIAL HERE....d1lH8MfUyRXmpmnNxJHAC2F73IyN
     ZmkDb/DRW5onclGzxQITBFP3S6JXd4LNESJcTp705ec1cQ9Wp2Kl+nKrKyv1E5Xx
     DQIDAQAB
-    -----END PUBLIC K<EY---->-<
-      /Value
-    >/PublicKey
+    -----END PUBLIC KEY-----
+      </Value>
+    </PublicKey>
 
 A child of the `<PublicKey>` element. Specifies the public key to use to verify the signature on a signed JWT. Use the `ref` attribute to pass the key in a flow variable, or specify the PEM-encoded key directly. Make sure to align the public key on the left as shown in the reference example.
 
@@ -844,17 +844,17 @@ A child of the `<PublicKey>` element. Specifies the public key to use to verify 
 ## <RequiredClaims>
     
     
-    <VerifyJWT name='VJW>T-1'
-    <  ...
-      !-- Directly specify the names of the claims to re>qui<re --
-      Requir>edClaimssub<,iss,exp/Requir>edClaims
+    <VerifyJWT name='VJWT-1'>
+      ...
+      <!-- Directly specify the names of the claims to require -->
+      <RequiredClaims>sub,iss,exp</RequiredClaims>
     
-      <-or-
+      -or-
     
-      !-- Specify the claim names indirectly, via a context var>iab<le --
-      RequiredClaims ref='claims_>to_requ<ire'/
-    >  ...
-    /VerifyJWT
+      <!-- Specify the claim names indirectly, via a context variable -->
+      <RequiredClaims ref='claims_to_require'/>
+      ...
+    </VerifyJWT>
 
 The `<RequiredClaims>` element is optional. It specifies a comma-separated list of names of claims that must be present in the JWT payload, when verifying a JWT. The element ensures that the presented JWT contains the required claims but does not validate the contents of the claims. If any of the listed claims are not present, the VerifyJWT policy will throw a fault at runtime.
 
@@ -867,9 +867,9 @@ The `<RequiredClaims>` element is optional. It specifies a comma-separated list 
 ## <SecretKey>
     
     
-    <SecretKey encoding="base16|hex|base64|base64>url<" 
-      Value ref="private.your->v<ariable-na>me"/
-    /SecretKey
+    <SecretKey encoding="base16|hex|base64|base64url" >
+      <Value ref="private.your-variable-name"/>
+    </SecretKey>
       
 
 The SecretKey element is optional. It specifies the secret key to use when verifying a signed JWT that uses a symmetric (HS*) algorithm or when verifying an encrypted JWT that uses a symmetric (AES) algorithm for key encryption.
@@ -883,17 +883,17 @@ Child | Presence | Description
 encoding (attribute) | Optional | Specifies how the key is encoded in the referenced variable. By default, when no `encoding` attribute is present, the encoding of the key is treated as UTF-8. Valid values for the attribute are: hex, base16, base64, or base64url. The encoding values hex and base16 are synonyms.
     
     
-    <SecretKey **encoding=" >**hex<" 
-      Value ref="priv>a<te.secretk>ey"/
-    /SecretKey
+    <SecretKey **encoding="hex" >**
+      <Value ref="private.secretkey"/>
+    </SecretKey>
 
 In the above example, because the encoding is `hex`, if the contents of the variable `private.secretkey` is `494c6f766541504973`, the key will be decoded as a set of 9 bytes, which in hex will be `49 4c 6f 76 65 41 50 49 73`.  **Note:** Apigee enforces a minimum key strength. See the documentation for the `Value` element for details.  
 Value (element) | Required | An encoded secret key. Specifies the secret key that will be used to verify the payload. Use the `ref` attribute to provide the key indirectly via a variable, such as `private.secret-key` .
     
     
     <SecretKey>
-    ** <Value ref="private.my-secret-varia>**b<le"/
-    >/SecretKey
+    ** <Value ref="private.my-secret-variable"/>**
+    </SecretKey>
 
 **Note:** The variable name must include the **private** prefix as shown in the example above.Apigee enforces a minimum key strength for the HS256/HS384/HS512 algorithms. The minimum key length for HS256 is 32 bytes, for HS384 it is 48 bytes, and for HS512 it is 64 bytes. Using a lower-strength key causes a runtime error.  
   
@@ -920,20 +920,20 @@ By default, when no `<Source>` element is present, the policy retrieves the JWT 
 ## <Subject>
     
     
-    <VerifyJWT name='VJW>T-8'
-    <  ...
-      !-- verify that the sub claim matches a hard-coded >val<ue --
-     > Subjectsubject-str<ing-here>/Subject
-    
-     < or:
-    
-      !-- verify that the sub claim matches the value contained in a var>iab<le --
-      Subject ref='variable-containi>ng-subject&<#39;/
+    <VerifyJWT name='VJWT-8'>
+      ...
+      <!-- verify that the sub claim matches a hard-coded value -->
+      <Subject>subject-string-here</Subject>
     
       or:
     
-      !-- verify via a variable; fallback to a hard-coded value if the vari>abl<e is empty --
-      Subject ref='variable>-containing-subject<'fal>lback-value-here/Subject
+      <!-- verify that the sub claim matches the value contained in a variable -->
+      <Subject ref='variable-containing-subject'/>
+    
+      or:
+    
+      <!-- verify via a variable; fallback to a hard-coded value if the variable is empty -->
+      <Subject ref='variable-containing-subject'>fallback-value-here</Subject>
 
 The policy verifies that the subject in the JWT (the `sub` claim) matches the string specified in the policy configuration. The `sub` claim is one of the registered claims described in [RFC7519](https://tools.ietf.org/html/rfc7519).
 
@@ -946,20 +946,20 @@ The policy verifies that the subject in the JWT (the `sub` claim) matches the st
 ## <TimeAllowance>
     
     
-    <VerifyJWT name='VJWT>-23'
-    <  ...
-      !-- configure a hard-coded time allowance of 20 se>con<ds --
-      TimeA>llo<wance20s/TimeA>llowance
-    
-     < or:
-    
-      !-- refer to a variable containing the time allo>wan<ce --
-      TimeAllowance ref='variable-containing-time>-allowance&<#39;/
+    <VerifyJWT name='VJWT-23'>
+      ...
+      <!-- configure a hard-coded time allowance of 20 seconds -->
+      <TimeAllowance>20s</TimeAllowance>
     
       or:
     
-      !-- refer to a variable; fallback to a hard-coded value if the vari>abl<e is empty --
-      TimeAllowance ref='variable-c>ont<aining-allowan>ce'30s/TimeAllowance
+      <!-- refer to a variable containing the time allowance -->
+      <TimeAllowance ref='variable-containing-time-allowance'/>
+    
+      or:
+    
+      <!-- refer to a variable; fallback to a hard-coded value if the variable is empty -->
+      <TimeAllowance ref='variable-containing-allowance'>30s</TimeAllowance>
       
 
 The "grace period" for times, to account for clock skew between the issuer and verifier of a JWT. This will apply to both the expiry (the `exp` claim) as well as the not-before-time (the `nbf` claim). For example, if the time allowance is configured to be `30s`, then an expired JWT would be treated as still valid, for 30 seconds after the asserted expiry. The not-before-time will be evaluated similarly.

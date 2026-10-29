@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/release-notes/
 title: Spanner release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:49:59.000381+00:00
+fetched_at: 2026-10-29T06:00:01.142269+00:00
 ---
 
 # Spanner release notes  |  Google Cloud Documentation
@@ -26,6 +26,14 @@ This page documents production updates to Spanner. You can periodically check th
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/spanner-release-notes.xml) directly. 
+
+## October 27, 2026
+
+Feature
+
+Spanner supports the `ON DELETE SET NULL` foreign key action for GoogleSQL and PostgreSQL dialects. Use `ON DELETE SET NULL` when you delete a referenced row to set the referencing columns to `NULL`.
+
+For more information, see [Foreign key actions](https://docs.cloud.google.com/spanner/docs/foreign-keys/overview#how-to-define-foreign-key-action) and [Create and manage foreign key relationships](https://docs.cloud.google.com/spanner/docs/foreign-keys/how-to).
 
 ## October 20, 2026
 

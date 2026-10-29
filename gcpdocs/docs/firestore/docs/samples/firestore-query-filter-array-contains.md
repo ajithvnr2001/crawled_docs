@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-filter-array-contains/
 title: Query a Firestore collection with an array_contains filter \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:07.384967+00:00
+fetched_at: 2026-10-29T07:57:56.625580+00:00
 ---
 
 # Query a Firestore collection with an array_contains filter  |  Google Cloud Documentation

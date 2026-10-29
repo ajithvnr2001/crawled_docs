@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-vpc-connectivity/
 title: Set up Agent Gateway with VPC connectivity \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:38.487566+00:00
+fetched_at: 2026-10-29T06:14:25.798125+00:00
 ---
 
 # Set up Agent Gateway with VPC connectivity  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -303,11 +303,8 @@ Replace the following:
 
         * `CONNECTIVITY_TEMPLATE_NAME`: The name of the connectivity template resource.
 
-        * `AGENT_REGISTRY_PATH`: The path to the Agent Registry. You can configure up to two registries for an Agent Gateway. When configuring two registries, one must be a global registry and the other can be either a regional or multi-regional registry. The registry paths must be formatted as follows:
+        * `AGENT_REGISTRY_PATH`: The path to the regional Agent Registry instance in the same project and region as the gateway, formatted as `//agentregistry.googleapis.com/projects/PROJECT_ID/locations/LOCATION`. For guidance, see [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw).
 
-          * Regional registries: `//agentregistry.googleapis.com/projects/PROJECT_ID/locations/REGION`
-          * Global registries: `//agentregistry.googleapis.com/projects/PROJECT_ID/locations/global`
-          * Multi-region registries: `//agentregistry.googleapis.com/projects/PROJECT_ID/locations/MULTI_REGION`
      4. **Import and deploy Agent Gateway** :
 
 Run the following command to create the Agent Gateway resource based on the YAML specification:

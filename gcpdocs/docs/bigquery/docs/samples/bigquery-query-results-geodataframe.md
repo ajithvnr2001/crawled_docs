@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-results-geodataframe/
 title: Download query results to a GeoPandas GeoDataFrame \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:11:10.655079+00:00
+fetched_at: 2026-10-29T05:41:36.840041+00:00
 ---
 
 # Download query results to a GeoPandas GeoDataFrame  |  BigQuery  |  Google Cloud Documentation

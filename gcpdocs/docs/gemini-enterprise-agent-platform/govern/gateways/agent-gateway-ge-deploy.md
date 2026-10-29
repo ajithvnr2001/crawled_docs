@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-ge-deploy/
 title: Route Gemini Enterprise traffic through Agent Gateway \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:02.073366+00:00
+fetched_at: 2026-10-29T06:14:26.856134+00:00
 ---
 
 # Route Gemini Enterprise traffic through Agent Gateway  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -35,34 +35,16 @@ This page describes how to route Gemini Enterprise traffic through Agent Gateway
 
 Before you deploy your Agent Gateway, pick the region where you deploy the gateway and the Agent Registry where you register your resources. Note the following requirements:
 
-  * **Location mapping:** Deploy the Agent Gateway in the specific region that corresponds to your Gemini Enterprise app's multi-region setup to ensure proper routing.
+  * **Location mapping:** Deploy the Agent Gateway in the specific region that corresponds to your Gemini Enterprise app's location to ensure proper routing.
 
-  * **Registry mapping:** You can associate up to two registries with an Agent Gateway (one global registry and one regional or multi-regional registry). See [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) for more guidance on deployment patterns and registry choices.
+  * **Registry mapping:** Associate your Agent Gateway with the regional Agent Registry instance in the same project and region as the gateway. See [Plan your Agent Gateway deployment](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#plan-agw) for more guidance on deployment patterns.
 
 
-**Caution:** Multi-region `eu` and `us` registries don't support manual registration of agents, endpoints, and MCP servers.**Table:** Gemini Enterprise app location and Agent Registry mappings Gemini Enterprise app location | Required Agent Gateway region | Supported Agent Registry instances for Agent Gateway  
+**Table:** Gemini Enterprise app location and Agent Registry mappings Gemini Enterprise app location | Required Agent Gateway region | Required Agent Registry instance for Agent Gateway  
 ---|---|---  
-`global` | `us-central1` | Choose up to _two_ of the following (one global and one regional or multi-regional):
-
-  * `global` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/global)`
-  * `us` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/us`)
-  * `us-central1` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/us-central1`)
-
-  
-`us` | `us-central1` | Choose up to _two_ of the following (one global and one regional or multi-regional):
-
-  * `global` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/global)`
-  * `us` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/us`)
-  * `us-central1` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/us-central1`)
-
-  
-`eu` | `europe-west1` | Choose up to _two_ of the following (one global and one regional or multi-regional):
-
-  * `global` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/global)`
-  * `eu` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/eu`)
-  * `europe-west1` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/europe-west1`)
-
-  
+`global` | `us-central1` | `us-central1` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/us-central1`)  
+`us` | `us-central1` | `us-central1` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/us-central1`)  
+`eu` | `europe-west1` | `europe-west1` (`//agentregistry.googleapis.com/projects/PROJECT_ID/locations/europe-west1`)  
   
 ## Route Gemini Enterprise traffic through Agent Gateway
 
@@ -91,7 +73,7 @@ Here is an example output for a properly configured gateway:
              "MCP"
            ],
            "registries": [
-             "//agentregistry.googleapis.com/projects/my-ge-project/locations/global"
+             "//agentregistry.googleapis.com/projects/my-ge-project/locations/us-central1"
            ]
          }
          

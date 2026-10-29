@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-query-destination-table-cmek/
 title: Query a table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:40:07.836614+00:00
+fetched_at: 2026-10-29T05:43:32.615363+00:00
 ---
 
 # Query a table  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/developer-device-platform/migrate/flag-command-translation/
 title: Firebase Test Lab to Developer Device Platform Command and Flag Translation \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:51:13.596902+00:00
+fetched_at: 2026-10-29T08:17:28.920697+00:00
 ---
 
 # Firebase Test Lab to Developer Device Platform Command and Flag Translation  |  Google Cloud Documentation
@@ -240,9 +240,6 @@ Legacy Parameter (Test Lab / Flank) | Target DDP Parameter | Format / Conversion
 Legacy Parameter (Test Lab / Flank) | Target DDP Parameter | Format / Conversion Logic  
 ---|---|---  
 `--device model={M},version={V}` | `--device={M}-{V}` | REQUIRED **String** that maps model and OS version to a single `--device` ID string. DDP's `--device` flag accepts multiple device IDs separated by commas (ex. `--device=shiba-34,tokay-36`) or multiple `--device` flags, each specifying a distinct device ID (ex. `--device=shiba-34 --device=tokay-36`).  
-`--device locale={L}` | `--locale={L}` | **String**. Maps device locale to top-level `--locale` flag (`language-region`, ex. `--locale=en-US`) to switch the device to before running the test.  
-`--device orientation={O}` | `--orientation={O}` | **String**. Maps device orientation to top-level `--orientation` flag (`portrait` or `landscape`).  
-_N/A_ | `--coordinates` | **String**. Mocks device GPS location coordinates (ex. `--coordinates=37.4220,-122.0841`).  
   
 ### Execution control and flakiness
 
@@ -287,10 +284,13 @@ Use this table to map legacy `gcloud firebase test android run` flags to their n
 Legacy Parameter (`firebase android`) | Target DDP Parameter | Format / Conversion Logic  
 ---|---|---  
 `--additional-apks` | `--apps` | **List**. Merge additional list values directly into the main `--apps` list.  
+`--device locale={L}` | `--locale={L}` | **String**. Maps device locale to top-level `--locale` flag (`language-region`, ex. `--locale=en-US`) to switch the device to before running the test.  
+`--device orientation={O}` | `--orientation={O}` | **String**. Maps device orientation to top-level `--orientation` flag (`portrait` or `landscape`).  
+_N/A_ | `--coordinates` | **String**. Mocks device GPS location coordinates (ex. `--coordinates=37.4220,-122.0841`).  
 _N/A_ | `--bugreport` | **String**. Collect a full `bugreport` from the device (values: `always`, `on-failure`).  
 _N/A_ | `--dumpsys` | **String**. Collect system state using `dumpsys` (values: `always`, `on-failure`).  
 `--timeout` | `--instrumentation-timeout` | **Duration** (ex. `10m`, `20s`, `1h`). Valid range: `1m` to `3h` (defaults to `5m`).  
-`--record-video` | `--video` | **String**. When to record video of the device screen during the test run.Valid values are `always` or `on-failure`.  
+`--record-video` | `--video` | **String**. When to record video of the device screen during the test run. Valid values are `always` or `on-failure`.  
   
 ### iOS-specific flags
 
@@ -300,7 +300,6 @@ Legacy Parameter (`firebase ios`) | Target DDP Parameter | Format / Conversion L
 ---|---|---  
 `--test` | `--test` | Path to built XCTest zip.  
 `--device model={M},version={V}` | `--device={M}-{V}` | Target device ID string.  
-`--device locale={L}` | `--locale={L}` | Target locale string (`language-region`, ex. `--locale=en-US`).  
 `--timeout` | `--xctest-timeout` | Duration (e.g. `5m`). Range: `1m` to `1h`.  
 `--xcode-version` | `--xcode-version` | Catalog ID or version string of Xcode to use (ex. `xcode-16-4` or `16.4`). Available versions can be queried using `gcloud beta device-run software-versions list`.  
 `--results-bucket` | `--bucket-name` | Custom destination GCS bucket.  
@@ -308,6 +307,7 @@ Legacy Parameter (`firebase ios`) | Target DDP Parameter | Format / Conversion L
 `--other-files` | `--other-files-to-push` | Dictionary in `SOURCE=BUNDLE_ID:DEST` format.  
 `--directories-to-pull` | `--paths-to-pull` | List in `BUNDLE_ID:DEVICE_PATH` format.  
 `--additional-ipas` | `--additional-apps` | List of helper IPAs to install prior to test.  
+`--record-video` | `--video` | When to record video: `always` or `on-failure`. One video is recorded for each UI test case (iOS 17 or later).  
 `--xctestrun-file` | `--xctestrun-file` | Path to custom `.xctestrun` plist.  
 `--num-flaky-test-attempts` | `--flaky-test-attempts` | Integer count of retry attempts (e.g. `3`).  
 `--client-details` | `--labels` | Key-value pairs (`KEY=VALUE`).  
@@ -320,6 +320,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

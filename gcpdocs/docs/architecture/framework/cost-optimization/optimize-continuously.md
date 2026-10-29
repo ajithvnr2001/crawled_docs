@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/cost-optimization/optimize-continuously/
 title: Optimize continuously \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:01.258674+00:00
+fetched_at: 2026-10-29T05:41:27.252191+00:00
 ---
 
 # Optimize continuously  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Optimize continuously Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-09-25 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the cost optimization pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to help you optimize the cost of your cloud deployments based on constantly changing and evolving business goals.
 
@@ -48,8 +48,8 @@ Effective monitoring starts with identifying the metrics that are most important
 
 The following are recommendations to use observability to identify resource bottlenecks and underutilized resources in your cloud deployments:
 
-  * **Monitor resource utilization** : Use resource utilization metrics to identify Google Cloud resources that are underutilized. For example, use metrics like CPU and memory utilization to identify [idle VM resources](https://docs.cloud.google.com/monitoring/agent/process-metrics#view_performance_metrics_for_top_resource-consuming_vms). For Google Kubernetes Engine (GKE), you can view a detailed [breakdown of costs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cost-allocations) and [cost-related optimization metrics](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cost-optimization-metrics). For Google Cloud VMware Engine, [review resource utilization](https://cloud.google.com/blog/topics/cost-management/cost-optimization-of-google-cloud-vmware-engine-deployments) to optimize CUDs, storage consumption, and ESXi right-sizing.
-  * **Use cloud recommendations** : [Active Assist](https://docs.cloud.google.com/solutions/active-assist) is a portfolio of intelligent tools that help you optimize your cloud operations. These tools provide actionable recommendations to reduce costs, increase performance, improve security and even make sustainability-focused decisions. For example, [VM rightsizing insights](https://docs.cloud.google.com/compute/docs/instance-groups/apply-machine-type-recommendations-managed-instance-groups) can help to optimize resource allocation and avoid unnecessary spending.
+  * **Monitor resource utilization** : Use resource utilization metrics to identify Google Cloud resources that are underutilized. For example, use metrics like CPU and memory utilization to identify [idle VM resources](https://docs.cloud.google.com/monitoring/agent/process-metrics#view-performance-metrics). For Google Kubernetes Engine (GKE), you can view a detailed [breakdown of costs](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cost-allocations) and [cost-related optimization metrics](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cost-optimization-metrics). For Google Cloud VMware Engine, [review resource utilization](https://docs.cloud.google.com/vmware-engine/docs/best-practices-costs) to optimize CUDs, storage consumption, and ESXi right-sizing.
+  * **Use cloud recommendations** : [Active Assist](https://cloud.google.com/solutions/active-assist) is a portfolio of intelligent tools that help you optimize your cloud operations. These tools provide actionable recommendations to reduce costs, increase performance, improve security, and even make sustainability-focused decisions. For example, [VM rightsizing insights](https://docs.cloud.google.com/compute/docs/instance-groups/apply-machine-type-recommendations-managed-instance-groups) can help to optimize resource allocation and avoid unnecessary spending.
   * **Correlate resource utilization with performance** : Analyze the relationship between resource utilization and application performance to determine whether you can downgrade to less expensive resources without affecting the user experience.
 
 
@@ -75,7 +75,7 @@ Additionally, you can define retention policies based on the needs of each role 
 
 In certain industries, regulatory requirements mandate data retention. To avoid legal and financial risks, you need to ensure that your monitoring and data retention practices help you adhere to relevant regulations. At the same time, you need to maintain cost efficiency. Consider the following recommendations:
 
-  * Determine the specific data retention requirements for your industry or region, and ensure that your monitoring strategy meets the requirements of those requirements.
+  * Determine the specific data retention requirements for your industry or region, and ensure that your monitoring strategy meets those requirements.
   * Implement appropriate data archival and retrieval mechanisms to meet audit and compliance needs while minimizing storage costs.
 
 
@@ -97,6 +97,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-09-25 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-09-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

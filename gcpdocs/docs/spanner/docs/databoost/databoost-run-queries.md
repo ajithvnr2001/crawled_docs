@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/databoost/databoost-run-queries/
 title: Run federated queries with Data Boost \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:12.287350+00:00
+fetched_at: 2026-10-29T06:13:59.839367+00:00
 ---
 
 # Run federated queries with Data Boost  |  Spanner  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ Before you can run federated queries with Data Boost, you need to complete the f
 
   * Enable the BigQuery connection API.
 
-  * Grant the required IAM permissions.
+  * Grant the required Identity and Access Management (IAM) permissions.
 
 
 
@@ -71,11 +71,11 @@ For more information, see [BigQuery connection API](https://docs.cloud.google.co
 A principal must be granted the following permissions to run federated queries with Data Boost:
 
   * `spanner.instances.get` \- lets you get the configuration of an instance.
-  * `spanner.databases.useDataBoost` \- lets you use the [Spanner Data Boost](https://docs.cloud.google.com/spanner/docs/databoost/databoost-overview) compute resources to process [partitioned queries](https://docs.cloud.google.com/spanner/docs/reads#read_data_in_parallel).
+  * `spanner.databases.useDataBoost` \- lets you use the [Data Boost](https://docs.cloud.google.com/spanner/docs/databoost/databoost-overview) compute resources to process [partitioned queries](https://docs.cloud.google.com/spanner/docs/reads#read_data_in_parallel).
 
 
 
-For more information about Spanner permissions, see [Identity and Access Management (IAM) permissions](https://docs.cloud.google.com/spanner/docs/iam#permissions).
+For more information about Spanner permissions, see [IAM permissions](https://docs.cloud.google.com/spanner/docs/iam#permissions).
 
 To grant these required permissions, we recommend that you use the `Cloud Spanner Database Reader With DataBoost` (`roles/spanner.databaseReaderWithDataBoost`) IAM role. You can add that role to any principal that needs to run federated queries with Data Boost. To learn more about predefined roles in Spanner, see [Predefined roles](https://docs.cloud.google.com/spanner/docs/iam#roles). To learn how to create a custom IAM role, see [Create a custom role](https://docs.cloud.google.com/iam/docs/creating-custom-roles#creating).
 
@@ -805,6 +805,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

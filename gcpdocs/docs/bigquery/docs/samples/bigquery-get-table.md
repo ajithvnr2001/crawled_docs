@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-get-table/
 title: Get table properties \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:11:22.914855+00:00
+fetched_at: 2026-10-29T05:42:14.749307+00:00
 ---
 
 # Get table properties  |  BigQuery  |  Google Cloud Documentation

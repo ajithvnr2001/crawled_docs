@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/export-to-bigtable/
 title: Export data to Bigtable (reverse ETL) \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:24.460138+00:00
+fetched_at: 2026-10-29T05:41:41.960425+00:00
 ---
 
 # Export data to Bigtable (reverse ETL)  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.13.0/docs/ai/register-model-endpoint/
 title: Register and call remote AI models in AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:23:48.505034+00:00
+fetched_at: 2026-10-29T05:41:23.096901+00:00
 ---
 
 # Register and call remote AI models in AlloyDB Omni  |  AlloyDB Omni for Kubernetes: 15.13.0  |  Google Cloud Documentation
@@ -136,7 +136,7 @@ The following example shows how to set up authentication using a function that r
       AS $$
       #variable_conflict use_variable
       DECLARE
-        api_key VARCHAR(255) := &#39;API_KEY';
+        api_key VARCHAR(255) := 'API_KEY';
         header_json JSON;
       BEGIN
         header_json := json_build_object(
@@ -269,8 +269,8 @@ The following example adds the `text-embedding-ada-002` OpenAI model endpoint. Y
          
          CALL
          google_ml.create_sm_secret(
-           secret_id => &#39;SECRET_ID',
-           secre>t_path = &#39;projects/PROJECT_ID/secrets/SECRET_MANAGER_SECRET_ID/versions/VERSION_NUMBER');
+           secret_id => 'SECRET_ID',
+           secret_path => 'projects/PROJECT_ID/secrets/SECRET_MANAGER_SECRET_ID/versions/VERSION_NUMBER');
          
 
 Replace the following:
@@ -283,12 +283,12 @@ Replace the following:
          
          CALL
            google_ml.create_model(
-             model_id => &#39;MODEL_ID',
-             model_pr>ovider = 'open_ai',
-         >    model_type = 'text_embedding',
-           >  model_qualified_name = 'text-embedding-ada>-002',
-             model_auth_type = '>secret_manager&#39;,
-             model_auth_id = 'SECRET_ID');
+             model_id => 'MODEL_ID',
+             model_provider => 'open_ai',
+             model_type => 'text_embedding',
+             model_qualified_name => 'text-embedding-ada-002',
+             model_auth_type => 'secret_manager',
+             model_auth_id => 'SECRET_ID');
          
 
 Replace the following:
@@ -318,8 +318,8 @@ To register custom-hosted text embedding model endpoints, complete the following
          
          CALL
            google_ml.create_sm_secret(
-             secret_id => &#39;SECRET_ID',
-             secre>t_path = &#39;projects/project-id/secrets/SECRET_MANAGER_SECRET_ID/versions/VERSION_NUMBER');
+             secret_id => 'SECRET_ID',
+             secret_path => 'projects/project-id/secrets/SECRET_MANAGER_SECRET_ID/versions/VERSION_NUMBER');
          
 
 Replace the following:
@@ -354,7 +354,7 @@ The following are example transform functions that are specific to the `custom-e
          DECLARE
            transformed_output REAL[];
          BEGIN
-           SELECT ARRAY(SELECT json_array_elements_text(respon>se_json-0)) INTO transformed_output;
+           SELECT ARRAY(SELECT json_array_elements_text(response_json->0)) INTO transformed_output;
            RETURN transformed_output;
          END;
          $$;
@@ -364,15 +364,15 @@ The following are example transform functions that are specific to the `custom-e
          
          CALL
            google_ml.create_model(
-             model_id => &#39;MODEL_ID',
-             model_reque>st_url = ';REQUEST_URL',
-             >model_provider = 'custo>m',
-             model_type = 'text_embed>ding',
-             model_auth_type = '>secret_manager',
-             model_auth_id => &#39;SECRET_ID',
-             model_qualified_name = >9;MODEL_QUALIFIED_NAME',
-             model_in_transform_fn = >9;cymbal_text_input_transform',
-             model_out_transform_fn = 'cymbal_text_output_transform');
+             model_id => 'MODEL_ID',
+             model_request_url => 'REQUEST_URL',
+             model_provider => 'custom',
+             model_type => 'text_embedding',
+             model_auth_type => 'secret_manager',
+             model_auth_id => 'SECRET_ID',
+             model_qualified_name => 'MODEL_QUALIFIED_NAME',
+             model_in_transform_fn => 'cymbal_text_input_transform',
+             model_out_transform_fn => 'cymbal_text_output_transform');
          
 
 Replace the following:
@@ -406,18 +406,18 @@ The following example uses the `gemini-1.5-pro:generateContent` model endpoint f
              json_array_elements(
              google_ml.predict_row(
                  model_id => 'gemini-1.5-pro:generateContent',
-                 reques>t_body = '{
+                 request_body => '{
              "contents": [
                  {
                      "role": "user",
                      "parts": [
                          {
-                             "text": "For TPCH database schema as mentioned here https://www.tpc.org/TPC_Documents_Current_Versions/pdf/TPC-H_v3.0.1.pdf , generate a SQL query to find all supplier names which are located in the India> nation."<>/span>
-             >            >}
-                 >    >]
+                             "text": "For TPCH database schema as mentioned here https://www.tpc.org/TPC_Documents_Current_Versions/pdf/TPC-H_v3.0.1.pdf , generate a SQL query to find all supplier names which are located in the India nation."
+                         }
+                     ]
                  }
              ]
-             }'))- 'candidates' - 0 - 'content' - 'parts' - 0 - 'text';
+             }'))-> 'candidates' -> 0 -> 'content' -> 'parts' -> 0 -> 'text';
          
 
 
@@ -434,8 +434,8 @@ The following example adds the `facebook/bart-large-mnli` custom classification 
          
          CALL
            google_ml.create_sm_secret(
-             secret_id => &#39;SECRET_ID',
-             secre>t_path = &#39;projects/project-id/secrets/SECRET_MANAGER_SECRET_ID/versions/VERSION_NUMBER');
+             secret_id => 'SECRET_ID',
+             secret_path => 'projects/project-id/secrets/SECRET_MANAGER_SECRET_ID/versions/VERSION_NUMBER');
          
 
 Replace the following:
@@ -448,12 +448,12 @@ Replace the following:
          
          CALL
            google_ml.create_model(
-             model_id => &#39;MODEL_ID',
-             model_pr>ovider = 'hugging_face',
-             mod>el_request_url = 'REQUEST_URL',
-           >  model_qualified_name = 'MODEL_QUALIFIED_>NAME',
-             model_auth_type = '>secret_manager&#39;,
-             model_auth_id = 'SECRET_ID');
+             model_id => 'MODEL_ID',
+             model_provider => 'hugging_face',
+             model_request_url => 'REQUEST_URL',
+             model_qualified_name => 'MODEL_QUALIFIED_NAME',
+             model_auth_type => 'secret_manager',
+             model_auth_id => 'SECRET_ID');
          
 
 Replace the following:

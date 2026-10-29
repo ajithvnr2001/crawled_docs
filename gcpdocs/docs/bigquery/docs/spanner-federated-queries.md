@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/spanner-federated-queries/
 title: Spanner federated queries \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:44.082963+00:00
+fetched_at: 2026-10-29T05:45:28.281558+00:00
 ---
 
 # Spanner federated queries  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/protect-data-using-backups/
 title: Protect your data using backups \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 16.8.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:33:30.261426+00:00
+fetched_at: 2026-10-29T05:48:32.808414+00:00
 ---
 
 # Protect your data using backups  |  AlloyDB Omni for Kubernetes: 16.8.0  |  Google Cloud Documentation
@@ -53,7 +53,7 @@ This page describes the AlloyDB Omni Standard Availability reference architectur
 This reference architecture supports the following scenarios:
 
   * You have databases that can tolerate some downtime and data loss since the last backup.
-  * You want to protect your AlloyDB Omni database from user error, corruption, or physical failures at the database level, as opposed to server or VM image snapshots.
+  * You want to protect your AlloyDB Omni database from user error, corruption, or physical failures at the database level, as opposed to volume or node snapshots.
   * You want to recover your database in place or remotely, possibly up to a specific point in time.
 
 
@@ -80,7 +80,7 @@ AlloyDB Omni supports data protection strategies such as periodic physical backu
 
 For Kubernetes deployments, you can configure continuous backups using a backup plan (`BackupPlan`) managed by the AlloyDB Omni operator for each database cluster. For more information, see [Back up and restore in Kubernetes](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/backup-kubernetes).
 
-Depending on your deployment option, you can configure AlloyDB Omni to store backups on either local or remote storage, such as Cloud Storage or storage options provided by any cloud vendor. Although local storage might be faster to back up and recover from, remote storage is usually more robust for handling failures when an entire host or VM fails. For more information, see Figure 1, which shows potential backup destinations.
+Depending on your deployment option, you can configure AlloyDB Omni to store backups on either local or remote storage, such as Cloud Storage or storage options provided by any cloud vendor. Although local storage might be faster to back up and recover from, remote storage is usually more robust for handling failures when an entire node or zone fails. For more information, see Figure 1, which shows potential backup destinations.
 
 **Note:** While the illustrations in this document show Google Cloud physical location-related concepts and terminology such as "Zone" and "Region", AlloyDB Omni can be deployed in any cloud or any customer-managed environment. Consequently, terms such as "data center" or "city" might be more suitable to accurately represent your environments.
 
@@ -90,7 +90,7 @@ Depending on your deployment option, you can configure AlloyDB Omni to store bac
 
 You can take backups to either local or remote storage options. Local backups tend to be quicker because they rely on only I/O throughput, whereas remote backups usually have a higher latency and lower network bandwidth. However, remote backups provide better protection against host and zonal failures than local backups.
 
-You can also split local backups into local or shared storage. While local storage lacks disaster recovery options when a database host fails, shared storage lets you relocate that storage to another server and use it for recovery. This means that shared storage potentially offers a faster RTO.
+You can also split local backups into local or shared storage. Although node-local storage lacks disaster recovery options when a database node fails, shared storage lets you attach that storage to another node and use it for recovery. This means that shared storage potentially offers a faster RTO.
 
 For local, shared, and remote storage deployments, you can schedule the following types of backups or take them manually on demand:
 
@@ -105,6 +105,8 @@ For local, shared, and remote storage deployments, you can schedule the followin
 Continuous backups of the PostgreSQL WAL files support point-in-time recovery. If, after a failure event, the WAL files are intact and usable, then you can use these files to recover to a specific point in time and help minimize data loss.
 
 ### Backup schedules
+
+In Kubernetes deployments, you configure automated backup schedules and retention rules by using cron expressions in a [`BackupPlan`](https://docs.cloud.google.com/alloydb/omni/kubernetes/16.8.0/docs/backup-kubernetes#enable) manifest. 
 
 In most environments, backups are usually scheduled on a weekly basis. The following is a typical weekly schedule of backups:
 
@@ -166,6 +168,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

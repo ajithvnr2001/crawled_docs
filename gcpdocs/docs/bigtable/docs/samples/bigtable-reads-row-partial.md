@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigtable/docs/samples/bigtable-reads-row-partial/
 title: Read a partial row \u00a0|\u00a0 Bigtable \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:56:59.540486+00:00
+fetched_at: 2026-10-29T05:47:20.397588+00:00
 ---
 
 # Read a partial row  |  Bigtable  |  Google Cloud Documentation
@@ -211,9 +211,9 @@ To authenticate to Bigtable, set up Application Default Credentials. For more in
     
       # instance_id = "my-instance"
       # table_id    = "my-table"
-      bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
+      bigtable = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable-admin-v2/latest/Google-Cloud-Bigtable.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)
       table = bigtable.table instance_id, table_id
-      filter = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable.html)::[RowFilter](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable-RowFilter.html).qualifier "os_build"
+      filter = Google::Cloud::[Bigtable](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable-admin-v2/latest/Google-Cloud-Bigtable.html)::[RowFilter](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigtable/latest/Google-Cloud-Bigtable-RowFilter.html).qualifier "os_build"
     
       row = table.read_row "phone#4c410523#20190501", filter: filter
       print_row row

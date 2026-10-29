@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/gemma-3-vllm-inference/
 title: Use vLLM on GKE to serve Gemma 3 27B inference \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:57:14.919077+00:00
+fetched_at: 2026-10-29T05:40:48.745661+00:00
 ---
 
 # Use vLLM on GKE to serve Gemma 3 27B inference  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -249,7 +249,7 @@ To deploy the vLLM container to serve the Gemma 3 27B model by using Kubernetes 
          metadata:
            name: vllm-gemma-deployment
          spec:
-           progressDeadlineSeconds: 900
+           progressDeadlineSeconds: 3600
            replicas: 1
            selector:
              matchLabels:
@@ -295,17 +295,21 @@ To deploy the vLLM container to serve the Gemma 3 27B model by using Kubernetes 
                  volumeMounts:
                  - mountPath: /dev/shm
                    name: dshm
+                 startupProbe:
+                   httpGet:
+                     path: /health
+                     port: 8000
+                   failureThreshold: 360
+                   periodSeconds: 10
                  livenessProbe:
                    httpGet:
                      path: /health
                      port: 8000
-                   initialDelaySeconds: 720
                    periodSeconds: 10
                  readinessProbe:
                    httpGet:
                      path: /health
                      port: 8000
-                   initialDelaySeconds: 720
                    periodSeconds: 5
                volumes:
                - name: dshm
@@ -338,9 +342,16 @@ During the deployment process, the container must download Gemma 3 from Hugging 
 
   3. Wait for the deployment to complete:
          
-         kubectl wait \
+         if ! kubectl wait \
              --for=condition=Available \
-             --timeout=1800s deployment/vllm-gemma-deployment
+             --timeout=3600s deployment/vllm-gemma-deployment; then
+           echo "Deployment timed out. Fetching diagnostic information..."
+           kubectl describe deployment/vllm-gemma-deployment || true
+           kubectl describe pods -l app=gemma-server || true
+           kubectl logs -l app=gemma-server --tail=200 || true
+           kubectl logs -l app=gemma-server --previous --tail=200 || true
+           exit 1
+         fi
 
 
 

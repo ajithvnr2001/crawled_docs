@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search/
 title: Grounding with Google Search \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:49.152624+00:00
+fetched_at: 2026-10-29T07:58:49.655096+00:00
 ---
 
 # Grounding with Google Search  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -75,7 +75,7 @@ Use the following instructions to ground a model with publicly available web dat
 
   * For ideal results, use a temperature of `1.0`. To learn more about setting this configuration, see the [Gemini API request body](https://docs.cloud.google.com/gemini-enterprise-agent-platform/reference/models/inference#request_body) from the model reference.
 
-  * Grounding with Google Search has a limit of one million queries per day. If you require more queries, contact [Google Cloud support](https://cloud.google.com/support-hub) for assistance.
+  * Grounding with Google Search has a limit of one million Grounding Prompts per day. If you require more Grounding Prompts, contact [Google Cloud support](https://cloud.google.com/support-hub) for assistance.
 
   * **Tool combinations:** The Gemini API doesn't support combining search tools (such as `googleSearch`) with non-search tools (such as function calling or the Gemini Enterprise Agent Platform RAG Engine `retrieval` tool) in the same `generateContent` request. Multiple tools are supported only when they are all search tools.
 

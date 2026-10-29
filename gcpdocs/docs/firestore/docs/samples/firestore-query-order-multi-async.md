@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-order-multi-async/
 title: Ordering a Firestore query on multiple fields (async) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:27:49.367924+00:00
+fetched_at: 2026-10-29T07:58:40.863815+00:00
 ---
 
 # Ordering a Firestore query on multiple fields (async)  |  Google Cloud Documentation

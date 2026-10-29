@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/column-data-masking-audit-logging/
 title: BigQuery Data Policy audit logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:21:46.623916+00:00
+fetched_at: 2026-10-29T05:41:35.075610+00:00
 ---
 
 # BigQuery Data Policy audit logging  |  Google Cloud Documentation

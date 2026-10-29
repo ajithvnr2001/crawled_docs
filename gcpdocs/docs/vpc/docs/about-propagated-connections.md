@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc/docs/about-propagated-connections/
 title: About propagated connections \u00a0|\u00a0 Virtual Private Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:41:14.373880+00:00
+fetched_at: 2026-10-29T05:59:39.254955+00:00
 ---
 
 # About propagated connections  |  Virtual Private Cloud  |  Google Cloud Documentation
@@ -104,7 +104,6 @@ If you can't access a propagated connection, one of these quotas or the connecti
 
 Propagated connections have the following limitations:
 
-  * If a VPC spoke has connection propagation for Google APIs enabled, deleting an endpoint for global Google APIs can disrupt NCC cross-spoke traffic to other global Google API endpoints in that spoke. For a workaround, see the [known issue](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#delete-issue).
   * Propagated connections don't support endpoints that use IPv6 addresses.
   * Propagated connections aren't created for [Hybrid spokes](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/overview#hybrid_spokes).
   * Propagated connections aren't created for [Producer VPC spokes](https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/producer-vpc-spokes-overview).
@@ -127,6 +126,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

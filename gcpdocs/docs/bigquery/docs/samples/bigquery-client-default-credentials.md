@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-client-default-credentials/
 title: Create a client with application default credentials \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:25:11.521665+00:00
+fetched_at: 2026-10-29T05:42:34.152855+00:00
 ---
 
 # Create a client with application default credentials  |  BigQuery  |  Google Cloud Documentation

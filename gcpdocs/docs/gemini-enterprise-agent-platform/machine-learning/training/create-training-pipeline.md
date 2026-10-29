@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/training/create-training-pipeline/
 title: Create training pipelines \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:08.063869+00:00
+fetched_at: 2026-10-29T07:58:23.674532+00:00
 ---
 
 # Create training pipelines  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -462,7 +462,7 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
     import com.google.cloud.aiplatform.v1.[TrainingPipeline](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.TrainingPipeline.html);
     import com.google.gson.JsonArray;
     import com.google.gson.JsonObject;
-    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html);
+    import com.google.protobuf.[Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html);
     import com.google.protobuf.util.[JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html);
     import java.io.IOException;
     
@@ -525,9 +525,9 @@ To authenticate to Agent Platform, set up Application Default Credentials. For m
           jsonTrainingTaskInputs.add("workerPoolSpecs", jsonWorkerPoolSpecs);
           jsonTrainingTaskInputs.add("baseOutputDirectory", jsonBaseOutputDirectory);
     
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).Builder trainingTaskInputsBuilder = [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html).newBuilder();
+          [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).Builder trainingTaskInputsBuilder = [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html).newBuilder();
           [JsonFormat](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.util.JsonFormat.html).parser().merge(jsonTrainingTaskInputs.toString(), trainingTaskInputsBuilder);
-          [Value](https://docs.cloud.google.com/java/docs/reference/protobuf/latest/com.google.protobuf.Value.html) trainingTaskInputs = trainingTaskInputsBuilder.build();
+          [Value](https://docs.cloud.google.com/java/docs/reference/google-cloud-aiplatform/latest/com.google.cloud.aiplatform.v1.Value.html) trainingTaskInputs = trainingTaskInputsBuilder.build();
           String trainingTaskDefinition =
               "gs://google-cloud-aiplatform/schema/trainingjob/definition/custom_task_1.0.0.yaml";
           String imageUri = "gcr.io/cloud-aiplatform/prediction/tf-cpu.1-15:latest";

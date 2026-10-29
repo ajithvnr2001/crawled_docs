@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/request-response-logging/
 title: Log and share requests and responses \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:45:16.403851+00:00
+fetched_at: 2026-10-29T05:42:28.938579+00:00
 ---
 
 # Log and share requests and responses  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -169,7 +169,7 @@ You should receive a JSON response similar to the following:
 
 ### Get logging configuration
 
-Get the request-response logging configuration for the foundation model by using the REST API.
+Get the request-response logging configuration for the foundation model by using the REST API. Request-response logging is disabled by default until you configure a `PublisherModelConfig` resource using `setPublisherModelConfig`.
 
 ### REST API
 
@@ -233,6 +233,8 @@ You should receive a JSON response similar to the following:
       }
     }
     
+
+If request-response logging hasn't been configured for the model in the specified location, the request returns a `404 NOT_FOUND` error. This error indicates that no `PublisherModelConfig` resource exists and that request-response logging is in its default disabled state. If request-response logging was previously configured and then disabled, the response returns `"enabled": false` in the `loggingConfig` field.
 
 ### Disable logging
 
@@ -850,6 +852,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

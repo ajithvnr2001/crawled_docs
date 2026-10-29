@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-get-routine/
 title: Get a routine \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:33.892894+00:00
+fetched_at: 2026-10-29T05:42:22.620125+00:00
 ---
 
 # Get a routine  |  BigQuery  |  Google Cloud Documentation

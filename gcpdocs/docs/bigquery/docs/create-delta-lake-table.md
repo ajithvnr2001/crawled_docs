@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/create-delta-lake-table/
 title: Create BigLake external tables for Delta Lake \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:22.930946+00:00
+fetched_at: 2026-10-29T05:44:39.327912+00:00
 ---
 
 # Create BigLake external tables for Delta Lake  |  BigQuery  |  Google Cloud Documentation

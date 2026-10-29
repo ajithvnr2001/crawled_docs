@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/fgac-privileges/
 title: Fine-grained access control privileges \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:23.215396+00:00
+fetched_at: 2026-10-29T06:14:04.662232+00:00
 ---
 
 # Fine-grained access control privileges  |  Spanner  |  Google Cloud Documentation
@@ -64,7 +64,7 @@ If you create a view with definer's rights, to query the view, the database role
 
 Suppose that the database role `Analyst` performs the query `SELECT * FROM AlbumsBudget`. The role only needs `SELECT` privilege on the view. It doesn't need the `SELECT` privilege on the three referenced columns or on the `Albums` table.
 
-  * After granting `SELECT` on a subset of columns for a table, the FGAC user can no longer use `SELECT *` on that table. Queries on that table must name all columns to be included.
+  * After granting `SELECT` on a subset of columns for a table, the fine-grained access control user can no longer use `SELECT *` on that table. Queries on that table must name all columns to be included.
 
   * `SELECT` granted on a generated column doesn't grant `SELECT` on the underlying base columns.
 
@@ -228,6 +228,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

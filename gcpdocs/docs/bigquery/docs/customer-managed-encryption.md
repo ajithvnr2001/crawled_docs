@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/customer-managed-encryption/
 title: Customer-managed Cloud KMS keys \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:54:00.947237+00:00
+fetched_at: 2026-10-29T05:43:47.911134+00:00
 ---
 
 # Customer-managed Cloud KMS keys  |  BigQuery  |  Google Cloud Documentation

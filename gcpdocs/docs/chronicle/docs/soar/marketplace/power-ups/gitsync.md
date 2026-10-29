@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync/
 title: GitSync \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:18:43.216652+00:00
+fetched_at: 2026-10-29T08:05:43.475838+00:00
 ---
 
 # GitSync  |  Google Security Operations  |  Google Cloud Documentation
@@ -21,9 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # GitSync
 
-**Mandatory platform requirement:** Starting with GitSync version 53.0, this integration communicates with Google Security Operations exclusively through **Chronicle REST APIs** using automated IAM authentication. Support for legacy Google SecOps platform API endpoints (`*.siemplify-soar.com/api/`) has been removed, and all GitSync actions and jobs fail on unmigrated instances. 
+**Known issue in GitSync version 53.0 (use version 54.0 or 52.0):** GitSync version 53.0 contains known synchronization issues. Make sure your GitSync integration is running on **version 54.0** or **version 52.0** (version 54.0 restores the stable version 52.0 codebase). 
 
-You must complete your platform migration before upgrading or configuring GitSync. For migration instructions, see Chronicle API-enabled environment migration.
+For rollback and branch compatibility details, see Version 53.0 rollback.
 
 GitSync is an integration built for Google SecOps that synchronizes security automation assets and components with an external Git repository (such as GitHub, GitLab, or Bitbucket). It facilitates bidirectional synchronization of content, providing automated version control, configuration backup, and cross-environment promotion across your security operations lifecycle. Notice that GitSync is designed to backup and migrate assets between related environments (such as development, staging, and production), rather than to distribute assets across unrelated systems where internal database identifiers may cause conflict.
 
@@ -52,15 +52,13 @@ The **GitSync** integration supports the following primary use cases:
 
 To go directly to the guidance matching your current objective, select your workflow:
 
-  * **New GitSync deployment or new branch** : If you're configuring the GitSync integration for the first time or creating a new repository branch on a Chronicle API-enabled environment, follow this end-to-end setup sequence:
+  * **New GitSync deployment or new branch** : If you're configuring the GitSync integration for the first time or creating a new repository branch, follow this end-to-end setup sequence:
 
     1. Complete the prerequisites and credentials setup.
     2. Configure the shared integration instance.
     3. Test network connectivity and authentication with the Ping action.
     4. Run an initial Push Content job to populate the branch before running any pull jobs.
     5. Configure and schedule automated synchronization jobs.
-  * **Migrate to Chronicle API (mandatory for existing deployments)** : To migrate an existing GitSync integration and repository branch after moving to a Chronicle API-enabled environment, see Chronicle API-enabled environment migration.
-
   * **Job and repository reference** :
 
     * To view configuration parameters and run standalone push or pull jobs for specific assets (playbooks, connectors, integrations, etc.), see Jobs.
@@ -72,9 +70,7 @@ To go directly to the guidance matching your current objective, select your work
 
 ## Before you begin
 
-Before configuring and executing GitSync operations, verify your environment, obtain repository access, and complete the following setup tasks:
-
-  * **Verify your Chronicle API-enabled environment (required for GitSync v53.0 and later)** : Check your browser's web console URL to confirm your instance is hosted on `secops.google.com` or `*.chronicle.security.google.com` (or verify that `Google.com` appears after the system version number in **Settings > SOAR Settings > License Management**). If your instance is still hosted on `*.siemplify-soar.com`, complete the Chronicle API-enabled environment migration first.
+Before configuring and executing GitSync operations, verify your integration version, obtain repository access, and complete the following setup tasks:
 
   * **Use a private Git repository with write access** : Make sure you have write permissions to a **private** remote Git repository hosted on a supported Git provider (such as GitHub, GitLab, or Bitbucket). While `Password`-type parameters are excluded by default unless `Commit Passwords` is enabled, all other parameters (such as Application IDs, Client IDs, usernames, and endpoints) are exported in plaintext. Never use a public repository with GitSync.
 
@@ -160,90 +156,35 @@ When synchronizing playbooks with restricted permissions (for example, default p
 
 
 
-## Chronicle API-enabled environment migration
+## Version 53.0 rollback
 
-This section provides procedures for migrating an existing GitSync deployment and repository branch to a Chronicle API-enabled environment (supported starting in GitSync version 53.0).
+GitSync version 53.0 introduced Chronicle API changes and modified JSON export schemas that caused synchronization failures. To resolve these issues, version 54.0 of GitSync reverts the version 53.0 changes and restores the stable version 52.0 codebase.
 
-For guidance on migrating your overall Google SecOps platform, identity groups, IAM permissions, and API endpoints to Google Cloud, see the [Google SecOps migration overview](https://docs.cloud.google.com/chronicle/docs/soar/admin-tasks/advanced/migrate-to-gcp).
+Complete the following steps to move to version 52.0 or version 54.0 and restore a compatible repository branch:
 
-### Updates in Chronicle API-enabled environments
+  1. **Pause scheduled synchronization jobs** : Disable any active scheduled GitSync jobs (such as **Push Content** and **Pull Content**) so jobs don't run while you switch versions and branches.
 
-Starting with version 53.0, GitSync includes the following updates for Chronicle API-enabled environments:
+  2. **Switch to version 54.0 or roll back to version 52.0** : In **Content Hub** , locate the **GitSync** integration:
 
-  * **Automated IAM authentication** : GitSync connects to Google SecOps through Chronicle REST APIs and authenticates automatically at runtime using Google Cloud IAM.
+     * If version 54.0 is available, upgrade the integration to version 54.0.
+     * If version 54.0 hasn't appeared yet (Content Hub caches synchronize approximately every 8 hours) or if you prefer to downgrade directly, roll back the integration version to version 52.0.
+  3. **Point GitSync to your previous repository branch** : Repository branches populated using version 53.0 use a different JSON schema that isn't compatible with version 52.0 or 54.0:
 
-  * **Updated configuration schema** : Exported JSON configuration files use Chronicle API resource identifiers and field formats, making them incompatible with pre-migration repository branches.
-
-  * **Dedicated block synchronization options** : Playbook synchronization jobs include an **Include Playbook Blocks** option to export or import reusable workflow blocks alongside playbooks, and support importing blocks from either `/Playbooks` or `/Blocks`.
-
-  * **Direct archive transfers for custom integrations** : Custom integration packages are uploaded and downloaded directly as `.zip` archives, reducing transfer times for large integrations.
-
-  * **Source-scoped ontology mappings** : Mapping rules are organized by integration source under `/Ontology/Mappings/<Source_Name>/` to prevent conflicts between mapping rules from different sources.
-
-  * **Automatic filtering of built-in system defaults** : GitSync automatically excludes built-in, read-only system items (such as default system tags and built-in system instances) during synchronization to prevent permission errors.
+     * **If you created a separate branch for version 53.0** (for example, `gitsync-chronicle-api`): Go to **Settings > Integrations > GitSync**, change the **Branch** parameter back to your original branch (for example, `main`), and run the **Ping** action to verify connectivity.
+     * **If you overwrote your existing branch in version 53.0** : Restore the branch from your `backup-legacy-pre-migration` Git tag (or your last pre-v53 commit), or remove the version 53.0 exported directories (`Playbooks/`, `Connectors/`, `Integrations/`, `Jobs/`, `Ontology/`, `SimulatedCases/`, and `Settings/`) and run a full **Push Content** job from version 52.0 or 54.0 to repopulate the branch.
+  4. **Resume scheduled jobs** : After confirming your branch contains configurations exported by version 52.0 or 54.0, re-enable your scheduled GitSync jobs.
 
 
-
-
-### Migrate your repository branch
-
-Chronicle API-enabled environments and legacy environments use different JSON configuration formats and cannot synchronize against the same branch simultaneously. Choose either a dedicated branch (recommended) or reuse your existing branch:
-
-#### Option 1: Recommended dedicated branch workflow
-
-Creating a new branch isolates your updated Chronicle API configurations and preserves an untouched archive of your pre-migration configurations without modifying branch history:
-
-  1. **Baseline legacy push** : Before your instance is migrated, execute a full **Push Content** job from your existing environment to commit a clean backup to your legacy branch (for example, `main`).
-
-  2. **Create new Git branch** : Create a new, dedicated branch in your Git repository (for example, `git checkout -b gitsync-chronicle-api && git push origin gitsync-chronicle-api`).
-
-  3. **Upgrade and reconfigure the integration instance** : In your Chronicle API-enabled environment, make sure GitSync is updated to version 53.0 or later in the Content Hub. Then go to **Settings > Integrations > GitSync**, update the **Branch** parameter to `gitsync-chronicle-api`, and verify connectivity using the **Ping** action.
-
-  4. **Initial API-enabled push baseline** : Execute a full **Push Content** job from the Chronicle API-enabled instance to populate the new branch with the updated configuration files.
-
-  5. **Verify and enable pull sync** : Inspect the repository to verify file structures, then enable scheduled **Pull Content** jobs as required.
-
-
-
-
-#### Option 2: Existing branch reuse procedure
-
-If automated CI/CD pipelines or branch policies require retaining an existing branch name, execute the following cutover procedure:
-
-**Branch protection rules:** GitSync pushes commits directly to the remote repository and doesn't create pull requests. If your existing branch (such as `main`) enforces branch protection rules that require pull requests or review approvals, direct push operations from GitSync fail. 
-
-Before executing this procedure, make sure your repository administrator configures an exception allowing the GitSync deploy key or account to push directly to the branch, or use Option 1 with a dedicated branch and merge changes into `main` through your standard pull request workflow.
-
-  1. **Create a legacy backup tag** : Create a Git release tag of your legacy configurations as a historical archive.
-         
-         git tag backup-legacy-pre-migration
-         git push origin backup-legacy-pre-migration
-         
-
-  2. **Pause sync jobs** : Disable active GitSync scheduled jobs (**Push Content** and **Pull Content**) to prevent concurrent writes during cutover.
-
-  3. **Remove legacy branch content** : Remove the legacy directories from the branch.
-         
-         git rm -rf Playbooks/ Connectors/ Integrations/ Jobs/ Ontology/ SimulatedCases/ Settings/
-         git commit -m "CHORE: Clear legacy files for Chronicle API baseline"
-         git push origin main
-         
-
-  4. **Upgrade GitSync and push API-enabled baseline** : In your Chronicle API-enabled instance, make sure GitSync is updated to version 53.0 or later in the Content Hub. Once verified, execute a full **Push Content** job to populate the clean branch with updated configuration files.
-
-  5. **Resume scheduled sync** : Verify the exported files in your repository and re-enable scheduled GitSync jobs on the Chronicle API-enabled instance.
-
-
-**Remediating synchronization issues during migration:** Platform migration to a Chronicle API-enabled environment is a one-way infrastructure transition and cannot be reverted to legacy endpoints. If you encounter authentication, permission, or synchronization errors during migration, consult the Troubleshooting section. 
+**Branch protection rules:** GitSync pushes commits directly to the remote repository and doesn't create pull requests. If your configured branch (such as `main`) enforces branch protection rules that require pull requests or review approvals, direct push operations from GitSync fail. Make sure your repository administrator configures an exception allowing the GitSync deploy key or account to push directly to the target branch, or configure GitSync to push to a dedicated branch and merge changes into `main` through your standard pull request workflow. 
 
 ## Configure the integration
 
 Configure the GitSync integration as a **Shared Instance** in Google SecOps so that all platform components and scheduled jobs can access repository configurations.
 
-**Notes for existing deployments and authentication:**
+**Notes for existing deployments:**
 
-  * **Updating an existing instance:** You don't need to delete or recreate your shared instance after migrating to a Chronicle API-enabled environment. Verify that the GitSync package is updated to version 53.0 or later in Content Hub, update the **Branch** parameter if you're using a new branch, and test connectivity using the **Ping** action.
-  * **Repository-only credentials:** Because platform API authentication is handled automatically using Google Cloud IAM, you only need to configure credentials for your remote Git repository.
+  * **Supported versions:** Make sure the GitSync package in Content Hub is on **version 54.0** or **version 52.0**. If you are rolling back from version 53.0, verify that the **Branch** parameter points to the repository branch used before the version 53.0 upgrade and test connectivity using the **Ping** action.
+  * **Playbook permissions fallback:** If the default runtime API key encounters permission limits when modifying restricted playbooks, you can optionally provide a **SOAR Username** and **SOAR Password** for an account with playbook edit permissions.
 
 
 
@@ -252,17 +193,19 @@ Configure the GitSync integration as a **Shared Instance** in Google SecOps so t
 Parameter | Description  
 ---|---  
 `Repo URL` | Required. The remote Git repository URL. When using HTTPS authentication, the URL must start with `https://` (for example, `https://github.com/organization/secops-platform.git`). When using SSH authentication, the URL must start with `git@` or `ssh://` (for example, `git@github.com:organization/secops-platform.git`).  
-`Branch` | Required. The Git repository branch to synchronize with (such as `main` or `gitsync-chronicle-api`).  
+`Branch` | Required. The Git repository branch to synchronize with (for example, `main`).  
 `Git Password/Token/SSH Key` | Required. The authentication credential for the remote Git repository. This parameter accepts a Git account password, Personal Access Token (PAT), or base64-encoded SSH private key (RSA 2048-bit or Ed25519).  
 `Git Username` | Optional. The Git account username. Required when using username and password authentication over HTTPS.  
 `Git Server Fingerprint` | Optional. The SSH public host key of your remote Git server (for example, `github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC...`). Configuring this parameter enables host fingerprint pinning, making sure GitSync connects exclusively to your verified Git host and mitigating person-in-the-middle (PITM) risks. To retrieve this value, see Enable host fingerprint pinning.  
 `Commit Author` | Optional. The author identity attached to outbound Git commits generated by GitSync. The format must follow standard Git authorship: `Name &lt;email@domain.com&gt;` (defaults to `GitSync &lt;gitsync@siemplify.co&gt;`).  
 `Siemplify Verify SSL` | Required. If selected, the integration validates the SSL certificate of the Google SecOps API endpoint. Enabled by default.  
 `Git Verify SSL` | Required. If selected, the integration validates the SSL certificate of the remote Git provider server. Enabled by default.  
+`SOAR Username` | Optional. The Google SecOps username of an account with playbook edit permissions. Provide this parameter if the default API key fails due to permission limits.  
+`SOAR Password` | Optional. The password corresponding to the configured `SOAR Username`.  
   
 ## Actions
 
-For more information about actions, see [ Respond to pending actions from Your Workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/respond-to-pending-actions-from-workdesk) and [Perform a manual action](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/perform-a-manual-action). 
+For more information about actions, see [ Respond to pending actions from your workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/respond-to-pending-actions-from-workdesk) and [Run a manual action in your case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case#run-manual-action). 
 
 ### Ping
 
@@ -411,7 +354,7 @@ Instance-level jobs synchronize selected asset categories across an entire Googl
 
 #### Push Content
 
-Use the **Push Content** job to export selected asset categories from your Google SecOps instance and commit them to the configured Git repository branch. Always run **Push Content** first when initializing a new branch or migrating to a Chronicle API-enabled environment.
+Use the **Push Content** job to export selected asset categories from your Google SecOps instance and commit them to the configured Git repository branch. Always run **Push Content** first when initializing a new branch.
 
 ##### Job inputs
 
@@ -757,7 +700,7 @@ The following table provides remediation steps for common synchronization errors
 
 Observed error message | Operational cause | Remediation procedure  
 ---|---|---  
-`Authentication failed`, `401 Unauthorized`, or `Connection refused` during action or job execution | Running this integration on an unmigrated legacy instance (`*.siemplify-soar.com`). GitSync communicates with Google SecOps exclusively through Chronicle REST APIs using Google Cloud IAM authentication and no longer supports legacy platform API endpoints (`*.siemplify-soar.com/api/`). | Migrate your Google SecOps platform instance to a Chronicle API-enabled environment (accessible using `secops.google.com` or `*.chronicle.security.google.com`). For migration instructions, see Chronicle API-enabled environment migration.  
+`AttributeError: 'OnePlatformSoarApi' object has no attribute 'update_ide_item'` or synchronization failures on GitSync version 53.0 | Running the regressive GitSync **version 53.0** package, which contains known synchronization issues with custom IDE items and modified JSON schemas. | Roll back GitSync to **version 52.0** or upgrade to **version 54.0** in Content Hub, and make sure the **Branch** parameter points to your pre-v53 repository branch. For step-by-step instructions, see Version 53.0 rollback and version 52.0 / 54.0 compatibility.  
 `Permission denied (publickey)` or `Host key verification failed` (or `Authentication failed for 'https://...'`) | Git authentication failure caused by an invalid credential format, missing deploy key write permissions, or mismatched host fingerprint. | 
 
   * **SSH authentication** : Verify that your private SSH key is converted to a single-line base64 string without trailing newlines or whitespace. Confirm that the corresponding public key is registered in your Git repository with write access.
@@ -765,17 +708,17 @@ Observed error message | Operational cause | Remediation procedure
   * **HTTPS authentication** : Verify that your Personal Access Token (PAT) hasn't expired and possesses repository write scope.
 
   
-`403 Forbidden: Insufficient permissions to modify playbook` (or `Failed to push playbook: Access denied`) | The target playbook has restricted default access permissions (such as **Can View**), and the `Administrator` SOC role hasn't been granted **Can Edit** permissions on the source system. | In Google SecOps, go to **Playbooks** , select the affected playbook, open its permissions settings, and add the **`Administrator` SOC role** with **Can Edit** permissions. For detailed steps, see Configure playbook permissions.  
+`403 Forbidden: Insufficient permissions to modify playbook` (or `Failed to push playbook: Access denied`) | The target playbook has restricted default access permissions (such as **Can View**), and the `Administrator` SOC role hasn't been granted **Can Edit** permissions on the source system. | In Google SecOps, go to **Playbooks** , select the affected playbook, open its permissions settings, and add the **`Administrator` SOC role** with **Can Edit** permissions (or configure the optional **SOAR Username** and **SOAR Password** parameters on the GitSync integration instance). For detailed steps, see Configure playbook permissions.  
 **Pull Content** or **Pull Integration** job times out after 5 minutes | Installing multiple commercial integrations from Content Hub during a single pull operation exceeded the 5-minute job execution timeout. | Install the required commercial integrations manually from Content Hub before running **Pull Content** , or re-run the **Pull Content** job to continue importing the remaining assets.  
-`General error performing Job Pull Content` (or `400 Bad Request` / `404 Not Found` when pulling from an existing legacy branch) | Attempting to pull a repository branch containing pre-migration legacy configuration files into a Chronicle API-enabled environment. | 
+`General error performing Job Pull Content` (or `400 Bad Request` / `404 Not Found` when pulling from a repository branch) | Attempting to pull from an uninitialized repository branch or a branch whose JSON files were exported using the incompatible GitSync version 53.0 schema. | 
 
-  * Execute a full **Push Content** job from your Chronicle API-enabled environment first to populate the branch with updated configuration files before running any pull jobs.
-  * Verify that the integration instance is configured with the correct Chronicle API-enabled branch (see Chronicle API-enabled environment migration).
+  * If the branch was modified using GitSync version 53.0, switch the **Branch** parameter back to your pre-v53 repository branch or restore your pre-v53 branch backup (see Version 53.0 rollback and version 52.0 / 54.0 compatibility).
+  * If you are setting up a new branch on version 52.0 or 54.0, execute a full **Push Content** job first to populate the branch before running any pull jobs.
 
   
 `Playbook '<Playbook_Name>' is assigned to environment(s) that don't exist` | A playbook or block being imported is assigned to an environment or environment group that hasn't been created on the destination instance. | Run **Pull Content** with the **Environments** option selected first, or manually create the missing environment in **Settings > Environments** on the destination instance before pulling playbooks.  
 `Commit Author parameter must be in the following format: Name <example@gmail.com>` | The **Commit Author** parameter in the integration instance or job configuration is missing an email address in angle brackets. | Update the **Commit Author** parameter to match the required format: `Name <email@domain.com>` (for example, `GitSync <gitsync@example.com>`).  
-`400 Bad Request` or `409 Conflict` when importing ontology mappings | Event mapping rules in the repository conflict with existing platform ontology rules, or were exported using an older GitSync version. | Execute a fresh **Push Mappings** job from your Chronicle API-enabled environment to re-export mapping definitions, or resolve duplicate event mapping rules in **Settings > Ontology > Mapping Rules** before re-running the job.  
+`400 Bad Request` or `409 Conflict` when importing ontology mappings | Event mapping rules in the repository conflict with existing platform ontology rules, or were exported using an incompatible GitSync version. | Execute a fresh **Push Mappings** job using GitSync version 54.0 or 52.0 to re-export mapping definitions, or resolve duplicate event mapping rules in **Settings > Ontology > Mapping Rules** before re-running the job.  
   
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
@@ -783,6 +726,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

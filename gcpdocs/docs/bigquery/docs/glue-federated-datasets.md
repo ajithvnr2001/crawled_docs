@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/glue-federated-datasets/
 title: Create and manage AWS Glue federated datasets \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:29.775732+00:00
+fetched_at: 2026-10-29T05:43:40.507460+00:00
 ---
 
 # Create and manage AWS Glue federated datasets  |  BigQuery  |  Google Cloud Documentation

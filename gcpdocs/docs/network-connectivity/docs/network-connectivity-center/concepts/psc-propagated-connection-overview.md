@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/psc-propagated-connection-overview/
 title: Private Service Connect connection propagation through NCC \u00a0|\u00a0 Network Connectivity Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:03:40.479562+00:00
+fetched_at: 2026-10-29T05:59:41.392282+00:00
 ---
 
 # Private Service Connect connection propagation through NCC  |  Network Connectivity Center  |  Google Cloud Documentation
@@ -121,7 +121,7 @@ The tasks to configure the propagation of global Google APIs through Private Ser
 When you enable the propagation option, any Private Service Connect global Google API endpoint in any VPC spoke that is not in an excluded range is propagated to every VPC spoke of the NCC hub. Other VPC spokes that are directly connected to the hub can access Google API services by sending traffic to the IP address of a Private Service Connect global Google API endpoint being propagated.
 
 
-**Caution:** If a VPC spoke has connection propagation for global Google APIs enabled, deleting an endpoint for global Google APIs can disrupt traffic to other global Google API endpoints in that spoke. For a workaround, see the [Known issues](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis#delete-issue) section on the [Configure Private Service Connect APIs](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-apis) page.
+
 
 For detailed information about Private Service Connect propagated connections, see [About propagated connections](https://docs.cloud.google.com/vpc/docs/about-propagated-connections).
 
@@ -138,6 +138,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/1stgendocs/apis/libraries/
 title: Cloud Run functions client libraries \u00a0|\u00a0 Cloud Run functions (1st gen) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:26:44.611430+00:00
+fetched_at: 2026-10-29T07:58:52.399210+00:00
 ---
 
 # Cloud Run functions client libraries  |  Cloud Run functions (1st gen)  |  Google Cloud Documentation
@@ -82,7 +82,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-functions" % "2.101.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-functions" % "2.102.0"
 
 **Note:** Cloud Java client libraries do not currently support Android.
 

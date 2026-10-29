@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/best-practices/
 title: Best practices for using Semantic governance policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:01.602432+00:00
+fetched_at: 2026-10-29T06:14:24.099121+00:00
 ---
 
 # Best practices for using Semantic governance policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -44,7 +44,7 @@ Use clear descriptions of MCP tools, and clear descriptions of parameters requir
 
 ## Be mindful of limits for descriptions
 
-The Semantic Governance system enforces these length limits for descriptions:
+The Semantic governance system enforces these length limits for descriptions:
 
 Description Item | Applies to | Length limit  
 ---|---|---  
@@ -52,7 +52,7 @@ Description Item | Applies to | Length limit
 **Action** | An individual tool within the MCP server, or a function call available to your agent | 750 characters  
 **Parameter** | A parameter used within a tool or function call | 300 characters  
   
-If the Semantic Governance runtime receives a description that exceeds any of these limits, it truncates the description to the stated limit, and logs a message.
+If the Semantic governance runtime receives a description that exceeds any of these limits, it truncates the description to the stated limit, and logs a message.
 
 ## When Semantic governance policy intervenes
 

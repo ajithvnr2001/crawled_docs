@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/generate-dataset-insights/
 title: Generate dataset insights \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:27:34.302452+00:00
+fetched_at: 2026-10-29T05:43:15.129545+00:00
 ---
 
 # Generate dataset insights  |  BigQuery  |  Google Cloud Documentation

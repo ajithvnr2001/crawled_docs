@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/share-agent/
 title: Share an agent \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:14.452391+00:00
+fetched_at: 2026-10-29T06:14:18.570376+00:00
 ---
 
 # Share an agent  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ Sharing an agent allows multiple users or automated systems to query the agent. 
 
 To follow the principle of least privilege, create a custom role that contains only the `aiplatform.reasoningEngines.query` permission.
 
-### gcloud
+###  gcloud 
 
 To create a custom role in the project, run the following command:
     
@@ -168,7 +168,7 @@ Replace the following:
 Granting access to the agent provides direct access to send messages to the agent's endpoint. The security controls are determined by the code of the receiving agent.
 
   * **Trusted frontend** : Most default Agent Development Kit (ADK) agents operate from a trusted frontend. The agent trusts the frontend commands, which gives the frontend full control of sessions and users. In these cases, don't grant direct access to the agent to untrusted entities.
-  * **A2A agents** : Other agents, like Agent2Agent (A2A) agents, can be exposed to untrusted entities if they implement their own authentication and authorization. Agent Runtime only provides coarse access control to the agent interface.
+  * **A2A agents** : Other agents, like Agent2Agent (A2A) agents, can be exposed to untrusted entities if they implement their own authentication and authorization. Agent Runtime on Gemini Enterprise Agent Platform only provides coarse access control to the agent interface.
 
 
 

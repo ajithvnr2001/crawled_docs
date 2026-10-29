@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/string_functions/
 title: String Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:30:57.241677+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T07:57:02.789435+00:00
 ---
 
 # String Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -182,7 +168,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L28-L33)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L28-L33)
 
 ### CHAR_LENGTH
 
@@ -303,7 +289,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L47-L52)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L47-L52)
 
 ### STARTS_WITH
 
@@ -431,7 +417,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L66-L71)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L66-L71)
 
 ### ENDS_WITH
 
@@ -544,7 +530,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L85-L90)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L85-L90)
 
 ### LIKE
 
@@ -671,7 +657,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L104-L109)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L104-L109)
 
 ### REGEX_CONTAINS
 
@@ -817,7 +803,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L123-L128)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L123-L128)
 
 ### REGEX_FIND
 
@@ -1028,7 +1014,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L180-L185)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L180-L185)
 
 ### STRING_CONCAT
 
@@ -1159,7 +1145,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L199-L204)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L199-L204)
 
 ### STRING_CONTAINS
 
@@ -1287,7 +1273,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L218-L223)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L218-L223)
 
 ### STRING_INDEX_OF
 
@@ -1447,7 +1433,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L237-L242)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L237-L242)
 
 ### TO_LOWER
 
@@ -1576,7 +1562,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L256-L261)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L256-L261)
 
 ### SUBSTRING
 
@@ -1739,7 +1725,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L275-L281)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L275-L281)
 
 ### STRING_REVERSE
 
@@ -1863,7 +1849,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L295-L300)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L295-L300)
 
 ### STRING_REPEAT
 
@@ -2075,7 +2061,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/pipeline_snippets_string.go#L314-L319)
+    [pipeline_snippets_string.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_string.go#L314-L319)
 
 ### LTRIM
 
@@ -2202,6 +2188,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

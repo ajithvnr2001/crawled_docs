@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/batch-loading-data/
 title: Batch load data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:22.847398+00:00
+fetched_at: 2026-10-29T05:43:29.339400+00:00
 ---
 
 # Batch load data  |  BigQuery  |  Google Cloud Documentation
@@ -580,7 +580,7 @@ The following code demonstrates how to load a local CSV file to a new BigQuery t
     
     def load_from_file dataset_id = "your_dataset_id",
                        file_path  = "path/to/file.csv"
-      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_exchange-v1beta1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
+      bigquery = Google::Cloud::[Bigquery](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery-data_transfer-v1/latest/Google-Cloud-Bigquery.html).[new](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-bigquery/latest/Google-Cloud-Bigquery.html)
       dataset  = bigquery.dataset dataset_id
       table_id = "new_table_id"
     

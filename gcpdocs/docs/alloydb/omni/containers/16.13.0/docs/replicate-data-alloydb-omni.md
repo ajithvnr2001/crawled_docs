@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/16.13.0/docs/replicate-data-alloydb-omni/
 title: Replicate data between AlloyDB for PostgreSQL and AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni using containers: 16.13.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:17:55.166116+00:00
+fetched_at: 2026-10-29T05:52:20.822428+00:00
 ---
 
 # Replicate data between AlloyDB for PostgreSQL and AlloyDB Omni  |  AlloyDB Omni using containers: 16.13.0  |  Google Cloud Documentation
@@ -132,7 +132,7 @@ Replace DATA_DIR with the file system path to your data directory—for example,
 
   1. Adjust the parameters:
          
-         sudo sed -r -i "s|(shared_preload_libraries\s*=\s*)'(.*)'.*$|\1';\2,pglogical'|"; DATA_DIR/postgresql.conf
+         sudo sed -r -i "s|(shared_preload_libraries\s*=\s*)'(.*)'.*$|\1'\2,pglogical'|" DATA_DIR/postgresql.conf
 
   2. Verify that the parameter is set properly:
          

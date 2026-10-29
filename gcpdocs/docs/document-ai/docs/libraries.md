@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/libraries/
 title: Document AI client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:58:48.654202+00:00
+fetched_at: 2026-10-29T05:40:46.326307+00:00
 ---
 
 # Document AI client libraries  |  Google Cloud Documentation
@@ -79,7 +79,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-document-ai" % "2.103.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-document-ai" % "2.104.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

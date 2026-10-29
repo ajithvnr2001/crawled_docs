@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies/
 title: Configure IAM agent policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:51.165880+00:00
+fetched_at: 2026-10-29T06:14:18.474763+00:00
 ---
 
 # Configure IAM agent policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -119,7 +119,7 @@ Google Cloud console, do the following:
 
 
 
-### gcloud
+###  gcloud 
 
 To create an agent-to-registry egress policy by using the gcloud CLI, do the following:
 
@@ -243,7 +243,7 @@ To define an agent-to-agent egress policy by using the Google Cloud console, do 
 
 
 
-### gcloud
+###  gcloud 
 
   1. Create an IAM allow policy in a JSON-formatted file.
          
@@ -351,7 +351,7 @@ In **Conditions** , click **Add Condition**. In the **Add condition** dialog, do
 
 
 
-### gcloud
+###  gcloud 
 
 To create an agent-to-MCP server egress policy using the gcloud CLI, do the following:
 
@@ -508,7 +508,7 @@ In **Conditions** , click **Add Condition**. In the **Add condition** dialog, do
 
 
 
-### gcloud
+###  gcloud 
 
   1. Create an IAM allow policy in a JSON-formatted file.
          

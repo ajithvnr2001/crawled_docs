@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-relax-column-query-append/
 title: Relax a column in a query append job \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:18.448228+00:00
+fetched_at: 2026-10-29T05:41:34.324626+00:00
 ---
 
 # Relax a column in a query append job  |  BigQuery  |  Google Cloud Documentation

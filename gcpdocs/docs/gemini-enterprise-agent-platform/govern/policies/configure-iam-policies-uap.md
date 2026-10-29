@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap/
 title: Create IAM Unified Access Policies \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:26.158696+00:00
+fetched_at: 2026-10-29T06:14:16.018878+00:00
 ---
 
 # Create IAM Unified Access Policies  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -115,7 +115,7 @@ After you save your policy, the following happens:
 
 
 
-### gcloud
+###  gcloud 
 
 To create a UAP in the gcloud CLI, do the following:
 
@@ -326,7 +326,7 @@ To create a UAP with both allow and deny rules in the Google Cloud console, do t
 
 
 
-### gcloud
+###  gcloud 
 
 To create a UAP file containing both allow and deny rules, do the following:
 
@@ -477,7 +477,7 @@ After you save your policy, the following happens:
 
 
 
-### gcloud
+###  gcloud 
 
 To bind the policy to the target resource, run the following command:
     
@@ -560,7 +560,7 @@ In the Google Cloud console, edit your UAP and do the following:
 
 
 
-### gcloud
+###  gcloud 
 
 Rules in a JSON-formatted file have the following general format:
     
@@ -707,7 +707,7 @@ In the Google Cloud console you can create conditions by doing the following:
 
 
 
-### gcloud
+###  gcloud 
 
 In the policy file, conditions determine which destination resources your agent principals can access and under what conditions they are accessed.
 
@@ -803,7 +803,7 @@ To create an agent-to-registry policy in the Google Cloud console, do the follow
 
 To learn how to create and bind policies, see Create IAM UAPs.
 
-### gcloud
+###  gcloud 
 
 The following example policy shows a UAP rule that allows all agents in a project access to all destination resources in a specific registry:
     
@@ -927,7 +927,7 @@ To create an agent-to-agent policy in the Google Cloud console, do the following
 
 To activate the policy, bind the UAP to your project.
 
-### gcloud
+###  gcloud 
 
 The following example policy shows an IAM allow rule that allows an orchestrator agent to invoke a specific subagent registered in the Agent Registry:
     
@@ -1043,7 +1043,7 @@ To create an agent-to-MCP server policy in the Google Cloud console, do the foll
 
 To activate the policy, bind the UAP to your project.
 
-### gcloud
+###  gcloud 
 
 The following example policy shows an IAM allow rule that allows a Workload Identity Federation-formatted agent principal read-only access to a tool called `GitHubTool`:
     
@@ -1202,7 +1202,7 @@ To create an agent-to-endpoint policy in the Google Cloud console, do the follow
 
 To activate the policy, bind the UAP to your project.
 
-### gcloud
+###  gcloud 
 
 The following example shows an IAM allow policy that allows an agent to access a registered service endpoint:
     
@@ -1317,7 +1317,7 @@ To create an agent-to-unregistered endpoint policy in the Google Cloud console, 
 
 To activate the policy, bind the UAP to your project.
 
-### gcloud
+###  gcloud 
 
 The following example shows a UAP that allows an agent to access an unregistered endpoint with a path that starts with `/v2/process` and ends with `example-ocr.com`:
     

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-get-view/
 title: Get view properties \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:27.610230+00:00
+fetched_at: 2026-10-29T05:41:48.841626+00:00
 ---
 
 # Get view properties  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/manage-data/add-data/
 title: Add and update data \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:17:18.920717+00:00
+fetched_at: 2026-10-29T07:56:59.415011+00:00
 ---
 
 # Add and update data  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -253,7 +253,7 @@ Android
     }
     
     
-    [main.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/firestore_quickstart/main.go#L40-L48)
+    [main.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/firestore_quickstart/main.go#L40-L48)
 
 ##### PHP
 
@@ -306,7 +306,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     puts "Created Cloud Firestore client with given project ID."
     
-    [quickstart.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/quickstart.rb#L19-L26)
+    [quickstart.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/quickstart.rb#L19-L26)
 
 ## Set a document
 
@@ -486,7 +486,7 @@ Use the `set()` method:
     # Add a new doc in collection 'cities' with ID 'LA'
     db.collection("cities").document("LA").set(data)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L69-L72)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L69-L72)
 
 ##### Python  
 (Async)
@@ -499,7 +499,7 @@ Use the `set()` method:
     # Add a new doc in collection 'cities' with ID 'LA'
     await db.collection("cities").document("LA").set(data)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L65-L68)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L65-L68)
 
 ##### C++
 
@@ -566,7 +566,7 @@ Use the `Set()` method:
     }
     
     
-    [save_data_set_from_map.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/save_data_set_from_map.go#L18-L39)
+    [save_data_set_from_map.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_set_from_map.go#L18-L39)
 
 ##### PHP
 
@@ -631,7 +631,7 @@ Use the `set()` method:
     
     city_ref.set data
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/add_data.rb#L24-L32)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/add_data.rb#L24-L32)
 
 If the document does not exist, it will be created. If the document does exist, its contents will be overwritten with the newly provided data, unless you specify that the data should be merged into the existing document, as follows:
 
@@ -740,7 +740,7 @@ Android
     
     city_ref.set({"capital": True}, merge=True)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L360-L362)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L360-L362)
 
 ##### Python  
 (Async)
@@ -750,7 +750,7 @@ Android
     
     await city_ref.set({"capital": True}, merge=True)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L354-L356)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L354-L356)
 
 ##### C++
     
@@ -795,7 +795,7 @@ Android
     }
     
     
-    [save_data_set_doc_upsert.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/save_data_set_doc_upsert.go#L18-L38)
+    [save_data_set_doc_upsert.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_set_doc_upsert.go#L18-L38)
 
 ##### PHP
 
@@ -837,7 +837,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     city_ref = firestore.doc "#{collection_path}/LA"
     city_ref.set({ capital: false }, merge: true)
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/add_data.rb#L43-L44)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/add_data.rb#L43-L44)
 
 If you're not sure whether the document exists, pass the option to merge the new data with any existing document to avoid overwriting entire documents. For documents that contain maps, if you specify a set with a field that contains an empty map, the map field of the target document is overwritten.
 
@@ -1080,7 +1080,7 @@ Android
     
     db.collection("data").document("one").set(data)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L79-L89)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L79-L89)
 
 ##### Python  
 (Async)
@@ -1098,7 +1098,7 @@ Android
     
     await db.collection("data").document("one").set(data)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L75-L85)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L75-L85)
 
 ##### C++
     
@@ -1185,7 +1185,7 @@ Android
     }
     
     
-    [save_data_set_from_map_nested.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/save_data_set_from_map_nested.go#L18-L48)
+    [save_data_set_from_map_nested.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_set_from_map_nested.go#L18-L48)
 
 ##### PHP
 
@@ -1271,7 +1271,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     doc_ref.set data
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/add_data.rb#L55-L70)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/add_data.rb#L55-L70)
 
 ### Custom objects
 
@@ -1548,7 +1548,7 @@ Each custom class must have a public constructor that takes no arguments. In add
     
     
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L94-L145)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L94-L145)
 
 ##### Python  
 (Async)
@@ -1581,7 +1581,7 @@ Each custom class must have a public constructor that takes no arguments. In add
     
     
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L90-L141)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L90-L141)
 
 ##### C++
     
@@ -1608,7 +1608,7 @@ Each custom class must have a public constructor that takes no arguments. In add
     }
     
     
-    [custom_type_definition.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/custom_type_definition.go#L18-L29)
+    [custom_type_definition.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/custom_type_definition.go#L18-L29)
 
 ##### PHP
 
@@ -1843,7 +1843,7 @@ Android
     city = City(name="Los Angeles", state="CA", country="USA")
     db.collection("cities").document("LA").set(city.to_dict())
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L178-L179)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L178-L179)
 
 ##### Python  
 (Async)
@@ -1852,7 +1852,7 @@ Android
     city = City(name="Los Angeles", state="CA", country="USA")
     await db.collection("cities").document("LA").set(city.to_dict())
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L174-L175)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L174-L175)
 
 ##### C++
     
@@ -1889,7 +1889,7 @@ Android
     }
     
     
-    [save_data_set_from_custom_type.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/save_data_set_from_custom_type.go#L18-L39)
+    [save_data_set_from_custom_type.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_set_from_custom_type.go#L18-L39)
 
 ##### PHP
     
@@ -2007,7 +2007,7 @@ Android
     
     db.collection("cities").document("new-city-id").set(data)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L187-L187)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L187-L187)
 
 ##### Python  
 (Async)
@@ -2015,7 +2015,7 @@ Android
     
     await db.collection("cities").document("new-city-id").set(data)
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L183-L183)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L183-L183)
 
 ##### C++
     
@@ -2054,7 +2054,7 @@ Android
     }
     
     
-    [save_data_set_id_specified.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/save_data_set_id_specified.go#L18-L37)
+    [save_data_set_id_specified.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_set_id_specified.go#L18-L37)
 
 ##### PHP
 
@@ -2083,7 +2083,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     city_ref = firestore.doc "#{collection_path}/new-city-id"
     city_ref.set data
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/add_data.rb#L86-L87)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/add_data.rb#L86-L87)
 
 If there isn't a meaningful ID for the document, Firestore can auto-generate an ID for you. You can call the following language-specific `add()` methods:
 
@@ -2251,7 +2251,7 @@ Use the `add()` method:
     update_time, city_ref = db.collection("cities").add(city)
     print(f"Added document with id {city_ref.id}")
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L194-L196)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L194-L196)
 
 ##### Python  
 (Async)
@@ -2262,7 +2262,7 @@ Use the `add()` method:
     city = City(name="Tokyo", state=None, country="Japan")
     await db.collection("cities").add(city.to_dict())
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L190-L191)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L190-L191)
 
 ##### C++
 
@@ -2314,7 +2314,7 @@ Use the `Add()` method:
     }
     
     
-    [save_data_set_id_random_collection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/save_data_set_id_random_collection.go#L18-L38)
+    [save_data_set_id_random_collection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_set_id_random_collection.go#L18-L38)
 
 ##### PHP
 
@@ -2377,7 +2377,7 @@ Use the `add()` method:
     added_doc_ref = cities_ref.add data
     puts "Added document with ID: #{added_doc_ref.document_id}."
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/add_data.rb#L98-L106)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/add_data.rb#L98-L106)
 
 The examples show adding data to a top-level collection like `cities`. Firestore also supports subcollections inside documents such as `cities/LA/landmarks`. The same `set()`, `add()`, and `update()` methods apply when working with subcollections.
 
@@ -2500,7 +2500,7 @@ Android
         }
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L203-L210)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L203-L210)
 
 ##### Python  
 (Async)
@@ -2515,7 +2515,7 @@ Android
         }
     )
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L198-L205)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L198-L205)
 
 ##### C++
     
@@ -2565,7 +2565,7 @@ Android
     }
     
     
-    [save_data_set_id_random_document_ref.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/save_data_set_id_random_document_ref.go#L18-L43)
+    [save_data_set_id_random_document_ref.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_set_id_random_document_ref.go#L18-L43)
 
 ##### PHP
 
@@ -2607,7 +2607,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     added_doc_ref.set data
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/add_data.rb#L121-L126)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/add_data.rb#L121-L126)
 
 In the backend, `.add(...)` and `.doc().set(...)` are equivalent, so you can use either option.
 
@@ -2776,7 +2776,7 @@ Use the `update()` method:
     # Set the capital field
     city_ref.update({"capital": True})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L318-L321)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L318-L321)
 
 ##### Python  
 (Async)
@@ -2789,7 +2789,7 @@ Use the `update()` method:
     # Set the capital field
     await city_ref.update({"capital": True})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L312-L315)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L312-L315)
 
 ##### C++
 
@@ -2844,7 +2844,7 @@ Use the `Update()` method:
     }
     
     
-    [save_data_set_field.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/save_data_set_field.go#L18-L51)
+    [save_data_set_field.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_set_field.go#L18-L51)
 
 ##### PHP
 
@@ -2901,7 +2901,7 @@ Use the `update()` method:
     city_ref = firestore.doc "#{collection_path}/DC"
     city_ref.update({ capital: true })
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/add_data.rb#L145-L146)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/add_data.rb#L145-L146)
 
 ### Server Timestamp
 
@@ -3035,7 +3035,7 @@ Android
     city_ref = db.collection("objects").document("some-id")
     city_ref.update({"timestamp": firestore.SERVER_TIMESTAMP})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L387-L388)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L387-L388)
 
 ##### Python  
 (Async)
@@ -3044,7 +3044,7 @@ Android
     city_ref = db.collection("objects").document("some-id")
     await city_ref.update({"timestamp": firestore.SERVER_TIMESTAMP})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L381-L382)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L381-L382)
 
 ##### C++
     
@@ -3095,7 +3095,7 @@ Android
     }
     
     
-    [save_data_set_server_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/save_data_set_server_timestamp.go#L18-L47)
+    [save_data_set_server_timestamp.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_set_server_timestamp.go#L18-L47)
 
 ##### PHP
 
@@ -3134,7 +3134,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     city_ref = firestore.doc "#{collection_path}/new-city-id"
     city_ref.update({ timestamp: firestore.field_server_time })
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/add_data.rb#L218-L219)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/add_data.rb#L218-L219)
 
 When updating multiple timestamp fields inside of a [transaction](https://docs.cloud.google.com/firestore/native/docs/manage-data/transactions), each field receives the same server timestamp value.
 
@@ -3349,7 +3349,7 @@ Android
     # Update age and favorite color
     frank_ref.update({"age": 13, "favorites.color": "Red"})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L369-L380)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L369-L380)
 
 ##### Python  
 (Async)
@@ -3368,7 +3368,7 @@ Android
     # Update age and favorite color
     await frank_ref.update({"age": 13, "favorites.color": "Red"})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L363-L374)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L363-L374)
 
 ##### C++
     
@@ -3447,7 +3447,7 @@ Android
     }
     
     
-    [save_data_set_nested_fields.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/save_data_set_nested_fields.go#L18-L57)
+    [save_data_set_nested_fields.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/save_data_set_nested_fields.go#L18-L57)
 
 ##### PHP
 
@@ -3556,7 +3556,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     # Update age and favorite color
     frank_ref.update({ age: 13, "favorites.color": "Red" })
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/add_data.rb#L183-L198)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/add_data.rb#L183-L198)
 
 Dot notation allows you to update a single nested field without overwriting other nested fields. If you update a nested field without dot notation, you will overwrite the entire map field, as shown in the following example:
 
@@ -3753,7 +3753,7 @@ Android
     # // Atomically remove a region from the 'regions' array field.
     city_ref.update({"regions": firestore.ArrayRemove(["east_coast"])})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L332-L338)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L332-L338)
 
 ##### Python  
 (Async)
@@ -3767,7 +3767,7 @@ Android
     # // Atomically remove a region from the 'regions' array field.
     await city_ref.update({"regions": firestore.ArrayRemove(["east_coast"])})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L326-L332)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L326-L332)
 
 ##### C++
     
@@ -3964,7 +3964,7 @@ Android
     
     washington_ref.update({"population": firestore.Increment(50)})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-client/snippets.py#L946-L948)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-client/snippets.py#L946-L948)
 
 ##### Python  
 (Async)
@@ -3974,7 +3974,7 @@ Android
     
     await washington_ref.update({"population": firestore.Increment(50)})
     
-    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/cbca626a8daa7c358b45f55b7d2d1790f56918f3/firestore/cloud-async-client/snippets.py#L781-L783)
+    [snippets.py](https://github.com/GoogleCloudPlatform/python-docs-samples/blob/d831f8ba63b5c16cdfa97783b059547f00555eb8/firestore/cloud-async-client/snippets.py#L781-L783)
 
 ##### C++
     
@@ -4029,7 +4029,7 @@ Android
     }
     
     
-    [increment.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/71d51d705331391bab2ac0943761972270720e19/firestore/increment.go#L18-L48)
+    [increment.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/increment.go#L18-L48)
 
 ##### PHP
 
@@ -4067,7 +4067,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     city_ref = firestore.doc "#{collection_path}/DC"
     city_ref.update({ population: firestore.field_increment(50) })
     
-    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/bee08a6f7992e09f75245b03416143e5744c0619/google-cloud-firestore/samples/add_data.rb#L239-L240)
+    [add_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/add_data.rb#L239-L240)
 
 Increment operations are useful for implementing counters. Note that updating a single document too quickly can [lead to contention or errors](https://docs.cloud.google.com/firestore/native/docs/best-practices#updates_to_a_single_document). If you need to update your counter at a very high rate, see the [Distributed counters](https://docs.cloud.google.com/firestore/native/docs/solutions/counters) page.
 
@@ -4075,6 +4075,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

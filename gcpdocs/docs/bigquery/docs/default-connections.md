@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/default-connections/
 title: Default connection overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:30:15.366728+00:00
+fetched_at: 2026-10-29T05:43:38.532439+00:00
 ---
 
 # Default connection overview  |  BigQuery  |  Google Cloud Documentation

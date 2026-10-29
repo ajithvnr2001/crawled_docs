@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/alexa/
 title: Integrate Alexa with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:22:23.164406+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T05:46:16.082812+00:00
 ---
 
 # Integrate Alexa with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation
@@ -33,55 +19,72 @@ fetched_at: 2026-10-27T16:22:23.164406+00:00
 
 Send feedback  Stay organized with collections  Save and categorize content based on your preferences. 
 
-# Integrate Alexa with Google SecOps 
+# Integrate Alexa with Google SecOps
 
-This document describes how to integrate Alexa with Google Security Operations (Google SecOps).
+**Important:** Amazon retired the Alexa Web Information Service on December 15, 2022\. Live requests from this integration fail because the service is no longer active.
 
-Integration version: 7.0
+This document explains how to integrate Alexa with Google Security Operations.
 
-**Important:** Alexa Web Information Service (AWIS) was terminated in December 2022. 
+**Note:** This integration appears as _Amazon Alexa Rank Indicator_ in the Google SecOps Content Hub and as _Alexa_ in playbooks.
+
+## Use cases
+
+The Alexa integration uses Google SecOps capabilities to support the following use cases:
+
+  * **URL popularity enrichment** : Add global website traffic rankings to URLs in cases to distinguish established websites from unfamiliar domains.
+  * **Suspicious domain triage** : Automatically flag low-traffic domains as suspicious during phishing or malware investigations.
+  * **Automated alert escalation** : Route playbooks when a domain falls below your popularity threshold so analysts can prioritize suspicious URLs.
+
+
 
 ## Before you begin
 
-To retrieve the access key ID and the secret access key, complete the following steps:
+Before you configure the Alexa integration in Google SecOps, complete the following prerequisite steps:
 
-  1. Sign in to your [AWS account](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fstate%3DhashArgs%2523%26isauthcode%3Dtrue&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage&forceMobileApp=0).
-
-  2. Click your username at the top right and select **My Security Credentials** from the menu.
-
-  3. In the Your Security Credentials page, expand the **Access keys (access key ID and secret access key)** option and click **Generate New Access Key**.
-
-**Note:** When you expand the **Access keys (access key ID and secret access key)** option, you will see the list of your active and deleted access keys. You cannot retrieve the existing secret key. To get a secret key, you need to create a new one.
-
-![AWS Your Security Credentials
-tab](https://docs.cloud.google.com/static/chronicle/images/integrations/alexa-aws-your-security-credentials.jpg)
-
-  4. To display the generated key on the screen, click **Show Access Key**. To download it, click **Download Key File**.
-
-![AWS Create Access Key
-dialog](https://docs.cloud.google.com/static/chronicle/images/integrations/alexa-aws-create-access-key.jpg)
-
-**Note:** Make sure to write down the key or download the key file before you click **Close** as you will not be able to retrieve the AWS Secret Access Key in the future.
+  1. Create AWS access key credentials for your Google SecOps instance.
+  2. Configure least-privilege access permissions in AWS Identity and Access Management.
+  3. Verify network connectivity between Google SecOps and Alexa Web Information Service.
 
 
 
-### Network
+### Create AWS access key credentials
 
-Function | Default port | Direction | Protocol  
+To connect to Alexa Web Information Service, create a dedicated IAM user in AWS instead of using root account credentials, and generate an access key pair for the integration parameters:
+
+  * `Access key id`: The access key ID for your dedicated AWS IAM user.
+  * `Secret access key`: The secret access key paired with the access key ID. Save this key when you create it, because AWS doesn't let you view an existing secret key again later.
+
+
+
+For instructions on creating IAM user access keys, refer to the [AWS Identity and Access Management documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access_keys.html).
+
+### Configure least-privilege access permissions
+
+Grant your dedicated IAM user only the permissions needed to query Alexa Web Information Service instead of full administrative access. Refer to the [AWS Identity and Access Management documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) for details on attaching policies.
+
+The following table lists the minimal AWS permissions required for each action:
+
+Action | AWS service | Required permission | Description  
 ---|---|---|---  
-API | Multivalues | Outbound | apikey  
+**Get URL Rank** | `awis` | `awis:UrlInfo` | Retrieves website traffic rankings for URLs.  
+**Ping** | `awis` | `awis:UrlInfo` | Tests the connection and verifies your AWS credentials.  
+  
+### Verify network connectivity
+
+Verify that your Google SecOps instance or remote agent allows outbound HTTPS traffic to the Alexa Web Information Service endpoint listed in the following table:
+
+Destination host | Default port | Direction | Protocol  
+---|---|---|---  
+`awis.us-west-1.amazonaws.com` | `443` | Outbound | HTTPS  
   
 ## Integration parameters
 
-Use the following parameters to configure the integration:
+The Alexa integration requires the following parameters:
 
-Parameter name | Type | Default value | Is mandatory | Description  
----|---|---|---|---  
-Instance Name | String | N/A | No | Name of the instance you intend to configure integration for.  
-Description | String | N/A | No | Description of the instance.  
-Access key id | String | N/A | Yes | Access key generated in Alexa's console.  
-Secret access key | String | N/A | Yes | Generated in Alexa's console with Access key ID.  
-Run Remotely | Checkbox | Unchecked | No | Check the field in order to run the configured integration remotely. Once checked, the option appears to select the remote user (agent).  
+Parameter | Description  
+---|---  
+`Access key id` | Required. The AWS access key ID used to connect to Alexa Web Information Service.  
+`Secret access key` | Required. The AWS secret access key associated with the `Access key id`.  
   
 For instructions about how to configure an integration in Google SecOps, see [Configure integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/configure-integrations).
 
@@ -89,122 +92,171 @@ You can make changes at a later stage, if needed. After you configure an integra
 
 ## Actions
 
-For more information about actions, see [ Respond to pending actions from Your Workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/respond-to-pending-actions-from-workdesk) and [Perform a manual action](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/perform-a-manual-action). 
+For more information about actions, see [ Respond to pending actions from your workdesk](https://docs.cloud.google.com/chronicle/docs/soar/overview-and-introduction/your-workdesk/respond-to-pending-actions-from-workdesk) and [Run a manual action in your case](https://docs.cloud.google.com/chronicle/docs/soar/investigate/working-with-cases/what-actions-can-you-take-on-a-case#run-manual-action). 
 
 ### Get URL Rank
 
-Query Alexa for URL rank information. Broadly, Alexa rank represents a measure of a website's popularity, and shows how a website is doing compared to other sites. The indicated makes it a great KPI for benchmarking, and competitive analysis.
+Use the **Get URL Rank** action to check the global traffic rank of URLs and identify unfamiliar or low-traffic websites that might be suspicious.
 
-#### Parameters
+This action runs on the `URL` Google SecOps entity.
 
-Parameter name | Type | Default value | Is mandatory | Description  
----|---|---|---|---  
-Threshold | String | N/A | Yes | Rank e.g. 5.  
+#### Action inputs
+
+The **Get URL Rank** action requires the following parameters:
+
+Parameter | Description  
+---|---  
+`Threshold` | Required. The rank limit used to flag unfamiliar websites, such as `100000`. Websites with a rank number higher than this value have less traffic and are marked as suspicious.  
   
-#### Run on
+#### Action outputs
 
-This action runs on the URL entity.
+The **Get URL Rank** action provides the following outputs:
 
-#### Action results
+Action output type | Availability  
+---|---  
+Case wall attachment | Not available  
+Case wall link | Not available  
+Case wall table | Not available  
+Entity enrichment table | Available  
+JSON result | Available  
+Output messages | Available  
+Script result | Available  
+  
+##### Entity enrichment
 
-##### Script result
+The **Get URL Rank** action supports the following entity enrichment:
 
-Script name | Value options | Example  
----|---|---  
-is_risky | True or False | is_risky:False  
+Enrichment field name | Description  
+---|---  
+`Alexa_Rank` | The website's global traffic rank in Alexa.  
   
 ##### JSON result
+
+The following example shows the JSON result output received when using the **Get URL Rank** action:
     
     
     [
-        {
-            "EntityResult":
+      {
+        "EntityResult": {
+          "TrafficData": [
             {
-                "TrafficData": [
+              "text": "          ",
+              "DataUrl": [
+                {
+                  "text": "domain.com",
+                  "type": "canonical"
+                }
+              ],
+              "Rank": [
+                {
+                  "text": "5"
+                }
+              ]
+            }
+          ],
+          "text": "        ",
+          "Request": [
+            {
+              "text": "          ",
+              "Arguments": [
+                {
+                  "text": "            ",
+                  "Argument": [
                     {
-                        "text": " ",
-                        "DataUrl": [
-                            {
-                                "text": "domain.com",
-                                "type": "canonical"
-                            }],
-                        "Rank": [
-                            {
-                                "text": "5"
-                            }
-                        ]
+                      "text": "              ",
+                      "Name": [
+                        {
+                          "text": "url"
+                        }
+                      ],
+                      "Value": [
+                        {
+                          "text": "domain.com"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "              ",
+                      "Name": [
+                        {
+                          "text": "responsegroup"
+                        }
+                      ],
+                      "Value": [
+                        {
+                          "text": "Rank"
+                        }
+                      ]
                     }
-                ],
-                "text": " ",
-                "Request": [
-                    {
-                        "text": " ",
-                        "Arguments": [
-                            {
-                                "text": " ",
-                                "Argument": [
-                                    {
-                                        "text": " ",
-                                        "Name": [
-                                            {
-                                                "text": "url"
-                                            }
-                                        ],
-                                        "Value": [
-                                            {
-                                                "text": "domain.com"
-                                            }]}, {
-                                                "text": " ",
-                                                "Name": [
-                                                    {
-                                                        "text": "responsegroup"
-                                                    }
-                                                ],
-                                                "Value": [
-                                                    {
-                                                        "text": "Rank"
-                                                    }]}]}]}]},
-            "Entity": "domain.com"
-        }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Entity": "domain.com"
+      }
     ]
     
 
-##### Entity enrichment
+##### Output messages
 
-Entities are marked as suspicious (True) if they exceed the threshold. Else: False.
+The **Get URL Rank** action provides the following output messages:
 
-Enrichment field name | Logic - When to apply  
+Output message | Message description  
 ---|---  
-Alexa_Rank | Returns if it exists in JSON result  
-TrafficData | Returns if it exists in JSON result  
-text | Returns if it exists in JSON result  
-Request | Returns if it exists in JSON result  
+`Following domains were enriched by Alexa.` `ENTITY_ID: Rank: RANK` | The action succeeded.  
+`No entities were enriched.` | The action failed. Make sure the case includes at least one valid URL.  
+`Request Error: (ERROR_CODE)` | The action failed. Check that your AWS credentials are correct, your IAM user has permission to query Alexa Web Information Service, and your network can reach the service.  
   
-##### Insights
+##### Script result
 
-Severity | Description  
+The following table lists the value for the script result output when using the **Get URL Rank** action:
+
+Script result name | Value  
 ---|---  
-**Warn** | A warning insight is created when the enriched file has a malicious status. The insight is created when the number of detected engines equals or exceeds the minimum suspicious Threshold set before scan.  
+`is_risky` | `true` or `false`  
   
 ### Ping
 
-Test the connectivity to Alexa.
+Use the **Ping** action to test the connection to Alexa and verify that your AWS credentials work.
 
-#### Parameters
+This action doesn't run on Google SecOps entities. 
 
-N/A
+#### Action inputs
 
-#### Run on
+None.
 
-This action runs on all entities.
+#### Action outputs
 
-#### Action results
+The **Ping** action provides the following outputs:
 
+Action output type | Availability  
+---|---  
+Case wall attachment | Not available  
+Case wall link | Not available  
+Case wall table | Not available  
+Entity enrichment table | Not available  
+JSON result | Not available  
+Output messages | Available  
+Script result | Available  
+  
+##### Output messages
+
+The **Ping** action provides the following output messages:
+
+Output message | Message description  
+---|---  
+`Connected Successfully` | The action succeeded.  
+`test_connectivity Error: (ERROR_REASON)` | The action failed. Check that your AWS credentials are correct, your IAM user has permission to query Alexa Web Information Service, and your network can reach the service.  
+  
 ##### Script result
 
-Script result name | Value options | Example  
----|---|---  
-is_succeed | True or False | is_succeed:False  
+The following table lists the value for the script result output when using the **Ping** action:
+
+Script result name | Value  
+---|---  
+`is_succeed` | `true` or `false`  
   
 **Need more help?** [Get answers from Community members and Google SecOps professionals.](https://security.googlecloudcommunity.com/)
 
@@ -212,6 +264,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

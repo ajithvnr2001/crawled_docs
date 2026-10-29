@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/artifact-registry/docs/docker/configure-remote-auth-docker-hub/
 title: Authenticate remote repositories to upstream Docker Hub sources \u00a0|\u00a0 Artifact Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:45:49.710891+00:00
+fetched_at: 2026-10-29T05:49:44.600029+00:00
 ---
 
 # Authenticate remote repositories to upstream Docker Hub sources  |  Artifact Registry  |  Google Cloud Documentation
@@ -21,15 +21,18 @@ Send feedback
 
 #  Authenticate remote repositories to upstream Docker Hub sources Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to configure authentication to Docker Hub upstream repositories for Artifact Registry remote repositories.
+Artifact Registry lets you authenticate [remote repositories](https://docs.cloud.google.com/artifact-registry/docs/repositories/remote-overview) to Docker Hub. Although pulling public images doesn't require authentication, authenticating increases your [download rate limit](https://www.docker.com/increase-rate-limits/). To authenticate, you configure your remote repository with your Docker Hub username and a personal access token saved as a secret.
 
-We recommend authenticating to Docker Hub even if you're only using public images, because authenticating increases your download rate limit. For more information about Docker Hub download rate limits, see [Docker Hub rate limit](https://www.docker.com/increase-rate-limits/). Remote repositories allow you to add your Docker Hub username and a personal access token saved as a secret to authenticate to Docker Hub.
+## Before you begin
 
-This document assumes you've already created an Artifact Registry Docker [remote repository](https://docs.cloud.google.com/artifact-registry/docs/repositories/remote-repo), and a [Docker Hub](https://www.docker.com/products/docker-hub/) account.
+Verify the following requirements:
 
-For more information, see the [Remote repositories overview](https://docs.cloud.google.com/artifact-registry/docs/repositories/remote-overview).
+  * You have created an Artifact Registry Docker [remote repository](https://docs.cloud.google.com/artifact-registry/docs/repositories/remote-repo)
+  * You have a [Docker Hub](https://www.docker.com/products/docker-hub/) account.
 
-## Required roles
+
+
+### Required roles
 
 To get the permissions that you need to configure authentication to Docker Hub for remote repositories, ask your administrator to grant you the following IAM roles on the project: 
 
@@ -473,6 +476,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

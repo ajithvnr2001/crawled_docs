@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/linux/18.1.1/docs/ai/measure-vector-query-recall/
 title: Measure vector query recall \u00a0|\u00a0 AlloyDB Omni using RPM: 18.1.1 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:25:33.364733+00:00
+fetched_at: 2026-10-29T05:50:59.996060+00:00
 ---
 
 # Measure vector query recall  |  AlloyDB Omni using RPM: 18.1.1  |  Google Cloud Documentation
@@ -155,7 +155,7 @@ If the result is `Recall is 1` (recall of the query is `1`), this might indicate
 
 If the query is `SELECT id, name FROM table ORDER BY embedding <-> '[1,2,3]' LIMIT 10;` and the expected value of the column name is `NULL`, then change the query to one of the following:
          
-         select id, COALESCE(name, 'NULL') as name from table order by em<b>edding - '[1,2,3]' LIMIT 10;
+         select id, COALESCE(name, 'NULL') as name from table order by embedding <-> '[1,2,3]' LIMIT 10;
          
 
 Or

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/search-resources/
 title: Search for resources \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:31:53.940581+00:00
+fetched_at: 2026-10-29T05:44:34.371827+00:00
 ---
 
 # Search for resources  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -646,7 +646,7 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
     # page_size = 'SIZE_OF_EACH_RESULT_PAGE'
     # page_token = 'TOKEN_PRODUCED_BY_THE_PRECEDING_CALL'
     # order_by = 'FIELDS_TO_SORT_THE RESULTS'
-    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
+    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
     
     response = asset_service.search_all_resources(
       scope:       scope,

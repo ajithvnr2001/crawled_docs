@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/avro-to-cloud-spanner/
 title: Cloud Storage Avro to Spanner template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:43.931920+00:00
+fetched_at: 2026-10-29T05:41:20.322594+00:00
 ---
 
 # Cloud Storage Avro to Spanner template  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -175,14 +175,14 @@ You can use the following values:
      */
     package com.google.cloud.teleport.spanner;
     
-    import com.google.cloud.spanner.[Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Options.html).[RpcPriority](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Options.RpcPriority.html);
-    import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html);
+    import com.google.cloud.spanner.[Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Options.html).[RpcPriority](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Options.RpcPriority.html);
+    import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html);
     import com.google.cloud.teleport.metadata.Template;
     import com.google.cloud.teleport.metadata.TemplateCategory;
     import com.google.cloud.teleport.metadata.TemplateCreationParameter;
     import com.google.cloud.teleport.metadata.TemplateParameter;
     import com.google.cloud.teleport.metadata.TemplateParameter.TemplateEnumOption;
-    import com.google.cloud.teleport.spanner.ImportPipeline.[Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Options.html);
+    import com.google.cloud.teleport.spanner.ImportPipeline.[Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Options.html);
     import com.google.cloud.teleport.spanner.spannerio.SpannerConfig;
     import org.apache.beam.runners.dataflow.[options](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.pgadapter.statements.IntermediateStatement.html#com_google_cloud_spanner_pgadapter_statements_IntermediateStatement_options).DataflowPipelineOptions;
     import org.apache.beam.sdk.Pipeline;
@@ -209,7 +209,7 @@ You can use the following values:
         description =
             "The Cloud Storage Avro files to Cloud Spanner template is a batch pipeline that reads Avro files exported from "
                 + "Cloud Spanner stored in Cloud Storage and imports them to a Cloud Spanner database.",
-        optionsClass = [Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Options.html).class,
+        optionsClass = [Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Options.html).class,
         documentation =
             "https://cloud.google.com/dataflow/docs/guides/templates/provided/avro-to-cloud-spanner",
         contactInformation = "https://cloud.google.com/support",
@@ -390,7 +390,7 @@ You can use the following values:
     
       public static void main(String[] args) {
     
-        [Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Options.html) options = PipelineOptionsFactory.fromArgs(args).withValidation().as([Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Options.html).class);
+        [Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Options.html) options = PipelineOptionsFactory.fromArgs(args).withValidation().as([Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Options.html).class);
     
         Pipeline p = Pipeline.create(options);
     
@@ -406,7 +406,7 @@ You can use the following values:
                     NestedValueProvider.of(
                         [options](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.pgadapter.statements.IntermediateStatement.html#com_google_cloud_spanner_pgadapter_statements_IntermediateStatement_options).getSpannerProjectId(),
                         (SerializableFunction<String, String>)
-                            input -> input != null ? input : [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html).[getDefaultProjectId](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.connection.ConnectionOptions.html#com_google_cloud_spanner_connection_ConnectionOptions_getDefaultProjectId_com_google_auth_Credentials_)()))
+                            input -> input != null ? input : [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html).[getDefaultProjectId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.connection.ConnectionOptions.html#com_google_cloud_spanner_connection_ConnectionOptions_getDefaultProjectId_com_google_auth_Credentials_)()))
                 .withHost([options](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.pgadapter.statements.IntermediateStatement.html#com_google_cloud_spanner_pgadapter_statements_IntermediateStatement_options).getSpannerHost())
                 .withInstanceId([options](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.pgadapter.statements.IntermediateStatement.html#com_google_cloud_spanner_pgadapter_statements_IntermediateStatement_options).getInstanceId())
                 .withDatabaseId([options](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.pgadapter.statements.IntermediateStatement.html#com_google_cloud_spanner_pgadapter_statements_IntermediateStatement_options).getDatabaseId())

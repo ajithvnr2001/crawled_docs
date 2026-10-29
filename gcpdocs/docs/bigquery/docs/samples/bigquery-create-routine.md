@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-routine/
 title: Create a routine \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:55.846276+00:00
+fetched_at: 2026-10-29T05:41:56.306011+00:00
 ---
 
 # Create a routine  |  BigQuery  |  Google Cloud Documentation

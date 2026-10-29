@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/client-libraries/
 title: Cloud Asset Inventory client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:31:58.226674+00:00
+fetched_at: 2026-10-29T05:44:35.214771+00:00
 ---
 
 # Cloud Asset Inventory client libraries  |  Google Cloud Documentation
@@ -361,7 +361,7 @@ The following example shows how to use the client library.
     
     require "google/cloud/asset"
     
-    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
+    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
     # project_id = 'YOUR_PROJECT_ID'
     formatted_parent = asset_service.[project_path](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset-V1-AssetService-Paths.html) project: project_id
     

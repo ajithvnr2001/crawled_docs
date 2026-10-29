@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/data-residency/
 title: Data residency overview \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:01.080460+00:00
+fetched_at: 2026-10-29T06:14:00.288116+00:00
 ---
 
 # Data residency overview  |  Spanner  |  Google Cloud Documentation
@@ -65,12 +65,12 @@ The following are by design:
 
 By default, Spanner [encrypts customer data at rest](https://docs.cloud.google.com/docs/security/encryption/default-encryption). Spanner handles encryption for you without any additional actions on your part. This option is called _Google default encryption_. By default, Google uses encryption keys from the same location as where your data resides.
 
-If you want to control your encryption keys, then you can use _customer-managed encryption keys (CMEKs)_ in [Cloud KMS](https://docs.cloud.google.com/kms/docs) with CMEK-integrated services including Spanner. When using CMEK, you must select keys in the same location as where your data resides. For more information, see [Customer-managed encryption keys (CMEK) overview](https://docs.cloud.google.com/spanner/docs/cmek).
+If you want to control your encryption keys, then you can use _customer-managed encryption keys (CMEKs)_ in [Cloud Key Management Service](https://docs.cloud.google.com/kms/docs) with CMEK-integrated services including Spanner. When using CMEK, you must select keys in the same location as where your data resides. For more information, see [Customer-managed encryption keys (CMEK) overview](https://docs.cloud.google.com/spanner/docs/cmek).
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

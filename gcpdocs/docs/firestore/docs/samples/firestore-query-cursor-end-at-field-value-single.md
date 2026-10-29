@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/docs/samples/firestore-query-cursor-end-at-field-value-single/
 title: Query a Firestore collection with a cursor end at filter \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:28:59.298463+00:00
+fetched_at: 2026-10-29T07:58:37.410434+00:00
 ---
 
 # Query a Firestore collection with a cursor end at filter  |  Google Cloud Documentation

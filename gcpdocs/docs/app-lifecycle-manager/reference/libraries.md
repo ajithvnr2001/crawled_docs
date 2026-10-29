@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/app-lifecycle-manager/reference/libraries/
 title: App Lifecycle Manager client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:38:06.608519+00:00
+fetched_at: 2026-10-29T05:51:43.147481+00:00
 ---
 
 # App Lifecycle Manager client libraries  |  Google Cloud Documentation
@@ -85,7 +85,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-saasservicemgmt" % "0.29.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-saasservicemgmt" % "0.30.0"
 
 If you're using Visual Studio Code or IntelliJ, you can add client libraries to your project using the following IDE plugins:
 

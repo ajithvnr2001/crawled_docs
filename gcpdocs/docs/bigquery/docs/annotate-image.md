@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/annotate-image/
 title: Annotate images with the ML.ANNOTATE_IMAGE function \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:25.488638+00:00
+fetched_at: 2026-10-29T05:45:27.856091+00:00
 ---
 
 # Annotate images with the ML.ANNOTATE_IMAGE function  |  BigQuery  |  Google Cloud Documentation

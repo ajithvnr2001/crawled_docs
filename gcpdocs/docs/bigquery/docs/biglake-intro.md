@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/biglake-intro/
 title: Introduction to BigLake tables \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:09:55.127904+00:00
+fetched_at: 2026-10-29T05:45:06.221766+00:00
 ---
 
 # Introduction to BigLake tables  |  BigQuery  |  Google Cloud Documentation

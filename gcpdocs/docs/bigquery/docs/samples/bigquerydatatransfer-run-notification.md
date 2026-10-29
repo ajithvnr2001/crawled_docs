@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquerydatatransfer-run-notification/
 title: Create a transfer configuration with run notifications \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:01:20.198197+00:00
+fetched_at: 2026-10-29T05:45:21.118170+00:00
 ---
 
 # Create a transfer configuration with run notifications  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/information-schema-jobs-by-folder/
 title: JOBS_BY_FOLDER view \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:17.410304+00:00
+fetched_at: 2026-10-29T06:14:30.774867+00:00
 ---
 
 # JOBS_BY_FOLDER view  |  BigQuery  |  Google Cloud Documentation
@@ -110,7 +110,7 @@ In this output:
 `total_bytes_billed` | `INTEGER` |  If the project is configured to use [on-demand pricing](https://cloud.google.com/bigquery/pricing#analysis_pricing_models), then this field contains the total bytes billed for the job. If the project is configured to use [flat-rate pricing](https://cloud.google.com/bigquery/pricing#analysis_pricing_models), then you are not billed for bytes and this field is informational only. **Note** : This column's values are empty for queries that read from tables with row-level access policies. For more information, see [best practices for row-level security in BigQuery.](https://docs.cloud.google.com/bigquery/docs/best-practices-row-level-security)  
 `total_bytes_processed` | `INTEGER` |  Total bytes processed by the job. **Note** : This column's values are empty for queries that read from tables with row-level access policies. For more information, see [best practices for row-level security in BigQuery.](https://docs.cloud.google.com/bigquery/docs/best-practices-row-level-security)  
 `total_modified_partitions` | `INTEGER` |  The total number of partitions the job modified. This field is populated for `LOAD` and `QUERY` jobs.   
-`total_slot_ms` | `INTEGER` | Slot milliseconds for the job over its entire duration in the `RUNNING` state, including retries.  
+`total_slot_ms` | `INTEGER` | Slot milliseconds for the last execution of the job, excluding prior retries, if any.  
 `total_services_sku_slot_ms` | `INTEGER` | Total slot milliseconds for the job that runs on external services and is billed on the services SKU. This field is only populated for jobs that have external service costs, and is the total of the usage for costs whose billing method is `"SERVICES_SKU"`.  
 `transaction_id` | `STRING` |  ID of the [transaction](https://docs.cloud.google.com/bigquery/docs/transactions) in which this job ran, if any.   
 `user_email` | `STRING` |  (_Clustering column_) Email address or service account of the user who ran the job.   
@@ -210,6 +210,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

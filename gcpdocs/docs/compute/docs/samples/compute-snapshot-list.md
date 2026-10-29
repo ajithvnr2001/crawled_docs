@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-snapshot-list/
 title: List snapshots \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:05.164411+00:00
+fetched_at: 2026-10-29T05:42:37.662169+00:00
 ---
 
 # List snapshots  |  Compute Engine  |  Google Cloud Documentation
@@ -47,7 +47,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// Learn more about filters:
     	// https://cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.ListSnapshotsRequest
     	ctx := context.Background()
-    	snapshotsClient, err := compute.[NewSnapshotsRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_SnapshotsClient_NewSnapshotsRESTClient)(ctx)
+    	snapshotsClient, err := compute.NewSnapshotsRESTClient(ctx)
     	if err != nil {
     		return fmt.Errorf("NewSnapshotsRESTClient: %w", err)
     	}
@@ -62,7 +62,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	fmt.Fprintf(w, "Found snapshots:\n")
     	for {
     		snapshot, err := it.Next()
-    		if err == iterator.[Done](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_Operation_Done) {
+    		if err == iterator.Done {
     			break
     		}
     		if err != nil {
@@ -81,9 +81,9 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.[ListSnapshotsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListSnapshotsRequest.html);
-    import com.google.cloud.compute.v1.[Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html);
-    import com.google.cloud.compute.v1.[SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html);
+    import com.google.cloud.compute.v1.ListSnapshotsRequest;
+    import com.google.cloud.compute.v1.Snapshot;
+    import com.google.cloud.compute.v1.SnapshotsClient;
     import java.io.IOException;
     
     public class ListSnapshots {
@@ -108,16 +108,16 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the `snapshotsClient.close()` method on the client to safely
         // clean up any remaining background resources.
-        try ([SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html) snapshotsClient = [SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html).create()) {
+        try (SnapshotsClient snapshotsClient = SnapshotsClient.create()) {
     
           // Create the List Snapshot request.
-          [ListSnapshotsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListSnapshotsRequest.html) listSnapshotsRequest = [ListSnapshotsRequest](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.ListSnapshotsRequest.html).newBuilder()
+          ListSnapshotsRequest listSnapshotsRequest = ListSnapshotsRequest.newBuilder()
               .setProject(projectId)
               .setFilter(filter)
               .build();
     
           System.out.println("List of snapshots:");
-          for ([Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html) snapshot : snapshotsClient.list(listSnapshotsRequest).iterateAll()) {
+          for (Snapshot snapshot : snapshotsClient.list(listSnapshotsRequest).iterateAll()) {
             System.out.println(snapshot.getName());
           }
         }

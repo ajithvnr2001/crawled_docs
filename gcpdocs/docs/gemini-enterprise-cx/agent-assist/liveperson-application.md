@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-cx/agent-assist/liveperson-application/
 title: Deploy the application server \u00a0|\u00a0 Agent Assist \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:33:31.809764+00:00
+fetched_at: 2026-10-29T06:14:29.938895+00:00
 ---
 
 # Deploy the application server  |  Agent Assist  |  Google Cloud Documentation
@@ -90,25 +90,59 @@ Follow these steps to create a service account and set up the integration:
 
 
 
+### Create a Docker repository in Artifact Registry
+
+Use the [`gcloud artifacts repositories create`](https://docs.cloud.google.com/sdk/gcloud/reference/artifacts/repositories/create) command to create a Docker repository, where you will save the state of your repository:
+    
+    
+    gcloud artifacts repositories create REPOSITORY-NAME --repository-format=docker --location=LOCATION
+    
+
+Replace the following:
+
+  * `REPOSITORY-NAME`: the name for your Docker repository.
+  * `LOCATION`: the Google Cloud location where you want your Docker repository to be created.
+
+
+
 ### Deploy using CLI
 
 In your local terminal, change the active directory to the repository's root directory.
 
-Run the following command to save the state of your repository into [Google Cloud Platform Container Registry](https://console.cloud.google.com/gcr/images). Replace `PROJECT-ID` with your Google Cloud Platform project ID.
+Use the [`gcloud builds submit`](https://docs.cloud.google.com/sdk/gcloud/reference/builds/submit) command to save the state of your repository into [Google Cloud Artifact Registry](https://console.cloud.google.com/artifacts):
     
     
-        gcloud builds submit --tag gcr.io/PROJECT-ID/agent-assist-modules-application-server
+    gcloud builds submit --tag=LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY-NAME/agent-assist-modules-application-server
+     
+
+Replace the following:
+
+  * `LOCATION`: the Google Cloud location where you created your Docker repository.
+  * `PROJECT-ID`: the ID of the Google Cloud project in which you created your Docker repository.
+  * `REPOSITORY-NAME`: the name for your Docker repository.
+
+
+
+Deploy your integration to live using the [`gcloud run deploy`](https://docs.cloud.google.com/sdk/gcloud/reference/run/deploy) command:
+    
+    
+    gcloud run deploy --image=LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY-NAME/agent-assist-modules-application-server --service-account=SERVICE-ACCOUNT-EMAIL --memory=1Gi
     
 
-Deploy your integration to live using the following command. Replace `PROJECT-ID` with your agent's Google Cloud Platform project ID, and `SERVICE-ACCOUNT-EMAIL` with your service account client email.
-    
-    
-        gcloud run deploy --image gcr.io/PROJECT-ID/agent-assist-modules-application-server --service-account=SERVICE-ACCOUNT-EMAIL --memory 1Gi --platform managed
-    
+Replace the following:
 
-  * When prompted for a region, select a region (for example, `us-central1`).
-  * When prompted for a service name hit enter to accept the default.
-  * When prompted to allow unauthenticated invocations press `y`.
+  * `LOCATION`: the Google Cloud location where you created your Docker repository.
+  * `PROJECT-ID`: the ID of the Google Cloud project in which you created your Docker repository.
+  * `REPOSITORY-NAME`: the name for your Docker repository.
+  * `SERVICE-ACCOUNT-EMAIL`: your service account client email.
+
+
+
+As the command runs, take the following steps:
+
+  1. When prompted for a region, select a region (for example, `us-central1`).
+  2. When prompted for a service name hit enter to accept the default.
+  3. When prompted to allow unauthenticated invocations press `y`.
 
 
 
@@ -140,6 +174,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

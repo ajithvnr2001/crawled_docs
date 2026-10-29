@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/salesforce-configuration/
 title: Salesforce configuration \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:51:52.691650+00:00
+fetched_at: 2026-10-29T07:55:27.127429+00:00
 ---
 
 # Salesforce configuration  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -23,265 +23,138 @@ Send feedback
 
 #  Salesforce configuration Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Private preview:** Creating and using a data store using data ingestion is in private preview. You need to be on the allowlist to use the data ingestion data store. To be added to the allowlist, contact your [account team](https://cloud.google.com/tam) or the [sales team](https://cloud.google.com/contact). **Public preview:** The federated search is in public preview. This feature is subject to the "Pre-GA Offerings Terms" in the [General Service Terms section of the Service Specific Terms](https://cloud.google.com/terms/service-terms). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages). 
+This page describes how a Salesforce administrator installs the [Gemini Enterprise - Salesforce Connector](https://appexchange.salesforce.com/appxListingDetail?listingId=ee18ab11-351b-4178-b6af-3573d35e2d29) managed package from Salesforce AppExchange, and enables the MCP server the connector calls. Both are prerequisites for connecting Salesforce to Gemini Enterprise.
+
+## Why this is required
+
+The Salesforce connector uses Google-managed OAuth. You don't create your own Salesforce connected app and you never enter a client ID or client secret into Gemini Enterprise. Instead, Google publishes a managed package that contains an external client app, and your Salesforce organization authorizes that app.
+
+Because the OAuth flow runs against your organization's My Domain endpoints rather than a shared Salesforce login host, your organization must trust the Gemini Enterprise app before any user can authorize the connector. Installing the managed package is what establishes that trust. If the package isn't installed, the **Authorize** step in Gemini Enterprise fails.
 
 ## Before you begin
 
-Use either a Salesforce enterprise or a Salesforce developer edition. Trial accounts are not supported.
+Before you install the package, make sure of the following:
 
-## Configure Salesforce for federated data store
+  * You are signed in to Salesforce as a user with the **Download AppExchange Packages** permission. This permission is included in the **System Administrator** profile. Users without it can't install a package.
 
-To configure Salesforce for a federated data store, you must obtain authentication credentials by using the OAuth 2.0 Web Server Flow authentication method. The following sections guide you through setting up the necessary components and obtaining these credentials.
+  * You know which organization you are connecting. Install the package in the same organization whose My Domain URL you plan to enter as the **Instance URI** when you create the data store.
 
-### Create and configure an external client app
+  * Your organization has My Domain enabled and deployed. The connector authorizes against your My Domain host, for example `https://example.my.salesforce.com`.
 
-  1. In your Salesforce app, click the setup icon, and select **Setup**.
-  2. Enter **Apps** in the quick find box and select **App manager**.
-  3. Select **New external client app**.
-  4. Enter the required basic information (**Name** , **API name** , and **Contact email**).
-  5. In the **API (Enable OAuth settings)** section, configure the following OAuth settings. For more information, see [Enable OAuth Settings for API Integration](https://help.salesforce.com/s/articleView?id=xcloud.connected_app_create_api_integration.htm&type=5). 
-     1. Select the **Enable OAuth** checkbox.
-     2. Enter the **Callback URL** as `https://vertexaisearch.cloud.google.com/oauth-redirect`.
-     3. In the **Selected OAuth scopes** section, add the **Manage user data via APIs (api)** , and **Perform requests at any time (refresh_token, offline_access)** scopes. For more information, see [OAuth Tokens and Scopes](https://help.salesforce.com/s/articleView?language=en_US&id=xcloud.remoteaccess_oauth_tokens_scopes.htm&type=5).
-     4. In the **Flow enablement** section, select the following checkboxes: 
-        1. **Enable Authorization Code and Credentials flow**
-        2. **Require user credentials in the POST body for authorization code and credentials flow**
-     5. In the **Security** section, select the following checkboxes: 
-        1. **Require secret for Web Server Flow**
-        2. **Require secret for Refresh Token Flow**
-  6. Click **Create**.
+  * Your organization uses a supported Salesforce edition. The package supports the **Professional** , **Enterprise** , and **Unlimited** editions.
 
+  * The **SObject All** MCP server is active in your organization. The server isn't active by default. See Enable the MCP server in your organization.
 
 
-### Pre-authorize external client app access
+**Note:** Sandbox and production are separate Salesforce organizations. If you plan to connect a sandbox organization, install the package into that sandbox as well as into production. See Install into a sandbox organization.
 
-After creating the external client app, authorize specific users or permission sets to access it.
+## Enable the MCP server in your organization
 
-  1. In your Salesforce app, enter **External client app** in the quick find box and select **External client app manager**.
-  2. Click the name of your external client app that you created. 
-  3. Select the **Policies** tab and click **Edit**.
-  4. In the **OAuth policies** section: 
-     1. In the **Permitted users** field, select **Admin approved users are pre-authorized**.
-     2. In the **App Authorization** section, in the **Refresh token policy** field, select **Refresh token is valid until revoked**.
-  5. In the **App policies** section, select the profiles or permission sets authorized for this connection.
-  6. Click **Save**.
-  7. Navigate to the **Settings > OAuth settings**, click **Consumer key and secret** , and copy and store the consumer key and consumer secret to be used as authentication credentials.
+The connector calls the Salesforce-hosted **SObject All** MCP server, which exposes the create, read, update, and delete operations behind the connector's actions. The connector connects only to the **SObject All** MCP server endpoint; separate per-operation MCP servers aren't supported. Activating it is a separate administrator task from installing the managed package, and you must do both.
 
+Because the server is inactive by default, an administrator must activate it in your organization.
 
+To activate it, follow these steps:
 
-### Find your Salesforce base URL
+  1. In Salesforce, go to **Setup**.
 
-  1. In your Salesforce app, click the setup icon, and select **Setup**.
-  2. In the quick find box, search for and select **My Domain**.
-  3. From the **Current My Domain URL** field, copy and store the URL. This is the base URL of your Salesforce instance and is required as an authentication credential when you create a data store.
+  2. Go to **Integrations > API Catalog > MCP Servers**.
 
+  3. On the **Salesforce Servers** tab, find **SObject All** , described as _Creates, reads, updates, and deletes Salesforce records_.
 
+  4. Set its **Server Status** to **Active**.
 
-### Configure permissions
 
-To verify that the user configuring the connector has the required minimum data fetching permissions, complete the following steps:
 
-  1. In your Salesforce app, enter **Profiles** in the Quick Find box and select **Profiles**.
-  2. Select the user profile running the connector.
-  3. Navigate to the **Standard object permissions** section and verify the permissions.
-  4. Verify that the selected user has access to the required permissions. This process must be repeated for each entity you intend to ingest. 
 
-     * **Note:** Check whether the default access at the user's profile level is set to **Private**. When an entity's access is set to **Private** , your Google Cloud connector cannot access the required object and logs an error. 
-  5. To allow access to the object, create a permission set and share it with the user:
+Activating the **SObject All** MCP server enables the server for your organization without requiring a separate MCP server user permission, and it doesn't grant users permission to create, update, or delete records on its own. Write and delete access is controlled at two layers:
 
-     1. Enter **Permission sets** in the Quick Find box and select **Permission sets**.
-     2. Click **New**.
-     3. Enter a name and save the permission set.
-     4. Open the created permission set and navigate to the **Apps** section.
-     5. Select **Object settings**.
-     6. Select the **View all records** checkbox.
-     7. In the **Field permissions** section, grant **Read** access to all fields you want to synchronize.
-     8. Save the settings and navigate back.
-  6. Enable system permissions:
+  * **In Gemini Enterprise** : Read-only actions are enabled by default, and actions that create, update, or delete records are turned off by default. When setting up or managing the data store, the Google Cloud administrator chooses which create, update, or delete actions to enable—or leaves them all disabled so that the connector is read-only. See [Enable actions](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/set-up-data-store#enable-actions).
+  * **In Salesforce** : Every action runs under the authorizing user's own Salesforce account and respects that user's object-level permissions, field-level security, and sharing rules.
 
-     1. In the **System** section, select **System permissions**.
-     2. Enable the **API enabled** permission.
-  7. Assign the user to the permission set:
 
-     1. Enter **Users** in the Quick find box and select **Users**.
-     2. Select the user.
-     3. In the **Permission set assignments** section, select **Edit assignments**.
-     4. Add the recently created permission set to the **Enabled permission sets** section.
 
+## Install the package
 
+To install the managed package, follow these steps:
 
-For more information, see [Data access in Salesforce](https://developer.salesforce.com/docs/atlas.en-us.salesforce_record_access_under_the_hood.meta/salesforce_record_access_under_the_hood/uth_intro.htm) and [Organization-Wide Sharing Defaults](https://trailhead.salesforce.com/content/learn/modules/lex_implementation_user_setup_mgmt/lex_implementation_user_setup_mgmt_configure_user_access-hoc).
+  1. Sign in to your Salesforce organization as an administrator.
 
-## Configure Salesforce for data ingestion data store
+  2. Go to the [Gemini Enterprise - Salesforce Connector](https://appexchange.salesforce.com/appxListingDetail?listingId=ee18ab11-351b-4178-b6af-3573d35e2d29) listing on Salesforce AppExchange.
 
-To configure Salesforce for a data ingestion data store, follow the steps in this section.
+  3. Click **Get It Now**.
 
-### Supported versions
+  4. Choose the environment to install into:
 
-The Salesforce V2 connector supports SOAP API version 30.0 or later.
+     * **Install in Production** for your production organization.
+     * **Install in Sandbox** for a sandbox organization.
+  5. Choose which users get access to the app:
 
-### Generate a service attachment
+     * **Install for Admins Only** : only users with the System Administrator profile can use the app.
+     * **Install for Specific Profiles** : only users with the profiles you select can use the app.
+     * **Install for All Users** (recommended): every user in the organization can use the app without additional profile configuration.
 
-To generate a service attachment, perform the following steps:
+The managed package already includes the required OAuth scopes (`mcp_api` and `refresh_token`). Every user who signs in to authorize the connector in Gemini Enterprise must have access to the app under the option you choose. A user whose profile doesn't have access can't complete the sign-in step.
 
-  * For **Public** endpoint: If the Salesforce data center **Destination type** is **Public** , you are not required to create the setup for service attachment. Instead, you can use your public URL in the **Domain URL** field of the Google Cloud console.
-  * For **Private** endpoint: 
-    1. Use [PSC](https://docs.cloud.google.com/vpc/docs/private-service-connect) to enable connections from private instances to Google Cloud.
-    2. Create a Virtual Private Cloud network and the required subnets.
-    3. Create a Virtual Machine (VM) instance and install the backend service.
-    4. Optional: Set up a [health check](https://docs.cloud.google.com/load-balancing/docs/internal#health-checking) probe to monitor backend health.
-    5. Add a load balancer to route traffic to the VM or backend.
-    6. Define firewall rules to allow traffic between the PSC endpoint and the backend.
-    7. [Publish the endpoint](https://docs.cloud.google.com/vpc/docs/configure-private-service-connect-producer) by creating a PSC service attachment.
+  6. Approve third-party access if Salesforce prompts you to, then click **Install** or **Upgrade**.
 
-**Note:** Creating a PSC setup is not mandatory for VPC-SC enabled projects.
+  7. Wait for the installation to finish. For a large organization, Salesforce might complete the installation asynchronously and email you when it's done.
 
-### Generate authentication credentials
 
-Data ingestion data stores can use any of the following supported authentication types:
 
-  * OAuth 2.0 - Client credentials
-  * OAuth 2.0 - JWT bearer
-  * Username and password
 
-**Note:** If you are using OAuth authentication, you must install the external client app in your Salesforce account after creating the connection. See Install the OAuth connected app.
+After installation, the app appears in Salesforce **Setup** as **Gemini Enterprise**.
 
-### Set up for OAuth 2.0 - Client credentials authentication
+## Set the login IP policy for the app
 
-You must set up Gemini Enterprise as an external client app ([connected app](https://help.salesforce.com/s/articleView?id=xcloud.connected_app_create.htm&type=5)) in Salesforce to obtain the following authentication information:
+Per-data-store static IP addresses aren't supported for the Salesforce connector. Instead, IP validation is handled through the Google-managed AppExchange app:
 
-  * Consumer ID or client ID
-  * Consumer secret or client key
+  * **Authentication calls (OAuth token exchange and refresh)** : When a user authorizes the connector, Gemini Enterprise exchanges and refreshes that user's Salesforce tokens from Google's servers. Those requests don't come from your organization's IP addresses. If the app enforces IP restrictions and your users' profiles have login IP ranges, the requests are rejected and the **Authorize** step fails. Set the app's **IP Relaxation** policy to **Relax IP restrictions** : the Google-managed Gemini Enterprise app already restricts token requests to Google's own egress IP ranges, and that check applies regardless of the policy setting.
+  * **Data calls** : Only sign-in and token requests are checked against IP restrictions. After a user authorizes the connector, Salesforce serves the connector's data requests based on the user's valid access token.
 
 
 
-#### Create and configure an external client app
+To set the policy:
 
-  1. In your Salesforce app, click the setup icon, and select **Setup**.
-  2. Enter **Apps** in the quick find box and select **App manager**.
-  3. Select **New external client app**.
-  4. Enter the required basic information (**Name** , **API name** , and **Contact email**).
-  5. In the **API (Enable OAuth settings)** section, configure the following OAuth settings. For more information, see [Enable OAuth Settings for API Integration](https://help.salesforce.com/s/articleView?id=xcloud.connected_app_create_api_integration.htm&type=5). 
-     1. Select the **Enable OAuth** checkbox.
-     2. Enter the **Callback URL** as `https://vertexaisearch.cloud.google.com/oauth-redirect`.
-     3. In the **Selected OAuth scopes** section, add the **Full access (full)** , **Manage user data via APIs (api)** , and **Perform requests at any time (refresh_token, offline_access)** scopes. For more information, see [OAuth Tokens and Scopes](https://help.salesforce.com/s/articleView?language=en_US&id=xcloud.remoteaccess_oauth_tokens_scopes.htm&type=5).
-     4. In the **Flow enablement** section, select the **Enable client credentials flow** checkbox.
-  6. Click **Create**.
+  1. In Salesforce, go to **Setup**.
 
+  2. Go to **Apps > External Client App Manager**, and click **Gemini Enterprise**.
 
+  3. Select the **Policies** tab, and click **Edit**.
 
-#### Pre-authorize external client app access
+  4. In the **OAuth Policies** section, set **IP Relaxation** to **Relax IP restrictions**.
 
-After creating the external client app, authorize specific users or permission sets to access it.
+  5. Click **Save**.
 
-  1. In your Salesforce app, enter **External client app** in the quick find box and select **External client app manager**.
-  2. Click the name of your external client app that you created. 
-  3. Select the **Policies** tab and click **Edit**.
-  4. In the **OAuth policies** section: 
-     1. In the **Permitted users** field, select **Admin approved users are pre-authorized**.
-     2. Under **OAuth flow and external client enhancement** , select **Enable client credentials flow** and enter the user's email ID.
-     3. In the **Refresh token policy** field, select **Refresh token is valid until revoked**.
-  5. In the **App policies** section, select the profiles or permission sets authorized for this connection.
-  6. Click **Save**.
-  7. Navigate to the **Settings > OAuth settings**, click **Consumer key and secret** , and copy and store the consumer key and consumer secret to be used as authentication credentials.
 
 
 
-#### Configure permissions
+## Install into a sandbox organization
 
-To verify that the user configuring the connector has the required minimum data fetching permissions, complete the following steps:
+A sandbox is a separate Salesforce organization with its own My Domain host and its own installed packages. Installing the package in production does not install it in your sandbox.
 
-  1. In your Salesforce app, enter **Profiles** in the Quick Find box and select **Profiles**.
-  2. Select the user profile running the connector.
-  3. Navigate to the **Standard object permissions** section and verify the permissions.
-  4. Verify that the selected user has access to the required permissions. This process must be repeated for each entity you intend to ingest. **Note:** Check whether the default access at the user's profile level is set to **Private**. When an entity's access is set to **Private** , your Google Cloud connector cannot access the required object and logs an error.
-  5. To allow access to the object, create a permission set and share it with the user: 
-     1. Enter **Permission sets** in the Quick Find box and select **Permission sets**.
-     2. Click **New**.
-     3. Enter a name and save the permission set.
-     4. Open the created permission set and navigate to the **Apps** section.
-     5. Select **Object settings**.
-     6. Select the **View all records** checkbox.
-     7. In the **Field permissions** section, grant **Read** access to all fields you want to synchronize.
-     8. Save the settings and navigate back.
-  6. Enable system permissions: 
-     1. In the **System** section, select **System permissions**.
-     2. Enable the following minimum permissions: 
-        * **API enabled**
-        * **View all users**
-        * **View roles and role hierarchy**
-        * **View setup and configuration**
-  7. Assign the user to the permission set: 
-     1. Enter **Users** in the Quick find box and select **Users**.
-     2. Select the user.
-     3. In the **Permission set assignments** section, select **Edit assignments**.
-     4. Add the recently created permission set to the **Enabled permission sets** section.
+To connect a sandbox organization, install the package again from the sandbox, choosing **Install in Sandbox**. For the data store settings that a sandbox connection requires, see [Set up a Salesforce data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/set-up-data-store).
 
+## What happens after you install
 
+Installing the package doesn't connect anything on its own. It makes the Gemini Enterprise app available to your organization so that individual users can authorize it.
 
-For more information, see [Data access in Salesforce](https://developer.salesforce.com/docs/atlas.en-us.salesforce_record_access_under_the_hood.meta/salesforce_record_access_under_the_hood/uth_intro.htm) and [Organization-Wide Sharing Defaults](https://trailhead.salesforce.com/content/learn/modules/lex_implementation_user_setup_mgmt/lex_implementation_user_setup_mgmt_configure_user_access-hoc).
+After a Google Cloud administrator creates the Salesforce data store in Gemini Enterprise and connects it to an app (see [Set up a Salesforce data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/set-up-data-store)), each end user (including administrators who use the web app) authorizes Gemini Enterprise to access Salesforce on their behalf using per-user End-User Authentication. When a user first queries Salesforce data in the Gemini Enterprise web app, they are redirected to your organization's Salesforce sign-in page, where they grant the Gemini Enterprise app the `mcp_api` and `refresh_token` scopes. For more information, see [Authorize the connector](https://docs.cloud.google.com/gemini/enterprise/docs/connect-existing-data-store#user_authorization).
 
-### Set up for OAuth 2.0 - JWT bearer authentication
+Because each user authorizes individually, Gemini Enterprise accesses Salesforce records with that user's own permissions. A user only sees and modifies records they can already see and modify in Salesforce.
 
-You must set up Gemini Enterprise as an external client app (connected app) in Salesforce to obtain the following authentication information:
+## Troubleshoot
 
-  * Customer key
-  * Public key
-  * Username
+Symptom | Likely cause  
+---|---  
+The **Authorize** step fails, or the Salesforce sign-in page reports an unknown or unauthorized client application. | The managed package isn't installed in the organization that the **Instance URI** points to. Verify that you installed the package in that exact organization, including when the organization is a sandbox.  
+Some users can authorize and others can't. | The package was installed for admins only, or for a set of profiles that doesn't include those users. To grant access without reinstalling the package, go to **Setup > Apps > External Client App Manager**, click **Gemini Enterprise** , select the **Policies** tab, click **Edit** , and add the affected profiles or permission sets (or set **Permitted Users** to **All users may self-authorize**).  
+Authorization succeeds, but queries or actions fail in the Gemini Enterprise web app. | The **SObject All** MCP server isn't active in the organization. Activate the server in Salesforce Setup. See Enable the MCP server in your organization.  
+Authorization succeeds but no Salesforce data is returned. | The authorizing user might not have record-level access in Salesforce. The connector honors the user's own Salesforce permissions.  
+  
+## What's next
 
-
-
-#### Generate private key and public certificate
-
-  1. Generate a 2048-bit RSA private key by executing the following command: **openssl genrsa -out server.key 2048**
-
-This command creates a file named **server.key** , which contains your private key. Keep this file secure and confidential.
-
-  2. Generate a self-signed public certificate by executing the following command: **openssl req -new -x509 -sha256 -days 3650 -key server.key -out server.crt**
-
-This command generates a file named **server.crt** , which is your public certificate. You can upload this certificate to Salesforce during the external client app (connected app) configuration.
-
-
-
-
-#### Create and configure external client app
-
-  1. In your Salesforce app, click the setup icon, and then select **Setup**.
-  2. Enter **Apps** in the quick find box and select **App manager**.
-  3. Select **New external client app**.
-  4. Enter the required basic information for your external client app (connected app), such as the **External client app name** , **API name** , and **Contact email**.
-  5. In the **API (Enable OAuth settings)** section, configure the following OAuth settings. For more information, see [Enable OAuth Settings for API Integration](https://help.salesforce.com/s/articleView?id=xcloud.connected_app_create_api_integration.htm&type=5). 
-     1. Select the **Enable OAuth** checkbox.
-     2. Enter the **Callback URL** as `https://vertexaisearch.cloud.google.com/oauth-redirect`.
-     3. In the **Selected OAuth scopes** section, add **Full access (full)** , **Manage user data via APIs (api)** , and **Perform requests at any time (refresh_token, offline_access)**. For more information, see [OAuth Tokens and Scopes](https://help.salesforce.com/s/articleView?id=xcloud.remoteaccess_oauth_tokens_scopes.htm&type=5).
-     4. In the Flow enablement section: 
-        1. Select **Enable JWT bearer flow**.
-        2. Upload the **server.crt** generated in the Generate private key and public certificate section. 
-
-
-
-#### Get login URL
-
-To get the login URL for your Salesforce instance, do the following:
-
-  1. In your Salesforce app, enter **My domain** in the quick find box and select **My domain**.
-  2. Copy the domain ending in **my.salesforce.com**.
-  3. Add **https://** to the beginning of the copied domain. This is the instance URL that you need to create the Salesforce connector in Gemini Enterprise. The instance URL must be in the following format: **https://DOMAIN_NAME.my.salesforce.com**.
-
-
-
-### Install the OAuth connected app
-
-You must install the external client app that you created. Navigate to the **Connected Apps OAuth Usage** page in your Salesforce account and install the app. For more information, see [Connected App Usage Restrictions Change](https://help.salesforce.com/s/articleView?id=005132365&type=1).
-
-### Set up for username and password authentication
-
-For username and password authentication, use an existing security token, or reset the security token to receive a new one in your registered email.
-
-To reset your security token:
-
-  1. In your Salesforce app, click your profile icon and select **Settings**. ![Settings](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/salesforce-v2/settings.png)Settings
-  2. Navigate to **Reset my security token** and click **Reset security token**. ![Reset Security Token button](https://docs.cloud.google.com/static/gemini/enterprise/docs/images/salesforce-v2/resetsecuritytoken.png)Reset security token
+  * To create the data store, see [Set up a Salesforce data store](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce/set-up-data-store).
 
 
 
@@ -289,6 +162,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

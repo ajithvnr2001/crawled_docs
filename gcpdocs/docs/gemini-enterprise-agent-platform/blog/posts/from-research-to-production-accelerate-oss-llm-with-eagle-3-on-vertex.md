@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/blog/posts/from-research-to-production-accelerate-oss-llm-with-eagle-3-on-vertex/
 title: From research to production: Accelerate OSS LLM with EAGLE-3 on Vertex \u00a0|\u00a0 Cloud AI Engineering Blog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T01:21:13.738967+00:00
+fetched_at: 2026-10-29T06:14:24.873224+00:00
 ---
 
 # From research to production: Accelerate OSS LLM with EAGLE-3 on Vertex  |  Cloud AI Engineering Blog  |  Google Cloud Documentation
@@ -99,7 +99,7 @@ returns the generated response tokens.](https://docs.cloud.google.com/static/gem
 
 Another key decision is how to feed the EAGLE-3 head its training data. You have two distinct paths: **online training** , where embeddings are 'generated on the fly', and **offline training** , where 'embeddings are generated before training'.
 
-In our case, we chose an **offline training** approach because it requires much less hardware than online training. This process involves pre-calculating all the features and embeddings before we train the EAGLE-3 head. We save them to GCS and they become the training data for our lightweight EAGLE-3 head. Once you have the data, the training itself is fast. **Given the diminutive size of the EAGLE-3 head, initial training with our original dataset required approximately one day on a single host.** However, as we've scaled our dataset, training times have commensurately increased, now spanning several days.
+In our case, we chose an **offline training** approach because it requires much less hardware than online training. This process involves pre-calculating all the features and embeddings before we train the EAGLE-3 head. We save them to Cloud Storage and they become the training data for our lightweight EAGLE-3 head. Once you have the data, the training itself is fast. **Given the diminutive size of the EAGLE-3 head, initial training with our original dataset required approximately one day on a single host.** However, as we've scaled our dataset, training times have commensurately increased, now spanning several days.
 
 ![Linear flowchart depicting the training pipeline. Tokenized prompts and
 generated response tokens are used to generate features and embeddings with the
@@ -242,6 +242,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-04-02 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-04-02 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

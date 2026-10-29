@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-update-table-expiration/
 title: Update an expiration time \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:34.581896+00:00
+fetched_at: 2026-10-29T05:42:02.840081+00:00
 ---
 
 # Update an expiration time  |  BigQuery  |  Google Cloud Documentation

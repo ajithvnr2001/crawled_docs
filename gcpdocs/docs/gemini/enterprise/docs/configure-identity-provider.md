@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/gemini/enterprise/docs/configure-identity-provider/
 title: Configure identity provider \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:32:32.286858+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T07:55:23.523900+00:00
 ---
 
 # Configure identity provider  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -54,7 +40,7 @@ Google Identity supports:
   * **All third-party data sources that use data ingestion** , with the exception of Microsoft 365 data sources, such as SharePoint, OneDrive, or Outlook, which require Microsoft Entra ID and Workforce Identity Federation.
 
 **Note:** To use a third-party identity provider with Google Identity, your identity provider must support OIDC or SAML 2.0.  Before configuring Google Identity, determine the unique user attribute that your organization uses, which is typically the user's email. If users have more than one email address, you must [add an email alias](https://support.google.com/a/answer/33327).   
-**Third-party identity provider** |  When you connect Gemini Enterprise only to third-party data sources and you already use a third-party identity provider that supports OIDC or SAML 2.0, such as Microsoft Entra ID, Okta, or AD FS, you can use either [Google Identity](https://docs.cloud.google.com/identity/docs/overview) or Workforce Identity Federation.  **Note:** Microsoft 365 data sources that connect using data ingestion require Microsoft Entra ID and Workforce Identity Federation.  Google recommends using Google Identity for new setups. Existing customers already using Workforce Identity Federation can choose to remain on Workforce Identity Federation. For more information, see [Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation).   
+**Third-party identity provider** |  When you connect Gemini Enterprise only to third-party data sources and you already use a third-party identity provider that supports OIDC or SAML 2.0, such as Microsoft Entra ID, Okta, or AD FS, you can use either [Google Identity](https://docs.cloud.google.com/identity/docs/overview) or Workforce Identity Federation. **Note:** Microsoft 365 data sources that connect using data ingestion require Microsoft Entra ID and Workforce Identity Federation.  Google recommends using Google Identity for new setups. Existing customers already using Workforce Identity Federation can choose to remain on Workforce Identity Federation. For more information, see [Workforce Identity Federation](https://docs.cloud.google.com/iam/docs/workforce-identity-federation).   
   
 Before configuring Workforce Identity Federation, determine the unique user attributes that your organization uses and map them to Workforce Identity Federation.   
 **Caution:** If you change identity providers, users lose their existing chat history. Because chat history is tied to users' IDs from the original identity provider, switching providers gives users new IDs and effectively a fresh start. Chat history linked to their original IDs can't be retrieved.
@@ -386,6 +372,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

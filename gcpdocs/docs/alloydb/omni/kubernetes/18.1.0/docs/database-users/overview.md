@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/database-users/overview/
 title: AlloyDB Omni user role overview \u00a0|\u00a0 AlloyDB Omni using the container orchestrator: 18.1.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:33:05.620635+00:00
+fetched_at: 2026-10-29T05:46:13.862734+00:00
 ---
 
 # AlloyDB Omni user role overview  |  AlloyDB Omni using the container orchestrator: 18.1.0  |  Google Cloud Documentation
@@ -63,6 +63,7 @@ Role name | Privileges
 ---|---  
 `alloydbadmin` | `SUPERUSER` (which includes `CREATEROLE`, `CREATEDB`, and `LOGIN`).  
 `alloydbmetadata` | By default, this role does not have any privileges.  
+`alloydbmonitor` |  Provides the `pg_monitor` and `LOGIN` read-only monitoring privileges used by the AlloyDB Omni operator to collect database metrics.   
 In addition, AlloyDB Omni reserves the following role names that are unused but might be used in the future. Role name | Privileges  
 ---|---  
 `alloydbagent` | `NOLOGIN`  
@@ -92,6 +93,10 @@ This role is only used by AlloyDB Omni internal tools and shouldn't be used by u
 
 The `alloydbmetadata` role is a predefined role with fewer privileges, also used by AlloyDB Omni internally. Similar to `alloydbadmin`, this role shouldn't be used by other users.
 
+### The `alloydbmonitor` role
+
+The `alloydbmonitor` role is a predefined read-only account used by the AlloyDB Omni operator to gather database metrics. Similar to `alloydbadmin`, this role is used internally by AlloyDB Omni. Don't assign this role to other users. To configure password-based authentication and password rotation for `alloydbadmin` and `alloydbmonitor`, see [Enforce password-based authentication for internal administrator accounts](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/manage-password-policy#enforce-password-auth-internal-admin). 
+
 ## What's next
 
   * [Manage AlloyDB Omni users and roles](https://docs.cloud.google.com/alloydb/omni/kubernetes/18.1.0/docs/database-users/manage-users).
@@ -102,6 +107,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

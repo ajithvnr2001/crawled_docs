@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-copy-table/
 title: Copy a single-source table \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:25:02.578039+00:00
+fetched_at: 2026-10-29T05:42:03.002811+00:00
 ---
 
 # Copy a single-source table  |  BigQuery  |  Google Cloud Documentation

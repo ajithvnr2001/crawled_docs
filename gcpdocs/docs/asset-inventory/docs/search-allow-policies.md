@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/asset-inventory/docs/search-allow-policies/
 title: Search for IAM allow policies on resources \u00a0|\u00a0 Cloud Asset Inventory \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:31:54.664945+00:00
+fetched_at: 2026-10-29T05:44:33.393125+00:00
 ---
 
 # Search for IAM allow policies on resources  |  Cloud Asset Inventory  |  Google Cloud Documentation
@@ -689,7 +689,7 @@ To authenticate to Cloud Asset Inventory, set up Application Default Credentials
     # query = 'QUERY_STATEMENT'
     # page_size = 'SIZE_OF_EACH_RESULT_PAGE'
     # page_token = 'TOKEN_PRODUCED_BY_THE_PRECEDING_CALL'
-    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset-v1/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
+    asset_service = Google::Cloud::[Asset](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html).[asset_service](https://docs.cloud.google.com/ruby/docs/reference/google-cloud-asset/latest/Google-Cloud-Asset.html)
     
     response = asset_service.search_all_iam_policies(
       scope:      scope,

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/automatic-discovery/
 title: Discover and catalog Cloud Storage data \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:09:46.127230+00:00
+fetched_at: 2026-10-29T05:46:25.624308+00:00
 ---
 
 # Discover and catalog Cloud Storage data  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-create-dataset-cmek/
 title: Create a dataset with a customer-managed encryption key \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:25:00.730591+00:00
+fetched_at: 2026-10-29T05:42:12.220621+00:00
 ---
 
 # Create a dataset with a customer-managed encryption key  |  BigQuery  |  Google Cloud Documentation

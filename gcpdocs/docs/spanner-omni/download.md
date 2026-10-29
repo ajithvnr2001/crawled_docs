@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner-omni/download/
 title: Download Spanner Omni \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:48:03.756034+00:00
+fetched_at: 2026-10-29T05:40:58.106039+00:00
 ---
 
 # Download Spanner Omni  |  Google Cloud Documentation
@@ -48,12 +48,12 @@ The following table lists the available container image versions.
 
 Version tag | Release date  
 ---|---  
-`2026.r4-lts` | September 30, 2026  
+`2026.r4-lts.1` | October 28, 2026  
   
-For example, to download the `spanner-omni` image for the 2026.r4-lts release, run the following command:
+For example, to download the `spanner-omni` image for the 2026.r4-lts.1 release, run the following command:
     
     
-    docker pull us-docker.pkg.dev/spanner-omni/images/spanner-omni:2026.r4-lts
+    docker pull us-docker.pkg.dev/spanner-omni/images/spanner-omni:2026.r4-lts.1
     
 
 ## Helm charts
@@ -96,9 +96,9 @@ The following table lists the available Spanner Omni server and component packag
 
 Filename | Description  
 ---|---  
-`spanner-omni-2026.r4-lts-linux-x86_64.tar.gz` | Spanner Omni server, Spanner Omni CLI, and Spanner Omni console for Linux (x86)  
-`spanner-omni-server-2026.r4-lts-linux-x86_64.tar.gz` | Spanner Omni server and Spanner Omni CLI for Linux (x86)  
-`spanner-omni-ui-2026.r4-lts-linux-x86_64.tar.gz` | Spanner Omni console for Linux (x86)  
+`spanner-omni-2026.r4-lts.1-linux-x86_64.tar.gz` | Spanner Omni server, Spanner Omni CLI, and Spanner Omni console for Linux (x86)  
+`spanner-omni-server-2026.r4-lts.1-linux-x86_64.tar.gz` | Spanner Omni server and Spanner Omni CLI for Linux (x86)  
+`spanner-omni-ui-2026.r4-lts.1-linux-x86_64.tar.gz` | Spanner Omni console for Linux (x86)  
   
 ### Spanner Omni CLI binaries
 
@@ -106,22 +106,22 @@ The following table lists the available Spanner Omni CLI binaries.
 
 Filename | Description  
 ---|---  
-`spanner-omni-cli-2026.r4-lts-darwin-arm.tar.gz` | Spanner Omni CLI, Mac (M1, M2 and M3)  
-`spanner-omni-cli-2026.r4-lts-darwin-x86_64.tar.gz` | Spanner Omni CLI for Mac (x86)  
-`spanner-omni-cli-2026.r4-lts-linux-arm.tar.gz` | Spanner Omni CLI for Linux (ARM)  
-`spanner-omni-cli-2026.r4-lts-linux-x86_64.tar.gz` | Spanner Omni CLI for Linux (x86)  
+`spanner-omni-cli-2026.r4-lts.1-darwin-arm.tar.gz` | Spanner Omni CLI, Mac (M1, M2 and M3)  
+`spanner-omni-cli-2026.r4-lts.1-darwin-x86_64.tar.gz` | Spanner Omni CLI for Mac (x86)  
+`spanner-omni-cli-2026.r4-lts.1-linux-arm.tar.gz` | Spanner Omni CLI for Linux (ARM)  
+`spanner-omni-cli-2026.r4-lts.1-linux-x86_64.tar.gz` | Spanner Omni CLI for Linux (x86)  
   
 For example, to download the current version of the Spanner Omni CLI for Linux (x86), run the following command:
     
     
     # Download CLI for Linux (x86)
-    curl -O https://storage.googleapis.com/spanner-omni/2026.r4-lts/spanner-omni-cli-2026.r4-lts-linux-x86_64.tar.gz
+    curl -O https://storage.googleapis.com/spanner-omni/2026.r4-lts.1/spanner-omni-cli-2026.r4-lts.1-linux-x86_64.tar.gz
     
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

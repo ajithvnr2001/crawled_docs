@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/samples/bigquery-load-table-gcs-parquet/
 title: Load a Parquet file \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:44:32.185789+00:00
+fetched_at: 2026-10-29T05:43:52.698390+00:00
 ---
 
 # Load a Parquet file  |  BigQuery  |  Google Cloud Documentation

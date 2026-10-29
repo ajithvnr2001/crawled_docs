@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/cloud-ftp/reference/libraries/
 title: Cloud FTP client libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:46:51.611631+00:00
+fetched_at: 2026-10-29T05:47:10.781390+00:00
 ---
 
 # Cloud FTP client libraries  |  Google Cloud Documentation
@@ -82,7 +82,7 @@ If you are using [Gradle](https://gradle.org/), add the following to your depend
 If you are using [sbt](https://www.scala-sbt.org/), add the following to your dependencies:
     
     
-    libraryDependencies += "com.google.cloud" % "google-cloud-ftp" % "0.4.0"
+    libraryDependencies += "com.google.cloud" % "google-cloud-ftp" % "0.5.0"
 
 For more information, see [Setting Up a Java Development Environment](https://docs.cloud.google.com/java/docs/setup).
 

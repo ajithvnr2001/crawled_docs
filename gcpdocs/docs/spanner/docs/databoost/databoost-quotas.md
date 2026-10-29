@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/databoost/databoost-quotas/
 title: Monitor and manage Data Boost quota usage \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:15.094464+00:00
+fetched_at: 2026-10-29T06:13:43.613798+00:00
 ---
 
 # Monitor and manage Data Boost quota usage  |  Spanner  |  Google Cloud Documentation
@@ -126,7 +126,7 @@ If the rate of quota-exceeded errors is high, when using Dataflow with Data Boos
 If one principal is consistently exceeding the amount of Data Boost resources that they can be reasonably expected to consume, you can block the principal from using Data Boost resources by revoking the `spanner.databases.useDataBoost` Identity and Access Management (IAM) permission from the principal. You can automate revoking the permission by configuring an alert's notification channel as a webhook that invokes a Cloud Function. For more information, see the following topics:
 
   * [Create a notification channel](https://cloud.google.com/monitoring/support/notification-options#creating_channels)
-  * [Cloud Functions](https://cloud.google.com/functions)
+  * [Cloud Run functions](https://cloud.google.com/functions)
   * [Remove database-level permissions](https://cloud.google.com/spanner/docs/grant-permissions#remove-iam-db-role)
   * [Modify the allow policy](https://cloud.google.com/iam/docs/granting-changing-revoking-access#modifying-policy) for sample code that revokes a role.
 
@@ -144,6 +144,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

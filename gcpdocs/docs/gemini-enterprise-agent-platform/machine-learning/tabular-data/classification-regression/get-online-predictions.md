@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/tabular-data/classification-regression/get-online-predictions/
 title: Get online inferences for AutoML models \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:13.478006+00:00
+fetched_at: 2026-10-29T07:58:13.467891+00:00
 ---
 
 # Get online inferences for AutoML models  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -1729,7 +1729,7 @@ Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["
 
 
 
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
+[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/vc1b996b07630b7fba08b3b2fd258fb35e39e5d8dfeab71af65465d9a2fbe5870/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
 
   * [ Android ](https://developer.android.com/)
   * [ Chrome ](https://developer.chrome.com/)

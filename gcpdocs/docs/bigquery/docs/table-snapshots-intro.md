@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/table-snapshots-intro/
 title: Introduction to table snapshots \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:29.230364+00:00
+fetched_at: 2026-10-29T05:44:50.469404+00:00
 ---
 
 # Introduction to table snapshots  |  BigQuery  |  Google Cloud Documentation

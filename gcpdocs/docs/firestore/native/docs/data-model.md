@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/data-model/
 title: Data model \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:26:10.480443+00:00
+fetched_at: 2026-10-29T07:58:18.497511+00:00
 ---
 
 # Data model  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -210,7 +210,7 @@ Android
     }
     
     
-    [retrieve_data_reference_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/retrieve_data_reference_document.go#L18-L29)
+    [retrieve_data_reference_document.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_reference_document.go#L18-L29)
 
 ##### PHP
 
@@ -240,7 +240,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     document_ref = firestore.col("users").doc("alovelace")
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/data_model.rb#L22-L22)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/data_model.rb#L22-L22)
 
 A reference is a lightweight object that just points to a location in your database. You can create a reference whether or not data exists there, and creating a reference does not perform any network operations.
 
@@ -356,7 +356,7 @@ Android
     }
     
     
-    [retrieve_data_reference_collection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/retrieve_data_reference_collection.go#L18-L28)
+    [retrieve_data_reference_collection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_reference_collection.go#L18-L28)
 
 ##### PHP
 
@@ -386,7 +386,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     collection_ref = firestore.col "users"
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/data_model.rb#L31-L31)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/data_model.rb#L31-L31)
 
 **Note:** _Collection references_ and _document references_ are two distinct types of references and let you perform different operations. For example, you could use a collection reference for querying the documents in the collection, and you could use a document reference to read or write an individual document.
 
@@ -504,7 +504,7 @@ Android
     }
     
     
-    [retrieve_data_reference_document_path.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/retrieve_data_reference_document_path.go#L18-L29)
+    [retrieve_data_reference_document_path.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_reference_document_path.go#L18-L29)
 
 ##### PHP
 
@@ -534,7 +534,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     document_path_ref = firestore.doc "users/alovelace"
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/data_model.rb#L40-L40)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/data_model.rb#L40-L40)
 
 ## Hierarchical Data
 
@@ -728,7 +728,7 @@ Android
     }
     
     
-    [retrieve_data_reference_subcollection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/retrieve_data_reference_subcollection.go#L18-L29)
+    [retrieve_data_reference_subcollection.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/retrieve_data_reference_subcollection.go#L18-L29)
 
 ##### PHP
 
@@ -766,7 +766,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     message_ref = firestore.col("rooms").doc("roomA").col("messages").doc("message1")
     
-    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/data_model.rb#L49-L49)
+    [data_model.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/data_model.rb#L49-L49)
 
 Notice the alternating pattern of collections and documents. Your collections and documents must always follow this pattern. You cannot reference a collection in a collection or a document in a document.
 
@@ -782,6 +782,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

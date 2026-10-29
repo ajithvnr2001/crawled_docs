@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/cloud-spanner-change-streams-to-pubsub/
 title: Spanner change streams to Pub/Sub template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:29:46.791189+00:00
+fetched_at: 2026-10-29T05:40:47.693343+00:00
 ---
 
 # Spanner change streams to Pub/Sub template  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -197,7 +197,7 @@ You can use the following values:
     package com.google.cloud.teleport.v2.templates;
     
     import com.google.cloud.[Timestamp](https://docs.cloud.google.com/java/docs/reference/google-cloud-core/latest/com.google.cloud.Timestamp.html);
-    import com.google.cloud.spanner.[Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Options.html).[RpcPriority](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Options.RpcPriority.html);
+    import com.google.cloud.spanner.[Options](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Options.html).[RpcPriority](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Options.RpcPriority.html);
     import com.google.cloud.teleport.metadata.[Template](https://docs.cloud.google.com/java/docs/reference/google-cloud-modelarmor/latest/com.google.cloud.modelarmor.v1.Template.html);
     import com.google.cloud.teleport.metadata.TemplateCategory;
     import com.google.cloud.teleport.v2.common.UncaughtExceptionLogger;
@@ -347,7 +347,7 @@ You can use the following values:
                   .collect(Collectors.toList());
         }
     
-        final [RpcPriority](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Options.RpcPriority.html) rpcPriority = options.getRpcPriority();
+        final [RpcPriority](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Options.RpcPriority.html) rpcPriority = options.getRpcPriority();
         SpannerConfig spannerConfig =
             SpannerConfig.create()
                 .withProjectId(spannerProjectId)

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/security-command-center/docs/concepts-security-sources/
 title: Choose the services to enable \u00a0|\u00a0 Security Command Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:37.495072+00:00
+fetched_at: 2026-10-29T05:41:19.788719+00:00
 ---
 
 # Choose the services to enable  |  Security Command Center  |  Google Cloud Documentation
@@ -1132,6 +1132,9 @@ Event Threat Detection uses log data from _inside_ your systems. It watches the 
   * [ `Impact: Deleted Google Cloud Backup and DR host`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-hosts-delete-host)
   * [ `Impact: Deleted Google Cloud Backup and DR plan association`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-delete-backup-plan-association)
   * [ `Impact: Deleted Google Cloud Backup and DR Vault`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-delete-vault)
+  * [ `Impact: Gemini Discovery Engine API Document Import by External User`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gemini-discovery-engine-api-document-import-by-external-user)
+  * [ `Impact: Gemini Discovery Engine API Document Import from External Resource`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gemini-discovery-engine-api-document-import-from-external-resource)
+  * [ `Impact: Gemini Discovery Engine API Document Import VPC Perimeter Violation`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gemini-discovery-engine-api-document-import-vpc-perimeter-violation)
   * [ `Impact: GKE kube-dns modification detected`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/yl2-gke-kube-dns-modification)
   * [ `Impact: Google Cloud Backup and DR delete policy`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-templates-delete-policy)
   * [ `Impact: Google Cloud Backup and DR delete profile`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/backup-profiles-delete-profile)
@@ -1173,6 +1176,7 @@ Event Threat Detection uses log data from _inside_ your systems. It watches the 
   * [ `Malware: bad IP`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/bad-ip-live-google-intel)
   * [ `Malware: Cryptomining Bad Domain`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/bad-domain-google-crypto-intel)
   * [ `Malware: Cryptomining Bad IP`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/bad-ip-google-crypto-intel)
+  * [ `Persistence: External Access Granted to Gemini Discovery Engine API Apps`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/external-access-granted-to-gemini-discovery-engine-api-apps)
   * [ `Persistence: GCE Admin Added SSH Key`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gce-admin-add-ssh-key)
   * [ `Persistence: GCE Admin Added Startup Script`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gce-admin-add-startup-script)
   * [ `Persistence: GKE Webhook Configuration Detected`](https://docs.cloud.google.com/security-command-center/docs/findings/threats/gke-webhook-config-created)
@@ -1526,6 +1530,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

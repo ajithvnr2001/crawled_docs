@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/databoost/databoost-monitor/
 title: Monitor Data Boost usage \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:36.519617+00:00
+fetched_at: 2026-10-29T06:14:01.799974+00:00
 ---
 
 # Monitor Data Boost usage  |  Spanner  |  Google Cloud Documentation
@@ -23,9 +23,9 @@ Send feedback
 
 This page describes how to use Cloud Monitoring and Spanner audit logs to monitor and analyze Spanner Data Boost usage.
 
-Cloud Monitoring provides the ability to track total usage over time and to break down that usage by user. Spanner audit logs allow more flexible usage analysis, including providing metrics by user or by BigQuery job ID.
+Monitoring provides the ability to track total usage over time and to break down that usage by user. Spanner audit logs allow more flexible usage analysis, including providing metrics by user or by BigQuery job ID.
 
-## Use Cloud Monitoring to track Data Boost usage
+## Use Monitoring to track Data Boost usage
 
 Follow these steps to track overall Data Boost usage:
 
@@ -53,9 +53,9 @@ This creates a line chart of aggregate Data Boost usage across all Spanner insta
 
 ## Use audit logs to analyze Data Boost usage
 
-Spanner audit logs allow more flexible analysis of Data Boost usage. In addition to the ability to break down usage over time by instance or principal as with Cloud Monitoring, Spanner audit logs, if enabled and available, allow breaking down usage over time by database or BigQuery job ID.
+Spanner audit logs allow more flexible analysis of Data Boost usage. In addition to the ability to break down usage over time by instance or principal as with Monitoring, Spanner audit logs, if enabled and available, allow breaking down usage over time by database or BigQuery job ID.
 
-Enabling audit logs can incur extra charges. For information about Logging pricing, see [Google Cloud Observability pricing: Cloud Logging](https://cloud.google.com/stackdriver/pricing#logging-costs).
+Enabling audit logs can incur extra charges. For information about Cloud Logging pricing, see [Google Cloud Observability pricing: Logging](https://cloud.google.com/stackdriver/pricing#logging-costs).
 
 ### Enable Data Boost usage audit logs
 
@@ -204,6 +204,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/multimodal-data-sql-tutorial/
 title: Analyze multimodal data with SQL, object tables, and BigQuery DataFrames \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:08.962534+00:00
+fetched_at: 2026-10-29T05:43:04.544010+00:00
 ---
 
 # Analyze multimodal data with SQL, object tables, and BigQuery DataFrames  |  Google Cloud Documentation

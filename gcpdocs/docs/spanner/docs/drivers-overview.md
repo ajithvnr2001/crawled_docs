@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/drivers-overview/
 title: Overview of drivers \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:35.422433+00:00
+fetched_at: 2026-10-29T06:14:10.789848+00:00
 ---
 
 # Overview of drivers  |  Spanner  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ Language | Go | Go | Java | Java | Java | Java | C# | C# | Ruby | Python | Pytho
 [Request priority](https://docs.cloud.google.com/spanner/docs/reference/rest/v1/RequestOptions#Priority) |  |  |  |  |  |  |  |  |  |  |   
 [JSON type](https://docs.cloud.google.com/spanner/docs/working-with-json) |  |  |  |  |  |  |  |  |  |  |   
 [Request tagging](https://docs.cloud.google.com/spanner/docs/introspection/troubleshooting-with-tags) |  |  |  |  |  |  |  |  |  |  |   
-[Google SQL dialect](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/overview) |  |  |  |  |  |  |  |  |  |  |   
+[GoogleSQL dialect](https://docs.cloud.google.com/spanner/docs/reference/standard-sql/overview) |  |  |  |  |  |  |  |  |  |  |   
 [PostgreSQL dialect](https://docs.cloud.google.com/spanner/docs/postgresql/overview) |  |  |  |  |  |  |  |  |  |  |   
 Limitations | N/A | [View](https://github.com/googleapis/go-gorm-spanner/blob/main/docs/limitations.md) | N/A | [View](https://github.com/GoogleCloudPlatform/google-cloud-spanner-hibernate#cloud-spanner-hibernate-orm-limitations) | N/A | N/A | N/A | [View](https://github.com/googleapis/dotnet-spanner-entity-framework#limitations) | [View](https://github.com/googleapis/ruby-spanner-activerecord#limitations) | [View](https://github.com/googleapis/google-cloud-python/tree/main/packages/sqlalchemy-spanner#features-and-limitations) | [View](https://github.com/googleapis/google-cloud-python/blob/main/packages/django-google-spanner/docs/limitations.rst)  
   
@@ -112,6 +112,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

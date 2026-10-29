@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/delegate-authorization/
 title: Delegate authorization with Service Extensions \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:43:14.909056+00:00
+fetched_at: 2026-10-29T06:14:15.329348+00:00
 ---
 
 # Delegate authorization with Service Extensions  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -127,7 +127,7 @@ If you want to deploy the extension in a dry run _audit-only_ mode, to test the 
 
 Remove the `iamEnforcementMode: "DRY_RUN"` field from the `metadata` block when you're ready to start enforcing policies.
 
-**Note:** We strongly recommend using Unified Access Policy (`iapPolicyVersion: "V2"`) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy (`iapPolicyVersion: "V1"`) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the Unified Access Policy tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
+**Note:** We strongly recommend using Unified Access Policy (`iapPolicyVersion: "V2"`) for advanced, expressive, and fine-grained access control. To replace a legacy Allow policy (`iapPolicyVersion: "V1"`) on an existing gateway, navigate to the Policies UI and manually redefine your rules under the UAP tab. For more information, see [Create IAM agent policies](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/policies/configure-iam-policies-uap).
      2. Import the authorization extension. Use the [`gcloud service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/service-extensions/authz-extensions/import) with the following sample values.
             
             gcloud service-extensions authz-extensions import my-iap-request-authz-ext \

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/create-manage-split-points/
 title: Create and manage split points \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:50.341219+00:00
+fetched_at: 2026-10-29T06:13:43.500498+00:00
 ---
 
 # Create and manage split points  |  Spanner  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ This predefined role contains the `spanner.databases.addSplitPoints` permission,
 
 You might also be able to get this permission with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
 
-  * The gcloud CLI examples on this page make the following assumptions:
+  * The Google Cloud CLI examples on this page make the following assumptions:
 
     * You've set up [gcloud CLI](https://docs.cloud.google.com/sdk/docs) for use with Spanner. If you're new to using gcloud CLI with Spanner, see [Create and query a database using the gcloud CLI](https://docs.cloud.google.com/spanner/docs/getting-started/gcloud).
     * You have configured gcloud CLI with your project. For example:
@@ -45,11 +45,11 @@ You might also be able to get this permission with [custom roles](https://docs.c
 
 ## Create split points
 
-You can create split points using the Google Cloud CLI or the REST APIs.
+You can create split points using the gcloud CLI or the REST APIs.
 
 ###  gcloud 
 
-If you want to create split points using the Google Cloud CLI, you need to create a file that contains all the splits and supply the path in the gcloud CLI command. The file must not exceed the API limit of 100 points per API request. For more information, see [Quotas and limits](https://docs.cloud.google.com/spanner/docs/pre-splitting-overview#quotas-limits).
+If you want to create split points using the gcloud CLI, you need to create a file that contains all the splits and supply the path in the gcloud CLI command. The file must not exceed the API limit of 100 points per API request. For more information, see [Quotas and limits](https://docs.cloud.google.com/spanner/docs/pre-splitting-overview#quotas-limits).
 
 The file must use the following format to specify the split points:
     
@@ -734,11 +734,11 @@ A response similar to the following appears:
 
 ## How to expire a split point
 
-You can set an expiration time for each split point you create. For more information, see [Split point expiration](https://docs.cloud.google.com/spanner/docs/pre-splitting-overview#expire). You can expire split points using the Google Cloud CLI or the REST APIs.
+You can set an expiration time for each split point you create. For more information, see [Split point expiration](https://docs.cloud.google.com/spanner/docs/pre-splitting-overview#expire). You can expire split points using the gcloud CLI or the REST APIs.
 
 ###  gcloud 
 
-If you want to expire split points the Google Cloud CLI, you need to create a file that contains all the splits you want to expire and supply its path using the `splits-file` parameter in the gcloud CLI command. The file must not exceed the API limit of 100 points per API request. For more information, see [Quotas and limits](https://docs.cloud.google.com/spanner/quotas#split-point-limits).
+If you want to expire split points the gcloud CLI, you need to create a file that contains all the splits you want to expire and supply its path using the `splits-file` parameter in the gcloud CLI command. The file must not exceed the API limit of 100 points per API request. For more information, see [Quotas and limits](https://docs.cloud.google.com/spanner/quotas#split-point-limits).
 
 The file must use the following format to specify the split points:
     
@@ -932,6 +932,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling/
 title: Tune Horizontal Autoscaling for streaming pipelines \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:58.434361+00:00
+fetched_at: 2026-10-29T06:14:27.293362+00:00
 ---
 
 # Tune Horizontal Autoscaling for streaming pipelines  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -31,6 +31,7 @@ To optimize Horizontal Autoscaling, you can adjust the following parameters:
   * Worker utilization hint: The target CPU utilization for workers.
   * Worker parallelism hint: The target number of parallelism for workers.
   * Latency tier: The backlog threshold tier to configure the autoscaler's sensitivity to backlog duration.
+  * Scheduled autoscaling: Schedule recurring changes to autoscaling settings, such as the worker range or utilization hint, for specific time windows.
 
 
 
@@ -330,6 +331,207 @@ To reset the latency tier and revert to the default low-latency behavior, use th
       --region=REGION \
       JOB_ID
 
+## Schedule autoscaling changes
+
+For streaming jobs that use Streaming Engine, you can configure autoscaling schedules to automatically apply parameter overrides during recurring time windows. This is useful for anticipating predictable variations in workload—such as scaling up during peak business hours or scaling down during off-peak periods—without manually updating the job each time. Each job can have up to 10 schedules specified.
+
+An autoscaling schedule specifies:
+
+  * **Schedule start** : A [crontab](https://en.wikipedia.org/wiki/Cron) expression that determines when the schedule triggers.
+  * **Duration** : The length of time in seconds for which the overrides remain active. Must be at least 5 minutes.
+  * **Time zone** : An optional time zone from the [tz database](https://en.wikipedia.org/wiki/Tz_database) (for example, `America/New_York`). Defaults to `UTC`.
+  * **Priority** : An optional priority for the schedule, where larger values indicate higher priority. Schedules with higher priority are applied first. If a schedule is already active when a higher priority schedule is applied, the higher priority schedule overrides the existing schedule. If two schedules have the same priority, the most recently modified schedule is applied.
+  * **Parameter overrides** : The autoscaling settings to use during the active window, including minimum workers, maximum workers, and worker utilization hint.
+
+
+
+When the scheduled window ends, Dataflow automatically reverts autoscaling behavior to the job's default settings. You can define multiple schedules for a single job.
+
+### Set an autoscaling schedule at job start
+
+To set an initial autoscaling schedule when launching a new streaming job, specify the `autoscaling_schedule` experiment pipeline option, or include the `runtimeUpdatableParams.schedules` field when creating a job using the REST API.
+
+Specify the `autoscaling_schedule` experiment as a semicolon-separated string of `key:value` pairs with the following attributes:
+
+**Required:**
+
+  * `name`: a unique identifier for the schedule
+  * `crontab`: a crontab expression specifying when the schedule triggers
+  * `duration`: the duration in seconds for which the schedule remains active
+
+**Warning:** [Crontab expressions](https://en.wikipedia.org/wiki/Cron) specified at job launch using the `--experiments` option cannot contain commas (for example, `1,15 * * * *` or `* * * * MON,WED,FRI`), because commas are used to delimit pipeline options. If your schedule's crontab expression requires commas, pass in multiple schedules during job launch or, configure or update the cron schedule to include commas after job launch by using an in-flight update.
+
+**Optional:**
+
+  * `timezone`: the time zone from the tz database (for example, `America/New_York`). Defaults to `UTC`
+  * `min_workers`: the minimum number of workers to allocate during the schedule
+  * `max_workers`: the maximum number of workers to allocate during the schedule
+  * `cpu_utilization_target`: the target worker CPU utilization during the schedule, in the range [0.1, 0.9]
+  * `latency_tier`: the target latency tier (`low_latency`, `medium_latency`, or `high_latency`)
+  * `priority`: the priority of the schedule, where larger values indicate higher priority
+
+
+
+
+### Java
+    
+    
+    --experiments=autoscaling_schedule="name=SCHEDULE_NAME;crontab=CRONTAB_EXPRESSION;duration=DURATION_SECONDS;timezone=TIMEZONE;min_workers=MINIMUM_WORKERS;max_workers=MAXIMUM_WORKERS;cpu_utilization_target=TARGET_UTILIZATION;latency_tier=LATENCY_TIER;priority=PRIORITY"
+    
+
+### Python
+    
+    
+    --experiments=autoscaling_schedule="name=SCHEDULE_NAME;crontab=CRONTAB_EXPRESSION;duration=DURATION_SECONDS;timezone=TIMEZONE;min_workers=MINIMUM_WORKERS;max_workers=MAXIMUM_WORKERS;cpu_utilization_target=TARGET_UTILIZATION;latency_tier=LATENCY_TIER;priority=PRIORITY"
+    
+
+### Go
+    
+    
+    --experiments=autoscaling_schedule="name=SCHEDULE_NAME;crontab=CRONTAB_EXPRESSION;duration=DURATION_SECONDS;timezone=TIMEZONE;min_workers=MINIMUM_WORKERS;max_workers=MAXIMUM_WORKERS;cpu_utilization_target=TARGET_UTILIZATION;latency_tier=LATENCY_TIER;priority=PRIORITY"
+    
+
+###  REST 
+
+Use the [`projects.locations.jobs.create`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.jobs/create) method and include the `runtimeUpdatableParams.schedules` object in the request body:
+    
+    
+    POST https://dataflow.googleapis.com/v1b3/projects/PROJECT_ID/locations/REGION/jobs
+    {
+    "name": "JOB_NAME",
+    "environment": { ... },
+    "runtimeUpdatableParams": {
+      "schedules": [
+        {
+          "name": "SCHEDULE_NAME",
+          "crontab": "CRONTAB_EXPRESSION",
+          "duration": "DURATION_SECONDSs",
+          "timeZone": "TIMEZONE",
+          "priority": PRIORITY,
+          "parameters": {
+            "minWorkerCount": MINIMUM_WORKERS,
+            "maxWorkerCount": MAXIMUM_WORKERS,
+            "cpuUtilizationTarget": TARGET_UTILIZATION,
+            "latencyTarget": LATENCY_TIER
+          }
+        }
+      ]
+    }
+    }
+
+### Create or update an autoscaling schedule for a running job
+
+To create or update an autoscaling schedule for a running job, perform an [in-flight update](https://docs.cloud.google.com/dataflow/docs/guides/updating-a-pipeline#in-flight-updates):
+
+###  gcloud 
+
+Use the [`gcloud dataflow jobs update-options`](https://docs.cloud.google.com/sdk/gcloud/reference/dataflow/jobs/update-options) command with the `--set-schedule` flag:
+    
+    
+    gcloud dataflow jobs update-options \
+      --region=REGION \
+      --set-schedule=SCHEDULE_NAME \
+      --autoscaling-schedule="CRONTAB_EXPRESSION" \
+      --autoscaling-schedule-duration-seconds=DURATION_SECONDS \
+      --autoscaling-schedule-timezone=TIMEZONE \
+      --autoscaling-min-workers=MINIMUM_WORKERS \
+      --autoscaling-max-workers=MAXIMUM_WORKERS \
+      --autoscaling-worker-utilization-hint=TARGET_UTILIZATION \
+      --autoscaling-latency-tier=LATENCY_TIER \
+      --autoscaling-schedule-priority=PRIORITY \
+      JOB_ID
+
+Replace the following:
+
+  * REGION: the region ID of the job's regional endpoint
+  * SCHEDULE_NAME: a unique identifier for the schedule
+  * CRONTAB_EXPRESSION: a crontab expression specifying when the schedule triggers (for example, `"0 0 * * FRI"`)
+  * DURATION_SECONDS: the duration in seconds for which the schedule is active (for example, `3600`)
+  * TIMEZONE: the time zone for the schedule from the tz database (for example, `America/New_York`). If omitted, defaults to `UTC`.
+  * MINIMUM_WORKERS: the minimum number of workers to allocate during the schedule
+  * MAXIMUM_WORKERS: the maximum number of workers to allocate during the schedule
+  * LATENCY_TIER: the target latency tier (`low_latency`, `medium_latency`, or `high_latency`)
+  * JOB_ID: the ID of the job to update
+
+
+
+When creating a new schedule, both `--autoscaling-schedule` and `--autoscaling-schedule-duration-seconds` are required. To modify an existing schedule, specify `--set-schedule` and only the parameters you want to update.
+
+###  REST 
+
+Use the [`projects.locations.jobs.update`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.jobs/update) method:
+    
+    
+    PUT https://dataflow.googleapis.com/v1b3/projects/PROJECT_ID/locations/REGION/jobs/JOB_ID?updateMask=runtimeUpdatableParams.schedules
+    {
+      "runtimeUpdatableParams": {
+        "schedules": [
+          {
+            "name": "SCHEDULE_NAME",
+            "crontab": "CRONTAB_EXPRESSION",
+            "duration": "DURATION_SECONDSs",
+            "timeZone": "TIMEZONE",
+            "priority": PRIORITY,
+            "parameters": {
+              "minWorkerCount": MINIMUM_WORKERS,
+              "maxWorkerCount": MAXIMUM_WORKERS,
+              "cpuUtilizationTarget": TARGET_UTILIZATION,
+              "latencyTarget": LATENCY_TIER
+            }
+          }
+        ]
+      }
+    }
+
+Replace the following:
+
+  * PROJECT_ID: the Google Cloud project ID of the Dataflow job
+  * REGION: the region ID of the job's regional endpoint
+  * JOB_ID: the ID of the job to update
+  * SCHEDULE_NAME: a unique identifier for the schedule
+  * CRONTAB_EXPRESSION: a crontab expression specifying when the schedule triggers
+  * DURATION_SECONDS: the duration in seconds for which the schedule is active (for example, `3600`)
+  * TIMEZONE: the time zone for the schedule from the tz database (for example, `America/New_York`)
+  * MINIMUM_WORKERS: the minimum number of workers to allocate during the schedule
+  * MAXIMUM_WORKERS: the maximum number of workers to allocate during the schedule
+  * TARGET_UTILIZATION: a value in the range [0.1, 0.9]
+
+
+
+### Remove an autoscaling schedule
+
+To remove a specific autoscaling schedule or remove all schedules from a job, perform an [in-flight update](https://docs.cloud.google.com/dataflow/docs/guides/updating-a-pipeline#in-flight-updates):
+
+###  gcloud 
+
+To remove a single schedule, specify the `--unset-schedule` flag:
+    
+    
+    gcloud dataflow jobs update-options \
+      --region=REGION \
+      --unset-schedule=SCHEDULE_NAME \
+      JOB_ID
+
+To remove all schedules from a job, specify the `--unset-schedules` flag:
+    
+    
+    gcloud dataflow jobs update-options \
+      --region=REGION \
+      --unset-schedules \
+      JOB_ID
+
+###  REST 
+
+Use the [`projects.locations.jobs.update`](https://docs.cloud.google.com/dataflow/docs/reference/rest/v1b3/projects.locations.jobs/update) method with `updateMask=runtimeUpdatableParams.schedules`, omitting the schedule from the `schedules` array, or providing an empty `schedules` list to remove all schedules:
+    
+    
+    PUT https://dataflow.googleapis.com/v1b3/projects/PROJECT_ID/locations/REGION/jobs/JOB_ID?updateMask=runtimeUpdatableParams.schedules
+    {
+      "runtimeUpdatableParams": {
+        "schedules": []
+      }
+    }
+
 ## Streaming autoscaling heuristics
 
 For streaming pipelines, the objective of Horizontal Autoscaling is to minimize backlog while maximizing worker utilization and throughput and to react quickly to spikes in load.
@@ -404,6 +606,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

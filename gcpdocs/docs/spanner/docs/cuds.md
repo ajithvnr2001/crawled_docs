@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/cuds/
 title: Committed use discounts \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:14:33.629536+00:00
+fetched_at: 2026-10-29T06:14:00.517419+00:00
 ---
 
 # Committed use discounts  |  Spanner  |  Google Cloud Documentation
@@ -50,7 +50,7 @@ If the on-demand rates change after you purchase a commitment, your commitment f
 
 Spanner CUDs automatically apply to your spending on Spanner compute capacity (as measured in nodes or processing units) across projects. This flexibility helps you achieve a high utilization rate of your commitment across regions and projects without manual intervention, saving you time and money.
 
-Spanner CUDs don't apply to your spending on Spanner storage, backup, Data Boost, or outbound data transfer.
+Spanner CUDs don't apply to your spending on Spanner storage, backup, Data Boost for Spanner, or outbound data transfer.
 
 For a list of applicable SKUs, see [Spanner CUD Eligible SKUs](https://cloud.google.com/skus/sku-groups/cloud-spanner-cud-eligible-skus).
 
@@ -90,7 +90,7 @@ Use the [Spanner pricing page](https://cloud.google.com/spanner/pricing) to get 
 
 Based on the results, you can make a commitment amount of `$24.48` per hour to achieve the 20% discount and see the total savings over 1 year:
 
-  * Total 1-year committment savings: On-demand cost per month $22,338 - 1-year commitment cost per month $17,870.40 = $4467.60 * 12 months = **$53,611.20**.
+  * Total 1-year commitment savings: On-demand cost per month $22,338 - 1-year commitment cost per month $17,870.40 = $4467.60 * 12 months = **$53,611.20**.
 
 
 
@@ -107,7 +107,7 @@ Use the [Spanner pricing page](https://cloud.google.com/spanner/pricing) to get 
 
 Based on the results, you can make a commitment amount of `$18.36` per hour to achieve the 40% discount and see the total savings over 3 years:
 
-  * Total 3-year committment savings: On-demand cost per month $22,338 - 3-year commitment cost per month $13,402.80 = $8935.20 * 36 months = **$321,667.20**.
+  * Total 3-year commitment savings: On-demand cost per month $22,338 - 3-year commitment cost per month $13,402.80 = $8935.20 * 36 months = **$321,667.20**.
 
 
 
@@ -141,6 +141,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

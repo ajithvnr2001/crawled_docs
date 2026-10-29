@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/functions/docs/samples/functions-firebase-reactive/
 title: React to value change by updating a value \u00a0|\u00a0 Cloud Run functions \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:12:19.231961+00:00
+fetched_at: 2026-10-29T07:58:58.058108+00:00
 ---
 
 # React to value change by updating a value  |  Cloud Run functions  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ To authenticate to Cloud Run functions, set up Application Default Credentials. 
     using Google.Cloud.Functions.Hosting;
     using Google.Events.Protobuf.Cloud.Firestore.V1;
     using Microsoft.AspNetCore.Hosting;
-    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.Iap.V1/latest/Microsoft.Extensions.DependencyInjection.html);
+    using [Microsoft.Extensions.DependencyInjection](https://docs.cloud.google.com/dotnet/docs/reference/Google.Cloud.ServiceManagement.V1/latest/Microsoft.Extensions.DependencyInjection.html);
     using Microsoft.Extensions.Logging;
     using System.Collections.Generic;
     using System.Threading;

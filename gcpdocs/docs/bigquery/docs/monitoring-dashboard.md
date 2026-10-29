@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/monitoring-dashboard/
 title: Create dashboards, charts, and alerts \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:38:23.087630+00:00
+fetched_at: 2026-10-29T05:43:30.086388+00:00
 ---
 
 # Create dashboards, charts, and alerts  |  BigQuery  |  Google Cloud Documentation

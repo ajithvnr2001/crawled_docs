@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/templates/provided/cloud-spanner-change-streams-to-bigquery/
 title: Spanner change streams to BigQuery template \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:29:41.326339+00:00
+fetched_at: 2026-10-29T05:40:48.134052+00:00
 ---
 
 # Spanner change streams to BigQuery template  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -653,7 +653,7 @@ You can use the following values:
                   .apply(
                       "Write To BigQuery",
                       BigQueryIO.<TableRow>write()
-                          .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(BigQueryDynamicDestinations.of(bigQueryDynamicDestinationsOptions))
+                          .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(BigQueryDynamicDestinations.of(bigQueryDynamicDestinationsOptions))
                           .withFormatFunction(element -> removeIntermediateMetadataFields(element))
                           .withFormatRecordOnFailureFunction(element -> element)
                           .withCreateDisposition([CreateDisposition](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.JobInfo.CreateDisposition.html).CREATE_IF_NEEDED)
@@ -667,7 +667,7 @@ You can use the following values:
                   .apply(
                       "Write To BigQuery",
                       BigQueryIO.<TableRow>write()
-                          .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(BigQueryDynamicDestinations.of(bigQueryDynamicDestinationsOptions))
+                          .[to](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.ValueBinder.html#com_google_cloud_spanner_ValueBinder_to_boolean_)(BigQueryDynamicDestinations.of(bigQueryDynamicDestinationsOptions))
                           .withFormatFunction(element -> removeIntermediateMetadataFields(element))
                           .withFormatRecordOnFailureFunction(element -> element)
                           .withCreateDisposition([CreateDisposition](https://docs.cloud.google.com/java/docs/reference/google-cloud-bigquery/latest/com.google.cloud.bigquery.JobInfo.CreateDisposition.html).CREATE_IF_NEEDED)

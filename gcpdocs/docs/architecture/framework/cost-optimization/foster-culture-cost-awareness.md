@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/architecture/framework/cost-optimization/foster-culture-cost-awareness/
 title: Foster a culture of cost awareness \u00a0|\u00a0 Cloud Architecture Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:09:28.023857+00:00
+fetched_at: 2026-10-29T05:41:27.052229+00:00
 ---
 
 # Foster a culture of cost awareness  |  Cloud Architecture Center  |  Google Cloud Documentation
@@ -19,7 +19,7 @@ Send feedback
 
 #  Foster a culture of cost awareness Stay organized with collections  Save and categorize content based on your preferences. 
 
-Last reviewed 2024-09-25 UTC
+Last reviewed 2026-10-28 UTC
 
 This principle in the cost optimization pillar of the [Google Cloud Well-Architected Framework](https://docs.cloud.google.com/architecture/framework) provides recommendations to promote cost awareness across your organization and ensure that team members have the cost information that they need to make informed decisions.
 
@@ -27,7 +27,7 @@ Conventionally, the responsibility for cost management might be centralized to a
 
 ## Principle overview
 
-Stakeholders across various roles – product owners, developers, deployment engineers, administrators, and financial analysts – need visibility into relevant cost data and its relationship to business value. When provisioning and managing cloud resources, they need the following data:
+Stakeholders across various roles—product owners, developers, deployment engineers, administrators, and financial analysts—need visibility into relevant cost data and its relationship to business value. When provisioning and managing cloud resources, they need the following data:
 
   * **Projected resource costs** : Cost estimates at the time of design and deployment.
   * **Real-time resource usage costs** : Up-to-date cost data that can be used for ongoing monitoring and budget validation.
@@ -62,10 +62,10 @@ Pricing for Google Cloud resources might vary across [regions](https://docs.clou
 
 For each type of cloud resource that you plan to use, explore strategies to optimize utilization and efficiency. The strategies include rightsizing, autoscaling, and adopting serverless technologies where appropriate. The following are examples of cost optimization options for a few Google Cloud products:
 
-  * Cloud Run lets you configure [always-allocated CPUs](https://docs.cloud.google.com/run/docs/configuring/cpu-allocation) to handle predictable traffic loads at a fraction of the price of the default allocation method (that is, CPUs allocated only during request processing).
-  * You can purchase [BigQuery slot commitments](https://docs.cloud.google.com/bigquery/docs/reservations-commitments) to save money on data analysis.
+  * Cloud Run lets you configure [instance-based billing](https://docs.cloud.google.com/run/docs/configuring/billing-settings) (where CPUs are always allocated across the instance lifecycle) to handle predictable, steady traffic loads more cost-effectively than the default request-based billing model.
+  * You can purchase [BigQuery capacity commitments](https://docs.cloud.google.com/bigquery/docs/reservations-commitments) to save money on data analysis.
   * [GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/cost-optimization-metrics) provides detailed metrics to help you understand cost optimization options.
-  * Understand how [network pricing](https://cloud.google.com/vpc/network-pricing) can affect the cost of data transfers and how you can optimize costs for specific networking services. For example, you can reduce the data transfer costs for external Application Load Balancers by using Cloud CDN or Google Cloud Armor. For more information, see [Ways to lower external Application Load Balancer costs](https://docs.cloud.google.com/vpc/network-pricing#ways-to-lower-external-application-load-balancer-costs).
+  * Understand how [network pricing](https://cloud.google.com/vpc/network-pricing) can affect the cost of data transfers and how you can optimize costs for specific networking services. For example, you can reduce the data transfer costs for external Application Load Balancer by using Cloud CDN or Google Cloud Armor. For more information, see [Ways to lower external Application Load Balancer costs](https://cloud.google.com/vpc/network-pricing#ways-to-lower-external-application-load-balancer-costs).
 
 
 
@@ -80,7 +80,7 @@ Familiarize yourself with the discount programs that Google Cloud offers, such a
 
 
 
-Evaluate and choose the discounts options that align with your workload characteristics and usage patterns.
+Evaluate and choose the discount options that align with your workload characteristics and usage patterns.
 
 ### Incorporate cost estimates into architecture blueprints
 
@@ -101,7 +101,7 @@ Cost reports can be of several types, including the following:
   * **Periodic cost reports** : Regular reports inform teams about their current cloud spending. Conventionally, these reports might be spreadsheet exports. More effective methods include automated emails and specialized dashboards. To ensure that cost reports provide relevant and actionable information without overwhelming recipients with unnecessary detail, the reports must be tailored to the target audiences. Setting up tailored reports is a foundational step toward more real-time and interactive cost visibility and management.
   * **Automated notifications** : You can configure cost reports to proactively notify relevant stakeholders (for example, through email or chat) about cost anomalies, budget thresholds, or opportunities for cost optimization. By providing timely information directly to those who can act on it, automated alerts encourage prompt action and foster a proactive approach to cost optimization.
   * **Google Cloud dashboards** : You can use the [built-in billing dashboards](https://docs.cloud.google.com/billing/docs/how-to/reports) in Google Cloud to get insights into cost breakdowns and to identify opportunities for cost optimization. Google Cloud also provides [FinOps hub](https://docs.cloud.google.com/billing/docs/how-to/finops-hub) to help you monitor savings and get recommendations for cost optimization. An AI engine powers the FinOps hub to recommend cost optimization opportunities for all the resources that are currently deployed. To control access to these recommendations, you can implement role-based access control (RBAC).
-  * **Custom dashboards** : You can create custom dashboards by exporting cost data to an analytics database, like [BigQuery](https://docs.cloud.google.com/billing/docs/how-to/export-data-bigquery). Use a visualization tool like [Data Studio](https://cloud.google.com/data-studio) to connect to the analytics database to build interactive reports and enable fine-grained access control through role-based permissions.
+  * **Custom dashboards** : You can create custom dashboards by exporting cost data to an analytics database, like [BigQuery](https://docs.cloud.google.com/billing/docs/how-to/export-data-bigquery). Use a visualization tool like [Data Studio](https://docs.cloud.google.com/data-studio/welcome) to connect to the analytics database to build interactive reports and enable fine-grained access control through role-based permissions.
   * **Multicloud cost reports** : For multicloud deployments, you need a unified view of costs across all the cloud providers to ensure comprehensive analysis, budgeting, and optimization. Use tools like BigQuery to centralize and analyze cost data from multiple cloud providers, and use Data Studio to build team-specific interactive reports.
 
 
@@ -114,6 +114,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2024-09-25 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2024-09-25 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

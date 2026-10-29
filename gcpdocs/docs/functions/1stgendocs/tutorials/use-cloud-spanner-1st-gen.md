@@ -1,22 +1,8 @@
 ---
 url: https://docs.cloud.google.com/functions/1stgendocs/tutorials/use-cloud-spanner-1st-gen/
 title: Using Spanner with Cloud Run functions (1st gen) \u00a0|\u00a0 Google Cloud Documentation
-method: httpx+scrapegraph (scrapling: scrapling status 429 | crawl4ai: crawl4ai failed: Unexpected error in _crawl_web at line 1299 in create_browser_context (../../../../usr/local/lib/python3.10/dist-packages/crawl4ai/browser_manager.py):
-Error: Browser is not available. It may have been closed, crashed, or not yet started. Ensure the browser is running before creating new contexts.
-
-Code context:
-1294                   raise RuntimeError(
-1295                       "Cannot create new browser contexts when using "
-1296                       "use_persistent_context=True. Persistent context uses a "
-1297                       "single shared context."
-1298                   )
-1299 →             raise RuntimeError(
-1300                   "Browser is not available. It may have been closed, crashed, "
-1301                   "or not yet started. Ensure the browser is running before "
-1302                   "creating new contexts."
-1303               )
-1304           # Base settings)
-fetched_at: 2026-10-27T16:26:47.972214+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-29T07:58:20.240540+00:00
 ---
 
 # Using Spanner with Cloud Run functions (1st gen)  |  Google Cloud Documentation
@@ -292,13 +278,13 @@ Alternatively, you can [ download the sample ](https://github.com/GoogleCloudPla
          import com.google.cloud.functions.HttpFunction;
          import com.google.cloud.functions.[HttpRequest](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html);
          import com.google.cloud.functions.[HttpResponse](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpResponse.html);
-         import com.google.cloud.spanner.[DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseClient.html);
-         import com.google.cloud.spanner.[DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseId.html);
-         import com.google.cloud.spanner.[LazySpannerInitializer](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.LazySpannerInitializer.html);
-         import com.google.cloud.spanner.[ResultSet](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ResultSet.html);
-         import com.google.cloud.spanner.[SpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerException.html);
-         import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html);
-         import com.google.cloud.spanner.[Statement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Statement.html);
+         import com.google.cloud.spanner.[DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseClient.html);
+         import com.google.cloud.spanner.[DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseId.html);
+         import com.google.cloud.spanner.[LazySpannerInitializer](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.LazySpannerInitializer.html);
+         import com.google.cloud.spanner.[ResultSet](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.ResultSet.html);
+         import com.google.cloud.spanner.[SpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerException.html);
+         import com.google.cloud.spanner.[SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html);
+         import com.google.cloud.spanner.[Statement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Statement.html);
          import com.google.common.annotations.VisibleForTesting;
          import com.google.common.base.MoreObjects;
          import java.io.PrintWriter;
@@ -315,19 +301,19 @@ Alternatively, you can [ download the sample ](https://github.com/GoogleCloudPla
            private static final String SPANNER_DATABASE_ID =
                MoreObjects.firstNonNull(System.getenv("SPANNER_DATABASE"), "example-db");
          
-           private static final [DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseId.html) databaseId =
-               [DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseId.html).of(
-                   [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerOptions.html).[getDefaultProjectId](https://docs.cloud.google.com/java/docs/reference/pgadapter/latest/com.google.cloud.spanner.connection.ConnectionOptions.html#com_google_cloud_spanner_connection_ConnectionOptions_getDefaultProjectId_com_google_auth_Credentials_)(),
+           private static final [DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseId.html) databaseId =
+               [DatabaseId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseId.html).of(
+                   [SpannerOptions](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerOptions.html).[getDefaultProjectId](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.connection.ConnectionOptions.html#com_google_cloud_spanner_connection_ConnectionOptions_getDefaultProjectId_com_google_auth_Credentials_)(),
                    SPANNER_INSTANCE_ID,
                    SPANNER_DATABASE_ID);
          
            // The LazySpannerInitializer instance is shared across all instances of the HelloSpanner class.
            // It will create a Spanner instance the first time one is requested, and continue to return that
            // instance for all subsequent requests.
-           private static final [LazySpannerInitializer](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.LazySpannerInitializer.html) SPANNER_INITIALIZER = new [LazySpannerInitializer](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.LazySpannerInitializer.html)();
+           private static final [LazySpannerInitializer](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.LazySpannerInitializer.html) SPANNER_INITIALIZER = new [LazySpannerInitializer](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.LazySpannerInitializer.html)();
          
            @VisibleForTesting
-           [DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseClient.html) getClient() throws Throwable {
+           [DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseClient.html) getClient() throws Throwable {
              return SPANNER_INITIALIZER.get().getDatabaseClient(databaseId);
            }
          
@@ -335,18 +321,18 @@ Alternatively, you can [ download the sample ](https://github.com/GoogleCloudPla
            public void service([HttpRequest](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpRequest.html) request, [HttpResponse](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpResponse.html) response) throws Exception {
              var writer = new PrintWriter(response.getWriter());
              try {
-               [DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseClient.html) client = getClient();
-               try ([ResultSet](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.ResultSet.html) rs =
+               [DatabaseClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseClient.html) client = getClient();
+               try ([ResultSet](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.ResultSet.html) rs =
                    client
-                       .[singleUse](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.DatabaseClient.html#com_google_cloud_spanner_DatabaseClient_singleUse__)()
-                       .executeQuery([Statement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.Statement.html).of("SELECT SingerId, AlbumId, AlbumTitle FROM Albums"))) {
+                       .[singleUse](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.DatabaseClient.html#com_google_cloud_spanner_DatabaseClient_singleUse__)()
+                       .executeQuery([Statement](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.Statement.html).of("SELECT SingerId, AlbumId, AlbumTitle FROM Albums"))) {
                  writer.printf("Albums:%n");
                  while (rs.next()) {
                    writer.printf(
                        "%d %d %s%n",
                        rs.getLong("SingerId"), rs.getLong("AlbumId"), rs.getString("AlbumTitle"));
                  }
-               } catch ([SpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner/latest/com.google.cloud.spanner.SpannerException.html) e) {
+               } catch ([SpannerException](https://docs.cloud.google.com/java/docs/reference/google-cloud-spanner-jdbc/latest/com.google.cloud.spanner.SpannerException.html) e) {
                  writer.printf("Error querying database: %s%n", e.getMessage());
                  response.[setStatusCode](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpResponseException.Builder.html#com_google_api_client_http_HttpResponseException_Builder_setStatusCode_int_)([HttpStatusCodes](https://docs.cloud.google.com/java/docs/reference/google-http-client/latest/com.google.api.client.http.HttpStatusCodes.html).STATUS_CODE_SERVER_ERROR, e.getMessage());
                }

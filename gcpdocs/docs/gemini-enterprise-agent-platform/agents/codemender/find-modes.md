@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/find-modes/
 title: CodeMender find modes \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:54.735149+00:00
+fetched_at: 2026-10-29T06:14:25.911535+00:00
 ---
 
 # CodeMender find modes  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -171,8 +171,21 @@ Flag | Default | Description
 ---|---|---  
 `-c, --context TEXT` | `""` |  Additional context to guide the scan agent, such as architecture notes.   
 `--model MODEL_NAME` | `gemini-3.8-flash` |  Gemini model to use (`gemini-3.8-flash`, `gemini-3.8-flash-cyber`).   
-`-y, --yes` | `false` | Skip all interactive confirmation prompts.  
-`--unrestricted` | `false` | Turn off the file system sandbox.  
+`-y, --yes` | `false` |  Skip interactive confirmation prompts and the automatic update check. When the OS-level sandbox is enabled with default network isolation (`permissive-closed`), `cm find` mounts the workspace read-only and skips command confirmation prompts automatically.   
+`--sandbox` | `true` |  Run commands inside the OS-level sandbox (for example, `--sandbox=false` to disable). In `cm find`, the sandbox mounts the workspace read-only.   
+`--allow-all-paths` | `false` |  Disable the workspace path boundary check (combine with `--sandbox=false` to access host paths that aren't mounted inside the sandbox).   
+`--allow-all-commands` | `false` |  Disable `command_policy.yaml` blocklist enforcement for this run.   
+`--include-hidden` | `false` |  Include hidden directories and files (starting with `.`) during file discovery.   
+  
+### Deep scan flags
+
+The following flags configure default `cm find` (or `cm find --deep`) scans:
+
+Flag | Default | Description  
+---|---|---  
+`--deep` | `true` |  Run an exhaustive file-by-file deep scan (default mode when no mode flag is passed). Can't be used with `--diff` or `--quick`.   
+`--deep-workers COUNT` | `8` |  Number of concurrent workers for per-file deep scans (1 to 16).   
+`--enable-bash` | `false` |  Enable shell command execution (`run_command`) in per-file `--deep` workers (or set `CMOC_FIND_ENABLE_BASH=true`). Quick scans (`--quick`) and diff scans (`--diff`) enable `run_command` by default.   
   
 ### Diff scan flags
 

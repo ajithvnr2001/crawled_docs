@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/kubernetes/15.5.5/docs/set-up-pgbackrest/
 title: Set up pgBackRest for AlloyDB Omni \u00a0|\u00a0 AlloyDB Omni for Kubernetes: 15.5.5 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:31:25.147690+00:00
+fetched_at: 2026-10-29T05:51:57.846833+00:00
 ---
 
 # Set up pgBackRest for AlloyDB Omni  |  AlloyDB Omni for Kubernetes: 15.5.5  |  Google Cloud Documentation

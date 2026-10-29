@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/topology/view-project-topology/
 title: View topologies for a project \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:42:26.258143+00:00
+fetched_at: 2026-10-29T06:14:17.963661+00:00
 ---
 
 # View topologies for a project  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation

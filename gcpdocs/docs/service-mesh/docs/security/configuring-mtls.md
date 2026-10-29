@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/service-mesh/docs/security/configuring-mtls/
 title: Configure transport security \u00a0|\u00a0 Cloud Service Mesh \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:58:00.791115+00:00
+fetched_at: 2026-10-29T06:14:15.444292+00:00
 ---
 
 # Configure transport security  |  Cloud Service Mesh  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 You can secure inter-service traffic in Cloud Service Mesh with Istio APIs by enforcing strict mutual TLS (mTLS). In Kubernetes workloads, auto mTLS is enabled by default: client sidecar proxies automatically send mTLS traffic to sidecars, but destination services still accept both plaintext and encrypted requests.
 
-`PeerAuthentication` policies let you restrict services to only accept mTLS. You can apply a policy mesh-wide, to a specific namespace, or to an individual workload. For supported fields across platforms, see [Supported features](https://docs.cloud.google.com/service-mesh/docs/supported-features).
+`PeerAuthentication` policies let you restrict services to only accept mTLS. You can apply a policy mesh-wide, to a specific namespace, or to an individual workload. For supported fields across platforms, see [Supported features (managed control plane)](https://docs.cloud.google.com/service-mesh/docs/supported-features-managed#peer_authentication), [API support in managed Cloud Service Mesh](https://docs.cloud.google.com/service-mesh/docs/onboarding/api-support#peerauthentication), and [Supported features (in-cluster control plane)](https://docs.cloud.google.com/service-mesh/docs/supported-features-in-cluster).
 
 ## Enable mutual TLS per namespace
 
@@ -79,7 +79,7 @@ Expected output:
   2. Configure a matching destination rule:
          
          cat <<EOF | kubectl apply -n NAMESPACE -f -
-         apiVersion: "networking.istio.io/v1alpha3"
+         apiVersion: "networking.istio.io/v1beta1"
          kind: "DestinationRule"
          metadata:
            name: "DEST_RULE_NAME"
@@ -93,7 +93,7 @@ Expected output:
 
 Expected output:
          
-         destinationrule.networking.istio.io/WORKLOAD created
+         destinationrule.networking.istio.io/DEST_RULE_NAME created
 
 
 
@@ -122,41 +122,81 @@ Expected output:
     
     peerauthentication.security.istio.io/AUTH_POLICY_NAME created
 
-### Disabling mTLS for Managed CSM
+### Disable mTLS
 
-Cloud Service Mesh does not support the `mtls.mode: DISABLE` value in a `PeerAuthentication` resource.
+Managed Cloud Service Mesh with the `TRAFFIC_DIRECTOR` control plane doesn't support `DISABLE` mode in `PeerAuthentication` resources (`mtls.mode: DISABLE` or `portLevelMtls.mode: DISABLE`).
 
-To successfully disable mTLS in Cloud Service Mesh, you must explicitly define the client's behavior with the server's requirements by using the `DestinationRule` API.
+To send plaintext traffic to a specific service or port in managed Cloud Service Mesh, configure both the server-side and client-side proxies:
 
-#### Conceptual Overview
-
-  1. **Server-Side** : You use a `PeerAuthentication` resource to set the server-side proxy default value.
-  2. **Client-Side Approach** : You use a `DestinationRule` resource to explicitly tell the client-side proxies to use plaintext when communicating with that specific server.
+  1. **Server-side (`PeerAuthentication`)**: Ensure the destination workload accepts plaintext traffic by using `PERMISSIVE` mode. If your mesh or namespace uses the default `PERMISSIVE` policy, you don't need to create a `PeerAuthentication` resource. If you enforced mesh-wide or namespace-wide `STRICT` mTLS, apply a workload-specific or port-specific `PeerAuthentication` policy set to `PERMISSIVE`.
+  2. **Client-side (`DestinationRule`)**: Configure a `DestinationRule` resource with `tls.mode: DISABLE` so client sidecar proxies send plaintext traffic when calling that service or port.
 
 
 
-#### Examples
+NOTE: Because the server-side proxy uses `PERMISSIVE` mode instead of `DISABLE`, the destination workload still accepts mTLS traffic from any client not covered by the `DestinationRule`. To ensure all mesh clients send plaintext, create the `DestinationRule` in the destination service's namespace (or `istio-system`) without restricting `exportTo`.
 
-**Step 1: Configure PeerAuthentication**
+#### Example: Disable mTLS for a service
 
-In this example we will use the default policy of PERMISSIVE and so don't need to explicitly define the policy.
+  1. If your mesh or namespace enforces `STRICT` mTLS, allow the target workload (or specific port) to accept plaintext traffic by setting its `PeerAuthentication` mode to `PERMISSIVE`:
+         
+         cat <<EOF | kubectl apply -n NAMESPACE -f -
+         apiVersion: "security.istio.io/v1beta1"
+         kind: "PeerAuthentication"
+         metadata:
+           name: "AUTH_POLICY_NAME"
+           namespace: "NAMESPACE"
+         spec:
+           selector:
+             matchLabels:
+               app: WORKLOAD
+           mtls:
+             mode: PERMISSIVE
+         EOF
+         
 
-**Step 2: Configure Client-Side DestinationRule**
+To allow plaintext only on a specific workload port (for example, when migrating from `portLevelMtls`), set `portLevelMtls` instead:
+         
+         spec:
+           selector:
+             matchLabels:
+               app: WORKLOAD
+           mtls:
+             mode: STRICT
+           portLevelMtls:
+             WORKLOAD_PORT:
+               mode: PERMISSIVE
+         
 
-This configuration tells clients to use plaintext when calling `httpbin`.
-    
-    
-    apiVersion: networking.istio.io/v1beta1
-    kind: DestinationRule
-    metadata:
-      name: "DEST_RULE_NAME"
-      namespace: sample-namespace
-    spec:
-      host: "WORKLOAD.NAMESPACE.svc.cluster.local"
-      trafficPolicy:
-        tls:
-          mode: DISABLE
-    
+  2. Configure a `DestinationRule` to instruct client proxies to send plaintext traffic to the target service:
+         
+         cat <<EOF | kubectl apply -n NAMESPACE -f -
+         apiVersion: "networking.istio.io/v1beta1"
+         kind: "DestinationRule"
+         metadata:
+           name: "DEST_RULE_NAME"
+           namespace: "NAMESPACE"
+         spec:
+           host: "SERVICE_NAME.NAMESPACE.svc.cluster.local"
+           trafficPolicy:
+             tls:
+               mode: DISABLE
+         EOF
+         
+
+To disable mTLS only for a specific service port, use `portLevelSettings` in the `DestinationRule`:
+         
+         spec:
+           host: "SERVICE_NAME.NAMESPACE.svc.cluster.local"
+           trafficPolicy:
+             portLevelSettings:
+             - port:
+                 number: SERVICE_PORT
+               tls:
+                 mode: DISABLE
+         
+
+
+
 
 ## Find and delete `PeerAuthentication` policies
 
@@ -183,6 +223,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/query-data/query-cursors/
 title: Paginate data with query cursors \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:23:11.501335+00:00
+fetched_at: 2026-10-29T07:57:07.785510+00:00
 ---
 
 # Paginate data with query cursors  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -160,7 +160,7 @@ Android
     
     query := client.Collection("cities").OrderBy("population", firestore.Asc).StartAt(1000000)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/query.go#L208-L208)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/query.go#L208-L208)
 
 ##### PHP
 
@@ -190,7 +190,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("population").start_at(1_000_000)
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/paginate_data.rb#L25-L25)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/paginate_data.rb#L25-L25)
 
 Similarly, use the `endAt()` or `endBefore()` methods to define an end point for your query results.
 
@@ -314,7 +314,7 @@ Android
     
     query := client.Collection("cities").OrderBy("population", firestore.Asc).EndAt(1000000)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/query.go#L215-L215)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/query.go#L215-L215)
 
 ##### PHP
 
@@ -344,7 +344,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     
     query = cities_ref.order("population").end_at(1_000_000)
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/paginate_data.rb#L40-L40)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/paginate_data.rb#L40-L40)
 
 ## Use a document snapshot to define the query cursor
 
@@ -554,7 +554,7 @@ Android
     }
     query := cities.OrderBy("population", firestore.Asc).StartAt(dsnap.Data()["population"]).Documents(ctx)
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/query.go#L303-L308)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/query.go#L303-L308)
 
 ##### PHP
 
@@ -598,7 +598,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     snapshot = doc_ref.get
     query = cities_ref.order("population").start_at(snapshot)
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/paginate_data.rb#L102-L104)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/paginate_data.rb#L102-L104)
 
 ## Paginate a query
 
@@ -943,7 +943,7 @@ Android
     
     // ...
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/query.go#L222-L239)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/query.go#L222-L239)
 
 ##### PHP
 
@@ -1027,7 +1027,7 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
       puts "Document #{city.document_id} returned by paginated query cursor."
     end
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/paginate_data.rb#L54-L68)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/paginate_data.rb#L54-L68)
 
 ## Set cursor based on multiple fields
 
@@ -1260,7 +1260,7 @@ Android
     	OrderBy("state", firestore.Asc).
     	StartAt("Springfield", "Wisconsin")
     
-    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/18bb064d1db6c801e23874ca8029e465722ce6f0/firestore/query.go#L247-L257)
+    [query.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/query.go#L247-L257)
 
 ##### PHP
 
@@ -1306,12 +1306,12 @@ To authenticate to Firestore, set up Application Default Credentials. For more i
     # Will return "Springfield, Missouri" and "Springfield, Wisconsin"
     query2 = firestore.col(collection_path).order("name").order("state").start_at(["Springfield", "Missouri"])
     
-    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/19147bd2c6d12248f44dc027fd1cd39c43abed81/google-cloud-firestore/samples/paginate_data.rb#L80-L84)
+    [paginate_data.rb](https://github.com/googleapis/google-cloud-ruby/blob/044c261a8bad3116f3d433ed647e04260a3e4ac8/google-cloud-firestore/samples/paginate_data.rb#L80-L84)
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/omni/containers/17.9.0/docs/ai/use-natural-language-generate-sql-queries/
 title: Use AlloyDB AI natural language to generate SQL \u00a0|\u00a0 AlloyDB Omni using containers: 17.9.0 \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:18:45.541789+00:00
+fetched_at: 2026-10-29T05:43:47.203426+00:00
 ---
 
 # Use AlloyDB AI natural language to generate SQL  |  AlloyDB Omni using containers: 17.9.0  |  Google Cloud Documentation
@@ -221,7 +221,7 @@ The sample data shows how you can use AlloyDB AI natural language for developmen
          INSERT INTO nla_demo.customers (first_name, last_name, email, address_id, date_of_birth)
          VALUES
              ('Alex', 'B.', 'alex.b@example.com', 1, '2003-02-20'),
-             ('Amal', 'M.', 'amal.m@example.com', 2, '1998-11-089;),
+             ('Amal', 'M.', 'amal.m@example.com', 2, '1998-11-08'),
              ('Dani', 'G.', 'dani.g@example.com', 3, '2002-07-25');
          
 
@@ -241,7 +241,7 @@ The sample data shows how you can use AlloyDB AI natural language for developmen
          VALUES
              (1, 'CymbalPrime'),
              (2, 'CymbalPro'),
-             (3, &#39;CymbalSports');
+             (3, 'CymbalSports');
          
 
   5. Populate the `products` table.
@@ -287,15 +287,15 @@ To use AlloyDB AI natural language, make sure that AlloyDB AI is installed for [
 
   1. Create a natural language configuration.
          
-         SELECT alloydb_ai_nl.g_create_configuration( 'nla_demo_cfg&#39; );
+         SELECT alloydb_ai_nl.g_create_configuration( 'nla_demo_cfg' );
          
 
   2. Register tables to the `nla_demo_cfg` config.
          
          SELECT alloydb_ai_nl.g_manage_configuration(
              operation => 'register_table_view',
-             configuration>_id_in = 'nla_demo_cfg',
-            > table_views_in='{nla_demo.customers, nla_demo.addresses, nla_demo.brands, nla_demo.products, nla_demo.categories, nla_demo.orders, nla_demo.order_items}'
+             configuration_id_in => 'nla_demo_cfg',
+             table_views_in=>'{nla_demo.customers, nla_demo.addresses, nla_demo.brands, nla_demo.products, nla_demo.categories, nla_demo.orders, nla_demo.order_items}'
          );
          
 
@@ -370,7 +370,7 @@ The query output is similar to the following:
          );
          
          SELECT alloydb_ai_nl.apply_generated_column_context(
-           'nla_demo.products.name&#39;,
+           'nla_demo.products.name',
            true
          );
          
@@ -399,8 +399,8 @@ For example, the question "Give me the price of a Hoodie" can be answered more a
          
          SELECT alloydb_ai_nl.add_concept_type(
              concept_type_in => 'product_name',
-             match_funct>ion_in = 'alloydb_ai_nl.get_concept_and_value_generic_entity_name',
-             addi>tional_info_in = '{
+             match_function_in => 'alloydb_ai_nl.get_concept_and_value_generic_entity_name',
+             additional_info_in => '{
                "description": "Concept type for product name.",
                "examples": "SELECT alloydb_ai_nl.get_concept_and_value_generic_entity_name(''Hoodie'')" }'::jsonb
          );
@@ -427,8 +427,8 @@ For example, the question "Give me the price of a Hoodie" can be answered more a
          
          SELECT alloydb_ai_nl.add_concept_type(
              concept_type_in => 'brand_name',
-             match_funct>ion_in = 'alloydb_ai_nl.get_concept_and_value_generic_entity_name',
-             addi>tional_info_in = '{
+             match_function_in => 'alloydb_ai_nl.get_concept_and_value_generic_entity_name',
+             additional_info_in => '{
                "description": "Concept type for brand name.",
                "examples": "SELECT alloydb_ai_nl.get_concept_and_value_generic_entity_name(''CymbalPrime'')" }'::jsonb
          );
@@ -508,11 +508,11 @@ The result is similar to the following. Built-in concepts are considered as well
           id => 1,
           column_names => NULL,
           concept_type => 'generic_entity_name',
-          additiona>l_info = NULL
+          additional_info => NULL
          );
          
          -- Drop
-         SELECT alloydb_ai_nl.drop_generated_concept_type_associat>ion(id = 1);
+         SELECT alloydb_ai_nl.drop_generated_concept_type_association(id => 1);
          
 
   4. Apply the generated associations.
@@ -536,10 +536,10 @@ You can define templates to improve the quality of the answers produced by the A
          
          SELECT alloydb_ai_nl.add_template(
              nl_config_id => 'nla_demo_cfg',
-             >intent = 'List the first names and the last names of all customers who ordered Swimsuit.>',
-             sql = 'SELECT c.first_name, c.last_name FROM nla_demo.Customers c JOIN nla_demo.orders o ON c.customer_id = o.customer_id JOIN nla_demo.order_items oi ON o.order_id = oi.order_id JOIN nla_demo.products p ON oi.product_id = p.product_id  AND p.name = ''Swimsu>it''',
-             sql_explanation = 'To answer this question, JOIN `nla_demo.Customers` with `nla_demo.orders` on having the same `customer_id`, and JOIN the result with nla_demo.order_items on having the same `order_id`. Then JOIN the result with `nla_demo.products` on having the same `product_id`, and filter rows with p.name = ''Swimsuit''. Return the `first_name` and the `last_name` >of the customers with matching records.',
-             check_intent = TRUE
+             intent => 'List the first names and the last names of all customers who ordered Swimsuit.',
+             sql => 'SELECT c.first_name, c.last_name FROM nla_demo.Customers c JOIN nla_demo.orders o ON c.customer_id = o.customer_id JOIN nla_demo.order_items oi ON o.order_id = oi.order_id JOIN nla_demo.products p ON oi.product_id = p.product_id  AND p.name = ''Swimsuit''',
+             sql_explanation => 'To answer this question, JOIN `nla_demo.Customers` with `nla_demo.orders` on having the same `customer_id`, and JOIN the result with nla_demo.order_items on having the same `order_id`. Then JOIN the result with `nla_demo.products` on having the same `product_id`, and filter rows with p.name = ''Swimsuit''. Return the `first_name` and the `last_name` of the customers with matching records.',
+             check_intent => TRUE
          );
          
 
@@ -577,11 +577,11 @@ In this template, the value corresponding to the `psql` attribute is the paramet
          
          SELECT alloydb_ai_nl.add_template(
           nl_config_id => 'nla_demo_cfg',
-          >intent = 'List 3 products most similar to a Swimwe>ar.',
-          sql = $$SELECT name FROM nla_demo.products
-                  ORDER BY descri<p>tion_embedding = embedding('text-embedding-004', 'Swimwear'>;)::vector$$,
-          sql_explanation = $$To answer this question, ORDER products in `nla_demo.products` , based by their distance of the description_embedding of the product with the embedding o>f 'Swimwear'.$$,
-          check_intent = TRUE
+          intent => 'List 3 products most similar to a Swimwear.',
+          sql => $$SELECT name FROM nla_demo.products
+                  ORDER BY description_embedding <=> embedding('text-embedding-004', 'Swimwear')::vector$$,
+          sql_explanation => $$To answer this question, ORDER products in `nla_demo.products` , based by their distance of the description_embedding of the product with the embedding of 'Swimwear'.$$,
+          check_intent => TRUE
          );
          
 
@@ -610,9 +610,9 @@ To provide a fragment for business critical predicates, and to provide anticipat
     
     SELECT alloydb_ai_nl.add_fragment(
       nl_config_id => 'nla_demo_cfg',
-      table_a>liases = ARRAY['nla_demo.products AS T&#>39;],
-      intent = 'luxury pr>oduct',
-      fragment = $$description LIKE '%luxury%' OR description LIKE '%premium%' OR description LIKE '%exclusive%' OR description LIKE '%high-end%' OR description LIKE '%finest%' OR description LIKE '%elite%' OR description LIKE '%deluxe%'$$);
+      table_aliases => ARRAY['nla_demo.products AS T'],
+      intent => 'luxury product',
+      fragment => $$description LIKE '%luxury%' OR description LIKE '%premium%' OR description LIKE '%exclusive%' OR description LIKE '%high-end%' OR description LIKE '%finest%' OR description LIKE '%elite%' OR description LIKE '%deluxe%'$$);
     
 
 To view the list of added fragments, query the view `alloydb_ai_nl.fragment_store_view`:
@@ -637,8 +637,8 @@ The following output is returned:
          SELECT
              alloydb_ai_nl.get_sql(
                  'nla_demo_cfg',
-                 'Find the customers who purchased Tote B>>ag.'
-             ) - 'sql';
+                 'Find the customers who purchased Tote Bag.'
+             ) ->> 'sql';
          
 
 The following output is returned:
@@ -658,8 +658,8 @@ The JSON output is a SQL query using the template that you added in Define a que
          SELECT
              alloydb_ai_nl.get_sql(
                  'nla_demo_cfg',
-                 'List the maximum price of any CymbalSh>>oe.'
-             ) - 'sql';
+                 'List the maximum price of any CymbalShoe.'
+             ) ->> 'sql';
          
 
 The following output is returned:
@@ -674,8 +674,8 @@ AlloyDB AI natural language API recognizes that `CymbalShoe` is the name of the 
          SELECT
              alloydb_ai_nl.get_sql(
                  'nla_demo_cfg',
-                 'List the maximum price of any CymbalPri>>me.'
-             ) - 'sql';
+                 'List the maximum price of any CymbalPrime.'
+             ) ->> 'sql';
          
 
 The following output is produced:
@@ -734,7 +734,7 @@ To get a SQL summary, run the following example query:
     SELECT
        alloydb_ai_nl.get_sql_summary(
           nl_config_id => 'nla_demo_cfg',
-          nl_qu>estion = 'which brands have the largest number of products?'
+          nl_question => 'which brands have the largest number of products?'
     );
     
 

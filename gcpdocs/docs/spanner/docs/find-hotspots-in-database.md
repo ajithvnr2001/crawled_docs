@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/find-hotspots-in-database/
 title: Find hotspots in your database \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:13:43.501277+00:00
+fetched_at: 2026-10-29T06:14:05.210933+00:00
 ---
 
 # Find hotspots in your database  |  Spanner  |  Google Cloud Documentation
@@ -45,9 +45,9 @@ Data retention policies for the Hotspot insights charts and the TopN splits tabl
 
 ## Required roles
 
-You might need different IAM roles and permissions, depending on whether you are an IAM user or a fine-grained access control user.
+You might need different Identity and Access Management (IAM) roles and permissions, depending on whether you are an IAM user or a fine-grained access control user.
 
-### Identity and Access Management (IAM) user
+### IAM user
 
 To get the permissions that you need to view the **Hotspot insights** page, ask your administrator to grant you the following IAM roles on the instance: 
 
@@ -106,7 +106,7 @@ The dashboard includes the following elements:
 
 
 
-![The Hotspot Insights dashboard in Spanner, showing a graph of peak
+![The Hotspot insights dashboard in Spanner, showing a graph of peak
 split CPU usage, a database selector, a time range filter, and a table of the
 top N hot splits.](https://docs.cloud.google.com/static/spanner/docs/images/hotspot-insights.png)
 
@@ -187,6 +187,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-28 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 

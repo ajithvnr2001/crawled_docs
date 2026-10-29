@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/microsoft-365-defender/
 title: Microsoft 365 Defender \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:01:03.108553+00:00
+fetched_at: 2026-10-29T05:39:57.674477+00:00
 ---
 
 # Microsoft 365 Defender  |  Google Security Operations  |  Google Cloud Documentation
@@ -217,6 +217,19 @@ The **Execute Custom Query** action requires the following parameters:
 Parameter | Description  
 ---|---  
 `Query` | _Required_ The query to execute in Microsoft Defender For XDR for result filtering.  
+`Time Frame` | _Optional_ The time period for the query results. The possible values are as follows:
+
+  * `Select One`
+  * `Last Hour`
+  * `Last 6 Hours`
+  * `Last 24 Hours`
+  * `Last Week`
+  * `Last Month`
+  * `Custom`
+
+If `Custom` is selected, you must set `Start Time`. **Important:** When using this parameter, don't limit rows (such as using `take` or `top`) or filter by `Timestamp` inside the `Query` parameter. The query requires the intact `Timestamp` column to work properly. The default value is `Select One`.  
+`Start Time` | _Optional_ The start time for the query results in ISO 8601 format. If `Time Frame` is set to `Custom`, this parameter is required.  
+`End Time` | _Optional_ The end time for the query results in ISO 8601 format. If no value is provided and `Time Frame` is set to `Custom`, the action uses the current time.  
 `Max Results To Return` | _Optional_ The maximum number of results to return from the query. The default value is `50`.  
   
 #### Action outputs
@@ -238,18 +251,18 @@ Script result | Available
 The following example shows the JSON result output received when using the **Execute Custom Query** action:
     
     
-    {"Results": [
-        {
-            "Timestamp": "2021-04-12T07:25:00Z",
-            "AlertId": "fa7a318954-6c4c-eaab-3200-08d8fd82af35",
-            "Title": "CC_Sensitive information",
-            "Category": "InitialAccess",
-            "Severity": "Medium",
-            "ServiceSource": "Microsoft Defender for Office 365",
-            "DetectionSource": "Microsoft Defender for Office 365",
-            "AttackTechniques": ""
-        }
-    ]}
+    [
+      {
+        "Timestamp": "2021-04-12T07:25:00Z",
+        "AlertId": "fa7a318954-6c4c-eaab-yyy-yyyyyyyyyy",
+        "Title": "CC_Sensitive information",
+        "Category": "InitialAccess",
+        "Severity": "Medium",
+        "ServiceSource": "Microsoft Defender for Office 365",
+        "DetectionSource": "Microsoft Defender for Office 365",
+        "AttackTechniques": ""
+      }
+    ]
     
 
 ##### Output messages
@@ -663,7 +676,7 @@ Redirected incidents can be empty in most cases.
 
 ## Jobs
 
-For more information on jobs, see [ Configure a new job](https://cloud.google.com/chronicle/docs/soar/respond/jobs-scheduler/writing-jobs#configure-a-new-job) and [ Advanced scheduling](https://cloud.google.com/chronicle/docs/soar/respond/jobs-scheduler/writing-jobs#advanced-scheduling). 
+For more information on jobs, see [ Configure a new job](https://docs.cloud.google.com/chronicle/docs/soar/respond/jobs-scheduler/writing-jobs#configure-a-new-job) and [ Advanced scheduling](https://cloud.google.com/chronicle/docs/soar/respond/jobs-scheduler/writing-jobs#advanced-scheduling). 
 
 ### Microsoft 365 Defender - Sync Alerts
 
@@ -736,6 +749,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

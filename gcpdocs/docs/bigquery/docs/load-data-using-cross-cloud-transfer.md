@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/load-data-using-cross-cloud-transfer/
 title: Load data with BigQuery Omni operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:09:45.578653+00:00
+fetched_at: 2026-10-29T05:43:15.854429+00:00
 ---
 
 # Load data with BigQuery Omni operations  |  Google Cloud Documentation

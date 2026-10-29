@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/control-genai-costs/
 title: Control costs with token quotas \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:09:47.861791+00:00
+fetched_at: 2026-10-29T05:41:51.510515+00:00
 ---
 
 # Control costs with token quotas  |  BigQuery  |  Google Cloud Documentation
@@ -38,12 +38,20 @@ These token quotas govern the number of input and output tokens processed by the
 
 
 
-**Quota name** | **Metric** | **Scope** | **Default value**  
+Quota | Metric and quota ID | Default | Notes  
 ---|---|---|---  
-AI input tokens per day | Input tokens used by the LLM | Per day, per project | 200,000,000,000  
-AI input tokens per day per user | Input tokens used by the LLM | Per day, per project, per user | 150,000,000,000  
-AI output tokens per day | Output and thought tokens used by the LLM | Per day, per project | 20,000,000,000  
-AI output tokens per day per user | Output and thought tokens used by the LLM | Per day, per project, per user | 15,000,000,000  
+[AI input tokens per day](https://console.cloud.google.com/iam-admin/quotas?service=bigquery.googleapis.com&metric=bigquery.googleapis.com/quota/query/ai_input_tokens) |  **Metric:** `bigquery.googleapis.com/quota/query/ai_input_tokens`  
+  
+**Quota ID:** `GenAiInputTokensPerDay` | 200,000,000,000 | Input tokens used by the LLM. Applies per day, per project.  
+[AI input tokens per day per user](https://console.cloud.google.com/iam-admin/quotas?service=bigquery.googleapis.com&metric=bigquery.googleapis.com/quota/query/ai_input_tokens) |  **Metric:** `bigquery.googleapis.com/quota/query/ai_input_tokens`  
+  
+**Quota ID:** `GenAiInputTokensPerUserPerDay` | 150,000,000,000 | Input tokens used by the LLM. Applies per day, per project, per user.  
+[AI output tokens per day](https://console.cloud.google.com/iam-admin/quotas?service=bigquery.googleapis.com&metric=bigquery.googleapis.com/quota/query/ai_output_tokens) |  **Metric:** `bigquery.googleapis.com/quota/query/ai_output_tokens`  
+  
+**Quota ID:** `GenAiOutputTokensPerDay` | 20,000,000,000 | Output and thought tokens used by the LLM. Applies per day, per project.  
+[AI output tokens per day per user](https://console.cloud.google.com/iam-admin/quotas?service=bigquery.googleapis.com&metric=bigquery.googleapis.com/quota/query/ai_output_tokens) |  **Metric:** `bigquery.googleapis.com/quota/query/ai_output_tokens`  
+  
+**Quota ID:** `GenAiOutputTokensPerUserPerDay` | 15,000,000,000 | Output and thought tokens used by the LLM. Applies per day, per project, per user.  
   
 These quotas are tracked in increments of millions of tokens. While you can set precise limits, values smaller than a few million tokens might not be reflected with perfect accuracy because of the nature of token reporting and aggregation.
 
@@ -102,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-27 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
