@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-dotnet/deploy-and-operate/
 title: Microsoft Teams + MS Agent Framework (.NET): Deploy and operate
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:42.399475+00:00
+fetched_at: 2026-10-30T09:52:12.647883+00:00
 ---
 
 # Microsoft Teams + MS Agent Framework (.NET): Deploy and operate
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/ms-agent-dotnet/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/ms-agent-dotnet/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/ms-agent-dotnet/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/ms-agent-dotnet/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/ms-agent-dotnet/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/ms-agent-dotnet/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/ms-agent-dotnet/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/ms-agent-dotnet/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/ms-agent-dotnet/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/ms-agent-dotnet/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/ms-agent-dotnet/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/ms-agent-dotnet/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/ms-agent-dotnet/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/ms-agent-dotnet/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/ms-agent-dotnet/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/ms-agent-dotnet/threads-and-state)
 
 Production
 

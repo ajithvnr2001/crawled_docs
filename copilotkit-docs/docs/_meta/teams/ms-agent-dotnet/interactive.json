@@ -3,8 +3,5 @@
   "file": "teams/ms-agent-dotnet/interactive.md",
   "title": "Microsoft Teams + MS Agent Framework (.NET): Interactive messages and approvals",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:33:42.542046+00:00",
-  "html_len": 221680,
-  "md_len": 10176,
-  "depth": 0
+  "fetched_at": "2026-10-30T09:52:10.066123+00:00"
 }

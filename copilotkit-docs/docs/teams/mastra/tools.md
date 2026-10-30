@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/mastra/tools/
 title: Microsoft Teams + Mastra: Tools and context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:40.335808+00:00
+fetched_at: 2026-10-30T09:52:12.587380+00:00
 ---
 
 # Microsoft Teams + Mastra: Tools and context
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/mastra/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/mastra/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/mastra/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/mastra/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/mastra/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/mastra/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/mastra/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/mastra/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/mastra/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/mastra/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/mastra/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/mastra/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/mastra/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/mastra/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/mastra/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/mastra/threads-and-state)
 
 Production
 
@@ -110,6 +110,8 @@ Return information the model can act on:
   * Do not manually `JSON.stringify` successful data.
 
 
+
+Want the agent to turn data into an image? Post your own presentational React markup through [Posting JSX as images](https://docs.copilotkit.ai/teams/mastra/posting-jsx-as-images).
 
 ## Add stable context#
 

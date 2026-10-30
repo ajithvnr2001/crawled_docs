@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/angular/ag2/
 title: Introduction
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:33.111424+00:00
+fetched_at: 2026-10-30T09:52:01.422853+00:00
 ---
 
 # Introduction

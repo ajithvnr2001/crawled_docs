@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/pydantic-ai/commands-and-reactions/
 title: Microsoft Teams + PydanticAI: Commands and reactions
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:58.072722+00:00
+fetched_at: 2026-10-30T09:52:03.735248+00:00
 ---
 
 # Microsoft Teams + PydanticAI: Commands and reactions
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/pydantic-ai/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/pydantic-ai/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/pydantic-ai/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/pydantic-ai/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/pydantic-ai/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/pydantic-ai/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/pydantic-ai/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/pydantic-ai/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/pydantic-ai/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/pydantic-ai/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/pydantic-ai/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/pydantic-ai/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/pydantic-ai/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/pydantic-ai/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/pydantic-ai/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/pydantic-ai/threads-and-state)
 
 Production
 

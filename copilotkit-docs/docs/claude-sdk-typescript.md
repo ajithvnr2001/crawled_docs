@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/claude-sdk-typescript/
 title: Claude Agent SDK (TypeScript)
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:31.677024+00:00
+fetched_at: 2026-10-30T09:51:58.867967+00:00
 ---
 
 # Claude Agent SDK (TypeScript)

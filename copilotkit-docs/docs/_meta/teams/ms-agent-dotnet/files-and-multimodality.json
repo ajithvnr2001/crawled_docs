@@ -3,8 +3,5 @@
   "file": "teams/ms-agent-dotnet/files-and-multimodality.md",
   "title": "Microsoft Teams + MS Agent Framework (.NET): Files and multimodal input",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:33:42.494984+00:00",
-  "html_len": 155077,
-  "md_len": 9165,
-  "depth": 0
+  "fetched_at": "2026-10-30T09:52:10.745030+00:00"
 }

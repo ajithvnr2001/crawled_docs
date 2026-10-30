@@ -3,8 +3,5 @@
   "file": "teams/pydantic-ai/files-and-multimodality.md",
   "title": "Microsoft Teams + PydanticAI: Files and multimodal input",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:33:58.032581+00:00",
-  "html_len": 152120,
-  "md_len": 9079,
-  "depth": 0
+  "fetched_at": "2026-10-30T09:52:03.102550+00:00"
 }

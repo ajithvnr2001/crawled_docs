@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/identity-and-memory/
 title: Microsoft Teams + MS Agent Harness (.NET): Identity and Memory
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:33:49.357180+00:00
+fetched_at: 2026-10-30T09:52:08.724950+00:00
 ---
 
 # Microsoft Teams + MS Agent Harness (.NET): Identity and Memory
@@ -25,7 +25,7 @@ Getting Started
 
 Build
 
-[Tools and context](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/rich-messages)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/threads-and-state)
+[Tools and context](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/tools)[Identity and Memory](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/identity-and-memory)[Rich messages and components](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/rich-messages)[Posting JSX as images](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/posting-jsx-as-images)[Render and carousel](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/render-and-carousel)[Interactive messages and approvals](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/interactive)[Commands and reactions](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/commands-and-reactions)[Files and multimodal input](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/files-and-multimodality)[Threads and state](https://docs.copilotkit.ai/teams/ms-agent-harness-dotnet/threads-and-state)
 
 Production
 
