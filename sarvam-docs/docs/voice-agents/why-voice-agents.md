@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/voice-agents/why-voice-agents/
 title: Why Sarvam Voice Agents: build vs buy for AI calling | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:47.721181+00:00
+fetched_at: 2026-10-30T06:37:37.240930+00:00
 ---
 
 # Why Sarvam Voice Agents: build vs buy for AI calling | Sarvam API Docs
@@ -93,7 +93,7 @@ For a product tour, see the [Sarvam Voice Agents product page](https://www.sarva
 
 ## When to use the APIs instead
 
-Use Sarvam’s [speech-to-text](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview), [text-to-speech](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview), and [chat](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/overview) APIs directly if you already run your own orchestration (for example [LiveKit](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit) or [Pipecat](https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat)) and want full control of every component. For everything else, start with Voice Agents.
+Use Sarvam’s [speech-to-text](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview), [text-to-speech](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview), and [chat](https://docs.sarvam.ai/api/token-factory/chat-completions) APIs directly if you already run your own orchestration (for example [LiveKit](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit) or [Pipecat](https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat)) and want full control of every component. For everything else, start with Voice Agents.
 
 ## Get started
 
@@ -103,7 +103,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/introduction)[Voice Agents overview: AI voice agents for Indian languagesNext](https://docs.sarvam.ai/voice-agents/overview)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/introduction)[Voice Agents overview: AI voice agents for Indian languagesNext](https://docs.sarvam.ai/voice-agents/overview)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -279,6 +279,7 @@ YesNo
   * [List webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/list)
   * [Retry webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)
   * [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)

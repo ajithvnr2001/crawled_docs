@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/voice-agents/build/models/
 title: Voice agent models: Saaras ASR, Bulbul TTS and LLM | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:00.069109+00:00
+fetched_at: 2026-10-30T06:37:38.621537+00:00
 ---
 
 # Voice agent models: Saaras ASR, Bulbul TTS and LLM | Sarvam API Docs
@@ -62,7 +62,7 @@ Saaras v4 is Sarvam’s speech-recognition model, built to make Indic speech LLM
 
 
 
-See the [Saaras model page](https://docs.sarvam.ai/api/getting-started/models/saaras) for the full feature list, output-mode examples, and API limits.
+See the [Saaras model page](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras) for the full feature list, output-mode examples, and API limits.
 
 ## LLM
 
@@ -108,7 +108,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/build/run-time)[Voice agent harness: context, tools and the agentic loopNext](https://docs.sarvam.ai/voice-agents/build/concepts/harness)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/build/run-time)[Voice agent harness: context, tools and the agentic loopNext](https://docs.sarvam.ai/voice-agents/build/concepts/harness)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -288,6 +288,7 @@ YesNo
   * [List webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/list)
   * [Retry webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)
   * [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)

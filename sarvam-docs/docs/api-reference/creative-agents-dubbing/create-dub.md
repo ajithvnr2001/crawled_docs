@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub/
 title: Create Dubbing Job | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:33:47.362054+00:00
+fetched_at: 2026-10-30T06:37:32.282711+00:00
 ---
 
 # Create Dubbing Job | Sarvam API Docs
@@ -210,7 +210,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/responses/create)[Start JobNext](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)[Start JobNext](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * API Reference
 
@@ -230,9 +230,9 @@ YesNo
 
     * Text Processing
 
-    * Chat Completion
+    * Token Factory
 
-    * Responses API
+    * Chat Completion (Legacy V1)
 
     * Content Studio - Dubbing
       * [POSTCreate Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
@@ -299,11 +299,11 @@ YesNo
   * [Text Translation](https://docs.sarvam.ai/api-reference/text/translate-text)
   * [Transliteration](https://docs.sarvam.ai/api-reference/text/transliterate-text)
   * [Language Detection](https://docs.sarvam.ai/api-reference/text/identify-language)
-  * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Chat Completion V2](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
+  * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)
   * [Live Status](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/live-status)

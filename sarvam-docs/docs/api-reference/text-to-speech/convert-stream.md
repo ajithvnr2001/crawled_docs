@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/text-to-speech/convert-stream/
 title: REST Stream | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:33:38.174057+00:00
+fetched_at: 2026-10-30T06:37:21.855575+00:00
 ---
 
 # REST Stream | Sarvam API Docs
@@ -223,9 +223,9 @@ YesNo
 
     * Text Processing
 
-    * Chat Completion
+    * Token Factory
 
-    * Responses API
+    * Chat Completion (Legacy V1)
 
     * Content Studio - Dubbing
 
@@ -288,11 +288,11 @@ YesNo
   * [Text Translation](https://docs.sarvam.ai/api-reference/text/translate-text)
   * [Transliteration](https://docs.sarvam.ai/api-reference/text/transliterate-text)
   * [Language Detection](https://docs.sarvam.ai/api-reference/text/identify-language)
-  * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Chat Completion V2](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
+  * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)
   * [Live Status](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/live-status)

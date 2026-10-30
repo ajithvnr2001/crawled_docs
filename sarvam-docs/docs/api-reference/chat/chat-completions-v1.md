@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/chat/chat-completions-v1/
 title: Chat Completion V1 | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:33:48.995567+00:00
+fetched_at: 2026-10-30T06:37:33.749279+00:00
 ---
 
 # Chat Completion V1 | Sarvam API Docs
@@ -13,7 +13,7 @@ Skip to navigation
 
 This page is for API Reference.
 
-[APIs](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)[Chat Completion](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
+[APIs](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)[Chat Completion (Legacy V1)](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
 
 # Chat Completion V1
 
@@ -157,7 +157,7 @@ reasoning_effortenum or nullOptionalDefaults to `medium`
 
 The effort to use for reasoning. Can be disabled by explicitly setting to None. Default is 'medium'.
 
-Allowed values:lowhighmax
+Allowed values:nonelowhighmax
 
 max_tokensinteger or nullOptionalDefaults to `2048`
 
@@ -267,7 +267,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/text/identify-language)[Chat Completion V2Next](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/responses/create)[Create Dubbing JobNext](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * API Reference
 
@@ -287,13 +287,10 @@ YesNo
 
     * Text Processing
 
-    * Chat Completion
-      * [POSTChat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
-      * [POSTChat Completion V2](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)
-      * [GETGet Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
-      * [GETList Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
+    * Token Factory
 
-    * Responses API
+    * Chat Completion (Legacy V1)
+      * [POSTChat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
 
     * Content Studio - Dubbing
 
@@ -356,11 +353,11 @@ YesNo
   * [Text Translation](https://docs.sarvam.ai/api-reference/text/translate-text)
   * [Transliteration](https://docs.sarvam.ai/api-reference/text/transliterate-text)
   * [Language Detection](https://docs.sarvam.ai/api-reference/text/identify-language)
-  * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Chat Completion V2](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
+  * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)
   * [Live Status](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/live-status)

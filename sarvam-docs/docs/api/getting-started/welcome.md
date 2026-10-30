@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api/getting-started/welcome/
 title: Welcome to Sarvam Model APIs Documentation | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T06:34:23.214120+00:00
+fetched_at: 2026-10-30T06:37:16.763938+00:00
 ---
 
 # Welcome to Sarvam Model APIs Documentation | Sarvam API Docs
@@ -13,9 +13,11 @@ Skip to navigation
 
 On this page
 
-  * Get Started
-  * Explore by API
-  * Learn More
+  * Get started
+  * Token Factory (Open-Weight)
+  * Sarvam Models
+  * Combine them
+  * Build with your tools
   * Resources
 
 
@@ -30,30 +32,62 @@ Ask a question|Copy page|[View as Markdown](https://docs.sarvam.ai/api/getting-s
 
 This page is for Model APIs.
 
-Sarvam AI gives you production-ready APIs for transcription, translation, transliteration, text-to-speech, and conversational AI, tuned for Hindi, Tamil, Telugu, and every major Indian language, including code-mixed input.
+Sarvam Model APIs come in two families that share one API key, one SDK, and one credit balance:
 
-### Get Started
+  * **Token Factory** serves open-weight LLMs (GLM, Gemma, DeepSeek, Kimi, and MiMo) on one OpenAI-compatible API.
+  * **Sarvam Models** are Sarvam’s own models for Indian languages. They hear, speak, reason, translate, and read Hindi, Tamil, Telugu, and every major Indian language, including code-mixed input.
 
-[Quickstart (< 5 minutes)Get your API key and make your first request in under 5 minutes, with setup and code examples for every SDK.](https://docs.sarvam.ai/api/getting-started/quickstart)[API ReferenceBrowse full REST and WebSocket specs for every endpoint, with request and response schemas.](https://docs.sarvam.ai/api-reference/introduction)
 
-### Explore by API
 
-[Speech-to-TextTranscribe, translate, and caption audio in real time or batch with Saaras v3, across code-mixed and regional speech.](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)[Text-to-SpeechGenerate natural, expressive speech in Indian languages with Bulbul v3’s 30+ voices, streamed or batch.](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview)[Chat CompletionBuild conversational AI with Sarvam-105B, tuned for deep Indic language reasoning.](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/overview)[Text ProcessingTranslate, transliterate, and detect languages across 22+ Indian languages with Mayura and Sarvam-Translate.](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/overview)[Document AITurn PDFs, scans, and handwritten documents into structured, searchable data with Sarvam Vision. Parse a whole document, or extract just the fields you define.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Document TranslationTranslate whole PDF, Word, spreadsheet, presentation, and web page files into 23 languages, layout preserved.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[DubbingLocalize video and audio into Indian languages with speaker voice cloning, tone control, and multi-format exports.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview)[Instant Voice CloningGenerate speech in a cloned voice from a short reference clip, in 12 Indian languages, with cross-lingual cloning.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)
+## Get started
 
-### Learn More
+[Quickstart (< 5 minutes)Get your API key and make your first request, with code for cURL, Python, and JavaScript.](https://docs.sarvam.ai/api/getting-started/quickstart)[SDKs & LibrariesOfficial Python and JavaScript clients, with async, retries, and streaming built in.](https://docs.sarvam.ai/api/getting-started/sdks)[Pricing, Credits & Rate LimitsRates for every model in Indian Rupees, how credits work, and the limits on each plan.](https://docs.sarvam.ai/api/getting-started/pricing)[API ReferenceREST and WebSocket specs for every endpoint, with request and response schemas.](https://docs.sarvam.ai/api-reference/introduction)
 
-[ModelsSpecialized models for Indian languages, from speech processing to text generation and translation.](https://docs.sarvam.ai/api/getting-started/models)[Sarvam AI CookbookStep-by-step tutorials and code examples, from basic usage to advanced implementations.](https://docs.sarvam.ai/api/cookbook)
+## Token Factory (Open-Weight)
 
-### Resources
+Open-weight LLMs on `https://api.sarvam.ai/v2`, compatible with the OpenAI SDK. Switch models by changing the `model` field.
 
-  * **[Authentication](https://docs.sarvam.ai/api-reference/authentication)** : Add your API subscription key, or a Bearer token, to every request header.
-  * **[SDKs& Libraries](https://docs.sarvam.ai/api/getting-started/sdks)**: Official Python and JavaScript clients, with async, retries, and streaming built in.
-  * **[Errors& Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting)**: Error codes, retry strategies, and fixes for the issues you’ll actually hit.
-  * **[Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits)** : Concurrency limits by plan tier, and how to handle 429s.
-  * **[Pricing](https://docs.sarvam.ai/api/getting-started/pricing)** : Rates for every API, in Indian Rupees.
-  * **[Changelog](https://docs.sarvam.ai/changelog)** : New features, model updates, and breaking changes.
-  * **[Talk to us](https://docs.sarvam.ai/api/getting-started/help)** : Reach the team by email for bugs, feature requests, and enterprise questions.
-  * **[Discord](https://discord.com/invite/5rAsykttcs)** : Early access to new releases, biweekly challenges, office hours with the team, and India’s AI builder community.
+Model| Model ID| Best for  
+---|---|---  
+[GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)| `glm5.3`| Coding and long-horizon agents  
+[GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)| `glm5.3-flash`| Fast reasoning with image input  
+[Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)| `gemma4`| Images and low-latency answers  
+  
+[DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017), [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro), [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3), [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash), and [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro) are in [beta](https://docs.sarvam.ai/api-reference/beta-apis) and are enabled per API key.
+
+[Token Factory overviewWhat Token Factory is, and the two-line switch from the OpenAI SDK.](https://docs.sarvam.ai/api/token-factory)[Compare modelsContext windows, modalities, reasoning, and feature support side by side.](https://docs.sarvam.ai/api/token-factory/models)[Chat CompletionsStreaming, tool calling, reasoning, and structured output.](https://docs.sarvam.ai/api/token-factory/chat-completions)[Responses APIStateless responses with reasoning, structured output, and tool calling.](https://docs.sarvam.ai/api/token-factory/responses-api)
+
+Moving from another provider? Follow the migration guide for [OpenRouter](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview), [Fireworks AI](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview), or [Together AI](https://docs.sarvam.ai/api/token-factory/migrations/from-together/overview).
+
+## Sarvam Models
+
+[Sarvam 105BSarvam’s flagship LLM for Indian-language reasoning, coding, and agents, on the Chat Completions API.](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)[Speech to TextTranscribe and translate audio in real time or in batch with Saaras, including code-mixed speech.](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)[Text to SpeechGenerate natural, expressive speech in Indian languages with Bulbul, streamed or in one request.](https://docs.sarvam.ai/api/api-guides-tutorials/text-to-speech/overview)[Text ProcessingTranslate, transliterate, and detect languages with Mayura and Sarvam-Translate.](https://docs.sarvam.ai/api/api-guides-tutorials/text-processing/overview)[Document IntelligenceTurn PDFs, scans, and handwritten documents into structured data with Sarvam Vision.](https://docs.sarvam.ai/api/api-guides-tutorials/document-intelligence/overview)[Document TranslationTranslate whole PDF, Word, spreadsheet, presentation, and web page files into 23 languages, layout preserved.](https://docs.sarvam.ai/api/api-guides-tutorials/doc-translation/overview)[DubbingLocalize video and audio into Indian languages, keeping each speaker’s voice.](https://docs.sarvam.ai/api/api-guides-tutorials/dubbing/overview)[Instant Voice CloningGenerate speech in a cloned voice from a short reference clip, in 12 Indian languages.](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/overview)[Self-Hosted DeploymentsRun Saaras, Bulbul, and Sarvam Vision in your own AWS account on Amazon SageMaker.](https://docs.sarvam.ai/api/self-hosted/introduction)
+
+## Combine them
+
+Both families use the same key, so a voice agent is three calls: **Saaras** hears the caller, an LLM decides what to say, and **Bulbul** says it.
+
+[Build a voice agent with LiveKitWire Saaras, Sarvam 105B, and Bulbul into a real-time voice pipeline.](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit)[Build a voice agent with PipecatThe same pipeline on Pipecat.](https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat)
+
+## Build with your tools
+
+  * **[Integrations](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit)** : LiveKit, Pipecat, Twilio, Exotel, Vobiz, Vapi, n8n, the Vercel AI SDK, and LangChain.
+  * **[Developer Tools](https://docs.sarvam.ai/api/developer-tools/mcp)** : the MCP server, Markdown and [llms.txt](https://docs.sarvam.ai/api/developer-tools/llms-txt), Context7, and Agent Skills for AI coding assistants.
+  * **[Cookbook](https://docs.sarvam.ai/api/cookbook)** : step-by-step notebooks, from first calls to full pipelines.
+  * **Migrations** : switch speech and Gemini workloads from [ElevenLabs](https://docs.sarvam.ai/api/migrations/from-elevenlabs/overview), [Cartesia](https://docs.sarvam.ai/api/migrations/from-cartesia/overview), [Deepgram](https://docs.sarvam.ai/api/migrations/from-deepgram/overview), or [Gemini](https://docs.sarvam.ai/api/migrations/from-gemini/overview).
+
+
+
+## Resources
+
+  * **[All Models](https://docs.sarvam.ai/api/getting-started/models)** : every model across both families, with language support and how to choose.
+  * **[Building for Indian Languages](https://docs.sarvam.ai/api/getting-started/building-for-india)** : language coverage, code-mixing, scripts, numerals, and telephony audio.
+  * **[Authentication](https://docs.sarvam.ai/api-reference/authentication)** : send your API subscription key, or a Bearer token, with every request.
+  * **[Errors& Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting)**: error codes, retry strategies, and fixes for common issues.
+  * **[Account& Billing](https://docs.sarvam.ai/api/platform/organisations-and-workspaces)**: organisations, workspaces, team invites, and payments.
+  * **[Changelog](https://docs.sarvam.ai/changelog)** : new features, model updates, and breaking changes.
+  * **[Talk to us](https://docs.sarvam.ai/api/getting-started/help)** : reach the team for bugs, feature requests, and enterprise questions.
+  * **[Discord](https://discord.com/invite/5rAsykttcs)** : early access to releases, office hours with the team, and India’s AI builder community.
 
 
 
@@ -61,26 +95,27 @@ Was this page helpful?
 
 YesNo
 
-[Developer QuickstartNext](https://docs.sarvam.ai/api/getting-started/quickstart)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Developer QuickstartNext](https://docs.sarvam.ai/api/getting-started/quickstart)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
     * [Welcome](https://docs.sarvam.ai/api/getting-started/welcome)
     * [Quickstart](https://docs.sarvam.ai/api/getting-started/quickstart)
     * [SDKs & Libraries](https://docs.sarvam.ai/api/getting-started/sdks)
-    * [Building for Indian Languages](https://docs.sarvam.ai/api/getting-started/building-for-india)
-    * [Models](https://docs.sarvam.ai/api/getting-started/models)
-
-    * [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits)
-    * [Commercial Licensing](https://docs.sarvam.ai/api/getting-started/commercial-licensing)
-    * [Errors & Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting)
+    * [Pricing, Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/pricing)
     * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
-    * [Pricing](https://docs.sarvam.ai/api/getting-started/pricing)
-    * Account & Billing
+  * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
+    * [Models](https://docs.sarvam.ai/api/token-factory/models)
 
-  * API Guides & Tutorials
+    * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
+    * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+    * How-to
 
-    * Large Language Models
+    * Migration Guides
+
+  * Sarvam Models
+
+    * Models
 
     * Speech to Text
 
@@ -96,6 +131,8 @@ YesNo
 
     * Instant Voice CloningBeta
 
+    * Self-Hosted Deployments
+
   *     * Integration
 
     * Developer Tools
@@ -106,13 +143,15 @@ YesNo
 
     * Example Voice Agents
 
-  * Self-Hosted Deployments
-
-    * Overview
-
-    * AWS SageMaker
-
   *     * Migrations
+
+  * Resources
+
+    * [Building for Indian Languages](https://docs.sarvam.ai/api/getting-started/building-for-india)
+    * [All Models](https://docs.sarvam.ai/api/getting-started/models)
+    * [Errors & Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting)
+    * [Commercial Licensing](https://docs.sarvam.ai/api/getting-started/commercial-licensing)
+    * Account & Billing
 
 
 
@@ -120,43 +159,46 @@ YesNo
   * [Welcome](https://docs.sarvam.ai/api/getting-started/welcome)
   * [Quickstart](https://docs.sarvam.ai/api/getting-started/quickstart)
   * [SDKs & Libraries](https://docs.sarvam.ai/api/getting-started/sdks)
-  * [Building for Indian Languages](https://docs.sarvam.ai/api/getting-started/building-for-india)
-  * [Models](https://docs.sarvam.ai/api/getting-started/models)
-  * [Saaras](https://docs.sarvam.ai/api/getting-started/models/saaras)
-  * [Bulbul](https://docs.sarvam.ai/api/getting-started/models/bulbul)
-  * [Sarvam 105B](https://docs.sarvam.ai/api/getting-started/models/sarvam-105b)
-  * [Open-Weight Models](https://docs.sarvam.ai/api/getting-started/models/openweight)
-  * [GLM-5.3](https://docs.sarvam.ai/api/getting-started/models/openweight/glm-5-3)
-  * [Gemma 4 31B](https://docs.sarvam.ai/api/getting-started/models/openweight/gemma-4-31b)
-  * [DeepSeek V4.1 Flash](https://docs.sarvam.ai/api/getting-started/models/openweight/deepseek-v4.1-flash)
-  * [Mayura](https://docs.sarvam.ai/api/getting-started/models/mayura)
-  * [Sarvam Translate](https://docs.sarvam.ai/api/getting-started/models/sarvam-translate)
-  * [Sarvam Vision](https://docs.sarvam.ai/api/getting-started/models/sarvam-vision)
+  * [Pricing, Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/pricing)
+  * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
+  * [Token Factory (Open-Weight)](https://docs.sarvam.ai/api/token-factory)
+  * [Models](https://docs.sarvam.ai/api/token-factory/models)
+  * [GLM-5.3](https://docs.sarvam.ai/api/token-factory/models/glm-5-3)
+  * [GLM-5.3 Flash](https://docs.sarvam.ai/api/token-factory/models/glm-5-3-flash)
+  * [Gemma 4 31B](https://docs.sarvam.ai/api/token-factory/models/gemma-4-31b)
+  * [DeepSeek V4.1 Flash 1017](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4.1-flash-1017)
+  * [DeepSeek V4 Pro](https://docs.sarvam.ai/api/token-factory/models/deepseek-v4-pro)
+  * [Kimi K3](https://docs.sarvam.ai/api/token-factory/models/kimi-k3)
+  * [MiMo V2.6 Flash](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-flash)
+  * [MiMo V2.6 Pro](https://docs.sarvam.ai/api/token-factory/models/mimo-v2.6-pro)
+  * [Chat Completions](https://docs.sarvam.ai/api/token-factory/chat-completions)
+  * [Responses API](https://docs.sarvam.ai/api/token-factory/responses-api)
+  * [List your chat messages](https://docs.sarvam.ai/api/token-factory/how-to/list-your-chat-messages)
+  * [Control response randomness](https://docs.sarvam.ai/api/token-factory/how-to/control-response-randomness)
+  * [Control response diversity](https://docs.sarvam.ai/api/token-factory/how-to/control-response-diversity)
+  * [Adjust the model's thinking level](https://docs.sarvam.ai/api/token-factory/how-to/adjust-the-models-thinking-level)
+  * [Encourage new topics in response](https://docs.sarvam.ai/api/token-factory/how-to/encourage-new-topics-in-response)
+  * [Reduce repetition words or phrases in response](https://docs.sarvam.ai/api/token-factory/how-to/reduce-repetition-words-or-phrases-in-response)
+  * [Get repeatable results](https://docs.sarvam.ai/api/token-factory/how-to/get-repeatable-results)
+  * [Control the response length](https://docs.sarvam.ai/api/token-factory/how-to/control-the-response-length)
+  * [Control where the model stops](https://docs.sarvam.ai/api/token-factory/how-to/control-where-the-model-stops)
+  * [Overview](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/overview)
+  * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/chat-completion)
+  * [Responses API](https://docs.sarvam.ai/api/token-factory/migrations/from-openrouter/responses-api)
+  * [Overview](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/overview)
+  * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/chat-completion)
+  * [Responses API](https://docs.sarvam.ai/api/token-factory/migrations/from-fireworks/responses-api)
+  * [Overview](https://docs.sarvam.ai/api/token-factory/migrations/from-together/overview)
+  * [Chat Completion](https://docs.sarvam.ai/api/token-factory/migrations/from-together/chat-completion)
+  * [Saaras](https://docs.sarvam.ai/api/api-guides-tutorials/models/saaras)
+  * [Bulbul](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul)
+  * [Sarvam 105B](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-105b)
+  * [Mayura](https://docs.sarvam.ai/api/api-guides-tutorials/models/mayura)
+  * [Sarvam Translate](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-translate)
+  * [Sarvam Vision](https://docs.sarvam.ai/api/api-guides-tutorials/models/sarvam-vision)
+  * [Saarika (Deprecated)](https://docs.sarvam.ai/api/getting-started/models/saarika)
   * [Sarvam 30B (Deprecated)](https://docs.sarvam.ai/api/getting-started/models/sarvam-30b)
   * [Sarvam M (Deprecated)](https://docs.sarvam.ai/api/getting-started/models/sarvam-m)
-  * [Saarika (Deprecated)](https://docs.sarvam.ai/api/getting-started/models/saarika)
-  * [Credits & Rate Limits](https://docs.sarvam.ai/api/getting-started/ratelimits)
-  * [Commercial Licensing](https://docs.sarvam.ai/api/getting-started/commercial-licensing)
-  * [Errors & Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting)
-  * [Talk to us](https://docs.sarvam.ai/api/getting-started/help)
-  * [Pricing](https://docs.sarvam.ai/api/getting-started/pricing)
-  * [Organisations & workspaces](https://docs.sarvam.ai/api/platform/organisations-and-workspaces)
-  * [Create an organisation](https://docs.sarvam.ai/api/platform/create-an-organisation)
-  * [Create a workspace](https://docs.sarvam.ai/api/platform/create-a-workspace)
-  * [Invite your team](https://docs.sarvam.ai/api/platform/invite-your-team)
-  * [Billing & payments](https://docs.sarvam.ai/api/platform/billing)
-  * [Platform FAQ](https://docs.sarvam.ai/api/platform/faq)
-  * [Chat Completion](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/overview)
-  * [Responses API](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/responses-api)
-  * [List your chat messages](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/how-to/list-your-chat-messages)
-  * [Control response randomness](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/how-to/control-response-randomness)
-  * [Control response diversity](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/how-to/control-response-diversity)
-  * [Adjust the model's thinking level](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/how-to/adjust-the-models-thinking-level)
-  * [Encourage new topics in response](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/how-to/encourage-new-topics-in-response)
-  * [Reduce repetition words or phrases in response](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/how-to/reduce-repetition-words-or-phrases-in-response)
-  * [Get repeatable results](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/how-to/get-repeatable-results)
-  * [Control the response length](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/how-to/control-the-response-length)
-  * [Control where the model stops](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/how-to/control-where-the-model-stops)
   * [Overview](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/overview)
   * [Which API to Use](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/which-api-to-use)
   * [Rest API](https://docs.sarvam.ai/api/api-guides-tutorials/speech-to-text/rest-api)
@@ -234,6 +276,22 @@ YesNo
   * [WebSocket Streaming](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/how-to/websocket-streaming)
   * [Supported Languages](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/supported-languages)
   * [FAQs](https://docs.sarvam.ai/api/api-guides-tutorials/voice-cloning/faq)
+  * [Introduction](https://docs.sarvam.ai/api/self-hosted/introduction)
+  * [Managed vs Self-Hosted](https://docs.sarvam.ai/api/self-hosted/hosted-vs-self-hosted)
+  * [How it works](https://docs.sarvam.ai/api/self-hosted/architecture)
+  * [Get started](https://docs.sarvam.ai/api/self-hosted/sagemaker/get-started)
+  * [Speech-to-Text (Saaras v3)](https://docs.sarvam.ai/api/self-hosted/sagemaker/deploy-saaras)
+  * [Sarvam Vision](https://docs.sarvam.ai/api/self-hosted/sagemaker/deploy-vision)
+  * [Text-to-Speech (Bulbul v3)](https://docs.sarvam.ai/api/self-hosted/sagemaker/deploy-bulbul)
+  * [Deploy with Terraform](https://docs.sarvam.ai/api/self-hosted/sagemaker/terraform)
+  * [Speech-to-Text](https://docs.sarvam.ai/api/self-hosted/sagemaker/api-saaras)
+  * [Sarvam Vision](https://docs.sarvam.ai/api/self-hosted/sagemaker/api-vision)
+  * [Text-to-Speech](https://docs.sarvam.ai/api/self-hosted/sagemaker/api-bulbul)
+  * [Error handling](https://docs.sarvam.ai/api/self-hosted/sagemaker/errors)
+  * [Configure & tune](https://docs.sarvam.ai/api/self-hosted/sagemaker/configure)
+  * [Operations](https://docs.sarvam.ai/api/self-hosted/sagemaker/operations)
+  * [Limitations](https://docs.sarvam.ai/api/self-hosted/sagemaker/limitations)
+  * [Troubleshooting](https://docs.sarvam.ai/api/self-hosted/sagemaker/troubleshooting)
   * [LiveKit](https://docs.sarvam.ai/api/integration/build-voice-agent-with-live-kit)
   * [Pipecat](https://docs.sarvam.ai/api/integration/build-voice-agent-with-pipecat)
   * [Twilio](https://docs.sarvam.ai/api/integration/build-voice-agent-with-twilio)
@@ -258,22 +316,6 @@ YesNo
   * [Government Scheme Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/government-scheme-agent)
   * [Tutor Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/tutor-agent)
   * [Loan Advisory Agent](https://docs.sarvam.ai/api/cookbook/example-voice-agents/loan-advisory-agent)
-  * [Introduction](https://docs.sarvam.ai/api/self-hosted/introduction)
-  * [Managed vs Self-Hosted](https://docs.sarvam.ai/api/self-hosted/hosted-vs-self-hosted)
-  * [How it works](https://docs.sarvam.ai/api/self-hosted/architecture)
-  * [Get started](https://docs.sarvam.ai/api/self-hosted/sagemaker/get-started)
-  * [Speech-to-Text (Saaras v3)](https://docs.sarvam.ai/api/self-hosted/sagemaker/deploy-saaras)
-  * [Sarvam Vision](https://docs.sarvam.ai/api/self-hosted/sagemaker/deploy-vision)
-  * [Text-to-Speech (Bulbul v3)](https://docs.sarvam.ai/api/self-hosted/sagemaker/deploy-bulbul)
-  * [Deploy with Terraform](https://docs.sarvam.ai/api/self-hosted/sagemaker/terraform)
-  * [Speech-to-Text](https://docs.sarvam.ai/api/self-hosted/sagemaker/api-saaras)
-  * [Sarvam Vision](https://docs.sarvam.ai/api/self-hosted/sagemaker/api-vision)
-  * [Text-to-Speech](https://docs.sarvam.ai/api/self-hosted/sagemaker/api-bulbul)
-  * [Error handling](https://docs.sarvam.ai/api/self-hosted/sagemaker/errors)
-  * [Configure & tune](https://docs.sarvam.ai/api/self-hosted/sagemaker/configure)
-  * [Operations](https://docs.sarvam.ai/api/self-hosted/sagemaker/operations)
-  * [Limitations](https://docs.sarvam.ai/api/self-hosted/sagemaker/limitations)
-  * [Troubleshooting](https://docs.sarvam.ai/api/self-hosted/sagemaker/troubleshooting)
   * [Overview](https://docs.sarvam.ai/api/migrations/from-elevenlabs/overview)
   * [Text to Speech](https://docs.sarvam.ai/api/migrations/from-elevenlabs/text-to-speech)
   * [Speech to Text](https://docs.sarvam.ai/api/migrations/from-elevenlabs/speech-to-text)
@@ -288,6 +330,16 @@ YesNo
   * [Chat Completion](https://docs.sarvam.ai/api/migrations/from-gemini/chat-completion)
   * [Text to Speech](https://docs.sarvam.ai/api/migrations/from-gemini/text-to-speech)
   * [Speech to Text](https://docs.sarvam.ai/api/migrations/from-gemini/speech-to-text)
+  * [Building for Indian Languages](https://docs.sarvam.ai/api/getting-started/building-for-india)
+  * [All Models](https://docs.sarvam.ai/api/getting-started/models)
+  * [Errors & Troubleshooting](https://docs.sarvam.ai/api/getting-started/errors-troubleshooting)
+  * [Commercial Licensing](https://docs.sarvam.ai/api/getting-started/commercial-licensing)
+  * [Organisations & workspaces](https://docs.sarvam.ai/api/platform/organisations-and-workspaces)
+  * [Create an organisation](https://docs.sarvam.ai/api/platform/create-an-organisation)
+  * [Create a workspace](https://docs.sarvam.ai/api/platform/create-a-workspace)
+  * [Invite your team](https://docs.sarvam.ai/api/platform/invite-your-team)
+  * [Billing & payments](https://docs.sarvam.ai/api/platform/billing)
+  * [Platform FAQ](https://docs.sarvam.ai/api/platform/faq)
 
 
 

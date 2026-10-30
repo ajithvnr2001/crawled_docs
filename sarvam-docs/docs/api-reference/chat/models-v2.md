@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/chat/models-v2/
 title: List Models V2 | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:33:47.497314+00:00
+fetched_at: 2026-10-30T06:37:32.156574+00:00
 ---
 
 # List Models V2 | Sarvam API Docs
@@ -13,7 +13,7 @@ Skip to navigation
 
 This page is for API Reference.
 
-[APIs](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)[Chat Completion](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
+[APIs](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)[Token Factory](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)[Chat Completion](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)
 
 # List Models V2
 
@@ -55,7 +55,7 @@ Try it
     
           "created": 0,
     
-          "owned_by": "open-source",
+          "owned_by": "sarvam",
     
           "object": "model"
     
@@ -67,7 +67,7 @@ Try it
     
           "created": 0,
     
-          "owned_by": "open-source",
+          "owned_by": "sarvam",
     
           "object": "model"
     
@@ -87,11 +87,71 @@ Try it
     
         {
     
-          "id": "deepseekv4.1-flash",
+          "id": "deepseekv4.1-flash-1017",
     
           "created": 0,
     
-          "owned_by": "open-source",
+          "owned_by": "sarvam",
+    
+          "object": "model"
+    
+        },
+    
+        {
+    
+          "id": "glm5.3-flash",
+    
+          "created": 0,
+    
+          "owned_by": "sarvam",
+    
+          "object": "model"
+    
+        },
+    
+        {
+    
+          "id": "deepseekv4-pro",
+    
+          "created": 0,
+    
+          "owned_by": "sarvam",
+    
+          "object": "model"
+    
+        },
+    
+        {
+    
+          "id": "kimi-k3",
+    
+          "created": 0,
+    
+          "owned_by": "sarvam",
+    
+          "object": "model"
+    
+        },
+    
+        {
+    
+          "id": "mimo-v2.6-flash",
+    
+          "created": 0,
+    
+          "owned_by": "sarvam",
+    
+          "object": "model"
+    
+        },
+    
+        {
+    
+          "id": "mimo-v2.6-pro",
+    
+          "created": 0,
+    
+          "owned_by": "sarvam",
     
           "object": "model"
     
@@ -151,13 +211,15 @@ YesNo
 
     * Text Processing
 
-    * Chat Completion
-      * [POSTChat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
-      * [POSTChat Completion V2](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)
-      * [GETGet Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
-      * [GETList Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
+    * Token Factory
+      * Chat Completion
+        * [POSTChat Completion V2](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)
+        * [GETGet Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
+        * [GETList Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
 
-    * Responses API
+      * Responses API
+
+    * Chat Completion (Legacy V1)
 
     * Content Studio - Dubbing
 
@@ -220,11 +282,11 @@ YesNo
   * [Text Translation](https://docs.sarvam.ai/api-reference/text/translate-text)
   * [Transliteration](https://docs.sarvam.ai/api-reference/text/transliterate-text)
   * [Language Detection](https://docs.sarvam.ai/api-reference/text/identify-language)
-  * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Chat Completion V2](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
+  * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)
   * [Live Status](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/live-status)

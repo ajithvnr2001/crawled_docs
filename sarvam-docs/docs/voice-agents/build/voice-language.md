@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/voice-agents/build/voice-language/
 title: Voice agent voices: Bulbul speakers, speed and pitch | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:57.064332+00:00
+fetched_at: 2026-10-30T06:37:38.304693+00:00
 ---
 
 # Voice agent voices: Bulbul speakers, speed and pitch | Sarvam API Docs
@@ -39,7 +39,7 @@ This page is for Voice Agents.
 
 Bulbul V3 end of life on November 10, 2026
 
-Bulbul V3 reaches end of life on Voice Agents on **November 10, 2026**. Switch your agents to **Bulbul V4** before then in the [Model](https://docs.sarvam.ai/voice-agents/build/voice-language#model) setting, and use the [V3 to V4 name mapping](https://docs.sarvam.ai/voice-agents/build/voice-language#voice-name-changes-from-v3-to-v4) to keep the voice you use today. Bulbul V3 stays available on the [Text-to-Speech API](https://docs.sarvam.ai/api/getting-started/models/bulbul).
+Bulbul V3 reaches end of life on Voice Agents on **November 10, 2026**. Switch your agents to **Bulbul V4** before then in the [Model](https://docs.sarvam.ai/voice-agents/build/voice-language#model) setting, and use the [V3 to V4 name mapping](https://docs.sarvam.ai/voice-agents/build/voice-language#voice-name-changes-from-v3-to-v4) to keep the voice you use today. Bulbul V3 stays available on the [Text-to-Speech API](https://docs.sarvam.ai/api/api-guides-tutorials/models/bulbul).
 
 Configure how the agent sounds. These controls live in the **Speaking** section of the agent’s [Settings](https://docs.sarvam.ai/voice-agents/build/conversation-settings).
 
@@ -55,7 +55,7 @@ Choose the text-to-speech model your agent speaks with: **Bulbul V3** or **Bulbu
 
 Voices are picked from a catalog rather than a flat dropdown. Filter the list to narrow it down, preview a voice with the play button, and use the gear for voice-specific configuration.
 
-![Voice catalog in agent Settings, showing filters and voice previews.](https://docs.sarvam.ai/_fern-img/94ffe56f49e4b838124e25d69ffa8483cd7ce9438d1ad841dd21c098b0429abe.webp)
+![Voice catalog in agent Settings, showing filters and voice previews.](https://docs.sarvam.ai/_fern-files/_img/94ffe56f49e4b838124e25d69ffa8483cd7ce9438d1ad841dd21c098b0429abe.webp)
 
 The voice catalog: filter voices, preview each one, and pick the model.
 
@@ -122,7 +122,7 @@ Per-language voices override the default **voice** above. If a call begins in a 
 
 **Volume** sets how loud the agent’s voice is, set with a slider (for example, `1.0`). It is available for Sarvam voices (Bulbul) and ranges from **0.7 to 2.0** , where `1.0` is the voice’s natural loudness. Above `1.0` makes the agent louder, below `1.0` quieter.
 
-![The Volume slider in agent Settings, set to 1.0, with the range running from 0.7 to 2.0.](https://docs.sarvam.ai/_fern-img/24dfdfa22bee2db3ffc578eeabe998a7c333129b6eee8e789fbe0f47aecdff40.webp)
+![The Volume slider in agent Settings, set to 1.0, with the range running from 0.7 to 2.0.](https://docs.sarvam.ai/_fern-files/_img/24dfdfa22bee2db3ffc578eeabe998a7c333129b6eee8e789fbe0f47aecdff40.webp)
 
 The Volume slider in agent Settings, showing the speaker volume at its natural level of 1.0.
 
@@ -187,7 +187,7 @@ Voice cloning is available to **enterprise** customers only (the rest of the voi
 
 Language behaviour is configured in [Conversation settings → Language personalisation](https://docs.sarvam.ai/voice-agents/build/conversation-settings#language-personalisation): the **starting language** , **switch language during call** (the agent follows the caller when they change language), the **languages allowed** , **auto-detected language switch** , and **output numbers in Indic**. The greeting can also produce [translations](https://docs.sarvam.ai/voice-agents/build/navigating-workspace#greeting) across those languages.
 
-![Agent Settings showing Language personalisation controls for starting language, switch during call, and languages allowed.](https://docs.sarvam.ai/_fern-img/c3c14581104b782bb215584eb908950370c9223826ff376dfad99ac77fb2453c.webp)
+![Agent Settings showing Language personalisation controls for starting language, switch during call, and languages allowed.](https://docs.sarvam.ai/_fern-files/_img/c3c14581104b782bb215584eb908950370c9223826ff376dfad99ac77fb2453c.webp)
 
 Language personalisation in Settings.
 
@@ -195,7 +195,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/voice-agents/build/agent/versioning)[Voice agent call settings: interruptions, nudges, limitsNext](https://docs.sarvam.ai/voice-agents/build/conversation-settings)[Built with](https://buildwithfern.com/?utm_campaign=buildWith&utm_medium=docs&utm_source=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/voice-agents/build/agent/versioning)[Voice agent call settings: interruptions, nudges, limitsNext](https://docs.sarvam.ai/voice-agents/build/conversation-settings)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * Getting Started
 
@@ -381,6 +381,7 @@ YesNo
   * [List webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/list)
   * [Retry webhook deliveries](https://docs.sarvam.ai/voice-agents/api/campaigns/webhooks/retry)
   * [Upload cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/upload)
+  * [Exclude cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/exclude-cohort)
   * [Stream cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/stream)
   * [List cohorts](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/list)
   * [Get cohort](https://docs.sarvam.ai/voice-agents/api/campaigns/cohorts/get)

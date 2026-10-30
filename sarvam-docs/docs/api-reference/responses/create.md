@@ -2,7 +2,7 @@
 url: https://docs.sarvam.ai/api-reference/responses/create/
 title: Create Response | Sarvam API Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:33:40.763712+00:00
+fetched_at: 2026-10-30T06:37:24.597811+00:00
 ---
 
 # Create Response | Sarvam API Docs
@@ -13,7 +13,7 @@ Skip to navigation
 
 This page is for API Reference.
 
-[APIs](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)[Responses API](https://docs.sarvam.ai/api-reference/responses/create)
+[APIs](https://docs.sarvam.ai/api-reference/speech-to-text/transcribe)[Token Factory](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)[Responses API](https://docs.sarvam.ai/api-reference/responses/create)
 
 # Create Response
 
@@ -54,13 +54,13 @@ Try it
 
 Generate a model reply in the OpenAI Responses format.
 
-**Models:** `sarvam-105b`, `glm5.3`, `gemma4`, and `deepseekv4.1-flash` (ids are case-sensitive).
+**Models:** `sarvam-105b`, `glm5.3`, `gemma4`, `deepseekv4.1-flash-1017`, `glm5.3-flash`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, `mimo-v2.6-pro` (ids are case-sensitive).
 
 **Each call is independent.** Send the full conversation in `input` every time — nothing is stored for you. Leave out `store` or set it to `false` (`true` returns **`400`**). You cannot load a past response by id (`GET /v2/responses/{id}` is always **`404`**).
 
 **Streaming is optional.** Default is a single JSON body (`stream` omitted or `false`). Set `stream: true` only if you want server-sent events.
 
-**Reasoning (`glm5.3`, `deepseekv4.1-flash`):** both support `low`, `high`, and `max`. On `glm5.3`, `reasoning.effort` only accepts **`low`** or **`high`** — omit `reasoning` / `effort` for **`max`** -level reasoning, since sending the literal string **`"max"`** returns **`400`**. On `deepseekv4.1-flash`, all three values including `max` work directly. On `glm5.3`, read the trace from the reasoning item’s `summary[0].text`. Reasoning tokens count toward `max_output_tokens`, which has no default cap — omitting it means unbounded generation.
+**Reasoning (`glm5.3`, `deepseekv4.1-flash-1017`):** both support `low`, `high`, and `max`. On `glm5.3`, `reasoning.effort` only accepts **`low`** or **`high`** — omit `reasoning` / `effort` for **`max`** -level reasoning, since sending the literal string **`"max"`** returns **`400`**. On `deepseekv4.1-flash-1017`, all three values including `max` work directly. Read the trace from the reasoning item’s `content[0].text`; `summary` is filled only when `reasoning.summary` is set. Reasoning tokens count toward `max_output_tokens`, which has no default cap — omitting it means unbounded generation.
 
 Other fields are documented below. See the [Responses API guide](https://docs.sarvam.ai/api/api-guides-tutorials/chat-completion/responses-api).
 
@@ -86,12 +86,17 @@ Model IDs accepted by `POST /v2/responses` (case-sensitive; unknown ids return `
 
   * **`sarvam-105b`** — Sarvam flagship model.
   * **`glm5.3`** — 1,048,576-token context; reasoning in `output` as a `reasoning` item; flat function tools; max request size 10,485,760 bytes.
-  * **`gemma4`** — vision (inline base64 images) and tools.
-  * **`deepseekv4.1-flash`** — long context, tools, and reasoning.
+  * **`glm5.3-flash`** — long context, vision (inline base64 images), tools, and reasoning; `reasoning.effort` accepts `low` or `high` only, as on `glm5.3`.
+  * **`gemma4`** — 262,144-token context, vision (inline base64 images), tools, and optional reasoning (`reasoning.effort` `low` or `high`).
+  * **`deepseekv4.1-flash-1017`** (beta) — long context, tools, and reasoning.
+  * **`deepseekv4-pro`** (beta) — long context, text input, tools, and reasoning (default `high`).
+  * **`kimi-k3`** (beta) — long context, image input (inline base64; no video on this route), tools, and reasoning (always on).
+  * **`mimo-v2.6-flash`** (beta) — long context, image and audio input (inline base64; no video on this route), tools, and reasoning (on by default).
+  * **`mimo-v2.6-pro`** (beta) — same contract as `mimo-v2.6-flash`.
 
 
 
-Allowed values:sarvam-105bglm5.3gemma4deepseekv4.1-flash
+Show 9 enum values
 
 inputstring or list of objectsRequired
 
@@ -129,7 +134,7 @@ Show 2 variants
 
 reasoningobject or nullOptional
 
-Optional reasoning config for `glm5.3` and `deepseekv4.1-flash`. On `glm5.3`, a reasoning item is always in `output` — read `summary[0].text`. **`effort`:** on `glm5.3`, `low` or `high` only — omit for `max`-level reasoning (the literal string `max` returns `400`); on `deepseekv4.1-flash`, `low`, `high`, or `max` all work directly. Optional **`summary`:** `auto` or `detailed`.
+Optional reasoning config for `glm5.3`, `glm5.3-flash`, `gemma4`, `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, `mimo-v2.6-pro`. **`effort`:** on `glm5.3` and `glm5.3-flash`, `low` or `high` only (the literal string `max` returns `400`; omitting it gives `max` on `glm5.3` and `high` on `glm5.3-flash`); on `deepseekv4.1-flash-1017`, `deepseekv4-pro`, `kimi-k3`, `mimo-v2.6-flash`, and `mimo-v2.6-pro`, `low`, `high`, or `max` all work directly. The trace is in the reasoning item’s `content[0].text`; `summary` is filled only when `summary` is set. Optional **`summary`:** `auto` or `detailed`.
 
 Show 2 properties
 
@@ -147,7 +152,7 @@ Nucleus sampling. Default **`0.95`** on `glm5.3` when omitted. Must be greater t
 
 top_kinteger or nullOptional
 
-Top-k sampling on `glm5.3`. Omit or use **`-1`** to disable; values **`≥ 1`** enable top-k. **`0`** is rejected.
+Not supported on the Responses route for `glm5.3`; any value returns **`400`**.
 
 frequency_penaltydouble or nullOptional`-2-2`
 
@@ -159,13 +164,13 @@ Optional. Range `-2` to `2`. May be accepted and echoed on Responses without cha
 
 textobject or nullOptional
 
-Output format. If you send `text`, `format` is required (`400` when missing). `json_object` and strict `json_schema` are honoured on `glm5.3` and skip the reasoning item.
+Output format, set in `format` (`text`, `json_object`, or `json_schema`).
 
 Show 1 property
 
 parallel_tool_callsboolean or nullOptional
 
-Not currently enforced on this route for any model that supports tool calling here (`glm5.3`, `gemma4`, `deepseekv4.1-flash`). Setting **`false`** is accepted without error, but the model may still return multiple tool calls in one turn.
+**`false`** limits a turn to a single tool call on every open-weight model. `sarvam-105b` ignores it on this route.
 
 ninteger or nullOptional
 
@@ -387,7 +392,7 @@ Was this page helpful?
 
 YesNo
 
-[Previous](https://docs.sarvam.ai/api-reference/chat/models-v2)[Create Dubbing JobNext](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
+[Previous](https://docs.sarvam.ai/api-reference/chat/models-v2)[Chat Completion V1Next](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)[Built with](https://buildwithfern.com/?utm_source=others&utm_medium=organic&utm_campaign=fern_indocs_url&utm_content=book_demo&utm_term=docs.sarvam.ai)
 
   * API Reference
 
@@ -407,10 +412,13 @@ YesNo
 
     * Text Processing
 
-    * Chat Completion
+    * Token Factory
+      * Chat Completion
 
-    * Responses API
-      * [POSTCreate Response](https://docs.sarvam.ai/api-reference/responses/create)
+      * Responses API
+        * [POSTCreate Response](https://docs.sarvam.ai/api-reference/responses/create)
+
+    * Chat Completion (Legacy V1)
 
     * Content Studio - Dubbing
 
@@ -473,11 +481,11 @@ YesNo
   * [Text Translation](https://docs.sarvam.ai/api-reference/text/translate-text)
   * [Transliteration](https://docs.sarvam.ai/api-reference/text/transliterate-text)
   * [Language Detection](https://docs.sarvam.ai/api-reference/text/identify-language)
-  * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Chat Completion V2](https://docs.sarvam.ai/api-reference/chat/chat-completions-v2)
   * [Get Model V2](https://docs.sarvam.ai/api-reference/chat/model-v2)
   * [List Models V2](https://docs.sarvam.ai/api-reference/chat/models-v2)
   * [Create Response](https://docs.sarvam.ai/api-reference/responses/create)
+  * [Chat Completion V1](https://docs.sarvam.ai/api-reference/chat/chat-completions-v1)
   * [Create Dubbing Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/create-dub)
   * [Start Job](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/start-dub)
   * [Live Status](https://docs.sarvam.ai/api-reference/creative-agents-dubbing/live-status)
