@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/setup/replace-vpn/device-to-device/
 title: Device to device \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:17.042515+00:00
+fetched_at: 2026-10-30T08:19:29.620955+00:00
 ---
 
 # Device to device · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-13T08:48:17.042515+00:00
 
 # Device to device
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksPrerequisitesStep 1: Enroll your first deviceStep 2: Enroll your second deviceStep 3: Verify your connectionRecommended next stepsTroubleshoot
 
@@ -38,7 +38,7 @@ Devices use their Mesh IPs to communicate with each other through Cloudflare's n
 
 Only devices enrolled in your Cloudflare account can reach these addresses, so they are not accessible to anyone outside your organization. No tunnel infrastructure or network configuration is required, and the connection does not disrupt existing traffic on your network.
 
-For more details, refer to [Connect client devices](https://developers.cloudflare.com/mesh/guides/connect-client-devices/).
+For more details, refer to [Connect two devices](https://developers.cloudflare.com/mesh/guides/connect-client-devices/).
 
 ## Prerequisites
 
@@ -106,7 +106,7 @@ For in-depth guidance on policy design and device posture checks, refer to the [
 
 If you have issues connecting, try these steps:
 
-  * **Windows users** : Windows Firewall blocks device-to-device traffic by default. You may need to add a firewall rule that allows incoming traffic from `100.96.0.0/12`. For details, refer to [Connect client devices](https://developers.cloudflare.com/mesh/guides/connect-client-devices/).
+  * **Windows users** : Windows Firewall blocks device-to-device traffic by default. You may need to add a firewall rule that allows incoming traffic from `100.96.0.0/12`. For details, refer to [Connect two devices](https://developers.cloudflare.com/mesh/guides/connect-client-devices/).
   * [Troubleshoot the Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/): resolve connection and enrollment issues.
 
 

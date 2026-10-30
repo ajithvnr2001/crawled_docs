@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/registrar/troubleshooting/
 title: Troubleshoot failed domain transfers \u00b7 Cloudflare Registrar docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:44.572810+00:00
+fetched_at: 2026-10-30T08:19:26.328656+00:00
 ---
 
 # Troubleshoot failed domain transfers · Cloudflare Registrar docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:14:44.572810+00:00
 
 # Troubleshoot failed domain transfers
 
-Last updated Apr 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/registrar/troubleshooting/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDomain is still lockedDNSSEC is still activeAuthorization code is invalid or expiredCannot find where to enter your authorization codeTransfer rejectedTransfer rejected due to registration limitsDomain was recently registered or transferredDomain is in a restricted statusWHOIS privacy is blocking the transferPayment failed during transferTransfer is taking too longDomain not available for transferCannot update nameservers at your current registrarEmail verification required.uk transfer uses an IPS tag, not an auth codeRestart your transfer
 
@@ -136,7 +136,7 @@ Your domain may not appear on the [Transfer Domains ↗︎](https://dash.cloudfl
 
 ## Cannot update nameservers at your current registrar
 
-Some commerce and site-building platforms (such as Shopify, Block, and Wix) do not allow you to change nameservers while the domain is registered with them. Because Cloudflare requires your nameservers to point to Cloudflare before a transfer can begin, a direct transfer from these platforms is not possible. For the recommended workaround, refer to [Transfer from Shopify, Block, or Wix](https://developers.cloudflare.com/registrar/get-started/transfer-domain-to-cloudflare/#transfer-from-shopify-block-or-wix).
+Some commerce and site-building platforms (such as Shopify and Block) do not allow you to change nameservers while the domain is registered with them. Because Cloudflare requires your nameservers to point to Cloudflare before a transfer can begin, a direct transfer from these platforms is not possible. For the recommended workaround, refer to [Transfer from Shopify or Block](https://developers.cloudflare.com/registrar/get-started/transfer-domain-to-cloudflare/#transfer-from-shopify-or-block).
 
 ## Email verification required
 

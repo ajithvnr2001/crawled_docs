@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/examples/voice-agent/
 title: Voice agent \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:02.298129+00:00
+fetched_at: 2026-10-30T08:19:22.051415+00:00
 ---
 
 # Voice agent · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:04:02.298129+00:00
 
 # Voice agent
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create the project2\. Configure wrangler3\. Build the server4\. Build the client5\. Run itAdding pipeline hooksUsing third-party providersNext steps
 
@@ -42,12 +42,12 @@ By the end of this guide you will have:
 
 ## 1\. Create the project
 
-Scaffold a new Workers project with Vite and React, then add the voice dependencies:
+Scaffold a new Workers project with Vite and React, then update `agents` to a version that includes `agents/voice`:
     
     
     npm create cloudflare@latest voice-agent -- --template cloudflare/agents-starter
     cd voice-agent
-    npm install @cloudflare/voice
+    npm install agents@latest
 
 The starter gives you a working Vite + React + Cloudflare Workers setup. You will replace the server and client code in the following steps.
 
@@ -59,7 +59,7 @@ Update `wrangler.jsonc` to include a Workers AI binding and a Durable Object for
     {
     	"name": "voice-agent",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-27",
+    	"compatibility_date": "2026-10-30",
     	"compatibility_flags": ["nodejs_compat"],
     	"main": "src/server.ts",
     	"upload_source_maps": true,
@@ -85,7 +85,7 @@ Update `wrangler.jsonc` to include a Workers AI binding and a Durable Object for
     
     name = "voice-agent"
     # Set this to today's date
-    compatibility_date = "2026-10-27"
+    compatibility_date = "2026-10-30"
     compatibility_flags = [ "nodejs_compat" ]
     main = "src/server.ts"
     upload_source_maps = true
@@ -107,7 +107,7 @@ Replace `src/server.ts` with the following. The `withVoice` mixin adds the full 
     
     
     import { Agent, routeAgentRequest } from "agents";
-    import { withVoice, WorkersAIFluxSTT, WorkersAITTS } from "@cloudflare/voice";
+    import { withVoice, WorkersAIFluxSTT, WorkersAITTS } from "agents/voice";
     import { streamText, tool, stepCountIs } from "ai";
     import { createAI } from "agents/models/ai-sdk";
     import { z } from "zod";
@@ -172,7 +172,7 @@ Replace `src/server.ts` with the following. The `withVoice` mixin adds the full 
     	WorkersAIFluxSTT,
     	WorkersAITTS,
     	type VoiceTurnContext,
-    } from "@cloudflare/voice";
+    } from "agents/voice";
     import { streamText, tool, stepCountIs } from "ai";
     import { createAI } from "agents/models/ai-sdk";
     import { z } from "zod";
@@ -246,7 +246,7 @@ Key points:
 Replace `src/client.tsx` with a React component using the `useVoiceAgent` hook. The hook manages the WebSocket connection, mic capture, audio playback, and interrupt detection.
     
     
-    import { useVoiceAgent } from "@cloudflare/voice/react";
+    import { useVoiceAgent } from "agents/voice/react";
     
     function App() {
     	const {
@@ -402,7 +402,7 @@ Full reference for withVoice, withVoiceInput, React hooks, VoiceClient, and all 
 
 Build text-based AI chat with AIChatAgent and useAgentChat.
 
-### [Using AI models](https://developers.cloudflare.com/agents/agent-class/using-ai-models/)
+### [Models](https://developers.cloudflare.com/agents/models/)
 
 Use Workers AI, OpenAI, Anthropic, Gemini, or any provider with your agents.
 

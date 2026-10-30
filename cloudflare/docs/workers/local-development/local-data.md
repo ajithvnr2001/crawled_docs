@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/local-data/
 title: Adding local data \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:33.777578+00:00
+fetched_at: 2026-10-30T08:19:30.187491+00:00
 ---
 
 # Adding local data · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:17:33.777578+00:00
 
 # Adding local data
 
-Last updated Jun 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/local-development/local-data/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview How it worksPopulating local resources with data KV namespaces R2 buckets D1 databases Durable ObjectsWhere local data gets stored Clearing local storage Changing the local data directory
+Overview How it worksPopulating local resources with data KV namespaces R2 buckets D1 databases Flagship apps Durable ObjectsWhere local data gets stored Clearing local storage Changing the local data directory
 
 Whether you are using Wrangler or the [Cloudflare Vite plugin ↗︎](https://developers.cloudflare.com/workers/vite-plugin/), your workflow for **accessing** data during local development remains the same. However, you can only [populate local resources with data](https://developers.cloudflare.com/workers/local-development/local-data/#populating-local-resources-with-data) via the Wrangler CLI.
 
@@ -108,6 +108,36 @@ npmyarnpnpm
     
     
     pnpm wrangler d1 execute <DATABASE_NAME> --file=./schema.sql --local
+
+### Flagship apps
+
+#### [Copy flags from a remote app](https://developers.cloudflare.com/flagship/configuration/#local-development)
+
+npmyarnpnpm
+    
+    
+    npx wrangler flagship flags pull <APP_ID>
+    
+    
+    yarn wrangler flagship flags pull <APP_ID>
+    
+    
+    pnpm wrangler flagship flags pull <APP_ID>
+
+#### [Create a flag in the local store](https://developers.cloudflare.com/flagship/reference/wrangler-commands/#local-flag-store)
+
+npmyarnpnpm
+    
+    
+    npx wrangler flagship flags create <APP_ID> new-checkout --local
+    
+    
+    yarn wrangler flagship flags create <APP_ID> new-checkout --local
+    
+    
+    pnpm wrangler flagship flags create <APP_ID> new-checkout --local
+
+To manage the local store with the `cf` CLI instead, refer to [Flagship local development](https://developers.cloudflare.com/flagship/configuration/#use-the-cf-cli).
 
 ### Durable Objects
 

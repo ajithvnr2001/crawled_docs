@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/guides/run-mesh-on-linux/
 title: Run Cloudflare Mesh on Linux \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:50:28.530195+00:00
+fetched_at: 2026-10-30T08:19:29.788587+00:00
 ---
 
 # Run Cloudflare Mesh on Linux · Cloudflare One docs
@@ -22,7 +22,7 @@ NetworksConnectors[Cloudflare Mesh](https://developers.cloudflare.com/cloudflare
 
 # Run Mesh on Linux
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSupported distributionsPrerequisites1\. Install the client Debian and Ubuntu RHEL2\. Register and connect the node3\. Verify the nodeTurn on IP forwarding for routesManage the node Check status and reconnect Update the client View logs Remove the nodeTroubleshooting The node shows as Offline The node registers as a regular client device Routed subnets are not reachable Package install fails on RHELNext steps
 
@@ -46,7 +46,7 @@ Mesh nodes support the following Linux distributions and hardware:
   
 ## Footnotes
 
-  1. On RHEL 9 and later, enable the [Extra Packages for Enterprise Linux (EPEL) ↗︎](https://docs.fedoraproject.org/en-US/epel/) repository (`sudo dnf install epel-release`) before installing `cloudflare-warp`. EPEL provides dependencies required by the client UI. ↩
+  1. On RHEL 9 and later, enable the [Extra Packages for Enterprise Linux (EPEL) ↗︎](https://docs.fedoraproject.org/en-US/epel/) repository before installing `cloudflare-warp`. EPEL provides dependencies required by the client UI. For the RHEL commands, refer to [Getting started with EPEL ↗︎](https://docs.fedoraproject.org/en-US/epel/getting-started/). ↩
 
   2. Minimum 1281 bytes with [Path MTU Discovery](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/mdm-deployment/path-mtu-discovery/) ↩
 
@@ -68,7 +68,7 @@ Before you install the client, create a Mesh node and get its token.
 
   4. Select **Create node**.
 
-  5. Select **Linux**. The dashboard displays the install and registration commands for the node. The registration command includes the node token.
+  5. Select **Debian / Ubuntu** or **RHEL**. The dashboard displays the install and registration commands for the node. The registration command includes the node token.
 
 
 
@@ -144,21 +144,29 @@ The `$VERSION_CODENAME` variable resolves to your release codename (for example,
 
 ### RHEL
 
-  1. Enable the [Extra Packages for Enterprise Linux (EPEL) ↗︎](https://docs.fedoraproject.org/en-US/epel/) repository:
-         
-         sudo dnf install -y epel-release
+  1. Enable the [Extra Packages for Enterprise Linux (EPEL) ↗︎](https://docs.fedoraproject.org/en-US/epel/) repository. EPEL provides dependencies that the Cloudflare One Client needs on RHEL 9 and later. EPEL packages can depend on the CodeReady Builder (CRB) repository, so turn on CRB first.
 
-EPEL provides dependencies that the Cloudflare One Client needs on RHEL 9 and later.
+The `epel-release` package is not in the default RHEL repositories. Turn on CodeReady Builder, then install the EPEL release package for your RHEL version:
+         
+         sudo subscription-manager repos --enable codeready-builder-for-rhel-$(rpm -E %rhel)-$(arch)-rpms &&
+         sudo dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E %rhel).noarch.rpm
+
+The `subscription-manager` command requires a host registered with Red Hat Subscription Management. On pay-as-you-go cloud images that use Red Hat Update Infrastructure (RHUI), the CodeReady Builder repository has a different name. Refer to your cloud provider's documentation to turn it on, then run the `dnf install` command.
+
+On RHEL-compatible distributions, such as Rocky Linux and AlmaLinux, `epel-release` is in the default repositories. Turn on CRB, then install it:
+         
+         sudo dnf config-manager --set-enabled crb &&
+         sudo dnf install -y epel-release
 
   2. Add the Cloudflare repository:
          
          curl -fsSL https://pkg.cloudflareclient.com/cloudflare-warp-ascii.repo | sudo tee /etc/yum.repos.d/cloudflare-warp.repo
 
-The repository file points `yum` to the package build for your RHEL version and to the Cloudflare signing key.
+The repository file points `dnf` to the package build for your RHEL version and to the Cloudflare signing key.
 
   3. Install the package:
          
-         sudo yum install -y cloudflare-warp
+         sudo dnf install -y cloudflare-warp
 
 
 
@@ -166,6 +174,8 @@ The repository file points `yum` to the package build for your RHEL version and 
 Note
 
 Install from the repository instead of downloading the standalone `.rpm` file. The repository resolves dependencies such as `nss-tools`, which RHEL does not install by default.
+
+Rocky Linux and AlmaLinux are not in Supported distributions. Cloudflare does not test Mesh nodes on them.
 
 ## 2\. Register and connect the node
 
@@ -244,7 +254,7 @@ Updating the client briefly disconnects the node. If you run [high availability]
     sudo apt-get update && sudo apt-get install --only-upgrade -y cloudflare-warp
     
     
-    sudo yum update -y cloudflare-warp
+    sudo dnf upgrade -y cloudflare-warp
 
 After the update, run `warp-cli status` to confirm the node reconnected.
 
@@ -267,7 +277,7 @@ To collect a full diagnostic bundle for Cloudflare support, run `warp-diag`. For
          
          sudo apt-get remove -y cloudflare-warp
          
-         sudo yum remove -y cloudflare-warp
+         sudo dnf remove -y cloudflare-warp
 
   3. (Optional) If you turned on IP forwarding for this node, remove the setting:
          
@@ -305,7 +315,7 @@ Both values must be `1`. Then confirm that the destination network can route ret
 
 ### Package install fails on RHEL
 
-Run `yum repolist` and confirm that EPEL is enabled. For more information, refer to the [EPEL getting started guide ↗︎](https://docs.fedoraproject.org/en-US/epel/getting-started/).
+Run `dnf repolist` and confirm that EPEL and CodeReady Builder (`crb` on Rocky Linux and AlmaLinux) are enabled. For more information, refer to the [EPEL getting started guide ↗︎](https://docs.fedoraproject.org/en-US/epel/getting-started/).
 
 For general client issues, refer to [Troubleshoot the Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/troubleshooting/).
 
@@ -317,7 +327,7 @@ For general client issues, refer to [Troubleshoot the Cloudflare One Client](htt
 
 
 
-[PreviousConnect client devices](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/guides/connect-client-devices/)[NextRun Mesh in Docker / Kubernetes](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/guides/run-mesh-in-containers/)
+[PreviousConnect two sites](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/guides/connect-sites/)[NextRun Mesh in Docker / Kubernetes](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/guides/run-mesh-in-containers/)
 
 Was this helpful?
 

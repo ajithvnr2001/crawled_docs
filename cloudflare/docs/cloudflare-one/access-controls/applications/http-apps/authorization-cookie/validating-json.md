@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/
 title: Validate JWTs \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:12.161945+00:00
+fetched_at: 2026-10-30T08:19:28.460273+00:00
 ---
 
 # Validate JWTs · Cloudflare One docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:12.161945+00:00
 
 # Validate JWTs
 
-Last updated May 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccess signing keysVerify the JWT manuallyProgrammatic verification Get your AUD tag Cloudflare Workers example Golang example Python example JavaScript (Node.js) example
 
@@ -130,9 +130,9 @@ You can now paste the AUD tag into your token validation script. The AUD tag wil
 
 ### Cloudflare Workers example
 
-When Cloudflare Access is in front of your [Worker](https://developers.cloudflare.com/workers), your Worker still needs to validate the JWT that Cloudflare Access adds to the `Cf-Access-Jwt-Assertion` header on the incoming request.
+When Cloudflare Access is in front of your [Worker](https://developers.cloudflare.com/workers/), use [`ctx.access`](https://developers.cloudflare.com/workers/configuration/cloudflare-access/#read-authenticated-user-identity-with-ctxaccess) to confirm that Access authenticated the request. You can also use it to read the signed-in user's identity. You do not need to parse or validate the JWT. Before using this option, review the [`ctx.access` limitations](https://developers.cloudflare.com/workers/configuration/cloudflare-access/#ctxaccess-limitations) for Static Assets and Service Bindings.
 
-The following code will validate the JWT using the [jose NPM package ↗︎](https://www.npmjs.com/package/jose):
+If you need to validate the JWT manually, read it from the `Cf-Access-Jwt-Assertion` header. The following code validates the token using the [jose npm package ↗︎](https://www.npmjs.com/package/jose):
     
     
     import { jwtVerify, createRemoteJWKSet } from "jose";

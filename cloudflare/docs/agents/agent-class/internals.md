@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/agent-class/internals/
 title: Agent class internals \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:48.825373+00:00
+fetched_at: 2026-10-30T08:19:25.553153+00:00
 ---
 
 # Agent class internals · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:03:48.825373+00:00
 
 # Agent class internals
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat is the Agent?Layer 0: Durable Object constructor RPC fetch() WebSockets alarm() this.ctx this.ctx.storage this.ctx.envLayer 1: Server (partyserver) Addressing onStart onRequest and onConnect WebSockets this.nameLayer 2: Agent this.state and this.setState() this.sql RPC and Callable Methods this.queue and friends this.schedule and friends this.mcp and friends Email Handling Context Management this.onError this.destroy static options this.keepAlive() and this.keepAliveWhile() RoutingLayer 3: AIChatAgent
 
@@ -217,7 +217,7 @@ There's also `this.onStateChanged` that you can override to react to state chang
     	}
     }
 
-State is stored in the `cf_agents_state` SQL table. State messages are sent with `type: "cf_agent_state"` (both from the client and the server). Since `agents` provides [JS and React clients](https://developers.cloudflare.com/agents/agent-class/state/#synchronizing-state), real-time state updates are available out of the box.
+State is stored in the `cf_agents_state` SQL table. State messages are sent with `type: "cf_agent_state"` (both from the client and the server). Since `agents` provides [JS and React clients](https://developers.cloudflare.com/agents/agent-class/state/#sync-with-clients), real-time state updates are available out of the box.
 
 ### `this.sql`
 

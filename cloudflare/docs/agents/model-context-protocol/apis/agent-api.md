@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/apis/agent-api/
 title: McpAgent (deprecated) \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:55.235839+00:00
+fetched_at: 2026-10-30T08:19:24.100649+00:00
 ---
 
 # McpAgent (deprecated) · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:03:55.235839+00:00
 
 # McpAgent (deprecated)
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAPI overviewDeploying with McpAgent.serve() With OAuth authenticationData jurisdictionHibernation supportStream resumabilityRPC transport Configure bindings Read props from the caller Configure the RPC transport timeoutAuthentication and authorizationState synchronization APIsElicitation on legacy servers Form mode URL mode Handle responsesNext steps
 
@@ -467,9 +467,9 @@ For a stateless server, read the same props with `getMcpAuthContext()`. Refer to
 The `McpAgent` class provides full access to the [Agent state APIs](https://developers.cloudflare.com/agents/agent-class/state/):
 
   * [`state`](https://developers.cloudflare.com/agents/agent-class/state/) — Current persisted state
-  * [`initialState`](https://developers.cloudflare.com/agents/agent-class/state/#set-the-initial-state-for-an-agent) — Default state when instance starts
+  * [`initialState`](https://developers.cloudflare.com/agents/agent-class/state/#initial-state) — Default state when instance starts
   * [`setState`](https://developers.cloudflare.com/agents/agent-class/state/) — Update and persist state
-  * [`onStateChanged`](https://developers.cloudflare.com/agents/agent-class/state/#synchronizing-state) — React to state changes
+  * [`onStateChanged`](https://developers.cloudflare.com/agents/agent-class/state/#sync-with-clients) — React to state changes
   * [`sql`](https://developers.cloudflare.com/agents/agent-class/#sql-api) — Execute SQL queries on embedded database
 
 

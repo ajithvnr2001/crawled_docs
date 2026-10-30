@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/agent-class/communication-channels/voice/
 title: Voice \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:49.640748+00:00
+fetched_at: 2026-10-30T08:19:22.517627+00:00
 ---
 
 # Voice · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:03:49.640748+00:00
 
 # Voice
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewQuick start Install Server Client (React) Wrangler configurationHow it worksServer API: withVoice Providers onTurn(transcript, context) Lifecycle hooks Pipeline hooks Convenience methods Configuration optionsServer API: withVoiceInput onTranscript(text, connection) HooksClient API: React hooks useVoiceAgent useVoiceInputClient API: VoiceClient Events Advanced optionsProviders Built-in (Workers AI) Third-party providersTelephony Server-side adapters (Twilio and Plivo) Browser WebRTC bridge (Telnyx) PCM output for telephony Complete examplesText messagesCustom messagesSingle-speaker enforcementPipeline metricsConversation history
 
@@ -30,16 +30,29 @@ Build real-time voice agents with speech-to-text, text-to-speech, and conversati
 
 ## Overview
 
-`@cloudflare/voice` provides two server-side mixins and matching client libraries:
+`agents/voice` provides two server-side mixins and matching client libraries:
 
 Export | Import | Purpose  
 ---|---|---  
-`withVoice` | `@cloudflare/voice` | Full voice agent: STT, LLM, TTS, persistence  
-`withVoiceInput` | `@cloudflare/voice` | STT-only: transcription without response  
-`useVoiceAgent` | `@cloudflare/voice/react` | React hook for `withVoice` agents  
-`useVoiceInput` | `@cloudflare/voice/react` | React hook for `withVoiceInput` agents  
-`VoiceClient` | `@cloudflare/voice/client` | Framework-agnostic client  
+`withVoice` | `agents/voice` | Full voice agent: STT, LLM, TTS, persistence  
+`withVoiceInput` | `agents/voice` | STT-only: transcription without response  
+`useVoiceAgent` | `agents/voice/react` | React hook for `withVoice` agents  
+`useVoiceInput` | `agents/voice/react` | React hook for `withVoiceInput` agents  
+`VoiceClient` | `agents/voice/client` | Framework-agnostic client  
   
+Migrating from `@cloudflare/voice`
+
+Voice now ships in the `agents` package (version 0.23.0 and later). The `@cloudflare/voice` package is deprecated. It still works and forwards each entry point to its replacement, so you can migrate by changing imports:
+
+Previous import | Replacement  
+---|---  
+`@cloudflare/voice` | `agents/voice`  
+`@cloudflare/voice/client` | `agents/voice/client`  
+`@cloudflare/voice/react` | `agents/voice/react`  
+`@cloudflare/voice/errors` | `agents/voice/errors`  
+  
+Exported names, the voice wire protocol, and SQLite table names are unchanged.
+
 Built on Cloudflare Durable Objects, you get:
 
   * **Real-time audio** — mic audio streams as binary WebSocket frames, TTS audio streams back
@@ -56,13 +69,13 @@ Built on Cloudflare Durable Objects, you get:
 ### Install
     
     
-    npm install @cloudflare/voice agents
+    npm install agents
 
 ### Server
     
     
     import { Agent } from "agents";
-    import { withVoice, WorkersAIFluxSTT, WorkersAITTS } from "@cloudflare/voice";
+    import { withVoice, WorkersAIFluxSTT, WorkersAITTS } from "agents/voice";
     
     const VoiceAgent = withVoice(Agent);
     
@@ -82,7 +95,7 @@ Built on Cloudflare Durable Objects, you get:
     	WorkersAIFluxSTT,
     	WorkersAITTS,
     	type VoiceTurnContext,
-    } from "@cloudflare/voice";
+    } from "agents/voice";
     
     const VoiceAgent = withVoice(Agent);
     
@@ -98,7 +111,7 @@ Built on Cloudflare Durable Objects, you get:
 ### Client (React)
     
     
-    import { useVoiceAgent } from "@cloudflare/voice/react";
+    import { useVoiceAgent } from "agents/voice/react";
     
     function VoiceUI() {
     	const {
@@ -211,7 +224,7 @@ Property | Type | Required | Description
 `tts` | `TTSProvider` | Yes | Text-to-speech  
       
     
-    import { withVoice, WorkersAIFluxSTT, WorkersAITTS } from "@cloudflare/voice";
+    import { withVoice, WorkersAIFluxSTT, WorkersAITTS } from "agents/voice";
     
     const VoiceAgent = withVoice(Agent);
     
@@ -221,7 +234,7 @@ Property | Type | Required | Description
     }
     
     
-    import { withVoice, WorkersAIFluxSTT, WorkersAITTS } from "@cloudflare/voice";
+    import { withVoice, WorkersAIFluxSTT, WorkersAITTS } from "agents/voice";
     
     const VoiceAgent = withVoice(Agent);
     
@@ -445,7 +458,7 @@ Option | Type | Default | Description
     
     
     import { Agent } from "agents";
-    import { withVoiceInput, WorkersAINova3STT } from "@cloudflare/voice";
+    import { withVoiceInput, WorkersAINova3STT } from "agents/voice";
     
     const InputAgent = withVoiceInput(Agent);
     
@@ -459,7 +472,7 @@ Option | Type | Default | Description
     
     
     import { Agent } from "agents";
-    import { withVoiceInput, WorkersAINova3STT } from "@cloudflare/voice";
+    import { withVoiceInput, WorkersAINova3STT } from "agents/voice";
     
     const InputAgent = withVoiceInput(Agent);
     
@@ -495,7 +508,7 @@ It does **not** have TTS hooks (`beforeSynthesize`, `afterSynthesize`) or `onTur
 Wraps `VoiceClient` for `withVoice` agents. Manages connection, mic capture, playback, silence detection, and interrupt detection.
     
     
-    import { useVoiceAgent } from "@cloudflare/voice/react";
+    import { useVoiceAgent } from "agents/voice/react";
     
     const selectedSpeakerId = "default";
     
@@ -566,7 +579,7 @@ Changing tuning options triggers a client reconnect (the connection key includes
 Lightweight hook for dictation and voice-to-text. Accumulates user transcripts into a single string.
     
     
-    import { useVoiceInput } from "@cloudflare/voice/react";
+    import { useVoiceInput } from "agents/voice/react";
     
     function Dictation() {
     	const {
@@ -600,7 +613,7 @@ Lightweight hook for dictation and voice-to-text. Accumulates user transcripts i
 Framework-agnostic client for environments without React.
     
     
-    import { VoiceClient } from "@cloudflare/voice/client";
+    import { VoiceClient } from "agents/voice/client";
     
     const client = new VoiceClient({ agent: "MyAgent" });
     
@@ -627,7 +640,7 @@ Framework-agnostic client for environments without React.
     client.disconnect();
     
     
-    import { VoiceClient } from "@cloudflare/voice/client";
+    import { VoiceClient } from "agents/voice/client";
     
     const client = new VoiceClient({ agent: "MyAgent" });
     
@@ -696,7 +709,7 @@ Class | Type | Default model | Recommended for
     	WorkersAIFluxSTT,
     	WorkersAINova3STT,
     	WorkersAITTS,
-    } from "@cloudflare/voice";
+    } from "agents/voice";
     
     const VoiceAgent = withVoice(Agent);
     
@@ -725,7 +738,7 @@ Class | Type | Default model | Recommended for
     	WorkersAIFluxSTT,
     	WorkersAINova3STT,
     	WorkersAITTS,
-    } from "@cloudflare/voice";
+    } from "agents/voice";
     
     const VoiceAgent = withVoice(Agent);
     

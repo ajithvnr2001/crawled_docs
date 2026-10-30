@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/route-emails/email-handler/
 title: Workers API \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:31.358626+00:00
+fetched_at: 2026-10-30T08:19:20.049587+00:00
 ---
 
 # Workers API · Cloudflare Email Service docs
@@ -24,9 +24,9 @@ API
 
 Process incoming emails with the email() handler in Cloudflare Workers. Forward, reply, reject, or process emails programmatically.
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewEmail handler syntax ParametersForwardableEmailMessage interface PropertiesEmail actions Forward emails Forward with custom headers Reply to emails Reject emailsError handlingNext steps
+OverviewEmail handler syntax ParametersForwardableEmailMessage interface PropertiesAuthentication resultsEmail actions Forward emails Forward with custom headers Reply to emails Reject emailsError handlingNext steps
 
 Process incoming emails using the `email()` handler in your Cloudflare Workers. This allows you to programmatically handle email routing with custom logic.
 
@@ -111,6 +111,19 @@ Use [`postal-mime` ↗︎](https://www.npmjs.com/package/postal-mime) to parse t
     		console.log(`HTML: ${email.html}`);
     	},
     };
+
+## Authentication results
+
+Email Routing validates Domain-based Message Authentication, Reporting & Conformance (DMARC) before invoking your Worker. It prepends a standard [`Authentication-Results` ↗︎](https://www.rfc-editor.org/rfc/rfc8601.html) header that records SPF, DKIM, and DMARC results in a machine-readable format.
+
+A simplified header with passing results looks like this:
+    
+    
+    Authentication-Results: mx.cloudflare.net; spf=pass; dkim=pass; dmarc=pass
+
+To check for `dmarc=pass`, read the first `Authentication-Results` header through `message.headers` and verify that its authentication service identifier is `mx.cloudflare.net`. Other `Authentication-Results` headers may have been supplied by the sender and should not be trusted.
+
+Cloudflare invokes the Worker directly, so Authenticated Received Chain (ARC) verification is not required to trust this result. ARC is intended for downstream mail servers after forwarding. ARC headers remain available through `message.headers` and `message.raw`.
 
 ## Email actions
 

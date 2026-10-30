@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/lifecycle-hooks/
 title: Lifecycle hooks \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:13.164909+00:00
+fetched_at: 2026-10-30T08:19:20.790495+00:00
 ---
 
 # Lifecycle hooks · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:04:13.164909+00:00
 
 # Lifecycle hooks
 
-Last updated Jun 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/lifecycle-hooks/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHook summaryExecution orderbeforeTurn TurnContext TurnConfig ExamplesbeforeStepbeforeToolCallafterToolCallonStepFinishonChunkonChatResponseonChatErrorclassifyChatError Example
 
@@ -75,7 +75,7 @@ Called before `streamText`. Receives the fully assembled context — system prom
 
 Field | Type | Description  
 ---|---|---  
-`system` | `string` | Assembled system prompt (from context blocks or `getSystemPrompt()`)  
+`system` | `string` | Assembled system prompt (`getSystemPrompt()` override, then context blocks)  
 `messages` | `ModelMessage[]` | Assembled model messages (truncated, pruned)  
 `tools` | `ToolSet` | Merged tool set (workspace + getTools + session + extensions + MCP + client)  
 `model` | `LanguageModel` | The model from `getModel()`  

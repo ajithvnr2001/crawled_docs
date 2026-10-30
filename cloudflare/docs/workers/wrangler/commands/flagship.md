@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/commands/flagship/
 title: Flagship \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:08.045832+00:00
+fetched_at: 2026-10-30T08:19:30.871410+00:00
 ---
 
 # Flagship · Cloudflare Workers docs
@@ -22,13 +22,21 @@ fetched_at: 2026-10-08T07:18:08.045832+00:00
 
 # Flagship
 
-Last updated Jul 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/wrangler/commands/flagship/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAuthenticationApp IDsCommon workflowsCommands
 
 Use `wrangler flagship` to manage [Flagship](https://developers.cloudflare.com/flagship/) apps and feature flags from the command line.
 
 `wrangler flagship` is available in Wrangler v4.107.0 and later.
+
+`--local` option
+
+Most `wrangler flagship flags` commands accept `--local` to read and write the local flag store used by [`wrangler dev`](https://developers.cloudflare.com/workers/wrangler/commands/general/#dev), the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/), and [`cf dev`](https://developers.cloudflare.com/cf/projects/#start-development). They still default to the remote app. Bindings with `remote: true` do not use the local store, so `--local` changes do not affect them.
+
+`wrangler flagship flags pull <APP_ID>` copies remote flags into that store.
+
+For more information, refer to [Flagship local development](https://developers.cloudflare.com/flagship/configuration/#local-development).
 
 ## Authentication
 

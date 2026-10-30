@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/reference/how-the-cache-works/
 title: How the Cache works \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:41.256310+00:00
+fetched_at: 2026-10-30T08:19:20.881373+00:00
 ---
 
 # How the Cache works · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:41.256310+00:00
 
 # How the Cache works
 
-Last updated Jul 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/reference/how-the-cache-works/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInteract with the Cloudflare Cache Single file purge assets cached by a worker Purge assets stored with the Cache APIEdge versus browser caching fetch Cache APIRelated resources
 
@@ -90,7 +90,7 @@ Assets stored in the cache through [Cache API](https://developers.cloudflare.com
 
     * All assets on a zone can be purged by using the [Purge Everything](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-everything/) cache operation. This purge will remove all assets associated with a Cloudflare zone from cache in all data centers regardless of the method set.
 
-    * [Cache Tags](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-tags/#add-cache-tag-http-response-headers) can be added to requests dynamically in a Worker by calling `response.headers.append()` and appending `Cache-Tag` values dynamically to that request. Once set, those tags can be used to selectively purge assets from cache without invalidating all cached assets on a zone.
+    * [Cache Tags](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-tags/#add-cache-tag-http-response-headers) can be added to requests dynamically in a Worker by calling `response.headers.append()` and appending `Cache-Tag` values dynamically to that request. Once set, those tags can be used to selectively purge assets from cache without invalidating all cached assets on a zone. Responses returned by `cache.match()` do not include `Cache-Tag`. If you store a matched response again, set `Cache-Tag` before you call `put()`. For more information, refer to [`Put`](https://developers.cloudflare.com/workers/runtime-apis/cache/#put).
 
   * Currently, it is not possible to purge a URL that uses a custom cache key set by a Worker. Instead, use a [custom key created via Cache Rules](https://developers.cloudflare.com/cache/how-to/cache-rules/settings/#cache-key). Alternatively, purge your assets using purge everything, purge by tag, purge by host or purge by prefix.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/flagship/get-started/
 title: Get started \u00b7 Cloudflare Flagship docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:17.857535+00:00
+fetched_at: 2026-10-30T08:19:31.716871+00:00
 ---
 
 # Get started · Cloudflare Flagship docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:11:17.857535+00:00
 
 # Get started
 
-Last updated Aug 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/flagship/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCreate an app and a flagAdd the Flagship binding to your WorkerEvaluate the flag in your WorkerDeploy and test(Optional) Use the OpenFeature SDKNext steps
+OverviewCreate an app and a flagAdd the Flagship binding to your WorkerEvaluate the flag in your WorkerTest locallyDeploy and test(Optional) Use the OpenFeature SDKNext steps
 
 In this guide, you will create a feature flag in Flagship and evaluate it inside a Cloudflare Worker.
 
@@ -104,6 +104,18 @@ Use the `env.FLAGS` binding to evaluate the flag. The binding provides type-safe
     };
 
 The third argument to `getBooleanValue` is the [evaluation context](https://developers.cloudflare.com/flagship/concepts/#evaluation-context). Flagship uses the context attributes to match targeting rules. In this example, the `userId` attribute is passed so that percentage rollouts and user-specific targeting work correctly.
+
+## Test locally
+
+Copy the flag into the local store, then start a local session:
+    
+    
+    npx wrangler flagship flags pull <APP_ID>
+    npx wrangler dev
+
+To use the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/) instead, start your Vite dev server. In a [`cf`](https://developers.cloudflare.com/cf/) project, run `cf dev`, and add `--persist-to .cloudflare/state` to the `pull` command. Either way, run the Wrangler `pull` command first, because `cf` cannot pull flags.
+
+Without `pull`, the local store is empty, so evaluations return the default value you pass in code. For other ways to manage local flags, and to use your remote app instead, refer to [Local development](https://developers.cloudflare.com/flagship/configuration/#local-development).
 
 ## Deploy and test
 
@@ -234,6 +246,7 @@ Refer to the [SDK documentation](https://developers.cloudflare.com/flagship/sdk/
 ## Next steps
 
   * Manage flags from the command line with the [`wrangler flagship` commands](https://developers.cloudflare.com/flagship/reference/wrangler-commands/).
+  * Test against a [local flag store](https://developers.cloudflare.com/flagship/configuration/#local-development) with Wrangler, the Vite plugin, or `cf dev`.
   * Learn about [targeting rules](https://developers.cloudflare.com/flagship/targeting/) to serve different values based on user attributes.
   * Explore the full [binding API reference](https://developers.cloudflare.com/flagship/binding/) for all evaluation methods.
   * Read about [percentage rollouts](https://developers.cloudflare.com/flagship/targeting/percentage-rollouts/) for gradual feature releases.

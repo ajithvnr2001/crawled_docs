@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/projects/
 title: Develop, build, and deploy \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:12.773130+00:00
+fetched_at: 2026-10-30T08:19:31.818461+00:00
 ---
 
 # Develop, build, and deploy · Cloudflare CLI docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-19T07:11:12.773130+00:00
 
 # Develop, build, and deploy
 
-Last updated Oct 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow cf runs your projectAutomatic configurationStart developmentBuildDeployModesDeploy a prebuilt buildUpload a versionDeploy triggersDeploy a previewProfile Worker startupGenerate typesLocal resource dataWhich configuration each command readsTroubleshooting No dev server is installed Dependencies are not installed Arguments are rejected A framework rejects --mode A prebuilt deploy rejects the mode Build Output is missing Preview output reaches a production deploy The preview name cannot be determined A local command has no local equivalent
 
@@ -355,7 +355,9 @@ Add `--local` to a supported command to run it against a local simulation instea
   * `cf d1 raw`
   * `cf d1 migrations list` and `cf d1 migrations apply`
   * `cf r2 objects get`, `cf r2 objects put`, `cf r2 objects list`, and `cf r2 objects bulk-delete`
-  * `cf d1 list`, `cf kv namespaces list`, and `cf r2 buckets list`
+  * `cf flagship apps flags list`, `get`, `create`, `update`, `patch`, `delete`, and `evaluate`
+  * `cf flagship apps evaluate get`
+  * `cf d1 list`, `cf kv namespaces list`, `cf flagship apps list`, and `cf r2 buckets list`
 
 
 

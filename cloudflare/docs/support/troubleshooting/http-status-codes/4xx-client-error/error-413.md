@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-413/
 title: Error 413 \u00b7 Cloudflare Support docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:54.167373+00:00
+fetched_at: 2026-10-30T08:19:26.612704+00:00
 ---
 
 # Error 413 · Cloudflare Support docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:15:54.167373+00:00
 
 # Error 413
 
-Last updated Sep 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-413/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview413 Payload Too Large Common use cases Cloudflare-specific information
+Overview413 Payload Too Large Common use cases Cloudflare-specific information Outbound uploads from Containers and Durable Objects
 
 ## 413 Payload Too Large
 
@@ -38,7 +38,7 @@ The `413 Payload Too Large` status code often occurs when clients attempt to upl
 
 ### Cloudflare-specific information
 
-The upload limit for the Cloudflare API depends on your plan. If you exceed this limit, your API call will receive a `413 Request Entity Too Large` error.
+For incoming requests to a domain proxied through Cloudflare, the upload limit depends on the domain's plan. Requests exceeding this limit receive a `413 Request Entity Too Large` error.
 
 | Free | Pro | Business | Enterprise  
 ---|---|---|---|---  
@@ -47,7 +47,20 @@ Max upload size | 100 MB | 100 MB | 200 MB | Up to 5 GB
   
 Keep in mind, customers can adjust the **Maximum Upload Size** from the zone's **Network** page. Enterprise customers can self-serve any value up to 5 GB; uploads larger than 5 GB require additional configuration — contact your account team. Setting the limit below the size of an incoming request causes a `413`.
 
-If you require a larger upload, break up requests into smaller chunks, change your DNS record to [DNS-only](https://developers.cloudflare.com/dns/proxy-status/#dns-only-records), or [upgrade your plan](https://developers.cloudflare.com/billing/manage/change-plan/).
+For uploads to a proxied domain, use smaller, separate requests if your application supports them, change your DNS record to [DNS-only](https://developers.cloudflare.com/dns/proxy-status/#dns-only-records), or [upgrade your plan](https://developers.cloudflare.com/billing/manage/change-plan/).
+
+### Outbound uploads from Containers and Durable Objects
+
+Cloudflare limits each HTTP request body sent to an external service by a Durable Object or through a Container outbound handler to **100 MiB by default**. Increasing **Maximum Upload Size** for your application's domain does not increase this limit.
+
+Check which request returned `413`: the incoming upload to your application or the outbound upload to another service. The destination service can also reject oversized requests.
+
+For the applicable limits, upload guidance, and how to request an increase, refer to:
+
+  * [Containers outbound HTTP request body size](https://developers.cloudflare.com/containers/platform/limits/#outbound-http-request-body-size).
+  * [Durable Objects outbound HTTP request body size](https://developers.cloudflare.com/durable-objects/platform/limits/#outbound-http-request-body-size).
+
+
 
 [PreviousError 412](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-412/)[NextError 414](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-414/)
 

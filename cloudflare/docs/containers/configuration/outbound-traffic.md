@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/configuration/outbound-traffic/
 title: Handle outbound traffic \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:37.352954+00:00
+fetched_at: 2026-10-30T08:19:27.234814+00:00
 ---
 
 # Handle outbound traffic · Cloudflare Containers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-13T08:48:37.352954+00:00
 
 # Handle outbound traffic
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBlock outbound trafficBlock or allow traffic by hostDefine outbound handlersSecurely inject credentialsHTTPS traffic Trust the CA certificateNon-HTTP trafficChange policies at runtimeHandler precedenceDirect APILocal developmentRelated resources
+OverviewBlock outbound trafficBlock or allow traffic by hostDefine outbound handlersSecurely inject credentialsHTTPS traffic Trust the CA certificateNon-HTTP trafficChange policies at runtimeHandler precedenceDirect APITroubleshoot outbound uploadsLocal developmentRelated resources
 
 Outbound handlers let you intercept and modify HTTP traffic from a container with trusted code.
 
@@ -397,6 +397,16 @@ For HTTPS, `interceptOutboundHttps` works the same way as `interceptOutboundHttp
     this.ctx.container.interceptOutboundHttps("*", worker);
 
 The `Container` class calls these methods automatically when you use the functions shown above. You can also call them directly for cases the class does not cover.
+
+## Troubleshoot outbound uploads
+
+An HTTP upload forwarded through an outbound handler can fail with `413 Payload Too Large` when its request body exceeds the [100 MiB default outbound limit](https://developers.cloudflare.com/containers/platform/limits/#outbound-http-request-body-size). Increasing **Maximum Upload Size** for your application's custom domain does not increase this limit.
+
+Identify whether the failure occurs on the incoming request to your application or the outbound request to the destination. Check the destination's limits as well. Compare the complete request body size with each applicable limit.
+
+If the destination supports multipart or resumable uploads, send smaller parts in separate requests. If you need a larger individual request, [contact Cloudflare with the upload details](https://developers.cloudflare.com/containers/platform/limits/#outbound-http-request-body-size).
+
+The error `Can't read from request stream after responding with an exception.` can accompany an upload failure. It can also occur after unrelated exceptions. Check earlier errors and the response status to identify the cause.
 
 ## Local development
 

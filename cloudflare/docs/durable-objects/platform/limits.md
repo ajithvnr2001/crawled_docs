@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/platform/limits/
 title: Limits \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:09.709393+00:00
+fetched_at: 2026-10-30T08:19:26.857113+00:00
 ---
 
 # Limits · Cloudflare Durable Objects docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-08T07:11:09.709393+00:00
 
 # Limits
 
-Last updated Jun 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/durable-objects/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSQLite-backed Durable Objects general limits SQL storage limitsKey-value backed Durable Objects general limitsFrequently Asked Questions How much work can a single Durable Object do? How many Durable Objects can I create? Can I increase Durable Objects' CPU limit? What happens when a Durable Object exceeds its storage limit?Wall time limits by invocation type
+OverviewSQLite-backed Durable Objects general limits SQL storage limitsKey-value backed Durable Objects general limitsOutbound HTTP request body sizeFrequently Asked Questions How much work can a single Durable Object do? How many Durable Objects can I create? Can I increase Durable Objects' CPU limit? What happens when a Durable Object exceeds its storage limit?Wall time limits by invocation type
 
-Durable Objects are a special kind of Worker, so [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/) apply according to your Workers plan. In addition, Durable Objects have specific limits as listed in this page.
+Durable Objects are a special kind of Worker, so [Workers limits](https://developers.cloudflare.com/workers/platform/limits/) also apply. Limits that depend on your Workers plan are identified on that page. This page also covers Durable Object storage, CPU, and outbound HTTP request body size limits.
 
 ## SQLite-backed Durable Objects general limits
 
@@ -82,6 +82,32 @@ Simultaneous outgoing connections/request | 6 (same as [Workers](https://develop
 Need a higher limit?
 
 To request an adjustment to a limit, complete the [Limit Increase Request Form ↗︎](https://forms.gle/eX6pXvit1wBv77Yw5). If the limit can be increased, Cloudflare will contact you with next steps.
+
+## Outbound HTTP request body size
+
+Cloudflare limits each HTTP request body a Durable Object sends to an external service with `fetch()` to **100 MiB by default**. Requests exceeding this limit can fail with [`413 Payload Too Large`](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-413/).
+
+Limit | Default  
+---|---  
+Outbound HTTP request body size | 100 MiB (104,857,600 bytes)  
+  
+This limit applies to each request body, including encoding and multipart form fields. It does not limit the total size of a file uploaded through separate requests. The destination service can impose additional limits.
+
+The **Maximum Upload Size** setting for your application's custom domain does not control this limit. A larger upload accepted by your domain can still be rejected when your Container or Durable Object sends it to another service.
+
+For larger uploads, use the destination's multipart or resumable upload API. Keep each request body below the limit. If you already use multipart uploads, reduce the part size. Streaming, HTTP chunked transfer encoding, and `multipart/form-data` do not bypass the limit on a single request body.
+
+To request a higher outbound limit, contact your account team or [Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/). Specify that the request concerns outbound HTTP uploads from Containers or Durable Objects. Increases are subject to review.
+
+Include the following information:
+
+  * The account ID and Worker name for the affected workload.
+  * The Container instance ID or Durable Object namespace and ID.
+  * The destination hostname.
+  * The failing request body size in bytes and the requested limit.
+  * The failure timestamp, relevant error logs, and a minimal reproduction.
+
+
 
 ## Frequently Asked Questions
 
@@ -161,7 +187,7 @@ The following table summarizes the wall time limits for different types of Worke
 
 Invocation type | Wall time limit | Details  
 ---|---|---  
-Incoming HTTP request | Unlimited | No hard limit while the client remains connected. A Worker that is still streaming a response body remains active. [`waitUntil()`](https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil) extends execution for up to 30 seconds after the response or disconnect.  
+Incoming HTTP request | Unlimited | No hard limit while the client remains connected. Workers requests are subject to the [grace period for runtime updates](https://developers.cloudflare.com/workers/platform/limits/#runtime-updates). A Worker that is still streaming a response body remains active. [`waitUntil()`](https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil) extends execution for up to 30 seconds after the response or disconnect.  
 [Cron Triggers](https://developers.cloudflare.com/workers/configuration/cron-triggers/) | 15 minutes | Scheduled Workers have a maximum wall time of 15 minutes per invocation.  
 [Queue consumers](https://developers.cloudflare.com/queues/configuration/javascript-apis/#consumer) | 15 minutes | Each consumer invocation has a maximum wall time of 15 minutes.  
 [Durable Object alarm handlers](https://developers.cloudflare.com/durable-objects/api/alarms/) | 15 minutes | Alarm handler invocations have a maximum wall time of 15 minutes.  

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/app-library/custom-applications/
 title: Custom applications \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:50:28.677054+00:00
+fetched_at: 2026-10-30T08:19:28.184336+00:00
 ---
 
 # Custom applications · Cloudflare One docs
@@ -22,9 +22,9 @@ Team and resources
 
 # Custom applications
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCreate a custom applicationEdit a custom applicationUse a custom application in GatewayDelete a custom applicationCustom application limits
+OverviewCreate a custom applicationEdit a custom applicationUse a custom application in GatewayDelete a custom applicationRequired API token permissionsCustom application limits
 
 Create a custom application to identify an internal service or an application that is not in the Cloudflare-managed catalog. Custom applications belong to your account and appear alongside Cloudflare-managed applications in the App Library. You can use them in [DNS](https://developers.cloudflare.com/cloudflare-one/traffic-controls/dns-policies/#application), [HTTP](https://developers.cloudflare.com/cloudflare-one/traffic-controls/http-policies/#application), and [Network](https://developers.cloudflare.com/cloudflare-one/traffic-controls/network-policies/#application) policies with the existing **Application** selector.
 
@@ -84,6 +84,24 @@ You cannot delete a custom application while a Gateway rule or reusable profile 
 
 
 If the application is still referenced, deletion fails and the API returns HTTP `409` with the referencing resource IDs, names, and types. If Gateway cannot verify the references, deletion also fails and the application remains available.
+
+## Required API token permissions
+
+To create, edit, or delete custom applications with the API or Terraform, the API token must have at least one of the following permissions:
+
+  * _Account_ > _Zero Trust_ > _Edit_
+  * _Account_ > _Resource Library_ > _Edit_
+
+
+
+To list or view applications and categories, the API token must have at least one of the following permissions:
+
+  * _Account_ > _Zero Trust_ > _Read_
+  * _Account_ > _Zero Trust_ > _Edit_
+  * _Account_ > _Resource Library_ > _Read_
+  * _Account_ > _Resource Library_ > _Edit_
+
+
 
 ## Custom application limits
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/pi/extensions/
 title: Extensions \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:00.656242+00:00
+fetched_at: 2026-10-30T08:19:21.220370+00:00
 ---
 
 # Extensions · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-23T16:40:00.656242+00:00
 
 # Extensions
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/pi/extensions/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall an extensionWrite a toolMark tools replay-safeWrite a prompt sectionAdd skillsUse more of Pi Durable
 
@@ -196,15 +196,14 @@ A section's `render` runs before each model request. It receives the conversatio
 
 ## Add skills
 
-`skills(sources)` from `agents/harness/pi` turns [Agent Skills](https://developers.cloudflare.com/agents/runtime/execution/agent-skills/) sources from `agents/skills` into a Pi extension named `agents.skills`. It has two tools, `activate_skill` and `read_skill_resource`, and a `skills` section that lists the skills. It reads the sources, so install it in an `async` factory:
+`skills(sources)` from `agents/harness/pi` turns [Agent Skills](https://developers.cloudflare.com/agents/skills/) sources from `agents/skills` into a Pi extension named `agents.skills`. Sources can read skills from a [Computer Workspace](https://developers.cloudflare.com/agents/skills/sources/computer/), [R2](https://developers.cloudflare.com/agents/skills/sources/r2/), or a [manifest](https://developers.cloudflare.com/agents/skills/sources/code/). The extension has two tools, `activate_skill` and `read_skill_resource`, and a `skills` section that lists the skills. It reads the sources, so install it in an `async` factory:
     
     
     import { skills } from "agents/harness/pi";
-    import { fromManifest } from "agents/skills";
+    import { manifest } from "agents/skills";
     
-    const handbook = fromManifest({
+    const handbook = manifest({
     	id: "handbook",
-    	fingerprint: "v1",
     	skills: [
     		{
     			name: "release-notes",
@@ -221,7 +220,7 @@ A section's `render` runs before each model request. It receives the conversatio
     	},
     });
 
-The tools match the ones [Think](https://developers.cloudflare.com/agents/harnesses/think/) offers, so a skill written for one works in the other. The model can read a skill's instructions and resources. Skill scripts do not run.
+The tools match the ones [Think](https://developers.cloudflare.com/agents/harnesses/think/) offers, so a skill written for one works in the other. The sources are read once, when the factory builds the extension. The model can read a skill's instructions and resources. To run skill scripts, give the model a shell or Workspace tool. Refer to [Execution](https://developers.cloudflare.com/agents/skills/execution/).
 
 ## Use more of Pi Durable
 

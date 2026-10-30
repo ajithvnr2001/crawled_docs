@@ -2,7 +2,7 @@
 url: https://blog.cloudflare.com/introducing-0-rtt/
 title: Introducing Zero Round Trip Time Resumption (0-RTT) | Cloudflare Blog
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:59:18.789998+00:00
+fetched_at: 2026-10-30T08:19:28.051626+00:00
 ---
 
 # Introducing Zero Round Trip Time Resumption (0-RTT) | Cloudflare Blog
@@ -801,6 +801,7 @@ fetched_at: 2026-10-08T07:59:18.789998+00:00
   * [Multi-tenant Security](https://blog.cloudflare.com/tag/multi-tenant-security/)
   * [cf](https://blog.cloudflare.com/tag/cf/)
   * [BEACON](https://blog.cloudflare.com/tag/beacon/)
+  * [Crawlers](https://blog.cloudflare.com/tag/crawlers/)
 
 
 
@@ -816,7 +817,7 @@ March 15, 2017
 
 [Nick Sullivan](https://blog.cloudflare.com/author/nick-sullivan/)
 
-12 minute read
+11 minute read
 
 COPY URL
 
@@ -833,8 +834,6 @@ We’re happy to announce that 0-RTT is **NOT** enabled by default for all sites
 ![](data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22rgb\(243%2C243%2C243\)%22%2F%3E%3C%2Fsvg%3E)![Introducing Zero Round Trip Time Resumption \(0-RTT\) Embedded Image - XQ1nmi](https://blog.cloudflare.com/_image?href=https%3A%2F%2Fblog.cloudflare.com%2F_emdash%2Fapi%2Fmedia%2Ffile%2F01KW48XSA6DY73056KHNY1GWSC.jpg&w=715&h=125&f=webp&fit=cover&position=center)
 
 This is an experimental feature, and therefore subject to change.
-
-If you're just looking for a live demo, click here.
 
 ### The cost of latency
 
@@ -932,7 +931,7 @@ Both [Firefox Beta](https://www.mozilla.org/en-US/firefox/channel/desktop/) and 
 
 
 
-This demo loads an image from a server that runs the Cloudflare TLS 1.3 0-RTT proxy. In order to emphasize the latency differences, we used Cloudflare's new [DNS Load Balancer](https://www.cloudflare.com/load-balancing/) to direct you to a far away server. If the image is loaded over 0-RTT it will be served orange, otherwise black, based on the `CF-0RTT-Unique` header.
+This demo (demo currently unavailable) loads an image from a server that runs the Cloudflare TLS 1.3 0-RTT proxy. In order to emphasize the latency differences, we used Cloudflare's new [DNS Load Balancer](https://www.cloudflare.com/load-balancing/) to direct you to a far away server. If the image is loaded over 0-RTT it will be served orange, otherwise black, based on the `CF-0RTT-Unique` header.
 
 The image is loaded twice: with and without a query string. 0-RTT is disabled transparently when a query string is used to prevent replays.
 
@@ -940,23 +939,7 @@ The connection is pre-warmed, Keep-Alives are off and caching is disabled to sim
 
 * * *
 
-Preparing the live demo to run (requires Javascript)...
-
-Click here to start the live demo.
-
-Live demo unavailable: your browser doesn't support TLS 1.3, or the connection failed.
-
-Live demo unavailable: your browser doesn't support 0-RTT.
-
-0-RTT took: ...ms
-
-1-RTT took: ...ms
-
-.demo { text-align: center; } .demo a { font-weight: bold; text-decoration: none; color: inherit; } .demo p { margin-top: 1.5em; } .images { max-width: 440px; margin: 0 auto; } .images > div { width: 200px; float: left; margin: 0 10px; } .images > div.clear { float: none; clear: both; } .images img { width: 100%; } var currentStatus = "preparing"; function demoStatus(s) { document.querySelector(".demo .message."+currentStatus).style.display = "none"; document.querySelector(".demo .message."+s).style.display = ""; currentStatus = s; } function demoLaunch() { var startTime, startTime0; var img = document.querySelector(".demo .images img.nozrtt"); img.onloadstart = function() { startTime = new Date().getTime(); }; img.onload = function() { var loadtime = new Date().getTime() - startTime; document.querySelector(".demo .images .time.nozrtt").innerText = loadtime; }; var img0 = document.querySelector(".demo .images img.zrtt"); img0.onloadstart = function() { startTime0 = new Date().getTime(); }; img0.onload = function() { var loadtime = new Date().getTime() - startTime0; document.querySelector(".demo .images .time.zrtt").innerText = loadtime; window.setTimeout(function() { img.src = "<https://0rtt.tls13.com/img.png?no0rtt>"; }, 2000); }; img0.src = "<https://0rtt.tls13.com/img.png>"; document.querySelector(".demo .message.ready").style.display = "none"; document.querySelector(".demo .images").style.display = ""; }; document.querySelector(".demo .message.ready a").onclick = function() { // var r = new XMLHttpRequest(); // r.addEventListener("load", demoLaunch); // r.open("GET", "<https://0rtt.tls13.com/img.png?warm>"); // r.send(); demoLaunch(); return false; }; var r = new XMLHttpRequest(); r.addEventListener("error", function() { demoStatus("no13"); document.querySelector(".demo .fallback").style.display = ""; }); r.addEventListener("loadend", function() { var r = new XMLHttpRequest(); r.addEventListener("error", function() { demoStatus("no13"); document.querySelector(".demo .fallback").style.display = ""; }); r.addEventListener("load", function() { console.log(this.getResponseHeader("X-0rtt")); if (this.getResponseHeader("X-0rtt") == "1") { demoStatus("ready"); } else { demoStatus("no0rtt"); document.querySelector(".demo .fallback").style.display = ""; } }); window.setTimeout(function() { r.open("GET", "<https://0rtt.tls13.com/img.png>"); r.send(); }, 10000); }); r.open("GET", "<https://0rtt.tls13.com/img.png>"); r.send();
-
-* * *
-
-To see what’s going on under the hood, take a look in Firefox’s Developer Tools. We’ve taken a screenshot of a version of this demo as run by a user in San Francisco. In the first screenshot, the image is served with TLS 1.3, in the second with TLS 1.3 and 0-RTT.
+To see what’s going on under the hood, take a look in Firefox’s Developer Tools. We’ve taken a screenshot of a version of this demo (demo currently unavailable) as run by a user in San Francisco. In the first screenshot, the image is served with TLS 1.3, in the second with TLS 1.3 and 0-RTT.
 
 ![](data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201%201%22%3E%3Crect%20width%3D%221%22%20height%3D%221%22%20fill%3D%22rgb\(243%2C243%2C243\)%22%2F%3E%3C%2Fsvg%3E)![0-RTT](https://blog.cloudflare.com/_image?href=https%3A%2F%2Fblog.cloudflare.com%2F_emdash%2Fapi%2Fmedia%2Ffile%2F01KW46M8V34QZMPYT5TRDQN924.jpg&w=715&h=95&f=webp&fit=cover&position=center)
 

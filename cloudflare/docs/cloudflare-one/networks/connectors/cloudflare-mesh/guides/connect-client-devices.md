@@ -1,11 +1,11 @@
 ---
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/guides/connect-client-devices/
-title: Connect client devices to Cloudflare Mesh \u00b7 Cloudflare One docs
+title: Connect two devices privately with Cloudflare Mesh \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:10.081485+00:00
+fetched_at: 2026-10-30T08:19:30.321773+00:00
 ---
 
-# Connect client devices to Cloudflare Mesh · Cloudflare One docs
+# Connect two devices privately with Cloudflare Mesh · Cloudflare One docs
 
 > Source: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/guides/connect-client-devices/
 
@@ -16,21 +16,27 @@ fetched_at: 2026-10-08T07:09:10.081485+00:00
 NetworksConnectors[Cloudflare Mesh](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/)
 
   4. /Guides
-  5. /Connect client devices
+  5. /Connect two devices
 
 
 
-# Connect client devices
+# Connect two devices privately with Cloudflare Mesh
 
-Last updated Sep 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/guides/connect-client-devices/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview1\. Enroll the Cloudflare One Client Headless Windows, macOS, and Linux devices2\. Verify connectivityWhat devices can reachSplit Tunnel configuration Exclude mode (default) Include modeFirewall considerations
+OverviewPrerequisites1\. Connect the first device Headless Windows, macOS, and Linux devices2\. Connect the second device3\. Route Mesh traffic through Cloudflare4\. Allow inbound trafficVerify connectivitySecure and monitor the connectionNext steps
 
-Client devices — laptops, phones, and desktops — join your Mesh network by installing the [Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/) and enrolling. Each device receives a [Mesh IP](https://developers.cloudflare.com/mesh/concepts/#mesh-ips) and can immediately communicate with every other enrolled device and Mesh node.
+Connect two laptops, phones, or desktops by enrolling both devices in Cloudflare Mesh. Each device receives a private [Mesh IP](https://developers.cloudflare.com/mesh/concepts/#mesh-ips) and can reach the other device without a Mesh node.
 
-## 1\. Enroll the Cloudflare One Client
+## Prerequisites
 
-Use the Mesh dashboard to find the Cloudflare One Client installer and organization name for your device:
+Use two devices supported by the [Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/download/). One device must run a service that the other device can test, such as SSH or HTTP.
+
+Before you enroll the devices, configure the [required account settings](https://developers.cloudflare.com/mesh/get-started/#required-account-settings). You do not need to create a Mesh node for device-to-device connectivity.
+
+## 1\. Connect the first device
+
+Use the Mesh dashboard to find the installer and organization name:
 
   1. In the Cloudflare dashboard, go to **Networking** > **Mesh**.
 
@@ -43,12 +49,12 @@ Use the Mesh dashboard to find the Cloudflare One Client installer and organizat
 
   5. Open the client and select **Cloudflare Zero Trust** when prompted for a connection type.
 
-  6. Enter the organization name displayed in the Mesh dashboard and complete authentication.
+  6. Enter the organization name shown in the dashboard and complete authentication.
 
 
 
 
-The Add device workflow does not enroll the device or verify connectivity. For manual installation and enrollment instructions, refer to [Download the Cloudflare One Client](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/download/) and [Enroll a device](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/manual-deployment/).
+The workflow provides installation information. It does not enroll the device automatically. For manual enrollment instructions, refer to [Enroll a device](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/deployment/manual-deployment/).
 
 ### Headless Windows, macOS, and Linux devices
 
@@ -58,75 +64,66 @@ For platform-specific installation methods and configuration file locations, ref
 
 This method works on [supported Windows, macOS, and Linux systems](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/download/). Service-token devices use the shared identity `non_identity@<team-name>.cloudflareaccess.com`. Policies based on identity provider users or groups do not apply to these devices. To assign device profiles, use the expression `identity.service_token_uuid == "<SERVICE_TOKEN_ID>"`, where `<SERVICE_TOKEN_ID>` is the service token resource UUID (`id`), not its `auth_client_id`. Place this [Service Token selector](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/device-profiles/#service-token) before broader OS or email profiles. Use the shared non-identity email only when all Service Auth devices should match the profile.
 
-After enrollment, the device receives a Mesh IP and connects to your Mesh network.
+After enrollment, the device receives a Mesh IP. The device appears in the participant table under **Networking** > **Mesh**.
 
-The device then appears with Mesh nodes in the participant table under **Networking** > **Mesh**. Use the table to search for devices, filter participants by type or status, and open a device's Zero Trust details page. If more results are available, select **Load more participants** , **Load more nodes** , or **Load more devices**. New results append without replacing the participants already shown.
+## 2\. Connect the second device
 
-## 2\. Verify connectivity
+Repeat the enrollment procedure on the second device. Use the same Cloudflare account and Zero Trust organization.
 
-From a Windows, macOS, or Linux device, test TCP connectivity to a Mesh node or another client device. For example, test SSH:
+Confirm that both devices appear as **Online** under **Networking** > **Mesh**. Record the Mesh IP of the device that runs the service.
+
+## 3\. Route Mesh traffic through Cloudflare
+
+Check the [device profile](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/device-profiles/) applied to each device. The profile must use Traffic and DNS mode and route your Mesh IP range through Cloudflare.
+
+  * In Split Tunnels **Include mode** , include `100.96.0.0/12`.
+  * In Split Tunnels **Exclude mode** , make sure neither `100.96.0.0/12` nor a parent range such as `100.64.0.0/10` is excluded.
+
+
+
+Use your custom device IP range instead of `100.96.0.0/12` if you changed the default. For configuration instructions, refer to [Split Tunnels](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/route-traffic/split-tunnels/).
+
+## 4\. Allow inbound traffic
+
+Configure the destination device firewall to accept the service traffic. Windows Firewall blocks inbound traffic from `100.96.0.0/12` by default. Add a rule that allows the required protocols and ports from the Mesh IP range.
+
+On macOS and Linux, verify that custom firewall rules permit the same traffic. You do not need to open the service to the public Internet.
+
+## Verify connectivity
+
+Test the application protocol that you intend to use. For example, test a service that listens on TCP port `22`:
     
     
-    nc -vz <MESH-IP> 22
+    nc -vz <DESTINATION-IP> 22
     
     
-    Test-NetConnection <MESH-IP> -Port 22
+    Test-NetConnection <DESTINATION-IP> -Port 22
 
-Replace `<MESH-IP>` with the Mesh IP of a node (visible on the [Mesh overview page ↗︎](https://dash.cloudflare.com/?to=/:account/mesh)) or another enrolled device. Replace port `22` with the port used by your service. You can test HTTP services from a mobile browser. If you turned on the ICMP Gateway proxy, you can also run `ping <MESH-IP>` as a diagnostic check.
+For an HTTP service, open `http://<DESTINATION-IP>:<PORT>` in a browser.
 
-If the device profile routes `www.cloudflare.com` through WARP, verify the data path:
-    
-    
-    curl --silent https://www.cloudflare.com/cdn-cgi/trace | grep '^warp=on$'
-    
-    
-    if (-not (curl.exe --silent https://www.cloudflare.com/cdn-cgi/trace | Select-String '^warp=on$')) { exit 1 }
+Replace `<DESTINATION-IP>` with the destination Mesh IP or private IP. Replace port `22` or `<PORT>` with the port used by your service.
 
-In Include mode, expect `warp=off` for destinations that are not in the include list. Use the successful connection to an included Mesh IP as the data-path check. Do not rely only on the success message from `warp-cli`: Mesh connectivity requires Traffic and DNS mode. In DNS-only mode, use `warp-cli registration show` only to verify enrollment. DNS-only mode cannot carry Mesh traffic.
+If you turned on the ICMP Gateway proxy, you can also run `ping <DESTINATION-IP>` as a diagnostic check. A connected participant status does not confirm that the application protocol can reach the destination.
 
-## What devices can reach
+Use the destination device Mesh IP for `<DESTINATION-IP>`.
 
-Once connected, a client device can:
+## Secure and monitor the connection
 
-  * **Other client devices** — Reach any enrolled device by its Mesh IP. No Mesh nodes involved.
-  * **Mesh nodes** — Reach any online node by its Mesh IP. SSH, database connections, API calls all work.
-  * **Subnets behind nodes** — Access hosts on private networks that a node advertises via [CIDR routes](https://developers.cloudflare.com/mesh/features/routes/) (for example, printers, databases, or servers that cannot run the client).
+Use [Gateway network policies](https://developers.cloudflare.com/cloudflare-one/traffic-controls/network-policies/) to control which sources can reach each destination IP and port. You can combine network policies with [device posture checks](https://developers.cloudflare.com/cloudflare-one/reusable-components/posture-checks/) for enrolled client devices.
 
+Review allowed and blocked connections in [Gateway network logs](https://developers.cloudflare.com/cloudflare-one/insights/logs/dashboard-logs/gateway-logs/#network). Client device traffic includes the enrolled user identity. Mesh node traffic uses the identity `warp_connector@<your-team-name>.cloudflareaccess.com`.
 
+If a participant is online but the service is unreachable, refer to [Troubleshoot Cloudflare Mesh connectivity](https://developers.cloudflare.com/mesh/troubleshooting/).
 
-All traffic is subject to your [Gateway network policies](https://developers.cloudflare.com/cloudflare-one/traffic-policies/network-policies/), so you can control which users and devices can reach specific resources.
+## Next steps
 
-## Split Tunnel configuration
-
-For client devices to reach Mesh IPs, the Mesh IP range must route through Cloudflare. How you configure this depends on your [Split Tunnel mode](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/route-traffic/split-tunnels/).
-
-### Exclude mode (default)
-
-The Mesh setup wizard updates the default device profile to route the Mesh IP range through Cloudflare. If you did not use the wizard, or if another profile applies to the device, verify that `100.96.0.0/12` (or your custom device IP range) is not in the exclude list or contained by a broader exclusion.
-
-Depending on your Cloudflare networking configuration, you may need to remove additional IPs from your exclude list. For a list of IPs to check, refer to [Reserved IP addresses](https://developers.cloudflare.com/cloudflare-one/networks/routes/reserved-ips/).
-
-### Include mode
-
-In Include mode, add the following to your include list:
-
-  * `100.96.0.0/12` — Mesh IPs (device IPs)
-  * Any CIDR routes you have [configured for your Mesh nodes](https://developers.cloudflare.com/mesh/features/routes/)
+  * [Connect two servers](https://developers.cloudflare.com/mesh/guides/connect-servers/) by their Mesh IPs.
+  * [Connect two private networks](https://developers.cloudflare.com/mesh/guides/connect-sites/) through routed subnets.
+  * [Configure routes](https://developers.cloudflare.com/mesh/features/routes/) for devices that cannot run the client.
 
 
 
-The IPv4 range used for [hostname routing](https://developers.cloudflare.com/mesh/features/routes/#hostname-routes) (`172.64.128.0/20`; requires MASQUE) and all Cloudflare One IPv6 ranges are [automatically routed through Cloudflare](https://developers.cloudflare.com/cloudflare-one/team-and-resources/devices/cloudflare-one-client/configure/route-traffic/split-tunnels/#automatically-managed-ranges) and do not need to be added manually.
-
-## Firewall considerations
-
-Some operating systems block inbound traffic from the Mesh IP range by default:
-
-  * **Windows** — Windows Firewall blocks inbound traffic from `100.96.0.0/12`. Add a firewall rule that allows incoming requests from `100.96.0.0/12` for your desired protocols and ports.
-  * **macOS / Linux** — Most configurations allow this traffic by default. If you have custom firewall rules, ensure `100.96.0.0/12` is permitted.
-
-
-
-[PreviousHigh availability](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/features/high-availability/)[NextRun Mesh in Docker / Kubernetes](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/guides/run-mesh-in-containers/)
+[PreviousHigh availability](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/features/high-availability/)[NextConnect two servers](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-mesh/guides/connect-servers/)
 
 Was this helpful?
 

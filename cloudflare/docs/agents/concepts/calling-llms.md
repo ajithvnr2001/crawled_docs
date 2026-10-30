@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/concepts/calling-llms/
 title: Calling LLMs \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:03.470634+00:00
+fetched_at: 2026-10-30T08:19:27.683644+00:00
 ---
 
 # Calling LLMs · Cloudflare Agents docs
@@ -18,13 +18,13 @@ fetched_at: 2026-10-28T08:04:03.470634+00:00
 
 # Calling LLMs
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewState as contextSurviving disconnectionsAutonomous model callsMulti-model pipelinesCaching and cost controlNext steps
 
 Agents change how you work with LLMs. In a stateless Worker, every request starts from scratch — you reconstruct context, call a model, return the response, and forget everything. An Agent keeps state between calls, stays connected to clients over WebSocket, and can call models on its own schedule without a user present.
 
-This page covers the patterns that become possible when your LLM calls happen inside a stateful Agent. For provider setup and code examples, refer to [Using AI Models](https://developers.cloudflare.com/agents/agent-class/using-ai-models/).
+This page covers the patterns that become possible when your LLM calls happen inside a stateful Agent. For provider setup and code examples, refer to [Models](https://developers.cloudflare.com/agents/models/).
 
 ## State as context
 
@@ -312,7 +312,7 @@ For provider-level caching and rate limit management across multiple agents, use
 
 ## Next steps
 
-### [Using AI Models](https://developers.cloudflare.com/agents/agent-class/using-ai-models/)
+### [Models](https://developers.cloudflare.com/agents/models/)
 
 Provider setup, streaming, and code examples for Workers AI, OpenAI, Anthropic, and more.
 
@@ -328,7 +328,7 @@ SQL database and key-value state APIs for building context and caching.
 
 Run autonomous model calls on a delay, schedule, or cron.
 
-[PreviousTools](https://developers.cloudflare.com/agents/concepts/tools/)[NextUsing Agents with Workflows](https://developers.cloudflare.com/agents/concepts/workflows/)
+[PreviousAgent Skills](https://developers.cloudflare.com/agents/concepts/agent-skills/)[NextUsing Agents with Workflows](https://developers.cloudflare.com/agents/concepts/workflows/)
 
 Was this helpful?
 

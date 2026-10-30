@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/configuration/
 title: Configuration \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:11.378944+00:00
+fetched_at: 2026-10-30T08:19:21.307260+00:00
 ---
 
 # Configuration · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-23T16:40:11.378944+00:00
 
 # Configuration
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/configuration/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfiguration overridesDynamic configurationSession integrationPackage exportsDependencies
 
@@ -33,16 +33,16 @@ Think is configured by overriding methods and properties on your `Think` subclas
 Method / Property | Default | Description  
 ---|---|---  
 `getModel()` | throws | Return the `LanguageModel` to use  
-`getSystemPrompt()` | `"You are a helpful assistant."` | System prompt (fallback when no context blocks)  
+`getSystemPrompt()` | `"You are a helpful assistant."` | Instructions at the top of the system prompt, above context blocks. The default is used only with no context blocks  
 `getTools()` | `{}` | AI SDK `ToolSet` for the agentic loop  
 `getScheduledTasks()` | `{}` | Code-declared recurring prompts or handlers — refer to [Scheduled tasks](https://developers.cloudflare.com/agents/harnesses/think/scheduled-tasks/)  
 `getDefaultTimezone()` | `undefined` | Default timezone for wall-clock scheduled tasks  
 `getMessengers()` | `{}` | Messenger ingress and delivery declarations — refer to [Messengers](https://developers.cloudflare.com/agents/harnesses/think/messengers/)  
 `maxSteps` | `10` | Max tool-call rounds per turn  
 `sendReasoning` | `true` | Send reasoning chunks to chat clients  
-`configureSession()` | identity | Add context blocks, compaction, search, skills — refer to [Sessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/)  
-`getSkills()` | `[]` | Return Agent Skills sources for on-demand skill activation — refer to [Agent Skills](https://developers.cloudflare.com/agents/runtime/execution/agent-skills/)  
-`getSkillScriptRunner()` | `null` | Enable the optional `run_skill_script` tool  
+`configureSession()` | identity | Add context blocks, compaction, search, skills — refer to [Sessions](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/)  
+`getSkills()` | `[]` | Return Agent Skills sources for on-demand skill activation — refer to [Agent Skills](https://developers.cloudflare.com/agents/skills/)  
+`getSkillScriptRunner()` | `null` | Enable the experimental `run_skill_script` tool — refer to [Execution](https://developers.cloudflare.com/agents/skills/execution/)  
 `messageConcurrency` | `"queue"` | How overlapping submits behave — refer to [Client tools](https://developers.cloudflare.com/agents/harnesses/think/client-tools/#message-concurrency)  
 `includeMcpTools` | `true` | Convert connected MCP tools to AI SDK tools and add them to model turns. Refer to [MCP tools](https://developers.cloudflare.com/agents/harnesses/think/tools/#mcp-tools)  
 `waitForMcpConnections` | `false` | Wait for MCP servers before inference  
@@ -119,7 +119,7 @@ Expose configuration to the client via `@callable`:
 
 ## Session integration
 
-Think stores conversations in a [Session](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/) — the storage layer that holds your messages and gives the model writable memory. Two concepts come up here: **context blocks** are labelled sections of the system prompt the model can read and update (for example, a `memory` block of facts about the user), and **compaction** summarizes older messages so long conversations stay within the model's context window. Override `configureSession` to add persistent memory, compaction, search, and skills:
+Think stores conversations in a [Session](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/) — the storage layer that holds your messages and gives the model writable memory. Two concepts come up here: **context blocks** are labelled sections of the system prompt the model can read and update (for example, a `memory` block of facts about the user), and **compaction** summarizes older messages so long conversations stay within the model's context window. Override `configureSession` to add persistent memory, compaction, search, and skills:
     
     
     import { Think, Session } from "@cloudflare/think";
@@ -163,9 +163,9 @@ Think stores conversations in a [Session](https://developers.cloudflare.com/agen
     	}
     }
 
-When `configureSession` adds context blocks, Think builds the system prompt from those blocks instead of using `getSystemPrompt()`. Think's `this.messages` getter reads directly from Session's tree-structured storage.
+When `configureSession` adds context blocks, Think builds the system prompt from an overridden `getSystemPrompt()` followed by those blocks. The default `getSystemPrompt()` is only used when there are no blocks. Think's `this.messages` getter reads directly from Session's tree-structured storage.
 
-For the full Session API — context blocks, compaction, search, skills, and multi-session support — refer to the [Sessions documentation](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/).
+For the full Session API — context blocks, compaction, search, skills, and multi-session support — refer to the [Sessions documentation](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/).
 
 ## Package exports
 
@@ -198,7 +198,7 @@ Package | Notes
 ---|---  
 `@cloudflare/codemode` | Code execution for `createExecuteTool()`  
   
-The Agent Skills engine and its script runner live in [`agents/skills`](https://developers.cloudflare.com/agents/runtime/execution/agent-skills/), so skill scripts pull `@cloudflare/worker-bundler` and `just-bash` through `agents`, not Think.
+The Agent Skills parser, sources, and script runner live in [`agents/skills`](https://developers.cloudflare.com/agents/skills/), so the script runner pulls `just-bash` through `agents`, not Think.
 
 [PreviousGetting started](https://developers.cloudflare.com/agents/harnesses/think/getting-started/)[NextTools](https://developers.cloudflare.com/agents/harnesses/think/tools/)
 

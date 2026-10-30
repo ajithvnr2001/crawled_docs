@@ -1,7 +1,7 @@
 {
   "url": "https://developers.cloudflare.com/cloudflare-one/setup/replace-vpn/network-to-network/",
   "file": "cloudflare-one/setup/replace-vpn/network-to-network.md",
-  "title": "Network to network \u00b7 Cloudflare One docs",
+  "title": "Connect two private networks with Cloudflare Mesh \u00b7 Cloudflare One docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-13T08:48:17.346310+00:00"
+  "fetched_at": "2026-10-30T08:19:29.403957+00:00"
 }

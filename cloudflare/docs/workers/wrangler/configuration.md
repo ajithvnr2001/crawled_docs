@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/configuration/
 title: Configuration - Wrangler \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:00.580444+00:00
+fetched_at: 2026-10-30T08:19:31.556552+00:00
 ---
 
 # Configuration - Wrangler · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-29T08:14:00.580444+00:00
 
 # Configuration
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSample Wrangler configurationEnvironmentsAutomatic provisioningTop-level only keysInheritable keysNon-inheritable keysTypes of routes Custom Domains Routes workers.devTriggersObservability IssuesCustom buildsLimitsBindings Browser Run D1 databases Dispatch namespace bindings (Workers for Platforms) Durable Objects Email bindings Environment variables Hyperdrive Images KV namespaces AI Search namespaces AI Search instances Queues R2 buckets Vectorize indexes Service bindings Static assets Analytics Engine Datasets Analytics SQL mTLS Certificates Workers AI WorkflowsAssetsContainers default scheduling policy durable_object scheduling policy Custom instance types SSH Authorized keysBundling Importing modules within a Worker Find additional modules Python WorkersLocal development settingsSecrets secrets configuration property Local developmentModule Aliasing Bundling issues Example: Aliasing dependencies from NPM Example: Aliasing Node.js APIsSource mapsWorkers SitesProxy supportSource of truthGenerated Wrangler configuration Custom build tool example
+OverviewSample Wrangler configurationEnvironmentsAutomatic provisioningTop-level only keysInheritable keysNon-inheritable keysTypes of routes Custom Domains Routes workers.devTriggersObservability IssuesCustom buildsLimitsBindings Browser Run D1 databases Dispatch namespace bindings (Workers for Platforms) Durable Objects Email bindings Environment variables Flagship Hyperdrive Images KV namespaces AI Search namespaces AI Search instances Queues R2 buckets Vectorize indexes Service bindings Static assets Analytics Engine Datasets Analytics SQL mTLS Certificates Workers AI WorkflowsAssetsContainers default scheduling policy durable_object scheduling policy Custom instance types SSH Authorized keysBundling Importing modules within a Worker Find additional modules Python WorkersLocal development settingsSecrets secrets configuration property Local developmentModule Aliasing Bundling issues Example: Aliasing dependencies from NPM Example: Aliasing Node.js APIsSource mapsWorkers SitesProxy supportSource of truthGenerated Wrangler configuration Custom build tool example
 
 Wrangler optionally uses a configuration file to customize the development and deployment setup for a Worker.
 
@@ -48,7 +48,7 @@ It is best practice to treat Wrangler's configuration file as the source of trut
     	"main": "src/index.js",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-29",
+    	"compatibility_date": "2026-10-30",
     	"workers_dev": false,
     	"route": {
     		"pattern": "example.org/*",
@@ -83,7 +83,7 @@ It is best practice to treat Wrangler's configuration file as the source of trut
     main = "src/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-29"
+    compatibility_date = "2026-10-30"
     workers_dev = false
     
     [route]
@@ -253,37 +253,55 @@ The `main` key is optional for assets-only Workers.
 Non-inheritable keys are configurable at the top-level, but cannot be inherited by environments and must be specified for each environment.
 
   * `define` `Record<string, string>` optional
+
     * A map of values to substitute when deploying your Worker.
     * If you're using the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/), `define` is replaced by Vite's [`define` ↗︎](https://vite.dev/config/shared-options.html#define).
   * `vars` `object` optional
+
     * A map of environment variables to set when deploying your Worker. Refer to [Environment variables](https://developers.cloudflare.com/workers/configuration/environment-variables/).
   * `durable_objects` `object` optional
+
     * A list of Durable Objects that your Worker should be bound to. Refer to Durable Objects.
   * `kv_namespaces` `object` optional
+
     * A list of KV namespaces that your Worker should be bound to. Refer to KV namespaces.
   * `r2_buckets` `object` optional
+
     * A list of R2 buckets that your Worker should be bound to. Refer to R2 buckets.
   * `analytics` `object` optional
+
     * An Analytics SQL binding. Refer to Analytics SQL.
   * `ai_search_namespaces` `object` optional
+
     * A list of AI Search namespaces that your Worker should be bound to. Refer to AI Search namespaces.
   * `ai_search` `object` optional
+
     * A list of AI Search instance bindings bound directly to pre-existing instances in the default namespace. Refer to AI Search instances.
   * `vectorize` `object` optional
+
     * A list of Vectorize indexes that your Worker should be bound to. Refer to Vectorize indexes.
   * `services` `object` optional
+
     * A list of service bindings that your Worker should be bound to. Refer to service bindings.
   * `queues` `object` optional
+
     * A list of Queue producers and consumers that your Worker should be bound to. Refer to Queues.
   * `workflows` `object` optional
+
     * A list of Workflows that your Worker should be bound to. Refer to Workflows.
   * `tail_consumers` `object` optional
+
     * A list of the Tail Workers your Worker sends data to. Refer to [Tail Workers](https://developers.cloudflare.com/workers/observability/logs/tail-workers/).
   * `secrets` `object` optional
+
     * Declares the secret names your Worker requires. Used for validation during local development and deploy, and as the source of truth for type generation. Refer to Secrets.
     * `required` `string[]` optional — A list of secret names that must be set to deploy your Worker.
   * `secrets_store_secrets` `object` optional
+
     * A list of Secrets Store bindings that your worker should be bound to. Refer to [Secrets Store](https://developers.cloudflare.com/secrets-store/).
+  * `flagship` `object` optional
+
+    * A list of Flagship apps that your Worker should be bound to. Refer to Flagship.
 
 
 
@@ -905,6 +923,39 @@ Example:
       [vars.SERVICE_X_DATA]
       URL = "service-x-api.dev.example"
       MY_ID = 123
+
+### Flagship
+
+[Flagship](https://developers.cloudflare.com/flagship/) is Cloudflare's feature flag service. Bind a Flagship app to evaluate flags from your Worker.
+
+  * `binding` `string` required
+
+    * The binding name used to refer to the Flagship app. The binding must be [a valid JavaScript variable name ↗︎](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variables).
+  * `app_id` `string` optional
+
+    * The ID of the Flagship app.
+  * `remote` `boolean` optional
+
+    * During local development, Flagship bindings use a [local flag store](https://developers.cloudflare.com/flagship/configuration/#local-development) by default. Set `remote` to `true` to evaluate against the remote app instead.
+
+
+
+Example:
+    
+    
+    {
+    	"flagship": [
+    		{
+    			"binding": "FLAGS",
+    			"app_id": "<APP_ID>",
+    		},
+    	],
+    }
+    
+    
+    [[flagship]]
+    binding = "FLAGS"
+    app_id = "<APP_ID>"
 
 ### Hyperdrive
 

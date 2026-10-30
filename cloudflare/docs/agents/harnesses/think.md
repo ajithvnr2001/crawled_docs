@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/
 title: Think \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:02.024851+00:00
+fetched_at: 2026-10-30T08:19:21.455097+00:00
 ---
 
 # Think · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:04:02.024851+00:00
 
 # Think
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick start Install Server Client Configuration TracingThink vs AIChatAgent When to use AIChatAgent When to use ThinkChoose a turn API runTurn() Pick a shortcut Add messages without a turnIn this sectionAcknowledgmentsExampleRelated
 
@@ -174,7 +174,7 @@ That is it. Think handles the WebSocket chat protocol, message persistence, the 
     {
       "$schema": "./node_modules/wrangler/config-schema.json",
       // Set this to today's date
-      "compatibility_date": "2026-10-27",
+      "compatibility_date": "2026-10-30",
       "compatibility_flags": [
         "nodejs_compat"
       ],
@@ -201,7 +201,7 @@ That is it. Think handles the WebSocket chat protocol, message persistence, the 
     
     
     # Set this to today's date
-    compatibility_date = "2026-10-27"
+    compatibility_date = "2026-10-30"
     compatibility_flags = ["nodejs_compat"]
     
     [ai]
@@ -235,7 +235,7 @@ Think uses `wrapAISDK()` internally to instrument model turns, tool calls, and a
 
 Traces appear in the Agents view in the Cloudflare Dashboard. You can inspect conversations and trace timelines. To turn tracing off, set `observability.traces.enabled` to `false`. You do not need to change the Think agent class.
 
-For span attributes, payload controls, exporting traces, and direct AI SDK v6 or v7 setup, refer to [Tracing](https://developers.cloudflare.com/agents/runtime/operations/observability/tracing/).
+For span attributes, payload controls, exporting traces, and direct AI SDK v6 or v7 setup, refer to [Tracing](https://developers.cloudflare.com/agents/runtime/observability/tracing/).
 
 ## Think vs AIChatAgent
 
@@ -491,7 +491,7 @@ Durable turn admission for webhooks and RPC callers.
 
 Chat recovery, stream-stall watchdog, and stability detection.
 
-### [Agent Skills](https://developers.cloudflare.com/agents/runtime/execution/agent-skills/)
+### [Agent Skills](https://developers.cloudflare.com/agents/skills/)
 
 On-demand instructions, resources, and scripts via getSkills().
 
@@ -507,7 +507,7 @@ Explore a multi-session Think assistant with sub-agent routing, shared workspace
 
 ## Related
 
-  * [Sessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/) — context blocks, compaction, search, multi-session (the storage layer Think builds on)
+  * [Sessions](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/) — context blocks, compaction, search, multi-session (the storage layer Think builds on)
   * [Sub-agents](https://developers.cloudflare.com/agents/agent-class/sub-agents/) — `subAgent()`, `abortSubAgent()`, `deleteSubAgent()` (the base Agent methods for spawning children)
   * [Chat agents](https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/chat-agents/) — `AIChatAgent` for when you need full control over the LLM call
   * [Long-running agents](https://developers.cloudflare.com/agents/concepts/agentic-patterns/long-running-agents/) — sub-agent delegation patterns for multi-week agent lifetimes

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/ai-search/
 title: AI Search \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:58.923152+00:00
+fetched_at: 2026-10-30T08:19:27.307827+00:00
 ---
 
 # AI Search · Cloudflare Agents docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-28T08:03:58.923152+00:00
 
 # AI Search
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBasic patternConfigurationRelated resources
 
-Agents can use [AI Search](https://developers.cloudflare.com/ai-search/) to retrieve relevant information from indexed content and use it to augment [calls to AI models](https://developers.cloudflare.com/agents/agent-class/using-ai-models/). AI Search manages the retrieval pipeline for you, including indexing, search, and optional chat completions over your content.
+Agents can use [AI Search](https://developers.cloudflare.com/ai-search/) to retrieve relevant information from indexed content and use it to augment [calls to AI models](https://developers.cloudflare.com/agents/models/). AI Search manages the retrieval pipeline for you, including indexing, search, and optional chat completions over your content.
 
 Use AI Search when you want an agent to:
 

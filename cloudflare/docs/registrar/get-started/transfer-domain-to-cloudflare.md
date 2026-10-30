@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/registrar/get-started/transfer-domain-to-cloudflare/
 title: Transfer your domain to Cloudflare \u00b7 Cloudflare Registrar docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:44.384699+00:00
+fetched_at: 2026-10-30T08:19:26.411941+00:00
 ---
 
 # Transfer your domain to Cloudflare · Cloudflare Registrar docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:14:44.384699+00:00
 
 # Transfer your domain to Cloudflare
 
-Last updated Apr 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/registrar/get-started/transfer-domain-to-cloudflare/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview1\. Add your domain to Cloudflare Disable DNSSEC Add your domain and update your nameservers Wait for your domain to become active2\. Transfer your registration Unlock your domain Request an authorization code Enter your authorization code and confirm payment Confirm your contact information Approve the transfer at your current registrarTransfer from Shopify, Block, or WixTransfer statusesBulk domain transfersCommon transfer issuesNext steps
+Overview1\. Add your domain to Cloudflare Disable DNSSEC Add your domain and update your nameservers Wait for your domain to become active2\. Transfer your registration Unlock your domain Request an authorization code Enter your authorization code and confirm payment Confirm your contact information Approve the transfer at your current registrarTransfer from Shopify or BlockTransfer statusesBulk domain transfersCommon transfer issuesNext steps
 
 Transferring a domain moves your registration from your current registrar to Cloudflare.
 
@@ -32,7 +32,7 @@ Transferring a domain moves your registration from your current registrar to Clo
 
 Note
 
-Before you can transfer, you must first add your domain to Cloudflare. You cannot [enter an authorization code](https://developers.cloudflare.com/registrar/troubleshooting/#cannot-find-where-to-enter-your-authorization-code) until your domain is active on Cloudflare. If your domain is registered with Shopify, Wix, or a similar platform, you may not be able to change nameservers while the domain is registered there. Refer to Transfer from Shopify, Block, or Wix for the recommended workaround, or [Troubleshoot failed domain transfers](https://developers.cloudflare.com/registrar/troubleshooting/) if you are running into issues.
+Before you can transfer, you must first add your domain to Cloudflare. You cannot [enter an authorization code](https://developers.cloudflare.com/registrar/troubleshooting/#cannot-find-where-to-enter-your-authorization-code) until your domain is active on Cloudflare. If your domain is registered with Shopify, Block, or a similar platform, you may not be able to change nameservers while the domain is registered there. Refer to Transfer from Shopify or Block for the recommended workaround, or [Troubleshoot failed domain transfers](https://developers.cloudflare.com/registrar/troubleshooting/) if you are running into issues.
 
 Note
 
@@ -132,6 +132,7 @@ Each registrar has a different interface for updating nameservers. These links e
   * [Namecheap ↗︎](https://www.namecheap.com/support/knowledgebase/article.aspx/258/84/what-should-i-do-to-transfer-a-domain-from-namecheap/)
   * [Network Solutions ↗︎](https://www.networksolutions.com/help/article/transfer-out-of-network-solutions)
   * [Squarespace ↗︎](https://support.squarespace.com/hc/articles/205812338-Transferring-a-domain-away-from-Squarespace)
+  * [Wix ↗︎](https://support.wix.com/en/article/transferring-your-wix-domain-away-from-wix-2477749)
 
 
 
@@ -213,9 +214,9 @@ Registrants transferring a `.us` domain will always receive a FOA email.
 
 * * *
 
-## Transfer from Shopify, Block, or Wix
+## Transfer from Shopify or Block
 
-Some commerce and site-building platforms (such as Shopify, Block, and Wix) act as both your hosting provider and domain registrar. These platforms typically do not allow you to change nameservers while the domain is registered with them. Because Cloudflare requires your nameservers to point to Cloudflare before a transfer can begin, a direct transfer is not possible.
+Some commerce and site-building platforms (such as Shopify and Block) act as both your hosting provider and domain registrar. These platforms typically do not allow you to change nameservers while the domain is registered with them. Because Cloudflare requires your nameservers to point to Cloudflare before a transfer can begin, a direct transfer is not possible.
 
 The workaround is to transfer your domain to another registrar first, wait 60 days, then transfer to Cloudflare:
 

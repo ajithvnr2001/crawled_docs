@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/recovery/
 title: Durable recovery \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:01.173568+00:00
+fetched_at: 2026-10-30T08:19:24.381896+00:00
 ---
 
 # Durable recovery · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:04:01.173568+00:00
 
 # Durable recovery
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBounded recoveryonChatRecovery ChatRecoveryContext ChatRecoveryOptions Recovery budgets and limitsRepairing interrupted tool callsContext-window overflow recoveryStability detection hasPendingInteraction waitUntilStable
 
@@ -72,7 +72,7 @@ Configure bounded recovery by setting `chatRecovery` to an object:
     	}
     }
 
-The same recovery events are available through `agents/observability` on the `chat` channel; transcript repairs are emitted on the `transcript` channel. Refer to [Diagnostics channels](https://developers.cloudflare.com/agents/runtime/operations/observability/diagnostics-channels/#chat-recovery-events).
+The same recovery events are available through `agents/observability` on the `chat` channel; transcript repairs are emitted on the `transcript` channel. Refer to [Diagnostics channels](https://developers.cloudflare.com/agents/runtime/observability/diagnostics-channels/#chat-recovery-events).
 
 ## onChatRecovery
 
@@ -253,7 +253,7 @@ This runs during transcript repair — before the repaired transcript is persist
 
 ## Context-window overflow recovery
 
-[Compaction](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/#compaction) is checked **between turns** — `compactAfter()` runs after each `appendMessage()`. But a single long, tool-heavy turn grows the prompt step by step inside one `streamText` loop and can exceed the model context window **mid-turn** , before the next pre-turn check. The provider then rejects the request (`"prompt is too long"`, `context_length_exceeded`), and the turn would otherwise die terminally.
+[Compaction](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/#compaction) is checked **between turns** — `compactAfter()` runs after each `appendMessage()`. But a single long, tool-heavy turn grows the prompt step by step inside one `streamText` loop and can exceed the model context window **mid-turn** , before the next pre-turn check. The provider then rejects the request (`"prompt is too long"`, `context_length_exceeded`), and the turn would otherwise die terminally.
 
 Think recovers from this with two opt-in, provider-agnostic layers, both configured through the `contextOverflow` property. Both are off by default, so existing behavior is unchanged. Both reuse your session's compaction function, so they require a `configureSession()` with `onCompaction()` configured. Both require [`classifyChatError`](https://developers.cloudflare.com/agents/harnesses/think/lifecycle-hooks/#classifychaterror) to tell Think which errors are overflows — Think ships no provider-specific matching in core.
 
@@ -309,11 +309,11 @@ Think recovers from this with two opt-in, provider-agnostic layers, both configu
     	override classifyChatError = defaultContextOverflowClassifier;
     }
 
-Use either layer alone, or both together: the proactive guard avoids most overflows, and the reactive backstop catches any that still slip through (for example, a turn that starts already over budget, or a single tool result so large that compaction cannot help — in which case it terminalizes cleanly). Both apply to every turn entry path (WebSocket, sub-agent `chat()`, and programmatic `saveMessages()` / `submitMessages()`), and both emit a `chat:context:compacted` [diagnostics channel event](https://developers.cloudflare.com/agents/runtime/operations/observability/diagnostics-channels/#chat-context-events).
+Use either layer alone, or both together: the proactive guard avoids most overflows, and the reactive backstop catches any that still slip through (for example, a turn that starts already over budget, or a single tool result so large that compaction cannot help — in which case it terminalizes cleanly). Both apply to every turn entry path (WebSocket, sub-agent `chat()`, and programmatic `saveMessages()` / `submitMessages()`), and both emit a `chat:context:compacted` [diagnostics channel event](https://developers.cloudflare.com/agents/runtime/observability/diagnostics-channels/#chat-context-events).
 
 Note
 
-A no-op compaction cannot rescue an over-budget turn, so recovery is only as effective as your compaction configuration. For tool-heavy histories, configure a `tokenCounter` on `compactAfter()` (refer to [Sessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/#auto-compaction)).
+A no-op compaction cannot rescue an over-budget turn, so recovery is only as effective as your compaction configuration. For tool-heavy histories, configure a `tokenCounter` on `compactAfter()` (refer to [Sessions](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/#compaction)).
 
 For a runnable demo against a real Workers AI model, refer to the [`context-overflow-recovery` example ↗︎](https://github.com/cloudflare/agents/tree/main/examples/context-overflow-recovery).
 
@@ -356,7 +356,7 @@ Returns a promise that resolves to `true` when the agent reaches a stable state,
     	]);
     }
 
-[PreviousProgrammatic submissions](https://developers.cloudflare.com/agents/harnesses/think/programmatic-submissions/)[NextSessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/)
+[PreviousProgrammatic submissions](https://developers.cloudflare.com/agents/harnesses/think/programmatic-submissions/)[NextOverview](https://developers.cloudflare.com/agents/runtime/)
 
 Was this helpful?
 

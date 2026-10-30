@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/tools/browser/
 title: Browser \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T08:14:03.929006+00:00
+fetched_at: 2026-10-30T08:19:23.045598+00:00
 ---
 
 # Browser · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-29T08:14:03.929006+00:00
 
 # Browser
 
-Last updated Oct 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewReturn to the same browser Use it with Pi Durable Tabs, logins, and interruptions Use another harnessInternal hostnames Add internal hostnames Let the model choose what a host serves LimitsLive View and human takeover Hand off to a person Close the browserRecordingBrowser APIRead pages without a browserLegacy browser tools Basic pattern Configuration Session lifecycle Host-side helpers Approval and human handoff Legacy CDP methods Session recording Kitesurf Quick Action tools Browser agent exampleRelated resources
 
@@ -39,16 +39,18 @@ Start with a [Pi Durable agent](https://developers.cloudflare.com/agents/harness
 npmyarnpnpmbun
     
     
-    npm i agents @cloudflare/codemode @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    npm i agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/codemode
     
     
-    yarn add agents @cloudflare/codemode @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    yarn add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/codemode
     
     
-    pnpm add agents @cloudflare/codemode @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    pnpm add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/codemode
     
     
-    bun add agents @cloudflare/codemode @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord
+    bun add agents @earendil-works/pi-durable @earendil-works/pi-ai @earendil-works/chord @cloudflare/codemode
+
+The Pi packages are optional peer dependencies of `agents`, at `~1.4.0`. Pi Durable is experimental and its API can change in minor releases, so each `agents` release supports one Pi minor version. Install the versions your package manager resolves for `agents`.
 
 This example installs a `Browser` and `PiHarness` on a plain Durable Object. Pi chooses when to call the browser tool. [Lifecycle](https://developers.cloudflare.com/agents/runtime/lifecycle/) starts both components and provides their storage.
 
@@ -165,7 +167,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     	"name": "persistent-browser-agent",
     	"main": "src/index.ts",
     	// Set this to today's date
-    	"compatibility_date": "2026-10-29",
+    	"compatibility_date": "2026-10-30",
     	"compatibility_flags": ["nodejs_compat"],
     	"ai": { "binding": "AI" },
     	"browser": { "binding": "BROWSER" },
@@ -180,7 +182,7 @@ Configure the model, browser, Worker Loader, and Durable Object bindings:
     name = "persistent-browser-agent"
     main = "src/index.ts"
     # Set this to today's date
-    compatibility_date = "2026-10-29"
+    compatibility_date = "2026-10-30"
     compatibility_flags = [ "nodejs_compat" ]
     
     [ai]

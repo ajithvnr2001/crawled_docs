@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/reference/postmaster/
 title: Postmaster \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:15.683360+00:00
+fetched_at: 2026-10-30T08:19:19.814780+00:00
 ---
 
 # Postmaster · Cloudflare Email Service docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:15.683360+00:00
 
 # Postmaster
 
-Last updated Jun 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/reference/postmaster/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPostmaster Contact information Authenticated Received Chain (ARC) DKIM signature DMARC enforcing Mail authentication requirement IPv6 support MX and SPF records Outbound prefixes Outbound hostnames Sender rewriting SMTP errors Realtime Block Lists SPF record breakdownRelated configurationKnown limitations Email address internationalization (EAI) Non-delivery reports (NDRs) Restrictive DMARC policies can make forwarded emails fail Sending or replying to an email from your Cloudflare domain "." is treated as a normal character in email patterns
 
@@ -62,9 +62,11 @@ For forwarded emails, Email Routing adds two DKIM signatures: one for `email.clo
 
 ### DMARC enforcing
 
-Email Service supports Domain-based Message Authentication, Reporting & Conformance (DMARC). When sending emails, Email Service ensures proper SPF and DKIM alignment to pass DMARC authentication. For Email Routing, incoming emails are rejected if they fail authentication according to the sender's DMARC policy. Refer to [dmarc.org ↗︎](https://dmarc.org/) for more information on this protocol.
+Email Service supports Domain-based Message Authentication, Reporting & Conformance (DMARC). When sending emails, Email Service ensures proper SPF and DKIM alignment to pass DMARC authentication. Email Routing honors the DMARC and SPF policies published by the claimed sender's domain. Incoming emails are rejected if they fail authentication according to that domain's DMARC policy. Refer to [dmarc.org ↗︎](https://dmarc.org/) for more information on this protocol.
 
 It is recommended that all domains implement the DMARC protocol for optimal email deliverability.
+
+For emails routed to Workers, refer to [Authentication results](https://developers.cloudflare.com/email-service/api/route-emails/email-handler/#authentication-results) to access the DMARC result in your Worker.
 
 ### Mail authentication requirement
 
@@ -220,7 +222,7 @@ Email Routing does not support sending or replying from your Cloudflare domain. 
 
 The `.` character, which performs special actions in email providers like Gmail, is treated as a normal character in routing rule email patterns.
 
-[PreviousEmail logs](https://developers.cloudflare.com/email-service/observability/logs/)[NextEmail headers](https://developers.cloudflare.com/email-service/reference/headers/)
+[PreviousManage suppressions](https://developers.cloudflare.com/email-service/configuration/suppressions/)[NextEmail headers](https://developers.cloudflare.com/email-service/reference/headers/)
 
 Was this helpful?
 

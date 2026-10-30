@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers-vpc/
 title: Overview \u00b7 Cloudflare Workers VPC
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:10.044111+00:00
+fetched_at: 2026-10-30T08:19:28.991722+00:00
 ---
 
 # Overview · Cloudflare Workers VPC
@@ -16,7 +16,7 @@ fetched_at: 2026-10-13T08:48:10.044111+00:00
 
 # Cloudflare Workers VPC
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse cases Access private APIs from Workers applications API gateway Internal tooling, agents, dashboards Apply Zero Trust controls to Worker egressGet startedRelated products
 
@@ -28,7 +28,7 @@ Workers VPC allows you to connect your Workers to your private APIs, services, a
 
 **[VPC Services](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/)** let you bind to a specific host and port in your private network. Connect a [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/) to your infrastructure, register each target as a VPC Service, and use the [binding API](https://developers.cloudflare.com/workers-vpc/api/) from your Worker. VPC Services support HTTP and TCP (TCP databases through [Hyperdrive](https://developers.cloudflare.com/hyperdrive/)).
 
-**[VPC Networks](https://developers.cloudflare.com/workers-vpc/configuration/vpc-networks/)** give Workers broader access — bind to an entire [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/), [Cloudflare Mesh](https://developers.cloudflare.com/mesh/) network, or [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-wan/) on-ramp (GRE, IPsec, CNI) without pre-registering individual hosts. The URL or address you pass at runtime determines the destination. VPC Networks support HTTP via `fetch()` and raw TCP via [`connect()`](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) for non-HTTP services like Redis, MQTT, and custom protocols. The same binding can also egress to public Internet destinations through [Cloudflare Gateway](https://developers.cloudflare.com/cloudflare-one/traffic-controls/), with your Zero Trust policies and logs applied.
+**[VPC Networks](https://developers.cloudflare.com/workers-vpc/configuration/vpc-networks/)** give Workers broader access — bind to an entire [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/), [Cloudflare Mesh](https://developers.cloudflare.com/mesh/) network, or [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-wan/) on-ramp (GRE, IPsec, CNI) without pre-registering individual hosts. Use `cf1:network` to select your account's default virtual network, or `cf1:vnet:<UUID>` to select a specific configured virtual network. The URL or address you pass at runtime determines the destination. VPC Networks support HTTP via `fetch()` and raw TCP via [`connect()`](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) for non-HTTP services like Redis, MQTT, and custom protocols. The same binding can also egress to public Internet destinations through [Cloudflare Gateway](https://developers.cloudflare.com/cloudflare-one/traffic-controls/), with your Zero Trust policies and logs applied.
 
 [Worker](https://developers.cloudflare.com/workers/)
 
@@ -40,7 +40,7 @@ Reach private applications or networks through `cloudflared`
 
 [Cloudflare Mesh](https://developers.cloudflare.com/mesh/)
 
-Reach the full account through `cf1:network`
+Workers VPC can use the default or a specific virtual network
 
 [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-wan/)
 

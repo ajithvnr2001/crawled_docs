@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/getting-started/testing-your-agent/
 title: Testing your Agents \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:12.002500+00:00
+fetched_at: 2026-10-30T08:19:23.412358+00:00
 ---
 
 # Testing your Agents · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:04:12.002500+00:00
 
 # Testing your Agents
 
-Last updated Aug 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/getting-started/testing-your-agent/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWriting and running tests Setup Write a test Run testsRunning Agents locally
 
@@ -30,7 +30,7 @@ Because Agents run on Cloudflare Workers and Durable Objects, they can be tested
 
 Note
 
-The `agents-starter` template and new Cloudflare Workers projects already include the relevant `vitest` and `@cloudflare/vitest-plugin` packages, as well as a valid `vitest.config.js` file.
+New Cloudflare Workers projects already include the relevant `vitest` and `@cloudflare/vitest-plugin` packages, as well as a valid `vitest.config.js` file.
 
 Before you write your first test, install the necessary packages:
     
@@ -127,9 +127,9 @@ You can also run an Agent locally using the `wrangler` CLI:
 
 This spins up a local development server that runs the same runtime as Cloudflare Workers, and allows you to iterate on your Agent's code and test it locally without deploying it.
 
-Visit the [`wrangler dev` ↗︎](https://developers.cloudflare.com/workers/wrangler/commands/general/#dev) docs to review the CLI flags and configuration options.
+Visit the [`wrangler dev`](https://developers.cloudflare.com/workers/wrangler/commands/general/#dev) docs to review the CLI flags and configuration options.
 
-[PreviousAdd to existing project](https://developers.cloudflare.com/agents/getting-started/add-to-existing-project/)[NextWhat are agents?](https://developers.cloudflare.com/agents/concepts/what-are-agents/)
+[PreviousAdd to an existing project](https://developers.cloudflare.com/agents/getting-started/add-to-existing-project/)[NextWhat are agents?](https://developers.cloudflare.com/agents/concepts/what-are-agents/)
 
 Was this helpful?
 

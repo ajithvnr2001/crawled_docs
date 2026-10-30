@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/build-image/
 title: Build image \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:33.143417+00:00
+fetched_at: 2026-10-30T08:19:20.510053+00:00
 ---
 
 # Build image · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-27T07:31:33.143417+00:00
 
 # Build image
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSupported Tooling Runtime Tools and languagesAdvanced Settings Overriding Default Versions Skip dependency installPre-installed PackagesBuild Environment Trusted certificatesBuild Image Policy Preinstalled Software Updates Best Practices
 
@@ -55,7 +55,7 @@ Tool | Default version | Environment variable | File
 **Hugo** | extended_0.147.7 | `HUGO_VERSION` |   
 **npm** | 10.9.2 |  | `packageManager` field in `package.json`  
 **yarn** | 4.18.1 | `YARN_VERSION` | `packageManager` field in `package.json`  
-**pnpm** | 10.11.1 | `PNPM_VERSION` | `packageManager` field in `package.json`  
+**pnpm** | 9.10.0 | `PNPM_VERSION` | `packageManager` field in `package.json`  
 **pip** | 26.2.2 |  |   
 **gem** | 3.6.9 |  |   
 **poetry** | 2.4.3 |  |   
@@ -97,11 +97,26 @@ package.jsonjson
     }
 
   * Workers Builds reads `packageManager` from the `package.json` in your project's [root directory](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/#build-settings). If the root directory is not the top level of your repository, Workers Builds also reads the `package.json` at the top level of the repository. If both files set `packageManager`, use the same value in each.
-  * Use an exact version, such as `npm@11.19.1`. Do not use ranges such as `npm@^11`. If Workers Builds cannot parse the version, it uses the default version.
+  * Use an exact version, such as `npm@11.19.1`. Do not use ranges such as `npm@^11`.
   * The `engines.npm` field in `package.json` does **not** set the npm version. If you only set `engines.npm`, Workers Builds uses the default npm version, and npm prints an `EBADENGINE` warning instead of failing.
   * `packageManager` sets the version of the package manager. The lockfile in your repository still determines which package manager installs your dependencies.
 
 
+
+#### pnpm version selection
+
+Workers Builds runs pnpm through [Corepack ↗︎](https://github.com/nodejs/corepack). With the default Corepack settings, version selection follows this order:
+
+  1. The top-level `packageManager` field in `package.json`.
+  2. `devEngines.packageManager` in `package.json`, when it specifies `pnpm` and a version.
+  3. The `PNPM_VERSION` build variable.
+  4. The build image's default pnpm version.
+
+
+
+Project version requirements take precedence over `PNPM_VERSION`. Use an exact version to keep builds consistent. A version range in `devEngines.packageManager` can select different releases across builds. The pnpm version recorded in `pnpm-lock.yaml` does not pin the version Corepack runs.
+
+The `Detected the following tools from environment` log line reports tool selection before Corepack applies `devEngines.packageManager`. Check pnpm's install output for the version that actually ran.
 
 ### Skip dependency install
 

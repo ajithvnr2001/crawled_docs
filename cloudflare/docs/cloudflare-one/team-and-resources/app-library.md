@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/team-and-resources/app-library/
 title: Application Library \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:06.792109+00:00
+fetched_at: 2026-10-30T08:19:27.823164+00:00
 ---
 
 # Application Library · Cloudflare One docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-15T14:53:06.792109+00:00
 
 # Application Library
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewView application details Overview Findings Policies UsageReview applicationsApplication confidence scorecards Scoring methodology Automated scoring infrastructure
 
@@ -29,6 +29,8 @@ To access the App Library in the [Cloudflare dashboard ↗︎](https://dash.clou
 The App Library groups [Do Not Inspect applications](https://developers.cloudflare.com/cloudflare-one/traffic-controls/application-app-types/#do-not-inspect-applications) within the corresponding application. For example, the App Library will group _Google Drive (Do Not Inspect)_ under **Google Drive**. Traffic that does not match a known application will not be included in the App Library.
 
 You can also [create custom applications](https://developers.cloudflare.com/cloudflare-one/team-and-resources/app-library/custom-applications/) to identify internal services or applications that are not in the Cloudflare-managed catalog. Use custom applications in [DNS](https://developers.cloudflare.com/cloudflare-one/traffic-controls/dns-policies/#application), [HTTP](https://developers.cloudflare.com/cloudflare-one/traffic-controls/http-policies/#application), and [Network](https://developers.cloudflare.com/cloudflare-one/traffic-controls/network-policies/#application) policies with the existing **Application** selector.
+
+To manage applications with the API or Terraform, refer to [Required API token permissions](https://developers.cloudflare.com/cloudflare-one/team-and-resources/app-library/custom-applications/#required-api-token-permissions).
 
 ## View application details
 

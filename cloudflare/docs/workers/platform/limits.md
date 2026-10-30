@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/limits/
 title: Limits \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:40.166089+00:00
+fetched_at: 2026-10-30T08:19:27.010012+00:00
 ---
 
 # Limits · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:40.166089+00:00
 
 # Limits
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccount plan limitsRequest and response limitsCPU timeMemoryDuration Runtime updatesDaily requestsSubrequests Worker-to-Worker subrequestsSimultaneous open connectionsEnvironment variablesWorker sizeWorker startup timeNumber of WorkersRoutes and domains Routes with wrangler dev --remoteCache API limitsLog sizeImage Resizing with WorkersStatic AssetsUnbound and Bundled plan limitsWall time limits by invocation typeRelated resources
 
@@ -58,7 +58,7 @@ Request header size | 128 KB (total)
 Response header size | 128 KB (total)  
 Response body size | No enforced limit  
   
-Request body size limits depend on your Cloudflare account plan, not your Workers plan. Requests exceeding these limits return a [`413 Request entity too large`](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-413/#cloudflare-specific-information) error.
+For incoming requests to a Worker on your domain, request body size limits depend on the domain's Cloudflare plan, not your Workers plan. Requests exceeding these limits return a [`413 Request entity too large`](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/4xx-client-error/error-413/#cloudflare-specific-information) error.
 
 Cloudflare Plan | Maximum request body size  
 ---|---  
@@ -68,6 +68,8 @@ Business | 200 MB
 Enterprise | Up to 5 GB (self-serve)  
   
 Enterprise customers can adjust the maximum request body size up to 5 GB themselves from the zone's **Network** page (**Maximum Upload Size**). For limits above 5 GB, contact your account team or [Cloudflare Support](https://developers.cloudflare.com/support/contacting-cloudflare-support/).
+
+Cloudflare limits each HTTP request body sent to an external service by a [Durable Object](https://developers.cloudflare.com/durable-objects/platform/limits/#outbound-http-request-body-size) or through a [Container outbound handler](https://developers.cloudflare.com/containers/platform/limits/#outbound-http-request-body-size) to **100 MiB by default**. Increasing **Maximum Upload Size** for your domain does not increase this limit. Refer to the product limits for upload guidance and how to request an increase.
 
 Cloudflare does not enforce response body size limits. [CDN cache limits](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/) apply: 512 MB for Free, Pro, and Business plans, and 5 GB for Enterprise.
 

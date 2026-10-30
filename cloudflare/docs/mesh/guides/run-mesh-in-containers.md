@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/mesh/guides/run-mesh-in-containers/
 title: Run Cloudflare Mesh in containers \u00b7 Cloudflare Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:10.642295+00:00
+fetched_at: 2026-10-30T08:19:28.848662+00:00
 ---
 
 # Run Cloudflare Mesh in containers · Cloudflare Docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-15T14:53:10.642295+00:00
 
 # Run Mesh in Docker / Kubernetes
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSupported architecturesPrerequisitesDeploy with Docker ComposeDeploy with Docker CLIDeploy on Kubernetes 1\. Create the token Secret 2\. Apply the manifest 3\. Verify the nodeKubernetes sidecar 1\. Create the token Secret 2\. Apply the manifest 3\. Verify the sidecarRuntime configurationSource NATHigh availability on KubernetesHostname routesSite-to-site networkingTroubleshooting Node registers as a regular Cloudflare One Client device warp-cli status remains Connecting A Kubernetes Service cannot be resolved A hostname request arrives but no response returns Check node statusNext steps
 

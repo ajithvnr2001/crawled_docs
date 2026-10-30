@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/getting-started/
 title: Getting started \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:11.249743+00:00
+fetched_at: 2026-10-30T08:19:20.670842+00:00
 ---
 
 # Getting started · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-23T16:40:11.249743+00:00
 
 # Getting started
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/getting-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create a project2\. Configure wrangler3\. Define the agent4\. Connect a React client5\. Run it6\. Add persistent memory7\. Add custom tools8\. Add lifecycle hooksNext steps
 
@@ -366,9 +366,9 @@ Override `configureSession` to give the model writable memory that survives rest
 
 Now the model sees a `MEMORY` section in its system prompt and gets a `set_context` tool to update it. Facts written to memory persist in SQLite and survive Durable Object hibernation and restarts.
 
-When you use `configureSession`, the system prompt is built from context blocks rather than `getSystemPrompt()`. The `"soul"` block above acts as the system identity — it is read-only and always appears first. The `"memory"` block is writable, and the model proactively updates it when it learns something useful.
+When you use `configureSession`, the system prompt is built from context blocks, with an overridden `getSystemPrompt()` at the top. The `"soul"` block in the previous example acts as the system identity — it is read-only and always appears first. The `"memory"` block is writable, and the model proactively updates it when it learns something useful.
 
-Refer to the [Sessions documentation](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/) for context blocks, compaction, search, skills, and multi-session support.
+Refer to the [Sessions documentation](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/) for context blocks, compaction, search, skills, and multi-session support.
 
 ## 7\. Add custom tools
 
@@ -498,7 +498,7 @@ Refer to [Lifecycle hooks](https://developers.cloudflare.com/agents/harnesses/th
   * [Tools](https://developers.cloudflare.com/agents/harnesses/think/tools/) — workspace tools, code execution, extensions
   * [Client tools](https://developers.cloudflare.com/agents/harnesses/think/client-tools/) — browser-side tools, approval flows, concurrency
   * [Sub-agent RPC and programmatic turns](https://developers.cloudflare.com/agents/harnesses/think/sub-agents/) — RPC streaming, scheduled turns, recovery
-  * [Sessions](https://developers.cloudflare.com/agents/runtime/lifecycle/sessions/) — context blocks, compaction, search, multi-session
+  * [Sessions](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/) — context blocks, compaction, search, multi-session
 
 
 

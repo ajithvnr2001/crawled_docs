@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/tools/
 title: Tools \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:01.448720+00:00
+fetched_at: 2026-10-30T08:19:21.072990+00:00
 ---
 
 # Tools · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:04:01.448720+00:00
 
 # Tools
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTool merge orderBuilt-in workspace tools Run code with exec Call the agent's tools from code Change the tools Upgrade from @cloudflare/shellCustom toolsTool approvalPer-turn tool overridesMCP toolsCode execution tool Approvals (human-in-the-loop) The runtime handleBrowser toolsExtensions Static extensions LLM-driven extensions Extension context blocks
 
@@ -36,7 +36,7 @@ On every turn, Think merges tools from multiple sources. Later sources override 
   2. **`getTools()`** — your custom server-side tools
   3. **Extension tools** — tools from loaded extensions (prefixed by extension name)
   4. **Session tools** — `set_context`, `load_context`, `search_context` (from `configureSession`)
-  5. **Skill tools** — `activate_skill`, `read_skill_resource`, `run_skill_script` (from `getSkills()`, refer to [Agent Skills](https://developers.cloudflare.com/agents/runtime/execution/agent-skills/))
+  5. **Skill tools** — `activate_skill`, `read_skill_resource`, `run_skill_script` (from `getSkills()`, refer to [Agent Skills](https://developers.cloudflare.com/agents/skills/))
   6. **MCP tools** — from connected MCP servers when `includeMcpTools` is `true`
   7. **Client tools** — from the browser (refer to [Client tools](https://developers.cloudflare.com/agents/harnesses/think/client-tools/))
 

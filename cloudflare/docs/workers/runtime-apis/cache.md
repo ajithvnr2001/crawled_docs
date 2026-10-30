@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/cache/
 title: Cache \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:42.887632+00:00
+fetched_at: 2026-10-30T08:19:20.403498+00:00
 ---
 
 # Cache · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:42.887632+00:00
 
 # Cache
 
-Last updated Aug 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/cache/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBackgroundAccessing CacheHeadersMethods Put Match DeleteRelated resources
 
@@ -69,7 +69,7 @@ Our implementation of the Cache API respects the following HTTP headers on the r
   * `Cache-Control`
     * Controls caching directives. This is consistent with [Cloudflare Cache-Control Directives](https://developers.cloudflare.com/cache/concepts/cache-control#cache-control-directives). Refer to [Edge TTL](https://developers.cloudflare.com/cache/how-to/configure-cache-status-code#edge-ttl) for a list of HTTP response codes and their TTL when `Cache-Control` directives are not present.
   * `Cache-Tag`
-    * Allows resource purging by tag(s) later.
+    * Allows resource purging by tag(s) later. `cache.match()` does not include this header in the response it returns.
   * `ETag`
     * Allows `cache.match()` to evaluate conditional requests with `If-None-Match`.
   * `Expires` string 
@@ -105,6 +105,14 @@ Use the `Cache-Control` method to store the response without the `Set-Cookie` he
 Note
 
 The `stale-while-revalidate` and `stale-if-error` directives are not supported when using the `cache.put` or `cache.match` methods.
+
+Store a matched response again
+
+Responses returned by `cache.match()` do not include the `Cache-Tag` header. If you pass a matched response back to `cache.put()`, for example after revalidating it with your origin, set `Cache-Tag` on the response first.
+
+Otherwise, a purge by tag that runs between your `match()` and `put()` calls leaves the new entry without tags. Later purges by tag do not remove that entry. A purge by URL does.
+
+To keep tags on every write, copy them into a custom header when you first store the response. Then restore `Cache-Tag` from that header before each `put()`.
 
 #### Parameters
 

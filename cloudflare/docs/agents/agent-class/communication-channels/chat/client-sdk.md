@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/client-sdk/
 title: Client SDK \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:48.453629+00:00
+fetched_at: 2026-10-30T08:19:25.403471+00:00
 ---
 
 # Client SDK · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:03:48.453629+00:00
 
 # Client SDK
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewQuick start React Vanilla JavaScriptConnecting to agents Agent naming Instance names Connection options Async query parametersState synchronization Reading current state Receiving state updates Pushing state updates State flowCalling agent methods (RPC) Using call() Using the stub proxy TypeScript integration Streaming responsesHTTP requests with agentFetchMCP server integrationError handling Connection errors RPC errors Streaming errorsBest practices 1\. Use typed stubs 2\. Reconnection is automatic 3\. Optimize query caching 4\. Clean up connectionsReact hook reference UseAgentOptions Return valueVanilla JS reference AgentClientOptions AgentClient methods Chat from a non-React clientAgent-tool eventsNext steps
 
@@ -848,7 +848,7 @@ URL patterns and custom routing options.
 
 RPC over WebSocket for client-server method calls.
 
-### [Cross-domain authentication](https://developers.cloudflare.com/agents/runtime/operations/cross-domain-authentication/)
+### [Authentication](https://developers.cloudflare.com/agents/runtime/routing/authentication/)
 
 Secure WebSocket connections across domains.
 

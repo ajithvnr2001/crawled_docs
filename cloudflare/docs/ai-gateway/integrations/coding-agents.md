@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/
 title: Coding agents \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T06:28:13.938751+00:00
+fetched_at: 2026-10-30T08:19:19.752569+00:00
 ---
 
 # Coding agents · Cloudflare AI Gateway docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-17T06:28:13.938751+00:00
 
 # Coding agents
 
-Last updated Oct 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhy route a coding agent through AI GatewaySet up your agentProtect sensitive code with DLPVerify it works
 
@@ -40,6 +40,7 @@ Routing a coding agent through AI Gateway gives you:
 
 Follow the setup guide for your coding agent:
 
+  * [Android Studio](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/android-studio/)
   * [Claude Code](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-code/)
   * [Claude Desktop](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/claude-desktop/)
   * [Cursor](https://developers.cloudflare.com/ai-gateway/integrations/coding-agents/cursor/)

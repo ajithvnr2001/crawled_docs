@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/flagship/reference/wrangler-commands/
 title: Wrangler commands \u00b7 Cloudflare Flagship docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-20T06:57:50.453647+00:00
+fetched_at: 2026-10-30T08:19:30.626433+00:00
 ---
 
 # Wrangler commands · Cloudflare Flagship docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-20T06:57:50.453647+00:00
 
 # Wrangler commands
 
-Last updated Oct 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBefore you begin Authenticate Wrangler Bind Flagship to your WorkerQuick startManage appsCreate flags Boolean flags Explicit variations Disabled flagsTarget users with rules Rule syntax Conditions Multiple rulesInspect flagsUpdate flags Update metadata and variations Change the default variation Replace, append, or clear all rules List rules Reorder rules Change one rule Delete one ruleRun releases and kill switches Enable and disable Roll out one variation Split traffic across variationsEvaluate flagsAudit changesDelete flagsAutomate with JSON outputCommand reference
+OverviewBefore you begin Authenticate Wrangler Bind Flagship to your WorkerLocal flag storeQuick startManage appsCreate flags Boolean flags Explicit variations Disabled flagsTarget users with rules Rule syntax Conditions Multiple rulesInspect flagsUpdate flags Update metadata and variations Change the default variation Replace, append, or clear all rules List rules Reorder rules Change one rule Delete one ruleRun releases and kill switches Enable and disable Roll out one variation Split traffic across variationsEvaluate flagsAudit changesDelete flagsAutomate with JSON outputCommand reference
 
 Use `wrangler flagship` to manage Flagship apps and feature flags from the command line. Every `wrangler flagship flags` command takes the app ID as the first argument. Most subcommands then take a flag key, for example `wrangler flagship flags get <APP_ID> <KEY>`. List-style commands, such as `wrangler flagship flags list <APP_ID>`, take only the app ID.
 
@@ -28,7 +28,7 @@ Use `wrangler flagship` to manage Flagship apps and feature flags from the comma
 
 ### Authenticate Wrangler
 
-`wrangler flagship` calls the Cloudflare API. Authenticate Wrangler before running commands:
+Commands that target the remote app call the Cloudflare API. Authenticate Wrangler before running them:
     
     
     wrangler login
@@ -65,6 +65,27 @@ Add a Flagship binding to your Worker project so your Worker code can evaluate f
 Note
 
 This binding is only used by your Worker's runtime code (`env.FLAGS`). `wrangler flagship` commands always take the app ID as an explicit argument and do not read it from this binding.
+
+## Local flag store
+
+[`wrangler dev`](https://developers.cloudflare.com/workers/wrangler/commands/general/#dev), the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/), and [`cf dev`](https://developers.cloudflare.com/cf/projects/#start-development) evaluate Flagship bindings against a local flag store. The store starts empty and is not filled automatically.
+
+Copy flags from the remote app into that store:
+    
+    
+    wrangler flagship flags pull <APP_ID>
+
+`pull` requires authentication because it reads the remote app. Matching keys are overwritten. Flags that exist only locally are reported, not deleted. `pull` writes to the default local store in `.wrangler/state`; pass `--persist-to <DIRECTORY>` if your dev server keeps its data elsewhere.
+
+`create`, `get`, `list`, `update`, `delete`, `enable`, `disable`, `set`, `rollout`, `split`, `evaluate`, and the `rules` commands accept `--local` to read and write the local store. They still default to the remote app.
+    
+    
+    wrangler flagship flags list <APP_ID> --local
+    wrangler flagship flags create <APP_ID> new-checkout --local
+
+You cannot pass `--local` and `--remote` together. `--persist-to` requires `--local`.
+
+For binding configuration, including `remote: true`, and for managing the local store with the `cf` CLI, refer to [Local development](https://developers.cloudflare.com/flagship/configuration/#local-development).
 
 ## Quick start
 
