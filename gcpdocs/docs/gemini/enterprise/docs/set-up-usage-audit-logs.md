@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/set-up-usage-audit-logs/
 title: Access Gemini Enterprise usage audit logs with Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:55.584799+00:00
+fetched_at: 2026-10-30T08:58:42.873293+00:00
 ---
 
 # Access Gemini Enterprise usage audit logs with Cloud Logging  |  Google Cloud Documentation

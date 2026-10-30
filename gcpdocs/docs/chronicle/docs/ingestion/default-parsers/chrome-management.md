@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/chrome-management/
 title: Collect Chrome Enterprise data \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:01:30.860069+00:00
+fetched_at: 2026-10-30T08:53:08.993237+00:00
 ---
 
 # Collect Chrome Enterprise data  |  Google Security Operations  |  Google Cloud Documentation
@@ -418,6 +418,7 @@ Event Identifier | Event Type | Security Category
 `unscannedFileEvent - FILE_PASSWORD_PROTECTED` | `SCAN_FILE` | ``  
 `unscannedFileEvent - FILE_TOO_LARGE` | `SCAN_FILE` | ``  
 `urlFilteringInterstitialEvent` | `USER_RESOURCE_ACCESS` | `POLICY_VIOLATION`  
+`urlNavigationEvent` | `NETWORK_HTTP` | ``  
 `extensionTelemetryEvent` | If the `telemetry_event_signals.signal_name` log field value is equal to the `COOKIES_GET_ALL_INFO, COOKIES_GET_INFO, TABS_API_INFO`, then the `event_type` set to `USER_RESOURCE_ACCESS`.  
   
 Else, if the `telemetry_event_signals.signal_name` log field value is equal to `REMOTE_HOST_CONTACTED_INFO`, then if the `telemetry_event_signals.connection_protocol` log field value is equal to `HTTP_HTTPS`, then the `event_type` is set to `NETWORK_HTTP`.  
@@ -647,9 +648,9 @@ Else, the `events.parameters.name [PRODUCT_ID]` log field is mapped to the `targ
 `extension_action` | `target.resource.attribute.labels [extension_action]` |   
 `extension_version` | `target.resource.attribute.labels [extension_version]` | If the `event` log field value is _not_ equal to `extensionTelemetryEvent`, then the `extension_version` log field is mapped to the `target.resource.attribute.labels[extension_version]` UDM field.  
 `extension_source` | `target.resource.attribute.labels[extension_source]` | If the `event` log field value is _not_ equal to `extensionTelemetryEvent`, then the `extension_source` log field is mapped to the `target.resource.attribute.labels[extension_source]` UDM field.  
-`browser_version` | `target.resource.attributes.labels [browser_version]` |   
-`browserVersion` | `target.resource.attributes.labels [browser_version]` |   
-`events.parameters.name [BROWSER_VERSION]` | `target.resource.attributes.labels [browser_version]` |   
+`browser_version` | `principal.resource.attribute.labels[browser_version]` |   
+`browserVersion` | `principal.resource.attribute.labels[browser_version]` |   
+`events.parameters.name[BROWSER_VERSION]` | `principal.resource.attribute.labels[browser_version]` |   
 `profile_user` | `target.user.email_addresses` | If the `event` log field value contain one of the following values and the `profile_user` log field value matches the regular expression pattern `^.+@.+$`, then the `profile_user` log field is mapped to the `target.user.email_addresses` UDM field. 
 
   * `CHROME_OS_LOGIN_EVENT`
@@ -816,7 +817,7 @@ Log field | UDM mapping | Logic
 `content_risk.risk_source` | `security_result.detection_fields[content_risk_source]` | [CEP Only] The risk source of the content reported by Safe Browsing in a `dangerousDownloadEvent` or `contentTransferEvent`.  
 `is_encrypted` | `additional.fields[is_encrypted]` | [CEP Only] Set to `true` if the content is encrypted in `dangerousDownloadEvent` or `contentTransferEvent`.  
 `server_scan_status` | `additional.fields[server_scan_status]` | [CEP Only] The status of whether the content in `dangerousDownloadEvent` or `contentTransferEvent` was successfully scanned by Safe Browsing.  
-`url_info.url` | `principal.url` | [CEP Only] The URL of `dangerousDownloadEvent`, `contentTransferEvent`, `urlNavigationEvent`, `suspiciousUrlEvent`, or `urlFilteringInterstitialEvent`.   
+`url_info.url` | `target.url` | [CEP Only] The URL of `dangerousDownloadEvent`, `contentTransferEvent`, `urlNavigationEvent`, `suspiciousUrlEvent`, or `urlFilteringInterstitialEvent`.   
 `url_info.ip` | `principal.ip` | [CEP Only] The IP address of `dangerousDownloadEvent`, `contentTransferEvent`, `urlNavigationEvent`, `suspiciousUrlEvent`, or `urlFilteringInterstitialEvent`.   
 `url_info.type` | `principal.security_result.detection_fields[url_info_type]` | [CEP Only] The URL type (download, tab, or redirect) of `dangerousDownloadEvent`, `contentTransferEvent`, `urlNavigationEvent`, `suspiciousUrlEvent`, or `urlFilteringInterstitialEvent`.  
 `url_info.risk_level` | `principal.security_result.severity` | [CEP Only] The risk level of the URL reported by Safe Browsing.  
@@ -865,6 +866,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/google-chronicle/
 title: Integrate Google Chronicle with Google SecOps \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:44.547384+00:00
+fetched_at: 2026-10-30T08:53:08.200099+00:00
 ---
 
 # Integrate Google Chronicle with Google SecOps  |  Google Security Operations  |  Google Cloud Documentation
@@ -21,18 +21,20 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Integrate Google Chronicle with Google SecOps
 
-**Caution:** The Backstory and Ingestion APIs are deprecated. Starting October 26, 2026 (EOS date), new instances won't be able to call legacy APIs, and End of Life (EOL) will take place on July 20, 2027. 
+**Caution:** The Backstory and Ingestion APIs are deprecated. New instances can no longer call legacy APIs. End of Life (EOL) will take place on July 20, 2027. 
 
 To prevent playbook disruptions, you must upgrade this integration to version 54 or higher.
 
-* **Authentication** : You must set up authentication (JSON key or Workload Identity) identically across the integration configuration, connectors, and jobs.
-* **Playbook Monitoring** : You must review your playbooks after upgrading, as action execution outputs may differ.
+  * **Authentication** : Make sure that your authentication settings (built-in system credentials, Workload Identity, or a service account JSON key) are configured identically across the integration configuration, connectors, and jobs.
+  * **Playbook Monitoring** : You must review your playbooks after upgrading, as action execution outputs may differ.
+
+
 
 For details, see [Migrate from legacy SIEM API to Chronicle API](https://docs.cloud.google.com/chronicle/docs/administration/migrate-from-legacy-api-to-chronicle-api) and Migrate Backstory API to Chronicle API.
 
 This document explains how to integrate Google Chronicle with Google Security Operations.
 
-**Important:** Google Chronicle was rebranded to Google SecOps. In the Google SecOps platform, the integration for Google SecOps is called _Google Chronicle_.
+**Note:** Google Chronicle was rebranded to Google SecOps. Within the Google SecOps platform, this integration is named _Google Chronicle_.
 
 ## Use cases
 
@@ -55,25 +57,26 @@ The **Google Chronicle** integration uses Google SecOps capabilities to support 
 
 Before you configure the Google Chronicle integration in Google SecOps, make sure you have access to an active Google Cloud project.
 
-### Migration from Backstory API to Chronicle API
+### Migrate Backstory API to Chronicle API
 
-Some new features and actions in this integration only support the Chronicle API, so we strongly recommend that all users migrate their deployment to use the Chronicle API credentials.
+Some new features and actions in this integration only support the Chronicle API, so we strongly recommend that all users migrate their deployment to use the Chronicle API.
 
-**Important:** New deployments provisioned from the start of Q4 2025 are provisioned with the Chronicle API credentials configured in the system. 
+To migrate from the legacy Backstory API to the Chronicle API:
 
-The only requirement is to find the Chronicle API root and enter it into the integration configuration. This value can be found in your instance's connectors and job's `API Root` parameter.
+  1. Find your Chronicle API root and enter it in the `API Root` parameter across the integration configuration, connectors, and jobs.
+  2. Verify that your authentication method is supported for your Google Cloud project type and applied identically across the integration configuration, connectors, and jobs.
 
-If a connection test fails after entering the new API root, continue with the following steps.
+
 
 #### Finding the Chronicle API Root
 
-When accessing Chronicle API, you must locate your environment's unique `API Root` for the integration configuration.
+When accessing the Chronicle API, you must locate your environment's unique `API Root` for the integration, connector, and job configurations.
 
-  1. Open your browser's **Developer Tools** and navigate to the Google SecOps platform.
+  1. Open your browser's **Developer Tools** and go to the Google SecOps platform.
 
   2. Select **Investigation > Data Tables**.
 
-  3. In Developer Tools, navigate to the **Network** tab and click an item in the Name column, such as `dataTables?pageSize=1000`.
+  3. In Developer Tools, go to the **Network** tab and click an item in the Name column, such as `dataTables?pageSize=1000`.
 
   4. In the details pane, select **Headers** and copy the value of `Request URL`, found under **General** , excluding the endpoint and any query parameters (the name of the selected item).
 
@@ -82,58 +85,25 @@ For example, if the value is `https://{api_root}/v1alpha/projects/{project_id}/l
 
 
 
-#### Credentialing Requirements for Chronicle API
+### Authentication methods and credential precedence
 
-Access to the Chronicle API requires both a new API root and new credentials, which depend on how your underlying Google Cloud project is managed:
+The **Google Chronicle** integration, connectors, and jobs evaluate credentials in the following order:
 
-Project Type | Credential Requirement  
----|---  
-Google-Managed Project (Default) | Contact Google Support to provision the necessary hidden credentials and grant permissions to your environment.  
-Bring Your Own Project (BYOP) | You must manually configure a dedicated Service Account in your project using either a JSON Key or a Workload Identity, and assign the `Chronicle API Editor` role.  
-  
-### Authentication with a service account JSON key
-
-Authentication using a service account JSON Key is supported for the Chronicle API and is mandatory for BYOP users who don't authenticate using a Workload Identity.
-
-**Note:** Authentication can be done with either a JSON key or a Workload Identity. We recommend using a Workload Identity.
-
-#### Create a dedicated service account and create your JSON key
-
-For authentication with a service account JSON key, complete the following steps to create your JSON key:
-
-  1. In the Google Cloud console, go to [**IAM & Admin > Service Accounts**](https://console.cloud.google.com/iam-admin/serviceaccounts).
-
-  2. Select **Create Service Account** and follow the prompts.
-
-  3. Select the email address of the new Service Account and go to **Keys > Add Key > Create new key**.
-
-  4. Select `JSON` as the key type and click **Create**. A JSON key file is downloaded to your computer.
+  1. **Built-in credentials** : Used automatically when you don't provide `Workload Identity Email` and `User's Service Account`. 
+     * **When to use** : Best for **Google-managed projects** (default) provisioned from Q4 2025 onward, or any Google-managed project using the legacy Backstory API. Requires no service account creation, role assignment, or key management. Built-in credentials aren't supported for Bring Your Own Project (BYOP) deployments using the Chronicle API.
+     * **Pre-Q4 2025 Google-managed projects** : If you're migrating to the Chronicle API, contact Google Support to enable built-in Chronicle API credentials, or configure a service account using Workload Identity or a JSON key.
+  2. **Workload Identity (`Workload Identity Email`)**: Used when you provide a service account email. Takes precedence if both `Workload Identity Email` and `User's Service Account` are populated. 
+     * **When to use** : Recommended when a service account is required (such as Bring Your Own Project (BYOP) deployments or pre-Q4 2025 Google-managed projects without built-in Chronicle API credentials). Provides keyless authentication without downloading or rotating JSON keys, and complies with organization policies that restrict service account key creation.
+  3. **Service account JSON key (`User's Service Account`)**: Used only when `Workload Identity Email` is empty and you provide a service account JSON key. 
+     * **When to use** : Use only if a service account is required and you can't configure Workload Identity impersonation. Requires downloading and managing a static JSON key file.
 
 
 
+### Authentication with Workload Identity (recommended)
 
-#### Chronicle API: Role required for your service account
-
-When using Chronicle API, your service account requires the `Chronicle API Editor` role.
-
-  1. In the Google Cloud console, go to [**APIs and Services > Credentials**](https://console.cloud.google.com/apis/credentials).
-
-  2. Under **Service Accounts** , select your service account and click **Permissions > Manage access**.
-
-  3. Click add**Add role** and select the **`Chronicle API Editor`** role. Click **Save**.
-
-
-
-
-### Authentication with a Workload Identity (recommended)
-
-Authentication using a Workload Identity is the recommended and most secure method.
-
-To set up authentication with a Workload Identity, follow these steps:
+To authenticate using Workload Identity, create a service account, assign the required role, and grant impersonation permissions to your Google SecOps instance.
 
 #### Create a service account
-
-To create a service account, complete the following steps:
 
   1. In the Google Cloud console, go to the **Credentials** page.
 
@@ -156,9 +126,11 @@ To create a service account, complete the following steps:
 
 #### Chronicle API: Role required for your service account
 
-When using Chronicle API, your service account requires the `Chronicle API Editor` role.
+When using the Chronicle API, your service account requires the `Chronicle API Editor` role:
 
-  1. In the Google Cloud console, go to [**APIs and Services > Credentials**](https://console.cloud.google.com/apis/credentials).
+  1. In the Google Cloud console, go to the **Credentials** page.
+
+[Go to Credentials](https://console.cloud.google.com/apis/credentials)
 
   2. Under **Service Accounts** , select your service account and click **Permissions > Manage access**.
 
@@ -169,9 +141,9 @@ When using Chronicle API, your service account requires the `Chronicle API Edito
 
 #### Grant impersonation permissions to your Google SecOps instance
 
-To use a Workload Identity, you must grant your Google SecOps instance permission to impersonate your service account. This is the final step that allows the instance to securely access Google Cloud resources.
+Grant your Google SecOps instance permission to impersonate your service account:
 
-  1. In Google SecOps, go to **Content Hub > [Response Integrations](https://docs.cloud.google.com/marketplace/integrations)**.
+  1. In Google SecOps, go to **Content Hub > Response Integrations**.
 
   2. Select the integration you're configuring, and enter your service account email in `Workload Identity Email`.
 
@@ -191,18 +163,20 @@ To use a Workload Identity, you must grant your Google SecOps instance permissio
 
 
 
-### Troubleshoot connectivity to Chronicle API
+### Authentication with a service account JSON key
 
-If you encounter issues connecting your integration to the Chronicle API, follow these steps to troubleshoot the configuration and resolve credential issues:
+To authenticate using a service account JSON key (instead of the recommended Workload Identity method), create a dedicated service account and download its JSON key:
 
-  1. Find the Chronicle API root and ensure it is correctly entered into the integration configuration.
-  2. Ensure all other mandatory configuration parameters are accurately filled.
-  3. Test the connection. If the test succeeds, no further steps are needed. If the test fails, proceed to the next step.
+  1. In the Google Cloud console, go to [**IAM & Admin > Service Accounts**](https://console.cloud.google.com/iam-admin/serviceaccounts).
 
-  4. Verify Google Cloud project ownership and credentials:
+  2. Select **Create Service Account** and follow the prompts.
 
-     * **Google-Managed Project** : If your Google Cloud project is managed by Google (default deployment), contact Google Support for assistance with credential issues.
-     * **Bring Your Own Project (BYOP)** : If your Google Cloud project is self-managed (BYOP), verify that you have manually configured a service account and assigned it the appropriate roles.
+  3. Select the email address of the new service account and go to **Keys > Add Key > Create new key**.
+
+  4. Select `JSON` as the key type and click **Create**. A JSON key file is downloaded to your computer.
+
+  5. When using the Chronicle API, assign the `Chronicle API Editor` role to your service account.
+
 
 
 
@@ -212,15 +186,15 @@ The **Google Chronicle** integration requires the following parameters:
 
 Parameter | Description  
 ---|---  
-`UI Root` | Required. The base URL of the Google SecOps interface. This is used to automatically generate direct links back to the SIEM platform from your case records. The default value is `https://INSTANCE.chronicle.security/`.  
-`API Root` |  Required. The API root for your Google SecOps instance. The value depends on your authentication method:
+`UI Root` | Required. The base URL of the Google SecOps interface. Used to generate direct links back to Google SecOps from your cases. The default value is `https://INSTANCE.chronicle.security/`.  
+`API Root` |  Required. The API root URL for your Google SecOps instance:
 
-  * For **Backstory API** (using default credentials): Use the legacy format. The default value is `https://backstory.googleapis.com`.
-  * For **Chronicle API** (requires configured Service Account): Use the new format, including your project ID, region, and instance ID. For example, `https://us-chronicle.googleapis.com/v1alpha/projects/PROJECT_ID/locations/us/instances/INSTANCE_ID`. For information on how to find this value, go to Finding the Chronicle API Root. Using the wrong credentials for the API root results in a connection failure.
+  * **Chronicle API** : Includes your project ID, region, and instance ID (for example, `https://us-chronicle.googleapis.com/v1alpha/projects/PROJECT_ID/locations/us/instances/INSTANCE_ID`). See Finding the Chronicle API Root.
+  * **Backstory API** (legacy): The regional Backstory endpoint. The default value is `https://backstory.googleapis.com`.
 
   
-`User's Service Account` | Optional. The full content of the service account JSON key file. **Important:** To use the Chronicle API, you must provide either this field or `Workload Identity Email`. Don't populate this field if you intend to use `Workload Identity Email`, as providing both causes authentication conflicts. If both fields are empty, the integration defaults to the instance service account, which only supports the Backstory API.  
-`Workload Identity Email` | Optional. The client email address of the service account used for Workload Identity impersonation. **Important:** Don't populate this field if `User's Service Account` is already provided. To prevent "Permission Denied" errors, grant the [ `Service Account Token Creator`](https://docs.cloud.google.com/iam/docs/service-account-permissions#token-creator-role) role to the Google SecOps instance service account on the email provided in this field.   
+`User's Service Account` | Optional. The service account JSON key used for authentication. Used only if `Workload Identity Email` is empty. Leave both credential fields empty to use built-in credentials where supported (see Authentication methods and credential precedence).  
+`Workload Identity Email` | Optional. The service account email used for Workload Identity authentication (recommended when a service account is required). Takes precedence if both credential fields are populated. Leave both credential fields empty to use built-in credentials where supported (see Authentication methods and credential precedence).  
 `Verify SSL` | Required. If selected, the integration validates the SSL certificate when connecting to the Google SecOps server. Enabled by default.  
   
 For instructions about how to configure an integration in Google SecOps, see [Configure integrations](https://docs.cloud.google.com/chronicle/docs/soar/respond/integrations-setup/configure-integrations).
@@ -237,7 +211,7 @@ Use the **Add Entry To Watchlist** action to add a specified entity to an existi
 
 This action doesn't run on Google SecOps entities. 
 
-**Note:** This action requires Chronicle API authentication. Legacy Backstory API authentication isn't supported.
+**Note:** This action only supports the Chronicle API. The legacy Backstory API isn't supported.
 
 #### Action inputs
 
@@ -312,11 +286,11 @@ Script result name | Value
   
 ### Add Rows To Data Table
 
-**Caution:** This action relies on the legacy Backstory API, which will permanently stop working on July 20, 2027. To prevent playbook failures, you must upgrade your Google Chronicle integration to version 54 or higher to use the Chronicle API. Monitor this action's outputs after upgrading, as output formats may change.
-
 Use the **Add Rows To Data Table** action to add rows to a data table in Google SecOps.
 
 This action doesn't run on Google SecOps entities. 
+
+**Note:** This action only supports the Chronicle API. The legacy Backstory API isn't supported.
 
 #### Action inputs
 
@@ -487,7 +461,7 @@ Use the **Ask Gemini** action to send a text prompt to Gemini in Google SecOps.
 
 This action doesn't run on Google SecOps entities. 
 
-**Note:** This action only works with Chronicle API authentication. Backstory API isn't supported. If you're using a Unified SecOps deployment, verify that you have configured a dedicated service account and provided credentials in the integration parameters.
+**Note:** This action only supports the Chronicle API. The legacy Backstory API isn't supported. For credential requirements, see Authentication methods and credential precedence.
 
 #### Processing limits and timeouts
 
@@ -847,7 +821,7 @@ This action runs on the following Google SecOps entities:
   * `User`
   * `Email` (user entity with email regex)
 
-**Note:** This action only works with Chronicle API authentication. Backstory API is not supported. If you are using a Unified SecOps deployment, ensure you have configured a dedicated service account and provided credentials in the integration parameters.
+**Note:** This action only supports the Chronicle API. The legacy Backstory API isn't supported. For credential requirements, see Authentication methods and credential precedence.
 
 #### Action inputs
 
@@ -2481,7 +2455,7 @@ Script result name | Value
 
 This action doesn't run on Google SecOps entities. 
 
-**Note:** This action requires Chronicle API authentication. The legacy Backstory API authentication isn't supported.
+**Note:** This action only supports the Chronicle API. The legacy Backstory API isn't supported.
 
 #### Action inputs
 
@@ -2538,7 +2512,7 @@ Use the **Get Data Tables** action to retrieve available data tables in Google S
 
 This action doesn't run on Google SecOps entities. 
 
-**Note:** This action only works with Chronicle API authentication. Backstory API is not supported. If you are using a Unified SecOps deployment, make sure you've configured a dedicated service account and provided credentials in the integration parameters.
+**Note:** This action only supports the Chronicle API. The legacy Backstory API isn't supported. For credential requirements, see Authentication methods and credential precedence.
 
 #### Data table caching
 
@@ -3039,9 +3013,7 @@ Use the **Is CIDR In Data Table** to check if specific CIDR values are found in 
 
 This action doesn't run on Google SecOps entities. 
 
-**Note:** This action only works with Chronicle API authentication. Backstory API isn't supported. 
-
-If you are using a Unified SecOps deployment, ensure you have configured a dedicated service account and provided credentials in the integration parameters.
+**Note:** This action only supports the Chronicle API. The legacy Backstory API isn't supported. For credential requirements, see Authentication methods and credential precedence.
 
 #### Action inputs
 
@@ -3116,7 +3088,7 @@ Use the **Is Value In Data Table** to check if provided values are in a data tab
 
 This action doesn't run on Google SecOps entities. 
 
-**Note:** This action only works with Chronicle API authentication. Backstory API is not supported. If you are using a Unified SecOps deployment, ensure you have configured a dedicated service account and provided credentials in the integration parameters.
+**Note:** This action only supports the Chronicle API. The legacy Backstory API isn't supported. For credential requirements, see Authentication methods and credential precedence.
 
 #### Data table caching
 
@@ -3216,7 +3188,7 @@ This action doesn't run on Google SecOps entities.
 
 **Note:** This is an asynchronous action. Adjust the script timeout value in the Google SecOps IDE for the action as needed. 
 
-This action only works with Chronicle API authentication. Backstory API isn't supported. If you're using a Unified SecOps deployment, make sure you have configured a dedicated service account and provided credentials in the integration parameters.
+This action only supports the Chronicle API. The legacy Backstory API isn't supported. For credential requirements, see Authentication methods and credential precedence.
 
 #### Data table caching
 
@@ -4248,11 +4220,11 @@ Script result name | Value
   
 ### Remove Rows From Data Table
 
-**Caution:** This action relies on the legacy Backstory API, which will permanently stop working on July 20, 2027. To prevent playbook failures, you must upgrade your Google Chronicle integration to version 54 or higher to use the Chronicle API. Monitor this action's outputs after upgrading, as output formats may change.
-
 Use the **Remove Rows From Data Table** action to remove rows from a data table in Google SecOps.
 
 This action doesn't run on Google SecOps entities. 
+
+**Note:** This action only supports the Chronicle API. The legacy Backstory API isn't supported.
 
 #### Action inputs
 
@@ -4376,7 +4348,7 @@ The following example describes the JSON result output received when using the *
     
     
     {
-      "name": "projects/PROJECT_ID/locations/us/instances/INSTANCE_ID/referenceLists/<var class="readonly">REFERENCE_LIST_NAME</var>' }}",
+      "name": "projects/PROJECT_ID/locations/us/instances/INSTANCE_ID/referenceLists/REFERENCE_LIST_NAME",
       "displayName": "REFERENCE_LIST_NAME",
       "revisionCreateTime": "2025-01-16T09:15:21.795743Z",
       "description": "Test reference list",
@@ -4518,8 +4490,14 @@ Parameter | Description
 `Environment Field Name` | Optional. The name of the field where the environment name is stored.If the environment field is missing, the connector uses the default value. The default value is `""`.  
 `Environment Regex Pattern` | Optional. A regular expression pattern to run on the value found in the `Environment Field Name` field. This parameter lets you manipulate the environment field using the regular expression logic. Use the default value `.*` to retrieve the required raw `Environment Field Name` value. If the regular expression pattern is null or empty, or the environment value is null, the final environment result is the default environment.  
 `Script Timeout (Seconds)` | Required. The timeout limit, in seconds, for the Python process that runs the current script. The default value is `180`.  
-`API Root` | Required. The API root of the Google SecOps instance. Google SecOps provides regional endpoints for each API, for example, `https://europe-backstory.googleapis.com` or `https://asia-southeast1-backstory.googleapis.com` [Contact Cloud Customer Care](https://docs.cloud.google.com/chronicle/docs/getting-support) to find out which endpoint to use. The default value is `https://backstory.googleapis.com`.  
-`User's Service Account` | Required. The full JSON content of the service account used for authentication.  
+`API Root` | Required. The API root URL for your Google SecOps instance:
+
+  * **Chronicle API** : Includes your project ID, region, and instance ID (for example, `https://us-chronicle.googleapis.com/v1alpha/projects/PROJECT_ID/locations/us/instances/INSTANCE_ID`). See Finding the Chronicle API Root.
+  * **Backstory API** (legacy): The regional Backstory endpoint. The default value is `https://backstory.googleapis.com`.
+
+  
+`User's Service Account` | Optional. The service account JSON key used for authentication. Used only if `Workload Identity Email` is empty. Leave both credential fields empty to use built-in credentials where supported (see Authentication methods and credential precedence).  
+`Workload Identity Email` | Optional. The service account email used for Workload Identity authentication (recommended when a service account is required). Takes precedence if both credential fields are populated. Leave both credential fields empty to use built-in credentials where supported (see Authentication methods and credential precedence).  
 `Fallback Severity` | Required. The default severity to use if the alert from Google SecOps doesn't include a severity value. The possible values are as follows:
 
   * `Critical`
@@ -4531,7 +4509,7 @@ Parameter | Description
 The default value is `Medium`.  
 `Max Hours Backwards` | Optional. The number of hours prior to the initial connector run to retrieve incidents from. This parameter applies only once. The maximum value is `168` (one week). The default value is `1`.  
 `Max Alerts To Fetch` | Optional. The number of alerts to process in every connector iteration. The default value is `100`.  
-`Disable Event Splitting` | Optional. If selected, the connector doesn't split original events into multiple parts, ensuringthe event count matches between the source and Google SecOps SOAR.  Not enabled by default.  
+`Disable Event Splitting` | Optional. If selected, the connector doesn't split original events into multiple parts, ensuring the event count matches between the source and Google SecOps. Not enabled by default.  
 `Verify SSL` | Required. If selected, the integration validates the SSL certificate when connecting to the Google SecOps server. Enabled by default.  
 `Proxy Server Address` | Optional.The address of the proxy server to use.  
 `Proxy Username` | Optional.The proxy username to authenticate with.  
@@ -4644,12 +4622,12 @@ The following table describes how the **Google Chronicle - Chronicle Alerts Conn
 
 ##### Internally generated attributes
 
-These attributes are derived from the source alert.
+These attributes are generated by the platform framework rather than extracted from the source alert:
 
-**Note:** Some alert attributes aren't populated by this connector because the Chronicle API doesn't provide a corresponding field for this data in the alert responses.Alert Attribute Name | Source  
+Alert Attribute Name | Source  
 ---|---  
 `SourceSystemName` | Internally generated by the framework.  
-`TicketId` | The value is taken from the `ids.json` file.  
+`TicketId` | Sourced from the alert detection ID (`id`).  
 `DisplayId` | Automatically generated.  
   
 ##### Attributes for all alert types
@@ -4672,9 +4650,7 @@ This connector no longer gets updates or code changes.
 
 Use the Chronicle Alerts Connector instead.
 
-This connector pulls asset alerts from Google SecOps and converts them into Google SecOps alerts.
-
-You can authenticate using the [Google library](https://google-auth.readthedocs.io/en/latest/) with `google.oauth2.service_account` and `AuthorizedSession`.
+This connector pulls asset alerts from Google SecOps for ingestion into cases.
 
 This connector requires the Google SecOps [SIEM Search API](https://docs.cloud.google.com/chronicle/docs/reference/search-api).
 
@@ -4697,9 +4673,7 @@ This connector is no longer getting updates or code changes.
 
 Use the Chronicle Alerts Connector instead.
 
-This connector pulls the IOC domain matches from Google SecOps and converts them into Google SecOps alerts.
-
-You can authenticate using the [Google library](https://google-auth.readthedocs.io/en/latest/) with `google.oauth2.service_account` and `AuthorizedSession`.
+This connector pulls IOC domain matches from Google SecOps for ingestion into cases.
 
 This connector uses the Google SecOps Search API.
 
@@ -4729,7 +4703,7 @@ Before proceeding to the job configuration, configure the Chronicle Alerts Conne
 
 To configure Google Chronicle jobs, follow these steps:
 
-  1. In Google SecOps SOAR, go to **Response > Job Scheduler**.
+  1. In Google SecOps, go to **Response > Job Scheduler**.
 
   2. Click **add Create New Job**.
 
@@ -4749,11 +4723,11 @@ As Google Chronicle jobs can synchronize large amounts of data in one run, Googl
 
 ### Google Chronicle - Sync Data Job
 
-**Important:** To ensure continued functionality before the legacy API deprecation, you must explicitly configure this connector to use the Chronicle API. Verify that the authentication method applied here matches your integration configuration identically.
+**Important:** To ensure continued functionality before the legacy API deprecation, you must explicitly configure this job to use the Chronicle API. Verify that the authentication method applied here matches your integration configuration identically.
 
 This job works with alerts created by the Chronicle Alerts Connector and the **Chronicle Alerts Creator** job, but not with alerts from deprecated connectors (**Alerts Connector** and **IOCs Connector**).
 
-The **Google Chronicle Sync Data** job synchronizes updated Google SecOps alerts and cases managed in Google SecOps SOAR back to Google SecOps. Consequently, you can track the same information on both systems immediately after you make changes in Google SecOps SOAR.
+The **Google Chronicle Sync Data** job synchronizes updated cases and alerts in Google SecOps so that changes made during case management are reflected across the platform immediately.
 
 #### Case and alerts data synchronization
 
@@ -4766,9 +4740,8 @@ Tracked field | Synchronized field
 `Title` | `Title`  
 Not applicable | `Stage`  
 Not applicable | `Google SecOps Case ID`  
-Not applicable | `Google SecOps Case ID`  
   
-Google SecOps Case ID is a unique case identifier in Google SecOps SOAR and Google SecOps.
+Google SecOps Case ID is a unique case identifier in Google SecOps.
 
 The **Google Chronicle Sync Data** job tracks and synchronizes the following fields for alerts:
 
@@ -4785,13 +4758,13 @@ Not applicable | `Closure Reason`
 Not applicable | `Closure Root Cause`  
 Not applicable | `Usefulness`  
   
-Google SecOps Alert ID is a unique alert identifier in Google SecOps SOAR.
+Google SecOps Alert ID is a unique alert identifier in Google SecOps.
 
-In one iteration, the job synchronizes up to 1,000 cases and 1,000 alerts. The synchronization occurs within the Google SecOps SOAR environment that is specified in the job configuration. The synchronization mechanism ensures that a case from the specified environment cannot be synced with another environment.
+In one iteration, the job synchronizes up to 1,000 cases and 1,000 alerts. The synchronization occurs within the Google SecOps environment specified in the job configuration. The synchronization mechanism ensures that a case from the specified environment cannot be synced with another environment.
 
 #### Configure the Google Chronicle Sync Data job
 
-This job only synchronizes Google SecOps SOAR cases ingested from Google SecOps.
+This job only synchronizes cases that contain alerts ingested from Google SecOps.
 
 Ensure you've completed the prerequisite steps before you configure this job.
 
@@ -4801,9 +4774,12 @@ To configure the **Google Chronicle Sync Data** job, follow these steps:
 
 Parameter | Description  
 ---|---  
-`Environment` | Required.The name of the environment created in Google SecOps SOAR to sync cases and alerts to.  
-`API Root` | Required.The API root of the Google SecOps instance. Google SecOps provides regional endpoints for each API. For example, `https://europe-backstory.googleapis.com` or `https://asia-southeast1-backstory.googleapis.com`. If you don't know which endpoint to use, [contact Cloud Customer Care](/chronicle/docs/getting-support). The default value is `https://backstory.googleapis.com`.  
-`User's Service Account` | Required.The content of the service account JSON file of your Google SecOps instance.  
+`Environment` | Required.The name of the environment created in Google SecOps to sync cases and alerts to.  
+`API Root` | Required. The API root URL for your Google SecOps instance:
+     * **Chronicle API** : Includes your project ID, region, and instance ID (for example, `https://us-chronicle.googleapis.com/v1alpha/projects/PROJECT_ID/locations/us/instances/INSTANCE_ID`). See Finding the Chronicle API Root.
+     * **Backstory API** (legacy): The regional Backstory endpoint. The default value is `https://backstory.googleapis.com`.  
+`User's Service Account` | Optional.The service account JSON key used for authentication. Used only if `Workload Identity Email` is empty. Leave both credential fields empty to use built-in credentials where supported (see Authentication methods and credential precedence).  
+`Workload Identity Email` | Optional.The service account email used for Workload Identity authentication (recommended when a service account is required). Takes precedence if both credential fields are populated. Leave both credential fields empty to use built-in credentials where supported (see Authentication methods and credential precedence).  
 `Max Hours Backwards` | Optional.The number of hours to fetch alerts from. Only use positive numbers. The default value is `24`.  
 `Verify SSL` | Required. If selected, the integration validates the SSL certificate when connecting to the Google SecOps server. Enabled by default.  
   
@@ -4815,7 +4791,7 @@ If the **Save** button is inactive, make sure that you have set all mandatory pa
 
   3. Optional: To run the job immediately after saving, click **Run Now**.
 
-The **Run Now** option lets you trigger a single job run that synchronizes the current Google SecOps SOAR alerts and cases data with Google SecOps.
+The **Run Now** option lets you trigger a single job run to immediately synchronize current alert and case data.
 
 
 
@@ -4831,12 +4807,7 @@ Log entry | Type | Description
 `Current platform version doesn't support SDK methods designed for Google SecOps. Please use version 6.1.33 or higher.` | Error | The current Google SecOps platform instance version doesn't support the Chronicle Sync Data job script execution. This means that the instance's build version is older than 6.1.33.  
 `Unable to connect to Google SecOps, please validate your credentials: CREDENTIALS` | Error | The service account or API root values couldn't be validated against the Google SecOps instance. This error is reported if the connectivity testing fails.  
 `--- Start Processing Updated Cases ---` | Info | The case processing loop has started running.  
-`Last success time. Date time:DATE_AND_TIME. Unix:UNIX_EPOCH_TIME ` | Info | The timestamp of the last successful script execution for cases or alerts:
-
-  * `datetime_result` is a date and time value
-  * `unix_result` is a Unix epoch time value
-
-  
+`Last success time. Date time:DATE_AND_TIME. Unix:UNIX_EPOCH_TIME ` | Info | The timestamp of the last successful run for cases or alerts, shown as a date and time (DATE_AND_TIME) and as a Unix epoch timestamp (UNIX_EPOCH_TIME).  
 `Key: "DATABASE_KEY" doesn't exist in the database. Returning default value instead: DEFAULT_VALUE` | Info | The pending case or alert database key doesn't exist in the database. This log entry always appears in the first execution of the script.  
 `Failed to parse data as JSON. Returning default value instead: "DEFAULT_VALUE. ERROR: ERROR` | Error | The value retrieved from the database isn't a valid JSON format.  
 `Exception was raised from the database. ERROR: ERROR.` | Error | There is a connection problem with the database.  
@@ -4847,10 +4818,10 @@ Log entry | Type | Description
 `Failed to update case CASE_ID. Reason: ERROR_REASON` `Failed to update alert ALERT_ID. Reason: ERROR_REASON` | Error | The specified case or alert cannot be synchronized with Google SecOps.  
 `Max retries reached for case CASE_ID. Removing from backlog.` `Max retries reached for alert ALERT_GROUP_ID . Removing from backlog.` | Info | The specified pending case or alert has reached the sync retry limit (5) and isn't inserted back to the backlog.  
 `The following cases were not synced: CASE_IDS` `The following alerts were not synced: ALERT_IDS` | Info | The list of case or alert IDs that cannot be synchronized with Google SecOps.  
-`Updated External Case IDs for the following cases: CASE_IDS` | Info | The list of cases for which the job updated the matching Google SecOps external case ID in the Google SecOps SOAR platform.  
-`Failed to update external ids.` | Error | The log entry indicating that there was a problem with the SDK method or connection that prevented updating external case IDs in the platform.  
-`Failed to update cases in Google SecOps.` `Failed to update alerts in Google SecOps.` | Error | The log entry indicating that there was a certain terminating error that prevented the case or alerts processing loop to finish naturally. The stacktrace is printed after this log with the specific error.  
-`--- Finished Updating Cases in Google SecOps --- ` `--- Finished Updating Alerts in Google SecOps ---` | Info | The cases and alerts processing loop has finished, either naturally or with an error.  
+`Updated External Case IDs for the following cases: CASE_IDS` | Info | The list of cases for which the job updated the matching Google SecOps external case ID in the Google SecOps platform.  
+`Failed to update external ids.` | Error | A connection or platform error prevented external case IDs from updating.  
+`Failed to update cases in Google SecOps.` `Failed to update alerts in Google SecOps.` | Error | An error stopped case or alert updates before completion. See the stack trace following this log for details.  
+`--- Finished Updating Cases in Google SecOps --- ` `--- Finished Updating Alerts in Google SecOps ---` | Info | The case and alert update stage has finished.  
 `The following failed case ids were put in the backlog: CASE_IDS` `The following failed alert ids were put in the backlog: ALERT_IDS` | Error | The list of failed case or alert IDs that have a retry count less than or equal to 5 to be written back to the backlog.  
 `--- Finished Processing Updated Cases ---` `--- Finished Processing Updated Alerts ---` | Info | The stage of processing case and alert has been finished.  
 `Saving timestamps.` | Info | Saving the last successful case and alert update timestamps to the database.   
@@ -4859,42 +4830,19 @@ Log entry | Type | Description
   
 ### Google Chronicle Alerts Creator job
 
-**Important:** To ensure continued functionality before the legacy API deprecation, you must explicitly configure this connector to use the Chronicle API. Verify that the authentication method applied here matches your integration configuration identically.
+**Important:** To ensure continued functionality before the legacy API deprecation, you must explicitly configure this job to use the Chronicle API. Verify that the authentication method applied here matches your integration configuration identically.
 
 The **Google Chronicle Alerts Creator** job requires the Google SecOps platform version 6.2.30 or later.
 
-This job creates all alerts from Google SecOps SOAR to Google SecOps, including overflow alerts. The **Google Chronicle Alerts Creator** job doesn't replicate alerts that originate from Google SecOps.
-
-The **Google Chronicle Alerts Creator** job queries the SOAR platform using the Python SDK for non-synchronized alerts. The job sends non-synchronized alerts to SIEM individually. SIEM updates and returns the identifiers of the corresponding SIEM alerts, and SOAR saves the identifiers using the SOAR platform API through the Python SDK.
+This job synchronizes alerts ingested from third-party connectors (including overflow alerts) to Google SecOps. It doesn't duplicate alerts that already originate from Google SecOps detections.
 
 #### Relationship between the Google Chronicle jobs
 
-A complete Google SecOps system runs the following three components concurrently:
+A complete Google SecOps deployment runs the following three components concurrently:
 
-  1. **Chronicle Alerts Connector**
-  2. **Google Chronicle Sync Data** job
-  3. **Google Chronicle Alerts Creator** job
-
-
-
-The **Google Chronicle Sync Data** job creates and synchronizes cases. It also synchronizes the case and alert modifications, such as priority changes.
-
-The **Google Chronicle Alerts Creator** job generates all alerts, except SIEM alerts. The **Google Chronicle Sync Data** job sends updates on unsynchronized alerts after the **Google Chronicle Alerts Creator** job creates the alerts.
-
-#### Case and alerts data synchronization
-
-Cases are synchronized in the same manner as with the Google Chronicle Sync Data job.
-
-In Google SecOps, each alert is identified with a SIEM alert identifier. SOAR alerts can adopt a SIEM identifier in two scenarios:
-
-  1. Alert is generated in SIEM.
-
-This alert already exists in Google SecOps and there is no need to duplicate it. The connector populates the `siem_alert_id` field.
-
-  2. Alert is generated in third-party connectors.
-
-This alert doesn't exist in Google SecOps and requires running an explicit synchronization operation that the **Google Chronicle Alerts Creator** job is responsible for. Upon completing the synchronization operation, the alert acquires a new SIEM identifier.
-
+  1. **Chronicle Alerts Connector** : Ingests detection alerts from Google SecOps into cases.
+  2. **Google Chronicle Alerts Creator** job: Synchronizes alerts ingested from third-party connectors to Google SecOps and assigns each alert a unique Google SecOps alert identifier.
+  3. **Google Chronicle Sync Data** job: Synchronizes case and alert updates (such as priority or status changes) across Google SecOps.
 
 
 
@@ -4908,9 +4856,12 @@ To configure the **Google Chronicle Alerts Creator** job, follow these steps:
 
 Parameter | Description  
 ---|---  
-`Environment` | Required.The name of the environment created in Google SecOps SOAR where you want to sync cases and alerts.  
-`API Root` | Required.The API root of the Google SecOps instance. Google SecOps provides regional endpoints for each API. For example, `https://europe-backstory.googleapis.com` or `https://asia-southeast1-backstory.googleapis.com`. If you don't know which endpoint to use, [contact Cloud Customer Care](/chronicle/docs/getting-support). The default value is `https://backstory.googleapis.com`.  
-`User's Service Account` | Required.The content of the service account JSON file of your Google SecOps instance.  
+`Environment` | Required.The name of the environment created in Google SecOps where you want to sync cases and alerts.  
+`API Root` | Required. The API root URL for your Google SecOps instance:
+     * **Chronicle API** : Includes your project ID, region, and instance ID (for example, `https://us-chronicle.googleapis.com/v1alpha/projects/PROJECT_ID/locations/us/instances/INSTANCE_ID`). See Finding the Chronicle API Root.
+     * **Backstory API** (legacy): The regional Backstory endpoint. The default value is `https://backstory.googleapis.com`.  
+`User's Service Account` | Optional.The service account JSON key used for authentication. Used only if `Workload Identity Email` is empty. Leave both credential fields empty to use built-in credentials where supported (see Authentication methods and credential precedence).  
+`Workload Identity Email` | Optional.The service account email used for Workload Identity authentication (recommended when a service account is required). Takes precedence if both credential fields are populated. Leave both credential fields empty to use built-in credentials where supported (see Authentication methods and credential precedence).  
 `Verify SSL` | Required. If selected, the integration validates the SSL certificate when connecting to the Google SecOps server. Enabled by default.  
   2. To complete the configuration, click **Save**.
 
@@ -4918,7 +4869,7 @@ If the **Save** button is inactive, make sure that you have set all mandatory pa
 
   3. Optional: To run the job immediately after saving, click **Run Now**.
 
-The **Run Now** option lets you trigger a single job run that synchronizes the current Google SecOps SOAR alerts and cases data with Google SecOps.
+The **Run Now** option lets you trigger a single job run to immediately synchronize current alert and case data.
 
 
 
@@ -4931,19 +4882,19 @@ Log | Level | Description
 ` Current platform version doesn't support SDK methods designed for Google Chronicle. Please use version 6.2.30 or later. ` | ERROR | The current Google SecOps platform instance version doesn't support the Google Chronicle Alerts Creator Job script execution. This error means that the instance build version is earlier than 6.2.30.  
 ` Unable to connect to Google Chronicle, please validate your credentials: CREDENTIALS ` | ERROR | The service account or API root values cannot be validated against the Google SecOps instance. This error is reported if the connectivity testing fails.  
 ` --------------- JOB STARTED --------------- ` | INFO | Log message indicating that the job has started.  
-` ----------------- Main - Started ----------------- ` | INFO | Log message indicating that the main function has started.  
-` "Starting i + 1/MAXIMUM_ITERATIONS_NUMBER fetch attempt" ` | INFO | Log message indicating the iteration number for the current consecutive attempt.  
-` "Fetching up to BATCH_SIZE new alerts from the SOAR" ` | INFO | Log message indicating that the code doesn't retrieve more than BATCH_SIZE new alerts from SOAR.  
-` "NUMBER_OF_NEW_ALERTS SOAR alerts were fetched" ` | INFO | Log message indicating that NUMBER_OF_NEW_ALERTS SOAR alerts were fetched.  
-` "No new SOAR alerts were found. Stopping..." ` | INFO | Log message indicating that no new SOAR alerts were found, and that the job is stopping.  
-` "Fetched the following SOAR alerts: ID_LIST" ` | INFO | Log message indicating that the job has fetched the SOAR alerts with the following identifiers in the ID list. You can use this information to track the progress of the job and to troubleshoot issues with the code.   
-` "Dispatching SOAR alerts to SIEM" ` | INFO | Log message indicating that the job is dispatching SOAR alerts to SIEM.  
-` "Failed to create alert ALERT_GROUP_ID in SIEM. Reason: ERROR_REASON" ` | ERROR | Log message indicating that the alert was not created successfully in SIEM due to an error.  
-` "Updating SOAR with SIEM response" ` | INFO | Log message indicating that the job is updating SOAR with the SIEM response.   
-` "SOAR has failed updating the status of alert ALERT_ID" ` | WARNING | Indicates that SOAR was unable to update the status of the alert synchronization.  
-` "Total of NUMBER_OF_SYNCED_ALERTS alerts were synced in this run"` | INFO | Log message indicating that a total of `total_synced` alerts were synced in the current run.  
-` "--------------- JOB FINISHED ---------------" ` | INFO | Log message indicating that the job has finished.  
-` "Got exception on main handler. Error: ERROR_REASON" ` | ERROR | Log message indicating that an exception occurred in the main function. The exception message is included in the log message.  
+` ----------------- Main - Started ----------------- ` | INFO | The main job execution has started.  
+` "Starting ITERATION_NUMBER/MAXIMUM_ITERATIONS_NUMBER fetch attempt" ` | INFO | The iteration number for the current fetch attempt.  
+` "Fetching up to BATCH_SIZE new alerts from the SOAR" ` | INFO | The job is fetching up to BATCH_SIZE new alerts.  
+` "NUMBER_OF_NEW_ALERTS SOAR alerts were fetched" ` | INFO | The number of new alerts fetched in the current batch.  
+` "No new SOAR alerts were found. Stopping..." ` | INFO | No new unsynchronized alerts were found, so the job is stopping.  
+` "Fetched the following SOAR alerts: ID_LIST" ` | INFO | The identifiers of the alerts fetched in the current batch.  
+` "Dispatching SOAR alerts to SIEM" ` | INFO | The job is sending the fetched alerts to Google SecOps.  
+` "Failed to create alert ALERT_GROUP_ID in SIEM. Reason: ERROR_REASON" ` | ERROR | The specified alert couldn't be synchronized to Google SecOps.  
+` "Updating SOAR with SIEM response" ` | INFO | The job is updating the synchronized alert status.  
+` "SOAR has failed updating the status of alert ALERT_ID" ` | WARNING | The platform couldn't update the synchronization status for the specified alert.  
+` "Total of NUMBER_OF_SYNCED_ALERTS alerts were synced in this run"` | INFO | The total number of alerts synchronized during the current job run.  
+` "--------------- JOB FINISHED ---------------" ` | INFO | The job run has finished.  
+` "Got exception on main handler. Error: ERROR_REASON" ` | ERROR | A general error stopped the job. See the error message for details.  
   
 ## Use cases
 
@@ -5048,6 +4999,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/best-practices/how-to-create-a-dynamic-dashboard-image/
 title: Create a dynamic dashboard image with Liquid and HTML \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-14T09:11:36.072121+00:00
+fetched_at: 2026-10-30T08:58:25.385178+00:00
 ---
 
 # Create a dynamic dashboard image with Liquid and HTML  |  Looker  |  Google Cloud Documentation
@@ -88,7 +88,7 @@ Build your Explore with the following criteria:
   * Add a filter for the original dimension (in this case, `state`). Set the filter for any value. This will cause the "no image available" image to be displayed initially, as no specific filter value is selected. This filter value will update according to what the user selects for the dashboard filter. 
   * Select the image dimension (in this case, `state_flag_image`) and any other dimensions that may be necessary to the query that determines the image (for example, if you want to factor in a date, you can include date, etc.). 
   * Change the [row limit](https://docs.cloud.google.com/looker/docs/filtering-and-limiting#limiting_data) to one row. 
-  * Change the visualization type to a [single value visualization](https://docs.cloud.google.com/looker/docs/single-value-options) and [hide](https://docs.cloud.google.com/looker/docs/creating-visualizations#specifying_lookml_fields_to_include_in_the_visualization) any other columns except the image dimension (`state_flag_image`). 
+  * Change the visualization type to a [KPI (Single Value) visualization](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) or [single value (legacy)](https://docs.cloud.google.com/looker/docs/single-value-options), and [hide](https://docs.cloud.google.com/looker/docs/creating-visualizations#specifying_lookml_fields_to_include_in_the_visualization) any other columns except the image dimension (`state_flag_image`). 
 
 
 
@@ -127,6 +127,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-08-24 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-08-24 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

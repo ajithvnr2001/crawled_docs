@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/inference-tutorial-resnet/
 title: Tutorial: Run inference on an object table by using a classification model \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:34.399487+00:00
+fetched_at: 2026-10-30T08:52:45.613637+00:00
 ---
 
 # Tutorial: Run inference on an object table by using a classification model  |  BigQuery  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/install-config/
 title: Install and configure the on-premises or any cloud edition of ABAP SDK for Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T11:13:11.134615+00:00
+fetched_at: 2026-10-30T08:58:23.414492+00:00
 ---
 
 # Install and configure the on-premises or any cloud edition of ABAP SDK for Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -21,10 +21,10 @@ Send feedback
 
 #  Install and configure the on-premises or any cloud edition of ABAP SDK for Google Cloud Stay organized with collections  Save and categorize content based on your preferences. 
 
-On-premises or any cloud edition v1.14keyboard_arrow_down
+On-premises or any cloud edition v1.15keyboard_arrow_down
 
   * [ SAP BTP edition v1.1 ](https://docs.cloud.google.com/sap/docs/abap-sdk/btp/latest/install-config)
-  * [ On-premises or any cloud edition v1.14 ](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/install-config)
+  * [ On-premises or any cloud edition v1.15 ](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/install-config)
 
 
 
@@ -169,15 +169,15 @@ If you already have the ABAP SDK for Google Cloud installed and you need to upda
 
      * To get the core ABAP SDK for Google Cloud functionality, you must copy the following transport files:
 
-       * `/usr/sap/trans/cofiles/K900579.GM1`
-       * `/usr/sap/trans/data/R900579.GM1`
+       * `/usr/sap/trans/cofiles/K900606.GM1`
+       * `/usr/sap/trans/data/R900606.GM1`
 
 These transport files include [client library classes](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/reference/overview), solutions and accelerators, and authentication classes for [tokens](https://docs.cloud.google.com/docs/authentication/tokens), [API keys](https://docs.cloud.google.com/docs/authentication/api-keys), and [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation).
 
      * To authenticate with OAuth 2.0 client credentials, copy the following transport files:
 
-       * `/usr/sap/trans/cofiles/K900581.GM1`
-       * `/usr/sap/trans/data/R900581.GM1`
+       * `/usr/sap/trans/cofiles/K900608.GM1`
+       * `/usr/sap/trans/data/R900608.GM1`
 
 These transport files don't provide additional functionality, other than the OAuth 2.0 client credentials based authentication. For OAuth 2.0 client credentials based authentication, first import the transport files for core ABAP SDK for Google Cloud functionality, and then import the transport files for OAuth 2.0 client credentials.
 
@@ -767,8 +767,8 @@ To update the ABAP SDK for Google Cloud, do the following:
 
      * If you're updating the SDK from version `1`, `1.5`, or `1.6` to the latest version, then copy the following transport files:
 
-       * `/usr/sap/trans/cofiles/K900583.GM1`
-       * `/usr/sap/trans/data/R900583.GM1`
+       * `/usr/sap/trans/cofiles/K900610.GM1`
+       * `/usr/sap/trans/data/R900610.GM1`
 
 These transport files remove the artifacts associated with deprecated features in ABAP SDK for Google Cloud. For information about the additions, enhancements, and deprecated features, see [What's new with the on-premises or any cloud edition of ABAP SDK for Google Cloud](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/whats-new).
 
@@ -776,15 +776,15 @@ If you're updating the SDK from version `1.7` or later to the latest version, th
 
      * To get the core ABAP SDK for Google Cloud functionality, you must copy the following transport files:
 
-       * `/usr/sap/trans/cofiles/K900579.GM1`
-       * `/usr/sap/trans/data/R900579.GM1`
+       * `/usr/sap/trans/cofiles/K900606.GM1`
+       * `/usr/sap/trans/data/R900606.GM1`
 
 These transport files include [client library classes](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/reference/overview), solutions and accelerators, and authentication classes for [tokens](https://docs.cloud.google.com/docs/authentication/tokens), [API keys](https://docs.cloud.google.com/docs/authentication/api-keys), and [Workload Identity Federation](https://docs.cloud.google.com/iam/docs/workload-identity-federation).
 
      * To authenticate with OAuth 2.0 client credentials, copy the following transport files:
 
-       * `/usr/sap/trans/cofiles/K900581.GM1`
-       * `/usr/sap/trans/data/R900581.GM1`
+       * `/usr/sap/trans/cofiles/K900608.GM1`
+       * `/usr/sap/trans/data/R900608.GM1`
 
 These transport files don't provide additional functionality, other than the OAuth 2.0 client credentials based authentication. For OAuth 2.0 client credentials based authentication, first import the transport files for core ABAP SDK for Google Cloud functionality, and then import the transport files for OAuth 2.0 client credentials.
 
@@ -847,6 +847,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

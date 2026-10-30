@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/introduction/
 title: Knowledge Catalog overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:27:43.321553+00:00
+fetched_at: 2026-10-30T08:37:04.067628+00:00
 ---
 
 # Knowledge Catalog overview  |  Google Cloud Documentation
@@ -241,9 +241,9 @@ To build reliable agentic experiences, keep the following best practices in mind
 
 
 
-## Transition from Dataplex Universal Catalog to Knowledge Catalog
+## Upgrade from Dataplex Universal Catalog to Knowledge Catalog
 
-Dataplex Universal Catalog has evolved to Knowledge Catalog. For more information about this transition, see [Transition from Dataplex Universal Catalog to Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/transition-dataplex-universal-catalog).
+Dataplex Universal Catalog has evolved to Knowledge Catalog. For more information about this transition, see [Upgrade from Dataplex Universal Catalog to Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/upgrade-dataplex-universal-catalog).
 
 ## Limitations
 
@@ -298,6 +298,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

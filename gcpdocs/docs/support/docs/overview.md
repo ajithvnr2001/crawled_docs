@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/docs/overview/
 title: Get support with Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:47:44.135013+00:00
+fetched_at: 2026-10-30T08:58:36.082638+00:00
 ---
 
 # Get support with Cloud Customer Care  |  Google Cloud Documentation
@@ -24,19 +24,11 @@ Send feedback
 
 Cloud Customer Care lets you get technical troubleshooting, best practice guidance, and operational support for your cloud workloads. Choosing a Customer Care tier that fits your organization helps you optimize performance, manage risk, and control costs.
 
-**Important:**
+**Note:**
 
-  * Google Cloud works with many reputable partners globally that provide specialized services that span across sales, customer service, and engineering functions.  
+Google Cloud works with third-party partners who are part of Google's extended workforce. These partners use our systems and tools with a distinct and legitimate email domain (`@xwf.google.com`). For more information, see [About our third-party partners](https://docs.cloud.google.com/docs/about-our-third-party-partners).
 
-
-
-
-These partners are part of Google's extended workforce and they use our systems and tools with a distinct email domain (`@xwf.google.com`). If you notice this domain in communications, you can be assured that this is legitimate and is from an authorized representative of Google.  
-
-
-We thank you for your understanding and your continued support of our world class products and services. 
-
-* To ensure the continued functionality of Google Cloud products and services, cloud enterprise customers receive MSAs (Mandatory Service Announcements) through emails. These are most often contractually obligated notifications or information that Google considers critical. For more information, see [Google Cloud Mandatory Service Announcements](https://docs.cloud.google.com/docs/cloud-msa).
+To ensure the continued functionality of Google Cloud products and services, cloud enterprise customers receive MSAs (Mandatory Service Announcements) through emails. These are most often contractually obligated notifications or information that Google considers critical. For more information, see [Google Cloud Mandatory Service Announcements](https://docs.cloud.google.com/docs/cloud-msa).
 
 ## Compare support services
 
@@ -203,6 +195,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

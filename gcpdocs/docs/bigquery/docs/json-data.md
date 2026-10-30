@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/json-data/
 title: Work with JSON data in GoogleSQL \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:47.454612+00:00
+fetched_at: 2026-10-30T08:39:38.326035+00:00
 ---
 
 # Work with JSON data in GoogleSQL  |  BigQuery  |  Google Cloud Documentation
@@ -21,13 +21,9 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Work with JSON data in GoogleSQL 
 
-This document describes how to create a table with a `JSON` column, insert JSON data into a BigQuery table, and query JSON data.
+You can use the [`JSON`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#json_type) data type in BigQuery to analyze semi-structured data that doesn't always adhere to fixed schemas. Loading JSON data directly into your tables lets you process each field individually and write cost-efficient queries without enforcing a rigid `STRUCT` schema.
 
-BigQuery natively supports JSON data using the [`JSON`](https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/data-types#json_type) data type.
-
-JSON is a widely used format that allows for semi-structured data, because it does not require a schema. Applications can use a "schema-on-read" approach, where the application ingests the data and then queries based on assumptions about the schema of that data. This approach differs from the `STRUCT` type in BigQuery, which requires a fixed schema that is enforced for all values stored in a column of `STRUCT` type.
-
-By using the `JSON` data type, you can load semi-structured JSON into BigQuery without providing a schema for the JSON data upfront. This lets you store and query data that doesn't always adhere to fixed schemas and data types. By ingesting JSON data as a `JSON` data type, BigQuery can encode and process each JSON field individually. You can then query the values of fields and array elements within the JSON data by using the field access operator, which makes JSON queries intuitive and cost efficient.
+`JSON` data types let you use a "schema-on-read" approach, where the application ingests the data and then queries based on assumptions about the schema of that data. This approach differs from the `STRUCT` type in BigQuery, which requires a fixed schema that is enforced for all values stored in a column of `STRUCT` type.
 
 ## Limitations
 
@@ -605,6 +601,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

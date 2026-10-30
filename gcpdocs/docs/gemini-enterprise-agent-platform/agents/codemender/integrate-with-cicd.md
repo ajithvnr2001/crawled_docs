@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd/
 title: Integrate with CI/CD \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:15.785143+00:00
+fetched_at: 2026-10-30T08:39:21.939108+00:00
 ---
 
 # Integrate with CI/CD  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -38,6 +38,7 @@ This document shows you how to do the following:
   * Scan pull requests with [GitHub Actions](https://docs.github.com/en/actions), and have CodeMender open a pull request with fixes.
   * Scan pull requests with Cloud Build.
   * Scan your changes before each commit with a Git pre-commit hook.
+  * Export structured token and session telemetry to Cloud Logging from Cloud Run jobs and Cloud Build steps.
 
 
 
@@ -520,6 +521,8 @@ You can customize the workflow in the following ways:
 
   * To verify credentials, configuration, network reachability, and IAM permissions before running a scan (or in a scheduled monitoring workflow), run `cm health --strict` (add `--json` for machine-readable output). For exit codes and flag details, see [Check service connectivity and permissions](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#check-health).
 
+  * To output ASCII-only logs without emoji, Unicode symbols, or terminal colors, add `CM_PLAIN: "true"` to the workflow `env` block, or pass `--plain` to each `cm` command. For precedence rules and report format details, see [Configure plain text output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#plain-text-output).
+
 
 
 
@@ -702,6 +705,8 @@ The build has three steps:
 
 To change the severities that fail the build, edit `--fail-on` in the `scan` step. If you run the build without a pull request trigger, it fails with the message `Run this build from a pull request trigger.`
 
+To output ASCII-only build logs and Markdown reports without emoji or Unicode symbols, add `export CM_PLAIN=true` to the `scan` step, or pass `--plain` to `cm` commands. For more information, see [Configure plain text output](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment#plain-text-output).
+
 ## Scan before each commit
 
 A Git pre-commit hook can scan your staged changes and block the commit when CodeMender finds a vulnerability with `CRITICAL` or `HIGH` severity. Developers can skip the hook, so use it in addition to scanning in CI, not instead of it.
@@ -753,7 +758,54 @@ Flag | Default | Description
 `--fail-on-truncation` | Off |  With `--diff`, exits with status 1 if CodeMender finds more dependent files than `--diff-max-neighbors` allows.   
 `--format FORMAT` | `table` |  The report format: `table`, `json`, or `sarif`.   
 `--output FILE` | Standard output | The file to write the report to.  
+`--plain` | Off |  Outputs ASCII-only logs and `table` reports without emoji, Unicode symbols, or terminal colors. You can also set `CM_PLAIN=true` across all `cm` commands.   
   
+## Export token telemetry to Logging
+
+In ephemeral containers such as Cloud Run jobs and Cloud Build steps, local files under `~/.codemender/logs/sessions/` don't persist after the container exits. Cloud Run jobs and Logging agents automatically parse each single-line JSON object written to standard output (`stdout`) or standard error (`stderr`) into a structured `jsonPayload` log entry. In Cloud Build, step output is written as `textPayload` by default; set `options.enableStructuredLogging: true` in your `cloudbuild.yaml` file so Cloud Build parses JSON lines into `jsonPayload`.
+
+To attribute token usage across teams that share a central Google Cloud project, set a team identifier (1 to 63 characters matching `[A-Za-z0-9._-]`) with `--team-id`, the `CM_TEAM_ID` environment variable, or `team_id` in `~/.codemender/config.yaml`.
+
+### Emit a pre-aggregated run summary
+
+In a disposable container with a fresh `~/.codemender` directory per run (such as a Cloud Run job task), run `cm stats --jsonl` in an `EXIT` trap so the container writes one single-line JSON summary across all turns and multi-worker `cm find --deep` or `cm find --diff` sessions, even when `cm find` exits with status 1 because of findings:
+    
+    
+    export CM_TEAM_ID="TEAM_ID"
+    trap 'cm stats --jsonl' EXIT
+    
+    cm init
+    cm find . \
+      --diff="origin/$BASE_REF" \
+      --format=sarif \
+      --output=codemender.sarif \
+      --sandbox=false \
+      --yes \
+      --bypass-warning
+    
+
+Replace `TEAM_ID` with your team identifier, such as `payments-security`.
+
+**Note:** Without `--since`, `cm stats --jsonl` summarizes the default 7-day (`168h`) window. On self-hosted runners or environments that reuse `$HOME` across runs, isolate each run with a temporary `CM_HOME` directory (for example, `export CM_HOME="$(mktemp -d)"`) or pass a run-scoped `--since` duration so previous runs aren't counted again.
+
+The `cm stats --jsonl` line includes `team_id` (or `team_ids`), `model` (or `models`), token totals (`input_tokens`, `output_tokens`, `cached_tokens`, `thought_tokens`, `total_tokens`), `cache_hit_percent`, and `duration_seconds` without piping through `jq -c`. In Logs Explorer, filter structured entries with fields such as `jsonPayload.team_id`, `jsonPayload.model`, and `jsonPayload.total_tokens`.
+
+### Emit granular per-turn session events
+
+If you also want individual `session_metadata`, `interaction`, and `session_summary` events in Logging, filter the local JSONL session files with `jq -c` before the container exits:
+    
+    
+    shopt -s nullglob
+    session_logs=(~/.codemender/logs/sessions/*/*.jsonl)
+    if (( ${#session_logs[@]} > 0 )); then
+      jq -c 'select(.type == "session_metadata" or .type == "interaction" or .type == "session_summary")' "${session_logs[@]}"
+    fi
+    
+
+**Caution:** Avoid printing raw session log files with `cat`. Unfiltered session logs also include `finding` records (unpatched vulnerability titles and severities), `command_start` arguments and working directories, and `tool_call` or `session_error` text, which might expose vulnerability details to anyone with log-read access in a shared project. Note that `session_metadata` also includes the scan `target` path; omit `"session_metadata"` from the `jq` filter if you want only token and poll counters.
+
+For more information about `cm stats` flags, see [Track token usage](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/manage-sessions#track-token-usage).
+
 ## Troubleshooting
 
 This section describes how to resolve common issues when running CodeMender in CI/CD pipelines.
@@ -822,6 +874,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/run/docs/configuring/services/manual-scaling/
 title: Manual scaling \u00a0|\u00a0 Cloud Run \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:34.605745+00:00
+fetched_at: 2026-10-30T08:39:39.276676+00:00
 ---
 
 # Manual scaling  |  Cloud Run  |  Google Cloud Documentation
@@ -21,19 +21,15 @@ Send feedback
 
 #  Manual scaling Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page describes how to manually scale your service. It also provides instructions for a common use case, changing the instance count based on a schedule using Cloud Scheduler jobs and the Cloud Run Admin API.
+Manual scaling lets you set a specific instance count for your Cloud Run service, regardless of traffic or utilization, and without redeploying. You can also use it to implement your own scaling logic from an external system, such as changing the instance count on a schedule. For an example, see Schedule-based scaling.
 
-## Overview
+By default, Cloud Run [automatically scales out](https://docs.cloud.google.com/run/docs/about-instance-autoscaling) to a specified or default maximum number of instances based on traffic, CPU, or your own [custom CPU or concurrency utilization targets](https://docs.cloud.google.com/run/docs/configuring/scaling-controls). Manual scaling overrides this behavior when you need a fixed number of instances.
 
-Manual scaling lets you set a specific instance count, regardless of traffic or utilization, and without requiring redeployment. All of this gives you the option to write your own scaling logic using an external system. For an example, see Schedule-based scaling.
-
-By default, Cloud Run [automatically scales out](https://docs.cloud.google.com/run/docs/about-instance-autoscaling) to a specified or default maximum number of instances, depending on traffic, CPU, or your own [custom CPU or concurrency utilization targets](https://docs.cloud.google.com/run/docs/configuring/scaling-controls). However, for some use cases, you might want the ability to set a specific number of instances by using manual scaling.
-
-### Revision-level minimum and maximum settings and manual scaling
+## Revision-level minimum and maximum settings and manual scaling
 
 If you set your service to manual scaling, any [revision-level minimum](https://docs.cloud.google.com/run/docs/configuring/min-instances#service-vs-revision-level) and maximum instance settings are ignored.
 
-### Traffic splits for manual scaling
+## Traffic splits for manual scaling
 
 The following list describes how instances are allocated when splitting traffic under manual scaling. This includes behavior for traffic-tag-only revisions.
 
@@ -442,6 +438,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

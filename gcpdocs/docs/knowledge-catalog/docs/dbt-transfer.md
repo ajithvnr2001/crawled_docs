@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/knowledge-catalog/docs/dbt-transfer/
-title: Import metadata from dbt Core \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
+title: Import metadata from dbt Core and Cloud \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:36.796557+00:00
+fetched_at: 2026-10-30T08:40:18.295847+00:00
 ---
 
-# Import metadata from dbt Core  |  Knowledge Catalog  |  Google Cloud Documentation
+# Import metadata from dbt Core and Cloud  |  Knowledge Catalog  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/knowledge-catalog/docs/dbt-transfer/
 
@@ -21,7 +21,7 @@ As of April 10, 2026, Dataplex Universal Catalog is now called Knowledge Catalog
 
 Send feedback 
 
-#  Import metadata from dbt Core Stay organized with collections  Save and categorize content based on your preferences. 
+#  Import metadata from dbt Core and Cloud Stay organized with collections  Save and categorize content based on your preferences. 
 
 Knowledge Catalog (formerly Dataplex Universal Catalog) lets you import operational, semantic, and lineage metadata from dbt Core, dbt Cloud, and MetricFlow by using the Google Cloud CLI and your dbt artifact files. Instead of leaving transformation metadata siloed in the dbt ecosystem, you can centralize it to help data engineers, analytics engineers, and data stewards discover and govern enterprise data.
 
@@ -466,7 +466,7 @@ A full run rewrites every entry's required aspects from the artifacts on disk, s
 
   2. In the **Filters** panel, filter for dbt assets:
 
-     * In the **System** section, select **Imported Context**.
+     * In the **Systems** section, select **Imported Context**.
      * In the **Managed Connectors** subsection that appears, select **dbt**.
   3. In the search field, enter your query using keyword or natural language search. For example, to view all dbt assets using keyword search, enter `system=DBT` or `system=DBT AND type=dbt-model`.
 
@@ -581,6 +581,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

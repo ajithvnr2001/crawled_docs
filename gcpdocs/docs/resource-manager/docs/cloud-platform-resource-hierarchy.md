@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy/
 title: About resource hierarchy \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:49.043839+00:00
+fetched_at: 2026-10-30T08:40:15.898842+00:00
 ---
 
 # About resource hierarchy  |  Resource Manager  |  Google Cloud Documentation
@@ -177,6 +177,7 @@ All users, including free trial users, free tier users, and Google Workspace and
 ## What's next
 
   * Learn how to [create your Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/manage-google-cloud-resources)
+  * Learn about [management boundaries and capability configurations](https://docs.cloud.google.com/resource-manager/docs/boundaries-and-capabilities-overview)
   * Learn how to [list all projects, folders, and organizations in your hierarchy](https://docs.cloud.google.com/resource-manager/docs/listing-all-resources)
 
 
@@ -185,6 +186,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

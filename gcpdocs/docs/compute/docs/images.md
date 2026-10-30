@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/images/
 title: OS images \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:10:32.851904+00:00
+fetched_at: 2026-10-30T08:37:05.483051+00:00
 ---
 
 # OS images  |  Compute Engine  |  Google Cloud Documentation
@@ -161,7 +161,7 @@ The following OS images are available for creating VMs that use TPUs:
 
 TPU version | OS version | Kernel version | Image project | Image family  
 ---|---|---|---|---  
-TPU7x (Ironwood) | `Ubuntu 24.04 LTS` | **6.17** | `ubuntu-os-accelerator-images` | `ubuntu-accel-2404-amd64-tpu-tpu7x`  
+TPU7x (Ironwood) | `Ubuntu 24.04 LTS` | **6.8** | `ubuntu-os-accelerator-images` | `ubuntu-accel-2404-amd64-tpu-tpu7x`  
 v6e (Trillium), v5p | `Ubuntu 22.04 LTS` | **6.8** | `ubuntu-os-accelerator-images` | `ubuntu-accel-2204-amd64-tpu-v5e-v5p-v6e`  
   
 For more information, see [GA Ubuntu LTS versions](https://docs.cloud.google.com/compute/docs/images/os-details#ga_ubuntu_lts_versions).
@@ -189,6 +189,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

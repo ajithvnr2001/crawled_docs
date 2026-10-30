@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/updating-a-pipeline/
 title: Update an existing pipeline \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T08:23:44.604668+00:00
+fetched_at: 2026-10-30T08:52:15.636202+00:00
 ---
 
 # Update an existing pipeline  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -40,7 +40,7 @@ You can update jobs in two ways:
 
 
 
-When you update your job, the Dataflow service performs a compatibility check between your running job and your potential replacement job. The compatibility check ensures that things like intermediate state information and buffered data can be transferred from your prior job to your replacement job.
+When you update your job, the Dataflow service performs a compatibility check between your already running job and your potential replacement job. The compatibility check ensures that things like intermediate state information and buffered data can be transferred from your prior job to your replacement job.
 
 You can also use the built-in logging infrastructure of the Apache Beam SDK to log information when you update your job. For more information, see [Work with pipeline logs](https://docs.cloud.google.com/dataflow/docs/guides/logging). To identify problems with the pipeline code, use the [`DEBUG` logging level](https://docs.cloud.google.com/dataflow/docs/guides/logging#SettingLevels).
 
@@ -56,6 +56,7 @@ For a streaming job that uses [Streaming Engine](https://docs.cloud.google.com/d
   * `min-num-workers`: the minimum number of Compute Engine instances.
   * `max-num-workers`: the maximum number of Compute Engine instances.
   * `worker-utilization-hint`: the [target CPU utilization](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#utilization-hint), in the range [0.1, 0.9]
+  * `latency-tier`: the [latency tier](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#latency-tier), which sets the backlog threshold. Values: `low_latency` (default, less than 15 seconds), `medium_latency` (less than 2 minutes), or `high_latency` (less than 10 minutes).
 
 
 
@@ -67,7 +68,7 @@ To perform an in-flight job option update, perform the following steps.
 
 ###  gcloud 
 
-Use the `gcloud dataflow jobs update-options` command:
+Use the [`gcloud dataflow jobs update-options`](https://docs.cloud.google.com/sdk/gcloud/reference/dataflow/jobs/update-options) command:
     
     
     gcloud dataflow jobs update-options \
@@ -75,6 +76,7 @@ Use the `gcloud dataflow jobs update-options` command:
       --min-num-workers=MINIMUM_WORKERS \
       --max-num-workers=MAXIMUM_WORKERS \
       --worker-utilization-hint=TARGET_UTILIZATION \
+      --latency-tier=TIER \
       JOB_ID
 
 Replace the following:
@@ -83,11 +85,12 @@ Replace the following:
   * MINIMUM_WORKERS: the minimum number of Compute Engine instances
   * MAXIMUM_WORKERS: the maximum number of Compute Engine instances
   * TARGET_UTILIZATION: a value in the range [0.1, 0.9]
+  * TIER: the target latency tier. One of the following: `low_latency`, `medium_latency`, or `high_latency`
   * JOB_ID: the ID of the job to update
 
 
 
-You can also update `--min-num-workers`, `--max-num-workers`, and `worker-utilization-hint` individually.
+You can also update `--min-num-workers`, `--max-num-workers`, `--worker-utilization-hint`, or `--latency-tier` individually.
 
 ###  REST 
 
@@ -99,7 +102,8 @@ Use the [`projects.locations.jobs.update`](https://docs.cloud.google.com/dataflo
       "runtime_updatable_params": {
         "min_num_workers": MINIMUM_WORKERS,
         "max_num_workers": MAXIMUM_WORKERS,
-        "worker_utilization_hint": TARGET_UTILIZATION
+        "worker_utilization_hint": TARGET_UTILIZATION,
+        "latency_tier": TIER
       }
     }
 
@@ -115,10 +119,11 @@ Replace the following:
   * MINIMUM_WORKERS: the minimum number of Compute Engine instances
   * MAXIMUM_WORKERS: the maximum number of Compute Engine instances
   * TARGET_UTILIZATION: a value in the range [0.1, 0.9]
+  * TIER: the target latency tier. One of the following: `low_latency`, `medium_latency`, or `high_latency`
 
 
 
-You can also update `min_num_workers`, `max_num_workers`, and `worker_utilization_hint` individually. Specify which parameters to update in the `updateMask` query parameter, and include the updated values in the `runtimeUpdatableParams` field of the request body. The following example updates `min_num_workers`:
+You can also update `min_num_workers`, `max_num_workers`, `worker_utilization_hint`, or `latency_tier` individually. Specify which parameters to update in the `updateMask` query parameter, and include the updated values in the `runtimeUpdatableParams` field of the request body. The following example updates `min_num_workers`:
     
     
     PUT https://dataflow.googleapis.com/v1b3/projects/my_project/locations/us-central1/jobs/job1?updateMask=runtime_updatable_params.min_num_workers
@@ -757,6 +762,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/create-table/
 title: Create a table \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:15:05.386359+00:00
+fetched_at: 2026-10-30T08:39:05.018030+00:00
 ---
 
 # Create a table  |  Lakehouse  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Create a table Stay organized with collections  Save and categorize content based on your preferences. 
 
-Creating an Apache Iceberg table initializes new table metadata and storage within a namespace in the _Lakehouse runtime catalog_.
+Creating an Apache Iceberg table initializes new table metadata and storage within a namespace in the Lakehouse runtime catalog.
 
 If you want to make an existing Apache Iceberg table available in the catalog, see [Register a table](https://docs.cloud.google.com/lakehouse/docs/register-table).
 
@@ -41,7 +41,7 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=biglake.googleapis.com)
 
-  3. [Set up the Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog) with the Apache Iceberg REST catalog endpoint.
+  3. [Set up the Lakehouse runtime catalog](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog) with the Apache Iceberg REST catalog endpoint. To enable automatic [table management](https://docs.cloud.google.com/lakehouse/docs/table-options#enable_table_management), ensure that the catalog uses [credential vending mode](https://docs.cloud.google.com/lakehouse/docs/credential-vending).
 
 
 
@@ -78,7 +78,7 @@ You can opt in to use BigQuery managed capabilities, such as BigQuery Data Manip
 
 ## Create a table
 
-Create an Iceberg table.
+Create an Iceberg table. To enable automatic [table management](https://docs.cloud.google.com/lakehouse/docs/table-options#enable_table_management) (`gcp.biglake.table-management.enabled`), the catalog must use [credential vending mode](https://docs.cloud.google.com/lakehouse/docs/credential-vending).
 
 ###  Console 
 
@@ -96,10 +96,11 @@ Create an Iceberg table.
 
   6. For **Table name** , enter a unique table name.
 
-  7. Optional: In the **Properties** section, configure table properties. Predefined properties such as `gcp.biglake.bigquery-dml.enabled` and `gcp.biglake.table-management.enabled` are listed.
+  7. Optional: In the **Properties** section, configure table properties. This section lists predefined properties such as `gcp.biglake.bigquery-dml.enabled` and `gcp.biglake.table-management.enabled`.
 
-For example, you can change these values to `true` to enable BigQuery DML or automatic table management. For more information, see [Configure table options](https://docs.cloud.google.com/lakehouse/docs/table-options).
+For example, you can change these values to `true` to enable BigQuery DML or table management. Table management performs background tasks such as compaction and snapshot expiration. For more information, see [Configure table options](https://docs.cloud.google.com/lakehouse/docs/table-options).
 
+**Note:** To set the `gcp.biglake.table-management.enabled` table property to `true`, the catalog must use credential vending mode. For more information, see [Credential vending overview](https://docs.cloud.google.com/lakehouse/docs/credential-vending).
   8. Click **Create**.
 
 
@@ -115,7 +116,7 @@ Your table appears on the **Namespace details** page.
 
 Replace the following values:
 
-  * `NAMESPACE_NAME`: the name of your [namespace](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog#create_a_namespace_or_schema).
+  * `NAMESPACE_NAME`: the name of your [namespace](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog#create_a_namespace_or_schema).
   * `TABLE_NAME`: a name for your table.
 
 
@@ -137,7 +138,7 @@ To enable [read/write interoperability and table management](https://docs.cloud.
 
 Replace the following values:
 
-  * `SCHEMA_NAME`: the name of your [schema](https://docs.cloud.google.com/lakehouse/docs/set-up-lakehouse-iceberg-rest-catalog#create_a_namespace_or_schema).
+  * `SCHEMA_NAME`: the name of your [schema](https://docs.cloud.google.com/lakehouse/docs/lakehouse-iceberg-rest-catalog#create_a_namespace_or_schema).
   * `TABLE_NAME`: a name for your table.
 
 
@@ -153,7 +154,7 @@ To enable [read/write interoperability and table management](https://docs.cloud.
 
 ###  gcloud 
 
-To create a table using `gcloud`, run the [`gcloud biglake iceberg tables create` command](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/tables/create).
+To create a table using the Google Cloud CLI, run the [`gcloud biglake iceberg tables create` command](https://docs.cloud.google.com/sdk/gcloud/reference/biglake/iceberg/tables/create):
     
     
     gcloud biglake iceberg tables create \
@@ -161,6 +162,7 @@ To create a table using `gcloud`, run the [`gcloud biglake iceberg tables create
         --catalog="CATALOG_ID" \
         --namespace="NAMESPACE_NAME" \
         --create-from-file="TABLE_DEFINITION_FILE"
+    
 
 Replace the following:
 
@@ -177,7 +179,7 @@ Replace the following:
 
 This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-To create an Apache Iceberg table in the Lakehouse runtime catalog from BigQuery, use the following GoogleSQL `CREATE TABLE` statement. When you create a table from BigQuery, BigQuery DML and automatic table management are enabled by default.
+To create an Apache Iceberg table in the Lakehouse runtime catalog from BigQuery, use the following GoogleSQL `CREATE TABLE` statement. When you create a table from BigQuery, BigQuery DML and table management are enabled by default. To use automatic table management, the catalog must use [credential vending mode](https://docs.cloud.google.com/lakehouse/docs/credential-vending).
     
     
     CREATE TABLE `PROJECT_ID.CATALOG_ID.NAMESPACE.TABLE_NAME` (id int, data string);
@@ -185,10 +187,10 @@ To create an Apache Iceberg table in the Lakehouse runtime catalog from BigQuery
 
 Replace the following:
 
-  * `PROJECT_ID`: your Google Cloud project ID
-  * `CATALOG_ID`: your Lakehouse runtime catalog ID
-  * `NAMESPACE`: your Iceberg namespace name
-  * `TABLE_NAME`: a name for your Iceberg table
+  * `PROJECT_ID`: your Google Cloud project ID.
+  * `CATALOG_ID`: your Lakehouse runtime catalog ID.
+  * `NAMESPACE`: your Iceberg namespace name.
+  * `TABLE_NAME`: a name for your Iceberg table.
 
 
 
@@ -222,6 +224,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

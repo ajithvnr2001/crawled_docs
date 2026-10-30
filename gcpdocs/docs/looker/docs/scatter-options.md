@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/scatter-options/
 title: Scatterplot chart options \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:37.211881+00:00
+fetched_at: 2026-10-30T08:58:29.155258+00:00
 ---
 
 # Scatterplot chart options  |  Looker  |  Google Cloud Documentation
@@ -295,7 +295,7 @@ You can specify the format of the value, independent of the underlying dimension
 
 MS Excel's complete guide details how to specify these formats [in their documentation](https://support.office.com/en-us/article/review-guidelines-for-customizing-a-number-format-c0a1d1fa-d3f4-4018-96b7-9c9354dd99f5). However, color formatting is not currently supported in Looker.
 
-> For Looker developers: The formatting used in the **Value Format** field is the same as formatting that is used with the [`value_format` LookML parameter](https://docs.cloud.google.com/looker/docs/reference/param-field-value-format), except that the `value_format` parameter requires the formatting string to be enclosed in double quotes. In the **Value Format** field, the formatting string is not enclosed in quotes.
+**Tip:** For Looker developers: The formatting that's used in the **Value Format** field is the same as the formatting that's used with the [`value_format` LookML parameter](https://docs.cloud.google.com/looker/docs/reference/param-field-value-format), except that the `value_format` parameter requires the formatting string to be enclosed in double quotes. In the **Value Format** field, the formatting string isn't enclosed in quotes.
 
 The [Adding custom formatting to numeric fields](https://docs.cloud.google.com/looker/docs/custom-formatting#custom_formatting_examples) documentation page provides more information on how to use custom formatting.
 
@@ -642,6 +642,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/best-practices/cookbook-visualizations-conditional-formatting/
 title: Getting the most out of Looker visualizations cookbook: Conditional formatting customization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:35:03.237652+00:00
+fetched_at: 2026-10-30T08:58:27.770959+00:00
 ---
 
 # Getting the most out of Looker visualizations cookbook: Conditional formatting customization  |  Google Cloud Documentation
@@ -122,7 +122,7 @@ The resulting visualization displays the count of users in each age tier column 
 
 In addition to using visualization **Edit** menu settings, you can hardcode conditional formatting directly into a field's LookML. This is beneficial for conditional formatting that is consistent across analysis for a given field, as it avoids the need to re-configure visualization settings for individual queries.
 
-**Caution:** HTML formatting only renders in [table](https://docs.cloud.google.com/looker/docs/table-options), [table (legacy)](https://docs.cloud.google.com/looker/docs/legacy-table-options), and [single value](https://docs.cloud.google.com/looker/docs/single-value-options) chart visualizations and in visualization [tooltips](https://docs.cloud.google.com/looker/docs/tooltip-customization) when multiple fields are combined. Any interactive content that is placed in a [map chart's](https://docs.cloud.google.com/looker/docs/map-options#viewing_map_charts_in_the_new_dashboard_experience) tooltip with the `html` parameter will not be accessible on dashboards that use the [new dashboard experience](https://docs.cloud.google.com/looker/docs/viewing-dashboards), although it will be accessible on Looks and Explores.
+**Caution:** HTML formatting renders only in [table](https://docs.cloud.google.com/looker/docs/table-options), [table (legacy)](https://docs.cloud.google.com/looker/docs/legacy-table-options), [KPI (Single Value)](https://docs.cloud.google.com/looker/docs/kpi-single-value-options), and [single value (legacy)](https://docs.cloud.google.com/looker/docs/single-value-options) chart visualizations and in visualization [tooltips](https://docs.cloud.google.com/looker/docs/tooltip-customization) when multiple fields are combined. Any interactive content that is placed in a [map chart's](https://docs.cloud.google.com/looker/docs/map-options#viewing_map_charts_in_the_new_dashboard_experience) tooltip with the `html` parameter won't be accessible on dashboards that use the [new dashboard experience](https://docs.cloud.google.com/looker/docs/viewing-dashboards), although it will be accessible on Looks and Explores.
 
 ### Ingredients
 
@@ -232,6 +232,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

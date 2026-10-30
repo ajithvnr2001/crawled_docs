@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/search-agents-and-tools/
 title: Search for agents, tools, and skills \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:58:06.398674+00:00
+fetched_at: 2026-10-30T08:40:10.196485+00:00
 ---
 
 # Search for agents, tools, and skills  |  Agent Registry  |  Google Cloud Documentation
@@ -28,7 +28,7 @@ Search queries evaluate agent, MCP server, and skill capability descriptions, to
 ## Before you begin
 
   1. [Set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
-  2. Get [the project ID](https://support.google.com/googleapi/answer/7014113) for the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled.
+  2. For a single-project setup, get [the project ID](https://support.google.com/googleapi/answer/7014113) of the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled. If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) for multiple projects, use the ID of your management project for boundary-wide discovery and registration, or specify a member project ID for single-project operations.
 
   3. [Register an agent](https://docs.cloud.google.com/agent-registry/register-agents), an [MCP server](https://docs.cloud.google.com/agent-registry/register-mcp-servers), or a [skill](https://docs.cloud.google.com/agent-registry/register-skills) in Agent Registry.
 
@@ -189,6 +189,38 @@ Replace the following:
 
 
 
+### Search across a management boundary
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), you can search for agents and MCP servers in a location across all member projects in that boundary from your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project):
+    
+    
+    gcloud agent-registry agents search \
+        --project=MANAGEMENT_PROJECT_ID \
+        --location=LOCATION \
+        --search-string="analytics"
+    
+
+Replace the following:
+
+  * `MANAGEMENT_PROJECT_ID`: the ID of your management project.
+  * `LOCATION`: the [location](https://docs.cloud.google.com/agent-registry/locations) to search across the management boundary, such as a region like `us-central1`, a multi-region like `us` or `eu`, or `global`. Agent Registry aggregates resources in that same location across the management project and all member projects in the boundary.
+
+
+
+To narrow results on the management project to a specific member project, pass the `--filter` flag set to `"project_id=MEMBER_PROJECT_ID"`. To search exclusively within a single member project without cross-project rollup, specify that member project's ID in the `--project` flag instead.
+
+When you search from the management project:
+
+  * **Aggregated auto-discovered resources** : Agent Registry searches across auto-discovered agents and MCP servers in the specified location from all member projects in the management boundary, alongside any registered `Service` resources created in that location in the management project.
+  * **Request-scoped resource names** : in search results, each returned `Agent` or `McpServer` resource's `name` field preserves the component's ID and uses the project specified in the request URL.
+  * **Project-scoped registered resources** : manually registered `Service` resources and `Binding` resources created in a member project remain scoped to that member project and don't appear in management project search results. To make them visible across the management boundary, create them in the management project.
+
+
+
 ## Search for standalone skills
 
 **Preview**
@@ -335,6 +367,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

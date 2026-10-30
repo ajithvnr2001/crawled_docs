@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/release-notes/
 title: Dataflow release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:24:24.761724+00:00
+fetched_at: 2026-10-30T08:52:02.727401+00:00
 ---
 
 # Dataflow release notes  |  Google Cloud Documentation
@@ -26,6 +26,19 @@ This page documents production updates to the Dataflow service. You can periodic
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/dataflow-release-notes.xml) directly. 
+
+## October 29, 2026
+
+Feature
+
+Dataflow has added the following features to tune horizontal autoscaling for Streaming Engine jobs:
+
+  * Latency tiers: You can configure the backlog threshold by choosing a latency tier (`low_latency`, `medium_latency`, or `high_latency`), allowing you to configure the autoscaler's sensitivity to backlog duration and balance latency requirements with resource costs. For more information, see [Set the latency tier](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#latency-tier).
+  * Autoscaling schedules: You can configure recurring autoscaling schedules to automatically apply parameter overrides—such as minimum and maximum workers, worker utilization hints, or latency tiers—during specific time windows. For more information, see [Schedule autoscaling changes](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#scheduled-autoscaling).
+
+
+
+You can configure these features when you create a job or update them while the job is running.
 
 ## October 21, 2026
 

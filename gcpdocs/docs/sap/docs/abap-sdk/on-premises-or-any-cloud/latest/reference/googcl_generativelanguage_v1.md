@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/reference/googcl_generativelanguage_v1/
 title: Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T11:14:05.264404+00:00
+fetched_at: 2026-10-30T08:55:19.120144+00:00
 ---
 
 # Google Cloud Documentation
@@ -14,10 +14,10 @@ fetched_at: 2026-10-28T11:14:05.264404+00:00
 
 Stay organized with collections  Save and categorize content based on your preferences. 
 
-Class /GOOG/CL_GENERATIVELANGUAGE_V1On-premises or any cloud edition v1.14keyboard_arrow_down
+Class /GOOG/CL_GENERATIVELANGUAGE_V1On-premises or any cloud edition v1.15keyboard_arrow_down
 
   * [ SAP BTP edition v1.1 ](https://docs.cloud.google.com/sap/docs/abap-sdk/btp/latest/reference/googcl_generativelanguage_v1)
-  * [ On-premises or any cloud edition v1.14 ](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/reference/googcl_generativelanguage_v1)
+  * [ On-premises or any cloud edition v1.15 ](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/reference/googcl_generativelanguage_v1)
 
 
 
@@ -565,6 +565,6 @@ Name | Description
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

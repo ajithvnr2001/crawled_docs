@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning/pipelines/persistent-resources/
 title: Configure a pipeline run on a persistent resource \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T11:12:35.129791+00:00
+fetched_at: 2026-10-30T08:40:00.811645+00:00
 ---
 
 # Configure a pipeline run on a persistent resource  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -433,7 +433,7 @@ Use the following Python code sample to create a pipeline run that uses the pers
     )
     
     # Make the API Call to create the pipeline job
-    response = client.[create_pipeline_job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1beta1.services.pipeline_service.PipelineServiceClient.html#google_cloud_aiplatform_v1beta1_services_pipeline_service_PipelineServiceClient_create_pipeline_job)(request=request)
+    response = client.[create_pipeline_job](https://docs.cloud.google.com/python/docs/reference/aiplatform/latest/google.cloud.aiplatform_v1.services.pipeline_service.PipelineServiceClient.html#google_cloud_aiplatform_v1_services_pipeline_service_PipelineServiceClient_create_pipeline_job)(request=request)
     
     # Construct the Google Cloud console link
     job_id = response.name.split('/')[-1]

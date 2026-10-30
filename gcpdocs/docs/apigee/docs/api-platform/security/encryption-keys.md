@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/security/encryption-keys/
 title: About the Apigee encryption keys \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:56:50.988002+00:00
+fetched_at: 2026-10-30T08:39:03.071182+00:00
 ---
 
 # About the Apigee encryption keys  |  Google Cloud Documentation
@@ -25,9 +25,11 @@ _This page applies to**Apigee** , but not to **Apigee hybrid**._
 
 _View[ Apigee Edge](https://docs.apigee.com/api-platform/get-started/what-apigee-edge) documentation._ ![](https://fonts.gstatic.com/s/i/googlematerialicons/help/v13/gm_grey-24dp/1x/gm_help_gm_grey_24dp.png)
 
-**Note:** Apigee does not support [Cloud External Key Manager](https://docs.cloud.google.com/kms/docs/ekm)
-
 This section describes the types of encryption keys and how to create them.
+
+For information on monitoring EKM health, see [EKM health monitoring](https://docs.cloud.google.com/apigee/docs/api-platform/security/ekm-monitoring).
+
+**Note:** The EKM monitoring feature is available only for Apigee organizations that were configured to use CMEK with EKM when the organization was created. It is not possible to enable this feature for existing organizations. 
 
 During the Apigee setup process, you generate the following [Cloud Key Management Service](https://cloud.google.com/security/products/security-key-management) encryption keys:
 
@@ -420,7 +422,7 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
   *[KVMs]: Key Value Maps

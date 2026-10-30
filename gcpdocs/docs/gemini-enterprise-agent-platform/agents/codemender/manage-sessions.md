@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/manage-sessions/
 title: Manage sessions and export reports \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:05.932555+00:00
+fetched_at: 2026-10-30T08:39:20.608397+00:00
 ---
 
 # Manage sessions and export reports  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -152,6 +152,31 @@ CodeMender categorizes findings into the following severity levels:
 
 
 
+## Track token usage
+
+CodeMender writes per-invocation session logs locally under `~/.codemender/logs/sessions/`. Use `cm stats` to inspect offline token usage, cache hit rates, poll counts, and execution durations across commands or for an individual session without making backend calls.
+
+  * **Summarize recent activity (`--since`)**: View token usage grouped by command type over a recent window (default `168h`, or 7 days). `bash cm stats cm stats --since 24h`
+  * **Inspect a specific session (`--session`)**: View per-turn token usage for a session ID or unique session ID prefix, including multi-worker `cm find --deep` and `cm find --diff` runs. 
+        
+        cm stats --session SESSION_ID_PREFIX
+
+  * **Export JSON (`--json` and `--jsonl`)**: Emit indented JSON with `--json`, or emit single-line JSON with `--jsonl` for structured log ingestion. JSON output includes `model` (or `models` when multiple models appear) and `team_id` (or `team_ids` when multiple teams are aggregated). 
+        
+        cm stats --json
+        cm stats --jsonl
+        cm stats --session SESSION_ID_PREFIX --jsonl
+
+  * **Attribute usage by team (`--team-id` or `CM_TEAM_ID`)**: Set a team identifier (1 to 63 characters matching `[A-Za-z0-9._-]`) when running scans or fixes with the `--team-id` flag, the `CM_TEAM_ID` environment variable, or `team_id` in `~/.codemender/config.yaml`. Sessions that ran without a configured team remain unattributed in `cm stats` JSON output; when the queried window has no session records, `--team-id`, `CM_TEAM_ID`, or `config.yaml` supplies the top-level `team_id` label. 
+        
+        CM_TEAM_ID=TEAM_ID cm find .
+        cm stats --jsonl
+
+
+
+
+For Cloud Run jobs and Cloud Build steps where local log files don't persist, see [Export token telemetry to Cloud Logging](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/integrate-with-cicd#export-telemetry).
+
 ## Collect diagnostic data for support
 
 If you contact support about a problem with CodeMender, run `cm support-bundle` to collect the diagnostic data that support needs into a single `.tar.gz` archive. The command reads local files and checks your credentials, configuration, and connection to CodeMender. It doesn't upload anything: you review the archive and attach it to your support case.
@@ -204,6 +229,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

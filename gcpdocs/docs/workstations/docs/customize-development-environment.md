@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workstations/docs/customize-development-environment/
 title: Customize your development environment \u00a0|\u00a0 Cloud Workstations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T10:04:20.098117+00:00
+fetched_at: 2026-10-30T08:39:01.163533+00:00
 ---
 
 # Customize your development environment  |  Cloud Workstations  |  Google Cloud Documentation
@@ -25,11 +25,11 @@ This page describes the workstation configuration parameters that allow you to c
 
 Before you use these workstation configuration parameters, familiarize yourself with the following:
 
-  * How to [create an initial workstation configuration](https://docs.cloud.google.com/workstations/docs/create-configuration) in the Google Cloud console.
-  * The [list of preconfigured base images](https://docs.cloud.google.com/workstations/docs/preconfigured-base-images).
-  * How to [customize your base image](https://docs.cloud.google.com/workstations/docs/customize-container-images) and [automate container image rebuilds](https://docs.cloud.google.com/workstations/docs/tutorial-automate-container-image-rebuild).
-  * How to [boost your workstation](https://docs.cloud.google.com/workstations/docs/boost-workstation).
-  * How to [reserve capacity for your workstation](https://docs.cloud.google.com/workstations/docs/reserve-capacity).
+  * How to [create an initial workstation configuration](https://docs.cloud.google.com/workstations/docs/create-configuration) in the Google Cloud console. 
+  * The [list of preconfigured base images](https://docs.cloud.google.com/workstations/docs/preconfigured-base-images). 
+  * How to [customize your base image](https://docs.cloud.google.com/workstations/docs/customize-container-images) and [automate container image rebuilds](https://docs.cloud.google.com/workstations/docs/tutorial-automate-container-image-rebuild). 
+  * How to [boost your workstation](https://docs.cloud.google.com/workstations/docs/boost-workstation). 
+  * How to [reserve capacity for your workstation](https://docs.cloud.google.com/workstations/docs/reserve-capacity). 
 
 
 
@@ -672,9 +672,9 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
 
   * ### Products and pricing
 
@@ -706,7 +706,7 @@ Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["
 
 
 
-[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/v5a0f9ff8b593048661361a49e11ab98a8b1ac025e19e60e6189f2b56796f8a43/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
+[ ![Google Developers](https://www.gstatic.com/devrel-devsite/prod/vc1b996b07630b7fba08b3b2fd258fb35e39e5d8dfeab71af65465d9a2fbe5870/clouddocs/images/lockup-google-for-developers.svg)](https://developers.google.com/)
 
   * [ Android ](https://developer.android.com/)
   * [ Chrome ](https://developer.chrome.com/)

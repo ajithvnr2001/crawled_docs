@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vpc-service-controls/docs/supported-products/
 title: Supported products and limitations \u00a0|\u00a0 VPC Service Controls \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:08:56.601338+00:00
+fetched_at: 2026-10-30T08:40:06.019773+00:00
 ---
 
 # Supported products and limitations  |  VPC Service Controls  |  Google Cloud Documentation
@@ -317,7 +317,7 @@ Read more about [setting up VPC Service Controls for AI Platform Training](https
 **Protect with perimeters?** |  **Yes.** You can configure your perimeters to protect this service.   
 **Service name** |  `agentregistry.googleapis.com`  
 **Details** |  Agent Registry is a centralized catalog for discovering and registering agents and MCP servers.  For more information about Agent Registry, refer to the [product documentation](https://docs.cloud.google.com/agent-registry/overview).   
-**Limitations** |  Make sure that your project for Agent Registry and the enabled APIs are included in your VPC Service Controls service perimeter.   
+**Limitations** |  Make sure that your project for Agent Registry and the enabled APIs are included in your VPC Service Controls service perimeter.  For resources in a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), VPC Service Controls restrictions apply only to Agent Registry interactions in the management project. Agent Registry can discover and read agents and MCP servers across all member projects in the management boundary, even if those member projects aren't in the same service perimeter as the management project.   
   
 ###  [Apigee and Apigee hybrid](https://docs.cloud.google.com/apigee/docs)
 
@@ -2999,6 +2999,15 @@ For more information, see [Configure VPC Service Controls for Audit Manager](htt
 **Details** |  The API for Observability API can be protected by VPC Service Controls and the product can be used normally inside service perimeters.  For more information about Observability API, refer to the [product documentation](https://docs.cloud.google.com/stackdriver/docs/reference/api-overview).   
 **Limitations** |  The Observability API integration with VPC Service Controls has no known limitations.   
   
+###  [App Optimize API](https://docs.cloud.google.com/app-optimize)
+
+|  |  **Status** |  **Preview**. The integration of this product with VPC Service Controls is in Preview and is ready for broader testing and use, but is not fully supported for production environments.   
+---|---  
+**Protect with perimeters?** |  **Yes.** You can configure your perimeters to protect this service.   
+**Service name** |  `appoptimize.googleapis.com`  
+**Details** |  The API for App Optimize API can be protected by VPC Service Controls and the product can be used normally inside service perimeters.  For more information about App Optimize API, refer to the [product documentation](https://docs.cloud.google.com/app-optimize).   
+**Limitations** |  The App Optimize API integration with VPC Service Controls has no known limitations.   
+  
 For more information, read about [supported and unsupported services](https://docs.cloud.google.com/vpc-service-controls/docs/troubleshooting#services). 
 
 ## Manage access to unsupported services
@@ -3198,7 +3207,7 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 
   *[VPC]: Virtual Private Cloud

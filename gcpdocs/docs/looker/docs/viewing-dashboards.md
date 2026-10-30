@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/viewing-dashboards/
 title: Viewing dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:20.244512+00:00
+fetched_at: 2026-10-30T08:58:24.645084+00:00
 ---
 
 # Viewing dashboards  |  Looker  |  Google Cloud Documentation
@@ -363,8 +363,8 @@ If a LookML developer has set up [visual drilling](https://docs.cloud.google.com
 
 In some instances, you must use right-click to open the drill menu:
 
-  * When you view [single value visualizations](https://docs.cloud.google.com/looker/docs/single-value-options)
-  * When you click on certain data points in [table visualizations](https://docs.cloud.google.com/looker/docs/table-options)
+  * When you view [KPI (Single Value) visualizations](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) and [single value (legacy) visualizations](https://docs.cloud.google.com/looker/docs/single-value-options)
+  * When you click certain data points in [table visualizations](https://docs.cloud.google.com/looker/docs/table-options)
   * When [cross-filtering](https://docs.cloud.google.com/looker/docs/cross-filtering-dashboards#enabling_cross-filtering_for_individual_dashboards_\(beta\)) is enabled on a dashboard
 
 
@@ -585,6 +585,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

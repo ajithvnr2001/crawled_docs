@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/key-concepts/
 title: Key concepts \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:40:00.283813+00:00
+fetched_at: 2026-10-30T08:40:11.448182+00:00
 ---
 
 # Key concepts  |  Application Design Center  |  Google Cloud Documentation
@@ -36,7 +36,7 @@ A logical grouping of services and workloads that together deliver a business fu
 
 ## Application management boundary (also, boundary)
 
-The collection of one or more Google Cloud projects or folders whose underlying resources App Hub can discover and you can group in applications. This collection defines the boundary where App Hub can manage application components.
+A boundary defines the collection of one or more Google Cloud projects or folders whose underlying resources App Hub can discover, group in applications, and manage as application components.
 
 You define the configuration of this boundary. For example, you can set the boundary to a single project or an entire folder of projects. To learn which application setup model best fits your business needs, see [Choose your application setup model](https://docs.cloud.google.com/app-hub/docs/set-up-app-hub).
 
@@ -115,7 +115,7 @@ To learn which resources you can register as exclusive or shared services, see [
 
 To learn which resources you can add and configure as application components, see [the list of App Design Center supported services](https://docs.cloud.google.com/application-design-center/docs/supported-resources).
 
-The registration type is an output-only field that you cannot modify. For more information about the registration type property, see [Properties and attributes](https://docs.cloud.google.com/app-hub/docs/overview#properties-and-attributes).
+The registration type is an output-only field that you can't modify. For more information about the registration type property, see [Properties and attributes](https://docs.cloud.google.com/app-hub/docs/overview#properties-and-attributes).
 
 ## Service project (Legacy)
 
@@ -150,6 +150,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

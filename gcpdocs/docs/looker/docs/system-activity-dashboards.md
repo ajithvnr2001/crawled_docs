@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/system-activity-dashboards/
 title: Admin settings - System Activity dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:19.362145+00:00
+fetched_at: 2026-10-30T08:32:54.585535+00:00
 ---
 
 # Admin settings - System Activity dashboards  |  Looker  |  Google Cloud Documentation
@@ -120,9 +120,9 @@ The **Content Activity** dashboard includes tiles that show the following data:
   * The percentage of Looks that were queried in the previous 30 days.
   * The number of scheduled jobs for each day in the previous 7 days.
   * The number of Explore queries that were issued in the previous 30 days.
-  * A list of all dashboards and Looks that have been accessed in the last 30 days, sortable by the number of views in the Looker UI, number of times viewed in an embed, number of times viewed through the API, number of times the content was made a favorite, and number of times the content was delivered through a scheduled job.
+  * A list of all dashboards and Looks that have been accessed in the last 30 days, sortable by the number of views in the Looker UI, number of times viewed in an embed, number of times viewed through the Looker API, number of times the content was made a favorite, and number of times the content was delivered through a scheduled job.
   * A list of Explores created in the previous 30 days, showing the number of times the Explore was run and the number of users running the Explore.
-  * A list of dashboards and Looks that have not been accessed in the last 30 days, showing the content's number of views in the last 90 days in the Looker UI, in an embed, and through the API; and in the last 90 days the number of times the content was made a favorite, and the number of times the content was delivered through a scheduled job.
+  * A list of dashboards and Looks that have not been accessed in the last 30 days, showing the content's number of views in the last 90 days in the Looker UI, in an embed, and through the Looker API; and in the last 90 days the number of times the content was made a favorite, and the number of times the content was delivered through a scheduled job.
   * A list of Explores created in the previous 90 days that have not been queried in the previous 30 days, showing the length of time since the Explore was last run, the number of times the Explore was run in the previous 90 days, the date the Explore was last run, and the date the Explore was first run.
 
 
@@ -361,13 +361,14 @@ The **Token usage** tab shows the following data:
   * **Daily Estimated Token Usage** : A visualization showing the estimated daily use of input and output tokens over time.
   * **Daily Token Utilization** : A visualization showing the estimated daily token utilization over time.
   * **Top Agents by Token Usage** : A visualization showing the input tokens that are sent by the agent and the output token responses. The **Conversation Surface** column denotes the type of data agent, and includes these options: 
+    * [**Agentic Workflows**](https://docs.cloud.google.com/looker/docs/conversational-analytics-agentic-workflows-overview): A data agent that runs a scheduled or triggered agentic workflow.
     * [**Conversational Analytics**](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data): A data agent that queries one or more Looker Explores.
-    * [**Conversational Analytics API**](https://docs.cloud.google.com/gemini/data-agents/conversational-analytics-api/overview): A data agent that was created using the [Looker API's `ConversationalAnalytics` methods](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest).
     * [**Conversational Analytics Embed**](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-embedding): A data agent that queries an embedded Looker Explore.
     * [**Dashboard Agents**](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents-dashboards): A data agent that queries a Looker dashboard.
     * [**Dashboard Agents Embed**](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-embedding): A data agent that queries an embedded Looker dashboard.
     * [**Explore Insight Assistant**](https://docs.cloud.google.com/looker/docs/gemini-insight-asst): An Insight Assistant agent.
     * [**Gemini Enterprise**](https://docs.cloud.google.com/looker/docs/conversational-analytics-looker-data-agents#publish-data-agents): A data agent that was published to Gemini Enterprise.
+    * [**Looker API**](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest): A data agent that was created using the [Looker API's `ConversationalAnalytics` methods](https://docs.cloud.google.com/looker/docs/reference/looker-api/latest).
   * **Top Users by Token Usage** : A table that shows the users with the highest token usage.
   * **Top Conversations by Token Usage** : A table that shows the conversations with the highest token usage.
 
@@ -448,6 +449,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

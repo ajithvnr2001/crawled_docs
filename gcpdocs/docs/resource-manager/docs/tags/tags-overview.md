@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/tags/tags-overview/
 title: Tags overview \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:24.904411+00:00
+fetched_at: 2026-10-30T08:40:15.821582+00:00
 ---
 
 # Tags overview  |  Resource Manager  |  Google Cloud Documentation
@@ -210,6 +210,7 @@ Some resources automatically create a tag hold on each tag value attached to the
 
   * For more information about how to use tags, read the [Creating and managing tags](https://docs.cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing) page.
   * For information about using tags with Compute Engine, see [Manage tags for resources](https://docs.cloud.google.com/compute/docs/tag-resources).
+  * For information about using tags to define cross-project management boundaries, see [Management boundaries and capabilities overview](https://docs.cloud.google.com/resource-manager/docs/boundaries-and-capabilities-overview).
   * For information about using secure tags for firewall policies, see [Create and manage secure tags](https://docs.cloud.google.com/firewall/docs/use-tags-for-firewalls).
 
 
@@ -218,6 +219,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

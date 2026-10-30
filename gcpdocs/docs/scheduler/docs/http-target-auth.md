@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/scheduler/docs/http-target-auth/
 title: Use authentication with HTTP targets \u00a0|\u00a0 Cloud Scheduler \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:53:23.642341+00:00
+fetched_at: 2026-10-30T08:58:26.424914+00:00
 ---
 
 # Use authentication with HTTP targets  |  Cloud Scheduler  |  Google Cloud Documentation
@@ -41,7 +41,7 @@ The most common way to let an application authenticate as a service account is t
 
   2. If your target is within Google Cloud, [grant the necessary IAM roles](https://docs.cloud.google.com/iam/docs/granting-roles-to-service-accounts) to your service account. Each service within Google Cloud requires a specific role, and the receiving service automatically verifies the generated token.
 
-For example, for Cloud Run and the latest version of Cloud Run functions, you must grant the [Cloud Run Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.invoker) (`roles/run.invoker`) role, while for Cloud Run functions (1st gen) you must grant the [Cloud Functions Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudfunctions#cloudfunctions.invoker) (`roles/cloudfunctions.invoker`) role.
+For example, for Cloud Run and Cloud Run functions, you must grant the [Cloud Run Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.invoker) (`roles/run.invoker`) role, while for Cloud Functions (1st gen) you must grant the [Cloud Functions Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudfunctions#cloudfunctions.invoker) (`roles/cloudfunctions.invoker`) role.
 
 To get the permission that you need to [attach a service account to a resource](https://docs.cloud.google.com/iam/docs/attach-service-accounts), ask your administrator to grant you the [Service Account User](https://docs.cloud.google.com/iam/docs/roles-permissions/iam#iam.serviceAccountUser) (`roles/iam.serviceAccountUser`) IAM role on the service account. This predefined role contains the `iam.serviceAccounts.actAs` permission, which is required to attach a service account to a resource. (If you created the service account, you are automatically granted this permission.)
 
@@ -92,15 +92,17 @@ Examples:
      * Use the [`gcloud run services add-iam-policy-binding`](https://docs.cloud.google.com/sdk/gcloud/reference/run/services/add-iam-policy-binding) command to grant the [Cloud Run Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.invoker) (`roles/run.invoker`) IAM role to the service account `my-service-account@my-project.iam.gserviceaccount.com` on the Cloud Run service `my-service`:
            
            gcloud run services add-iam-policy-binding my-service \
+               --region=REGION \
                --member=serviceAccount:my-service-account@my-project.iam.gserviceaccount.com \
                --role=roles/run.invoker
            
 
      * Use the [`gcloud functions add-invoker-policy-binding`](https://docs.cloud.google.com/sdk/gcloud/reference/functions/add-invoker-policy-binding) command to grant the appropriate role to the service account `my-service-account@my-project.iam.gserviceaccount.com` on the Cloud Run function `my-cloud-function`.
 
-For the latest version of Cloud Run functions, this adds the [Cloud Run Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.invoker) (`roles/run.invoker`) binding to the IAM policy of the specified function's underlying Cloud Run service. For Cloud Run functions (1st gen), this adds the [Cloud Functions Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudfunctions#cloudfunctions.invoker) (`roles/cloudfunctions.invoker`) binding to the IAM policy of the specified function:
+For Cloud Run functions, this adds the [Cloud Run Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/run#run.invoker) (`roles/run.invoker`) binding to the IAM policy of the specified function's underlying Cloud Run service. For Cloud Functions (1st gen), this adds the [Cloud Functions Invoker](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudfunctions#cloudfunctions.invoker) (`roles/cloudfunctions.invoker`) binding to the IAM policy of the specified function:
            
            gcloud functions add-invoker-policy-binding my-cloud-function \
+               --region=REGION \
                --member=serviceAccount:my-service-account@my-project.iam.gserviceaccount.com
            
 
@@ -115,7 +117,7 @@ For an example of using Terraform to create a service account with permission to
 
 ## Create a Cloud Scheduler job that uses authentication
 
-To authenticate between Cloud Scheduler and an HTTP target, Cloud Scheduler creates a header token based on your client service account, identified by its email, and sends it, using HTTPS, to the target. You can use either an [ID (OIDC) token](https://developers.google.com/identity/protocols/OpenIDConnect) or an OAuth (access) token. OIDC is generally used _except_ for Google APIs hosted on `*.googleapis.com` as these APIs expect an OAuth token.
+To authenticate between Cloud Scheduler and an HTTP target, Cloud Scheduler creates a header token based on your client service account, identified by its email, and sends it, using HTTPS, to the target. You can use either an [ID (OIDC) token](https://developers.google.com/identity/protocols/OpenIDConnect) or an OAuth (access) token. OIDC is generally used _except_ for Google APIs hosted on `*.googleapis.com`: these APIs expect an OAuth token, and Cloud Scheduler accepts OAuth tokens only for target URLs hosted on `*.googleapis.com`.
 
 **Note:** If your Cloud Scheduler job uses OIDC authentication **and** your function expects arguments in form of URL parameters (for example, `my_function?key=value`) you must ensure the OIDC **Audience** (`aud`) field does **not** contain the URL parameters.
 
@@ -129,7 +131,7 @@ To create a Cloud Scheduler job that uses authentication, you must add the token
 
   2. Click add_box **Create job**.
 
-  3. In the **Name** field, enter a name for your job that is unique to the project. Note that you can't re-use a job name in a project even if you delete its associated job.
+  3. In the **Name** field, enter a name for your job that is unique to the project and region. After you delete its associated job, you can reuse a job name.
 
   4. In the **Region** list, select a region for your job.
 
@@ -139,7 +141,7 @@ To create a Cloud Scheduler job that uses authentication, you must add the token
 
   7. In the **Target type** list, select **HTTP**.
 
-  8. Specify an **URL** and **HTTP method**.
+  8. Specify a **URL** that starts with `https://` and an **HTTP method**.
 
   9. In the **Auth header** list, select the token type. An OIDC token is generally used _except_ for Google APIs hosted on `*.googleapis.com` as these APIs expect an OAuth token.
 
@@ -158,15 +160,17 @@ To create a Cloud Scheduler job that uses authentication, you must add the token
     
     
     gcloud scheduler jobs create http JOB_ID \
+        --location=LOCATION \
         --schedule="FREQUENCY" \
         --uri=URI \
         --oidc-service-account-email=SERVICE_ACCOUNT_EMAIL
 
 Replace the following:
 
-  * `JOB_ID`: a name for the job that is unique to the project. Note that you can't re-use a job name in a project even if you delete its associated job.
+  * `JOB_ID`: a name for the job that is unique to the project and region. After you delete its associated job, you can reuse a job name.
+  * `LOCATION`: the location (region) for the job.
   * `FREQUENCY`: the interval or how often the job is to run; for example, `every 3 hours` or `every 10 mins`. The string you supply here can be any [unix-cron](https://docs.cloud.google.com/scheduler/docs/configuring/cron-job-schedules) compatible string.
-  * `URI`: the fully qualified URL of the endpoint.
+  * `URI`: the fully qualified HTTPS URL of the endpoint (must start with `https://`).
   * `SERVICE_ACCOUNT_EMAIL`: the email of your service account. An OIDC token is generally used _except_ for Google APIs hosted on `*.googleapis.com` as these APIs expect an OAuth token. (Use the `--oauth-service-account-email` flag instead to define an OAuth token type.)
   * Other optional parameters are described in the [gcloud command line reference](https://docs.cloud.google.com/sdk/gcloud/reference/scheduler/jobs/create/http).
 
@@ -176,7 +180,7 @@ Replace the following:
 
 Some Google Cloud services need access to your resources so that they can act on your behalf. To meet this need, Google Cloud creates and manages service accounts that are known as [_service agents_](https://docs.cloud.google.com/iam/docs/service-account-types#service-agents) and that are created and granted roles automatically as you enable and use Google Cloud services.
 
-The Cloud Scheduler service agent requires the [Cloud Scheduler Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudscheduler#cloudscheduler.serviceAgent) (`roles/cloudscheduler.serviceAgent`) role. Without this role, Cloud Scheduler jobs fail. You can manually grant the role to your Cloud Scheduler service agent which has an email address with the following format:
+The Cloud Scheduler service agent requires the [Cloud Scheduler Service Agent](https://docs.cloud.google.com/iam/docs/roles-permissions/cloudscheduler#cloudscheduler.serviceAgent) (`roles/cloudscheduler.serviceAgent`) role. Without this role, Cloud Scheduler jobs that require the service agent (such as HTTP target jobs that use authentication and Pub/Sub target jobs) fail. You can manually grant the role to your Cloud Scheduler service agent which has an email address with the following format:
 
 `service-PROJECT_NUMBER@gcp-sa-cloudscheduler.iam.gserviceaccount.com`
 
@@ -199,6 +203,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

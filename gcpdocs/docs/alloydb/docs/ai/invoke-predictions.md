@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/alloydb/docs/ai/invoke-predictions/
 title: Invoke predictions \u00a0|\u00a0 AlloyDB for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:56:21.660309+00:00
+fetched_at: 2026-10-30T08:40:07.814665+00:00
 ---
 
 # Invoke predictions  |  AlloyDB for PostgreSQL  |  Google Cloud Documentation
@@ -72,9 +72,9 @@ Replace the following:
 
   * `PROJECT_ID`: the ID of your Google Cloud project
 
-  * `REGION_ID`: the ID of the Google Cloud region that the model is located in—for example, `us-central1` for gemini-2.5-flash
+  * `REGION_ID`: the ID of the Google Cloud region that the model is located in—for example, `us-central1` for gemini-3.5-flash-lite
 
-  * `MODEL_ID`: the ID of the ML model to use—for example, gemini-2.5-flash
+  * `MODEL_ID`: the ID of the ML model to use—for example, gemini-3.5-flash-lite
 
   * `CONTENTS`: the inputs to the prediction call, in JSON format
 
@@ -122,11 +122,11 @@ For information about the model's JSON response messages, see [PredictResponse](
 
 ### Example invocations
 
-The following example uses [gemini-2.5-flash](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models), available in Model Garden, to generate text based on a short prompt that is provided as a literal argument to `ml_predict_row()`:
+The following example uses [gemini-3.5-flash-lite](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/google-models), available in Model Garden, to generate text based on a short prompt that is provided as a literal argument to `ml_predict_row()`:
     
     
     SELECT
-      json_array_elements(ml_predict_row('publishers/google/models/gemini-2.5-flash:streamGenerateContent',
+      json_array_elements(ml_predict_row('publishers/google/models/gemini-3.5-flash-lite:streamGenerateContent',
           '{ "contents": [ { "role": "user", "parts": [ { "text": "For TPCH database schema as mentioned here https://www.tpc.org/TPC_Documents_Current_Versions/pdf/TPC-H_v3.0.1.pdf , generate a SQL query to find all supplier names which are located in the India nation."
     } ] } ] }'))-> 'candidates' -> 0 -> 'content' -> 'parts' -> 0 -> 'text';
     
@@ -145,7 +145,7 @@ The following example modifies the previous example in the following ways:
     
     SELECT
       ml_predict_row(
-        'projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent',
+        'projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash-lite:generateContent',
         json_build_object(
           'contents',
           json_build_object(
@@ -164,7 +164,7 @@ Because the response is a JSON object, you can pull specific fields from it usin
     
     SELECT
       ml_predict_row(
-        'projects/PROJECT_ID/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent',
+        'projects/PROJECT_ID/locations/global/publishers/google/models/gemini-3.5-flash-lite:generateContent',
         json_build_object(
           'contents',
           json_build_object(
@@ -189,6 +189,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/setup/
 title: Set up Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:23:47.393601+00:00
+fetched_at: 2026-10-30T08:40:09.335726+00:00
 ---
 
 # Set up Agent Registry  |  Google Cloud Documentation
@@ -21,11 +21,18 @@ Send feedback
 
 #  Set up Agent Registry Stay organized with collections  Save and categorize content based on your preferences. 
 
-To register and discover your AI agents, Model Context Protocol (MCP) servers, standalone skills, and endpoints in Agent Registry, you must enable the Agent Registry API in your Google Cloud project. The project where you enable Agent Registry serves as your [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project). The Agent Registry governance project lets you automatically discover supported workloads deployed in that project and manually register remote components hosted in separate Google Cloud projects, on-premises environments, or external clouds.
+To register and discover your AI agents, Model Context Protocol (MCP) servers, standalone skills, and endpoints in Agent Registry, you must enable the Agent Registry API in your Google Cloud project. The project where you enable Agent Registry serves as your [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project).
+
+You can set up Agent Registry in a single governance project or across multiple projects by configuring a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) where a central [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project) serves as your governance project.
 
 ## Before you begin
 
-To set up Agent Registry, use an existing project or [create a new one](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects).
+Configure Agent Registry either in a single project or across multiple projects:
+
+  * **Single project** : discover and manage agents, MCP servers, skills, and endpoints in a single Google Cloud governance project. Use an existing project or [create a project](https://docs.cloud.google.com/resource-manager/docs/creating-managing-projects), enable the Agent Registry API, and grant permissions.
+  * **Multiple projects (management boundary)** : centralize discovery and governance across multiple member projects in your [Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy) by associating a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) with a [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project). Designate an existing Google Cloud project as your management project or let Resource Manager create one for you, enable the Resource Manager API, configure a management boundary, and grant permissions.
+
+
 
 ### Required roles
 
@@ -66,7 +73,16 @@ At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.go
 
 ## Enable the Agent Registry API
 
+  * **For a single project** : enable the Agent Registry API on your governance project. After you enable the API and grant permissions, you can begin registering and discovering agents in that project. You don't need to configure a management boundary.
+  * **For multiple projects (management boundary)** : enable the Resource Manager API on the project that you use to run configuration commands. When you configure a management boundary for multiple projects and create the capability configuration, Resource Manager automatically enables the Agent Registry API on your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project).
+
+
+
+Use [your project ID](https://support.google.com/googleapi/answer/7014113) to enable APIs:
+
 ###  Console 
+
+For a single project, enable the Agent Registry API on your project:
 
 **Roles required to enable APIs**
 
@@ -74,20 +90,55 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=agentregistry.googleapis.com&redirect=https%3A//console.cloud.google.com)
 
+For multiple projects (management boundary), enable the Resource Manager API on the project that you use for configuration:
+
+**Roles required to enable APIs**
+
+To enable APIs, you need the `serviceusage.services.enable` permission. If you created the project, then you likely already have this permission through the Owner role (`roles/owner`). Otherwise, you can get this permission through the Service Usage Admin role (`roles/serviceusage.serviceUsageAdmin`). [Learn how to grant roles](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access). 
+
+[Enable the API](https://console.cloud.google.com/apis/enableflow?apiid=cloudresourcemanager.googleapis.com&redirect=https%3A//console.cloud.google.com)
+
 ###  gcloud 
 
-Enable the Agent Registry API in your project with the [`gcloud services enable`](https://docs.cloud.google.com/sdk/gcloud/reference/services/enable) command:
-    
-    
-    gcloud services enable agentregistry.googleapis.com \
-        --project=PROJECT_ID
-    
+  * For a single project, enable the Agent Registry API on your project with the [`gcloud services enable`](https://docs.cloud.google.com/sdk/gcloud/reference/services/enable) command:
+        
+        gcloud services enable agentregistry.googleapis.com \
+            --project=PROJECT_ID
+        
 
-Replace `PROJECT_ID` with [your project ID](https://support.google.com/googleapi/answer/7014113).
+  * For multiple projects (management boundary), enable the Resource Manager API on the project that you use for configuration:
+        
+        gcloud services enable cloudresourcemanager.googleapis.com \
+            --project=PROJECT_ID
+        
 
-After enabling the Agent Registry API, you can begin registering and discovering agents in this project.
 
-**Note:** If you integrate Agent Registry with [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) for policy enforcement, you must also enable the Identity-Aware Proxy API (`iap.googleapis.com`) in your project. The gateway uses the Identity-Aware Proxy API to authenticate and authorize egress traffic from your agents.
+
+
+Replace `PROJECT_ID` with [the project ID](https://support.google.com/googleapi/answer/7014113) of your standalone governance project, or the project that you want to use as the management project for your management boundary.
+
+**Note:** If you integrate Agent Registry with [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway) for policy enforcement, you must also enable the Identity-Aware Proxy API in your project. The gateway uses the Identity-Aware Proxy API to authenticate and authorize egress traffic from your agents to external destinations.
+
+## Configure a management boundary for multiple projects
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+To use Agent Registry across multiple Google Cloud projects, configure a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology). A management boundary groups one or more Google Cloud member projects into a central [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project) that serves as your governance project so that you can discover and govern AI agents, MCP servers, and tools across projects.
+
+You define a management boundary in [Resource Manager](https://docs.cloud.google.com/resource-manager/docs/boundaries-and-capabilities-overview). For step-by-step instructions, see [Configure management boundaries](https://docs.cloud.google.com/resource-manager/docs/manage-capability-configs) in the Resource Manager documentation.
+
+For an architectural overview of how `BoundaryConfig`, `Boundary`, and `CapabilityConfig` resources work together, see [Cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology).
+
+When you create a `CapabilityConfig` resource with `agent-management`, Resource Manager automatically enables `agentregistry.googleapis.com` on the management project. After establishing your management boundary:
+
+  1. If needed for local operations within individual member projects, enable the Agent Registry API on those member projects.
+  2. Grant the required [roles and permissions](https://docs.cloud.google.com/agent-registry/roles-permissions#boundary-roles) to users and service accounts on the management project.
+
+
+
+When you list or search for agents or MCP servers in a location on the management project, Agent Registry aggregates and returns auto-discovered resources in that location from all member projects in the boundary, alongside any registered `Service` resources created directly in that location on the management project. Each returned [resource name](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#resource-names) preserves the component's ID and uses the project specified in the request.
 
 ## Grant permissions
 
@@ -142,6 +193,7 @@ Replace `PROJECT_ID` with [the ID of the project](https://support.google.com/goo
 
 ## What's next
 
+  * [Learn about cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology)
   * [Quickstart: Register an agent](https://docs.cloud.google.com/agent-registry/quickstart-register-agent)
   * [Register MCP servers](https://docs.cloud.google.com/agent-registry/register-mcp-servers)
   * [Register skills](https://docs.cloud.google.com/agent-registry/register-skills)
@@ -153,6 +205,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

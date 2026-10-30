@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/optimize-costs/
 title: Best practices for Dataflow cost optimization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T17:00:05.880023+00:00
+fetched_at: 2026-10-30T08:52:15.941222+00:00
 ---
 
 # Best practices for Dataflow cost optimization  |  Google Cloud Documentation
@@ -158,7 +158,7 @@ Also consider using [resource-based billing](https://docs.cloud.google.com/dataf
 
 #### Adjust autoscaling settings
 
-Use autoscaling hints to tune your autoscaling settings. For more information, see [Tune Horizontal Autoscaling for streaming pipelines](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling). For streaming jobs that use Streaming Engine, you can update the autotuning settings without stopping or replacing the job. For more information, see [In-flight job option update](https://docs.cloud.google.com/dataflow/docs/guides/updating-a-pipeline#in-flight-updates).
+Use autoscaling hints and latency tiers to tune your autoscaling settings. For more information, see [Tune Horizontal Autoscaling for streaming pipelines](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling). For streaming jobs that use Streaming Engine, you can update the autotuning settings without stopping or replacing the job. For more information, see [In-flight job option update](https://docs.cloud.google.com/dataflow/docs/guides/updating-a-pipeline#in-flight-updates).
 
 If you think that your pipeline doesn't benefit from autoscaling, turn it off. For more information, see [Horizontal Autoscaling](https://docs.cloud.google.com/dataflow/docs/horizontal-autoscaling).
 
@@ -230,6 +230,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

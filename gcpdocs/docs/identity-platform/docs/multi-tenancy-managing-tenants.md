@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/identity-platform/docs/multi-tenancy-managing-tenants/
 title: Managing Identity Platform tenants programmatically \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:29:41.344599+00:00
+fetched_at: 2026-10-30T08:52:21.395013+00:00
 ---
 
 # Managing Identity Platform tenants programmatically  |  Google Cloud Documentation
@@ -1231,24 +1231,6 @@ You can then verify the ID token for that specific tenant:
       });
     
 
-A server side resource might be accessible by multiple tenants with different levels of access. Since the tenant ID might not be known ahead of time in this case, the ID token can be verified at the project level first.
-    
-    
-    admin.auth().verifyIdToken(idToken)
-      .then((decodedToken) => {
-        if (decodedToken.firebase.tenant === 'TENANT-ID1') {
-          // Allow appropriate level of access for TENANT-ID1.
-        } else if (decodedToken.firebase.tenant === 'TENANT-ID2') {
-          // Allow appropriate level of access for TENANT-ID2.
-        } else {
-          // Block access for all other tenants.
-          throw new Error('Access not allowed.');
-        }
-      }).catch((error) => {
-        // Handle error
-      });
-    
-
 ###  Python 
     
     
@@ -1278,6 +1260,65 @@ A server side resource might be accessible by multiple tenants with different le
     }
     
     [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1078-L1086)
+
+A server-side resource might be accessible by multiple tenants with different levels of access. Because the tenant ID might not be known ahead of time in this case, you can verify the ID token at the project level first:
+
+###  Node.js 
+    
+    
+    admin.auth().verifyIdToken(idToken)
+      .then((decodedToken) => {
+        if (decodedToken.firebase.tenant === 'TENANT-ID1') {
+          // Allow appropriate level of access for TENANT-ID1.
+        } else if (decodedToken.firebase.tenant === 'TENANT-ID2') {
+          // Allow appropriate level of access for TENANT-ID2.
+        } else {
+          // Block access for all other tenants.
+          throw new Error('Access not allowed.');
+        }
+      }).catch((error) => {
+        // Handle error
+      });
+    
+
+###  Python 
+    
+    
+        decoded_token = auth.verify_id_token(id_token)
+    
+        tenant = decoded_token['firebase']['tenant']
+        if tenant == 'TENANT-ID1':
+    		# Allow appropriate level of access for TENANT-ID1.
+            pass
+        elif tenant == 'TENANT-ID2':
+    		# Allow appropriate level of access for TENANT-ID2.
+            pass
+        else:
+    		# Access not allowed -- Handle error
+            pass
+    
+    [index.py](https://github.com/firebase/firebase-admin-python/blob/ae0a284127609272957c594af7c8a6179d87d1d4/snippets/auth/index.py#L993-L1004)
+
+###  Java 
+    
+    
+    try {
+      // idToken comes from the client app
+      FirebaseToken token = tenantAuth.verifyIdToken(idToken);
+      if ("TENANT-ID1".equals(token.getTenantId())) {
+        // Allow appropriate level of access for TENANT-ID1.
+      } else if ("TENANT-ID2".equals(token.getTenantId())) {
+        // Allow appropriate level of access for TENANT-ID2.
+      } else {
+        // Access not allowed -- Handle error
+      }
+    } catch (FirebaseAuthException e) {
+      System.out.println("error verifying ID token: " + e.getMessage());
+    }
+    
+    [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1092-L1104)
+
+**Note:** Project-level `verifyIdToken` (or `verify_id_token` in Python) can verify the signature and claims of ID tokens from any tenant when `checkRevoked` (or `check_revoked`) is `false` (the default). However, enabling the revocation check at the project level only checks the root project's user pool and fails with a user-not-found error for tenant users. To check revocation for a tenant user, use a tenant-aware client as shown in Managing user sessions.
 
 See the Admin SDK documentation on [verifying ID tokens](https://firebase.google.com/docs/auth/admin/verify-id-tokens) to learn more.
 
@@ -1425,6 +1466,83 @@ You can verify that an unexpired valid ID token is not revoked by specifying the
     }
     
     [FirebaseAuthSnippets.java](https://github.com/firebase/firebase-admin-java/blob/2d89465e59689e6256b0965cf50197cf3ddaf823/src/test/java/com/google/firebase/snippets/FirebaseAuthSnippets.java#L1127-L1138)
+
+If the tenant ID is unknown, first verify the token at the project level to extract the tenant ID. Then, use the corresponding tenant-aware client to verify revocation:
+
+###  Node.js 
+    
+    
+    admin.auth().verifyIdToken(idToken)
+      .then((decodedToken) => {
+        const tenantId = decodedToken.firebase.tenant;
+        if (tenantId) {
+          const tenantAuth = admin.auth().tenantManager().authForTenant(tenantId);
+          return tenantAuth.verifyIdToken(idToken, true);
+        }
+        return admin.auth().verifyIdToken(idToken, true);
+      })
+      .then((payload) => {
+        // Token is valid and not revoked.
+      })
+      .catch((error) => {
+        if (error.code === 'auth/id-token-revoked') {
+          // Token has been revoked. Inform the user to re-authenticate or
+          // signOut() the user.
+        } else {
+          // Token is invalid.
+        }
+      });
+    
+
+###  Python 
+    
+    
+    try:
+        decoded_token = auth.verify_id_token(id_token)
+        tenant_id = decoded_token['firebase'].get('tenant')
+        if tenant_id:
+            tenant_client = tenant_mgt.auth_for_tenant(tenant_id)
+            decoded_token = tenant_client.verify_id_token(id_token, check_revoked=True)
+        else:
+            decoded_token = auth.verify_id_token(id_token, check_revoked=True)
+        # Token is valid and not revoked.
+        uid = decoded_token['uid']
+    except auth.RevokedIdTokenError:
+        # Token revoked, inform the user to reauthenticate or signOut().
+        pass
+    except auth.UserDisabledError:
+        # Token belongs to a disabled user record.
+        pass
+    except auth.InvalidIdTokenError:
+        # Token is invalid.
+        pass
+    
+
+###  Java 
+    
+    
+    try {
+      FirebaseAuth auth = FirebaseAuth.getInstance();
+      FirebaseToken decodedToken = auth.verifyIdToken(idToken);
+      String tenantId = decodedToken.getTenantId();
+      if (tenantId != null && !tenantId.isEmpty()) {
+        TenantAwareFirebaseAuth tenantAuth =
+            auth.getTenantManager().getAuthForTenant(tenantId);
+        decodedToken = tenantAuth.verifyIdToken(idToken, true);
+      } else {
+        decodedToken = auth.verifyIdToken(idToken, true);
+      }
+      // Token is valid and not revoked.
+      String uid = decodedToken.getUid();
+    } catch (FirebaseAuthException e) {
+      if (e.getAuthErrorCode() == AuthErrorCode.REVOKED_ID_TOKEN) {
+        // Token has been revoked. Inform the user to re-authenticate or
+        // signOut() the user.
+      } else {
+        // Token is invalid.
+      }
+    }
+    
 
 See the Admin SDK documentation on [managing sessions](https://firebase.google.com/docs/auth/admin/manage-sessions) to learn more.
 
@@ -1724,6 +1842,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

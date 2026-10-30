@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/armor/docs/release-notes/
 title: Cloud Armor release notes \u00a0|\u00a0 Google Cloud Armor \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T01:47:11.588891+00:00
+fetched_at: 2026-10-30T08:58:37.033470+00:00
 ---
 
 # Cloud Armor release notes  |  Google Cloud Armor  |  Google Cloud Documentation
@@ -26,6 +26,12 @@ This page contains release notes for features and updates to Google Cloud Armor.
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/armor-release-notes.xml) directly. 
+
+## October 27, 2026
+
+Feature
+
+Cloud Armor supports advanced match conditions to include attributes for inspecting request body content and parameters. This lets you write custom CEL rules to filter traffic based on raw body content, structured data (JSON, Form Data, GraphQL), and query parameters. For more information, see [Configure custom rules language attributes](https://docs.cloud.google.com/armor/docs/rules-language-reference). This feature is [generally available (GA)](https://cloud.google.com/products#product-launch-stages).
 
 ## October 19, 2026
 

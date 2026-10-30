@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-2/known-issues/
 title: Known issues \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:59:04.219739+00:00
+fetched_at: 2026-10-30T08:58:42.439556+00:00
 ---
 
 # Known issues  |  Managed Service for Apache Airflow  |  Google Cloud Documentation

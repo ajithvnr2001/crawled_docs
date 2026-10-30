@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/instance-settings/
 title: About instance settings \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:56:50.002253+00:00
+fetched_at: 2026-10-30T08:39:15.045547+00:00
 ---
 
 # About instance settings  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -102,7 +102,7 @@ Cores | Y |  For Cloud SQL Enterprise Plus edition:
 2 to 128 ([predefined machine types](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview) only)  
   
 For Cloud SQL Enterprise edition:  
-1 to 96 (must be either 1 or an even number)  
+1 to 96 (must be either 1 or an even number; up to 80 in [select regions](https://docs.cloud.google.com/sql/docs/postgres/region-availability-overview#enterprise-edition-regions))  
 Partial for shared vCPU   
 Memory | Y |  For Cloud SQL Enterprise Plus edition: 6.75 GB to 8 GB per vCPU.   
 The 6.75 GB to 1 vCPU ratio is for the `[db-perf-optimized-N-128](https://docs.cloud.google.com/sql/docs/postgres/machine-series-overview)` machine type only. All other machine types have the 8 GB to 1 vCPU ratio.   
@@ -523,6 +523,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

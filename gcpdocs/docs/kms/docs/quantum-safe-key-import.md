@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/quantum-safe-key-import/
 title: Quantum-safe key import \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:42.484112+00:00
+fetched_at: 2026-10-30T09:01:37.446810+00:00
 ---
 
 # Quantum-safe key import  |  Cloud Key Management Service  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/control-key-destruction/
 title: Control key version destruction \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:23.274396+00:00
+fetched_at: 2026-10-30T09:01:44.601952+00:00
 ---
 
 # Control key version destruction  |  Cloud Key Management Service  |  Google Cloud Documentation

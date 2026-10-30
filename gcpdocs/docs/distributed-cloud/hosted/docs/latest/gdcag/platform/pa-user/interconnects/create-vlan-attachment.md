@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/platform/pa-user/interconnects/create-vlan-attachment/
 title: Create a VLAN attachment \u00a0|\u00a0 Google Distributed Cloud air-gapped \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T19:22:34.629390+00:00
+fetched_at: 2026-10-30T08:45:27.819641+00:00
 ---
 
 # Create a VLAN attachment  |  Google Distributed Cloud air-gapped  |  Google Cloud Documentation
@@ -22,13 +22,13 @@ Send feedback
 
 #  Create a VLAN attachment Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page provides instructions on how to create or update a VLAN attachment in Google Distributed Cloud (GDC) air-gapped.
+This document provides instructions on how to create or update a VLAN attachment in Google Distributed Cloud (GDC) air-gapped.
 
-A VLAN attachment represents an attachment of a Virtual Local Area Network (VLAN) and its associated BGP session configuration to an interconnect link. The VLAN specifies which part of your network has access through this connection.
+A VLAN attachment represents an attachment of a Virtual Local Area Network (VLAN) and its associated Border Gateway Protocol (BGP) session configuration to an interconnect link. The VLAN specifies which part of your network has access through this connection.
 
 The VLAN attachment and its associated BGP session configuration are a required resource for setting up a secure air-gapped connection with high bandwidth and low latency.
 
-This page is for developers within the application operator group who are looking to establish connectivity with interconnects. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
+This document is for developers within the application operator group who are looking to establish connectivity with interconnects. For more information, see [Audiences for GDC air-gapped documentation](https://docs.cloud.google.com/distributed-cloud/hosted/docs/latest/gdcag/resources/audiences).
 
 ## Before you begin
 
@@ -84,8 +84,8 @@ To create or update a VLAN attachment, follow these steps:
      * `INTERCONNECT_LINK_NAME`: the universal object reference to the interconnect link in the `gpc-system` namespace.
      * `INTERCONNECT_GROUP_NAME`: the universal object reference to the interconnect group in the `gpc-system` namespace containing `INTERCONNECT_LINK_NAME`.
      * `LOCAL_IP_SUBNET`: the local IP address of the `/31` peer on the GDC side.
-     * `LOCAL_ASN`: the local autonomous system number (ASN) of the Border Gateway Protocol (BGP).
-     * `PEER_ASN`: the peer autonomous system number (ASN) of the Border Gateway Protocol (BGP).
+     * `LOCAL_ASN`: the local autonomous system number (ASN) for BGP.
+     * `PEER_ASN`: the peer autonomous system number (ASN) for BGP.
      * `PEER_IP`: the peer IP address of the `/31` peer on the side of the peer.
      * `PEER_EXTERNAL_SUBNET`: the peer external subnet that this interconnect allows. If there is more than one subnet, list all of them in the `peerExternalSubnets` field.
      * `ROUTE_POLICY_NAME`: the universal object reference to the route policy in the `gpc-system` namespace.
@@ -127,6 +127,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

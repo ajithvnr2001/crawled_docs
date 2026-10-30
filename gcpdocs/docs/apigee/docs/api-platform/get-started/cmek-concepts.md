@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/apigee/docs/api-platform/get-started/cmek-concepts/
 title: Introduction to CMEK \u00a0|\u00a0 Apigee \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:37:13.010347+00:00
+fetched_at: 2026-10-30T08:39:03.697616+00:00
 ---
 
 # Introduction to CMEK  |  Apigee  |  Google Cloud Documentation
@@ -78,7 +78,9 @@ See also: [ Manage access to projects, folders, and organizations](https://docs.
 
 ### EKM
 
-Apigee does not currently support [ Cloud External Key Manager (Cloud EKM)](https://docs.cloud.google.com/kms/docs/ekm). If you use Cloud EKM, there is a known defect that Cloud EKM errors won't be properly propagated and surfaced to you. 
+Apigee supports [ Cloud External Key Manager (Cloud EKM)](https://docs.cloud.google.com/kms/docs/ekm) for CMEK. With EKM support, you can monitor EKM health and set up alerts for EKM-related issues. For more information, see [EKM health monitoring](https://docs.cloud.google.com/apigee/docs/api-platform/security/ekm-monitoring). 
+
+**Note:** Cloud EKM support applies only to Apigee organizations that were configured to use CMEK with Cloud EKM when the organization was created. You cannot enable Cloud EKM for existing organizations. 
 
 ### Key tracking
 
@@ -181,10 +183,18 @@ Error message/symptom | Cause | Steps to take
 `Multi-region control plane key is not valid for this control plane instance. Specify only the "apiConsumerDataEncryptionKeyName" field.` |  A user has provided a multi-region control plane key in a control plane that exists only in a single region (i.e. is not a multi-regional control plane).  |  A user must either omit the multi-regional key field or choose to use a multi-regional control plane instance.   
 `Multi-region control plane key is not valid for this control plane instance. Specify a multi-region key with region "..."` |  A user has provided a multi-region control plane key to the wrong multi-regional control plane instance (e.g. a "us" key to the "eu" control plane instance)  |  A user must either use a multi-regional key in the correct multi-region or choose to use a different multi-regional control plane instance.   
   
+## FAQ
+
+### How do I change current keys to use Cloud EKM?
+
+You can't. Cloud EKM can only be configured when the Apigee organization is created, and encryption keys can't be added or changed after that point. There is no way to convert an existing organization, or the keys it already uses, to Cloud EKM. 
+
+To use Cloud EKM, create a new Apigee organization that is configured to use CMEK with Cloud EKM, and then migrate your resources to the new organization. For more information, see EKM. 
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

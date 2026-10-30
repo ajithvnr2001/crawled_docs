@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/region-availability-overview/
 title: Region availability overview \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:40:19.113719+00:00
+fetched_at: 2026-10-30T08:39:17.527414+00:00
 ---
 
 # Region availability overview  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -81,7 +81,7 @@ Region | General purpose dedicated core | N4 machine series
 `us-west3` — Salt Lake City | ✔ | ✔  
 `us-west4` — Las Vegas | ✔ | ✔  
   
-1 These regions don't support instances created with 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, and 82 or more [virtual CPUs (vCPUs)](https://docs.cloud.google.com/compute/docs/cpu-platforms).
+1 These regions don't support instances created with 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, and 82 or more [virtual CPUs (vCPUs)](https://docs.cloud.google.com/compute/docs/cpu-platforms) (a maximum of 80 vCPUs).
 
 2 This region only supports the creation of dedicated core instances with one vCPU.
 
@@ -145,6 +145,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

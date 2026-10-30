@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/looker/docs/single-value-options/
-title: Single value chart options \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
+title: Single value (legacy) chart options \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:34.114103+00:00
+fetched_at: 2026-10-30T08:58:25.281408+00:00
 ---
 
-# Single value chart options  |  Looker  |  Google Cloud Documentation
+# Single value (legacy) chart options  |  Looker  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/looker/docs/single-value-options/
 
@@ -19,17 +19,9 @@ fetched_at: 2026-10-27T23:38:34.114103+00:00
 
 Send feedback 
 
-#  Single value chart options Stay organized with collections  Save and categorize content based on your preferences. 
+#  Single value (legacy) chart options Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** Ask your admin to enable the new [**KPI Visualization** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#kpi-visualization), which lets you do the following: 
-
-  * Add secondary visualizations: Users can add a sparkline or bar chart within a visualization to show trends or distributions that are related to the primary KPI. 
-  * Show enhanced comparisons: Users can specify and compare a primary value against any other measure in an Explore query, using data from the first row, second row, last row, or the totals row. 
-  * Access improved styling options: Users have more control over the appearance of the visualization, including background color of the tile, and the alignment of the values. 
-
-
-
-Learn more about the new [KPI (Single Value) Visualization](https://docs.cloud.google.com/looker/docs/kpi-single-value-options). 
+**Note:** [KPI (Single Value) charts](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) replace the single value chart option by default. Your admin can enable the **Use Legacy Single Value Visualization** setting in the [**Legacy features** page of the **Admin** panel](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use-single-value-visualization) to continue using single value (legacy) charts. If your admin didn't previously enable the KPI (Single Value) preview feature, then the **Use Legacy Single Value Visualization** setting will be enabled by default, and you'll still see the single value (legacy) chart option.
 
 This page describes the options for editing single value charts in the visualization menu. Click **Edit** in the upper right corner of the visualization tab.
 
@@ -97,7 +89,7 @@ You can specify the format of the value, independent of the underlying dimension
 
 MS Excel's complete guide details how to specify these formats [in their documentation](https://support.office.com/en-us/article/review-guidelines-for-customizing-a-number-format-c0a1d1fa-d3f4-4018-96b7-9c9354dd99f5). However, color formatting is not currently supported in Looker.
 
-> For Looker developers: The formatting used in the **Value Format** field is the same as formatting that is used with the [`value_format` LookML parameter](https://docs.cloud.google.com/looker/docs/reference/param-field-value-format), except that the `value_format` parameter requires the formatting string to be enclosed in double quotes. In the **Value Format** field, the formatting string is not enclosed in quotes.
+**Tip:** For Looker developers: The formatting that's used in the **Value Format** field is the same as the formatting that's used with the [`value_format` LookML parameter](https://docs.cloud.google.com/looker/docs/reference/param-field-value-format), except that the `value_format` parameter requires the formatting string to be enclosed in double quotes. In the **Value Format** field, the formatting string isn't enclosed in quotes.
 
 The [Adding custom formatting to numeric fields](https://docs.cloud.google.com/looker/docs/custom-formatting#custom_formatting_examples) documentation page provides more information on how to use custom formatting.
 
@@ -109,7 +101,7 @@ You can click the **Custom Tooltip** switch to configure tooltips within the [Ex
 
 ### Show Comparison
 
-You can use a second field to add comparison information to your single value visualization. In general, the comparison value uses the [next field that would be displayed](https://docs.cloud.google.com/looker/docs/single-value-options#single-value-vis-order) as the single value visualization. If there is no other field in the first row to compare with, a field in the next row is used for comparison. You can affect which field displays by changing the order of fields or choosing [**Hide from Visualization**](https://docs.cloud.google.com/looker/docs/creating-visualizations#hide-fields) for fields that you want to skip.
+You can use a second field to add comparison information to your single value visualization. In general, the comparison value uses the [next field that would be displayed](https://docs.cloud.google.com/looker/docs/kpi-single-value-options#single-value-vis-order) as the single value visualization. If there is no other field in the first row to compare with, a field in the next row is used for comparison. You can affect which field displays by changing the order of fields or choosing [**Hide from Visualization**](https://docs.cloud.google.com/looker/docs/creating-visualizations#hide-fields) for fields that you want to skip.
 
 ### Value Labels
 
@@ -193,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

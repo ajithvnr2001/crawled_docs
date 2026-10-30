@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/resources/
 title: Resources \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:15:39.085555+00:00
+fetched_at: 2026-10-30T08:32:40.659821+00:00
 ---
 
 # Resources  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

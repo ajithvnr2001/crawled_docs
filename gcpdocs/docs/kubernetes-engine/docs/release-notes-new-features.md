@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/docs/release-notes-new-features/
 title: GKE release notes (new features) \u00a0|\u00a0 Google Kubernetes Engine (GKE) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:29:56.595788+00:00
+fetched_at: 2026-10-30T08:26:06.628972+00:00
 ---
 
 # GKE release notes (new features)  |  Google Kubernetes Engine (GKE)  |  Google Cloud Documentation
@@ -26,6 +26,20 @@ This page documents new features in Google Kubernetes Engine (GKE). You can peri
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/gke-new-features-release-notes.xml) directly. 
+
+## October 29, 2026
+
+Feature
+
+Managed OpenTelemetry for GKE is generally available (GA) on clusters running GKE version 1.37.1-gke.1697000 or later. You can collect OpenTelemetry Protocol (OTLP) traces, metrics, and logs from your workloads with a Google-managed collector instead of a self-managed OpenTelemetry Collector deployment:
+
+  * Configure `otlp_grpc` in the Instrumentation custom resource (GKE version 1.37.1-gke.1697000 or later), or send telemetry directly to the in-cluster collector's gRPC endpoint on port 4317 in addition to HTTP on port 4318.
+  * The managed collector routes logs alongside traces and metrics through the Cloud Telemetry API (`telemetry.googleapis.com`), with improved per-signal queueing and autoscaling for high-throughput clusters. (Logs ingested through `telemetry.googleapis.com` default to the `otlp` log name instead of `gke-managed-otel-collector`.)
+  * [Multimodal prompts and responses collection](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke#multimodal-prompts-responses) for LangGraph ReAct and Agent Development Kit (ADK) agents, the `--managed-otel-scope` flag in the `gcloud` CLI (version 576.0.0 or later), and `managed_opentelemetry_config` in `terraform-provider-google` (v8.8.0 or later) are generally available.
+
+
+
+To use the GA collector and features, upgrade clusters from earlier Preview versions to 1.37.1-gke.1697000 or later. For architecture details and setup instructions, see [Managed OpenTelemetry for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/managed-otel-gke) and [Deploy Managed OpenTelemetry for GKE](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/managed-otel-gke).
 
 ## October 26, 2026
 

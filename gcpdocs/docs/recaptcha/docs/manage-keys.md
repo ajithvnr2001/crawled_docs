@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/manage-keys/
 title: Edit or delete reCAPTCHA keys \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:54.697859+00:00
+fetched_at: 2026-10-30T08:40:22.215550+00:00
 ---
 
 # Edit or delete reCAPTCHA keys  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -24,6 +24,8 @@ Send feedback
 #  Edit or delete reCAPTCHA keys Stay organized with collections  Save and categorize content based on your preferences. 
 
 This page explains how to edit or delete reCAPTCHA keys (also known as _keys_).
+
+To check which version (`v2` or `v3`) your key uses or to retrieve your site key and legacy secret key for third-party CMS plugins (such as WordPress or Shopify), see [Reconcile Admin Console and Google Cloud console terminology](https://docs.cloud.google.com/recaptcha/docs/reconcile-legacy-terminology).
 
 ## Before you begin
 
@@ -109,6 +111,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

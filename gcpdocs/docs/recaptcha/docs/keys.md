@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/keys/
 title: reCAPTCHA keys overview \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:53:00.505226+00:00
+fetched_at: 2026-10-30T08:45:05.625213+00:00
 ---
 
 # reCAPTCHA keys overview  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -35,10 +35,15 @@ Example reCAPTCHA key: `6Lcm3XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX5mfX`
 
 reCAPTCHA keys can have one of the following integration types:
 
-  * `SCORE`: Returns risk scores. It doesn't display the **I'm not a robot** checkbox and never shows CAPTCHA challenges.
-  * `CHECKBOX`: Displays the **I'm not a robot** checkbox and might show CAPTCHA challenges after the checkbox is checked.
+  * `SCORE` (legacy `v3`): Returns risk scores. It doesn't display the **I'm not a robot** checkbox and never shows CAPTCHA challenges.
+  * `CHECKBOX` (legacy `v2 Checkbox`): Displays the **I'm not a robot** checkbox and might show CAPTCHA challenges after the checkbox is selected.
   * `POLICY_BASED_CHALLENGE`: Triggers CAPTCHA challenges based on a score threshold and challenge difficulty.
-  * `INVISIBLE`: Doesn't display the **I'm not a robot** checkbox, but might show CAPTCHA challenges after risk analysis.
+  * `INVISIBLE` (legacy `v2 Invisible`): Doesn't display the **I'm not a robot** checkbox, but might show CAPTCHA challenges after risk analysis.
+  * [Universal](https://docs.cloud.google.com/recaptcha/docs/install-universal-keys-web-pages) (Preview): Uses [Policy Engine](https://docs.cloud.google.com/recaptcha/docs/policy-engine) to configure automatic token attachment (AutoExecute) and custom rules for triggering CAPTCHA challenges.
+
+
+
+To check which version your existing key uses in the Google Cloud console or to find your site key and secret key for third-party CMS plugins (such as WordPress or Shopify), see [Reconcile Admin Console and Google Cloud console terminology](https://docs.cloud.google.com/recaptcha/docs/reconcile-legacy-terminology).
 
 The following table lists reCAPTCHA keys that are supported for each platform: Platform | Description | Supported keys | Challenge type  
 ---|---|---|---  
@@ -55,6 +60,7 @@ API | For integration with APIs or clients like IoT devices that do not support 
 ## What's next
 
   * [Choose the appropriate reCAPTCHA key type for your platform](https://docs.cloud.google.com/recaptcha/docs/choose-key-type)
+  * [Reconcile Admin Console and Google Cloud console terminology](https://docs.cloud.google.com/recaptcha/docs/reconcile-legacy-terminology)
 
 
 
@@ -62,6 +68,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

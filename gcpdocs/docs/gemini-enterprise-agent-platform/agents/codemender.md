@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/
 title: CodeMender overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:17.720948+00:00
+fetched_at: 2026-10-30T08:39:34.425154+00:00
 ---
 
 # CodeMender overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -204,12 +204,14 @@ By default, CodeMender uses Gemini 3.8 Flash. To override the default model, pas
   * Gemini 3.8 Flash Cyber: `--model gemini-3.8-flash-cyber`
   * Gemini 4 Argon: `--model gemini-4-argon`
   * Gemini 4 Argon Cyber Permissive: `--model gemini-4-argon-cyber-permissive`
-  * Gemini 3.7 Flash: `--model gemini-3.7-flash`
-  * Gemini 3.6 Flash: `--model gemini-3.6-flash`
+  * Gemini 3.7 Flash: `--model gemini-3.7-flash` (retires on January 28, 2027)
+  * Gemini 3.6 Flash: `--model gemini-3.6-flash` (deprecated; retires on November 19, 2026)
   * Gemini 3.5 Flash: `--model gemini-3.5-flash`
   * Gemini 3.1 Pro Preview: `--model gemini-3.1-pro-preview`
 
 
+
+Deprecated models still work until their retirement date, and the CLI prints a warning when you use one. After a model retires, requests that use it fail. Switch to Gemini 3.8 Flash before the retirement date.
 
 The following commands support the `--model` flag:
 
@@ -280,6 +282,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

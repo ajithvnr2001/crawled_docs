@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/samples/kms-restore-key-version/
 title: Restore a key version scheduled for destruction \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:33.952601+00:00
+fetched_at: 2026-10-30T09:01:49.494313+00:00
 ---
 
 # Restore a key version scheduled for destruction  |  Cloud Key Management Service  |  Google Cloud Documentation

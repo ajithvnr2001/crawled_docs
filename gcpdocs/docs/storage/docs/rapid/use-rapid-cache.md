@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/rapid/use-rapid-cache/
 title: Create and manage caches with Rapid Cache \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:51:35.391326+00:00
+fetched_at: 2026-10-30T08:53:03.307513+00:00
 ---
 
 # Create and manage caches with Rapid Cache  |  Cloud Storage  |  Google Cloud Documentation
@@ -23,11 +23,11 @@ Send feedback
 
 **Important:** Anywhere Cache is now renamed Rapid Cache. When using Rapid Cache with certain tools, you might still see the name Anywhere Cache being referenced in the tool's interface or surface. 
 
-You can create and manage cache instances with [Rapid Cache](https://docs.cloud.google.com/storage/docs/rapid/rapid-cache) to reduce latency and optimize data access for objects stored in Cloud Storage. This caching solution helps improve the performance of your applications by accelerating data retrieval.
+Rapid Cache lets you create SSD-backed zonal cache instances that help reduce latency and accelerate data access for objects stored in Cloud Storage, which improves the performance of your applications.
 
-This page shows you how to create and manage cache instances with Rapid Cache. For information on how to use and manage long-running operations that get initiated from Rapid Cache [asynchronous cache operations](https://docs.cloud.google.com/storage/docs/rapid/rapid-cache#cache-operations), see [Use long-running operations](https://docs.cloud.google.com/storage/docs/using-long-running-operations).
+This document describes how to create and manage cache instances with Rapid Cache. Before you use Rapid Cache, review the [Limitations and restrictions](https://docs.cloud.google.com/storage/docs/rapid/rapid-cache#limitations-restrictions). For more information about Rapid Cache, see [Rapid Cache](https://docs.cloud.google.com/storage/docs/rapid/rapid-cache).
 
-Before using Rapid Cache, review the [Limitations and restrictions](https://docs.cloud.google.com/storage/docs/rapid/rapid-cache#limitations-restrictions).
+For information about managing the long-running operations that Rapid Cache [asynchronous cache operations](https://docs.cloud.google.com/storage/docs/rapid/rapid-cache#cache-operations) start, see [Use long-running operations](https://docs.cloud.google.com/storage/docs/using-long-running-operations).
 
 ## Before you begin
 
@@ -1235,6 +1235,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/healthcare-api/docs/samples/healthcare-dataset-set-iam-policy/
 title: Set IAM policy \u00a0|\u00a0 Cloud Healthcare API \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:30.779957+00:00
+fetched_at: 2026-10-30T08:39:39.109698+00:00
 ---
 
 # Set IAM policy  |  Cloud Healthcare API  |  Google Cloud Documentation
@@ -61,21 +61,21 @@ To authenticate to Cloud Healthcare API, set up Application Default Credentials.
     
     	policy, err := datasetsService.GetIamPolicy(name).Do()
     	if err != nil {
-    		return fmt.Errorf("GetIam&Policy: %w", err)
+    		return fmt.Errorf("GetIamPolicy: %w", err)
     	}
     
-    	policy.Bindings = append(policy.Bindings, healthcare.Binding{
-    		Members: []string&{"user:example@example.com"},
+    	policy.Bindings = append(policy.Bindings, &healthcare.Binding{
+    		Members: []string{"user:example@example.com"},
     		Role:    "roles/viewer",
     	})
     
-    	req := healthcare.SetIamPolicyRequest{
+    	req := &healthcare.SetIamPolicyRequest{
     		Policy: policy,
     	}
     
     	policy, err = datasetsService.SetIamPolicy(name, req).Do()
     	if err != nil {
-    		return fmt.Errorf(";SetIamPolicy: %w", err)
+    		return fmt.Errorf("SetIamPolicy: %w", err)
     	}
     
     	fmt.Fprintf(w, "IAM Policy etag: %v", policy.Etag)
@@ -144,9 +144,9 @@ To authenticate to Cloud Healthcare API, set up Application Default Credentials.
             GoogleCredentials.getApplicationDefault()
                 .createScoped(Collections.singleton(CloudHealthcareScopes.CLOUD_PLATFORM));
     
-        // Create a HttpRequestInitializer, which will provide a baseline configuration to all reque>sts.
+        // Create a HttpRequestInitializer, which will provide a baseline configuration to all requests.
         HttpRequestInitializer requestInitializer =
-            request - {
+            request -> {
               new HttpCredentialsAdapter(credential).initialize(request);
               request.setConnectTimeout(60000); // 1 minute connect timeout
               request.setReadTimeout(60000); // 1 minute read timeout
@@ -174,7 +174,7 @@ To authenticate to Cloud Healthcare API, set up Application Default Credentials.
       }),
     });
     
-    const setDatas>etIamPolicy = async () = {
+    const setDatasetIamPolicy = async () => {
       // TODO(developer): uncomment these lines before running the sample
       // const cloudRegion = 'us-central1';
       // const projectId = 'adjective-noun-123';

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/roles-overview/
 title: Roles overview \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:28:52.261468+00:00
+fetched_at: 2026-10-30T08:25:58.839193+00:00
 ---
 
 # Roles overview  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -100,15 +100,13 @@ Permissions usually, but not always, correspond 1:1 with REST methods. That is, 
 
 ## Basic roles
 
-**Preview — the Reader, Writer, and Admin basic roles**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 Basic roles are highly permissive roles that give broad access to Google Cloud resources.
 
-**Caution:** Basic roles include thousands of permissions across all Google Cloud services. In production environments, do not grant basic roles unless there is no alternative. Instead, grant the most limited [predefined roles](https://docs.cloud.google.com/iam/docs/roles-permissions) or [custom roles](https://docs.cloud.google.com/iam/docs/understanding-custom-roles) that meet your needs. 
-
 The basic roles in IAM are Admin (`roles/admin`), Writer (`roles/writer`), and Reader (`roles/reader`). IAM also has three legacy basic roles that existed prior to the introduction of IAM: Owner (`roles/owner`), Editor (`roles/editor`), and Viewer (`roles/viewer`). To learn more about these roles, see Legacy basic roles on this page.
+
+Basic roles include thousands of permissions across all Google Cloud services. In production environments, do not grant basic roles unless there is no alternative. Instead, grant the most limited [predefined roles](https://docs.cloud.google.com/iam/docs/roles-permissions) or [custom roles](https://docs.cloud.google.com/iam/docs/understanding-custom-roles) that meet your needs. 
+
+In staging or test environments, prefer the Admin, Writer, and Reader roles over the legacy basic roles. Although both sets of roles are actively maintained, the Admin, Writer, and Reader roles support additional features, such as the use of [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview).
 
 The following table summarizes the permissions that the Admin, Writer, and Reader give principals across all Google Cloud services:
 
@@ -133,6 +131,8 @@ For instructions, see [Granting, changing, and revoking access](https://docs.clo
 Legacy basic roles existed prior to the introduction of IAM. They were originally known as _primitive roles_. Unlike with other basic roles, you can't add [conditions](https://docs.cloud.google.com/iam/docs/conditions-overview) to role bindings for legacy basic roles.
 
 The legacy basic roles are Owner (`roles/owner`), Editor (`roles/editor`), and Viewer (`roles/viewer`).
+
+Legacy basic roles are still actively maintained and available for use. They're also used in certain automated workflows. For example, when a user creates a project, they're automatically granted the Owner role on that project. However, if you need to grant a basic role, we recommend granting the Admin, Writer, or Reader role instead of a legacy basic role. This is because the newer roles support additional features, such as the use of [IAM Conditions](https://docs.cloud.google.com/iam/docs/conditions-overview).
 
 When you grant a legacy basic role to a principal, the principal gets all of the permissions in the role. The principal also gets any permissions that services provide to principals with legacy basic roles—for example, permissions gained through [Cloud Storage convenience values](https://docs.cloud.google.com/storage/docs/access-control/iam#convenience-values) and [BigQuery special group membership](https://docs.cloud.google.com/bigquery/docs/access-control-basic-roles).
 
@@ -291,6 +291,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

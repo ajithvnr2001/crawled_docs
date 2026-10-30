@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/alerts-overview/
 title: Alerts overview \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:18:13.467562+00:00
+fetched_at: 2026-10-30T08:58:24.340856+00:00
 ---
 
 # Alerts overview  |  Looker  |  Google Cloud Documentation
@@ -33,7 +33,7 @@ Depending on the dashboard tile's visualization type and the kinds of fields tha
 
   * _Single value alerts_ (used only with single value visualizations) — Looker checks the data based on the value that is used in the visualization, which is the first row of the results table.
 
-**Note:** For [single value visualizations](https://docs.cloud.google.com/looker/docs/single-value-options), the notification will include the single value as text, rather than a PNG of the visualization.
+**Note:** For [KPI (Single Value) visualizations](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) and [single value (legacy) visualizations](https://docs.cloud.google.com/looker/docs/single-value-options), the notification will include the single value as text, rather than a PNG of the visualization.
   * _Time series alerts_ (used when there is a date or time dimension in the query results) — Looker checks all new rows that have not been seen before (based on the date or time dimension in the query).
 
   * _Categorical alerts_ (neither single value nor time series) — Looker checks all rows and pivot values unless a specific row or pivot value was selected when the alert was created.
@@ -82,6 +82,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

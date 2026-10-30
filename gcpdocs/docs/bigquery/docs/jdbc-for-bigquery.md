@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/jdbc-for-bigquery/
 title: Use the JDBC driver for BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:49.807505+00:00
+fetched_at: 2026-10-30T08:53:02.154060+00:00
 ---
 
 # Use the JDBC driver for BigQuery  |  Google Cloud Documentation
@@ -70,15 +70,16 @@ You can install and configure the JDBC driver for BigQuery by either directly do
 
 To configure the JDBC driver through direct download, do the following:
 
-  1. Download the [1.6.0 version of the driver](https://storage.googleapis.com/bq-driver-releases/jdbc/google-cloud-bigquery-jdbc-1.6.0-all.jar).
+  1. Download the [1.7.0 version of the driver](https://storage.googleapis.com/bq-driver-releases/jdbc/google-cloud-bigquery-jdbc-1.7.0-all.jar).
   2. Copy the downloaded file to the location specified by your software.
 
 
 
-For information on feature changes and workflow updates, see [the changelog](https://github.com/googleapis/google-cloud-java/blob/main/java-bigquery-jdbc/CHANGELOG.md).
+For information on feature changes and workflow updates, see [the release notes](https://github.com/googleapis/google-cloud-java/blob/main/java-bigquery-jdbc/RELEASE_NOTES.md) and [the changelog](https://github.com/googleapis/google-cloud-java/blob/main/java-bigquery-jdbc/CHANGELOG.md).
 
 ### Previous JDBC driver for BigQuery versions
 
+  * [1.6.0](https://storage.googleapis.com/bq-driver-releases/jdbc/google-cloud-bigquery-jdbc-1.6.0-all.jar)
   * [1.5.0](https://storage.googleapis.com/bq-driver-releases/jdbc/google-cloud-bigquery-jdbc-1.5.0-all.jar)
   * [1.4.0](https://storage.googleapis.com/bq-driver-releases/jdbc/google-cloud-bigquery-jdbc-1.4.0-all.jar)
   * [1.3.0](https://storage.googleapis.com/bq-driver-releases/jdbc/google-cloud-bigquery-jdbc-1.3.0-all.jar)
@@ -102,7 +103,7 @@ Add the following dependency to your `pom.xml` file:
     <dependency>
         <groupId>com.google.cloud</groupId>
         <artifactId>google-cloud-bigquery-jdbc</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
     </dependency>
 
 ### Maven using uber-JAR
@@ -113,7 +114,7 @@ Add the following dependency to your `pom.xml` file:
     <dependency>
         <groupId>com.google.cloud</groupId>
         <artifactId>google-cloud-bigquery-jdbc</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
         <classifier>all</classifier>
         <exclusions>
           <exclusion>
@@ -130,7 +131,7 @@ Add the following to your `build.gradle` file:
     
     dependencies {
     // ... other dependencies
-    implementation("com.google.cloud:google-cloud-bigquery-jdbc:1.6.0")
+    implementation("com.google.cloud:google-cloud-bigquery-jdbc:1.7.0")
     }
 
 ## Establish a connection
@@ -663,6 +664,7 @@ You can download the JDBC driver for BigQuery at no cost. However, when you use 
 ## What's next
 
   * For additional setup instructions, connection URL property reference manuals, code samples, and local build instructions, visit the open-source repository on GitHub: 
+    * [Release Notes (`RELEASE_NOTES.md`)](https://github.com/googleapis/google-cloud-java/blob/main/java-bigquery-jdbc/RELEASE_NOTES.md)
     * [User Guide (`docs/USER_GUIDE.md`)](https://github.com/googleapis/google-cloud-java/blob/main/java-bigquery-jdbc/docs/USER_GUIDE.md)
     * [Development Guide (`DEVELOPMENT.md`)](https://github.com/googleapis/google-cloud-java/blob/main/java-bigquery-jdbc/DEVELOPMENT.md)
     * [BigQuery Storage APIs Deep Dive (`docs/STORAGE_APIS.md`)](https://github.com/googleapis/google-cloud-java/blob/main/java-bigquery-jdbc/docs/STORAGE_APIS.md)
@@ -675,6 +677,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

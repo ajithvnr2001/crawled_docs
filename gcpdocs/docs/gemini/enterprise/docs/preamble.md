@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/preamble/
 title: About custom preambles \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:56.624819+00:00
+fetched_at: 2026-10-30T08:58:43.778348+00:00
 ---
 
 # About custom preambles  |  Gemini Enterprise  |  Google Cloud Documentation

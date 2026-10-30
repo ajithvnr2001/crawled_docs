@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/workday-audit/
 title: Collect Workday audit logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:07:18.049847+00:00
+fetched_at: 2026-10-30T08:52:55.535313+00:00
 ---
 
 # Collect Workday audit logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -309,12 +309,12 @@ Variable Name | Example Value
         key = f"{ts:%Y/%m/%d}/workday-audit-{uuid.uuid4()}.csv.gz"
     
         buf = io.BytesIO()
-        with gzip.GzipFile(fileobj=buf, mode='w') as gz:
+        with gzip.GzipFile([fileobj=buf, mod](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_file)e='w') as gz:
             gz.write(payload)
         buf.seek(0)
     
         blob = bucket.blob(key)
-        blob.[upload_from_file](https://docs.cloud.google.com/python/docs/reference/storage/latest/google.cloud.storage.blob.Blob.html#google_cloud_storage_blob_Blob_upload_from_file)(buf, content_type='application/gzip')
+        blob.upload_from_file(buf, content_type='application/gzip')
     
         print(f'Uploaded to gs://{bucket.name}/{key}')
     

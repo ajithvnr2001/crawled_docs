@@ -1,19 +1,13 @@
 ---
 url: https://docs.cloud.google.com/iam/docs/pam-request-temporary-elevated-access/
 title: Request temporary elevated access with Privileged Access Manager \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
-method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
-fetched_at: 2026-10-27T16:54:49.555474+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-30T08:32:26.701929+00:00
 ---
 
 # Request temporary elevated access with Privileged Access Manager  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/iam/docs/pam-request-temporary-elevated-access/
-
-  * On this page
-  * Request a grant
-  * Check your grant request status
-
-
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -23,17 +17,9 @@ fetched_at: 2026-10-27T16:54:49.555474+00:00
 
 
 
-Was this helpful?
-
 Send feedback 
 
-#  Request temporary elevated access with Privileged Access Manager Stay organized with collections  Save and categorize content based on your preferences.
-
-  * On this page
-  * Request a grant
-  * Check your grant request status
-  * 
-
+#  Request temporary elevated access with Privileged Access Manager Stay organized with collections  Save and categorize content based on your preferences. 
 
 To temporarily elevate your privileges, you can request a grant against an _entitlement_ in [Privileged Access Manager (PAM)](https://docs.cloud.google.com/iam/docs/pam-overview) for a fixed duration.
 
@@ -65,7 +51,7 @@ If a request isn't approved or denied by the deadline, its status changes to `Ex
 
 ## Request a grant
 
-ConsolegcloudREST More
+### Console
 
   1. Go to the **Privileged Access Manager** page.
 
@@ -99,6 +85,8 @@ Google identities associated with the entitlement, like approvers and requesters
 
 
 
+### gcloud
+
 You can request a grant by using one of the following options:
 
   * Request a grant against an entitlement
@@ -125,7 +113,7 @@ Before using any of the command data below, make the following replacements:
 
 Execute the following command: 
 
-Linux, macOS, or Cloud Shell
+#### Linux, macOS, or Cloud Shell
     
     
     gcloud alpha pam grants create \
@@ -137,7 +125,7 @@ Linux, macOS, or Cloud Shell
         [--additional-email-recipients=EMAIL_ADDRESS_1, EMAIL_ADDRESS_2] \
         --RESOURCE_TYPE=RESOURCE_ID
 
-Windows (PowerShell)
+#### Windows (PowerShell)
     
     
     gcloud alpha pam grants create `
@@ -149,7 +137,7 @@ Windows (PowerShell)
         [--additional-email-recipients=EMAIL_ADDRESS_1, EMAIL_ADDRESS_2] `
         --RESOURCE_TYPE=RESOURCE_ID
 
-Windows (cmd.exe)
+#### Windows (cmd.exe)
     
     
     gcloud alpha pam grants create ^
@@ -186,7 +174,7 @@ Before using any of the command data below, make the following replacements:
 
 Execute the following command: 
 
-Linux, macOS, or Cloud Shell
+#### Linux, macOS, or Cloud Shell
     
     
     gcloud alpha pam grants create \
@@ -199,7 +187,7 @@ Linux, macOS, or Cloud Shell
         --RESOURCE_TYPE=RESOURCE_ID \
         --requested-resources=REQUESTED_RESOURCE
 
-Windows (PowerShell)
+#### Windows (PowerShell)
     
     
     gcloud alpha pam grants create `
@@ -212,7 +200,7 @@ Windows (PowerShell)
         --RESOURCE_TYPE=RESOURCE_ID `
         --requested-resources=REQUESTED_RESOURCE
 
-Windows (cmd.exe)
+#### Windows (cmd.exe)
     
     
     gcloud alpha pam grants create ^
@@ -272,7 +260,7 @@ Save the following content in a file called `requested-scope.yaml `:
 
 Execute the following command: 
 
-Linux, macOS, or Cloud Shell
+#### Linux, macOS, or Cloud Shell
     
     
     gcloud alpha pam grants create \
@@ -285,7 +273,7 @@ Linux, macOS, or Cloud Shell
         --RESOURCE_TYPE=RESOURCE_ID \
         --requested-access-from-file=requested-scope.yaml
 
-Windows (PowerShell)
+#### Windows (PowerShell)
     
     
     gcloud alpha pam grants create `
@@ -298,7 +286,7 @@ Windows (PowerShell)
         --RESOURCE_TYPE=RESOURCE_ID `
         --requested-access-from-file=requested-scope.yaml
 
-Windows (cmd.exe)
+#### Windows (cmd.exe)
     
     
     gcloud alpha pam grants create ^
@@ -316,6 +304,8 @@ You should receive a response similar to the following:
     
     Created [GRANT_ID].
     
+
+### REST
 
   1. Search for entitlements you're eligible to request.   
 
@@ -335,7 +325,9 @@ HTTP method and URL:
 
 To send your request, expand one of these options:
 
-curl (Linux, macOS, or Cloud Shell) **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+#### curl (Linux, macOS, or Cloud Shell)
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
 
 Execute the following command: 
     
@@ -343,7 +335,9 @@ Execute the following command:
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
          "https://privilegedaccessmanager.googleapis.com/v1beta/SCOPE/locations/global/entitlements:search?callerAccessType=GRANT_REQUESTER&filter=FILTER&pageSize=PAGE_SIZE&pageToken=PAGE_TOKEN"
 
-PowerShell (Windows) **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+#### PowerShell (Windows)
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
 
 Execute the following command: 
     
@@ -355,7 +349,7 @@ Execute the following command:
         -Headers $headers `  
         -Uri "https://privilegedaccessmanager.googleapis.com/v1beta/SCOPE/locations/global/entitlements:search?callerAccessType=GRANT_REQUESTER&filter=FILTER&pageSize=PAGE_SIZE&pageToken=PAGE_TOKEN" | Select-Object -Expand Content
 
-APIs Explorer (browser)
+#### APIs Explorer (browser)
 
 Open the [method reference page](https://docs.cloud.google.com/iam/docs/reference/pam/rest/v1/folders.locations.entitlements/search). The APIs Explorer panel opens on the right side of the page. You can interact with this tool to send requests. Complete any required fields and click **Execute**. 
 
@@ -436,7 +430,9 @@ Request JSON body:
 
 To send your request, expand one of these options:
 
-curl (Linux, macOS, or Cloud Shell) **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+#### curl (Linux, macOS, or Cloud Shell)
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
 
 Save the request body in a file named `request.json`, and execute the following command: 
     
@@ -446,7 +442,9 @@ Save the request body in a file named `request.json`, and execute the following 
          -d @request.json \  
          "https://privilegedaccessmanager.googleapis.com/v1beta/SCOPE/locations/global/entitlements/ENTITLEMENT_ID/grants?requestId=REQUEST_ID"
 
-PowerShell (Windows) **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+#### PowerShell (Windows)
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
 
 Save the request body in a file named `request.json`, and execute the following command: 
     
@@ -460,7 +458,7 @@ Save the request body in a file named `request.json`, and execute the following 
         -InFile request.json `  
         -Uri "https://privilegedaccessmanager.googleapis.com/v1beta/SCOPE/locations/global/entitlements/ENTITLEMENT_ID/grants?requestId=REQUEST_ID" | Select-Object -Expand Content
 
-APIs Explorer (browser)
+#### APIs Explorer (browser)
 
 Copy the request body and open the [method reference page](https://docs.cloud.google.com/iam/docs/reference/pam/rest/v1/projects.locations.entitlements.grants/create). The APIs Explorer panel opens on the right side of the page. You can interact with this tool to send requests. Paste the request body in this tool, complete any other required fields, and click **Execute**. 
 
@@ -530,7 +528,7 @@ You should receive a JSON response similar to the following:
 
 ## Check your grant request status
 
-ConsolegcloudREST More
+### Console
 
   1. Go to the **Privileged Access Manager** page.
 
@@ -556,9 +554,10 @@ Revoking | The grant is in the process of being revoked.
 Scheduled for `DATE` | The grant is scheduled and activates at the chosen activation time, provided all approvals (if needed) are received by then.  
 Withdrawing | The grant is in the process of being withdrawn.  
 Withdrawn | The grant is withdrawn, and the principal no longer has access to the resources permitted by the roles.  
-  
 
 
+
+### gcloud
 
 The `[gcloud alpha pam grants search](https://docs.cloud.google.com/sdk/gcloud/reference/pam/grants/search)` command used with the `had-created` caller relationship searches for grants you have created. To check their status, look for the `state` field in the response. 
 
@@ -572,7 +571,7 @@ Before using any of the command data below, make the following replacements:
 
 Execute the following command: 
 
-Linux, macOS, or Cloud Shell
+#### Linux, macOS, or Cloud Shell
     
     
     gcloud alpha pam grants search \
@@ -581,7 +580,7 @@ Linux, macOS, or Cloud Shell
         --location=global \
         --RESOURCE_TYPE=RESOURCE_ID
 
-Windows (PowerShell)
+#### Windows (PowerShell)
     
     
     gcloud alpha pam grants search `
@@ -590,7 +589,7 @@ Windows (PowerShell)
         --location=global `
         --RESOURCE_TYPE=RESOURCE_ID
 
-Windows (cmd.exe)
+#### Windows (cmd.exe)
     
     
     gcloud alpha pam grants search ^
@@ -660,6 +659,8 @@ SCHEDULED | The grant is scheduled and activates at the chosen activation time, 
 WITHDRAWING | The grant is in the process of being withdrawn.  
 WITHDRAWN | The grant is withdrawn, and the principal no longer has access to the resources permitted by the roles.  
   
+### REST
+
 The Privileged Access Manager API's `[searchGrants](https://docs.cloud.google.com/iam/docs/reference/pam/rest/v1/projects.locations.entitlements.grants/search)` method used with the `HAD_CREATED` caller relationship searches for grants you have created. To check their status, look for the `state` field in the response. 
 
 Before using any of the request data, make the following replacements: 
@@ -679,7 +680,9 @@ HTTP method and URL:
 
 To send your request, expand one of these options:
 
-curl (Linux, macOS, or Cloud Shell) **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+#### curl (Linux, macOS, or Cloud Shell)
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) , or by using [Cloud Shell](https://docs.cloud.google.com/shell/docs), which automatically logs you into the `gcloud` CLI . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
 
 Execute the following command: 
     
@@ -688,7 +691,9 @@ Execute the following command:
          -H "Authorization: Bearer $(gcloud auth print-access-token)" \  
          "https://privilegedaccessmanager.googleapis.com/v1beta/SCOPE/locations/global/entitlements/ENTITLEMENT_ID/grants:search?callerRelationship=HAD_CREATED&filter=FILTER&pageSize=PAGE_SIZE&pageToken=PAGE_TOKEN"
 
-PowerShell (Windows) **Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
+#### PowerShell (Windows)
+
+**Note:** The following command assumes that you have logged in to the `gcloud` CLI with your user account by running [`gcloud init`](https://docs.cloud.google.com/sdk/gcloud/reference/init) or [`gcloud auth login`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/login) . You can check the currently active account by running [`gcloud auth list`](https://docs.cloud.google.com/sdk/gcloud/reference/auth/list). 
 
 Execute the following command: 
     
@@ -701,7 +706,7 @@ Execute the following command:
         -Headers $headers `  
         -Uri "https://privilegedaccessmanager.googleapis.com/v1beta/SCOPE/locations/global/entitlements/ENTITLEMENT_ID/grants:search?callerRelationship=HAD_CREATED&filter=FILTER&pageSize=PAGE_SIZE&pageToken=PAGE_TOKEN" | Select-Object -Expand Content
 
-APIs Explorer (browser)
+#### APIs Explorer (browser)
 
 Open the [method reference page](https://docs.cloud.google.com/iam/docs/reference/pam/rest/v1/projects.locations.entitlements.grants/search). The APIs Explorer panel opens on the right side of the page. You can interact with this tool to send requests. Complete any required fields and click **Execute**. 
 
@@ -788,12 +793,10 @@ SCHEDULED | The grant is scheduled and activates at the chosen activation time, 
 WITHDRAWING | The grant is in the process of being withdrawn.  
 WITHDRAWN | The grant is withdrawn, and the principal no longer has access to the resources permitted by the roles.  
   
-Was this helpful?
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

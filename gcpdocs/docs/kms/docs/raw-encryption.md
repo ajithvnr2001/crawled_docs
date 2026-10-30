@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/raw-encryption/
 title: Raw symmetric encryption \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:41.920762+00:00
+fetched_at: 2026-10-30T09:01:44.210105+00:00
 ---
 
 # Raw symmetric encryption  |  Cloud Key Management Service  |  Google Cloud Documentation

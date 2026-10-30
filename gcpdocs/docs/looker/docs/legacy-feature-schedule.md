@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/legacy-feature-schedule/
 title: Admin settings - Legacy features \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:45:47.309777+00:00
+fetched_at: 2026-10-30T08:58:26.347493+00:00
 ---
 
 # Admin settings - Legacy features  |  Looker  |  Google Cloud Documentation
@@ -81,6 +81,9 @@ When this legacy expererience is enabled (which is the default), embedded Explor
 **Use Legacy Single Value Visualization**  
 **Description** | **Introduced** | **Disabled** | **Disallowed** | **Removed** | **Status** | **Resources**  
 When this legacy feature is enabled, the legacy Single Value visualization is rendered instead of the new KPI visualization.This legacy feature is available for Looker (original) and Looker (Google Cloud core) instances. | 26.20 | 27.2 | 27.6 | 27.6 | **Active** |   
+**Use Legacy Single Value Visualization**  
+**Description** | **Introduced** | **Disabled** | **Disallowed** | **Removed** | **Status** | **Resources**  
+When this legacy feature is enabled, the [legacy single value visualization](https://docs.cloud.google.com/looker/docs/single-value-options) chart option is available instead of the new [KPI visualization](https://docs.cloud.google.com/looker/docs/kpi-single-value-options). This legacy feature is enabled by default if the the KPI (Single Value) chart preview feature was not enabled for your Looker instance. | 26.20 | 27.2 | 27.6 | 27.6 | **Active** | [Single value visualization (legacy)](https://docs.cloud.google.com/looker/docs/single-value-options)  
   
 ### Previously removed legacy features
 
@@ -155,6 +158,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/faq/
 title: Knowledge Catalog FAQ \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:51.298663+00:00
+fetched_at: 2026-10-30T08:45:05.544842+00:00
 ---
 
 # Knowledge Catalog FAQ  |  Google Cloud Documentation
@@ -102,19 +102,19 @@ To avoid incurring charges, verify your ongoing scans and stop triggering new sc
 
 ### How can I find out how much I am going to be charged for data insights?
 
-Google Cloud provides metering for data tokens. This metering lets administrators and agent owners monitor their token consumption. This metering capability is available before active billing starts in October 2026.
+Google Cloud provides metering for data tokens. This metering lets administrators and agent owners monitor their token consumption. To track token consumption for data insights scan jobs and build custom dashboards in Cloud Monitoring, see [Monitor data insights token usage](https://docs.cloud.google.com/knowledge-catalog/docs/monitor-insights-token-usage).
 
 ## Billing and cost monitoring
 
 Explore frequently asked questions about monitoring and attributing compute costs in Knowledge Catalog.
 
-### How do I monitor and attribute Knowledge Catalog DCU costs for Data Quality, Data Profiling, and Data Lineage?
+### How do I monitor and attribute Knowledge Catalog DCU costs for data quality, data profiling, and data lineage?
 
-Knowledge Catalog DataScan compute (Auto Data Quality and Data Profiling) and Data Lineage Data Compute Units (DCUs) run on serverless compute in Google-managed infrastructure and don't publish time-series metrics under `dataplex.googleapis.com/*` to Cloud Monitoring.
+Knowledge Catalog DataScan compute (auto data quality and data profiling) and data lineage Data Compute Units (DCUs) run on serverless compute in Google-managed infrastructure and don't publish time-series metrics under `dataplex.googleapis.com/*` to Cloud Monitoring.
 
 To monitor, alert on, and attribute Knowledge Catalog DCU costs across projects and scans, export your Cloud Billing data to BigQuery and query system labels attached to Knowledge Catalog billing records:
 
-  * For Data Quality and Data Profiling scans, use the `goog-dataplex-datascan-*` labels (such as `goog-dataplex-datascan-id`, `goog-dataplex-datascan-data-source-project`, and `goog-dataplex-datascan-data-source-bigquery-table`).
+  * For data quality and data profiling scans, use the `goog-dataplex-datascan-*` labels (such as `goog-dataplex-datascan-id`, `goog-dataplex-datascan-data-source-project`, and `goog-dataplex-datascan-data-source-bigquery-table`).
   * For Data Lineage processing, use the `goog-dataplex-workload-type` label with value `LINEAGE`.
 
 
@@ -125,6 +125,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

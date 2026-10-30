@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks-sources/
 title: Add and manage data sources in a notebook (API) \u00a0|\u00a0 Gemini Notebook Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:58:28.213062+00:00
+fetched_at: 2026-10-30T08:40:03.743822+00:00
 ---
 
 # Add and manage data sources in a notebook (API)  |  Gemini Notebook Enterprise  |  Google Cloud Documentation
@@ -43,6 +43,21 @@ If you plan to add Google Docs or Google Slides as your data source, you must au
     
     gcloud auth login --enable-gdrive-access
     
+
+## Use the US multi-regional endpoint
+
+If your Gemini Notebook Enterprise subscription is in the US multi-region, you can send the requests on this page to the US multi-regional endpoint, `discoveryengine.us.rep.googleapis.com`. A multi-regional endpoint processes your requests and terminates TLS within the multi-region, so your request data stays in the US while it's in transit. Using this endpoint doesn't change where your notebooks are stored. For more information, see [Regional and multi-regional API endpoints overview](https://docs.cloud.google.com/docs/security/compliance/about-regional-endpoints) in the Google Cloud security guide.
+
+To use the US multi-regional endpoint, make the following changes to each request URL on this page:
+
+  1. Replace the `ENDPOINT_LOCATION-discoveryengine.googleapis.com` host with `discoveryengine.us.rep.googleapis.com`.
+
+  2. Set `LOCATION` to `us`.
+
+
+
+
+The rest of each request stays the same. To learn how you choose your subscription's multi-region, see [Get a subscription](https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/set-up-licensing#get-subscription). For the list of regional and multi-regional service endpoints, see [Regional and multi-regional service endpoints](https://docs.cloud.google.com/vpc/docs/regional-service-endpoints) in the Virtual Private Cloud guide.
 
 ## Add data sources in a batch
 
@@ -341,6 +356,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

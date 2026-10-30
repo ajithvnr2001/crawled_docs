@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/faq/
 title: Frequently Asked Questions \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:34.760714+00:00
+fetched_at: 2026-10-30T08:40:22.090698+00:00
 ---
 
 # Frequently Asked Questions  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -116,7 +116,7 @@ To use a key on more than 250 domains, see [Create keys for websites](https://do
 
 ### I use a third-party plug-in implementation that does not formally support reCAPTCHA's cloud API, but only the legacy reCAPTCHA API `siteverify`. Can I still use reCAPTCHA?
 
-Yes, the legacy secret key is available in the Google Cloud console. To learn about how to find the legacy secret key, see [Find a legacy reCAPTCHA secret key](https://docs.cloud.google.com/recaptcha/docs/create-key#find-key).
+Yes. You can check your key version (`v2` or `v3`) and retrieve both your site key (**Key ID**) and legacy secret key in the Google Cloud console. For instructions on configuring third-party plugins and CMS platforms such as WordPress or Shopify, see [Reconcile Admin Console and Google Cloud console terminology](https://docs.cloud.google.com/recaptcha/docs/reconcile-legacy-terminology).
 
 ### How can I avoid stepping into Fraud Defense code when debugging my site?
 
@@ -250,6 +250,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

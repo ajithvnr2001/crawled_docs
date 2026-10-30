@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/reference/mcp/tools_list/list_indexes/
 title: MCP Tools Reference: vectorsearch.googleapis.com \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:23:21.578800+00:00
+fetched_at: 2026-10-30T08:58:41.397465+00:00
 ---
 
 # MCP Tools Reference: vectorsearch.googleapis.com  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -48,7 +48,7 @@ Curl Request
   
 ## Input Schema
 
-Message for requesting list of Indexes
+Request for `list_indexes`.
 
 ### ListIndexesRequest
 
@@ -57,7 +57,9 @@ JSON representation
       
     
     {
-      "parent": string,
+      "projectId": string,
+      "location": string,
+      "collectionId": string,
       "pageSize": integer,
       "pageToken": string,
       "filter": string,
@@ -66,11 +68,13 @@ JSON representation
   
 Fields  
 ---  
-`parent` |  `string` Required. Parent value for ListIndexesRequest  
+`projectId` |  `string` Required. The project ID or number.  
+`location` |  `string` Required. The region of the Collection, e.g. `us-central1`.  
+`collectionId` |  `string` Required. The ID of the Collection to list Indexes from.  
 `pageSize` |  `integer` Optional. Requested page size. Server may return fewer items than requested. If unspecified, server will pick an appropriate default.  
 `pageToken` |  `string` Optional. A token identifying a page of results the server should return.  
-`filter` |  `string` Optional. Filtering results  
-`orderBy` |  `string` Optional. Hint for how to order the results  
+`filter` |  `string` Optional. Filtering results.  
+`orderBy` |  `string` Optional. Hint for how to order the results.  
   
 ## Output Schema
 
@@ -284,6 +288,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-16 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-16 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

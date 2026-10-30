@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards/
 title: Editing user-defined dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:34:37.617071+00:00
+fetched_at: 2026-10-30T08:58:28.387459+00:00
 ---
 
 # Editing user-defined dashboards  |  Looker  |  Google Cloud Documentation
@@ -158,7 +158,7 @@ In edit mode, you can hide or show the title of a tile. By default, tile titles 
 
 If the title is hidden, Looker instead displays the option **Show title** in the tile's three-dot **Tile actions** menu.
 
-The hide or show option does not appear in the three-dot **Tile actions** menu of [text tiles](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#text_tiles) or tiles that use [single value visualizations](https://docs.cloud.google.com/looker/docs/single-value-options). To hide or show the title of a single value visualization, [click **Edit**](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#editing_a_tiles_query_or_look) in the tile's three-dot **Tile actions** menu, toggle the [**Show Title**](https://docs.cloud.google.com/looker/docs/single-value-options#show_title) switch in the style menu, and save. To hide or show a title of a text tile, [click **Edit**](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#editing_a_tiles_query_or_look) in the tile's three-dot **Tile actions** menu, remove or reinstate the tile title, and save.
+The hide or show option doesn't appear in the three-dot **Tile actions** menu of [text tiles](https://docs.cloud.google.com/looker/docs/creating-user-defined-dashboards#text_tiles) or tiles that use [KPI (Single Value) visualizations](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) or [single value (legacy) visualizations](https://docs.cloud.google.com/looker/docs/single-value-options). To hide or show the title of a single value visualization, [click **Edit**](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#editing_a_tiles_query_or_look) in the tile's three-dot **Tile actions** menu, toggle the [**Show Title**](https://docs.cloud.google.com/looker/docs/kpi-single-value-options#show_title) switch in the style menu, and save. To hide or show a title of a text tile, [click **Edit**](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#editing_a_tiles_query_or_look) in the tile's three-dot **Tile actions** menu, remove or reinstate the tile title, and save.
 
 ### Adding a tile note
 
@@ -167,7 +167,7 @@ In edit mode, click the **Add note** button in the tile's three-dot **Tile actio
 Enter the note text and configure the following display options:
 
   1. In the **Note Text** field, enter the note text to show on the tile. You can use plain text or [HTML](https://docs.cloud.google.com/looker/docs/html-sanitization).
-  2. In the **Display Location** field, select the location of the note. The options are above the visualization, below the visualization, or as text that appears when users hold their pointers over a circled _i_ icon to the right of the tile title. For tiles containing [single value visualizations](https://docs.cloud.google.com/looker/docs/single-value-options) that are sized to be 150 pixels tall or shorter, title notes render as text when you hold the pointer over the **Display Location** field.
+  2. In the **Display Location** field, select the location of the note. The options are above the visualization, below the visualization, or as text that appears when users hold their pointers over a circled _i_ icon to the right of the tile title. For tiles that contain [KPI (Single Value) visualizations](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) that are sized to be 150 pixels tall or shorter, title notes render as text when you hold the pointer over the **Display Location** field.
   3. Check the **Collapse note** box to collapse the note by default. A collapsed note shows only the first line, with an ellipsis at the end of the line. Unchecking this box displays the note's full text by default. If you select **On icon hover** under **Display Location** , you won't see this option.
   4. Click **Add** or **Cancel** to add the note to the tile, or cancel it.
 
@@ -239,7 +239,7 @@ The tile will remain in the column or row it's located in. If the tile is alread
 
 In edit mode, you can delete a tile from a dashboard. Select **Delete** (for a query tile) or **Remove Look** (for a Look-linked tile) from the tile's three-dot **Tile actions** menu. This deletion cannot be undone.
 
-Deleting a Look-linked tile from a dashboard does not affect the underlying Look.
+Deleting a Look-linked tile from a dashboard doesn't affect the underlying Look.
 
 ## Editing dashboard settings
 
@@ -285,7 +285,7 @@ You can choose one of the following options:
 
 If **Run on load** is enabled, dashboard data automatically loads when the dashboard is first loaded.
 
-If **Run on load** is disabled, the dashboard does not display any data until the [reload data](https://docs.cloud.google.com/looker/docs/viewing-dashboards#reload_data) icon is clicked.
+If **Run on load** is disabled, the dashboard doesn't display any data until the [reload data](https://docs.cloud.google.com/looker/docs/viewing-dashboards#reload_data) icon is clicked.
 
 **Important:** For [dashboards with tabs](https://docs.cloud.google.com/looker/docs/tabbed-dashboards), tiles on a tab will only start loading if a user clicks on the tab. For example, if a dashboard has three tabs and a user clicks the first and second tab, the tiles on those tabs will start loading. No tiles on the third tab will load. Queries execute and queue in the order of the interaction. The [per-user query limit](https://docs.cloud.google.com/looker/docs/admin-panel-database-queries#query_timeouts_and_queueing) still applies.
 
@@ -333,7 +333,7 @@ The autorefresh intervals begin at the time of day that you turn on this feature
 
 For example, if it's 8:33 AM when you set a daily refresh, the dashboard will refresh the next day at 8:33 AM and then refresh again every subsequent day at 8:33 AM. If, however, one day you enter edit mode at 9:02 AM and exit edit mode at 9:45 AM, from then on the daily refresh will occur at 9:45 AM, beginning the following day.
 
-The [**Clear cache and refresh**](https://docs.cloud.google.com/looker/docs/viewing-dashboards#updating_data_on_dashboards_\(beta\)) and [**reload data**](https://docs.cloud.google.com/looker/docs/viewing-dashboards#reload_data) options are independent of the autorefresh interval, meaning that manually refreshing the dashboard does not restart the autorefresh interval. For example, if a dashboard's autorefresh interval is 1 hour, you can use the **Clear cache and refresh** option 40 minutes after an autorefresh and the dashboard will still autorefresh 20 minutes later (1 hour after it was last autorefreshed).
+The [**Clear cache and refresh**](https://docs.cloud.google.com/looker/docs/viewing-dashboards#updating_data_on_dashboards_\(beta\)) and [**reload data**](https://docs.cloud.google.com/looker/docs/viewing-dashboards#reload_data) options are independent of the autorefresh interval, meaning that manually refreshing the dashboard doesn't restart the autorefresh interval. For example, if a dashboard's autorefresh interval is 1 hour, you can use the **Clear cache and refresh** option 40 minutes after an autorefresh and the dashboard will still autorefresh 20 minutes later (1 hour after it was last autorefreshed).
 
 Similarly, autorefresh works regardless of whether **Run on load** is enabled or disabled. If **Run on load** is disabled and you open a dashboard with autorefresh settings, the refresh interval begins upon opening regardless of whether you click the [reload data](https://docs.cloud.google.com/looker/docs/viewing-dashboards#reload_data) icon to load the data initially.
 
@@ -362,7 +362,7 @@ On the **Filters** tab, you can update the following dashboard settings:
 On the **Filters** tab of the **Settings** window, you can set the **Default filters view** option to one of the following:
 
   * **Expanded** — The filter bar shows on page load and filters are shown by default.
-  * **Collapsed** — The filter bar does not show on page load and filters are hidden by default.
+  * **Collapsed** — The filter bar doesn't show on page load and filters are hidden by default.
 
 
 
@@ -507,6 +507,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

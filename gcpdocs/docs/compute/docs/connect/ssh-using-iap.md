@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/connect/ssh-using-iap/
 title: Connect to Linux VMs using Identity-Aware Proxy \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:46.397016+00:00
+fetched_at: 2026-10-30T08:53:08.408949+00:00
 ---
 
 # Connect to Linux VMs using Identity-Aware Proxy  |  Compute Engine  |  Google Cloud Documentation
@@ -86,7 +86,7 @@ Tunnel SSH connections through a VM's internal IP address using SSH-in-Browser b
 
 ###  gcloud 
 
-Tunnel SSH connections through a VM's internal IP address using the [`gcloud compute ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh) with the [`--tunnel-through-iap` flag](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh#--tunnel-through-iap):
+Tunnel SSH connections through a VM's internal IP address by using the [`gcloud compute ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh) with the [ `--tunnel-through-iap` flag](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh#--tunnel-through-iap):
 
 In the Google Cloud console, activate Cloud Shell.
 
@@ -96,13 +96,18 @@ At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.go
 
   1. Connect to the VM by running the following command:
          
-         gcloud compute ssh VM-NAME \
+         gcloud compute ssh INSTANCE_NAME \
+             --project=PROJECT_ID \
+             --zone=ZONE \
              --tunnel-through-iap
 
-Replace `VM_NAME` with the name of the VM that you want to connect to.
+Replace the following:
 
+     * `INSTANCE_NAME`: the name of the VM that you want to connect to.
+     * `PROJECT_ID`: the ID of the project that contains the VM.
+     * `ZONE`: the name of the zone that the VM is located in.
 
-**Note:** When you connect to VMs using the gcloud CLI, Compute Engine creates a persistent SSH key for you. For more information about SSH keys, see [SSH connections to Linux VMs](https://docs.cloud.google.com/compute/docs/instances/ssh).
+**Note:** When you connect to VMs by using the gcloud CLI, Compute Engine creates a persistent SSH key for you. For more information about SSH keys, see [SSH connections to Linux VMs](https://docs.cloud.google.com/compute/docs/instances/ssh).
 
 ###  IAP Desktop 
 
@@ -123,69 +128,78 @@ To connect to a VM using IAP Desktop, do the following:
 
 ###  OpenSSH clients 
 
-Connect to a VM that doesn't have an external IP address by using SSH through an IAP tunnel. You can write your own SSH configuration file (`~/.ssh/config`) so that tools like VS Code or OpenSSH client can connect seamlessly.
+Connect to a VM that doesn't have an external IP address by using SSH through an IAP tunnel. You can write your own SSH configuration file (`~/.ssh/config`) so that tools such as VS Code or an OpenSSH client can connect directly.
 
-  1. Generate and propagate your SSH keys by connecting to your VM at least once by running the [`gcloud compute ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh):
+  1. Generate and propagate your SSH keys by connecting to your VM at least once by running the [ `gcloud compute ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh):
          
-         gcloud compute ssh --project=PROJECT_ID --zone=ZONE VM_NAME --tunnel-through-iap
+         gcloud compute ssh INSTANCE_NAME \
+             --project=PROJECT_ID \
+             --zone=ZONE \
+             --tunnel-through-iap
 
-Verify the connection is successful and then exit.
+Replace the following:
+
+     * `INSTANCE_NAME`: the name of the VM that you want to connect to.
+     * `PROJECT_ID`: the ID of the project that contains the VM.
+     * `ZONE`: the zone where your VM is located.
+
+After the connection succeeds, exit the SSH session.
 
   2. Open or create the SSH configuration file on your local workstation. This file is typically located at `~/.ssh/config` on Linux and macOS, or `%USERPROFILE%\.ssh\config` on Windows.
 
   3. Append a configuration entry for your VM by adding the following block to your SSH configuration file:
          
-         Host VM_NAME
-             HostName VM_NAME
+         Host INSTANCE_NAME
+             HostName INSTANCE_NAME
              IdentityFile PATH_TO_PRIVATE_KEY
              ProxyCommand gcloud compute start-iap-tunnel %h %p --listen-on-stdin --project=PROJECT_ID --zone=ZONE --verbosity=warning
              User USERNAME
 
 Replace the following:
 
-     * `VM_NAME`: the name of the VM you want to connect to.
+     * `INSTANCE_NAME`: the name of the VM that you want to connect to.
      * `PATH_TO_PRIVATE_KEY`: the path to your private key file, typically `~/.ssh/google_compute_engine`.
      * `PROJECT_ID`: the ID of the project that contains the VM.
      * `ZONE`: the zone where your VM is located.
-     * `USERNAME`: the username on the VM (for example, your Google Cloud OS Login username or the metadata username).
+     * `USERNAME`: the username on the VM, such as your Google Cloud OS Login username or the metadata username.
   4. Connect to the VM from your local terminal or SSH client by running the following command:
          
-         ssh VM_NAME
+         ssh INSTANCE_NAME
 
 
 
 
 ###  PuTTY app 
 
-Tunnel SSH connections through a VM's internal IP address using PuTTY, by doing the following:
+To tunnel SSH connections through a VM's internal IP address by using PuTTY, do the following:
 
-  1. [Add an SSH key](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys) to the VM if you haven't already.
-  2. If your workstation doesn't already have the PuTTY app installed, [download the PuTTY package files](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-  3. In the Google Cloud console, go to the **VM Instances** page and find the name of the VM that you want to connect to.
+  1. If you haven't already added an SSH key, [add an SSH key](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys) to the VM. 
+  2. If your workstation doesn't already have the PuTTY app installed, [ download the PuTTY package files](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+  3. In the Google Cloud console, go to the **VM instances** page and find the name of the VM that you want to connect to.
 
-[Go to VM Instances](https://console.cloud.google.com/compute/instances)
+[Go to VM instances](https://console.cloud.google.com/compute/instances)
 
   4. Open the PuTTY app. A connection configuration window opens.
-  5. In the `Host Name` field, enter the username associated with the SSH key, and the name of the VM that you want to connect to. Use the following format:
+  5. In the **Host Name (or IP address)** field, enter the username associated with the SSH key and the name of the VM that you want to connect to. Use the following format:
          
-         USERNAME@VM_NAME
+         USERNAME@INSTANCE_NAME
 
 Replace the following:
 
-     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login). For example, `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
-     * `NAME`: the name of the VM. 
-  6. In the **Category** menu, navigate to **Connection > SSH > Auth**.
-  7. In the **Private key file for authentication** field, select the private SSH key file that corresponds to the public key you added to the VM.
-  8. In the **Category** menu, navigate to **Connection > Proxy**.
+     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login), such as `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
+     * `INSTANCE_NAME`: the name of the VM. 
+  6. In the **Category** menu, go to **Connection > SSH > Auth > Credentials** (or **Connection > SSH > Auth** in PuTTY versions earlier than 0.78).
+  7. In the **Private key file for authentication** field, click **Browse** and select the private SSH key file (`.ppk`) that corresponds to the public key that you added to the VM.
+  8. In the **Category** menu, go to **Connection > Proxy**.
   9. In the **Proxy type** section, select **Local**.
   10. In the **Telnet command, or local proxy command** field, enter the following command:
          
-         gcloud.cmd compute start-iap-tunnel VM_NAME PORT_NUMBER --listen-on-stdin --project=PROJECT_ID --zone=ZONE
+         gcloud.cmd compute start-iap-tunnel INSTANCE_NAME PORT_NUMBER --listen-on-stdin --project=PROJECT_ID --zone=ZONE
 
 Replace the following:
 
-     * `VM_NAME`: the name of the VM that you want to connect to.
-     * `PORT_NUMBER`: the port that the sshd daemon runs on. The default `PORT_NUMBER` is `22`.
+     * `INSTANCE_NAME`: the name of the VM that you want to connect to.
+     * `PORT_NUMBER`: the port that the `sshd` daemon runs on. The default `PORT_NUMBER` is `22`.
      * `PROJECT_ID`: the project that hosts the VM that you want to connect to.
      * `ZONE`: the zone where the VM is located.
   11. Click **Open** to connect to the VM.
@@ -208,6 +222,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

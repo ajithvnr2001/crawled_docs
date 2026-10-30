@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/best-practices/cookbook-visualizations-single-value-vis/
 title: Getting the most out of Looker visualizations cookbook: Presenting a lot of information with a single value visualization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:35:02.865751+00:00
+fetched_at: 2026-10-30T08:58:24.817812+00:00
 ---
 
 # Getting the most out of Looker visualizations cookbook: Presenting a lot of information with a single value visualization  |  Google Cloud Documentation
@@ -21,21 +21,15 @@ Send feedback
 
 #  Getting the most out of Looker visualizations cookbook: Presenting a lot of information with a single value visualization Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** This page is part of the [Looker cookbook: Getting the most out of Looker visualizations](https://docs.cloud.google.com/looker/docs/best-practices/cookbook-visualizations-in-looker).**Note:** Ask your admin to enable the new [**KPI Visualization** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#kpi-visualization), which lets you do the following: 
-
-  * Add secondary visualizations: Users can add a sparkline or bar chart within a visualization to show trends or distributions that are related to the primary KPI. 
-  * Show enhanced comparisons: Users can specify and compare a primary value against any other measure in an Explore query, using data from the first row, second row, last row, or totals row. 
-  * Access improved styling options: Users have more control over the appearance of the visualization, including background color of the tile, and the alignment of the values. 
-
-
-
-Learn more about the new [KPI (Single Value) Visualization](https://docs.cloud.google.com/looker/docs/kpi-single-value-options). 
+**Note:** This page is part of the [Looker cookbook: Getting the most out of Looker visualizations](https://docs.cloud.google.com/looker/docs/best-practices/cookbook-visualizations-in-looker).
 
 Presenting information clearly and concisely lets users quickly understand how a single data point relates to larger trends — or how it compares to other values — without needing to spend additional time searching for context. For example, the following visualization from the Showing a single value compared to other values section on this page helps users understand how a value compares to other values:
 
 ![Single value of $41,394.51 with the subtitle 'Last complete month total profit' and subtext showing a down arrow next to 40% from previous month.](https://docs.cloud.google.com/static/looker/docs/images/single-value-change-closeup-232.png)
 
 This cookbook will help you understand how to create a visualization that presents a single data point with as much context as possible.
+
+**Tip:** The KPI (Single Value) chart type replaces the Single Value chart type, unless your admin has enabled the **Use Legacy Single Value Visualization** setting in the [**Legacy features** page of the **Admin** panel](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use-single-value-visualization). You can use built-in KPI (Single Value) chart options to configure a primary metric and secondary visualizations, such as sparklines or progress bars. The KPI (Single Value) chart helps you display trends over time and configure comparisons against other values in your query to evaluate performance. [Learn more about KPI (Single Value) charts](https://docs.cloud.google.com/looker/docs/kpi-single-value-options).
 
 The following examples are included on this page:
 
@@ -98,7 +92,7 @@ To display a comparison of the current value against the value of the previous r
 
 Prepare your Explore:
 
-  1. Organize your Explore query so that the visualization [displays the desired value](https://docs.cloud.google.com/looker/docs/single-value-options).
+  1. Organize your Explore query so that the visualization [displays the desired value](https://docs.cloud.google.com/looker/docs/kpi-single-value-options).
   2. Add a field that compares the values of the current and previous row to the Explore query.
 
 If there is no existing comparison field available in the field picker, and you have the necessary permissions, you can use a [table calculation shortcut](https://docs.cloud.google.com/looker/docs/table-calculations#types_of_common_calculation_shortcuts). This example uses the **% change from previous row** calculation.
@@ -248,6 +242,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/samples/kms-create-key-rotation-schedule/
 title: Configure automatic key rotation \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:37.441758+00:00
+fetched_at: 2026-10-30T09:01:27.362537+00:00
 ---
 
 # Configure automatic key rotation  |  Cloud Key Management Service  |  Google Cloud Documentation

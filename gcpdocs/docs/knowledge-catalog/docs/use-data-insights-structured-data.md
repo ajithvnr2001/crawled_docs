@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/use-data-insights-structured-data/
 title: Use data insights for structured data \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:45.599286+00:00
+fetched_at: 2026-10-30T08:45:04.826407+00:00
 ---
 
 # Use data insights for structured data  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -109,27 +109,54 @@ To generate insights for these resources, complete the following steps:
 
 [Go to Search](https://console.cloud.google.com/dataplex/dp-search)
 
-  2. In the **Filters** , locate your asset type:
+  2. In the **Filters** , filter by your asset type:
 
-     * For Apache Iceberg tables: Select **Lakehouse**.
-     * For Apache Iceberg namespaces: Set the `system` filter to **BIGLAKE** and the `type` filter to **namespace**.
-  3. Select the Apache Iceberg table or namespace from the search results to open its entry details page.
+     * For Apache Iceberg tables: In the **Systems** section, select **Lakehouse (BigLake)** , and in the **Type aliases** section, select **Table**.
+     * For Apache Iceberg namespaces: In the **Systems** section, select **Lakehouse (BigLake)** , and in the **Type aliases** section, select **Namespace**.
+  3. In the search results, click the name of the Apache Iceberg table or namespace to open its entry details page.
 
-  4. Click the **Insights** tab. If the tab is empty, it means that the insights for this table aren't generated yet.
+  4. Click the **Insights** tab.
 
-  5. Choose a generation option:
+If the tab is empty, insights haven't been generated for this entry yet.
 
-     * To generate and permanently attach insights to the asset as metadata aspects, click **Generate and publish**. This makes the insights indexable, searchable, and visible to other users in your organization within Knowledge Catalog.
+  5. To generate insights, click **Generate**.
 
-     * To generate and view insights temporarily during your current session, click **Generate without publishing**.
+  6. Select the insight type:
+
+     * **BigQuery SQL:** Generates standard GoogleSQL queries. Supported for both tables and namespaces.
+     * **Spark SQL:** Generates Spark SQL queries. Supported for BigLake Iceberg REST Catalog tables only.
+  7. Select the publish condition:
+
+     * To generate and permanently attach insights to the asset as metadata aspects, turn on the **Publish condition** toggle. This makes the insights indexable, searchable, and visible to other users in your organization.
+
+     * To generate and view insights temporarily during your current session, turn off the **Publish condition** toggle.
 
 For more information about the differences between the **Generate and publish** and **Generate without publishing** modes, see [Modes for generating data insights](https://docs.cloud.google.com/knowledge-catalog/docs/data-insights-structured-data#modes).
 
-  6. Select a region to generate insights, and then click **Generate**.
+  8. Optional: In the **Custom instructions** field, provide guidance and domain context to customize how Gemini generates insights.
 
-It takes a few minutes for the insights to populate.
+For example, you can enforce naming conventions, specify business definitions, or describe join keys:
+         
+         LANGUAGE: Always write column descriptions in uppercase.
+         
+         DOMAIN_CONTEXT:
+         - This dataset supports the Order-to-Cash process for the EMEA commercial
+           sales team.
+         - Primary consumers are finance analysts and regional sales managers, not
+           engineers.
+         
+         RELATIONSHIPS:
+         - returns.order_item_id → order_items.id (one-to-one; use LEFT JOIN to
+           preserve unreturned items)
+         
 
-  7. Click the **Insights** tab and review the generated metadata:
+  9. If your table or namespace is located in a multi-region, select the specific processing region from the **Region** list where the data scan will run.
+
+  10. Click **Generate**.
+
+Insight generation takes a few minutes to complete.
+
+  11. Click the **Insights** tab and review the generated metadata:
 
      * For **tables** : Review the AI-generated descriptions and sample queries.
      * For **namespaces** : Review the dataset description, interactive relationship graphs, and query recommendations.
@@ -332,6 +359,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

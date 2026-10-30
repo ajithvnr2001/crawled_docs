@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/troubleshoot-autoscaling/
 title: Troubleshoot Dataflow autoscaling \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:22:21.679021+00:00
+fetched_at: 2026-10-30T08:40:14.166268+00:00
 ---
 
 # Troubleshoot Dataflow autoscaling  |  Google Cloud Documentation
@@ -134,6 +134,60 @@ Scale down |
   
 For more information, see [Streaming autoscaling heuristics](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#heuristics).
 
+## Troubleshoot autoscaling schedules
+
+If you encounter issues when creating, updating, or running [autoscaling schedules](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#scheduled-autoscaling), review the following common scenarios and troubleshooting steps.
+
+### Unable to set or update an autoscaling schedule
+
+If an attempt to create or update an autoscaling schedule fails, verify that your schedule configuration complies with the following constraints:
+
+  * **Schedule limit** : A single job can have a maximum of 10 autoscaling schedules. To add a new schedule when the job already has 10 schedules, you must first [remove an existing schedule](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#remove-schedule).
+  * **Minimum duration** : The schedule duration must be at least 5 minutes (300 seconds).
+  * **Parameter constraints** : 
+    * The CPU utilization target must fall within [0.1, 0.9].
+    * The maximum worker count must be greater than or equal to the minimum worker count (`max_workers` ≥ `min_workers`).
+  * **Crontab format restrictions at job start** : Crontab expressions specified at job launch using the `--experiments=autoscaling_schedule=...` pipeline option cannot contain commas (such as `1,15 * * * *` or `* * * * MON,WED,FRI`). Commas are reserved to delimit pipeline options. If your schedule requires commas, launch the job without the schedule and configure it after launch using an [in-flight update](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#create-update-schedule), or specify multiple separate schedules.
+
+
+
+### Schedule doesn't take effect or a different schedule is applied
+
+If an autoscaling schedule doesn't take effect during its expected window, or if a different schedule's settings are applied, review the following:
+
+  * **Only one schedule is active at a time** : If two or more schedules have overlapping time windows, Dataflow determines which schedule to apply based on schedule priority: 
+    * The schedule with the higher priority value (`priority`) is applied.
+    * If multiple active schedules share the same priority value, the most recently updated or modified schedule is applied.
+    * When the active schedule's duration ends, Dataflow applies any other schedule that is still active, or reverts autoscaling behavior to the job's default settings.
+  * **Time zone discrepancies** : Verify that the time zone specified for your schedule matches the intended region and daylight saving time rules. By default, schedule start times are interpreted in `UTC`.
+  * **Verify active schedules in the console** : In the Google Cloud console, navigate to the **Autoscaling** tab on the Dataflow job details page to see which schedule is active. You can also inspect the configured schedules and their parameters by running the [`gcloud dataflow jobs describe`](https://docs.cloud.google.com/sdk/gcloud/reference/dataflow/jobs/describe) command or by querying the REST API.
+
+
+
+### Pipeline doesn't scale up to the scheduled worker count
+
+If a schedule activates with higher worker limits or lower utilization hints, but the pipeline doesn't scale up to the expected number of workers, check the following factors:
+
+  * **Resource and quota limits** : Scaling up requires sufficient resource quota in your Google Cloud project and region. Worker allocation might be prevented by: 
+    * **Compute Engine instance quotas** : Your project might reach its instance limit for the region.
+    * **CPU quotas** : If your workers use multiple CPUs (for example, `n1-standard-4`), ensure that your project has sufficient CPU quota.
+    * **IP address quotas** : Each worker VM requires an IP address. If the IP address quota in your VPC network or region is exhausted, new workers can't be provisioned.
+    * **Resource availability** : If the region or zone experiences temporary resource exhaustion, Dataflow might be unable to create new worker instances even if quota is available. For more information, see Scaling up stops.
+  * **Latency tier sensitivity** : If the active schedule configures a latency tier of `medium_latency` or `high_latency`, Dataflow intentionally waits for more backlog to accumulate before triggering upscale events:
+
+    * `low_latency` (default): scales up when backlog exceeds 15 seconds.
+    * `medium_latency`: scales up when backlog exceeds 180 seconds (3 minutes).
+    * `high_latency`: scales up when backlog exceeds 600 seconds (10 minutes).
+
+If your job appears to lag or delay scaling up during a scheduled window, verify whether the active schedule configured a higher latency tier.
+
+  * **Key-based parallelism limits** : Dataflow can't scale beyond the number of distinct processing keys available at that stage. If your data stream contains few unique keys, adding workers can't improve throughput, and Dataflow caps the worker count to avoid idle resources.
+
+  * **Worker pool stability** : If worker instances encounter crashes or out-of-memory (OOM) errors, Dataflow temporarily pauses autoscaling resize requests until the worker pool stabilizes.
+
+
+
+
 ## Gaps in autoscaling metrics
 
 There are short, temporary gaps in autoscaling metrics.
@@ -263,6 +317,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

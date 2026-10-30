@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/roles-permissions/
 title: Roles and permissions \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:24:27.723132+00:00
+fetched_at: 2026-10-30T08:40:11.210685+00:00
 ---
 
 # Roles and permissions  |  Agent Registry  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Identity and Access Management (IAM) roles and permissions let you control who can view, register, and manage agents, MCP servers, tools, standalone skills, endpoints, and bindings in Agent Registry.
 
-To grant Agent Registry IAM roles to users or groups on your [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project), use the IAM page in the Google Cloud console or the Google Cloud CLI. For detailed instructions, see [Access control with IAM](https://docs.cloud.google.com/agent-registry/access-control) and [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access).
+To grant Agent Registry IAM roles to users or groups on your [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) or your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project), use the IAM page in the Google Cloud console or the Google Cloud CLI. For details, see [Access control with IAM](https://docs.cloud.google.com/agent-registry/access-control), and [Manage access to projects, folders, and organizations](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access).
 
 ## Agent Registry roles
 
@@ -235,6 +235,32 @@ Agent Registry API AdminAgent Registry API EditorAgent Registry API ViewerAgent 
   
 For more information about IAM permissions, see [Find the right predefined roles](https://docs.cloud.google.com/iam/docs/choose-predefined-roles) and [IAM roles and permissions index](https://docs.cloud.google.com/iam/docs/roles-permissions).
 
+## Roles for cross-project management boundaries
+
+When you configure a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) for your agentic components in Agent Registry, you must grant IAM roles to users or services at the following levels:
+
+  * **Management project** : grant Agent Registry roles on the [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project) to users or services that discover and manage agents across the boundary. Users with viewer access on the management project can discover and search agents and MCP servers from all member projects across every boundary attached to that management project without needing explicit viewer permissions granted in each individual member project. If a team must not view assets from other boundaries, assign that boundary to a separate `CapabilityConfig` resource and management project.
+  * **Member projects** : grant Agent Registry roles on specific member projects to developers who build, register, or maintain agents and tools within those specific projects.
+  * **Boundary configuration** : creating and managing boundary configuration resources requires administrative roles on the enclosing folder or organization. For more information, see the required roles in [Configure management boundaries](https://docs.cloud.google.com/resource-manager/docs/manage-capability-configs#roles) in the Resource Manager documentation.
+
+
+
+### Restrict local registrations in member projects
+
+Because manually registered `Service` and `Binding` resources created in a member project don't roll up to the management project, security administrators can enforce centralized registration in the management project in either of the following ways:
+
+  * **Block`agentregistry.googleapis.com` in member projects**: when developers don't need to query Agent Registry directly in a member project, apply the `constraints/gcp.restrictServiceUsage` [organization policy constraint](https://docs.cloud.google.com/resource-manager/docs/organization-policy/overview) on the parent folder or organization to deny `agentregistry.googleapis.com`, and override the policy on the management project. Blocking `agentregistry.googleapis.com` on member projects doesn't affect automatic discovery of runtime workloads from member projects into the management project.
+  * **Allow read-only discovery in member projects and deny local writes** : to keep `agentregistry.googleapis.com` enabled in member projects for local read-only discovery while requiring all `Service` and `Binding` resources to be registered in the management project, grant developers **Agent Registry API Viewer** (`roles/agentregistry.viewer`) on the member project and attach an [IAM deny policy](https://docs.cloud.google.com/iam/docs/deny-overview) that denies the following write permissions in member projects:
+
+    * `agentregistry.googleapis.com/services.create`
+    * `agentregistry.googleapis.com/services.update`
+    * `agentregistry.googleapis.com/services.delete`
+    * `agentregistry.googleapis.com/bindings.create`
+    * `agentregistry.googleapis.com/bindings.update`
+    * `agentregistry.googleapis.com/bindings.delete`
+
+
+
 ## Access control for registered resources
 
 Agent Registry roles govern who can manage and discover resources in the registry itself. To control which agents can communicate with registered services, endpoints, and MCP servers through [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview), you use [Identity-Aware Proxy (IAP)](https://docs.cloud.google.com/iap/docs/agent-overview) egress policies:
@@ -250,6 +276,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

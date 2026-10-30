@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/data-insights/
 title: Data insights overview \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:44:04.416659+00:00
+fetched_at: 2026-10-30T08:45:04.524996+00:00
 ---
 
 # Data insights overview  |  BigQuery  |  Google Cloud Documentation
@@ -194,6 +194,8 @@ For more information about generating table and column descriptions, see [Genera
 
     * Generate dataset insights for key datasets, especially those with complex relationships.
 
+    * Tailor the generated insights to your organization's specific business context by supplying custom instructions that define key objectives, domain knowledge, and terminology. For example, you can enforce naming conventions, specify business definitions, or describe join keys.
+
     * Ensure data profile scans run on tables to provide rich context for more accurate and useful insights.
 
 For more information, see [Generate dataset insights](https://docs.cloud.google.com/bigquery/docs/generate-dataset-insights) and [Ground insights to data profiling results](https://docs.cloud.google.com/knowledge-catalog/docs/data-profiling-overview).
@@ -276,6 +278,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

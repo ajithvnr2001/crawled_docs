@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workstations/docs/overview/
 title: Cloud Workstations overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:18.919151+00:00
+fetched_at: 2026-10-30T08:38:54.563424+00:00
 ---
 
 # Cloud Workstations overview  |  Google Cloud Documentation
@@ -25,12 +25,9 @@ Cloud Workstations provides managed development environments on Google Cloud wit
 
 Cloud Workstations uses the following Google Cloud resources to manage your development environments:
 
-  * **Workstation clusters** define a group of workstations in a particular region and the VPC network they're attached to. Workstation clusters aren't related to [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) clusters.
-
-  * **Workstation configurations** act as templates for workstations. The workstation configuration defines details such as the workstation virtual machine (VM) instance type, persistent storage, container image defining environment, which IDE or Code Editor to use, and more. Administrators and platform teams can also use [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) rules to grant access to teams or to individual developers.
-
-  * **Workstations** are preconfigured development environments that provide a cloud IDE, language tooling, libraries, and more. Workstations can be started or stopped on demand, and run on [Compute Engine](https://docs.cloud.google.com/compute/docs/instances) VMs in your project, with a persistent disk attached to store data between sessions.
-
+  * **Workstation clusters** define a group of workstations in a particular region and the VPC network they're attached to. Workstation clusters aren't related to [Google Kubernetes Engine (GKE)](https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) clusters. 
+  * **Workstation configurations** act as templates for workstations. The workstation configuration defines details such as the workstation virtual machine (VM) instance type, persistent storage, container image defining environment, which IDE or Code Editor to use, and more. Administrators and platform teams can also use [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) rules to grant access to teams or to individual developers. 
+  * **Workstations** are preconfigured development environments that provide a cloud IDE, language tooling, libraries, and more. Workstations can be started or stopped on demand, and run on [Compute Engine](https://docs.cloud.google.com/compute/docs/instances) VMs in your project, with a persistent disk attached to store data between sessions. 
 
 
 
@@ -44,7 +41,7 @@ Workstations run on ephemeral Compute Engine VMs, and can be started or stopped 
 
 ## Persistent storage
 
-When a workstation stops, its ephemeral VM is deleted along with all workstation runtime data. Administrators and platform teams can optionally configure a persistent home directory on a workstation configuration, so all data saved to the home directory persists between sessions. This persistent storage is implemented as a [persistent disk](https://cloud.google.com/persistent-disk) that is attached to the workstation VM when the session starts, and detached when the session ends.
+When a workstation stops, its ephemeral VM is deleted along with all workstation runtime data. Administrators and platform teams can optionally configure a persistent home directory on a workstation configuration, so all data saved to the home directory persists between sessions. This persistent storage is implemented as a [persistent disk](https://docs.cloud.google.com/compute/docs/disks/persistent-disks) that is attached to the workstation VM when the session starts, and detached when the session ends.
 
 ## Workstation DNS hostnames
 
@@ -75,10 +72,19 @@ Learn [how and when Gemini for Google Cloud uses your data](https://docs.cloud.g
 
 Cloud Workstations is one of the Google Cloud components you can use to protect your software supply chain. You can use Cloud Workstations together with other Google Cloud products and features to improve the security posture of developer workflows and tools, software dependencies, CI/CD systems used to build and deploy your software, and runtime environments such as Google Kubernetes Engine and Cloud Run. To learn more, see [Software supply chain security](https://docs.cloud.google.com/software-supply-chain-security/docs/overview).
 
+## What's next
+
+  * Learn more about [Cloud Workstations architecture](https://docs.cloud.google.com/workstations/docs/architecture).
+  * Learn how to [create a workstation cluster](https://docs.cloud.google.com/workstations/docs/create-cluster).
+  * Learn how to [create a workstation configuration](https://docs.cloud.google.com/workstations/docs/create-configuration).
+  * Learn how to [create and start a workstation](https://docs.cloud.google.com/workstations/docs/create-workstation).
+
+
+
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

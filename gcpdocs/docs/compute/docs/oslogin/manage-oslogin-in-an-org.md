@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/oslogin/manage-oslogin-in-an-org/
 title: Manage OS Login in an organization \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:28.589070+00:00
+fetched_at: 2026-10-30T08:53:04.852700+00:00
 ---
 
 # Manage OS Login in an organization  |  Compute Engine  |  Google Cloud Documentation
@@ -394,7 +394,7 @@ To connect to VMs, do the following:
 
 When you connect to VMs that use OS Login with workforce identity federation using the [gcloud CLI](https://docs.cloud.google.com/compute/docs/connect/standard-ssh#gcloud), Compute Engine configures the SSH certificate on your behalf when you attempt to connect.
 
-Connect to a VM using SSH by running the [`gcloud beta compute ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/compute/ssh):
+Connect to a VM by using SSH and by running the [ `gcloud beta compute ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/compute/ssh):
 
   1. In the Google Cloud console, activate Cloud Shell.
 
@@ -404,20 +404,22 @@ At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.go
 
   2. Run the following command:
          
-         gcloud beta compute ssh --project=PROJECT_ID --zone=ZONE VM_NAME
+         gcloud beta compute ssh INSTANCE_NAME \
+             --project=PROJECT_ID \
+             --zone=ZONE
 
 Replace the following:
 
-     * `PROJECT_ID`: the ID of the project that contains the VM
-     * `ZONE`: the name of the zone that the VM is located in
-     * `VM_NAME`: the name of the VM
+     * `INSTANCE_NAME`: the name of the VM.
+     * `PROJECT_ID`: the ID of the project that contains the VM.
+     * `ZONE`: the name of the zone that the VM is located in.
 
 If you have [set default properties](https://docs.cloud.google.com/compute/docs/gcloud-compute#default-properties) for the Google Cloud CLI, you can omit the `--project` and `--zone` flags from this command. For example:
     
-    gcloud compute ssh VM_NAME
+    gcloud beta compute ssh INSTANCE_NAME
 
 
-**Note:** When you connect to VMs using the gcloud CLI, Compute Engine creates a persistent SSH key for you. For more information about SSH keys, see [SSH connections to Linux VMs](https://docs.cloud.google.com/compute/docs/instances/ssh).
+**Note:** When you connect to VMs by using the gcloud CLI, Compute Engine creates a persistent SSH key for you. For more information about SSH keys, see [SSH connections to Linux VMs](https://docs.cloud.google.com/compute/docs/instances/ssh).
 
 ###  IAP Desktop 
 
@@ -505,6 +507,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

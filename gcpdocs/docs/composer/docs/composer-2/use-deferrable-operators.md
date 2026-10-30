@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/composer/docs/composer-2/use-deferrable-operators/
 title: Use deferrable operators in Airflow DAGs \u00a0|\u00a0 Managed Service for Apache Airflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:01.873276+00:00
+fetched_at: 2026-10-30T08:52:45.717173+00:00
 ---
 
 # Use deferrable operators in Airflow DAGs  |  Managed Service for Apache Airflow  |  Google Cloud Documentation
@@ -190,8 +190,8 @@ The following example DAG uses `DataprocSubmitJobOperator` operator in the defer
     
     
     PYSPARK_JOB = {
-        "reference": { ";project_id": "PROJECT_ID" },
-        &quot;placement": { "cluster_name": "PYSPARK_CLUSTER_NAME" },
+        "reference": { "project_id": "PROJECT_ID" },
+        "placement": { "cluster_name": "PYSPARK_CLUSTER_NAME" },
         "pyspark_job": {
             "main_python_file_uri": "gs://dataproc-examples/pyspark/hello-world/hello-world.py"
         },

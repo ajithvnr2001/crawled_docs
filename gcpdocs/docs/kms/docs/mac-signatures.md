@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/mac-signatures/
 title: MAC signatures \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:43.612183+00:00
+fetched_at: 2026-10-30T09:01:36.159116+00:00
 ---
 
 # MAC signatures  |  Cloud Key Management Service  |  Google Cloud Documentation

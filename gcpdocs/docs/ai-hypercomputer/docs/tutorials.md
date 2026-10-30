@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/
 title: AI workloads tutorials overview \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:01:10.959932+00:00
+fetched_at: 2026-10-30T08:38:45.583930+00:00
 ---
 
 # AI workloads tutorials overview  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -53,18 +53,23 @@ These tutorials describe how to train or pre-train LLMs on high-performance clus
 
 Explore the AI Hypercomputer tutorials:
 
+  * [Serve DeepSeek-R1 671B on GKE with multi-host vLLM on A4 VMs](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/serve-deepseek-r1-671b-a4-gke-multi-host-vllm)
+  * [Serve Qwen3.8-2.4T on GKE with multi-host PD disaggregation using Dynamo and SGLang on A4 VMs](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/serve-qwen3-8-2-4t-a4-gke-multi-host-sglang)
+  * [Serve Llama 3.1 405B on GKE with PD disaggregation using Dynamo and SGLang on A4 VMs](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/serve-llama-3-1-405b-a4-gke-sglang)
   * [Serve Qwen3-Coder-480B with multi-host SGLang TorchTPU on TPU7x](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-coder-gke-ironwood-multi-host-torchtpu)
   * [Serve Qwen3.5-397B with multi-host vLLM TorchTPU on TPU7x](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-5-397b-ironwood-multi-host-vllm-torchtpu)
   * [Serve Gemma 4 26B with multi-host vLLM TorchTPU on Trillium TPUs](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-gemma4-26b-gke-trillium-vllm)
-  * [Serve Qwen3.5-397B with vLLM TorchTPU on TPU7x](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-5-397b-ironwood-vllm-torchtpu)
   * [Fine-tune Gemma 4 on a multi-host A4 GKE cluster](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/gemma4-finetune-a4-gke-multi-host-cluster)
   * [Fine-tune Gemma 4 on an A4 GKE cluster](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/gemma4-finetune-a4-gke-cluster)
   * [Run multi-host RL training for Gemma 4 26B on TPU v6e](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/run-gemma4-26b-rl-maxtext)
   * [Run SFT for Gemma 4 31B on multi-host TPU v6e](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/run-gemma4-31b-sft-maxtext)
+  * [Serve Qwen3.5-397B with multi-host vLLM TorchTPU on TPU7x](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-5-397b-ironwood-multi-host-vllm-torchtpu)
+  * [Serve Qwen3.5-397B with vLLM TorchTPU on TPU7x](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-5-397b-ironwood-vllm-torchtpu)
+  * [Serve Qwen3-Coder-480B with multi-host SGLang TorchTPU on TPU7x](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/serve-qwen3-coder-gke-ironwood-multi-host-torchtpu)
   * [Run multi-host RL training for Qwen3-30B-A3B on TPU v6e](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/run-qwen3-30b-a3b-rl-maxtext)
   * [Fine-tune Gemma 3 on a multi-host A4 GKE cluster](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/gemma3-finetune-a4-gke-multi-host-cluster)
-  * [Run RL training on a v6e-8 TPU VM](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/run-rl-v6e-8-tpu-vm)
   * [Run supervised fine-tuning on a TPU VM with MaxText](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/run-sft-v6e-8-tpu-vm-maxtext)
+  * [Run RL training on a v6e-8 TPU VM](https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/tpu/run-rl-v6e-8-tpu-vm)
 
 
 
@@ -72,6 +77,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

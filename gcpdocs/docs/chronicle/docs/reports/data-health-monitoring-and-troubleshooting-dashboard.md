@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/reports/data-health-monitoring-and-troubleshooting-dashboard/
 title: Monitor health of data sources \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:04:24.674072+00:00
+fetched_at: 2026-10-30T08:36:59.596420+00:00
 ---
 
 # Monitor health of data sources  |  Google Security Operations  |  Google Cloud Documentation
@@ -94,7 +94,7 @@ This section describes the Health Hub interface and its components so that you c
 
 The Health Hub includes the following sections:
 
-  * Widgets
+  * **Widgets**
   * **Health Status Monitoring**
   * **Latency Status Monitoring**
 
@@ -152,7 +152,12 @@ Note: The value is always the _latest_ timestamp—even if an older event is ing
 **View Ingestion Details** | Contains a **Dashboard** link, which opens a new tab with the **Data Health Deep Dive** dashboard. The **Data Health Deep Dive** dashboard contains additional, historical information—for deeper analysis.  
 **Edit Data Source** | A link that opens a new tab with the corresponding [feed configuration](https://docs.cloud.google.com/chronicle/docs/administration/feed-management)—where you can fix configuration-related irregularities or failures.  
 **Set Up Alerts** | A link, which opens a new tab with the corresponding [Cloud Monitoring](https://docs.cloud.google.com/chronicle/docs/ingestion/ingestion-notifications-for-health-metrics) interface. From there you can, configure custom API-based alerts using **Status** and log-volume metrics  
-  
+**Note:** Feeds can display an **Active** status in the **Feed Management** interface even if background collection fails due to expired credentials or HTTP 400/401 errors. To identify silent authentication failures, check the **Health Status by Data Source** table in the Health Hub.
+
+The following screenshot shows the **Health Status by Data Source** table with an error popover detailing a configuration failure:
+
+![Health Status by Data Source table in the Health Hub highlighting a Feed Config Error popover with unauthorized credentials.](https://docs.cloud.google.com/static/chronicle/images/health-status-by-data-source-mu.png)
+
 #### Health Status by Parser table
 
 The **Health Status by Parser** table includes the following columns:
@@ -172,7 +177,7 @@ Note: The value is always the _latest_ timestamp—even if an older event is ing
   
 ### Monitor the latency status of data sources and log types
 
-The Health Hub includes latency status monitoring to improve end-to-end visibility and help reduce the mean time to debug (MTTD) for delayed logs. Google SecOps calculates latency at both the source level and the log type level.
+The Health Hub includes latency status monitoring to improve end-to-end visibility and help reduce the mean time to detect (MTTD) for delayed logs. Google SecOps calculates latency at both the source level and the log type level.
 
 The **Latency Status Monitoring** section of the Health Hub includes the following tables:
 
@@ -477,6 +482,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

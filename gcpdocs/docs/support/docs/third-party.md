@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/docs/third-party/
 title: Manage support for third parties \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:46:57.110773+00:00
+fetched_at: 2026-10-30T08:58:36.144461+00:00
 ---
 
 # Manage support for third parties  |  Cloud Customer Care  |  Google Cloud Documentation
@@ -22,11 +22,7 @@ Send feedback
 
 #  Manage support for third parties Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Attention:** Google Cloud works with many reputable partners globally that provide specialized services that span across sales, customer service, and engineering functions.
-
-These partners are part of Google's extended workforce and they use our systems and tools with a distinct email domain (`@xwf.google.com`). If you notice this new domain in communications, please be assured that this is legitimate and is from an authorized representative of Google.
-
-We thank you for your understanding and your continued support of our world class products and services. 
+**Note:** Google Cloud works with third-party partners who are part of Google's extended workforce. These partners use our systems and tools with a distinct and legitimate email domain (`@xwf.google.com`). For more information, see [About our third-party partners](https://docs.cloud.google.com/docs/about-our-third-party-partners).
 
 Third-Party Technology Support in Cloud Customer Care helps you resolve multi-vendor issues across multiple cloud providers and third-party applications. The Customer Care team works with partner support teams to assist you with setup, configuration, and troubleshooting.
 
@@ -46,7 +42,7 @@ Support is provided in accordance with the Customer Care team's relationship wit
 
 ### Collaborative support
 
-Customer Care collaborates with Google **Tech partners** (or Build (ISV) partners) to resolve issues on customer's behalf. Tech partners create solutions which integrate with, or run on, Google Cloud. They collaborate with Google Cloud to develop solutions and ensure technical innovation. For a practical example, see [this blog](https://cloud.google.com/blog/topics/partners/google-cloud-and-hashicorp-partner-to-deliver-efficient-customer-cloud-support-services).
+Customer Care collaborates with Google **Tech partners** (or Build (ISV) partners) to resolve issues on customer's behalf. Tech partners create solutions which integrate with, or run on, Google Cloud. They collaborate with Google Cloud to develop solutions and ensure technical innovation. For a practical example, see [Google Cloud and HashiCorp deliver a more efficient approach for Cloud Support Services](https://cloud.google.com/blog/topics/partners/google-cloud-and-hashicorp-partner-to-deliver-efficient-customer-cloud-support-services).
 
 ![Shows how Google collaborates with tech partners to offer support.](https://docs.cloud.google.com/static/support/docs/images/collaborative-support.svg)
 
@@ -64,7 +60,7 @@ Customer Care provides commercially reasonable assistance with the installation,
 
 ### Customer Care for Google Cloud and third-party technologies
 
-In the list below, find additional details on support approaches for Third-Party Technology Support.
+The following list provides additional details on support approaches for Third-Party Technology Support.
 
 Support approach  
 | Tech partner model description | Examples | Google Cloud Customer Care policy  
@@ -103,6 +99,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

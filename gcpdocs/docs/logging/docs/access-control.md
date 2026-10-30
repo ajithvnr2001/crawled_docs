@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/access-control/
 title: Access control with IAM \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:55.515092+00:00
+fetched_at: 2026-10-30T08:40:04.970860+00:00
 ---
 
 # Access control with IAM  |  Cloud Logging  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Access control with IAM Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document helps you understand how Cloud Logging uses [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) roles and permissions to control access to Logging resources. Your IAM roles determine whether you can perform actions like create log sinks or log buckets, read log data stored in a log bucket, or access pages like the [Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface). If you issue a [Logging API](https://docs.cloud.google.com/logging/docs/reference/v2/rest) or [Google Cloud CLI](https://docs.cloud.google.com/logging/docs/reference/tools/gcloud-logging) command, then your IAM roles determine whether you have the permission to run the command.
+Cloud Logging uses [Identity and Access Management (IAM)](https://docs.cloud.google.com/iam/docs/overview) roles and permissions to let you control who can view, write, and manage Logging resources. Your IAM roles determine whether you can create log sinks or log buckets, read log data stored in a log bucket, or access pages like the [Logs Explorer](https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface). When you issue a [Cloud Logging API](https://docs.cloud.google.com/logging/docs/reference/v2/rest) or [Google Cloud CLI](https://docs.cloud.google.com/logging/docs/reference/tools/gcloud-logging) command, your IAM roles also determine whether you have permission to run the command.
 
 ## Overview
 
@@ -536,6 +536,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

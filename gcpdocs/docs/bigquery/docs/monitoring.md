@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/monitoring/
 title: Introduction to BigQuery monitoring \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:46.874106+00:00
+fetched_at: 2026-10-30T08:39:04.914831+00:00
 ---
 
 # Introduction to BigQuery monitoring  |  Google Cloud Documentation
@@ -21,11 +21,11 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Introduction to BigQuery monitoring
 
-Monitoring and logging are crucial for running reliable applications in the cloud. BigQuery workloads are no exception, especially if your workload has high volumes or is mission critical. This document provides a high-level overview of the monitoring data that is available for BigQuery.
+BigQuery monitoring lets you track resource usage, job execution, and operational health across your workloads to identify bottlenecks and maintain reliability.
 
-Monitoring and logging sources can vary based on the frequency of sampling or aggregation. For example, information schema data might be available at a higher level of granularity than Cloud Monitoring metrics data.
+Monitoring and logging are crucial for running reliable applications in the cloud. BigQuery workloads are no exception, especially if your workload has high volumes or is mission critical.
 
-As a result, graphs of metrics with lower granularity might appear to diverge from comparable information schema statistics. Aggregation will tend to smooth out the discrepancies. When you design a monitoring solution, assess the request response time, precision, and accuracy of the metrics against your requirements.
+Monitoring sources vary by sampling frequency and aggregation level. For example, information schema views often provide higher granularity than Cloud Monitoring metrics. As a result, metric charts might temporarily diverge from information schema data until aggregation smooths out differences. When designing a monitoring strategy, assess latency, precision, and accuracy against your requirements.
 
 ## Metrics
 
@@ -120,9 +120,9 @@ Here is an abbreviated example of a log entry that shows a failed operation:
 
 For operations on BigQuery Reservations, the `protoPayload` is an [`AuditLog`](https://docs.cloud.google.com/logging/docs/reference/audit/auditlog/rest/Shared.Types/AuditLog) structure, and the `protoPayload.request` and `protoPayload.response` fields contain more information. You can find the field definitions in [BigQuery Reservation API](https://docs.cloud.google.com/bigquery/docs/reference/reservations/rpc). For more information, see [Monitoring BigQuery Reservations](https://docs.cloud.google.com/bigquery/docs/reservations-monitoring).
 
-## BigQuery `INFORMATION_SCHEMA` views
+## BigQuery information schema views
 
-[`INFORMATION_SCHEMA`](https://docs.cloud.google.com/bigquery/docs/information-schema-intro) views are another source of insights in BigQuery, which you can use in conjunction with metrics and logs.
+[Information schema views](https://docs.cloud.google.com/bigquery/docs/information-schema-intro) are another source of insights in BigQuery, which you can use in conjunction with metrics and logs.
 
 These views contain metadata about jobs, datasets, tables, and other BigQuery entities. For example, you can get real-time metadata about which BigQuery jobs ran over a specified time period, and then group or filter the results by project, user, tables referenced, and other dimensions.
 
@@ -136,7 +136,7 @@ You can use this information to perform more detailed analysis about your BigQue
 
 In particular, look at [jobs metadata](https://docs.cloud.google.com/bigquery/docs/information-schema-jobs), [streaming metadata](https://docs.cloud.google.com/bigquery/docs/information-schema-streaming), and [reservations metadata](https://docs.cloud.google.com/bigquery/docs/information-schema-reservations) to get insights into the performance of your BigQuery workloads.
 
-You can find [example `INFORMATION_SCHEMA` queries on GitHub](https://github.com/GoogleCloudPlatform/bigquery-utils/tree/master/dashboards/system_tables) that show an organization's slot and reservation utilization, job execution, and job errors. For example, the following query provides a list of queries that are either pending or running. These queries are ordered by the length of time since they were created in the `us` region:
+You can find [example information schema queries on GitHub](https://github.com/GoogleCloudPlatform/bigquery-utils/tree/master/dashboards/system_tables) that show an organization's slot and reservation utilization, job execution, and job errors. For example, the following query provides a list of queries that are either pending or running. These queries are ordered by the length of time since they were created in the `us` region:
     
     
     SELECT
@@ -178,6 +178,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

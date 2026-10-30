@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/sqlserver/replication/
 title: About replication in Cloud SQL \u00a0|\u00a0 Cloud SQL for SQL Server \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:47:59.819477+00:00
+fetched_at: 2026-10-30T08:39:20.225395+00:00
 ---
 
 # About replication in Cloud SQL  |  Cloud SQL for SQL Server  |  Google Cloud Documentation
@@ -80,7 +80,7 @@ Cloud SQL doesn't support replication between two external servers.
 
 ## Read replicas
 
-You use a read replica to offload work from a Cloud SQL instance. The read replica is an exact copy of the primary instance. Data and other changes on the primary instance are updated in almost real time on the read replica.
+You use a read replica to offload work from a Cloud SQL instance. The read replica is an exact copy of the primary instance. Data and other changes on the primary instance are asynchronously replicated and applied to the read replica.
 
 Read replicas are read-only; you cannot write to them. The read replica processes queries, read requests, and analytics traffic, thus reducing the load on the primary instance. You can have up to 8 read replicas per primary instance.
 
@@ -129,7 +129,7 @@ See [Promoting replicas for regional migration or disaster recovery](https://doc
 
 Cascading replication lets you create a read replica under another read replica in the same or a different region. Cascading replicas are implemented using [distributed availability groups](https://learn.microsoft.com/en-us/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-ver16). Some use cases for cascading replicas are as follows:
 
-  * **Disaster recovery** : you can use a cascading hierarchy of read replicas to simulate the topology of your primary instance and its read replicas. During an outage, your selected read replica is promoted to primary and the read replicas under the new primary continue to replicate and are ready for use. The old primary becomes a secondary of the new primary when it becomes available, and you can switch back to the old primary once it recovers using a switchover. For more information about using cascading replicas for disaster recovery, see [About disaster recovery](https://docs.cloud.google.com/sql/docs/sqlserver/intro-to-cloud-sql-disaster-recovery).
+  * **Disaster recovery** : you can use a cascading hierarchy of read replicas to simulate the topology of your primary instance and its read replicas. During an outage, when you promote a read replica to primary, the read replicas under this new primary continue to replicate and are ready for use. The old primary becomes a secondary of the new primary when it becomes available, and you can switch back to the old primary once it recovers using a switchover. For more information about using cascading replicas for disaster recovery, see [About disaster recovery](https://docs.cloud.google.com/sql/docs/sqlserver/intro-to-cloud-sql-disaster-recovery).
   * **Performance improvement** : Reduce the burden on the primary instance by offloading replication work to multiple read replicas.
   * **Scale reads** : You can have more replicas to share the read load.
   * **Cost reduction** : You can reduce networking costs by using a single cascading replica with cross-region replication in other regions.
@@ -138,7 +138,7 @@ Cascading replication lets you create a read replica under another read replica 
 
 ### Terminology
 
-  * **Cascadable replica** : A cross-region read replica that can be used for switchover and replica failover operations in [advanced disaster recovery (DR)](https://docs.cloud.google.com/sql/docs/sqlserver/intro-to-cloud-sql-disaster-recovery#advanced_disaster_recovery) with Cloud SQL for SQL Server.
+  * **Cascadable replica** : A cross-region read replica that can be used for [switchover](https://docs.cloud.google.com/sql/docs/sqlserver/intro-to-cloud-sql-disaster-recovery#switchover) and [replica failover](https://docs.cloud.google.com/sql/docs/sqlserver/intro-to-cloud-sql-disaster-recovery#replica-failover) operations in [advanced disaster recovery (DR)](https://docs.cloud.google.com/sql/docs/sqlserver/intro-to-cloud-sql-disaster-recovery#advanced_disaster_recovery) with Cloud SQL for SQL Server.
   * **Cascading replica** : A read replica that can have its own replica.
   * **Levels** : You can create levels of replicas in a cascading replica hierarchy. For example, if you add four replicas to an instance, those four replicas are at the same level.
   * **Sibling instances** : Multiple replicas that replicate from the same primary instance. Siblings are at the same level in the replica hierarchy. A replica can officially have up to eight siblings.
@@ -156,7 +156,7 @@ For more information on configuring distributed availability groups, see [Config
 ### Restrictions
 
   * You can't delete a replica that has replicas under it. To delete the replica, you must start with the leaf replicas and work your way upward through the hierarchy.
-  * Circular region dependency isn't supported. To have the replica of a cascading replica in the same region as the primary instance, the cascading replica must also be in the same region.
+  * Circular region dependency isn't supported. You cannot replicate from one region to another and then back to the original region. To have the replica of a cascading replica in the same region as the primary instance, the cascading replica must also be in the same region.
 
 
   * You must create cascadable replicas in a different region than the region of the primary instance. Then you can create cascading replicas in the same region as the cascadable replica.
@@ -229,7 +229,7 @@ Cores and memory | Read replicas can use a different number of cores and amount 
 Deleting the primary instance | Before you can delete a primary instance, you must promote all of its read replicas to standalone instances or delete the read replicas.  
 Deleting the replica | When you delete a replica, there is no impact on the status of the primary instance.  
 Deleting a replicated database | You can delete a replicated SQL Server database using the Google Cloud console or the `gcloud` command, and the deletion automatically propagates to the replicas. You cannot delete a replicated SQL Server database using T-SQL commands.  
-Failover | A primary instance can failover to a replica only if the replica is a DR replica. Read replicas are unable to failover in any way during an outage.  
+Failover | A primary instance can failover to a replica only if the replica is a cascadable replica. Read replicas are unable to failover in any way during an outage.  
 Load balancing | Cloud SQL does not provide load balancing between replicas.  
 Maintenance windows | Read replicas share maintenance windows with the primary instance. The replicas follow the maintenance settings for the primary instance, including the maintenance window, rescheduling, and the deny maintenance period. During maintenance, Cloud SQL updates all read replicas first before updating the primary instance.  
 Multiple read replicas | You can create up to 8 read replicas for a single primary instance.   
@@ -293,6 +293,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

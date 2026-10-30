@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manage-endpoints/
 title: Manage and discover endpoints \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:23:47.480024+00:00
+fetched_at: 2026-10-30T08:40:12.223266+00:00
 ---
 
 # Manage and discover endpoints  |  Agent Registry  |  Google Cloud Documentation
@@ -26,7 +26,7 @@ Agent Registry lets you discover, update, and remove registered endpoints so tha
 ## Before you begin
 
   1. [Set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
-  2. Get [the project ID](https://support.google.com/googleapi/answer/7014113) for the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled.
+  2. For a single-project setup, get [the project ID](https://support.google.com/googleapi/answer/7014113) of the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled. If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) for multiple projects, use the ID of your management project for boundary-wide discovery and registration, or specify a member project ID for single-project operations.
 
   3. [Register endpoints](https://docs.cloud.google.com/agent-registry/register-endpoints) in Agent Registry.
 
@@ -266,7 +266,7 @@ Run the [`gcloud agent-registry services update`](https://docs.cloud.google.com/
 Replace the following:
 
   * `ENDPOINT_NAME`: the name of your endpoint, for example, `my-external-api`.
-  * `PROJECT_ID`: the project ID.
+  * `PROJECT_ID`: the project ID where the `Service` resource was created.
   * `REGION`: the registry region.
   * `ENDPOINT_URL`: the new target URL, for example, `https://new-api.example.com/v1/data`.
   * `PROTOCOL`: the protocol binding for the interface. Valid values are `http-json`, `grpc`, or `jsonrpc`.
@@ -348,7 +348,7 @@ Run the [`gcloud agent-registry services delete`](https://docs.cloud.google.com/
 Replace the following:
 
   * `ENDPOINT_NAME`: the name of the endpoint you want to remove, for example, `my-external-api`.
-  * `PROJECT_ID`: the project ID.
+  * `PROJECT_ID`: the project ID where the `Service` resource was created.
   * `REGION`: the registry region.
 
 
@@ -361,6 +361,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

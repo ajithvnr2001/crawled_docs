@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workstations/docs/tutorial-schedule-workstation-operations-using-cloud-scheduler-cloud-run/
 title: Schedule Workstation operations using Cloud Scheduler and Cloud Run \u00a0|\u00a0 Cloud Workstations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:29.064776+00:00
+fetched_at: 2026-10-30T08:38:51.623040+00:00
 ---
 
 # Schedule Workstation operations using Cloud Scheduler and Cloud Run  |  Cloud Workstations  |  Google Cloud Documentation
@@ -328,7 +328,7 @@ To make sure that your jobs are working as expected, you can verify the jobs.
 
   1. Go to the **Cloud Scheduler** page in the Google Cloud console. 
 
-[Go to Cloud Scheduler](https://console.cloud.google.com/cloudscheduler)
+[Go to Cloud Scheduler](https://console.cloud.google.com/https://console.cloud.google.com/cloudscheduler)
 
 `workstation-pool-increaser-cron` should appear on the list of jobs.
 
@@ -345,7 +345,7 @@ To verify that the Workstation configurations are updated, do the following:
 
   1. Go to the **Workstation Configurations** page in the Google Cloud console. 
 
-[Go to Workstation Configurations](https://console.cloud.google.com/workstations/configurations)
+[Go to Workstation Configurations](https://console.cloud.google.com/https://console.cloud.google.com/workstations/configurations)
 
   2. Verify the **Quick start pool size** is 2.
 
@@ -421,7 +421,7 @@ To delete individual Cloud Scheduler resources,
 
   1. Go to the **Cloud Scheduler** page in the Google Cloud console.
 
-[Go to Cloud Scheduler](https://console.cloud.google.com/cloudscheduler)
+[Go to Cloud Scheduler](https://console.cloud.google.com/https://console.cloud.google.com/cloudscheduler)
 
   2. Click the checkboxes next to your jobs.
 
@@ -440,6 +440,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

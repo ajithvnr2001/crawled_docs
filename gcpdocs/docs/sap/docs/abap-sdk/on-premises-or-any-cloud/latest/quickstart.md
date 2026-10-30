@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/quickstart/
 title: Quickstarts for on-premises or any cloud edition of ABAP SDK for Google Cloud \u00a0|\u00a0 SAP on Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T11:12:24.932048+00:00
+fetched_at: 2026-10-30T08:55:41.446072+00:00
 ---
 
 # Quickstarts for on-premises or any cloud edition of ABAP SDK for Google Cloud  |  SAP on Google Cloud  |  Google Cloud Documentation
@@ -21,10 +21,10 @@ Send feedback
 
 #  Quickstarts for on-premises or any cloud edition of ABAP SDK for Google Cloud Stay organized with collections  Save and categorize content based on your preferences. 
 
-On-premises or any cloud edition v1.14keyboard_arrow_down
+On-premises or any cloud edition v1.15keyboard_arrow_down
 
   * [ SAP BTP edition v1.1 ](https://docs.cloud.google.com/sap/docs/abap-sdk/btp/latest/quickstart)
-  * [ On-premises or any cloud edition v1.14 ](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/quickstart)
+  * [ On-premises or any cloud edition v1.15 ](https://docs.cloud.google.com/sap/docs/abap-sdk/on-premises-or-any-cloud/latest/quickstart)
 
 
 

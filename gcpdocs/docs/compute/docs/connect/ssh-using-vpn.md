@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/connect/ssh-using-vpn/
 title: Connect to Linux VMs using Cloud VPN or Cloud Interconnect \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:58:59.870817+00:00
+fetched_at: 2026-10-30T08:53:04.420235+00:00
 ---
 
 # Connect to Linux VMs using Cloud VPN or Cloud Interconnect  |  Compute Engine  |  Google Cloud Documentation
@@ -23,13 +23,13 @@ Send feedback
 
 Linux 
 
-This document describes how to connect to a virtual machine (VM) instance through its internal IP address, from an on-premises network that uses [Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview) or [Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview) to connect to the VM's VPC network.
+This document describes how to connect to a virtual machine (VM) instance through its internal IP address, from an on-premises network that uses [Cloud VPN](https://docs.cloud.google.com/network-connectivity/docs/vpn/concepts/overview) or [Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/overview) to connect to the VM's Virtual Private Cloud (VPC) network.
 
-Connecting to a VM using its internal IP address is useful if the VM doesn't have an external IP address. If the VM does have an external IP address, [connect to the VM using its external IP address](https://docs.cloud.google.com/compute/docs/instances/connecting-to-instance). If your on-premises network isn't connected to your VM's VPC network and you need to connect to your VM's internal IP address, review the other methods listed in [Connection options for internal-only VMs](https://docs.cloud.google.com/compute/docs/connect/ssh-internal-ip).
+Connecting to a VM by using its internal IP address is useful if the VM doesn't have an external IP address. If the VM does have an external IP address, [connect to the VM by using its external IP address](https://docs.cloud.google.com/compute/docs/instances/connecting-to-instance). If your on-premises network isn't connected to your VM's VPC network and you need to connect to your VM's internal IP address, review the other methods listed in [Choose a connection option for internal-only VMs](https://docs.cloud.google.com/compute/docs/connect/ssh-internal-ip).
 
 ## Supported operating systems
 
-These connection methods are supported for all [public Linux images](https://docs.cloud.google.com/compute/docs/images/os-details) that are available on Compute Engine. For Fedora CoreOS images, you must [set up SSH access](https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-containers/) before you can use these methods.
+Compute Engine supports these connection methods for all [public Linux images](https://docs.cloud.google.com/compute/docs/images/os-details). For Fedora CoreOS images, you must [set up SSH access](https://docs.fedoraproject.org/en-US/fedora-coreos/getting-started/) before you can use these methods.
 
 ## Connect to VMs
 
@@ -37,7 +37,7 @@ To connect to a VM, complete the steps in one of the following tabs.
 
 ###  gcloud 
 
-Connect to a VM using SSH by running the [`gcloud compute ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh) with the [`--internal-ip` flag](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh#--internal-ip):
+Connect to a VM by using SSH and by running the [`gcloud compute ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh) with the [ `--internal-ip` flag](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh#--internal-ip):
 
   1. In the Google Cloud console, activate Cloud Shell.
 
@@ -47,13 +47,18 @@ At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.go
 
   2. Connect to the VM by running the following command:
          
-         gcloud compute ssh VM-NAME \
+         gcloud compute ssh INSTANCE_NAME \
+             --project=PROJECT_ID \
+             --zone=ZONE \
              --internal-ip
 
-Replace `VM_NAME` with the name of the VM that you want to connect to.
+Replace the following:
 
+     * `INSTANCE_NAME`: the name of the VM that you want to connect to.
+     * `PROJECT_ID`: the ID of the project that contains the VM.
+     * `ZONE`: the name of the zone that the VM is located in.
 
-**Note:** When you connect to VMs using the gcloud CLI, Compute Engine creates a persistent SSH key for you. For more information about SSH keys, see [SSH connections to Linux VMs](https://docs.cloud.google.com/compute/docs/instances/ssh).
+**Note:** When you connect to VMs by using the gcloud CLI, Compute Engine creates a persistent SSH key for you. For more information about SSH keys, see [SSH connections to Linux VMs](https://docs.cloud.google.com/compute/docs/instances/ssh).
 
 ###  IAP Desktop 
 
@@ -76,14 +81,14 @@ To connect to a VM using IAP Desktop, do the following:
 
 
 
-###  OpenSSH clients 
+###  OpenSSH client 
 
-Connect through a VM's internal IP address from an OpenSSH client, by doing the following:
+To connect through a VM's internal IP address from an OpenSSH client, do the following:
 
-  1. [Add an SSH key to the VM](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys) if you haven't already.
-  2. In the Google Cloud console, go to the **VM Instances** page and find the internal IP address of the VM that you want to connect to.
+  1. If you haven't already added an SSH key, [add an SSH key](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys) to the VM. 
+  2. In the Google Cloud console, go to the **VM instances** page and find the internal IP address of the VM that you want to connect to.
 
-[Go to VM Instances](https://console.cloud.google.com/compute/instances)
+[Go to VM instances](https://console.cloud.google.com/compute/instances)
 
   3. Open a terminal on your workstation.
   4. Connect to the VM by running the following command:
@@ -92,33 +97,33 @@ Connect through a VM's internal IP address from an OpenSSH client, by doing the 
 
 Replace the following:
 
-     * `PATH_TO_PRIVATE_KEY`: the path to the private SSH key file that corresponds to the public key you added to the VM.
-     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login). For example, `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
+     * `PATH_TO_PRIVATE_KEY`: the path to the private SSH key file that corresponds to the public key that you added to the VM, such as `~/.ssh/my-ssh-key`, or `~/.ssh/google_compute_engine` if the Google Cloud CLI generated the key.
+     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login), such as `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
      * `INTERNAL_IP`: the internal IP address of the VM. 
 
 
 
 ###  PuTTY app 
 
-Connect through a VM's internal IP address using PuTTY, by doing the following:
+To connect through a VM's internal IP address by using PuTTY, do the following:
 
-  1. [Add an SSH key](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys) to the VM if you haven't already.
-  2. If your workstation doesn't already have the PuTTY app installed, [download the PuTTY package files](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-  3. In the Google Cloud console, go to the **VM Instances** page and find the internal IP address of the VM that you want to connect to.
+  1. If you haven't already added an SSH key, [add an SSH key](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys) to the VM. 
+  2. If your workstation doesn't already have the PuTTY app installed, [ download the PuTTY package files](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+  3. In the Google Cloud console, go to the **VM instances** page and find the internal IP address of the VM that you want to connect to.
 
-[Go to VM Instances](https://console.cloud.google.com/compute/instances)
+[Go to VM instances](https://console.cloud.google.com/compute/instances)
 
   4. Open the PuTTY app. A connection configuration window opens.
-  5. In the `Host Name` field, enter the username associated with the SSH key, and the internal IP address of the VM that you want to connect to. Use the following format:
+  5. In the **Host Name (or IP address)** field, enter the username associated with the SSH key and the internal IP address of the VM that you want to connect to. Use the following format:
          
          USERNAME@INTERNAL_IP
 
 Replace the following:
 
-     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login). For example, `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
+     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login), such as `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
      * `INTERNAL_IP`: the internal IP address of the VM. 
-  6. In the **Category** menu, navigate to **Connection > SSH > Auth**.
-  7. In the **Private key file for authentication** field, select the private SSH key file that corresponds to the public key you added to the VM.
+  6. In the **Category** menu, go to **Connection > SSH > Auth > Credentials** (or **Connection > SSH > Auth** in PuTTY versions earlier than 0.78).
+  7. In the **Private key file for authentication** field, click **Browse** and select the private SSH key file (`.ppk`) that corresponds to the public key that you added to the VM.
   8. Click **Open** to connect to the VM.
 
 
@@ -139,6 +144,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

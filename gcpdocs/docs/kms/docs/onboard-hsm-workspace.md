@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/onboard-hsm-workspace/
 title: Onboard to Cloud HSM for Google Workspace \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:43.163406+00:00
+fetched_at: 2026-10-30T09:01:36.808855+00:00
 ---
 
 # Onboard to Cloud HSM for Google Workspace  |  Cloud Key Management Service  |  Google Cloud Documentation

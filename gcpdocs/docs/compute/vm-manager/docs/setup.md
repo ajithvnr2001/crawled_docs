@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/setup/
 title: Set up VM Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:06:37.622132+00:00
+fetched_at: 2026-10-30T08:40:14.455479+00:00
 ---
 
 # Set up VM Manager  |  Google Cloud Documentation
@@ -576,9 +576,9 @@ On your Google Cloud project or VM, set the `enable-osconfig` metadata value to 
   * Patch
   * OS policies
   * OS inventory management 
-    * For the earlier version of OS inventory management, you must also set the `enable-guest-attributes` metadata value to `TRUE`. If both metadata values are not set, the dashboard shows [`no data`](https://docs.cloud.google.com/compute/vm-manager/docs/patch#use-dashboard) for the VM. This is not needed for the later version. For information about the two OS inventory management versions, see [OS inventory management versions](https://docs.cloud.google.com/compute/vm-manager/docs/os-inventory/os-inventory-management#versions).
+    * For the earlier version of OS inventory management, you must also set the `enable-guest-attributes` metadata value to `TRUE`. If both metadata values aren't set, the dashboard shows [**No data**](https://docs.cloud.google.com/compute/vm-manager/docs/patch#use-dashboard) for the VM. This setting isn't needed for the later version. For information about the two OS inventory management versions, see [OS inventory management versions](https://docs.cloud.google.com/compute/vm-manager/docs/os-inventory/os-inventory-management#versions).
 
-
+**Note:** Even if you enable VM Manager in project-wide metadata, certain Google-managed VMs have VM Manager disabled by default. Examples of these Google-managed VMs include App Engine flexible environment, Serverless VPC Access connector, and Managed Service for Apache Spark instances. These VMs always report **No data** in the Patch dashboard. For more information, see [Patch status for Google-managed VMs](https://docs.cloud.google.com/compute/vm-manager/docs/patch#google-managed-vms).
 
 **Pro Tip:** After you have set the `enable-osconfig` metadata value to `TRUE`, you can disable the features that you don't need.
 
@@ -849,8 +849,6 @@ Use the [`project-info add-metadata`](https://docs.cloud.google.com/sdk/gcloud/r
 
 If you are disabling multiple features, the flag must have the format `--metadata=osconfig-disabled-features=FEATURE1,FEATURE2`. See example 2.
 
-**Examples**
-
 **Example 1** To disable Patch at the Google Cloud project level using the Google Cloud CLI, run the following command:
     
     
@@ -1035,6 +1033,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

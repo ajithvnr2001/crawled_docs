@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/agent-or-library/
 title: Which should you use: Logging agent or client library? \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:54.060804+00:00
+fetched_at: 2026-10-30T08:40:06.157272+00:00
 ---
 
 # Which should you use: Logging agent or client library?  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback
 
 #  Which should you use: Logging agent or client library? Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides the information that you need to help you decide whether to programmatically send application logs to Cloud Logging by using [client libraries](https://docs.cloud.google.com/logging/docs/reference/libraries) or by using a logging agent. Logging agents send data written to a file, such as `stdout` or a file, as logs to Cloud Logging. Services such as Google Kubernetes Engine, App Engine flexible environment, and Cloud Run functions, contain an integrated logging agent. For Compute Engine, you can install the [Ops Agent](https://docs.cloud.google.com/logging/docs/agent/ops-agent). This agent collects logs from known file locations or logging services like the `Windows Event Log`, `journald`, or `syslogd`.
+You can send application logs to Cloud Logging by using a logging agent or by calling [client libraries](https://docs.cloud.google.com/logging/docs/reference/libraries) directly from your code. Choosing the right approach for your runtime environment helps you collect logs reliably without adding unnecessary dependencies or operational overhead to your application.
 
-When you can't use a client library or a Logging agent, or when you only want to experiment, you can write logs by using the [`gcloud logging write`](https://docs.cloud.google.com/sdk/gcloud/reference/logging/write) command or by sending HTTP commands to the Cloud Logging API endpoint [`entries.write`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/entries/write). The [Cloud Logging API](https://docs.cloud.google.com/logging/docs/reference/api-overview) supports both HTTP and gRPC calls. The Ops Agent and most Logging client libraries call the gRPC Logging API. Client libraries for some languages call the REST Logging API.
+Logging agents collect data written to `stdout`, `stderr`, known file locations, or system logging services such as `Windows Event Log`, `journald`, or `syslogd`, and send that data to Logging. Services such as Google Kubernetes Engine, App Engine flexible environment, and Cloud Run functions include an integrated logging agent, while for Compute Engine, you can install the [Ops Agent](https://docs.cloud.google.com/logging/docs/agent/ops-agent).
+
+When you can't use a client library or a Logging agent, or when you only want to experiment, you can write logs by using the [`gcloud logging write`](https://docs.cloud.google.com/sdk/gcloud/reference/logging/write) command or by sending HTTP requests to the Cloud Logging API [`entries.write`](https://docs.cloud.google.com/logging/docs/reference/v2/rest/v2/entries/write) endpoint. The [Logging API](https://docs.cloud.google.com/logging/docs/reference/api-overview) supports both HTTP and gRPC calls: the Ops Agent and most Logging client libraries call the gRPC Logging API, while client libraries for some languages call the REST Logging API.
 
 ## Choosing an agent or client libraries
 
@@ -70,14 +72,14 @@ Are you collecting application metrics for Cloud Monitoring as well?
 
 In Compute Engine VMs, the Ops Agent can collect logs and most metrics. See [Ops Agent features](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent#features) for more information.
 
-If the Ops Agent doesn't address your use cases, then you can use the the [Monitoring client libraries](https://docs.cloud.google.com/monitoring/docs/reference/libraries) to collect your metrics.
+If the Ops Agent doesn't address your use cases, then you can use the [Monitoring client libraries](https://docs.cloud.google.com/monitoring/docs/reference/libraries) to collect your metrics.
 
 Does your application have the flexibility to change the log format?
     
 
 This question helps you decide if your application can generate [structured logs](https://docs.cloud.google.com/logging/docs/structured-logging). Logging recognizes structured logs if you send the logs to the Logging API in [the structured-logging format](https://docs.cloud.google.com/logging/docs/reference/v2/rpc/google.logging.v2#google.logging.v2.WriteLogEntriesRequest). Client libraries provide the methods for handling this format.
 
-There are two way of writing structured logs: one is to set [specific fields in the `LogEntry` envelope](https://docs.cloud.google.com/logging/docs/structured-logging#special-payload-fields), and the other is to set the [`jsonPayload` field within the `LogEntry` envelope](https://docs.cloud.google.com/logging/docs/structured-logging#use-gcloud). The schema for the former is determined by Cloud Logging, while the schema for the latter is determined by the user.
+There are two ways of writing structured logs: one is to set [specific fields in the `LogEntry` envelope](https://docs.cloud.google.com/logging/docs/structured-logging#special-payload-fields), and the other is to set the [`jsonPayload` field within the `LogEntry` envelope](https://docs.cloud.google.com/logging/docs/structured-logging#use-gcloud). The schema for the former is determined by Cloud Logging, while the schema for the latter is determined by the user.
 
 You must configure the agent to recognize [structured logs](https://docs.cloud.google.com/logging/docs/structured-logging). By default, the agents are configured to detect logs in JSON format and to handle them as structured logs. If your application has its own log format that you can't change, but you want the logs to be recognized as structured logs, then you must write logs in the structured-logging format, usually JSON, to `stdout` and `stderr`, so that the agents can recognize them as structured logs. Otherwise, you must configure your agent to understand your own format.
 
@@ -119,6 +121,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

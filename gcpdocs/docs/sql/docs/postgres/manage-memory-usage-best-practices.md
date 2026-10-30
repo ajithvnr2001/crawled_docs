@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/manage-memory-usage-best-practices/
 title: Best practices for managing memory usage \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:38:04.038469+00:00
+fetched_at: 2026-10-30T08:40:06.993732+00:00
 ---
 
 # Best practices for managing memory usage  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -24,22 +24,9 @@ Send feedback
 
 MySQL | PostgreSQL | SQL Server
 
-This page describes how to configure memory usage for a Cloud SQL instance.
+Configuring and monitoring memory usage for a Cloud SQL instance helps you prevent performance bottlenecks, out-of-memory issues, and database downtime. When you create an instance, you select an initial memory size, and you can tune memory-related database flags to keep the instance healthy as your PostgreSQL workload grows.
 
-## Introduction
-
-When you create a Cloud SQL instance, you select an amount of memory for the instance. As a PostgreSQL database's workload increases, the instance's memory usage increases. Instances that consume lots of memory can create a performance bottleneck that can sometimes lead to out-of-memory issues.
-
-When a Cloud SQL instance runs out of memory because of an increased demand, it can cause database downtime. Therefore, it's important to configure the instance memory and the memory-related database flags properly and monitor the memory usage so that the instance operates in a healthy state.
-
-PostgreSQL memory components are broadly divided into two sections:
-
-  * **Global memory:** this is shared across all processes to execute queries; for example, `shared_buffers` and `max_connections`.
-  * **Local memory:** this is dedicated memory assigned to each connection; for example, `work_mem`, `maintenance_work_mem`, and `temp_buffers`.
-
-
-
-For other configuration considerations, see [General best practices](https://docs.cloud.google.com/sql/docs/postgres/best-practices) and [Operational guidelines](https://docs.cloud.google.com/sql/docs/postgres/operational-guidelines).
+PostgreSQL divides memory components into global memory, which is shared across all processes to execute queries (for example, `shared_buffers` and `max_connections`), and local memory, which is dedicated to each connection (for example, `work_mem`, `maintenance_work_mem`, and `temp_buffers`). For other configuration considerations, see [General best practices](https://docs.cloud.google.com/sql/docs/postgres/best-practices) and [Operational guidelines](https://docs.cloud.google.com/sql/docs/postgres/operational-guidelines).
 
 ## Memory usage and flags
 
@@ -123,6 +110,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

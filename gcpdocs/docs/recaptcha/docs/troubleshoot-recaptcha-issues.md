@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/troubleshoot-recaptcha-issues/
 title: Troubleshoot reCAPTCHA integration issues \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:55.496208+00:00
+fetched_at: 2026-10-30T08:40:22.151427+00:00
 ---
 
 # Troubleshoot reCAPTCHA integration issues  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -27,9 +27,14 @@ This document lists common reCAPTCHA integration issues that developers might en
 
 **Note:** If you're an end user experiencing issues with reCAPTCHA visual challenges, ensure that your browser is up to date or try a different browser. If the problem persists, contact the website's support team.
 
-## Invalid site key
+## Invalid site key or invalid key type
 
-If you see the `Invalid site key` error, your reCAPTCHA site key is no longer valid. [Create a new key](https://docs.cloud.google.com/recaptcha/docs/create-key-website) and [install it on your web pages](https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages).
+If you see the `Invalid site key` or `Invalid key type` error, check the following:
+
+  * Verify that the key version in the Google Cloud console matches the version configured in your website or third-party CMS plugin (for example, `Website • score` for `v3`, or `Website • checkbox` for `v2 Checkbox`). To check your key version, see [View your key version in the Google Cloud console](https://docs.cloud.google.com/recaptcha/docs/reconcile-legacy-terminology#view-key-version).
+  * If your reCAPTCHA site key is deleted or no longer valid, [create a new key](https://docs.cloud.google.com/recaptcha/docs/create-key-website) and update your [CMS plugin](https://docs.cloud.google.com/recaptcha/docs/reconcile-legacy-terminology#integrate-cms) or [install the key on your web pages](https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages).
+
+
 
 ## Keys migration failure
 
@@ -52,7 +57,7 @@ This typically occurs if the reCAPTCHA widget HTML element is programmatically r
 
 ## Localhost is not in the list of supported domains
 
-Localhost domains are not supported by default. If you want to continue supporting them for development, you can add them to the list of supported domains for your site key. Go to the [Google Cloud console](https://console.cloud.google.com/security/recaptcha) to update your list of supported domains. We advise to use separate keys for development and production, and to only allow localhost on your development site key.
+Localhost domains are not supported by default. If you want to continue supporting them for development, you can add them to the list of supported domains for your site key. Go to the [Google Cloud console](https://console.cloud.google.com/security/recaptcha) to update your list of supported domains. We advise that you use separate keys for development and production, and to only allow localhost on your development site key.
 
 ## reCAPTCHA returned BROWSER_ERROR when creating an assessment
 
@@ -62,6 +67,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

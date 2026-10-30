@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workstations/docs/customize-container-images/
 title: Customize container images \u00a0|\u00a0 Cloud Workstations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:29.493904+00:00
+fetched_at: 2026-10-30T08:38:55.748317+00:00
 ---
 
 # Customize container images  |  Cloud Workstations  |  Google Cloud Documentation
@@ -27,14 +27,12 @@ For custom container images, we recommend setting up a pipeline to automatically
 
 ## Before you begin
 
-  1. You need a machine with tooling for building container images such as Docker, and for pushing images to [Artifact Registry](https://docs.cloud.google.com/artifact-registry) using the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install). You can use Cloud Workstations or Cloud Shell Editor for performing these steps, which have this tooling pre-installed.
+  1. You need a machine with tooling for building container images such as Docker, and for pushing images to [Artifact Registry](https://docs.cloud.google.com/artifact-registry) using the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install). You can use Cloud Workstations or Cloud Shell Editor for performing these steps, which have this tooling pre-installed. 
+  2. Select which base image you want to use from our [list of supported base images](https://docs.cloud.google.com/workstations/docs/preconfigured-base-images), such as `us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest`. 
 
-  2. Select which base image you want to use from our [list of supported base images](https://docs.cloud.google.com/workstations/docs/preconfigured-base-images), such as `us-central1-docker.pkg.dev/cloud-workstations-images/predefined/code-oss:latest`.
+Alternatively, you can use your own container image or use external container images by following the instructions to [Use your own container image](https://docs.cloud.google.com/workstations/docs/customize-container-images#use_your_own_container_image). 
 
-Alternatively, you can use your own container image or use external container images by following the instructions to [Use your own container image](https://docs.cloud.google.com/workstations/docs/customize-container-images#use_your_own_container_image).
-
-  3. Create a folder such as `CUSTOM_IMAGE_FOLDER` and a Dockerfile inside this folder extending the base image selected, as shown in the examples that follow.
-
+  3. Create a folder such as `CUSTOM_IMAGE_FOLDER` and a Dockerfile inside this folder extending the base image selected, as shown in the examples that follow. 
 
 
 
@@ -554,10 +552,8 @@ You're responsible for maintaining and updating custom packages and dependencies
 
 If you're creating custom images, we recommend the following:
 
-  * Run a container scanning tool such as [Artifact Analysis](https://docs.cloud.google.com/artifact-analysis/docs/artifact-analysis) to inspect any additional dependencies you added.
-
-  * [Schedule builds](https://docs.cloud.google.com/build/docs/schedule-builds) to rebuild images weekly, or learn how to [automate container image rebuilds](https://docs.cloud.google.com/workstations/docs/tutorial-automate-container-image-rebuild).
-
+  * Run a container scanning tool such as [Artifact Analysis](https://docs.cloud.google.com/artifact-analysis/docs/artifact-analysis) to inspect any additional dependencies you added. 
+  * [Schedule builds](https://docs.cloud.google.com/build/docs/schedule-builds) to rebuild images weekly, or learn how to [automate container image rebuilds](https://docs.cloud.google.com/workstations/docs/tutorial-automate-container-image-rebuild). 
 
 
 
@@ -573,6 +569,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

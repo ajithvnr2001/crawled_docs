@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/mongo-db/
 title: Collect MongoDB logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:47:14.502631+00:00
+fetched_at: 2026-10-30T08:53:00.439141+00:00
 ---
 
 # Collect MongoDB logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -231,7 +231,7 @@ Replace the following placeholders:
           chronicle/mongodb:
             compression: gzip
             creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
-            custom<er_id: '>;customer_id'
+            customer_id: '<customer_id>'
             endpoint: malachiteingestion-pa.googleapis.com
             log_type: MONGO_DB
             raw_log_field: body

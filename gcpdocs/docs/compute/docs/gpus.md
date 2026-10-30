@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/gpus/
 title: GPU machine types \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:39:05.988349+00:00
+fetched_at: 2026-10-30T08:52:43.675644+00:00
 ---
 
 # GPU machine types  |  Compute Engine  |  Google Cloud Documentation
@@ -386,23 +386,16 @@ During the [lifecycle of a Compute Engine instance](https://docs.cloud.google.co
 
 The following table describes the host maintenance features for N1 with attached GPU machine types:
 
-Machine type | Number of GPUs | Typical scheduled maintenance event frequency | Maintenance behavior | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
+Machine type | Number of GPUs | Typical scheduled maintenance event frequency | [Maintenance behavior](https://docs.cloud.google.com/compute/docs/instances/setting-vm-host-options#available_host_maintenance_properties) | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
 ---|---|---|---|---|---|---  
-N1+T4 | 1 or 2 | Minimum of 15 days | Terminate and restart | 7 days | No | Yes  
-N1+T4 | 4 | Minimum of 30 days | Terminate and restart | 7 days | Yes | Yes  
-N1+P4 | 1 or 2 | Minimum of 15 days | Terminate and restart | 7 days | No | Yes  
-N1+P4 | 4 | Minimum of 30 days | Terminate and restart | 7 days | Yes | Yes  
-N1+V100 | 1, 2, or 4 | Minimum of 15 days | Terminate and restart | 7 days | No | Yes  
-N1+V100 | 8 | Minimum of 30 days | Terminate and restart | 7 days | Yes | Yes  
+N1+T4 | 1 or 2 | Minimum of 15 days | Stop and restart | 7 days | No | Yes  
+N1+T4 | 4 | Minimum of 30 days | Stop and restart | 7 days | Yes | Yes  
+N1+P4 | 1 or 2 | Minimum of 15 days | Stop and restart | 7 days | No | Yes  
+N1+P4 | 4 | Minimum of 30 days | Stop and restart | 7 days | Yes | Yes  
+N1+V100 | 1, 2, or 4 | Minimum of 15 days | Stop and restart | 7 days | No | Yes  
+N1+V100 | 8 | Minimum of 30 days | Stop and restart | 7 days | Yes | Yes  
   
-The following notes apply to the preceding table:
-
-  * **Typical scheduled maintenance event frequency** : 
-
 The maintenance frequencies shown in the previous table are approximations, not guarantees. Compute Engine might occasionally perform maintenance more frequently.
-
-
-
 
 ## General comparison chart
 
@@ -562,6 +555,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

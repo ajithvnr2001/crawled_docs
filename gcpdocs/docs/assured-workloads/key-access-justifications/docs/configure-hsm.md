@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/assured-workloads/key-access-justifications/docs/configure-hsm/
 title: Configure Key Access Justifications with Cloud HSM \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:51:00.490932+00:00
+fetched_at: 2026-10-30T08:53:03.708373+00:00
 ---
 
 # Configure Key Access Justifications with Cloud HSM  |  Google Cloud Documentation
@@ -79,10 +79,10 @@ Request body:
     {
       "purpose": "PURPOSE",
       "versionTemplate": {
-        "protectionLevel&quot;: "HSM",
+        "protectionLevel": "HSM",
         "algorithm": "ALGORITHM"
       },
-      &quot;keyAccessJustificationsPolicy": {
+      "keyAccessJustificationsPolicy": {
         "allowedAccessReasons": [
           ALLOWED_ACCESS_REASONS
         ]
@@ -141,10 +141,10 @@ Request body:
     {
       "purpose": "PURPOSE",
       "versionTemplate": {
-        "protectionLevel&quot;: "HSM",
+        "protectionLevel": "HSM",
         "algorithm": "ALGORITHM"
       },
-      &quot;keyAccessJustificationsPolicy": {
+      "keyAccessJustificationsPolicy": {
         "allowedAccessReasons": [
           ALLOWED_ACCESS_REASONS
         ]

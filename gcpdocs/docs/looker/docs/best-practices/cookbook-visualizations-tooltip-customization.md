@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/best-practices/cookbook-visualizations-tooltip-customization/
 title: Getting the most out of Looker visualizations cookbook: Tooltip customization \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:10.304953+00:00
+fetched_at: 2026-10-30T08:58:25.116918+00:00
 ---
 
 # Getting the most out of Looker visualizations cookbook: Tooltip customization  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Getting the most out of Looker visualizations cookbook: Tooltip customization Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** This page is part of the [Looker cookbook: Getting the most out of Looker visualizations](https://docs.cloud.google.com/looker/docs/best-practices/cookbook-visualizations-in-looker).**Tip:** Starting in Looker 24.0, you can use the [Chart Config Editor](https://docs.cloud.google.com/looker/docs/chart-config-editor#customize_tooltip_color) to further customize tooltip style and color.**Tip:** Starting in Looker 26.4, the **Custom Tooltips** setting lets you configure tooltips within the [Explore visualization editor](https://docs.cloud.google.com/looker/docs/creating-visualizations#quick_guide) by using a combination of UI settings and an HTML editor that supports Liquid templating. [Learn more about custom tooltips](https://docs.cloud.google.com/looker/docs/custom-tooltips).
+**Note:** This page is part of the [Looker cookbook: Getting the most out of Looker visualizations](https://docs.cloud.google.com/looker/docs/best-practices/cookbook-visualizations-in-looker).**Tip:** Starting in Looker 26.4, the **Custom Tooltips** setting lets you configure tooltips within the [Explore visualization editor](https://docs.cloud.google.com/looker/docs/creating-visualizations#quick_guide) by using a combination of UI settings and an HTML editor that supports Liquid templating. [Learn more about custom tooltips](https://docs.cloud.google.com/looker/docs/custom-tooltips).
 
 The [visualization tooltip](https://docs.cloud.google.com/looker/docs/creating-visualizations#the_visualization_tooltip) displays the value of the selected dimensions and measures by default and can help users understand the significance of a single point of data.
 
@@ -33,7 +33,7 @@ However, what if you want to include fields _other_ than the default in the tool
 
 You can customize the tooltip to display values from multiple specified fields — including fields that are not in the Explore query.
 
-**Caution:** HTML formatting only renders in [table](https://docs.cloud.google.com/looker/docs/table-options), [table (legacy)](https://docs.cloud.google.com/looker/docs/legacy-table-options), and [single value](https://docs.cloud.google.com/looker/docs/single-value-options) chart visualizations and in visualization tooltips when multiple fields are combined. Any interactive content that is placed in a [map chart's](https://docs.cloud.google.com/looker/docs/map-options#viewing_map_charts_in_the_new_dashboard_experience) tooltip with the `html` parameter will not be accessible on dashboards that use the [new dashboard experience](https://docs.cloud.google.com/looker/docs/viewing-dashboards), although the content will be accessible on Looks and Explores.
+**Caution:** HTML formatting renders only in [table](https://docs.cloud.google.com/looker/docs/table-options), [table (legacy)](https://docs.cloud.google.com/looker/docs/legacy-table-options), [KPI (Single Value)](https://docs.cloud.google.com/looker/docs/kpi-single-value-options), and [single value (legacy)](https://docs.cloud.google.com/looker/docs/legacy-single-value-options) chart visualizations and in visualization [tooltips](https://docs.cloud.google.com/looker/docs/best-practices/cookbook-visualizations-tooltip-customization) when multiple fields are combined. Any interactive content that is placed in a [map chart's](https://docs.cloud.google.com/looker/docs/map-options#viewing_map_charts_in_the_new_dashboard_experience) tooltip with the `html` parameter won't be accessible on dashboards that use the [new dashboard experience](https://docs.cloud.google.com/looker/docs/viewing-dashboards), although it will be accessible on Looks and Explores.
 
 ## Ingredients
 
@@ -121,6 +121,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

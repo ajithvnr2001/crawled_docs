@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/enterprise/docs/connectors/connect-third-party-data-source/
 title: Connect a third-party data source \u00a0|\u00a0 Gemini Enterprise \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:59:28.597449+00:00
+fetched_at: 2026-10-30T08:40:02.674670+00:00
 ---
 
 # Connect a third-party data source  |  Gemini Enterprise  |  Google Cloud Documentation
@@ -157,7 +157,6 @@ Data source | Value for `allowedDataSources`
 [Pylon](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/pylon) | `pylon`  
 [Ramp](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/ramp-mcp) | `ramp_mcp`  
 [Relativity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/relativity) | `relativity`  
-[S&P Global - Adaptive Retrieval](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/s_p_global_adaptive_retrieval) | `s_p_global_adaptive_retrieval`  
 [S&P Global - Deterministic Retrieval](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/s_p_global) | `s_p_global`  
 [Salesforce](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/salesforce) | `salesforce`  
 [Sanity](https://docs.cloud.google.com/gemini/enterprise/docs/connectors/sanity) | `sanity`  

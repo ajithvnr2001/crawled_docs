@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/samples/kms-create-import-job/
 title: Create an import job \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:38.813297+00:00
+fetched_at: 2026-10-30T09:01:30.781449+00:00
 ---
 
 # Create an import job  |  Cloud Key Management Service  |  Google Cloud Documentation

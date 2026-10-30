@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/stages/transformation/unnest/
 title: Unnest (Transformation Stage) \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:57:00.803316+00:00
+fetched_at: 2026-10-30T08:40:02.230687+00:00
 ---
 
 # Unnest (Transformation Stage)  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -150,7 +150,7 @@ Android
     	UnnestWithAlias("arrayField", "unnestedArrayField", firestore.WithUnnestIndexField("index")).
     	Execute(ctx)
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/a023749b5bc7ba151a15c5e965e84896adcdb359/firestore/pipeline_snippets_general.go#L1820-L1823)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L1820-L1823)
 
 ### Non Array Values
 
@@ -403,7 +403,7 @@ Android
     //   "unnestedNeighbors": "Cathy", "index": 1 }
     // { "identifier": 3, "neighbors": "Bob", "index": nil}
     
-    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/a023749b5bc7ba151a15c5e965e84896adcdb359/firestore/pipeline_snippets_general.go#L1837-L1856)
+    [pipeline_snippets_general.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_general.go#L1837-L1856)
 
 ### Nested Unnest
 

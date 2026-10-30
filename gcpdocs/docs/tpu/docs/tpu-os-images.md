@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/tpu/docs/tpu-os-images/
 title: TPU OS images \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:40.462088+00:00
+fetched_at: 2026-10-30T08:37:04.618852+00:00
 ---
 
 # TPU OS images  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ The following table lists the Google-managed OS images for each supported TPU ve
 
 TPU version | OS version | Kernel version | Image project | Image family  
 ---|---|---|---|---  
-TPU7x (Ironwood) | `Ubuntu 24.04 LTS` | **6.17** | `ubuntu-os-accelerator-images` | `ubuntu-accel-2404-amd64-tpu-tpu7x`  
+TPU7x (Ironwood) | `Ubuntu 24.04 LTS` | **6.8** | `ubuntu-os-accelerator-images` | `ubuntu-accel-2404-amd64-tpu-tpu7x`  
 v6e (Trillium), v5p | `Ubuntu 22.04 LTS` | **6.8** | `ubuntu-os-accelerator-images` | `ubuntu-accel-2204-amd64-tpu-v5e-v5p-v6e`  
   
 ## Custom OS images
@@ -43,6 +43,8 @@ With Compute Engine, you can use a custom OS image for TPU VMs. Custom images ar
   * Applying custom kernel modifications or security configurations.
 
 
+
+TPU7x VMs require a minimum guest OS Linux kernel version of 6.8.
 
 ### Shared responsibility model
 
@@ -69,6 +71,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

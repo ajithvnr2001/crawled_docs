@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/bare-metal-hsm/
 title: Bare Metal HSM \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:06.789853+00:00
+fetched_at: 2026-10-30T09:01:42.937312+00:00
 ---
 
 # Bare Metal HSM  |  Cloud Key Management Service  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/patch/
 title: About Patch \u00a0|\u00a0 VM Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:01:43.058921+00:00
+fetched_at: 2026-10-30T08:40:14.295851+00:00
 ---
 
 # About Patch  |  VM Manager  |  Google Cloud Documentation
@@ -24,7 +24,7 @@ Send feedback
 
 **Note:** This page describes the Patch feature in VM Manager and how it works. To create patch jobs, see [Creating patch jobs](https://docs.cloud.google.com/compute/vm-manager/docs/patch/create-patch-job).
 
-Use Patch to apply operating system patches across a set of Compute Engine VM instances (VMs). Long running VMs require periodic system updates to protect against defects and vulnerabilities.
+Use Patch to apply operating system (OS) patches across a set of Compute Engine VM instances (VMs). Long running VMs require periodic system updates to protect against defects and vulnerabilities.
 
 The Patch feature has two main components:
 
@@ -230,40 +230,58 @@ In the Google Cloud console, a dashboard is available that you can use to monito
 
 [Go to the Patch page](https://console.cloud.google.com/compute/patch)
 
-[ ![Patch dashboard.](https://docs.cloud.google.com/static/compute/images/manage-os/os-patchdashboard.png)](https://docs.cloud.google.com/static/compute/images/manage-os/os-patchdashboard.png)
+![Patch dashboard.](https://docs.cloud.google.com/static/compute/images/manage-os/os-patchdashboard.png)
 
-### Understanding the Patch dashboard
+### Patch dashboard details
+
+The following sections describe how the Patch dashboard groups your VMs and reports their patch compliance status.
 
 #### Operating system overview
 
 This section reflects the total number of VMs, organized by operating system. For a VM to show up in this list, it must have the OS Config agent [installed](https://docs.cloud.google.com/compute/docs/manage-os#check-install) and OS inventory management [enabled](https://docs.cloud.google.com/compute/docs/manage-os#enable-metadata).
 
-[ ![Number of VMs card.](https://docs.cloud.google.com/static/compute/images/manage-os/number-of-vms.png)](https://docs.cloud.google.com/static/compute/images/manage-os/number-of-vms.png)
+![Number of VMs card.](https://docs.cloud.google.com/static/compute/images/manage-os/number-of-vms.png)
 
-If a VM is listed with its operating system as `No data`, one or more of the following scenarios might be true:
+If a VM is listed with its operating system as **No data** , then one or more of the following scenarios might be true:
 
   * The VM is unresponsive.
-  * OS Config agent is not installed.
-  * OS inventory management is not enabled.
-  * The operating system is not supported. For a list of supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#vm-manager).
+  * The OS Config agent isn't installed.
+  * OS inventory management isn't enabled.
+  * The operating system isn't supported. For a list of supported operating systems, see [Supported operating systems](https://docs.cloud.google.com/compute/docs/images/os-details#vm-manager).
+  * The VM is a Google-managed instance that has VM Manager disabled by default. This status is expected and requires no action. For more information, see Patch status for Google-managed VMs.
 
 
 
 #### Patch compliance status
 
-[ ![OS specific card.](https://docs.cloud.google.com/static/compute/images/manage-os/os-specific.png)](https://docs.cloud.google.com/static/compute/images/manage-os/os-specific.png)
+The Patch dashboard displays a compliance status card for each operating system:
 
-This section describes the compliance status of each VM, organized by operating system.
+![OS specific card.](https://docs.cloud.google.com/static/compute/images/manage-os/os-specific.png)
 
 Compliance status is categorized into four main categories:
 
-  * **Critical:** This means that a VM has critical updates available.
-  * **Important or security:** This means that a VM has important or security updates available.
-  * **Other:** This means that a VM has updates available, but none of these updates are categorized as a critical or security update.
-  * **Up-to-date:** This means that a VM has no updates available.
+  * **Critical** : A VM has critical updates available.
+  * **Important or security** : A VM has important or security updates available.
+  * **Other** : A VM has updates available, but none of these updates are categorized as a critical or security update.
+  * **Up-to-date** : A VM has no updates available.
 
 
 
+### Patch status for Google-managed VMs
+
+Certain Google-managed VMs in your project always report **No data** in the Patch dashboard because VM Manager is disabled on them by default. This status is expected and requires no action. VM Manager treats all Google-managed VMs in your project as regular VMs and includes them in the Patch dashboard. Depending on the service that creates the VM, VM Manager is either disabled by default or works the same way as it does on VMs that you manage. When VM Manager is disabled by default on a Google-managed VM, the OS Config agent isn't enabled on the VM, and VM Manager doesn't run patch jobs or OS policies for it.
+
+The following table describes how Google-managed VMs integrate with VM Manager:
+
+Platform | VM Manager enablement status | Expected behavior  
+---|---|---  
+App Engine flexible environment | Disabled in the metadata | The OS Config agent isn't enabled on these VMs, so they always report **No data**. VM Manager doesn't run patch jobs or OS policies for these VMs.  
+Serverless VPC Access connector | Disabled on the OS image | The OS Config agent isn't enabled on these VMs, so they always report **No data**. VM Manager doesn't run patch jobs or OS policies for these VMs.  
+Managed Service for Apache Spark serverless | Disabled on the OS image | The OS Config agent isn't enabled on these VMs, so they always report **No data**. VM Manager doesn't run patch jobs or OS policies for these VMs.  
+Managed Service for Apache Spark personal authentication clusters | Disabled on the OS image | The OS Config agent isn't enabled on these VMs, so they always report **No data**. VM Manager doesn't run patch jobs or OS policies for these VMs.  
+Cloud TPU with 1-VM architecture | Not disabled | VM Manager works the same way as it does on VMs that you manage.  
+Google Kubernetes Engine (GKE) Autopilot | Not disabled | VM Manager works the same way as it does on VMs that you manage.  
+  
 ## Limitations
 
 The Patch feature in VM Manager has the following limitations:
@@ -272,6 +290,7 @@ The Patch feature in VM Manager has the following limitations:
   * By default, VM Manager does not patch any VMs that are part of a managed instance group (MIG). You can override this default behavior when you create the patch job. The following limitations apply when you patch VMs that are part of a MIG: 
     * When a [MIG repairs a VM](https://docs.cloud.google.com/compute/docs/instance-groups/about-repair), it recreates the VM based on the instance template. This might revert the VM to an unpatched state.
     * Patching VMs can cause unexpected results in a MIG that has autoscaling enabled. Autoscaler deletes patched VMs when the load goes down and creates new, unpatched VMs using MIG's instance template when the load increases. For example, if the average CPU utilization is less than the target utilization you specified for autoscaling, MIG can remove some of the patched VMs while scaling in.
+  * VM Manager doesn't run patch jobs or OS policies for certain Google-managed VMs because the OS Config agent isn't enabled on them by design. Examples of these VMs include App Engine flexible environment, Serverless VPC Access connector, and Managed Service for Apache Spark instances. These VMs always appear as **No data** in the Patch dashboard, which is expected and requires no action. For more information, see Patch status for Google-managed VMs.
 
 
 
@@ -287,6 +306,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

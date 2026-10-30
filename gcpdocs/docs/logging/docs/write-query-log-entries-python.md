@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/logging/docs/write-query-log-entries-python/
 title: Quickstart: Write and query log entries using a Python script \u00a0|\u00a0 Cloud Logging \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:38.724726+00:00
+fetched_at: 2026-10-30T08:40:06.772942+00:00
 ---
 
 # Quickstart: Write and query log entries using a Python script  |  Cloud Logging  |  Google Cloud Documentation
@@ -21,24 +21,7 @@ Send feedback  Stay organized with collections  Save and categorize content base
 
 # Write and query log entries using a Python script
 
-This quickstart introduces you to some of the capabilities of Cloud Logging and shows you how to do the following:
-
-  * Write log entries using a Python script.
-  * View log entries using a Python script.
-  * Delete log entries using a Python script.
-  * Route logs to a Cloud Storage bucket.
-
-
-
-Logging can route log entries to the following destinations:
-
-  * Cloud Storage buckets
-  * BigQuery datasets
-  * Pub/Sub
-  * Logging buckets
-  * Google Cloud projects
-
-
+The Cloud Logging client library for Python lets you programmatically write, query, and manage log entries so that you can monitor and troubleshoot your applications. In this quickstart, you use a Python script to write, view, and delete log entries, and you configure a sink to route logs to a Cloud Storage bucket. In addition to Cloud Storage buckets, Logging lets you route log entries to BigQuery datasets, Pub/Sub, Logging buckets, and other Google Cloud projects.
 
 ## Before you begin
 
@@ -146,7 +129,7 @@ If you use the search bar to find this page, then select the result whose subhea
         * Click **Create new key**.
         * For the **Key type** , select **JSON** and then click **Create**. After a moment, a window displays a message similar to the following:
 
-![Private key saved save to your computer.](https://docs.cloud.google.com/static/logging/docs/images/key-saved-20181124.png)
+![Private key saved to your computer.](https://docs.cloud.google.com/static/logging/docs/images/key-saved-20181124.png)
 
   4. On your Linux workstation, provide your authentication credentials to your application by setting the environment variable `GOOGLE_APPLICATION_CREDENTIALS` to the path to your key file. For example:
          
@@ -444,6 +427,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

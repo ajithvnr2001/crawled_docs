@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/document-ai/docs/ce-with-genai/
 title: Custom extractor with generative AI \u00a0|\u00a0 Document AI \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:58:54.210484+00:00
+fetched_at: 2026-10-30T08:25:58.733330+00:00
 ---
 
 # Custom extractor with generative AI  |  Document AI  |  Google Cloud Documentation
@@ -142,11 +142,12 @@ With fine-tuning, you use hundreds or thousands of documents for your training.
 **Note:** Fine-tuning will tune a foundation model, which is recommended, while **Train a custom model** will train a conventional non-Generative AI based model.
      * Try out the default training parameters or values provided. If the results are unsatisfactory, experiment with these advanced options:
 
-     * Training steps (between 100 and 400): Controls how often the weights are optimized on a batch of data during the tuning.
+     * Training steps (between 1 and 400): Also known as epochs, training steps control how often the weights are optimized on a batch of data during the tuning.
 
        * Too low indicates a risk that the training ends before convergence (under-fitting).
        * Too high means the model might see the same batch of data multiple times during the training, which can lead to overfitting.
        * Fewer steps leads to faster training time. Higher counts can help for documents with little template variation (and lower ones for those with more variation).
+**Note:** The Google Cloud console supports 1 to 40 training steps. To set higher values, use the REST API.
      * Learning rate multiplier (between 0.1 and 10): Controls how quickly the model parameters are optimized on the training data. It roughly corresponds to the size of each training step.
 
        * Low rates mean small changes in the model weights at each training step. If too low, the model might not converge to a stable solution.
@@ -437,6 +438,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/create-ekm-connection/
 title: Create an EKM connection \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:38.497974+00:00
+fetched_at: 2026-10-30T09:01:48.742662+00:00
 ---
 
 # Create an EKM connection  |  Cloud Key Management Service  |  Google Cloud Documentation

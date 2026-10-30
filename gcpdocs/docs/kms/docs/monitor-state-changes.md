@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/monitor-state-changes/
 title: Monitor state changes using Pub/Sub \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:43.668508+00:00
+fetched_at: 2026-10-30T09:01:32.516642+00:00
 ---
 
 # Monitor state changes using Pub/Sub  |  Cloud Key Management Service  |  Google Cloud Documentation

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/auth-policy/set-up-auth-policy-app-lb/
 title: Set up authorization policies for Application Load Balancers \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:55:46.987332+00:00
+fetched_at: 2026-10-30T08:40:16.310357+00:00
 ---
 
 # Set up authorization policies for Application Load Balancers  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -139,12 +139,13 @@ Replace the following:
 
      * `LB_SCHEME`: the load balancing scheme. For regional external Application Load Balancers, set the scheme to `EXTERNAL_MANAGED`. For regional internal Application Load Balancers, set the scheme to `INTERNAL_MANAGED`.
      * `PROJECT_ID`: the ID of your Google Cloud project.
+     * `LOCATION`: your Google Cloud region.
      * `LB_FORWARDING_RULE`: the name of the load balancer's forwarding rule.
   2. Create the authorization policy by importing the authorization policy YAML file using the [gcloud network-security authz-policies import command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import).
          
          gcloud network-security authz-policies import my-authz-policy-deny \
              --source=authz-policy-deny.yaml \
-             --location=global
+             --location=LOCATION
          
 
 
@@ -158,7 +159,7 @@ This section provides an authorization policy example that denies requests based
 
   1. Define the authorization policy in a YAML file.
 
-The following example creates an `authz-policy-deny.yaml` file for the forwarding rule `LB_FORWARDING_RULE` in the `global` location.The policy denies access to the `/api/payments` URL path to clients that have `www.example.com` in their client certificate DNS name SANs.
+The following example creates an `authz-policy-deny.yaml` file for the forwarding rule `LB_FORWARDING_RULE` in the `global` location. The policy denies access to the `/api/payments` URL path to clients that have `www.example.com` in their client certificate DNS name SANs.
          
          cat >authz-policy-deny.yaml <<EOF
          name: my-authz-policy-deny
@@ -232,7 +233,7 @@ Replace the following:
      * `LB_FORWARDING_RULE`: the name of the load balancer's forwarding rule.
   2. Create the authorization policy by importing the authorization policy YAML file using the [gcloud network-security authz-policies import command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import).
          
-         gcloud beta network-security authz-policies import my-authz-policy-deny \
+         gcloud network-security authz-policies import my-authz-policy-deny \
              --source=authz-policy-deny.yaml \
              --location=LOCATION
          
@@ -324,7 +325,7 @@ Replace the following:
      * `LB_FORWARDING_RULE`: the name of the load balancer's forwarding rule.
   2. Create the authorization policy by importing the authorization policy YAML file using the [gcloud network-security authz-policies import command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import).
          
-         gcloud beta network-security authz-policies import my-authz-policy-allow \
+         gcloud network-security authz-policies import my-authz-policy-allow \
              --source=authz-policy-allow.yaml \
              --location=LOCATION
          
@@ -380,7 +381,7 @@ Replace the following:
      * `LB_FORWARDING_RULE`: the name of the load balancer's forwarding rule.
   2. Create the authorization policy by importing the authorization policy YAML file using the [gcloud network-security authz-policies import command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import).
          
-         gcloud beta network-security authz-policies import my-authz-policy-deny \
+         gcloud network-security authz-policies import my-authz-policy-deny \
              --source=authz-policy-deny.yaml \
              --location=LOCATION
          
@@ -426,7 +427,7 @@ Replace the following:
      * `TAG_VALUE_PERMANENT_ID`: the [permanent ID](https://docs.cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value) of a tag value.
   2. Create the authorization policy by importing the authorization policy YAML file using the [gcloud network-security authz-policies import command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import).
          
-         gcloud beta network-security authz-policies import my-authz-policy-allow \
+         gcloud network-security authz-policies import my-authz-policy-allow \
              --source=authz-policy-allow.yaml \
              --location=LOCATION
          
@@ -604,7 +605,7 @@ Replace the following:
      * `LB_FORWARDING_RULE`: the name of the load balancer's forwarding rule.
   4. Create the authorization policy by importing the authorization policy YAML file using the [`gcloud network-security authz-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import).
          
-         gcloud beta network-security authz-policies import my-authz-policy-custom \
+         gcloud network-security authz-policies import my-authz-policy-custom \
              --source=authz-policy-custom.yaml \
              --location=LOCATION
          
@@ -649,9 +650,9 @@ Replace the following:
      * PROJECT_ID: the ID of the project that the template belongs to
      * RESPONSE_TEMPLATE_ID: ID of the response template
      * REQUEST_TEMPLATE_ID: the ID of the request template
-  2. Create the authorization extension by importing the authorization extension YAML file using the [`gcloud beta service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/service-extensions/authz-extensions/import).
+  2. Create the authorization extension by importing the authorization extension YAML file using the [`gcloud service-extensions authz-extensions import` command](https://docs.cloud.google.com/sdk/gcloud/reference/service-extensions/authz-extensions/import).
          
-         gcloud beta service-extensions authz-extensions import my-authz-ext \
+         gcloud service-extensions authz-extensions import my-authz-ext \
            --source=authz-extension.yaml \
            --location=LOCATION
          
@@ -682,9 +683,9 @@ Replace the following:
      * `PROJECT_ID`: the ID of your Google Cloud project.
      * `LOCATION`: the Google Cloud region.
      * `LB_FORWARDING_RULE`: the name of the load balancer's forwarding rule.
-  4. Create the authorization policy by importing the authorization policy YAML file using the [`gcloud beta network-security authz-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/network-security/authorization-policies/import).
+  4. Create the authorization policy by importing the authorization policy YAML file using the [`gcloud network-security authz-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import).
          
-         gcloud beta network-security authz-policies import my-authz-policy-custom \
+         gcloud network-security authz-policies import my-authz-policy-custom \
            --source=authz-policy-custom.yaml \
            --location=LOCATION
          
@@ -790,7 +791,7 @@ Replace the following:
      * `LB_FORWARDING_RULE`: the name of the load balancer's forwarding rule.
   4. Create the authorization policy by importing the authorization policy YAML file using the [`gcloud network-security authz-policies import` command](https://docs.cloud.google.com/sdk/gcloud/reference/network-security/authorization-policies/import).
          
-         gcloud beta network-security authz-policies import my-authz-policy-custom \
+         gcloud network-security authz-policies import my-authz-policy-custom \
              --source=authz-policy-custom.yaml \
              --location=LOCATION
          
@@ -1035,6 +1036,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/visualization-guide/
 title: Selecting an effective data visualization \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:28.407369+00:00
+fetched_at: 2026-10-30T08:58:23.208780+00:00
 ---
 
 # Selecting an effective data visualization  |  Looker  |  Google Cloud Documentation
@@ -20,16 +20,6 @@ fetched_at: 2026-10-27T23:16:28.407369+00:00
 Send feedback 
 
 #  Selecting an effective data visualization Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Note:** Ask your admin to enable the new [**KPI Visualization** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#kpi-visualization), which lets you do the following: 
-
-  * Add secondary visualizations: Users can add a sparkline or bar chart within a visualization to show trends or distributions related to the primary KPI. 
-  * Show enhanced comparisons: Users can specify and compare a primary value against any other measure in an Explore query, using data from the first row, second row, last row, or totals row. 
-  * Access improved styling options: Users have more control over the appearance of the visualization, including background color of the tile, and the alignment of the values. 
-
-
-
-Learn more about the new [KPI (Single Value) Visualization](https://docs.cloud.google.com/looker/docs/kpi-single-value-options). 
 
 _Data visualization_ refers to any visual representation of compiled information. With an effective data visualization, you can communicate key themes and results to your audiences, empowering them to interpret and analyze data that has been customized for their needs. Before you can begin [creating visualizations and graphs](https://docs.cloud.google.com/looker/docs/creating-visualizations), you need to select the type of visualization you will use. Selecting the appropriate visualization type helps you present your data clearly and effectively, allowing your audience to make informed decisions and determine next steps. The following sections describe how data can be effectively visualized in a way that centers on both your analytic objectives and your audience's perspectives:
 
@@ -90,6 +80,7 @@ The x-axis and y-axis reflect [dimensions](https://docs.cloud.google.com/looker/
 
   * Column
   * Bar
+  * Bullet
   * Scatterplot
   * Line
   * Area
@@ -123,6 +114,18 @@ The following example of a bar chart highlights how longer clothing category tit
 ![Bar chart with Monthly Orders on the x-axis and Clothing Category on the y-axis.](https://docs.cloud.google.com/static/looker/docs/images/bar-chart-viz-2214.png)
 
 To learn more about creating bar charts in Looker, see the [Bar chart options](https://docs.cloud.google.com/looker/docs/bar-options) documentation page.
+
+#### Bullet
+
+**Best for evaluating a single primary metric against a target value.**
+
+_Bullet charts_ evaluate a single primary metric's performance as one or more bars, marks your goal with a target line, and plots both against shaded background ranges that represent performance thresholds (like "poor," "satisfactory," and "good"). Bullet charts let you instantly assess both the metric's progress and its overall performance at a glance without cluttering your dashboard.
+
+The following example of a bullet chart highlights how a metric's performance can be measured against key performance indicators. This chart shows the number of orders received for July 22, 2026 (44 orders), against a "poor" range of 5 orders, an "average" range of 25 orders, and a target of 40 orders.
+
+![ ](https://docs.cloud.google.com/static/looker/docs/images/bullet-chart-2614-example.png)
+
+To learn more about this type of Cartesian visualization, see the [Bullet chart options](https://docs.cloud.google.com/looker/docs/bullet-options) documentation page.
 
 #### Scatterplot
 
@@ -265,25 +268,27 @@ See the [Waterfall chart options](https://docs.cloud.google.com/looker/docs/wate
 
 When you have meaningful text data to display, selecting text and table displays will highlight the impact of the words. The display of these words can vary — from highlighting a single value to displaying a complex arrangement of words throughout a dataset. This section includes some of the many examples of types of visualization for text and tables:
 
-  * Single Value
+  * KPI (Single Value)
   * Single Record
   * Word Cloud
 
 
 
-#### Single Value
+#### KPI (Single Value)
 
-**Best for visualizing an isolated piece of data.**
+**Best for visualizing a primary key metric alongside contextual trends and comparisons.**
 
-A single value chart highlights an individual value from a dataset. Visualizing a value in this way highlights its significance and importance to a larger dataset.
+A KPI (Single Value) chart highlights a key performance indicator from a dataset, such as total revenue, active user count, or conversion rate. Visualizing a metric in this way emphasizes its business significance and provides an immediate, at-a-glance summary.
 
-When creating a single value chart, select a value that has significance to the audience and reflects your goals for the visualization. Additionally, ensure that the font family and size customization emphasize the value rather than distracting from or minimizing the data.
+When creating a KPI chart, choose a primary metric that aligns with your key performance goals. You can enhance the metric by adding secondary visualizations — such as sparklines or progress bars — to display trends over time and configure comparisons against other values in your query to evaluate performance.
 
-The following single value example highlights the number of yearly customers from California, which is 118,126 people.
+The following KPI visualization example highlights a primary KPI value alongside a progress bar and a sparkline visualization.
 
-![Single value chart showing the number of yearly customers from California.](https://docs.cloud.google.com/static/looker/docs/images/single-value-viz-2214.png)
+![A KPI visualization with a progress bar and a sparkline.](https://docs.cloud.google.com/static/looker/docs/images/kpi-vis-example-2610.png)
 
-See the [Single Value chart options](https://docs.cloud.google.com/looker/docs/single-value-options) documentation page for more information about customizing this chart in Looker.
+See the [KPI (Single Value) chart options](https://docs.cloud.google.com/looker/docs/kpi-single-value-options) documentation page for more information about customizing this chart in Looker.
+
+See the [Single value (legacy) chart options](https://docs.cloud.google.com/looker/docs/single-value-options) documentation page for more information about creating this visualization in Looker if you don't see the KPI (Single Value) chart option.
 
 #### Single Record
 
@@ -340,7 +345,7 @@ The following heatmap Google Maps visualization displays the number of products 
 
 ![Heatmap Google Maps chart showing the amount of products sold per month in zip codes in the United States.](https://docs.cloud.google.com/static/looker/docs/images/google-maps-chart-viz-2214.png)
 
-To learn more about the Google Maps feature, see the [Google Maps chart options](https://docs.looker.com/exploring-data/visualizing-query-results/google-map-options) documentation page.
+To learn more about the Google Maps feature, see the [Google Maps chart options](https://docs.cloud.google.com/looker/docs/google-map-options) documentation page.
 
 #### Map
 
@@ -405,8 +410,8 @@ To learn more about boxplots and customizing them in Looker, see the [Boxplot ch
 
 In addition to the existing visualizations that are available in Looker, you can also create custom visualization to display your data. You can implement custom visualizations in these ways:
 
-  * Adding the custom visualization to create custom visualizations with the [`visualization` parameter](https://docs.looker.com/reference/manifest-params/visualization) in the project manifest file
-  * Installing the visualization from the [Looker Marketplace](https://docs.looker.com/data-modeling/marketplace) directly
+  * Adding the custom visualization to create custom visualizations with the [`visualization` parameter](https://docs.cloud.google.com/looker/docs/reference/param-manifest-visualization) in the project manifest file
+  * Installing the visualization from the [Looker Marketplace](https://docs.cloud.google.com/looker/docs/marketplace) directly
   * Installing the visualization from the **[Visualization](https://docs.cloud.google.com/looker/docs/admin-panel-platform-visualizations)** page in the **Admin** section of Looker
 
 
@@ -419,6 +424,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

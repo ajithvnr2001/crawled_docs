@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/build/docs/access-github-from-build/
 title: Accessing GitHub from a build via SSH keys \u00a0|\u00a0 Cloud Build \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:47:20.747467+00:00
+fetched_at: 2026-10-30T08:53:01.042439+00:00
 ---
 
 # Accessing GitHub from a build via SSH keys  |  Cloud Build  |  Google Cloud Documentation
@@ -227,8 +227,8 @@ To configure the build:
            entrypoint: 'bash'
            args:
            - -c
-           ->> |
-             echo "$$SSH_KEY"  /root/.ssh/id_rsa
+           - |
+             echo "$$SSH_KEY" >> /root/.ssh/id_rsa
              chmod 400 /root/.ssh/id_rsa
              cp known_hosts.github /root/.ssh/known_hosts
            volumes:

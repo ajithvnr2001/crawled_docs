@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/register-agents/
 title: Register agents \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:24:31.135893+00:00
+fetched_at: 2026-10-30T08:40:13.462572+00:00
 ---
 
 # Register agents  |  Agent Registry  |  Google Cloud Documentation
@@ -27,7 +27,7 @@ Agent Registry integrates with versions `0.3` and `1.0` of the open source [Agen
 
 ## Automatic registration
 
-Supported Google Cloud runtimes register your agents automatically, and built-in Google agents are discoverable without configuration. Within the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled, automatic registration happens either by default or through an opt-in deployment step. The registration process operates at the project level and doesn't automatically discover remote agents deployed in other Google Cloud projects.
+Supported Google Cloud runtimes register your agents automatically, and built-in Google agents are discoverable without configuration. Within the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled, automatic registration happens either by default or through an opt-in deployment step. By default, the registration process operates at the project level. To automatically aggregate agents across multiple Google Cloud projects, configure a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology).
 
 For information about Google Cloud runtimes that support automatic registration and the metadata indexed for automatically registered agents, see [Use automatic registration for agents](https://docs.cloud.google.com/agent-registry/automatic-registration).
 
@@ -43,7 +43,9 @@ To learn how to manually register A2A-compliant and standard REST agents, see [U
 
 If your organization uses a centralized governance architecture with [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview), such as the multi-project pattern described in [Sample deployment patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#deployment-patterns), you can deploy a gateway in [Agent-to-Anywhere egress mode](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#modes) in a central [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled, while deploying agents in separate Google Cloud projects.
 
-Because automatic registration only discovers resources in the governance project where Agent Registry is enabled, it doesn't automatically discover remote agents deployed in other Google Cloud projects. To let the central gateway locate and govern those remote agents, you must manually register each remote agent in the central governance project's registry. For instructions, see [Register an agent from another project](https://docs.cloud.google.com/agent-registry/manual-registration#cross-project).
+If you configure a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), Agent Registry automatically aggregates supported agents from member projects into your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project).
+
+Without a management boundary, automatic registration only discovers resources in the governance project where Agent Registry is enabled. To let a central gateway locate and govern remote agents in other Google Cloud projects, you must manually register each remote agent in the central governance project's registry. For instructions, see [Register an agent from another project](https://docs.cloud.google.com/agent-registry/manual-registration#cross-project).
 
 ## Integrate standalone skills
 
@@ -55,6 +57,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

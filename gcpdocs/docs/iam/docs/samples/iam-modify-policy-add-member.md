@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-modify-policy-add-member/
 title: Add a principal to a role binding \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:29:43.177507+00:00
+fetched_at: 2026-10-30T08:32:52.116788+00:00
 ---
 
 # Add a principal to a role binding  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

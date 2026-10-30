@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/create-key-website/
 title: Create reCAPTCHA keys for websites \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:49.881968+00:00
+fetched_at: 2026-10-30T08:45:07.889213+00:00
 ---
 
 # Create reCAPTCHA keys for websites  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 #  Create reCAPTCHA keys for websites Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains how to create reCAPTCHA keys to verify user interactions on your web pages.
+You can create reCAPTCHA keys to verify user interactions on your web pages.
 
 reCAPTCHA keys represent how reCAPTCHA is configured for a website. The configuration includes important options such as whether to show CAPTCHA challenges.
 
@@ -40,27 +40,6 @@ reCAPTCHA keys represent how reCAPTCHA is configured for a website. The configur
 There is no limit on the number of reCAPTCHA keys that you can create for a Google Cloud project. It is best to create one reCAPTCHA key per website.
 
 We recommend creating separate reCAPTCHA keys for staging and production environments. Otherwise, you risk polluting reCAPTCHA risk analysis with data from your test environment.
-
-The simplest way to create a reCAPTCHA key is through the reCAPTCHA Admin console. Alternatively, you can use the Google Cloud console, reCAPTCHA Enterprise API, or the Google Cloud CLI.
-
-### Admin console
-
-  1. Go to the Google Cloud Fraud Defense Admin console.
-
-[Go to Fraud Defense admin console](https://www.google.com/recaptcha/admin/create)
-
-  2. In the **Label** field, enter a name that you can use to identify your site.
-  3. If you want to create a score-based key, select **Score based (v3)**. If you want to create a checkbox key, select **Challenge (v2)**.
-  4. To add a domain, enter your domain name and click  add . 
-
-To add an additional domain, you can repeat this step. You can add up to a maximum of 250 domains.
-
-  5. If you are new to the Google Cloud console, then read the terms of service, and select the checkbox.
-  6. Click **Submit**.
-
-
-
-If you are new to the Google Cloud console, then a Google Cloud project is created and the necessary APIs are enabled for you to get started. If you already have a Google Cloud project, then the necessary APIs are enabled for your project to get started.
 
 ### Cloud console
 
@@ -156,6 +135,25 @@ The newly created key is listed on the **reCAPTCHA keys** page.
 
 
 
+
+### Admin console
+
+  1. Go to the Google Cloud Fraud Defense Admin console.
+
+[Go to Fraud Defense admin console](https://www.google.com/recaptcha/admin/create)
+
+  2. In the **Label** field, enter a name that you can use to identify your site.
+  3. If you want to create a score-based key, select **Score based (v3)**. If you want to create a checkbox key, select **Challenge (v2)**.
+  4. To add a domain, enter your domain name and click  add . 
+
+To add an additional domain, you can repeat this step. You can add up to a maximum of 250 domains.
+
+  5. If you are new to the Google Cloud console, then read the terms of service, and select the checkbox.
+  6. Click **Submit**.
+
+
+
+If you are new to the Google Cloud console, then a Google Cloud project is created and the necessary APIs are enabled for you to get started. If you already have a Google Cloud project, then the necessary APIs are enabled for your project to get started.
 
 ### gcloud
 
@@ -315,7 +313,7 @@ You should receive a JSON response similar to the following:
 
 ## (Optional) Find a legacy reCAPTCHA secret key
 
-If you want to integrate with a third-party application that does not use the reCAPTCHA Enterprise API, you need the legacy secret key.
+If you want to integrate with a third-party application or content management system (CMS) plugin (such as WordPress or Shopify) that doesn't use the reCAPTCHA Enterprise API, you need a key that matches the version supported by the plugin (`v2` or `v3`) and the key's legacy secret key. For more information about checking your key version and configuring CMS plugins, see [Reconcile Admin Console and Google Cloud console terminology](https://docs.cloud.google.com/recaptcha/docs/reconcile-legacy-terminology).
 
 For every site key that you create, reCAPTCHA creates a legacy reCAPTCHA secret key (legacy secret key), which you can use with your third-party application.
 
@@ -337,7 +335,7 @@ To find the legacy secret key, do the following:
 
 ![](https://docs.cloud.google.com/static/recaptcha/images/legacy-key1.png)![](https://docs.cloud.google.com/static/recaptcha/images/legacy-key1.png)
 
-  4. On the **Key Details** page, under the **Integration** tab, click **Use Legacy Key**. A dialog opens with instructions on how to use the legacy secret key.
+  4. On the **Key details** page, go to the **Integration** tab, and then click **Use legacy key** or **Integrate with a third-party service or plugin**. A dialog opens with your legacy secret key.
 
 ![](https://docs.cloud.google.com/static/recaptcha/images/legacy-key-location.png)![](https://docs.cloud.google.com/static/recaptcha/images/legacy-key-location.png)
 
@@ -346,6 +344,7 @@ To find the legacy secret key, do the following:
 
 ## What's next
 
+  * [Reconcile Admin Console and Google Cloud console terminology](https://docs.cloud.google.com/recaptcha/docs/reconcile-legacy-terminology).
   * [Install score-based keys on your web pages](https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages).
   * [Install checkbox keys on your web pages](https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages-with-checkbox).
   * [Install policy-based challenge keys on your web pages](https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages-policy).
@@ -356,6 +355,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

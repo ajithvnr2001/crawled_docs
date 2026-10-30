@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/deploy-terraform/
 title: Deploy nodes and VCF by using Terraform and toolkit \u00a0|\u00a0 Google Cloud VMware Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:28:03.107755+00:00
+fetched_at: 2026-10-30T08:40:20.761456+00:00
 ---
 
 # Deploy nodes and VCF by using Terraform and toolkit  |  Google Cloud VMware Engine  |  Google Cloud Documentation
@@ -41,8 +41,9 @@ Before you run the Terraform automation, install the required tools, enable the 
   2. Ensure that you have the required Identity and Access Management (IAM) permissions, including `Compute Admin` (`roles/compute.admin`) and, if you use Cloud DNS, `DNS Administrator` (`roles/dns.admin`).
   3. Plan your Domain Name System (DNS) infrastructure to support forward and reverse lookups for all planned ESXi node hostnames and VCF appliance endpoints.
   4. **Node hostnames** : Provide the fully qualified domain name (FQDN) of each node during deployment. This ensures that ESXi generates certificates using hostnames.
-  5. **Trusted image policy** : If your organization doesn't enforce the `constraints/compute.trustedImageProjects` organization policy, then no action is required. If your organization enforces this policy, then allow `projects/smve-prod-public-images` so that Compute Engine can create bare-metal boot disks. For more information, see [Set image access constraints](https://docs.cloud.google.com/compute/docs/images/restricting-image-access#trusted_images).
-  6. **VPC Service Controls** : If your target project isn't in a service perimeter, then no action is required. If your project is in a service perimeter, then add an egress rule that allows `compute.googleapis.com` operations to the `smve-prod-public-images` project (`projects/999037279871`):
+  5. **Password requirements** : Ensure that the `root` and local user passwords for the VCF installer and SDDC Manager, as well as the ESXi `root` password, meet Broadcom's password requirements. For more information, see [Default password requirements for VCF components](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-1/fleet-management/manage-passwords/default-password-requirements-for-vcf-components.html) in the Broadcom documentation.
+  6. **Trusted image policy** : If your organization doesn't enforce the `constraints/compute.trustedImageProjects` organization policy, then no action is required. If your organization enforces this policy, then allow `projects/smve-prod-public-images` so that Compute Engine can create bare-metal boot disks. For more information, see [Set image access constraints](https://docs.cloud.google.com/compute/docs/images/restricting-image-access#trusted_images).
+  7. **VPC Service Controls** : If your target project isn't in a service perimeter, then no action is required. If your project is in a service perimeter, then add an egress rule that allows `compute.googleapis.com` operations to the `smve-prod-public-images` project (`projects/999037279871`):
          
          - egressFrom:
              identityType: ANY_IDENTITY
@@ -426,6 +427,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/administration/feed-management/
 title: Work with the feeds UI \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:06:33.242734+00:00
+fetched_at: 2026-10-30T08:45:28.855409+00:00
 ---
 
 # Work with the feeds UI  |  Google Security Operations  |  Google Cloud Documentation
@@ -180,8 +180,6 @@ If you select **Cloud Storage** as the source type, use the **Get service accoun
   11. Review your new feed configuration on the **Finalize** tab.
 
   12. Click **Submit**. Google SecOps completes a validation check of the new feed. If the feed passes the check, a name is generated for the feed, it's submitted to Google SecOps, and Google SecOps begins to attempt to fetch data.
-
-![Finalize feed request](https://docs.cloud.google.com/chronicle/images/finalize-feed-request.png)
 
 
 
@@ -554,8 +552,15 @@ The following code sample shows how to format a single request body with multipl
   10. Click **Generate Secret Key** to generate a secret key to authenticate this feed.
   11. Copy and store the secret key as you cannot view this secret again. You can generate a new secret key again, but regeneration of the secret key makes the previous secret key obsolete.
   12. From the **Details** tab, copy the feed endpoint URL from the **Endpoint Information** field. You need to specify this endpoint URL in your client application.
+
+**Caution:** When configuring your client application, you must paste the full endpoint URL copied from the **Endpoint Information** field (ending in `:importPushLogs`). Do not paste the generic Google SecOps console URL, which results in `HTTP 404 Not Found` errors.
+
+![Webhook feed Details tab displaying the Endpoint Information field with a Copy to clipboard tooltip.](https://docs.cloud.google.com/static/chronicle/images/soar/sr-webhook-qps.png)**Figure 1.** Webhook feed endpoint information
+
   13. Optional: Click the **Feed Enabled** toggle to disable the feed. The feed is enabled by default.
+
   14. Click **Done**.
+
 
 
 
@@ -952,9 +957,14 @@ The **Feeds** page shows all the feeds you've configured.
 You can monitor the status of the feed on the initial **Feeds** page, where feeds can have the following statuses:
 
   * **Active** : Feed is configured and ready to ingest data into your Google SecOps account.
+
+**Note:** An **Active** status indicates that the feed configuration is enabled, but does not reflect runtime authentication or collection health. If logs are not arriving from an active third-party feed, check the [Health Hub](https://docs.cloud.google.com/chronicle/docs/reports/data-health-monitoring-and-troubleshooting-dashboard) for operational errors such as expired secrets or invalid tokens.
   * **InProgress** : Google SecOps attempts to pull data from the configured third party.
+
   * **Completed** : Data successfully retrieved by this feed.
+
   * **Archived** : Disabled feed.
+
   * **Failed** : Feed is failing to successfully fetch data. This is likely due to a configuration issue. Click the question to display the configuration error. Once you've corrected the error and resubmitted the feed, return to the **Feeds** page to determine whether or not the feed is now working.
 
 **Note:** The **Last succeeded on** column on the **Feeds** page shows the last time data was fetched successfully by that feed. For a new feed, this field is blank. Push feeds, like Webhook and Google Cloud pubsub don't populate this column. These push feeds don't have a schedule, meaning the data comes in when it is pushed. For Amazon SQS (V2) feeds, the **Last succeeded on** column represents the active ingestion heartbeat timestamp. Updates to this column are throttled and can be delayed by up to 15 minutes.
@@ -1093,6 +1103,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

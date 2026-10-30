@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/query-templates/
 title: Use query templates \u00a0|\u00a0 BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:29.085600+00:00
+fetched_at: 2026-10-30T08:53:06.227011+00:00
 ---
 
 # Use query templates  |  BigQuery  |  Google Cloud Documentation
@@ -127,6 +127,26 @@ The following permissions are required to perform the tasks in this document:
 
 
 You might also be able to get these permissions with [custom roles](https://docs.cloud.google.com/iam/docs/creating-custom-roles) or other [predefined roles](https://docs.cloud.google.com/iam/docs/roles-overview#predefined). 
+
+## Customer-managed encryption keys (CMEK)
+
+You can protect query templates using [customer-managed encryption keys (CMEK)](https://docs.cloud.google.com/bigquery/docs/customer-managed-encryption) in Cloud Key Management Service (Cloud KMS).
+
+If you provide your own Cloud KMS key, you must grant the [Cloud KMS CryptoKey Encrypter/Decrypter role](https://docs.cloud.google.com/kms/docs/reference/permissions-and-roles#predefined_roles) (`roles/cloudkms.cryptoKeyEncrypterDecrypter`) to the BigQuery sharing service agent of the project containing the data clean room—for example, `service-12345@gcp-sa-analyticshub.iam.gserviceaccount.com`.
+
+If the project doesn't have a BigQuery sharing service agent, a project owner must create the service agent by running the [`gcloud beta services identity create` command](https://docs.cloud.google.com/sdk/gcloud/reference/beta/services/identity/create):
+    
+    
+    gcloud beta services identity create --service=analyticshub.googleapis.com --project=my-dcr-project
+
+### CMEK limitations
+
+Using CMEK with query templates is subject to the following limitations:
+
+  * **Key editing is not supported** : after you create a query template with a Cloud KMS key, you can't update, change, or remove the key on the existing query template.
+  * **Key versioning is not supported** : you can't configure CMEK with a specific Cloud KMS key version. When specifying the key resource ID, provide the key path without a version number—for example, `projects/my-kms-project/locations/us/keyRings/my-key-ring/cryptoKeys/my-key`.
+
+
 
 ## Template creator workflows
 
@@ -625,6 +645,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

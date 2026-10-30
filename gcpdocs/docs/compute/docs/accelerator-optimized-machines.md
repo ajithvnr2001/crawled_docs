@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/accelerator-optimized-machines/
 title: GPU machines in accelerator-optimized machine family \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:40:02.511156+00:00
+fetched_at: 2026-10-30T08:52:45.334117+00:00
 ---
 
 # GPU machines in accelerator-optimized machine family  |  Compute Engine  |  Google Cloud Documentation
@@ -306,18 +306,11 @@ During the [lifecycle of a Compute Engine instance](https://docs.cloud.google.co
 
 The following table describes the host maintenance features for A4X Max and A4X machine types:
 
-Machine type | Number of GPUs | Typical scheduled maintenance event frequency | Maintenance behavior | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
+Machine type | Number of GPUs | Typical scheduled maintenance event frequency | [Maintenance behavior](https://docs.cloud.google.com/compute/docs/instances/setting-vm-host-options#available_host_maintenance_properties) | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
 ---|---|---|---|---|---|---  
-A4X Max and A4X | 4 | Minimum of 90 days | Terminates with [ Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence) | 90 days | Yes | No  
+A4X Max and A4X | 4 | Minimum of 90 days | Stop and restart (with [Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence))  | 90 days | Yes | No  
   
-The following notes apply to the preceding table:
-
-  * **Typical scheduled maintenance event frequency** : 
-
 The maintenance frequencies shown in the previous table are approximations, not guarantees. Compute Engine might occasionally perform maintenance more frequently.
-
-
-
 
 For more information about host maintenance in AI Hypercomputer, see [Understand host maintenance](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/host-events#review) in the AI Hypercomputer documentation.
 
@@ -437,18 +430,11 @@ During the [lifecycle of a Compute Engine instance](https://docs.cloud.google.co
 
 The following table describes the host maintenance features for A4 machine types:
 
-Machine type | Number of GPUs | Typical scheduled maintenance event frequency | Maintenance behavior | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
+Machine type | Number of GPUs | Typical scheduled maintenance event frequency | [Maintenance behavior](https://docs.cloud.google.com/compute/docs/instances/setting-vm-host-options#available_host_maintenance_properties) | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
 ---|---|---|---|---|---|---  
-A4 | 8 | Minimum of 90 days | Terminates with [ Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence) | 90 days | Yes | No  
+A4 | 8 | Minimum of 90 days | Stop and restart (with [Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence))  | 90 days | Yes | No  
   
-The following notes apply to the preceding table:
-
-  * **Typical scheduled maintenance event frequency** : 
-
 The maintenance frequencies shown in the previous table are approximations, not guarantees. Compute Engine might occasionally perform maintenance more frequently.
-
-
-
 
 For more information about host maintenance in AI Hypercomputer, see [Understand host maintenance](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/host-events#review) in the AI Hypercomputer documentation.
 
@@ -792,22 +778,29 @@ During the [lifecycle of a Compute Engine instance](https://docs.cloud.google.co
 
 The following table describes the host maintenance features for A3 machine types:
 
-Machine type | Number of GPUs | Typical scheduled maintenance event frequency | Maintenance behavior | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
+Machine type | Number of GPUs | Typical scheduled maintenance event frequency | [Maintenance behavior](https://docs.cloud.google.com/compute/docs/instances/setting-vm-host-options#available_host_maintenance_properties) | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
 ---|---|---|---|---|---|---  
-A3 Ultra | 8 | Minimum of 90 days | Terminates with [ Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence) | 90 days | Yes | No  
-A3 Mega and A3 High | 8 | Minimum of 30 days | Terminate and restart | 7 days | Yes | Yes  
-A3 High | 1, 2, 4 | Minimum of 30 days | Terminate and restart | 7 days | No | Yes  
-A3 Edge | 8 | Minimum of 30 days | Terminate and restart | 7 days | Yes | Yes  
+A3 Ultra | 8 | Minimum of 90 days | Stop and restart (with [Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence))  | 90 days | Yes | No  
+A3 Mega and A3 High | 8 | 
+
+  * **On-demand** : minimum of 30 days
+  * **Future reservations for capacity blocks** : minimum of 90 days
+
+| 
+
+  * **On-demand** : stops and restarts
+  * **Future reservations for capacity blocks** : stops and restarts (with [Local SSD data persistence](https://docs.cloud.google.com/compute/docs/instances/host-maintenance-overview#disk-persistence))
+
+| 
+
+  * **On-demand** : 7 days
+  * **Future reservations for capacity blocks** : 90 days
+
+| Yes | Yes  
+A3 High | 1, 2, 4 | Minimum of 30 days | Stop and restart | 7 days | No | Yes  
+A3 Edge | 8 | Minimum of 30 days | Stop and restart | 7 days | Yes | Yes  
   
-The following notes apply to the preceding table:
-
-  * **Typical scheduled maintenance event frequency** : 
-
 The maintenance frequencies shown in the previous table are approximations, not guarantees. Compute Engine might occasionally perform maintenance more frequently.
-
-  * **A3 Mega and A3 High** : the scheduled maintenance frequencies and notification windows exclude instances covered by specific customer maintenance agreements.
-
-
 
 For more information about host maintenance in AI Hypercomputer, see [Understand host maintenance](https://docs.cloud.google.com/ai-hypercomputer/docs/manage/host-events#review) in the AI Hypercomputer documentation.
 
@@ -997,19 +990,12 @@ During the [lifecycle of a Compute Engine instance](https://docs.cloud.google.co
 
 The following table describes the host maintenance features for A2 machine types:
 
-Machine type | Number of GPUs | Typical scheduled maintenance event frequency | Maintenance behavior | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
+Machine type | Number of GPUs | Typical scheduled maintenance event frequency | [Maintenance behavior](https://docs.cloud.google.com/compute/docs/instances/setting-vm-host-options#available_host_maintenance_properties) | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
 ---|---|---|---|---|---|---  
-A2 Ultra | 1, 2, 4, 8 | Minimum of 30 days | Terminate and restart | 7 days | Yes (8 GPUs only) | Yes  
-A2 Standard | 1, 2, 4, 8, or 16 | Minimum of 30 days | Terminate and restart | 7 days | Yes (8 and 16 GPUs only) | Yes  
+A2 Ultra | 1, 2, 4, 8 | Minimum of 30 days | Stop and restart | 7 days | Yes (8 GPUs only) | Yes  
+A2 Standard | 1, 2, 4, 8, or 16 | Minimum of 30 days | Stop and restart | 7 days | Yes (8 and 16 GPUs only) | Yes  
   
-The following notes apply to the preceding table:
-
-  * **Typical scheduled maintenance event frequency** : 
-
 The maintenance frequencies shown in the previous table are approximations, not guarantees. Compute Engine might occasionally perform maintenance more frequently.
-
-
-
 
 ## The G4 machine series
 
@@ -1177,19 +1163,12 @@ During the [lifecycle of a Compute Engine instance](https://docs.cloud.google.co
 
 The following table describes the host maintenance features for G4 machine types:
 
-Machine type | Number of GPUs | Typical scheduled maintenance event frequency | Maintenance behavior | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
+Machine type | Number of GPUs | Typical scheduled maintenance event frequency | [Maintenance behavior](https://docs.cloud.google.com/compute/docs/instances/setting-vm-host-options#available_host_maintenance_properties) | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
 ---|---|---|---|---|---|---  
-G4 | 1, 2, or 4 | Minimum of 30 days | Terminate and restart. If Local SSD disks are attached, the instance terminates with Local SSD data persistence. | 7 days | No | Yes  
-G4 | 8 | Minimum of 90 days | Terminate and restart. If Local SSD disks are attached, the instance terminates with Local SSD data persistence. | 30 days | Yes | Yes  
+G4 | 1, 2, or 4 | Minimum of 30 days | Stop and restart. If Local SSD disks are attached, the instance stops with Local SSD data persistence. | 7 days | No | Yes  
+G4 | 8 | Minimum of 90 days | Stop and restart. If Local SSD disks are attached, the instance stops with Local SSD data persistence. | 30 days | Yes | Yes  
   
-The following notes apply to the preceding table:
-
-  * **Typical scheduled maintenance event frequency** : 
-
 The maintenance frequencies shown in the previous table are approximations, not guarantees. Compute Engine might occasionally perform maintenance more frequently.
-
-
-
 
 ## The G2 machine series
 
@@ -1335,18 +1314,11 @@ During the [lifecycle of a Compute Engine instance](https://docs.cloud.google.co
 
 The following table describes the host maintenance features for G2 machine types:
 
-Machine type | Number of GPUs | Typical scheduled maintenance event frequency | Maintenance behavior | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
+Machine type | Number of GPUs | Typical scheduled maintenance event frequency | [Maintenance behavior](https://docs.cloud.google.com/compute/docs/instances/setting-vm-host-options#available_host_maintenance_properties) | Advanced notification for scheduled maintenance | On-demand maintenance | Simulate maintenance  
 ---|---|---|---|---|---|---  
-G2 | 1, 2, 4, or 8 | Minimum of 30 days | Terminate and restart | 7 days | Yes (8 GPUs only) | Yes  
+G2 | 1, 2, 4, or 8 | Minimum of 30 days | Stop and restart | 7 days | Yes (8 GPUs only) | Yes  
   
-The following notes apply to the preceding table:
-
-  * **Typical scheduled maintenance event frequency** : 
-
 The maintenance frequencies shown in the previous table are approximations, not guarantees. Compute Engine might occasionally perform maintenance more frequently.
-
-
-
 
 ## Pricing and consumption options
 
@@ -1404,6 +1376,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

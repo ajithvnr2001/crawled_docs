@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/resource-manager-overview/
 title: Resource Manager overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:45.193548+00:00
+fetched_at: 2026-10-30T08:40:17.163518+00:00
 ---
 
 # Resource Manager overview  |  Google Cloud Documentation
@@ -52,6 +52,8 @@ Resource Manager provides the following capabilities to help you govern your clo
 
   * **Project management** : Projects are the core organizing entity in Google Cloud. You use projects to enable APIs, manage billing, and collaborate with team members. Resource Manager lets you create, update, and delete projects programmatically or through the console.
 
+  * **Management boundaries and capability configurations** : In addition to hierarchical containment, Resource Manager supports dynamic, tag-based administrative boundaries (`BoundaryConfig`, `Boundary`, and `CapabilityConfig`). These boundaries enable cross-project management and discovery for services such as [Agent Registry](https://docs.cloud.google.com/agent-registry/overview) from a centralized management project.
+
   * **Access control and policies inheritance** : Resource Manager integrates with Identity and Access Management (IAM) to let you define who has access to your resources. You can set allow and deny policies on [organizations](https://docs.cloud.google.com/resource-manager/docs/access-control-org), [folders](https://docs.cloud.google.com/resource-manager/docs/access-control-folders), and [projects](https://docs.cloud.google.com/resource-manager/docs/access-control-proj). You can set allow policies on some service resources as well. Resources lower in the hierarchy inherit policies from their parent containers. For example, if you grant a user the Folder Admin role on a folder, they automatically have that role on all projects within that folder. If you change the resource hierarchy, the allow and deny policy hierarchy also changes. For example, moving a project into an organization resource updates its allow and deny policies to inherit from the policies of the organization resource.
 
 
@@ -63,7 +65,7 @@ You can interact with Resource Manager using the Google Cloud console, Google Cl
 
 Resource Manager is central to managing your Google Cloud resources, and provides the structure and foundational capabilities that let you effectively use and govern other critical services, such as Organization Policy, Tags, and Essential Contacts:
 
-  * **Tags** : Resource Manager works with Tags, which lets you attach arbitrary key-value pairs to resources. Tags can be used for various purposes such as resource categorization, policy enforcement, and cost allocation. Tags management is an integral part of how resources can be organized and managed within the Resource Manager hierarchy.
+  * **Tags** : Resource Manager works with Tags, which lets you attach arbitrary key-value pairs to resources. Tags can be used for various purposes such as resource categorization, policy enforcement, cost allocation, and dynamic management boundary membership. Tags management is an integral part of how resources can be organized and managed within the Resource Manager hierarchy.
 
   * **Organization Policy Service** : Organization Policy gives you centralized and programmatic control over your organization's cloud resources. Unlike IAM, which focuses on who can do things, Organization Policy focuses on what can be done. For example, you can define a policy that restricts the physical locations where resources can be created or prevents the creation of public IP addresses.
 
@@ -77,6 +79,7 @@ Resource Manager provides the hierarchical structure (organization, folders, and
 ## What's next
 
   * Understand the [resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
+  * Learn about [management boundaries and capabilities](https://docs.cloud.google.com/resource-manager/docs/boundaries-and-capabilities-overview).
   * Learn how to [create your Google Cloud resource hierarchy](https://docs.cloud.google.com/resource-manager/docs/manage-google-cloud-resources).
   * Learn about [Essential Contacts](https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts) and review [notification categories and fallback risks](https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts#notification-categories).
 
@@ -86,6 +89,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

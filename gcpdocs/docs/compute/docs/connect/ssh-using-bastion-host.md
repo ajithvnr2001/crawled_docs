@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/connect/ssh-using-bastion-host/
 title: Connect to Linux VMs using a bastion host \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:59:27.137746+00:00
+fetched_at: 2026-10-30T08:53:04.217063+00:00
 ---
 
 # Connect to Linux VMs using a bastion host  |  Compute Engine  |  Google Cloud Documentation
@@ -23,44 +23,48 @@ Send feedback
 
 Linux 
 
-This document describes how to connect to a virtual machine (VM) instance through its internal IP address, using a [bastion host VM](https://cloud.google.com/solutions/connecting-securely#bastion). Bastion hosts provide an external point of entry into a Virtual Private Cloud (VPC) network that contains VMs that don't have external IP addresses. When using a bastion host, connect to the bastion host first, and then connect to the target VM.
+This document describes how to connect to a virtual machine (VM) instance through its internal IP address by using a [bastion host VM](https://cloud.google.com/solutions/connecting-securely#bastion). Bastion hosts provide an external point of entry into a Virtual Private Cloud (VPC) network that contains VMs that don't have external IP addresses. When you use a bastion host, connect to the bastion host first, and then connect to the target VM.
 
-Connecting to a VM using its internal IP address is useful if the VM doesn't have an external IP address. If the VM does have an external IP address, [connect to the VM using its external IP address](https://docs.cloud.google.com/compute/docs/instances/connecting-to-instance). If you need to connect to a VM that doesn't have external IP addresses and you can't use a bastion host, review the other methods listed in [Connection options for internal-only VMs](https://docs.cloud.google.com/compute/docs/connect/ssh-internal-ip).
+Connecting to a VM by using its internal IP address is useful if the VM doesn't have an external IP address. If the VM does have an external IP address, [connect to the VM by using its external IP address](https://docs.cloud.google.com/compute/docs/instances/connecting-to-instance). If you need to connect to a VM that doesn't have external IP addresses and you can't use a bastion host, review the other methods listed in [Choose a connection option for internal-only VMs](https://docs.cloud.google.com/compute/docs/connect/ssh-internal-ip).
 
 ## Supported operating systems
 
-These connection methods are supported for all [public Linux images](https://docs.cloud.google.com/compute/docs/images/os-details) that are available on Compute Engine. For Fedora CoreOS images, you must [set up SSH access](https://docs.fedoraproject.org/en-US/fedora-coreos/tutorial-containers/) before you can use these methods.
+Compute Engine supports these connection methods for all [public Linux images](https://docs.cloud.google.com/compute/docs/images/os-details). For Fedora CoreOS images, you must [set up SSH access](https://docs.fedoraproject.org/en-US/fedora-coreos/getting-started/) before you can use these methods.
 
 ## Create a bastion host VM
 
-Create a Compute Engine VM within the private cluster internal network to act as a bastion host that can manage the cluster.
+Create a Compute Engine VM within the target VPC network to act as a bastion host.
 
 ###  Console 
 
-Create a bastion host VM by doing the following:
+To create a bastion host VM, do the following:
 
   1. In the Google Cloud console, go to the **Create an instance** page.
 
 [Go to Create an instance](https://console.cloud.google.com/compute/instancesAdd)
 
-     1. Specify the following VM details:
+  2. Specify the following VM details:
+
      * **Name** : the name of your VM.
+
      * **Machine type** : a machine type. Choose a small machine type, such as `e2-micro`.
-     * **Boot disk** **Operating system** : any Linux OS.
-  2. Expand the **Advanced options** section, and do the following:
+
+     * **Boot disk > Operating system**: any Linux OS.
+
+  3. Expand the **Advanced options** section and do the following:
 
      1. In the **Network interfaces** section, select the same VPC network and subnet as the target VM.
 
      2. For **External IPv4 address** , select **Ephemeral**.
 
-  3. To create and start the VM, click **Create**.
+  4. To create and start the VM, click **Create**.
 
 
 
 
 ###  gcloud 
 
-Create a bastion host VM using the [`gcloud compute instances create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/create):
+Create a bastion host VM by using the [`gcloud compute instances create` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/instances/create):
 
   1. In the Google Cloud console, activate Cloud Shell.
 
@@ -70,21 +74,21 @@ At the bottom of the Google Cloud console, a [Cloud Shell](https://docs.cloud.go
 
   2. Create the bastion host VM by running the following command:
          
-         gcloud compute instances create VM_NAME \
+         gcloud compute instances create BASTION_NAME \
            --zone=ZONE \
            --machine-type=e2-micro \
            --image-family=IMAGE_FAMILY \
            --image-project=IMAGE_PROJECT \
-           --network-interface=subnet=SUBNET,address=""
+           --network-interface=subnet=SUBNET
          
 
 Replace the following:
 
-     * `VM_NAME`: the name of the VM.
-     * `ZONE`: the zone for VM.
+     * `BASTION_NAME`: the name of the bastion host VM.
+     * `ZONE`: the zone for the bastion host VM.
      * `IMAGE_FAMILY`: a Linux [image family](https://docs.cloud.google.com/compute/docs/images/os-details#general-info).
-     * `IMAGE_PROJECT`: the [image project](https://docs.cloud.google.com/compute/docs/images/os-details#general-info) containing the image.
-     * `SUBNET`: the same VPC subnet as the target VM. If you use the default VPC, the `SUBNET` is `default`.
+     * `IMAGE_PROJECT`: the [image project](https://docs.cloud.google.com/compute/docs/images/os-details#general-info) that contains the image.
+     * `SUBNET`: the same VPC subnet as the target VM. If you use the default VPC network, set `SUBNET` to `default`.
 
 
 
@@ -98,40 +102,48 @@ To connect to a VM, complete the steps in one of the following tabs.
 
 To perform this task, you must have the following [permissions](https://docs.cloud.google.com/iam/docs/overview#permissions): 
 
-  * All permissions that are included in the [Service Account User role (`roles/iam.serviceAccountUser`)](https://docs.cloud.google.com/compute/docs/access/iam#the_serviceaccountuser_role) on the service account and your user account. For details about how to grant this role on a singular service account, see [Allowing a principal to impersonate a single service account](https://docs.cloud.google.com/iam/docs/impersonating-service-accounts#impersonate-sa-level).
-  * If you use OS Login, you require all the permissions that are included in one of the [OS Login IAM roles](https://docs.cloud.google.com/compute/docs/oslogin/set-up-oslogin#grant-iam-roles) on the service account and your user account.
+  * All permissions in the [Service Account User role (`roles/iam.serviceAccountUser`)](https://docs.cloud.google.com/compute/docs/access/iam#the_serviceaccountuser_role) on the service account and your user account. For details about how to grant this role on a single service account, see [ Allowing a principal to impersonate a single service account](https://docs.cloud.google.com/iam/docs/impersonating-service-accounts#impersonate-sa-level).
+  * If you use OS Login, you require all the permissions in one of the [OS Login IAM roles](https://docs.cloud.google.com/compute/docs/oslogin/set-up-oslogin#configure_users) on the service account and your user account.
   * If you don't use OS Login, you also require the `compute.projects.setCommonInstanceMetadata` permission on the service account and your user account.
 
 
 
-You must additionally [assign your service account to a VM and set the `cloud-platform` access scope](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances#changeserviceaccountandscopes) on the VM.
+You must additionally [assign your service account to the bastion host VM and set the `cloud-platform` access scope](https://docs.cloud.google.com/compute/docs/instances/change-service-account#changeserviceaccountandscopes) on the bastion host VM.
 
-Connect to a VM using SSH through a bastion host by running the [`gcloud compute ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh):
+Connect to a VM through a bastion host by using SSH and by running the [`gcloud compute ssh` command](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh):
 
   1. Connect to the bastion host VM by running the following command:
          
-         gcloud compute ssh BASTION_NAME
+         gcloud compute ssh BASTION_NAME \
+             --project=PROJECT_ID \
+             --zone=ZONE
 
-Replace `BASTION_NAME` with the name of the bastion host VM.
+Replace the following:
 
-  2. From the bastion host VM, connect to the main VM through its internal IP address by using the [`--internal-ip` flag](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh#--internal-ip):
+     * `BASTION_NAME`: the name of the bastion host VM.
+     * `PROJECT_ID`: the ID of the project that contains the bastion host VM.
+     * `ZONE`: the name of the zone that the bastion host VM is located in.
+  2. From the bastion host VM, connect to the target VM through its internal IP address by using the [ `--internal-ip` flag](https://docs.cloud.google.com/sdk/gcloud/reference/compute/ssh#--internal-ip):
          
-         gcloud compute ssh VM_NAME \
+         gcloud compute ssh INSTANCE_NAME \
+             --zone=TARGET_ZONE \
              --internal-ip
 
-Replace `VM_NAME` with the name of the VM that you want to connect to.
+Replace the following:
 
+     * `INSTANCE_NAME`: the name of the VM that you want to connect to.
+     * `TARGET_ZONE`: the name of the zone that the target VM is located in.
 
-**Note:** When you connect to VMs using the gcloud CLI, Compute Engine creates a persistent SSH key for you. For more information about SSH keys, see [SSH connections to Linux VMs](https://docs.cloud.google.com/compute/docs/instances/ssh).
+**Note:** When you connect to VMs by using the gcloud CLI, Compute Engine creates a persistent SSH key for you. For more information about SSH keys, see [SSH connections to Linux VMs](https://docs.cloud.google.com/compute/docs/instances/ssh).
 
-###  OpenSSH clients 
+###  OpenSSH client 
 
-Connect to a VM through a bastion host from an OpenSSH client, by doing the following:
+To connect to a VM through a bastion host from an OpenSSH client, do the following:
 
-  1. [Add an SSH key to the VM](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys) if you haven't already.
-  2. In the Google Cloud console, go to the **VM Instances** page and find the external IP address of the bastion host VM.
+  1. If you haven't already added an SSH key, [add an SSH key](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys) to the bastion host VM and the target VM. 
+  2. In the Google Cloud console, go to the **VM instances** page and find the external IP address of the bastion host VM and the internal IP address of the VM that you want to connect to.
 
-[Go to VM Instances](https://console.cloud.google.com/compute/instances)
+[Go to VM instances](https://console.cloud.google.com/compute/instances)
 
   3. Open a terminal on your workstation.
   4. Connect to the bastion host VM by running the following command:
@@ -140,50 +152,50 @@ Connect to a VM through a bastion host from an OpenSSH client, by doing the foll
 
 Replace the following:
 
-     * `PATH_TO_PRIVATE_KEY`: the path to the private SSH key file that corresponds to the public key you added to the VM.
-     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login). For example, `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
-     * `EXTERNAL_IP`: the external IP address of the VM. 
-  5. From the bastion host VM, connect through a VM's internal IP address using the following command:
+     * `PATH_TO_PRIVATE_KEY`: the path to the private SSH key file that corresponds to the public key that you added to the VM, such as `~/.ssh/my-ssh-key`, or `~/.ssh/google_compute_engine` if the Google Cloud CLI generated the key.
+     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login), such as `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
+     * `EXTERNAL_IP`: the external IP address of the bastion host VM. 
+  5. From the bastion host VM, connect through a VM's internal IP address by using the following command:
          
          ssh USERNAME@INTERNAL_IP
 
 Replace the following:
 
-     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login). For example, `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
+     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login), such as `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
      * `INTERNAL_IP`: the internal IP address of the VM.
 
 
 
 ###  PuTTY app 
 
-Connect to a VM through a bastion host using PuTTY, by doing the following:
+To connect to a VM through a bastion host by using PuTTY, do the following:
 
-  1. [Add an SSH key](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys) to the bastion host VM if you haven't already.
-  2. If your workstation doesn't already have the PuTTY app installed, [download the PuTTY package files](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-  3. In the Google Cloud console, go to the **VM Instances** page and find the internal IP address of the VM that you want to connect to.
+  1. If you haven't already added an SSH key, [add an SSH key](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys) to the bastion host VM and the target VM. 
+  2. If your workstation doesn't already have the PuTTY app installed, [ download the PuTTY package files](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+  3. In the Google Cloud console, go to the **VM instances** page and find the external IP address of the bastion host VM and the internal IP address of the VM that you want to connect to.
 
-[Go to VM Instances](https://console.cloud.google.com/compute/instances)
+[Go to VM instances](https://console.cloud.google.com/compute/instances)
 
   4. Open the PuTTY app. A connection configuration window opens.
-  5. In the `Host Name` field, enter the username associated with the SSH key, and the external IP address of the VM that you want to connect to. Use the following format:
+  5. In the **Host Name (or IP address)** field, enter the username associated with the SSH key and the external IP address of the bastion host VM. Use the following format:
          
          USERNAME@EXTERNAL_IP
 
 Replace the following:
 
-     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login). For example, `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
-     * `EXTERNAL_IP`: the external IP address of the VM. 
-  6. In the **Category** menu, navigate to **Connection > SSH > Auth**.
-  7. In the **Private key file for authentication** field, select the private SSH key file that corresponds to the public key you added to the VM.
-  8. In the **Authentication Parameters** section, select **Allow agent forwarding**.
+     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login), such as `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
+     * `EXTERNAL_IP`: the external IP address of the bastion host VM. 
+  6. In the **Category** menu, go to **Connection > SSH > Auth > Credentials** (or **Connection > SSH > Auth** in PuTTY versions earlier than 0.78).
+  7. In the **Private key file for authentication** field, click **Browse** and select the private SSH key file (`.ppk`) that corresponds to the public key that you added to the VM.
+  8. In the **Category** menu, go to **Connection > SSH > Auth**, and in the **Authentication parameters** section, select **Allow agent forwarding**.
   9. Click **Open** to connect to the bastion host VM.
-  10. From the bastion host VM, connect through a VM's internal IP address using the following command:
+  10. From the bastion host VM, connect through a VM's internal IP address by using the following command:
          
          ssh USERNAME@INTERNAL_IP
 
 Replace the following:
 
-     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login). For example, `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
+     * `USERNAME`: your username. If you manage your SSH keys in metadata, the username is what you specified when you [created the SSH key](https://docs.cloud.google.com/compute/docs/connect/create-ssh-keys). For OS Login accounts, the username is [defined in your Google profile](https://docs.cloud.google.com/compute/docs/connect/add-ssh-keys#os-login), such as `cloudysanfrancisco_example_com` or `cloudysanfrancisco`.
      * `INTERNAL_IP`: the internal IP address of the VM.
 
 
@@ -204,6 +216,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/mcafee-mvision-edr/
 title: McAfee MVISION EDR \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:43:43.457604+00:00
+fetched_at: 2026-10-30T08:52:55.096660+00:00
 ---
 
 # McAfee MVISION EDR  |  Google Security Operations  |  Google Cloud Documentation

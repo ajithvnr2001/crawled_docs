@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/locations/
 title: Agent Registry locations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:26:23.534193+00:00
+fetched_at: 2026-10-30T08:40:10.365548+00:00
 ---
 
 # Agent Registry locations  |  Google Cloud Documentation
@@ -35,6 +35,7 @@ When deploying and governing agentic architectures across Agent Registry, Agent 
     * For automatically registered Google and Google Cloud remote MCP servers, apply the binding in `global` with `--region=global`, even when the calling agent sends traffic through a regional gateway.
     * For resources registered in a specific region, apply the binding in that region. For troubleshooting information, see [Resource entity not found error when managing IAP policies](https://docs.cloud.google.com/agent-registry/troubleshooting#resource-entity-not-found).
   * **Registration locations** : you must manually register agents, MCP servers, and endpoints, and create bindings, in a supported regional location or the `global` location. For details on multi-region support, see Multi-regions.
+  * **Cross-project management boundaries** : when you configure a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), cross-project rollup is supported across all supported Google Cloud locations on your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project). Querying a location on the management project aggregates auto-discovered components deployed in that same location across the management project and all member projects in the boundary. Query results also include `Service` and `Binding` resources created in that location on the management project. For details, see [Centralized query rollup](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#query-rollup).
   * **Regional alignment for policy enforcement** : if you configure [Model Armor policy filters](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/configure-model-armor) on Agent Gateway, the gateway, the Model Armor templates, and the authorization extension and policy must reside in the same region. Because Model Armor inspects request and response payloads at the regional gateway, the gateway can still inspect and govern traffic routed to MCP servers registered in the `global` location as well as regional destinations. For troubleshooting information, see [Region mismatch errors when configuring Model Armor on Agent Gateway](https://docs.cloud.google.com/agent-registry/troubleshooting#model-armor-region-mismatch).
   * **Organization policy location restrictions** : if your organization has specific requirements for the geographic location of resources, your organization policy might include [resource location constraints](https://docs.cloud.google.com/resource-manager/docs/organization-policy/defining-locations) (`constraints/gcp.resourceLocations`). Agent Registry enforces those constraints when you create regional `Service`, `Binding`, `Skill`, or `SkillRevision` resources. Organization policy compliance isn't enforced retroactively, so applying a resource location constraint doesn't affect existing Agent Registry resources or updates to those resources. For more information, see [Services that support restricting resource locations](https://docs.cloud.google.com/organization-policy/reference/restrict-locations-supported-services#agent-registry).
 
@@ -139,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

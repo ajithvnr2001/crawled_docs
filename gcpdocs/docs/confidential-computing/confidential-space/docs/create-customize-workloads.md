@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/confidential-computing/confidential-space/docs/create-customize-workloads/
 title: Create and customize workloads \u00a0|\u00a0 Confidential Space \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:59:54.909237+00:00
+fetched_at: 2026-10-30T08:53:05.860271+00:00
 ---
 
 # Create and customize workloads  |  Confidential Space  |  Google Cloud Documentation

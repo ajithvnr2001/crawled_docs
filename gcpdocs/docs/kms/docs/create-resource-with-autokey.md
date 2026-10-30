@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/create-resource-with-autokey/
 title: Create protected resources using Cloud KMS Autokey \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:28.836568+00:00
+fetched_at: 2026-10-30T09:01:30.544908+00:00
 ---
 
 # Create protected resources using Cloud KMS Autokey  |  Cloud Key Management Service  |  Google Cloud Documentation

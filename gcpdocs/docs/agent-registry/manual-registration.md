@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manual-registration/
 title: Use manual registration for agents \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:27:21.202659+00:00
+fetched_at: 2026-10-30T08:40:13.764802+00:00
 ---
 
 # Use manual registration for agents  |  Agent Registry  |  Google Cloud Documentation
@@ -23,7 +23,7 @@ Send feedback
 
 Agent Registry lets you manually register A2A-compliant and standard REST agents that are hosted outside Google Cloud, running on unsupported runtimes, or deployed across different Google Cloud projects. By creating a `Service` resource for these agents, you make their endpoints and capabilities discoverable across your AI ecosystem.
 
-Agent Registry uses a central Google Cloud [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project). In this document, the term _remote_ refers to agents hosted outside the governance project, such as in separate Google Cloud projects, on-premises environments, or external clouds, or running on unsupported runtimes. Because automatic registration only discovers supported resources deployed in the governance project where Agent Registry is enabled, you must manually register remote agents into the governance project's registry.
+Agent Registry uses a central Google Cloud [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project). In this document, the term _remote_ refers to agents hosted outside the governance project or [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), such as in separate Google Cloud projects without a management boundary, on-premises environments, or external clouds, or running on unsupported runtimes. Because automatic registration only discovers supported resources deployed in the governance project where Agent Registry is enabled, or across projects when you configure a management boundary, you must manually register remote agents in the governance project's registry in all other cases.
 
 ## Types of agents and limitations
 
@@ -39,7 +39,7 @@ Manual registration isn't supported in the `us` and `eu` multi-region locations;
 ## Before you begin
 
   1. [Set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
-  2. Get [the project ID](https://support.google.com/googleapi/answer/7014113) for the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled.
+  2. For a single-project setup, get [the project ID](https://support.google.com/googleapi/answer/7014113) of the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled. If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) for multiple projects, use the ID of your management project for boundary-wide discovery and registration, or specify a member project ID for single-project operations.
 
   3. To use the Google Cloud CLI commands in this document, [set up your gcloud CLI environment](https://docs.cloud.google.com/agent-registry/setup#set-up-cli).
 
@@ -273,14 +273,16 @@ Replace the following:
 
 ## Register an agent from another project
 
-If your organization deploys agents across multiple Google Cloud projects and uses a central [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#modes) in Agent-to-Anywhere egress mode to govern traffic, you must manually register each remote agent from those other Google Cloud projects into the central [governance project's](https://docs.cloud.google.com/agent-registry/overview#governance-project) registry. For more information about this architecture, see [Sample deployment patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#deployment-patterns).
+If you configure a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), Agent Registry automatically aggregates supported agents from member projects into your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project). If you don't configure a management boundary, or if the remote agent runs on an unsupported runtime, you must manually register each remote agent into the registry of the central [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where you want to manage it.
+
+For example, if your organization deploys agents across multiple Google Cloud projects and uses a central [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview#modes) in Agent-to-Anywhere egress mode to govern traffic, you can register agents from those other Google Cloud projects into the central governance project's registry. For more information about this architecture, see [Sample deployment patterns](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/set-up-agent-gateway#deployment-patterns).
 
 ### Considerations for cross-project registration
 
-Before you register agents across projects, review the following:
+Before you manually register agents across projects, review the following:
 
   * **Compatible locations** : the Agent Registry instance, the Agent Gateway, and the agent endpoints must reside in the same geographic region or the `global` location.
-  * **Automatic discovery limitation** : automatic cross-project discovery isn't supported. You must manually register each remote agent.
+  * **Automatic discovery across projects** : cross-project discovery is supported automatically only when you configure a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology). For custom or manually registered agents, you must create the `Service` resource in the [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project). Without a management boundary, you can only discover resources within the project where they are deployed.
   * **Lifecycle management** : manual entries in Agent Registry aren't automatically updated or deleted when changes occur in the other Google Cloud project where the agent runs. You must manage the lifecycle of these entries in the central registry when remote agents are modified or removed.
   * **Egress mode only** : cross-project governance with Agent Gateway is supported only for Agent-to-Anywhere egress gateways. Client-to-Agent ingress gateways require the agent and gateway to be in the same project.
 
@@ -477,6 +479,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

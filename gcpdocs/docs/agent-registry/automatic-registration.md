@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/automatic-registration/
 title: Use automatic registration for agents \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:24:32.181834+00:00
+fetched_at: 2026-10-30T08:40:10.286801+00:00
 ---
 
 # Use automatic registration for agents  |  Agent Registry  |  Google Cloud Documentation
@@ -23,7 +23,9 @@ Send feedback
 
 Agent Registry lets you configure automatic registration for agents on supported Google Cloud runtimes so that developers and orchestrator agents can discover them without manually creating registry resources. Depending on the runtime, registration happens by default or through an opt-in deployment step, and the indexed metadata depends on the implementation protocol.
 
-Automatic registration only discovers supported resources deployed within the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled. To register remote agents deployed in other Google Cloud projects, see [Register an agent from another project](https://docs.cloud.google.com/agent-registry/manual-registration#cross-project). For remote agents hosted externally or on unsupported runtimes, see [Use manual registration for agents](https://docs.cloud.google.com/agent-registry/manual-registration).
+By default, automatic registration discovers supported resources deployed within the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled. To discover automatically registered agents across multiple Google Cloud projects, configure a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology). If you don't use a management boundary, you can also [manually register an agent from another project](https://docs.cloud.google.com/agent-registry/manual-registration#cross-project) in the governance project.
+
+For remote agents hosted externally or on unsupported runtimes, you must [use manual registration for agents](https://docs.cloud.google.com/agent-registry/manual-registration).
 
 ## Automatically indexed metadata
 
@@ -37,7 +39,7 @@ The metadata and capabilities indexed for an agent during automatic registration
 ## Before you begin
 
   1. [Set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
-  2. Get [the project ID](https://support.google.com/googleapi/answer/7014113) for the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled.
+  2. For a single-project setup, get [the project ID](https://support.google.com/googleapi/answer/7014113) of the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled. If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) for multiple projects, use the ID of your management project for boundary-wide discovery and registration, or specify a member project ID for single-project operations.
 
   3. To use the Google Cloud CLI commands in this document, [set up your gcloud CLI environment](https://docs.cloud.google.com/agent-registry/setup#set-up-cli).
 
@@ -226,6 +228,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

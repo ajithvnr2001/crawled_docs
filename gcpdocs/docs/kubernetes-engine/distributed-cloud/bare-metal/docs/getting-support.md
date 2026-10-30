@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/getting-support/
 title: Get support \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:46:23.309544+00:00
+fetched_at: 2026-10-30T08:37:01.036884+00:00
 ---
 
 # Get support  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,9 @@ Send feedback
 
 #  Get support Stay organized with collections  Save and categorize content based on your preferences. 
 
-Google's primary support objective is to resolve production incidents as quickly as possible. We do this by understanding your configuration, analyzing logs and metrics, and collaborating with partners to solve incidents quickly.
+[Cloud Customer Care](https://docs.cloud.google.com/support) helps you diagnose and resolve production incidents by analyzing your configuration, logs, and metrics, and by collaborating with partners.
 
-[Cloud Customer Care](https://docs.cloud.google.com/support) offers various support packages to accommodate your support needs. All Cloud Customer Care packages include support for GKE and Google Distributed Cloud. If you have an existing Cloud Customer Care support package, then you already have support for GKE and Google Distributed Cloud.
-
-For more information, see the [Cloud Customer Care hub](https://cloud.google.com/support-hub).
+Cloud Customer Care offers packages to accommodate your operational needs, all of which include coverage for GKE and Google Distributed Cloud. If you have an existing support package, you already have this coverage. To learn more, see the [Cloud Customer Care hub](https://cloud.google.com/support-hub).
 
 ## Requirements for Google Distributed Cloud support
 
@@ -282,6 +280,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

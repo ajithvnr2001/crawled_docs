@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/configuration/
 title: Configure the Ops Agent \u00a0|\u00a0 Google Cloud Observability \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:38:25.621287+00:00
+fetched_at: 2026-10-30T08:40:04.764323+00:00
 ---
 
 # Configure the Ops Agent  |  Google Cloud Observability  |  Google Cloud Documentation
@@ -20,33 +20,33 @@ Send feedback
 
 #  Configure the Ops Agent Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document provides details about the Ops Agent's default and custom configurations. Read this document if any of the following applies to you:
+Customizing the Ops Agent configuration lets you control how the agent collects, parses, and routes logs, metrics, and traces from your Compute Engine instances. Although the Ops Agent includes a built-in default configuration for common system logs and host metrics, you can define custom overrides to tailor telemetry collection to your workloads.
 
-  * You want to change the configuration of the Ops Agent to achieve the following goals:
+## Common configuration tasks
 
-    * Turn off the built-in logging or metrics ingestion.
+You can modify the configuration of the Ops Agent to achieve the following goals:
 
-      * To turn off logging ingestion, see Example logging `service` configurations.
+  * Turn off the built-in logging or metrics ingestion:
 
-      * To turn off host-metrics ingestion, see Example metrics `service` configurations.
+    * To turn off logging ingestion, see Example logging `service` configurations.
 
-    * Customize the file path of the log files that the agent collects logs from; see Logging receivers.
+    * To turn off host-metrics ingestion, see Example metrics `service` configurations.
 
-    * Customize the structured log format that the agent uses to process the log entries, by parsing the JSON or by using regular expressions; see Logging processors.
+  * Customize the file path of the log files that the agent collects logs from; see Logging receivers.
 
-    * Change the sampling rate for metrics; see Metrics receivers.
+  * Customize the structured log format that the agent uses to process the log entries, by parsing the JSON or by using regular expressions; see Logging processors.
 
-    * Customize which group or groups of metrics to enable. The agent collects all system metrics, like `cpu` and `memory`, by default; see Metrics processors.
+  * Change the sampling rate for metrics; see Metrics receivers.
 
-    * Customize how the agent rotates logs; see Log-rotation configuration.
+  * Customize which group or groups of metrics to enable. The agent collects all system metrics, like `cpu` and `memory`, by default; see Metrics processors.
 
-    * Collect metrics and logs from supported third-party applications. See [Monitor third-party applications](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/third-party) for the list of supported applications. 
+  * Customize how the agent rotates logs; see Log-rotation configuration.
 
-    * Use the [Prometheus receiver](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/prometheus) to collect custom metrics.
+  * Collect metrics and logs from supported third-party applications. See [Monitor third-party applications](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/third-party) for the list of supported applications. 
 
-    * Use the [OpenTelemetry Protocol (OTLP) receiver](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/otlp) to collect custom metrics and traces. 
+  * Use the [Prometheus receiver](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/prometheus) to collect custom metrics.
 
-  * You're interested in learning the technical details of the Ops Agent's configuration.
+  * Use the [OpenTelemetry Protocol (OTLP) receiver](https://docs.cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/otlp) to collect custom metrics and traces. 
 
 
 
@@ -486,7 +486,7 @@ Logs can contain the following labels by default in the [`LogEntry`](https://doc
 Field | Sample Value | Description  
 ---|---|---  
 `labels."compute.googleapis.com/resource_name"` | `test_vm` | The name of the virtual machine from which this log originates. Written for all logs.  
-`labels."logging.googleapis.com/instrumentation_source"` | `agent.googleapis.com/apache_access` | The value of the receiver `type` from which thus log originates, prefixed by `agent.googleapis.com/`. Written only by receivers from third-party integrations.  
+`labels."logging.googleapis.com/instrumentation_source"` | `agent.googleapis.com/apache_access` | The value of the receiver `type` from which this log originates, prefixed by `agent.googleapis.com/`. Written only by receivers from third-party integrations.  
   
 ## Logging processors
 
@@ -936,7 +936,7 @@ The following configuration customizes log verbosity for the logging submodule t
 
 The `pipelines` field can contain multiple pipeline IDs and definitions. Each `pipeline` value consists of the following elements:
 
-  * `receivers`: Required for new pipelines. A list of receiver IDs, as described in Logging receivers. The order of the receivers IDs in the list doesn't matter. The pipeline collects data from all of the listed receivers.
+  * `receivers`: Required for new pipelines. A list of receiver IDs, as described in Logging receivers. The order of the receiver IDs in the list doesn't matter. The pipeline collects data from all of the listed receivers.
 
   * `processors`: Optional. A list of processor IDs, as described in Logging processors. The order of the processor IDs in the list matters. Each record is run through the processors in the listed order.
 
@@ -1016,7 +1016,7 @@ Each of these receiver types collects a set of metrics; for information about th
 
 #### Changing the collection interval in the metrics receivers
 
-Some critical workloads might require fast alerting. By reducing the the collection interval for the metrics, you can configure more sensitive alerts. For information on how alerts are evaluated, see [Behavior of metric-based alerting policies](https://docs.cloud.google.com/monitoring/alerts/concepts-indepth).
+Some critical workloads might require fast alerting. By reducing the collection interval for the metrics, you can configure more sensitive alerts. For information on how alerts are evaluated, see [Behavior of metric-based alerting policies](https://docs.cloud.google.com/monitoring/alerts/concepts-indepth).
 
 For example, the following receiver changes the collection interval for host metrics (the receiver ID is `hostmetrics`) from the default of 60 seconds to 10 seconds:
     
@@ -1167,7 +1167,7 @@ The metrics service customizes verbosity for the Ops Agent metrics module's own 
 
 The `service` section has a single element, `pipelines`, which can contain multiple pipeline IDs and definitions. Each `pipeline` definition consists of the following elements:
 
-  * `receivers`: Required for new pipelines. A list of receiver IDs, as described in Metrics receivers. The order of the receivers IDs in the list doesn't matter. The pipeline collects data from all of the listed receivers.
+  * `receivers`: Required for new pipelines. A list of receiver IDs, as described in Metrics receivers. The order of the receiver IDs in the list doesn't matter. The pipeline collects data from all of the listed receivers.
 
   * `processors`: Optional. A list of processor IDs, as described in Metrics processors. The order of the processor IDs in the list _does_ matter. Each metric point is run through the processors in the listed order.
 
@@ -1246,6 +1246,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

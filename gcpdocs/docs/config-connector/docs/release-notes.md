@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/config-connector/docs/release-notes/
 title: Config Connector release notes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T00:19:50.110859+00:00
+fetched_at: 2026-10-30T08:52:38.934056+00:00
 ---
 
 # Config Connector release notes  |  Google Cloud Documentation
@@ -26,6 +26,159 @@ This page documents production updates to Config Connector. Check this page for 
 You can see the latest product updates for all of Google Cloud on the [ Google Cloud](https://docs.cloud.google.com/release-notes) page, browse and filter all release notes in the [Google Cloud console](https://console.cloud.google.com/release-notes), or programmatically access release notes in [BigQuery](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=google_cloud_release_notes&t=release_notes&page=table). 
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/configconnector-release-notes.xml) directly. 
+
+## October 27, 2026
+
+Announcement
+
+Config Connector version 1.160.0 is now available.
+
+Feature
+
+New Alpha Resources (Direct Reconciler):
+
+  * `CCInsightsAnalysisRule`
+
+    * Manage [Customer Experience Insights analysis rules](https://docs.cloud.google.com/gemini-enterprise-cx/insights/reference/rest/v1/projects.locations.analysisRules) to define rules for analyzing conversational data.
+  * `ConfigDeploymentGroup`
+
+    * Manage [Infrastructure Manager deployment groups](https://docs.cloud.google.com/infrastructure-manager/docs/reference/rest/v1/projects.locations.deploymentGroups) to orchestrate and manage deployments collectively.
+  * `DataLineageProcess`
+
+    * Manage [Knowledge Catalog data lineage processes](https://docs.cloud.google.com/knowledge-catalog/docs/reference/data-lineage/rest/v1/projects.locations.processes) to track data origin and movement.
+  * `DataplexDataProduct`
+
+    * Manage [Knowledge Catalog data products](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations.dataProducts) to package and share data assets across an enterprise.
+  * `DialogflowKnowledgeBase`
+
+    * Manage [Dialogflow ES knowledge bases](https://docs.cloud.google.com/dialogflow/es/docs/reference/rest/v2/projects.locations.knowledgeBases) to provide FAQs and articles for agent answers.
+  * `DiscoveryEngineSchema`
+
+    * Manage [Agent Search schemas](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.collections.dataStores.schemas) to define document structures and schemas for data stores.
+  * `DiscoveryEngineSession`
+
+    * Manage [Agent Search sessions](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.collections.dataStores.sessions) to maintain conversation context and history for search and recommendations.
+  * `DiscoveryEngineSitemap`
+
+    * Manage [Agent Search sitemaps](https://docs.cloud.google.com/generative-ai-app-builder/docs/reference/rest/v1/projects.locations.collections.dataStores.siteSearchEngine.sitemaps) to crawl web pages for search data stores.
+  * `ManagedKafkaConnectCluster`
+
+    * Manage [Managed Service for Apache Kafka Connect clusters](https://docs.cloud.google.com/managed-service-for-apache-kafka/docs/reference/rest/v1/projects.locations.connectClusters) to run connectors that integrate Apache Kafka with Google Cloud and external systems.
+  * `MigrationCenterPreferenceSet`
+
+    * Manage [Migration Center preference sets](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.preferenceSets) to specify migration preferences and target cloud architecture assumptions.
+  * `MigrationCenterSource`
+
+    * Manage [Migration Center sources](https://docs.cloud.google.com/migration-center/docs/reference/rest/v1/projects.locations.sources) to configure data sources for importing asset data.
+  * `NetAppActiveDirectory`
+
+    * Manage [NetApp Volumes Active Directory configurations](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.activeDirectories) to enable SMB and NFS domain-joined authentication.
+  * `NetAppHostGroup`
+
+    * Manage [NetApp Volumes host groups](https://docs.cloud.google.com/netapp/volumes/docs/reference/rest/v1/projects.locations.hostGroups) to group client hosts for volume access.
+  * `NetworkConnectivityTransport`
+
+    * Manage [Network Connectivity transports](https://docs.cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest/v1/projects.locations.transports) for connecting network endpoints.
+  * `NetworkSecurityMirroringEndpointGroupAssociation`
+
+    * Manage [Network Security Integration mirroring endpoint group associations](https://docs.cloud.google.com/network-security-integration/docs/reference/rest/v1/projects.locations.mirroringEndpointGroupAssociations) to associate packet mirroring endpoint groups with Virtual Private Cloud (VPC) networks.
+  * `NetworkServicesLBEdgeExtension`
+
+    * Manage [Service Extensions load balancing edge extensions](https://docs.cloud.google.com/service-extensions/docs/reference/rest/v1/projects.locations.lbEdgeExtensions) to customize Cloud CDN and edge proxy traffic processing.
+  * `NetworkServicesLBTrafficExtension`
+
+    * Manage [Service Extensions load balancing traffic extensions](https://docs.cloud.google.com/service-extensions/docs/reference/rest/v1/projects.locations.lbTrafficExtensions) to customize request and response processing in Application Load Balancers.
+  * `NetworkServicesServiceLBPolicy`
+
+    * Manage [Cloud Service Mesh service load balancing policies](https://docs.cloud.google.com/service-mesh/docs/reference/network-services/rest/v1/projects.locations.serviceLbPolicies) to configure fine-grained traffic distribution across backend services.
+  * `SaaSServiceMgmtUnit`
+
+    * Manage [App Lifecycle Manager units](https://docs.cloud.google.com/app-lifecycle-manager/reference/rest/v1/projects.locations.units) to manage SaaS deployment units.
+  * `StorageInsightsReportConfig`
+
+    * Manage [Storage Insights report configurations](https://docs.cloud.google.com/storage/docs/insights/reference/rest/v1/projects.locations.reportConfigs) to generate inventory and audit reports for Cloud Storage buckets.
+  * `WorkloadManagerEvaluation`
+
+    * Manage [Workload Manager evaluations](https://docs.cloud.google.com/workload-manager/docs/reference/rest/v1/projects.locations.evaluations) to scan and evaluate workloads against best-practice rules.
+
+
+
+Feature
+
+New Fields:
+
+  * [`BigtableTable`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/bigtable/bigtabletable)
+
+    * Added support for `spec.columnFamily[].type`.
+  * [`MemorystoreInstance`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/memorystore/memorystoreinstance)
+
+    * Added support for `spec.gcsSource`.
+  * [`MonitoringDashboard`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/monitoring/monitoringdashboard)
+
+    * Added support for `timeSeriesQuery.opsAnalyticsQuery` in dashboard widgets.
+
+
+
+Feature
+
+New Features:
+
+  * Added support for a configurable maximum exponential backoff delay ceiling and retry halting for direct controllers by using the `cnrm.cloud.google.com/backoff-max-delay-in-seconds` annotation.
+  * Updated resource actuation to halt delete operations when the `cnrm.cloud.google.com/actuation-mode` annotation is set to `Paused` on an individual resource.
+
+
+
+Change
+
+Reconciliation Improvements:
+
+Added support for direct reconciliation to more resources, with opt-in behavior. The API is unchanged. To use the direct reconciler, add the `alpha.cnrm.cloud.google.com/reconciler: direct` annotation to the corresponding Config Connector object. The following resources now have direct reconciliation support:
+
+  * [`ComputeNetworkFirewallPolicy`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/compute/computenetworkfirewallpolicy)
+
+    * Added support for direct reconciliation (opt-in).
+  * [`ComputeProjectMetadata`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/compute/computeprojectmetadata)
+
+    * Added support for direct reconciliation (opt-in).
+  * `FirebaseHostingSite`
+
+    * Added support for direct reconciliation (opt-in).
+  * `NetworkServicesEdgeCacheService`
+
+    * Added support for direct reconciliation (opt-in).
+  * `OSLoginSSHPublicKey`
+
+    * Added support for direct reconciliation (opt-in).
+  * [`SQLSSLCert`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/sql/sqlsslcert)
+
+    * Added support for direct reconciliation (opt-in).
+
+
+
+Fixed
+
+Bug Fixes:
+
+  * [`AlloyDBCluster`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/alloydb/alloydbcluster) ([#13963](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13963))
+
+    * Fixed false-positive diffs on `labels`, `initialUser`, and `network` during takeover and re-reconciliation in the direct controller.
+  * [`ArtifactRegistryRepository`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/artifactregistry/artifactregistryrepository) ([#13873](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13873))
+
+    * Fixed migration diffs on `cleanupPolicies` and `cleanupPolicyDryRun` when switching from the Terraform-based controller to the direct controller.
+  * [`ComputeRouterNAT`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/compute/computerouternat) ([#13787](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13787))
+
+    * Fixed creation default and deletion behavior mismatches between the direct controller and the legacy controller.
+  * [`ComputeSecurityPolicy`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/compute/computesecuritypolicy) ([#12775](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/12775))
+
+    * Fixed an issue where setting `rateLimitOptions.enforceOnKeyConfigs` failed with an API error unless `enforceOnKey: ""` was explicitly specified.
+  * [`EssentialContactsContact`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/essentialcontacts/essentialcontactscontact) ([#13845](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13845))
+
+    * Fixed `409 ALREADY_EXISTS` reconciliation errors by automatically acquiring an existing contact by email.
+  * [`MemorystoreInstance`](https://docs.cloud.google.com/config-connector/docs/reference/resource-docs/memorystore/memorystoreinstance) ([#13962](https://github.com/GoogleCloudPlatform/k8s-config-connector/pull/13962))
+
+    * Fixed unwanted drift when `maintenanceVersion` is omitted from the resource configuration by leaving the field unmanaged.
+
+
 
 ## October 13, 2026
 

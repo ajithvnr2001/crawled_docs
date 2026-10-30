@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-update-deny-policy/
 title: Update a deny policy \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:30:22.445638+00:00
+fetched_at: 2026-10-30T08:32:25.401658+00:00
 ---
 
 # Update a deny policy  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

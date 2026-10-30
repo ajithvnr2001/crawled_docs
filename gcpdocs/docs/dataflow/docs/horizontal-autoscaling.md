@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/horizontal-autoscaling/
 title: Horizontal Autoscaling \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:59:05.316568+00:00
+fetched_at: 2026-10-30T08:52:16.045322+00:00
 ---
 
 # Horizontal Autoscaling  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -76,7 +76,9 @@ Replace MAX_WORKERS with the maximum number of worker instances.
 
 To set a lower bound on the number of workers, set the [`--dataflow-service-options=min_num_workers` service option](https://docs.cloud.google.com/dataflow/docs/reference/service-options). When you set this value, horizontal autoscaling doesn't scale below the number of workers specified. This flag is optional.
 
-While a streaming job is running, you can update the minimum and maximum workers by using an [in-flight job update](https://docs.cloud.google.com/dataflow/docs/guides/updating-a-pipeline#in-flight-updates). To adjust the settings, set the `min-num-workers` and `max-num-workers` flags. For more information, see [Update the autoscaling range](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#update-range).
+For streaming jobs that use [Streaming Engine](https://docs.cloud.google.com/dataflow/docs/streaming-engine), you can also configure a backlog threshold by [setting a latency tier](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#latency-tier).
+
+For a streaming job that's already running, you can update the minimum workers, maximum workers, or the latency tier by using an [in-flight job update](https://docs.cloud.google.com/dataflow/docs/guides/updating-a-pipeline#in-flight-updates). To adjust the settings, set the `min-num-workers`, `max-num-workers`, or `latency-tier` flags. For more information, see [Tune Horizontal Autoscaling for streaming pipelines](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling).
 
 ## Disable Horizontal Autoscaling
 
@@ -167,6 +169,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/create-catalog/
 title: Create a catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:38.586278+00:00
+fetched_at: 2026-10-30T08:39:05.681447+00:00
 ---
 
 # Create a catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -130,6 +130,7 @@ This configuration lets your catalog associate multiple buckets and lets you nam
 
   11. For **Authentication method** , select **End-user credentials** or **Credential vending mode**.
 
+**Note:** If you select **End-user credentials** , the Lakehouse runtime catalog doesn't automatically manage tables in the catalog. You can't enable [table management](https://docs.cloud.google.com/lakehouse/docs/table-options#enable_table_management) tasks such as compaction and snapshot expiration.
   12. Click **Create**.
 
 Your catalog is created, and the **Catalog details** page opens.
@@ -181,10 +182,9 @@ Replace the following:
   * `CATALOG_NAME`: a name for your catalog. For multiple-bucket catalogs (recommended), this is your custom catalog name.
   * `PROJECT_ID`: your Google Cloud project ID.
   * `DEFAULT_LOCATION`: the default storage location for the catalog. You can specify a bucket (`gs://my-bucket`) or a subpath (`gs://my-bucket/path`). All namespaces and tables in the catalog must reside under the specified path. For example, if you specify `gs://my-bucket/path`, you can't create namespaces or tables under `gs://my-bucket/another/path`.
-  * `CREDENTIAL_MODE`: the authentication method. Use `end-user` for end-user credentials or `vended-credentials` for credential vending mode.
+  * `CREDENTIAL_MODE`: the authentication method. Use `end-user` for end-user credentials or `vended-credentials` for credential vending mode. If you specify `end-user`, the Lakehouse runtime catalog doesn't automatically manage tables in the catalog. You can't enable [table management](https://docs.cloud.google.com/lakehouse/docs/table-options#enable_table_management) tasks such as compaction and snapshot expiration.
 
-**Note** : If you use credential vending mode, you must explicitly grant the Storage Object User role (`roles/storage.objectUser`) on all associated storage buckets to your catalog's auto-provisioned Lakehouse runtime catalog service account.
-
+**Note:** If you use credential vending mode, you must explicitly grant the Storage Object User role (`roles/storage.objectUser`) on all associated storage buckets to your catalog's auto-provisioned Lakehouse runtime catalog service account.
   * `RESTRICTED_LOCATIONS`: optional: a comma-separated list of additional allowed storage locations, in the format `gs://my-bucket-1/...,gs://my-bucket-2/...`. If you specify a path (such as `gs://my-bucket/path`), any namespaces or tables within that bucket must be under that path. All configured Cloud Storage locations across the default location and restricted locations must be in the same geographic region group or jurisdiction (such as the United States, Europe, Canada, or Asia). For example, you can't mix a bucket in the US with a bucket in Europe. For a list of supported locations, see [Lakehouse locations](https://docs.cloud.google.com/lakehouse/docs/locations).
 
 **Warning** : Avoid configuring overlapping paths with other catalogs to prevent unauthorized credential exposure. For more information, see [Storage across multiple buckets](https://docs.cloud.google.com/lakehouse/docs/about-iceberg-rest-catalog-endpoint#storage-multiple-buckets).
@@ -217,7 +217,7 @@ Replace the following:
 
 ###  REST 
 
-**Create an Iceberg REST catalog**
+**Create an Apache Iceberg REST catalog endpoint**
 
 To create a catalog management endpoint using the REST API, make a `POST` request to the [`CreateIcebergCatalog`](https://docs.cloud.google.com/lakehouse/docs/reference/rest/v1/iceberg.v1.restcatalog.extensions.projects.catalogs/create) endpoint:
     
@@ -238,6 +238,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/streaming-engine/
 title: Use Streaming Engine for streaming jobs \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:59:03.571351+00:00
+fetched_at: 2026-10-30T08:52:02.822748+00:00
 ---
 
 # Use Streaming Engine for streaming jobs  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -37,7 +37,7 @@ To learn more about the implementation of Streaming Engine, see [Streaming Engin
 The Streaming Engine model has the following benefits:
 
   * Reduced CPU, memory, and Persistent Disk storage resource usage on the worker VMs. Streaming Engine works best with worker machine types that have fewer vCPUs (for example, 2 vCPUs instead of 4 vCPUs). It doesn't require Persistent Disk beyond a small worker boot disk, leading to less resource and quota consumption.
-  * More responsive [Horizontal Autoscaling](https://docs.cloud.google.com/dataflow/docs/horizontal-autoscaling) in response to variations in incoming data volume. Streaming Engine offers smoother, more granular scaling of workers.
+  * More responsive [Horizontal Autoscaling](https://docs.cloud.google.com/dataflow/docs/horizontal-autoscaling) in response to variations in incoming data volume. Streaming Engine offers more granular scaling of workers. You can also [configure a latency tier](https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling#latency-tier) to tune the autoscaler's sensitivity to backlog duration.
   * Improved supportability, because you don't need to redeploy your pipelines to apply service updates.
 
 
@@ -186,6 +186,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/cross-filtering-dashboards/
 title: Cross-filtering dashboards \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:14:33.128129+00:00
+fetched_at: 2026-10-30T08:58:26.876664+00:00
 ---
 
 # Cross-filtering dashboards  |  Looker  |  Google Cloud Documentation
@@ -102,7 +102,8 @@ For information on how to enable cross-filtering on custom visualizations, visit
 
 The following visualization types are not supported and cannot create cross-filters; however, they can be filtered by cross-filters:
 
-  * [Single value charts](https://docs.cloud.google.com/looker/docs/single-value-options)
+  * [KPI (Single Value) charts](https://docs.cloud.google.com/looker/docs/kpi-single-value-options)
+  * [Single value (legacy) charts](https://docs.cloud.google.com/looker/docs/single-value-options)
   * [Single record charts](https://docs.cloud.google.com/looker/docs/single-record-options)
   * [Map charts](https://docs.cloud.google.com/looker/docs/map-options) that use [**Plot** options](https://docs.cloud.google.com/looker/docs/map-options#plot_menu_options) other than **Points** for data of [`type: location`](https://docs.cloud.google.com/looker/docs/reference/param-dimension-filter-parameter-types#location), or map charts that use [map layers](https://docs.cloud.google.com/looker/docs/reference/param-model-map-layer)
   * Visualizations that use [grid layout](https://docs.cloud.google.com/looker/docs/editing-user-defined-dashboards#tile_size_and_grid_layout)
@@ -201,6 +202,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

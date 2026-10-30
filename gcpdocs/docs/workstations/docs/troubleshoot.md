@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workstations/docs/troubleshoot/
 title: Troubleshoot Cloud Workstations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:00.589809+00:00
+fetched_at: 2026-10-30T08:38:58.046924+00:00
 ---
 
 # Troubleshoot Cloud Workstations  |  Google Cloud Documentation
@@ -63,10 +63,8 @@ Here are some recommendations:
 
 If you disabled public IP addresses on your configuration, use one of the following options:
 
-  * Set up [Cloud NAT](https://docs.cloud.google.com/nat/docs/overview) to allow Cloud Workstations to pull images on to your workstation VMs.
-
-  * Enable [Private Google Access](https://docs.cloud.google.com/vpc/docs/private-google-access) on your subnet. If you use the `private.googleapis.com` or the `restricted.googleapis.com` domain names, create DNS records to direct traffic to the IP addresses associated with those domains. Specifically, you need ensure you enable access to the Artifact Registry and Container Registry domains, which correspond respectively to `*.pkg.dev` and `*.gcr.io`.
-
+  * Set up [Cloud NAT](https://docs.cloud.google.com/nat/docs/overview) to allow Cloud Workstations to pull images on to your workstation VMs. 
+  * Enable [Private Google Access](https://docs.cloud.google.com/vpc/docs/private-google-access) on your subnet. If you use the `private.googleapis.com` or the `restricted.googleapis.com` domain names, create DNS records to direct traffic to the IP addresses associated with those domains. Specifically, you need ensure you enable access to the Artifact Registry and Container Registry domains, which correspond respectively to `*.pkg.dev` and `*.gcr.io`. 
 
 
 
@@ -128,6 +126,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/sql/docs/postgres/replication/
 title: About replication in Cloud SQL \u00a0|\u00a0 Cloud SQL for PostgreSQL \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:49:12.207197+00:00
+fetched_at: 2026-10-30T08:39:19.459698+00:00
 ---
 
 # About replication in Cloud SQL  |  Cloud SQL for PostgreSQL  |  Google Cloud Documentation
@@ -64,7 +64,7 @@ Cloud SQL doesn't support replication between two external servers.
 
 ## Read replicas
 
-You use a read replica to offload work from a Cloud SQL instance. The read replica is an exact copy of the primary instance. Data and other changes on the primary instance are updated in almost real time on the read replica.
+You use a read replica to offload work from a Cloud SQL instance. The read replica is an exact copy of the primary instance. Data and other changes on the primary instance are asynchronously replicated and applied to the read replica.
 
 Read replicas are read-only; you cannot write to them. The read replica processes queries, read requests, and analytics traffic, thus reducing the load on the primary instance.
 
@@ -125,7 +125,7 @@ See [Promoting replicas for regional migration or disaster recovery](https://doc
 
 Cascading replication lets you create a read replica under another read replica in the same or a different region. The following scenarios are use cases for using cascading replicas:
 
-  * **Disaster recovery** : You can use a cascading hierarchy of read replicas to simulate the topology of your primary instance and its read replicas. During an outage, your selected read replica is promoted to primary and the read replicas under the new primary continue to replicate and are ready for use.
+  * **Disaster recovery** : You can use a cascading hierarchy of read replicas to simulate the topology of your primary instance and its read replicas. During an outage, when you promote a read replica to primary, the read replicas under this new primary continue to replicate and are ready for use.
   * **Performance improvements** : Reduce the burden on the primary instance by offloading replication work to multiple read replicas.
   * **Scale Reads** : You can have more replicas to share the read load.
   * **Cost reduction** : You can reduce networking costs by using a single cascading replica with cross-region replication in other regions.
@@ -189,7 +189,7 @@ Primary A → Replica B → Replica C and Replica D
 ### Restrictions
 
   * You can't delete a replica that has replicas under it. To delete the replica, you must start with the leaf replicas and work your way upward through the hierarchy.
-  * Circular region dependency isn't supported. To have the replica of a cascading replica in the same region as the primary instance, the cascading replica must also be in the same region.
+  * Circular region dependency isn't supported. You cannot replicate from one region to another and then back to the original region. To have the replica of a cascading replica in the same region as the primary instance, the cascading replica must also be in the same region.
 
 
 
@@ -299,6 +299,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

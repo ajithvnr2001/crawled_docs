@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/vm-manager/docs/patch/view-patch-summary/
 title: View patch summary for VMs \u00a0|\u00a0 VM Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:36.373530+00:00
+fetched_at: 2026-10-30T08:40:14.548178+00:00
 ---
 
 # View patch summary for VMs  |  VM Manager  |  Google Cloud Documentation
@@ -117,9 +117,9 @@ To view patch summary for VMs in an organization or folder, do the following:
   4. Optional: Specify the criteria for patch summary computation by using the query builder.
   5. Review patch summary information in the **Patch summary table**. The table includes a row for each project as shown in the following figure:
 
-[ ![Patch summary for all projects.](https://docs.cloud.google.com/static/compute/images/manage-os/patch-summary.png)](https://docs.cloud.google.com/static/compute/images/manage-os/patch-summary.png)
+![Patch summary for all projects.](https://docs.cloud.google.com/static/compute/images/manage-os/patch-summary.png)
 
-The Patch summary table lists the following information that meets the criteria you've specified in the query builder:
+The Patch summary table lists the following information that meets the criteria specified in the query builder:
 
      * **Project** : The name of projects in the organization that contain at least one VM and have VM Manager enabled.
 
@@ -137,11 +137,11 @@ Clicking on the project name opens the **VM instances** tab that lists the patch
 
      * **Up to date** : Number of VMs without any available patches.
 
-     * **No data** : Number of VMs with no patch data available. Either VM Manager is not enabled for these VMs, or their operation system is not supported.
+     * **No data** : Number of VMs with no patch data available. A VM shows no patch data if VM Manager isn't enabled on the VM, its operating system isn't supported, or it's a Google-managed VM with VM Manager disabled by default. Examples of these Google-managed VMs include App Engine flexible environment, Serverless VPC Access connector, and Managed Service for Apache Spark instances. For these Google-managed VMs, this status is expected and requires no action. For more information, see [Patch status for Google-managed VMs](https://docs.cloud.google.com/compute/vm-manager/docs/patch#google-managed-vms).
 
   6. Optional: Apply table filters if you want to view specific rows in the Patch summary table:
 
-[ ![Table filter in the patch summary table.](https://docs.cloud.google.com/static/compute/images/manage-os/table-filter.png)](https://docs.cloud.google.com/static/compute/images/manage-os/table-filter.png)
+![Table filter in the patch summary table.](https://docs.cloud.google.com/static/compute/images/manage-os/table-filter.png)
 
 For example, if you want to see patch summary for projects that have more than 10 VMs, then set the filter option **Total VMs** to `>= 10`.
 
@@ -154,7 +154,7 @@ Based on the criteria that you specify using the query builder, VM Manager compu
 
 For example, when you set the `OS` attribute in the query builder as `Debian`, VM Manager displays patch information for all VMs with Debian OS. If you want to view the patch summary for VMs in a specific project, use the filter to specify the project ID.
 
-[ ![Query builder with one attribute.](https://docs.cloud.google.com/static/compute/images/manage-os/query-builder.png)](https://docs.cloud.google.com/static/compute/images/manage-os/query-builder.png)
+![Query builder with one attribute.](https://docs.cloud.google.com/static/compute/images/manage-os/query-builder.png)
 
 To set a query in the query builder, do the following:
 
@@ -189,6 +189,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

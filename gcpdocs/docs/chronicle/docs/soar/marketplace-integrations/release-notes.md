@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/soar/marketplace-integrations/release-notes/
 title: Google SecOps Response Integrations release notes \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:16:07.375090+00:00
+fetched_at: 2026-10-30T08:58:38.381530+00:00
 ---
 
 # Google SecOps Response Integrations release notes  |  Google Security Operations  |  Google Cloud Documentation
@@ -27,6 +27,103 @@ You can see the latest product updates for all of Google Cloud on the [ Google C
 
 To get the latest product updates delivered to you, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the [feed URL](https://docs.cloud.google.com/feeds/chronicle-soar-marketplace-release-notes.xml) directly. 
 
+## October 28, 2026
+
+Feature
+
+**SAP ERP** : Version 1.0
+
+  * New **SAP ERP** integration.
+
+
+
+Feature
+
+**Google Threat Intelligence** : Version 23.0
+
+  * The following new action has been added:
+
+    * **Ask Threat Intelligence Agent**
+
+
+
+Change
+
+**Microsoft Graph Mail Delegated** : Version 27.0
+
+  * Fixed an issue where overflowed alerts were skipped without saving their IDs or marking the emails as read, preventing infinite reprocessing loops and state loss in the following connector:
+
+    * **Microsoft Graph Mail Delegated Connector**
+
+
+
+Change
+
+**Tools** : Version 85.0
+
+  * Fixed an issue where environment names containing ampersands (`&`) weren't properly filtered in the following action:
+
+    * **Get Integration Instances**
+
+
+
+Change
+
+**Wiz** : Version 11.0
+
+  * Fixed inbound and outbound closure reason mappings between Wiz and Google SecOps in the following job:
+
+    * **Wiz and Google SecOps Bi-directional Sync Job**
+  * Updated predefined widgets in the following actions:
+
+    * **Add Comment To Issue**
+    * **Get Blue Agent Analysis**
+    * **Get Issue Details**
+    * **Ignore Issue**
+    * **List Resource Vulnerability Findings**
+    * **Reopen Issue**
+    * **Resolve Issue**
+
+
+
+Change
+
+**Microsoft Graph Mail** : Version 50.0
+
+  * Fixed an issue where overflowed alerts were skipped without saving their IDs or marking the emails as read, preventing infinite reprocessing loops and state loss in the following connector:
+
+    * **Microsoft Graph Mail Connector**
+
+
+
+Change
+
+**Google Chronicle** : Version 99.0
+
+  * Fixed an issue where the connector could stop ingesting alerts when composite detections failed to load or pagination did not progress in the following connector:
+
+    * **Google Chronicle - Chronicle Alerts Connector**
+
+
+
+Change
+
+**Okta** : Version 19.0
+
+  * **Integration** : Updated OAuth authentication scopes to support user management actions.
+
+
+
+Change
+
+**Microsoft 365 Defender** : Version 34.0
+
+  * Added the **Time Frame** , **Start Time** , and **End Time** parameters to support time-based query filtering in the following action:
+
+    * **Execute Custom Query**
+
+
+
 ## October 24, 2026
 
 Change
@@ -35,9 +132,11 @@ Change
 
   * (REGRESSIVE) **Integration** : Reverted the Chronicle API refactoring introduced in version 53.0. The integration code is restored to version 52.0.
 
-**Important:** All deployments must run on **version 54.0** or **version 52.0**. If you are currently on **version 53.0** , roll back to **version 52.0** or update to **version 54.0** , and point the **Branch** parameter back to your pre-v53 repository branch. 
+**Caution:** All deployments must run on version 54.0 or version 52.0. 
 
-For instructions, see [Version 53.0 rollback and version 52.0 / 54.0 compatibility](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync#version-54-rollback-guidance).
+If you're currently on version 53.0, roll back to version 52.0 or update to version 54.0, and point the **Branch** parameter back to the previous repository branch.
+
+For instructions, see [Version 53.0 rollback](https://docs.cloud.google.com/chronicle/docs/soar/marketplace/power-ups/gitsync#version-54-rollback-guidance).
 
 
 

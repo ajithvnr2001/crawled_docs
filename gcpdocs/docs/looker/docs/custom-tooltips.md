@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/custom-tooltips/
 title: Custom tooltips \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:47:11.671845+00:00
+fetched_at: 2026-10-30T08:58:23.876818+00:00
 ---
 
 # Custom tooltips  |  Looker  |  Google Cloud Documentation
@@ -72,7 +72,7 @@ If you have the appropriate permissions, you can customize the tooltip for a ser
   3. Open the **Series** menu. 
      * For [Google Maps charts](https://docs.cloud.google.com/looker/docs/google-map-options#custom-tooltip) and [boxplot charts](https://docs.cloud.google.com/looker/docs/boxplot-options#custom-tooltip), click the **Plot** tab, and proceed to step 5.
      * For [waterfall charts](https://docs.cloud.google.com/looker/docs/waterfall-options#custom-tooltip), click the **Series** menu, and proceed to step 5.
-     * For [single value](https://docs.cloud.google.com/looker/docs/single-value-options#custom-tooltip) charts and [single record charts](https://docs.cloud.google.com/looker/docs/single-record-options#custom-tooltip), click the **Style** menu, and proceed to step 5.
+     * For [KPI (Single Value)](https://docs.cloud.google.com/looker/docs/kpi-single-value-options#custom-tooltip) charts, [single value (legacy) charts](https://docs.cloud.google.com/looker/docs/single-value-options#custom-tooltip), and [single record charts](https://docs.cloud.google.com/looker/docs/single-record-options#custom-tooltip), click the **Style** menu, and proceed to step 5.
      * For [funnel charts](https://docs.cloud.google.com/looker/docs/funnel-options#custom-tooltip), click the **Labels** menu, and proceed to step 5.
      * For [timeline charts](https://docs.cloud.google.com/looker/docs/timeline-options#custom-tooltip), click the **Options** menu, and proceed to step 5.
   4. Under the **Customizations** section, find the series that you would like to add the tooltip to. If there are multiple series, expand the one that you want to add a tooltip to.
@@ -230,6 +230,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

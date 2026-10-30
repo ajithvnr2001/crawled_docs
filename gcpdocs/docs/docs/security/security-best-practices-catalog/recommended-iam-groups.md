@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/docs/security/security-best-practices-catalog/recommended-iam-groups/
 title: Recommended user groups and Identity and Access Management roles \u00a0|\u00a0 Security \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:56.710665+00:00
+fetched_at: 2026-10-30T09:01:36.231554+00:00
 ---
 
 # Recommended user groups and Identity and Access Management roles  |  Security  |  Google Cloud Documentation

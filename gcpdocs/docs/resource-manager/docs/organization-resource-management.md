@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/resource-manager/docs/organization-resource-management/
 title: Manage projects and billing in your organization \u00a0|\u00a0 Resource Manager \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:36.650017+00:00
+fetched_at: 2026-10-30T08:45:02.654019+00:00
 ---
 
 # Manage projects and billing in your organization  |  Resource Manager  |  Google Cloud Documentation
@@ -21,7 +21,7 @@ Send feedback
 
 #  Manage projects and billing in your organization Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page explains how to view and manage projects and billing accounts within your Google Cloud organization.
+To centrally manage your cloud workloads and costs, you can view Cloud Billing accounts and create, list, and delete projects across your Google Cloud organization resource. You can perform these tasks by using the Google Cloud console, the Google Cloud CLI, or the Cloud Resource Manager API.
 
 ## View billing accounts
 
@@ -146,6 +146,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-30 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-30 UTC."],[],[]] 

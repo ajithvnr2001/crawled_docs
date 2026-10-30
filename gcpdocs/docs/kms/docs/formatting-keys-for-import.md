@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/formatting-keys-for-import/
 title: Formatting keys for import \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:47.825662+00:00
+fetched_at: 2026-10-30T09:01:27.430732+00:00
 ---
 
 # Formatting keys for import  |  Cloud Key Management Service  |  Google Cloud Documentation

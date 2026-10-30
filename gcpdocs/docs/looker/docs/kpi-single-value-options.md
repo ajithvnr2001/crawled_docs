@@ -1,11 +1,11 @@
 ---
 url: https://docs.cloud.google.com/looker/docs/kpi-single-value-options/
-title: KPI (Single Value) charts \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
+title: KPI (Single Value) chart options \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:02.152097+00:00
+fetched_at: 2026-10-30T08:58:25.678565+00:00
 ---
 
-# KPI (Single Value) charts  |  Looker  |  Google Cloud Documentation
+# KPI (Single Value) chart options  |  Looker  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/looker/docs/kpi-single-value-options/
 
@@ -19,63 +19,13 @@ fetched_at: 2026-10-27T23:17:02.152097+00:00
 
 Send feedback 
 
-#  KPI (Single Value) charts Stay organized with collections  Save and categorize content based on your preferences. 
+#  KPI (Single Value) chart options Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Note:** The **KPI Visualization** feature is in preview and is subject to the "Pre-GA Offerings Terms" in the [General Service Terms](https://cloud.google.com/terms/service-terms#1) section of the Service Specific Terms. Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products#product-launch-stages). 
+**Note:** KPI (Single Value) charts replace the single value chart option by default. Your admin can enable the **Use Legacy Single Value Visualization** setting in the [**Legacy features** page of the **Admin** panel](https://docs.cloud.google.com/looker/docs/legacy-feature-schedule#use-single-value-visualization) to continue using single value (legacy) charts. If your admin didn't previously enable the KPI (Single Value) preview feature, then the **Use Legacy Single Value Visualization** setting will be enabled by default, and you'll still see the [single value (legacy)](https://docs.cloud.google.com/looker/docs/single-value-options) chart option.
 
-We encourage you to share your feedback to help us improve. To report bugs or issues, send an email to [`looker-viz-preview-external@google.com`](mailto:looker-viz-preview-external@google.com) with the following details: 
+KPI (Single Value) charts highlight key performance metrics — such as total revenue, active users, or conversion rates — to provide immediate, at-a-glance insight into business performance. By combining a prominent primary metric with contextual elements like sparklines, progress bars, and value comparisons, KPI charts help you quickly identify trends, evaluate progress toward goals, and build scannable dashboards and Explores. This page provides an overview for using and customizing KPI (Single Value) charts in Looker.
 
-  * A clear description of the problem and the expected behavior
-  * Steps to reproduce the issue
-  * Any additional relevant details
-
-
-
-When the [**KPI Visualization** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#kpi-visualization) is enabled, you can visualize KPI data points with the **KPI (Single Value)** chart option in Looker. The **KPI (Single Value)** chart option replaces the **Single Value** chart option in Explores.
-
-![A KPI visualization with a progress bar and a sparkline.](https://docs.cloud.google.com/static/looker/docs/images/kpi-vis-example-2610.png)
-
-The **KPI Visualization** preview feature provides users with the following capabilities:
-
-  * Add secondary visualizations: Users can add a sparkline or bar chart within a visualization to show trends or distributions that are related to the primary KPI.
-  * Show enhanced comparisons: Users can specify and compare a primary value against any other measure in an Explore query, using data from the first row, second row, last row, or totals row.
-  * Access improved styling options: Users have more control over the appearance of the visualization, including background color of the tile, and the alignment of the values.
-
-**Important:** The **KPI Visualization** preview feature is disabled by default.
-
-This page provides guidance for enabling and using the **KPI Visualization** preview feature for your Looker (original) or Looker (Google Cloud core) instance. This page includes the following sections:
-
-  * User and instance requirements
-  * Enabling the KPI Visualization
-  * Things to know
-  * KPI (Single Value) chart options
-  * Related resources
-
-
-
-## User and instance requirements
-
-To enable and use the **KPI Visualization** preview feature, the following requirements must be met:
-
-  * Your Looker (original) or Looker (Google Cloud core) instance must be running Looker 26.10 or later, and your Looker (original) instance must be Looker-hosted.
-  * You must have the [**Admin** Looker role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#admin) to enable the **KPI Visualization** preview feature.
-  * To view and interact with Explores, including creating visualizations, you must have the following access: 
-    * The [**User** Looker role](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#default_roles) or another role that contains the [`explore` permission](https://docs.cloud.google.com/looker/docs/admin-panel-users-roles#explore)
-    * Access to the underlying LookML model that the Explore is based on to see and use its fields in a visualization
-
-
-
-## Enabling the KPI Visualization
-
-The [**KPI Visualization** preview feature](https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features#kpi-visualization) is enabled by default.
-
-Admins can enable or disable the **KPI Visualization** preview feature by following these steps:
-
-  1. In Looker, click the **Admin** option in the [main navigation menu](https://docs.cloud.google.com/looker/docs/finding-content#using_the_main_navigation_menu).
-  2. Click the **Preview** option under the **General** section to open the **Preview Features** page.
-  3. Click the **KPI Visualization** switch to enable or disable the preview feature.
-
-
+![A KPI visualization with a progress bar and a sparkline that compares the first time purchase count with the overall order count.](https://docs.cloud.google.com/static/looker/docs/images/kpi-vis-example-2620.png)
 
 ## Things to know
 
@@ -85,16 +35,11 @@ If the [**Smart Single Value Text Size** feature](https://docs.cloud.google.com/
 
 ## KPI (Single Value) chart options
 
-**Important:**
+**Important:** Options that are listed in the menu may appear as unavailable or be hidden when they conflict with other settings that you have chosen.
 
-  * When the **KPI Visualization** preview feature is enabled, the **Single Value** chart option is replaced by the **KPI (Single Value) Chart** option. 
-  * Options that are listed in the menu may appear as unavailable or be hidden when they conflict with other settings that you have chosen. 
+To use a KPI (Single Value) visualization, select the **KPI (Single Value)** option in the Explore **Select chart** or **Change chart** menu. Next, select the **Style** tab in the **Configure** panel to edit your chart.
 
-
-
-To edit the KPI (Single Value) chart, click tune **Edit** in the Explore **Visualization** pane.
-
-Once in edit mode, users can make selections in the **Style** , **Comparison** , and **Formatting** menus to customize the appearance of the KPI (Single Value) visualization.
+You can make selections in the **Style**, **Comparison**, and **Formatting** menus to customize the appearance of the KPI (Single Value) visualization.
 
 ### Style menu options
 
@@ -103,6 +48,16 @@ The **Style** menu includes the following options.
 #### Colors Collection
 
 Choose a color collection from the **Colors Collection** menu. A collection lets you create themed visualizations and dashboards that look good together. You can see all the palettes in each of Looker's built-in color collections on the [Color collections](https://docs.cloud.google.com/looker/docs/color-collections) documentation page. Your Looker admin may also create a custom color collection for your organization.
+
+#### Primary Value
+
+The settings in this section let you choose the primary value for the KPI (Single Value) visualization, including the following:
+
+  * **Primary Series** : Choose a measure from the Explore to set as a primary series. The value of the measure will be the value that is compared against when the **Show Comparison** setting in the **Comparison** menu is turned on.
+  * **Primary Row** : Specify a row's value from the **Primary Series** to display. Options include **1st** , **2nd** , **Last** , and **Total** (when [**Totals** are enabled](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#displaying_totals)). **1st** is selected by default.
+  * **Alignment** : Choose an alignment option for the values in the visualization. Options include **Left** , **Center** , and **Right**. This setting applies to all of the values in the visualization.
+
+
 
 #### Value Color
 
@@ -122,6 +77,16 @@ Depending on your needs, consider using the following alternate techniques:
 
 
 
+#### Value Format
+
+You can specify the format of the value, independent of the underlying dimension or measure. The field accepts Excel-style formatting. If no formatting is specified, the value displays in the format of the underlying dimension or measure.
+
+MS Excel's complete guide details how to specify these formats [in their documentation](https://support.office.com/en-us/article/review-guidelines-for-customizing-a-number-format-c0a1d1fa-d3f4-4018-96b7-9c9354dd99f5). However, color formatting is not currently supported in Looker.
+
+**Tip:** For Looker developers: The formatting that's used in the **Value Format** field is the same as the formatting that's used with the [`value_format` LookML parameter](https://docs.cloud.google.com/looker/docs/reference/param-field-value-format), except that the `value_format` parameter requires the formatting string to be enclosed in double quotes. In the **Value Format** field, the formatting string isn't enclosed in quotes.
+
+The [Adding custom formatting to numeric fields](https://docs.cloud.google.com/looker/docs/custom-formatting#custom_formatting_examples) documentation page provides more information on how to use custom formatting.
+
 #### Auto Resize Value
 
 Enabling the **Auto Resize Value** option automatically resizes the font on the single value visualization that's displayed within dashboard tiles. Fonts are resized to display at least 8-10 value characters within a tile; if the characters in the visualization overflow horizontally or vertically at a given size, the font size will decrease incrementally. The minimum font size allowed is 14 pixels. Once the minimum font size is reached, any overflowing characters will be truncated with an ellipsis (...). The maximum font size allowed is 104 pixels.
@@ -132,31 +97,26 @@ This setting has no effect if the [**Smart Single Value Text Size** setting](htt
 
 #### Show Title
 
-You can determine whether a title appears under the number. For a saved Look, the default title is the name of the Look. You also can specify a different title by using the **Title** field.
+You can determine whether a title appears on the chart. For a saved Look, the default title is the name of the Look. You also can specify a different title by using the **Title Override** field.
 
 #### Title Override
 
 You can specify a title to display with the value. This field is available when **Show Title** is on. For a saved Look, if this field is left empty, the title defaults to the name of the saved Look.
 
-#### Show Spark chart
+#### Show Spark Chart
 
 Turn on the **Show Spark Chart** setting to display a secondary visualization that shows the change of the data value. When this setting is turned on, you can customize the secondary visualization with the following settings:
 
   * **Chart Type** : Choose either **Area** chart or **Column** chart as the secondary visualization.
   * **Chart Color** : Choose a color for the secondary visualization, similarly to the Value Color setting.
   * **Visible X Axis** : Turn this setting on to display X Axis values for the secondary chart.
+  * **Show Sparkline Tooltip** : Turn this setting on for tooltips to appear when users hover over a datapoint in the sparkline.
 
 
 
-#### Primary Value
+#### Custom Tooltip
 
-The settings in this section let you choose the primary value for the KPI (Single Value) visualization, including the following:
-
-  * **Primary Series** : Choose a measure from the Explore to set as a primary series. The value of the measure will be the value that is compared against when the **Show Comparison** setting in the **Comparison** menu is turned on.
-  * **Primary Row** : Specify a row's value from the **Primary Series** to display. Options include **1st** , **2nd** , **Last** , and **Total** (when [**Totals** are enabled](https://docs.cloud.google.com/looker/docs/creating-and-editing-explores#displaying_totals)). **1st** is selected by default.
-  * **Alignment** : Choose an alignment option for the values in the visualization. Options include **Left** , **Center** , and **Right**. This setting applies to all of the values in the visualization.
-
-
+You can click the **Custom Tooltip** switch to configure a custom tooltip for the primary value. You can configure the custom tooltip in the [Explore visualization editor](https://docs.cloud.google.com/looker/docs/creating-visualizations#quick_guide) by using a combination of UI settings and an HTML editor that supports Liquid templating. [Learn more about **Custom Tooltips**](https://docs.cloud.google.com/looker/docs/custom-tooltips).
 
 ### Comparison menu options
 
@@ -178,9 +138,23 @@ The comparison series appears underneath the primary series in the visualization
     * **Show as Percentage Change** : The value of the comparison series is displayed with the percentage change compared to the primary series, with conditional formatting that indicates the type of change. If the percentage change in value is negative, a triangle points downwards. If the percentage change in value is positive, the triangle points upward. By default, a negative percentage appears in red with a red triangle, and a positive percentage appears in green with a green triangle. These colors can be switched by turning on the **Positive Values are Bad** setting.
     * **Calculate Progress** : The value of the primary field is divided by the comparison field's value, and the percentage appears as a progress bar.
     * **Calculate Progress (with Percentage)** : The value of the primary field is divided by the value of the comparison field. The percentage appears as a progress bar that is labeled with the percentage and the value of the comparison field, such as "83% of $347.8 K". If the **Show Label** setting is on, then the progress bar also shows the label for the comparison field, such as "83% of $347.8 K Monthly target".
+  * **Progress Bar Width** : You can specify the width of the progress bar in the chart. The options include **Full Width** or **Compact**.
+  * **Progress Bar Color** : You can customize the color of the progress bar with the following settings: 
+    * To pick a color from a palette, click the **Palettes** tab of the color picker menu, and then use the left and right arrows to scroll through the available palettes. Select a color by clicking on a color in one of the palettes.
+    * To select a custom color, click the **Custom** tab of the palette picker, and then either use the color gradient and value slider to choose a custom color, or enter an RGB [hex string](https://www.w3schools.com/colors/colors_hexadecimal.asp), such as `#2ca6cd`, or [CSS color name](https://www.w3schools.com/cssref/css_colors.asp), such as `mediumblue`, into the input field.
   * **Show Label** : Turn on this setting to show a label for the comparison field. By default, the label is the name of the comparison field. If you want to display a different label, enter a new label in the **Label** field.
 
 
+
+#### Value Format
+
+You can specify the format of the value, independent of the underlying dimension or measure. The field accepts Excel-style formatting. If no formatting is specified, the value displays in the format of the underlying dimension or measure.
+
+MS Excel's complete guide details how to specify these formats [in their documentation](https://support.office.com/en-us/article/review-guidelines-for-customizing-a-number-format-c0a1d1fa-d3f4-4018-96b7-9c9354dd99f5). However, color formatting is not currently supported in Looker.
+
+**Tip:** For Looker developers: The formatting that's used in the **Value Format** field is the same as the formatting that's used with the [`value_format` LookML parameter](https://docs.cloud.google.com/looker/docs/reference/param-field-value-format), except that the `value_format` parameter requires the formatting string to be enclosed in double quotes. In the **Value Format** field, the formatting string isn't enclosed in quotes.
+
+The [Adding custom formatting to numeric fields](https://docs.cloud.google.com/looker/docs/custom-formatting#custom_formatting_examples) documentation page provides more information on how to use custom formatting.
 
 ### Formatting menu options
 
@@ -248,6 +222,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

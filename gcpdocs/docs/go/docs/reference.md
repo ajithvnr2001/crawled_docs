@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/go/docs/reference/
 title: Go Cloud Client Libraries \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:24:00.525949+00:00
+fetched_at: 2026-10-30T08:37:04.549600+00:00
 ---
 
 # Go Cloud Client Libraries  |  Google Cloud Documentation
@@ -420,6 +420,7 @@ Merchant API for Shopping |  [ cloud.google.com/go/shopping/merchant/accounts/ap
 [ cloud.google.com/go/shopping/merchant/quota/apiv1beta ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/quota/apiv1beta)   
 [ cloud.google.com/go/shopping/merchant/reports/apiv1 ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/reports/apiv1)   
 [ cloud.google.com/go/shopping/merchant/reports/apiv1beta ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/reports/apiv1beta)   
+[ cloud.google.com/go/shopping/merchant/reviews/apiv1 ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/reviews/apiv1)   
 [ cloud.google.com/go/shopping/merchant/reviews/apiv1beta ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/shopping/latest/merchant/reviews/apiv1beta)   
   
 Migrate to Virtual Machines |  [ cloud.google.com/go/vmmigration/apiv1 ](https://cloud.google.com/go/docs/reference/cloud.google.com/go/vmmigration/latest/apiv1)   

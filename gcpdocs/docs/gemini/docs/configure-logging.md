@@ -1,26 +1,13 @@
 ---
 url: https://docs.cloud.google.com/gemini/docs/configure-logging/
 title: Configure Gemini Code Assist Standard and Enterprise logging \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
-method: crawl4ai+scrapegraph (scrapling: scrapling status 429)
-fetched_at: 2026-10-27T18:13:52.961917+00:00
+method: scrapling+scrapegraph
+fetched_at: 2026-10-30T08:53:09.376024+00:00
 ---
 
 # Configure Gemini Code Assist Standard and Enterprise logging  |  Gemini for Google Cloud  |  Google Cloud Documentation
 
 > Source: https://docs.cloud.google.com/gemini/docs/configure-logging/
-
-  * On this page
-  * Limitations
-  * Before you begin
-  * Verify IAM permissions
-  * Configure Gemini Code Assist logging
-    * Enable logging for Gemini Code Assist in a project
-    * Disable logging for Gemini Code Assist in a project
-    * Set up multi-project logging
-    * Disable multi-project logging
-  * What's next
-
-
 
   * [ Home ](https://docs.cloud.google.com/)
   * [ Documentation ](https://docs.cloud.google.com/docs)
@@ -30,24 +17,9 @@ fetched_at: 2026-10-27T18:13:52.961917+00:00
 
 
 
-Was this helpful?
-
 Send feedback 
 
-#  Configure Gemini Code Assist Standard and Enterprise logging Stay organized with collections  Save and categorize content based on your preferences.
-
-  * On this page
-  * Limitations
-  * Before you begin
-  * Verify IAM permissions
-  * Configure Gemini Code Assist logging
-    * Enable logging for Gemini Code Assist in a project
-    * Disable logging for Gemini Code Assist in a project
-    * Set up multi-project logging
-    * Disable multi-project logging
-  * What's next
-  * 
-
+#  Configure Gemini Code Assist Standard and Enterprise logging Stay organized with collections  Save and categorize content based on your preferences. 
 
 Gemini Code Assist Standard and Enterprise logging lets you track developer interactions and usage across your projects. This document describes how to use the Google Cloud console or the REST API to configure logging for Gemini Code Assist.
 
@@ -58,6 +30,8 @@ Gemini Code Assist Standard and Enterprise logging lets you track developer inte
   * By default, Gemini Code Assist logs are collected on a per-project basis. For instructions on how to configure a centralized project to collect logs from multiple projects, see Set up multi-project logging.
 
   * [Gemini Code Assist on GitHub](https://developers.google.com/gemini-code-assist/docs/review-repo-code) doesn't support logging with Cloud Logging.
+
+  * Gemini Code Assist logs record a combined token count (`totalTokenCount`) for each chat and agent request (`CompleteTask`), and you can attribute it to a user with the `labels.user_id` label. This count appears in the `RequestLog.metadata.totalTokenCount`, `ResponseLog.metadata.totalTokenCount`, and `MetadataLog.apiRequest.totalTokenCount` fields. Logs for code completion and code generation requests (`CompleteCode` and `GenerateCode`) and metadata logs that record telemetry events, such as `codeExposure`, `codeAcceptance`, `chatExposure`, and `chatAcceptance` events, don't include token counts. Logs and Cloud Monitoring metrics don't record separate prompt and response token counts. To view aggregated token usage for your project, see [Token and quota metrics](https://docs.cloud.google.com/gemini/docs/codeassist/monitor-gemini-code-assist#token_and_quota_metrics).
 
 
 
@@ -102,7 +76,7 @@ For more details on both types of logs, see [View Gemini Code Assist logs](https
 
 Select one of the following options:
 
-Console  API  More
+###  Console 
 
   1. Verify that you have enabled the [**Cloud Logging**](https://console.cloud.google.com/marketplace/product/google/logging.googleapis.com) API in the project.
 
@@ -120,6 +94,8 @@ Console  API  More
 
 
 
+
+###  API 
 
 To enable logging for Gemini Code Assist Standard and Enterprise, use the `loggingSettings` resource to define the logging settings you want, and use the `loggingSettings.settingBindings` resource to bind the settings to a project:
 
@@ -201,7 +177,7 @@ If the command succeeds, it returns the operation metadata in the following form
 
 Select one of the following options:
 
-Console  API  More
+###  Console 
 
   1. In the Google Cloud console, go to the **Admin for Gemini** page.
 
@@ -215,6 +191,8 @@ Console  API  More
 
 
 
+
+###  API 
 
 To disable logging for Gemini Code Assist Standard and Enterprise, use the `loggingSetting` method.
 
@@ -780,12 +758,10 @@ Repeat these steps for each project that you want to stop sending logs to the ce
 
 
 
-Was this helpful?
-
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

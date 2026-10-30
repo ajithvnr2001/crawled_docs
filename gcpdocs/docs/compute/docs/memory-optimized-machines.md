@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/memory-optimized-machines/
 title: Memory-optimized machine family for Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:56:32.358676+00:00
+fetched_at: 2026-10-30T09:01:51.824078+00:00
 ---
 
 # Memory-optimized machine family for Compute Engine  |  Google Cloud Documentation

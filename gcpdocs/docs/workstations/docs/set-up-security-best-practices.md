@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workstations/docs/set-up-security-best-practices/
 title: Set up security best practices \u00a0|\u00a0 Cloud Workstations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:49:50.461644+00:00
+fetched_at: 2026-10-30T08:38:57.335143+00:00
 ---
 
 # Set up security best practices  |  Cloud Workstations  |  Google Cloud Documentation
@@ -54,8 +54,8 @@ Limit access to sensitive resources Set up a [VPC Service Controls service perim
 
 Maintain custom images You're responsible for maintaining and updating custom packages and dependencies added on custom images. If you're creating custom images, we recommend the following:
 
-  * Run a container scanning tool such as [Artifact Analysis](https://docs.cloud.google.com/artifact-analysis/docs/artifact-analysis) to inspect any additional dependencies you added.
-  * [Schedule builds](https://docs.cloud.google.com/build/docs/schedule-builds) to rebuild images weekly, or learn how to [automate container image rebuilds](https://docs.cloud.google.com/workstations/docs/tutorial-automate-container-image-rebuild).
+  * Run a container scanning tool such as [Artifact Analysis](https://docs.cloud.google.com/artifact-analysis/docs/artifact-analysis) to inspect any additional dependencies you added. 
+  * [Schedule builds](https://docs.cloud.google.com/build/docs/schedule-builds) to rebuild images weekly, or learn how to [automate container image rebuilds](https://docs.cloud.google.com/workstations/docs/tutorial-automate-container-image-rebuild). 
 
 Set up VPC Flow Logs When you create a workstation cluster, Cloud Workstations associates the cluster with a particular subnet and all workstations are placed in that subnet. To enable VPC Flow Logs, make sure that you turn on logging for that subnet. For more information, see [Enable VPC Flow Logs for an existing subnet](https://docs.cloud.google.com/vpc/docs/using-flow-logs#enable-logging-existing). Enable VM Threat detection in the Security Command Center The [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) is a cloud-based risk management solution that helps security professionals to prevent, detect, and respond to security issues. Because workstations run on a dedicated, per workstation VM, [Virtual Machine Threat Detection](https://docs.cloud.google.com/security-command-center/docs/concepts-vm-threat-detection-overview) can be used to detect potentially malicious applications, such as cryptocurrency mining software, kernel-mode rootkits, and malware running in the workstation. When evaluating the [findings](https://docs.cloud.google.com/security-command-center/docs/review-manage-findings) for VMs, you can find the workstation assigned to the VM by inspecting the [workstation labels](https://docs.cloud.google.com/workstations/docs/platform-logging) on the VM, or by using [workstations platform logs](https://docs.cloud.google.com/workstations/docs/platform-logging) to look up historical assignments.
 
@@ -63,6 +63,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

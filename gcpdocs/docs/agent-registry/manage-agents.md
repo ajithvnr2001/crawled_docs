@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manage-agents/
 title: Manage agents \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:58:08.495336+00:00
+fetched_at: 2026-10-30T08:40:10.916436+00:00
 ---
 
 # Manage agents  |  Agent Registry  |  Google Cloud Documentation
@@ -26,7 +26,7 @@ Agent Registry lets you inspect, update, and remove registered agents so that yo
 ## Before you begin
 
   1. [Set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
-  2. Get [the project ID](https://support.google.com/googleapi/answer/7014113) for the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled.
+  2. For a single-project setup, get [the project ID](https://support.google.com/googleapi/answer/7014113) of the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled. If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) for multiple projects, use the ID of your management project for boundary-wide discovery and registration, or specify a member project ID for single-project operations.
 
   3. [Register your agents](https://docs.cloud.google.com/agent-registry/register-agents) in Agent Registry.
 
@@ -47,7 +47,11 @@ After registering agents, you can discover them in your environment and view the
 
 ### List and view all agents
 
-You can list all agents registered in your environment and view their detailed configurations, such as their endpoints, A2A skills, and associated metadata:
+You can list all agents registered in your environment and view their detailed configurations, such as their endpoints, A2A skills, and associated metadata.
+
+If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), you can list agents across multiple member projects from your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project).
+
+To list agents, follow these steps:
 
 ###  Console 
 
@@ -78,8 +82,8 @@ To list all agents in a specific location, run the [`gcloud agent-registry agent
 
 Replace the following:
 
-  * `PROJECT_ID`: the project ID.
-  * `REGION`: the registry region.
+  * `PROJECT_ID`: the project ID. If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), then specify the ID of your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project) to list agents in the specified location across all member projects in the boundary. Each returned [resource name](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#resource-names) preserves the agent's ID and uses the project specified in the request.
+  * `REGION`: the registry [location](https://docs.cloud.google.com/agent-registry/locations), such as `us-central1`, `eu`, or `global`. On a management project, specifying a location aggregates agents in that same location across all member projects in the boundary.
 
 
 
@@ -127,6 +131,7 @@ Replace the following:
   * `FILTER_EXPRESSION`: the filter expression for the agents that you want to filter. For example, you can use the following filters: 
     * To filter by display name, use `displayName='DISPLAY_NAME'`.
     * To search by the globally unique [agent identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#agent-identifiers) (URN), use `agentId='urn:agent:AGENT_URN'`.
+    * To filter by a specific member project when querying a [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project), use `project_id=MEMBER_PROJECT_ID`.
 
 
 
@@ -198,7 +203,7 @@ To view the detailed metadata of a specific agent, run the [`gcloud agent-regist
 Replace the following:
 
   * `AGENT_NAME`: the name of your agent, for example, `my-custom-agent`.
-  * `PROJECT_ID`: the project ID.
+  * `PROJECT_ID`: the project ID. In a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), you can specify either the management project ID or the ID of the member project where the agent is deployed. The returned resource name preserves the agent's ID and uses the project specified in your request.
   * `REGION`: the registry region.
 
 
@@ -235,7 +240,7 @@ Replace the following:
 
 If your agent's runtime URL changes, or you want to override its display name, description, or specification, you can update the agent metadata.
 
-In Agent Registry, `Agent` resources are read-only discovery resources. To update a manually registered agent, you must update its writable `Service` resource directly. For automatically registered agents, update the agent in its underlying runtime so that Agent Registry synchronizes the changes.
+In Agent Registry, `Agent` resources are read-only discovery resources. To update a manually registered agent, you must update its writable `Service` resource directly by specifying the project ID where that `Service` resource was registered. For automatically registered agents, update the agent in its underlying runtime so that Agent Registry synchronizes the changes.
 
 ###  Console 
 
@@ -347,7 +352,7 @@ Replace the following:
 
 To delete agents that were automatically registered to Agent Registry, you must delete the underlying agent in its specific Google Cloud runtime. The agent is then automatically removed from the registry.
 
-To remove a manually registered agent from the registry, you must delete its `Service` resource. This action removes the agent from search results and makes it undiscoverable to other tools:
+To remove a manually registered agent from the registry, you must delete its `Service` resource by specifying the project ID where that `Service` resource was registered. This action removes the agent from search results and makes it undiscoverable to other tools:
 
 ###  Console 
 
@@ -405,6 +410,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

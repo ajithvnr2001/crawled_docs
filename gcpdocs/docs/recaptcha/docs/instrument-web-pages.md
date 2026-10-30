@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/recaptcha/docs/instrument-web-pages/
 title: Install score-based keys on websites \u00a0|\u00a0 Google Cloud Fraud Defense \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:52:56.320041+00:00
+fetched_at: 2026-10-30T08:39:01.980162+00:00
 ---
 
 # Install score-based keys on websites  |  Google Cloud Fraud Defense  |  Google Cloud Documentation
@@ -121,6 +121,8 @@ The following example shows how to call `grecaptcha.enterprise.execute()` on a l
 
   3. After the token is generated, send the reCAPTCHA token to your backend and create an assessment within two minutes.
 
+**Important:** To protect your application, your backend server must submit the token to the `projects.assessments.create` API and you must interpret the assessment.
+
 For WAF integrations, if you are integrating an action-token key, you must attach the token to a predefined request header and you need not create an assessment. For details, see [Implement reCAPTCHA action-tokens](https://docs.cloud.google.com/recaptcha/docs/implement-tokens#action-token).
 
 **Important:** The `action` that you specify during `execute()` is returned as part of the assessment. You must verify that the `action` in the JSON response of the assessment matches the expected action that you specify when creating an assessment. For example, a `login` action should be returned on your **login** page. If there is a mismatch, it indicates that an attacker is attempting to falsify actions.
@@ -139,7 +141,7 @@ For WAF integrations, if you are integrating an action-token key, you must attac
 
 reCAPTCHA uses the browser's language by default. If you want to specify a different language, use the `hl=LANG` attribute in your script. For example, to use French, specify the following: `<script src="https://www.google.com/recaptcha/enterprise.js?hl=fr"></script>`. To learn about the supported languages, see [language codes for reCAPTCHA](https://docs.cloud.google.com/recaptcha/docs/language).
 
-  2. To add reCAPTCHA on a simple HTML button, do the following:
+  2. To add reCAPTCHA on an HTML button, do the following:
 
      1. Define a callback function to handle the token.
             
@@ -165,6 +167,8 @@ If you want to specify a location for the badge, then use the `data-badge=LOCATI
 **Note:** If you set the `g-recaptcha` button as `disabled`, the button is enabled when reCAPTCHA is loaded.
   3. After the token is generated, send the reCAPTCHA token to your backend and create an assessment within two minutes.
 
+**Important:** To protect your application, your backend server must submit the token to the `projects.assessments.create` API and you must interpret the assessment.
+
 For WAF integrations, if you are integrating an action-token key, you must attach the token to a predefined request header and you need not create an assessment. For details, see [Implement reCAPTCHA action-tokens](https://docs.cloud.google.com/recaptcha/docs/implement-tokens#action-token).
 
 **Important:** The `action` that you specify during `execute()` is returned as part of the assessment. You must verify that the `action` in the JSON response of the assessment matches the expected action that you specify when creating an assessment. For example, a `login` action should be returned on your **login** page. If there is a mismatch, it indicates that an attacker is attempting to falsify actions.
@@ -181,6 +185,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

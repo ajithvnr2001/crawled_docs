@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/global-applb-failover-overview/
 title: Failover for global external Application Load Balancers \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:50.596828+00:00
+fetched_at: 2026-10-30T08:40:21.124111+00:00
 ---
 
 # Failover for global external Application Load Balancers  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -207,14 +207,14 @@ To configure the active-active architecture, follow these steps:
 
   4. **Configure the Global external Application Load Balancer** : Reserve a global external IP address and create a global internet network endpoint group (NEG) of type `INTERNET_FQDN_PORT`. Add an endpoint to the internet NEG pointing to the regional DNS record FQDN, for example, `regional-api.example.com`. Configure a backend service for the global external Application Load Balancer, attach the internet NEG, and enable Cloud CDN or Cloud Armor if required. Configure the URL map, target HTTP(S) proxy, and global forwarding rule.
 
-  5. **Configure DNS for failover and health checks** : Create the main service DNS record (for example, `api.example.com`) using a `FAILOVER` routing policy. Make sure that the record set has a primary endpoint pointing to the ip address of the global external Application Load Balancer and backup endpoints pointing to the IP addresses of the external IP addresses of the regional external Application Load Balancers. Configure a DNS health check to monitor the global external Application Load Balancer.
+  5. **Configure DNS for failover and health checks** : Create the main service DNS record (for example, `api.example.com`) using a `FAILOVER` routing policy. Make sure that the record set has a primary endpoint pointing to the IP address of the global external Application Load Balancer and backup endpoints pointing to the external IP addresses of the regional external Application Load Balancers. Configure a DNS health check to monitor the global external Application Load Balancer.
 
 
 
 
 ## Best practices
 
-Keep the following best practices in mind when you configure the Cloud DNS record and health checks::
+Keep the following best practices in mind when you configure the Cloud DNS record and health checks:
 
   * **Calculate outage duration** : The time required for traffic to fail over from primary to backup load balancers depends on the DNS TTL, health check interval, and [health check's unhealthy threshold](https://docs.cloud.google.com/load-balancing/docs/health-check-concepts#health_state) parameter:
 
@@ -223,7 +223,7 @@ With Google's Cloud DNS, the upper bound for this period can be calculated using
         Duration of outage = DNS TTL + Health Check Interval * Unhealthy Threshold
         
 
-Set the DNS TTL to 30–60 seconds. Higher TTL values lead to longer failover times because client on the internet continue to access the primary external Application Load Balancers even after DNS has failed over to the backup regional external Application Load Balancer.
+Set the DNS TTL to 30–60 seconds. Higher TTL values lead to longer failover times because clients on the internet continue to access the primary external Application Load Balancers even after DNS has failed over to the backup regional external Application Load Balancer.
 
   * **Configure the health check thresholds** : Set the [healthy and unhealthy threshold](https://docs.cloud.google.com/load-balancing/docs/health-check-concepts#health_state) parameters to avoid failovers caused by transient network errors. Higher thresholds increase the time required for traffic to fail over to backup load balancers.
 
@@ -238,6 +238,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

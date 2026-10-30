@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/guardicore-centra/
 title: Collect Akamai Guardicore Segmentation (formerly Guardicore Centra) logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:47:06.733907+00:00
+fetched_at: 2026-10-30T08:52:59.800925+00:00
 ---
 
 # Collect Akamai Guardicore Segmentation (formerly Guardicore Centra) logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -236,7 +236,7 @@ The `NETLOG` feed contains network flow logs from Guardicore agents.
              --input gc \
              --feed NETLOG \
              --output http \
-             --httpurl "htt<ps://R>EGION-chronicle.googleapis.com/v1alpha/proj<ects/PROJECT_N>UMBER/locat<ions/R>EGION/insta<nces/INSTAN>CE_ID/f<eeds/FE>ED_ID:importPushLogs?key=YOUR_API_KEY" \
+             --httpurl "https://<REGION>-chronicle.googleapis.com/v1alpha/projects/<PROJECT_NUMBER>/locations/<REGION>/instances/<INSTANCE_ID>/feeds/<FEED_ID>:importPushLogs?key=YOUR_API_KEY" \
              --httpauthheader '{"X-Webhook-Access-Key": "YOUR_SECRET_KEY"}' \
              --httpformat '%s'
          
@@ -259,7 +259,7 @@ The `INCIDENT` feed contains security incidents detected by Guardicore.
              --input gc \
              --feed INCIDENT \
              --output http \
-             --httpurl "htt<ps://R>EGION-chronicle.googleapis.com/v1alpha/proj<ects/PROJECT_N>UMBER/locat<ions/R>EGION/insta<nces/INSTAN>CE_ID/f<eeds/FE>ED_ID:importPushLogs?key=YOUR_API_KEY" \
+             --httpurl "https://<REGION>-chronicle.googleapis.com/v1alpha/projects/<PROJECT_NUMBER>/locations/<REGION>/instances/<INSTANCE_ID>/feeds/<FEED_ID>:importPushLogs?key=YOUR_API_KEY" \
              --httpauthheader '{"X-Webhook-Access-Key": "YOUR_SECRET_KEY"}' \
              --httpformat '%s'
          
@@ -282,7 +282,7 @@ The `AGENT` feed contains agent status and health information.
              --input gc \
              --feed AGENT \
              --output http \
-             --httpurl "htt<ps://R>EGION-chronicle.googleapis.com/v1alpha/proj<ects/PROJECT_N>UMBER/locat<ions/R>EGION/insta<nces/INSTAN>CE_ID/f<eeds/FE>ED_ID:importPushLogs?key=YOUR_API_KEY" \
+             --httpurl "https://<REGION>-chronicle.googleapis.com/v1alpha/projects/<PROJECT_NUMBER>/locations/<REGION>/instances/<INSTANCE_ID>/feeds/<FEED_ID>:importPushLogs?key=YOUR_API_KEY" \
              --httpauthheader '{"X-Webhook-Access-Key": "YOUR_SECRET_KEY"}' \
              --httpformat '%s'
          
@@ -305,7 +305,7 @@ The `SYSTEM` feed contains system alerts and events.
              --input gc \
              --feed SYSTEM \
              --output http \
-             --httpurl "htt<ps://R>EGION-chronicle.googleapis.com/v1alpha/proj<ects/PROJECT_N>UMBER/locat<ions/R>EGION/insta<nces/INSTAN>CE_ID/f<eeds/FE>ED_ID:importPushLogs?key=YOUR_API_KEY" \
+             --httpurl "https://<REGION>-chronicle.googleapis.com/v1alpha/projects/<PROJECT_NUMBER>/locations/<REGION>/instances/<INSTANCE_ID>/feeds/<FEED_ID>:importPushLogs?key=YOUR_API_KEY" \
              --httpauthheader '{"X-Webhook-Access-Key": "YOUR_SECRET_KEY"}' \
              --httpformat '%s'
          
@@ -328,7 +328,7 @@ The AUDIT feed contains audit logs of administrative actions.
              --input gc \
              --feed AUDIT \
              --output http \
-             --httpurl "htt<ps://R>EGION-chronicle.googleapis.com/v1alpha/proj<ects/PROJECT_N>UMBER/locat<ions/R>EGION/insta<nces/INSTAN>CE_ID/f<eeds/FE>ED_ID:importPushLogs?key=YOUR_API_KEY" \
+             --httpurl "https://<REGION>-chronicle.googleapis.com/v1alpha/projects/<PROJECT_NUMBER>/locations/<REGION>/instances/<INSTANCE_ID>/feeds/<FEED_ID>:importPushLogs?key=YOUR_API_KEY" \
              --httpauthheader '{"X-Webhook-Access-Key": "YOUR_SECRET_KEY"}' \
              --httpformat '%s'
          
@@ -362,7 +362,7 @@ To ensure ULS runs continuously, configure it as a `systemd` service.
          Type=simple
          User=root
          WorkingDirectory=/root/uls
-         ExecStart=/usr/bin/python3 /root/uls/bin/uls.py --input gc --feed NETLOG --output http --httpurl "htt<ps://R>EGION-chronicle.googleapis.com/v1alpha/proj<ects/PROJECT_N>UMBER/locat<ions/R>EGION/insta<nces/INSTAN>CE_ID/f<eeds/FE>ED_ID:importPushLogs?key=YOUR_API_KEY" --httpauthheader '{"X-Webhook-Access-Key": "YOUR_SECRET_KEY"}' --httpformat '%%s'
+         ExecStart=/usr/bin/python3 /root/uls/bin/uls.py --input gc --feed NETLOG --output http --httpurl "https://<REGION>-chronicle.googleapis.com/v1alpha/projects/<PROJECT_NUMBER>/locations/<REGION>/instances/<INSTANCE_ID>/feeds/<FEED_ID>:importPushLogs?key=YOUR_API_KEY" --httpauthheader '{"X-Webhook-Access-Key": "YOUR_SECRET_KEY"}' --httpformat '%%s'
          Restart=always
          RestartSec=10
          
@@ -480,7 +480,7 @@ If your Guardicore instance uses a self-signed certificate, ULS may fail with SS
             --input gc \
             --feed NETLOG \
             --output http \
-            --httpurl "htt<ps://R>EGION-chronicle.googleapis.com/v1alpha/proj<ects/PROJECT_N>UMBER/locat<ions/R>EGION/insta<nces/INSTAN>CE_ID/f<eeds/FE>ED_ID:importPushLogs?key=YOUR_API_KEY" \
+            --httpurl "https://<REGION>-chronicle.googleapis.com/v1alpha/projects/<PROJECT_NUMBER>/locations/<REGION>/instances/<INSTANCE_ID>/feeds/<FEED_ID>:importPushLogs?key=YOUR_API_KEY" \
             --httpauthheader '{"X-Webhook-Access-Key": "YOUR_SECRET_KEY"}' \
             --httpformat '%s' \
             --httpinsecure
@@ -513,13 +513,13 @@ Google SecOps webhook feeds support multiple authentication methods. Akamai ULS 
         Content-Type: application/json
         X-Webhook-Access-Key: <SECRET_KEY>
         
-        {"event": "data", "timestamp&quot;: "2025-01-15T10:30:00Z"}
+        {"event": "data", "timestamp": "2025-01-15T10:30:00Z"}
         
 
   * **ULS command format:**
         
-        --httpurl &<quot;ENDPOIN>T_URL<?key=AP>I_KEY"
-        --httpauthheader '{"X-Web<hook-Acces>s-Key": "SECRET_KEY"}'
+        --httpurl "<ENDPOINT_URL>?key=<API_KEY>"
+        --httpauthheader '{"X-Webhook-Access-Key": "<SECRET_KEY>"}'
         
 
 

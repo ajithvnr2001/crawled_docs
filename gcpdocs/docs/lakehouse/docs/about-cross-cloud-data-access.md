@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access/
 title: About cross-cloud data access \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:15:03.054314+00:00
+fetched_at: 2026-10-30T08:40:06.849084+00:00
 ---
 
 # About cross-cloud data access  |  Lakehouse  |  Google Cloud Documentation
@@ -193,6 +193,17 @@ Customer-managed encryption keys (CMEK) aren't supported for Lakehouse caching. 
 
 If your organization enforces the **Restrict Non-CMEK Services** organization policy constraint (`constraints/gcp.restrictNonCmekServices`), Lakehouse automatically disables caching for queries that access restricted tables. The queries still execute successfully but they do not cache data blocks or benefit from cache-related egress savings.
 
+### Identity mode
+
+Lakehouse supports two identity modes for cross-cloud data access:
+
+  * **Service identity (default):** Both background metadata refresh and queries execute using the catalog's service account, which may be configured with either OIDC (recommended) or Secret-based authentication.
+  * **User identity federation:** Background metadata refresh executes using the catalog's service account, but queries execute using the end user's identity and are propagated to the remote catalog. This enables the remote catalog to attribute queries from Google Cloud to end users, allowing permission enforcement and audit log generation. Identity federation must be configured in the remote catalog.
+
+**Note:** User identity federation is currently supported only for [Databricks Unity Catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks#configure-user-identity-federation).
+
+
+
 ## What's next
 
   * Set up a cross-cloud connection for [AWS Glue](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-aws-glue), [Databricks Unity Catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks), [Snowflake Horizon Catalog](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-snowflake), [Workday Data Lake](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-workday), or [SAP Business Data Cloud](https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-sap-bdc).
@@ -203,6 +214,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

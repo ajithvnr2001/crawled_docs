@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/manage-mcp-tools/
 title: Manage MCP servers and tools \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:25:38.979568+00:00
+fetched_at: 2026-10-30T08:40:09.264043+00:00
 ---
 
 # Manage MCP servers and tools  |  Agent Registry  |  Google Cloud Documentation
@@ -26,7 +26,7 @@ Agent Registry lets you inspect, update, and remove registered Model Context Pro
 ## Before you begin
 
   1. [Set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
-  2. Get [the project ID](https://support.google.com/googleapi/answer/7014113) for the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled.
+  2. For a single-project setup, get [the project ID](https://support.google.com/googleapi/answer/7014113) of the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled. If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) for multiple projects, use the ID of your management project for boundary-wide discovery and registration, or specify a member project ID for single-project operations.
 
   3. [Register MCP servers](https://docs.cloud.google.com/agent-registry/register-mcp-servers) in Agent Registry.
 
@@ -54,7 +54,11 @@ After registering MCP servers, you can discover them to bind them to your agents
 
 ### List all available MCP servers
 
-You can list all MCP servers registered in your environment and view their detailed configurations, such as their endpoints and associated metadata:
+You can list all MCP servers registered in your environment and view their detailed configurations, such as their endpoints and associated metadata.
+
+If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), you can list MCP servers across multiple projects from your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project).
+
+To list all MCP servers in your environment, do the following:
 
 ###  Console 
 
@@ -85,8 +89,8 @@ To list all MCP servers in a specific location, run the [`gcloud agent-registry 
 
 Replace the following:
 
-  * `PROJECT_ID`: the project ID.
-  * `REGION`: the registry region.
+  * `PROJECT_ID`: the project ID. If you configured a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), then specify the ID of your [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project) to list MCP servers in the specified location across all member projects in the boundary. Each returned [resource name](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#resource-names) preserves the MCP server's ID and uses the project specified in the request.
+  * `REGION`: the registry [location](https://docs.cloud.google.com/agent-registry/locations), such as `us-central1`, `eu`, or `global`. On a management project, specifying a location aggregates MCP servers in that same location across all member projects in the boundary.
 
 
 
@@ -131,6 +135,7 @@ Replace the following:
   * `FILTER_EXPRESSION`: the filter expression for the MCP servers that you want to filter. For example, you can use the following filters: 
     * To filter by display name, use `displayName='DISPLAY_NAME'`.
     * To search by the globally unique [MCP server identifier](https://docs.cloud.google.com/agent-registry/identity-and-identifiers#mcp-server-identifiers) (URN), use `mcpServerId='urn:mcp:SERVER_URN'`.
+    * To filter by a specific member project when querying a [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project), use `project_id=MEMBER_PROJECT_ID`.
 
 
 
@@ -193,7 +198,7 @@ To view the detailed metadata of a specific MCP server, run the [`gcloud agent-r
 Replace the following:
 
   * `SERVER_NAME`: the name of your MCP server, for example, `custom-mcp-server`.
-  * `PROJECT_ID`: the project ID.
+  * `PROJECT_ID`: the project ID. In a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), you can specify either the management project ID or the ID of the member project where the server is deployed. The returned resource name preserves the MCP server's ID and uses the project specified in your request.
   * `REGION`: the registry region.
 
 
@@ -230,7 +235,7 @@ Replace the following:
 
 If your MCP server adds new tools or changes existing schemas, you must update the registry to reflect these changes.
 
-In Agent Registry, `McpServer` resources are read-only discovery resources. For automatically registered MCP servers, update the deployment or workload in its underlying runtime so that Agent Registry synchronizes the changes. To update a manually registered MCP server, you must update its writable `Service` resource directly. Because the registry doesn't automatically inspect manually registered MCP servers, you must manually upload the updated tool specification, which replaces the existing tool definitions for the server.
+In Agent Registry, `McpServer` resources are read-only discovery resources. For automatically registered MCP servers, update the deployment or workload in its underlying runtime so that Agent Registry synchronizes the changes. To update a manually registered MCP server, you must update its writable `Service` resource directly by specifying the project ID where that `Service` resource was registered. Because the registry doesn't automatically inspect manually registered MCP servers, you must manually upload the updated tool specification, which replaces the existing tool definitions for the server.
 
 ###  Console 
 
@@ -314,7 +319,7 @@ Replace the following:
 
 To delete MCP servers that were automatically registered to Agent Registry, you must delete the underlying MCP server or disable the Google Cloud API of the MCP server in your project. The server is then automatically removed from the registry.
 
-To remove a manually registered MCP server from the registry, you must delete its `Service` resource. This action removes the MCP server from search results and makes it undiscoverable to other tools:
+To remove a manually registered MCP server from the registry, you must delete its `Service` resource by specifying the project ID where that `Service` resource was registered. This action removes the MCP server from search results and makes it undiscoverable to other tools:
 
 ###  Console 
 
@@ -379,6 +384,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

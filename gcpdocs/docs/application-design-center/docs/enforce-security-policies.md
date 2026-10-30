@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/application-design-center/docs/enforce-security-policies/
 title: Enforce security policies \u00a0|\u00a0 Application Design Center \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T05:41:34.554137+00:00
+fetched_at: 2026-10-30T08:45:06.784403+00:00
 ---
 
 # Enforce security policies  |  Application Design Center  |  Google Cloud Documentation
@@ -25,17 +25,9 @@ Send feedback
 
 This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
-To help you both establish authoritative policy requirements and verify that your application infrastructure aligns with organizational security policies before deployment, App Design Center integrates with [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview). An administrator can [deploy frameworks in Security Command Center](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-apply-framework#deploy-framework), which you then attach to application templates in App Design Center.
+Integrating Application Design Center with [Security Command Center](https://docs.cloud.google.com/security-command-center/docs/security-command-center-overview) lets you establish policy requirements and verify that your application infrastructure aligns with organizational security policies before deployment. After an administrator [deploys frameworks in Security Command Center](https://docs.cloud.google.com/security-command-center/docs/compliance-manager-apply-framework#deploy-framework), you can attach those frameworks to application templates in App Design Center.
 
-During the application design phase, application developers can [run an assessment](https://docs.cloud.google.com/application-design-center/docs/manage-applications#security-compliance) to analyze the application infrastructure and view compliance findings for each framework directly on the design canvas:
-
-  * Review the assessment scorecard to adjust the design and fix misconfigurations before proceeding with the deployment.
-  * Applications inherit the frameworks that are attached to associated application templates. Validation continues post-deployment, where [Security Command Center monitors runtime resources](https://docs.cloud.google.com/security-command-center/docs/review-manage-findings) to detect configuration drift.
-  * Because App Design Center manages the application lifecycle, you can trace any runtime issues detected by Security Command Center to the specific template revision that introduced them.
-
-
-
-This document describes how to attach Security Command Center frameworks to application templates to run assessments and enforce security policies.
+During the design phase, application developers can [run an assessment](https://docs.cloud.google.com/application-design-center/docs/manage-applications#security-compliance) on the design canvas to review the compliance scorecard and fix misconfigurations before deployment. Deployed applications inherit the frameworks attached to their templates, and [Security Command Center monitors runtime resources](https://docs.cloud.google.com/security-command-center/docs/review-manage-findings) to detect configuration drift and trace issues to a specific template revision.
 
 ## Before you begin
 
@@ -132,6 +124,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

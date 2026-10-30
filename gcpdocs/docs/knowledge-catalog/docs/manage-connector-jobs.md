@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/manage-connector-jobs/
 title: Manage connector jobs \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:45:15.646682+00:00
+fetched_at: 2026-10-30T08:40:19.301777+00:00
 ---
 
 # Manage connector jobs  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -23,10 +23,6 @@ Send feedback
 
 #  Manage connector jobs Stay organized with collections  Save and categorize content based on your preferences. 
 
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 Knowledge Catalog (formerly Dataplex Universal Catalog) lets you manage connector jobs that run scheduled and on-demand metadata imports to keep your catalog synchronized with external data sources. You can view job configurations, run history, and logs, update import settings, disable or enable scheduled runs, manually trigger job runs, and delete jobs.
 
 For more information about how connectors work, see [About metadata connectors](https://docs.cloud.google.com/knowledge-catalog/docs/connectors).
@@ -46,7 +42,7 @@ To manage connector jobs, you need the appropriate IAM roles. See [IAM roles](ht
 
 You need to [enable the BigQuery Data Transfer Service](https://docs.cloud.google.com/bigquery/docs/enable-transfer-service#enable-dts).
 
-Additionally, you must grant the BigQuery Data Transfer Service service agent (`service-PROJECT_NUMBER@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com`) the `dataplex.entryGroups.import` permission or the [**Dataplex Entry Group Importer**](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles#dataplex.entryGroupImporter) (`roles/dataplex.entryGroupImporter`) role. This can be granted either at the project level or at the entry group level.
+Additionally, you must grant the BigQuery Data Transfer Service service agent (`service-PROJECT_NUMBER@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com`) the `dataplex.entryGroups.import` permission or the [**Dataplex Entry Group Importer**](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles#dataplex.entryGroupImporter) (`roles/dataplex.entryGroupImporter`) role. This can be granted either at the project level or at the entry group level. Some connectors, such as the Databricks Unity and Snowflake Horizon connectors, also require the [**Dataplex Entry and EntryLink Owner**](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles#dataplex.entryOwner) (`roles/dataplex.entryOwner`) role on the project. See the connector-specific guide for details.
 
 ## View connector jobs
 
@@ -120,6 +116,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

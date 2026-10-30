@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini/docs/log-gemini/
 title: View Gemini Code Assist logs \u00a0|\u00a0 Gemini for Google Cloud \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:53:19.558850+00:00
+fetched_at: 2026-10-30T08:53:09.106969+00:00
 ---
 
 # View Gemini Code Assist logs  |  Gemini for Google Cloud  |  Google Cloud Documentation
@@ -42,6 +42,8 @@ For specific information about customer-managed encryption keys (CMEK) usage, in
   * Gemini Code Assist log data recording is limited to user interactions with Gemini Code Assist within an IDE.
 
   * By default, Gemini Code Assist logs are collected on a per-project basis. For instructions on how to configure a centralized project to collect logs from multiple projects, see [Set up multi-project logging](https://docs.cloud.google.com/gemini/docs/configure-logging#multi-project-logging).
+
+  * Gemini Code Assist logs record a combined token count (`totalTokenCount`) for each chat and agent request (`CompleteTask`), and you can attribute it to a user with the `labels.user_id` label. This count appears in the `RequestLog.metadata.totalTokenCount`, `ResponseLog.metadata.totalTokenCount`, and `MetadataLog.apiRequest.totalTokenCount` fields. Logs for code completion and code generation requests (`CompleteCode` and `GenerateCode`) and metadata logs that record telemetry events, such as `codeExposure`, `codeAcceptance`, `chatExposure`, and `chatAcceptance` events, don't include token counts. Logs and Cloud Monitoring metrics don't record separate prompt and response token counts. To view aggregated token usage for your project, see [Token and quota metrics](https://docs.cloud.google.com/gemini/docs/codeassist/monitor-gemini-code-assist#token_and_quota_metrics).
 
 
 
@@ -548,17 +550,29 @@ Field | Values and notes
 
 For the metadata logs to be generated, the _Gemini Code Assist extension_ telemetry setting must be enabled for both VS Code and IntelliJ extensions.
 
-Gemini Code Assist metadata logs follow the same structure as Gemini Code Assist logs but specify different fields. The following table shows a list of fields found in a user request log entry:
+Gemini Code Assist metadata logs follow the same structure as Gemini Code Assist logs but specify different fields. Metadata logs include the following types of entries:
+
+  * **Request metadata** : Gemini Code Assist writes a metadata log entry for each chat and agent, code generation, and code completion request. These entries have a `labels.method` value of `CompleteTask`, `GenerateCode`, or `CompleteCode`. For chat and agent requests (`CompleteTask`), the entry includes a combined token count in `apiRequest.totalTokenCount`. For code generation and code completion requests, `apiRequest` is empty.
+  * **Telemetry events** : The IDE sends telemetry events, such as `codeExposure`, `codeAcceptance`, `chatExposure`, and `chatAcceptance` events, and accepted line counts. These entries have a `labels.method` value of `Export.Metrics` and don't include token counts.
+
+
+
+The following table shows a list of fields found in a user request log entry:
 
 Field | Values and notes  
 ---|---  
 `LogEntry.@type` | Gemini Code Assist metadata [resource type](https://docs.cloud.google.com/logging/docs/api/v2/resource-list): `type.googleapis.com/google.cloud.cloudaicompanion.logging.v1.MetadataLog`.  
-`LogEntry.labels.method` | For metadata logs, this label value is `Export.Metrics`.  
+`LogEntry.labels.method` | Can be one of the following, depending on the type of metadata log entry:  
+  
+`Export.Metrics`: telemetry events sent by the IDE, such as `codeExposure`, `codeAcceptance`, `chatExposure`, and `chatAcceptance`.  
+  
+`CompleteTask`, `GenerateCode`, or `CompleteCode`: request metadata for chat and agent, code generation, and code completion requests, respectively.  
 `LogEntry.labels.product` | Name of the service the log applies to. Logs relevant for Gemini Code Assist use the product value `code_assist`. If the log is relevant for Gemini Cloud Assist, then this value is `cloud_assist`. Otherwise, this value is `unknown`.  
 `LogEntry.labels.user_id` | The identifier of the user that initiated this request.  
-`LogEntry.jsonPayload` | Indicates either a `codeExposure` event or `code.Acceptance` event. A `codeExposure` event indicates an exposure of a code suggestion to a user. A `code.Acceptance` event indicates there was some acceptance event by the user, such as typeover, tab, or full acceptance.  
+`LogEntry.jsonPayload` | The payload of the metadata log entry. For request metadata entries, the payload includes an `apiRequest` object. For telemetry entries, the payload includes one of the following telemetry events: `codeExposure`, `codeAcceptance`, `chatExposure`, or `chatAcceptance`. Each telemetry event is described in the following rows.  
 `LogEntry.jsonPayload.clientName` | The IDE name, such as `CloudCodeVscode`.  
 `LogEntry.jsonPayload.clientVersion` | The IDE version number.  
+`LogEntry.jsonPayload.apiRequest` | Present in request metadata entries (`CompleteTask`, `GenerateCode`, and `CompleteCode`). For chat and agent requests (`CompleteTask`), includes `totalTokenCount`: the combined token count for the request. For code generation and code completion requests (`GenerateCode` and `CompleteCode`), this object is empty (`{}`).  
 `LogEntry.jsonPayload.codeAcceptance` | For VS Code and IntelliJ IDEs only, indicates there was some acceptance event by the user, such as typeover, tab, or full acceptance. Also includes the following fields:
 
   * `linesCount`: the total number of lines of code accepted by the user.
@@ -789,6 +803,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/modern-ui/
 title: Using the modern user interface \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:16:59.187510+00:00
+fetched_at: 2026-10-30T08:58:22.936968+00:00
 ---
 
 # Using the modern user interface  |  Looker  |  Google Cloud Documentation
@@ -52,7 +52,8 @@ During the preview launch, the Modern visualization theme supports Looker's most
 
   * Cartesian charts: [column](https://docs.cloud.google.com/looker/docs/column-options), [bar](https://docs.cloud.google.com/looker/docs/bar-options), [line](https://docs.cloud.google.com/looker/docs/line-options), and [area](https://docs.cloud.google.com/looker/docs/area-options) charts
   * Pie charts: [pie](https://docs.cloud.google.com/looker/docs/pie-options) and [donut multiples](https://docs.cloud.google.com/looker/docs/donut-multiples-options) charts
-  * [Single value](https://docs.cloud.google.com/looker/docs/single-value-options) charts
+  * [KPI (Single Value) charts](https://docs.cloud.google.com/looker/docs/kpi-single-value-options)
+  * [Single value (legacy) charts](https://docs.cloud.google.com/looker/docs/single-value-options)
   * Map charts: [static map (points)](https://docs.cloud.google.com/looker/docs/map-points-options), [static map (regions)](https://docs.cloud.google.com/looker/docs/map-regions-options)
   * [Table](https://docs.cloud.google.com/looker/docs/table-options) charts
   * [Word cloud](https://docs.cloud.google.com/looker/docs/word-cloud-options) charts
@@ -339,6 +340,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

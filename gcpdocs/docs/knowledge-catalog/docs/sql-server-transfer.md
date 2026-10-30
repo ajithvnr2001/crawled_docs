@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/knowledge-catalog/docs/sql-server-transfer/
 title: Import metadata from SQL Server \u00a0|\u00a0 Knowledge Catalog \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T21:05:19.577100+00:00
+fetched_at: 2026-10-30T08:40:19.635774+00:00
 ---
 
 # Import metadata from SQL Server  |  Knowledge Catalog  |  Google Cloud Documentation
@@ -22,10 +22,6 @@ As of April 10, 2026, Dataplex Universal Catalog is now called Knowledge Catalog
 Send feedback 
 
 #  Import metadata from SQL Server Stay organized with collections  Save and categorize content based on your preferences. 
-
-**Preview**
-
-This feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
 
 Knowledge Catalog (formerly Dataplex Universal Catalog) lets you extract and import metadata from SQL Server databases by using a managed connector. You can then discover, search, and govern SQL Server assets alongside your other data sources and retrieve context for large language models (LLMs).
 
@@ -65,8 +61,6 @@ Enable the Dataplex API and BigQuery Data Transfer Service API.
 [Enable the APIs](https://console.cloud.google.com/flows/enableapi?apiid=dataplex.googleapis.com,bigquerydatatransfer.googleapis.com)
 
 ### SQL Server prerequisites
-
-Ensure that you have a user account in the Microsoft SQL Server database. For more information, see [Create a user with a login](https://learn.microsoft.com/en-us/sql/relational-databases/security/authentication-access/create-a-database-user?view=sql-server-ver17#create-a-user-with-a-login).
 
 Your SQL Server instance must meet the following requirements:
 
@@ -128,16 +122,16 @@ Configure a SQL Server connector using the Google Cloud console or the API.
      * For **Network attachment** , select an existing network attachment if required, or create one.
      * Enter the **Host** , **Port** , **Database name** , **Username** , and **Password**.
      * If using TLS, select a **TLS Mode** and provide a **Trusted PEM Certificate**.
-     * For **SQL Server metadata objects to import** , click **Browse** to select objects.
+     * For **SQL Server objects to transfer** , click **Browse** to select objects.
   6. In the **Destination settings** section:
 
      * Click **Browse** and select an existing **Knowledge Catalog entry group** to store the imported metadata, or click **Create new entry group**.
      * Choose whether to set permissions on the entry group now or later. We recommend setting permissions so that users can view the imported metadata. If you didn't grant the [**Dataplex Entry Group Importer**](https://docs.cloud.google.com/knowledge-catalog/docs/iam-roles#dataplex.entryGroupImporter) (`roles/dataplex.entryGroupImporter`) role or the `dataplex.entryGroups.import` permission to the BigQuery Data Transfer Service service agent (`service-PROJECT_NUMBER@gcp-sa-bigquerydatatransfer.iam.gserviceaccount.com`) at the project level, you must grant it at the entry group level.
-  7. In the **Connector config name** section, for **Display name** , enter a name for the metadata import job.
+  7. In the **Transfer config name** section, for **Display name** , enter a name for the metadata import job.
 
   8. In the **Schedule options** section, configure the frequency for the metadata import job. If you select **On-demand** , the job runs only when you manually trigger it.
 
-  9. Optional: In the **Notification options** section, configure email or Pub/Sub notifications for job failures.
+  9. Optional: In the **Notification options** section, configure an email or Pub/Sub notification for job failures.
 
   10. Optional: In the **Advanced options** section, configure encryption settings. If you select a customer-managed encryption key (CMEK), note that the key is used to encrypt any transient data staged before starting the Knowledge Catalog metadata import jobs. It is not used to encrypt the metadata in the destination Knowledge Catalog entry group.
 
@@ -151,11 +145,11 @@ Configure a SQL Server connector using the Google Cloud console or the API.
 Use the [`projects.locations.transferConfigs.create`](https://docs.cloud.google.com/bigquery/docs/reference/datatransfer/rest/v1/projects.locations.transferConfigs/create) method. In the [`TransferConfig`](https://docs.cloud.google.com/bigquery/docs/reference/datatransfer/rest/v1/projects.locations.transferConfigs#TransferConfig) resource, configure the following fields:
 
   * Set the `dataSourceId` field to `"sqlserver"`.
-  * In the `metadataDestination` field, populate the `dataplexConfiguration` object with the resource path of the target Knowledge Catalog entry group: `projects/<var>PROJECT_ID</var>/locations/<var>LOCATION</var>/entryGroups/<var>ENTRY_GROUP_ID</var>`
+  * In the `metadataDestination` field, populate the `dataplexConfiguration.entryGroup` field with the resource path of the target Knowledge Catalog entry group: `projects/PROJECT_ID/locations/LOCATION/entryGroups/ENTRY_GROUP_ID`.
 
 
 
-After you create the job, Knowledge Catalog schedules the first run according to your configuration, or you can start it manually.
+The job runs automatically based on your schedule, or you can trigger it manually.
 
 ## Search and view SQL Server metadata
 
@@ -163,13 +157,13 @@ After you create the job, Knowledge Catalog schedules the first run according to
 
 [Go to Search](https://console.cloud.google.com/dataplex/dp-search)
 
-  2. In the **Filters** panel, you can filter for SQL Server assets by using the **Project** , **System** , and **Type aliases** sections. In the **System** section, select **Imported Context**. Selecting this filter opens a **Managed Connectors** sub-section. Select **SQL Server** to filter for all SQL Server metadata.
+  2. In the **Filters** panel, you can filter for SQL Server assets by using the **Project** , **Systems** , and **Type aliases** sections. In the **Systems** section, select **Imported Context**. Selecting this filter opens a **Managed Connectors** sub-section. Select **SQL Server** to filter for all SQL Server metadata.
 
-  3. You can use the search field to perform search queries. You can perform a keyword or natural language search. For example, to view all SQL Server tables through keyword search, enter `system=SQLSERVER AND type=TABLE`.
+  3. You can use the search field to perform search queries. You can perform a keyword or natural language search. For example, to view all SQL Server assets through keyword search, enter `system=SQLSERVER`.
 
 To learn more about searching for resources, see [Search for resources in Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/search-assets). To learn more about the expressions that you can use in the search field, see [Search syntax for Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/search-syntax).
 
-  4. You can also use the [LookupContext](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations/lookupContext) API to retrieve LLM context for specific SQL Server resources.
+  4. You can also use the [LookupContext](https://docs.cloud.google.com/knowledge-catalog/docs/reference/rest/v1/projects.locations/lookupContext) API to retrieve LLM context for specific SQL Server resources. For more information, see [Retrieve context for data assets](https://docs.cloud.google.com/knowledge-catalog/docs/retrieve-data-context).
 
 
 
@@ -184,6 +178,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

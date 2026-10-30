@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/spanner/docs/full-text-search/search-indexes/
 title: Search indexes \u00a0|\u00a0 Spanner \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T09:39:05.659730+00:00
+fetched_at: 2026-10-30T08:40:08.501002+00:00
 ---
 
 # Search indexes  |  Spanner  |  Google Cloud Documentation
@@ -492,6 +492,8 @@ A timestamp is often used to determine the sort order. A common practice is to u
 
 Applications usually retrieve the newest data first using a search index that's sorted in descending order.
 
+Because the sort order column is part of the `docid` key in the underlying secondary index and token indexes, whenever its value changes in the base table, Spanner must rewrite the corresponding secondary index row and all associated token index rows, which incurs write overhead. If the sort order value changes frequently, consider omitting that column from `ORDER BY` or using a less granular value. For example, if an `UpdateTime` column is updated every few seconds, you can use a generated column that buckets the timestamp to the hour, such as `UpdateTimeHours INT64 AS (UNIX_SECONDS(TIMESTAMP_TRUNC(UpdateTime, HOUR))) STORED` (or `updatetimehours bigint GENERATED ALWAYS AS (EXTRACT(EPOCH FROM updatetime - '1970-01-01Z'::timestamptz)::bigint / 3600) STORED` in PostgreSQL).
+
 ## NULL-filtered search indexes
 
 Search indexes can use the `WHERE column_name IS NOT NULL` syntax to exclude base table rows. NULL filtering can apply to partitioning keys, sort order columns, and stored columns. NULL filtering on stored array columns isn't allowed.
@@ -535,6 +537,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

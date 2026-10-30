@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents/codemender/set-up-environment/
 title: Install and configure the CLI \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:22.552597+00:00
+fetched_at: 2026-10-30T08:39:37.516453+00:00
 ---
 
 # Install and configure the CLI  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -390,6 +390,20 @@ Here is what the core default parameters mean:
 
 
 
+### Confirmation prompts
+
+CodeMender asks for confirmation before it runs a shell command (`tools.confirm_commands`) and before it writes a file (`tools.confirm_writes`). The two settings are independent, and both default to `true`. The following settings turn off these prompts, in order of precedence:
+
+  1. **`-y` or `--yes`**: Approves all command and file-write prompts for one run, whatever `config.yaml` says.
+  2. **`execution.interactive_mode: false`** in `config.yaml`: Turns off both command and file-write prompts for every run.
+  3. **`tools.confirm_commands: false`** or **`tools.confirm_writes: false`** in `config.yaml`: Turns off command prompts or file-write prompts for every run, independently of each other.
+
+
+
+If none of these settings applies and no one can answer the prompt, for example in a CI/CD job without a terminal, CodeMender doesn't run the command or write the file.
+
+Separately from these prompts, the CLI warns you that the agent can modify files and run commands on your system, and asks you to acknowledge the warning. `-y` doesn't skip this warning. To skip it, pass `--bypass-warning`. In a non-interactive environment without `--bypass-warning`, `cm` fails with `warning not acknowledged`. `cm find` skips the warning when the sandbox is enabled with the default `permissive-closed` network profile.
+
 ### Command policy (`command_policy.yaml`)
 
 In addition to the OS-level sandbox, you can define a command denylist in `~/.codemender/command_policy.yaml` (global) and `<project>/.codemender/command_policy.yaml` (project-specific). When both files are present, CodeMender merges their rules.
@@ -403,18 +417,11 @@ On first run, CodeMender creates a commented-out template at `~/.codemender/comm
 
 To bypass `command_policy.yaml` enforcement for a single command invocation, pass the `--allow-all-commands` flag.
 
-### Command policy (`command_policy.yaml`)
-
-In addition to the OS-level sandbox, you can define a command denylist in `~/.codemender/command_policy.yaml` (global) and `<project>/.codemender/command_policy.yaml` (project-specific). When both files are present, CodeMender merges their rules.
-
-On first run, CodeMender creates a commented-out template at `~/.codemender/command_policy.yaml`. You can uncomment or add rules under two keys:
-
-  * **`block`** : A list of binary names to block across all shell pipelines, subshells, and command substitutions (for example, `curl`, `wget`, `ssh`, `sudo`, `rm`).
-  * **`block_patterns`** : A list of regular expressions matched against each command segment (for example, `'\bgit\s+(push|commit|rebase|reset\s+--hard|clean)\b'`).
+  * **`output: { plain: false }`**
+    * **What it means:** Controls whether the CodeMender CLI replaces emoji, Unicode symbols, and terminal colors with ASCII text across CLI output and formatted reports.
+    * **Why this is the default:** Rich terminal styling and status icons make interactive scans and exported reports easier to scan. Set `plain` to `true` for CI/CD logs, screen readers, or minimal terminals. For precedence rules and flag overrides, see Configure plain text output.
 
 
-
-To bypass `command_policy.yaml` enforcement for a single command invocation, pass the `--allow-all-commands` flag.
 
 **Summary:** Treat `config.yaml` and `command_policy.yaml` as your agent policy documents. In local development, keep the built-in sandbox enabled (`sandbox.enabled: true` or the `--sandbox` flag) and keep `tools.confirm_commands: true` and `tools.confirm_writes: true` to safeguard your environment. Only disable these protections when running inside isolated, disposable virtual machines or CI/CD pipelines.
 
@@ -486,6 +493,35 @@ Method | Description | Advantages | Disadvantages
 **Containers** | Running the agent in a container (for example, Docker). | Good isolation; standardized environment. | Requires container runtime; can be heavy; disallows direct interaction with tools on the local machine.  
 **Full VMs** | Running the agent in a dedicated VM. | Maximum security; complete isolation. | High resource overhead; slow startup; disallows direct interaction with tools on the local machine.  
   
+## Configure plain text output
+
+By default, the CodeMender CLI uses emoji, Unicode symbols, and terminal colors in interactive output and formatted reports. To use ASCII-only output in CI/CD logs, screen readers, or minimal terminals, enable plain text mode. The CodeMender CLI checks these settings from highest to lowest precedence:
+
+  1. Pass the `--plain` flag to any `cm` command for a single run, or pass `--plain=false` to override environment and configuration settings:
+         
+         cm --plain find .
+         
+
+  2. Set the `CM_PLAIN` environment variable to `true` or `1` to enable plain text output across commands, or to `false` or `0` to turn it off:
+         
+         export CM_PLAIN=true
+         
+
+  3. Set `output.plain` to `true` in your `~/.codemender/config.yaml` file:
+         
+         output:
+           plain: true
+         
+
+  4. Run an interactive session in a terminal where `TERM=dumb`, which enables plain text output automatically.
+
+
+
+
+Plain text mode replaces status emoji with ASCII tags such as `[OK]`, `[INFO]`, `[WARN]`, `[ERROR]`, `[PASS]`, and `[FAIL]`. CodeMender also turns off animated spinners and in-place line rewrites, and renders ASCII table borders. In `cm report`, plain text mode removes UI emoji from `table`, `md`, and `html` formats without changing `json` or `sarif` output or code diffs.
+
+Redirected files and non-interactive CI/CD streams keep `plain` set to `false` by default so that exported Markdown and HTML reports preserve status icons. To remove emoji and Unicode symbols in CI/CD logs, set `CM_PLAIN=true`, pass `--plain`, or set `output.plain: true`. Terminal color escapes are omitted automatically on non-interactive streams and when you set the `NO_COLOR` environment variable.
+
 ## Telemetry
 
 To help us monitor and improve product health, we collect anonymous telemetry data through the CLI. We fully anonymize all collected data, which includes basic usage metrics and performance diagnostics. Telemetry never collects or transmits source code, file contents, findings, patches, or user identities.
@@ -534,6 +570,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

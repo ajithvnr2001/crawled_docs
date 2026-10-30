@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/looker/docs/admin-panel-general-preview-features/
 title: Admin settings - Preview Features \u00a0|\u00a0 Looker \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:46:19.077367+00:00
+fetched_at: 2026-10-30T08:58:25.833412+00:00
 ---
 
 # Admin settings - Preview Features  |  Looker  |  Google Cloud Documentation
@@ -101,20 +101,6 @@ When this preview feature is enabled, the total number of schemas that can be re
 
 **Warning:** Enabling this preview feature will increase the table name display response time if your instance has access to a large number of schemas and tables.
 
-### KPI Visualization
-
-This preview feature is enabled by default.
-
-When enabled, the **KPI Visualization** preview feature replaces the **Single Value** chart option with the **KPI (Single Value)** chart option. The new **KPI (Single Value)** chart option lets users access the following enhanced styling options for single value visualizations:
-
-  * Adding secondary visualizations: Users can add a sparkline or bar chart within a visualization to show trends or distributions that are related to the primary KPI.
-  * Showing enhanced comparisons: Users can specify and compare a primary value against any other measure in an Explore query, using data from the first row, second row, last row, or totals row.
-  * Accessing improved styling options: Users have more control over the appearance of the visualization, including background color of the tile, and the alignment of the values.
-
-
-
-Learn more about the new [KPI (Single Value) Visualization](https://docs.cloud.google.com/looker/docs/kpi-single-value-options).
-
 ### Modern User Interface
 
 This preview feature is enabled by default.
@@ -193,6 +179,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

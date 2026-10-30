@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery/
 title: Component lifecycle and discovery \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:25:30.110118+00:00
+fetched_at: 2026-10-30T08:40:11.119208+00:00
 ---
 
 # Component lifecycle and discovery  |  Agent Registry  |  Google Cloud Documentation
@@ -71,7 +71,7 @@ Agent Registry supports two models for registering agentic components:
 
 Characteristic | Automatic registration | Manual registration  
 ---|---|---  
-**Scope** | Deployed components are scoped to a single project. Built-in Google agents, Google and Google Cloud remote MCP servers, and Google-managed skills are available across projects. | Scoped to a single project or centralized across multiple projects.  
+**Scope** | Deployed components are scoped to a single project by default. You can configure a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) to aggregate these components across member projects. Built-in Google agents, Google and Google Cloud remote MCP servers, and Google-managed skills are available across projects. | Scoped to the project where the resource is created, such as a single project or a central [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project).  
 **Configuration** | Agent Runtime on Gemini Enterprise Agent Platform, built-in Google agents, Google and Google Cloud remote MCP servers, and Google-managed skills register automatically. Google Kubernetes Engine (GKE) and Cloud Run workloads require an opt-in deployment label or flag. | Requires creating a `Service` or `Skill` resource in Agent Registry.  
 **Runtimes** | Agent Runtime, GKE, Cloud Run, and Google-managed runtimes. | Compute Engine, GKE, Cloud Run, on-premises systems, and external cloud platforms.  
 **Target components** | Agents, MCP servers, and Google-managed standalone skills. | Custom or external agents, MCP servers, endpoints, and private standalone skills.  
@@ -87,7 +87,7 @@ For more information about configuring automatic registration, see [Use automati
 
 ### Manual registration
 
-Manual registration lets you register remote or custom agents, MCP servers, endpoints, and private standalone skills by creating resources directly in Agent Registry. You can manually register agents, MCP servers, or REST API endpoints hosted on Compute Engine, GKE, Cloud Run, on-premises infrastructure, or external cloud platforms, including agents that don't implement the A2A protocol. Manual registration also lets you register remote components deployed in separate Google Cloud projects into a central [governance project's](https://docs.cloud.google.com/agent-registry/overview#governance-project) registry for centralized discovery and governance.
+Manual registration lets you register remote or custom agents, MCP servers, endpoints, and private standalone skills by creating resources directly in Agent Registry. You can manually register agents, MCP servers, or REST API endpoints hosted on Google Cloud, on-premises infrastructure, or external cloud platforms. You can also use manual registration for agents that don't implement the A2A protocol. If you don't use a [management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), then you can use manual registration to register remote components from other Google Cloud projects in a central [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project).
 
 To manually register an agent, MCP server, or endpoint, you create a `Service` resource in Agent Registry and specify the component's interface URL, protocol binding, and the `--agent-spec-type`, `--mcp-server-spec-type`, or `--endpoint-spec-type` specification flag. To manually register a standalone skill, you create a `Skill` resource with a ZIP archive payload.
 
@@ -129,10 +129,9 @@ By associating a binding with an auth provider, you let the agent authenticate t
 ## What's next
 
   * Learn about [Identity and identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers).
+  * Learn about [cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology).
   * Learn about [Skills architecture](https://docs.cloud.google.com/agent-registry/skills-architecture).
   * [Register agents](https://docs.cloud.google.com/agent-registry/register-agents).
-  * [Use automatic registration for agents](https://docs.cloud.google.com/agent-registry/automatic-registration).
-  * [Use manual registration for agents](https://docs.cloud.google.com/agent-registry/manual-registration).
   * [Manage bindings](https://docs.cloud.google.com/agent-registry/manage-bindings).
   * Explore [Key concepts](https://docs.cloud.google.com/agent-registry/concepts).
 
@@ -142,6 +141,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

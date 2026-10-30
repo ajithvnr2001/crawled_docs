@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/workstations/docs/create-configuration/
 title: Create a workstation configuration \u00a0|\u00a0 Cloud Workstations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:50:17.464120+00:00
+fetched_at: 2026-10-30T08:38:51.417848+00:00
 ---
 
 # Create a workstation configuration  |  Cloud Workstations  |  Google Cloud Documentation
@@ -39,7 +39,7 @@ This section explains the steps of creating a workstation configuration:
 
 To follow step-by-step guidance for this task directly in the Google Cloud console, click **Guide me** : 
 
-[Guide me](https://console.cloud.google.com/freetrial?redirectPath=/?journey_id=workstations--set-up--intro&walkthrough_id=workstations--set-up--configure)
+[Guide me](https://console.cloud.google.com/?journey_id=workstations--set-up--intro&walkthrough_id=workstations--set-up--configure)
 
 * * *
 
@@ -293,6 +293,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

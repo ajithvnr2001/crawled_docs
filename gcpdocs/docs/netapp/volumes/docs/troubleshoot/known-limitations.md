@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/netapp/volumes/docs/troubleshoot/known-limitations/
 title: Known issues and limitations \u00a0|\u00a0 NetApp Volumes \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T10:18:31.982409+00:00
+fetched_at: 2026-10-30T08:39:37.339830+00:00
 ---
 
 # Known issues and limitations  |  NetApp Volumes  |  Google Cloud Documentation
@@ -200,7 +200,7 @@ For more information about modifying SMB settings using PowerShell or group poli
 
 ### LDAP connections to Active Directory fail after Microsoft October 2026 domain controller updates
 
-**Issue** : After you install the Microsoft October 2026 security updates on your Active Directory domain controllers, the storage pools and volumes connected to Active Directory can't complete an LDAP bind to those domain controllers.
+**Issue** : After you install the Microsoft October 2026 security updates on your Active Directory domain controllers, the storage pools and volumes connected to Active Directory can't complete an LDAP bind to those domain controllers. As a result, you might encounter errors when connecting to SMB shares, adding users to shares, or using or testing a new Active Directory policy.
 
 **Reason** : The following Microsoft cumulative security updates modify LDAP connection behavior, which disrupts communication with NetApp Volumes:
 
@@ -269,6 +269,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/confidential-computing/confidential-space/docs/create-your-first-confidential-space-environment/
 title: Create your first Confidential Space environment \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:00:08.805764+00:00
+fetched_at: 2026-10-30T08:53:05.602286+00:00
 ---
 
 # Create your first Confidential Space environment  |  Google Cloud Documentation

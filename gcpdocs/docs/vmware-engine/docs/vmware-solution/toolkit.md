@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/vmware-engine/docs/vmware-solution/toolkit/
 title: Prepare nodes and deploy VCF by using the toolkit \u00a0|\u00a0 Google Cloud VMware Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T20:28:03.466303+00:00
+fetched_at: 2026-10-30T08:40:20.659906+00:00
 ---
 
 # Prepare nodes and deploy VCF by using the toolkit  |  Google Cloud VMware Engine  |  Google Cloud Documentation
@@ -147,7 +147,7 @@ Before you run the commands, replace the following:
   * `YOUR_VCF_ROOT_PASSWORD`: the `root` password for the VCF installer appliance.
   * `YOUR_VCF_ADMIN_PASSWORD`: the local administrator user password for the VCF installer appliance.
 
-
+**Caution:** Ensure that the `root` and local user passwords for the VCF installer and SDDC Manager, as well as the ESXi `root` password, meet Broadcom's password requirements. Weak or non-compliant passwords can cause VCF installer deployment or bring-up to fail. For more information, see [Default password requirements for VCF components](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-1/fleet-management/manage-passwords/default-password-requirements-for-vcf-components.html) in the Broadcom documentation.
 
 * * *
 
@@ -564,7 +564,7 @@ When you run the toolkit on the jumpbox, the Python script writes detailed execu
 ### VCF installer deployment failure due to weak passwords
 
   * **Symptom** : The Python toolkit script fails or behaves unexpectedly during VCF installer deployment and initialization.
-  * **Resolution** : Don't enter weak passwords for VCF users in Secret Manager, as weak passwords can cause the Python script for VCF installer deployment to fail. Ensure that all passwords adhere to Broadcom password complexity guidelines.
+  * **Resolution** : Don't store weak passwords in Secret Manager because weak passwords can cause the Python script for VCF installer deployment to fail. Ensure that the `root` and local user passwords for the VCF installer and SDDC Manager, as well as the ESXi `root` password, meet Broadcom's password requirements. For more information, see [Default password requirements for VCF components](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-9-0-and-later/9-1/fleet-management/manage-passwords/default-password-requirements-for-vcf-components.html) in the Broadcom documentation.
 
 
 
@@ -616,6 +616,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

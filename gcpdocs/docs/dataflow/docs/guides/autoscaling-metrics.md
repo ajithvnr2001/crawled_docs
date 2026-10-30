@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/autoscaling-metrics/
 title: Monitor Dataflow autoscaling \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T16:34:57.872015+00:00
+fetched_at: 2026-10-30T08:40:09.856783+00:00
 ---
 
 # Monitor Dataflow autoscaling  |  Google Cloud Documentation
@@ -88,12 +88,15 @@ Scaling action | Rationale | Description
 ---|---|---  
 No change in scaling | Gathering more data for decision | The autoscaler does not have enough signals to scale up or down. For example, the worker pool status changed recently; or backlog or utilization metrics are fluctuating.  
 No change in scaling, stable signals | Hit non-resource related limit | Scaling is constrained by a limit such as key parallelism or the configured minimum and maximum workers.  
+Hit scheduled related limit | Scaling is constrained by an active autoscaling schedule's minimum or maximum number of workers.  
 Low backlog and high worker utilization | The pipeline's autoscaling has converged to a stable value given the current traffic and configuration. No scaling change is needed.  
 Scale up | High backlog | Scaling up to reduce backlog.  
 High worker utilization | Scaling up to achieve target CPU utilization.  
 Hit a non-resource-related limit | The minimum number of workers was updated, and the current number of workers is below the configured minimum.  
+Hit scheduled related limit | An autoscaling schedule is active, and the current number of workers is below the schedule's minimum number of workers.  
 Scale down | Low worker utilization | Scaling down to achieve target CPU utilization.  
 Hit a non-resource-related limit | The maximum number of workers was updated, and the current number of workers is above the configured maximum.  
+Hit scheduled related limit | An autoscaling schedule is active, and the current number of workers is above the schedule's maximum number of workers.  
   
 ### Worker CPU utilization
 
@@ -137,6 +140,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

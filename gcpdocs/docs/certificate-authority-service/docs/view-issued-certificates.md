@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/certificate-authority-service/docs/view-issued-certificates/
 title: View issued certificates \u00a0|\u00a0 Certificate Authority Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:46:41.917444+00:00
+fetched_at: 2026-10-30T08:52:58.043661+00:00
 ---
 
 # View issued certificates  |  Certificate Authority Service  |  Google Cloud Documentation
@@ -147,20 +147,20 @@ To authenticate to CA Service, set up Application Default Credentials. For more 
         // Initialize client that will be used to send requests. This client only needs to be created
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the `certificateAuthorityServiceClient.close()` method on the client to safely
-        // clean up any remaining b[ackground resources.](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateAuthorityServiceClient.html)
-        try (CertificateAuthorityServiceClient certificateAut[horityServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateAuthorityServiceClient.html) =
-            CertificateAuthoritySer[viceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPoolName.html).create()) {
+        // clean up any remaining background resources.
+        try ([CertificateAuthorityServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateAuthorityServiceClient.html) certificateAuthorityServiceClient =
+            [CertificateAuthorityServiceClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CertificateAuthorityServiceClient.html).create()) {
     
           [CaPoolName](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPoolName.html) caPool =
-              CaPoolName.newBuilder()
+              [CaPoolName](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.CaPoolName.html).newBuilder()
                   .setProject(project)
                   .setLocation(location)
                   .setCaPool(poolId)
                   .build();
     
           // Retrieve and print the certificate names.
-          System.out.println("Avai[lable certi](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.Certificate.html)ficates: ");
-          for (Certificate certificate :
+          System.out.println("Available certificates: ");
+          for ([Certificate](https://docs.cloud.google.com/java/docs/reference/google-cloud-security-private-ca/latest/com.google.cloud.security.privateca.v1.Certificate.html) certificate :
               certificateAuthorityServiceClient.listCertificates(caPool).iterateAll()) {
             System.out.println(certificate.getName());
           }

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/dataflow/docs/guides/tune-horizontal-autoscaling/
 title: Tune Horizontal Autoscaling for streaming pipelines \u00a0|\u00a0 Cloud Dataflow \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T06:14:27.293362+00:00
+fetched_at: 2026-10-30T08:40:14.050426+00:00
 ---
 
 # Tune Horizontal Autoscaling for streaming pipelines  |  Cloud Dataflow  |  Google Cloud Documentation
@@ -21,9 +21,11 @@ Send feedback
 
 #  Tune Horizontal Autoscaling for streaming pipelines Stay organized with collections  Save and categorize content based on your preferences. 
 
-In streaming pipelines with a high volume of input data, there is generally a tradeoff between cost and latency. To maintain low latency, Dataflow must add workers as the volume of traffic increases. Another factor is how quickly the pipeline should scale up or down in response to changes in the input data rate.
+In streaming pipelines with fluctuating or high-volume input data, you often need to balance processing latency against operational costs. While Dataflow provides default Horizontal Autoscaling settings that suit many workloads, the default behavior might not match your specific requirements. For example, you might want to reduce costs by accepting higher average latency, scale up more quickly to handle spikes in traffic, or enforce strict limits on worker allocation.
 
-The Dataflow autoscaler has default settings that are suitable for many workloads. However, you might want to tune this behavior for your particular scenario. For example, a higher average latency might be acceptable in order to reduce costs, or you might want Dataflow to scale up more quickly in response to spikes in traffic.
+Tuning Horizontal Autoscaling lets you customize how Dataflow scales worker capacity in response to changing workload demands. By adjusting autoscaling parameters, you can optimize pipeline throughput, control compute costs, and meet your specific latency objectives.
+
+## Optimize Horizontal Autoscaling
 
 To optimize Horizontal Autoscaling, you can adjust the following parameters:
 
@@ -285,7 +287,7 @@ If your pipeline is complex and has both heavy GPU-intensive workload and numero
 
 ## Set the latency tier
 
-Dataflow Horizontal Autoscaling uses backlog duration to determine when to scale workers. By default, Dataflow aims for a backlog of less than 15 seconds, which is suitable for real-time workloads but can result in higher resource costs.
+Dataflow Horizontal Autoscaling uses backlog duration to determine when to scale workers. By default, Dataflow aims for a backlog duration of less than 15 seconds, which is suitable for real-time workloads but can result in higher resource costs.
 
 For streaming jobs that use Streaming Engine, you can configure the backlog threshold by choosing a latency tier. A latency tier maps to a target backlog duration, allowing you to configure the autoscaler's sensitivity to backlog duration. An autoscaling decision is only triggered when the backlog duration exceeds your selected tier for several minutes.
 
@@ -297,7 +299,7 @@ Latency tier | Allowed estimated backlog time | Intended use case
 `medium_latency` | Less than 2 minutes | Balanced middle ground between latency and resource costs.  
 `high_latency` | Less than 10 minutes | Prioritizes cost savings by allowing backlog to accumulate. Designed for lag-tolerant workloads.  
   
-To configure the latency tier when you run a job, set the `enable_latency_tier_lightweight_update` experiment flag:
+To configure the latency tier when you create a job, set the `enable_latency_tier_lightweight_update` [pipeline option](https://docs.cloud.google.com/dataflow/docs/reference/pipeline-options#resource_utilization):
     
     
     --experiments=enable_latency_tier_lightweight_update=TIER
@@ -307,7 +309,7 @@ Replace TIER with one of the available latency tiers (for example, `medium_laten
 
 ### Update the latency tier
 
-To update the latency tier while a job is running, perform an [in-flight update](https://docs.cloud.google.com/dataflow/docs/guides/updating-a-pipeline#perform_an_in-flight_update) by using the [`gcloud dataflow jobs update-options`](https://docs.cloud.google.com/sdk/gcloud/reference/dataflow/jobs/update-options) command:
+To update the latency tier while a job is running, perform an [in-flight update](https://docs.cloud.google.com/dataflow/docs/guides/updating-a-pipeline#in-flight-updates) by using the [`gcloud dataflow jobs update-options`](https://docs.cloud.google.com/sdk/gcloud/reference/dataflow/jobs/update-options) command:
     
     
     gcloud dataflow jobs update-options \
@@ -317,7 +319,7 @@ To update the latency tier while a job is running, perform an [in-flight update]
 
 Replace the following:
 
-  * REGION: the region ID of the job's regional endpoint
+  * REGION: the region ID of the job's [regional endpoint](https://docs.cloud.google.com/dataflow/docs/concepts/regional-endpoints)
   * JOB_ID: the ID of the job to update
   * TIER: the target latency tier. One of the following: `low_latency`, `medium_latency`, or `high_latency`
 
@@ -532,6 +534,8 @@ Use the [`projects.locations.jobs.update`](https://docs.cloud.google.com/dataflo
       }
     }
 
+For troubleshooting issues with autoscaling schedules, see [Troubleshoot autoscaling schedules](https://docs.cloud.google.com/dataflow/docs/guides/troubleshoot-autoscaling#troubleshoot-schedules).
+
 ## Streaming autoscaling heuristics
 
 For streaming pipelines, the objective of Horizontal Autoscaling is to minimize backlog while maximizing worker utilization and throughput and to react quickly to spikes in load.
@@ -606,6 +610,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

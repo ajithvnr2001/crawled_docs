@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/
 title: Gemini Live API overview \u00a0|\u00a0 Gemini Enterprise Agent Platform \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:24.420084+00:00
+fetched_at: 2026-10-30T08:40:19.800153+00:00
 ---
 
 # Gemini Live API overview  |  Gemini Enterprise Agent Platform  |  Google Cloud Documentation
@@ -120,6 +120,8 @@ Model ID | Availability | Use case | Key features
 
 Select the guide that matches your development environment:
 
+**Tip:** If you use an AI coding assistant, you can install the Gemini Live API agent skill (`gemini-live-api`) from the [`google/skills` GitHub repository](https://github.com/google/skills/blob/main/skills/cloud/gemini-live-api/SKILL.md) by running `npx skills add google/skills --skill gemini-live-api`.
+
 Recommended for ease of use 
 
 ###  [ Gen AI SDK tutorial ](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/live-api/get-started-sdk)
@@ -161,6 +163,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/samples/kms-get-key-labels/
 title: Get a key and its labels \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:35.598191+00:00
+fetched_at: 2026-10-30T09:01:33.437916+00:00
 ---
 
 # Get a key and its labels  |  Cloud Key Management Service  |  Google Cloud Documentation

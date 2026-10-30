@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/overview/
 title: Agent Registry overview \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:27:21.724046+00:00
+fetched_at: 2026-10-30T08:40:10.776038+00:00
 ---
 
 # Agent Registry overview  |  Google Cloud Documentation
@@ -31,7 +31,7 @@ Agent Registry is structured around three primary goals to help you manage your 
 
   * **Accelerate development** : discover and reuse existing agentic capabilities such as [A2A skills](https://docs.cloud.google.com/agent-registry/skills-architecture#standalone-vs-a2a), standalone [skills](https://docs.cloud.google.com/agent-registry/skills-architecture), and MCP tools across your organization. You can query the registry to identify and use available capabilities, removing the need to create custom integrations for each new process.
   * **Simplify integration** : use standardized MCP or Agent2Agent (A2A) protocols to locate and connect to functional endpoints, and help reduce infrastructure management overhead.
-  * **Support governance** : enforce security through network and access policies and boundaries across your agentic fleet. Other services can use the [identifiers of your agentic components](https://docs.cloud.google.com/agent-registry/identity-and-identifiers) to define permissions and control which agents can access your data, including centralizing agent metadata across multiple Google Cloud projects for governance with [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview).
+  * **Support governance** : enforce security through network and access policies and [management boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology) across your agentic fleet. Other services can use the [identifiers of your agentic components](https://docs.cloud.google.com/agent-registry/identity-and-identifiers) to define permissions and control which agents can access your data, including centralizing agent metadata across multiple Google Cloud projects for governance with [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview).
 
 
 
@@ -52,7 +52,10 @@ In Agent Registry, a _governance project_ is the Google Cloud project where you 
 Depending on your architecture, you can use a governance project in a single-project or cross-project configuration:
 
   * **Single-project configuration** : you deploy your AI workloads and enable Agent Registry in the same Google Cloud project. Agent Registry [automatically registers](https://docs.cloud.google.com/agent-registry/automatic-registration) supported workloads deployed in that project, and you can [manually register](https://docs.cloud.google.com/agent-registry/manual-registration) custom components or external endpoints in the same project.
-  * **Cross-project configuration** : you designate a central Google Cloud project as your governance project where Agent Registry and shared governance services such as [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) are enabled, while your AI workloads run in separate Google Cloud projects, on-premises environments, or external clouds. In Agent Registry, components hosted outside the governance project are referred to as _remote_ components. Because automatic registration only discovers supported workloads deployed in the governance project, you manually register remote components in the central registry using `Service` resources. For more information, see [Cross-project registration considerations](https://docs.cloud.google.com/agent-registry/register-agents#cross-project-considerations).
+  * **Cross-project configuration** : you can centralize governance across multiple Google Cloud projects with, or without, a management boundary:
+
+    * **[Management boundary](https://docs.cloud.google.com/agent-registry/boundaries-and-topology)** : you configure a management boundary on a folder or organization in [Resource Manager](https://docs.cloud.google.com/resource-manager/docs/boundaries-and-capabilities-overview), and its associated [management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project) serves as your central governance project. Agent Registry automatically aggregates supported agents and MCP servers discovered across all member projects in the boundary into the management project. You can also aggregate `Service` and `Binding` resources that you register directly in the management project.
+    * **No management boundary** : you designate a standard Google Cloud project as your governance project where Agent Registry and shared governance services such as [Agent Gateway](https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview) are enabled. Your AI workloads can run in separate Google Cloud projects, on-premises environments, or external clouds. In Agent Registry, components hosted outside the governance project are referred to as _remote_ components. Because automatic registration without a management boundary only discovers supported workloads deployed in the governance project, you manually register remote components in the central registry using `Service` resources. For more information, see [Cross-project registration considerations](https://docs.cloud.google.com/agent-registry/register-agents#cross-project-considerations).
 
 
 
@@ -61,7 +64,7 @@ Depending on your architecture, you can use a governance project in a single-pro
   * Learn about the Agent Registry [data model](https://docs.cloud.google.com/agent-registry/data-model) to understand how to manage your agentic capabilities.
   * Review [key concepts](https://docs.cloud.google.com/agent-registry/concepts) to familiarize yourself with the essential terms used in Agent Registry.
   * Learn about [Identity and identifiers](https://docs.cloud.google.com/agent-registry/identity-and-identifiers) used for registry discovery and policy governance.
-  * Learn about [Component lifecycle and discovery](https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery) and [Skills architecture](https://docs.cloud.google.com/agent-registry/skills-architecture).
+  * Learn about [Component lifecycle and discovery](https://docs.cloud.google.com/agent-registry/component-lifecycle-and-discovery), [Cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology), and [Skills architecture](https://docs.cloud.google.com/agent-registry/skills-architecture).
   * To get started, [set up Agent Registry](https://docs.cloud.google.com/agent-registry/setup).
 
 
@@ -70,6 +73,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

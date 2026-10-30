@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/support/bulletins/
 title: Security bulletins \u00a0|\u00a0 Cloud Customer Care \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T09:56:42.877821+00:00
+fetched_at: 2026-10-30T08:36:46.834334+00:00
 ---
 
 # Security bulletins  |  Cloud Customer Care  |  Google Cloud Documentation
@@ -77,33 +77,39 @@ Two vulnerabilities in PHP core, CVE-2026-109618 and CVE-2026-109619 ("PHP2Shell
 
 **Published:** 2026-10-23
 
-**Updated:** 2026-10-27
+**Updated:** 2026-10-28
 
 ### Description
 
 Description | Severity | Notes  
 ---|---|---  
+**2026-10-28 Update:** Added Managed Service for Apache Spark and Cloud Profiler to the list of affected products. We will continue to update the list of affected products with links to product-specific guidance as it becomes available. 
+
+* * *
+
 On Saturday, October 17, 2026, Google received a report from a security researcher regarding the compromise of private keys associated with eight eMudhra subordinate Certification Authority (CA) certificates, including those cross-signed by AAA Certificate Services. Consequently, these CA certificates are no longer trusted and are being revoked. Although Google Cloud infrastructure remains uncompromised, the following Google Cloud and Firebase products, base images, and client SDKs are impacted:
 
   * Google Cloud CLI
   * Cloud Shell
   * Container-Optimized OS
   * Compute Engine
-  * Google Kubernetes Engine
+  * [Google Kubernetes Engine](https://docs.cloud.google.com/kubernetes-engine/security-bulletins#gcp-2026-071)
   * Vertex AI
   * Colab Enterprise
   * App Engine
   * Cloud Run
   * Cloud Run functions
   * Cloud Functions for Firebase
-  * Firebase AppHosting
-  * Cloud SQL
-  * AlloyDB
-  * Cloud Firestore
+  * Firebase App Hosting
+  * [Cloud SQL](https://docs.cloud.google.com/sql/docs/mysql/security-bulletins#gcp-2026-071)
+  * AlloyDB for PostgreSQL
+  * Firestore
   * Firebase App Distribution
   * Cloud Monitoring
   * Confidential Space
   * Google Distributed Cloud
+  * Managed Service for Apache Spark
+  * Cloud Profiler
 
 
 
@@ -118,9 +124,9 @@ Google Cloud is actively managing this issue across our infrastructure and platf
     * Windows: Install the latest Windows updates.
     * Container-Optimized OS (COS): Upgrade or restart nodes to pick up current COS milestone releases, or apply the [`cos_ca_cert_mitigation`](https://cos.googlesource.com/cos/tools/+/refs/heads/master/src/cmd/cos_ca_cert_mitigation) tool.
   * **Google Cloud CLI:** Update to the latest gcloud CLI release to ensure bundled dependencies include updated certificate stores. 
-  * **Service-Specific Guidance:** For managed Google Cloud and Firebase services, such as Google Kubernetes Engine, Serverless runtimes, Managed Databases, Cloud Firestore, Firebase App Distribution, and Confidential Space, Google Cloud is rolling out updates across managed fleets, and service-specific details, release notes, and customer communications will be published through the respective product documentation and official support channels as they become available. Please review individual service documentation for instructions tailored to your deployments. For GKE details and patch versions, see the [GKE security bulletin](https://docs.cloud.google.com/kubernetes-engine/security-bulletins#gcp-2026-071). 
+  * **Service-Specific Guidance:** For managed Google Cloud and Firebase services, such as GKE, Serverless runtimes, Managed Databases, Firestore, Firebase App Distribution, and Confidential Space, Google Cloud is rolling out updates across managed fleets, and service-specific details, release notes, and customer communications will be published through the respective product documentation and official support channels as they become available. Please review individual service documentation for instructions tailored to your deployments. 
 
-**If you have any questions or require assistance, please contact Google Cloud Support and reference issue #576444463.**
+**If you have any questions or require assistance, please contact Cloud Customer Care and reference issue #576444463.**
 
 #### What vulnerabilities are being addressed?
 
@@ -137,10 +143,16 @@ The private keys for eight eMudhra (emSign) subordinate Certification Authority 
 
 **Published:** 2026-10-21
 
+**Updated:** 2026-10-28
+
 ### Description
 
 Description | Severity | Notes  
 ---|---|---  
+**2026-10-28 Update:** For [Cloud Run](https://docs.cloud.google.com/run/docs/release-notes#October_22_2026), [Cloud Run functions](https://docs.cloud.google.com/functions/docs/release-notes#October_22_2026), and [Google App Engine Standard](https://docs.cloud.google.com/appengine/docs/standard/php-gen2/release-notes#October_22_2026), all supported versions of PHP 8.2 and later are patched. Take immediate protective action by redeploying your resources with updated dependencies. 
+
+* * *
+
 Two remote code execution vulnerabilities were found in the [open-source PHP language](https://www.php.net/archive/2026.php#2026-10-20-1). While Google Cloud itself is not vulnerable, users of this language running on Google Cloud may be vulnerable. The following language versions are affected by this vulnerability:
 
   * All PHP versions between 5.4 and 8.5
@@ -7502,6 +7514,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-28 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-28 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

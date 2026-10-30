@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/firestore/native/docs/pipeline/functions/aggregate_functions/
 title: Aggregate Functions Reference \u00a0|\u00a0 Firestore in Native mode \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T07:56:45.098858+00:00
+fetched_at: 2026-10-30T08:40:03.637173+00:00
 ---
 
 # Aggregate Functions Reference  |  Firestore in Native mode  |  Google Cloud Documentation
@@ -199,7 +199,7 @@ Android
     	return err
     }
     
-    [pipeline_snippets_accumulators_aggregation.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/a023749b5bc7ba151a15c5e965e84896adcdb359/firestore/pipeline_snippets_accumulators_aggregation.go#L28-L45)
+    [pipeline_snippets_accumulators_aggregation.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_accumulators_aggregation.go#L28-L45)
 
 ### COUNT_IF
 
@@ -312,7 +312,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_accumulators_aggregation.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/a023749b5bc7ba151a15c5e965e84896adcdb359/firestore/pipeline_snippets_accumulators_aggregation.go#L54-L59)
+    [pipeline_snippets_accumulators_aggregation.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_accumulators_aggregation.go#L54-L59)
 
 ### COUNT_DISTINCT
 
@@ -415,7 +415,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_accumulators_aggregation.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/a023749b5bc7ba151a15c5e965e84896adcdb359/firestore/pipeline_snippets_accumulators_aggregation.go#L73-L78)
+    [pipeline_snippets_accumulators_aggregation.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_accumulators_aggregation.go#L73-L78)
 
 ### SUM
 
@@ -524,7 +524,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/a023749b5bc7ba151a15c5e965e84896adcdb359/firestore/pipeline_snippets_array.go#L28-L33)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_array.go#L28-L33)
 
 ### AVERAGE
 
@@ -633,7 +633,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_accumulators_aggregation.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/a023749b5bc7ba151a15c5e965e84896adcdb359/firestore/pipeline_snippets_accumulators_aggregation.go#L92-L97)
+    [pipeline_snippets_accumulators_aggregation.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_accumulators_aggregation.go#L92-L97)
 
 ### MINIMUM
 
@@ -740,7 +740,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/a023749b5bc7ba151a15c5e965e84896adcdb359/firestore/pipeline_snippets_array.go#L47-L52)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_array.go#L47-L52)
 
 ### MAXIMUM
 
@@ -847,7 +847,7 @@ Android
     	)).
     	Execute(ctx)
     
-    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/a023749b5bc7ba151a15c5e965e84896adcdb359/firestore/pipeline_snippets_array.go#L66-L71)
+    [pipeline_snippets_array.go](https://github.com/GoogleCloudPlatform/golang-samples/blob/647744becac16ad6428eb24c9dcd286f6bc144c8/firestore/pipeline_snippets_array.go#L66-L71)
 
 ### FIRST
 

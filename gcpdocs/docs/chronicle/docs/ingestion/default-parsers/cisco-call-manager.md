@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/chronicle/docs/ingestion/default-parsers/cisco-call-manager/
 title: Collect Cisco CallManager logs \u00a0|\u00a0 Google Security Operations \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:47:15.354805+00:00
+fetched_at: 2026-10-30T08:53:00.763914+00:00
 ---
 
 # Collect Cisco CallManager logs  |  Google Security Operations  |  Google Cloud Documentation
@@ -99,7 +99,7 @@ Install the Bindplane agent on your Windows or Linux operating system according 
   1. Open **Command Prompt** or **PowerShell** as an administrator.
   2. Run the following command:
          
-         msiexec /i "https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi&quot; /quiet
+         msiexec /i "https://github.com/observIQ/bindplane-agent/releases/latest/download/observiq-otel-collector.msi" /quiet
          
 
   3. Wait for the installation to complete.
@@ -169,12 +169,12 @@ For additional installation options and troubleshooting, see [Bindplane agent in
           chronicle/cisco_call_manager:
             protocol: https
             # Region of your instance, for example us, europe, asia-southeast1
-            <location>: LOCATION
+            location: <LOCATION>
             # Project number of the Google Cloud project linked to the instance
-            <project: '>PROJECT_NUMBER'
+            project: '<PROJECT_NUMBER>'
             compression: gzip
-            creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.js<on'
-           > customer_id: 'customer_id'
+            creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
+            customer_id: '<customer_id>'
             endpoint: chronicle.googleapis.com
             log_type: CISCO_CALL_MANAGER
             raw_log_field: body
@@ -220,7 +220,7 @@ Replace the following placeholders:
           chronicle/cisco_call_manager:
             compression: gzip
             creds_file_path: '/opt/observiq-otel-collector/ingestion-auth.json'
-            custom<er_id: '>;customer_id'
+            customer_id: '<customer_id>'
             endpoint: malachiteingestion-pa.googleapis.com
             log_type: CISCO_CALL_MANAGER
             raw_log_field: body

@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/ai-hypercomputer/docs/tutorials/gpu/use-ray-fine-tune-gemma-vision-task-gke/
 title: Use Ray to fine-tune Gemma 3 for vision tasks on GKE \u00a0|\u00a0 AI Hypercomputer \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:54:18.498754+00:00
+fetched_at: 2026-10-30T08:53:05.246658+00:00
 ---
 
 # Use Ray to fine-tune Gemma 3 for vision tasks on GKE  |  AI Hypercomputer  |  Google Cloud Documentation
@@ -578,17 +578,21 @@ To update the training script, you rerun the preceding command. It might take a 
          metadata:
            name: gemma3-tuning
          spec:
-           rayVersion: '2.48.0'
+           rayVersion: '2.59.0'
            headGroupSpec:
              rayStartParams:
                dashboard-host: '0.0.0.0'
              template:
                metadata:
                spec:
+                 securityContext:
+                   fsGroup: 100
+                 nodeSelector:
+                   cloud.google.com/compute-class: "Balanced"
                  serviceAccountName: $RAY_SA
                  containers:
                  - name: ray-head
-                   image: rayproject/ray:2.48.0
+                   image: rayproject/ray:2.59.0
                    ports:
                    - containerPort: 6379
                      name: gcs
@@ -599,11 +603,9 @@ To update the training script, you rerun the preceding command. It might take a 
                    resources:
                      limits:
                        cpu: "24"
-                       ephemeral-storage: "9Gi"
                        memory: "64Gi"
                      requests:
                        cpu: "24"
-                       ephemeral-storage: "9Gi"
                        memory: "64Gi"
                    env:
                      - name: HF_TOKEN
@@ -611,17 +613,30 @@ To update the training script, you rerun the preceding command. It might take a 
                          secretKeyRef:
                            name: hf-secret
                            key: hf_api_token
+                     - name: PIP_CACHE_DIR
+                       value: /mnt/local-storage/pip-cache
+                     - name: HF_HOME
+                       value: /mnt/local-storage/hf-cache
+                     - name: RAY_TMPDIR
+                       value: /mnt/local-storage/ray-tmp
                    volumeMounts:
                      - name: job-code
                        mountPath: /code/
-                     - mountPath: /mnt/local-ssd/
+                     - mountPath: /mnt/local-storage/
                        name: local-storage
                  volumes:
                    - name: job-code
                      configMap:
                        name: ray-job-cm
                    - name: local-storage
-                     emptyDir: { }
+                     ephemeral:
+                       volumeClaimTemplate:
+                         spec:
+                           accessModes: [ "ReadWriteOnce" ]
+                           storageClassName: "standard-rwo"
+                           resources:
+                             requests:
+                               storage: 50Gi
            workerGroupSpecs:
            - replicas: 2
              minReplicas: 1
@@ -633,22 +648,30 @@ To update the training script, you rerun the preceding command. It might take a 
                  serviceAccountName: $RAY_SA
                  containers:
                  - name: ray-worker
-                   image: rayproject/ray:2.48.0-gpu
+                   image: rayproject/ray:2.59.0-gpu
                    resources:
                      limits:
                        nvidia.com/gpu: "8"
                        cpu: "80"
                        memory: "320Gi"
+                       ephemeral-storage: "200Gi"
                      requests:
                        nvidia.com/gpu: "8"
                        cpu: "80"
                        memory: "320Gi"
+                       ephemeral-storage: "200Gi"
                    env:
                      - name: HF_TOKEN
                        valueFrom:
                          secretKeyRef:
                            name: hf-secret
                            key: hf_api_token
+                     - name: PIP_CACHE_DIR
+                       value: /mnt/local-ssd/pip-cache
+                     - name: HF_HOME
+                       value: /mnt/local-ssd/hf-cache
+                     - name: RAY_TMPDIR
+                       value: /mnt/local-ssd/ray-tmp
                    volumeMounts:
                      - name: job-code
                        mountPath: /code/
@@ -668,7 +691,21 @@ To update the training script, you rerun the preceding command. It might take a 
 
   2. Apply this YAML definition to your cluster by using the following command:
          
-         envsubst < ray_cluster.yaml | kubectl apply -f -
+         MAX_RETRIES=10
+         RETRY_DELAY=15
+         ATTEMPT=1
+         
+         echo "Applying ray_cluster.yaml..."
+         while ! envsubst < ray_cluster.yaml | kubectl apply -f -; do
+             if [ "$ATTEMPT" -ge "$MAX_RETRIES" ]; then
+                 echo "Critical Error: Failed to apply ray_cluster.yaml after $MAX_RETRIES attempts."
+                 exit 1
+             fi
+             echo "Attempt $ATTEMPT/$MAX_RETRIES failed. KubeRay webhook might not be ready. Retrying in ${RETRY_DELAY}s..."
+             sleep $RETRY_DELAY
+             ATTEMPT=$((ATTEMPT + 1))
+         done
+         echo "Successfully applied ray_cluster.yaml"
 
 The `$RESERVATION` flag is automatically replaced with the name you configured as environment variable. 
 
@@ -703,7 +740,7 @@ The pod list of a ready Ray Cluster is similar to the following:
              pip:
                - torch==2.8.0
                - torchvision==0.23.0
-               - ray==2.48.0
+               - ray==2.59.0
                - transformers==4.55.2
                - datasets==4.0.0
                - evaluate==0.4.5

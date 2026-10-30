@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/federated-identity-supported-services/
 title: Identity federation: products and limitations \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T02:27:34.787013+00:00
+fetched_at: 2026-10-30T08:32:48.530806+00:00
 ---
 
 # Identity federation: products and limitations  |  Identity and Access Management (IAM)  |  Google Cloud Documentation
@@ -199,6 +199,18 @@ Other:  |
 Google Cloud API:  |  No known limitations   
 Other:  |  No known limitations   
   
+### [Audit Manager](https://docs.cloud.google.com/audit-manager/docs)
+
+|  [GA](https://cloud.google.com/products/#product-launch-stages) |  |  Console (federated):  |  No known limitations   
+---|---  
+Google Cloud API:  |  Federated identities can't enroll folders or organizations in Audit Manager. The following API methods don't support identity federation: 
+
+  * [`folders.locations.enrollResource`](https://docs.cloud.google.com/audit-manager/docs/reference/auditmanager/rest/v1/folders.locations/enrollResource)
+  * [`organizations.locations.enrollResource`](https://docs.cloud.google.com/audit-manager/docs/reference/auditmanager/rest/v1/organizations.locations/enrollResource)
+
+  
+Other:  |  No known limitations   
+  
 ### [Backup and DR Service](https://docs.cloud.google.com/backup-disaster-recovery/docs)
 
 |  [GA](https://cloud.google.com/products/#product-launch-stages) |  |  Console (federated):  |  No known limitations   
@@ -225,8 +237,6 @@ Other:  |
     * [Google Drive](https://docs.cloud.google.com/bigquery/docs/external-data-drive)
     * [Recommendations](https://docs.cloud.google.com/bigquery/docs/recommendation-overview)
     * [Slot estimator](https://docs.cloud.google.com/bigquery/docs/slot-estimator)
-    * [SQL generation with Gemini](https://docs.cloud.google.com/bigquery/docs/write-sql-gemini#generate_a_sql_query)
-    * [Python code generation with Gemini](https://docs.cloud.google.com/bigquery/docs/write-sql-gemini#generate_python_code)
   * The following operations don't support Workforce Identity Federation: 
     * Loading data from [Amazon S3](https://docs.cloud.google.com/bigquery/docs/omni-aws-create-connection), [Apache Spark](https://docs.cloud.google.com/bigquery/docs/connect-to-spark), or [Azure Blob Storage](https://docs.cloud.google.com/bigquery/docs/omni-azure-create-connection) through the [Connection API](https://docs.cloud.google.com/bigquery/docs/connections-api-intro)
     * Loading data from [Google Drive](https://docs.cloud.google.com/bigquery/docs/external-data-drive)
@@ -796,7 +806,7 @@ Other:  |  No known limitations
 Google Cloud API:  |  No known limitations   
 Other:  |  Gemini for Google Cloud [license management](https://docs.cloud.google.com/gemini/docs/manage-licenses) doesn't support Workforce Identity Federation.   
   
-###  [ Google Antigravity ](https://antigravity.google/docs/enterprise)
+### [Google Antigravity](https://antigravity.google/docs/enterprise)
 
 |  Unsupported  |  |  Alternatives:  |  Google Antigravity doesn't support Workforce Identity Federation. As an alternative, authenticate the Antigravity CLI using a Google Workspace or Cloud Identity account, or use short-lived credentials through service account impersonation with Application Default Credentials (ADC).   
 ---|---  
@@ -1412,6 +1422,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

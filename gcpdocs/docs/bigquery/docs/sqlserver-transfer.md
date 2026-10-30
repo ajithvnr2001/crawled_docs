@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/bigquery/docs/sqlserver-transfer/
 title: Load Microsoft SQL Server data into BigQuery \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:45:26.055409+00:00
+fetched_at: 2026-10-30T08:40:18.685772+00:00
 ---
 
 # Load Microsoft SQL Server data into BigQuery  |  Google Cloud Documentation
@@ -229,10 +229,6 @@ To troubleshoot issues for your data transfer, see [Microsoft SQL Server transfe
 
 ## Transfer metadata
 
-**Preview**
-
-This product is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
-
 You can also use the Microsoft SQL Server connector to [transfer metadata to Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/connectors). For more information, see [Load Microsoft SQL Server metadata into Knowledge Catalog](https://docs.cloud.google.com/knowledge-catalog/docs/sql-server-transfer). 
 
 ## What's next
@@ -247,6 +243,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-27 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-27 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

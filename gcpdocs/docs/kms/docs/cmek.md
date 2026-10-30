@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kms/docs/cmek/
 title: Customer-managed encryption keys (CMEK) \u00a0|\u00a0 Cloud Key Management Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:37:29.567066+00:00
+fetched_at: 2026-10-30T09:01:39.120665+00:00
 ---
 
 # Customer-managed encryption keys (CMEK)  |  Cloud Key Management Service  |  Google Cloud Documentation

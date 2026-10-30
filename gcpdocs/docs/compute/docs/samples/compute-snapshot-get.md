@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-snapshot-get/
 title: Get a snapshot \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:41.115769+00:00
+fetched_at: 2026-10-30T08:52:22.417658+00:00
 ---
 
 # Get a snapshot  |  Compute Engine  |  Google Cloud Documentation
@@ -45,7 +45,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	// snapshotName := "your_snapshot_name"
     
     	ctx := context.Background()
-    	snapshotsClient, err := compute.NewSnapshotsRESTClient(ctx)
+    	snapshotsClient, err := compute.[NewSnapshotsRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_SnapshotsClient_NewSnapshotsRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewSnapshotsRESTClient: %w", err)
     	}
@@ -76,8 +76,8 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     
     package compute.disks;
     
-    import com.google.cloud.compute.v1.Snapshot;
-    import com.google.cloud.compute.v1.SnapshotsClient;
+    import com.google.cloud.compute.v1.[Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html);
+    import com.google.cloud.compute.v1.[SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html);
     import java.io.IOException;
     
     public class GetSnapshot {
@@ -99,9 +99,9 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the `snapshotsClient.close()` method on the client to safely
         // clean up any remaining background resources.
-        try (SnapshotsClient snapshotsClient = SnapshotsClient.create()) {
-          Snapshot snapshot = snapshotsClient.get(projectId, snapshotName);
-          System.out.printf("Retrieved the snapshot: %s", snapshot.getName());
+        try ([SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html) snapshotsClient = [SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html).create()) {
+          [Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html) snapshot = snapshotsClient.get(projectId, snapshotName);
+          System.out.printf("Retrieved the snapshot: %s", snapshot.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html#com_google_cloud_compute_v1_Snapshot_getName__)());
         }
       }
     }

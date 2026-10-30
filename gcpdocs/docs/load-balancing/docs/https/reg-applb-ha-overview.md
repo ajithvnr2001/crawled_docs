@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/load-balancing/docs/https/reg-applb-ha-overview/
 title: High availability for regional external Application Load Balancers \u00a0|\u00a0 Cloud Load Balancing \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:17:17.000435+00:00
+fetched_at: 2026-10-30T08:40:20.297015+00:00
 ---
 
 # High availability for regional external Application Load Balancers  |  Cloud Load Balancing  |  Google Cloud Documentation
@@ -111,7 +111,7 @@ Create a global health check to monitor the external IP address of each regional
 Replace the following:
 
   * `HEALTH_CHECK_NAME`: the name of the health check
-  * `SOURCE_REGION_1`, `SOURCE_REGION_2`, and `SOURCE_REGION_3`: the three Google Cloud regions from which health checks probes are sent. You must specify exactly three source regions.
+  * `SOURCE_REGION_1`, `SOURCE_REGION_2`, and `SOURCE_REGION_3`: the three Google Cloud regions from which health check probes are sent. You must specify exactly three source regions.
   * `HEALTH_CHECK_INTERVAL`: the amount of time in seconds from the start of one probe issued by one prober to the start of the next probe issued by the same prober. The minimum supported value is 30 seconds. For recommended values, see Best practices.
   * `HEALTHY_THRESHOLD` and `UNHEALTHY_THRESHOLD`: specify the number of sequential probes that must succeed or fail for the load balancer to be considered healthy or unhealthy. If either is omitted, Google Cloud uses a default threshold of 2.
   * `REQUEST_PATH`: the URL path to which Google Cloud sends health check probe requests. If omitted, Google Cloud sends probe requests to the root path, `/`. If the endpoints being health-checked are private, which is not typical for external forwarding rule IP addresses, you can set this path to `/afhealthz`.
@@ -197,6 +197,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

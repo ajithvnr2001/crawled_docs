@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/lakehouse/docs/set-up-cross-cloud-connection-databricks/
 title: Set up cross-cloud connection for Databricks Unity Catalog \u00a0|\u00a0 Lakehouse \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:38:44.061953+00:00
+fetched_at: 2026-10-30T08:39:01.366155+00:00
 ---
 
 # Set up cross-cloud connection for Databricks Unity Catalog  |  Lakehouse  |  Google Cloud Documentation
@@ -40,11 +40,14 @@ After you set up the connection, you can manage access to your federated data in
   3. Review the [supported catalogs](https://docs.cloud.google.com/lakehouse/docs/about-cross-cloud-data-access#supported-catalogs) to verify supported configurations.
   4. Understand how to use [regional Secret Manager secrets](https://docs.cloud.google.com/secret-manager/regional-secrets/overview-rs). This is required to set up a Lakehouse with Databricks Unity Catalog using secret-based authentication.
   5. Optional: If you plan to route queries over a private interconnect between your Google Cloud VPC and your remote cloud provider's VPC (for example, AWS), ensure that you have an active account with your remote provider, provision a [Dedicated Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/cci-overview#setup-process) or [Partner Cross-Cloud Interconnect](https://docs.cloud.google.com/network-connectivity/docs/interconnect/concepts/partner-cci-for-aws-overview), establish BGP sessions with your Cloud Router, and verify that you have the required IAM permissions in both cloud environments.
+  6. Optional: If you plan to use user identity federation to propagate end-user identities on queries, ensure that: 
+     * Your Identity Provider (IdP) is configured to issue the user's `email` claim as the `sub` subject claim in authentication tokens.
+     * Your Databricks account is configured to recognize the end user from their email address so Databricks can recognize the user. Users can be configured in Databricks either by [syncing users from your identity provider using SCIM](https://docs.databricks.com/admin/users-groups/scim/index.html) (recommended) or by [manually adding users in the Databricks Account Console](https://docs.databricks.com/admin/users-groups/users.html).
 
-  6. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
-  7. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+  7. Sign in to your Google Cloud account. If you're new to Google Cloud, [ create an account](https://console.cloud.google.com/freetrial) to evaluate how our products perform in real-world scenarios. New customers also get $300 in free credits to run, test, and deploy workloads. 
+  8. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  8. Enable the BigLake, Secret Manager APIs, if any are not already enabled. 
+  9. Enable the BigLake, Secret Manager APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -52,9 +55,9 @@ To enable APIs, you need the `serviceusage.services.enable` permission. If you c
 
 [Enable the APIs](https://console.cloud.google.com/apis/enableflow?apiid=biglake.googleapis.com,secretmanager.googleapis.com)
 
-  9. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
+  10. [Verify that billing is enabled for your Google Cloud project](https://docs.cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project). 
 
-  10. Enable the BigLake, Secret Manager APIs, if any are not already enabled. 
+  11. Enable the BigLake, Secret Manager APIs, if any are not already enabled. 
 
 **Roles required to enable APIs**
 
@@ -107,8 +110,8 @@ To access cross-cloud data, follow these general steps:
 
   * **Set up Cross-Cloud Interconnect (Optional):** Configure a private connection between your Google Cloud VPC and your remote cloud provider.
   * **Set up federation:** Configure authentication and create a federated catalog in Lakehouse. 
-    * **OpenID Connect (OIDC) (Recommended):** Create the federated catalog in Lakehouse specifying the remote [Service Principal](https://docs.databricks.com/aws/en/admin/users-groups/manage-service-principals) Application ID, then [configure a federation policy](https://docs.databricks.com/aws/en/dev-tools/auth/oauth-federation-policy#workload-identity-federation) in Databricks using the Lakehouse catalog service account's unique ID.
-    * **Secret-based authentication:** Create a secret in Secret Manager with your remote catalog credentials. Then, create a federated catalog in Lakehouse and grant the catalog service account access to the secret.
+    * **Base authentication (required):** Configure either **OpenID Connect (OIDC)** (recommended) or **Secret-based authentication** to allow Lakehouse to perform background schema and metadata synchronization using the catalog's service account.
+    * **User identity federation (optional):** Enable user identity federation (`--federated-catalog-identity-mode="user-identity-federation"`) to allow queries to execute using the authenticated end user's identity. This enables Databricks Unity Catalog to attribute queries to end users, enforce permissions, and generate audit logs.
   * **Verify the connection:** Verify that Lakehouse can successfully connect to your remote catalog.
   * **Query data:** Run queries against your federated data using BigQuery or Managed Service for Apache Spark. Lakehouse caching is enabled automatically for queries to save egress costs. For more information, see [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
   * **Configure permissions:** Use Identity and Access Management (IAM) to manage who can view and query the federated data.
@@ -472,9 +475,13 @@ The **Connection details** section appears.
 
      * For **OIDC** , enter the Application ID for the Service Principal.
      * For **Secret** , enter the name of your secret. Use the following format: `projects/PROJECT_ID/locations/REGION/secrets/DATABRICKS_SECRET_NAME`.
-  10. Optional: In the **Service directory name** field, enter the path to your Service Directory service. For example: `projects/PROJECT_ID/locations/REGION/namespaces/SERVICE_DIRECTORY_NAMESPACE/services/SERVICE_NAME`. This is only required if you are configuring a private interconnect (Cross-Cloud Interconnect).
+  10. Optional: In the **Identity mode** section, select an option:
 
-  11. Click **Create**.
+     * **Service identity (default):** Queries execute as the Lakehouse service account.
+     * **User identity:** Queries execute using the authenticated end user's identity and are propagated to the remote catalog. Identity federation must be configured in the remote catalog.
+  11. Optional: In the **Service directory name** field, enter the path to your Service Directory service. For example: `projects/PROJECT_ID/locations/REGION/namespaces/SERVICE_DIRECTORY_NAMESPACE/services/SERVICE_NAME`. This is only required if you are configuring a private interconnect (Cross-Cloud Interconnect).
+
+  12. Click **Create**.
 
 
 
@@ -499,7 +506,8 @@ If you don't configure CCI, the connection travels securely over the public inte
         --unity-instance-name="UNITY_INSTANCE_NAME" \
         --unity-catalog-name="UNITY_CATALOG_NAME" \
         --refresh-interval="REFRESH_INTERVAL" \
-        --namespace-filters="NAMESPACE_FILTERS"
+        --namespace-filters="NAMESPACE_FILTERS" \
+        --federated-catalog-identity-mode="IDENTITY_MODE"
 
 #### Customer-owned (CCI)
 
@@ -516,6 +524,7 @@ If you configured a private interconnect (such as Dedicated CCI or Partner CCI),
         --unity-catalog-name="UNITY_CATALOG_NAME" \
         --refresh-interval="REFRESH_INTERVAL" \
         --namespace-filters="NAMESPACE_FILTERS" \
+        --federated-catalog-identity-mode="IDENTITY_MODE" \
         --service-directory-name="projects/PROJECT_ID/locations/REGION/namespaces/SERVICE_DIRECTORY_NAMESPACE/services/SERVICE_NAME"
 
 Replace the following:
@@ -530,6 +539,7 @@ Replace the following:
   * `UNITY_CATALOG_NAME`: the name of the target Databricks Unity Catalog to federate to.
   * `REFRESH_INTERVAL`: Specifies how often background metadata refresh runs. Set this value as a duration, for example, `330s` or `5m30s`.
   * `NAMESPACE_FILTERS`: Optional: A comma-separated list of namespaces to federate. For example, `ns1,ns2`. _If omitted, all namespaces will be included_.
+  * `IDENTITY_MODE`: Optional: Specifies the identity mode for the catalog. Set to `user-identity-federation` to propagate end-user identities on queries, or `service-identity` to execute queries as the catalog's service account. _If omitted, defaults to`service-identity`_.
   * If you are using a private interconnect (CCI): 
     * `SERVICE_DIRECTORY_NAMESPACE`: the Service Directory namespace you created during private interconnect setup.
     * `SERVICE_NAME`: the Service Directory service name you created during private interconnect setup.
@@ -554,7 +564,8 @@ If you don't configure CCI, the connection travels securely over the public inte
         --unity-instance-name="UNITY_INSTANCE_NAME" \
         --unity-catalog-name="UNITY_CATALOG_NAME" \
         --refresh-interval="REFRESH_INTERVAL" \
-        --namespace-filters="NAMESPACE_FILTERS"
+        --namespace-filters="NAMESPACE_FILTERS" \
+        --federated-catalog-identity-mode="IDENTITY_MODE"
 
 #### Customer-owned (CCI)
 
@@ -571,6 +582,7 @@ If you configured a private interconnect (such as Dedicated CCI or Partner CCI),
         --unity-catalog-name="UNITY_CATALOG_NAME" \
         --refresh-interval="REFRESH_INTERVAL" \
         --namespace-filters="NAMESPACE_FILTERS" \
+        --federated-catalog-identity-mode="IDENTITY_MODE" \
         --service-directory-name="projects/PROJECT_ID/locations/REGION/namespaces/SERVICE_DIRECTORY_NAMESPACE/services/SERVICE_NAME"
 
 Replace the following:
@@ -585,6 +597,7 @@ Replace the following:
   * `UNITY_CATALOG_NAME`: the name of the target Databricks Unity Catalog to federate to.
   * `REFRESH_INTERVAL`: Specifies how often background metadata refresh runs. Set this value as a duration, for example, `330s` or `5m30s`.
   * `NAMESPACE_FILTERS`: Optional: A comma-separated list of namespaces to federate. For example, `ns1,ns2`. _If omitted, all namespaces will be included_.
+  * `IDENTITY_MODE`: Optional: Specifies the identity mode for the catalog. Set to `user-identity-federation` to propagate end-user identities on queries, or `service-identity` to execute queries as the catalog's service account. _If omitted, defaults to`service-identity`_.
   * If you are using a private interconnect (CCI): 
     * `SERVICE_DIRECTORY_NAMESPACE`: the Service Directory namespace you created during private interconnect setup.
     * `SERVICE_NAME`: the Service Directory service name you created during private interconnect setup.
@@ -708,6 +721,92 @@ Verify that the catalog background metadata refresh cycle completed successfully
 
 
 
+## Configure user identity federation (Optional)
+
+If you configured user identity federation for your federated catalog, you must configure an **account-wide federation policy** in Databricks.
+
+While background metadata refresh executes as the catalog's service account configured with base authentication (OIDC or Secret-based), user identity federation requires this account-wide policy so Databricks can validate end-user identity tokens minted by Google Cloud during interactive queries. This enables Databricks to attribute queries to end users, enforce permissions, and generate audit logs.
+
+  1. (Optional) Update an existing catalog:
+
+If you have an existing federated catalog configured with the default service identity mode, you can update it to user identity federation without recreating the catalog:
+
+###  Console 
+
+     1. In the Google Cloud console, go to **Lakehouse**.
+
+[Go to Lakehouse](https://console.cloud.google.com/biglake)
+
+     2. In the list of catalogs, click the name of your federated catalog.
+
+The **Catalog details** page appears.
+
+     3. Click edit **Edit catalog**.
+
+     4. In the **Identity mode** section, select **User identity**.
+
+     5. Click **Save**.
+
+###  gcloud 
+
+Run the `gcloud biglake iceberg catalogs update` command:
+    
+    gcloud biglake iceberg catalogs update FEDERATED_CATALOG_NAME \
+        --project="PROJECT_ID" \
+        --federated-catalog-identity-mode="user-identity-federation"
+
+  2. Retrieve the OIDC claims from your catalog:
+
+Run the following command to retrieve the token claims required by Databricks:
+         
+         gcloud biglake iceberg catalogs describe FEDERATED_CATALOG_NAME \
+             --project="PROJECT_ID" \
+             --format='yaml(federated-catalog-options.user-identity-federation-oidc)'
+
+The output looks similar to the following:
+         
+         federated-catalog-options:
+           user-identity-federation-oidc:
+             audience: databricks-12345678-abcd-1234-efgh-1234567890ab
+             issuer-url: https://www.gstatic.com/biglake/federation/organizations/123456789012
+
+Note the following regarding claim availability:
+
+     * **`issuer-url`** : Derived from your Google Cloud organization (`https://www.gstatic.com/biglake/federation/organizations/ORGANIZATION_ID`) and available immediately upon catalog creation.
+     * **`audience`** : Scoped to your target Databricks metastore (`databricks-METASTORE_ID`) and derived from the Unity Catalog metastore. Because this value is populated by background metadata refresh, base authentication must be completed and background metadata refresh must be active (not set to `0`). See Verify the connection to check that background metadata refresh is set up correctly.
+  3. Configure the Databricks account-wide federation policy:
+
+     1. In the Databricks Account Console, go to **Account settings > Security > Identity provider setup**.
+     2. In the **Federation policies** section, click **Create policy**.
+     3. In the policy configuration dialog, set the following fields: 
+        * **Issuer URL** : Enter the `issuer-url` value retrieved in the previous step (for example, `https://www.gstatic.com/biglake/federation/organizations/ORGANIZATION_ID`).
+        * **Audiences** : Enter the metastore-scoped `audience` value retrieved in the previous step (for example, `databricks-METASTORE_ID`).
+        * **Subject claim** : Leave empty (Databricks defaults to the `sub` claim containing the user's email address). Databricks uses this email to match against users configured in your Databricks account.
+     4. Click **Save**.
+  4. Verify user identity federation and audit logging:
+
+To verify user-attributed query execution and audit logging:
+
+     1. Follow [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data) to run a query in BigQuery against a federated table.
+
+     2. In Databricks, verify that the query access event is recorded in the Databricks audit logs. Query the `system.access.audit` system table in the Databricks SQL editor (see [Databricks audit log reference](https://docs.databricks.com/aws/en/admin/account-settings/audit-logs)). Note that auditable events can take 15 minutes or longer to appear in the Databricks audit logs:
+            
+            SELECT
+              *
+            FROM
+              system.access.audit
+            WHERE
+              service_name = 'accounts'
+              AND action_name IN ('oidcTokenAuthorization')
+              AND event_time >= NOW() - INTERVAL 30 MINUTE
+              AND user_identity.email = 'USER_EMAIL'
+            ORDER BY
+              event_time DESC
+            LIMIT 10;
+
+
+
+
 ## What's next
 
   * [Query remote data](https://docs.cloud.google.com/lakehouse/docs/query-remote-data).
@@ -719,6 +818,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

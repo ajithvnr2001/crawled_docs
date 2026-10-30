@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/storage/docs/access-control/iam/
 title: Identity and Access Management \u00a0|\u00a0 Cloud Storage \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T05:44:55.696403+00:00
+fetched_at: 2026-10-30T08:26:01.000606+00:00
 ---
 
 # Identity and Access Management  |  Cloud Storage  |  Google Cloud Documentation
@@ -106,9 +106,9 @@ There are a number of different types of principals. For example, Google Cloud a
 
 ### Convenience values
 
-Cloud Storage supports _convenience values_ , which are a special set of principals that can be applied specifically to your IAM bucket policies. You should generally avoid using convenience values in production environments, because they require granting [basic roles](https://docs.cloud.google.com/iam/docs/roles-overview#basic), a practice which is discouraged in production environments.
+Cloud Storage supports _convenience values_ , which are a special set of principals that you can reference in your buckets' IAM allow policies. You should generally avoid using convenience values in production environments, because they require granting [legacy basic roles](https://docs.cloud.google.com/iam/docs/roles-overview#legacy-basic), a practice which is discouraged in production environments.
 
-A convenience value is a two-part identifier consisting of a [basic role](https://docs.cloud.google.com/iam/docs/roles-overview#basic) and a project ID:
+A convenience value is a two-part identifier consisting of a legacy basic role and a project ID:
 
   * `projectOwner:PROJECT_ID`
   * `projectEditor:PROJECT_ID`
@@ -116,9 +116,9 @@ A convenience value is a two-part identifier consisting of a [basic role](https:
 
 
 
-A convenience value acts as a bridge between the principals granted the basic role and an IAM role: the IAM role granted to the convenience value is, in effect, also granted to all principals of the specified basic role for the specified project ID.
+Convenience values let you manage access for principals who have been granted legacy basic roles. If you grant a role to a convenience value, then you effectively grant that role to all principals with the specified basic role on the specified project.
 
-For example, say jane@example.com and john@example.com have the Viewer (`roles/viewer`) basic role for a project named `my-example-project`, and say you have a bucket in that project named `my-bucket`. If you grant the Storage Object Creator (`roles/storage.objectCreator`) role for `my-bucket` to the convenience value `projectViewer:my-example-project`, then both jane@example.com and john@example.com gain the permissions associated with the Storage Object Creator role for `my-bucket`.
+For example, say jane@example.com and john@example.com have the Viewer (`roles/viewer`) legacy basic role for a project named `my-example-project`, and say you have a bucket in that project named `my-bucket`. If you grant the Storage Object Creator (`roles/storage.objectCreator`) role for `my-bucket` to the convenience value `projectViewer:my-example-project`, then both jane@example.com and john@example.com gain the permissions associated with the Storage Object Creator role for `my-bucket`.
 
 You can grant and revoke access to convenience values for your buckets, but note that Cloud Storage automatically applies them in certain circumstances. See [modifiable behavior for basic roles in Cloud Storage](https://docs.cloud.google.com/storage/docs/access-control/iam-roles#basic-roles-modifiable) for more information.
 
@@ -171,6 +171,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

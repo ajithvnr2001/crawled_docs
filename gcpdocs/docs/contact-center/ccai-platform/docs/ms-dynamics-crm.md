@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/contact-center/ccai-platform/docs/ms-dynamics-crm/
 title: Microsoft Dynamics \u00a0|\u00a0 Google Cloud Contact Center as a Service \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T23:05:54.311225+00:00
+fetched_at: 2026-10-30T08:45:15.679537+00:00
 ---
 
 # Microsoft Dynamics  |  Google Cloud Contact Center as a Service  |  Google Cloud Documentation
@@ -21,17 +21,34 @@ Send feedback
 
 #  Microsoft Dynamics Stay organized with collections  Save and categorize content based on your preferences. 
 
-This page shows you how to integrate with Microsoft Dynamics. After you integrate, agents can take calls and chats directly from within a Microsoft Dynamics dashboard.
+This guide walks you through the initial setup to connect your Contact Center AI Platform and MS Dynamics platforms.
+
+Once integrated, your agents can log into Contact Center AI Platform and accept calls and chats directly within their Dynamics dashboard. As interactions happen, Dynamics automatically creates and logs new customers and cases, keeping all your interaction data searchable and reportable in one place.
+
+## Prerequisites
+
+Before starting this integration, make sure you have the following:
+
+  * Administrator access to your MS Dynamics environment with privileges to import connectors in Solutions Management.
+  * Access to the Microsoft Azure Portal (for Microsoft Entra ID app registration using Azure services).
+  * Access to the Power Apps interface.
+  * Access to the Contact Center AI Platform Admin Portal.
+  * The UJET Connector zip file — The latest managed package [`UJETConnector_1_2_0_0_managed-dynamics.zip`](https://s3.us-west-2.amazonaws.com/externals.ujet.co/packages/UJETConnector_1_2_0_0_managed-dynamics.zip)
+  * A sufficient time window for agent adapter downtime during installation (approximately 10 minutes).
+
+**Estimated time:** The full integration setup takes approximately 30–45 minutes to complete. 
+
+This page assumes you have already identified your environment, or set up a new environment for this portal space.
+
+The connector installed to Microsoft Dynamics allows agents to take calls and chats directly within a Dynamics dashboard.
 
 ## Microsoft Dynamics integration checklist
 
 The following checklist outlines the steps involved in setting up your Microsoft Dynamics integration.
 
-**Note:** This page and the checklist provided assume you have already identified your environment, or set up a new environment for this portal space.
+  1. Install the CCAI Platform solution into your environment.
 
-  1. Install the UJET solution into your environment. The latest version is 1.2.0.0.
-
-  2. Configure the UJET solution IFrameUrl.
+  2. Configure the CCAI Platform solution `IFrameUrl`.
 
   3. Check domain based controls.
 
@@ -52,104 +69,79 @@ The following checklist outlines the steps involved in setting up your Microsoft
 
 
 
-## Install the connector
+## Install or update the Connector
 
-To install the Contact Center AI Platform connector, follow these steps:
+The Contact Center AI Platform-managed package contains the connector. The connector installed to Microsoft Dynamics enables agents to take calls and chats directly in a Microsoft Dynamics dashboard.
 
-  1. Download and unzip the UJET solution. You can find it here: [UJETConnector_1_2_0_0_managed-dynamics.zip](https://s3.us-west-2.amazonaws.com/externals.ujet.co/packages/UJETConnector_1_2_0_0_managed-dynamics.zip).
+**Two ways to access Solutions Management** : Depending on your Dynamics UI, you can reach Solutions through either of these paths:
 
-  2. In Microsoft Dynamics, go to **Service > Solutions**.
+  * Legacy UI: In MS Dynamics, go to **Service** > **Solutions**.
 
-  3. Click **Import** and upload the UJET solution.
-
-  4. Locate the **UJETConnector** entry and check it is installed correctly. You can check this from the Connector Settings Manager. For more information, see Configuring the Connector URL.
+  * Modern Power Apps UI: Use the top-right cogwheel to navigate to **Advanced Settings** , click the caret expand_more next to **Settings** to open the drop-down, then select **Solutions**.
 
 
 
 
-## Update or install the managed package
+Both paths lead to the same Solutions Management list. Use whichever is available in your environment.
 
-The managed package contains the connector. The connector installed to Microsoft Dynamics enables agents to take calls and chats directly in a Microsoft Dynamics dashboard.
+  1. Navigate to **Solutions** using one of the paths described.
 
-### Update or install the Connector in solutions management
+  2. Click **Import**. A side panel (Add a Solution) will appear.
 
-  1. In Microsoft Dynamics, use the top right cogwheel to navigate to **Advanced Settings**.
+  3. Click **Browse** and select the Connector zip file (`UJETConnector_1_2_0_0_managed-dynamics.zip`).
 
-  2. In the **Settings** screen, click the expand_more **Expand more** next to **Settings** to open the drop-down, and from there select **Solutions**.
+  4. Click **Import**. The details of the connector package should now appear. If the details appear correctly, proceed to the next step. If not, recheck that the correct file was selected.
 
+  5. Click **Next**. Follow the on-screen steps to finish importing. No specific options are required for upgrading the Connector.
 
+**Note:** Installation takes 5–10 minutes. The Connector won't be stable during this time.
+  6. Once finished, refresh the agent page to confirm the updated connector is displayed.
 
-
-**Result** : In the **Solutions Management** list, you can see the Connector.
-
-### Update or install the Contact Center AI Platform connector in Microsoft Dynamics
-
-**Prerequisites**
-
-  * You must be assigned as an Admin user with privileges to import connectors in Solutions Management.
-
-  * You must have the managed Connector zip file. For example, `Connector_1_2_0_0_managed.zip.`
-
-  * You must have the **Power Apps** user interface.
-
-  * You must have a sufficient time window for agent adapter downtime. We recommend planning on approximately 10 minutes.
+  7. Locate the Connector entry in the Solutions list and confirm it is installed correctly. This can be verified from the UJET Connector Settings Manager (see the next section).
 
 
 
-
-**Import the Connector in Microsoft Dynamics**
-
-  1. In the **Power Apps** header, click the **Import** link. The **Add a Solution** pane appears.
-
-  2. Click **Browse** to select the Connector to be imported.
-
-  3. Click **Import**. The details of the package of the Connector to be imported should appear. If the details appear correctly, proceed to the next step. If not, check that you selected the correct file.
-
-  4. Click **Next**.
-
-
-
-
-Follow the steps to finish importing. There are no specific options required for the upgrading of the Connector.
-
-**Note:** Installation takes 5-10 minutes. The Connector isn't stable during this time.
-
-When the installation is complete, refresh the agent page to show the updated Connector.
 
 **Result** : The connector is installed and ready for use.
 
-## Configuring the Connector URL
+## Configure the Connector URL
 
-After installing package v1_2_0_0, the new application is accessible to the integrator system builder.
+Package 1.2.0.0 introduces a configuration manager application into the Contact Center AI Platform solution. After installing package v1_2_0_0, the new application is accessible to the integrator system builder.
 
-  1. In the search bar, find the **UJET Connector Settings Manager** , and then click **Play**. This leads you to the application and to a view that gives you access to the UJET Settings table, which contains the configuration to the iframed adapter.
+  1. In the search bar, find the **UJET Connector Settings Manager** , and then click **Play**. This will open the application and display the UJET Connector Settings table, which houses the configuration for the iframed adapter.
 
-![The Microsoft Dynamics interface is shown, with the UJET Connector Settings Manager shown in the toolbar.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/configure-connector-url.png)
+![The Microsoft Dynamics interface is shown, with the UJET
+Connector Settings Manager shown in the toolbar.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/configure-connector-url.png)
 
-  2. For new installations, a new entry needs to be added to the settings table. Click **New** to add a new IFrameUrl setting.
+  2. For new installations, a new entry needs to be added to the settings table. Click **New** to add a new `IFrameUrl` setting.
 
-![The UJET Connector Settings Manager is shown, with the name and value entered for IFrameURL.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/ujet-connector-settings.png)
+![The UJET Connector Settings Manager is shown, with the
+name and value entered for `IFrameURL`.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/ujet-connector-settings.png)
 
-  3. A new page opens to add an IFrameUrl. There are two fields present: **Name** and **Value**. Use the following sample values to help with configuration:
+  3. A new page opens to add an IFrameUrl. There are two fields present: **Name** and **Value**. Use the next sample values to help with configuration.
 
-     1. Name: IFrameUrl
+**Important:** The **Name** field must be exactly `IFrameUrl`. If this value is incorrect, the adapter won't be configured correctly.
+     1. **Name** : `IFrameUrl`
 
-     2. Value: `https://<tenant_subdomain>.&lt;environment_domain>`
+     2. **Value** : https://INSTANCE_SUBDOMAIN.ENVIRONMENT_DOMAIN
 
-  4. Click **Save**. A new entry appears in your Settings table. The IFrameUrl configuration is now complete.
+For example: `https://mycompany.us.ccaiplatform.com` \- where `mycompany` is your instance subdomain and `us.ccaiplatform.com` is your environment domain.
+
+  4. Click **Save**. A new entry appears in your **Settings** table. The `IFrameUrl` configuration is now complete.
 
 
-**Important:** It is very important to use IFrameUrl for the **Name** value. If another value is used, the adapter won't be configured correctly.
 
-## Add domain based access control for the agent adapter
+
+## Add domain-based access control for the agent adapter
 
 Domain-based access control maintains security while also allowing you to define and control which domains can display the agent adapter.
 
-Domain-based access control lets you define and control which domains can display the Agent Adapter. This is a crucial implementation step. Be sure to add all necessary domains in the developer settings as per the guidelines provided. Failure to do so may result in the adapter breaking.
+  * Domain-based access control lets you define and control which domains can display the Agent Adapter. This is a crucial implementation step. 
+  * Be sure to add all necessary domains in the developer settings as per the guidelines provided. Failure to do so may result in the adapter breaking.
+  * Adding domains in the Developer Settings may cause a temporary disruption in the adapter's functionality. For this reason, Google recommends performing this task during a time when call volume is low or during a scheduled maintenance window.
+  * If you have any questions or need assistance with implementation, contact Support.
 
-**Important:** Adding domains in the Developer Settings may cause a temporary disruption in the adapter's functionality. For this reason, Google recommends performing this task during a time when call volume is low or during a scheduled maintenance window.
 
-If you have any questions or need assistance with implementation, contact Support.
 
 ### Add your domains in developer settings
 
@@ -157,65 +149,83 @@ If you have any questions or need assistance with implementation, contact Suppor
 
 To add domains in developer settings, follow these steps:
 
-  1. In the CCAI Platform portal, click **Settings > Developer Settings**. If you don't see the **Settings** menu, click menu **Menu**.
+  1. Go to **Developer Settings** > **Agent Adapter - Domain Based Access Control**.
 
-  2. Go to **Agent Adapter - Domain Based Access Control**
-
-  3. Enter each domain on a new line. The format is `*.domain`—for example, `*.mycompany.com`.
+  2. Enter each domain on a new line. The format is `*.domain`—for example, `*.mycompany.com`.
 
 
 
 
-#### Specifying a domain
+#### Specify a domain
 
-**Note:** If no domains are specified, access is granted to all domains.
+**Warning:** If no domains are specified, access is granted to all domains.
 
-The format for specifying a domain for an instance can be any valid domain name, and it can include a wildcard (*****) to match an arbitrary number of subdomains. The wildcard must be placed at the beginning of the domain, and it matches any subdomains. Additionally, the user has the option to specify a protocol and a port using the syntax `<protocol>://<domain>:<port>`.
+The format for specifying a domain for an instance can be any valid domain name, and it can include a wildcard (*****) to match an arbitrary number of subdomains. The wildcard must be placed at the beginning of the domain, and it matches any subdomains.
 
-The port may be a wildcard, but the protocol cannot be a wildcard. If a protocol is specified, it matches only that protocol and all other protocols won't be able to display the adapter. For example, `https://some.example.domain.com` won't match `http://some.example.domain.com` or `mail://some.example.domain.com`.
+Additionally, the user has the option to specify a protocol and a port using the syntax `<protocol>://<domain>:<port>`.
 
-#### CRM specific domains
+  * The port may be a wildcard, but the protocol cannot be a wildcard.
+  * If a protocol is specified, it matches only that protocol and all other protocols won't be able to display the adapter. For example, `https://some.example.domain.com` won't match `http://some.example.domain.com` or `mail://some.example.domain.com`.
+
+
+
+#### CRM-specific domains
 
 Use the following domain naming conventions when entering your CRM domain.
 
 **Important:** If you don't include all of these domains for a specific CRM, the agent adapter immediately breaks.
 
-Salesforce: `*.visualforce.com` `*.force.com` `*.salesforce.com`
+Each CRM's embedded UI loads from specific domains. For example, the Dynamics agent adapter loads from `*.crm.dynamics.com`. You must allowlist all the domains your CRM uses, as listed in the following table:
 
-Zendesk: `*.zdusercontent.com` `*.zendesk.com`
+CRM | Required domains  
+---|---  
+Salesforce | 
 
-Microsoft Dynamics: `*.crm.dynamics.com`
+  * `*.visualforce.com`
+  * `*.force.com`
+  * `*.salesforce.com`
 
-Kustomer: `*.kustomerapp.com`
+  
+Zendesk | 
 
-**Reload Frame on the adapter**
+  * `*.zdusercontent.com`
+  * `*.zendesk.com`
 
-After making administrator configuration changes, if the agent adapter is not visible for agents, they must right-click the agent adapter, and then click **Reload Frame**.
-
+  
+Microsoft Dynamics | `*.crm.dynamics.com`  
+Kustomer | `*.kustomerapp.com`  
+  
 ## Azure app registration (OAuth client)
+
+This section describes how to create an Azure app registration for Microsoft Dynamics.
 
 ### Create a new application registration in Azure
 
-  1. Go to **Azure Active Directory > App registrations > New application registration**. The **Register an application** page appears.
+  1. In the Microsoft Azure Portal, go to **Azure services** > **App registrations**.
 
-  2. Fill in the required fields:
+**Note:** **App registrations** is the portal entry point for managing Microsoft Entra ID application registrations. In the Azure Portal UI, it appears under Azure services on the portal home page. You can also find it by searching for _App registrations_ in the portal search bar.
+  2. Select **New application registration**. The **Register an application** page appears.
 
-     * In the **Name** field, enter the URL of your environment without the `https://`. For example— `yourcompany.domain.co.`
+  3. Fill in the required fields:
+
+     * In the **Name** field, enter the URL of your CCAI Platform environment without the `https://`. For example— `yourcompany.domain.co.`
 
      * For the **Supported account types** section, click **Accounts in the Organizational Directory Only**.
 
-  3. Click **Register**. The application is now registered. 
+  4. Click **Register**. The application is now registered.
 
 
 
 
 ### Authentication settings
 
+This section describes how to configure authentication settings in the Microsoft Azure portal 
+
 #### Add a platform configuration
 
-To add a platform configuration in Microsoft Dynamics, follow these steps:
+To add a platform configuration in the Microsoft Azure portal, follow these steps:
 
-  1. After creating the registered App, go to **Authentication** and enter your callback URL in the **Redirect URI** field—for example, `https://yourcompany.domain.co/v1/dynamics/oauth_callback`.
+  1. After creating the registered App, go to **Authentication** and enter your callback URL in the **Redirect URI** field — for example, `https://yourcompany.domain.co/v1/dynamics/oauth_callback`.
 
   2. Click the checkbox for **ID tokens**.
 
@@ -224,79 +234,62 @@ To add a platform configuration in Microsoft Dynamics, follow these steps:
 
 #### Create new certificates and secrets
 
-To create new certificates and secrets in Microsoft Dynamics, follow these steps:
+To create new certificates and secrets in the Microsoft Azure portal, follow these steps:
 
-  1. Go to **Certificates & secrets** to create a new key in the **Add a client secret** panel:
+  1. Go to **Certificates & secrets** to create a new key in the **Add a client secret** panel. Then, in the **Description** field:
 
-     * In the **Description** field, enter a description such as API KEY.
+     1. Enter a description such as API KEY.
 
-     * In the **Expires** section, click the longest available time period allowed by your security team.
+     2. In the **Expires** section, click the longest available time period allowed by your security team.
 
 **Note** : This has to be regenerated after the expired time has been reached.
 
-  2. Click **Add**.
+  2. Click **Add**. Copy the secret value immediately — you won't be able to view it again after leaving this page.
 
 
 
 
 #### Add API permissions
 
-To add API permissions in Microsoft Dynamics, follow these steps:
+To add API permissions in the Microsoft Azure portal, follow these steps:
 
   1. Go to **Manage > API permissions** and click **Add a permission**.
 
   2. Click **Dynamics CRM**.
 
-  3. Click **Delegated permissions**.
+  3. Select **Delegated permissions**.
 
-  4. Check the box for **user_permission**.
+  4. Check the box for **user_impersonation** and select **Add permissions**.
 
-  5. While still in **API permissions** , click again **Add a permission**.
+  5. Back in **API permissions** , select **Add a permission** again.
 
-  6. Click **Microsoft Graph**.
+  6. Select **Microsoft Graph**.
 
-  7. Click **Application Permissions**.
+  7. Select **Application permissions**.
 
-  8. Add **Application.ReadWrite.All** , **Directory.Read.All** , and **User.Read.All**. permissions.
+  8. Add the following Application permissions: **Application.ReadWrite.All** , **Directory.Read.All** , and **User.Read.All**. Select **Add permissions**.
 
-  9. Confirm all permissions under **Microsoft Graph** are selected, including **User.Read**.
+  9. Back in **API permissions** , select **Add a permission** once more.
 
-  10. Click **Grant admin consent for [your organization name]** and **confirm** in the dialogue box that appears.
+  10. Select **Microsoft Graph** , then select **Delegated permissions**.
 
-  11. Confirm the status is now Granted for **your organization name**.
+  11. Add **User.Read** (if it is not already present). Select **Add permissions**.
+
+  12. Back in the **API permissions** overview, click **Grant admin consent for [your organization name]** and **confirm** in the dialog. Verify the **Status** column shows **Granted** for **[your organization name]** for all of the following permissions:
 
 
 
 
 ![The options for API permissions are shown.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/api-permissions.png)
 
-### Input your values in the Contact Center AI Platform portal
-
-To input your values in the Contact Center AI Platform portal, follow these steps:
-
-  1. In the CCAI Platform portal, click **Settings > Developer Settings**. If you don't see the **Settings** menu, click menu **Menu**.
-
-  2. Scroll to **CRM > Agent Platform**.
-
-  3. Click **Microsoft Dynamics** and enter values for the following:
-
-     1. Application ID: application client ID (Microsoft Dynamics) found in the overview page of your app registration.
-
-     2. Key Password: This must be copied after its creation as you won't be able to view it again fully on refresh. For more information, see Authentication settings.
-
-     3. Active Directory Tenant: directory (tenant ID) found in the overview page of your app registration.
-
-     4. Microsoft Dynamics Domain - Enter the URL of your environment. This can be found on the environment overview page.
-
-**Note** : Make sure all of these fields are correct before saving and proceeding.
-
-![The options for the Power Platform administration center are shown, with the Environments tab highlighted.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/ms-dynamics-domain.png)
-
-  4. Click **Save**.
-
-
-
-
+**API** | **Permission** | **Type**  
+---|---|---  
+Dynamics CRM  | `user_impersonation` | Delegated   
+Microsoft Graph  | `Application.ReadWrite.All` | Application   
+Microsoft Graph  | `Directory.Read.All` | Application   
+Microsoft Graph  | `User.Read` | Delegated   
+Microsoft Graph  | `User.Read.All` | Application   
+  
 ## Set up application users for your environment
 
 To set up application users for your environment in Microsoft Dynamics, follow these steps:
@@ -313,34 +306,63 @@ To set up application users for your environment in Microsoft Dynamics, follow t
 
 ![The window for setting up a new app user in Microsoft Dynamics is shown.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/crm-dynamics-set-up-user.png)
 
-     1. In the App field, choose an existing app and click **Add**.
+     1. In the **App** field, choose an existing app and click **Add**.
 
      2. Click the **Business Unit** field, and then click a business unit.
 
      3. Add the following security roles:
 
-     4. **Service Reader**
+        1. **Service Reader**
 
-     5. **Service Writer**
+        2. **Service Writer**
 
   4. Click **Create**.
 
 
 
 
+## Input your values in the CCAI Platform portal
+
+**Important:** If you edit your CRM settings to point to a new CRM instance, it is recommended to redo the setup process and reconfigure all settings.
+
+  1. Go to **Settings** > **Developer Settings**.
+
+  2. Scroll to **CRM** > **Agent Platform**.
+
+  3. Select **MS Dynamics** and enter the values for the following:
+
+**Note:** Ensure all of these fields are correct before saving.Field | Value | Where to find it  
+---|---|---  
+Active Directory Application ID | Application (Client) ID | In the Microsoft Azure Portal, go to **App registrations** > your app > **Overview**.  
+Update Active Directory Application Key Password | Client secret value | Created in the preceding **Certificates & secrets** step. Must be copied immediately after creation.  
+Active Directory tenant | Directory (Tenant) ID | In the Microsoft Azure Portal, go to **App registrations** > your app > **Overview**. _(Note: "Active Directory" in this label refers to what Microsoft now calls Microsoft Entra ID.)_  
+Dynamics domain | URL of your Microsoft Dynamics environment | Found on the environment overview page in Power Platform administration center  
+  
+![The options for the Power Platform administration center are shown, with
+the Environments tab highlighted.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/ms-dynamics-domain.png)
+
+  4. Select **Save**.
+
+
+
+
 ## Test custom field mapping
 
-This section uses MyCustomField as a walkthrough example for adding and mapping a custom field.
+This section uses `MyCustomField` as a walkthrough example for adding and mapping a custom field.
 
-**Note:** If you already have an existing TestCustomFields solution, skip to step 2.
+**Note:** If you already have an existing `TestCustomFields` solution, skip to step 2.
 
-To set up custom field mapping, follow these steps in Microsoft Dynamics:
+### Create a new custom field in a solution component
+
+To set up custom field mapping, follow these steps in Microsoft Dynamics.
+
+**Note:** Access solutions using one of the methods described in the preceding _Install or update the Connector_ section. The path shown here (**Sales** > **Settings** > **Solutions**) may vary depending on your Dynamics UI.
 
   1. Create a new custom field in a solution component:
 
      1. Go to **Sales > Settings > Solutions**.
 
-     2. At the top of the All Solutions page, click **New**.
+     2. At the top of the **All Solutions** page, click **New**.
 
      3. Enter **TestCustomFields** as the Display Name.
 
@@ -356,35 +378,32 @@ To set up custom field mapping, follow these steps in Microsoft Dynamics:
 
   5. Click the entity assets that you want to include in the solution.
 
-     1. Include entity metadata
+     1. Include entity metadata.
 
-     2. Add All Assets
-
-
-
+     2. Add **All Assets**.
 
 For this example, click **Include entity metadata**.
 
 ![An example of the entity assets with the entity metadata is shown.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/entity-assets.png)
 
-  1. Click **Finish**.
+  6. Click **Finish**.
 
-  2. Go to **Components > Entities > Contact > Fields**.
+  7. Go to **Components > Entities > Contact > Fields**.
 
-  3. Click **New**.
+  8. Click **New**.
 
-  4. A new field name populates in the Name field. Copy the field name for later use:
+  9. A new field name populates in the Name field. Copy the field name for later use:
 
 ![The custom field naming is shown, with the name field highlighted.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/custom-field-name.png)
 
-  5. Click **Save and Close**.
+  10. Click **Save and Close**.
 
 
 
 
 ### Edit form to display the custom field
 
-The following example focuses on the contact solution component that was previously configured in Update or install the connector in solutions management.
+The following example focuses on the contact solution component that was previously configured.
 
 To edit the form to display the custom field, follow these steps in Microsoft Dynamics:
 
@@ -434,12 +453,14 @@ The default action within Microsoft Dynamics is to fill in the customer informat
 
   4. Select the **Use Custom Parameter Matching** checkbox.
 
+  5. Once checked, a table with the fields **Contact Field Key** and **Case Field Key** will appear, along with options to add, edit or delete as required. Switching between object types clears the table unless the fields are saved.
+
+     * This lets the **Contact** field on the case object, and the **Customer** field with the **Account** associated with the **Contact** (if there is one), to be updated simultaneously.
+
+     * The CRM ticket updates when the checkbox **Use Custom Parameter Matching** is checked and **Parameters Configuration** is valid, otherwise it will revert to default logic to update the CRM. If all parameters are configured correctly they will all update. If any parameters are configured incorrectly, only the correctly configured parameters will update.
 
 
 
-Switching between object types clears the table unless the fields are saved. This lets the Contact field on the case object and the Customer field with the Account associated with the Contact (if there is one), to be updated simultaneously.
-
-The CRM ticket updates when the checkbox **Use Custom Parameter Matching** is checked and **Parameters Configuration** is valid, otherwise it reverts to default logic to update the CRM. If all parameters are configured correctly, they all update. If any parameters are configured incorrectly, only the correctly configured parameters update.
 
 ## Test USER segment DAP
 
@@ -455,15 +476,47 @@ To test a DAP, follow these steps:
 
 ![The options to update the Direct Access Point are shown.](https://docs.cloud.google.com/static/contact-center/ccai-platform/docs/images/DAP-update.png)
 
-  4. In the **CRM Custom User Segment Field** , enter the name of the field in the CRM that contains the user segment information—for example, `new_mycustomfield`.
+  4. In the **CRM Custom User Segment Field** , enter the name of the field in the CRM that contains the user segment information —for example, `new_mycustomfield`.
+
+  5. Select **Update**.
 
 
 
+
+## Troubleshooting
+
+This section describes common issues and their resolutions.
+
+### Agent adapter not visible
+
+If the agent adapter isn't visible after making administrator configuration changes, agents should:
+
+  * Right-click over the agent adapter area.
+
+  * Select **Reload Frame**.
+
+
+
+
+This forces the adapter to reload with the latest configuration.
+
+### Common issues
+
+Symptom | Possible cause | Resolution  
+---|---|---  
+Adapter breaks immediately after setup | Missing CRM-specific domains in domain based access control | Verify all required domains are added (see **CRM-specific domains** above). For MS Dynamics, ensure `*.crm.dynamics.com` is included.  
+Adapter not loading after domain changes | Domain propagation delay | Wait up to one minute for changes to take effect. Try the **Reload Frame** action described earlier.  
+OAuth authentication failure | Incorrect Application ID, Key Password, or Tenant ID | Double-check values in **Settings > Developer Settings > CRM > Agent Platform**. Ensure the client secret hasn't expired.  
+API permissions errors | Admin consent not granted or missing permissions | Go to **API permissions** in the Microsoft Azure Portal and confirm all five permissions are present and administrator consent is granted (see the **permissions summary table** in Authentication settings).  
+Connector unstable during installation | Installation in progress | Installation takes 5–10 minutes. Wait for it to complete, then refresh the agent page.  
+Client secret expired | Secret reached its configured expiration date | Generate a new client secret in **Certificates & secrets**, copy the value immediately, and update the **Key Password** field in the CCAI Platform portal.  
+  
+For additional help, contact **CCAI Platform Support**.
 
 Send feedback 
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

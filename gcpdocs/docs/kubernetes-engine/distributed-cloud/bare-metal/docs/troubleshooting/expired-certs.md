@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/expired-certs/
 title: Renew expired cluster certificates manually \u00a0|\u00a0 Google Distributed Cloud software only for bare metal \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T22:57:15.931662+00:00
+fetched_at: 2026-10-30T08:37:00.422879+00:00
 ---
 
 # Renew expired cluster certificates manually  |  Google Distributed Cloud software only for bare metal  |  Google Cloud Documentation
@@ -22,11 +22,9 @@ Send feedback
 
 #  Renew expired cluster certificates manually Stay organized with collections  Save and categorize content based on your preferences. 
 
-This document describes how to manually renew expired certificates for your Google Distributed Cloud. Transport Layer Security (TLS) certificates are used by the control plane components of Google Distributed Cloud. When these certificates expire, your ability to manage workloads and cluster lifecycles is blocked until the certificates can be renewed. For more information about the impact of expired certificates, see [Certificate expiration](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/failure-mode-analysis#certificate_expiration).
+Manual certificate renewal lets you restore control plane operations in Google Distributed Cloud when Transport Layer Security (TLS) certificates expire. You can't manage workloads and cluster lifecycles until you renew your expired TLS certificates. For more information about the impact of expired certificates, see [Certificate expiration](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/troubleshooting/failure-mode-analysis#certificate_expiration).
 
-This page is for Admins and architects and Operators who manage the lifecycle of the underlying tech infrastructure, and respond to alerts and pages when service level objectives (SLOs) aren't met or applications fail. To learn more about common roles and example tasks that we reference in Google Cloud content, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
-
-By default, TLS certificates, including etcd certificates, have a 1-year expiration period. Google Distributed Cloud renews these certificates during cluster upgrades and when you [Rotate certificate authorities](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/ca-rotation). These certificates don't update periodically on their own. We recommend that you upgrade your clusters regularly to keep them secure, supported, and to prevent TLS certificates from expiring.
+TLS certificates, including etcd certificates, have a default 1-year expiration period and don't update automatically. To prevent certificates from expiring and keep your clusters secure and supported, we recommend that you [upgrade your clusters regularly](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/upgrade). Google Distributed Cloud renews these certificates during cluster upgrades and when you [rotate certificate authorities](https://docs.cloud.google.com/kubernetes-engine/distributed-cloud/bare-metal/docs/how-to/ca-rotation). You can use this guidance to recover clusters if certificates lapse before an upgrade. For related details, see [Common GKE user roles and tasks](https://docs.cloud.google.com/kubernetes-engine/enterprise/docs/concepts/roles-tasks).
 
 ## Errors caused by certificate expiration
 
@@ -356,6 +354,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

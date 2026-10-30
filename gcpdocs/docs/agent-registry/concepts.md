@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/agent-registry/concepts/
 title: Key concepts \u00a0|\u00a0 Agent Registry \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:26:26.314516+00:00
+fetched_at: 2026-10-30T08:40:13.323927+00:00
 ---
 
 # Key concepts  |  Agent Registry  |  Google Cloud Documentation
@@ -81,17 +81,39 @@ A target URL, typically a REST API, accessed by an agent. In Agent Registry, a r
 
 ## Governance project
 
-The Google Cloud project where you [enable the Agent Registry API](https://docs.cloud.google.com/agent-registry/setup) to centrally catalog, discover, and govern your agentic components. For more information about single-project and cross-project configurations, see [Define the governance project for a central registry](https://docs.cloud.google.com/agent-registry/overview#governance-project).
+The Google Cloud project where you [enable the Agent Registry API](https://docs.cloud.google.com/agent-registry/setup) to centrally catalog, discover, and govern your agentic components. In a cross-project management boundary, your management project serves as the central governance project for the boundary. For more information about single-project and cross-project configurations, see [Define the governance project for a central registry](https://docs.cloud.google.com/agent-registry/overview#governance-project).
 
 ## Governance scope
 
 The geographic and architectural boundary where Agent Registry resources are registered and governed.
 
-Agent Registry uses a central Google Cloud [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project), where you enable the Agent Registry API to catalog and govern your agentic components. Automatic registration discovers supported workloads deployed in that governance project. To govern _remote_ components, which are agents, MCP servers, or endpoints hosted outside the governance project in separate Google Cloud projects, on-premises environments, or external clouds, you manually register them in the governance project's registry.
+Agent Registry uses a central Google Cloud [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project), where you enable the Agent Registry API to catalog and govern your agentic components. By default, automatic registration discovers supported workloads deployed in that governance project. When you configure a management boundary, your management project serves as the central governance project and automatically aggregates supported workloads discovered across member projects in the boundary. To govern _remote_ components hosted outside a governance project or management boundary, such as in separate Google Cloud projects without a boundary, on-premises environments, or external clouds, you manually register them in the governance project's registry.
 
 When Agent Registry automatically registers a Google or Google Cloud remote MCP server, it creates the `McpServer` resource only in the `global` location, not in individual regions. You can manually register agents, MCP servers, and endpoints, and create bindings, in a supported regional location or the `global` location. Regional gateways can govern and route traffic to both regional resources and `global` MCP servers.
 
 For full regional scoping rules and policy requirements, see [Agent Registry locations](https://docs.cloud.google.com/agent-registry/locations#governance-scope).
+
+## Management boundary
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+The collection of one or more Google Cloud projects defining an administrative perimeter for your AI ecosystem, represented in [Resource Manager](https://docs.cloud.google.com/resource-manager/docs/resource-manager-overview) by the `Boundary` resource. A management boundary is defined on an organization or a folder in Resource Manager. You can either include all child projects in that folder or organization or filter child projects by an optional tag. Management boundaries let you enable centralized discovery and governance of agentic components across multiple member projects.
+
+Agent Registry uses `BoundaryConfig`, `Boundary`, and `CapabilityConfig` resources in Resource Manager to support cross-project views and centralized access policies. For more information about these Resource Manager resources, see [Management boundaries and capabilities overview](https://docs.cloud.google.com/resource-manager/docs/boundaries-and-capabilities-overview).
+
+For more information about using management boundaries in Agent Registry, see [Cross-project boundaries](https://docs.cloud.google.com/agent-registry/boundaries-and-topology).
+
+## Management project
+
+**Preview**
+
+This product or feature is subject to the "Pre-GA Offerings Terms" in the General Service Terms section of the [Service Specific Terms](https://docs.cloud.google.com/terms/service-terms#1). Pre-GA products and features are available "as is" and might have limited support. For more information, see the [launch stage descriptions](https://cloud.google.com/products/#product-launch-stages). 
+
+A Google Cloud project that serves as the central governance project for a management boundary, centralizing administrative tasks, API endpoints, and metadata across the boundary. You use the management project to set up Agent Registry, configure billing and quotas, and query aggregated agent and tool registries across member projects.
+
+For more information, see [Management project](https://docs.cloud.google.com/agent-registry/boundaries-and-topology#management-project).
 
 ## Model Context Protocol (MCP)
 
@@ -119,8 +141,8 @@ The process of adding an agentic component, such as an agent, MCP server, endpoi
 
 Agent Registry supports two registration models:
 
-  * **Automatic registration** : automatic ingestion of agents, MCP servers, and Google-managed skills from supported Google Cloud runtimes, such as Agent Runtime on Gemini Enterprise Agent Platform, deployed in the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled.
-  * **Manual registration** : explicit registration of remote or custom agents, MCP servers, endpoints, and private standalone skills, including components hosted in separate Google Cloud projects, on-premises environments, external clouds, or unsupported runtimes, by creating resources in the governance project's registry.
+  * **Automatic registration** : automatic ingestion of agents, MCP servers, and Google-managed skills from supported Google Cloud runtimes, such as Agent Runtime on Gemini Enterprise Agent Platform, deployed in the [governance project](https://docs.cloud.google.com/agent-registry/overview#governance-project) where Agent Registry is enabled, or aggregated across member projects when you configure a management boundary.
+  * **Manual registration** : explicit registration of remote or custom agents, MCP servers, endpoints, and private standalone skills, including components hosted in separate Google Cloud projects without a management boundary, on-premises environments, external clouds, or unsupported runtimes, by creating resources in the governance project's registry.
 
 
 
@@ -172,6 +194,6 @@ Send feedback
 
 Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Last updated 2026-10-26 UTC.
+Last updated 2026-10-29 UTC.
 
-Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-26 UTC."],[],[]] 
+Need to tell us more?  [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Hard to understand","hardToUnderstand","thumb-down"],["Incorrect information or sample code","incorrectInformationOrSampleCode","thumb-down"],["Missing the information/samples I need","missingTheInformationSamplesINeed","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-10-29 UTC."],[],[]] 

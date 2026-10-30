@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/iam/docs/samples/iam-create-deny-policy/
 title: Create a deny policy \u00a0|\u00a0 Identity and Access Management (IAM) \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T18:47:54.673700+00:00
+fetched_at: 2026-10-30T08:32:45.513168+00:00
 ---
 
 # Create a deny policy  |  Identity and Access Management (IAM)  |  Google Cloud Documentation

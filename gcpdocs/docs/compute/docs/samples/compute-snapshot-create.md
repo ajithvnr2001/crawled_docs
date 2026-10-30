@@ -2,7 +2,7 @@
 url: https://docs.cloud.google.com/compute/docs/samples/compute-snapshot-create/
 title: Create a disk snapshot \u00a0|\u00a0 Compute Engine \u00a0|\u00a0 Google Cloud Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T05:42:42.151257+00:00
+fetched_at: 2026-10-30T08:52:22.719685+00:00
 ---
 
 # Create a disk snapshot  |  Compute Engine  |  Google Cloud Documentation
@@ -64,7 +64,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     
     	ctx := context.Background()
     
-    	snapshotsClient, err := compute.NewSnapshotsRESTClient(ctx)
+    	snapshotsClient, err := compute.[NewSnapshotsRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_SnapshotsClient_NewSnapshotsRESTClient)(ctx)
     	if err != nil {
     		return fmt.Errorf("NewSnapshotsRESTClient: %w", err)
     	}
@@ -89,7 +89,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     	}
     
     	if zone != "" {
-    		disksClient, err := compute.NewDisksRESTClient(ctx)
+    		disksClient, err := compute.[NewDisksRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_DisksClient_NewDisksRESTClient)(ctx)
     		if err != nil {
     			return fmt.Errorf("NewDisksRESTClient: %w", err)
     		}
@@ -106,7 +106,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     			return fmt.Errorf("unable to get disk: %w", err)
     		}
     	} else {
-    		regionDisksClient, err := compute.NewRegionDisksRESTClient(ctx)
+    		regionDisksClient, err := compute.[NewRegionDisksRESTClient](https://docs.cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1.html#cloud_google_com_go_compute_apiv1_RegionDisksClient_NewRegionDisksRESTClient)(ctx)
     		if err != nil {
     			return fmt.Errorf("NewRegionDisksRESTClient: %w", err)
     		}
@@ -155,12 +155,12 @@ Before trying this sample, follow the Java setup instructions in the [Compute En
 To authenticate to Compute Engine, set up Application Default Credentials. For more information, see [Set up authentication for a local development environment](https://docs.cloud.google.com/docs/authentication/set-up-adc-local-dev-environment). 
     
     
-    import com.google.cloud.compute.v1.Disk;
-    import com.google.cloud.compute.v1.DisksClient;
-    import com.google.cloud.compute.v1.Operation;
-    import com.google.cloud.compute.v1.RegionDisksClient;
-    import com.google.cloud.compute.v1.Snapshot;
-    import com.google.cloud.compute.v1.SnapshotsClient;
+    import com.google.cloud.compute.v1.[Disk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Disk.html);
+    import com.google.cloud.compute.v1.[DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html);
+    import com.google.cloud.compute.v1.[Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html);
+    import com.google.cloud.compute.v1.[RegionDisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.RegionDisksClient.html);
+    import com.google.cloud.compute.v1.[Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html);
+    import com.google.cloud.compute.v1.[SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html);
     import java.io.IOException;
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.TimeUnit;
@@ -213,14 +213,14 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         // once, and can be reused for multiple requests. After completing all of your requests, call
         // the `snapshotsClient.close()` method on the client to safely
         // clean up any remaining background resources.
-        try (SnapshotsClient snapshotsClient = SnapshotsClient.create()) {
+        try ([SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html) snapshotsClient = [SnapshotsClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.SnapshotsClient.html).create()) {
     
           if (zone.isEmpty() && region.isEmpty()) {
-            throw new Error("You need to specify 'zone' or 'region' for this function to work");
+            throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)("You need to specify 'zone' or 'region' for this function to work");
           }
     
           if (!zone.isEmpty() && !region.isEmpty()) {
-            throw new Error("You can't set both 'zone' and 'region' parameters");
+            throw new [Error](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Error.html)("You can't set both 'zone' and 'region' parameters");
           }
     
           // If Disk's project id is not specified, then the projectId parameter will be used.
@@ -230,42 +230,42 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     
           // If zone is not empty, use the DisksClient to create a disk.
           // Else, use the RegionDisksClient.
-          Disk disk;
+          [Disk](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Disk.html) disk;
           if (!zone.isEmpty()) {
-            DisksClient disksClient = DisksClient.create();
-            disk = disksClient.get(projectId, zone, diskName);
+            [DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html) disksClient = [DisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html).create();
+            disk = disksClient.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.DisksClient.html#com_google_cloud_compute_v1_DisksClient_get_com_google_cloud_compute_v1_GetDiskRequest_)(projectId, zone, diskName);
           } else {
-            RegionDisksClient regionDisksClient = RegionDisksClient.create();
-            disk = regionDisksClient.get(diskProjectId, region, diskName);
+            [RegionDisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.RegionDisksClient.html) regionDisksClient = [RegionDisksClient](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.RegionDisksClient.html).create();
+            disk = regionDisksClient.[get](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.RegionDisksClient.html#com_google_cloud_compute_v1_RegionDisksClient_get_com_google_cloud_compute_v1_GetRegionDiskRequest_)(diskProjectId, region, diskName);
           }
     
           // Set the snapshot properties.
-          Snapshot snapshotResource;
+          [Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html) snapshotResource;
           if (!location.isEmpty()) {
-            snapshotResource = Snapshot.newBuilder()
+            snapshotResource = [Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html).newBuilder()
                 .setName(snapshotName)
-                .setSourceDisk(disk.getSelfLink())
+                .setSourceDisk(disk.[getSelfLink](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Disk.html#com_google_cloud_compute_v1_Disk_getSelfLink__)())
                 .addStorageLocations(location)
                 .build();
           } else {
-            snapshotResource = Snapshot.newBuilder()
+            snapshotResource = [Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html).newBuilder()
                 .setName(snapshotName)
-                .setSourceDisk(disk.getSelfLink())
+                .setSourceDisk(disk.[getSelfLink](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Disk.html#com_google_cloud_compute_v1_Disk_getSelfLink__)())
                 .build();
           }
     
           // Wait for the operation to complete.
-          Operation operation = snapshotsClient.insertAsync(projectId, snapshotResource)
+          [Operation](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html) operation = snapshotsClient.insertAsync(projectId, snapshotResource)
               .get(3, TimeUnit.MINUTES);
     
-          if (operation.hasError()) {
+          if (operation.[hasError](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Operation.html#com_google_cloud_compute_v1_Operation_hasError__)()) {
             System.out.println("Snapshot creation failed!" + operation);
             return;
           }
     
           // Retrieve the created snapshot.
-          Snapshot snapshot = snapshotsClient.get(projectId, snapshotName);
-          System.out.printf("Snapshot created: %s", snapshot.getName());
+          [Snapshot](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html) snapshot = snapshotsClient.get(projectId, snapshotName);
+          System.out.printf("Snapshot created: %s", snapshot.[getName](https://docs.cloud.google.com/java/docs/reference/google-cloud-compute/latest/com.google.cloud.compute.v1.Snapshot.html#com_google_cloud_compute_v1_Snapshot_getName__)());
     
         }
       }
@@ -289,10 +289,10 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     // const location = 'europe-central2';
     // let diskProjectId = 'YOUR_DISK_PROJECT_ID';
     
-    const compute = require('@google-cloud/compute');
+    const compute = require('[@google-cloud/compute](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)');
     
     async function createSnapshot() {
-      const snapshotsClient = new compute.SnapshotsClient();
+      const snapshotsClient = new compute.[SnapshotsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       let disk;
     
@@ -311,14 +311,14 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
       }
     
       if (zone) {
-        const disksClient = new compute.DisksClient();
+        const disksClient = new compute.[DisksClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
         [disk] = await disksClient.get({
           project: diskProjectId,
           zone,
           disk: diskName,
         });
       } else {
-        const regionDisksClient = new compute.RegionDisksClient();
+        const regionDisksClient = new compute.[RegionDisksClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
         [disk] = await regionDisksClient.get({
           project: diskProjectId,
           region,
@@ -340,7 +340,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
         snapshotResource,
       });
       let operation = response.latestResponse;
-      const operationsClient = new compute.GlobalOperationsClient();
+      const operationsClient = new compute.[GlobalOperationsClient](https://docs.cloud.google.com/nodejs/docs/reference/compute/latest/overview.html)();
     
       // Wait for the create snapshot operation to complete.
       while (operation.status !== 'DONE') {
@@ -368,7 +368,7 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
     from typing import Any
     
     from google.api_core.extended_operation import ExtendedOperation
-    from google.cloud import compute_v1
+    from google.cloud import [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest)
     
     
     def wait_for_extended_operation(
@@ -465,26 +465,26 @@ To authenticate to Compute Engine, set up Application Default Credentials. For m
             disk_project_id = project_id
     
         if zone is not None:
-            disk_client = compute_v1.DisksClient()
-            disk = disk_client.get(project=disk_project_id, zone=zone, disk=disk_name)
+            disk_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[DisksClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.DisksClient.html)()
+            disk = disk_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.disks.DisksClient.html#google_cloud_compute_v1_services_disks_DisksClient_get)(project=disk_project_id, zone=zone, disk=disk_name)
         else:
-            regio_disk_client = compute_v1.RegionDisksClient()
-            disk = regio_disk_client.get(
+            regio_disk_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[RegionDisksClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.region_disks.RegionDisksClient.html)()
+            disk = regio_disk_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.region_disks.RegionDisksClient.html#google_cloud_compute_v1_services_region_disks_RegionDisksClient_get)(
                 project=disk_project_id, region=region, disk=disk_name
             )
     
-        snapshot = compute_v1.Snapshot()
+        snapshot = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[Snapshot](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.types.Snapshot.html)()
         snapshot.source_disk = disk.self_link
         snapshot.name = snapshot_name
         if location:
             snapshot.storage_locations = [location]
     
-        snapshot_client = compute_v1.SnapshotsClient()
-        operation = snapshot_client.insert(project=project_id, snapshot_resource=snapshot)
+        snapshot_client = [compute_v1](https://docs.cloud.google.com/python/docs/reference/compute/latest).[SnapshotsClient](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.snapshots.SnapshotsClient.html)()
+        operation = snapshot_client.[insert](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.snapshots.SnapshotsClient.html#google_cloud_compute_v1_services_snapshots_SnapshotsClient_insert)(project=project_id, snapshot_resource=snapshot)
     
         wait_for_extended_operation(operation, "snapshot creation")
     
-        return snapshot_client.get(project=project_id, snapshot=snapshot_name)
+        return snapshot_client.[get](https://docs.cloud.google.com/python/docs/reference/compute/latest/google.cloud.compute_v1.services.snapshots.SnapshotsClient.html#google_cloud_compute_v1_services_snapshots_SnapshotsClient_get)(project=project_id, snapshot=snapshot_name)
     
     
 
