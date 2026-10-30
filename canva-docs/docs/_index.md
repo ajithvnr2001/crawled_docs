@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/
 title: Canva Developers
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:54:30.234563+00:00
+fetched_at: 2026-10-30T16:18:34.777482+00:00
 ---
 
 # Canva Developers
@@ -60,6 +60,8 @@ Create new ways for people to design, collaborate, and get work done with Canva.
 
 [Explore Canva Developers SDK](https://www.canva.dev/docs/apps/)
 
+![](https://www.canva.dev/_next/static/media/ai_assistant.b1bdc48c.png)
+
 Canva for AI agents and assistants
 
 Give your AI access to Canva’s design capabilities with Canva MCP.
@@ -72,6 +74,8 @@ Give your AI access to Canva’s design capabilities with Canva MCP.
 
 [Starter kit⁠(opens in a new tab or window)](https://github.com/canva-sdks/canva-ai-builder-kit)
 
+![](https://www.canva.dev/_next/static/media/platform.49b9bf55.png)
+
 Canva for your platform
 
 Integrate Canva into your own app or workflow with the Canva REST APIs.
@@ -83,6 +87,8 @@ Integrate Canva into your own app or workflow with the Canva REST APIs.
 [Documentation](https://www.canva.dev/docs/apps/rest-apis/)
 
 [Starter kit⁠(opens in a new tab or window)](https://github.com/canva-sdks/canva-connect-api-starter-kit)
+
+![](https://www.canva.dev/_next/static/media/inside_canva.8e9e26c3.png)
 
 Apps inside Canva
 

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/solutions/mcp/
 title: The creative layer for your AI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:36.600943+00:00
+fetched_at: 2026-10-30T16:18:34.252948+00:00
 ---
 
 # The creative layer for your AI
@@ -43,11 +43,11 @@ Every formatEvery format
 
 Design systemDesign system
 
-![](https://content-management-files.canva.com/assets/en/89c7c828-2f3a-4f54-9992-9823bbbafb80)
+![](https://content-management-files.canva.com/assets/en/e1e63235-4dc5-4a57-a4ec-52601074aefc)
 
 ### Editable designs, not just generated images
 
-Canva MCP lets your AI produce designs your users can fully edit in Canva. They can adjust text, swap images, or customize every layer, so the output stays useful long after generation.
+Canva MCP lets your AI produce designs your users can fully edit in Canva, to refine each detail and keep updated. They can adjust text, swap images, or customize every layer.
 
 ## How to get started with Canva MCP
 

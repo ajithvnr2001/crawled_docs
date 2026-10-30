@@ -2,7 +2,7 @@
 url: https://www.canva.dev/solutions/real-estate/
 title: Extend Canva for real estate
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:36.710897+00:00
+fetched_at: 2026-10-30T16:18:33.464678+00:00
 ---
 
 # Extend Canva for real estate
@@ -55,6 +55,8 @@ Discover apps in the Canva Marketplace that support real estate workflows today
 
 [](https://www.canva.com/integrations/salesforce/?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_real_estate_2025&utm_content=salesforce&utm_term=explore_existing_solutions)
 
+![](https://www.canva.dev/_next/static/media/salesforce_feature.78b08340.png)
+
 ![Salesforce logo](https://www.canva.dev/_next/static/media/salesforce_logo.efea16e7.png)
 
 Canva for Salesforce
@@ -62,6 +64,8 @@ Canva for Salesforce
 Leverage your Salesforce data to create polished collateral instantly
 
 [](https://www.canva.com/your-apps/AAGXFReAD7M/ai-interior-design?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_real_estate_2026&utm_content=ai_interior_design&utm_term=explore_existing_solutions)
+
+![](https://www.canva.dev/_next/static/media/ai_interior_design_feature.a255246c.png)
 
 ![AI Interior Design logo](https://www.canva.dev/_next/static/media/ai_interior_design_logo.493c2f91.png)
 
@@ -71,6 +75,8 @@ Bring your interior design ideas to life with AI
 
 [](https://www.canva.com/your-apps/AAFj-rTO9p4/google-drive?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_real_estate_2025&utm_content=google_drive&utm_term=explore_existing_solutions)
 
+![](https://www.canva.dev/_next/static/media/google_drive_feature.8e817e46.png)
+
 ![Google Drive logo](https://www.canva.dev/_next/static/media/google_drive_logo.6c6d96d5.png)
 
 Google Drive
@@ -79,6 +85,8 @@ Work with your property photos from Drive right inside Canva
 
 [](https://www.canva.com/your-apps/AAFuRTlrpI8/cloze?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_real_estate_2025&utm_content=cloze&utm_term=explore_existing_solutions)
 
+![](https://www.canva.dev/_next/static/media/cloze_feature.fc01bf75.png)
+
 ![Cloze logo](https://www.canva.dev/_next/static/media/cloze_logo.c061598e.png)
 
 Cloze
@@ -86,6 +94,8 @@ Cloze
 Drag & drop photos, descriptions and more into Canva designs
 
 [](https://www.canva.com/your-apps/AAFl0e2DZ28/bear-printing?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_real_estate_2026&utm_content=bear_printing&utm_term=explore_existing_solutions)
+
+![](https://www.canva.dev/_next/static/media/bear_printing_feature.aef0e8e9.png)
 
 ![Bear Printing logo](https://www.canva.dev/_next/static/media/bear_printing_logo.e67d877b.png)
 

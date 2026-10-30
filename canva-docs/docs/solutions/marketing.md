@@ -2,7 +2,7 @@
 url: https://www.canva.dev/solutions/marketing/
 title: Canva for marketing
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:36.226464+00:00
+fetched_at: 2026-10-30T16:18:34.021223+00:00
 ---
 
 # Canva for marketing
@@ -106,6 +106,8 @@ Boost productivity by connecting Canva with tools your teams already love.
 
 [](https://www.canva.com/amazon-ads/?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_marketing_2025&utm_content=amazon_ads&utm_term=explore_existing_solutions)
 
+![](https://www.canva.dev/_next/static/media/amazon_ads_feature.b1347b53.png)
+
 ![Amazon Ads logo](https://www.canva.dev/_next/static/media/amazon_ads_logo.ce00ecc3.png)
 
 Amazon Ads
@@ -113,6 +115,8 @@ Amazon Ads
 Build launch ready ads and publish them to your creative asset library
 
 [](https://www.canva.com/your-apps/AAFsTOSHvqA/shopify-connect?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_marketing_2025&utm_content=shopify_connect&utm_term=explore_existing_solutions)
+
+![](https://www.canva.dev/_next/static/media/shopify_feature.d901b866.png)
 
 ![Shopify Connect logo](https://www.canva.dev/_next/static/media/shopify_logo.19af2b4c.png)
 
@@ -122,6 +126,8 @@ See your entire Shopify product catalog in Canva
 
 [](https://www.canva.com/integrations/mailchimp/?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_marketing_2025&utm_content=mailchimp&utm_term=explore_existing_solutions)
 
+![](https://www.canva.dev/_next/static/media/mailchimp_feature.feafaf75.png)
+
 ![Mailchimp logo](https://www.canva.dev/_next/static/media/mailchimp_logo.e519ea45.png)
 
 Mailchimp
@@ -129,6 +135,8 @@ Mailchimp
 Drive email campaigns seamlessly, by connecting Canva and Mailchimp
 
 [](https://www.canva.com/integrations/hubspot/?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_marketing_2025&utm_content=hubspot&utm_term=explore_existing_solutions)
+
+![](https://www.canva.dev/_next/static/media/hub_spot_feature.845af9c6.png)
 
 ![HubSpot logo](https://www.canva.dev/_next/static/media/hub_spot_logo.3c462346.webp)
 
@@ -138,6 +146,8 @@ Share images with HubSpot social, email, ads and CMS
 
 [](https://www.canva.com/apps/meta-design-check/?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_marketing_2025&utm_content=meta_design_check&utm_term=explore_existing_solutions)
 
+![](https://www.canva.dev/_next/static/media/meta_feature.68a3f410.png)
+
 ![Meta Design Check logo](https://www.canva.dev/_next/static/media/meta_logo.908c351e.png)
 
 Meta Design Check
@@ -145,6 +155,8 @@ Meta Design Check
 Get better social campaign results with instant feedback on designs
 
 [](https://www.acquia.com/integrations/canva-acquia-dam?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_marketing_2025&utm_content=acquia_dam_widen&utm_term=explore_existing_solutions)
+
+![](https://www.canva.dev/_next/static/media/acquia_dam_feature.4ac605e7.png)
 
 ![Acquia DAM \(Widen\) logo](https://www.canva.dev/_next/static/media/acquia_dam_logo.d9927e44.png)
 
@@ -154,6 +166,8 @@ Bring your brand’s assets into the Canva platform
 
 [](https://www.canva.com/your-apps/AAFj-rTO9p4/google-drive?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_marketing_2025&utm_content=google_drive&utm_term=explore_existing_solutions)
 
+![](https://www.canva.dev/_next/static/media/google_drive_feature.8e817e46.png)
+
 ![Google Drive logo](https://www.canva.dev/_next/static/media/google_drive_logo.6c6d96d5.png)
 
 Google Drive
@@ -162,6 +176,8 @@ Use your media assets from Drive right inside Canva
 
 [](https://www.canva.com/your-apps/AAFiQdTMRbY/brandfolder?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_marketing_2025&utm_content=brand_folder&utm_term=explore_existing_solutions)
 
+![](https://www.canva.dev/_next/static/media/brandfolder_feature.7b25120a.png)
+
 ![Brandfolder logo](https://www.canva.dev/_next/static/media/brandfolder_logo.2961d648.png)
 
 Brandfolder
@@ -169,6 +185,8 @@ Brandfolder
 Browse Brandfolder assets to add to your designs
 
 [](https://www.canva.com/your-apps/AAGsmI98kh4/sprout-social?utm_source=canva_dev&utm_medium=website&utm_campaign=solutions_marketing_2025&utm_content=sprout_social&utm_term=explore_existing_solutions)
+
+![](https://www.canva.dev/_next/static/media/sprout_social_feature.f41f5c5e.png)
 
 ![Sprout Social logo](https://www.canva.dev/_next/static/media/sprout_social_logo.94561527.webp)
 
