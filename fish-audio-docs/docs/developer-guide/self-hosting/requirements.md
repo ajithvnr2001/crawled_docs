@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/requirements/
 title: Requirements - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:37:30.604159+00:00
+fetched_at: 2026-10-30T14:25:07.799917+00:00
 ---
 
 # Requirements - Fish Audio
@@ -11,10 +11,13 @@ fetched_at: 2026-10-23T16:37:30.604159+00:00
 
 ## On this page
 
+Back to top
+
   * Hardware
   * Network
-  * Helm (Kubernetes)
-  * All-in-One (Docker)
+  * Platform-specific requirements
+    * Helm (Kubernetes)
+    * All-in-One (Docker)
   * Next step
 
 
@@ -40,12 +43,10 @@ Hardware
 Requirement| Detail  
 ---|---  
 Hosts| Linux x86-64 on every machine, CPU-only Kubernetes nodes included.  
-GPU type| NVIDIA H100, H200, or B300. Contact Fish Audio before standardizing on any other GPU.  
-GPU count| **One** : Single-GPU mode, All-in-One only, with lower throughput.  
-**Two** : recommended. One for the inference worker, one for the vocoder.  
-**Three** : adds timestamp alignment, where available.  
+GPU type| NVIDIA. The types, and the GPU count, depend on the model: see [Models](https://docs.fish.audio/developer-guide/self-hosting/models). Contact Fish Audio before standardizing on a GPU not listed there.  
+GPU count| **Two** in most deployments: one for the inference worker, one for the vocoder.  
+**One more** : timestamp alignment, where available.  
 **More** : scales throughput on Kubernetes; size it with your account team.  
-GPU memory| The worker pre-allocates most of its card for the KV cache, so a near-full card is expected, not a fault.  
 MIG| Disable MIG unless the configuration has been validated with Fish Audio.  
 NVIDIA driver| Must support CUDA 13.x and your card’s compute capability.  
   
@@ -66,12 +67,18 @@ Inbound| Your own ingress, load balancer, or private endpoint, with DNS and TLS 
 
 ​
 
+Platform-specific requirements
+
+### 
+
+​
+
 Helm (Kubernetes)
 
 Requirement| Detail  
 ---|---  
 Control plane| 3 CPU-only nodes, roughly 4 vCPU and 16 GB RAM each, for the control plane or, on managed Kubernetes, the system node group.  
-CPU workloads| Roughly 28 vCPU and 125 GiB of memory requests for the non-GPU services. Provide a CPU node group, or leave GPU nodes schedulable for them.  
+CPU workloads| Roughly 28 vCPU and 125 GiB of memory requests for the non-GPU services, beyond the control plane. Provide a CPU node group, or leave GPU nodes schedulable for them.  
 Shared storage| At least 1 TB of EFS, NFS, or equivalent, mounted at the same path on every node (`/mnt/shared` by default). The chart mounts it with hostPath and creates no PersistentVolumeClaims.  
 Node-local disk| Redis keeps its data on node-local ephemeral storage. Leave room for it on the nodes that host it, plus headroom for rewrites.  
 Kubernetes| A currently supported minor version and a maintained Helm release.  
@@ -80,7 +87,7 @@ Pod Security| The namespace must permit `hostPath` volumes for every service on 
   
 The shared mount is created with `DirectoryOrCreate`. A node that is missing it silently gets a local directory instead, and the deployment looks healthy while data splits across nodes. Verify the mount, and that it is writable, on **every** node before installing.
 
-## 
+### 
 
 ​
 
@@ -90,7 +97,7 @@ Requirement| Detail
 ---|---  
 Docker| Docker Engine 24 or newer, with the NVIDIA Container Toolkit installed and its `nvidia` runtime registered.  
 CPU and RAM| 32 vCPU and 128 GiB minimum; 48 to 64 vCPU and 192 GiB recommended.  
-Disk| 100 GB free to pull the image, or 120 GB to load it from a file. Plus a persistent volume for caches, voices, and the usage ledger; local disk is enough.  
+Disk| For S2.1 Pro, 100 GB free to pull the image, or 120 GB to load it from a file; Drama 3 needs more. Plus a persistent volume for caches, voices, and the usage ledger; local disk is enough.  
   
 ## 
 
@@ -106,4 +113,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/developer-guide/self-hosting/requirements.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/developer-guide/self-hosting/requirements)
 
-[Introduction](https://docs.fish.audio/developer-guide/self-hosting/introduction)[Registry & license](https://docs.fish.audio/developer-guide/self-hosting/registry-access)
+[Models](https://docs.fish.audio/developer-guide/self-hosting/models)[Registry & license](https://docs.fish.audio/developer-guide/self-hosting/registry-access)

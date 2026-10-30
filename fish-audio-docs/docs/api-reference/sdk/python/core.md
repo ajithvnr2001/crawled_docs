@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/core/
 title: Core - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:54.699376+00:00
+fetched_at: 2026-10-30T14:25:07.540526+00:00
 ---
 
 # Core - Fish Audio

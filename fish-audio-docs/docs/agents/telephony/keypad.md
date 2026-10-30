@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/keypad/
 title: Keypad Menu and Input - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:46:44.292990+00:00
+fetched_at: 2026-10-30T14:25:07.899713+00:00
 ---
 
 # Keypad Menu and Input - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:46:44.292990+00:00
 > Source: https://docs.fish.audio/agents/telephony/keypad/
 
 ## On this page
+
+Back to top
 
   * Keypad menu
     * What the caller hears
@@ -45,8 +47,6 @@ Callers can use their phone keypad in two ways:
   * **Keypad input** : during inbound and outbound phone calls, digits the caller types, such as a member ID ending with `#`, reach the agent as one message.
 
 Both are off by default and only apply to phone calls.
-
-Keypad menu and keypad input are rolling out to teams gradually. If you don’t see them in the console, contact [support@fish.audio](mailto:support@fish.audio) to turn them on for your team. Until then, turning either one on through the API returns `403`.
 
 ## 
 

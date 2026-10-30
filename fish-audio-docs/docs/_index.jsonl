@@ -202,3 +202,4 @@
 {"url": "https://docs.fish.audio/features/speech-to-text/realtime/", "file": "features/speech-to-text/realtime.md", "title": "Realtime Speech to Text - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime/", "file": "api-reference/endpoint/websocket/asr-realtime.md", "title": "WebSocket Realtime Speech to Text - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/developer-guide/models-pricing/migrate-from-transcribe-1/", "file": "developer-guide/models-pricing/migrate-from-transcribe-1.md", "title": "Migrate from transcribe-1 - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/developer-guide/self-hosting/models/", "file": "developer-guide/self-hosting/models.md", "title": "Models - Fish Audio", "method": "scrapling+scrapegraph"}

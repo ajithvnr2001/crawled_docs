@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/self-hosting/air-gapped/
 title: Air-gapped deployments - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:37:29.745945+00:00
+fetched_at: 2026-10-30T14:25:07.743837+00:00
 ---
 
 # Air-gapped deployments - Fish Audio
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:37:29.745945+00:00
 > Source: https://docs.fish.audio/developer-guide/self-hosting/air-gapped/
 
 ## On this page
+
+Back to top
 
   * Which one to choose
   * Offline usage accounting
@@ -28,9 +30,9 @@ Running Fish Audio Enterprise on a network that cannot reach Fish Audio at all
 
 Copy pageCopy page
 
-Both offline modes make no outbound calls at runtime. Neither one, however, installs itself out of thin air: a Helm install pulls container images and the chart from a registry, and the appliance needs its image on the host. An air-gapped deployment is about getting those artifacts across the boundary. The license bundle has to cross it too, and unlike an image it expires — plan a recurring transfer, not a one-off. The reference voices you use have to cross too, copied in as archives: voice sync cannot reach Fish Audio from there.
+Both offline modes need no outbound access at runtime, but installing them still takes artifacts from Fish Audio: the images and, on Helm, the chart. An air-gapped deployment is about getting those across the boundary, together with the license bundle and the reference voices you use. The license expires, so plan a recurring transfer, not a one-off; voices are copied in as archives, since voice sync cannot reach Fish Audio from there.
 
-Fish Audio does this with you as part of an air-gapped delivery, and the step-by-step procedure is in the deployment runbook for the version you install. See [Releases](https://docs.fish.audio/developer-guide/self-hosting/enterprise-releases). This page is what to expect and what to plan for.
+Fish Audio does this with you as part of an air-gapped delivery, and the step-by-step procedure is in the deployment guide for the version you install. This page is what to expect and what to plan for.
 
 ## 
 
@@ -38,7 +40,7 @@ Fish Audio does this with you as part of an air-gapped delivery, and the step-by
 
 Which one to choose
 
-**The air-gapped All-in-One appliance** is the straightforward answer to a strict air gap: one image, moved to the disconnected host as a file and loaded there. Beyond the image, the license bundle — and, in the external-weights modes, the weight fileset — has to be carried across. Its online counterpart cannot run air gapped: it authorises every request against Fish Audio. **The Helm chart** is more work, because the release is many images rather than one. Every image has to be mirrored into a registry the cluster can reach and the release pointed at it, component by component. Plan for the whole set, and expect to do it with your account team rather than alone. **What you give up either way:** images are pinned to the exact content Fish Audio published, so a deployment cannot quietly run anything else. Copying an image into another registry drops that pin, so check what you mirrored while both sides are still there to compare.
+**The air-gapped All-in-One appliance** is the straightforward answer to a strict air gap: one image, moved to the disconnected host as a file and loaded there. Beyond the image, the license bundle — and, in the external-weights modes, the weight fileset — has to be carried across. Its online counterpart cannot run air gapped: it authorizes every request against Fish Audio. **The Helm chart** is more work, because the release is many images rather than one. Every image has to be mirrored into a registry the cluster can reach and the release pointed at it, component by component. Plan for the whole set, and expect to do it with your account team rather than alone.
 
 ## 
 
@@ -46,7 +48,7 @@ Which one to choose
 
 Offline usage accounting
 
-An offline deployment cannot call a billing service, so it records usage locally instead, in a signed ledger on persistent storage. It is durable data rather than cache: include it in your backups, and agree a reconciliation cadence with your account team. Usage is settled from the ledger files themselves, not from totals compiled off them. Because there is no service to validate a token against, any non-empty bearer token is accepted and recorded as the billing identity. Use a stable, distinct token per tenant.
+Offline billing records usage in a signed ledger on persistent storage. It is durable data, not cache: back it up, and agree with your account team how often to send it for reconciliation.
 
 ## 
 
@@ -54,7 +56,7 @@ An offline deployment cannot call a billing service, so it records usage locally
 
 Proving there is no egress
 
-Regulated deployments usually need evidence rather than a configuration review, and the runbook carries the exercise. Two things are worth knowing before you plan it. It answers two questions, and they need different methods: whether the deployment _needs_ the internet, and whether it _calls out_ when allowed to. The second is what a telemetry or data-residency review actually asks. It is also a cluster-level exercise rather than a namespace one. Confirm early that whoever runs your cluster can take part, because a namespace-scoped account cannot complete it.
+Regulated deployments usually need evidence rather than a configuration review, and your deployment guide carries the exercise. It shows both that the deployment works without the internet and that, with voice sync off, it makes no calls when the internet is available. On Helm it is a cluster-level exercise, so involve whoever runs your cluster early: a namespace-scoped account cannot complete it.
 
 ## 
 
